@@ -1,11 +1,11 @@
 ---
-title: Add and run JavaScript in workflows
+title: Add and Run JavaScript in Workflows
 description: Write and run JavaScript code snippets in workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 05/21/2025
 ms.custom: devx-track-js
 # Customer intent: As a logic app workflow developer, I want to write and run my own JavaScript code snippets so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
@@ -18,7 +18,7 @@ To perform custom integration tasks inline with your workflow in Azure Logic App
 
 | Action | Language | Language version | Run duration | Data size | Other notes |
 |--------|----------|------------------|--------------|-----------|-------------|
-| **Execute JavaScript Code** | JavaScript | **Standard**: <br>Node.js 16.x.x <br><br>**Consumption**: <br>Node.js 8.11.1 <br><br>For more information, review [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). | Finishes in 5 seconds or fewer. | Handles data up to 50 MB. | - Doesn't require working with the [**Variables** actions](logic-apps-create-variables-store-values.md), which are unsupported by the action. <br><br>- Doesn't support the `require()` function for running JavaScript. |
+| **Execute JavaScript Code** | JavaScript | **Standard**: <br>Node.js 16.x.x <br><br>**Consumption**: <br>Node.js 8.11.1 <br><br>For more information, see [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). | Finishes in 5 seconds or fewer | Handles data up to 50 MB | - Doesn't require working with the [**Variables** actions](logic-apps-create-variables-store-values.md), which are unsupported by the action <br><br>- Doesn't support the `require()` function for running JavaScript |
 
 To run code that doesn't fit these attributes, you can [create and call a function using Azure Functions](call-azure-functions-from-workflows.md).
 
@@ -52,11 +52,10 @@ The following diagram shows the highlights from an example workflow:
 
 * Based on whether you have a Consumption or Standard logic app workflow, review the following requirements:
 
-  * Consumption workflow
+  * Consumption workflow:
 
     * [Node.js version 8.11.10](https://nodejs.org/en/about/previous-releases)
-
-    * [Link to an integration account](logic-apps-enterprise-integration-create-integration-account.md), empty or otherwise, from your logic app resource.
+    * [Link to an integration account](logic-apps-enterprise-integration-create-integration-account.md), empty or otherwise, from your logic app resource
 
       > [!IMPORTANT]
       >
@@ -71,23 +70,24 @@ The following diagram shows the highlights from an example workflow:
       > [limits](logic-apps-limits-and-config.md#integration-account-limits), and 
       > [pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-  * Standard workflow
+  * Standard workflow:
 
     * [Node.js versions 16.x.x](https://nodejs.org/en/about/previous-releases)
-
-    * No integration account required.
+    * No integration account required
 
 ## Add the Execute JavaScript Code action
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app. Under **Development Tools** in the sidebar menu, select **Logic app designer** to open a workflow.
 
-1. In the designer, [follow these general steps to add the **Inline Code** action named **Execute JavaScript Code** to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. Add the trigger named **When a new email arrives** to your workflow. For detailed steps, see [Add a trigger to start your workflow](add-trigger-action-workflow.md?tabs=consumption#add-trigger).
+
+1. Below the trigger, add the **Inline Code** action named **Execute JavaScript Code** to your workflow. For detailed steps, see [Add an action to run a task](add-trigger-action-workflow.md?tabs=consumption#add-action).
 
    This example adds the action under the Office 365 Outlook trigger. By default, the action contains some sample code, including a `return` statement.
 
-   ![Screenshot showing the Execute JavaScript Code action with default sample code.](./media/add-run-javascript/inline-code-action-default-consumption.png)
+   :::image type="content" source="media/add-run-javascript/inline-code-action-default-consumption.png" alt-text="Screenshot showing the Execute JavaScript Code action with default sample code.":::
 
 1. In the **Code** box, delete the sample code, and enter your code. Write the code that you'd put inside a method, but without the method signature.
 
@@ -98,15 +98,15 @@ The following diagram shows the highlights from an example workflow:
 
    If you start typing a recognized keyword, the autocomplete list appears so that you can select from available keywords, for example:
 
-   ![Screenshot showing the Consumption workflow, Execute JavaScript Code action, and keyword autocomplete list.](./media/add-run-javascript/auto-complete-consumption.png)
+   :::image type="content" source="media/add-run-javascript/auto-complete-consumption.png" alt-text="Screenshot showing the Consumption workflow, Execute JavaScript Code action, and keyword autocomplete list.":::
 
    The following example code snippet first creates a variable named **myResult** that stores a *regular expression*, which specifies a pattern to match in input text. The code then creates a variable named **email** that stores the email message's body content from the trigger outputs.
 
-   ![Screenshot showing the Consumption workflow, Execute JavaScript Code action, and example code that creates variables.](./media/add-run-javascript/save-email-body-variable-consumption.png)
+   :::image type="content" source="media/add-run-javascript/save-email-body-variable-consumption.png" alt-text="Screenshot showing the Consumption workflow, Execute JavaScript Code action, and example code that creates variables.":::
 
-1. With your cursor still in the **Code** box, from the open dynamic content list, find the **When a new email arrives** section, and select the **Body** property, which references the email message's body.
+1. With your cursor still in the **Code** box, select **Add dynamic content**. Find the **When a new email arrives** section, and select the **Body** property, which references the email message's body.
 
-   ![Screenshot showing the Consumption workflow, Execute JavaScript Code action, dynamic content list, and email message's "Body" property selected.](./media/add-run-javascript/select-output-consumption.png)
+   :::image type="content" source="media/add-run-javascript/select-output-consumption.png" alt-text="Screenshot showing the Consumption workflow, Execute JavaScript Code action, dynamic content list, and email message's "Body" property selected.":::
 
    The dynamic content list shows the outputs from the trigger and any preceding actions when those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the email message's **Body** property.
 
@@ -124,37 +124,39 @@ The following diagram shows the highlights from an example workflow:
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
    >
-   > Also, in the **Execute JavaScript Code** action, you have to add the [**Actions** parameter](#add-parameters) 
+   > Also, in the **Execute JavaScript Code** action, you need to add the [**Actions** parameter](#add-parameters) 
    > and then add these action names to that parameter. For more information, see 
    > [Add dependencies as parameters to an Execute JavaScript Code action](#add-parameters) later in this article.
 
 1. To differentiate the email message's **Body** property that you selected from the trigger's `body` property, rename the second `body` property to `Body` instead. Add the closing semicolon (**;**) at the end to finish the code statement.
 
-   ![Screenshot showing the Consumption logic app workflow, Execute JavaScript Code action, and renamed "Body" property with closing semicolon.](./media/add-run-javascript/rename-body-property-consumption.png)
+   :::image type="content" source="media/add-run-javascript/rename-body-property-consumption.png" alt-text="Screenshot showing the Consumption logic app workflow, Execute JavaScript Code action, and renamed "Body" property with closing semicolon.":::
 
    The **Execute JavaScript Code** action doesn't syntactically require a `return` statement. However, by including the `return` statement, you can more easily reference the action results later in your workflow by using the **Result** token in later actions.
 
-   In this example, the code snippet returns the result by calling the `match()` function, which finds any matches in the email message body to the specified regular expression. The **Create HTML table** action then uses the **Result** token to reference the results from the **Execute JavaScript Code** action and creates a single result.
+   In this example, the code snippet returns the result by calling the `match()` function, which finds any matches in the email message body to the specified regular expression. You can then add a **Create HTML table** action that uses the **Result** token to reference the results from the **Execute JavaScript Code** action and create a single result.
 
-   ![Screenshot showing the finished Consumption logic app workflow.](./media/add-run-javascript/inline-code-complete-example-consumption.png)
+   :::image type="content" source="media/add-run-javascript/inline-code-complete-example-consumption.png" alt-text="Screenshot showing the finished Consumption logic app workflow.":::
 
 1. When you're done, save your workflow.
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app. Under **Get started**, select **Create a workflow in designer**.
 
-1. In the designer, [follow these general steps to add the **Inline Code** action named **Execute JavaScript Code** to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. Add the trigger named **When a new email arrives** to your workflow. For detailed steps, see [Add a trigger to start your workflow](add-trigger-action-workflow.md?tabs=standard#add-trigger).
 
-1. In the **Code** box, enter your code. Write the code that you'd put inside a method, but without the method signature.
+1. Below the trigger, add the **Inline Code** action named **Execute JavaScript Code** to your workflow. For detailed steps, see [Add an action to run a task](add-trigger-action-workflow.md?tabs=standard#add-action).
+
+1. In the **Code** box, delete the sample code, and enter your code. Write the code that you'd put inside a method, but without the method signature.
 
    If you start typing a recognized keyword, the autocomplete list appears so that you can select from available keywords, for example:
 
-   ![Screenshot showing the Standard workflow, Execute JavaScript Code action, and keyword autocomplete list.](./media/add-run-javascript/auto-complete-standard.png)
+   :::image type="content" source="media/add-run-javascript/auto-complete-standard.png" alt-text="Screenshot showing the Standard workflow, Execute JavaScript Code action, and keyword autocomplete list.":::
 
    The following example code snippet first creates a variable named **myResult** that stores a *regular expression*, which specifies a pattern to match in input text. The code then creates a variable named **email** that stores the email message's body content from the trigger outputs.
 
-   ![Screenshot showing the Standard workflow, Execute JavaScript Code action, and example code that creates variables.](./media/add-run-javascript/save-email-body-variable-standard.png)
+   :::image type="content" source="media/add-run-javascript/save-email-body-variable-standard.png" alt-text="Screenshot showing the Standard workflow, Execute JavaScript Code action, and example code that creates variables.":::
 
 1. With your cursor still in the **Code** box, follow these steps:
 
@@ -162,7 +164,7 @@ The following diagram shows the highlights from an example workflow:
 
    1. From the opened list, find the **When a new email arrives** section, and select the **Body** token, which references the email's message body.
 
-   ![Screenshot showing the Standard workflow, Execute JavaScript Code action, dynamic content list, and email message's "Body" property selected.](./media/add-run-javascript/select-output-standard.png)
+   :::image type="content" source="media/add-run-javascript/select-output-standard.png" alt-text="Screenshot showing the Standard workflow, Execute JavaScript Code action, dynamic content list, and email message's "Body" property selected.":::
 
    The dynamic content list shows the outputs from the trigger and any preceding actions where those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the email message's **Body** property.
 
@@ -186,17 +188,17 @@ The following diagram shows the highlights from an example workflow:
 
 1. To differentiate the email message's **Body** property that you selected from the trigger's `body` property, rename the second `body` property to `Body` instead. Add the closing semicolon (**;**) at the end to finish the code statement.
 
-   ![Screenshot showing the Standard logic app workflow, Execute JavaScript Code action, and renamed Body property with closing semicolon.](./media/add-run-javascript/rename-body-property-standard.png)
+   :::image type="content" source="media/add-run-javascript/rename-body-property-standard.png" alt-text="Screenshot showing the Standard logic app workflow, Execute JavaScript Code action, and renamed Body property with closing semicolon.":::
 
    The **Execute JavaScript Code** doesn't syntactically require a `return` statement. However, by including the `return` statement, you can reference the action results later in your workflow by using the **Outputs** token in later actions.
 
    In this example, the code snippet returns the result by calling the `match()` function, which finds any matches in the email message body to the specified regular expression.
 
-   ![Screenshot showing the Standard logic app workflow and Execute JavaScript Code action with a return statement.](./media/add-run-javascript/return-statement-standard.png)
+   :::image type="content" source="media/add-run-javascript/return-statement-standard.png" alt-text="Screenshot showing the Standard logic app workflow and Execute JavaScript Code action with a return statement.":::
 
    The **Create HTML table** action then uses the **Outputs** token to reference the results from the **Execute JavaScript Code** action and creates a single result.
 
-   ![Screenshot showing the finished Standard logic app workflow.](./media/add-run-javascript/inline-code-complete-example-standard.png)
+   :::image type="content" source="media/add-run-javascript/inline-code-complete-example-standard.png" alt-text="Screenshot showing the finished Standard logic app workflow.":::
 
 1. When you're done, save your workflow.
 
@@ -322,11 +324,11 @@ For example, suppose the Office 365 Outlook connector's **Send approval email** 
 
 ### [Consumption](#tab/consumption)
 
-![Screenshot that shows the Consumption workflow and Execute JavaScript Code action with updated example code snippet.](./media/add-run-javascript/add-actions-parameter-code-snippet-consumption.png)
+:::image type="content" source="media/add-run-javascript/add-actions-parameter-code-snippet-consumption.png" alt-text="Screenshot that shows the Consumption workflow and Execute JavaScript Code action with updated example code snippet.":::
 
 ### [Standard](#tab/standard)
 
-![Screenshot that shows the Standard workflow and Execute JavaScript Code action with updated example code snippet.](./media/add-run-javascript/add-actions-parameter-code-snippet-standard.png)
+:::image type="content" source="media/add-run-javascript/add-actions-parameter-code-snippet-standard.png" alt-text="Screenshot that shows the Standard workflow and Execute JavaScript Code action with updated example code snippet.":::
 
 ---
 
@@ -342,35 +344,19 @@ Before you start, you need the JSON name for the trigger or action in the underl
 
   `My.Action.Name`
 
-### [Consumption](#tab/consumption)
-
-1. On the workflow designer toolbar, select **Code view**. In the `actions` object, find the action's name.
+1. On the workflow menu, select **Code view**. In the `actions` object, find the action's name.
 
    For example, `Send_approval_email` is the JSON name for the **Send approval email** action.
 
-   ![Screenshot showing the action name in JSON.](./media/add-run-javascript/find-action-name-json.png)
-
-1. To return to designer view, on the code view toolbar, select **Designer**.
-
-1. Now add the JSON name to the **Execute JavaScript Code** action.
-
-### [Standard](#tab/standard)
-
-1. On the workflow menu, select **Code**. In the `actions` object, find the action's name.
-
-   For example, `Send_approval_email` is the JSON name for the **Send approval email** action.
-
-   ![Screenshot showing the action name in JSON.](./media/add-run-javascript/find-action-name-json.png)
+   :::image type="content" source="media/add-run-javascript/find-action-name-json.png" alt-text="Screenshot showing the action name in JSON.":::
 
 1. To return to designer view, on the workflow menu, select **Designer**.
 
 1. Now add the JSON name to the **Execute JavaScript Code** action.
 
----
-
 ### Add the trigger or action name to the Execute JavaScript Code action
 
-1. In the **Execute JavaScript Code** action, open the **Add new parameter** list.
+1. In the **Execute JavaScript Code** action, open the **Advanced parameters** list.
 
 1. From the parameters list, select the following parameters as your scenario requires.
 
@@ -378,15 +364,14 @@ Before you start, you need the JSON name for the trigger or action in the underl
    |-----------|-------------|
    | **Actions** | Include outputs from preceding actions as dependencies. When you select this parameter, you're prompted for the actions that you want to add. |
    | **Trigger** | Include outputs from the trigger as dependencies. When you select this parameter, you're prompted whether to include trigger results. So, from the **Trigger** list, select **Yes**. |
-   |||
 
 1. For this example, select the **Actions** parameter.
 
-   ![Screenshot showing the Execute JavaScript Code action with the Actions parameter selected.](./media/add-run-javascript/add-actions-parameter.png)
+   :::image type="content" source="media/add-run-javascript/add-actions-parameter.png" alt-text="Screenshot showing the Execute JavaScript Code action with the Actions parameter selected.":::
 
 1. In the **Actions Item - 1** box, enter the action's JSON name.
 
-   ![Screenshot showing the Actions Item -1 box and the action's JSON name.](./media/add-run-javascript/add-action-json-name.png)
+   :::image type="content" source="media/add-run-javascript/add-action-json-name.png" alt-text="Screenshot showing the Actions Item -1 box and the action's JSON name.":::
 
 1. To add another action name, select **Add new item**.
 
@@ -396,7 +381,7 @@ Before you start, you need the JSON name for the trigger or action in the underl
 
 For more information about the **Execute JavaScript Code** action's structure and syntax in your underlying workflow definition using the Workflow Definition Language, see this action's [reference section](logic-apps-workflow-actions-triggers.md#run-javascript-code).
 
-## Next steps
+## Related content
 
-* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)
+* [List of all Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors in Azure Logic Apps](../connectors/built-in.md)
