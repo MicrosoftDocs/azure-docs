@@ -13,22 +13,22 @@ appliesto:
 
 # Troubleshoot data loss in Azure Cache for Redis
 
-This article discusses how to diagnose [partial](#partial-key-loss) or [complete](#complete-key-loss) data losses that occur in Azure Cache for Redis.
+This article discusses how to diagnose [partial](#partial-key-loss) or [complete](#complete-key-loss) data loss that occurs in Azure Cache for Redis.
 
 ## Partial key loss
 
-Azure Cache for Redis doesn't randomly delete keys after they've been stored in memory, but it does remove keys in response to expiration policies, eviction policies, and explicit key-deletion commands. You can run these commands on the [console](cache-configure.md#redis-console) or through the [Redis CLI](cache-how-to-redis-cli-tool.md).
+Azure Cache for Redis doesn't randomly delete keys after they're stored in memory, but it does remove keys in response to expiration policies, eviction policies, and explicit key-deletion commands. You can run these commands on the [console](cache-configure.md#redis-console) or through the [Redis CLI](cache-how-to-redis-cli-tool.md).
 
-Keys written to the primary node in a Premium or Standard Azure Redis instance might not be available on a replica right away. Data is replicated from the primary to the replica in an asynchronous and non-blocking manner.
+Keys written to the primary node in a Premium or Standard Azure Redis instance might not be available on a replica right away. Data is replicated from the primary to the replica in an asynchronous and nonblocking manner.
 
-If some keys disappeared from your cache, check the following possible causes:
+If some keys disappear from your cache, check the following possible causes:
 
 | Cause | Description |
 |---|---|
-| [Key expiration](#key-expiration) | Keys are removed because of timeouts set on them. |
-| [Key eviction](#key-eviction) | Keys are removed under memory pressure. |
-| [Key deletion](#key-deletion) | Keys are removed by explicit delete commands. |
-| [Async replication](#async-replication) | Keys aren't available on a replica because of data replication delays. |
+| [Key expiration](#key-expiration) | Keys were removed because of timeouts set on them. |
+| [Key eviction](#key-eviction) | Keys were removed under memory pressure. |
+| [Key deletion](#key-deletion) | Keys were removed by explicit delete commands. |
+| [Async replication](#async-replication) | Keys weren't available on a replica because of data replication delays. |
 
 ### Key expiration
 
@@ -49,7 +49,7 @@ db0:keys=3450,expires=2,avg_ttl=91861015336
 
 ### Key eviction
 
-Azure Cache for Redis requires memory space to store data and purges keys to free up available memory when necessary. When the `used_memory` or `used_memory_rss` values in the [INFO](https://redis.io/commands/info) command approach the configured `maxmemory` setting, Azure Redis starts evicting keys from memory based on [cache policy](https://redis.io/topics/lru-cache).
+Azure Cache for Redis requires memory space to store data and purges keys to free up available memory when necessary. When the `used_memory` or `used_memory_rss` values approach the configured `maxmemory` setting, Azure Redis starts evicting keys from memory based on [cache policy](https://redis.io/topics/lru-cache).
 
 You can monitor the number of evicted keys by using the [INFO](https://redis.io/commands/info) command:
 
@@ -91,7 +91,7 @@ If most or all keys disappear from your cache, check the following possible caus
 
 ### Key flushing
 
-Azure Redis clients can call the Redis [FLUSHDB](https://redis.io/commands/flushdb) command to remove all keys in a single database or [FLUSHALL](https://redis.io/commands/flushall) to remove all keys from all databases in a Redis cache. To find out whether keys have been flushed, use the [INFO](https://redis.io/commands/info) command. The `Commandstats` section shows whether either `FLUSH` command was called
+Azure Redis clients can call the Redis [FLUSHDB](https://redis.io/commands/flushdb) command to remove all keys in a single database or [FLUSHALL](https://redis.io/commands/flushall) to remove all keys from all databases in a Redis cache. To find out whether keys were flushed, use the [INFO](https://redis.io/commands/info) command. The `Commandstats` section shows whether either `FLUSH` command was called.
 
 ```console
 # Commandstats
@@ -107,16 +107,14 @@ Azure Cache for Redis uses the `db0` database by default. If you switch to anoth
 
 ### Redis instance failure
 
-Redis is an in-memory data store that keeps data on the physical or virtual machines (VMs) that host the Redis cache. A Basic-tier Azure Cache for Redis instance runs on only a single virtual machine (VM). If that VM is down, all data that you've stored in the cache is lost.
+Redis is an in-memory data store that keeps data on the physical or virtual machines (VMs) that host the Redis cache. A Basic-tier Azure Cache for Redis instance runs on only a single virtual machine (VM). If that VM is down, all data that you stored in the cache is lost.
 
 Caches in the Standard and Premium tiers offer higher resiliency against data loss by using two VMs in a replicated configuration. When the primary node in such a cache fails, the replica node takes over to serve data automatically.
 
-These VMs are located on separate domains for faults and updates, to minimize the chance of both VMs becoming unavailable at once. If a major datacenter outage happens, however, both VMs could still go down together. In these rare cases, your data is lost.
-
-Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](cache-how-to-geo-replication.md) to improve data protection against infrastructure failures.
+These VMs are located on separate domains for faults and updates, to minimize the chance of both VMs becoming unavailable at once. If a major datacenter outage happens, however, both VMs could still go down together. In these rare cases, your data is lost. Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](cache-how-to-geo-replication.md) to improve data protection against infrastructure failures.
 
 ## Related content
 
-- [Use the Redis command-line tool with Azure Cache for Redis](cache-how-to-redis-cli-tool)
+- [Use the Redis command-line tool with Azure Cache for Redis](cache-how-to-redis-cli-tool.md)
 - [Data persistence in Azure Cache for Redis](cache-how-to-premium-persistence.md)
 - [Monitor Azure Cache for Redis](../redis/monitor-cache.md)
