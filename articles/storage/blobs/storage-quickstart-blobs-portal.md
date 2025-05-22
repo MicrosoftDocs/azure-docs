@@ -6,9 +6,9 @@ services: storage
 author: stevenmatthew
 ms.service: azure-blob-storage
 ms.topic: quickstart
-ms.date: 06/26/2023
+ms.date: 05/22/2025
 ms.author: shaas
-ms.custom: mode-ui
+ms.custom: mode-ui, akash-accuracy-may-2025
 ---
 
 # Quickstart: Upload, download, and list blobs with the Azure portal
