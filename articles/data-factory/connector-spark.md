@@ -67,14 +67,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Spark connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-spark-connector) to upgrade your Spark connector version from version 1.0. For the property details, see the corresponding sections.
+The Spark connector now supports version 2.0. Refer to this [section](#upgrade-the-spark-connector) to upgrade your Spark connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0 (Preview)](#version-20-preview)
+- [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
 
-### Version 2.0 (Preview)
+### Version 2.0
 
-The following properties are supported for Spark linked service version 2.0 (Preview):
+The following properties are supported for Spark linked service version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -235,7 +235,7 @@ To copy data from Spark, set the source type in the copy activity to **SparkSour
 
 When you copy data from and to Spark, the following interim data type mappings are used within the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Spark data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) | 
+| Spark data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) | 
 |:--- |:--- |:--- |
 | BooleanType  | Boolean  | Boolean  | 
 | ByteType  | Sbyte  | Int16  | 
@@ -262,21 +262,21 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Upgrade the Spark connector
 
-1. In **Edit linked service** page, select 2.0 for version and configure the linked service by referring to [Linked service properties version 2.0 (Preview)](#version-20-preview).
+1. In **Edit linked service** page, select 2.0 for version and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
 
-1. The data type mapping for the Spark linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Spark](#data-type-mapping-for-spark).
+1. The data type mapping for the Spark linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Spark](#data-type-mapping-for-spark).
 
-## Differences between Spark version 2.0 (Preview) and version 1.0
+## Differences between Spark version 2.0 and version 1.0
 
-The Spark connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (Preview) and version 1.0.
+The Spark connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 and version 1.0.
 
-| Version 2.0 (Preview)  | Version 1.0  | 
+| Version 2.0 | Version 1.0  | 
 |:--- |:--- |
 | SharkServer and SharkServer2 are not supported for `serverType`. | Support SharkServer and SharkServer2 for `serverType`. | 
 | Binary and SASL are not supported for `thriftTransportProtocl`. | Support Binary and SASL for `thriftTransportProtocl`. | 
 | Username authentication type is not supported. | Support Username authentication type. |
 | The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.| The default value of `enableSSL` is false. Additionally, support `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert`.	 |  
-| The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTimeOffset <br>YearMonthIntervalType -> String<br>DayTimeIntervalType -> String | The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTime<br>Other mappings supported by version 2.0 (Preview) listed left are not supported by version 1.0. | 
+| The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTimeOffset <br>YearMonthIntervalType -> String<br>DayTimeIntervalType -> String | The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTime<br>Other mappings supported by version 2.0 listed left are not supported by version 1.0. | 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
