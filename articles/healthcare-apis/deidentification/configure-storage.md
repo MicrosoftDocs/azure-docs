@@ -14,9 +14,9 @@ ms.date: 11/01/2024
 
 # Tutorial: Configure Azure Storage to de-identify documents
 
-The Azure Health Data Services de-identification service (preview) can de-identify documents in Azure Storage via an asynchronous job. If you have many documents that you would like
+The Azure Health Data Services de-identification service can de-identify documents in Azure Storage via an asynchronous job. If you have many documents that you would like
 to de-identify, using a job is a good option. Jobs also provide consistent surrogation, meaning that surrogate values in the de-identified output will match across
-all documents. For more information about de-identification, including consistent surrogation, see [What is the de-identification service (preview)?](overview.md)
+all documents. For more information about de-identification, including consistent surrogation, see [What is the de-identification service?](overview.md)
 
 When you choose to store documents in Azure Blob Storage, you're charged based on Azure Storage pricing. This cost isn't included in the 
  de-identification service pricing. [Explore Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs).
@@ -32,7 +32,7 @@ In this tutorial, you:
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A de-identification service with system-assigned managed identity. [Deploy the de-identification service (preview)](quickstart.md).
+* A de-identification service with system-assigned managed identity. [Deploy the de-identification service](quickstart.md).
 
 ## Open Azure CLI
 

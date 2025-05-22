@@ -6,10 +6,9 @@ services: traffic-manager
 author: greg-lindsay
 manager: kumud
 ms.service: azure-traffic-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/08/2024
 ms.author: greglin
-ms.custom: template-concept
 ---
 
 # Nested Traffic Manager profiles
@@ -117,7 +116,7 @@ In this example, the **East US** endpoint is unhealthy, because it doesn't satis
 
 * [How do I configure nested profiles?](./traffic-manager-faqs.md#traffic-manager-nested-profiles)
 
-* [How many layers of nesting does Traffic Manger support?](./traffic-manager-faqs.md#how-many-layers-of-nesting-does-traffic-manger-support)
+* [How many layers of nesting does Traffic Manager support?](./traffic-manager-faqs.md#how-many-layers-of-nesting-does-traffic-manager-support)
 
 * [Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?](./traffic-manager-faqs.md#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
 

@@ -6,7 +6,7 @@ author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 01/28/2025
 ---
 # Configure export policy for NFS or dual-protocol volumes
 
@@ -17,7 +17,7 @@ You can create up to five export policy rules.
 Once created, you can modify details of the export policy rule. The modifiable fields are: 
 
 -	IP address (For example, x.x.x.x)
--	CIDR range (A subnet range; for example, 0.0.0.0/0)
+-	Classless Inter-Domain Routing (CIDR) range (A subnet range; for example, 0.0.0.0/0)
 -	IP address comma separated list (For example, x.x.x.x, y.y.y.y)
 - Access level 
 - [Export policy rule order](network-attached-storage-permissions.md#export-policy-rule-ordering)

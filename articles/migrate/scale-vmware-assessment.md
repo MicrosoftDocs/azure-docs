@@ -1,12 +1,9 @@
 ---
 title: Assess large numbers of servers in VMware environment for migration to Azure with Azure Migrate 
 description: Describes how to assess large numbers of servers in VMware environment for migration to Azure using the Azure Migrate service.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 05/12/2025
 ms.custom: engagement-fy23
 ---
 
@@ -26,7 +23,7 @@ In this article, you learn how to:
 
 
 > [!NOTE]
-> If you want to try out a proof-of-concept to assess a couple of servers before assessing at scale, follow our [tutorial series](./tutorial-discover-vmware.md).
+> If you want to try out a proof-of-concept to assess a couple of servers before assessing at scale, follow our [tutorial series](tutorial-discover-vmware.md).
 
 ## Plan for assessment
 
@@ -61,9 +58,9 @@ Multiple | > 10,000 | One Azure Migrate project.<br><br> One appliance can disco
 
 
 
-## Plan discovery in a multi-tenant environment
+## Plan discovery in a multi tenant environment
 
-If you're planning for a multi-tenant environment, you can scope the discovery on the vCenter Server.
+If you're planning for a multi tenant environment, you can scope the discovery on the vCenter Server.
 
 - You can set the appliance discovery scope to a vCenter Server data centers, clusters, or folder of clusters, hosts or folder of hosts, or individual servers.
 - If your environment is shared across tenants and you want to discover each tenant separately, you can scope access to the vCenter account that the appliance uses for discovery. 
@@ -77,7 +74,7 @@ Prepare Azure and VMware for Discovery and assessment tool:
 2. Set up permissions for your Azure account to interact with Azure Migrate.
 3. Prepare VMware for assessment.
 
-Follow the instructions in [this tutorial](./tutorial-discover-vmware.md) to configure these settings.
+Follow the instructions in [this tutorial](tutorial-discover-vmware.md) to configure these settings.
 
 
 ## Create a project
@@ -87,7 +84,7 @@ In accordance with your planning requirements, do the following:
 1. Create an Azure Migrate projects.
 2. Add the Azure Migrate Discovery and assessment tool to the projects.
 
-[Learn more](./create-manage-projects.md) about creating a project.
+[Learn more](create-manage-projects.md) about creating a project.
 
 ## Create and review an assessment
 
@@ -95,7 +92,7 @@ In accordance with your planning requirements, do the following:
 1. Review the assessments in preparation for migration planning.
 
 
-Follow the instructions in [this tutorial](./tutorial-assess-vmware-azure-vm.md) to configure these settings.
+Follow the instructions in [this tutorial](tutorial-assess-vmware-azure-vm.md) to configure these settings.
     
 
 ## Next steps

@@ -1,18 +1,17 @@
 ---
 title: 'Tutorial: Get started integrate with pipelines' 
-description: In this tutorial, you'll learn how to integrate pipelines and activities using Synapse Studio.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+description: In this tutorial, you learn how to integrate pipelines and activities using Synapse Studio.
+author: juluczni
+ms.author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 11/20/2024
+ms.date: 12/11/2024
 ---
 
 # Tutorial: Integrate with pipelines
 
-In this tutorial, you'll learn how to integrate pipelines and activities using Synapse Studio. 
+In this tutorial, you learn how to integrate pipelines and activities using Synapse Studio. 
 
 ## Create a pipeline and add a notebook activity
 
@@ -40,7 +39,7 @@ Once the pipeline is published, you might want to run it immediately without wai
 
 1. Go to the **Monitor** hub.
 1. Select **Pipeline runs** to monitor pipeline execution progress.
-1. In this view you can switch between tabular **List** display a graphical **Gantt** chart.
+1. In this view, you can switch between tabular **List** display a graphical **Gantt** chart.
 1. Select a pipeline name to see the status of activities in that pipeline.
 
 ## Next step

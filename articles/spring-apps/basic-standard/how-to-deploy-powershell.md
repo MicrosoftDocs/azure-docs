@@ -1,5 +1,5 @@
 ---
-title: Create and deploy applications in Azure Spring Apps by using PowerShell
+title: Create and Deploy Applications in Azure Spring Apps by Using PowerShell
 description: How to create and deploy applications in Azure Spring Apps by using PowerShell
 author: KarlErickson
 ms.author: karler
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article describes how you can create an instance of Azure Spring Apps by using the [Az.SpringCloud](/powershell/module/Az.SpringCloud) PowerShell module.
 

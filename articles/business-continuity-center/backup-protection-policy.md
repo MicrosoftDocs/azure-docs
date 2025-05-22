@@ -2,12 +2,13 @@
 title: Create protection policy for resources
 description: In this article, you'll learn how to create backup and replication policies to protect your resources.
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 11/19/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Create backup and replication policies for your resources

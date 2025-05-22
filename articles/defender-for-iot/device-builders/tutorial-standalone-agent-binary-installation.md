@@ -158,7 +158,7 @@ This procedure describes additional steps required to support the AMQP protocol.
     ```
 
 The agent will use this protocol, and communicate with the IoT Hub on port 443.
-Http Proxy configuration is supported for this protocol, in the case that proxy is also configured, the port of communication with the proxy will be as defined in the proxy configuration.
+HTTP Proxy configuration is supported for this protocol, in the case that proxy is also configured, the port of communication with the proxy will be as defined in the proxy configuration.
 
 ## Authenticate the micro agent
 

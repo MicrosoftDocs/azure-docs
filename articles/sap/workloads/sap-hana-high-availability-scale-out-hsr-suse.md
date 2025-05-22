@@ -953,6 +953,7 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
 
       ```bash
       sudo crm configure primitive rsc_ip_HN1_HDB03 ocf:heartbeat:IPaddr2 \
+        op start timeout=60s on-fail=fence \
         op monitor interval="10s" timeout="20s" \
         params ip="10.23.0.27"
       

@@ -6,7 +6,7 @@ ms.author: ajaypar
 ms.manager: roopesh.nair
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 08/02/2023
+ms.date: 02/06/2025
 ms.custom: engagement-fy23
 ---
 

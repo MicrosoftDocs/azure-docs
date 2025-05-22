@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 07/17/2024
+ms.date: 03/17/2025
 ms.author: abell
 ---
 
@@ -49,9 +49,7 @@ For more information on log schemas, see [View diagnostic logs](ddos-view-diagno
 1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
 
 
-1. On the left side pane, select **Logs**.
-
-    :::image type="content" source="./media/ddos-attack-telemetry/ddos-workspace-diagnostic-logs.png" alt-text="Screenshot of log query in Log analytics workspaces.":::
+1. On the left side pane, select **Logs**. Here you see the query explorer. 
 
 1. In Query explorer, type in the following Kusto Query and change the time range to Custom and change the time range to last three months. Then hit Run.
 

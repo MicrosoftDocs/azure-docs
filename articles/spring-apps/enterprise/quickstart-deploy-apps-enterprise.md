@@ -1,8 +1,9 @@
 ---
-title: "Quickstart - Build and deploy apps to the Azure Spring Apps Enterprise plan"
+title: "Quickstart - Build and Deploy Apps to the Azure Spring Apps Enterprise Plan"
 description: Describes app deployment to the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: asirveda # external contributor: paly@vmware.com
+ms.author: karler
+ms.reviewer: asirveda # external contributor: paly@vmware.com
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 06/27/2024
@@ -13,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart shows you how to build and deploy applications to Azure Spring Apps using the Enterprise plan.
 

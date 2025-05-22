@@ -2,11 +2,11 @@
 title: 'Tutorial: Filter inbound Internet or intranet traffic with Azure Firewall DNAT policy using the portal'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall policy DNAT using the Azure portal. 
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: tutorial
 ms.date: 08/26/2021
-ms.author: victorh
+ms.author: duau
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall policy DNAT so that I can control inbound Internet access to resources located in a subnet.
 ---
@@ -205,7 +205,7 @@ This rule allows you to connect a remote desktop to the Srv-Workload virtual mac
 1. For **Rule collection group**, select **DefaultDnatRuleCollectionGroup**.
 1. Under **Rules**, for **Name**, type **rdp-nat**.
 1. For **Source type**, select **IP address**.
-1. For **Source**, type **\***.
+1. For **Source**, specify the IP address or range that you want to allow. For example, 192.168.1.0/24.
 1. For **Protocol**, select **TCP**.
 1. For **Destination Ports**, type **3389**.
 1. For **Destination Type**, select **IP Address**.

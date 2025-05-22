@@ -7,6 +7,7 @@ ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 11/18/2024
 ms.custom:
+  - ignite-2024
 ---
 # Connect Stream Analytics jobs to resources in an Azure Virtual Network 
 

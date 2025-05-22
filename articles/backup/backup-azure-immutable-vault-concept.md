@@ -3,15 +3,15 @@ title: Concept of Immutable vault for Azure Backup
 description: This article explains about the concept of Immutable vault for Azure Backup, and how it helps in protecting data from malicious actors.
 ms.topic: overview
 ms.service: azure-backup
-ms.custom: references_regions, engagement-fy24
-ms.date: 11/20/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.custom: references_regions, engagement-fy24, ignite-2024
+ms.date: 12/09/2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Immutable vault for Azure Backup
 
-Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible and use WORM storage for backups to prevent any malicious actors from disabling immutability and deleting backups.
+Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible and use WORM (Write Once, Read Many) storage for backups to prevent any malicious actors from disabling immutability and deleting backups.
 
 ## Supported scenarios for WORM storage
 
@@ -26,6 +26,9 @@ Immutable vault can help you protect your backup data by blocking any operations
 - Enabling immutability for the vault is a reversible operation. However, you can choose to make it irreversible to prevent any malicious actors from disabling it (after disabling it, they can perform destructive operations). Learn about [making Immutable vault irreversible](#making-immutability-irreversible).
 - Immutable vault applies to all the data in the vault. Therefore, all instances that are protected in the vault have immutability applied to them.
 - Immutability doesn't apply to operational backups, such as operational backup of blobs, files, and disks.
+
+>[!Note]
+>Ensure that the resource provider is registered in your subscription for `Microsoft.RecoveryServices`, otherwise Zone-redundant and vault property options like “Immutability settings” will not be accessible.
 
 ## How does immutability work?
 
@@ -66,4 +69,3 @@ Immutable vault prevents you  from performing the following operations  on the v
 ## Next steps
 
 - Learn [how to manage operations of Azure Backup vault immutability](backup-azure-immutable-vault-how-to-manage.md).
-

@@ -1,6 +1,6 @@
 ---
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: include
 ms.date: 10/26/2023

@@ -2,8 +2,8 @@
 title: Increase the chroma value to 4:4:4 for Azure Virtual Desktop
 description: Learn how to increase the chroma value from 4:2:0 to 4:4:4.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 05/21/2024
 ---
 
@@ -75,7 +75,7 @@ To increase the chroma value to 4:4:4 using Microsoft Intune:
 
 To increase the chroma value to 4:4:4 using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 

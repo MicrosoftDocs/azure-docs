@@ -1,8 +1,9 @@
 ---
-title: Enterprise plan in Azure Marketplace
+title: Enterprise Plan in Azure Marketplace
 description: Learn about the Azure Spring Apps Enterprise plan offering available in Azure Marketplace.
 author: KarlErickson
-ms.author: yuwzho
+ms.author: karler
+ms.reviewer: yuwzho
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 10/18/2023
@@ -13,7 +14,7 @@ ms.custom: devx-track-java, engagement-fy23, references_regions
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article describes the Azure Marketplace offer and license requirements for the VMware Taznu components in the Enterprise plan in Azure Spring Apps.
 

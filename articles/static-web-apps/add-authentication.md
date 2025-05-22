@@ -2,11 +2,11 @@
 title: Add authentication to your static site in Azure Static Web Apps
 description: Learn to add authentication to your static site with Azure Static Web Apps.
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 07/02/2024
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Add authentication to your static site in Azure Static Web Apps

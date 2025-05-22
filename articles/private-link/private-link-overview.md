@@ -5,9 +5,9 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 03/18/2024
+ms.date: 03/25/2025
 ms.author: abell
-ms.custom: template-overview, fasttrack-edit, references_regions, FY23 content-maintenance
+ms.custom: template-overview, fasttrack-edit, references_regions, FY23 content-maintenance, ignite-2024
 ---
 
 # What is Azure Private Link? 
@@ -21,7 +21,7 @@ Traffic between your virtual network and the service travels the Microsoft backb
 
 :::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Screenshot of Azure Private Link center in Azure portal." :::
 
-For scenarios that involve public internet PaaS traffic, configure [network security perimeter](network-security-perimeter-concepts.md) to set up a secure logical boundary. Network security perimeter restricts communication to services within its perimeter, and it allows non-perimeter public traffic through inbound and outbound access rules.
+For scenarios that involve public internet PaaS traffic, configure [network security perimeter](network-security-perimeter-concepts.md) to set up a secure logical boundary. Network security perimeter restricts communication to services within its perimeter, and it allows nonperimeter public traffic through inbound and outbound access rules.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
@@ -40,7 +40,7 @@ Azure Private Link provides the following benefits:
 - **Extend to your own services**: Enable the same experience and functionality to render your service privately to consumers in Azure. By placing your service behind a standard Azure Load Balancer, you can enable it for Private Link. The consumer can then connect directly to your service using a private endpoint in their own virtual network. You can manage the connection requests using an approval call flow. Azure Private Link works for consumers and services belonging to different Microsoft Entra tenants. 
 
 > [!NOTE]
-> Azure Private Link, along with Azure Virtual Network, span across [Azure Availability Zones](../availability-zones/az-overview.md) and are therefore zone resilient. To provide high availability for the Azure resource using a private endpoint, ensure that resource is zone resilient.
+> Azure Private Link, along with Azure Virtual Network, span across [Azure Availability Zones](../reliability/availability-zones-overview.md) and are therefore zone resilient. To provide high availability for the Azure resource using a private endpoint, ensure that resource is zone resilient.
 
 ## Availability 
 
@@ -77,7 +77,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 For FAQs, see [Azure Private Link FAQs](private-link-faq.yml).
  
 ## Limits  
-For limits, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
+For limits, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-private-link-limits).
 
 ## Service Level Agreement
 For service level agreement, see [SLA for Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/).

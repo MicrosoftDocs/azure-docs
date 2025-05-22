@@ -2,12 +2,13 @@
 title: Recover deleted item
 description: Learn how to recover deleted item
 ms.topic: tutorial
-ms.date: 06/28/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 11/19/2024
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
+  - ignite-2024
 ---
 
 # Tutorial: Recover deleted item

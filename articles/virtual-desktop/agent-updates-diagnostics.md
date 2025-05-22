@@ -1,10 +1,10 @@
 ---
 title: Set up diagnostics for monitoring agent updates
 description: How to set up diagnostic reports to monitor agent updates.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 03/20/2023
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
@@ -75,4 +75,4 @@ For more information about Scheduled Agent Updates and the agent components, che
 - To learn how to schedule agent updates, see [Scheduled Agent Updates](scheduled-agent-updates.md).
 - For more information about the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent, see [Getting Started with the Azure Virtual Desktop Agent](agent-overview.md).
 - Learn more about the latest and previous agent versions at [What's new in the Azure Virtual Desktop agent](whats-new-agent.md).
-- If you're experiencing agent or connectivity-related issues, see the [Azure Virtual Desktop Agent issues troubleshooting guide](troubleshoot-agent.md).
+- If you're experiencing agent or connectivity-related issues, see the [Azure Virtual Desktop Agent issues troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-agent).

@@ -2,8 +2,8 @@
 title: Azure Virtual Desktop service architecture and resilience
 description: Learn about the service architecture of Azure Virtual Desktop and how it has been designed to be resilient.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 10/19/2023
 ---
 

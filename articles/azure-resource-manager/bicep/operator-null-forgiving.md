@@ -3,7 +3,7 @@ title: Bicep null-forgiving operator
 description: Describes Bicep null-forgiving operator.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/04/2023
+ms.date: 02/12/2025
 ---
 
 # Bicep null-forgiving operator
@@ -14,7 +14,7 @@ The unary postfix `!` operator is the null-forgiving, or null-suppression, opera
 
 `expression!`
 
-The null-forgiving operator ensures that a value isn't null, thereby changing the assigned type of the value from `null | <type>` to `<type>`.
+The null-forgiving operator ensures that a value isn't null, changing the assigned type of the value from `null | <type>` to `<type>`.
 The following example fails the design time validation:
 
 ```bicep

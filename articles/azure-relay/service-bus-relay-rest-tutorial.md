@@ -3,7 +3,8 @@ title: 'Tutorial: REST tutorial using Azure Relay'
 description: 'Tutorial: Build an Azure Relay host application that exposes a REST-based interface.'
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.date: 08/11/2023
+ms.date: 12/11/2024
+# Customer intent: I want to learn how to build an Azure Relay host application that exposes a REST-based interface.
 ---
 
 # Tutorial: Azure WCF Relay REST tutorial
@@ -619,7 +620,7 @@ After building the solution, do the following to run the application:
 1. Copy and paste the address from the command prompt into a browser to see the image.
 1. When you're finished, select Enter in the command prompt window to close the app.
 
-## Next steps
+## Related content
 
 Now that you've built an application that uses the Azure Relay service, see the following articles to learn more:
 

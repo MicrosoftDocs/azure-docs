@@ -7,7 +7,7 @@ author: ssabat
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/03/2024
+ms.date: 01/16/2025
 ---
 
 # Copy data to and from Azure Databricks Delta Lake using Azure Data Factory or Azure Synapse Analytics
@@ -431,7 +431,7 @@ If your source data store and format meet the criteria described in this section
             },
             "sink": {
                 "type": "AzureDatabricksDeltaLakeSink",
-                "sqlReadrQuery": "VACUUM eventsTable DRY RUN"
+                "sqlReaderQuery": "VACUUM eventsTable DRY RUN"
             }
         }
     }
@@ -488,7 +488,7 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 
 ## Monitoring
 
-The same [copy activity monitoring experience](copy-activity-monitoring.md) is provided as for other connectors. In addition, because loading data from/to delta lake is running on your Azure Databricks cluster, you can further [view detailed cluster logs](/azure/databricks/clusters/clusters-manage#--view-cluster-logs) and [monitor performance](/azure/databricks/clusters/clusters-manage#--monitor-performance).
+The same [copy activity monitoring experience](copy-activity-monitoring.md) is provided as for other connectors. In addition, because loading data from/to delta lake is running on your Azure Databricks cluster, you can further [view detailed cluster logs](/azure/databricks/clusters/clusters-manage#view-compute-logs) and [monitor performance](/azure/databricks/clusters/clusters-manage#cluster-performance).
 
 ## Lookup activity properties
 

@@ -8,6 +8,7 @@
  ms.author: robece
 ms.custom:
   - include file
+  - ignite-2024
 ---
 
 - [Event Hubs](../namespace-handler-event-hubs.md)

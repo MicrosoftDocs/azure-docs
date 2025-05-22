@@ -1,8 +1,9 @@
 ---
-title: Configure private network access for backend storage in your virtual network
+title: Configure Private Network Access for Backend Storage in Your Virtual Network
 description: Learn how to configure private network access to backend storage in your virtual network.
 author: KarlErickson
-ms.author: haozhan
+ms.author: karler
+ms.reviewer: haozhan
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 07/25/2024
@@ -13,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard ✔️ Enterprise
+**This article applies to:** ✅ Standard ✅ Enterprise
 
 This article explains how to configure private network access to backend storage for your application within your virtual network.
 

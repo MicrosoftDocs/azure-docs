@@ -1,8 +1,9 @@
 ---
-title: How to deploy applications in Azure Spring Apps with a custom container image
+title: How to Deploy Applications in Azure Spring Apps with a Custom Container Image
 description: How to deploy applications in Azure Spring Apps with a custom container image
 author: KarlErickson
-ms.author: xiangy
+ms.author: karler
+ms.reviewer: xiangy
 ms.topic: how-to
 ms.service: azure-spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -16,7 +17,7 @@ ms.date: 06/27/2024
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard ✔️ Enterprise
+**This article applies to:** ✅ Standard ✅ Enterprise
 
 This article explains how to deploy Spring Boot applications in Azure Spring Apps using a custom container image. Deploying an application with a custom container supports most features as when deploying a JAR application. Other Java and non-Java applications can also be deployed with the container image.
 
@@ -81,7 +82,7 @@ To disable listening on a port for images that aren't web applications, add the 
 
    :::image type="content" source="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png" alt-text="Screenshot of Azure portal Create App page with Runtime platform dropdown showing and Custom Container selected." lightbox="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png":::
 
-1. Select **Edit** under *Image*, then fill in the fields as shown in the following image:
+1. Select **Edit** under **Image**, then fill in the fields as shown in the following image:
 
    :::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Screenshot of Azure portal that shows the Custom Image Settings pane." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
 
@@ -100,36 +101,36 @@ The following matrix shows what features are supported in each application type.
 
 | Feature                                             | Spring Boot Apps - container deployment | Polyglot Apps - container deployment | Notes                                                                                                                       |
 |-----------------------------------------------------|-----------------------------------------|--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| App lifecycle management                            | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Support for container registries                    | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Assign endpoint                                     | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Azure Monitor                                       | ✔️                                     | ✔️                                   |                                                                                                                             |
-| APM integration                                     | ✔️                                     | ✔️                                   | Supported by [manual installation](#install-an-apm-into-the-image-manually).                                                |
-| Blue/green deployment                               | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Custom domain                                       | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Scaling - auto scaling                              | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Scaling - manual scaling (in/out, up/down)          | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Managed identity                                    | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Spring Cloud Eureka & Config Server                 | ✔️                                     | ❌                                   |                                                                                                                             |
-| API portal for VMware Tanzu                        | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
-| Spring Cloud Gateway for VMware Tanzu              | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
-| Application Configuration Service for VMware Tanzu | ✔️                                     | ❌                                   | Enterprise plan only.
-| Application Live View for VMware Tanzu             | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
-| VMware Tanzu Service Registry                      | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
-| VNET                                                | ✔️                                     | ✔️                                   | Add registry to [allowlist in NSG or Azure Firewall](#avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet). |
-| Outgoing IP Address                                 | ✔️                                     | ✔️                                   |                                                                                                                             |
-| E2E TLS                                             | ✔️                                     | ✔️                                   | [Trust a self-signed CA](#trust-a-certificate-authority).                                                                   |
-| Liveness and readiness settings                     | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Advanced troubleshooting - thread/heap/JFR dump     | ✔️                                     | ❌                                   | The image must include Bash and the JDK with `PATH` specified.                                                              |
-| Bring your own storage                              | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Integrate service binding with Resource Connector   | ✔️                                     | ❌                                   |                                                                                                                             |
-| Availability Zone                                   | ✔️                                     | ✔️                                   |                                                                                                                             |
-| App Lifecycle events                                | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Reduced app size - 0.5 vCPU and 512 MB              | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Automate app deployments with Terraform             | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Soft Deletion                                       | ✔️                                     | ✔️                                   |                                                                                                                             |
-| Interactive diagnostic experience (AppLens-based)   | ✔️                                     | ✔️                                   |                                                                                                                             |
-| SLA                                                 | ✔️                                     | ✔️                                   |                                                                                                                             |
+| App lifecycle management                            | ✅                                     | ✅                                   |                                                                                                                             |
+| Support for container registries                    | ✅                                     | ✅                                   |                                                                                                                             |
+| Assign endpoint                                     | ✅                                     | ✅                                   |                                                                                                                             |
+| Azure Monitor                                       | ✅                                     | ✅                                   |                                                                                                                             |
+| APM integration                                     | ✅                                     | ✅                                   | Supported by [manual installation](#install-an-apm-into-the-image-manually).                                                |
+| Blue/green deployment                               | ✅                                     | ✅                                   |                                                                                                                             |
+| Custom domain                                       | ✅                                     | ✅                                   |                                                                                                                             |
+| Scaling - auto scaling                              | ✅                                     | ✅                                   |                                                                                                                             |
+| Scaling - manual scaling (in/out, up/down)          | ✅                                     | ✅                                   |                                                                                                                             |
+| Managed identity                                    | ✅                                     | ✅                                   |                                                                                                                             |
+| Spring Cloud Eureka & Config Server                 | ✅                                     | ❎                                   |                                                                                                                             |
+| API portal for VMware Tanzu                        | ✅                                     | ✅                                   | Enterprise plan only.                                                                                                       |
+| Spring Cloud Gateway for VMware Tanzu              | ✅                                     | ✅                                   | Enterprise plan only.                                                                                                       |
+| Application Configuration Service for VMware Tanzu | ✅                                     | ❎                                   | Enterprise plan only.
+| Application Live View for VMware Tanzu             | ✅                                     | ❎                                   | Enterprise plan only.                                                                                                       |
+| VMware Tanzu Service Registry                      | ✅                                     | ❎                                   | Enterprise plan only.                                                                                                       |
+| VNET                                                | ✅                                     | ✅                                   | Add registry to [allowlist in NSG or Azure Firewall](#avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet). |
+| Outgoing IP Address                                 | ✅                                     | ✅                                   |                                                                                                                             |
+| E2E TLS                                             | ✅                                     | ✅                                   | [Trust a self-signed CA](#trust-a-certificate-authority).                                                                   |
+| Liveness and readiness settings                     | ✅                                     | ✅                                   |                                                                                                                             |
+| Advanced troubleshooting - thread/heap/JFR dump     | ✅                                     | ❎                                   | The image must include Bash and the JDK with `PATH` specified.                                                              |
+| Bring your own storage                              | ✅                                     | ✅                                   |                                                                                                                             |
+| Integrate service binding with Resource Connector   | ✅                                     | ❎                                   |                                                                                                                             |
+| Availability Zone                                   | ✅                                     | ✅                                   |                                                                                                                             |
+| App Lifecycle events                                | ✅                                     | ✅                                   |                                                                                                                             |
+| Reduced app size - 0.5 vCPU and 512 MB              | ✅                                     | ✅                                   |                                                                                                                             |
+| Automate app deployments with Terraform             | ✅                                     | ✅                                   |                                                                                                                             |
+| Soft Deletion                                       | ✅                                     | ✅                                   |                                                                                                                             |
+| Interactive diagnostic experience (AppLens-based)   | ✅                                     | ✅                                   |                                                                                                                             |
+| SLA                                                 | ✅                                     | ✅                                   |                                                                                                                             |
 
 > [!NOTE]
 > Polyglot apps include non-Spring Boot Java, NodeJS, AngularJS, Python, and .NET apps.
@@ -142,15 +143,15 @@ The following points will help you address common situations when deploying with
 
 There are two options to trust a Certificate Authority:
 
-**Option 1: Upload via Azure Spring Apps**
+Option 1: Upload via Azure Spring Apps
 
-To load the CA certs into your apps, see [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md). Then the certs will be mounted into the location */etc/azure-spring-cloud/certs/public/*.
+To load the CA certs into your apps, see [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md). Then the certs will be mounted into the location **/etc/azure-spring-cloud/certs/public/**.
 
-**Option 2: Manual installation in the image**
+Option 2: Manual installation in the image
 
 To trust a CA in the image, set the following variables depending on your environment:
 
-* You must import Java applications into the trust store by adding the following lines into your *Dockerfile*:
+* You must import Java applications into the trust store by adding the following lines into your **Dockerfile**:
 
   ```dockerfile
   ADD EnterpriseRootCA.crt /opt/
@@ -191,9 +192,9 @@ If you deployed the instance to a VNet, make sure you allow the network traffic 
 
 ### Install an APM into the image manually
 
-The installation steps vary on different application performance monitors (APMs) and languages. The following steps are for New Relic with Java applications. You must modify the *Dockerfile* using the following steps:
+The installation steps vary on different application performance monitors (APMs) and languages. The following steps are for New Relic with Java applications. You must modify the **Dockerfile** using the following steps:
 
-1. Download and install the agent file into the image by adding the following to the *Dockerfile*:
+1. Download and install the agent file into the image by adding the following to the **Dockerfile**:
 
    ```dockerfile
    ADD newrelic-agent.jar /opt/agents/newrelic/java/newrelic-agent.jar

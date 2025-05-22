@@ -19,6 +19,8 @@ ms.subservice: b2c
 
 # Supported Microsoft Entra ID features
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 An Azure Active Directory B2C (Azure AD B2C) tenant is different than a Microsoft Entra tenant, which you may already have, but it relies on it. The following Microsoft Entra ID features can be used in your Azure AD B2C tenant.
 
 |Feature  |Microsoft Entra ID  | Azure AD B2C |

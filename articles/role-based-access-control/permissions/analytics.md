@@ -2,11 +2,11 @@
 title: Azure permissions for Analytics - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Analytics category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 04/25/2025
 ms.custom: generated
 ---
 
@@ -62,7 +62,6 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | Microsoft.Databricks/workspaces/write | Creates a Databricks workspace. |
 > | Microsoft.Databricks/workspaces/delete | Removes a Databricks workspace. |
 > | Microsoft.Databricks/workspaces/refreshPermissions/action | Refresh permissions for a workspace |
-> | Microsoft.Databricks/workspaces/migratePrivateLinkWorkspaces/action | Applies new Network Intent Policy templates based on 'requiredNsgRules' and 'enablePublicAccess' |
 > | Microsoft.Databricks/workspaces/updateDenyAssignment/action | Update deny assignment not actions for a managed resource group of a workspace |
 > | Microsoft.Databricks/workspaces/refreshWorkspaces/action | Refresh a workspace with new details like URL |
 > | Microsoft.Databricks/workspaces/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource. |
@@ -77,9 +76,6 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | Microsoft.Databricks/workspaces/privateEndpointConnections/write | Approve Private Endpoint Connections |
 > | Microsoft.Databricks/workspaces/privateEndpointConnections/delete | Remove Private Endpoint Connection |
 > | Microsoft.Databricks/workspaces/privateLinkResources/read | List Private Link Resources |
-> | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Sets the available diagnostic settings for the Databricks workspace |
-> | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Add or modify diagnostics settings. |
-> | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | Gets the available log definitions for the Databricks workspace |
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/read | Gets the virtual network peering. |
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/write | Add or modify virtual network peering |
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/delete | Deletes a virtual network peering |
@@ -278,6 +274,7 @@ Azure service: [Data Lake Analytics](/azure/data-lake-analytics/)
 > | Microsoft.DataLakeAnalytics/accounts/write | Create or update a DataLakeAnalytics account. |
 > | Microsoft.DataLakeAnalytics/accounts/delete | Delete a DataLakeAnalytics account. |
 > | Microsoft.DataLakeAnalytics/accounts/transferAnalyticsUnits/action | Transfer SystemMaxAnalyticsUnits among DataLakeAnalytics accounts. |
+> | Microsoft.DataLakeAnalytics/accounts/transferEcoAnalyticsUnits/action | Transfer SystemMaxEcoAnalyticsUnits among DataLakeAnalytics accounts. |
 > | Microsoft.DataLakeAnalytics/accounts/TakeOwnership/action | Grant permissions to cancel jobs submitted by other users. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/read | Get information about a compute policy. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/write | Create or update a compute policy. |
@@ -371,7 +368,7 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | Microsoft.HDInsight/clusterPools/write | Create or Update HDInsight on AKS Cluster Pool |
 > | Microsoft.HDInsight/clusterPools/delete | Delete a HDInsight on AKS Cluster Pool |
 > | Microsoft.HDInsight/clusterPools/upgrade/action | Upgrade HDInsight on AKS Cluster Pool |
-> | Microsoft.HDInsight/clusterPools/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster Pool |
+> | Microsoft.HDInsight/clusterPools/availableupgrades/read | Get Available Upgrades for HDInsight on AKS Cluster Pool |
 > | Microsoft.HDInsight/clusterPools/clusters/read | Get details about HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/write | Create or Update HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/delete | Delete a HDInsight on AKS cluster |
@@ -379,11 +376,11 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | Microsoft.HDInsight/clusterPools/clusters/runjob/action | Run HDInsight on AKS Cluster Job |
 > | Microsoft.HDInsight/clusterPools/clusters/upgrade/action | Upgrade HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/rollback/action | Rollback HDInsight on AKS Cluster Upgrade |
-> | Microsoft.HDInsight/clusterPools/clusters/managelibraries/action | Manage HDInsight on AKS Cluster Libaries |
-> | Microsoft.HDInsight/clusterPools/clusters/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster |
+> | Microsoft.HDInsight/clusterPools/clusters/managelibraries/action | Manage HDInsight on AKS Cluster Libraries |
+> | Microsoft.HDInsight/clusterPools/clusters/availableupgrades/read | Get Available Upgrades for HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/instanceviews/read | Get details about HDInsight on AKS Cluster Instance View |
 > | Microsoft.HDInsight/clusterPools/clusters/jobs/read | List HDInsight on AKS Cluster Jobs |
-> | Microsoft.HDInsight/clusterPools/clusters/libraries/read | Read HDInsight on AKS Cluster Libaries |
+> | Microsoft.HDInsight/clusterPools/clusters/libraries/read | Read HDInsight on AKS Cluster Libraries |
 > | Microsoft.HDInsight/clusterPools/clusters/serviceconfigs/read | Get details about HDInsight on AKS Cluster Service Configurations |
 > | Microsoft.HDInsight/clusterPools/clusters/upgradehistories/read | Read HDInsight on AKS Cluster Upgrade Histories |
 > | Microsoft.HDInsight/clusterPools/upgradehistories/read | Read HDInsight on AKS Cluster Pool Upgrade Histories |
@@ -463,13 +460,14 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/Migrate/action | Migrates the cluster data to another cluster. |
 > | Microsoft.Kusto/Clusters/DetachFollowerDatabases/action | Detaches follower's databases. |
 > | Microsoft.Kusto/Clusters/ListFollowerDatabases/action | Lists the follower's databases. |
-> | Microsoft.Kusto/Clusters/AddCalloutPolicy/action | Add callout policies. |
+> | Microsoft.Kusto/Clusters/AddCalloutPolicies/action | Add callout policies. |
 > | Microsoft.Kusto/Clusters/RemovePrincipals/action | Remove callout policy. |
 > | Microsoft.Kusto/Clusters/ListCalloutPolicies/action | Lists the service callout policies. |
 > | Microsoft.Kusto/Clusters/DiagnoseVirtualNetwork/action | Diagnoses network connectivity status for external resources on which the service is dependent. |
 > | Microsoft.Kusto/Clusters/ListLanguageExtensions/action | Lists language extensions. |
 > | Microsoft.Kusto/Clusters/AddLanguageExtensions/action | Add language extensions. |
 > | Microsoft.Kusto/Clusters/RemoveLanguageExtensions/action | Remove language extensions. |
+> | Microsoft.Kusto/Clusters/PrivateEndpointConnectionsApproval/action | Approval of private endpoint connections |
 > | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/read | Reads an attached database configuration resource. |
 > | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/write | Writes an attached database configuration resource. |
 > | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/delete | Deletes an attached database configuration resource. |
@@ -501,6 +499,11 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/ManagedPrivateEndpoints/read | Reads a managed private endpoint |
 > | Microsoft.Kusto/Clusters/ManagedPrivateEndpoints/write | Writes a managed private endpoint |
 > | Microsoft.Kusto/Clusters/ManagedPrivateEndpoints/delete | Deletes a managed private endpoint |
+> | Microsoft.Kusto/Clusters/NetworkSecurityPerimeterAssociationProxies/read | Reads a network security perimeter association proxy |
+> | Microsoft.Kusto/Clusters/NetworkSecurityPerimeterAssociationProxies/write | Writes network security perimeter association proxy |
+> | Microsoft.Kusto/Clusters/NetworkSecurityPerimeterAssociationProxies/delete | Deletes network security perimeter association proxy |
+> | Microsoft.Kusto/Clusters/NetworkSecurityPerimeterConfigurations/read | Reads a network security perimeter configurations |
+> | Microsoft.Kusto/Clusters/NetworkSecurityPerimeterConfigurations/write | Writes a network security perimeter configurations |
 > | Microsoft.Kusto/Clusters/OutboundNetworkDependenciesEndpoints/read | Reads outbound network dependencies endpoints for a resource |
 > | Microsoft.Kusto/Clusters/PrincipalAssignments/read | Reads a Cluster principal assignments resource. |
 > | Microsoft.Kusto/Clusters/PrincipalAssignments/write | Writes a Cluster principal assignments resource. |
@@ -524,6 +527,7 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/SKUs/PrivateEndpointConnectionProxyValidation/action | Validates a private endpoint connection proxy |
 > | Microsoft.Kusto/Locations/CheckNameAvailability/action | Checks resource name availability. |
 > | Microsoft.Kusto/Locations/Skus/action |  |
+> | Microsoft.Kusto/Locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notify network security perimeter updates available. |
 > | Microsoft.Kusto/locations/operationresults/read | Reads operations resources |
 > | Microsoft.Kusto/Operations/read | Reads operations resources |
 > | Microsoft.Kusto/SKUs/read | Reads a SKU resource. |

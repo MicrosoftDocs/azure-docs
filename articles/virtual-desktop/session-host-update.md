@@ -2,9 +2,9 @@
 title: Session host update (preview) - Azure Virtual Desktop
 description: Learn about session host update, which updates the operating system image and configuration of session hosts in a host pool in Azure Virtual Desktop.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 10/01/2024
+author: dougeby
+ms.author: avdcontent
+ms.date: 01/24/2025
 ---
 
 # Session host update for Azure Virtual Desktop (preview)
@@ -93,13 +93,15 @@ With only a reduced number of session hosts available, you should schedule an up
 
 Here are known issues and limitations:
 
+- Session host update only supports key vaults that are configured to [allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+
 - Session host update is only available in the global Azure cloud. It isn't available in other clouds, such as Azure US Government or Azure operated by 21Vianet.
 
 - For session hosts that were created from an Azure Compute Gallery shared image that has a purchase plan, the plan isn't retained when the session hosts are updated. To check whether the image you use for your session hosts has a purchase plan, you can use [Azure PowerShell](/azure/virtual-machines/windows/cli-ps-findimage) or [Azure CLI](/azure/virtual-machines/linux/cli-ps-findimage).
 
-- The size of the OS disk can't be changed during an update. The update service defaults to the same size as defined by the gallery image.
+- Session host configurations don't currently support accessing an Azure Compute Gallery shared image that's located in a different Azure subscription than the host pool.
 
-- During an update, you can't add more session hosts to the host pool.
+- The size of the OS disk can't be changed during an update. The update service defaults to the same size as defined by the gallery image.
 
 - If an update fails, the host pool can't be deleted until the update is canceled.
 
@@ -112,7 +114,7 @@ Here are known issues and limitations:
    - For the Log Analytics agent, you can [use Azure Automation](/azure/azure-monitor/agents/agent-windows?tabs=azure-automation#install-the-agent).
    - Manually add these new session hosts from within [Azure Virtual Desktop Insights](insights.md) in the Azure portal.
 
-- Avoid modifying a session host configuration in a host pool with no session hosts at the same time a session host is being created as this can result in a host pool with inconsistent session host properties.
+- Modifying a session host configuration in a host pool with no session hosts at the same time a session host is being created can result in a host pool with inconsistent session host properties and should be avoided.
 
 - Updates with large batch sizes can result in intermittent failures with the error code `AgentRegistrationFailureGeneric`. If this occurs for a subset of session hosts being updated, [retrying the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update) typically resolves the issue.
 

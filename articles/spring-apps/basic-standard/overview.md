@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Enterprise ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard
+**This article applies to:** ✅ Enterprise ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard
 
 Azure Spring Apps makes it easy to deploy Spring Boot applications to Azure without any code changes. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
@@ -186,8 +186,6 @@ The following diagram shows the architecture of a virtual network in Azure Sprin
 
 The following articles help you get started using the Standard consumption and dedicated plan:
 
-* [Provision an Azure Spring Standard consumption and dedicated plan service instance](../consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md)
-* [Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network](../consumption-dedicated/quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
 * [Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network](../consumption-dedicated/quickstart-access-standard-consumption-within-virtual-network.md)
 * [Deploy an event-driven application to Azure Spring Apps](quickstart-deploy-event-driven-app.md)
 * [Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan](../consumption-dedicated/quickstart-apps-autoscale-standard-consumption.md)

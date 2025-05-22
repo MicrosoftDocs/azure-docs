@@ -19,6 +19,8 @@ ms.custom: "b2c-support"
 
 # Localization element
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 The **Localization** element allows you to support multiple locales or languages in the policy for the user journeys. The localization support in policies allows you to:
@@ -161,7 +163,7 @@ The ElementType reference to a claim type, a claim transformation, or a user int
 | Identity provider name |`ClaimsProvider`| | The ID of the ClaimsExchange element|
 | Claim type attributes|`ClaimType`|Name of the claim type| The attribute of the claim to be localized. Possible values: `AdminHelpText`, `DisplayName`, `PatternHelpText`, and `UserHelpText`.|
 |Error message|`ErrorMessage`||The ID of the error message |
-|Copies localized strings into claims|`GetLocalizedStringsTra nsformationClaimType`||The name of the output claim|
+|Copies localized strings into claims|`GetLocalizedStringsTransformationClaimType`||The name of the output claim|
 |Predicate user message|`Predicate`|The name of the predicate| The attribute of the predicate to be localized. Possible values: `HelpText`.|
 |Predicate group user message|`PredicateValidation`|The ID of the PredicateValidation element.|The ID of the PredicateGroup element. The predicate group must be a child of the predicate validation element as defined in the ElementId.|
 |User interface elements |`UxElement` | | The ID of the user interface element to be localized.|
@@ -246,7 +248,7 @@ The FormatLocalizedStringTransformationClaimType value is used to format claims 
     <InputClaim ClaimTypeReferenceId="email" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessage_EmailExists" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
@@ -257,7 +259,7 @@ The FormatLocalizedStringTransformationClaimType value is used to format claims 
 The following example shows how to localize string format of the FormatLocalizedStringTransformationClaimType claims transformation.
 
 ```xml
-<LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+<LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessage_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
 ```
 
 ### GetLocalizedStringsTransformationClaimType

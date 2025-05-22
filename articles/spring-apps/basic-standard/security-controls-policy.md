@@ -1,5 +1,5 @@
 ---
-title: Azure Policy Regulatory Compliance controls for Azure Spring Apps
+title: Azure Policy Regulatory Compliance Controls for Azure Spring Apps
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Spring Apps. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
 ms.date: 02/06/2024
 ms.topic: sample
@@ -12,7 +12,7 @@ ms.custom: subject-policy-compliancecontrols, devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 [Regulatory Compliance in Azure Policy](../../governance/policy/concepts/regulatory-compliance.md)
 provides Microsoft created and managed initiative definitions, known as _built-ins_, for the

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Monitor Azure Spring Apps resources using alerts and action groups"
+title: "Tutorial: Monitor Azure Spring Apps Resources Using Alerts and Action Groups"
 description: Learn how to monitor Spring app resources using alerts and action groups in Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
@@ -13,9 +13,9 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article describes how to monitor Spring app resources using alerts and action groups in Azure Spring Apps.
 

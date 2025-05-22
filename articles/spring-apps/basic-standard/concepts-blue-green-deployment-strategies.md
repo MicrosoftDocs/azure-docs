@@ -1,5 +1,5 @@
 ---
-title:  "Blue-green deployment strategies in Azure Spring Apps"
+title:  "Blue-Green Deployment Strategies in Azure Spring Apps"
 description: This topic explains two approaches to blue-green deployments in Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article describes the blue-green deployment support in Azure Spring Apps.
 

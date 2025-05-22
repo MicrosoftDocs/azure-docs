@@ -3,7 +3,7 @@ title: 'Quickstart: Generate rich reports for Playwright tests'
 description: 'This quickstart shows how to troubleshoot your test runs using Microsoft Playwright Testing Preview.'
 ms.topic: quickstart
 ms.date: 09/23/2024
-ms.custom: playwright-testing-preview
+ms.custom: playwright-testing-preview, ignite-2024
 zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
@@ -54,7 +54,7 @@ When the workspace creation finishes, you're redirected to the setup guide.
 To use the service, install the Microsoft Playwright Testing package. 
 
 ```npm
-npm init @azure/microsoft-playwright-testing
+npm init @azure/microsoft-playwright-testing@latest
 ```
 > [!NOTE]
 > Make sure your project uses `@playwright/test` version 1.47 or above.

@@ -1,12 +1,12 @@
 ---
 title: Create Consumption logic app templates for deployment
-description: Create Azure Resource Manager templates to automat deployment for Consumption logic apps in Azure Logic Apps.
+description: Create Azure Resource Manager templates to automate deployment for Consumption logic apps in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
-ms.date: 01/04/2024
+ms.date: 02/19/2025
 ---
 
 # Create Azure Resource Manager templates to automate Consumption logic app deployment for Azure Logic Apps
@@ -25,17 +25,6 @@ For more information about Azure Resource Manager templates, see the following t
 * [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md)
 * [Author Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md)
 * [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/template-cloud-consistency.md)
-
-<a name="visual-studio"></a>
-
-## Create templates with Visual Studio
-
-For the easiest way to create valid parameterized logic app templates that are mostly ready for deployment, use Visual Studio (free Community edition or greater) and the Azure Logic Apps Tools for Visual Studio. You can then either [create your logic app in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [find and download an existing logic app from the Azure portal into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
-
-By downloading your logic app, you get a template that includes the definitions for your logic app and other resources such as connections. The template also *parameterizes*, or defines parameters for, the values used for deploying your logic app and other resources. You can provide the values for these parameters in a separate parameters file. That way, you can more easily change these values based on your deployment needs. For more information, see these topics:
-
-* [Create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
-* [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 
 <a name="azure-powershell"></a>
 

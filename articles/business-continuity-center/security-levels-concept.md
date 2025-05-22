@@ -2,12 +2,13 @@
 title: Security levels in Azure Business Continuity center
 description: An overview of the levels of Security available in Azure Business Continuity center.
 ms.topic: overview
-ms.date: 09/11/2024
+ms.date: 11/19/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 # About Security levels
 

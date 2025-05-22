@@ -1,16 +1,17 @@
 ---
 title: Compare the pricing of Azure CDN Standard Microsoft and Azure Front Door
 description: This article compares the pricing of Azure CDN Standard Microsoft (classic) and Azure Front Door.
-services: frontdoor
-author: duongau
-ms.service: azure-frontdoor
-ms.topic: conceptual
-ms.date: 05/11/2024
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 ms.reviewer: harishk
+ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 05/11/2024
 ---
 
 # Compare the pricing of Azure CDN Standard Microsoft and Azure Front Door
+
+**Applies to:** :heavy_check_mark: CDN Standard from Microsoft (classic)
 
 > [!NOTE]
 > The prices presented in this article serves as examples and are intended solely for illustration purposes only. For region-specific pricing information, see the pricing pages of [Azure Front Door](https://azure.microsoft.com/pricing/details/frontdoor/) and [Azure CDN](https://azure.microsoft.com/pricing/details/cdn).
@@ -70,7 +71,7 @@ The following steps provide are general guide for obtaining the necessary metric
 | Base fee | $0 | $35 |
 | Egress from Azure Front Door edge to client | $405 (calculated as 5 TB * $0.081/GB) | $415 (calculated as 5 TB * $0.083/GB) |
 | Egress from Azure Front Door edge to origin | $0 | $0.05 (calculated as 2.5 GB * $0.02/GB) | 
-| Requests | $0 | $90 (calcluated as 100M requests * $0.009/10k requests) |
+| Requests | $0 | $90 (calculated as 100M requests * $0.009/10k requests) |
 | Total | $405 | $540.05 |
 
 In this scenario, Azure Front Door Standard is approximately 33% more expensive than Azure CDN Standard from Microsoft (classic) due to extra charges associated with the base fee and requests meter.

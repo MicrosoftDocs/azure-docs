@@ -230,7 +230,7 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
     $DiskLabel = "$SAPSID" + "SAP"
     
     Get-Disk -Number $DiskNumber | Where-Object PartitionStyle -Eq "RAW" | Initialize-Disk -PartitionStyle GPT -PassThru |  New-Partition -DriveLetter $DriveLetter -UseMaximumSize | Format-Volume  -FileSystem ReFS -NewFileSystemLabel $DiskLabel -Force -Verbose
-    # Example outout
+    # Example output
     # DriveLetter FileSystemLabel FileSystem DriveType HealthStatus OperationalStatus SizeRemaining      Size
     # ----------- --------------- ---------- --------- ------------ ----------------- -------------      ----
     # S           PR2SAP          ReFS       Fixed     Healthy      OK                    504.98 GB 511.81 GB

@@ -4,7 +4,7 @@ description: Learn how to configure function app settings in Azure Functions.
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 11/11/2024
-ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ---
 

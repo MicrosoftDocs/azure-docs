@@ -1,18 +1,19 @@
 ---
 title: What is centrally managed Azure Hybrid Benefit for SQL Server?
-description: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure.
-author: bandersmsft
-ms.author: banders
-ms.date: 11/11/2024
+description: Azure Hybrid Benefit an Azure discount that lets you allocate your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure.
+author: pri-mittal
+ms.author: primittal
+ms.date: 04/07/2025
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
-ms.reviewer: chrisrin
+ms.reviewer: primittal
+ms.custom: cpx
 ---
 
 # What is centrally managed Azure Hybrid Benefit for SQL Server?
 
-Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance or subscription-enabled Windows Server and SQL Server licenses on Azure. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Azure Hybrid Benefit an Azure discount that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance or subscription-enabled Windows Server and SQL Server licenses on Azure. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 You can centrally manage your Azure Hybrid Benefit for SQL Server across the scope of an entire Azure subscription or overall billing account. To quickly learn how it works, watch the following video.
 
@@ -94,7 +95,7 @@ You get the following benefits:
 
 ## How licenses apply to Azure resources
 
-Both SQL Server Enterprise (core) and SQL Server Standard (core) licenses with Software Assurance qualify but, as described in the [Microsoft Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzureServices/EAEAS), different conversion ratios apply when you bring them to Azure with Azure Hybrid Benefit.
+Both SQL Server Enterprise (core) and SQL Server Standard (core) licenses with Software Assurance qualify but, as described in the [Microsoft Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzureServices/EAEAS), different conversion ratios apply when you allocate them to Azure with Azure Hybrid Benefit.
 
 One rule to understand: One SQL Server Enterprise Edition license has the same coverage as _four_ SQL Server Standard Edition licenses, across all qualified Azure SQL resource types.
 

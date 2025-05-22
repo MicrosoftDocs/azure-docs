@@ -1,5 +1,5 @@
 ---
-title: How to connect an Azure Database for MySQL instance to your application in Azure Spring Apps
+title: How to Connect an Azure Database for MySQL Instance to Your Application in Azure Spring Apps
 description: Learn how to connect an Azure Database for MySQL instance to your application in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -13,9 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java, passwordless-java, service
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 With Azure Spring Apps, you can connect selected Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to connect your application to your Azure Database for MySQL instance.
 
@@ -29,7 +29,7 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
 
 ### [Java](#tab/Java)
 
-1. In your project's *pom.xml* file, add the following dependency:
+1. In your project's **pom.xml** file, add the following dependency:
 
    ```xml
    <dependency>
@@ -42,7 +42,7 @@ With Azure Spring Apps, you can connect selected Azure services to your applicat
    </dependency>
    ```
 
-1. In the *application.properties* file, remove any `spring.datasource.*` properties.
+1. In the **application.properties** file, remove any `spring.datasource.*` properties.
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 

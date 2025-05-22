@@ -1,15 +1,15 @@
 ---
-title: "HackerView Intergration (using Azure Functions) connector for Microsoft Sentinel"
-description: "Learn how to install the connector HackerView Intergration (using Azure Functions) to connect your data source to Microsoft Sentinel."
+title: "HackerView Integration (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector HackerView Integration (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
 ---
 
-# HackerView Intergration (using Azure Functions) connector for Microsoft Sentinel
+# HackerView Integration (using Azure Functions) connector for Microsoft Sentinel
 
 Through the API integration, you have the capability to retrieve all the issues related to your HackerView organizations via a RESTful interface.
 
@@ -38,7 +38,7 @@ HackerViewLog_Azure_1_CL
 
 ## Prerequisites
 
-To integrate with HackerView Intergration (using Azure Functions) make sure you have: 
+To integrate with HackerView Integration (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 
@@ -90,7 +90,8 @@ Use the following step-by-step instructions to deploy the CTM360 CBS data connec
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> [!NOTE]
+> You will need to [prepare VS Code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://raw.githubusercontent.com/CTM360-Integrations/Azure-Sentinel/ctm360-HV-CBS-azurefunctionapp/Solutions/CTM360/Data%20Connectors/HackerView/AzureFunctionCTM360_HV.zip) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

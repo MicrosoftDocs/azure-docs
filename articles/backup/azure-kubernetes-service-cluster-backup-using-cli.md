@@ -3,17 +3,18 @@ title: Back up Azure Kubernetes Service (AKS) using Azure CLI
 description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 02/27/2024
+ms.date: 01/30/2025
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Kubernetes Service using Azure CLI 
 
-This article describes how to configure and back up Azure Kubernetes Service (AKS) using Azure CLI.
+This article describes how to configure and back up Azure Kubernetes Service (AKS) using Azure CLI. You can also back up AKS using [Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md).
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
 
@@ -213,6 +214,23 @@ Once the vault and policy creation are complete, you need to perform the followi
    az k8s-extension create --name azure-aks-backup --extension-type microsoft.dataprotection.kubernetes --scope cluster --cluster-type managedClusters --cluster-name $akscluster --resource-group $aksclusterresourcegroup --release-train stable --configuration-settings blobContainer=$blobcontainer storageAccount=$storageaccount storageAccountResourceGroup=$storageaccountresourcegroup storageAccountSubscriptionId=$subscriptionId
    ```
 
+  In case the AKS cluster is within a virtual network, then you will have to create a private endpoint, connecting thw storage account with the virtual network in which the AKS cluster resides.
+
+  ```azurecli
+  #Fetch the Subnet ID using the name of the virtual network and subnet in which cluster resides 
+  $PESubnetId = az network vnet subnet show --resource-group $aksMCResourceGroup --vnet-name $aksVnetName  --name $PESubnetName --query 'id' --output tsv
+
+  #Create a Private Endpoint between Storage Account and the Virtual Network.
+  az network private-endpoint create `
+    --resource-group $aksclusterresourcegroup `
+    --name $StoragePrivateEndpoint `
+    --vnet-name $aksVnetName `
+    --subnet $PESubnetId `
+    --private-connection-resource-id $(az storage account show --nameD $storageaccount --resource-group $storageaccountresourcegroup --query "id" --output tsv) `
+    --group-ids "blob" `
+    --connection-name "StoragePESharedVNetConnection"
+  ```
+
    As part of extension installation, a user identity is created in the AKS cluster's Node Pool Resource Group. For the extension to access the storage account, you need to provide this identity the **Storage Blob Data Contributor** role. To assign the required role, run the following command:
 
    ```azurecli
@@ -253,7 +271,7 @@ The configuration of backup is performed in two steps:
     "snapshot_volumes": true
    }
    ```
-The following namespaces are skipped from backup configuration and not cofigured for backups: kube-system, kube-node-lease, kube-public.
+The following namespaces are skipped from backup configuration and not configured for backups: kube-system, kube-node-lease, kube-public.
 
 2. Prepare the relevant request using the relevant vault, policy, AKS cluster, backup configuration, and snapshot resource group using the `az dataprotection backup-instance initialize` command.
 
@@ -324,6 +342,6 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureKubernetesS
 
 ## Next steps
 
-- [Restore Azure Kubernetes Service cluster using Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
+- Restore Azure Kubernetes Service cluster using [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md), [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md)
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)

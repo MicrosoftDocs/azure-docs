@@ -1,11 +1,8 @@
 ---
 title: Build a business case or assess servers using an imported CSV file
 description: Describes how to discover on-premises servers for migration to Azure using an imported CSV file in Azure Migrate
-author: rashi-ms
-ms.author: rajosh
-ms.manager: ronai
 ms.topic: tutorial
-ms.date: 08/21/2024
+ms.date: 02/07/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy25
 
@@ -88,7 +85,7 @@ Set up a new Azure Migrate project if you don't have one.
 2. Under **Services**, select **Azure Migrate**.
 3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
    ![Boxes for project name and region](./media/tutorial-discover-import/new-project.png)  
     > [!Note]

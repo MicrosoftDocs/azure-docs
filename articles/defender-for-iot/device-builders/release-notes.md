@@ -15,6 +15,10 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
 
+## November 2024
+
+The firmware analysis documentation is now located and maintained as part of the Azure documentation. See the full [firmware analysis documentation](/azure/firmware-analysis/overview-firmware-analysis).
+
 ## August 2024
 
 Defender for IoT plans to retire the micro agent on August 1, 2025.
@@ -117,7 +121,7 @@ When upgrading the micro agent from version 4.2.* to 4.6.2, you would first need
 
 **Micro agent GA announcement**
 
-Azure Defender for IoT micro agent is now generally available.
+Microsoft Defender for IoT micro agent is now generally available.
 
 ## July 2022
 

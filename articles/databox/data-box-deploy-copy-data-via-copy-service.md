@@ -9,6 +9,7 @@ ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 05/28/2024
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Use the data copy service to copy data into Azure Data Box
@@ -30,13 +31,30 @@ In this tutorial, you learn how to:
 > * Copy data to Data Box
 
 ## Prerequisites
+:::zone pivot="dbx"
+Before you begin, make sure that:
 
-Before you begin this tutorial:
+* You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+* You've received your Data Box and the order status in the portal is **Delivered**.
+* Ensure that you have the credentials of the NAS device containing your source data.
+* You have a host computer that has the data that you want to copy over to Data Box. Your host computer must:
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds are impacted.
 
-1. Complete the [Set up Azure Data Box](data-box-deploy-set-up.md) tutorial.
-2. Ensure that your Data Box device is delivered, and the order status in the portal is **Delivered**.
-3. Ensure that you have the credentials of the NAS device containing your source data.
-4. Ensure that you're connected to a high-speed network. We strongly recommend that you have at least one 10-Gigabit Ethernet (GbE) connection. You can use a 1-GbE data link if a 10-GbE connection isn't available, but copy speed is affected.
+:::zone-end
+
+:::zone pivot="dbx-ng"
+Before you begin, make sure that:
+
+* You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+* You've received your Data Box and the order status in the portal is **Delivered**.
+* Ensure that you have the credentials of the NAS device containing your source data.
+* You have a host computer that has the data that you want to copy over to Data Box. Your host computer must:
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available, use a 10-GbE or 1-GbE data link but the copy speeds are impacted.
+
+:::zone-end
+
 
 ## Copy data to Data Box
 

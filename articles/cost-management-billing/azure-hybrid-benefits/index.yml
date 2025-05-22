@@ -9,10 +9,10 @@ metadata:
   description: Learn about the Azure Hybrid Benefit product and deployment documentation.
   ms.service: cost-management-billing
   ms.topic: hub-page
-  author: bandersmsft
-  ms.author: banders
-  ms.reviewer: kyleikeda
-  ms.date: 06/04/2024
+  author: pri-mittal
+  ms.author: primittal
+  ms.reviewer: primittal
+  ms.date: 01/21/2025
 
 highlightedContent:
 # top-level single cards with predefined symbols
@@ -46,14 +46,14 @@ additionalContent:
         # Card
         - title: Additional guidance and benefits
           links:
-            - text: Explore Azure Hybrid Benefit for Windows Server VMs in Azure, Stack HCI, and AKS
+            - text: Explore Azure Hybrid Benefit for Windows Server VMs in Azure, Azure Local, and AKS
               url: /windows-server/get-started/azure-hybrid-benefit
         # Card
         - title: Deployment options
           links:
             - text: Azure Hybrid Benefit for Azure Kubernetes Service - AKS hybrid
               url: /azure/aks/hybrid/azure-hybrid-benefit
-            - text: Azure Hybrid Benefit for Azure Stack HCI - Azure Stack HCI
+            - text: Azure Hybrid Benefit for Azure Local
               url: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
             - text: License SQL Server, Windows Server, and Linux in Azure VMware Solution
               url: ../../azure-vmware/license-sql-windows-in-avs.md

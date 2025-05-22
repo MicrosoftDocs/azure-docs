@@ -13,9 +13,9 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 As a developer, you might find the following Azure Spring Apps resources useful:
 
@@ -23,7 +23,7 @@ As a developer, you might find the following Azure Spring Apps resources useful:
 * [Frequently asked questions](./faq.md)
 * [Troubleshooting guide](./troubleshoot.md)
 * [Microsoft Q&A question page](/answers/topics/azure-spring-cloud.html)
-* [Service Registry with Spring Cloud Services](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/3.1/spring-cloud-services/GUID-service-registry-index.html)
+* [Service Registry with Spring Cloud Services](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/spring-cloud-services-for-cloud-foundry/3-2/scs-tanzu/service-registry-index.html)
 * [Steeltoe](https://steeltoe.io/)
 * [Spring](https://spring.io/)
 * [Spring Cloud Azure](https://spring.io/projects/spring-cloud-azure)

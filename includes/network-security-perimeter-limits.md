@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 10/28/2024
  ms.author: mbender-ms
- ms.custom: include file
+ms.custom: include file, ignite-2024
 ---
 
 ### Scale limitations
@@ -18,7 +18,7 @@ Network security perimeter functionality can be used to support deployments of P
 |-----------------|-----------------|
 | **Number of network security perimeters**  | Supported up to 100 as recommended limit per subscription. |
 | **Profiles per network security perimeters** | Supported up to 200 as recommended limit. |
-| **Number of rule elements per profile** | Supported up to 200 as hard limit. |
+| **Number of rule elements per profile** | Supported up to 200 for inbound and outbound each as hard limit. |
 | **Number of PaaS resources across subscriptions associated with the same network security perimeter** | Supported up to 1000 as recommended limit. |
 
 ### Other limitations

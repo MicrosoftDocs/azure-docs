@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Connect to a managed Admin for Spring in Azure Container Apps"
+title: "Connect to a managed Admin for Spring in Azure Container Apps"
 description: Learn how to use a managed Admin for Spring in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.date: 07/15/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Connect to a managed Admin for Spring in Azure Container Apps
+# Connect to a managed Admin for Spring in Azure Container Apps
 
 The Admin for Spring managed component offers an administrative interface for Spring Boot web applications that expose actuator endpoints. As a managed component in Azure Container Apps, you can easily bind your container app to Admin for Spring for seamless integration and management.
 
@@ -280,6 +280,9 @@ az containerapp update \
 > [!IMPORTANT]
 > To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
 
+> [!NOTE]
+> The dashboard isn't available in Azure China 21Vianet.
+
 1. Create the custom role definition.
 
    ```azurecli
@@ -356,6 +359,14 @@ When you use the admin component in your own container app, you need to add the 
 </dependency>
 ```
 
+> [!NOTE]
+> You don't have to add the admin starter client dependency for Spring Boot Admin if you enable Java agent in your container app by running the following command in Azure CLI:
+> ```azurecli
+> az containerapp update --enable-java-agent \
+> --resource-group $RESOURCE_GROUP \
+> --name $APP_NAME
+> ```
+
 ## Configurable properties
 
 Starting with Spring Boot 2, endpoints other than `health` and `info` aren't exposed by default. You can expose them by adding the following configuration in your **application.properties** file.
@@ -414,6 +425,10 @@ The following list details the admin component properties you can configure for 
   - [**logging.level.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-levels)
   - [**logging.group.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-groups)
   - Any other configurations under `logging.*` namespace should be forbidden. For example, writing log files by using `logging.file` should be forbidden.
+
+## Limitations
+
+- The Spring Boot Admin Dashboard isn't available in Azure China 21Vianet.
 
 ## Related content
 

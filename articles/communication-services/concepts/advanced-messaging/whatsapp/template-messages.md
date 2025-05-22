@@ -1,7 +1,7 @@
 ---
 title: Send WhatsApp template messages
 titleSuffix: An Azure Communication Services Advanced Messaging concept
-description: In this concept, you learn the various ways to send WhatsApp template messages with Advanced Messaging.
+description: In this concept, you learn the basics to send WhatsApp template messages with Advanced Messaging.
 author: Shamkh
 manager: camilo.ramirez
 services: azure-communication-services
@@ -30,45 +30,51 @@ For further WhatsApp requirements on templates, refer to the WhatsApp Business P
 
 ## Choosing a template
 
-When a WhatsApp Business Account is [created through the Azure portal during embedded signup](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md#whatsapp-business-account-sign-up), a set of sample templates may be automatically available for you to try out. See the usage for a few of these sample templates at [Examples](#examples).   
+When you create a WhatsApp Business Account [through the Azure portal during embedded signup](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md#whatsapp-business-account-sign-up), a set of sample templates are available to you. 
 
 ### Create template
 
-To create your own templates, use the Meta WhatsApp Manager. 
+To create your own templates, use the Meta WhatsApp Manager.
+
 Follow the instructions in the Meta Business Help Center at [Create message templates for your WhatsApp Business account](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343).
 
 ### List templates
 
-You can view your templates in the Azure portal by going to your Azure Communication Service resource > Templates.
+You can view your templates in the Azure portal by going to your Azure Communication Service resource > **Templates**.
 
-:::image type="content" source="./media/template-messages/list-templates-azure-portal.png" lightbox="./media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Templates' tab.":::
+:::image type="content" source="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/list-templates-azure-portal.png" lightbox="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Templates' tab.":::
 
-By selecting a template, you can view the template details.   
-The `content` field of the template details may include parameter bindings. The parameter bindings can be denoted as:
-- A "format" field with a value such as `IMAGE`.
+Select a template to view the details.
+
+The `content` field of the template details can include parameter bindings. The parameter bindings can be denoted as:
+- A `format` field with a value such as `IMAGE`.
 - Double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
 
-:::image type="content" source="./media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="./media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
+:::image type="content" source="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
 
 Alternatively, you can view and edit all of your WhatsApp Business Account's templates in the [WhatsApp Manager](https://business.facebook.com/wa/manage/home/) > Account tools > [Message templates](https://business.facebook.com/wa/manage/message-templates/). 
 
 To list out your templates programmatically, you can fetch all templates for your channel ID:
 
-[!INCLUDE [List templates with .NET](./includes/template-messages-list-templates-net.md)]
+[!INCLUDE [List templates with .NET](../../../quickstarts/advanced-messaging/whatsapp/includes/templates/template-messages-list-templates-net.md)]
 
 ## Quick reference
 
-[!INCLUDE [Template usage quick reference with .NET](./includes/template-messages-quick-reference-net.md)]
+The `sample_template` takes no parameters.
 
-## Examples
+:::image type="content" source="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-template-details-azure-portal.png" lightbox="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
 
-These examples utilize sample templates available to WhatsApp Business Accounts created through the Azure portal embedded signup.
+Assemble the `MessageTemplate` by referencing the target template's name and language.
 
-[!INCLUDE [Template examples with .NET](./includes/template-messages-examples-net.md)]
+```csharp
+string templateName = "sample_template"; 
+string templateLanguage = "en_us"; 
 
-## Full code example
+var sampleTemplate = new MessageTemplate(templateName, templateLanguage); 
+```
 
-[!INCLUDE [Full code example with .NET](./includes/template-messages-full-code-example-net.md)]
+For detailed examples and template supported scenarios by Advanced Messages SDK, see:
+- [WhatsApp Template Quickstart](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)
 
 ## Next steps
 

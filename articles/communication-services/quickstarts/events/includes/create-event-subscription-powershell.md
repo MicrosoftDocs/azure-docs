@@ -12,7 +12,7 @@ ms.author: pgrandhi
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - Install the [Azure Az PowerShell Module](/powershell/azure/).
 - An [Azure Communication Services resource](../../create-communication-resource.md).
-- Create a Webhook to receive events. See [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md).
+- To receive events, create a Webhook. See [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md).
 
 
 [!INCLUDE [register-provider-powershell.md](register-provider-powershell.md)]
@@ -86,4 +86,4 @@ Get-AzResource
 
 ## Next steps
 
-* For information on other commands, see [Az.EventGrid PowerShell Module](/powershell/module/az.eventgrid/new-azeventgridsubscription).
+- For information on other commands, see [Az.EventGrid PowerShell Module](/powershell/module/az.eventgrid/new-azeventgridsubscription).

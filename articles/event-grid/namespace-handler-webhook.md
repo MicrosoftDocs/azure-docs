@@ -2,6 +2,8 @@
 title: Webhook event handler for namespace topics' push delivery
 description: Describes how you can use webhooks as event handlers for Azure Event Grid namespace topics' push delivery.
 ms.topic: concept-article
+ms.custom:
+  - ignite-2024
 ms.date: 11/18/2024
 ms.author: robece
 # Customer intent: As a developer, I want to whether I can push events from a namespace topic to a Webhook.
@@ -19,7 +21,7 @@ If your webhook endpoint is known by malicious actors, they could exploit attack
 
 >[!IMPORTANT]
 >Event Grid doesn't support the following functionality when [validating webhooks](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#41-validation-request):
->- `WebHook-Request-Callback`. That means that you or your webhook cannot respond asyncronously to Event Grid's validation request.
+>- `WebHook-Request-Callback`. That means that you or your webhook cannot respond asynchronously to Event Grid's validation request.
 >- `WebHook-Request-Rate`. That is, Event Grid does not request a data rate at which it communicates with your webhook endpoint. If your webhook responds with a `WebHook-Allowed-Rate`header, it is ignored.
 
 ## Webhooks

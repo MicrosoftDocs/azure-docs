@@ -1,31 +1,36 @@
 ---
-title: 'Connect your on-premises network to an Azure virtual network: site-to-site VPN: PowerShell'
-description: Learn how to create a site-to-site VPN Gateway connection between your on-premises network and an Azure virtual network using PowerShell.
+title: Create S2S VPN connection - shared key authentication - Azure PowerShell
+description: Learn how to create a site-to-site VPN Gateway IPsec connection between your on-premises network and a virtual network using shared key authentication and PowerShell.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 03/25/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---
-# Create a site-to-site VPN connection using PowerShell
+# Create a site-to-site VPN connection - Azure PowerShell
 
-This article shows you how to use PowerShell to create a site-to-site VPN gateway connection from your on-premises network to a virtual network (VNet). The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
+This article shows you how to use PowerShell to create a site-to-site VPN gateway connection from your on-premises network to a virtual network (VNet).
 
-A site-to-site VPN gateway connection is used to connect your on-premises network to an Azure virtual network over an IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
+A site-to-site VPN gateway connection is used to connect your on-premises network to an Azure virtual network over an IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. The steps in this article create a connection between the VPN gateway and the on-premises VPN device using a shared key. For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram of site-to-site VPN Gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
 
-## Prerequisites
+## Before you begin
 
-Verify that your environment meets the following criteria before beginning your configuration:
+Verify that your environment meets the following criteria before beginning configuration:
 
 * Verify that you have a functioning route-based VPN gateway. To create a VPN gateway, see [Create a VPN gateway](create-gateway-powershell.md).
-* Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
-* Verify that you have an externally facing public IPv4 address for your VPN device.
-* If you're unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure routes to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
+
+* If you're unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure routes to your on-premises location. None of the subnets of your on-premises network can overlap with the virtual network subnets that you want to connect to.
+
+* VPN devices:
+  * Make sure you have a compatible VPN device and someone who can configure it. For more information about compatible VPN devices and device configuration, see [About VPN devices](vpn-gateway-about-vpn-devices.md).
+  * Determine if your VPN device supports active-active mode gateways. This article creates an active-active mode VPN gateway, which is recommended for highly available connectivity. Active-active mode specifies that both gateway VM instances are active. This mode requires two public IP addresses, one for each gateway VM instance. You configure your VPN device to connect to the IP address for each gateway VM instance.<br>If your VPN device doesn't support this mode, don't enable this mode for your gateway. For more information, see [Design highly available connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md) and [About active-active mode VPN gateways](about-active-active-gateways.md).
+
+* If your virtual network gateway and local network gateway reside in different subscriptions and different tenants, you'll need to use slightly different steps. Review the [Connections with different tenants and different subscriptions](#tenants).
 
 ### Azure PowerShell
 
@@ -51,15 +56,15 @@ Select one of the following examples. The values used in the examples are:
 
   ```azurepowershell-interactive
   New-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -GatewayIpAddress '[IP address of your on-premises VPN device]' -AddressPrefix @('192.168.0.0/24','10.0.0.0/24')
+  -Location 'East US' -GatewayIpAddress '[IP address of your on-premises VPN device]' -AddressPrefix @('10.3.0.0/16','10.0.0.0/24')
   ```
 
 ## <a name="ConfigureVPNDevice"></a>Configure your VPN device
 
 Site-to-site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following items:
 
-* A shared key. You'll use this shared key both when you configure your VPN device, and when you create your site-to-site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use. The important thing is that the key is the same on both sides of the connection.
-* The public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the public IP address of your virtual network gateway using PowerShell, use the following example. In this example, VNet1GWpip1 is the name of the public IP address resource that you created in an earlier step.
+* **Shared key**: This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a simple shared key. We recommend that you generate a more complex key to use.
+* **Public IP addresses of your virtual network gateway instances**: Obtain the IP address for each VM instance. If your gateway is in active-active mode, you'll have an IP address for each gateway VM instance. Be sure to configure your device with both IP addresses, one for each active gateway VM. Active-standby mode gateways have only one IP address. In the example, VNet1GWpip1 is the name of the public IP address resource.
 
   ```azurepowershell-interactive
   Get-AzPublicIpAddress -Name VNet1GWpip1 -ResourceGroupName TestRG1
@@ -69,9 +74,9 @@ Site-to-site connections to an on-premises network require a VPN device. In this
 
 ## <a name="CreateConnection"></a>Create the VPN connection
 
-Create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device. If you're using an active-active mode gateway (recommended), each gateway VM instance has a separate IP address. To properly configure [highly available connectivity](vpn-gateway-highlyavailable.md), you must establish a tunnel between each VM instance and your VPN device. Both tunnels are part of the same connection.
+Create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device. If you're using an active-active mode gateway (recommended), each gateway VM instance has a separate IP address. To properly configure [highly available connectivity](vpn-gateway-highlyavailable.md), you must establish a tunnel between each VM instance and your VPN device. Both tunnels are part of the same connection. If your local network gateway and virtual network gateway reside in different subscriptions and different tenants, see the [Connections with different tenants and different subscriptions](#tenants) section.
 
-Be sure to replace the values in the examples with your own. The shared key must match the value you used for your VPN device configuration. Notice that the '-ConnectionType' for site-to-site is **IPsec**.
+The shared key must match the value you used for your VPN device configuration. Notice that the '-ConnectionType' for site-to-site is **IPsec**.
 
 1. Set the variables.
 
@@ -87,6 +92,27 @@ Be sure to replace the values in the examples with your own. The shared key must
    -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
    -ConnectionType IPsec -SharedKey 'abc123'
    ```
+
+### <a name="tenants"></a>Connections with different tenants and different subscriptions
+
+When the virtual network gateway and the local network gateway reside in different subscriptions and in different tenants, the connection commands need to be specified differently than in the previous section.
+
+For the LocalNetworkGateway that resides in Tenant 2, Subscription 2, use the following commands. Adjust any variables to match your environment.
+
+```azurepowershell-interactive
+Connect-AzAccount -TenantID $Tenant2
+Select-AzSubscription -SubscriptionId $subscription2
+$local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+```
+
+For the VirtualNetworkGateway that resides in Tenant 1, Subscription 1, use the following commands. Adjust any variables to match your environment.
+
+```azurepowershell-interactive
+Connect-AzAccount -TenantID $Tenant1
+Select-AzSubscription -SubscriptionId $subscription1
+$gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -SharedKey 'abc123'
+```
 
 ## <a name="toverify"></a>Verify the VPN connection
 

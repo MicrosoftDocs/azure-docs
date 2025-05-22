@@ -1,5 +1,5 @@
 ---
-title: Connect an Azure Cosmos DB to your application in Azure Spring Apps
+title: Connect an Azure Cosmos DB to Your Application in Azure Spring Apps
 description: Learn how to connect Azure Cosmos DB to your application in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -13,9 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java, service-connector
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 Instead of manually configuring your Spring Boot applications, you can automatically connect selected Azure services to your applications by using Azure Spring Apps. This article demonstrates how to connect your application to an Azure Cosmos DB database.
 
@@ -29,7 +29,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 ### [Java](#tab/Java)
 
-1. Add one of the following dependencies to your application's *pom.xml* file. Choose the dependency that is appropriate for your API type.
+1. Add one of the following dependencies to your application's **pom.xml** file. Choose the dependency that is appropriate for your API type.
 
    * API type: NoSQL
 

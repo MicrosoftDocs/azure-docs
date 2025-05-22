@@ -1,10 +1,10 @@
 ---
 title: Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desktop - Azure
 description: How to install language packs for Windows 11 Enterprise VMs in Azure Virtual Desktop.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 09/20/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 # Add languages to a Windows 11 Enterprise image
@@ -87,7 +87,7 @@ You can create a custom image by following these steps:
    $CSVFile = "Windows-10-1809-FOD-to-LP-Mapping-Table.csv"
    $filePath = (Get-Location).Path + "\$CSVFile"
 
-   ##Import Necesarry CSV File##
+   ##Import Necessary CSV File##
    $FODList = Import-Csv -Path $filePath -Delimiter ";"
 
    ##Set Language (Target)##

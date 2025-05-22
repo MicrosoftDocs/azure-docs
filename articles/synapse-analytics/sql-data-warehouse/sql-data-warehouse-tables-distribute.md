@@ -1,9 +1,8 @@
 ---
 title: Distributed tables design guidance
 description: Recommendations for designing hash-distributed and round-robin distributed tables using dedicated SQL pool.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: mariyaali
+author: mariyaali
+ms.author: mariyaali
 ms.date: 07/19/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

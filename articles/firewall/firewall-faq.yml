@@ -3,186 +3,269 @@ metadata:
   title: Azure Firewall FAQ
   description: FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources.
   services: firewall
-  author: vhorne
+  author: duongau
   ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
   ms.topic: faq
-  ms.date: 02/29/2024
-  ms.author: victorh
+  ms.date: 04/10/2025
+  ms.author: duau
 title: Azure Firewall FAQ
 summary: |
 
 sections:
-  - name: Ignored
+  - name: General
     questions:
       - question: What is Azure Firewall?
-        answer: Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
-
-      - question: What capabilities are supported in Azure Firewall?
         answer: |
-          To learn about Azure Firewall features, see [Azure Firewall features](features.md).
+          Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
+
+      - question: What capabilities does Azure Firewall support?
+        answer: |
+          For a detailed list of Azure Firewall features, see [Azure Firewall features](features.md).
 
       - question: What is the typical deployment model for Azure Firewall?
         answer: |
-          You can deploy Azure Firewall on any virtual network, but customers typically deploy it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network. Global VNet peering is supported, but it isn't recommended because of potential performance and latency issues across regions. For best performance, deploy one firewall per region.
+          Azure Firewall can be deployed on any virtual network. However, it's typically deployed on a central virtual network in a hub-and-spoke model, with other virtual networks peered to it. The default route from the peered virtual networks is set to point to this central firewall virtual network. While global virtual network peering is supported, it isn't recommended due to potential performance and latency issues across regions. For optimal performance, deploy one firewall per region.
 
-          The advantage of this model is the ability to centrally exert control on multiple spoke VNETs across different subscriptions. There are also cost savings as you don't need to deploy a firewall in each VNet separately. The cost savings should be measured versus the associate peering cost based on the customer traffic patterns.
+          This model allows centralized control over multiple spoke VNets across different subscriptions and offers cost savings by avoiding the need to deploy a firewall in each virtual network. Cost savings should be evaluated against the associated peering costs based on traffic patterns.
 
-      - question: How can I install the Azure Firewall?
+      - question: How can I deploy Azure Firewall?
         answer: |
-          You can set up Azure Firewall by using the Azure portal, PowerShell, REST API, or by using templates. See [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md) for step-by-step instructions.
+          Azure Firewall can be deployed using the Azure portal, PowerShell, REST API, or templates. For step-by-step instructions, see [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md).
 
-      - question: What are some Azure Firewall concepts?
+      - question: What are some key Azure Firewall concepts?
         answer: |
-          Azure Firewall supports rules and rule collections. A rule collection is a set of rules that share the same order and priority. Rule collections are executed in order of their priority. DNAT rule collections are higher priority network rule collections,  which are higher priority than application rule collections, and all rules are terminating.
+          Azure Firewall uses rules and rule collections. A rule collection is a set of rules with the same order and priority. Rule collections are executed in priority order. DNAT rule collections have higher priority than network rule collections, which in turn have higher priority than application rule collections. All rules are terminating.
 
           There are three types of rule collections:
-
-          * *Application rules*: Configure fully qualified domain names (FQDNs) that can be accessed from a Virtual Network.
-          * *Network rules*: Configure rules that contain source addresses, protocols, destination ports, and destination addresses.
-          * *NAT rules*: Configure DNAT rules to allow incoming Internet or intranet (preview) connections.
+          - **Application rules**: Configure fully qualified domain names (FQDNs) that can be accessed from a virtual network.
+          - **Network rules**: Configure rules with source addresses, protocols, destination ports, and destination addresses.
+          - **NAT rules**: Configure DNAT rules to allow incoming Internet or intranet (preview) connections.
 
           For more information, see [Configure Azure Firewall rules](rule-processing.md).
 
-      - question: Does Azure Firewall support inbound traffic filtering?
-        answer: |
-          Azure Firewall supports inbound and outbound filtering. Inbound protection is typically used for non-HTTP protocols like RDP, SSH, and FTP protocols. For inbound HTTP and HTTPS protection, use a web application firewall such as [Azure Web Application Firewall (WAF)](../web-application-firewall/overview.md) or the TLS offload and deep packet inspection capabilities of [Azure Firewall Premium](./premium-features.md).
-      
-      - question: Does Azure Firewall Basic support forced tunneling?
-        answer: |
-         Yes,  Azure Firewall Basic supports forced tunneling.
-
       - question: Which logging and analytics services does Azure Firewall support?
         answer: |
-          Azure Firewall is integrated with Azure Monitor for viewing and analyzing firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. For more information, see [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md).
+          Azure Firewall integrates with Azure Monitor for viewing and analyzing logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs and analyzed using tools like Log Analytics, Excel, or Power BI. For more information, see [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md).
 
-      - question: How does Azure Firewall work differently from existing services such as NVAs in the marketplace?
-        answer: Azure Firewall is a managed, cloud-based network security service that protects your virtual network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It's pre-integrated with third-party security as a service (SECaaS) providers to provide advanced security for your virtual network and branch Internet connections. To learn more about Azure network security, see [Azure network security](../networking/security/index.yml).
-
+      - question: How does Azure Firewall differ from NVAs in the marketplace?
+        answer: |
+          Azure Firewall is a managed, cloud-based network security service that protects virtual network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. It's preintegrated with third-party security-as-a-service (SECaaS) providers to enhance security for virtual network and branch Internet connections. For more information, see [Azure network security](../networking/security/index.yml).
 
       - question: What is the difference between Application Gateway WAF and Azure Firewall?
-        answer: The Web Application Firewall (WAF) is a feature of Application Gateway that provides centralized inbound protection of your web applications from common exploits and vulnerabilities. Azure Firewall provides inbound protection for non-HTTP/S protocols (for example, RDP, SSH, FTP), outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S.
+        answer: |
+          Application Gateway WAF provides centralized inbound protection for web applications against common exploits and vulnerabilities. Azure Firewall provides inbound protection for non-HTTP/S protocols (for example, RDP, SSH, FTP), outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S.
 
       - question: What is the difference between Network Security Groups (NSGs) and Azure Firewall?
-        answer: The Azure Firewall service complements network security group functionality. Together, they provide better "defense-in-depth" network security. Network security groups provide distributed network layer traffic filtering to limit traffic to resources within virtual networks in each subscription. Azure Firewall is a fully stateful, centralized network firewall as-a-service, which provides network- and application-level protection across different subscriptions and virtual networks.
+        answer: |
+          Azure Firewall complements NSGs to provide better "defense-in-depth" network security. NSGs offer distributed network layer traffic filtering to limit traffic within virtual networks in each subscription. Azure Firewall provides centralized, fully stateful network and application-level protection across subscriptions and virtual networks.
 
       - question: Are Network Security Groups (NSGs) supported on the AzureFirewallSubnet?
-        answer: Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC level NSGs (not viewable).  Subnet level NSGs aren't required on the AzureFirewallSubnet, and are disabled to ensure no service interruption.
-
-      - question: How do I set up Azure Firewall with my service endpoints?
         answer: |
-          For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features: service endpoint security and central logging for all traffic.
+          Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC-level NSGs (not viewable). Subnet-level NSGs aren't required on the AzureFirewallSubnet and are disabled to prevent service interruptions.
+
+      - question: What is the added value of Azure Firewall with private endpoints?
+        answer: |
+          Private endpoints are a component of Private Link, a technology that allows to interact with Azure PaaS services using private IP addresses instead of public ones. Azure Firewall can be used to prevent access to public IP addresses, hence avoiding data exfiltration to Azure services not leveraging Private Link, as well as to implement zero-trust policies by defining who in your organization needs to access those Azure PaaS services, since Private Link per default opens up network access for your whole corporate network.
+          
+          The right design to inspect traffic to private endpoints with Azure Firewall will depend on your network architecture, you can find more details in the article [Azure Firewall scenarios to inspect traffic destined to a private endpoint](../private-link/inspect-traffic-with-azure-firewall.md).
+
+      - question: What is the added value of Azure Firewall with virtual network service endpoints?
+        answer: |
+          Virtual Network service endpoints are an alternative to Private Link to control network access to Azure PaaS services. Even if the client still uses public IP addresses to access the PaaS service, the source subnet is made visible so that the destination PaaS service can implement filter rules and restrict access on a per-subnet basis. You can find a detailed comparison between both mechanisms in [Compare Private Endpoints and Service Endpoints](../virtual-network/vnet-integration-for-azure-services.md).
+          
+          Azure Firewall application rules can be used to make sure that no data exfiltration to rogue services takes place, and to implement access policies with an increased granularity beyond the subnet level. Usually, virtual network service endpoints need to be enabled in the subnet of the client that will connect to an Azure service. However, when inspecting traffic to service endpoints with Azure Firewall, you need to enable the corresponding service endpoint in the Azure Firewall subnet instead and disable them on the subnet of the actual client (usually a spoke virtual network). This way you can use Application Rules in Azure Firewall to control to which Azure services your Azure workloads will have access to.
 
       - question: What is the pricing for Azure Firewall?
         answer: |
-          See [Azure Firewall Pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+          For pricing details, see [Azure Firewall Pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
+      - question: What are the known service limits for Azure Firewall?
+        answer: |
+          For service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
+
+      - question: Where does Azure Firewall store customer data?
+        answer: |
+          Azure Firewall doesn't move or store customer data outside the region where it's deployed.
+
+      - question: Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?
+        answer: |
+          No, Azure Firewall in secured virtual hubs (vWAN) isn't currently supported in Qatar.
+
+  - name: Supported capabilities and features
+    questions:
+      - question: Does Azure Firewall support inbound traffic filtering?
+        answer: |
+          Yes, Azure Firewall supports both inbound and outbound traffic filtering. Inbound filtering is typically used for non-HTTP protocols such as RDP, SSH, and FTP. For inbound HTTP and HTTPS traffic, consider using a web application firewall like [Azure Web Application Firewall (WAF)](../web-application-firewall/overview.md) or the TLS offload and deep packet inspection features of [Azure Firewall Premium](./premium-features.md).
+
+      - question: Does Azure Firewall Basic support forced tunneling?
+        answer: |
+          Yes, Azure Firewall Basic supports forced tunneling.
+
+      - question: Why does a TCP ping or similar tool appear to connect to a target FQDN even when no rule allows the traffic?
+        answer: |
+          A TCP ping doesn't actually connect to the target FQDN. Azure Firewall blocks connections to any target IP address or FQDN unless explicitly allowed by a rule.
+
+          In the case of a TCP ping, if no rule allows the traffic, the Firewall itself responds to the client's TCP ping request. This response doesn't reach the target IP address or FQDN and isn't logged. If a network rule explicitly allows access to the target IP address or FQDN, the ping request reaches the target server, and its response is relayed back to the client. This event is logged in the Network rules log.
+
+      - question: Does Azure Firewall support BGP peering?
+        answer: |
+          No, Azure Firewall doesn't natively support BGP peering. However, the [Autolearn SNAT routes feature](../firewall/snat-private-range.md#auto-learn-snat-routes-preview) indirectly uses BGP through Azure Route Server.
+
+  - name: Management and configuration
+    questions: 
       - question: How can I stop and start Azure Firewall?
         answer: |
-          You can use Azure PowerShell *deallocate* and *allocate* methods. For a firewall configured for forced tunneling, the procedure is slightly different.
+          You can use Azure PowerShell to deallocate and allocate the Azure Firewall. The process varies depending on the configuration.
 
-          For example, for a firewall configured with the Management NIC NOT enabled:
-
+          **For a firewall without a Management NIC:**
           ```azurepowershell
-          # Stop an existing firewall
-
+          # Stop the firewall
           $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
           $azfw.Deallocate()
           Set-AzFirewall -AzureFirewall $azfw
-          ```
 
-          ```azurepowershell
           # Start the firewall
-
           $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
           $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
           $publicip1 = Get-AzPublicIpAddress -Name "Public IP1 Name" -ResourceGroupName "RG Name"
           $publicip2 = Get-AzPublicIpAddress -Name "Public IP2 Name" -ResourceGroupName "RG Name"
-          $azfw.Allocate($vnet,@($publicip1,$publicip2))
-
+          $azfw.Allocate($vnet, @($publicip1, $publicip2))
           Set-AzFirewall -AzureFirewall $azfw
           ```
 
-          For a firewall configured with the Management NIC enabled, stopping is the same. But starting requires the management public IP to be re-associated back to the firewall:
-
+          **For a firewall with a Management NIC:**
           ```azurepowershell
-          # Stop an existing firewall
-
+          # Stop the firewall
           $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
           $azfw.Deallocate()
           Set-AzFirewall -AzureFirewall $azfw
-          ```
 
-          ```azurepowershell
           # Start the firewall
-
           $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
           $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-          $pip= Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
-          $mgmtPip2 = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
-          $azfw.Allocate($vnet, $pip, $mgmtPip2)
-          $azfw | Set-AzFirewall
-          ```
-
-          For a firewall in a secured virtual hub architecture, stopping is the same but starting must use the virtual hub ID:
-
-          ```azurepowershell
-          # Stop and existing firewall
-
-          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-          $azfw.Deallocate()
+          $pip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
+          $mgmtPip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
+          $azfw.Allocate($vnet, $pip, $mgmtPip)
           Set-AzFirewall -AzureFirewall $azfw
           ```
 
+          **For a firewall in a secured virtual hub:**
           ```azurepowershell
-          # Start the firewall
+          # Stop the firewall
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $azfw.Deallocate()
+          Set-AzFirewall -AzureFirewall $azfw
 
-          $virtualhub = get-azvirtualhub -ResourceGroupName "RG name of vHUB" -name "vHUB name"
-          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "Azfw RG Name"
+          # Start the firewall
+          $virtualhub = Get-AzVirtualHub -ResourceGroupName "vHUB RG Name" -Name "vHUB Name"
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "Firewall RG Name"
           $azfw.Allocate($virtualhub.Id)
-          $azfw | Set-AzFirewall
+          Set-AzFirewall -AzureFirewall $azfw
           ```
 
-          When you allocate and deallocate, [firewall billing](https://azure.microsoft.com/pricing/details/azure-firewall) stops and starts accordingly.
-
           > [!NOTE]
-          > You must reallocate a firewall and public IP to the original resource group and subscription. 
-          > When stop/start is performed, the private IP address of the firewall may change to a different IP address within the subnet.  This can affect the connectivity of previously configured route tables. 
+          > When stopping and starting the firewall, billing stops and starts accordingly. However, the private IP address might change, which can affect connectivity if route tables are configured.
 
       - question: How can I configure availability zones after deployment?
         answer: |
-           The recommendation is to configure availability zones during the initial firewall deployment. However, in some cases it's possible to change availability zones after deployment. The prerequisites are:
-           - The firewall is deployed in a VNet. It isn't supported with firewalls deployed in a secured virtual hub.
-           - The firewall's region [supports availability zones](../reliability/availability-zones-region-support.md).
-           - All attached public IP addresses are deployed with availability zones. In the properties page of each public IP address, ensure the **availability zones** field exists and is configured with the same zones you configured for the firewall.
+          It's recommended to configure availability zones during initial deployment. However, you can reconfigure them after deployment if:
+          - The firewall is deployed in a virtual network (not supported in secured virtual hubs).
+          - The region supports availability zones.
+          - All attached public IP addresses are configured with the same zones.
 
-           Reconfiguring availability zones can only be done when you restart the firewall. After you allocate the firewall, and right before starting the firewall with `Set-AzFirewall`, use the following Azure PowerShell to modify the firewall's **Zones** property:
+          To reconfigure availability zones:
+          1. Deallocate the firewall:
+             ```azurepowershell
+             $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+             $azfw.Deallocate()
+             Set-AzFirewall -AzureFirewall $azfw
+             ```
+          2. Update the zone configuration and allocate the firewall:
+             ```azurepowershell
+             $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+             $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+             $pip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
+             $mgmtPip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
+             $azfw.Allocate($vnet, $pip, $mgmtPip)
+             $azfw.Zones = 1, 2, 3
+             Set-AzFirewall -AzureFirewall $azfw
+             ```
 
-           ```azurepowershell
-           $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-           $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-           $pip= Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
-           $mgmtPip2 = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
-           $azfw.Allocate($vnet, $pip, $mgmtPip2)
-           $azFw.Zones=1,2,3
-           $azfw | Set-AzFirewall
-           ```
-
-      - question: What are the known service limits?
+      - question: Are there any Azure firewall resource group restrictions?
         answer: |
-          For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
+          Yes:
+          - The Azure Firewall and virtual network must be in the same resource group.
+          - The public IP address can be in a different resource group.
+          - All resources (Azure firewall, virtual network, public IP) must be in the same subscription.
+
+      - question: What does provisioning state **Failed** mean?
+        answer: |
+          A **Failed** provisioning state indicates that a configuration update failed on one or more backend instances. The Azure Firewall remains operational, but the configuration might be inconsistent. Retry the update until the provisioning state changes to **Succeeded**.
+
+      - question: How does Azure Firewall handle planned maintenance and unplanned failures?
+        answer: |
+          Azure Firewall uses an active-active configuration with multiple backend nodes. During planned maintenance, connection draining ensures graceful updates. For unplanned failures, a new node replaces the failed one, and connectivity is typically restored within 10 seconds.
+
+      - question: Is there a character limit for a firewall name?
+        answer: |
+          Yes, firewall names are limited to 50 characters.
+
+      - question: Why does Azure Firewall need a /26 subnet size?
+        answer: |
+          A /26 subnet ensures sufficient IP addresses for scaling as the Azure Firewall provisions extra virtual machine instances.
+
+      - question: Does the firewall subnet size need to change as the service scales?
+        answer: |
+          No, a /26 subnet is sufficient for all scaling scenarios.
+
+      - question: How can I increase my firewall throughput?
+        answer: |
+          Azure Firewall scales automatically based on CPU usage, throughput, and connection count. Throughput capacity ranges from 2.5–3 Gbps initially to 30 Gbps (Standard SKU) or 100 Gbps (Premium SKU).
+
+      - question: Are there limits for the number of IP addresses supported by IP Groups?
+        answer: |
+          Yes. For details, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
+
+      - question: Can I move an IP Group to another resource group?
+        answer: |
+          No, moving an IP Group to another resource group isn't currently supported.
+
+      - question: What is the TCP Idle Timeout for Azure Firewall?
+        answer: |
+          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound and outbound connections up to 15 minutes. Idle Timeout for east-west traffic can't be changed.
+
+          If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive).
+
+      - question: Can I deploy Azure Firewall without a public IP address?
+        answer: |
+          Yes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.
+
+      - question: Is there a way to automatically back up Azure Firewall and policies?
+        answer: |
+          Yes. For more information, see [Backup Azure Firewall and Azure Firewall Policy with Logic Apps](https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928).
+
+  - name: Connectivity and routing
+    questions: 
+      
+      - question: How do I set up Azure Firewall with my service endpoints?
+        answer: |
+          For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features: service endpoint security and central logging for all traffic.
 
       - question: Can Azure Firewall in a hub virtual network forward and filter network traffic between multiple spoke virtual networks?
-        answer: Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between multiple spoke virtual network. Subnets in each of the spoke virtual networks must have a UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.
+        answer: |
+          Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between multiple spoke virtual network. Subnets in each of the spoke virtual networks must have a UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.
 
       - question: Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?
-        answer: Yes. However, configuring the UDRs to redirect traffic between subnets in the same VNET requires more attention. While using the VNET address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of **VNET**. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don't require UDRs.
+        answer: |
+          Yes. However, configuring the UDRs to redirect traffic between subnets in the same virtual network requires more attention. While using the virtual network address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of **virtual network**. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don't require UDRs.
 
       - question: Does Azure Firewall outbound SNAT between private networks?
         answer: |
           Azure Firewall doesn't SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918) or [IANA RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598) for private networks. If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
           In addition, traffic processed by application rules are always SNAT-ed. If you want to see the original source IP address in your logs for FQDN traffic, you can use network rules with the destination FQDN.
+
       - question: Is forced tunneling/chaining to a Network Virtual Appliance supported?
         answer: |
           Forced tunneling is supported when you create a new firewall. You can't configure an existing firewall for forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
@@ -191,79 +274,32 @@ sections:
 
           If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
 
-      - question: Are there any firewall resource group restrictions?
-        answer: |
-          Yes. 
-          - The firewall and VNet must be in the same resource group.
-          - The public IP address can be in any resource group.
-          - The firewall, VNet, and the public IP address all must be in the same subscription.
-
       - question: How do wildcards work in target URLs and target FQDNs in application rules?
         answer: |
-         - **URL** - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.
-         - **FQDN** - Asterisks work when placed on the left-most side.
-         - **GENERAL** - Asterisks on the left-most side mean literally _anything_ to the left matches, meaning multiple subdomains and/or potentially unwanted domain name variations are matched - see the following examples.
+          - **URL** - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.
+          - **FQDN** - Asterisks work when placed on the left-most side.
+          - **GENERAL** - Asterisks on the left-most side mean literally _anything_ to the left matches, meaning multiple subdomains and/or potentially unwanted domain name variations are matched - see the following examples.
 
-         Examples:
+          Examples:
 
-
-           |Type  |Rule  |Supported?|Positive examples  |
-           |---------|---------|---------|---------|
-           |TargetURL  |`www.contoso.com` |Yes|`www.contoso.com`<br>`www.contoso.com/`|
-           |TargetURL  |`*.contoso.com` |Yes|`any.contoso.com/`<br>`sub1.any.contoso.com`|
-           |TargetURL  |`*contoso.com`|Yes         |`example.anycontoso.com`<br>`sub1.example.contoso.com`<br>`contoso.com`<br>Warning: this usage of wildcard also allows potentially undesired/risky variations such as `th3re4lcontoso.com` - use with caution.|
-           |TargetURL  |`www.contoso.com/test`|Yes|`www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1`|
-           |TargetURL  |`www.contoso.com/test/*`|Yes|`www.contoso.com/test/anything`<br>Note: `www.contoso.com/test` **doesn't** match (last slash)|
-           |TargetURL  |`www.contoso.*/test/*`|No|         |
-           |TargetURL  |`www.contoso.com/test?example=1`|No|         |
-           |TargetURL  |`www.contoso.*`|No|         |
-           |TargetURL  |`www.*contoso.com`|No|         |
-           |TargetURL   |`www.contoso.com:8080`|No|         |
-           |TargetURL   |`*.contoso.*`|No|         |
-           |TargetFQDN    |`www.contoso.com`|Yes|`www.contoso.com`|
-           |TargetFQDN    |`*.contoso.com`|Yes|`any.contoso.com`<br><br>Note: If you want to specifically allow `contoso.com`, you must include contoso.com in the rule. Otherwise, the connection is dropped by default because the request doesn't match any rule.|
-           |TargetFQDN    |`*contoso.com`|Yes|`example.anycontoso.com`<br>`contoso.com`|
-           |TargetFQDN    |`www.contoso.*`|No|         |
-           |TargetFQDN    |`*.contoso.*`|No|         |
-
-      - question: |
-          What does *Provisioning state: Failed* mean?
-        answer: Whenever a configuration change is applied, Azure Firewall attempts to update all its underlying backend instances. In rare cases, one of these backend instances might fail to update with the new configuration and the update process  stops with a failed provisioning state. Your Azure Firewall is still operational, but the applied configuration might be in an inconsistent state, where some instances have the previous configuration where others have the updated rule set. If this happens, try updating your configuration one more time until the operation succeeds and your Firewall is in a *Succeeded* provisioning state.
-
-      - question: How does Azure Firewall handle planned maintenance and unplanned failures?
-        answer: Azure Firewall consists of several backend nodes in an active-active configuration. For any planned maintenance, we have connection draining logic to gracefully update nodes. Updates are planned during nonbusiness hours for each of the Azure regions to further limit risk of disruption. For unplanned issues, we instantiate a new node to replace the failed node. Connectivity to the new node is typically reestablished within 10 seconds from the time of the failure.
-
-      - question: How does connection draining work?
-        answer: For any planned maintenance, connection draining logic gracefully updates backend nodes. Azure Firewall waits 90 seconds for existing connections to close. In the first 45 seconds, the backend node doesn't accept new connections, and in the remaining time it responds with `RST` to all incoming packets. If needed, clients can automatically re-establish connectivity to another backend node.
-
-      - question: Is there a character limit for a firewall name?
-        answer: Yes. There's a 50 character limit for a firewall name.
-
-      - question: Why does Azure Firewall need a /26 subnet size?
-        answer: Azure Firewall must provision more virtual machine instances as it scales. A /26 address space ensures that the firewall has enough IP addresses available to accommodate the scaling.
-
-      - question: Does the firewall subnet size need to change as the service scales?
-        answer: No. Azure Firewall doesn't need a subnet bigger than /26.
-
-      - question: How can I increase my firewall throughput?
-        answer: Azure Firewall's initial throughput capacity is 2.5 - 3 Gbps and it scales out to 30 Gbps for Standard SKU and 100 Gbps for Premium SKU. It scales out automatically based on CPU usage, throughput, and the number of connections.
-
-      - question: How long does it take for Azure Firewall to scale out?
-        answer: |
-          Azure Firewall gradually scales when average throughput or CPU consumption is at 60%, or the number of connections usage is at 80%. For example, it starts to scale out when it reaches 60% of its maximum throughput.
-          Maximum throughput numbers vary based on Firewall SKU and enabled features. For more information, see [Azure Firewall performance](firewall-performance.md).
-          
-          Scale out takes five to seven minutes.
-
-          When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Firewall nodes.
-
-      - question: How does Azure Firewall handle idle timeouts?
-        answer: |
-         When a connection has an Idle Timeout (four minutes of no activity), Azure Firewall gracefully terminates the connection by sending a TCP RST packet.
-
-      - question: How does Azure Firewall handle VM instance shutdowns during Virtual Machine Scale Set scale in (scale down) or fleet software upgrades?
-        answer: |
-         An Azure Firewall VM instance shutdown might occur during Virtual Machine Scale Set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and aren't forwarded to the down firewall instance. After 45 seconds, the firewall starts rejecting existing connections by sending TCP RST packets. After another 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md).
+            | Type | Rule | Supported? | Positive examples |
+            |--|--|--|--|
+            | TargetURL | `www.contoso.com` | Yes | `www.contoso.com`<br>`www.contoso.com/` |
+            | TargetURL | `*.contoso.com` | Yes | `any.contoso.com/`<br>`sub1.any.contoso.com` |
+            | TargetURL | `*contoso.com` | Yes | `example.anycontoso.com`<br>`sub1.example.contoso.com`<br>`contoso.com`<br>Warning: this usage of wildcard also allows potentially undesired/risky variations such as `th3re4lcontoso.com` - use with caution. |
+            | TargetURL | `www.contoso.com/test` | Yes | `www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1` |
+            | TargetURL | `www.contoso.com/test/*` | Yes | `www.contoso.com/test/anything`<br>Note: `www.contoso.com/test` **doesn't** match (last slash) |
+            | TargetURL | `www.contoso.*/test/*` | No |  |
+            | TargetURL | `www.contoso.com/test?example=1` | No |  |
+            | TargetURL | `www.contoso.*` | No |  |
+            | TargetURL | `www.*contoso.com` | No |  |
+            | TargetURL | `www.contoso.com:8080` | No |  |
+            | TargetURL | `*.contoso.*` | No |  |
+            | TargetFQDN | `www.contoso.com` | Yes | `www.contoso.com` |
+            | TargetFQDN | `*.contoso.com` | Yes | `any.contoso.com`<br><br>Note: If you want to specifically allow `contoso.com`, you must include contoso.com in the rule. Otherwise, the connection is dropped by default because the request doesn't match any rule. |
+            | TargetFQDN | `*contoso.com` | Yes | `example.anycontoso.com`<br>`contoso.com` |
+            | TargetFQDN | `www.contoso.*` | No |  |
+            | TargetFQDN | `*.contoso.*` | No |  |
 
       - question: Does Azure Firewall allow access to Active Directory by default?
         answer: |
@@ -290,52 +326,35 @@ sections:
           Set-AzFirewall -AzureFirewall $fw
           ```
 
-      - question: Why can a TCP ping and similar tools successfully connect to a target FQDN even when no rule on Azure Firewall allows that traffic?
-        answer: |
-          A TCP ping isn't actually connecting  to the target FQDN. Azure Firewall doesn't allow a connection to any target IP address/FQDN unless there's an explicit rule that allows it.
-
-          TCP ping is a unique use case where if there's no allowed rule, the Firewall itself responds to the client's TCP ping request even though the TCP ping doesn't reach the target IP address/FQDN. In this case, the event isn't logged. If there's a network rule that allows access to the target IP address/FQDN, then the ping request reaches the target server and its response is relayed back to the client. This event is logged in the Network rules log.
-
-
-      - question: Are there limits for the number of IP addresses supported by IP Groups?
-        answer: |
-          Yes. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
-
-      - question: Can I move an IP Group to another resource group?
-        answer: No, moving an IP Group to another resource group isn't currently supported.
-
-      - question: What is the TCP Idle Timeout for Azure Firewall?
-        answer: |
-          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound and outbound connections up to 15 minutes. Idle Timeout for east-west traffic can't be changed.
-
-          If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive).
-
-      - question: Can I deploy Azure Firewall without a public IP address?
-        answer: Yes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.
-
-      - question: Where does Azure Firewall store customer data?
-        answer: Azure Firewall doesn't move or store customer data out of the region it's deployed in.
-
-      - question: Is there a way to automatically back up Azure Firewall and policies?
-        answer: Yes. For more information, see [Backup Azure Firewall and Azure Firewall Policy with Logic Apps](https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928).
-
-      - question: Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?
-        answer: No, currently Azure Firewall in secured virtual hubs (vWAN) isn't supported in Qatar.
-
-      - question: How many parallel connections can Azure Firewall support?
-        answer: |
-          Azure Firewall uses Azure Virtual Machines underneath that have a [hard limit number of connections](/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations). The total number of active connections per virtual machine is 250k.
-
-          The total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.
-
       - question: What is the SNAT TCP/UDP port reuse behavior in Azure Firewall?
         answer: |
-           Azure Firewall currently uses TCP/UDP source ports for outbound SNAT traffic, with no idle wait time. When a TCP/UDP connection is closed, the TCP port used is immediately seen as available for upcoming connections.
+          Azure Firewall currently uses TCP/UDP source ports for outbound SNAT traffic, with no idle wait time. When a TCP/UDP connection is closed, the TCP port used is immediately seen as available for upcoming connections.
 
-           As a workaround for certain architectures, you can deploy and scale with [NAT Gateway with Azure Firewall](../nat-gateway/tutorial-hub-spoke-nat-firewall.md) to provide a wider pool of SNAT ports for variability and availability.
+          As a workaround for certain architectures, you can deploy and scale with [NAT Gateway with Azure Firewall](../nat-gateway/tutorial-hub-spoke-nat-firewall.md) to provide a wider pool of SNAT ports for variability and availability.
       
       - question: What are NAT behaviors in Azure Firewall?
         answer: |
           Specific NAT behaviors depend on the firewall's configuration and the type of NAT that's configured. For example, the firewall has DNAT rules for inbound traffic, and network rules and application rules for outbound traffic through the firewall.
 
           For more information, see [Azure Firewall NAT Behaviors](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834).
+
+  - name: Timeouts and scaling
+    questions:
+      - question: How does connection draining work?
+        answer: |
+          For any planned maintenance, connection draining logic gracefully updates backend nodes. Azure Firewall waits 90 seconds for existing connections to close. In the first 45 seconds, the backend node doesn't accept new connections, and in the remaining time it responds with `RST` to all incoming packets. If needed, clients can automatically re-establish connectivity to another backend node.
+
+      - question: How does Azure Firewall handle VM instance shutdowns during Virtual Machine Scale Set scale in (scale down) or fleet software upgrades?
+        answer: |
+          An Azure Firewall VM instance shutdown might occur during Virtual Machine Scale Set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and aren't forwarded to the down firewall instance. After 45 seconds, the firewall starts rejecting existing connections by sending TCP RST packets. After another 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md).
+
+      - question: How long does it take for Azure Firewall to scale out?
+        answer: |
+          Azure Firewall gradually scales when average throughput or CPU consumption is at 60%, or the number of connections usage is at 80%. For example, it starts to scale out when it reaches 60% of its maximum throughput. Maximum throughput numbers vary based on the Azure Firewall SKU and enabled features. For more information, see [Azure Firewall performance](firewall-performance.md).
+          
+          Scale out takes five to seven minutes. When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Azure Firewall nodes.
+
+      - question: How does Azure Firewall handle idle timeouts?
+        answer: |
+          When a connection has an Idle Timeout (four minutes of no activity), Azure Firewall gracefully terminates the connection by sending a TCP RST packet.
+ 

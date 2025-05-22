@@ -156,7 +156,7 @@ If `If-Match` or `If-None-Match` are omitted, the operation is unconditional.
 The following response gets the key-value only if the current representation matches the specified `etag`:
 
 ```http
-GET /kv?key={key}label={label}&api-version={api-version} HTTP/1.1
+GET /kv?key={key}&label={label}&api-version={api-version} HTTP/1.1
 If-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
@@ -175,7 +175,7 @@ HTTP/1.1 200 OK
 The following response gets the key-values only if the current representation doesn't match the specified `etag`:
 
 ```http
-GET /kv?key={key}label={label}&api-version={api-version} HTTP/1.1
+GET /kv?key={key}&label={label}&api-version={api-version} HTTP/1.1
 If-None-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 

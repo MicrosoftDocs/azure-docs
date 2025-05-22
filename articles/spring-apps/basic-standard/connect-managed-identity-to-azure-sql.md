@@ -1,5 +1,5 @@
 ---
-title:  Use Managed identity to connect Azure SQL Database to an app deployed to Azure Spring Apps
+title:  Use Managed Identity to Connect Azure SQL Database to an App Deployed to Azure Spring Apps
 description: Set up managed identity to connect Azure SQL to an app deployed to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
@@ -13,9 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java, passwordless-java, service
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows you how to create a managed identity for an app deployed to Azure Spring Apps and use it to access Azure SQL Database.
 
@@ -54,7 +54,7 @@ az ad sp show --id <identity-object-ID> --query displayName
 
 ### Configure your Java app to use a managed identity
 
-Open the *src/main/resources/application.properties* file, then add `Authentication=ActiveDirectoryMSI;` at the end of the `spring.datasource.url` line, as shown in the following example. Be sure to use the correct value for the $AZ_DATABASE_NAME variable.
+Open the **src/main/resources/application.properties** file, then add `Authentication=ActiveDirectoryMSI;` at the end of the `spring.datasource.url` line, as shown in the following example. Be sure to use the correct value for the $AZ_DATABASE_NAME variable.
 
 ```properties
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;

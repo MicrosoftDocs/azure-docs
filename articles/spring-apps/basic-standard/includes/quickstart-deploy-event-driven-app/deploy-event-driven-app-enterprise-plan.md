@@ -54,9 +54,9 @@ Go to the [Azure portal](https://portal.azure.com/) and enter your credentials t
 
 8. Select **Queues** on the navigation menu, then select **Queue**.
 
-1. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
+1. On the **Create Queue** page, enter **lower-case** for **Name** and then select **Create**.
 
-1. Create another queue by repeating the previous step using *upper-case* for **Name**.
+1. Create another queue by repeating the previous step using **upper-case** for **Name**.
 
 ### 3.3. Create an Azure Spring Apps instance
 
@@ -70,7 +70,7 @@ Use the following steps to connect your service instances:
 
 1. From the navigation pane, open the **Apps** pane and then select **Create App**.
 
-1. On the **Create App** page, for the app name, use *simple-event-driven-app* and leave all the other fields with their default values.
+1. On the **Create App** page, for the app name, use **simple-event-driven-app** and leave all the other fields with their default values.
 
 1. Select **Create** to finish creating the app and then select the app to view the details.
 
@@ -85,6 +85,8 @@ Use the following steps to connect your service instances:
    - **Client type**: Select **SpringBoot**.
 
 1. Configure the **Next: Authentication** tab with the following information:
+
+   [!INCLUDE [security-note](../../../includes/security-note.md)]
 
    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
 
@@ -199,6 +201,8 @@ Use the following steps to create a Service Bus instance:
 You've now created both the Service Bus and the app in Azure Spring Apps, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app:
 
 1. Get the Service Bus's connection string by using the following command:
+
+   [!INCLUDE [security-note](../../../includes/security-note.md)]
 
    ```azurecli
    export SERVICE_BUS_CONNECTION_STRING=$( \

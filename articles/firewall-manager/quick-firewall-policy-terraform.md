@@ -4,7 +4,7 @@ description: In this quickstart, you deploy an Azure Firewall and a firewall pol
 services: firewall-manager
 author: cshea-msft
 ms.author: chashea
-ms.date: 09/05/2023
+ms.date: 01/07/2025
 ms.topic: quickstart
 ms.service: azure-firewall-manager
 ms.custom: devx-track-terraform

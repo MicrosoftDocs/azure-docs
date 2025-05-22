@@ -1,8 +1,9 @@
 ---
-title: Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan
+title: Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise Plan
 description: Learn how to use Tanzu Dev Tools in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: zlhe
+ms.author: karler
+ms.reviewer: zlhe
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
@@ -13,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article describes how to configure VMware Tanzu Dev Tools. Dev Tools includes a set of developer tools to help make the development experience easier for both the inner and outer loop. Currently, Dev Tools includes Application Live View and Application Accelerator for use with the Azure Spring Apps Enterprise plan.
 

@@ -1,5 +1,5 @@
 ---
-title:  Customize Azure Spring Apps egress with a user-defined route
+title:  Customize Azure Spring Apps Egress with a User-Defined Route
 description: Learn how to customize Azure Spring Apps egress with a user-defined route.
 author: KarlErickson
 ms.author: karler
@@ -13,9 +13,9 @@ ms.custom: devx-track-java, engagement-fy23
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article describes how to customize an instance's egress route to support custom network scenarios. For example, you might want to customize an instance's egress route for networks that disallow public IPs and require the instance to sit behind a network virtual appliance (NVA).
 

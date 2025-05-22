@@ -1,18 +1,20 @@
 ---
-title: How to configure planned maintenance for Azure Spring Apps
+title: How to Configure Planned Maintenance for Azure Spring Apps
 description: Describes how to configure planned maintenance for Azure Spring Apps.
 author: KarlErickson
-ms.author: haochuang
+ms.author: karler
+ms.reviewer: haochuang
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 11/07/2023
+ms.custom: devx-track-java
 ---
 
 # How to configure planned maintenance (preview)
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
 
 This article describes how to configure planned maintenance in Azure Spring Apps. 
 
@@ -80,7 +82,7 @@ Notifications and messages are sent out before and during the maintenance. The f
 Currently, Azure Spring Apps performs one regular planned maintenance to upgrade the underlying infrastructure every three months. For a detailed maintenance timeline, check the notifications on the [Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health) page.
 
 > [!NOTE]
-> In compliance with Microsoft’s security standards, we perform additional security patching for underlying Azure Kubernetes Service (AKS) clusters during the second week of each month. Maintenance occurs within an 8-hour window during non-working hours. We do this work in a rolling fashion to ensure uninterrupted service.
+> In compliance with Microsoft's security standards, we perform additional security patching for underlying Azure Kubernetes Service (AKS) clusters during the second week of each month. Maintenance occurs within an 8-hour window during non-working hours. We do this work in a rolling fashion to ensure uninterrupted service.
 
 ## Best practices
 
@@ -91,4 +93,3 @@ Currently, Azure Spring Apps performs one regular planned maintenance to upgrade
 
 ## Next steps
 
-- [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)

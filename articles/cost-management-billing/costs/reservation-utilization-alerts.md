@@ -1,9 +1,9 @@
 ---
 title: Reservation utilization alerts
 description: This article helps you set up and use reservation utilization alerts.
-author: bandersmsft
-ms.author: banders
-ms.date: 11/14/2024
+author: jojopm
+ms.author: jojoh
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management

@@ -1,11 +1,10 @@
 ---
 title: Troubleshoot replication of Azure VMs with Azure Site Recovery
-description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery
+description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery.
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-manager: rochakm
 ms.topic: troubleshooting
-ms.date: 09/04/2024
+ms.date: 05/07/2025
 ms.service: azure-site-recovery
 ms.custom: engagement-fy23
 ---
@@ -63,7 +62,7 @@ A spike in data change rate might come from an occasional data burst. If the dat
   1. As soon as the SAS URL is revoked, go to **Size + Performance** for the managed disk. Increase the size so that Site Recovery supports the observed churn rate on the source disk.
 
 > [!IMPORTANT]
-> The churn limit supported by Azure Site Recovery depends on the disk size of the replica premium SSD disk. This limit remains the same even if you [change the performance tier](https://learn.microsoft.com/azure/virtual-machines/disks-change-performance) of the replica disk.  For example, if you have premium SSD replica disk of disk size 128 GiB created, its base performance tier is P10. If you update its performance tier to P50 without changing the disk size, the churn limit won't change.  
+> The churn limit supported by Azure Site Recovery depends on the disk size of the replica premium SSD disk. This limit remains the same even if you [change the performance tier](/azure/virtual-machines/disks-change-performance) of the replica disk.  For example, if you have premium SSD replica disk of disk size 128 GiB created, its base performance tier is P10. If you update its performance tier to P50 without changing the disk size, the churn limit won't change.  
 
 
 ### Disk tier/SKU change considerations
@@ -102,7 +101,7 @@ Following are some of the most common issues.
 
 ### Known issue in SQL Server 2016 and 2017
 
-**How to fix**: Refer to the article [Cumulative Update 16 for SQL Server 2017](https://support.microsoft.com/help/4508218/cumulative-update-16-for-sql-server-2017).
+**How to fix**: Cumulative Update 16 for SQL Server 2017.
 
 ### You're using Azure Storage Spaces Direct Configuration
 
@@ -163,6 +162,33 @@ Restart the following services:
 - VSS service.
 - Azure Site Recovery VSS Provider.
 - VDS service.
+
+#### Update TenantId and ClientId manually in source machine
+
+**How to fix**: To fix no Mobility Service heartbeat error due to expired tenant, follow these steps:
+    
+1. Execute the **GET Protected item** API and retrieve the values for `mobilityAgentTenantIdToUpdate` and `mobilityAgentClientIdToUpdate` from the output.
+    
+      
+    ```powershell
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}?api-version=2025-01-01
+    ```
+1.  Open the RCMInfo.conf file on the source machine. The location of the file is as follows:
+
+   - Windows: `C:\ProgramData\Microsoft Azure Site Recovery\Config\RCMInfo.conf`
+   - Linux: `/usr/local/InMage/config/RCMInfo.conf`
+1. Update the `AADTenantId`, `AADClientId`, and tenantid of `AADAudienceUri` with the new tenant details fetched from step 1 and save the file by using the following format:
+
+   ```
+   AADTenantId=<mobilityAgentTenantIdToUpdate>
+   AADClientId=<mobilityAgentClientIdToUpdate>
+   AADAudienceUri=api://<mobilityAgentTenantIdToUpdate>/RecoveryServiceContainer/eastus2euap/1394977864085472368/3134366
+   ```
+1. Restart the following services:
+   - **Windows**: "InMage Scout VX Agent - Sentinel/Outpost", "InMage Scout Application Service"
+   - **Linux**: vxagent, appservice
+
+
 
 ## Next steps
 

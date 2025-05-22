@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure Spring Apps in virtual network
+title: Troubleshooting Azure Spring Apps in Virtual Network
 description: Troubleshooting guide for Azure Spring Apps virtual network.
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article helps you solve various problems that can arise when using Azure Spring Apps in virtual networks.
 

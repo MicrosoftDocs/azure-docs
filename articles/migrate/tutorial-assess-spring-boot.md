@@ -4,8 +4,9 @@ description: Learn how to create assessment for Azure Spring Apps in Azure Migra
 author: sunishvohra-ms 
 ms.author: sunishvohra
 ms.topic: tutorial
-ms.date: 09/28/2023
+ms.date: 02/06/2025
 ms.custom: engagement-fy23
+monikerRange: migrate-classic
 ---
 
 

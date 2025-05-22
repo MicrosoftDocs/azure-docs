@@ -2,8 +2,8 @@
 title: Enable GPU acceleration for Azure Virtual Desktop
 description: Learn how to enable GPU-accelerated rendering and encoding, including HEVC/H.265 and AVC/H.264 support, in Azure Virtual Desktop.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 09/19/2024
 ---
 
@@ -158,7 +158,7 @@ To enable GPU-accelerated application rendering using Intune:
 
 To enable GPU-accelerated application rendering using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 

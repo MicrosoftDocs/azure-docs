@@ -4,6 +4,9 @@ description: Learn how to set up a connection between HDInsight Spark cluster an
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 05/09/2024
 ---
 

@@ -5,8 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 08/21/2024
-ms.custom: mvc, subject-rbac-steps, engagement-fy24, references_regions
+ms.date: 02/07/2025
+ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
 ---
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)
@@ -145,8 +145,9 @@ If your machine is behind an outbound proxy server, requests must be routed via 
 After you save the script on the Linux server, follow these steps:
 
 > [!Note]
-> This script needs to be run after you connect to a Linux machine on its terminal that has met the networking pre-requisite and OS compatibility.  
-> Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.  
+> - This script needs to be run after you connect to a Linux machine on its terminal that has met the networking pre-requisite and OS compatibility.  
+> - Ensure that you install curl on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.
+> - Ensure that you install microk8s 1.29 on the server. For Ubuntu, you can install using the command `sudo snap install microk8s --classic --channel=1.29/stable`. Learn more on [how to install microk8s on Red Hat Enterprise Linux 9](https://snapcraft.io/install/microk8s/rhel).
 
 > [!Important]
 > Don't edit the script unless you want to clean up the setup.

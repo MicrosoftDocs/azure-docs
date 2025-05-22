@@ -21,6 +21,7 @@ This guide shows you how to deploy the Geospatial Consumption Zone (GCZ) service
 To deploy the GCZ, you need to create an App Registration in Microsoft Entra ID. The App Registration is used to authenticate the GCZ APIs with Azure Data Manager for Energy to be able to generate the cache of the geospatial data.
 
 1. See [Create an App Registration in Microsoft Entra ID](/azure/active-directory/develop/quickstart-register-app) for instructions on how to create an App Registration.
+
 1. Grant the App Registration permission to read the relevant data in Azure Data Manager for Energy. See [How to add members to an OSDU group](./how-to-manage-users.md#add-members-to-an-osdu-group-in-a-data-partition) for further instructions.
 
 ## Setup
@@ -63,6 +64,7 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
 1. Download the two OpenAPI specification to your local computer.
    - [GCZ Provider](https://github.com/microsoft/adme-samples/blob/main/services/gcz/gcz-openapi-provider.yaml)
    - [GCZ Transformer](https://github.com/microsoft/adme-samples/blob/main/services/gcz/gcz-openapi-transformer.yaml)
+
 1. Open each OpenAPI specification file in a text editor and replace the `servers` section with the corresponding IPs of the AKS GCZ Services' Load Balancer.
 
    ```yaml
@@ -82,8 +84,8 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
 
 ## Testing the GCZ service
 
-1. Download the API client collection from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (that is, Bruno, Postman).
-1.
+1. Download the API client collection from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (i.e. Bruno, Postman).
+
 1. Add the following environment variables to your API client:
 
    - `PROVIDER_URL` - The URL to the GCZ Provider API.

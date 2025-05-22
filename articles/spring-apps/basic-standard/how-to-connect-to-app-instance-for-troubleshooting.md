@@ -1,8 +1,9 @@
 ---
-title:  Connect to an app instance for troubleshooting
+title:  Connect to an App Instance for Troubleshooting
 description: Learn how to connect to an app instance in Azure Spring Apps for troubleshooting.
 author: KarlErickson
-ms.author: xiangy
+ms.author: karler
+ms.reviewer: xiangy
 ms.service: azure-spring-apps
 ms.topic: article
 ms.date: 06/27/2024
@@ -13,14 +14,14 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article describes how to access the shell environment inside your application instances to do advanced troubleshooting.
 
 Although Azure Spring Apps offers various managed troubleshooting approaches, you may want to do advanced troubleshooting using the shell environment. For example, you may want to accomplish the following troubleshooting tasks:
 
 - Directly use Java Development Kit (JDK) tools.
-- Diagnose against an app’s back-end services for network connection and API call latency for both virtual-network and non-virtual-network instances.
+- Diagnose against an app's back-end services for network connection and API call latency for both virtual-network and non-virtual-network instances.
 - Diagnose storage capacity, performance, and CPU/memory issues.
 
 ## Prerequisites
@@ -172,7 +173,7 @@ The output should look like the following example:
 
 ## Disconnect from your app instance
 
-When you're done troubleshooting, use the `exit` command to disconnect from the app instance, or press `Ctrl+d`.
+When you're done troubleshooting, use the `exit` command to disconnect from the app instance, or press <kbd>Ctrl</kbd>+<kbd>d</kbd>.
 
 ## Troubleshooting tools
 
@@ -202,7 +203,7 @@ The following list shows the tools available, which depend on your service plan 
 - Custom image deployment: Depends on the installed tool set in your image.
 
 > [!NOTE]
-> JDK tools aren't included in the path for the *source code* deployment type. Run `export PATH="$PATH:/layers/tanzu-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
+> JDK tools aren't included in the path for the source code deployment type. Run `export PATH="$PATH:/layers/tanzu-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
 
 ## Limitations
 

@@ -66,7 +66,7 @@ The cmdlet creates a Traffic Manager profile in Azure and returns a correspondin
 
 ## Get a Traffic Manager Profile
 
-To retrieve an existing Traffic Manager profile object, use the `Get-AzTrafficManagerProfle` cmdlet:
+To retrieve an existing Traffic Manager profile object, use the `Get-AzTrafficManagerProfile` cmdlet:
 
 ```powershell
 $TmProfile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG

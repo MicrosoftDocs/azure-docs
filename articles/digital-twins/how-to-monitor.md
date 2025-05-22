@@ -1,19 +1,13 @@
 ---
-# Mandatory fields.
 title: Monitor your instance
 titleSuffix: Azure Digital Twins
 description: Monitor Azure Digital Twins instances with metrics, alerts, and diagnostics.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 05/17/2023
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Monitor Azure Digital Twins with metrics, alerts, and diagnostics
@@ -180,7 +174,7 @@ Here are the field and property descriptions for API logs.
 | `OperationVersion` | String | The API Version used during the event |
 | `Category` | String | The type of resource being emitted |
 | `ResultType` | String | Outcome of the event |
-| `ResultSignature` | String | Http status code for the event |
+| `ResultSignature` | String | HTTP status code for the event |
 | `ResultDescription` | String | Additional details about the event |
 | `DurationMs` | String | How long it took to perform the event in milliseconds |
 | `CallerIpAddress` | String | A masked source IP address for the event |

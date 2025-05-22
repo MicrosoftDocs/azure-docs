@@ -1,11 +1,12 @@
 ---
-title: Quickstart - Deploy event-driven application to Azure Spring Apps
+title: Quickstart - Deploy Event-Driven Application to Azure Spring Apps
 description: Learn how to deploy an event-driven application to Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 11/07/2023
-ms.author: rujche
+ms.author: karler
+ms.reviewer: rujche
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23
 zone_pivot_groups: spring-apps-plan-selection
 ---
@@ -14,7 +15,7 @@ zone_pivot_groups: spring-apps-plan-selection
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
 
 This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps.
 

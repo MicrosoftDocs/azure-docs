@@ -4,8 +4,8 @@ description: Learn about the data stores that are supported for use in Azure Dat
 ms.service: azure-data-share
 author:  sidontha
 ms.author: sidontha
-ms.topic: conceptual
-ms.date: 12/19/2023
+ms.topic: concept-article
+ms.date: 02/12/2025
 ---
 # Supported data stores in Azure Data Share
 
@@ -79,6 +79,6 @@ When a sharing relationship is established, Azure Data Share creates a symbolic 
 
 For more information, see: [share and receive data from Azure Data Explorer](/azure/data-explorer/data-share).
 
-## Next steps
+## Related content
 
 To learn how to start sharing data, continue to the [Share your data](share-your-data.md) tutorial.

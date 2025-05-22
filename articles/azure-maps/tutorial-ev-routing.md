@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) with Microsoft Azure Maps'
-description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks
+title: 'Tutorial: Route electric vehicles using Jupyter Notebooks (Python) with Microsoft Azure Maps'
+description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Jupyter Notebooks in VS Code.
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 10/11/2024
@@ -11,7 +11,7 @@ services: azure-maps
 ms.custom: mvc, devx-track-python
 ---
 
-# Tutorial: Route electric vehicles by using Azure Notebooks (Python)
+# Tutorial: Route electric vehicles using Jupyter Notebooks (Python)
 
 Azure Maps is a portfolio of geospatial service APIs integrated into Azure, enabling developers to create location-aware applications for various scenarios like IoT, mobility, and asset tracking.
 
@@ -172,7 +172,7 @@ pins = "custom|an15 53||{}||https://raw.githubusercontent.com/Azure-Samples/Azur
 encodedPins = urllib.parse.quote(pins, safe='')
 
 # Render the range and electric vehicle charging points on the map.
-staticMapResponse =  await session.get("https://atlas.microsoft.com/map/static/png?api-version=2022-08-01&subscription-key={}&pins={}&path={}&bbox={}&zoom=12".format(subscriptionKey,encodedPins,path,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
+staticMapResponse =  await session.get("https://atlas.microsoft.com/map/static?api-version=2024-04-01&subscription-key={}&pins={}&path={}&bbox={}&zoom=12".format(subscriptionKey,encodedPins,path,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
 
 poiRangeMap = await staticMapResponse.content.read()
 
@@ -260,7 +260,7 @@ minLat -= latBuffer
 maxLat += latBuffer
 
 # Render the route on the map.
-staticMapResponse = await session.get("https://atlas.microsoft.com/map/static/png?api-version=2022-08-01&subscription-key={}&&path={}&pins={}&bbox={}&zoom=16".format(subscriptionKey,path,pins,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
+staticMapResponse = await session.get("https://atlas.microsoft.com/map/static?api-version=2024-04-01&subscription-key={}&&path={}&pins={}&bbox={}&zoom=16".format(subscriptionKey,path,pins,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
 
 staticMapImage = await staticMapResponse.content.read()
 

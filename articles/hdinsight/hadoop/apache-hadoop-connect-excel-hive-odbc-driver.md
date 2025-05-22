@@ -4,6 +4,9 @@ description: Learn how to set up and use the Microsoft Hive ODBC driver for Exce
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/15/2024
 ---
 
@@ -32,7 +35,7 @@ The following steps show you how to create a Hive ODBC Data Source.
 
 1. From Windows, navigate to **Start > Windows Administrative Tools > ODBC Data Sources (32-bit)/(64-bit)**.  This action opens the **ODBC Data Source Administrator** window.
 
-   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png" alt-text="OBDC data source administrator." border="true":::
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png" alt-text="ODBC data source administrator." border="true":::
 
 1. From the **User DSN** tab, select **Add** to open the **`Create New Data Source`** window.
 

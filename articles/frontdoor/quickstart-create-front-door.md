@@ -1,18 +1,20 @@
 ---
 title: 'Quickstart: Create an Azure Front Door (classic) using the Azure portal'
 description: In this quickstart, you learn how to use the Azure portal to set up Azure Front Door (classic) for your web application that requires high availability and high performance across the globe.
-services: front-door
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
-ms.date: 11/13/2024
-ms.topic: quickstart
 ms.service: azure-frontdoor
-ms.custom: template-tutorial, mode-ui, engagement-fy23
+ms.topic: quickstart
+ms.date: 11/13/2024
+ms.custom: mode-ui
+
 #Customer intent: As an IT admin, I want to manage user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create an Azure Front Door (classic) using the Azure portal
+
+**Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
@@ -34,8 +36,6 @@ If you don't have the web apps already, follow these steps to create them:
 
 1. Select **+ Create a resource** from the top left corner and search for **Web App**.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-create-web-app.png" alt-text="Create a web app in the Azure portal." lightbox="./media/quickstart-create-front-door/front-door-create-web-app.png":::
-
 1. On the Basics tab of the Create Web App page, provide, or select the following details:
 
     | Setting | Value |
@@ -51,8 +51,6 @@ If you don't have the web apps already, follow these steps to create them:
     | **Sku and size** | Select **Standard S1 100 total ACU, 1.75 GB memory**. |
 
 1. Select **Review + create**, verify the summary details, and then select **Create** to initiate the deployment. The deployment may take several minutes.
-
-    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Screenshot showing Create Web App page." lightbox="./media/quickstart-create-front-door/create-web-app.png":::
 
 1. After deploying the first web app, create another one with the same steps but with the following changes:
 
@@ -83,15 +81,11 @@ Set up Azure Front Door to route user traffic based on the lowest latency betwee
 
 1. For **Host name**, type a globally unique hostname. For example, *contoso-frontend*. Select **Add**.
 
-    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Add a frontend host for Azure Front Door." lightbox="./media/quickstart-create-front-door/add-frontend-host-azure-front-door.png":::
-
 Next, set up a backend pool that includes your two web apps.
 
 1. Still in **Create a Front Door**, in **Backend pools**, select **+** to open the **Add a backend pool** page.
 
 1. For **Name**, type *myBackendPool*, then select **Add a backend**.
-
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Add a backend pool." lightbox="./media/quickstart-create-front-door/front-door-add-backend-pool.png":::
 
 1. Provide or select the following information in the *Add a backend* pane and select **Add**.
 
@@ -117,8 +111,6 @@ Next, set up a backend pool that includes your two web apps.
 
 1. Select **Add** on the *Add a backend pool* page to finish the configuration of the backend pool.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Add a backend pool for Azure Front Door." lightbox="./media/quickstart-create-front-door/front-door-add-backend-pool-complete.png":::
-
 Lastly, create a routing rule. A routing rule links your frontend host to the backend pool. The rule routes a request for `contoso-frontend.azurefd.net` to **myBackendPool**.
 
 1. Still in *Create a Front Door*, in *Routing rules*, select **+** to set up a routing rule.
@@ -132,9 +124,6 @@ Lastly, create a routing rule. A routing rule links your frontend host to the ba
 
 1. Select **Review + create** and verify the details. Then, select **Create** to start the deployment.
 
-    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Configured Azure Front Door." lightbox="./media/quickstart-create-front-door/configuration-azure-front-door.png":::
-
-
 ## View Azure Front Door in action
 Once you create a Front Door, it takes a few minutes for the configuration to be deployed globally. After deployment, access the frontend host you created by navigating to its address in your browser. Your requests automatically get routed to the nearest server from the specified servers in the backend pool.
 
@@ -143,8 +132,6 @@ If you followed this quickstart to create the web apps, you should see an inform
 To test the instant global failover feature, follow these steps:
 
 1. Navigate to the resource group **FrontDoorQS_rg0** and select the Front Door service.
-
-    :::image type="content" source="./media/quickstart-create-front-door/front-door-view-frontend-service.png" alt-text="Screenshot of frontend service." lightbox="./media/quickstart-create-front-door/front-door-view-frontend-service.png":::
 
 1. From the **Overview** page, copy the **Frontend host** address.
 

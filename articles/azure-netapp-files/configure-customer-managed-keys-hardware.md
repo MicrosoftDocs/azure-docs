@@ -2,18 +2,12 @@
 title: Configure customer-managed keys with managed Hardware Security Module for Azure NetApp Files volume encryption 
 description: Learn how to encrypt data in Azure NetApp Files with customer-managed keys using the Hardware Security Module
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 09/27/2024
+ms.date: 05/09/2025
 ms.author: anfdocs
 ---
 # Configure customer-managed keys with managed Hardware Security Module for Azure NetApp Files volume encryption 
@@ -55,6 +49,7 @@ Azure NetApp Files volume encryption with customer-managed keys with the managed
 * Japan East
 * Japan West
 * Korea Central
+* Korea South
 * North Central US
 * North Europe
 * Norway East
@@ -71,6 +66,7 @@ Azure NetApp Files volume encryption with customer-managed keys with the managed
 * UAE Central
 * UAE North
 * UK South
+* UK West
 * West Europe
 * West US
 * West US 2

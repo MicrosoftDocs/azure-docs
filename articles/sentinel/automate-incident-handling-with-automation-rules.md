@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: conceptual
 ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -189,7 +189,7 @@ Actions can be defined to run when the conditions (see above) are met. You can d
 
 - Changing the status of an incident, keeping your workflow up to date.
 
-  - When changing to “closed,” specifying the [closing reason](investigate-cases.md#closing-an-incident) and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce [false positives](false-positives.md).
+  - When changing to “closed,” specifying the [closing reason](investigate-cases.md#close-an-incident) and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce [false positives](false-positives.md).
 
 - Changing the severity of an incident – you can reevaluate and reprioritize based on the presence, absence, values, or attributes of entities involved in the incident.
 
@@ -334,7 +334,7 @@ In the specific case of a Managed Security Service Provider (MSSP), where a serv
 
     :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png" alt-text="Multi-tenant automation rule architecture":::
 
-    See [our instructions](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks) for setting this up.
+    See [our instructions](automation/run-playbooks.md#configure-playbook-permissions-for-incidents-in-a-multitenant-deployment) for setting this up.
 
 ## Creating and managing automation rules
 

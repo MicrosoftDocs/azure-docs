@@ -191,7 +191,7 @@ To ensure a consistent call experience, we recommend that you integrate Fluent U
 - **User testing**: Conduct user testing to ensure that the customizations meet user needs and don't confuse or overwhelm them.
 - **Feedback mechanism**: Adding buttons like **Report Issue** ensure that a robust back-end system is available to handle the feedback collected. Reuse the [mechanism that UI Library provides by default](../../../tutorials/collecting-user-feedback/collecting-user-feedback.md).
 
-For more information, see [Customize the button bar](../../../how-tos/ui-library-sdk/button-injection.md).
+For more information, see [Customize buttons](../../../how-tos/ui-library-sdk/button-injection.md).
 
 ### Skip setup screen
 

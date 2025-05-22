@@ -2,16 +2,42 @@
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
 
-
 ms.custom: references_regions
 
-
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 
 # What's New in Azure Cache for Redis
+
+Find out what's new in Azure Redis.
+
+## May 2025
+
+### Azure Managed Redis General Availability (GA)
+
+[Azure Managed Redis](/azure/redis/overview) is Generally Available (GA) as a product. However, certain features remain in Public Preview.
+
+- Scaling a cache
+- Data persistence
+- Non-clustered caches
+
+All in-memory tiers that use over 120 GB of storage are in Public Preview, including:
+
+- Memory Optimized M150 and higher
+- Balanced B150 and higher
+- Compute Optimized X150 and higher
+
+All Flash Optimized tiers are in Public Preview.
+
+## November 2024
+
+### Cache creation with zone redundancy by default
+
+For the Standard and Premium tiers, Azure Cache for Redis now creates caches with zone redundancy by default using _Automatic_Zonal_Allocation_ in all regions that support zones. For Premium caches, you can still choose to manually select availability zones or choose not to use zone redundancy. For more information, see [Enable zone redundancy for Azure Cache for Redis](cache-how-to-zone-redundancy.md).
 
 ## September 2024
 
@@ -31,22 +57,23 @@ For the Standard and Premium tiers, you can now use availability zones (Preview)
 
 Azure cache for Redis now offers you the ability to use Redis 7.2 (preview) with your Enterprise and Enterprise Flash tiers.
 
-You can upgrade your caches automatically or manually. For more information, see [How to upgrade an existing cache](cache-how-to-upgrade.md). 
+You can upgrade your caches automatically or manually. For more information, see [How to upgrade an existing cache](cache-how-to-upgrade.md).
 
 You are able to manually trigger an upgrade to the latest version of Redis software. This provides two benefits above waiting for the automatic upgrade to occur:
 
 1. You can control when the upgrade occurs.
 1. You can upgrade to preview releases of Redis software.
 
-| **Tier**         | Basic, Standard, Premium                                | Enterprise, Enterprise Flash |
-|:--------------------------|:----------------------------------------------:|:----------------------------:|
-| **Lastest Redis Version** | Redis 6.0 (GA)                                 | Redis 6.0 (GA) / Redis 7.2 (Preview)|
-| **Upgrade Policy** | Manual upgrade to newer version     | Automatic upgrade to latest GA version         |
+This table contains the information for Redis upgrades features available in each tier.
+
+| Tier                         | Automatic Upgrade | Manual Upgrade |
+|:---------------------------- |:-----------------:|:--------------:|
+| Basic, Standard, Premium     |        No         |       No       |
+| Enterprise, Enterprise Flash |        Yes        |       Yes      |
 
 ### Enterprise tier E1 (preview) SKU
 
 The E1 SKU is intended primarily for dev/test scenarios. It runs on smaller [burstable virtual machines](/azure/virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model). As a result, E1 offers variable performance depending on how much CPU is consumed. Unlike other Enterprise offerings, it isn't possible to scale out E1. However, it's still possible to scale up to a larger SKU. The E1 SKU also doesn't support [active geo-replication](cache-how-to-active-geo-replication.md).
-
 
 ### .NET Output cache and HybridCache
 
@@ -125,7 +152,7 @@ To meet the industry-wide push toward the exclusive use of Transport Layer Secur
 As a part of this effort, you can expect the following changes to Azure Cache for Redis:
 
 - _Phase 1_: Azure Cache for Redis stops offering TLS 1.0/1.1 as an option for MinimumTLSVersion setting for new cache creates. Existing cache instances won't be updated at this point. You can still use the Azure portal or other management APIs to [change the minimum TLS version](cache-configure.md#access-ports) to 1.0 or 1.1 for backward compatibility.
-- _Phase 2_: Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting October 1, 2024. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service is expected to be available while we update the MinimumTLSVerion for all caches to 1.2.
+- _Phase 2_: Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting October 1, 2024. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service is expected to be available while we update the MinimumTLSVersion for all caches to 1.2.
 
 For more information, see [Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis](cache-remove-tls-10-11.md).
 
@@ -151,7 +178,7 @@ Azure Cache for Redis now supports clustered caches with up to 30 shards. Now, y
 
 A new metric is available to track the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. This metric can be used to track the health of your cache instance and to see if long-running commands are compromising latency performance.
 
-For more information, see [Monitor Azure Cache for Redis](monitor-cache.md#azure-cache-for-redis-metrics).
+For more information, see [Monitor Azure Cache for Redis](../redis/monitor-cache.md#azure-cache-for-redis-metrics).
 
 ## March 2023
 
@@ -191,7 +218,7 @@ For more information, see [Enabling connection audit logs](cache-monitor-diagnos
 
 Support for using the RedisJSON module reached General Availability (GA).
 
-For more information, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
+For more information, see [Use Redis modules with Azure Cache for Redis](../redis/redis-modules.md).
 
 ### Redis 6 becomes default update
 
@@ -205,7 +232,7 @@ For more information, see [Redis 6 becomes default for new cache instances](#red
 
 Several enhancements were made to the passive geo-replication functionality offered on the Premium tier of Azure Cache for Redis.
 
-- New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](monitor-cache.md).
+- New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](../redis/monitor-cache.md).
   
   - Geo Replication Connectivity Lag (preview)
   - Geo Replication Data Sync Offset (preview)
@@ -243,7 +270,7 @@ The Enterprise and Enterprise Flash tiers of Azure Cache for Redis now support t
 
 The **RedisJSON** module implements the community version of the module so you can use your existing knowledge and workstreams. **RedisJSON** is  designed for use with the search functionality of **RediSearch**. Using both modules provides integrated indexing and querying of data. For more information, see [RedisJSON](https://aka.ms/redisJSON).
 
-The **RediSearch** module is also now available for Azure Cache for Redis. For more information on using Redis modules in Azure Cache for Redis, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
+The **RediSearch** module is also now available for Azure Cache for Redis. For more information on using Redis modules in Azure Cache for Redis, see [Use Redis modules with Azure Cache for Redis](../redis/redis-modules.md).
 
 ## July 2022
 
@@ -281,7 +308,7 @@ These two new metrics can help identify whether Azure Cache for Redis clients ar
 - Connections Created Per Second
 - Connections Closed Per Second
 
-For more information, see [View cache metrics](monitor-cache.md#view-cache-metrics).
+For more information, see [View cache metrics](../redis/monitor-cache.md#view-cache-metrics).
 
 ### Default cache change
 

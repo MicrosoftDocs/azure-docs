@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot common Device Update for Azure IoT Hub issues | Microsoft Docs
 description: This document provides a list of tips and tricks to help remedy many possible issues you may be having with Device Update for IoT Hub.
-author: vimeht
-ms.author: vimeht
+author: andrewbrownmsft
+ms.author: andbrown
 ms.date: 9/13/2022
 ms.topic: troubleshooting
 ms.service: azure-iot-hub

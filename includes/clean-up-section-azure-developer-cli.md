@@ -12,5 +12,5 @@ Use the `azd down` command to remove the resource group and all resources associ
 azd down
 ```
 
-Visit the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) documentation for next steps on working with `azd` templates and additional features.
+Visit the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) documentation for next steps on working with `azd` templates and other features.
 

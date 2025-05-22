@@ -5,9 +5,9 @@
  author: mbender
  ms.service: azure-private-link
  ms.topic: include
- ms.date: 11/04/2024
- ms.author: mbender> -ms
-ms.custom: include file
+ ms.date: 03/05/2025
+ ms.author: mbender-ms
+ms.custom: include file, ignite-2024
 ---
 
 - Registration for the Azure Network Security Perimeter public preview is required. To register, add the `AllowNSPInPublicPreview` feature flag to your subscription. 
@@ -22,10 +22,10 @@ ms.custom: include file
 
   - To re-register the `Microsoft.Network` resource provider, use the following Azure PowerShell command:
 
-  ```azurepowershell-interactive
-  # Register the Microsoft.Network resource provider
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-  ```
+    ```azurepowershell-interactive
+    # Register the Microsoft.Network resource provider
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+    ```
 
   - To re-register the `Microsoft.Network` resource provider, use the following Azure CLI command:
 
@@ -33,6 +33,5 @@ ms.custom: include file
     # Register the Microsoft.Network resource provider
     az provider register --namespace Microsoft.Network
     ```
-
     
   For more information on re-registering resource providers, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).

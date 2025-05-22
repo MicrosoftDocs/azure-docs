@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create Microsoft Azure Maps Snap to road route using Microsoft Fabric notebooks (Python).'
+title: 'Tutorial: Analyze trip data using Snap to Roads in Microsoft Fabric notebook.'
 description: Tutorial on how to Create a snap to road route using Microsoft Azure Maps routing APIs and Microsoft Fabric notebooks.
 author: farazgis
 ms.author: fsiddiqui
@@ -10,7 +10,7 @@ services: azure-maps
 ms.custom: mvc, devx-track-python
 ---
 
-# Tutorial: Analyze trip using Snap to Roads in Microsoft Fabric notebook
+# Tutorial: Analyze trip data using Snap to Roads in Microsoft Fabric notebook
 
 Snap to Roads is an Azure Maps service that processes a set of GPS points collected along a route and snaps them to the most probable roads the vehicle traveled. This feature is useful in determining the exact path followed by a vehicle, even when the GPS data collected is off slightly.
 
@@ -142,7 +142,7 @@ The code in this notebook cell reads raw GPS data from the data file in lakehous
     import json
     
     az_maps_subkey = ""
-    az_maps_snaproads_url = "https://atlas.microsoft.com/route/snapToRoads?api-version=2024-07-01-preview&subscription-key=" + az_maps_subkey
+    az_maps_snaproads_url = "https://atlas.microsoft.com/route/snapToRoads?api-version=2025-01-01&subscription-key=" + az_maps_subkey
     
     # Function to process snap to road for each given trip
     def process_route(df, outputFilePath):

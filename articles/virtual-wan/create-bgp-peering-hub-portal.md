@@ -60,6 +60,8 @@ After your hub router status is provisioned, create a connection between your hu
 
     :::image type="content" source="./media/create-bgp-peering-hub-portal/view-peer.png" alt-text="Screenshot of the BGP peers page with the new peer.":::
 
+1. On the virtual hub resource, you'll see two IP addresses under "virtualRouterIps". It is required to peer with both these addresses and advertise the same routes to both these addresses. This ensures that the routes are successfully advertised to your virtual hub.  
+
 ### Modify a BGP peer
 
 1. On the **Virtual Hub** resource, go to the **BGP Peers** page.

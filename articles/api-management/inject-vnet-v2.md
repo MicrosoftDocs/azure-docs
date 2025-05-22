@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 11/18/2024
+ms.date: 03/20/2025
 ---
 
 # Inject an Azure API Management instance in a private virtual network - Premium v2 tier
@@ -15,12 +15,15 @@ ms.date: 11/18/2024
 This article guides you through the requirements to inject your Azure API Management Premium v2 (preview) instance in a virtual network. 
 
 > [!NOTE]
+> The Premium v2 tier is currently in limited preview. To sign up, fill [this form](https://aka.ms/premiumv2).
+
+> [!NOTE]
 > To inject a classic Developer or Premium tier instance in a virtual network, the requirements and configuration are different. [Learn more](virtual-network-injection-resources.md).
 
 When an API Management Premium v2 instance is injected in a virtual network: 
 
 * The API Management gateway endpoint is accessible through the virtual network at a private IP address.
-* API Management can make outbound requests to API backends that are isolated in the network. 
+* API Management can make outbound requests to API backends that are isolated in the network or any peered network, as long as network connectivity is properly configured. 
 
 This configuration is recommended for scenarios where you want to isolate network traffic to both the API Management instance and the backend APIs.
 
@@ -43,9 +46,9 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 * The virtual network must be in the same region and Azure subscription as the API Management instance.
 
-### Subnet requirements
+### Dedicated subnet
 
-* The subnet for the API Management instance can't be shared with another Azure resource.
+* The subnet used for virtual network injection can only be used by a single API Management instance. It can't be shared with another Azure resource.
 
 ### Subnet size 
 
@@ -54,7 +57,7 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 ### Network security group
 
-A network security group must be associated with the subnet.
+A network security group must be associated with the subnet. No specific rules are required. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
 
 ### Subnet delegation
 
@@ -68,9 +71,11 @@ The subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** se
 
 For more information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
+[!INCLUDE [api-management-virtual-network-address-prefix](../../includes/api-management-virtual-network-address-prefix.md)]
+
 ### Permissions
 
-You must have at least the following role-based access control permissions on the subnet or at a higher level to configure virtual network integration:
+You must have at least the following role-based access control permissions on the subnet or at a higher level to configure virtual network injection:
 
 | Action | Description |
 |-|-|
@@ -86,13 +91,11 @@ When you [create](get-started-create-service-instance.md) a Premium v2 instance 
 
 1. In the **Create API Management service** wizard, select the **Networking** tab.
 1. In **Connectivity type**, select **Virtual network**.
-1. In **Type**, select **Internal**. 
-1. In **Configure virtual networks**, select the virtual network and the delegated subnet that you want to integrate. 
-
-    Optionally, provide a public IP address resource if you want to own and control an IP address that's used only for outbound connection to the internet.
+1. In **Type**, select **Virtual Network injection**. 
+1. In **Configure virtual networks**, select the virtual network and the delegated subnet that you want to inject. 
 1. Complete the wizard to create the API Management instance.
 
-## DNS settings for integration with private IP address
+## DNS settings for access to private IP address
 
 When a Premium v2 API Management instance is injected in a virtual network, you have to manage your own DNS to enable inbound access to API Management. 
 

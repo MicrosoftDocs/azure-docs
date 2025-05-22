@@ -451,10 +451,10 @@ public static async Task<HttpResponseData> Run(
 
     if (entity is null)
     {
-        return request.CreateResponse(HttpStatusCode.NotFound);
+        return req.CreateResponse(HttpStatusCode.NotFound);
     }
     
-    HttpResponseData response = request.CreateResponse(HttpStatusCode.OK);
+    HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
     await response.WriteAsJsonAsync(entity);
 
     return response;

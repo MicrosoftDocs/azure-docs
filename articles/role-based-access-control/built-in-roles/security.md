@@ -2,12 +2,12 @@
 title: Azure built-in roles for Security - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Security category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 04/25/2025
 ms.custom: generated
 ---
 
@@ -18,7 +18,9 @@ This article lists the Azure built-in roles in the Security category.
 
 ## App Compliance Automation Administrator
 
-Create, read, download, modify and delete reports objects and related other resource objects.
+Allows managing App Compliance Automation tool for Microsoft 365
+
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
 
 [Learn more](/microsoft-365-app-certification/docs/automate-certification-with-acat)
 
@@ -52,7 +54,7 @@ Create, read, download, modify and delete reports objects and related other reso
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/automations/write | Creates or updates the automation for the scope |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/register/action | Registers the subscription for Azure Security Center |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/unregister/action | Unregisters the subscription from Azure Security Center |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -65,7 +67,7 @@ Create, read, download, modify and delete reports objects and related other reso
   "assignableScopes": [
     "/"
   ],
-  "description": "Create, read, download, modify and delete reports objects and related other resource objects.",
+  "description": "Allows managing App Compliance Automation tool for Microsoft 365",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/0f37683f-2463-46b6-9ce7-9b788b988ba2",
   "name": "0f37683f-2463-46b6-9ce7-9b788b988ba2",
   "permissions": [
@@ -113,14 +115,16 @@ Create, read, download, modify and delete reports objects and related other reso
 
 ## App Compliance Automation Reader
 
-Read, download the reports objects and related other resource objects.
+Allows read-only access to App Compliance Automation tool for Microsoft 365
+
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
 
 [Learn more](/microsoft-365-app-certification/docs/automate-certification-with-acat)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -133,7 +137,7 @@ Read, download the reports objects and related other resource objects.
   "assignableScopes": [
     "/"
   ],
-  "description": "Read, download the reports objects and related other resource objects.",
+  "description": "Allows read-only access to App Compliance Automation tool for Microsoft 365",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/ffc6bbe0-e443-4c3b-bf54-26581bb2f78e",
   "name": "ffc6bbe0-e443-4c3b-bf54-26581bb2f78e",
   "permissions": [
@@ -907,6 +911,49 @@ Read secret contents. Only works for key vaults that use the 'Azure role-based a
     }
   ],
   "roleName": "Key Vault Secrets User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Locks Contributor
+
+Can Manage Locks Operations.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/read | Gets locks at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/write | Add locks at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/delete | Delete locks at the specified scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can Manage Locks Operations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/28bf596f-4eb7-45ce-b5bc-6cf482fec137",
+  "name": "28bf596f-4eb7-45ce-b5bc-6cf482fec137",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/locks/read",
+        "Microsoft.Authorization/locks/write",
+        "Microsoft.Authorization/locks/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Locks Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

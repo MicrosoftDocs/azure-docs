@@ -14,7 +14,9 @@ ms.subservice: b2c
 
 ---
 # Application types that can be used in Active Directory B2C
- 
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Azure Active Directory B2C (Azure AD B2C) supports authentication for various modern application architectures. All of them are based on the industry standard protocols [OAuth 2.0](protocols-overview.md) or [OpenID Connect](protocols-overview.md). This article describes the types of applications that you can build, independent of the language or platform you prefer. It also helps you understand the high-level scenarios before you start building applications.
 
 Every application that uses Azure AD B2C must be registered in your [Azure AD B2C tenant](tutorial-create-tenant.md) by using the [Azure portal](https://portal.azure.com/). The application registration process collects and assigns values, such as:
@@ -47,7 +49,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 {
     "name": "John Smith",
     "email": "john.smith@gmail.com",
-    "oid": "d9674823-dffc-4e3f-a6eb-62fe4bd48a58"
+    "oid": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
     ...
 }
 ```

@@ -2,11 +2,11 @@
 title: Set up alerts in Azure Container Apps
 description: Set up alerts to monitor your container app.
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 11/06/2024
-ms.author: v-wellsjason
+ms.author: cshoe
 ---
 
 # Set up alerts in Azure Container Apps

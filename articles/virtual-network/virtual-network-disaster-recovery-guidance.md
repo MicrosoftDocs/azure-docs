@@ -3,7 +3,7 @@ title: Virtual network business continuity
 description: Learn what to do if there's an Azure service disruption impacting Azure Virtual Networks.
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/23/2023
 ms.author: allensu
 ---
@@ -23,8 +23,6 @@ There could be several different ways that your application could be disrupted. 
 **Q: If an outage occurs for an entire region, what do I do? For example, if a region is completely cut off due to a natural disaster? What happens to the virtual networks hosted in the region?**
 
 A: The virtual network and the resources in the affected region remains inaccessible during the time of the service disruption.
-
-:::image type="content" source="./media/virtual-network-disaster-recovery-guidance/vnet.png" alt-text="Diagram of a simple network.":::
 
 **Q: What can I do to re-create the same virtual network in a different region?**
 

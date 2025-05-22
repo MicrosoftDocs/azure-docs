@@ -1,5 +1,5 @@
 ---
-title: Expose applications with end-to-end TLS in a virtual network using Application Gateway
+title: Expose Applications with End-to-End TLS in a Virtual Network Using Application Gateway
 titleSuffix: Azure Spring Apps
 description: How to expose applications to the internet using Application Gateway
 author: KarlErickson
@@ -16,7 +16,7 @@ ms.devlang: java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article explains how to expose applications to the internet using Application Gateway. When an Azure Spring Apps service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway.
 

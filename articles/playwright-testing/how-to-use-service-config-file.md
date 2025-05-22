@@ -3,7 +3,7 @@ title: Microsoft Playwright Testing service configuration file options
 description: Learn how to use options available in configuration file with Microsoft Playwright Testing preview
 ms.topic: how-to
 ms.date: 09/07/2024
-ms.custom: playwright-testing-preview
+ms.custom: playwright-testing-preview, ignite-2024
 zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
