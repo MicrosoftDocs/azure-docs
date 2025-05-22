@@ -43,7 +43,7 @@ The WAF policy setting defines the JavaScript challenge cookie validity lifetime
 
 - **AJAX and API calls aren't supported**: JavaScript challenge doesn't apply to AJAX and API requests.
 
-- **POST body size restriction**: The first request that triggers a JavaScript challenge will be blocked if its POST body exceeds 128 KB. Additionally, 
+- **POST body size restriction**: The first request that triggers a JavaScript challenge is blocked if its POST body exceeds 128 KB.
 
 - **Non-HTML embedded resources**: JavaScript challenge is designed for HTML resources. Challenges for non-HTML resources embedded in a page, such as images, CSS, JavaScript files, or similar resources, aren't supported. However, if there was a prior successful JavaScript challenge request, those limitations are lifted. 
 
