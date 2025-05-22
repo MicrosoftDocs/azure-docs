@@ -8,12 +8,12 @@ ms.custom: devx-track-azurecli, devx-track-arm-template
 
 # Automatic deletions from deployment history
 
-When you deploy resources to Azure, the deployment details are recorded in the deployment history at the scope where the deployment occurs. Each scope—whether it's a resource group, subscription, or management group—can store up to **800 deployments** in its history. Once this limit is reached, Azure **automatically deletes the oldest deployments** to make space for new ones. This automatic cleanup process was implemented on **August 6, 2020**.
+When you deploy resources to Azure, the deployment details are recorded in the deployment history at the scope where the deployment occurs. Each scope—whether it's a resource group, subscription, management group, tenant—can store up to **800 deployments** in its history. Once this limit is reached, Azure **automatically deletes the oldest deployments** to make space for new ones. This automatic cleanup process was implemented on **August 6, 2020**.
 
 > [!NOTE]
 > Deleting a deployment from the history doesn't affect any of the resources that were deployed.
 
-## How automatic deployment deletions work
+## Overview of automatic deployment history deletions
 
 Deployments are deleted from your history when you exceed 700 deployments. Azure Resource Manager deletes deployments until the history is down to 600. The oldest deployments are always deleted first.
 
@@ -32,7 +32,7 @@ The deletions are requested under the identity of the user who deployed the temp
 
 If the current user doesn't have the required permissions, automatic deletion is attempted again during the next deployment.
 
-## Removing locks that block deletions
+## Handling resource locks
 
 If you have a [CanNotDelete lock](../management/lock-resources.md) on a resource group or a subscription, the deployments for that scope can't be automatically deleted. To enable automatic cleanup of the deployment history, you need to remove the lock.
 
@@ -62,13 +62,14 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ---
 
-## How to opt out of automatic deletions
+## Opting out of automatic deletions
 
-You can opt out of automatic deletions from the history. **Use this option only when you want to manage the deployment history yourself.** The limit of 800 deployments in the history is still enforced. If you exceed 800 deployments, you receive an error and your deployment fail.
+You can opt out of automatic deletion to manually manage your deployment history. **Use this option cautiously**, as the **800-deployment limit** remains enforced, and exceeding it causes deployment failures.
 
-To disable automatic deletions at the tenant or the management group scope, open a support ticket. For the instructions, see [Request support](./overview.md#get-support).
+> [!IMPORTANT]
+> Opting out is available only for subscription and resource group scopes, as it's controlled by the subscription-level `Microsoft.Resources/DisableDeploymentGrooming` feature flag. For tenant or management group scopes, open a [support ticket]((./overview.md#get-support)) to disable automatic deletion.
 
-To disable automatic deletions at the subscription scope, register the `Microsoft.Resources/DisableDeploymentGrooming` feature flag. When you register the feature flag, you opt out of automatic deletions for the entire Azure subscription. You can't opt out for only a particular resource group. To reenable automatic deletions, unregister the feature flag.
+To disable automatic deletion at the subscription scope (affects all resource groups within it):
 
 ### [PowerShell](#tab/azure-powershell)
 
