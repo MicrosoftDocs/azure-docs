@@ -282,7 +282,7 @@ When you export your data using OpenTelemetry, keep these current considerations
 
 + At this time, only HTTP, Service Bus and Event Hub triggers are supported with OpenTelemetry outputs. 
 
-+ When the host is configured to use OpenTelemetry, the Azure portal does not support log streaming or recent function invocation traces.
++ When the host is configured to use OpenTelemetry, the Azure portal doesn't support log streaming or recent function invocation traces.
 
 + [Azure Functions diagnostics](functions-diagnostics.md) in the Azure portal is a useful resource for detecting and diagnosing potential monitoring-related issues. 
 
