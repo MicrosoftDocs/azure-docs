@@ -78,11 +78,11 @@
   - name: Go
     items:
     - name: Configuration
-      items:
-      - name: Console app
-        href: quickstart-go-console-app.md
-      - name: Gin web app
-        href: quickstart-go-web-app.md
+      href: quickstart-go-console-app.md
+  - name: Gin (Go Framework)
+    items:
+    - name: Configuration
+      href: quickstart-go-web-app.md
   - name: Azure Functions
     items:
     - name: Configuration
