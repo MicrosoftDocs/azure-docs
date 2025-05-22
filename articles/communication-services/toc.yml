@@ -990,12 +990,8 @@ items:
       href: concepts/call-automation/incoming-call-notification.md
     - name: Make an outbound call
       href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
-    - name: Control and steer calls
-      href: how-tos/call-automation/actions-for-call-control.md
     - name: Mute participants during a call
       href: how-tos/call-automation/mute-participants.md
-    - name: Pass contextual data between calls
-      href: how-tos/call-automation/custom-context.md
     - name: Ring Teams users
       href: concepts/call-automation/call-automation-teams-interop.md
   - name: Interactive voice and AI
@@ -1006,8 +1002,6 @@ items:
       href: concepts/call-automation/play-action.md
     - name: Gather user input
       href: concepts/call-automation/recognize-action.md
-    - name: Control mid call media actions
-      href: how-tos/call-automation/control-mid-call-media-actions.md
     - name: Customize voice prompts to users with play action
       href: how-tos/call-automation/play-action.md
     - name: Gather user input with recognize action
@@ -1056,10 +1050,16 @@ items:
       href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Samples and tutorials
     items:
+    - name: Control and steer calls
+      href: how-tos/call-automation/actions-for-call-control.md
+    - name: Control mid call media actions
+      href: how-tos/call-automation/control-mid-call-media-actions.md
     - name: Secure webhook endpoints
       href: how-tos/call-automation/secure-webhook-endpoint.md
     - name: Handle Call Automation events with EventProcessor
       href: how-tos/call-automation/handle-events-with-event-processor.md
+    - name: Pass contextual data between calls
+      href: how-tos/call-automation/custom-context.md
     - name: Call Automation Azure OpenAI sample
       href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
