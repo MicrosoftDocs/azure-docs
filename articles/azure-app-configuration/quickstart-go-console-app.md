@@ -59,107 +59,107 @@ Add the following key-values to the App Configuration store. For more informatio
 
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-```go
-package main
+	```go
+	package main
 
-import (
-	"context"
-	"fmt"
-	"log"
-	"os"
-	"time"
+	import (
+		"context"
+		"fmt"
+		"log"
+		"os"
+		"time"
 
-	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-)
+		"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+		"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	)
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
-	// Get the endpoint from environment variable
-	endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
-	if endpoint == "" {
-		log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
-	}
+	func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
+		// Get the endpoint from environment variable
+		endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
+		if endpoint == "" {
+			log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
+		}
 
-	// Create a credential using DefaultAzureCredential
-	credential, err := azidentity.NewDefaultAzureCredential(nil)
-	if err != nil {
-		log.Fatalf("Failed to create credential: %v", err)
-	}
+		// Create a credential using DefaultAzureCredential
+		credential, err := azidentity.NewDefaultAzureCredential(nil)
+		if err != nil {
+			log.Fatalf("Failed to create credential: %v", err)
+		}
 
-	// Set up authentication options with endpoint and credential
-	authOptions := azureappconfiguration.AuthenticationOptions{
-		Endpoint:   endpoint,
-		Credential: credential,
-	}
+		// Set up authentication options with endpoint and credential
+		authOptions := azureappconfiguration.AuthenticationOptions{
+			Endpoint:   endpoint,
+			Credential: credential,
+		}
 
-	// Configure which keys to load and trimming options
-	options := &azureappconfiguration.Options{
-		Selectors: []azureappconfiguration.Selector{
-			{
-				KeyFilter:   "Config.*",
-				LabelFilter: "",
+		// Configure which keys to load and trimming options
+		options := &azureappconfiguration.Options{
+			Selectors: []azureappconfiguration.Selector{
+				{
+					KeyFilter:   "Config.*",
+					LabelFilter: "",
+				},
 			},
-		},
-		TrimKeyPrefixes: []string{"Config."},
-	}
+			TrimKeyPrefixes: []string{"Config."},
+		}
 
-	// Load configuration from Azure App Configuration
-	appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-	if err != nil {
-		log.Fatalf("Failed to load configuration: %v", err)
-	}
+		// Load configuration from Azure App Configuration
+		appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+		if err != nil {
+			log.Fatalf("Failed to load configuration: %v", err)
+		}
 
-	return appConfig, nil
-}
-```
+		return appConfig, nil
+	}
+	```
 
 ### [Connection string](#tab/connection-string)
 
-```go
-package main
+	```go
+	package main
 
-import (
-	"context"
-	"fmt"
-	"log"
-	"os"
-	"time"
+	import (
+		"context"
+		"fmt"
+		"log"
+		"os"
+		"time"
 
-	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-)
+		"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+	)
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
-	// Get the connection string from environment variable
-	connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
-	if connectionString == "" {
-		log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
-	}
+	func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
+		// Get the connection string from environment variable
+		connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
+		if connectionString == "" {
+			log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
+		}
 
-	// Set up authentication options with connection string
-	authOptions := azureappconfiguration.AuthenticationOptions{
-		ConnectionString: connectionString,
-	}
+		// Set up authentication options with connection string
+		authOptions := azureappconfiguration.AuthenticationOptions{
+			ConnectionString: connectionString,
+		}
 
-	// Configure which keys to load and trimming options
-	options := &azureappconfiguration.Options{
-		Selectors: []azureappconfiguration.Selector{
-			{
-				KeyFilter:   "Config.*",
-				LabelFilter: "",
+		// Configure which keys to load and trimming options
+		options := &azureappconfiguration.Options{
+			Selectors: []azureappconfiguration.Selector{
+				{
+					KeyFilter:   "Config.*",
+					LabelFilter: "",
+				},
 			},
-		},
-		TrimKeyPrefixes: []string{"Config."},
-	}
+			TrimKeyPrefixes: []string{"Config."},
+		}
 
-	// Load configuration from Azure App Configuration
-	appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-	if err != nil {
-		log.Fatalf("Failed to load configuration: %v", err)
-	}
+		// Load configuration from Azure App Configuration
+		appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+		if err != nil {
+			log.Fatalf("Failed to load configuration: %v", err)
+		}
 
-	return appConfig, nil
-}
-```
+		return appConfig, nil
+	}
+	```
 
 ---
 
@@ -169,56 +169,56 @@ The `Unmarshal` method provides a type-safe way to load configuration values int
 
 Create a file named `unmarshal_sample.go` with the following content:
 
-```go
-package main
+	```go
+	package main
 
-import (
-    "context"
-    "fmt"
-    "log"
-    "time"
-)
+	import (
+		"context"
+		"fmt"
+		"log"
+		"time"
+	)
 
-// Configuration structure that matches your key-values in App Configuration
-type Config struct {
-    Message string
-    App     struct {
-        Name     string
-        Debug    bool
-        Settings struct {
-            Timeout     int
-            RetryCount  int
-        }
-    }
-}
+	// Configuration structure that matches your key-values in App Configuration
+	type Config struct {
+		Message string
+		App     struct {
+			Name     string
+			Debug    bool
+			Settings struct {
+				Timeout     int
+				RetryCount  int
+			}
+		}
+	}
 
-func main() {
-    // Create a context with timeout
-    ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-    defer cancel()
+	func main() {
+		// Create a context with timeout
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
 
-    // Load configuration
-    azAppCfg, err := loadAzureAppConfiguration(ctx)
-    if err != nil {
-        log.Fatalf("Error loading configuration: %v", err)
-    }
+		// Load configuration
+		azAppCfg, err := loadAzureAppConfiguration(ctx)
+		if err != nil {
+			log.Fatalf("Error loading configuration: %v", err)
+		}
 
-    // Create a configuration object and unmarshal the loaded key-values into it
-    var config Config
-    if err := provider.Unmarshal(&config, nil); err != nil {
-        log.Fatalf("Failed to unmarshal configuration: %v", err)
-    }
+		// Create a configuration object and unmarshal the loaded key-values into it
+		var config Config
+		if err := provider.Unmarshal(&config, nil); err != nil {
+			log.Fatalf("Failed to unmarshal configuration: %v", err)
+		}
 
-    // Display the configuration values
-    fmt.Println("\nConfiguration Values:")
-    fmt.Println("---------------------")
-    fmt.Printf("Message: %s\n", config.Message)
-    fmt.Printf("App Name: %s\n", config.App.Name)
-    fmt.Printf("Debug Mode: %t\n", config.App.Debug)
-    fmt.Printf("Timeout: %d seconds\n", config.App.Settings.Timeout)
-    fmt.Printf("Retry Count: %d\n", config.App.Settings.RetryCount)
-}
-```
+		// Display the configuration values
+		fmt.Println("\nConfiguration Values:")
+		fmt.Println("---------------------")
+		fmt.Printf("Message: %s\n", config.Message)
+		fmt.Printf("App Name: %s\n", config.App.Name)
+		fmt.Printf("Debug Mode: %t\n", config.App.Debug)
+		fmt.Printf("Timeout: %d seconds\n", config.App.Settings.Timeout)
+		fmt.Printf("Retry Count: %d\n", config.App.Settings.RetryCount)
+	}
+	```
 
 ## JSON bytes
 
@@ -226,51 +226,52 @@ The `GetBytes` method retrieves your configuration as raw JSON data, offering a 
 
 Create a file named `getbytes_sample.go` with the following content:
 
-```go
-package main
+	```go
+	package main
 
-import (
-    "context"
-    "fmt"
-    "log"
-    "time"
-    
-    "github.com/spf13/viper"
-)
+	import (
+		"context"
+		"fmt"
+		"log"
+		"time"
+		
+		"github.com/spf13/viper"
+	)
 
-func main() {
-    // Create a context with timeout
-    ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-    defer cancel()
+	func main() {
+		// Create a context with timeout
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
 
-    // Load configuration using the common function
-    provider, err := loadAzureAppConfiguration(ctx)
-    if err != nil {
-        log.Fatalf("Error loading configuration: %v", err)
-    }
+		// Load configuration using the common function
+		provider, err := loadAzureAppConfiguration(ctx)
+		if err != nil {
+			log.Fatalf("Error loading configuration: %v", err)
+		}
 
-    // Get configuration as JSON bytes
-    jsonBytes, err := provider.GetBytes(nil)
-    if err != nil {
-        log.Fatalf("Failed to get configuration as bytes: %v", err)
-    }
+		// Get configuration as JSON bytes
+		jsonBytes, err := provider.GetBytes(nil)
+		if err != nil {
+			log.Fatalf("Failed to get configuration as bytes: %v", err)
+		}
 
-    fmt.Println("\nRaw JSON Configuration:")
-    fmt.Println("------------------------")
-    fmt.Println(string(jsonBytes))
-    
-    // Initialize a new Viper instance
-    v := viper.New()
-    v.SetConfigType("json") // Set the config format to JSON
-    
-    // Load the JSON bytes into Viper
-    if err := v.ReadConfig(bytes.NewBuffer(jsonBytes)); err != nil {
-        log.Fatalf("Failed to read config into viper: %v", err)
-    }
+		fmt.Println("\nRaw JSON Configuration:")
+		fmt.Println("------------------------")
+		fmt.Println(string(jsonBytes))
+		
+		// Initialize a new Viper instance
+		v := viper.New()
+		v.SetConfigType("json") // Set the config format to JSON
+		
+		// Load the JSON bytes into Viper
+		if err := v.ReadConfig(bytes.NewBuffer(jsonBytes)); err != nil {
+			log.Fatalf("Failed to read config into viper: %v", err)
+		}
 
-	// Use viper to access your configuration
-	// ...
-```
+		// Use viper to access your configuration
+		// ...
+	}
+	```
 
 ## Run the application
 

@@ -110,176 +110,178 @@ Create a file named `appconfig.go` with the following content. You can connect t
 
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-```go
-package main
+	```go
+	package main
 
-import (
-	"context"
-	"fmt"
-	"log"
-	"os"
-	"time"
+	import (
+		"context"
+		"fmt"
+		"log"
+		"os"
+		"time"
 
-	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-)
+		"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+		"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	)
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
-	// Get the endpoint from environment variable
-	endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
-	if endpoint == "" {
-		log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
-	}
+	func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
+		// Get the endpoint from environment variable
+		endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
+		if endpoint == "" {
+			log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
+		}
 
-	// Create a credential using DefaultAzureCredential
-	credential, err := azidentity.NewDefaultAzureCredential(nil)
-	if err != nil {
-		log.Fatalf("Failed to create credential: %v", err)
-	}
+		// Create a credential using DefaultAzureCredential
+		credential, err := azidentity.NewDefaultAzureCredential(nil)
+		if err != nil {
+			log.Fatalf("Failed to create credential: %v", err)
+		}
 
-	// Set up authentication options with endpoint and credential
-	authOptions := azureappconfiguration.AuthenticationOptions{
-		Endpoint:   endpoint,
-		Credential: credential,
-	}
+		// Set up authentication options with endpoint and credential
+		authOptions := azureappconfiguration.AuthenticationOptions{
+			Endpoint:   endpoint,
+			Credential: credential,
+		}
 
-	// Configure which keys to load and trimming options
-	options := &azureappconfiguration.Options{
-		Selectors: []azureappconfiguration.Selector{
-			{
-				KeyFilter:   "Config.*",
-				LabelFilter: "",
+		// Configure which keys to load and trimming options
+		options := &azureappconfiguration.Options{
+			Selectors: []azureappconfiguration.Selector{
+				{
+					KeyFilter:   "Config.*",
+					LabelFilter: "",
+				},
 			},
-		},
-		TrimKeyPrefixes: []string{"Config."},
-	}
+			TrimKeyPrefixes: []string{"Config."},
+		}
 
-	// Load configuration from Azure App Configuration
-	appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-	if err != nil {
-		log.Fatalf("Failed to load configuration: %v", err)
-	}
+		// Load configuration from Azure App Configuration
+		appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+		if err != nil {
+			log.Fatalf("Failed to load configuration: %v", err)
+		}
 
-	return appConfig, nil
-}
-```
+		return appConfig, nil
+	}
+	```
 
 ### [Connection string](#tab/connection-string)
 
-```go
-package main
+	```go
+	package main
 
-import (
-	"context"
-	"fmt"
-	"log"
-	"os"
-	"time"
+	import (
+		"context"
+		"fmt"
+		"log"
+		"os"
+		"time"
 
-	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-)
+		"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+	)
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
-	// Get the connection string from environment variable
-	connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
-	if connectionString == "" {
-		log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
-	}
+	func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
+		// Get the connection string from environment variable
+		connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
+		if connectionString == "" {
+			log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
+		}
 
-	// Set up authentication options with connection string
-	authOptions := azureappconfiguration.AuthenticationOptions{
-		ConnectionString: connectionString,
-	}
+		// Set up authentication options with connection string
+		authOptions := azureappconfiguration.AuthenticationOptions{
+			ConnectionString: connectionString,
+		}
 
-	// Configure which keys to load and trimming options
-	options := &azureappconfiguration.Options{
-		Selectors: []azureappconfiguration.Selector{
-			{
-				KeyFilter:   "Config.*",
-				LabelFilter: "",
+		// Configure which keys to load and trimming options
+		options := &azureappconfiguration.Options{
+			Selectors: []azureappconfiguration.Selector{
+				{
+					KeyFilter:   "Config.*",
+					LabelFilter: "",
+				},
 			},
-		},
-		TrimKeyPrefixes: []string{"Config."},
-	}
+			TrimKeyPrefixes: []string{"Config."},
+		}
 
-	// Load configuration from Azure App Configuration
-	appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-	if err != nil {
-		log.Fatalf("Failed to load configuration: %v", err)
-	}
+		// Load configuration from Azure App Configuration
+		appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+		if err != nil {
+			log.Fatalf("Failed to load configuration: %v", err)
+		}
 
-	return appConfig, nil
-}
-```
+		return appConfig, nil
+	}
+	```
 
 ## Create a web application with Gin
 
 Create a file named `main.go` with the following content:
 
-```go
-package main
+	```go
+	package main
 
-import (
-    "context"
-    "fmt"
-    "log"
-    "time"
+	import (
+		"context"
+		"fmt"
+		"log"
+		"time"
 
-    "github.com/gin-gonic/gin"
-)
+		"github.com/gin-gonic/gin"
+	)
 
-type Config struct {
-    App     App
-    Message string
-}
-
-type App struct {
-    Name      string
-    Port      int
-}
-
-func main() {
-    // Create a context with timeout
-    ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-    defer cancel()
-
-    // Load configuration from Azure App Configuration
-    provider, err := loadAzureAppConfiguration(ctx)
-    if err != nil {
-        log.Fatalf("Error loading configuration: %v", err)
-    }
-
-    // Unmarshal the configuration into the application-specific struct
-    var config Config
-    if err := provider.Unmarshal(&config, nil); err != nil {
-        log.Fatalf("Failed to unmarshal configuration: %v", err)
+	type Config struct {
+		App     App
+		Message string
 	}
 
-    // Initialize Gin router
-    r := gin.Default()
+	type App struct {
+		Name      string
+		Port      int
+	}
 
-    // Load HTML templates
-    r.LoadHTMLGlob("templates/*")
+	func main() {
+		// Create a context with timeout
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
 
-    // Define a route for the homepage
-    r.GET("/", func(c *gin.Context) {
-        c.HTML(200, "index.html", gin.H{
-            "Title":   "Home",
-            "Message": config.Message,
-            "App":     config.App.Name,
-        })
-    })
+		// Load configuration from Azure App Configuration
+		provider, err := loadAzureAppConfiguration(ctx)
+		if err != nil {
+			log.Fatalf("Error loading configuration: %v", err)
+		}
 
-    // Use the port from configuration
-    portStr:= fmt.Sprintf(":%d", config.App.Port)
-    
-    // Start the server on configured port
-    log.Printf("Starting %s on http://localhost%s", config.App.Name, portStr)
-    if err := r.Run(portStr); err != nil {
-        log.Fatalf("Error starting server: %v", err)
-    }
-}
-```
+		// Unmarshal the configuration into the application-specific struct
+		var config Config
+		if err := provider.Unmarshal(&config, nil); err != nil {
+			log.Fatalf("Failed to unmarshal configuration: %v", err)
+		}
+
+		// Initialize Gin router
+		r := gin.Default()
+
+		// Load HTML templates
+		r.LoadHTMLGlob("templates/*")
+
+		// Define a route for the homepage
+		r.GET("/", func(c *gin.Context) {
+			c.HTML(200, "index.html", gin.H{
+				"Title":   "Home",
+				"Message": config.Message,
+				"App":     config.App.Name,
+			})
+		})
+
+		// Use the port from configuration
+		portStr:= fmt.Sprintf(":%d", config.App.Port)
+		
+		// Start the server on configured port
+		log.Printf("Starting %s on http://localhost%s", config.App.Name, portStr)
+		if err := r.Run(portStr); err != nil {
+			log.Fatalf("Error starting server: %v", err)
+		}
+	}
+	```
+
+---
 
 ## Run the web application
 
