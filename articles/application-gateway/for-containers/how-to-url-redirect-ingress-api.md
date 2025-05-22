@@ -2,11 +2,11 @@
 title: URL Redirect for Azure Application Gateway for Containers - Ingress API
 description: Learn how to redirect URLs in Ingress API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 3/7/2025
-ms.author: greglin
+ms.author: mbender
 ---
 
 # URL Redirect for Azure Application Gateway for Containers - Ingress API
