@@ -143,7 +143,7 @@ Example of a `guidance`, without extensions and without the real contents of the
 }
 ```
 
-### PresentGuidanceInformation
+## PresentGuidanceInformation
 
 Field `presentGuidanceItem` is a String that represents a kind of information, for example, "SIDE" or "SIZE."  
 Field `presentGuidanceValues`, if filled, contain one or more value Strings. For example, for presentGuidanceItem "SIDE" it could be "LEFT" or "RIGHT."  

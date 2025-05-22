@@ -12,7 +12,7 @@ ms.author: JanSchietse
 ---
 
 
-# Radiolody Insights Inferences
+# Radiology Insights Inferences
 
 ## 1. Introduction
 

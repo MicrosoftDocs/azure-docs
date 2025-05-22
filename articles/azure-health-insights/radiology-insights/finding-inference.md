@@ -20,7 +20,7 @@ ms.author: JanSchietse
 The `kind` is `finding`. Apart from this `kind` and the extensions, all info is in `finding` field.
 A full example of a `finding` inference is in [Appendix B](#appendix-b-an-example-of-a-findinginference-with-token-extensions)
 
-### Finding Inference extensions
+## Finding Inference extensions
 
 In addition to the token extensions, it can also include an extension with URL `section`. The section can have a LOINC code, for example:
 
@@ -65,7 +65,7 @@ Example:
 
 The URL "ci_sentence" refers to the sentence containing the first token of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable and it will only be found if option "provideFocusedSentenceEvidence" in "followupRecommendationOptions" is set to true. (In practice, this option will only be set to true for customer Powerscribe or mPower.)
 
-### Finding fields
+## Finding fields
 
 Here we describe the fields within field `finding`, except `component`.
 - Field `status`: is always set to `unknown`.
@@ -97,12 +97,12 @@ Here we describe the fields within field `finding`, except `component`.
 
 -	Field `code`: it's either SNOMED code 404684003: CLINICAL FINDING (FINDING) (meaning that the finding has a clinical indicator) or 123037004: BODY STRUCTURE (BODY STRUCTURE) (no clinical indicator.)
 
-### Components
+## Components
 
 Much of the relevant information is in the components. The kind of information in a component is determined by the component’s `code` field, which contains one CodeableConcept with one SNOMED code.  
 We'll now describe the different kinds of components.
 
-#### Subject of information
+### Subject of information
 
 This component has SNOMED code 131195008: SUBJECT OF INFORMATION (ATTRIBUTE). It also has the `valueCodeableConcept` field filled. The value is a SNOMED code describing the medical problem that the finding pertains to.  
 A `subject of information` component can be present if the `finding.code` field (see 6.2) has 404684003: CLINICAL FINDING (FINDING). There can be several of these components, with different concepts in the `valueCodeableConcept` field.  
@@ -135,7 +135,7 @@ Example, without token extensions:
 ```
 The possible SNOMED and RadLex codes for a subject of information are listed in [Appendix A](#appendix-a-possible-snomed-and-radlex-codes-for-a-subject-of-information).
 
-#### Anatomy
+### Anatomy
 
 Zero or more components with SNOMED code 722871000000108: ANATOMY (QUALIFIER VALUE). It has field `valueCodeConcept` filled with a SNOMED or RadLex code.  
 
@@ -164,7 +164,7 @@ Example without token extensions:
 }
 ```
 
-#### Region
+### Region
 
 Zero or more components with SNOMED code 45851105: REGION (ATTRIBUTE). Like anatomy, it has field `valueCodeableConcept` filled with a SNOMED or RadLex code. Such a concept refers to the body region of the anatomy.  
 Example without token extensions:
@@ -192,7 +192,7 @@ Example without token extensions:
 }
 ```
 
-#### Laterality
+### Laterality
 
 Zero or more components with code 45651917: LATERALITY (ATTRIBUTE). Each has field `valueCodeableConcept` set to a SNOMED concept pertaining to the laterality of the finding.  
 Example without token extensions:
@@ -227,7 +227,7 @@ The possible values for the laterality SNOMED codes are:
 |24028007| RIGHT (QUALIFIER VALUE)|
 |51440002| RIGHT AND LEFT (QUALIFIER VALUE)|
 
-#### Change Values
+### Change Values
 
 Zero or more components with code 288533004: CHANGE VALUES (QUALIFIER VALUE). Each has field `valueCodeableConcept` set to a SNOMED concept pertaining to a size change in the finding (for example, a nodule that is either growing or decreasing.)  
 The possible SNOMED codes for the change values are:
@@ -240,7 +240,7 @@ The possible SNOMED codes for the change values are:
 |263922001|	UNSTABLE STATUS (QUALIFIER VALUE)|
 
 
-#### Percentage
+### Percentage
 
 At most one component with code 45606679: PERCENT (PROPERTY) (QUALIFIER VALUE). It has field `valueString` set to either a value, or a range consisting of a lower and upper value, separated by "-".  
 Example without token extensions:
@@ -260,7 +260,7 @@ Example without token extensions:
 }
 ```
 
-#### Severity
+### Severity
 
 At most one component with code 272141005: SEVERITIES (QUALIFIER VALUE), indicating how severe the medical problem is. 
 Example without token extensions:
@@ -298,7 +298,7 @@ A severity component has field `valueCodeableConcept` set with a SNOMED code fro
 |371923003| MILD TO MODERATE (QUALIFIER VALUE)|
 |371924009| MODERATE TO SEVERE (QUALIFIER VALUE)|
 
-#### Chronicity
+### Chronicity
 
 At most one component with code 246452003: CHRONICITY (ATTRIBUTE), indicating whether the medical problem is chronic or acute.  
 Example without token extension:
@@ -336,7 +336,7 @@ A chronicity component has field `valueCodeableConcept` set with a SNOMED code f
 |19939008| SUBACUTE (QUALIFIER VALUE)|
 |255212004| ACUTE-ON-CHRONIC (QUALIFIER VALUE)|
 
-> #### Cause
+> ### Cause
 At most one component with code 135650694: CAUSES OF HARM (QUALIFIER VALUE), indicating what the cause is of the medical problem. It has field `valueString` set to the strings of one or more tokens from the text, separated by ";;".  
 Example without token extensions:
 ```json
@@ -355,7 +355,7 @@ Example without token extensions:
 }
 ```
 
-#### Features
+### Features
 Zero or more components with code 362981000: QUALIFIER VALUE (QUALIFIER VALUE).  
 Every component has either:
 -	Field `valueString` set with token strings from the text, separated by ";;".
@@ -378,7 +378,7 @@ Example without token extensions:
 }
 ```
 
-#### Multiple
+### Multiple
 Exactly one component with code 46150521: MULTIPLE (QUALIFIER VALUE). It has field `valueBoolean` set to true or false. This indicates the difference between, for example, one nodule (multiple is false) or several nodules (multiple is true). It has no token extensions.  
 Example:
 ```json
@@ -398,7 +398,7 @@ Example:
 }
 ```
 
-#### Size
+### Size
 Zero or more components with code 246115007: SIZE (ATTRIBUTE). There's normally just one size for a finding, but there are several (current or past, see infra) components if the size has two or three dimensions, for example, "2.1 x 3.3 cm" or "1.2 x 2.2 x 1.5 cm".  
 Every component has field `interpretation` set to either SNOMED code 15240007: CURRENT or 9130008: PREVIOUS, depending on whether the size was measured during this visit or in the past.  
 Every component has either field `valueQuantity` or `valueRange` set.  
@@ -436,12 +436,12 @@ Example without token extensions:
 }
 ```
 
-#### Guidance
+### Guidance
 Zero or more components with code 723851000000107: GUIDANCE (QUALIFIER VALUE).
 A finding can have one or more guidance codes assigned to it. It's either a SNOMED code or a RadLex code. This is in the `valueCodeableConcept` field.
 See the section about [GuidanceInference](guidance-inference.md) (also for the possible values.)
 
-#### Date and time
+### Date and time
 At most one component with code 46083823: DATE AND TIME OF DAY (PROPERTY) (QUALIFIER VALUE).
 
 This has field `valueDateTime` set to a String, representing the date in format YYYY, YYYY-MM, YYYY-MM-DD, or YYYY-MM-DDThh:mm:ss+zz:zz.
