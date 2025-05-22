@@ -12,7 +12,7 @@ ms.author: JanSchietse
 ---
 
 
-# Radiolody Insights Inferences
+# Radiology Insights Inferences
 
 ## 1. Introduction
 
@@ -100,4 +100,20 @@ Annotation triggered when there's discrepancy between sex information in meta-da
 
 #### [LateralityMismatchInference](laterality-mismatch-inference.md)
 
-Annotation triggered when there's a discrepancy between laterality information in meta-data and narrative text or between findings and impression section in report text.
+Annotation triggered when there's a discrepancy between laterality information in meta-data and narrative text or between findings and impression section in report text. 
+
+#### [FindingInference](finding-inference.md)  
+
+Annotation that identifies and highlights an assembly of clinical information pertaining to a, clinically relevant, notion found in the report text. 
+
+#### [CompleteOrderDiscrepancyInference](complete-order-discrepancy-inference.md)  
+
+Annotation triggered when report text doesn't contain all relevant body parts according to information in the metadata that a complete study is ordered. 
+
+#### [LimitedOrderDiscrepancyInference](limited-order-discrepancy-inference.md)  
+
+Annotation triggered when limited selection of body parts according to the procedure order present in meta-data should be checked, but report text includes all relevant body parts. 
+
+#### [CriticalResultInference](critical-result-inference.md)  
+
+Annotation that identifies and highlights findings in report text that should be communicated within a certain time limit according to regulatory compliance.
