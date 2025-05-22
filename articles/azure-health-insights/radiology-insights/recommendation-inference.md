@@ -7,7 +7,7 @@ author: JanSchietse
 manager: JoeriVDV
 ms.service: azure-health-insights
 ms.topic: overview
-ms.date: 12/12/2023
+ms.date: 5/21/2025
 ms.author: JanSchietse
 ---
 
@@ -147,7 +147,7 @@ An example of a follow-up recommendation (without token extensions):
 	"isHedging": false
 }
 ```
-> ## Sentences
+## Sentences
 Next to the token extensions, there can be an extension containing sentences. This behavior is switchable; the sentences will only be generated if option "provideFocusedSentenceEvidence" in "FollowupRecommendationOptions" is set to true. In practice, this will only be set to true if the customer is mPower or Powerscribe.
 
 Example:
@@ -167,22 +167,22 @@ Fields `isConditional`, `isOptions`, `isGuideline`, and `isHedging` are set to t
 - `isOptions`: is also for conditional input.  
 - `isGuideline`”` means that the recommendation is in a general guideline, for example, "Patients over 50 with obesity should have their blood glucose checked yearly."
 
-> ## effectiveDateTime and effectivePeriod
+## effectiveDateTime and effectivePeriod
 Field `effectiveDateTime` will be set when the procedure is recommended to be done at a specific point in time, for example, "next Wednesday". Field `effectivePeriod` is set if a specific period is mentioned, with a start and end datetime. For example, for "within 6 months", the start datetime will be the date of service, and the end datetime will be the day six months after that. (Note that "in 6 months from now" is interpreted as a specific point in time, not a period.)
 
-> ## findings
+## findings
 If set, field `findings` contains one or more findings that have to do with the recommendation. For example, a leg scan (procedure) can be recommended because of leg pain (finding).  
 Every array element of field `findings` is a RecommendationFinding.   `RecommendationFinding.finding` has the same information as a `FindingInference.finding` field (see [Finding Inference](finding-inference.md)).
 For field `RecommendationFinding.RecommendationFindingStatus`, see the OpenAPI for the possible values.  
 Field `RecommendationFinding.criticalFinding` is set if a critical result is associated with the finding. It then contains the same information as `CriticalResultInference.criticalResult` (see [Critical Result](critical-result-inference.md).)
 
-> ## Recommended procedure
+## Recommended procedure
 Field `recommendedProcedure`: it's either a generic procedure recommendation, or an imaging procedure.
 
-> ### Generic procedure recommendation
+### Generic procedure recommendation
 The kind is `genericProcedureRecommendation`. The description is either "MANAGEMENT PROCEDURE (PROCEDURE)" or "CONSULTATION (PROCEDURE)". The code only contains an extension with tokens.
 
-> ### Imaging procedure
+### Imaging procedure
 The kind is `imagingProcedureRecommendation`. 
 Field `imagingProcedures` contains an array with one element of type ImagingProcedure. This type has the following fields, the first two of which are always filled:
 -	`modality`: a CodeableConcept containing at most one coding with a SNOMED or RadLex code.
