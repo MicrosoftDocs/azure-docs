@@ -202,10 +202,10 @@ Console.WriteLine(token);
 
 ### (Preview) Create and identity and issue a token in the same request with a custom ID
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > This feature is available starting with the SDK version `1.4.0-beta1`.
 
-> [!NOTE]  
+> [!NOTE]
 > This feature is currently in preview.
 
 You can pass your custom ID to the `CreateUserAndTokenAsync` method to create an identity and issue an access token in a single call.
