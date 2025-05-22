@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 05/15/2024
+ms.date: 05/21/2025
 ms.author: phjensen
 ms.custom: kr2b-contr-experiment
 ---
@@ -14,7 +14,11 @@ ms.custom: kr2b-contr-experiment
 
 This article describes how to troubleshoot issues when using the Azure Application Consistent Snapshot (AzAcSnap) tool for Azure NetApp Files and Azure Large Instance.
 
-You might encounter several common issues when running AzAcSnap commands. Follow the instructions to troubleshoot the issues. If you still have issues, open a Service Request for Microsoft Support from the Azure portal and assign the request to the SAP HANA Large Instance queue.
+You might encounter several common issues when running AzAcSnap commands. Follow the instructions to troubleshoot the issues. 
+
+> [!IMPORTANT]
+> To ensure accurate troubleshooting and support, issues should be reproduced using the latest AzAcSnap release. Please update to the most recent version before reporting any problems.
+> If you still have issues, go to the Azure Portal and select Support + troubleshooting and search for guidance on issues with AzAcSnap, this will allow you to open a Service Request for Microsoft Support.
 
 ## AzAcSnap command won't run
 
