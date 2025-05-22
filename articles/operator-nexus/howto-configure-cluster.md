@@ -15,7 +15,7 @@ This article describes how to create a Cluster by using the Azure Command Line I
 
 ## Prerequisites
 
-- Verify that Network Fabric Controller and Cluster Manger exist in your Azure region
+- Verify that Network Fabric Controller and Cluster Manager exist in your Azure region
 - Verify that Network Fabric is successfully provisioned
 
 ## API guide and metrics
