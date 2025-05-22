@@ -258,24 +258,22 @@ items:
 
 - name: Reference
   items:
-    - name: Azure Managed Redis
-      items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/resourcemanager.redisenterprise-readme
-        - name: Java
-          href: /java/api/overview/azure/resourcemanager-redisenterprise-readme
-        - name: Azure PowerShell
-          href: /powershell/module/az.redisenterprisecache
-        - name: Azure CLI
-          href: /cli/azure/redisenterprise
-        - name: REST
-          href: /rest/api/redis/redisenterprisecache/operation-groups
-        - name: Resource Manager template
-          href: /azure/templates/microsoft.cache/redisenterprise
-        - name: Redis commands
-          href: https://redis.io/commands#
-        - name: Monitoring data reference
-          href: monitor-cache-reference.md
+    - name: .NET
+      href: /dotnet/api/overview/azure/resourcemanager.redisenterprise-readme
+    - name: Java
+      href: /java/api/overview/azure/resourcemanager-redisenterprise-readme
+    - name: Azure PowerShell
+      href: /powershell/module/az.redisenterprisecache
+    - name: Azure CLI
+      href: /cli/azure/redisenterprise
+    - name: REST
+      href: /rest/api/redis/redisenterprisecache/operation-groups
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.cache/redisenterprise
+    - name: Redis commands
+      href: https://redis.io/commands#
+    - name: Monitoring data reference
+      href: monitor-cache-reference.md
 
 - name:  Resources
   items:
@@ -284,7 +282,7 @@ items:
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+managed+redis
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-cache-redis.html
+    href: https://learn.microsoft.com/search/?terms=azure%20managed%20redis&category=QnA
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/managed-redis/
 
