@@ -28,11 +28,11 @@ The following diagram shows the highlights from an example workflow:
 
 ### [Consumption](#tab/consumption)
 
-:::image type="content" source="media/add-run-javascript/inline-code-overview-consumption.png" alt-text="Screenshot shows example Consumption workflow with the Execute JavaScript Code action." lightbox="media/add-run-javascript/inline-code-overview-consumption.png":::
+:::image type="content" source="media/add-run-javascript/inline-code-overview-consumption.png" alt-text="Screenshot showing example Consumption workflow with the Execute JavaScript Code action." lightbox="media/add-run-javascript/inline-code-overview-consumption.png":::
 
 ### [Standard](#tab/standard)
 
-:::image type="content" source="media/add-run-javascript/inline-code-overview-standard.png" alt-text="Screenshot shows example Standard workflow with the Execute JavaScript Code action." lightbox="media/add-run-javascript/inline-code-overview-standard.png":::
+:::image type="content" source="media/add-run-javascript/inline-code-overview-standard.png" alt-text="Screenshot showing example Standard workflow with the Execute JavaScript Code action." lightbox="media/add-run-javascript/inline-code-overview-standard.png":::
 
 ---
 
@@ -106,7 +106,7 @@ The following diagram shows the highlights from an example workflow:
 
 1. With your cursor still in the **Code** box, select **Add dynamic content**. Find the **When a new email arrives** section, and select the **Body** property, which references the email message's body.
 
-   :::image type="content" source="media/add-run-javascript/select-output-consumption.png" alt-text="Screenshot showing the Consumption workflow, Execute JavaScript Code action, dynamic content list, and email message's "Body" property selected.":::
+   :::image type="content" source="media/add-run-javascript/select-output-consumption.png" alt-text="Screenshot showing the Consumption workflow, Execute JavaScript Code action, dynamic content list, and email message's Body property selected.":::
 
    The dynamic content list shows the outputs from the trigger and any preceding actions when those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the email message's **Body** property.
 
@@ -130,7 +130,7 @@ The following diagram shows the highlights from an example workflow:
 
 1. To differentiate the email message's **Body** property that you selected from the trigger's `body` property, rename the second `body` property to `Body` instead. Add the closing semicolon (**;**) at the end to finish the code statement.
 
-   :::image type="content" source="media/add-run-javascript/rename-body-property-consumption.png" alt-text="Screenshot showing the Consumption logic app workflow, Execute JavaScript Code action, and renamed "Body" property with closing semicolon.":::
+   :::image type="content" source="media/add-run-javascript/rename-body-property-consumption.png" alt-text="Screenshot showing the Consumption logic app workflow, Execute JavaScript Code action, and renamed Body property with closing semicolon.":::
 
    The **Execute JavaScript Code** action doesn't syntactically require a `return` statement. However, by including the `return` statement, you can more easily reference the action results later in your workflow by using the **Result** token in later actions.
 
@@ -164,7 +164,7 @@ The following diagram shows the highlights from an example workflow:
 
    1. From the opened list, find the **When a new email arrives** section, and select the **Body** token, which references the email's message body.
 
-   :::image type="content" source="media/add-run-javascript/select-output-standard.png" alt-text="Screenshot showing the Standard workflow, Execute JavaScript Code action, dynamic content list, and email message's "Body" property selected.":::
+   :::image type="content" source="media/add-run-javascript/select-output-standard.png" alt-text="Screenshot showing the Standard workflow, Execute JavaScript Code action, dynamic content list, and email message's Body property selected.":::
 
    The dynamic content list shows the outputs from the trigger and any preceding actions where those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the email message's **Body** property.
 
