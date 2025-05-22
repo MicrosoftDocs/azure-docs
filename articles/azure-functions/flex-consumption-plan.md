@@ -131,7 +131,7 @@ Flex Consumption apps scaled to zero, or instances marked to be scaled in and de
 
 In Flex Consumption many of the standard application settings and site configuration properties are deprecated or have moved and shouldn't be used when automating function app resource creation. For more information, see [Flex Consumption plan deprecations](functions-app-settings.md#flex-consumption-plan-deprecations).
 
-## Considerations
+## Limitations
 
 Keep these other considerations in mind when using Flex Consumption plan:
 
