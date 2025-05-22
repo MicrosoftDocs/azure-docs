@@ -363,5 +363,5 @@ public CallExternalAPIActionMock CallExternalAPIActionMockOutputCallback(TestExe
 
 ## Related content
 
-[Create unit tests from Standard workflow definitions in Azure Logic Apps with Visual Studio Code](/azure/logic-apps/testing-framework/create-unit-tests-Standard-workflow-definitions-visual-studio-code)
+[Create unit tests from Standard workflow definitions in Azure Logic Apps with Visual Studio Code](create-unit-tests-Standard-workflow-definitions-visual-studio-code.md)
 
