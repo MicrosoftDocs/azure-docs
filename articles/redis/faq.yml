@@ -9,6 +9,7 @@ metadata:
       - build-2025
   appliesto:
     - ✅ Azure Managed Redis
+    - ✅ Azure Cache for Redis
 title: Azure Redis cache FAQ
 summary: |
   Learn the answers to common questions, patterns, and best practices for Azure Managed Redis and Azure Cache for Redis.
