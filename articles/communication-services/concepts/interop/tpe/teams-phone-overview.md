@@ -8,7 +8,7 @@ ms.subservice: teams-interop
 ms.date: 05/20/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: private_preview
+ms.custom: public_preview
 services: azure-communication-services
 ---
 
@@ -24,23 +24,6 @@ Azure Communication Services is enhancing Call Automation and Calling SDKs, empo
 
 Contact Center as a Service (CCaaS) Independent Software Vendors (ISVs) can enable their end customers to connect with their existing Teams Phone deployment and let them use Teams Phone capabilities within the application provided by the ISV. At the same time, customers can now extend their Teams Phone with advanced call queuing, agent handling, and routing capabilities provided by third party CCaaS ISVs applications.
 
-This article describes the different enhancements and related concepts.
-
-Teams Phone extensibility features available in the current release:
-
-- Authorization by the Teams and CCaaS tenant admins
-- Teams Resource Account provisioning and service assignment.
-- Inbound PSTN calling.
-- UI library for Inbound Calling.
-- Mid-call controls for call orchestration and management from the cloud and client applications.
-- Escalation of the call to an agent.
-- Outbound PSTN calling
-- UI library for Outbound Calling.
-- Multi persona.
-- Emergency calling.
-- Call recording.
-- Telemetry.
-
 ## Overview
 
 Teams Phone extensibility for Azure Communication Services offers a unified communication experience that integrates Teams Phone capabilities into CCaaS applications. This Teams Phone extensibility enables customers to use their existing Teams infrastructure, providing operational efficiency and a seamless agent calling experience.  
@@ -55,7 +38,7 @@ There are four aspects to consider:
 
 - Teams provisioning: A Teams IT Admin sets up a Teams Resource Account (RA), assigns phone numbers and adds the CCaaS application to the resource account to receive and make calls.
 - CCaaS provisioning: A CCaaS Admin creates queues and links to the Teams Phone account and configures agent skills and routing groups.
-- Teams Phone integration: CCaaS providers integrate with Azure Communication Services Call Automation APIs to receive and make calls and perform mid-call controls such as create custom IVRs and Call Queues. The current solution only supports [Teams Phone service numbers](/microsoftteams/getting-service-phone-numbers) with this MVP.
+- Teams Phone integration: CCaaS providers integrate with Azure Communication Services Call Automation APIs to receive and make calls and perform mid-call controls such as create custom IVRs and Call Queues. The current release supports only [Teams Phone service numbers](/microsoftteams/getting-service-phone-numbers).
 - Agent calling experience: CCaaS provider embeds call handling in the Agent application using Azure Communication Services Calling SDKs or uses the Teams application, initialized with Microsoft 365 identity.
 
 ### Benefits
@@ -72,12 +55,12 @@ For Contact Centers and Agents:
 
 ## Prerequisites
 
-- ISV must have Azure subscription allowlisted by Microsoft Teams.
-- To provision the Teams environment for these extensions, the following licenses must be enabled:
-  - Teams Phone license for the agent, see [Assign Teams add-on licenses to users > Product names and SKU identifiers for licensing](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses#product-names-and-sku-identifiers-for-licensing).
-  - Enterprise Voice.
-  - [Microsoft Teams Phone Resource Account licenses](/microsoftteams/teams-add-on-licensing/virtual-user) for the designed Teams resource account, included in the Teams Phone license.
-  - PSTN connectivity: Teams Calling Plans, Operator Connect, or Direct Routing.
+- Your ISV must have Azure subscription allowlisted by Microsoft Teams.
+- To provision the Teams environment for these extensions, you must enable the following licenses:
+   - Teams Phone license for the agent, see [Assign Teams add-on licenses to users > Product names and SKU identifiers for licensing](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses#product-names-and-sku-identifiers-for-licensing).
+   - Enterprise voice enabled as described in [Teams Phone features](../../../concepts/pricing/teams-interop-pricing.md).
+   - [Microsoft Teams Phone Resource Account licenses](/microsoftteams/teams-add-on-licensing/virtual-user) for the designed Teams resource account, included in the Teams Phone license.
+   - PSTN connectivity: Teams Calling Plans, Operator Connect, or Direct Routing.
 
 ## Conversational AI integration
 
@@ -101,9 +84,9 @@ This seamless integration also enables CCaaS ISVs to use Teams Phone and Azure C
 
 The following diagram shows how conversational AI integrates into your call flow.
 
-:::image type="content" source="./media/teams-phone-extensibility-conversational-ai.png" alt-text="Diagram shows how conversational AI integrates into your call flow using Teams Phone, Azure Communication Services, Azure AI, and control plane apps."  lightbox="./media/teams-phone-extensibility-conversational-ai.png":::
+:::image type="content" source="./media/teams-phone-extensibility-conversational-ai.png" alt-text="Diagram shows how conversational AI integrates into your call flow."  lightbox="./media/teams-phone-extensibility-conversational-ai.png":::
 
-For more information, see [how to connect Azure Communication Services with Azure AI](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration) and [how to get real-time transcription](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/real-time-transcription).
+For more information, see [how to connect Azure Communication Services with Azure AI](../../call-automation/azure-communication-services-azure-cognitive-services-integration.md) and [how to get real-time transcription](../../call-automation/real-time-transcription.md).
 
 ## Call Routing
 
@@ -115,11 +98,12 @@ Inbound Public Switched Telephone Network (PSTN) calls to the phone number assig
 
 The following diagram shows the Inbound PSTN Call flow.
 
-:::image type="content" source="./media/teams-phone-extensibility-pstn-inbound-call-flow.png" alt-text="Diagram shows the Inbound PSTN Call flow."  lightbox="./media/teams-phone-extensibility-pstn-inbound-call-flow.png":::
+:::image type="content" source="./media/" alt-text="."  lightbox="./media/":::
+![Diagram shows the Inbound PSTN Call flow.](./media/teams-phone-extensibility-pstn-inbound-call-flow.png)
 
 Call flow description:
 
-1. Contoso uses Azure Communication Services Call Automation to receive an inbound PSTN call to the provisioned Teams Phone number.
+1. Contoso uses Azure Communication Services Call Automation receives an inbound PSTN call to the provisioned Teams Phone number.
 2. Contoso receives webhook notification of the inbound call.
 3. An AI powered agent (IVR) answers the PSTN call and triages the customer request before hand-off to an agent.
 4. Contoso routes the call to the correct destination.
@@ -193,7 +177,7 @@ When an emergency call is placed from a Teams client, the PSAP callback alerts o
 
 ## Mid call Controls for Call Automation SDK
 
-All the mid-call controls are available in the first Private Preview.
+Mid-call controls for Call Automation SDK include add participants to the call and call transfer.
 
 ### Add participants to the call
 
@@ -252,21 +236,20 @@ Azure Communication Services provides developers with Call recording capabilitie
 
 Developers can use Azure Communication Services Call recording APIs to customize their recording processes via internal business logic triggers, such as a server application creating a group call and recording the conversation end-to-end, limiting any action to end users. You can also enable actions triggered by a user that tell the server application to start recording. By using Azure Communication Services Call recording, developers have access to a broader set of formats and features such as unmixed audio for post-call analysis or quality assurance processes.
 
-These use cases are CCaaS admin highly controlled scenarios. Whether it's a Business-to-Consumer (B2C) or a Call Center scenario, CCaaS admin has strict control of the business logic for the recording process. Contoso internal retention policies and behaviors like automatic or manual recording initiation and subsequent processing of the recording. The CCaaS admin determines these retention policies and behaviors. The initial release focuses on enabling Azure Communication Services Call recording for CCaaS use cases on inbound and outbound calls. Prioritizing CCaaS ensures a streamlined integration with fewer complexities.
+These use cases are CCaaS admin highly controlled scenarios. Whether it is a Business-to-Consumer (B2C) or a Call Center scenario, CCaaS admin has strict control of the business logic for the recording process. Contoso internal retention policies and behaviors like automatic or manual recording initiation and subsequent processing of the recording, are determined by the CCaaS admin. The initial release focuses on enabling Azure Communication Services Call recording for CCaaS use cases on inbound and outbound calls. Prioritizing CCaaS ensures a streamlined integration with fewer complexities.
 
-The following diagram shows an example call recording flow. In this example, there's an ongoing PSTN TPE call between a caller and a CCaaS user. The CCaaS user initiates the recording and the call recording bot produces the recording file.
+The following diagram shows an example call recording flow. In this example, there is an ongoing PSTN TPE call between a caller and a CCaaS user. The CCaaS user initiates the recording and the call recording bot produces the recording file.
 
 :::image type="content" source="./media/teams-phone-extensibility-call-recording.png" alt-text="Diagram shows an example call recording flow for an ongoing PSTN TPW call between a caller and a CCaaS user. The CCaaS user initiates the recording and the call recording bot produces the recording file." lightbox="./media/teams-phone-extensibility-call-recording.png":::
 
 ## Next steps
-<!---
-- [test](teams-phone-extensibility-quickstart.md)
-- [test](teams-phone-extensibility-connectivity-cost.md) 
---->
+
+- [Teams Phone System extensibility quickstart](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md)
+<!-- - [](teams-phone-extensibility-connectivity-cost.md) -->
 
 ## Related articles
-<!---
-- [test](teams-phone-client-capabilities.md)
-- [test](teams-phone-extensibility-faq.md)
-- [test](teams-phone-extensibility-troubleshooting.md)
---->
+<!-- 
+- [](teams-phone-client-capabilities.md)
+- [](teams-phone-extensibility-faq.md)
+- [](teams-phone-extensibility-troubleshooting.md)
+-->
