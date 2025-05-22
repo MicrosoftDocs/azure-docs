@@ -2,11 +2,11 @@
 title: Multi-site hosting with Application Gateway for Containers - Gateway API
 description: Learn how to host multiple sites with Application Gateway for Containers using the Gateway API.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Multi-site hosting with Application Gateway for Containers - Gateway API

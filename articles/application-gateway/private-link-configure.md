@@ -2,12 +2,12 @@
 title: Configure Azure Application Gateway Private Link
 description: This article shows you how to configure Application Gateway Private Link.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/06/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Configure Azure Application Gateway Private Link

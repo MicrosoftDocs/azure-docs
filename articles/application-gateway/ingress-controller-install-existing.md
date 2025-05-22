@@ -2,12 +2,12 @@
 title: Create an ingress controller by using an existing Application Gateway deployment
 description: This article provides information on how to deploy the Application Gateway Ingress Controller by using an existing Application Gateway deployment.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: how-to
 ms.date: 4/4/2025
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Install AGIC by using an existing Application Gateway deployment

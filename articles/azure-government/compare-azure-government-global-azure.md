@@ -7,7 +7,7 @@ author: EliotSeattle
 ms.author: eliotgra
 ms.custom: references_regions
 recommendations: false
-ms.date: 07/12/2024
+ms.date: 05/22/2025
 ---
 
 # Compare Azure Government and global Azure

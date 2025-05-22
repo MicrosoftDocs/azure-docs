@@ -5,7 +5,7 @@ author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/10/2024
+ms.date: 05/24/2025
 ms.author: kesheth
 ---
 

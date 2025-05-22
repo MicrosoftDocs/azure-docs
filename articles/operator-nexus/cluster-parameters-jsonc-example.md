@@ -5,7 +5,7 @@ author: bartpinto
 ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 05/22/2025
 ms.custom: template-how-to, devx-track-arm-template
 ---
 

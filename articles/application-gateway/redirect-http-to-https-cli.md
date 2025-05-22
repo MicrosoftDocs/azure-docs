@@ -3,12 +3,12 @@ title: HTTP to HTTPS redirection using CLI
 titleSuffix: Azure Application Gateway
 description: Learn how to create an HTTP to HTTPS redirection and add a certificate for TLS termination using the Azure CLI.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2023
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Create an application gateway with HTTP to HTTPS redirection using the Azure CLI

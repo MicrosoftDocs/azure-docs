@@ -3,7 +3,7 @@ title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 05/19/2025
 ms.custom: devdivchpfy22
 
 # Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
@@ -297,7 +297,9 @@ When you create your function app in the [Azure portal](./functions-get-started.
 You can use the [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](./functions-app-settings.md#applicationinsights_authentication_string) setting to enable connections to Application Insights using Microsoft Entra authentication. This creates a consistent authentication experience across all Application Insights pipelines, including Profiler and Snapshot Debugger, as well as from the Functions host and language-specific agents.  
 
 >[!NOTE]  
->There's no Entra authentication support for local development.
+>There's currently no Microsoft Entra ID authentication support for local development.
+>
+>When Ingesting data in a sovereign cloud, Microsoft Entra ID authentication isn't available when using the Application Insights SDK.  OpenTelemetry-based data collection supports Microsoft Entra ID authentication across all cloud environments, including sovereign clouds.
 
 The value contains either `Authorization=AAD` for a system-assigned managed identity or `ClientId=<YOUR_CLIENT_ID>;Authorization=AAD` for a user-assigned managed identity. The managed identity must already be available to the function app, with an assigned role equivalent to [Monitoring Metrics Publisher](/azure/role-based-access-control/built-in-roles/monitor#monitoring-metrics-publisher). For more information, see [Microsoft Entra authentication for Application Insights](/azure/azure-monitor/app/azure-ad-authentication).
 

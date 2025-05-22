@@ -4,7 +4,7 @@ description: Troubleshooting common issues with multiple Storage Appliances
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 08/12/2024
+ms.date: 05/22/2024
 ms.author: peterwhiting
 author: pjw711
 ---
@@ -51,10 +51,10 @@ The `storageApplianceName` annotation must match one of the storage appliances i
 
 ## Cloud Service Network (CSN) fails to create
 
-A CSN fails to create if the `nexusSharedStorageApplianceName` Azure resource tag is present but doesn't match the Azure Resource name of a storage appliance managed by the Nexus Cluster. You can check that the `nexusSharedStorageApplianceName` Azure resource tag is correct by:
+A CSN fails to create if the `storageApplianceName` Azure resource tag is present but doesn't match the Azure Resource name of a storage appliance managed by the Nexus Cluster. You can check that the `storageApplianceName` Azure resource tag is correct by:
 
 1. Opening the Cluster (Operator Nexus) resource in the Azure portal
 1. Clicking on Rack definitions in the resource menu.
 1. Navigating to the aggregator rack and selecting Storage Appliance definitions.
 
-The `nexusSharedStorageApplianceName` Azure resource tag must match one of the storage appliances in the Storage Appliance definitions list. You must delete the CSN and recreate it with the correct Azure Resource tag to resolve this issue.
+The `storageApplianceName` Azure resource tag must match one of the storage appliances in the Storage Appliance definitions list. You must delete the CSN and recreate it with the correct Azure Resource tag to resolve this issue.

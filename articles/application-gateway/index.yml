@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Application Gateway, a web traffic load balancer that enables you to manage traffic to your web applications.
   ms.service: azure-application-gateway
   ms.topic: landing-page
-  author: greg-lindsay
-  ms.author: greglin
+  author: mbender-ms
+  ms.author: mbender
   ms.date: 10/27/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

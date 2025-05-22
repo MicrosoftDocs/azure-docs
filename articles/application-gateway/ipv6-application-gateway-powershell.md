@@ -2,11 +2,11 @@
 title: Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell 
 description: Learn how to configure Application Gateway with a frontend public IPv6 address using Azure PowerShell.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 02/08/2024
-ms.author: greglin
+ms.author: mbender
 ms.custom: mvc, devx-track-azurepowershell
 ---
 

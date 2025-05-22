@@ -3,11 +3,11 @@ title: Private Application Gateway deployment (preview)
 titleSuffix: Azure Application Gateway
 description: Learn how to restrict access to Application Gateway
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 4/15/2025
-ms.author: greglin
+ms.author: mbender
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
 

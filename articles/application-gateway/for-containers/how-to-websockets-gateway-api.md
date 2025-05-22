@@ -2,11 +2,11 @@
 title: WebSocket protocol and Azure Application Gateway for Containers - Gateway API
 description: Learn how to send a WebSocket request to a backend target with Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: conceptual
 ms.date: 1/14/2025
-ms.author: greglin
+ms.author: mbender
 ---
 
 # WebSocket request for Azure Application Gateway for Containers - Gateway API

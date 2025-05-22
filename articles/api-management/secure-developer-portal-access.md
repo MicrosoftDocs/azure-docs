@@ -39,7 +39,7 @@ API Management has a fully customizable, standalone, managed [developer portal](
 * **Basic authentication** - A default option is to use the built-in developer portal [username and password](developer-portal-basic-authentication.md) provider, which allows developers to register directly in API Management and sign in using API Management user accounts. User sign up through this option is protected by a CAPTCHA service. 
 
     > [!CAUTION]
-    > While you can use basic authentication to secure users' access to the developer portal, we recommend configuring a more secure authentication method such as [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md).
+    > While you can use basic authentication to secure users' access to the developer portal, we recommend configuring a more secure authentication method such as [Microsoft Entra ID](api-management-howto-aad.md) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam).
 
 
 ## Developer portal test console

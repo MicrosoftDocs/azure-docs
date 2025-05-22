@@ -9,7 +9,7 @@ ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/29/2024
+ms.date: 05/28/2025
 ms.author: mbaldwin
 
 ---
@@ -85,7 +85,7 @@ For more information, see [Implement password hash synchronization with Microsof
 
   - Microsoft Entra ID for employees
   - [Microsoft Entra B2B](../../active-directory/external-identities/index.yml) for guest users and external partners
-  - [Azure AD B2C](../../active-directory-b2c/index.yml) to control how customers sign up, sign in, and manage their profiles when they use your applications
+  - [Microsoft Entra External ID](../../active-directory/external-identities/external-identities-overview.md) to control how customers sign up, sign in, and manage their profiles when they use your applications
 
 Organizations that don’t integrate their on-premises identity with their cloud identity can have more overhead in managing accounts. This overhead increases the likelihood of mistakes and security breaches.
 

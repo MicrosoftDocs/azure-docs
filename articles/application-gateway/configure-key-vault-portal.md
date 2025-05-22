@@ -3,7 +3,7 @@ title: Configure TLS termination with Key Vault certificates - Portal
 titleSuffix: Azure Application Gateway
 description: Learn how to use an Azure portal to integrate your key vault with your application gateway for TLS/SSL termination certificates. 
 author: gaking
-ms.author: greglin
+ms.author: mbender
 ms.service: azure-application-gateway
 ms.topic: how-to 
 ms.date: 10/01/2021

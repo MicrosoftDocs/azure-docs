@@ -2,11 +2,11 @@
 title: Header rewrite for Azure Application Gateway for Containers - Ingress API
 description: Learn how to rewrite headers in Ingress API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Header rewrite for Azure Application Gateway for Containers - Ingress API

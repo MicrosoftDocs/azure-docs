@@ -2,11 +2,11 @@
 title: HTTP response codes - Azure Application Gateway
 description: 'Learn how to troubleshoot Application Gateway HTTP response codes'
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 03/28/2025
-ms.author: greglin
+ms.author: mbender
 ---
 
 # HTTP response codes in Application Gateway

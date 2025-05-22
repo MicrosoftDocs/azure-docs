@@ -2,11 +2,11 @@
 title: Use Let's Encrypt certificates with Application Gateway
 description: This article provides information on how to obtain a certificate from Let's Encrypt and use it on your Application Gateway deployment for AKS clusters.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 2/28/2025
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Use Let's Encrypt certificates on Application Gateway for AKS clusters

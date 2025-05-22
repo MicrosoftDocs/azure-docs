@@ -39,9 +39,9 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 
 1. Choose either a **System assigned** or **User assigned** managed identity.
 
-    - **[System assigned](#system-assigned)** - A managed identity tied to the Azure Front Door profile lifecycle, used to access Azure Key Vault.
+    - **[System assigned](#system-assigned)** - A managed identity tied to the Azure Front Door profile lifecycle.
     
-    - **[User assigned](#user-assigned)** - A standalone managed identity resource with its own lifecycle, used to authenticate to Azure Key Vault.
+    - **[User assigned](#user-assigned)** - A standalone managed identity resource with its own lifecycle.
 
     ### System assigned
     
@@ -51,7 +51,7 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
     
     1. Confirm the creation of a system managed identity for your Front Door profile by selecting **Yes** when prompted.
     
-    1. Once created and registered with Microsoft Entra ID, use the **Object (principal) ID** to grant Azure Front Door access to your Azure Key Vault.
+    1. Once created and registered with Microsoft Entra ID, use the **Object (principal) ID** to grant Azure Front Door access to your origin.
     
         :::image type="content" source="./media/managed-identity/system-assigned-created.png" alt-text="Screenshot of the system assigned managed identity registered with Microsoft Entra ID.":::
     

@@ -5,7 +5,7 @@ author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 05/22/2023
 ms.custom: template-how-to-pattern, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -185,7 +185,7 @@ Deployments with multiple storage appliances support selecting the storage appli
     --extended-location name="<ClusterCustomLocationId >" type="CustomLocation" \
     --location "<ClusterAzureRegion>" \
     --additional-egress-endpoints "[{\"category\":\"<YourCategory >\",\"endpoints\":[{\"<domainName1 >\":\"< endpoint1 >\",\"port\":<portnumber1 >}]}]"
-    --tags "nexusSharedStorageApplianceName": "<YourStorageApplianceName>""
+    --tags "storageApplianceName": "<YourStorageApplianceName>""
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -201,7 +201,7 @@ $additionalEgressEndpoint = New-AzNetworkCloudEgressEndpointObject `
   -Category "YourCategory" `
   -Endpoint $endpointList
 $endpointEgressList+= $additionalEgressEndpoint
-$tags @{"nexusSharedStorageApplianceName"="<YourStorageApplianceName>"}
+$tags @{"storageApplianceName"="<YourStorageApplianceName>"}
 
 New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesNetworkName>" `
 -ResourceGroupName "<YourResourceGroupName>" `

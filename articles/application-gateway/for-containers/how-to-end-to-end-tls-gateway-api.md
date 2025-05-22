@@ -2,11 +2,11 @@
 title: End-to-end TLS Azure Application Gateway for Containers - Gateway API
 description: Learn how to encrypt traffic to and from Application Gateway for Containers using Gateway API.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # End-to-end TLS with Application Gateway for Containers - Gateway API

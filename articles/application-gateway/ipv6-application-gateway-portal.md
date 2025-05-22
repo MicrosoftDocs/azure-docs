@@ -3,10 +3,10 @@ title: Configure Application Gateway with a frontend public IPv6 address using t
 titleSuffix: Azure Application Gateway
 description: Learn how to configure Application Gateway with a frontend public IPv6 address. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.topic: how-to
 ms.date: 04/04/2024
-ms.author: greglin
+ms.author: mbender
 ms.service: azure-application-gateway
 ms.custom: mvc, mode-ui
 ---

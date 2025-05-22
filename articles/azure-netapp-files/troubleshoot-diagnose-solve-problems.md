@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 10/15/2023
+ms.date: 01/15/2025
 ms.author: anfdocs
 ---
 

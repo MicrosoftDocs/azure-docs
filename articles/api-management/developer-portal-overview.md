@@ -180,7 +180,7 @@ The portal supports several options for user sign-up and sign-in:
 
 *  Basic authentication for developers to sign in with credentials for API Management [user accounts](api-management-howto-create-or-invite-developers.md).  Developers can sign up for an account directly through the portal, or you can create accounts for them.
 
-* Depending on your scenarios, restrict access to the portal by requiring users to sign up or sign in with a [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md) account.
+* Depending on your scenarios, restrict access to the portal by requiring users to sign up or sign in with a [Microsoft Entra ID](api-management-howto-aad.md) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam) account.
 
 * If you already manage developer sign-up and sign-in through an existing website, [delegate authentication](api-management-howto-setup-delegation.md) instead of using the developer portal's built-in authentication.
 

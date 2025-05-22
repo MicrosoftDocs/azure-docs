@@ -2,11 +2,11 @@
 title: Scaling and Zone-redundant Application Gateway v2
 description: This article introduces the Azure Application Standard_v2 and WAF_v2 SKU Autoscaling and Zone-redundant features.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 11/02/2023
-ms.author: greglin
+ms.author: mbender
 ms.custom: fasttrack-edit, references_regions
 ---
 
