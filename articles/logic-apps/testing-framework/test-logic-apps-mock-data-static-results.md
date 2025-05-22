@@ -27,9 +27,9 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
   If you're new to logic apps, see the following documentation:
 
-  * [Quickstart: Create an example Consumption logic app workflow using the Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md)
+  * [Quickstart: Create an example Consumption logic app workflow using the Azure portal](../quickstart-create-example-consumption-workflow.md)
 
-  * [Create an example Standard logic app workflow using the Azure portal](../logic-apps/create-single-tenant-workflows-azure-portal.md)
+  * [Create an example Standard logic app workflow using the Azure portal](../create-single-tenant-workflows-azure-portal.md)
 
 ## Limitations
 
@@ -176,4 +176,4 @@ For more information about this setting in your underlying workflow definitions,
 
 ## Related content
 
-* [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+* [What is Azure Logic Apps?](../logic-apps-overview.md)
