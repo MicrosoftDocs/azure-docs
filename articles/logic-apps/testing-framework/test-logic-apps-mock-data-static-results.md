@@ -10,7 +10,7 @@ ms.date: 03/14/2025
 
 # Test workflows with mock outputs in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../includes/logic-apps-sku-consumption.md)]
 
 To test your workflow without affecting your production environments, you can set up and return mock outputs, or *static results*, from your workflow operations. That way, you don't have to call or access your live apps, data, services, or systems. For example, you might want to test different action paths based on various conditions, force errors, provide specific message response bodies, or even try skipping some steps. Setting up mock results from an action doesn't run the operation, but returns the test output instead.
 
@@ -171,7 +171,7 @@ Turning off static results on an action doesn't remove the values from your last
 
 ## Reference
 
-For more information about this setting in your underlying workflow definitions, see [Static results - Schema reference for Workflow Definition Language](logic-apps-workflow-definition-language.md#static-results) and [runtimeConfiguration.staticResult - Runtime configuration settings](logic-apps-workflow-actions-triggers.md#runtime-configuration-settings).
+For more information about this setting in your underlying workflow definitions, see [Static results - Schema reference for Workflow Definition Language](../logic-apps-workflow-definition-language.md#static-results) and [runtimeConfiguration.staticResult - Runtime configuration settings](../logic-apps-workflow-actions-triggers.md#runtime-configuration-settings).
 
 ## Related content
 
