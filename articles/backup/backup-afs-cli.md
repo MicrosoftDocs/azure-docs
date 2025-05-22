@@ -3,7 +3,7 @@ title: Back up Azure Files with Azure CLI
 description: Learn how to use Azure CLI to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
-ms.date: 03/05/2025
+ms.date: 05/22/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -100,5 +100,6 @@ The **Name** attribute in the output corresponds to the name of the job that's c
 
 ## Next steps
 
-* Learn how to [Restore Azure Files with CLI](restore-afs-cli.md)
-* Learn how to [Manage Azure Files backups with CLI](manage-afs-backup-cli.md)
+* [Restore Azure Files with CLI](restore-afs-cli.md).
+* Restore Azure Files using [Azure portal](restore-afs.md), [Azure PowerShell](restore-afs-powershell.md), [REST API](restore-azure-file-share-rest-api.md).
+* Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).
