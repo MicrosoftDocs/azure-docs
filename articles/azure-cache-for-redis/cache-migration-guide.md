@@ -18,7 +18,6 @@ This article describes several Azure Cache for Redis migration scenarios.
 
 - Migrate Redis caches running in private data centers, on cloud virtual machines (VMs), or in another cloud to Azure Cache for Redis.
 - Migrate one Azure Cache for Redis instance to another instance.
-- (Migrate an ACR instance to an AMR instance?)
 
 If you only need to move an Azure Redis cache from one Azure region to another, see [Move Azure Cache for Redis instances to different regions](cache-moving-resources.md) article.
 
