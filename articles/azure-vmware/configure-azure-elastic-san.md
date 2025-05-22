@@ -21,7 +21,7 @@ To accompany the steps below, you can use this [interactive demo](https://regale
 The following prerequisites are required to continue.
 
 - Have a fully configured Azure VMware solution private cloud in a [region that Elastic SAN is available in](../storage/elastic-san/elastic-san-create.md).
-    - Ensure that your ExpressRoute gateways are sized to handle your elastic SAN's bandwidth capabilities. For example, a single ultra performance ExpressRoute gateway supports a bandwidth of 1,280 mbps. If you're using an individual elastic SAN datastore to its full potential, it'll consume the entirety of that bandwidth. Multiple gateways may be required depending on your needs.
+    - Size your ExpressRoute gateways to handle your elastic SAN's bandwidth capabilities. For example, a single ultra performance ExpressRoute gateway supports a bandwidth of 1,280 mbps. An individual elastic SAN datastore used to its full potential would use the entirety of that bandwidth. Multiple gateways might be required depending on your needs.
 - Know the availability zone your private cloud is in. 
   - In the UI, select an Azure VMware Solution host.
     > [!NOTE]
@@ -48,7 +48,7 @@ You can use the following host types when Azure Elastic SAN is the backing stora
 Use multiple private endpoints to establish multiple sessions between an Elastic SAN and each volume you intend to connect to your software defined data center (SDDC). Having multiple sessions provides better performance due to parallelization, and better reliability to handle single session disconnects. When you establish multiple sessions, it also mitigates the impact of session disconnects, as long as the connection is re-established within a few seconds, your other sessions help load-balance traffic.
 
    > [!NOTE]
-   > Session disconnects may still show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it shows the identifier of a device or filesystem, and states it entered the All Paths Down state.
+   > Session disconnects might show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it shows the identifier of a device or filesystem, and states it entered the All Paths Down state.
 
 If your Elastic SAN is only connecting to a single cluster, and will only ever have 16 nodes in a cluster, use one of the following configurations:
 - AV36, AV36P, AV52 - Six iSCSI sessions over three Private Endpoints
@@ -73,8 +73,8 @@ Fill out the values in the menu that pops up, select the virtual network that ha
 :::image type="content" source="../storage/elastic-san/media/elastic-san-create/elastic-san-edit-volume-network.png" alt-text="Screenshot of the volume group private endpoint creation experience." lightbox="../storage/elastic-san/media/elastic-san-create/elastic-san-edit-volume-network.png":::
 
 > [!NOTE]
-> Using Private Endpoints provides the highest network security. However, since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you may experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
-> These connectivity issues aren't expected to impact the availability of the datastore backed by Elastic SAN as the connection will be re-established within seconds. The potential impact from gateway maintenance is covered under the [Service Level Agreement](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for ExpressRoute virtual network gateways and private endpoints.
+> Using Private Endpoints provides the highest network security. However, since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you might experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
+> These connectivity issues aren't expected to impact the availability of the datastore backed by Elastic SAN as the connection is re-established within seconds. The potential impact from gateway maintenance is covered under the [Service Level Agreement](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for ExpressRoute virtual network gateways and private endpoints.
 
 
 ## Configure external storage address block
