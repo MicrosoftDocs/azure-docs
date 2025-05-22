@@ -128,8 +128,8 @@ You can create an identity with an associated `customId` to map your application
 
 ```javascript
 const customId = "alice@contoso.com";
-let identityResponse = await identityClient.createUser({customId });
-console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
+let user = await identityClient.createUser({ customId });
+console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 ```
 
 ## (Preview) Get identity details
@@ -144,11 +144,10 @@ You can use the `getUserDetail` method to retrieve information about a user, inc
 
 ```javascript
 const customId = "alice@contoso.com";
-let identityResponse = await identityClient.createUser({customId });
-var identity = userResponse.Value;
-var userDetails = client.getUserDetail(identity);
-console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
-console.log(`\nCustom id: ${userDetails.customId}`);
+let user = await identityClient.createUser({ customId });
+var userDetails = client.getUserDetail(user);
+console.log(`\nUser ID: ${user.communicationUserId}`);
+console.log(`\nCustom ID: ${userDetails.customId}`);
 console.log(`\nLast token issued at: ${userDetails.lastTokenIssuedAt}`);
 ```
 

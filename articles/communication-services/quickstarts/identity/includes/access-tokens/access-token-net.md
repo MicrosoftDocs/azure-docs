@@ -133,9 +133,8 @@ Store the received identity with mapping to your application users (for example,
 You can create an identity with an associated `customId` to map your application's user identities with Azure Communication Services identities. If you call the `CreateUser` method again with the same `customId`, it will return the same `user.Id`. This eliminates the need to store the mapping yourself.
 
 ```csharp
-var identityResponse = client.CreateUser(customId: "alice@contoso.com");
-var identity = userResponse.Value;
-Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
+Response<CommunicationUserIdentifier> user = await client.CreateUserAsync(customId: "alice@contoso.com");
+Console.WriteLine($"\nCreated an identity with ID: {user.Id}");
 ```
 
 ## (Preview) Get identity details
@@ -149,12 +148,11 @@ Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 You can use the `GetUserDetail` method to retrieve information about a user, including the `customId` and the `lastTokenIssuedAt`.
 
 ```csharp
-var identityResponse = await client.CreateUserAsync(customId: "alice@contoso.com");
-var identity = userResponse.Value;
-var userDetails = client.GetUserDetail(identity);
-Console.WriteLine($"User id: {userDetails.Value.User.Id}");
-Console.WriteLine($"Custom id: {userDetails.Value.CustomId}");
-Console.WriteLine($"Last token issued at: {userDetails.Value.LastTokenIssuedAt}");
+Response<CommunicationUserIdentifier> user = await client.CreateUserAsync(customId: "alice@contoso.com");
+var userDetails = client.GetUserDetail(user);
+Console.WriteLine($"User ID: {userDetails.Id}");
+Console.WriteLine($"Custom ID: {userDetails.CustomId}");
+Console.WriteLine($"Last token issued at: {userDetails.LastTokenIssuedAt}");
 ```
 
 ## Issue an access token
@@ -214,12 +212,12 @@ You can pass your custom ID to the `CreateUserAndTokenAsync` method to create an
 
 ```csharp
 // Issue an identity and an access token with a validity of 24 hours and the "voip" scope for the new identity
-var identityAndTokenResponse = await client.CreateUserAndTokenAsync(customId: "bob@contoso.com", scopes: new[] { CommunicationTokenScope.VoIP });
+Response<CommunicationUserIdentifierAndToken> identityAndTokenResponse = await client.CreateUserAndTokenAsync(customId: "bob@contoso.com", scopes: new[] { CommunicationTokenScope.VoIP });
 
 // Retrieve the identity, token, and expiration date from the response
-var identity = identityAndTokenResponse.Value.User;
-var token = identityAndTokenResponse.Value.AccessToken.Token;
-var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
+var identity = identityAndTokenResponse.User;
+var token = identityAndTokenResponse.AccessToken.Token;
+var expiresOn = identityAndTokenResponse.AccessToken.ExpiresOn;
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);

@@ -34,7 +34,7 @@ Managing a mapping between Azure Communication Services user identities and your
 ## (Preview) Simplify identity mapping with `customId`
 
 > [!IMPORTANT]  
-> This feature is available starting with the SDK version `1.4.0-beta1`.
+> This feature is available starting with the Identity SDK version `1.4.0-beta1` and REST API version `2025-03-02-preview`.
 
 > [!NOTE]  
 > This feature is currently in preview.
