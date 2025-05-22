@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 05/06/2025
+ms.date: 05/22/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -20,8 +20,20 @@ The listed features were released in the last three months. For information abou
 
 ## May 2025
 
+- [All Microsoft Sentinel use cases generally available in the Defender portal](#all-microsoft-sentinel-use-cases-generally-available-in-the-defender-portal)
 - [Unified *IdentityInfo* table](#unified-identityinfo-table)
 - [Additions to SOC optimization support (Preview)](#additions-to-soc-optimization-support-preview)
+
+### All Microsoft Sentinel use cases generally available in the Defender portal
+
+All Microsoft Sentinel use cases that are in general availability, including [multi-tenant](/unified-secops-platform/mto-overview) and [multi-workspace](workspaces-defender-portal.md) capabilities and support for all government and commercial clouds, are now also supported for general availability in the Defender portal.
+
+We recommend that you [onboard your workspaces to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) to take advantage of unified security operations. For more information, see:
+
+For more information, see:
+
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+- [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md)
 
 ### Unified *IdentityInfo* table
 
@@ -31,9 +43,10 @@ For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-ta
 
 ### Additions to SOC optimization support (Preview)
 
-SOC optimization support for: 
- - **AI MITRE ATT&CK tagging recommendations (Preview)**: Uses artificial intelligence to suggest tagging security detections with MITRE ATT&CK tactics and techniques.
- - **Risk-based recommendations (Preview)**: Recommends implementing controls to address coverage gaps linked to use cases that may result in business risks or financial losses, including operational, financial, reputational, compliance, and legal risks. 
+SOC optimization support for:
+
+- **AI MITRE ATT&CK tagging recommendations (Preview)**: Uses artificial intelligence to suggest tagging security detections with MITRE ATT&CK tactics and techniques.
+- **Risk-based recommendations (Preview)**: Recommends implementing controls to address coverage gaps linked to use cases that may result in business risks or financial losses, including operational, financial, reputational, compliance, and legal risks. 
  
 For more information, see [SOC optimization reference](soc-optimization/soc-optimization-reference.md).
 
