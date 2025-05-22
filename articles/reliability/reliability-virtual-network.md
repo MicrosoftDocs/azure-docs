@@ -116,8 +116,7 @@ For an example of a multi-region networking architecture for web applications, s
 
 ## Backups
 
-Azure virtual networks don't store any data that would require backup. However, you can use Bicep, ARM templates, or Terraform to take a snapshot the configuration of a virtual network in case you need to recreate it. To learn more, see [Quickstart: Create an Azure Virtual Network](../virtual-network/quickstart-create-virtual-network.md).
-
+Azure virtual networks don't store any data that would require backup. However, you can use Bicep, ARM templates, or Terraform to take a snapshot of the configuration of a virtual network in case you need to recreate it. To learn more, see [Quickstart: Create an Azure Virtual Network](../virtual-network/quickstart-create-virtual-network.md).
 ## Service-level agreement
 
 Due to the nature of the service provided, there isn't a defined SLA for Azure Virtual Network.
