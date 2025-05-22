@@ -95,7 +95,7 @@ If the secret version isn't specified in the reference, the app uses the latest 
 
 The delay is because App Service caches the values of the Key Vault references and refetches them every 24 hours. Any configuration change to the app causes an app restart and an immediate refetch of all referenced secrets.
 
-To force rotation of the Key Vault References, make an authenticated POST request to the API endpoint ```https://management.azure.com/[Resurce ID]/config/configreferences/appsettings/refresh?api-version=2022-03-01```
+To force resolution of your app's Key Vault references, make an authenticated POST request to the API endpoint `https://management.azure.com/[Resource ID]/config/configreferences/appsettings/refresh?api-version=2022-03-01`.
 
 ## <a name = "source-app-settings-from-key-vault"></a> Understand source app settings from Key Vault
 
