@@ -15,31 +15,31 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Datadog - An Azure Native ISV Service
+  - title: About Datadog
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Datadog - An Azure Native ISV Service?
+          - text: What is Datadog?
             url: overview.md
       - linkListType: how-to-guide
         links:
-          - text: Manage the Datadog resource
+          - text: Manage your Datadog resource
             url: manage.md
 
   # Card
-  - title: Create Datadog resource
+  - title: Create a Datadog resource
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with Datadog by creating new instance
+          - text: Get started with Datadog by creating a new instance
             url: create.md
-          - text: Link to existing Datadog organization
+          - text: Link to an existing Datadog organization
             url: link-to-existing-organization.md
       - linkListType: how-to-guide
         links:
-          - text: Configure environment before Datadog deployment
+          - text: Configure your environment before Datadog deployment
             url: prerequisites.md
-          - text: Fix common errors for Datadog - An Azure Native ISV Service
+          - text: Fix common errors for Datadog
             url: troubleshoot.md
 
   # Card

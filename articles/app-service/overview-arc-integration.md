@@ -3,9 +3,10 @@ title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 09/23/2024
+ms.date: 01/15/2025
 author: apwestgarth
 ms.author: msangapu
+ROBOTS: NOINDEX
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -133,7 +134,7 @@ Arm64 based clusters aren't supported at this time.
 
 ### Which Kubernetes distributions can I deploy the extension on?
 
-The extension has been validated on AKS, AKS on Azure Stack HCI, Google Kubernetes Engine, Amazon Elastic Kubernetes Service and Kubernetes Cluster API.
+The extension has been validated on AKS, AKS on Azure Local, Google Kubernetes Engine, Amazon Elastic Kubernetes Service and Kubernetes Cluster API.
 
 ## Extension Release Notes
 

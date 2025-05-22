@@ -16,7 +16,7 @@ Troubleshooting network devices is a critical aspect of effective network manage
 
 ## Understanding read-only commands 
 
-RO commands serve as essential tools for network administrators. Unlike read-write (RW) commands that modify device configurations, RO commands allow administrators to gather diagnostic information without altering the device's state. These commands provide valuable insights into the device's status, configuration, and operational data. 
+RO commands serve as essential tools for network administrators. Unlike read-write (RW) commands that modify device configurations, RO commands allow administrators to gather diagnostic information without altering the device's state. These commands provide valuable insights into the device's status, configuration, and operational data. The RO command also supports using a customer-provided storage account for storing output files using api version 2024-06-15-preview.
 
 ## Read-only diagnostic API 
 
@@ -36,7 +36,8 @@ By using the read-only diagnostic API, network administrators can efficiently tr
 
 To use Network Fabric read-only commands, complete the following steps:
 
-- Provision the Nexus Network Fabric successfully. 
+- Provision the Nexus Network Fabric successfully.
+
 - Generate the storage URL.
 
     Refer to [Create a container](../storage/blobs/blob-containers-portal.md#create-a-container) to create a container.  
@@ -49,11 +50,54 @@ To use Network Fabric read-only commands, complete the following steps:
     > [!NOTE]
     > SAS URLs are short lived. By default, it is set to expire in eight hours. If the SAS URL expires, then the fabric must be re-patched. 
 
-
 - Provide the storage URL with WRITE access via a support ticket. 
 
     > [!NOTE]
     > The Storage URL must be located in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US. 
+
+## Bring your own storage account 
+
+Users can bring your own storage for storing output files of runRO command by following the steps outlined in the [Bring Your Own Storage for Network Fabric](howto-configure-bring-your-own-storage-network-fabric.md) guide.
+
+>[!Note]
+> Starting with the 2024-06-15-preview API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/azure/operator-nexus/howto-configure-network-fabric) article.
+
+### Running read-only (RO) Commands
+
+Azure Operator Nexus supports execution of read-only show commands on fabric devices via the Azure CLI. This feature allows administrators to retrieve diagnostic data for monitoring and troubleshooting while ensuring the underlying device configurations remain unchanged.
+
+#### Example: Executing a Read-Only Command via Azure CLI
+
+You can use the az networkfabric device run-ro command to issue supported show commands. Below is a sample command demonstrating how to query a device for its version details:
+
+```Azure CLI
+az networkfabric device run-ro \
+  --resource-group "resource-group-name" \
+  --resource-name "device-name" \
+  --ro-command "show version"
+
+```
+
+Replace `resource-group-name` and `device-name` with your specific values.
+
+Expected Output
+
+```json
+{
+  "configurationState": "Succeeded",
+  "deviceConfigurationPreview": "{\n  \"architecture\": \"x86_64\",\n  \"bootupTimestamp\": 1745356755.0055325,\n  \"configMacAddress\": \"00:00:00:00:00:00\",\n  \"hardwareRevision\": \"\",\n  \"hwMacAddress\": \"00:00:00:00:00:00\",\n  \"imageFormatVersion\": \"1.0\",\n  \"imageOptimization\": \"None\",\n  \"internalBuildId\": \"b502bfe1-xxxx-xxxx-xxxx-8b78b1fd6e29\",\n  \"internalVersion\": \"4.32.2FX-NX-xxxxxxxxx.xxxxxxxxx\",\n  \"isIntlVersion\": false,\n  \"kernelVersion\": \"5.15.176.3-3.cm2\",\n  \"memFree\": 109383608,\n  \"memTotal\": 131643632,\n  \"mfgName\": \"\",\n  \"modelName\": \"cEOSLab\",\n  \"serialNumber\": \"538C4BE142B0B5D2727B8F412EE68B1B\",\n  \"systemMacAddress\": \"28:b3:de:ad:ce:e6\",\n  \"uptime\": 85639.49509215355,\n  \"version\": \"4.32.2FX-NX-xxxxxxxxx.xxxxxxxxx (engineering build)\"\n}",
+  "outputUrl": "https://<your-storage-account>.blob.core.windows.net/<your-container>"
+}
+```
+
+deviceConfigurationPreview: Returns the parsed result of the show command.
+
+outputUrl: Contains a link to the raw output stored in your designated storage account.
+
+> [!Note] 
+> The output structure may vary depending on the specific show command issued.<br>
+> Ensure the storage account URL (provided during setup) is accessible for the platform to write the output securely.<br>
+> Output is delivered in a secure, JSON format suitable for logging and automation systems.<br>
 
  ## Command restrictions
 
@@ -94,7 +138,7 @@ To troubleshoot using read-only commands, follow these steps:
     The following (truncated) output appears. Copy the URL through **private preview**. This portion of the URL is used in the following step to check the status of the operation.
 
     ```azurecli
-    https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS2EUAP/operationStatuses/59fdc0c8-eeb1-4258-9163-3cf096490148*A9E6DB3DF5C58D67BD395F7A608C056BC8219C392CC1CE0AD22E4C36D70CEE5C?api-version=2022-01-15-privatepreview***&t=638485032018035520&c=MIIHHjCCBgagAwIBAgITfwKWMg6goKCq4WwU2AAEApYyDjANBgkqhkiG9w0BAQsFADBEMRMwEQYKCZImiZPyLGQBGRYDR0JMMRMwEQYKCZImiZPyLGQBGRYDQU1FMRgwFgYDVQQDEw9BTUUgSW5mcmEgQ0EgMDIwHhcNMjQwMTMwMTAzMDI3WhcNMjUwMTI0MTAzMDI3WjBAMT4wPAYDVQQDEzVhc3luY29wZXJhdGlvbnNpZ25pbmdjZXJ0aWZpY2F0ZS5tYW5hZ2VtZW50LmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALMk1pBZQQoNY8tos8XBaEjHjcdWubRHrQk5CqKcX3tpFfukMI0_PVZK-Kr7xkZFQTYp_ItaM2RPRDXx-0W9-mmrUBKvdcQ0rdjcSXDek7GvWS29F5sDHojD1v3e9k2jJa4cVSWwdIguvXmdUa57t1EHxqtDzTL4WmjXitzY8QOIHLMRLyXUNg3Gqfxch40cmQeBoN4rVMlP31LizDfdwRyT1qghK7vgvworA3D9rE00aM0n7TcBH9I0mu-96JE0gSX1FWXctlEcmdwQmXj_U0sZCu11_Yr6Oa34bmUQHGc3hDvO226L1Au-QsLuRWFLbKJ-0wmSV5b3CbU1kweD5LUCAwEAAaOCBAswggQHMCcGCSsGAQQBgjcVCgQaMBgwCgYIKwYBBQUHAwEwCgYIKwYBBQUHAwIwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUIhpDjDYTVtHiE8Ys-
+    https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS2EUAP/operationStatuses/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e*A9E6DB3DF5C58D67BD395F7A608C056BC8219C392CC1CE0AD22E4C36D70CEE5C?api-version=2022-01-15-privatepreview***&t=638485032018035520&c=MIIHHjCCBgagAwIBAgITfwKWMg6goKCq4WwU2AAEApYyDjANBgkqhkiG9w0BAQsFADBEMRMwEQYKCZImiZPyLGQBGRYDR0JMMRMwEQYKCZImiZPyLGQBGRYDQU1FMRgwFgYDVQQDEw9BTUUgSW5mcmEgQ0EgMDIwHhcNMjQwMTMwMTAzMDI3WhcNMjUwMTI0MTAzMDI3WjBAMT4wPAYDVQQDEzVhc3luY29wZXJhdGlvbnNpZ25pbmdjZXJ0aWZpY2F0ZS5tYW5hZ2VtZW50LmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALMk1pBZQQoNY8tos8XBaEjHjcdWubRHrQk5CqKcX3tpFfukMI0_PVZK-Kr7xkZFQTYp_ItaM2RPRDXx-0W9-mmrUBKvdcQ0rdjcSXDek7GvWS29F5sDHojD1v3e9k2jJa4cVSWwdIguvXmdUa57t1EHxqtDzTL4WmjXitzY8QOIHLMRLyXUNg3Gqfxch40cmQeBoN4rVMlP31LizDfdwRyT1qghK7vgvworA3D9rE00aM0n7TcBH9I0mu-96JE0gSX1FWXctlEcmdwQmXj_U0sZCu11_Yr6Oa34bmUQHGc3hDvO226L1Au-QsLuRWFLbKJ-0wmSV5b3CbU1kweD5LUCAwEAAaOCBAswggQHMCcGCSsGAQQBgjcVCgQaMBgwCgYIKwYBBQUHAwEwCgYIKwYBBQUHAwIwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUIhpDjDYTVtHiE8Ys-
     ```
 
 3. Check the status of the operation programmatically using the following Azure CLI command:
@@ -107,9 +151,7 @@ To troubleshoot using read-only commands, follow these steps:
     
     ```azurecli
     https://management.azure.com/subscriptions/xxxxxxxxxxx/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS/operationStatuses/xxxxxxxxxxx?api-version=20XX-0X-xx-xx
-    ```
-
-    
+    ```    
 
 4. View and download the generated output file. Sample output is shown here.
 

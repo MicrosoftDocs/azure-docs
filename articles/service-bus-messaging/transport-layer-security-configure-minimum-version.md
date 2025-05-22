@@ -5,7 +5,7 @@ description: Configure an Azure Service Bus namespace to use a minimum version o
 author: EldertGrootenboer
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: article
-ms.date: 06/24/2024
+ms.date: 10/28/2024
 ms.author: egrootenboer
 ---
 
@@ -16,7 +16,7 @@ Azure Service Bus namespaces permit clients to send and receive data with TLS 1.
 You can configure the minimum TLS version using the Azure portal or Azure Resource Manager (ARM) template. 
 
 > [!WARNING]
-> As of 31 October 2024, TLS 1.0 and TLS 1.1 will no longer be supported on Azure. [TLS 1.0 and TLS 1.1 end of support announcement](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) The minimum TLS version will be 1.2 for all Service Bus deployments.
+> As of 28 February 2025, TLS 1.0 and TLS 1.1 will no longer be supported on Azure Service Bus. The minimum TLS version will be 1.2 for all Service Bus deployments. 
 
 > [!IMPORTANT]
 > On 31 October 2024, TLS 1.3 will be enabled for AMQP traffic. TLS 1.3 is already enabled for HTTPS traffic. Java clients may have a problem with TLS 1.3 due to a dependency on an older version of Proton-J. For more details, read [Java client changes to support TLS 1.3 with Azure Service Bus and Azure Event Hubs](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/java-client-changes-to-support-tls-1-3-with-azure-service-bus/ba-p/4089355) 
@@ -144,11 +144,14 @@ The response should look something like the below, with the minimumTlsVersion se
 }
 ```
 
-## Test the minimum TLS version from a client
+## TLS version used by a client
 
-To test that the minimum required TLS version for a Service Bus namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
+To test that the minimum required TLS version for a Service Bus namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. 
 
-When a client accesses a Service Bus namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Service Bus returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used is not permitted for making requests against this Service Bus namespace.
+> [!NOTE]
+> The runtime automatically uses the most recent TLS version available on the client applications' host machine. We recommend that you don't override this behavior. For more information, see [Select TLS version](/dotnet/core/extensions/sslstream-best-practices#select-tls-version).
+
+When a client accesses a Service Bus namespace using a TLS version that doesn't meet the minimum TLS version configured for the namespace, Azure Service Bus returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used is not permitted for making requests against this Service Bus namespace.
 
 > [!NOTE]
 > When you configure a minimum TLS version for a Service Bus namespace, that minimum version is enforced at the application layer. Tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the Service Bus namespace endpoint.
@@ -158,5 +161,4 @@ When a client accesses a Service Bus namespace using a TLS version that does not
 See the following documentation for more information.
 
 - [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace](transport-layer-security-enforce-minimum-version.md)
-- [Configure Transport Layer Security (TLS) for a Service Bus client application](transport-layer-security-configure-client-version.md)
 - [Use Azure Policy to audit for compliance of minimum TLS version for a Service Bus namespace](transport-layer-security-audit-minimum-version.md)

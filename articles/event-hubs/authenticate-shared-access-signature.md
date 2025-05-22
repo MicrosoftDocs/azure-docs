@@ -44,7 +44,7 @@ Any client that has access to name of an authorization rule name and one of its 
 - `sr` – URI of the resource being accessed.
 - `sig` – Signature.
 
-The signature-string is the SHA-256 hash computed over the resource URI (scope as described in the previous section) and the string representation of the token expiry instant, separated by carriage return and line feed (CRLF). The hash computation looks similar to the following pseudo code and returns a 256-bit/32-byte hash value. 
+The signature-string is the SHA-256 hash computed over the resource URI (scope as described in the previous section) and the string representation of the token expiry instant, separated by line feed (LF). The hash computation looks similar to the following pseudo code and returns a 256-bit/32-byte hash value. 
 
 ```
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)

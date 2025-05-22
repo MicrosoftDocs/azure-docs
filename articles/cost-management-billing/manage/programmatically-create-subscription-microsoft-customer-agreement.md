@@ -1,13 +1,13 @@
 ---
 title: Programmatically create Azure subscriptions for a Microsoft Customer Agreement with the latest APIs
 description: Learn how to create Azure subscriptions for a Microsoft Customer Agreement programmatically using the latest versions of REST API, Azure CLI, Azure PowerShell, and Azure Resource Manager templates.
-author: bandersmsft
+author: kendayMS
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/14/2024
-ms.reviewer: sgautam
-ms.author: banders
+ms.date: 05/21/2025
+ms.reviewer: macyso
+ms.author: macyso
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 ---
 

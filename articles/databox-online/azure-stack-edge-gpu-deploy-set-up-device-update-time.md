@@ -54,7 +54,7 @@ Follow these steps to configure device related settings:
 
     If you've changed the device name and the DNS domain, the automatically generated self-signed certificates on the device won't work. You'll need to regenerate device certificates or bring your own certificates.
     
-    ![Screehshot of local web U I "Device" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
+    ![Screenshot of local web U I "Device" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
   
 1. After the settings are applied, select **Next: Update server**.
 

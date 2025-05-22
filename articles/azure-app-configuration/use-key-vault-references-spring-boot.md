@@ -6,7 +6,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/02/2022
+ms.date: 12/04/2024
 ms.author: mametcal
 ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
@@ -17,7 +17,7 @@ In this tutorial, you learn how to use the Azure App Configuration service toget
 
 App Configuration helps you use the services together by creating keys that reference values stored in Key Vault. When App Configuration creates such keys, it stores the URIs of Key Vault values rather than the values themselves.
 
-Your application uses the App Configuration client provider to retrieve Key Vault references, just as it does for any other keys stored in App Configuration. In this case, the values stored in App Configuration are URIs that reference the values in the Key Vault. They are not Key Vault values or credentials. Because the client provider recognizes the keys as Key Vault references, it uses Key Vault to retrieve their values.
+Your application uses the App Configuration client provider to retrieve Key Vault references, just as it does for any other keys stored in App Configuration. In this case, the values stored in App Configuration are URIs that reference the values in the Key Vault. They aren't Key Vault values or credentials. Because the client provider recognizes the keys as Key Vault references, it uses Key Vault to retrieve their values.
 
 Your application is responsible for authenticating properly to both App Configuration and Key Vault. The two services don't communicate directly.
 
@@ -43,7 +43,7 @@ In this tutorial, you learn how to:
 
     ![Screenshot shows the Create a resource option in the Azure portal.](./media/quickstarts/search-services.png)
 1. In the search box, enter **Key Vault**.
-1. From the results list, select **Key vaults** on the left.
+1. From the results list, select **Key vaults**.
 1. In **Key vaults**, select **Add**.
 1. On the right in **Create key vault**, provide the following information:
     * Select **Subscription** to choose a subscription.
@@ -59,7 +59,7 @@ At this point, your Azure account is the only one authorized to access this new 
 
 ## Add a secret to Key Vault
 
-To add a secret to the vault, you need to take just a few additional steps. In this case, add a message that you can use to test Key Vault retrieval. The message is called **Message**, and you store the value "Hello from Key Vault" in it.
+To add a secret to the vault, you need to take just a few more steps. In this case, add a message that you can use to test Key Vault retrieval. The message is called **Message**, and you store the value "Hello from Key Vault" in it.
 
 1. From the Key Vault properties pages, select **Secrets**.
 1. Select **Generate/Import**.
@@ -94,10 +94,10 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     ```json
     {
-    "clientId": "00000000-0000-0000-0000-000000000000",
-    "clientSecret": "00000000-0000-0000-0000-000000000000",
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
-    "tenantId": "00000000-0000-0000-0000-000000000000",
+    "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+    "clientSecret": "aaaaaaaa-0b0b-1c1c-2d2d-333333333333",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",

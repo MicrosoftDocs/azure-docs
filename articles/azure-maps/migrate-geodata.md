@@ -63,7 +63,7 @@ https://platform.bing.com/geo/spatial/v1/public/Geodata?SpatialFilter=GetBoundar
 Azure Maps _Get Polygon_ API request:
 
 ``` http
-https://atlas.microsoft.com/search/polygon?api-version=2023-06-01&coordinates=-3.6749741,40.423432&resultType=locality&resolution=small&subscription-key={Your-Azure-Maps-Subscription-key}
+https://atlas.microsoft.com/search/polygon?api-version=2025-01-01&coordinates=-3.6749741,40.423432&resultType=locality&resolution=small&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 ## Response fields

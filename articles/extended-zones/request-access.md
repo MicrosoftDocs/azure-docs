@@ -5,14 +5,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 10/18/2024
+ms.date: 11/19/2024
 ---
 
 # Request access to an Azure Extended Zone
-
-> [!IMPORTANT]
-> Azure Extended Zones service is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 To create Azure resources in Azure Extended Zone locations, you need to explicitly register your subscription with the respective Azure Extended Zone, using an account that is a subscription owner, as this capability isn't enabled by default. Once the subscription is registered with the Azure Extended Zone, you can create and manage resources within that specific Azure Extended Zone.
 
@@ -51,7 +47,7 @@ In this section, you register resource provider **Microsoft.EdgeZones** to your 
 1. Use [Select-AzContext](/powershell/module/az.accounts/select-azcontext) cmdlet to select the subscription that you want to register Azure Extended Zones for.
 
     ```azurepowershell-interactive
-    Set-AzContext -SubscriptionId '00000000-0000-0000-0000-000000000000'
+    Set-AzContext -SubscriptionId 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
     ```
 
 1. Use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) cmdlet to register Microsoft.EdgeZones resource provider.
@@ -73,7 +69,7 @@ In this section, you register resource provider **Microsoft.EdgeZones** to your 
 1. Use [az account set](/cli/azure/account#az-account-set) command to select the subscription that you want to register Azure Extended Zones for.
 
     ```azurecli-interactive
-    az account set --subscription '00000000-0000-0000-0000-000000000000'
+    az account set --subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
     ```
 
 1. Use [az provider register](/cli/azure/provider#az-provider-register) command to register Microsoft.EdgeZones resource provider.

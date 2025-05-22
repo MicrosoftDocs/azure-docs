@@ -21,7 +21,7 @@ Many other common network latency test tools, such as Ping, don't measure TCP or
 
 Latte and SockPerf measure only TCP or UDP payload delivery times. These tools use the following approach to measure network latency between two physical or virtual computers:
 
-1. Create a two-way communications channel between the computers by designating one as sender and one as receiver.
+1. Create a two-way communication channel between the computers by designating one as sender and one as receiver.
 1. Send and receive packets in both directions and measure the round-trip time (RTT).
 
 ## Tips and best practices to optimize network latency
@@ -39,7 +39,7 @@ Use the following best practices to test and analyze network latency:
 
 1. Test the effects on network latency of changing any of the following components:
    - Operating system (OS) or network stack software, including configuration changes.
-   - VM deployment method, such as deploying to an availability zone or proximity placement group (PPG).
+   - VM deployment methods, such as deploying to an availability zone or proximity placement group (PPG).
    - VM properties, such as Accelerated Networking or size changes.
    - Virtual network configuration, such as routing or filtering changes.
 
@@ -49,13 +49,13 @@ Use the following best practices to test and analyze network latency:
 
 ## Test VMs with Latte or SockPerf
 
-Use the following procedures to install and test network latency with [Latte](https://github.com/mellanox/sockperf) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
+Use the following procedures to install and test network latency with [Latte](https://github.com/microsoft/latte) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
 
 # [Windows](#tab/windows)
 
 ### Install Latte and configure VMs
 
-1. [Download the latest version of latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe) to both VMs, into a separate folder such as *c:\\tools*.
+1. [Download the latest version of latte.exe](https://github.com/microsoft/latte/releases/latest/download/latte.exe) to both VMs and put it in a separate folder such as *c:/tools*.
 
 1. On the *receiver* VM, create a Windows Defender Firewall `allow` rule to allow the Latte traffic to arrive. It's easier to allow the *latte.exe* program by name than to allow specific inbound TCP ports. In the command, replace the `<path>` placeholder with the path you downloaded *latte.exe* to, such as *c:\\tools\\*.
 
@@ -78,7 +78,7 @@ Run *latte.exe* from the Windows command line, not from PowerShell.
 
    The following example shows the command for a VM with an IP address of `10.0.0.4`:<br><br>`latte -a 10.0.0.4:5005 -i 65100`
 
-1. On the *sender* VM, run the same command as on the receiver, except with `-c` added to indicate the *client* or sender VM. Again replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
+1. On the *sender* VM, run the same command as on the receiver, except with `-c` added to indicate the *client* or sender VM. Again, replace the `<receiver IP address>`, `<port>`, and `<iterations>` placeholders with your own values.
 
    ```cmd
    latte -c -a <receiver IP address>:<port> -i <iterations>
@@ -121,6 +121,20 @@ On both the *sender* and *receiver* Linux VMs, run the following commands to pre
   sudo apt-get install -y libtool
   sudo apt update
   sudo apt upgrade
+  ```
+
+- SUSE:
+
+  ```bash
+  #SUSE - Install Git and other helpful tools
+  sudo zypper install gcc
+  sudo zypper install git
+  sudo zypper install gcc-c++
+  sudo zypper install ncurses-devel
+  sudo zypper install automake
+  sudo zypper install autoconf
+  sudo zypper install libtool
+  sudo zypper install make
   ```
 
 ### Copy, compile, and install SockPerf

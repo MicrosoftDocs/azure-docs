@@ -15,16 +15,20 @@ ms.custom: mode-other
 
 ## Prerequisites
 
-- An [Azure Communication Services resource](../../../create-communication-resource.md)
+- An [Azure Communication Services resource](../../../create-communication-resource.md).
 
 ## Create the access tokens
 
-In the [Azure portal](https://portal.azure.com), navigate to the **Identities & User Access Tokens** blade within your Communication Services resource. 
+1. In the [Azure portal](https://portal.azure.com), navigate to the **Identities & User Access Tokens** blade in your Communication Services resource. 
 
-Choose the scope of the access tokens. You can select none, one, or multiple. Click **Generate**.
+2. Choose the scope of the access tokens. You can choose none, one, or multiple services. 
 
-![Select the scopes of the identity and access tokens.](../../media/quick-create-identity-choose-scopes.png)
+3. Select **Generate**.
 
-You'll see an identity and corresponding user access token generated. You can copy these strings and use them in the [sample apps](../../../../samples/overview.md) and other testing scenarios.
+   :::image type="content" source="../../media/quick-create-identity-choose-scopes.png" alt-text="Screenshot that shows the scopes of the identity and access tokens where you select Generate." lightbox="../../media/quick-create-identity-choose-scopes.png":::
 
-![The identity and access tokens are generated and show the expiration date.](../../media/quick-create-identity-generated.png) 
+   The system generates an identity and corresponding user access token.
+
+4. Copy these strings and use them in the [sample apps](../../../../samples/overview.md) and other testing scenarios.
+
+   :::image type="content" source="../../media/quick-create-identity-generated.png" alt-text="Screenshot that shows the identity and access tokens with expiration date" lightbox="../../media/quick-create-identity-generated.png":::

@@ -57,8 +57,6 @@ Through Microsoft Graph API, you can get events from a diverse set of Microsoft 
 ### Auth0
 [Auth0](https://auth0.com) is a managed authentication platform for businesses to authenticate, authorize, and secure access for applications, devices, and users. You can create an [Auth0 partner topic](auth0-overview.md) to connect your Auth0 and Azure accounts. This integration allows you to react to, log, and monitor Auth0 events in real time. To try it out, see [Integrate Azure Event Grid with Auth0](auth0-how-to.md).
 
-### SAP
-You can configure your SAP system to send events to Azure Event Grid. For more information, see [Subscribe to SAP events](subscribe-to-sap-events.md).
 
 ### Tribal Group
 
@@ -95,7 +93,7 @@ For detailed instructions on how to subscribe to events published by a partner, 
 Partner Events are charged by the number of operations done when routing events to or from Event Grid. For more information on all types of operations that are used as the basis for billing and detailed price information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Limits
-See [Event Grid Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) for detailed information about the limits in place for partner topics.
+See [Event Grid Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-event-grid-limits) for detailed information about the limits in place for partner topics.
 
 
 ## Next steps

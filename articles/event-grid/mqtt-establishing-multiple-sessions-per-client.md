@@ -54,6 +54,6 @@ Second connect packet:
 - username: “ipv4=127.0.0.1”
 - clientId: “sessionId2”
 
-:::image type="content" source="./media/mqtt-establishing-multiple-sessions-per-client/mqtt-mqttx-app-session-2-connect-configuration.png" alt-text="creenshot showing the MQTTX application client configuration with second session.":::
+:::image type="content" source="./media/mqtt-establishing-multiple-sessions-per-client/mqtt-mqttx-app-session-2-connect-configuration.png" alt-text="Screenshot showing the MQTTX application client configuration with second session.":::
 
 You can use the same client certificate credentials to authenticate both the sessions.

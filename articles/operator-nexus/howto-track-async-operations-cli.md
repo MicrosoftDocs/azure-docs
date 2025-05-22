@@ -28,7 +28,7 @@ cli.azure.cli.core.util:     'Azure-AsyncOperation': 'https://management.azure.c
 ```
 
 Using the value from before:
-`https://management.azure.com/subscriptions/.../providers/Microsoft.NetworkCloud/locations/EASTUS/operationStatuses/12312312-1231-1231-1231-123123123123*99399E995...?api-version=2022-12-12-preview`, an Azure CLI `az rest` call can be issued to retrieve the operation status.
+`https://management.azure.com/subscriptions/.../providers/Microsoft.NetworkCloud/locations/EASTUS/operationStatuses/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e*99399E995...?api-version=2022-12-12-preview`, an Azure CLI `az rest` call can be issued to retrieve the operation status.
 
 ```sh
 az rest -m get -u "https://management.azure.com/subscriptions/.../providers/Microsoft.NetworkCloud/locations/EASTUS/operationStatuses/12312312-1231-1231-1231-123123123123*99399E995...?api-version=2022-12-12-preview"
@@ -40,8 +40,8 @@ This request will return an operation status result that can be requeried using 
 {
   "endTime": "2023-02-08T17:38:31.2042934Z",
   "error": {},
-  "id": "subscriptions/.../providers/Microsoft.NetworkCloud/locations/EASTUS/operationStatuses/12312312-1231-1231-1231-123123123123*99399E995...?api-version=2022-12-12-preview",
-  "name": "12312312-1231-1231-1231-123123123123*99399E995...",
+  "id": "subscriptions/.../providers/Microsoft.NetworkCloud/locations/EASTUS/operationStatuses/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e*99399E995...?api-version=2022-12-12-preview",
+  "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e*99399E995...",
   "properties": null,
   "resourceId": "subscriptions/.../resourceGroups/.../providers/Microsoft.NetworkCloud/clusters/.../metricsConfigurations/default?api-version=2022-12-12-preview",
   "startTime": "2023-02-08T17:38:24.7576911Z",

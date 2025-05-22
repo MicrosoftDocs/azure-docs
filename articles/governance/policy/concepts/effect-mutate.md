@@ -1,13 +1,13 @@
 ---
 title: Azure Policy definitions mutate (preview) effect
 description: Azure Policy definitions mutate (preview) effect determines how compliance is managed and reported.
-ms.date: 04/08/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 
 # Azure Policy definitions mutate (preview) effect
 
-Mutation is used in Azure Policy for Kubernetes to remediate Azure Kubernetes Service (AKS) cluster components, like pods. This effect is specific to _Microsoft.Kubernetes.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
+Mutation is used in Azure Policy for Kubernetes to remediate Azure Kubernetes Service (AKS) cluster components, like pods. This effect is specific to _Microsoft.Kubernetes.Data_ [policy mode](./definition-structure-basics.md#resource-provider-modes) definitions only.
 
 To learn more, go to [Understand Azure Policy for Kubernetes clusters](./policy-for-kubernetes.md).
 

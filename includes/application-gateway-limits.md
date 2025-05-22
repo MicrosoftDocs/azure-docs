@@ -8,7 +8,7 @@ ms.author: greglin
 | Resource | Limit | Note |
 | --- | --- | --- |
 | Azure Application Gateway |1,000 per region per subscription | |
-| Frontend IP configurations |2 |1 public and 1 private |
+| Frontend IP configurations |4 |IPv4 - 1 public and 1 private.<br>IPv6 - 1 public and 1 private. |
 | Frontend ports |100<sup>1</sup> | |
 | Backend address pools |100 | |
 | Backend targets per pool |1,200 | |
@@ -47,6 +47,7 @@ ms.author: greglin
 | Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
 | Maximum Private Link IP Configurations| 8 | |
 | Maximum WAF custom rules per WAF policy|100||
+| Maximum WAF match conditions per custom rule|10|This limit is not enforced by the WAF. Adding more than 10 match conditions can lead to performance degredation|
 | WAF IP address ranges per match condition|540<br>600 - with CRS 3.2 or DRS|
 | Maximum WAF exclusions per Application Gateway|40<br>200 - with CRS 3.2 or DRS|
 | WAF string match values per match condition|10||

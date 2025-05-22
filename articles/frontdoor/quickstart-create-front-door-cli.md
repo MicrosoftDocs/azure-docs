@@ -1,19 +1,20 @@
 ---
 title: 'Quickstart: Create an Azure Front Door (classic) using Azure CLI'
 description: This quickstart will show you how to use Azure Front Door (classic) to create a high availability and high-performance global web application using Azure CLI.
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: quickstart
 ms.date: 10/04/2024
-ms.author: duau
 ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create an Azure Front Door (classic) using Azure CLI
+
+**Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 

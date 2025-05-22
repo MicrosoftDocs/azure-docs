@@ -7,10 +7,10 @@ author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 04/10/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23, devx-track-extended-azdevcli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23, devx-track-extended-azdevcli, devx-track-terraform
 ---
 
 # Create an Azure storage account
@@ -71,6 +71,12 @@ None.
     > [!NOTE]
     > The `azd` template includes a `.devcontainer` that already has `azd` installed, therefore you can skip the installation step if you plan to use a `devcontainer` either locally or in an environment like Codespaces.
 
+# [Terraform](#tab/terraform)
+
+- You need an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+
 ---
 
 Next, sign in to Azure.
@@ -123,7 +129,13 @@ To sign-in to a local installation of `azd` or Codespaces environment, run the [
 
 `azd` will launch a browser window that you can use to sign-in to Azure.
 
+
+# [Terraform](#tab/terraform)
+
+[Authenticate Terraform to Azure](/azure/developer/terraform/authenticate-to-azure)
+
 ---
+
 ## Create a storage account
 
 A storage account is an Azure Resource Manager resource. Resource Manager is the deployment and management service for Azure. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
@@ -168,7 +180,7 @@ The following table describes the fields on the **Basics** tab.
 | Project details | Subscription | Required | Select the subscription for the new storage account. |
 | Project details | Resource group | Required | Create a new resource group for this storage account, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
 | Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and might contain numbers and lowercase letters only. |
-| Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing). |
+| Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../reliability/availability-zones-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing). |
 | Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul>
 | Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), your data is replicated to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
 
@@ -505,7 +517,42 @@ Initialize and run the template for this quickstart using the following steps:
 
     :::image type="content" source="media/storage-account-create/azure-developer-cli-resource-group.png" alt-text="A screenshot showing the deployed resource group and storage account.":::
 
+# [Terraform](#tab/terraform)
+
+The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-account). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-account/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+
+1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
+
+1. Create a file named `providers.tf`, and insert the following code:
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/providers.tf":::
+
+1. Create a file named `main.tf`, and insert the following code:
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/main.tf":::
+
+1. Create a file named `variables.tf`, and insert the following code:
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/variables.tf":::
+
+1. Create a file named `outputs.tf`, and insert the following code:
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/outputs.tf":::
+
+    > [!IMPORTANT]
+    > If you're using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
+    >
+    > One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
+    >
+    > For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
+    
+1. Initialize Terraform.
+    [!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
+
+1. Create a Terraform execution plan.
+    [!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
+
+1. Apply a Terraform execution plan.
+    [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
 ---
+
 ## Delete a storage account
 
 Deleting a storage account deletes the entire account, including all data in the account. Be sure to back up any data you want to save before you delete the account.
@@ -579,7 +626,12 @@ To delete the resource group and storage account created by `azd`, use the `azd 
 azd down
 ```
 
+# [Terraform](#tab/terraform)
+
+[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
+
 ---
+
 Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
 
 ## Create a general purpose v1 storage account

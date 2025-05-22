@@ -1,96 +1,96 @@
 ---
 title: 'Quickstart: Create a Redis Enterprise cache'
-description: Learn how to create an instance of Azure Cache for Redis to use in the Enterprise tier.
-
-ms.custom: mvc, mode-other
+description: Learn how to create an instance of Azure Cache for Redis Enterprise.
+ms.custom: mvc, mode-other, ignite-2024
 ms.topic: quickstart
-ms.date: 04/12/2023
+ms.date: 05/07/2025
+appliesto:
+  - ✅ Azure Cache for Redis
 #Customer intent: As a Redis Enterprise developer who is new to Azure Cache for Redis, I want to create a new cache in the Enterprise tier of Azure Cache for Redis.
 ---
 
 # Quickstart: Create a Redis Enterprise cache
 
-The Enterprise tiers for Azure Cache for Redis provide fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure.
+The Azure Cache for Redis Enterprise tiers provide fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. The Enterprise tiers are:
 
-The Enterprise tiers include two tier options:
+- Enterprise, which uses volatile memory (DRAM) on a virtual machine to store data.
+- Enterprise Flash, which uses both volatile and nonvolatile memory (NVMe or SSD) to store data.
 
-- **Enterprise**: This tier uses volatile memory (dynamic random access memory (DRAM)) on a virtual machine to store data.
-- **Enterprise Flash**: This tier uses both volatile and nonvolatile memory (NVM Express (NVMe) or solid-state drive (SSD)) to store data.
-
-Both Enterprise and Enterprise Flash support open-source Redis 6 and some new features that aren't yet available in the Basic, Standard, or Premium tiers. The supported features include some Redis modules that enable other features like search, bloom filters, and time series.  
+Both Enterprise and Enterprise Flash tiers support open-source Redis 6 and some new features that aren't available in Basic, Standard, or Premium tiers. The supported features include Redis modules that enable search, bloom filters, and time series.
 
 ## Prerequisites
 
-- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/). For more information, see [Special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
+- You need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [Special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
+
+> [!IMPORTANT]
+> The following Enterprise settings can be enabled or configured only at cache creation time. Gather the information you need to configure these settings before you create your cache.
+> 
+> - You must enable Enterprise modules at the time you create the cache instance. You can't change modules or enable module configuration after you create a cache.
+> - Redis Enterprise supports two clustering policies, **Enterprise** or **OSS**. Know which policy you need before you create your cache. You can't change the clustering policy of an Enterprise cache after you create it.
+> - If you're using the cache in a geo-replication group, you can't change eviction policies after the cache is created. Be sure to know the eviction policies of your primary nodes before you create the cache.
 
 ### Availability by region
 
-Azure Cache for Redis continually expands to new regions in Azure. To check the availability by region for all tiers, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
+Azure Cache for Redis is continually expanding into new regions. To check the availability by region for all tiers, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 
-## Create a cache
+## Create an Enterprise cache
 
-1. To create a cache, sign in to the [Azure portal](https://portal.azure.com). On the portal menu, select **Create a resource**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Cache for Redis**.
+1. On the **Azure Cache for Redis** page, select **Create** > **Redis Enterprise**.
+1. On the **Basics** tab of the **New Redis Cache** page, configure the following settings:
 
-1. On the **New** pane, select **Databases**. In the search results, select **Azure Cache for Redis**.
+   - **Subscription**: Select the subscription to use.
+   - **Resource group**: Select a resource group, or select **Create new** and enter a new resource group name. Putting all your app resources in the same resource group lets you easily manage or delete them together.
+   - **Name**: Enter a cache name that's unique in the region. The name must:
+     - Be a string of 1 to 63 characters when combined with the cache's region name.
+     - Contain only numbers, letters, and hyphens.
+     - Start and end with a number or letter.
+     - Not contain consecutive hyphens.
+   - **Region**: Select an [Azure region](https://azure.microsoft.com/regions/) near other services that use your cache. Enterprise tiers are available in selected Azure regions.
+   - **Cache SKU**: Select **Enterprise** or **Enterprise Flash** SKU to determine the available sizes, performance, and features for your cache.
+   - **Cache size**: Select a cache size.
 
-   :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Screenshot that highlights Azure Cache for Redis in search results on the New pane to create a new Azure resource.":::
+1. Select the **Terms** checkbox.
 
-1. On the **New Redis Cache** pane, on the **Basics** tab, configure the following settings for your cache:
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Screenshot showing the Enterprise tier Basics tab.":::
 
-   | Setting      |  Action  | Description |
-   | ------------ |  ------- | -------------------------------------------------- |
-   | **Subscription** | Select your Azure subscription. | The subscription to use to create the new instance of Azure Cache for Redis. |
-   | **Resource group** | Select a resource group, or select **Create new** and enter a new resource group name. | A name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
-   | **DNS name** | Enter a name that is unique in the Azure region. | The cache name must be a string of 1 to 63 characters that contains only numbers, letters, and hyphens. (If the cache name is fewer than 45 characters long, it should work in all currently available regions.) The name must start and end with a number or letter, and it can't contain consecutive hyphens. Your cache instance's _host name_ is  `\<DNS name\>.\<Azure region\>.redisenterprise.cache.azure.net`. |
-   | **Location** | Select a location. | An [Azure region](https://azure.microsoft.com/regions/) that is near other services that use your cache. Enterprise tiers are available in selected Azure regions. |
-   | **Cache type** | Select **Enterprise** or **Enterprise Flash** tier and a cache size. |  The tier determines the size, performance, and features that are available for your cache. |
+1. Select the **Networking** tab, or select **Next: Networking**.
+1. On the **Networking** tab, select a connectivity method to use for the cache. **Private Endpoint** is recommended for security. If you select **Private Endpoint**, select **Add private endpoint** and create the private endpoint.
+1. Select the **Advanced** tab, or select **Next: Advanced**.
+1. On the **Advanced** tab, configure the following options:
+   - **Modules**: Select the Redis modules you want to use.
+   - **Zone redundancy**: Select whether to enable zone redundancy (recommended).
+   - **Non-TLS access only**: Choose whether to **Enable** the non-TLS port and connect to the new cache without using Transport Layer Security (TLS). However, disabling TLS isn't recommended.
+   - **Eviction Policy**: Select an eviction policy.
+   - **Capacity**: Set the total number of virtual machines running for the cache.
+   - **Clustering Policy**: Set to **Enterprise** to use the Redis API, or to **OSS** to use the OSS Cluster API.
+1. Under **(PREVIEW) Data Persistence**, choose whether to enable **Redis Database (RDB)**, **Append-only file (AOF)**, or no data persistence for your cache.
+1. Under **Active geo-replication**, if your SKU supports it, select **Configure** to configure active-active geo-replication for your cache.
+1. Under **Customer-managed key encryption at rest**, choose whether to use your own key to encrypt the disk's data. Otherwise, Microsoft-managed keys are used.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Screenshot that shows the Enterprise tier Basics tab on the New Redis Cache pane.":::
+   :::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
    > [!IMPORTANT]
-   > Be sure to select the checkbox for **Terms** before you proceed.
+   > You must enable modules at the time you create the Azure Redis instance. You can't change modules or enable module configuration after you create a cache.
    >
-
-1. Select **Next: Networking** and skip.
-
-1. Select **Next: Advanced**.
-
-1. On the **Advanced** tab, configure these settings:
-
-   1. Select the **Non-TLS access only** checkbox _only_ if you plan to connect to the new cache without using Transport Layer Security (TLS). We recommend that you don't disable TLS.
-
-   1. For **Clustering Policy**, for a nonclustered cache, select **Enterprise**. For a clustered cache, select **OSS**.
-
-      For more information about choosing the clustering policy to use for your cache, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
-
-   :::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab on the New Redis Cache pane.":::
 
    > [!IMPORTANT]
-   > - The Enterprise tier and the Enterprise Flash tier are inherently clustered, in contrast to the Basic, Standard, and Premium tiers. Redis Enterprise offers two clustering policies:
-   >
-   >   - Use the **Enterprise** clustering policy to access your cache by using the Redis API.
-   >   - Use the **OSS** clustering policy to use the OSS Cluster API.
-   >
-   >   For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
-   >
-   > - You can't change the clustering policy of an Enterprise cache after you create it. If you use [RediSearch](cache-redis-modules.md#redisearch), the Enterprise clustering policy is required, and `NoEviction` is the only supported eviction policy.
-   >
-   > - If you use this cache in a geo-replication group, you can't change eviction policies after you create the cache. Be sure to know the eviction policies of your primary nodes before you create the cache.
-   >
-   >   For more information about active geo-replication, see [Active geo-replication prerequisites](cache-how-to-active-geo-replication.md#active-geo-replication-prerequisites).
-   >
-   > - You can't change modules after you create a cache. Modules must be enabled at the time you create your instance of Azure Cache for Redis. There is no option to enable the configuration of a module after you create a cache.
-   >
+   > If you're using the [RediSearch](../redis/redis-modules.md#redisearch) module, the **Enterprise** cluster policy is required, and **No Eviction** is the only eviction policy supported.
 
-1. Select **Next: Tags** (skip), and then select **Next: Review + create**.
+   > [!IMPORTANT]
+   > Azure Redis Enterprise and Enterprise Flash tiers are inherently clustered, in contrast to Basic, Standard, and Premium tiers. Redis Enterprise supports two clustering policies, **Enterprise** and **OSS**. Use **Enterprise** to access your cache using the Redis API, or **OSS** to use the OSS Cluster API. You can't change the clustering policy of an Enterprise cache after you create it. For more information, see [Clustering](../redis/architecture.md#clustering).
 
-   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Screenshot that shows the Enterprise tier Review + create tab on the New Redis Cache pane.":::
+   > [!IMPORTANT]
+   >  If you're using this cache in a geo-replication group, you can't change eviction policies after the cache is created. Be sure to know the eviction policies of your primary nodes before you create the cache. For more information on active geo-replication, see [Active geo-replication prerequisites](cache-how-to-active-geo-replication.md#active-geo-replication-prerequisites).
 
-1. On the **Review + create** tab, review the settings, and then select **Create**.
+1. Optionally, select the **Tags** tab or select **Next: Tags**, and enter tag names and values if you want to categorize your cache resources.
 
-It takes some time for the cache deployment to finish. You can monitor progress on the Azure Cache for Redis Overview pane. When **Status** displays **Running**, the cache is ready to use.
-  
+1. Select **Review + create**, and once validation passes, select **Create**.
+
+It takes some time for the cache to create. You can monitor deployment progress on the portal Azure Cache for Redis page. When the cache **Status** displays **Running**, the cache is ready to use.
+
 ## Related content
 
-- [Create an ASP.NET web app that uses Azure Cache for Redis](cache-web-app-aspnet-core-howto.md)
-- [Best practices for the Enterprise tiers](cache-best-practices-enterprise-tiers.md)
+- [Create an Azure Managed Redis instance (preview)](../redis/quickstart-create-managed-redis.md)
+- [Create an ASP.NET web app that uses Azure Cache for Redis.](../redis/web-app-cache-howto.md)
+

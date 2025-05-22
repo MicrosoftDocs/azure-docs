@@ -4,7 +4,7 @@ description: Learn how to enable Microsoft Entra Kerberos authentication for hyb
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/18/2024
+ms.date: 01/24/2025
 ms.author: kendownie
 recommendations: false
 ---
@@ -18,12 +18,18 @@ In such scenarios, customers can enable Microsoft Entra Kerberos authentication 
 This article focuses on authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID using either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). **Cloud-only identities aren't currently supported for Azure Files**.
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Scenarios
 
@@ -39,8 +45,8 @@ The following are examples of scenarios in which you might want to configure a c
 
 To complete the steps outlined in this article, you'll need:
 
-- An on-premises Active Directory administrator username and password
-- Microsoft Entra Global Administrator account username and password
+- An on-premises Active Directory administrator username and password. This account must either be a member of the Domain Admins group for the domain or a member of the Enterprise Admins group for the domain's forest. 
+- A Microsoft Entra Global Administrator account username and password.
 
 ## Prerequisites
 
@@ -50,7 +56,7 @@ Before implementing the incoming trust-based authentication flow, ensure that th
 | --- | --- |
 | Client must run Windows 10, Windows Server 2012, or a higher version of Windows. | |
 | Clients must be joined to Active Directory (AD). The domain must have a functional level of Windows Server 2012 or higher. | You can determine if the client is joined to AD by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd): `dsregcmd.exe /status` |
-| A Microsoft Entra tenant. | A Microsoft Entra Tenant is an identity security boundary that's under the control of your organization’s IT department. It's an instance of Microsoft Entra ID in which information about a single organization resides. |
+| A Microsoft Entra tenant. | A Microsoft Entra Tenant is an identity security boundary that's under the control of your organization's IT department. It's an instance of Microsoft Entra ID in which information about a single organization resides. |
 | An Azure subscription under the same Microsoft Entra tenant you plan to use for authentication. | |
 | An Azure storage account in the Azure subscription. | An Azure storage account is a resource that acts as a container for grouping all the data services from Azure Storage, including files. |
 | [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md) must be installed. | These solutions are used in [hybrid environments](../../active-directory/hybrid/whatis-hybrid-identity.md) where identities exist both in Microsoft Entra ID and on-premises AD DS. |
@@ -170,13 +176,13 @@ For guidance on disabling MFA, see the following:
 
 When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. Once a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
 
-To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
+To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md).
 
 ### Configure directory and file-level permissions
 
 Once share-level permissions are in place, you can assign directory/file-level permissions to the user or group. **This requires using a device with unimpeded network connectivity to an on-premises AD**.
 
-To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
+To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-configure-file-level-permissions.md).
 
 ## Create and configure the Microsoft Entra Kerberos Trusted Domain Object
 
@@ -223,14 +229,14 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 1. Set the common parameters. Customize the script below prior to running it.
 
     - Set the `$domain` parameter to your on-premises Active Directory domain name.
-    - When prompted by `Get-Credential`, enter an on-premises Active Directory administrator username and password.
+    - When prompted by `Get-Credential`, enter an on-premises Active Directory administrator username and password. This account must either be a member of the Domain Admins group for the domain or a member of the Enterprise Admins group for the domain's forest.
     - Set the `$cloudUserName` parameter to the username of a Global Administrator privileged account for Microsoft Entra cloud access.
 
     > [!NOTE]  
     > If you wish to use your current Windows login account for your on-premises Active Directory access, you can skip the step where credentials are assigned to the `$domainCred` parameter. If you take this approach, don't include the `-DomainCredential` parameter in the PowerShell commands following this step.
 
     ```powershell
-    $domain = "your on-premesis domain name, for example contoso.com"
+    $domain = "your on-premises domain name, for example contoso.com"
     
     $domainCred = Get-Credential
     
@@ -394,4 +400,4 @@ Remove-AzureAdKerberosServer -Domain $domain `
 
 ## Next step
 
-- [Mount an Azure file share](storage-files-identity-ad-ds-mount-file-share.md)
+- [Mount an Azure file share](storage-files-identity-mount-file-share.md)

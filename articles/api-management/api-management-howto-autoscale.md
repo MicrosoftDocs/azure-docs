@@ -24,6 +24,8 @@ The article walks through the process of configuring autoscale and suggests opti
 > * An API Management service in the **Consumption** tier scales automatically based on the traffic - without any additional configuration needed.
 > * Currently, autoscale is not supported for the [workspace gateway](workspaces-overview.md#workspace-gateway) in API Management workspaces.
 
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
+
 ## Prerequisites
 
 To follow the steps from this article, you must:
@@ -38,7 +40,6 @@ To follow the steps from this article, you must:
 Certain limitations and consequences of scaling decisions need to be considered before configuring autoscale behavior.
 
 + The [pricing tier](api-management-features.md) of your API Management instance determines the [maximum number of units](upgrade-and-scale.md#upgrade-and-scale) you may scale to. For example, the **Standard tier** can be scaled to 4 units. You can add any number of units to the **Premium** tier.
-+ The scaling process takes at least 20 minutes.
 + If the service is locked by another operation, the scaling request will fail and retry automatically.
 + If your service instance is deployed in multiple regions (locations), only units in the **Primary location** can be autoscaled with Azure Monitor autoscale. Units in other locations can only be scaled manually.
 + If your service instance is configured with [availability zones](zone-redundancy.md) in the **Primary location**, be aware of the number of zones when configuring autoscaling. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones. 
@@ -73,7 +74,7 @@ Follow these steps to configure autoscale for an Azure API Management service:
     |*Action*              |                   |                                                                                                                                                                                                                                                                                 |
     | Operation             | Increase count by |                                                                                                                                                                                                                                                                                 |
     | Instance count        | 1                 | Scale out the Azure API Management instance by 1 unit.                                                                                                                                                                                                                          |
-    | Cool down (minutes)   | 60                | It takes at least 20 minutes for the API Management service to scale out. In most cases, the cool down period of 60 minutes prevents from triggering many scale-outs.                                                                                                  |
+    | Cool down (minutes)   | 60                | In most cases, the cool down period of 60 minutes prevents from triggering many scale-outs.                                                                                                  |
 
 1. Select **Add** to save the rule.
 1. To add another rule, select **Add a rule**.

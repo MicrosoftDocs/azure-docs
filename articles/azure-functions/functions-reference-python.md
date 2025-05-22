@@ -2,9 +2,9 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions using the Python library for Azure Functions.
 ms.topic: article
-ms.date: 07/30/2024
+ms.date: 12/29/2024
 ms.devlang: python
-ms.custom: devx-track-python, devdivchpfy22
+ms.custom: devx-track-python, devdivchpfy22, ignite-2024
 zone_pivot_groups: python-mode-functions
 ---
 
@@ -46,7 +46,7 @@ As a Python developer, you might also be interested in these topics:
 
 ## [Hosting options](#tab/hosting)
 
-+ [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. This plan is currently in preview.
++ [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. 
 + [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](functions-container-apps-hosting.md).
 + [Compare hosting options...](functions-scale.md) 
 
@@ -66,7 +66,7 @@ Python v1 programming model:
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
 + [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)
 
-You can also create Python v1 functions in the Azure portal.
+You can also create Python functions in the Azure portal.
 
 > [!TIP]
 > Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
@@ -456,7 +456,7 @@ def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body. Here, the specified storage account is the connection string that's found in the `CONNECTION_STRING` app setting.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body. Here, the specified storage account is the connection string that's found in the `<*_CONNECTION_STRING>` app setting. For more information, see  For more information, see [Connections](./functions-reference.md#connections).
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, their usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the *local.settings.json* file when they're running locally, and they map to the application settings when they're running in Azure.
@@ -489,7 +489,7 @@ def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the `STORAGE_CONNECTION_STRING` app setting.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string found in the `<*_CONNECTION_STRING>` app setting. For more information, see  For more information, see [Connections](./functions-reference.md#connections).
 ::: zone-end
 
 For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
@@ -1104,7 +1104,7 @@ In Azure Functions, [application settings](functions-app-settings.md), such as s
 | Method | Description |
 | --- | --- |
 | **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name, and raises an error when it's unsuccessful.  |
-| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `null` when it's unsuccessful.  |
+| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `None` when it's unsuccessful.  |
 
 Both of these ways require you to declare `import os`.
 
@@ -1131,7 +1131,7 @@ In Azure Functions, [application settings](functions-app-settings.md), such as s
 | Method | Description |
 | --- | --- |
 | **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name, and raises an error when it's unsuccessful.  |
-| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `null` when it's unsuccessful.  |
+| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `None` when it's unsuccessful.  |
 
 Both of these ways require you to declare `import os`.
 

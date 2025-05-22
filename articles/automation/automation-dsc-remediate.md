@@ -6,12 +6,14 @@ ms.service: azure-automation
 ms.subservice: desired-state-config
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/22/2024
 ---
 
 # Remediate noncompliant Azure Automation State Configuration servers
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
 
 When servers are registered with Azure Automation State Configuration, the configuration mode is set
 to `ApplyOnly`, `ApplyAndMonitor`, or `ApplyAndAutoCorrect`. If the mode isn't set to

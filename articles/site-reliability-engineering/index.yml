@@ -259,7 +259,7 @@ additionalContent:
               url: https://www.usenix.org/conference/srecon17asia/program/presentation/rajan
             - text: "How Robust Monitoring Powers High Availability for LinkedIn Feed"
               url: https://www.usenix.org/conference/srecon17americas/program/presentation/barot
-            - text: "Reducing MTTR and False Escalations: Event Correlation at Linkedin"
+            - text: "Reducing MTTR and False Escalations: Event Correlation at LinkedIn"
               url: https://www.usenix.org/conference/srecon17europe/program/presentation/kehoe-0
                
         # Card

@@ -3,7 +3,7 @@ title: Update IoT Edge version on devices
 description: How to update IoT Edge devices to run the latest versions of the security subsystem and the IoT Edge runtime
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/10/2024
+ms.date: 01/09/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ services: iot-edge
 **Applies to:** ![IoT Edge 1.5 checkmark](./includes/media/iot-edge-version/yes-icon.png) IoT Edge 1.5 ![IoT Edge 1.4 checkmark](./includes/media/iot-edge-version/yes-icon.png) IoT Edge 1.4
 
 > [!IMPORTANT]
-> IoT Edge 1.5 LTS and IoT Edge 1.4 LTS are [supported releases](support.md#releases). IoT Edge 1.4 LTS is end of life on November 12, 2024.
+> IoT Edge 1.5 LTS is the [supported release](support.md#releases). IoT Edge 1.4 LTS is end of life as of November 12, 2024.
 
 As the IoT Edge service releases new versions, update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
@@ -30,7 +30,7 @@ Use the sections of this article to update both the security subsystem and runti
 
 ### Patch releases
 
-When you upgrade between *patch* releases, for example 1.4.1 to 1.4.2, the update order isn't important. You can upgrade the security subsystem or the runtime containers before or after the other. To update between patch releases:
+When you upgrade between *patch* releases, for example 1.5.1 to 1.5.2, the update order isn't important. You can upgrade the security subsystem or the runtime containers before or after the other. To update between patch releases:
 
 1. [Update the security subsystem](#update-the-security-subsystem)
 1. [Update the runtime containers](#update-the-runtime-containers)
@@ -48,7 +48,7 @@ When you upgrade between major or minor releases, for example from 1.4 to 1.5, u
 
 1. On the device, [install IoT Edge](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
    
-   If you're importing an old configuration using `iotedge config import`, then modify the [agent.config] image of the generated `/etc/aziot/config.toml` file to use the 1.4 image for edgeAgent.
+   If you're importing an old configuration using `iotedge config import`, then modify the [agent.config] image of the generated `/etc/aziot/config.toml` file to use the 1.5 image for edgeAgent.
 
    For more information, see [Configure IoT Edge device settings](configure-device.md#default-edge-agent).
 
@@ -87,12 +87,11 @@ apt list -a aziot-edge
 Update IoT Edge:
 
 ```bash
-sudo apt-get install aziot-edge defender-iot-micro-agent-edge
+sudo apt-get install aziot-edge
 ```
 
 Running `apt-get install aziot-edge` upgrades the security subsystem and installs the [identity service](https://azure.github.io/iot-identity-service/), `aziot-identity-service`, as a required dependency.
 
-It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../defender-for-iot/device-builders/overview.md).
 
 <!--Repeated Linux content for RHEL-->
 # [Red Hat Enterprise Linux](#tab/rhel)
@@ -161,7 +160,7 @@ The IoT Edge service pulls the latest versions of the runtime images and automat
 
 ### Update a specific tag image
 
-If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.4**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device.
+If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.5**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device.
 
 1. In the IoT Hub in the Azure portal, select your IoT Edge device, and select **Set Modules**.
 
@@ -191,9 +190,9 @@ If you use partner modules, update your module deployments with image URIs provi
 
 ## Verify versions match
 
-1. On your device, use `iotedge version` to check the security subsystem version. The output includes the major, minor, and revision version numbers. For example,  *iotedge 1.4.2*.
+1. On your device, use `iotedge version` to check the security subsystem version. The output includes the major, minor, and revision version numbers. For example,  *iotedge 1.5.13*.
 
-1. In your device deployment runtime settings, verify the *edgeHub* and *edgeAgent* image URI versions match the major and minor version of the security subsystem. If the security subsystem version is 1.4.2, the image versions would be 1.4. For example, *mcr.microsoft.com/azureiotedge-hub:1.4* and *mcr.microsoft.com/azureiotedge-agent:1.4*.
+1. In your device deployment runtime settings, verify the *edgeHub* and *edgeAgent* image URI versions match the major and minor version of the security subsystem. If the security subsystem version is 1.5.15, the image versions would be 1.5. For example, *mcr.microsoft.com/azureiotedge-hub:1.5* and *mcr.microsoft.com/azureiotedge-agent:1.5*.
 
 >[!NOTE]
 >Update the IoT Edge security subsystem and runtime containers to the same supported release version. While mismatched versions are supported, we haven't tested all version combinations.

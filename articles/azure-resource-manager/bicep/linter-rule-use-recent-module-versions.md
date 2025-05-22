@@ -3,7 +3,7 @@ title: Linter rule - use recent module versions
 description: Linter rule - use recent module versions
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/14/2024
+ms.date: 02/12/2025
 ---
 
 # Linter rule - use recent module versions

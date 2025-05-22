@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Azure Update Manager
 description: This article details how to use Azure Update Manager to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
-ms.date: 06/24/2024
+ms.date: 10/28/2024
 ms.topic: how-to
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -11,9 +11,6 @@ ms.author: sudhirsneha
 # Schedule recurring updates for machines by using the Azure portal and Azure Policy
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
-
-> [!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules** by **June 30, 2023**. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md). 
 
 You can use Azure Update Manager to create and save recurring deployment schedules. You can create a schedule on a daily, weekly, or hourly cadence. You can specify the machines that must be updated as part of the schedule and the updates to be installed.
 
@@ -24,12 +21,12 @@ Update Manager uses a maintenance control schedule instead of creating its own s
 ## Prerequisites for scheduled patching
 
 1. See [Prerequisites for Update Manager](prerequisites.md).
-1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
+1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-scheduled-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!NOTE]
 	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](prerequisites.md).
 
-## Schedule patching in an availability set
+## Scheduled patching in an availability set
 
 All VMs in a common [availability set](/azure/virtual-machines/availability-set-overview) aren't updated concurrently.
 
@@ -52,8 +49,8 @@ We recommend the following limits for the indicators.
 | Total number of resource associations to a schedule | 3,000 | 3,000 |
 | Resource associations on each dynamic scope    | 1,000 | 1,000 |
 | Number of dynamic scopes per resource group or subscription per region     | 250  | 250  |
-| Number of dynamic scopes per schedule   | 200  | 30  |
-| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 30  |
+| Number of dynamic scopes per schedule   | 200  | 100  |
+| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 100  |
 
 For more information, see the [service limits for Dynamic scope](dynamic-scope-overview.md#service-limits).
 
@@ -295,7 +292,7 @@ For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the fo
 
 > [!NOTE]
 > - Azure Update Manager doesn't stop installing the new updates if it's approaching the end of the maintenance window.
-> - Azure Update Manger doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed . 
+> - Azure Update Manager doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed . 
 > - If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
 
 

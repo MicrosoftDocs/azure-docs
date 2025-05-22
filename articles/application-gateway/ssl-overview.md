@@ -4,7 +4,7 @@ description: This article is an overview of the Application Gateway end to end T
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/09/2023
 ms.author: greglin
 
@@ -49,7 +49,7 @@ Application gateway supports the following types of certificates:
 For more information, see [configure TLS termination with application gateway](./create-ssl-portal.md).
 
 ### Size of the certificate
-Check the [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
+Check the [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
 
 ## End-to-end TLS encryption
 
@@ -122,6 +122,9 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 | If the client specifies SNI header and all the multi-site listeners are enabled with "Require SNI" flag | Returns the appropriate certificate and if the site doesn't exist (according to the server_name), then the connection is reset. | Returns appropriate certificate if available, otherwise, returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners|
 | If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners
 | If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate configured in the basic listener |
+
+> [!NOTE]
+> When the client does not specify an SNI header, it is recommended that the user add a basic listener and rule to present a default SSL/TLS certificate.
 
 > [!TIP]
 > The SNI flag can be configured with PowerShell or by using an ARM template. For more information, see [RequireServerNameIndication](/powershell/module/az.network/set-azapplicationgatewayhttplistener#-requireservernameindication) and [Quickstart: Direct web traffic with Azure Application Gateway - ARM template](quick-create-template.md#review-the-template).

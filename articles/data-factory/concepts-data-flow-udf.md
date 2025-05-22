@@ -20,7 +20,7 @@ A user defined function is a customized expression you can define to be able to 
 
 Whenever you find yourself building the same logic in an expression across multiple mapping data flows this would be a good opportunity to turn that into a user defined function.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Zkek]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=6ee2ba96-a6ca-4a57-8545-d03032aa68a2]
 > 
 
 ## Getting started

@@ -1,9 +1,10 @@
 ---
 author: anaharris-ms
-ms.service: reliability
+ms.service: azure
 ms.topic: include
 ms.date: 01/05/2024
 ms.author: anaharris
+ms.subservice: azure-reliability
 ---
 
 Azure services are grouped into three categories: *foundational*, *mainstream*, and *strategic*. Azure's general policy on deploying services into any given region is primarily driven by region type, service categories, and customer demand.

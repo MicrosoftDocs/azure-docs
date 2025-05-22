@@ -167,7 +167,7 @@ var templateOptions = {
         label: 'Code samples',
         hideLabel: true,
         hyperlinkFormat: {
-          lable: 'Go to code samples!',
+          label: 'Go to code samples!',
           target: '_blank'
         }
     },
@@ -331,7 +331,7 @@ function InitMap()
                       label: 'Code samples',
                       hideLabel: true,
                       hyperlinkFormat: {
-                        lable: 'Go to code samples!',
+                        label: 'Go to code samples!',
                         target: '_blank'
                       }
                     },

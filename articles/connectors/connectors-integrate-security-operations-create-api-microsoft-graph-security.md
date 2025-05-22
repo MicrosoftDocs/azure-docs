@@ -37,7 +37,7 @@ To learn more about Microsoft Graph Security, see the [Microsoft Graph Security 
   | Property | Value |
   |----------|-------|
   | **Application Name** | `MicrosoftGraphSecurityConnector` |
-  | **Application ID** | `00001111-aaaa-2222-bbbb-3333cccc4444` |
+  | **Application ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
   |||
 
   To grant consent for the connector, your Microsoft Entra tenant administrator can follow either these steps:
@@ -83,7 +83,7 @@ In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/l
 
 This example shows how you can start a logic app workflow when new alerts are sent to your app.
 
-1.	In the Azure portal or Visual Studio, create a blank logic app, which opens the Logic App Designer. This example uses the Azure portal.
+1.	In the Azure portal, create a blank logic app, which opens the Logic App Designer. This example uses the Azure portal.
 
 1.	On the designer, in the search box, enter "microsoft graph security" as your filter. From the triggers list, select this trigger: **On all new alerts**
 

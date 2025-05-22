@@ -1,8 +1,8 @@
 ---
 title: Azure Private 5G Core 2209 release notes 
 description: Discover what's new in the Azure Private 5G Core 2209 release
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: release-notes
 ms.date: 09/30/2022

@@ -1,6 +1,6 @@
 ---
 title: RelyingParty - Azure Active Directory B2C  
-description: Specify the RelyingParty element of a custom policy in Azure Active Directory B2C.
+description: Specify the RelyingParty element of a custom policy in Azure AD B2C. Configure user journeys and claims for issued tokens in your application.
 
 author: kengaderdus
 manager: CelesteDG
@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/22/2024
+ms.date: 04/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to understand how to configure the RelyingParty element, so that I can enforce user journeys and specify the claims needed for the issued token.
-
 ---
 
 # RelyingParty
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -47,7 +47,7 @@ The following example shows a **RelyingParty** element in the *B2C_1A_signup_sig
       <SingleSignOn Scope="Tenant" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
       <SessionExpiryInSeconds>900</SessionExpiryInSeconds>
-      <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+      <JourneyInsights TelemetryEngine="ApplicationInsights" ConnectionString="your-application-insights-connection-string" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       <ContentDefinitionParameters>
         <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
       </ContentDefinitionParameters>
@@ -144,7 +144,7 @@ The **UserJourneyBehaviors** element contains the following elements:
 | SingleSignOn | 0:1 | The scope of the single sign-on (SSO) session behavior of a user journey. |
 | SessionExpiryType |0:1 | The authentication behavior of the session. Possible values: `Rolling` or `Absolute`. The `Rolling` value (default) indicates that the user remains signed in as long as the user is continually active in the application. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified by application session lifetime. |
 | SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. The default is 86,400 seconds (24 hours). The minimum is 900 seconds (15 minutes). The maximum is 86,400 seconds (24 hours). |
-| JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
+| JourneyInsights | 0:1 | The Azure Application Insights connection string to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
 | JourneyFraming | 0:1| Allows the user interface of this policy to be loaded in an iframe. |
 | ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
@@ -169,7 +169,7 @@ The **JourneyInsights** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | TelemetryEngine | Yes | The value must be `ApplicationInsights`. |
-| InstrumentationKey | Yes | The string that contains the instrumentation key for the application insights element. |
+| ConnectionString | Yes | The string that contains the connection string for the application insights element. |
 | DeveloperMode | Yes | Possible values: `true` or `false`. If `true`, Application Insights expedites the telemetry through the processing pipeline. This setting is good for development, but constrained at high volumes. The detailed activity logs are designed only to aid in development of custom policies. Do not use development mode in production. Logs collect all claims sent to and from the identity providers during development. If used in production, the developer assumes responsibility for personal data collected in the App Insights log that they own. These detailed logs are only collected when this value is set to `true`.|
 | ClientEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the Application Insights client-side script for tracking page view and client-side errors. |
 | ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. |
@@ -183,7 +183,7 @@ By using custom policies in Azure AD B2C, you can send a parameter in a query st
 
 The following example passes a parameter named `campaignId` with a value of `hawaii` in the query string:
 
-`https://login.microsoft.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?pB2C_1A_signup_signin&client_id=a415078a-0402-4ce3-a9c6-ec1947fcfb3f&nonce=defaultNonce&redirect_uri=http%3A%2F%2Fjwt.io%2F&scope=openid&response_type=id_token&prompt=login&campaignId=hawaii`
+`https://login.microsoft.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?pB2C_1A_signup_signin&client_id=00001111-aaaa-2222-bbbb-3333cccc4444&nonce=defaultNonce&redirect_uri=http%3A%2F%2Fjwt.io%2F&scope=openid&response_type=id_token&prompt=login&campaignId=hawaii`
 
 The **ContentDefinitionParameters** element contains the following element:
 
@@ -244,7 +244,7 @@ When the protocol is `SAML`, a metadata element contains the following elements.
 | XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML Response. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1`. Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. To configure the SAML Assertion, see [SAML issuer technical profile metadata](saml-issuer-technical-profile.md#metadata). |
 | DataEncryptionMethod | No | Indicates the method that Azure AD B2C uses to encrypt the data, using Advanced Encryption Standard (AES) algorithm. The metadata controls the value of the `<EncryptedData>` element in the SAML response. Possible values: `Aes256` (default), `Aes192`, `Sha512`, or ` Aes128`. |
 | KeyEncryptionMethod| No | Indicates the method that Azure AD B2C uses to encrypt the copy of the key that was used to encrypt the data. The metadata controls the value of the  `<EncryptedKey>` element in the SAML response. Possible values: ` Rsa15` (default) - RSA Public Key Cryptography Standard (PKCS) Version 1.5 algorithm, ` RsaOaep` - RSA Optimal Asymmetric Encryption Padding (OAEP) encryption algorithm. |
-| UseDetachedKeys | No |  Possible values: `true`, or `false` (default). When the value is set to `true`, Azure AD B2C changes the format of the encrypted assertions. Using detached keys adds the encrypted assertion as a child of the EncrytedAssertion as opposed to the EncryptedData. |
+| UseDetachedKeys | No |  Possible values: `true`, or `false` (default). When the value is set to `true`, Azure AD B2C changes the format of the encrypted assertions. Using detached keys adds the encrypted assertion as a child of the EncryptedAssertion as opposed to the EncryptedData. |
 | WantsSignedResponses| No | Indicates whether Azure AD B2C signs the `Response` section of the SAML response. Possible values: `true` (default) or `false`.  |
 | RemoveMillisecondsFromDateTime| No | Indicates whether the milliseconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter, and AuthnInstant). Possible values: `false` (default) or `true`.  |
 | RequestContextMaximumLengthInBytes| No | Indicates the maximum length of the [SAML applications](saml-service-provider.md) `RelayState` parameter. The default is 1000. The maximum is 2048.| 
@@ -285,7 +285,7 @@ The **OutputClaim** element contains the following attributes:
 
 With the **SubjectNamingInfo** element, you control the value of the token subject:
 
-- **JWT token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](session-behavior.md).
+- **JWT** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](session-behavior.md).
 - **SAML token** - the `<Subject><NameID>` element, which identifies the subject element. The NameId format can be modified.
 
 The **SubjectNamingInfo** element contains the following attribute:
@@ -315,12 +315,12 @@ The following example shows how to define an OpenID Connect relying party. The s
   </TechnicalProfile>
 </RelyingParty>
 ```
-The JWT token includes the `sub` claim with the user objectId:
+The JWT includes the `sub` claim with the user objectId:
 
 ```json
 {
   ...
-  "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
+  "sub": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   ...
 }
 ```

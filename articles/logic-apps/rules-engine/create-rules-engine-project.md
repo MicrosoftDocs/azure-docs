@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to learn how to create an Azure Logic Apps Rules Engine project using Visual Studio Code so that I can integrate business rules with my Standard logic app workflows.
 ---
@@ -206,7 +206,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
                    // Create rules engine instance.
                    var ruleEngine = new RuleEngine(ruleSet: ruleSet);
 
-                   // Create one or more typedXmlDcoument facts from one or more input XML documents.
+                   // Create one or more typedXmlDocument facts from one or more input XML documents.
                    XmlDocument doc = new XmlDocument();
                    doc.LoadXml(inputXml);
                    var typedXmlDocument = new TypedXmlDocument(documentType, doc);
@@ -219,13 +219,13 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
 
                    // Send back the relevant results (facts).
                    var updatedDoc = typedXmlDocument.Document as XmlDocument;
-                   var ruleExectionOutput = new RuleExecutionResult()
+                   var ruleExecutionOutput = new RuleExecutionResult()
                    {
                        XmlDoc = updatedDoc.OuterXml,
                        PurchaseAmountPostTax = currentPurchase.PurchaseAmount + currentPurchase.GetSalesTax()
                    };
 
-                   return Task.FromResult(ruleExectionOutput);
+                   return Task.FromResult(ruleExecutionOutput);
                }
                catch(RuleEngineException ruleEngineException)
                {
@@ -324,13 +324,13 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    1. The engine uses the **`RuleExecutionResult`** custom class to return the values to the **`RunRules`** method:
 
       ```csharp
-      var ruleExectionOutput = new RuleExecutionResult()
+      var ruleExecutionOutput = new RuleExecutionResult()
       {
           XmlDoc = updatedDoc.OuterXml,
           PurchaseAmountPostTax = currentPurchase.PurchaseAmount + currentPurchase.GetSalesTax()
       };
 
-      return Task.FromResult(ruleExectionOutput);
+      return Task.FromResult(ruleExecutionOutput);
       ```
 
    1. Replace the sample function code with your own, and edit the default **`RunRules`** method for your own scenarios.

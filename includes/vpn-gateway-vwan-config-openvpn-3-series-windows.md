@@ -47,5 +47,5 @@
 
 1. Comment out the "log openvpn.log" line. If it's not commented out, the OpenVPN client reports that the log is no longer a supported option. See the [User profile example](#example) for an example of how to comment out the log line. After commenting out the log line, you can still access logs via the OpenVPN client interface. To access, click the log icon at the top right corner of the client UI. Microsoft recommends that customers check the OpenVPN connect documentation for log file location because logging is controlled by the OpenVPN client.
 1. Don't change any other fields. Use the filled in configuration in client input to connect to the VPN.
-1. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
+1. Import the vpnconfig.ovpn file in OpenVPN client.
 1. Right-click the OpenVPN icon in the system tray and click **Connect**.

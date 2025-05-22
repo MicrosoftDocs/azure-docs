@@ -1,20 +1,18 @@
 ---
 title: Metrics for the connector for OPC UA
 description: Available observability metrics for the connector for OPC UA to monitor the health and performance of your solution.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: reference
 ms.custom:
   - ignite-2023
-ms.date: 11/1/2023
+ms.date: 10/22/2024
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
 # on the health of my industrial assets and edge environment.
 ---
 
 # Metrics for the connector for OPC UA
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 The connector for OPC UA provides a set of observability metrics that you can use to monitor and analyze the health of your solution. This article lists the available metrics for the connector for OPC UA. The following sections group related sets of metrics, and list the name and description for each metric.
 

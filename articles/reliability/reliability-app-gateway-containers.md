@@ -25,9 +25,9 @@ Application Gateway for Containers (AGC) is always deployed in a highly availabl
 
 ### Prerequisites
 
-To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions support availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions support availability zones, see the [list of supported regions](regions-list.md). 
 
 
 ## Next steps
 
-- [Reliability in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](/azure/reliability/overview)

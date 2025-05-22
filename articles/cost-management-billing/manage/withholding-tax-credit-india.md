@@ -1,13 +1,13 @@
 ---
 title: Request a credit for Withholding Tax on your account (India customers) - Azure
 description: Learn how to request a credit on your account for Withholding Tax you paid. This article only applies to customers in India.
-author: bandersmsft
-ms.reviewer: amberb
+author: lindseyshep
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/08/2024
-ms.author: banders
+ms.date: 05/01/2025
+ms.author: jkinma
 ---
 
 # Request a credit for Withholding Tax on your account (India customers)

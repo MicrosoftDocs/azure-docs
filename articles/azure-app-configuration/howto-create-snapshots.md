@@ -5,7 +5,7 @@ author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 11/15/2023
+ms.date: 03/19/2025
 ---
 
 # Manage and use snapshots
@@ -96,8 +96,8 @@ Edit the call to the `AddAzureAppConfiguration` method, which is often found in 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
-    options.Connect(Environment.GetEnvironmentVariable("ConnectionString"));
-
+    string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
+    options.Connect(new Uri(endpoint), new DefaultAzureCredential());
     // Select an existing snapshot by name. This will add all of the key-values from the snapshot to this application's configuration.
     options.SelectSnapshot("SnapshotName");
     
