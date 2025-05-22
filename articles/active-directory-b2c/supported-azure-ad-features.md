@@ -3,12 +3,12 @@ title: Supported Microsoft Entra ID features
 description: Learn about Microsoft Entra ID features, which are still supported in Azure AD B2C.
 
 author: kengaderdus
-manager: CelesteDG
+manager: mwongerapk
 
 ms.service: azure-active-directory
 
 ms.topic: overview
-ms.date: 01/11/2024
+ms.date: 05/20/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 

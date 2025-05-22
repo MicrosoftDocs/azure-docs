@@ -12,7 +12,7 @@ ms.reviewer: bartpinto
 
 # Best practices for Bare Metal Machine operations
 
-This article provides best practices for BareMetal Machine (BMM) lifecycle management operations.
+This article provides best practices for Bare Metal Machine (BMM) lifecycle management operations.
 The aim is to highlight common pitfalls and essential prerequisites.
 
 ## Read important disclaimers
@@ -76,7 +76,7 @@ Validate that there are no running firmware upgrade jobs through the BMC before 
 Interrupting an ongoing firmware upgrade can leave the Bare Metal Machine in an inconsistent state.
 
 - You can view in the iDRAC GUI the `jobqueue` or use `run-read-command` `racadm jobqueque view` to determine if there are firmware upgrade jobs running.
-- For more information about the `run-read-command` feature, see [BareMetal Run-Read Execution](./howto-baremetal-run-read.md).
+- For more information about the `run-read-command` feature, see [Bare Metal Run-Read Execution](./howto-baremetal-run-read.md).
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command \

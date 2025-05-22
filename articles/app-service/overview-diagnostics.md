@@ -15,7 +15,7 @@ This article explains how to troubleshoot issues with your app in Azure App Serv
 
 Azure App Service diagnostics is an interactive experience to help you troubleshoot your app with no configuration required. App Service diagnostics points out what's wrong and guides you to the right information to more easily and quickly troubleshoot and resolve the problem.
 
-Although this experience is most helpful for problems that occured within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
+Although this experience is most helpful for problems that occurred within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
 App Service diagnostics works for not only apps on Windows, but also for apps on built-in or custom containers, [App Service Environments](./environment/intro.md), and [Azure Functions](../azure-functions/functions-overview.md).
 
