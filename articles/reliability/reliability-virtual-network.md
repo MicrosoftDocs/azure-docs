@@ -61,8 +61,7 @@ Virtual networks themselves aren't usually affected by transient faults. However
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-A virtual network deployed in a region spans all availability zones within that region. Similarly, subnets within each virtual network span all availability zones within the region. User intervention isn't required to enable this support.
-
+A virtual network, as well as the subnets within that virtual network, spans across all availability zones within the region in which it's deployed. You do not have to configure anything to enable this support.
 You don't need to divide your virtual networks or subnets by availability zones to accommodate zonal resources. For example, if you configure a zonal VM, you don't have to take into consideration the virtual network when selecting the availability zone for the VM. The same is true for other zonal resources.
 
 ### Region support
@@ -99,7 +98,7 @@ Azure Virtual Network is a single-region service. If the region becomes unavaila
 
 ### Alternative multi-region approaches
 
-You can create virtual networks in multiple regions, and you can optionally *peer* them together to connect them.
+You can create virtual networks in multiple regions. You can also choose to connect those networks by *peering* them together.
 
 By creating virtual networks and other resources in multiple regions, you can be resilient to regional outages. However, you need to consider many factors, including:
 
