@@ -73,4 +73,4 @@ az networkfabric nni update --resource-group "example-rg" --resource-name "<nni-
 
 ## Related content
 
-[Update ACLs on NNIs or an external network](howto-update-access-control-list-for-network-to-network-interconnects.md)
+- [Update ACLs on NNIs or an external network](howto-update-access-control-list-for-network-to-network-interconnects.md)

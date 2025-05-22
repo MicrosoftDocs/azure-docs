@@ -91,4 +91,4 @@ Azure Operator Nexus supports a maximum of four instances of Network Monitor (BM
 
 ## Related content
 
-[Enable or disable BMP log streaming](./howto-enable-log-streaming.md)
+- [Enable or disable BMP log streaming](./howto-enable-log-streaming.md)
