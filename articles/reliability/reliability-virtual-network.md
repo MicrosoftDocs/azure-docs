@@ -114,6 +114,10 @@ Virtual networks are fairly lightweight resources. You can invoke Azure APIs to 
 
 For an example of a multi-region networking architecture for web applications, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
 
+## Backups
+
+Azure virtual networks don't store any data that would require backup. However, you can use Bicep, ARM templates, or Terraform to take a snapshot the configuration of a virtual network in case you need to recreate it. To learn more, see [Quickstart: Create an Azure Virtual Network](../virtual-network/quickstart-create-virtual-network.md).
+
 ## Service-level agreement
 
 Due to the nature of the service provided, there isn't a defined SLA for Azure Virtual Network.
