@@ -8,7 +8,6 @@ ms.devlang: golang
 ms.topic: quickstart
 ms.custom: quickstart, mode-other, devx-track-go
 ms.date: 03/31/2025
-ms.author: linglingye
 #Customer intent: As a Go developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a Go console app with Azure App Configuration
@@ -198,7 +197,7 @@ func main() {
 	defer cancel()
 
 	// Load configuration
-	azAppCfg, err := loadAzureAppConfiguration(ctx)
+	provider, err := loadAzureAppConfiguration(ctx)
 	if err != nil {
 		log.Fatalf("Error loading configuration: %v", err)
 	}
