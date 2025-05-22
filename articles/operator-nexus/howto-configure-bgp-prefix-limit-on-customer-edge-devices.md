@@ -1,5 +1,5 @@
 ---
-title: Configure BGP Prefix Limit on Customer Edge Devices for Azure Operator Nexus
+title: Configure BGP Prefix Limit on CE Devices for Azure Operator Nexus
 description: Learn the process for configuring a BGP prefix limit on customer edge (CE) devices for Azure Operator Nexus.
 author: sushantjrao 
 ms.author: sushrao
@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # BGP prefix limiting overview
 
-Border Gateway Protocol (BGP) prefix limiting is an essential overload protection mechanism for customer edge (CE) devices. It helps prevent the Nexus fabric from being overwhelmed when a Nexus tenant advertises an excessive number of BGP routes into a Nexus virtual routing and forwarding (VRF) instance. This feature helps to ensure network stability and security by controlling the number of prefixes that are received from BGP peers.
+Border Gateway Protocol (BGP) prefix limiting is an essential overload protection mechanism for customer edge (CE) devices. It helps prevent the Azure Operator Nexus fabric from being overwhelmed when an Azure Operator Nexus tenant advertises an excessive number of BGP routes into an Azure Operator Nexus virtual routing and forwarding (VRF) instance. This feature helps to ensure network stability and security by controlling the number of prefixes that are received from BGP peers.
 
 ## Configuration of BGP prefix limits
 
@@ -176,8 +176,8 @@ The platform supports layer 3 isolation domain (`L3IsolationDomain`) for tenant 
 
 For external network configuration, only the hard-limit `warning-only` option is supported. Nexus supports this configuration via the Azure Resource Manager API under `NNI optionBlayer3Configuration` with the `maximumRoutes` parameter.
 
-### Network-to-network interface option A
+### NNI option A
 
-For network-to-network interface option A, only a single peer group is allowed. IPv4 over IPv6 and vice versa aren't supported. The `warning-only` mode is available for handling prefix limits.
+For network-to-network interface (NNI) option A, only a single peer group is allowed. IPv4 over IPv6 and vice versa aren't supported. The `warning-only` mode is available for handling prefix limits.
 
 By following the steps in this article, you can configure BGP prefix limits effectively to protect your network from overload. You can help to ensure that BGP sessions are properly managed for both internal and external networks.

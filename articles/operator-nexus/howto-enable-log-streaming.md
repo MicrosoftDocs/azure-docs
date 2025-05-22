@@ -11,33 +11,33 @@ ms.author: sushrao
 
 # BMP log streaming
 
-This article shows you how to enable or disable Border Gateway Protocol (BGP) Monitoring Protocol (BMP) log streaming for various Azure Operator Nexus Network Fabric resources.
+This article shows you how to enable or disable BGP Monitoring Protocol (BMP) log streaming for various Azure Operator Nexus Network Fabric resources.
 
 ## Enable BMP log streaming for the new deployment
 
-- **Create an Azure Operator Nexus Network Fabric resource:** To begin, create an Azure Operator Nexus Network Fabric resource. This resource serves as the foundation for your deployment.
-- **Create a Network Monitor resource:** Next, create a Network Monitor resource and associate the scope ID with the Azure Operator Nexus Network Fabric resource ID. This step ensures that the monitoring is correctly linked to the network fabric.
-- **Create a network-to-network interface (NNI) with BMP configuration:** Create an NNI by associating it with the Azure Operator Nexus Network Fabric resource ID.
+1. Create an Azure Operator Nexus Network Fabric resource. To begin, create an Azure Operator Nexus Network Fabric resource. This resource serves as the foundation for your deployment.
+1. Create a Network Monitor resource. Next, create a Network Monitor resource and associate the scope ID with the Azure Operator Nexus Network Fabric resource ID. This step ensures that the monitoring is correctly linked to the network fabric.
+1. Create a network-to-network interface (NNI) with BMP configuration. Create an NNI by associating it with the Azure Operator Nexus Network Fabric resource ID.
 
-> [!NOTE]
-> For more information, see the following Azure Resource Manager API payload guide.
+   > [!NOTE]
+   > For more information, see the following Azure Resource Manager API payload guide.
 
-- **Provision Azure Operator Nexus Network Fabric:** Azure Operator Nexus Network Fabric applies the configurations and makes the network operational.
-- **Generate BMP stations configuration:** Azure Operator Nexus Network Fabric configures BMP stations on the CE devices only.
+1. Provision Azure Operator Nexus Network Fabric. Azure Operator Nexus Network Fabric applies the configurations and makes the network operational.
+1. Generate BMP stations configuration. Azure Operator Nexus Network Fabric configures BMP stations on the CE devices only.
 
 ## Enable BMP log streaming for the existing deployment
 
 This case involves enabling BMP log streaming on Azure Operator Nexus Network Fabric, which is already deployed by using the supported Azure Operator Nexus Network Fabric version. This approach is based on an Azure Resource Manager API user-driven input. The supported Azure Operator Nexus Network Fabric version also supports BMP log streaming through the Azure Operator Nexus Network Fabric Patch Update workflow.
 
-- **Create an Azure Operator Nexus Network Fabric resource:** Create the Azure Operator Nexus Network Fabric resource by using the latest supported version. If your version is outdated, upgrade it to the supported version.
-- **Create a Network Monitor resource:** To ensure proper monitoring, create an Azure Operator Nexus Network Fabric resource. Link the scope ID to the Azure Operator Nexus Network Fabric resource ID.
-- **Perform a patch on NNI:** Apply a patch to update the NNI. Under `OptionBLayerConfiguration`, select `bmpConfiguration` and set `configurationState` to `Enabled` for BMP logging of the NNI peer-group neighbor address.
+1. Create an Azure Operator Nexus Network Fabric resource. Create the Azure Operator Nexus Network Fabric resource by using the latest supported version. If your version is outdated, upgrade it to the supported version.
+1. Create a Network Monitor resource. To ensure proper monitoring, create an Azure Operator Nexus Network Fabric resource. Link the scope ID to the Azure Operator Nexus Network Fabric resource ID.
+1. Perform a patch on NNI. Apply a patch to update the NNI. Under `OptionBLayerConfiguration`, select `bmpConfiguration` and set `configurationState` to `Enabled` for BMP logging of the NNI peer-group neighbor address.
 
-> [!NOTE]
-> For more information, see the following Azure Resource Manager API payload guide.
+   > [!NOTE]
+   > For more information, see the following Azure Resource Manager API payload guide.
 
-- **Perform a Fabric Commit operation:** To apply configurations and activate the network, run the `Fabric Commit` operation.
-- **Generate BMP stations configuration:** Azure Operator Nexus Network Fabric configures BMP stations on the CE devices only.
+1. Perform a Fabric Commit operation. To apply configurations and activate the network, run the `Fabric Commit` operation.
+1. Generate BMP stations configuration. Azure Operator Nexus Network Fabric configures BMP stations on the CE devices only.
 
 ## Network Monitor CRUD operations for BMP log streaming
 

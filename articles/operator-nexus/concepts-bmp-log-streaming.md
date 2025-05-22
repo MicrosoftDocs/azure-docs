@@ -13,14 +13,14 @@ ms.custom: template-concept
 
 The BGP Monitoring Protocol (BMP) is designed to monitor Border Gateway Protocol (BGP) sessions. BMP provides a standardized method for collecting information about BGP sessions. You can use this information for analysis, troubleshooting, and helping to ensure the stability and security of the network.
 
-BMP allows a monitoring station to connect to a router and collect all the BGP announcements received from the router's BGP peers. The announcements are sent to the station in the form of BMP route monitoring messages formed from path information in the router's BGP Adj-Rib-In tables. A BMP speaker might choose to send either pre-policy routes, post-policy routes, or both.
+BMP allows a monitoring station to connect to a router and collect all the BGP announcements received from the router's BGP peers. The announcements are sent to the station in the form of BMP route monitoring messages formed from path information in the router's BGP Adj-Rib-In tables. A BMP speaker might choose to send either prepolicy routes, post-policy routes, or both.
 
 BMP is unidirectional. BMP sends messages only from the router to the monitoring station, never the other way around. The router's configuration controls the information that gets sent. Besides route monitoring messages, BMP also sends these messages:
 
 - **Initiation**: Sent at the beginning of a session and used to identify the router.
 - **Termination**: Optionally sent at the end of a session to indicate why the session is being closed.
-- **Peer Up**: Used to indicate if a BGP peer is in **Established** state.
-- **Peer Down**: Used to indicate that a BGP peer is no longer in **Established** state.
+- **Peer Up**: Used to indicate if a BGP peer is in an **Established** state.
+- **Peer Down**: Used to indicate that a BGP peer is no longer in an **Established** state.
 
 Connections between the router and BMP stations use the Transmission Control Protocol. The router can passively listen for incoming connections from a station or actively initiate them, configurable per station. Only one connection per BMP station is allowed at a time. If a station reconnects, the router closes the old session and starts a new BMP session with the new connection.
 
@@ -69,9 +69,9 @@ Azure Operator Nexus Network Fabric doesn't support monitoring address families 
 
 ### L3ISD requirements
 
-- Layer 3 Isolation Domain (L3ISD) must be enabled before associating the L3ISDs as monitored networks of any network monitors.
-- L3ISD must be enabled before associating the L3ISDs internal/external network as the station network of any network monitors.
-- L3ISD must not be disabled if the respective L3ISD internal/external network is associated under the station network of any network monitors.
+- Layer 3 isolation domain (L3ISD) must be enabled before the L3ISDs are associated as monitored networks of Network Monitor.
+- L3ISD must be enabled before the L3ISDs internal/external networks are associated as the station networks of Network Monitor.
+- L3ISD must not be disabled if the respective L3ISD internal/external network is associated under the station network of Network Monitor.
 
 ### Unsupported features
 
@@ -83,11 +83,11 @@ Azure Operator Nexus doesn't support the following features:
 
 ### Peer-address monitoring
 
-Azure Operator Nexus Network Fabric doesn't support excluding the monitoring of peer-address of neighbor groups where the neighbor group is configured with BGP listen range. Arista doesn't support excluding the monitoring of certain addresses of neighbors that are configured with BGP listen range.
+Azure Operator Nexus Network Fabric doesn't support excluding the monitoring of peer addresses of neighbor groups where the neighbor group is configured with a BGP listen range. Arista doesn't support excluding the monitoring of certain addresses of neighbors that are configured with a BGP listen range.
 
-### Network monitors
+### Network Monitor
 
-Azure Operator Nexus supports a maximum of four Network Monitors (BMP stations).
+Azure Operator Nexus supports a maximum of four instances of Network Monitor (BMP stations).
 
 ## Related content
 
