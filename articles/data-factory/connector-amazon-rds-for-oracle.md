@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 05/22/2025
 ms.author: jianleishen
 ---
 
@@ -31,7 +31,9 @@ This Amazon RDS for Oracle connector is supported for the following capabilities
 
 Specifically, this Amazon RDS for Oracle connector supports:
 
-- The following versions of an Amazon RDS for Oracle database:
+- The following versions of an Amazon RDS for Oracle database for version 2.0:
+    - Amazon RDS for Oracle 19c or later
+- The following versions of an Amazon RDS for Oracle database for version 1.0:
     - Amazon RDS for Oracle 19c R1 (19.1) and higher
     - Amazon RDS for Oracle 18c R1 (18.1) and higher
     - Amazon RDS for Oracle 12c R1 (12.1) and higher
@@ -78,6 +80,104 @@ Use the following steps to create a linked service to Amazon RDS for Oracle in t
 The following sections provide details about properties that are used to define entities specific to the Amazon RDS for Oracle connector.
 
 ## Linked service properties
+
+The Amazon RDS for Oracle connector now supports version 2.0. Refer to this [section](#upgrade-the-amazon-rds-for-oracle-connector) to upgrade your Amazon RDS for Oracle connector connector version from version 1.0. For the property details, see the corresponding sections.
+
+- [Version 2.0](#version-20)
+- [Version 1.0](#version-10)
+
+### Version 2.0
+
+The Amazon RDS for Oracle connector linked service supports the following properties when apply version 2.0:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **AmazonRdsForOracle**. | Yes |
+| version | The version that you specify. The value is `2.0`. | Yes |
+| server | The location of Amazon RDS for Oracle database you want to connect to. You can refer to [server property configuration](#server-property-configuration) to specify it. | Yes |
+| authenticationType | Authentication type for connecting to the Amazon RDS for Oracle database. Only **Basic** auth is supported now. | Yes |
+| username | The Amazon RDS for Oracle database username. | Yes |
+| password | The Amazon RDS for Oracle database password. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
+
+More connection properties you can set in linked service per your case:
+
+| Property | Description | Required | Default value |
+|:--- |:--- |:--- |:--- |
+| encryptionClient | Specifies the encryption client behavior. Supported values are `accepted`, `rejected`, `requested`, or `required`. Type: string | No | `required` |
+| encryptionTypesClient | Specifies the encryption algorithms that client can use. Supported values are `AES128`, `AES192`, `AES256`, `3DES112`, `3DES168`. Type: string | No | `(AES256)` |
+| cryptoChecksumClient | Specifies the desired data integrity behavior when this client connects to a server. Supported values are `accepted`, `rejected`, `requested`, or `required`. Type: string | No | `required` |
+| cryptoChecksumTypesClient | Specifies the crypto-checksum algorithms that client can use. Supported values are `SHA1`, `SHA256`, `SHA384`, `SHA512`. Type: string | No | `(SHA512)` |
+| initialLobFetchSize | Specifies the amount that the source initially fetches for LOB columns. Type: int | No | 0 |
+| fetchSize | Specifies the number of bytes that the driver allocates to fetch the data in one database round-trip. Type: int | No | 10 MB |
+| statementCacheSize | Specifies the number of cursors or statements to be cached for each database connection. Type: int | No | 0 |
+| initializationString | Specifies a command that is issued immediately after connecting to the database to manage session settings. Type: string | No | null |
+| enableBulkLoad | Specifies whether to use bulk copy or batch insert when loading data into the database. Type: boolean | No | true |
+| supportV1DataTypes | Specifies whether to use the version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with version 1.0's data type mappings. Type: boolean | No, this property is for backward compatibility use only | false |
+| fetchTswtzAsTimestamp | Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportV1DataTypes is not true. Type: boolean | No, this property is for backward compatibility use only | true |
+
+**Example:**
+
+```json
+{
+    "name": "AmazonRdsForOracleLinkedService",
+    "properties": {
+        "type": "AmazonRdsForOracle",
+        "version": "2.0",
+        "typeProperties": {
+            "server": "<server name>", 
+            "username": "<user name>", 
+            "password": "<password>", 
+            "authenticationType": "<authentication type>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "AmazonRdsForOracleLinkedService",
+    "properties": {
+        "type": "AmazonRdsForOracle",
+        "version": "2.0",
+        "typeProperties": {
+            "server": "<server name>", 
+            "username": "<user name>", 
+            "authenticationType": "<authentication type>",
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                }, 
+                "secretName": "<secretName>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+#### `server` property configuration
+
+For `server` property, you can specify it in one of the following three formats:
+
+| Format | Example |
+|:--- |:--- |
+|[Connect Descriptor](https://docs.oracle.com/en/database/oracle/oracle-database/23/netag/identifying-and-accessing-database.html#GUID-8D28E91B-CB72-4DC8-AEFC-F5D583626CF6)|	(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=sales-server)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=sales.us.acme.com)))|
+|[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
+|[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
+
+### Version 1.0
 
 The Amazon RDS for Oracle linked service supports the following properties:
 
@@ -229,6 +329,7 @@ To copy data from Amazon RDS for Oracle, set the source type in the copy activit
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `AmazonRdsForOracleSource`. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Amazon RDS for Oracle](#parallel-copy-from-amazon-rds-for-oracle) section. | No |
+| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Oracle version 2.0, this property will only be allowed to be set when supportV1DataTypes is true. | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Amazon RDS for Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Amazon RDS for Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | partitionNames | The list of physical partitions that needs to be copied. <br>Apply when the partition option is `PhysicalPartitionsOfTable`. If you use a query to retrieve the source data, hook `?AdfTabularPartitionName` in the WHERE clause. For an example, see the [Parallel copy from Amazon RDS for Oracle](#parallel-copy-from-amazon-rds-for-oracle) section. | No |
@@ -258,6 +359,7 @@ To copy data from Amazon RDS for Oracle, set the source type in the copy activit
         "typeProperties": {
             "source": {
                 "type": "AmazonRdsForOracleSource",
+                "convertDecimalToInteger": false,
                 "oracleReaderQuery": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -318,10 +420,63 @@ You are suggested to enable parallel copy with data partitioning especially when
     }
 }
 ```
+## Data type mapping for Amazon RDS for Oracle
+
+When you copy data from and to Amazon RDS for Oracle, the following interim data type mappings are used within the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Amazon RDS for Oracle data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+|:--- |:--- |:--- |
+| BFILE |Byte[] | Byte[] |
+| BINARY_FLOAT | Single | Single |
+| BINARY_DOUBLE | Double | Double |
+| BLOB |Byte[] | Byte[] |
+| CHAR |String |String |
+| CLOB |String |String |
+| DATE |DateTime |DateTime |
+| FLOAT (P < 16)  | Double | Double |
+| FLOAT (P >= 16)  | Decimal | Double |
+| INTERVAL YEAR TO MONTH |Int64 |String |
+| INTERVAL DAY TO SECOND |TimeSpan |String |
+| LONG |String |String |
+| LONG RAW |Byte[] |Byte[] |
+| NCHAR |String |String |
+| NCLOB |String |String |
+| NUMBER (p,s) |Int16, Int32, Int64, Double, Single, Decimal |Decimal, String (if p > 28) |
+| NUMBER without precision and scale | Decimal |Double |
+| NVARCHAR2 |String |String |
+| RAW |Byte[] |Byte[] |
+| TIMESTAMP |DateTime |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTimeOffset |DateTime |
+| VARCHAR2 |String |String |
+| XMLTYPE |String |String |
+
+> [!NOTE]
+> NUMBER(p,s) is mapped to the appropriate interim service data type depending on the precision (p) and scale (s).
 
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Upgrade the Amazon RDS for Oracle connector 
+
+Here are steps that help you upgrade the Amazon RDS for Oracle connector: 
+
+1. In **Edit linked service** page, select version 2.0 and configure the linked service by referring to [Linked service properties version 2.0](#version-20). 
+
+2. The data type mapping for the Amazon RDS for Oracle linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Amazon RDS for Oracle](#data-type-mapping-for-amazon-rds-for-oracle). 
+
+    An additional connection property `supportV1DataTypes` in version 2.0 can reduce upgrade difficulties caused by data type changes. Setting this property to `true` ensures that the data type in version 2.0 remains consistent with version 1.0. 
+
+## Differences between Amazon RDS for Oracle version 2.0 and version 1.0 
+
+The Amazon RDS for Oracle connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 and version 1.0. 
+
+| Version 2.0 | Version 1.0  | 
+|:--- |:--- |
+|The following mappings are used from Amazon RDS for Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Double, Single, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Amazon RDS for Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
+| Support convertDecimalToInteger in copy source when `supportV1DataTypes` is set to `true`. | Support convertDecimalToInteger in copy source.  | 
+
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
