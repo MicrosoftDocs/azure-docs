@@ -88,7 +88,7 @@ In addition to collecting alerts from these components and other services, Defen
 
 Consider integrating Defender XDR with Microsoft Sentinel for the following use cases and scenarios:
 
-- Onboard Microsoft Sentinel to Microsoft's unified SecOps platform in the Microsoft Defender portal. Enabling the Defender XDR connector is a prerequisite.
+- Onboard Microsoft Sentinel to the Microsoft Defender portal.
 
 - Enable one-click connect of Defender XDR incidents, including all alerts and entities from Defender XDR components, into Microsoft Sentinel.
 
@@ -98,7 +98,7 @@ Consider integrating Defender XDR with Microsoft Sentinel for the following use 
 
 - Facilitate investigations across both portals with in-context deep links between a Microsoft Sentinel incident and its parallel Defender XDR incident.
 
-For more information about the capabilities of the Microsoft Sentinel integration with Defender XDR in Microsoft's unified SecOps platform, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
+For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
 
 ## Connecting to Microsoft Defender XDR <a name="microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules"></a>
 

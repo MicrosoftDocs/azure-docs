@@ -12,7 +12,7 @@ ms.date: 05/06/2025
 
 # What's new in Microsoft Sentinel
 
-This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel. For new features related unified security operations in the Defender portal, see the [unified SecOps documentation](/unified-secops-platform/whats-new).
+This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel. For new features related unified security operations in the Defender portal, see the [What's new for unified security operations?](/unified-secops-platform/whats-new)
 
 The listed features were released in the last six months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
@@ -25,7 +25,7 @@ The listed features were released in the last six months. For information about 
 
 ### Unified *IdentityInfo* table
 
-Customers of Microsoft Sentinel in the Defender portal who have enabled UEBA can now take advantage of a new version of the IdentityInfo table, located in the Defender portal's *Advanced hunting* section, that includes the largest possible set of fields common to both the Defender and Azure portals. This unified table helps enrich your security investigations across the entire unified SecOps experience.
+Customers of Microsoft Sentinel in the Defender portal who have enabled UEBA can now take advantage of a new version of the **IdentityInfo** table, located in the Defender portal's *Advanced hunting* section, that includes the largest possible set of fields common to both the Defender and Azure portals. This unified table helps enrich your security investigations across the entire Defender portal.
 
 For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table).
 
@@ -80,6 +80,7 @@ For more information, see the following articles:
 
 
 ### SOC optimization support for unused columns (Preview)
+
 To optimize your cost/security value ratio, SOC optimization surfaces hardly used data connectors or tables. SOC optimization now surfaces unused columns in your tables. For more information, see [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md#unused-columns-preview).
 
 ## March 2025
@@ -139,7 +140,7 @@ Enhancements to threat intelligence capabilities are available for customers usi
 For more information, see the following articles:
 - [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
 - [Understand threat intelligence](understand-threat-intelligence.md#create-and-manage-threat-intelligence)
-- [Uncover adversaries with threat intelligence in Microsoft's unified SecOps platform](/unified-secops-platform/threat-intelligence-overview)
+- [Uncover adversaries with threat intelligence in the Defender portal](/unified-secops-platform/threat-intelligence-overview)
 
 ### Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables
 
@@ -178,7 +179,7 @@ For more information, see [Plan your repository content](ci-cd-custom-content.md
 
 ### SOC optimization updates for unified coverage management
 
-In workspaces enabled for unified security operations, SOC optimizations now support both SIEM and XDR data, with detection coverage from across Microsoft Defender services. 
+In workspaces onboarded to the Defender portal, SOC optimizations now support both SIEM and XDR data, with detection coverage from across Microsoft Defender services. 
 
 In the Defender portal, the **SOC optimizations** and **MITRE ATT&CK** pages also now provide extra functionality for threat-based coverage optimizations to help you understand the impact of the recommendations on your environment and help you prioritize which to implement first.
 
