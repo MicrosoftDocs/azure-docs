@@ -134,10 +134,10 @@ console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 
 ## (Preview) Get identity details
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > This feature is available starting with the SDK version `1.4.0-beta1`.
 
-> [!NOTE]  
+> [!NOTE]
 > This feature is currently in preview.
 
 You can use the `getUserDetail` method to retrieve information about a user, including the `customId` and the `lastTokenIssuedAt`.
@@ -195,10 +195,10 @@ console.log(token);
 
 ### (Preview) Create an identity and issue a token in one method call including a customId
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > This feature is available starting with the SDK version `1.4.0-beta1`.
 
-> [!NOTE]  
+> [!NOTE]
 > This feature is currently in preview.
 
 You can pass your custom ID to the `createUserAndToken` method to create an identity and issue an access token in a single call.

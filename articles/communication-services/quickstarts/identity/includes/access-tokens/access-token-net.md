@@ -124,10 +124,10 @@ Store the received identity with mapping to your application users (for example,
 
 ## (Preview) Create an identity with an associated customId
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > This feature is available starting with the SDK version `1.4.0-beta1`.
 
-> [!NOTE]  
+> [!NOTE]
 > This feature is currently in preview.
 
 You can create an identity with an associated `customId` to map your application's user identities with Azure Communication Services identities. If you call the `CreateUser` method again with the same `customId`, it will return the same `user.Id`. This eliminates the need to store the mapping yourself.
@@ -139,10 +139,10 @@ Console.WriteLine($"\nCreated an identity with ID: {user.Id}");
 
 ## (Preview) Get identity details
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > This feature is available starting with the SDK version `1.4.0-beta1`.
 
-> [!NOTE]  
+> [!NOTE]
 > This feature is currently in preview.
 
 You can use the `GetUserDetail` method to retrieve information about a user, including the `customId` and the `lastTokenIssuedAt`.

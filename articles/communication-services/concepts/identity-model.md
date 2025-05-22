@@ -36,7 +36,7 @@ Managing a mapping between Azure Communication Services user identities and your
 > [!IMPORTANT]  
 > This feature is available starting with the Identity SDK version `1.4.0-beta1` and REST API version `2025-03-02-preview`.
 
-> [!NOTE]  
+> [!NOTE]
 > This feature is currently in preview.
 
 Previously, developers were responsible for maintaining a mapping between their own user identity system and Azure Communication Services identities. With the introduction of the `customId` parameter, you can now associate your own user identifiers—such as email addresses or internal user IDs—directly when creating a Communication Services identity.
