@@ -1005,10 +1005,15 @@
             "redirect_url": "/azure/logic-apps/testing-framework/create-unit-tests-standard-workflow-definitions-visual-studio-code",
             "redirect_document_id": true
         },
-         {
+        {
             "source_path_from_root": "/articles/logic-apps/create-unit-tests-standard-workflow-runs-visual-studio-code.md",
             "redirect_url": "/azure/logic-apps/testing-framework/create-unit-tests-standard-workflow-runs-visual-studio-code",
             "redirect_document_id": true
-        }       
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/test-logic-apps-mock-data-static-results.md",
+            "redirect_url": "/azure/logic-apps/testing-framework/test-logic-apps-mock-data-static-results",
+            "redirect_document_id": true
+        }
     ]
 }
