@@ -26,7 +26,7 @@ You need an Azure subscription. If you don't have one, [create a free account](h
 
 Creating more than one replica for a cache has the following limitations:
 
-- Only Premium-tier Azure Redis supports adding more than one replica.
+- Only Premium-tier Azure Cache for Redis supports adding more than one replica.
 - You can't change the number of replicas after you create the cache.
 - You can't use geo-replication with caches that have more than one replica.
 - You can't use Append-only File (AOF) data persistence with caches that have more than one replica.
