@@ -20,10 +20,11 @@ On April 3, 2025, we publicly previewed two new tables to support STIX (Structur
 
 For more information about threat intelligence in Microsoft Sentinel, see [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Microsoft Sentinel will ingest all threat intelligence into the new `ThreatIntelIndicators` and `ThreatIntelObjects` tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
->
-> **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+> **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables.
+> We’ve made improvements to our parsing logic to ensure that each Indicator of Compromise (IoC) ingested results in at least one row being sent to Log Analytics. This change improves visibility and consistency across your threat intelligence data. Additionally, we’ve introduced more top-level fields in the new `ThreatIntelIndicators` and `ThreatIntelObjects` tables. These fields are designed to make queries easier to write and more efficient to run. As a result of these enhancements, you may notice a change in data volume and associated costs when using the `ThreatIntelIndicators` table compared to the previous `ThreatIntelligenceIndicator` table.
+> For details on the updated schema and how it may affect your usage, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelindicators) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
 
 ## Identify threat actors associated with specific threat indicators
 
