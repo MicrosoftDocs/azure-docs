@@ -117,7 +117,7 @@ For an example of a multi-region networking architecture for web applications, s
 
 ## Service-level agreement
 
-Due to the nature of the service provided. there isn't a defined SLA for Azure Virtual Network.
+Due to the nature of the service provided, there isn't a defined SLA for Azure Virtual Network.
 
 ## Related content
 
