@@ -1,7 +1,7 @@
 ---
 title: Best practices for Bare Metal Machine operations
 description: Steps that should be taken before executing any Bare Metal Machine replace, or reimage actions. Highlight essential prerequisites and common pitfalls to avoid.
-ms.date: 04/23/2025
+ms.date: 05/22/2025
 ms.topic: how-to
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, best-practices
@@ -127,7 +127,7 @@ Percent Complete=[100]
 
 #### Monitor progress using `run-read-command`
 
-You can monitor the progress of long running Bare Metal Machine actions using a `run-read-command`.
+In version 2506.2 and above, you can monitor the progress of long running Bare Metal Machine actions using a `run-read-command`.
 
 - Some long running actions such as `Replace` or `Reimage` are composed of multiple steps, for example, `Hardware Validation`, `Deprovisioning`, or `Provisioning`.
 - The following `run-read-command` shows how to view the different steps in each action, and the progress or status of each step including any potential errors.
