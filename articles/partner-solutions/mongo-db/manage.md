@@ -1,8 +1,8 @@
 ---
-title: Manage a MongoDB Atlas Resource Through the Azure Portal
+title: Manage a MongoDB Atlas Resource Through the Azure portal
 description: This article describes management functions for MongoDB Atlas in the Azure portal.
 ms.topic: how-to
-ms.date: 04/28/2025
+ms.date: 05/22/2025
 ---
 
 # Manage a MongoDB Atlas resource
@@ -32,6 +32,9 @@ To manage your resource, select the links next to corresponding details.
 ## Access a MongoDB Atlas organization
 
 To access your MongoDB Atlas organization, select **Go to MongoDB Atlas** on the working pane.
+
+> [!NOTE]
+> If you don't have an Atlas account for your Azure email address, you are prompted to configure your account and set a password.
 
 :::image type="content" source="media/manage/set-password.png" alt-text="Screenshot of a MongoDB Atlas resource overview in the Azure portal. The Go to MongoDB Atlas link is emphasized.":::
 
