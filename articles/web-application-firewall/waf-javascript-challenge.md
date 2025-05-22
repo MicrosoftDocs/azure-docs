@@ -49,10 +49,10 @@ The WAF policy setting defines the JavaScript challenge cookie validity lifetime
 
 - **Browser compatibility**: JavaScript challenge isn't supported on Microsoft Internet Explorer. It's compatible with the latest versions of Microsoft Edge, Chrome, Firefox, and Safari web browsers.
 
-- **Rate Limit**: The JavaScript challenge action on Application Gateway isn't supported for *Rate Limit* type custom rules during the public preview.
+- **Rate limit isn't supported**: The JavaScript challenge action on Application Gateway isn't supported for *Rate Limit* type custom rules during the public preview.
 
 ## Related content
 
 - [Front Door Web Application Firewall CAPTCHA](./afds/captcha-challenge.md)
 - [Configure a custom response for Front Door WAF](./afds/waf-front-door-configure-custom-response-code.md)
-- [Azure WAF’s Bot Manager 1.1 and JavaScript Challenge (Preview): Navigating the Bot Threat Terrain](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-waf-s-bot-manager-1-1-and-javascript-challenge-preview/ba-p/4249652)
+- [Azure WAF’s Bot Manager 1.1 and JavaScript Challenge: Navigating the Bot Threat Terrain](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-waf-s-bot-manager-1-1-and-javascript-challenge-preview/ba-p/4249652)
