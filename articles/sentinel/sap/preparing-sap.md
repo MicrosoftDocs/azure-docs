@@ -191,7 +191,7 @@ For more information, see the [SAP documentation](https://help.sap.com/docs/inte
 
 ## Configure the connector in Microsoft Sentinel and in your SAP system
 
-This procedure starts in Microsoft Sentinel and requires coordination with the SAP administrator.
+This procedure has steps both in Microsoft Sentinel and your SAP system, and requires coordination with the SAP administrator.
 
 1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agentless (Preview)** data connector.
 
@@ -201,7 +201,7 @@ This procedure starts in Microsoft Sentinel and requires coordination with the S
     1. Deploy an OAuth2 client credentials artifact in the SAP Integration (SAP Admin).
     1. Deploy the SAP agentless data connector package to the SAP Integration Suite (SAP Admin).
         1. Download the [integration package](https://aka.ms/SAPAgentlessPackage) and upload it to your SAP Integration Suite. For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/importing-integration-packages).
-        1. Open the package and go to the **Artifacts** tab. Then select the **Data Collector** configuration. For more information, see the [SAP documentation] (https://help.sap.com/docs/integration-suite/sap-integration-suite/importing-integration-packages).
+        1. Open the package and go to the **Artifacts** tab. Then select the **Data Collector** configuration. For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/importing-integration-packages).
         1. Configure the integration flow with the **LogIngestionURL** and the **DCRImmutableID**.
         1. Deploy the i-flow using SAP Cloud Integration as the runtime service.
 
