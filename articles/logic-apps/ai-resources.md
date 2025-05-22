@@ -44,12 +44,12 @@ For more information, see the following resources:
 | **Blog article** | [Announcing agent loop: Build AI Agents in Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2announcing-agent-loop-build-ai-agents-in-azure-logic-apps-%F0%9F%A4%96/4415052) |
 | **Blog article** | [Agent Loop Demos for Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%A4%96-agent-loop-demos-%F0%9F%A4%96/4414770) |
 | **Video overview** | [Getting Ready for Agents in Azure Logic Apps](https://youtu.be/EMXLB4thdhg) |
-| **Video demo** | [Azure Logic Apps: Loan Approval - Autonomous Agent Loop](https://youtu.be/rR1QjQTfCCg) |
-| **Video demo** | [Azure Logic Apps: Product Return - Autonomous Agent Loop](https://youtu.be/ilSGRUpjMdU) |
-| **Video demo** | [Azure Logic Apps: Grocery Return with IBM Mainframe and Midrange System Integration - Autonomous Agent Loop](https://youtu.be/vPxFjJUP494) |
-| **Video demo** | [Azure Logic Apps: Operations Conversational Agent - Repair and Resubmit with ServiceNow](https://youtu.be/-V4n9VMcN0k) |
-| **Video demo** | [Azure Logic Apps: Operations Autonomous Agent - Repair and Resubmit with ServiceNow](https://youtu.be/uciB7jtDpyk) |
-| **Video demo** | [Azure Logic Apps: Codeful and Declarative Multiple Agents](https://youtu.be/sQaAzhkzT6E) |
+| **Video demo** | [Loan Approval - Autonomous Agent Loop](https://youtu.be/rR1QjQTfCCg) |
+| **Video demo** | [Product Return - Autonomous Agent Loop](https://youtu.be/ilSGRUpjMdU) |
+| **Video demo** | [Grocery Return with IBM Mainframe and Midrange System Integration - Autonomous Agent Loop](https://youtu.be/vPxFjJUP494) |
+| **Video demo** | [Operations Conversational Agent - Repair and Resubmit with ServiceNow](https://youtu.be/-V4n9VMcN0k) |
+| **Video demo** | [Operations Autonomous Agent - Repair and Resubmit with ServiceNow](https://youtu.be/uciB7jtDpyk) |
+| **Video demo** | [Codeful and Declarative Multiple Agents](https://youtu.be/sQaAzhkzT6E) |
 
 ## Building blocks for AI solutions
 
