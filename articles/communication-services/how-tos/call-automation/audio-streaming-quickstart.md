@@ -29,7 +29,7 @@ Functionality described in this quickstart is currently in public preview.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Audio Streaming with javaScript](./includes/audio-streaming-quickstart-js.md)]
+[!INCLUDE [Audio Streaming with JavaScript](./includes/audio-streaming-quickstart-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

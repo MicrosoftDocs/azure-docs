@@ -5,7 +5,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/19/2024
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurecli
@@ -33,6 +33,8 @@ For an overview of options to secure the developer portal, see [Secure access to
 - Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
 
 - [Import and publish](import-and-publish.md) an API in the Azure API Management instance.
+
+- If you created your instance in a v2 tier, enable the developer portal. For more information, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 

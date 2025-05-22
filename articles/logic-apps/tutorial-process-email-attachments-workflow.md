@@ -7,7 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 08/07/2024
+ms.date: 02/18/2025
 ---
 
 # Tutorial: Create workflows that process emails using Azure Logic Apps, Azure Functions, and Azure Storage
@@ -183,9 +183,7 @@ The following steps create an Azure function that your workflow calls to remove 
 
 ## Create function to remove HTML
 
-The following steps create an Azure function that removes HTML from each incoming email by using the sample code snippet. This function makes the email content cleaner and easier to process. You can call this function from your workflow.
-
-For more information, see [Create your first function in the Azure portal](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-function). For expanded function creation, you can also [create your function locally](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-your-functions-locally).
+The following steps create an Azure function in C# that removes HTML from each incoming email by using the sample code snippet. This function makes the email content cleaner and easier to process. You can call this function from your workflow.
 
 1. In the [Azure portal](https://portal.azure.com), open your function app, if not already open.
 
@@ -193,20 +191,18 @@ For more information, see [Create your first function in the Azure portal](../az
 
 1. On the function app menu, select **Overview**. On the **Functions** tab, select **Create**.
 
-1. On the **Create function** pane, select **HTTP trigger: C#** > **Next**.
-
    > [!NOTE]
    >
-   > If you don't see the C# version, make sure to 
+   > If you don't see the **Create** button, [you must instead create your function locally](../azure-functions/functions-develop-local.md#local-development-environments).
 
-1. Provide the following information for your function, and select **Create**:
+1. [Follow these generic steps to create your function in C# using the **HTTP trigger** template](../azure-functions/functions-create-http-endpoint.md?pivots=programming-language-csharp#create-function), and provide the following information for your function:
 
    | Parameter | Value |
    |-----------|-------|
    | **Function name** | **RemoveHTMLFunction** |
    | **Authorization level** | **Function** |
 
-1. On the **Code + Test** tab, enter the following sample code, which removes HTML and returns the results to the caller.
+1. On the **Code + Test** tab, enter the following C# sample code, which removes HTML and returns the results to the caller.
 
    ```csharp
    #r "Newtonsoft.Json"

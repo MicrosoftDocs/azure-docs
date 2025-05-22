@@ -5,8 +5,8 @@ ms.topic: sample
 ms.date: 11/30/2024
 ms.service: azure-backup
 ms.custom: references_regions
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Geo-code mapping
@@ -67,61 +67,10 @@ This sample XML provides you with an insight about the geo-codes mapped with the
 <GeoCodeRegionNameMap	GeoCode="JIC"	RegionName="Jio India Central"	/>
 <GeoCodeRegionNameMap	GeoCode="JIW"	RegionName="Jio India West"	/>
 <GeoCodeRegionNameMap	GeoCode="QAC"	RegionName="Qatar Central"	/>
-<GeoCodeRegionNameMap	GeoCode="WUSR"	RegionName="East US"	/>
-<GeoCodeRegionNameMap	GeoCode="EUSR"	RegionName="West US"	/>
-<GeoCodeRegionNameMap	GeoCode="CUSR"	RegionName="East US 2"	/>
-<GeoCodeRegionNameMap	GeoCode="EU2R"	RegionName="Central US"	/>
-<GeoCodeRegionNameMap	GeoCode="NCUR"	RegionName="South Central US"	/>
-<GeoCodeRegionNameMap	GeoCode="SCUR"	RegionName="North Central US"	/>
-<GeoCodeRegionNameMap	GeoCode="NER"	RegionName="West Europe"	/>
-<GeoCodeRegionNameMap	GeoCode="WER"	RegionName="North Europe"	/>
-<GeoCodeRegionNameMap	GeoCode="EAR"	RegionName="Southeast Asia"	/>
-<GeoCodeRegionNameMap	GeoCode="SEAR"	RegionName="East Asia"	/>
-<GeoCodeRegionNameMap	GeoCode="JPER"	RegionName="Japan West"	/>
-<GeoCodeRegionNameMap	GeoCode="JPWR"	RegionName="Japan East"	/>
-<GeoCodeRegionNameMap	GeoCode="BRSR"	RegionName="South Central US"	/>
-<GeoCodeRegionNameMap	GeoCode="AER"	RegionName="Australia Southeast"	/>
-<GeoCodeRegionNameMap	GeoCode="ASER"	RegionName="Australia East"	/>
-<GeoCodeRegionNameMap	GeoCode="INCR"	RegionName="South India"	/>
-<GeoCodeRegionNameMap	GeoCode="INSR"	RegionName="Central India"	/>
-<GeoCodeRegionNameMap	GeoCode="CNCR"	RegionName="Canada East"	/>
-<GeoCodeRegionNameMap	GeoCode="CNER"	RegionName="Canada Central"	/>
-<GeoCodeRegionNameMap	GeoCode="WCUR"	RegionName="West US 2"	/>
-<GeoCodeRegionNameMap	GeoCode="WU2R"	RegionName="West Central US"	/>
-<GeoCodeRegionNameMap	GeoCode="UKWR"	RegionName="UK South"	/>
-<GeoCodeRegionNameMap	GeoCode="UKSR"	RegionName="UK West"	/>
-<GeoCodeRegionNameMap	GeoCode="CCYR"	RegionName="East US 2 EUAP"	/>
-<GeoCodeRegionNameMap	GeoCode="ECYR"	RegionName="Central US EUAP"	/>
-<GeoCodeRegionNameMap	GeoCode="KRSR"	RegionName="Korea Central"	/>
-<GeoCodeRegionNameMap	GeoCode="KRCR"	RegionName="Korea South"	/>
-<GeoCodeRegionNameMap	GeoCode="FRCR"	RegionName="France South"	/>
-<GeoCodeRegionNameMap	GeoCode="FRSR"	RegionName="France Central"	/>
-<GeoCodeRegionNameMap	GeoCode="ACLR"	RegionName="Australia Central 2"	/>
-<GeoCodeRegionNameMap	GeoCode="AC2R"	RegionName="Australia Central"	/>
-<GeoCodeRegionNameMap	GeoCode="UACR"	RegionName="UAE North"	/>
-<GeoCodeRegionNameMap	GeoCode="UANR"	RegionName="UAE Central"	/>
-<GeoCodeRegionNameMap	GeoCode="SANR"	RegionName="South Africa West"	/>
-<GeoCodeRegionNameMap	GeoCode="SAWR"	RegionName="South Africa North"	/>
-<GeoCodeRegionNameMap	GeoCode="INWR"	RegionName="South India"	/>
-<GeoCodeRegionNameMap	GeoCode="NWER"	RegionName="Norway West"	/>
-<GeoCodeRegionNameMap	GeoCode="NWWR"	RegionName="Norway East"	/>
-<GeoCodeRegionNameMap	GeoCode="SZNR"	RegionName="Switzerland West"	/>
-<GeoCodeRegionNameMap	GeoCode="SZWR"	RegionName="Switzerland North"	/>
-<GeoCodeRegionNameMap	GeoCode="GNR"	RegionName="Germany West Central"	/>
-<GeoCodeRegionNameMap	GeoCode="GWCR"	RegionName="Germany North"	/>
-<GeoCodeRegionNameMap	GeoCode="SDCR"	RegionName="Sweden South"	/>
-<GeoCodeRegionNameMap	GeoCode="SDSR"	RegionName="Sweden Central"	/>
-<GeoCodeRegionNameMap	GeoCode="BSER"	RegionName="Brazil South"	/>
-<GeoCodeRegionNameMap	GeoCode="WU3R"	RegionName="East US"	/>
-<GeoCodeRegionNameMap	GeoCode="JICR"	RegionName="Jio India West"	/>
-<GeoCodeRegionNameMap	GeoCode="JIWR"	RegionName="Jio India Central"	/>
 <GeoCodeRegionNameMap	GeoCode="PLC"	RegionName="Poland Central"	/>
 <GeoCodeRegionNameMap	GeoCode="MYS"	RegionName="Malaysia South"	/>
-<GeoCodeRegionNameMap	GeoCode="MYSR"	RegionName="Japan West"	/>
 <GeoCodeRegionNameMap	GeoCode="TWN"	RegionName="Taiwan North"	/>
 <GeoCodeRegionNameMap	GeoCode="TWNR"	RegionName="Taiwan Northwest"	/>
-<GeoCodeRegionNameMap	GeoCode="TNW"	RegionName="Taiwan Northwest"	/>
-<GeoCodeRegionNameMap	GeoCode="TNWR"	RegionName="Taiwan North"	/>
 <GeoCodeRegionNameMap	GeoCode="ILC"	RegionName="Israel Central"	/>
 <GeoCodeRegionNameMap	GeoCode="ITN"	RegionName="Italy North"	/>
 <GeoCodeRegionNameMap	GeoCode="MXC"	RegionName="Mexico Central"	/>
@@ -131,39 +80,18 @@ This sample XML provides you with an insight about the geo-codes mapped with the
 <GeoCodeRegionNameMap	GeoCode="MYW"	RegionName="Malaysia West"	/>
 <GeoCodeRegionNameMap	GeoCode="IDC"	RegionName="Indonesia Central"	/>
 <GeoCodeRegionNameMap	GeoCode="USE"	RegionName="Southeast US"	/>
-<GeoCodeRegionNameMap	GeoCode="USER"	RegionName="West US 3"	/>
-<GeoCodeRegionNameMap	GeoCode="TST"	RegionName="UK South"	/>
 <GeoCodeRegionNameMap	GeoCode="UGV"	RegionName="USGov Virginia"	/>
 <GeoCodeRegionNameMap	GeoCode="UGA"	RegionName="USGov Arizona"	/>
 <GeoCodeRegionNameMap	GeoCode="UGT"	RegionName="USGov Texas"	/>
 <GeoCodeRegionNameMap	GeoCode="UDC"	RegionName="USDoD Central"	/>
 <GeoCodeRegionNameMap	GeoCode="UDE"	RegionName="USDoD East"	/>
-<GeoCodeRegionNameMap	GeoCode="UGVR"	RegionName="USGov Texas"	/>
-<GeoCodeRegionNameMap	GeoCode="UGIR"	RegionName="USGov Virginia"	/>
-<GeoCodeRegionNameMap	GeoCode="UGAR"	RegionName="USGov Texas"	/>
-<GeoCodeRegionNameMap	GeoCode="UGTR"	RegionName="USGov Arizona"	/>
-<GeoCodeRegionNameMap	GeoCode="UDCR"	RegionName="USDoD East"	/>
-<GeoCodeRegionNameMap	GeoCode="UDER"	RegionName="USDoD Central"	/>
-<GeoCodeRegionNameMap	GeoCode="RXE"	RegionName="USSec East"	/>
-<GeoCodeRegionNameMap	GeoCode="RXW"	RegionName="USSec West"	/>
-<GeoCodeRegionNameMap	GeoCode="RXER"	RegionName="USSec West"	/>
-<GeoCodeRegionNameMap	GeoCode="RXWR"	RegionName="USSec East"	/>
-<GeoCodeRegionNameMap	GeoCode="EXE"	RegionName="USNat East"	/>
-<GeoCodeRegionNameMap	GeoCode="EXW"	RegionName="USNat West"	/>
-<GeoCodeRegionNameMap	GeoCode="EXER"	RegionName="USNat West"	/>
-<GeoCodeRegionNameMap	GeoCode="EXWR"	RegionName="USNat East"	/>
 <GeoCodeRegionNameMap	GeoCode="BJB"	RegionName="China North"	/>
 <GeoCodeRegionNameMap	GeoCode="SHA"	RegionName="China East"	/>
 <GeoCodeRegionNameMap	GeoCode="BJB2"	RegionName="China North 2"	/>
 <GeoCodeRegionNameMap	GeoCode="SHA2"	RegionName="China East 2"	/>
 <GeoCodeRegionNameMap	GeoCode="BJB3"	RegionName="China North 3"	/>
 <GeoCodeRegionNameMap	GeoCode="SHA3"	RegionName="China East 3"	/>
-<GeoCodeRegionNameMap	GeoCode="BJBR"	RegionName="China East"	/>
-<GeoCodeRegionNameMap	GeoCode="SHAR"	RegionName="China North"	/>
 <GeoCodeRegionNameMap	GeoCode="BJ2R"	RegionName="China East 2"	/>
-<GeoCodeRegionNameMap	GeoCode="SH2R"	RegionName="China North 2"	/>
-<GeoCodeRegionNameMap	GeoCode="BJ3R"	RegionName="China East 3"	/>
-<GeoCodeRegionNameMap	GeoCode="SH3R"	RegionName="China North 3"	/>
 </GeoCodeList>
 
 ```

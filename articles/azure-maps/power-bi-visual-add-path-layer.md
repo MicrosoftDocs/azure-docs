@@ -69,7 +69,7 @@ Examine the connections and insights revealed by the path layer visualization. F
 
 Adding a field to the legend field well creates a higher level of grouping. So, paths and locations associated with the same legend are colored identically. Here's the process:
 
-- **Grouping by Legend**: When a legend is provided, the paths and locations are grouped based on the legend. For instance, if visualizing flight paths with the airline as the legend, all paths and locations associated with the same airline share the same color. Moreover, if there are two rows, one with legend "Contoso" and path ID "A123," and another with legend "MSAirline" and path ID "A123," the path layer interprets these as two distinct paths: "Contoso-A123" and "MSAirline-A123".
+- **Grouping by Legend**: When a legend is provided, the paths and locations are grouped based on the legend. For instance, if visualizing flight paths with the airline as the legend, all paths and locations associated with the same airline share the same color. Moreover, if there are two rows, one with legend "Contoso" and path ID "A123" and another with legend "MSAirline" and path ID "A123" the path layer interprets these as two distinct paths: "Contoso-A123" and "MSAirline-A123".
 - **Styling by Legend**: Configure the style (color, line width, opacity) using the legend to visually differentiate path groups.
 - **Interaction by Legend**: When interacting with the path layer, selecting a path or point also selects other reports based on legend, path ID, location, and point order. This ensures all related data points are highlighted together.
 

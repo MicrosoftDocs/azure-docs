@@ -12,6 +12,9 @@ ms.author: chrupa
 
 # Quickstart: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
 
 In this quickstart, learn how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
@@ -212,7 +215,7 @@ az group delete --name <ResourceGroupName>
 For example: `az group delete --resource-group BicepTestDeployment`
 
 > [!TIP]
-> For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Build your first Bicep template](/training/modules/build-first-bicep-template/).
+> For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Build your first Bicep file](/training/modules/build-first-bicep-template/).
 
 ## Next steps
 

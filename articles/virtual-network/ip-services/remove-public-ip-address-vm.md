@@ -50,14 +50,8 @@ In this step, you dissociate a public IP address from a virtual machine using th
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Browse to, or search for the virtual machine that you want to disassociate the public IP address from and then select it.
 3. In the VM page, select **Overview**, and then select the public IP address.
-
-    :::image type="content" source="./media/remove-public-ip-address-vm/vm-public-ip.png" alt-text="Screenshot of the Overview page of a virtual machine showing of the public IP.":::
-
 4. In the public IP address page, select **Overview**, and then select **Dissociate**.
-
 5. In **Dissociate public IP address**, select **Yes**.
-
-    :::image type="content" source="./media/remove-public-ip-address-vm/dissociate-public-ip.png" alt-text="Screenshot of the Overview page of a public IP address resource showing how to dissociate it from the network interface of a virtual machine.":::
 
 # [Azure CLI](#tab/azurecli/)
 
@@ -118,7 +112,7 @@ If you don't know the name of the public IP address associated to an IP configur
 
 ```azurecli
 # Get the name of public IP address associated to an IP configuration
-az network nic ip-config show --name ipconfigmyVM --nic-name myVMNic --resource-group myResourceGroup --query publicIpAddress.id
+az network nic ip-config show --name ipconfigmyVM --nic-name myVMNic --resource-group myResourceGroup --query publicIPAddress.id
 ```
 The output includes one or more lines that are similar to the following example:
 

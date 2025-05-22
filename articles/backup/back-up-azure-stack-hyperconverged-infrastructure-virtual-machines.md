@@ -2,11 +2,11 @@
 title: Back up Azure Local virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 11/23/2024
+ms.date: 03/06/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Local virtual machines with Azure Backup Server
@@ -29,7 +29,7 @@ MABS can back up Azure Local virtual machines in the following scenarios:
 
 
 
-- **Arc VMs**: [Arc VMs](/azure/azure-arc/servers/overview) add fabric management capabilities in addition to [Arc-enabled servers](/azure/azure-arc/servers/overview). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Arc VMs is supported in a limited capacity in Azure Local, version 23H2.
+- **Arc VMs**: [Arc VMs](/azure/azure-arc/servers/overview) add fabric management capabilities in addition to [Arc-enabled servers](/azure/azure-arc/servers/overview). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Arc VMs is supported in a limited capacity in Azure Local.
 
    The following table lists the various levels of backup and restore capabilities for Azure Arc VMs:
 
@@ -75,6 +75,11 @@ These are the prerequisites for backing up virtual machines with MABS:
    - Required space for backup storage - 80 TB
 
 2. Set up the MABS protection agent on the server or each cluster node.
+
+   >[!Note]
+   >If **Azure Benefits** is enabled on the Azure VM, disable the Firewall rule `AzsHci-ImdsAttestation-Block-TCP-In` to allow the **Agent WMI Queries**. To disable the Firewall, run the following cmdlet from PowerShell prompt on each node of the cluster:
+   >
+   >`Get-ClusterNode | % {$session = New-PsSession -ComputerName $_ ; Invoke-Command -Session $session -ScriptBlock {$env:COMPUTERNAME ; Disable-NetFirewallRule AzsHci-ImdsAttestation-Block-TCP-In }}`
 
 3. To deploy the agent, choose one of the following methods:
 
@@ -157,7 +162,7 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items, navigate to **All Protected HyperV Data**, and select the VM you want to recover.
 
    >[!Note]
-   >- All the Clustered HA VMs are recoverd by selecting these Virtual machines under the cluster.
+   >- All the Clustered HA VMs are recovered by selecting these Virtual machines under the cluster.
    >- Both Hyper-V and Clustered VMs are restored as Hyper-V Virtual Machines.
 
 2. In the **Recovery points for** pane, on the calendar, select any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.

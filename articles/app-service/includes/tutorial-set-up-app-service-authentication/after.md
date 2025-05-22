@@ -100,7 +100,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. Select an existing tenant to use from the drop-down, or select **Create new** to create a new [external tenant](/entra/external-id/customers/quickstart-tenant-setup).
 
-    :::image type="content" alt-text="Screenshot that shows the Select a tenent dropdown." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-select.png":::
+    :::image type="content" alt-text="Screenshot that shows the Select a tenant dropdown." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-select.png":::
 
 1. (Optional) In the **Create a tenant** page, add the *Tenant Name** and **Domain Name**.  Select a **Location** and select **Review and create** and then **Create**.
 

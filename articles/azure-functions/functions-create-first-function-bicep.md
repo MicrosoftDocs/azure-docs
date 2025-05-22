@@ -1,23 +1,24 @@
 ---
 title: Create your function app resources in Azure using Bicep
 description: Create and deploy to Azure a simple HTTP triggered serverless function using Bicep.
-author: mijacobs
-ms.author: mijacobs
-ms.date: 06/12/2022
+author: ggailey777
+ms.author: glenga
+ms.date: 03/17/2025
 ms.topic: quickstart
 ms.service: azure-functions
+zone_pivot_groups: programming-languages-set-functions
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create and deploy Azure Functions resources using Bicep
 
-In this article, you use Azure Functions with Bicep to create a function app and related resources in Azure. The function app provides an execution context for your function code executions.
+In this article, you use Bicep to create a function app in a Flex Consumption plan in Azure, along with its required Azure resources. The function app provides a serverless execution context for your function code executions. The app uses Microsoft Entra ID with managed identities to connect to other Azure resources.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
-After you create the function app, you can deploy Azure Functions project code to that app.
+After you create the function app, you can deploy your Azure Functions project code to that app. A final code deployment step is outside the scope of this quickstart article.
 
 ## Prerequisites
 
@@ -27,42 +28,89 @@ Before you begin, you must have an Azure account with an active subscription. [C
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/function-app-create-dynamic/).
+The Bicep file used in this quickstart is from an [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/function-app-create-dynamic/).
 
-:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.web/function-app-create-dynamic/main.bicep":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.web/function-app-flex-managed-identities/main.bicep":::
 
-The following four Azure resources are created by this Bicep file:
+This deployment file creates these Azure resources needed by a function app that securely connects to Azure services:
 
-+ [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): create an Azure Storage account, which is required by Functions.
-+ [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create a serverless Consumption hosting plan for the function app.
-+ [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create a function app.
-+ [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): create an Application Insights instance for monitoring.
+[!INCLUDE [functions-azure-resources-list](../../includes/functions-azure-resources-list.md)]
 
-[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+[!INCLUDE [functions-deployment-considerations-infra](../../includes/functions-deployment-considerations-infra.md)]
 
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
+
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-    # [CLI](#tab/CLI)
-
+    ### [Azure CLI](#tab/azure-cli)
+    ::: zone pivot="programming-language-csharp"  
     ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters appInsightsLocation=<app-location>
+    az group create --name exampleRG --location <SUPPORTED_REGION>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters functionAppRuntime=dotnet-isolated functionAppRuntimeVersion=8.0
     ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-java"  
+    ```azurecli
+    az group create --name exampleRG --location <SUPPORTED_REGION>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters functionAppRuntime=java functionAppRuntimeVersion=17
+    ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-javascript,programming-language-typescript"  
+    ```azurecli
+    az group create --name exampleRG --location <SUPPORTED_REGION>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters functionAppRuntime=node functionAppRuntimeVersion=20
+    ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-python"  
+    ```azurecli
+    az group create --name exampleRG --location <SUPPORTED_REGION>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters functionAppRuntime=python functionAppRuntimeVersion=3.11
+    ```
+    ::: zone-end 
+    ::: zone pivot="programming-language-powershell"  
+    ```azurecli
+    az group create --name exampleRG --location <SUPPORTED_REGION>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters functionAppRuntime=powerShell functionAppRuntimeVersion=7.4
+    ```
+    ::: zone-end 
+    ### [Azure PowerShell](#tab/azure-powershell)
 
-    # [PowerShell](#tab/PowerShell)
-
+    ::: zone pivot="programming-language-csharp"  
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -appInsightsLocation "<app-location>"
+    New-AzResourceGroup -Name exampleRG -Location <SUPPORTED_REGION>
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -functionAppRuntime "dotnet-isolated" -functionAppRuntimeVersion "8.0"
     ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-java"  
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location <SUPPORTED_REGION>
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -functionAppRuntime "java" -functionAppRuntimeVersion "17"
+    ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-javascript,programming-language-typescript" 
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location <SUPPORTED_REGION>
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -functionAppRuntime "node" -functionAppRuntimeVersion "20"
+    ``` 
+    ::: zone-end  
+    ::: zone pivot="programming-language-python"  
+    ```azurepowershell  
+    New-AzResourceGroup -Name exampleRG -Location <SUPPORTED_REGION>
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -functionAppRuntime "python" -functionAppRuntimeVersion "3.11"
+    ```  
+    ::: zone-end 
+    ::: zone pivot="programming-language-powershell" 
+    ```azurepowershell  
+    New-AzResourceGroup -Name exampleRG -Location <SUPPORTED_REGION>
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -functionAppRuntime "powershell" -functionAppRuntimeVersion "7.4"
+    ``` 
+    ::: zone-end 
 
     ---
 
-    > [!NOTE]
-    > Replace **\<app-location\>** with the region for Application Insights, which is usually the same as the resource group.
+    In this example, replace `<SUPPORTED_REGION>` with a region that [supports the Flex Consumption plan](./flex-consumption-how-to.md#view-currently-supported-regions). 
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -70,13 +118,13 @@ The following four Azure resources are created by this Bicep file:
 
 Use Azure CLI or Azure PowerShell to validate the deployment.
 
-# [CLI](#tab/CLI)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource list --resource-group exampleRG
 ```
 
-# [PowerShell](#tab/PowerShell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceGroupName exampleRG
@@ -88,28 +136,9 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-If you continue to the next step and add an Azure Storage queue output binding, keep all your resources in place as you'll build on what you've already done.
-
-Otherwise, if you no longer need the resources, use Azure CLI, PowerShell, or Azure portal to delete the resource group and its resources.
-
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-az group delete --name exampleRG
-```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
-```
-
----
+[!INCLUDE [functions-cleanup-resources-infra](../../includes/functions-cleanup-resources-infra.md)]
 
 ## Next steps
 
-Now that you've created your function app resources in Azure, you can deploy your code to the existing app by using one of the following tools: 
+[!INCLUDE [functions-quickstarts-infra-next-steps](../../includes/functions-quickstarts-infra-next-steps.md)]
 
-* [Visual Studio Code](functions-develop-vs-code.md#republish-project-files)
-* [Visual Studio](functions-develop-vs.md#publish-to-azure)
-* [Azure Functions Core Tools](functions-run-local.md#publish)

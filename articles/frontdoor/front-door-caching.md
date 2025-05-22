@@ -1,12 +1,11 @@
 ---
 title: Caching with Azure Front Door
 description: This article helps you understand Front Door behavior when enabling caching in routing rules.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/08/2023
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -172,7 +171,7 @@ These formats are supported in the lists of paths to purge:
 - **Root domain purge**: Purge the root of the endpoint with "/" in the path.
 
 > [!NOTE]
-> **Purging wildcard domains**: Specifying cached paths for purging as discussed in this section doesn't apply to any wildcard domains that are associated with the Front Door. Currently, we don't support directly purging wildcard domains. You can purge paths from specific subdomains by specifying that specfic subdomain and the purge path. For example, if my Front Door has `*.contoso.com`, I can purge assets of my subdomain `foo.contoso.com` by typing `foo.contoso.com/path/*`. Currently, specifying host names in the purge content path is limited to subdomains of wildcard domains, if applicable.
+> **Purging wildcard domains**: Specifying cached paths for purging as discussed in this section doesn't apply to any wildcard domains that are associated with the Front Door. Currently, we don't support directly purging wildcard domains. You can purge paths from specific subdomains by specifying that specific subdomain and the purge path. For example, if my Front Door has `*.contoso.com`, I can purge assets of my subdomain `foo.contoso.com` by typing `foo.contoso.com/path/*`. Currently, specifying host names in the purge content path is limited to subdomains of wildcard domains, if applicable.
 >
 
 Cache purges on the Front Door are case-insensitive. Additionally, they're query string agnostic, which means that purging a URL purges all query string variations of it. 

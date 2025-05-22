@@ -2,9 +2,9 @@
 title: Application Gateway for Containers components
 description: This article provides information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target.
 services: application-gateway
-author: greglin
+author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/15/2024
 ms.author: greglin
 ---
@@ -86,7 +86,9 @@ A set of routing rules evaluates how the request for that hostname should be ini
 
 ### HTTP/2 Requests
 
-Application Gateway for Containers fully supports HTTP/2 protocol for communication from the client to the frontend. Communication from Application Gateway for Containers to the backend target uses the HTTP/1.1 protocol. The HTTP/2 setting is always enabled and can't be changed. If clients prefer to use HTTP/1.1 for their communication to the frontend of Application Gateway for Containers, they may continue to negotiate accordingly.
+Application Gateway for Containers supports both HTTP/2 and HTTP/1.1 protocols for communication between the client and the frontend. The HTTP/2 setting is always enabled and can't be changed. If clients prefer to use HTTP/1.1 for their communication to the frontend of Application Gateway for Containers, they may continue to negotiate accordingly.
+
+Communication between Application Gateway for Containers and the backend target is always via HTTP/1.1, except for gRPC, which uses HTTP/2.
 
 ### Modifications to the request
 

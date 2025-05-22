@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 11/27/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
@@ -63,7 +63,7 @@ To add exclusion rules to an existing policy, follow these steps:
 
 2. In **Exclusion Settings**, select **Add Exclusion**.
 
-    ![Screenshow shows how to add exclusion.](./media/backup-azure-manage-mars/add-exclusion.png)
+    ![Screenshot shows how to add exclusion.](./media/backup-azure-manage-mars/add-exclusion.png)
 
 3. From **Select Items to Exclude**, browse the files and folders and select items that you want to exclude and select **OK**.
 
@@ -79,7 +79,7 @@ To add exclusion rules to an existing policy, follow these steps:
 
 1. From the Actions pane, select **Schedule Backup**. Go to **Select items to Backup**. From the list, select the files and folders that you want to remove from backup schedule and select **Remove items**.
 
-    ![Screenshow shows how to select the items to remove.](./media/backup-azure-manage-mars/select-items-remove.png)
+    ![Screenshot shows how to select the items to remove.](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
     > Proceed with caution when you completely remove a volume from the policy.  If you need to add it again, then it will be treated as a new volume. The next scheduled backup will perform an Initial Backup (full backup) instead of Incremental Backup. If you need to temporarily remove and add items later, then it's recommended to use **Exclusions Settings** instead of **Remove Items** to ensure incremental backup instead of full backup.

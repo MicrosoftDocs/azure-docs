@@ -546,7 +546,7 @@ Azure private endpoint is a network interface that connects you privately and se
 From the networking isolation standpoint, key benefits of Private Link include:
 
 - You can connect your VNet to services in Azure without a public IP address at the source or destination. Private Link handles the connectivity between the service and its consumers over the Microsoft global backbone network.
-- You can access services running in Azure from on-premises over Azure ExpressRoute private peering, VPN tunnels, and peered virtual networks using private endpoints. Private Link eliminates the need to set up public peering or traverse the Internet to reach the service.
+- You can access services running in Azure from on-premises over Azure ExpressRoute private peering, VPN tunnels, and peered virtual networks using private endpoints. Private Link eliminates the need to set up Microsoft peering or traverse the Internet to reach the service.
 - You can connect privately to services running in other Azure regions.
 
 > [!NOTE]

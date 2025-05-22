@@ -6,7 +6,7 @@ author: jomore
 ms.topic: tutorial
 ms.service: azure-firewall-manager
 ms.date: 10/22/2020
-ms.author: victorh
+ms.author: duau
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -91,7 +91,7 @@ $AzFW = New-AzFirewall -Name "azfw1" -ResourceGroupName $RG -Location $Location 
 Enabling logging from the Azure Firewall to Azure Monitor is optional, but in this example you use the Firewall logs to prove that traffic is traversing the firewall:
 
 ```azurepowershell
-# Optionally, enable looging of Azure Firewall to Azure Monitor
+# Optionally, enable logging of Azure Firewall to Azure Monitor
 $LogWSName = "vwan-" + (Get-Random -Maximum 99999) + "-" + $RG
 $LogWS = New-AzOperationalInsightsWorkspace -Location $Location -Name $LogWSName -Sku Standard -ResourceGroupName $RG
 Set-AzDiagnosticSetting -ResourceId $AzFW.Id -Enabled $True -Category AzureFirewallApplicationRule, AzureFirewallNetworkRule -WorkspaceId $LogWS.ResourceId

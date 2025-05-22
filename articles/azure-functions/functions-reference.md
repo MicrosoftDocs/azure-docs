@@ -99,7 +99,7 @@ When the function app and any other required resources don't already exist in Az
 ::: zone-end 
 + Using [Visual Studio Code](./functions-develop-vs-code.md#publish-to-azure)
 
-+ Programmatically using [Azure CLI](./scripts/functions-cli-create-serverless.md), [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c), [ARM templates](functions-create-first-function-resource-manager.md), or [Bicep templates](functions-create-first-function-bicep.md)
++ Programmatically using [Azure CLI](./scripts/functions-cli-create-serverless.md), [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c), [ARM templates](functions-create-first-function-resource-manager.md), or [Bicep files](functions-create-first-function-bicep.md)
 
 + In the [Azure portal](functions-create-function-app-portal.md)
 
@@ -349,7 +349,7 @@ The code for Azure Functions is open source, and you can find key components in 
 
 * [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 ::: zone pivot="programming-language-csharp"
-* [Azure Functons .NET worker (isolated process)](https://github.com/Azure/azure-functions-dotnet-worker)
+* [Azure Functions .NET worker (isolated process)](https://github.com/Azure/azure-functions-dotnet-worker)
 ::: zone-end
 ::: zone pivot="programming-language-java"
 * [Azure Functions Java worker](https://github.com/Azure/azure-functions-java-worker)

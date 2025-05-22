@@ -12,7 +12,7 @@ ms.author: junbchen
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.1.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.1.0` or later. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -548,6 +548,34 @@ spec:
     refresh:
       enabled: true
       interval: 10m
+```
+
+### On-demand Refresh
+
+While you can set up automatic data refresh, there are times when you might want to trigger an on-demand refresh to get the latest data from App Configuration and Key Vault. This can be done by adding or updating any annotations in the `metadata.annotations` section of the `AzureAppConfigurationProvider`. The Kubernetes provider will then reconcile and update the ConfigMap and Secret with the latest data from your App Configuration store and Key Vault.
+
+In the following example, the `AzureAppConfigurationProvider` is updated with a new annotation. After the modification, apply the changes using `kubectl apply` to trigger an on-demand refresh.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+  annotations:
+    key1: value1
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
+  secret:
+    target:
+      secretName: secret-created-by-appconfig-provider
+    auth:
+      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
 ```
 
 ### ConfigMap Consumption

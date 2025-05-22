@@ -41,11 +41,11 @@ Use the **AzureActivity** table when auditing activity in your SOC environment w
 1. Query the data using Kusto Query Language (KQL), like you would any other table:
 
     - In the Azure portal, query this table in the **[Logs](hunts-custom-queries.md)** page.
-    - In Microsoft's unified security operations platform, query this table in the **Investigation & response > Hunting > [Advanced hunting](/defender-xdr/advanced-hunting-overview)** page.
+    - In the Defender portal, query this table in the **Investigation & response > Hunting > [Advanced hunting](/defender-xdr/advanced-hunting-overview)** page.
 
     The **AzureActivity** table includes data from many services, including Microsoft Sentinel. To filter in only data from Microsoft Sentinel, start your query with the following code:
 
-    ```kql
+    ```kusto
      AzureActivity
     | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS"
     ```
@@ -67,7 +67,7 @@ For more information, see [Microsoft Sentinel data included in Azure Activity lo
 
 The following **AzureActivity** table query lists all actions taken by a specific Microsoft Entra user in the last 24 hours.
 
-```kql
+```kusto
 AzureActivity
 | where OperationNameValue contains "SecurityInsights"
 | where Caller == "[AzureAD username]"
@@ -78,7 +78,7 @@ AzureActivity
 
 The following **AzureActivity** table query lists all the delete operations performed in your Microsoft Sentinel workspace.
 
-```kql
+```kusto
 AzureActivity
 | where OperationNameValue contains "SecurityInsights"
 | where OperationName contains "Delete"
@@ -136,7 +136,7 @@ LAQueryLogs data includes information such as:
 - Performance data on each query run
 
 > [!NOTE]
-> - The **LAQueryLogs** table only includes queries that have been run in the Logs blade of Microsoft Sentinel. It does not include the queries run by scheduled analytics rules, using the **Investigation Graph**, in the Microsoft Sentinel **Hunting** page, or in the Defender portal's **Advanced hunting** page. <!--is this correct?-->
+> - The **LAQueryLogs** table only includes queries that have been run in the Logs blade of Microsoft Sentinel. It does not include the queries run by scheduled analytics rules, using the **Investigation Graph**, in the Microsoft Sentinel **Hunting** page, or in the Defender portal's **Advanced hunting** page.
 >
 > - There may be a short delay between the time a query is run and the data is populated in the **LAQueryLogs** table. We recommend waiting about 5 minutes to query the **LAQueryLogs** table for audit data.
 
@@ -150,7 +150,7 @@ LAQueryLogs data includes information such as:
 
     For example, the following query shows how many queries were run in the last week, on a per-day basis:
 
-    ```kql
+    ```kusto
     LAQueryLogs
     | where TimeGenerated > ago(7d)
     | summarize events_count=count() by bin(TimeGenerated, 1d)
@@ -162,7 +162,7 @@ The following sections show more sample queries to run on the **LAQueryLogs** ta
 
 The following **LAQueryLogs** table query shows the number of queries run, where anything other than an HTTP response of **200 OK** was received. For example, this number includes queries that had failed to run.
 
-```kql
+```kusto
 LAQueryLogs
 | where ResponseCode != 200 
 | count 
@@ -172,19 +172,19 @@ LAQueryLogs
 
 The following **LAQueryLogs** table query lists the users who ran the most CPU-intensive queries, based on CPU used and length of query time.
 
-```kql
+```kusto
 LAQueryLogs
 |summarize arg_max(StatsCPUTimeMs, *) by AADClientId
 | extend User = AADEmail, QueryRunTime = StatsCPUTimeMs
 | project User, QueryRunTime, QueryText
-| order by QueryRunTime desc
+| sort by QueryRunTime desc
 ```
 
 ### Show users who ran the most queries in the past week
 
 The following **LAQueryLogs** table query lists the users who ran the most queries in the last week.
 
-```kql
+```kusto
 LAQueryLogs
 | where TimeGenerated > ago(7d)
 | summarize events_count=count() by AADEmail
@@ -203,7 +203,7 @@ You might want to use Microsoft Sentinel auditing resources to create proactive 
 
 For example, if you have sensitive tables in your Microsoft Sentinel workspace, use the following query to notify you each time those tables are queried:
 
-```kql
+```kusto
 LAQueryLogs
 | where QueryText contains "[Name of sensitive table]"
 | where TimeGenerated > ago(1d)
@@ -232,6 +232,22 @@ Use Microsoft Sentinel's own features to monitor events and actions that occur w
   For more information, see [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md).
 
 - **Monitor data connector health** using the [Connector Health Push Notification Solution](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Send-ConnectorHealthStatus) playbook to watch for stalled or stopped ingestion, and send notifications when a connector has stopped collecting data or machines have stopped reporting.
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***count*** operator](/kusto/query/count-operator?view=microsoft-sentinel&preserve-view=true)
+- [***sort*** operator](/kusto/query/sort-operator?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***join*** operator](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***ingestion_time()*** function](/kusto/query/ingestion-time-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***arg_max()*** aggregation function](/kusto/query/arg-max-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Next step
 

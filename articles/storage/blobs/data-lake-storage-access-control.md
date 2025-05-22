@@ -5,8 +5,8 @@ description: Understand how POSIX-like ACLs access control lists work in Azure D
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
-ms.date: 11/15/2024
+ms.topic: concept-article
+ms.date: 12/03/2024
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.devlang: python
@@ -97,17 +97,17 @@ This table shows a column that represents each level of a fictitious directory h
 > [!IMPORTANT]
 > This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC, ABAC, and ACLs](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-abac-and-acls).
 
-|    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Delete /Oregon/          |   `-WX`   |   `RWX`    |  `RWX`      | `---`          |
-| Delete /Oregon/Portland/ |   `--X`   |   `-WX`    |  `RWX`      | `---`          |
-| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List /Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| List /Oregon/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Operation                | /     | Oregon/ | Portland/ | Data.txt |
+|--------------------------|-------|---------|-----------|----------|
+| Read Data.txt            | `--X` | `--X`   | `--X`     | `R--`    |
+| Append to Data.txt       | `--X` | `--X`   | `--X`     | `RW-`    |
+| Delete Data.txt          | `--X` | `--X`   | `-WX`     | `---`    |
+| Delete /Oregon/          | `-WX` | `RWX`   | `RWX`     | `---`    |
+| Delete /Oregon/Portland/ | `--X` | `-WX`   | `RWX`     | `---`    |
+| Create / Update Data.txt | `--X` | `--X`   | `-WX`     | `---`    |
+| List /                   | `R-X` | `---`   | `---`     | `---`    |
+| List /Oregon/            | `--X` | `R-X`   | `---`     | `---`    |
+| List /Oregon/Portland/   | `--X` | `--X`   | `R-X`     | `---`    |
 
 ### Deleting files and directories
 

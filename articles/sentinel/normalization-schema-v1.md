@@ -70,7 +70,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **DvcHostname** | Device Name (String) | syslogserver1.contoso.com | The device name of the device generating the message. | Device |
 | **EventProduct** | String | OfficeSharepoint | The product generating the event. | Event |
 | **EventProductVersion** | string | 9.0 |  The version of the product generating the event. | Event |
-| **EventResourceId** | Device ID (String) | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | The resource ID of the device generating the message. | Event |
+| **EventResourceId** | Device ID (String) | /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | The resource ID of the device generating the message. | Event |
 | **EventReportUrl** | String | https://192.168.1.1/repoerts/ae3-56.htm | A link to the full report created by the reporting device | Event |
 | **EventVendor** | String | Microsoft | The vendor of the product generating the event. | Event |
 | **EventResult** | Multivalue: Success, Partial, Failure, [Empty] (String) | Success | The result reported for the activity. Empty value when not applicable. | Event |
@@ -102,7 +102,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **DstDvcDomain** | String | CONTOSO | The Domain of the destination device. | Destination,<br>Device |
 | **DstPortNumber** | Integer | 443 | The destination IP port. | Destination,<br>Port |
 | **DstGeoRegion** | Region (String) | Vermont | The region associated with the destination IP address | Destination,<br>Geo |
-| **DstResourceId** | Device ID (String) |  /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /victim | The resource ID of the destination device. | Destination |
+| **DstResourceId** | Device ID (String) |  /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /victim | The resource ID of the destination device. | Destination |
 | **DstNatIpAddr** | IP address | 2::1 | If reported by an intermediary NAT device such as a firewall, the IP address used by the NAT device for communication with the source. | Destination NAT,<br>IP |
 | **DstNatPortNumber** | int | 443 | If reported by an intermediary NAT device such as a firewall, the port used by the NAT device for communication with the source. | Destination NAT,<br>Port |
 | **DstUserSid** | User SID |  S-12-1445 | The User ID of the identity associated with the session’s destination. Typically, the identity used to authenticate a server. For more information, see [Data types and formats](#data-types-and-formats). | Destination,<br>User |
@@ -135,7 +135,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **SrcDvcModelName** | String | Samsung Galaxy Note | The model name of the source device | Source,<br>Device |
 | **SrcDvcModelNumber** | String | 10.0 | The model number of the source device | Source,<br>Device |
 | **SrcDvcType** | String | Mobile | The type of the source device | Source,<br> Device |
-| **SrcIntefaceName** | String | eth01 | The network interface used for the connection or session by the source device. | Source |
+| **SrcInterfaceName** | String | eth01 | The network interface used for the connection or session by the source device. | Source |
 | **SrcInterfaceGuid** | String | 46ad544b-eaf0-47ef-827c-266030f545a6 | GUID of the network interface used | Source |
 | **SrcIpAddr** | IP address | 77.138.103.108 | The IP address from which the connection or session originated. | Source,<br>IP |
 | **SrcDvcIpAddr** | IP address | 77.138.103.108 | The source IP address of a device not directly associated with the network packet (collected by a provider or explicitly calculated). | Source,<br>Device,<br>IP |
@@ -145,7 +145,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **SrcDvcMacAddr** | String | 06:10:9f:eb:8f:14 | The source MAC address of a device that is not directly associated with the network packet. | Source,<br>Device,<br>Mac |
 | **SrcPortNumber** | Integer | 2335 | The IP port from which the connection originated. May not be relevant for a session comprising multiple connections. | Source,<br>Port |
 | **SrcGeoRegion** | Region (String) | Vermont | The region within a country/region associated with the source IP address | Source,<br>Geo |
-| **SrcResourceId** | String | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | The resource ID of the device generating the message. | Source |
+| **SrcResourceId** | String | /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | The resource ID of the device generating the message. | Source |
 | **SrcNatIpAddr** | IP address | 4.3.2.1 | If reported by an intermediary NAT device such as a firewall, the IP address used by the NAT device for communication with the destination. | Source NAT,<br>IP |
 | **SrcNatPortNumber** | Integer | 345 | If reported by an intermediary NAT device such as a firewall, the port used by the NAT device for communication with the destination. | Source NAT,<br>Port |
 | **SrcUserSid** | User ID (String) | S-15-1445 | The user ID of the identity associated with the sessions source. Typically, user performing an action on the client. For more information, see [Data types and formats](#data-types-and-formats). | Source,<br>User |
@@ -307,8 +307,8 @@ The following fields were renamed in [version 0.2.x](normalization-schema-networ
 
     |Field in version 0.1  |Renamed in version 0.2  |
     |---------|---------|
-    |  DstResourceId  |   SrcDvcAzureRerouceId      |
-    | SrcResourceId   |     SrcDvcAzureRerouceId    |
+    |  DstResourceId  |   SrcDvcAzureResourceId      |
+    | SrcResourceId   |     SrcDvcAzureResourceId    |
 
 
 - **Renamed to remove the `Dvc` string from field names, as handling in version 0.1 was inconsistent**:

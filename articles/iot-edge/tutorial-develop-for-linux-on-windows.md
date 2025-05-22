@@ -2,9 +2,8 @@
 title: Develop modules for Linux devices using Azure IoT Edge for Linux on Windows
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules running in Linux containers for Windows devices, by using Azure IoT Edge for Linux on Windows.
 author: PatAltimore
-
-ms.author: fcabrera
-ms.date: 01/04/2024
+ms.author: patricka
+ms.date: 01/21/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -31,7 +30,7 @@ In this tutorial, you learn how to:
 >
 > * Set up your development machine.
 > * Use IoT Edge development tools to create a new project.
-> * Build your project as a container and store it in an Azure container registry.
+> * Build your project as a container and store it in an Azure Container Registry.
 > * Deploy your code to an IoT Edge device.
 
 ## Prerequisites
@@ -263,7 +262,7 @@ The deployment template includes:
 
 ### Set the IoT Edge runtime version
 
-Currently, the latest stable runtime version is 1.4. Update the IoT Edge runtime version to the latest stable release or the version that you want to target for your devices:
+Currently, the latest stable runtime version is 1.5. Update the IoT Edge runtime version to the latest stable release or the version that you want to target for your devices:
 
 ::: zone pivot="iotedge-dev-ext"
 
@@ -273,17 +272,17 @@ Currently, the latest stable runtime version is 1.4. Update the IoT Edge runtime
 
 1. Use the dropdown menu to choose the runtime version that your IoT Edge devices are running. Then select **OK** to save your changes. If you didn't make any changes, select **Cancel**.
 
-    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open the `deployment.debug.template.json` deployment manifest file. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open the `deployment.debug.template.json` deployment manifest file. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use the IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
        "edgeAgent": {
         //...
-          "image": "mcr.microsoft.com/azureiotedge-agent:1.4"
+          "image": "mcr.microsoft.com/azureiotedge-agent:1.5"
         //...
        "edgeHub": {
        //...
-          "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+          "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
        //...
     ```
 
@@ -294,17 +293,17 @@ Currently, the latest stable runtime version is 1.4. Update the IoT Edge runtime
 ::: zone pivot="iotedge-dev-cli"
 
 1. Open the `deployment.debug.template.json` deployment manifest file.
-1. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+1. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
         "edgeAgent": {
         //...
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
         //...
         "edgeHub": {
         //...
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
         //...
     ```
 
@@ -425,14 +424,14 @@ Use the module's Dockerfile to build the module's Docker image:
 docker build --rm -f "<DockerFilePath>" -t <ImageNameAndTag> "<ContextPath>" 
 ```
 
-For example, assume that your command shell is in your project directory and your module name is `IotEdgeModule1`. To build the image for the local registry or an Azure container registry, use the following commands:
+For example, assume that your command shell is in your project directory and your module name is `IotEdgeModule1`. To build the image for the local registry or an Azure Container Registry, use the following commands:
 
 ```bash
 # Build the image for the local registry
 
 docker build --rm -f "./IotEdgeModule1/Dockerfile.amd64.debug" -t localhost:5000/iotedgemodule1:0.0.1-amd64 "./IotEdgeModule1"
 
-# Or build the image for an Azure container registry
+# Or build the image for an Azure Container Registry
 
 docker build --rm -f "./IotEdgeModule1/Dockerfile.amd64.debug" -t myacr.azurecr.io/iotedgemodule1:0.0.1-amd64 "./IotEdgeModule1"
 ```
@@ -450,7 +449,7 @@ For example:
 
 docker push localhost:5000/iotedgemodule1:0.0.1-amd64
 
-# Or push the Docker image to an Azure container registry
+# Or push the Docker image to an Azure Container Registry
 az acr login --name myacr
 docker push myacr.azurecr.io/iotedgemodule1:0.0.1-amd64
 ```
@@ -461,7 +460,7 @@ In Visual Studio, open the `deployment.debug.template.json` deployment manifest 
 
 Before deployment, you need to update your Azure Container Registry credentials, your module images, and the proper `createOptions` values. For more information about `createOption` values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
-1. If you're using an Azure container registry to store your module image, add your credentials to `deployment.debug.template.json` in the `edgeAgent` settings. For example:
+1. If you're using an Azure Container Registry to store your module image, add your credentials to `deployment.debug.template.json` in the `edgeAgent` settings. For example:
 
     ```json
     "modulesContent": {

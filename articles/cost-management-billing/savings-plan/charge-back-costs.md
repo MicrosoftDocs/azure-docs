@@ -2,13 +2,13 @@
 title: Charge back Azure saving plan costs
 titleSuffix: Microsoft Cost Management
 description: Learn how to view Azure saving plan costs for chargeback.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 02/14/2024
-ms.author: banders
+ms.date: 01/07/2025
+ms.author: onwokolo
 ---
 
 # Charge back Azure saving plan costs

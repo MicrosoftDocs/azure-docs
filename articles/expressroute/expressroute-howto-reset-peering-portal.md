@@ -36,8 +36,6 @@ You can reset the Microsoft peering and the Azure private peering on an ExpressR
 
 1. Choose the peering configuration that you want to reset.
 
-    :::image type="content" source="./media/expressroute-howto-reset-peering-portal/expressroute-circuit.png" alt-text="Screenshot that shows choosing a peering in the ExpressRoute circuit overview.":::
-
 1. Uncheck the **Enable IPv4 Peering** or **Enable IPv6 Peering** check box, and then select **Save** to disable the peering configuration.
 
     :::image type="content" source="./media/expressroute-howto-reset-peering-portal/disable-peering.png" alt-text="Screenshot that shows clearing the Enable Peering check box.":::

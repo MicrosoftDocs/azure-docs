@@ -89,7 +89,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 
 > [!NOTE]
 > - The device (source) IPs should always be set to all the cloud-enabled network interfaces.
-> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### URL patterns for gateway feature
 

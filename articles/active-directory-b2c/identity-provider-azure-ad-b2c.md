@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 10/11/2023
+ms.date: 10/11/2024
 ms.author: godonnell
 ms.subservice: b2c
 ms.custom: fasttrack-edit, 
@@ -20,6 +20,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-up and sign-in with an Azure AD B2C account from another Azure AD B2C tenant
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

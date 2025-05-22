@@ -3,14 +3,14 @@ title: Use Bicep to deploy resources to subscription
 description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 02/10/2025
 ---
 
 # Subscription deployments with Bicep files
 
 To simplify the management of resources, you can deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription.
 
-This article describes how to set the deployment scope to a subscription in a Bicep file.
+This article describes how to set the deployment scope to a subscription in a Bicep file. For more information, see [Understand scope](../management/overview.md#understand-scope).
 
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
@@ -146,16 +146,18 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 ## Deployment scopes
 
-When deploying to a subscription, you can deploy resources to:
+In a Bicep file, all resources declared with the [`resource`](./resource-declaration.md) keyword must be deployed at the same scope as the deployment. For a subscription deployment, this means all `resource` declarations in the Bicep file must be deployed to the same subscription or as a child or extension resource of a resource in the same subscription as the deployment.  
 
-* the target subscription from the operation
-* any subscription in the tenant
-* resource groups within the subscription or other subscriptions
-* the tenant for the subscription
+However, this restriction doesn't apply to [`existing`](./existing-resource.md) resources. You can reference existing resources at a different scope than the deployment.  
 
-An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
+To deploy resources at multiple scopes within a single deployment, use [modules](./modules.md). Deploying a module triggers a "nested deployment," allowing you to target different scopes. The user deploying the parent Bicep file must have the necessary permissions to initiate deployments at those scopes.
 
-The user deploying the template must have access to the specified scope.
+You can deploy a resource from within a subscription scope Bicep file at the following scopes:
+
+* [The same subscription](#scope-to-subscription)
+* [Other subscriptions](#scope-to-subscription)
+* [The resource group](#scope-to-resource-group)
+* [The tenant](#scope-to-tenant)
 
 ### Scope to subscription
 
@@ -165,7 +167,7 @@ To deploy resources to the target subscription, add those resources with the `re
 targetScope = 'subscription'
 
 // resource group created in target subscription
-resource exampleResource 'Microsoft.Resources/resourceGroups@2024-03-01' = {
+resource exampleResource 'Microsoft.Resources/resourceGroups@2024-11-01' = {
   ...
 }
 ```

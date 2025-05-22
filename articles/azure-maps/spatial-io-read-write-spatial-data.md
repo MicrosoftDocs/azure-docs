@@ -56,7 +56,7 @@ The [Load spatial data] sample shows how to read a spatial data set, and renders
 > [!VIDEO //codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------->
 
-The next code demo shows how to read and load KML, or KMZ, to the map. KML can contain ground overlays, which is in the form of an `ImageLyaer` or `OgcMapLayer`. These overlays must be added on the map separately from the features. Additionally, if the data set has custom icons, those icons need to be loaded to the maps resources before the features are loaded.
+The next code demo shows how to read and load KML, or KMZ, to the map. KML can contain ground overlays, which is in the form of an `ImageLayer` or `OgcMapLayer`. These overlays must be added on the map separately from the features. Additionally, if the data set has custom icons, those icons need to be loaded to the maps resources before the features are loaded.
 
 The [Load KML onto map] sample shows how to load KML or KMZ files onto the map. For the source code of this sample, see [Load KML onto map source code].
 

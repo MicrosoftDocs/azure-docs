@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/03/2023
+ms.date: 12/06/2024
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -14,7 +14,10 @@ ms.custom: template-how-to, engagement-fy23
 # Upgrade a basic load balancer with PowerShell
 
 >[!Important]
->On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. 
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date.
+
+>[!NOTE]
+> [Azure Kubernetes Services (AKS) clusters](/azure/aks/load-balancer-standard#moving-from-a-basic-sku-load-balancer-to-standard-sku) with Basic Load Balancers are not supported with this migration script. Review other [Unsupported Scenarios](#unsupported-scenarios) prior to using this script. 
 
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
@@ -58,6 +61,8 @@ The PowerShell module performs the following functions:
 - Basic Load Balancers for [Azure Kubernetes Services (AKS) clusters](/azure/aks/load-balancer-standard#moving-from-a-basic-sku-load-balancer-to-standard-sku)
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
+- Basic Load Balancers with backend pool members that are part of an Availability Set but not all members of the Availability Set are behind the load balancer
+- If your Basic Load Balancer has floating IP enabled on a secondary IP configuration of the network interface, update the floating IP to a primary IP before running the migration script to avoid any configuration issues
 
 ## Install the 'AzureBasicLoadBalancerUpgrade' module
 
@@ -117,7 +122,7 @@ Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repositor
 Validate that a Basic Load Balancer is supported for upgrade
 
 ```powershell
-Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly:$true
 ```
 
 ### Example: upgrade by name
@@ -204,7 +209,7 @@ We created a complex query which assesses the readiness of each Basic Load Balan
 
 ### Will this migration cause downtime to my application? 
 
-Yes, because the Basic Load Balancer needs to be removed before the new Standard Load Balancer can be created, there is downtime to your application. See [How long does the Upgrade take?](#how-long-does-the-upgrade-take)
+Yes, because the Basic Load Balancer needs to be removed before the new Standard Load Balancer can be created, there's downtime to your application. See [How long does the Upgrade take?](#how-long-does-the-upgrade-take)
 
 ### Will the module migrate my frontend IP address to the new Standard Load Balancer?
 
@@ -293,7 +298,7 @@ For external Load Balancers, you can use [Outbound Rules](./outbound-rules.md) t
 For internal Load Balancers, Outbound Rules aren't an option because there's no Public IP address to SNAT through. This leaves a couple options to consider:
 
 - **NAT Gateway**: NAT Gateways are Azure's [recommended approach](../virtual-network/ip-services/default-outbound-access.md#if-i-need-outbound-access-what-is-the-recommended-way) for outbound traffic in most cases. However, NAT Gateways require that the attached subnet has no basic SKU network resources--meaning you need to have migrated all your Load Balancers and Public IP Addresses before you can use them. For this reason, we recommend using a two step approach where you first use one of the following approaches for outbound connectivity, then [switch to NAT Gateways](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md) once your basic SKU migrations are complete. 
-- **Network Virtual Appliance**: Route your traffic through a Network Virtual Appliance, such as an Azure Firewall, which will in turn route your traffic to the internet. This option is ideal if you already have a Network Virtual Appliance configured.
+- **Network Virtual Appliance**: Route your traffic through a Network Virtual Appliance, such as an Azure Firewall, to route your traffic to the internet. This option is ideal if you already have a Network Virtual Appliance configured.
 - **Secondary External Load Balancer**: By adding a secondary external Load Balancer to your backend resources, you can use the external Load Balancer for outbound traffic by configuring outbound rules. If this external Load Balancer doesn't have any load balancing rules, NAT rules, or inbound NAT pools configured, your backend resources remain isolated to your internal network for inbound traffic--see [outbound-only load balancer configuration](./egress-only.md). With this option, the external Load Balancer can be configured before migrating from basic to standard SKU and migrated at the same time as the internal load balancer using [using the `-MultiLBConfig` parameter](#example-migrate-multiple-related-load-balancers)
 - **Public IP Addresses**: Lastly, Public IP addresses can be added directly to your [Virtual Machines](../virtual-network/ip-services/associate-public-ip-address-vm.md) or [Virtual Machine Scale Set instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine). However, this option isn't recommended due to the extra security surface area and expense of adding Public IP Addresses.  
 

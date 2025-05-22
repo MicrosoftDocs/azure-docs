@@ -1,13 +1,13 @@
 ---
-title: Discover servers on Hyper-V with Azure Migrate Discovery and assessment
+title: Discover servers on Hyper-V with Azure Migrate Discovery and assessment 
 description: Learn how to discover on-premises servers on Hyper-V with the Azure Migrate Discovery and assessment tool.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 11/21/2024
-ms.custom: mvc, subject-rbac-steps, engagement-fy25, ignite-2024
+ms.date: 02/07/2025
+ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
 
@@ -132,7 +132,7 @@ Set up a new project.
 2. Under **Services**, select **Azure Migrate**.
 3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
    > [!Note]
    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
@@ -143,7 +143,7 @@ Set up a new project.
     :::image type="content" source="./media/tutorial-discover-hyper-v/added-tool.png" alt-text="Screenshot showing Azure Migrate: Discovery and assessment tool added by default.":::
 
 > [!NOTE]
-> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project)
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project).
 
 ## Set up the appliance
 
@@ -202,20 +202,20 @@ Check that the zipped file is secure, before you deploy it.
 Import the downloaded file, and create an appliance.
 
 1. Extract the zipped VHD file to a folder on the Hyper-V host that will host the appliance. Three folders are extracted.
-2. Open Hyper-V Manager. In **Actions**, click **Import Virtual Machine**.
-2. In the Import Virtual Machine Wizard > **Before you begin**, click **Next**.
-3. In **Locate Folder**, specify the folder containing the extracted VHD. Then click **Next**.
-1. In **Select Virtual Machine**, click **Next**.
-2. In **Choose Import Type**, click **Copy the virtual machine (create a new unique ID)**. Then click **Next**.
-3. In **Choose Destination**, leave the default setting. Click **Next**.
-4. In **Storage Folders**, leave the default setting. Click **Next**.
+2. Open Hyper-V Manager. In **Actions**, select **Import Virtual Machine**.
+2. In the Import Virtual Machine Wizard > **Before you begin**, select **Next**.
+3. In **Locate Folder**, specify the folder containing the extracted VHD. Then select **Next**.
+1. In **Select Virtual Machine**, select **Next**.
+2. In **Choose Import Type**, select **Copy the virtual machine (create a new unique ID)**. Then select **Next**.
+3. In **Choose Destination**, leave the default setting. Select **Next**.
+4. In **Storage Folders**, leave the default setting. Select **Next**.
 5. In **Choose Network**, specify the virtual switch that the appliance will use. The switch needs internet connectivity to send data to Azure.
-6. In **Summary**, review the settings. Then click **Finish**.
+6. In **Summary**, review the settings. Then select **Finish**.
 7. In Hyper-V Manager > **Virtual Machines**, start the appliance.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to Azure URLs [public](migrate-support-matrix.md#public-cloud) and [government](migrate-support-matrix.md#azure-government) clouds.
+Make sure that the appliance can connect to Azure URLs [public](supported-geographies.md#public-cloud) and [government](supported-geographies.md#azure-government) clouds.
 
 ### 4. Configure the appliance
 
@@ -228,7 +228,7 @@ Set up the appliance for the first time.
 2. Provide the language, time zone, and password for the appliance.
 3. Open a browser on any machine that can connect to the appliance, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
-   Alternately, you can open the app from the appliance desktop by clicking the app shortcut.
+   Alternately, you can open the app from the appliance desktop by selecting the app shortcut.
 1. Accept the **license terms**, and read the third-party information.
 
 #### Set up prerequisites and register the appliance
@@ -274,9 +274,9 @@ If you're running VHDs on SMBs, you must enable delegation of credentials from t
     ```
 
 2. Alternatively, do this in the Local Group Policy Editor on the appliance:
-    - In **Local Computer Policy** > **Computer Configuration**, click **Administrative Templates** > **System** > **Credentials Delegation**.
+    - In **Local Computer Policy** > **Computer Configuration**, select **Administrative Templates** > **System** > **Credentials Delegation**.
     - Double-click **Allow delegating fresh credentials**, and select **Enabled**.
-    - In **Options**, click **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
+    - In **Options**, select **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
     - In  **Credentials Delegation**, double-click **Allow delegating fresh credentials with NTLM-only server authentication**. Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
 
 ## Start continuous discovery
@@ -294,9 +294,9 @@ Connect from the appliance to Hyper-V hosts or clusters, and start server discov
     - If you choose **Add multiple items** _(selected by default)_, you can add multiple records at once by specifying Hyper-V host/cluster **IP address/FQDN** with the friendly name for credentials in the text box. **Verify** the added records and select **Save**.
     - If you choose **Import CSV**, you can download a CSV template file, populate the file with the Hyper-V host/cluster **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and select **Save**.
 
-1. On clicking Save, appliance will try validating the connection to the Hyper-V hosts/clusters added and show the **Validation status** in the table against each host/cluster.
-    - For successfully validated hosts/clusters, you can view more details by clicking on their IP address/FQDN.
-    - If validation fails for a host, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
+1. On selecting Save, appliance will try validating the connection to the Hyper-V hosts/clusters added and show the **Validation status** in the table against each host/cluster.
+    - For successfully validated hosts/clusters, you can view more details by selecting on their IP address/FQDN.
+    - If validation fails for a host, review the error by selecting on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove hosts or clusters, select **Delete**.
     - You can't remove a specific host from a cluster. You can only remove the entire cluster.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
@@ -358,7 +358,7 @@ Select **Start discovery**, to kick off server discovery from the successfully v
 After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Servers** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
+2. In **Azure Migrate - Servers** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 #### View support status
 
@@ -377,10 +377,9 @@ To view the remaining duration until end of support, that is, the number of mont
 > [!Note]
 > Perform this step only if you are migrating to [Azure Local](/azure-stack/hci/overview).
 
-Provide the Azure Local instance information and the credentials to connect to the system. For more information, see [Download the Azure Local software](/azure-stack/hci/deploy/download-azure-stack-hci-software).
+Provide the Azure Stack cluster information and the credentials to connect to the cluster. For more information, see [Download the Azure Local software](/azure-stack/hci/deploy/download-azure-stack-hci-software).
 
 :::image type="content" source="./media/tutorial-discover-hyper-v/onboard-hci.png" alt-text="Screenshot that shows the Onboard to Azure Local section.":::
-
 
 ## Next steps
 

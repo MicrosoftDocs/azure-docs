@@ -2,9 +2,9 @@
 title: 'Tutorial: Use Java functions with Azure Cosmos DB and Event Hubs'
 description: This tutorial shows you how to consume events from Event Hubs to make updates in Azure Cosmos DB using a function written in Java.
 author: KarlErickson
+ms.author: karler
 ms.topic: tutorial
 ms.date: 02/14/2024
-ms.author: karler
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 #Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Azure Cosmos DB.
@@ -120,7 +120,8 @@ az eventhubs eventhub create \
     --resource-group $RESOURCE_GROUP \
     --name $EVENT_HUB_NAME \
     --namespace-name $EVENT_HUB_NAMESPACE \
-    --message-retention 1
+    --retention-time 1 \
+    --cleanup-policy Delete
 az eventhubs eventhub authorization-rule create \
     --resource-group $RESOURCE_GROUP \
     --name $EVENT_HUB_AUTHORIZATION_RULE \
@@ -139,7 +140,8 @@ az eventhubs eventhub create ^
     --resource-group %RESOURCE_GROUP% ^
     --name %EVENT_HUB_NAME% ^
     --namespace-name %EVENT_HUB_NAMESPACE% ^
-    --message-retention 1
+    --retention-time 1 ^
+    --cleanup-policy Delete
 az eventhubs eventhub authorization-rule create ^
     --resource-group %RESOURCE_GROUP% ^
     --name %EVENT_HUB_AUTHORIZATION_RULE% ^
@@ -213,7 +215,7 @@ az functionapp create \
     --storage-account $STORAGE_ACCOUNT \
     --consumption-plan-location $LOCATION \
     --runtime java \
-    --functions-version 3
+    --functions-version 4
 ```
 
 # [Cmd](#tab/cmd)
@@ -229,7 +231,7 @@ az functionapp create ^
     --storage-account %STORAGE_ACCOUNT% ^
     --consumption-plan-location %LOCATION% ^
     --runtime java ^
-    --functions-version 3
+    --functions-version 4
 ```
 
 ---
@@ -486,8 +488,8 @@ public class Function {
         @CosmosDBOutput(
             name = "databaseOutput",
             databaseName = "TelemetryDb",
-            containerName = "TelemetryInfo",
-            connection = "CosmosDBConnectionSetting")
+            collectionName = "TelemetryInfo",
+            connectionStringSetting = "CosmosDBConnectionSetting")
             OutputBinding<TelemetryItem> document,
         final ExecutionContext context) {
 

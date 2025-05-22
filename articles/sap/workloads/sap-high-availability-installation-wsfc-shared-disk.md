@@ -275,7 +275,7 @@ To add a probe port run this PowerShell Module on one of the cluster VMs:
 
     .PARAMETER IsSAPERSClusteredInstance 
     Optional parameter.Default value is '$False'.
-    If set to $True , then handle clsutered new SAP ERS2 instance.
+    If set to $True , then handle clustered new SAP ERS2 instance.
 
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP', and restart the SAP cluster group 'SAP AB1', to activate the changes.
@@ -283,7 +283,7 @@ To add a probe port run this PowerShell Module on one of the cluster VMs:
 
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP'. SAP cluster group 'SAP AB1' IS NOT restarted, therefore changes are NOT active.
-    # To activate the changes you need to manualy restart 'SAP AB1' cluster group.
+    # To activate the changes you need to manually restart 'SAP AB1' cluster group.
     Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 -RestartSAPClusterGroup $False
 
     .EXAMPLE 

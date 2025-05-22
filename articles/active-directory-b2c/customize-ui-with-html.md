@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -17,6 +17,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Customize the user interface with HTML templates in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -33,7 +34,7 @@ Azure AD B2C runs code in your customer's browser by using [Cross-Origin Resourc
 
 ### Custom HTML page content
 
-Create an HTML page with your own branding to serve your custom page content. This page can be a static `*.html` page, or a dynamic page like .NET, Node.js, or PHP,however, Azure B2C does not support any view engines. Any server-side rendering of the dynamic page must be performed by a dedicated web application.
+Create an HTML page with your own branding to serve your custom page content. This page can be a static `*.html` page, or a dynamic page like .NET, Node.js, or PHP, however, Azure B2C doesn't support any view engines. Any server-side rendering of the dynamic page must be performed by a dedicated web application.
 
 Your custom page content can contain any HTML elements, including CSS and JavaScript, but can't include insecure elements like iframes. The only required element is a div element with `id` set to `api`, such as this one `<div id="api"></div>` within your HTML page.
 
@@ -60,7 +61,7 @@ The following table lists the default page content provided by Azure AD B2C. Dow
 | Unified sign-up or sign-in | This page handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook, Microsoft account, or local accounts. | [Classic](https://login.microsoftonline.com/static/tenant/default/unified.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/unified.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/unified.cshtml). |
 | Sign-in (only)| The sign-in page is also known as the *Identity provider selection*. It handles the user sign-in with local account, or federated identity providers. Use this page to allow sign-in without the ability to sign up. For example before user can edit their profile. | [Classic](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/idpSelector.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/idpSelector.cshtml).
 | Self-Asserted | Most interactions in Azure AD B2C where the user is expected to provide input are self-asserted. For example, a sign-up page, sign-in page, or password reset page. Use this template as a custom page content for a social account sign-up page, a local account sign-up page, a local account sign-in page, password reset, edit profile, block page and more. The self-asserted page can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. | [Classic](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/selfAsserted.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/selfAsserted.cshtml).  |
-|  Multi-factor authentication |  On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. | [Classic](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/multifactor-1.0.0.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/multifactor-1.0.0.cshtml). |
+|  Multifactor authentication |  On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. | [Classic](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/multifactor-1.0.0.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/multifactor-1.0.0.cshtml). |
 | Error | This page is displayed when an exception or an error is encountered. | [Classic](https://login.microsoftonline.com/static/tenant/default/exception.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/exception.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/exception.cshtml). |
 
 
@@ -72,7 +73,7 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 ## Guidelines for using custom page content
 
 - Use an absolute URL when you include external resources like media, CSS, and JavaScript files in your HTML file.
-- Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload="true"`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
+- Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload="true"`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the unstyled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
 
   ```html
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
@@ -99,7 +100,7 @@ The following example defines the following classes:
 
 * `imprint-en` - Used when the current language is English.
 * `imprint-de` - Used when the current language is German.
-* `imprint` - Default class that is used when the current language is not English or German.
+* `imprint` - Default class that is used when the current language isn't English or German.
 
 ```css
 .imprint-en:lang(en),
@@ -111,7 +112,7 @@ The following example defines the following classes:
 }
 ```
 
-The following HTML elements will be shown or hidden according to the page language:
+The following HTML elements are shown according to the page language:
 
 ```html
 <a class="imprint imprint-en" href="Link EN">Imprint</a>
@@ -200,7 +201,7 @@ Create a custom page content with your product's brand name in the title.
 1.  Save the file as *customize-ui.html*.
 
 > [!NOTE]
-> HTML form elements will be removed due to security restrictions if you use login.microsoftonline.com. If you want to use HTML form elements in your custom HTML content, [use b2clogin.com](b2clogin.md).
+> HTML form elements are removed due to security restrictions if you use login.microsoftonline.com. If you want to use HTML form elements in your custom HTML content, [use b2clogin.com](b2clogin.md).
 
 ### 2. Create an Azure Blob storage account
 
@@ -447,6 +448,6 @@ To use [company branding](customize-ui.md#configure-company-branding) assets in 
 <img data-tenant-branding-logo="true" alt="Company Logo" />
 ```
 
-## Next steps
+## Related content
 
 Learn how to enable [client-side JavaScript code](javascript-and-page-layout.md).

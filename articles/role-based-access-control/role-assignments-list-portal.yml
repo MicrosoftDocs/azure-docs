@@ -5,8 +5,8 @@ metadata:
   description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using the Azure portal and Azure role-based access control (Azure RBAC).
   author: rolyon
   ms.author: rolyon
-  manager: amycolannino
-  ms.date: 11/11/2024
+  manager: femila
+  ms.date: 12/12/2024
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
@@ -154,7 +154,6 @@ procedureSection:
 
         - Role assignments added with Azure RBAC.
         - Deny assignments added using Azure Blueprints or Azure managed apps.
-        - Classic Service Administrator or Co-Administrator assignments for classic deployments. 
 
         ![Screenshot of assignments pane.](./media/shared/rg-check-access-assignments-user.png)
 

@@ -6,7 +6,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 11/16/2023
+ms.date: 11/16/2024
 ms.custom: project-no-code
 ms.author: godonnell
 ms.subservice: b2c
@@ -18,6 +18,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-in for multitenant Microsoft Entra ID using custom policies in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

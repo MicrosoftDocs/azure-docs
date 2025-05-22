@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure parameters
 description: Describes how policy definition parameters are used to establish conventions for Azure resources in your organization.
-ms.date: 04/01/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 
@@ -27,7 +27,7 @@ A parameter uses the following properties in a policy definition:
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
   - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope. There's one role assignment per role definition in the policy (or per role definition in all of the initiative's policies). The parameter value must be a valid resource or scope.
   - `deprecated`: A boolean flag to indicate whether a parameter is deprecated in a built-in definition.
-- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For oject-type parameters, the value must match the appropriate schema.
+- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For object-type parameters, the value must match the appropriate schema.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during assignment.
   - Case sensitivity: Allowed value comparisons are case-sensitive when assigning a policy, meaning that the selected parameter values in the assignment must match the casing of values in the `allowedValues` array in the definition. However, once values are selected for the assignment, evaluation of string comparisons might be case insensitive depending on the [condition](./definition-structure-policy-rule.md#conditions) used. For example, if the parameter specifies `Dev` as an allowed tag value in an assignment, and this value is compared to an input string using the `equals` condition, then Azure Policy would later evaluate a tag value of `dev` as a match even though it's lowercase because `notEquals` is case insensitive.
   - For object-type parameters, the values must match the appropriate schema.

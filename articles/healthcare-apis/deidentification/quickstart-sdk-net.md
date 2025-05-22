@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Azure Health de-identification client library for .NET"
 description: A quickstart guide to de-identify health data with the .NET client library
-author: GrahamMThomas
-ms.author: gthomas
+author: kimiamavon
+ms.author: kimiamavon
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: quickstart-sdk
@@ -36,7 +36,14 @@ A de-identification service provides you with an endpoint URL. This endpoint url
     DEID_SERVICE_NAME="<NewDeidServiceName>"
     az resource create -g $RESOURCE_GROUP_NAME -n $DEID_SERVICE_NAME --resource-type microsoft.healthdataaiservices/deidservices --is-full-object -p "{\"identity\":{\"type\":\"SystemAssigned\"},\"properties\":{},\"location\":\"$REGION\"}"
     ```
-    
+### Assign RBAC Roles to the de-identification service
+
+We need to assign a role to our de-identification service so we have permissions to perform the actions in this quickstart.
+
+Since we're using real-time and job endpoints, we assign the `DeID Data Owner` roles.
+
+To learn how to assign this role to your de-identification service, refer to: [Manage access to the de-identification service with Azure role-based access control (RBAC) in Azure Health Data Services](manage-access-rbac.md)
+
 ### Create an Azure Storage account
 
 1. Install [Azure CLI](/cli/azure/install-azure-cli)
@@ -141,16 +148,16 @@ To create the job, we need the URL to the blob endpoint of the Azure Storage Acc
 az resource show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME  --resource-type Microsoft.Storage/storageAccounts --query properties.primaryEndpoints.blob --output tsv
 ```
 
-Now we can create the job. This example uses `folder1/` as the prefix. The job will de-identify any document that matches this prefix and write the de-identified version with the `output_files/` prefix.
+Now we can create the job. This example uses `folder1/` as the prefix. The job de-identifies any document that matches this prefix and write the de-identified version with the `output_files/` prefix.
 
 ```csharp
 using Azure;
 
-Uri storageAccountUri = new("");
+Uri storageAccountContainerUri = new("https://exampleStorageAccount.blob.core.windows.net/containerName");
 
 DeidentificationJob job = new(
-    new SourceStorageLocation(new Uri(storageAccountUrl), "folder1/"),
-    new TargetStorageLocation(new Uri(storageAccountUrl), "output_files/")
+    new SourceStorageLocation(storageAccountContainerUri, "folder1/"),
+    new TargetStorageLocation(storageAccountContainerUri, "output_files/")
 );
 
 job = client.CreateJob(WaitUntil.Started, "my-job-1", job).Value;

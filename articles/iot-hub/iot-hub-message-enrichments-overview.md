@@ -1,13 +1,13 @@
 ---
 title: Overview of Azure IoT Hub message enrichments
 description: This article shows message enrichments, which give the IoT Hub the ability to stamp messages with additional information before the messages are sent to the designated endpoint. 
-author: kgremban
+author: SoniaLopezBravo
 
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2022
-ms.author: kgremban
+ms.author: sonialopez
 #Customer intent: As a developer, I want to be able to add information to messages sent from a device to my IoT hub, based on the destination endpoint.   
 ---
 # Message enrichments for device-to-cloud IoT Hub messages
@@ -49,7 +49,7 @@ The messages can come from any data source supported by [IoT Hub message routing
 
 You can add enrichments to messages that are going to the built-in endpoint of an IoT hub, or to messages that are being routed to custom endpoints such as Azure Blob storage, a Service Bus queue, or a Service Bus topic.
 
-You can also add enrichments to messages that are being published to Event Grid by first creating an Event Grid subscription with the device telemetry message type. Based on this subscription, we will create a default route in Azure IoT Hub for the telemetry. This single route can handle all of your Event Grid subscriptions. You can then configure enrichments for the endpoint by using the **Enrich messages** tab of the IoT Hub **Message routing** section. For information about reacting to events by using Event Grid, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
+You can also add enrichments to messages that are being published to Event Grid by first creating an Event Grid subscription with the device telemetry message type. Based on this subscription, we will create a default route in Azure IoT Hub for the telemetry. This single route can handle all of your Event Grid subscriptions. You can then configure enrichments for the endpoint by using the **Enrich messages** tab of the IoT Hub **Message routing** section. For information about reacting to events by using Event Grid, see [IoT Hub and Event Grid](iot-hub-event-grid.md).
 
 Enrichments are applied per endpoint. If you specify five enrichments to be stamped for a specific endpoint, all messages going to that endpoint are stamped with the same five enrichments.
 

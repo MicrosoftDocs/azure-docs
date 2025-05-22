@@ -237,7 +237,7 @@ Compared to the previous beta versions, we also made some minor changes to the A
 
 In the previous beta versions, `pairRttInMs`, `availableBitrate` were included in audio, video, and screenShare statistics. Now these metrics are separated into transport metrics.
 
-We introduced `packets` and `packetsLost` metric fields in audio, video, screenShare statistics. These metrics are useful for calculating the total number of packets sent or recieved between two different time points.
+We introduced `packets` and `packetsLost` metric fields in audio, video, screenShare statistics. These metrics are useful for calculating the total number of packets sent or received between two different time points.
 
 The `frameRateOutput` in video and screenShare statistics is removed. You can use `frameRateDecoded` instead.
 

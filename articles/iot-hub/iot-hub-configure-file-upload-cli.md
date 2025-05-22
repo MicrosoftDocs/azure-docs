@@ -1,12 +1,12 @@
 ---
 title: Configure file upload to IoT Hub using Azure CLI
 description: How to configure file uploads to Azure IoT Hub using the cross-platform Azure CLI.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 12/05/2024
 ms.custom: devx-track-azurecli
 ---
 
@@ -24,7 +24,7 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 * An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
-* An Azure Storage account. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../storage/common/storage-account-create.md).
+* An Azure Storage account with a blob container. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../storage/common/storage-account-create.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -54,40 +54,31 @@ Sign in to your Azure account and select your subscription. If you're using Azur
     az account set --subscription {your subscription name or id}
     ```
 
-## Retrieve your storage account details
+## Configure storage account access
 
 The following steps assume that you created your storage account using the **Resource Manager** deployment model, and not the **Classic** deployment model.
 
-To configure file uploads from your devices, you need the connection string for an Azure Storage account. The storage account must be in the same subscription as your IoT hub. You also need the name of a blob container in the storage account. Use the following command to retrieve your storage account keys:
+To configure file uploads from your devices, you need to give your IoT hub access permissions to the Azure Storage account. The storage account must be in the same subscription as your IoT hub. You also need the name of a blob container in the storage account.
 
-```azurecli
-az storage account show-connection-string --name {your storage account name} \
-  --resource-group {your storage account resource group}
-```
-The connection string will be similar to the following output:
+You can use either key-based or identity-based authentication to provide access permissions. Microsoft recommends identity-based authentication as a more secure option.
+
+### Key-based authentication
+
+For key-based authentication, provide the connection string for your storage account. Use the [az storage account show-connection-string](/cli/azure/storage/account#az-storage-account-show-connection-string) command to retrieve your storage account keys.
+
+Make a note of the `connectionString` value. The connection string looks similar to the following output:
 
 ```json
 {
-  "connectionString": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName={your storage account name};AccountKey={your storage account key}"
+  "connectionString": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName={your_storage_account_name};AccountKey={your_storage_account_key}"
 }
 ```
 
-Make a note of the `connectionString` value. You need it in the following steps.
+### Identity-based authentication
 
-You can either use an existing blob container for your file uploads or create a new one:
+You can use system-assigned managed identities or user-assigned managed identities for identity-based authentication. For more information, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
 
-* To list the existing blob containers in your storage account, use the following command:
-
-    ```azurecli
-    az storage container list --connection-string "{your storage account connection string}"
-    ```
-
-* To create a blob container in your storage account, use the following command:
-
-    ```azurecli
-    az storage container create --name {container name} \
-      --connection-string "{your storage account connection string}"
-    ```
+Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign a role to your managed identity. For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md).
 
 ## Configure your IoT hub
 
@@ -107,11 +98,10 @@ The configuration requires the following values:
 
 * **File notification lock duration**: The lock duration for the file notification queue. Set to 60 seconds by default.
 
-* **Authentication type**: The type of authentication for IoT Hub to use with Azure Storage. This setting determines how your IoT hub authenticates and authorizes with Azure Storage. The default is key-based authentication; however, system-assigned and user-assigned managed identities can also be used. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. To learn how to configure managed identities on your IoT hub and Azure Storage account, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). Once configured, you can set one of your managed identities to use for authentication with Azure storage.
+* **Authentication type**: The type of authentication for IoT Hub to use with Azure Storage. This setting determines how your IoT hub authenticates and authorizes with Azure Storage. The default is key-based authentication; however, the system-assigned or user-assigned managed identity authentication options are recommended. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner.
 
     > [!NOTE]
     > The authentication type setting configures how your IoT hub authenticates with your Azure Storage account. Devices always authenticate with Azure Storage using the SAS URI that they get from the IoT hub. 
-
 
 The following commands show how to configure the file upload settings on your IoT hub. These commands are shown separately for clarity, but, typically, you would issue a single command with all the required parameters for your scenario. Include quotes where they appear in the command line. Don't include the braces. More detail about each parameter can be found in the Azure CLI documentation for the [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update) command.
 
@@ -147,7 +137,7 @@ az iot hub update --name {your iot hub name} \
     --fileupload-storage-auth-type keyBased
 ```
 
-The following command configures authentication using the IoT hub's system-assigned managed identity. Before you can run this command, you need to enable the system-assigned managed identity for your IoT hub and grant it the correct RBAC role on your Azure Storage account. To learn how, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
+The following command configures authentication using the IoT hub's system-assigned managed identity. Before you can run this command, you need to enable the system-assigned managed identity for your IoT hub and grant it the correct role-based access control role on your Azure Storage account. To learn how, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
 
 ```azurecli
 az iot hub update --name {your iot hub name} \
@@ -155,7 +145,7 @@ az iot hub update --name {your iot hub name} \
     --fileupload-storage-identity [system] 
 ```
 
-The following commands retrieve the user-assigned managed identities configured on your IoT hub and configure authentication with one of them. Before you can use a user-assigned managed identity to authenticate, it must be configured on your IoT hub and granted an appropriate RBAC role on your Azure Storage account. For more detail and steps, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
+The following commands retrieve the user-assigned managed identities configured on your IoT hub and configure authentication with one of them. Before you can use a user-assigned managed identity to authenticate, it must be configured on your IoT hub and granted an appropriate role-based access control role on your Azure Storage account. For more detail and steps, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
 
 To query for user-assigned managed identities on your IoT hub, use the [az iot hub identity show](/cli/azure/iot/hub/identity#az-iot-hub-identity-show) command.
 

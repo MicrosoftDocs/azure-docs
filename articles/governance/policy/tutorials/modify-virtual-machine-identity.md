@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Add user assign identities to virtual machines"
 description: Learn how to update virtual machines' and virtual machine scale sets' identities to be user assigned as a prerequisite to install the Azure Monitoring Agent
-ms.date: 04/02/2023
+ms.date: 03/04/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 author: kenieva

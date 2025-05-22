@@ -1,12 +1,11 @@
 ---
 title: Configure a WAF rate-limit rule for Azure Front Door
 description: Learn how to configure a rate-limit rule for an existing Azure Front Door endpoint.
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-services: web-application-firewall
 ms.date: 05/19/2023
-ms.author: victorh 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
 ---
@@ -36,19 +35,11 @@ You decide to create a rate-limit rule that restricts each source IP address to 
 
 1. In the Azure portal, select **Create a resource**.
 
-   :::image type="content" source="../media/waf-front-door-rate-limit-configure/create-resource.png" alt-text="Screenshot that shows the Create a resource button on the home page." :::
-
 1. Search for **Front Door**, and select **Front Door and CDN profiles**.
-
-   :::image type="content" source="../media/waf-front-door-rate-limit-configure/create-front-door.png" alt-text="Screenshot that shows the marketplace, with Front Door highlighted." :::
 
 1. Select **Create**.
 
-   :::image type="content" source="../media/waf-front-door-rate-limit-configure/create-front-door-2.png" alt-text="Screenshot that shows Front Door and CDN profiles, with the Create button highlighted." :::
-
 1. Select **Continue to create a Front Door** to use the *quick create* portal creation process.
-
-   :::image type="content" source="../media/waf-front-door-rate-limit-configure/quick-create.png" alt-text="Screenshot that shows the Azure Front Door offerings, with the Quick create option selected and the Continue to create a Front Door button highlighted." :::
 
 1. Enter the information required on the **Basics** page:
 
@@ -64,11 +55,7 @@ You decide to create a rate-limit rule that restricts each source IP address to 
 
 1. Enter the name of a WAF policy and select **Create**.
 
-   :::image type="content" source="../media/waf-front-door-rate-limit-configure/waf-policy-create.png" alt-text="Screenshot that shows the WAF policy creation prompt, with the Create button highlighted." :::
-
 1. Select **Review + create** > **Create**.
-
-   :::image type="content" source="../media/waf-front-door-rate-limit-configure/front-door-create.png" alt-text="Screenshot that shows the completed Azure Front Door profile configuration." :::
 
 1. After the deployment is finished, select **Go to resource**.
 

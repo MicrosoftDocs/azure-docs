@@ -2,14 +2,15 @@
 title: Get started with Cost Management for partners
 titleSuffix: Microsoft Cost Management
 description: This article explains how partners use Cost Management features and how they enable access for their customers.
-author: bandersmsft
-ms.author: banders
-ms.date: 11/14/2024
-ms.topic: conceptual
+author: shrutis06
+ms.author: shrshett
+ms.date: 01/13/2025
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: aparnag
+ms.reviewer: shrshett
 ms.custom: secdec18
+#customer intent: As a partner, I want to understand how Cost Management features are used so that I can enable access for my customers.
 ---
 
 # Get started with Cost Management for partners
@@ -104,7 +105,7 @@ Partners can use the scope to reconcile to invoices. And, they use the scope to 
 
 ### Customer scope
 
-Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pretax costs for a specific customer in a billing currency. You can also filter the pretax costs for a specific subscription, resource group, or resource.
+Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pretax costs for a specific customer in the partner's billing currency. You can also filter the pretax costs for a specific subscription, resource group, or resource.
 
 The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement.
 
@@ -207,7 +208,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | subscription ID | Unique Microsoft generated identifier for the Azure subscription. | EntitlementID |
 | subscriptionName | Name of the Azure subscription. | N/A |
 | Term | Displays the term for the validity of the offer. For example, reserved instances show 12 months of a yearly term of the reserved instance. For one-time purchases or recurring purchases, the term displays one month for SaaS, Azure Marketplace, and support. Not applicable for Azure consumption. | N/A |
-| provider | Identifier for product and line of business. Break down costs by the provider type: Azure, Microsoft 365, Dynamics 365, AWS¹, and so on.  | N/A |
+| provider | Identifier for product and line of business. Break down costs by the provider type: Azure, Microsoft 365, Dynamics 365, and so on.  | N/A |
 | publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Type of publisher that identifies the publisher as first party, third-party reseller, or third-party agency. | N/A |
 | partNumber | Part number for the unused reserved instance and Azure Marketplace services. | N/A |
 | publisherName | Name of the publisher of the service including Microsoft or third-party publishers. | The name of the product's publisher.|
@@ -240,8 +241,6 @@ The following data fields are found in usage detail files and Cost Management AP
 | **partnerEarnedCreditRate** | Rate of discount applied if there's a partner earned credit (PEC) based on partner admin link access. | The rate of partner earned credit (PEC). For example, 0% or 15%. |
 | **partnerEarnedCreditApplied** | Indicates whether the partner earned credit was applied. | N/A |
 | unitPrice | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details). | N/A |
-
-¹ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 ## View Partner Earned Credit (PEC) resource costs
 
@@ -278,7 +277,7 @@ In the Azure portal, sign in to the partner tenant or customer tenant and select
 
 :::image type="content" border="true" source="./media/get-started-partners/export01.png" alt-text="Screenshot showing select Export and View all exports.":::
 
-Next, select  **Add** and type the name and select an export type. Select the **Storage** tab and enter required information.
+Next, select  **Add, and type the name and select an export type. Select the **Storage** tab and enter required information.
 
 :::image type="content" border="true" source="./media/get-started-partners/export02.png" alt-text="Screenshot showing add new export and select Storage tab.":::
 

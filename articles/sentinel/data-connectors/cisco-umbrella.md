@@ -2,7 +2,7 @@
 title: "Cisco Umbrella (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cisco Umbrella (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -93,7 +93,7 @@ To integrate with Cisco Umbrella (using Azure Functions) make sure you have:
 
 
 > [!NOTE]
-   >  This connector has been updated to support [cisco umbrella version 5 and version 6.](https://docs.umbrella.com/deployment-umbrella/docs/log-formats-and-versioning)
+   >  This connector has been updated to support [cisco umbrella log schema version 11.](https://docs.umbrella.com/deployment-umbrella/docs/log-formats-and-versioning)
 
 
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Functions App.

@@ -27,11 +27,15 @@ items:
         displayName: Resource Manager
       - name: Azure Health De-identification client library for .NET
         href: quickstart-sdk-net.md
+      - name: Python
+        href: quickstart-python.md
   - name: Tutorials
     expanded: true
     items:
       - name: Configure Azure Storage to de-identify documents
         href: configure-storage.md
+      - name: Customize format of redacted text during de-identification
+        href: redaction-format.md
   - name: How-to
     expanded: true
     items:

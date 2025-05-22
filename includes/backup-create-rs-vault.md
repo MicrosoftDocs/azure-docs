@@ -1,12 +1,12 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: backup
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
 ms.topic: include
-ms.date: 02/17/2023
+ms.date: 12/20/2024
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -19,13 +19,13 @@ To create a Recovery Services vault:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Search for **Backup center**, and then go to the **Backup center** dashboard.
+1. Search for **Business Continuity Center**, and then go to the **Business Continuity Center** dashboard.
 
-    ![Screenshot that shows where to search for and select 'Backup center'.](../includes/media/backup-create-rs-vault/backup-center-search-backup-center.png)
+    :::image type="content" source="../includes/media/backup-create-rs-vault/search-business-continuity-center.png" alt-text="Screenshot that shows where to search for and select Business Continuity Center." lightbox="../includes/media/backup-create-rs-vault/search-business-continuity-center.png":::
 
-1. On the **Overview** pane, select **Vault**.
+1. On the **Vault** pane, select **+Vault**.
 
-    ![Screenshot of the button for creating a Recovery Services vault.](./media/backup-create-rs-vault/backup-center-create-vault.png) 
+    :::image type="content" source="./media/backup-create-rs-vault/create-vault.png" alt-text="Screenshot shows how to start creating a Recovery Services vault." lightbox="./media/backup-create-rs-vault/create-vault.png"::: 
 
 1. Select **Recovery Services vault** > **Continue**.
 

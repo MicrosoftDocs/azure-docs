@@ -5,12 +5,12 @@ description: Learn how to configure VPN Gateway server settings for point-to-sit
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 11/07/2024
+ms.date: 03/10/2025
 ms.author: cherylmc
 ---
 # Configure server settings for P2S VPN Gateway certificate authentication
 
-This article helps you configure the necessary VPN Gateway point-to-site (P2S) server settings to let you securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your virtual network from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network.
+This article helps you configure the necessary VPN Gateway point-to-site (P2S) server settings to let you securely connect from individual client computers running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your virtual network from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network.
 
 P2S connections don't require a VPN device or a public-facing IP address. There are various different configuration options available for P2S. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md).
 
@@ -22,12 +22,11 @@ The steps in this article use the Azure portal to configure your Azure VPN gatew
 
 ## Prerequisites
 
-This article assumes the following prerequisites:
+This article assumes that you have already created a route-based VPN gateway that's compatible with the P2S configuration that you want to create, the authentication method that you want to use, and the connecting VPN clients.
 
-* An Azure virtual network.
-* A route-based VPN gateway that's compatible with the P2S configuration that you want to create and the connecting VPN clients. To help determine the P2S configuration that you need, see the [VPN client table](#type). If your gateway uses the Basic SKU, understand that the Basic SKU has P2S limitations and doesn't support IKEv2 or RADIUS authentication. For more information, see [About gateway SKUs](about-gateway-skus.md).
-
-If you don't yet have a functioning VPN gateway that's compatible with the P2S configuration that you want to create, see [Create and manage a VPN gateway](tutorial-create-gateway-portal.md). Create a compatible VPN gateway, then return to this article to configure P2S settings.
+* If you don't yet have a VPN gateway, see [Create and manage a VPN gateway](tutorial-create-gateway-portal.md), then return to this page to configure the point-to-site VPN gateway settings.
+* To help determine the P2S configuration that you need, see the [VPN client table](#type).
+* If you have a VPN gateway that uses the Basic SKU, understand that the Basic SKU has P2S limitations and doesn't support IKEv2 or RADIUS authentication. For more information, see [About gateway SKUs](about-gateway-skus.md).
 
 ## <a name="generatecert"></a>Generate certificates
 
@@ -70,9 +69,7 @@ The tunnel type and the authentication type must correspond to the VPN client so
 
 ## <a name="publicip3"></a>Add another public IP address
 
-If you have an active-active mode gateway, you need to specify a third public IP address to configure point-to-site. In the example, we create the third public IP address using the example value **VNet1GWpip3**. If your gateway isn't in active-active mode, you don't need to add another public IP address.
-
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-ip.png" alt-text="Screenshot of Point-to-site configuration page - public IP address." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-ip.png":::
+[!INCLUDE [Add public IP address](../../includes/vpn-gateway-third-public-ip.md)]
 
 ## <a name="uploadfile"></a>Upload root certificate public key information
 
@@ -92,7 +89,7 @@ In this section, you upload public root certificate data to Azure. Once the publ
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-certificate-data.png" alt-text="Screenshot of certificate data field." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-certificate-data.png":::
 
 1. Additional routes aren't necessary for this exercise. For more information about the custom routing feature, see [Advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md).
-1. Select **Save** at the top of the page to save all of the configuration settings.
+1. Select **Save** at the top of the page to save all of the configuration settings. After the configuration settings deployment completes, you can generate and download the VPN client configuration package.
 
 ## <a name="profile-files"></a>Generate VPN client profile configuration files
 

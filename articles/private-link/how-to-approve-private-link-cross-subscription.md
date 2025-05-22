@@ -6,7 +6,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 01/11/2024
+ms.date: 03/25/2025
 # Customer intent: As a network administrator, I want to approve Private Link connections across Azure subscriptions.
 
 ---
@@ -60,7 +60,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 1. Select **+ Create**.
 
-1. On the **Basics** tab of **Create a resource group**, enter or select the following information:
+1. On the **Basics** tab of **Create a resource group**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -118,7 +118,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 1. Select **+ Create** in **Private endpoints**.
 
-1. On the **Basics** tab of **Create a private endpoint**, enter or select the following information:
+1. On the **Basics** tab of **Create a private endpoint**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |

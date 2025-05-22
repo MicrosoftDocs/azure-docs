@@ -2,10 +2,10 @@
 title: Source control
 description: Learn how to configure source control in Azure Data Factory.
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
+author: kromerm
+ms.author: makromer
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 01/29/2025
 ---
 
 # Source control in Azure Data Factory
@@ -26,7 +26,7 @@ You can also reference [Continuous integration and delivery (CI/CD) in Azure Dat
 
 To learn more about how Azure Data Factory integrates with Git, view the 15-minute tutorial video below:
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4GNKv]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=cea58440-722d-4e48-ae44-2f86c4eba0c4]
 
 ## Advantages of Git integration
 

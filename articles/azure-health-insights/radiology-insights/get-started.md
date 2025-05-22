@@ -133,7 +133,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
                       "code": {
                         "coding": [
                           {
-                            "system": "Https://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "26688-1",
                             "display": "US BREAST - LEFT LIMITED"
                           }
@@ -270,7 +270,7 @@ Optional: sex and birthDate are optional fields.
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
-              "system" : "Https://loinc.org",
+              "system" : "https://loinc.org",
               "code" : "41806-1",
               "display" : "CT ABDOMEN"
             } ]

@@ -2,11 +2,11 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 04/25/2024
+ms.date: 05/13/2025
 ms.custom: references_regions
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Overview of Archive tier in Azure Backup
@@ -23,7 +23,7 @@ Archive tier supports the following workloads:
 
 | Workloads | Operations |
 | --- | --- |
-| Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-standard tier <br><br> Retention left >= 6 months. <br><br> No active daily and weekly dependencies. There are no un-expired daily or weekly recovery points between the recovery point considered for archival and the next monthly or yearly recovery point. |
+| Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-standard tier <br><br> Retention left >= 6 months. <br><br> No active on-demand, daily, and weekly dependencies. There are no un-expired daily or weekly recovery points between the recovery point considered for archival and the next monthly or yearly recovery point. |
 | SQL Server in Azure Virtual Machines <br><br> SAP HANA in Azure Virtual Machines | Only full recovery points. Logs and differentials aren't supported. <br><br> Age >= 45 days in Vault-standard tier. <br><br> Retention left >= 6 months. <br><br>  No dependencies. |
 
 A recovery point becomes archivable only if all the above conditions are met.
@@ -43,7 +43,7 @@ Archive tier supports the following clients:
 
 | Supported workload | Supported region |
 | --- | --- |
-| - **Azure VMs** <br><br> - **SQL Server in Azure VMs** <br><br> - **SAP HANA in Azure VMs** | Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US 2, East US, France Central, Germany West Central, Central India, South India, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, South Central US, South East Asia, UAE North, UK South, UK West, West Central US, West Europe, West US 2, West US, US Gov Arizona, US Gov Virginia, US Gov Texas, China North 2, China East 2, South Africa North, South Africa West, Sweden Central, Sweden South, Switzerland North. |
+| **Azure VMs**, **SQL Server in Azure VMs**, **SAP HANA in Azure VMs** | Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US 2, East US, France Central, Germany West Central, Central India, South India, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, South Central US, South East Asia, UAE North, UK South, UK West, West Central US, West Europe, West US 2, West US, US Gov Arizona, US Gov Virginia, US Gov Texas, China North 2, China East 2, South Africa North, South Africa West, Sweden Central, Sweden South, Switzerland North. |
 
 ## How Azure Backup moves recovery points to the Vault-archive tier?
 
@@ -135,7 +135,16 @@ You can also filter from the list of all recovery points as per *daily*, *weekly
  
 :::image type="content" source="./media/archive-tier-support/filter-vm-recovery-points-by-age.png" alt-text="Screenshot shows how to filter recovery points for an Azure VM by daily, weekly, monthly, and yearly." lightbox="./media/archive-tier-support/filter-vm-recovery-points-by-age.png":::
 
+### Can I retrieve snapshot to Standard Tier Permanently after the recovery point is moved to Archive Tier?
+
+No, after moving the recovery point to the archive tier, it can't return to the standard tier permanently. Rehydration provides the only method to place the RP in the standard tier for a specified duration during restore. The recovery point remains in the archive tier.
+
+>[!Note]
+>You can do the rehydration process during the restore from a recovery point only.
+
+
 ## Next steps
 
-- [Use Archive tier](use-archive-tier-support.md)
-- [Azure Backup pricing](azure-backup-pricing.md)
+- [Use Archive tier](use-archive-tier-support.md).
+- [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md).
+- [Azure Backup pricing](azure-backup-pricing.md).

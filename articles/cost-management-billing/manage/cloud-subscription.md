@@ -1,14 +1,13 @@
 ---
 title: What is a cloud subscription?
 description: Learn about cloud subscriptions, how they help manage Microsoft products and services, and the benefits of organizing resources with multiple subscriptions.
-author: bandersmsft
+author: kendayMS
 ms.reviewer: macyso
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 11/21/2024
-ms.author: banders
-#customer intent: As a billing admin, I want to understand what a cloud subscription is so that I can manage my resources effectively.
+ms.date: 05/14/2025
+ms.author: macyso
 ---
 
 # What is a cloud subscription?
@@ -17,7 +16,7 @@ A cloud subscription is a way to manage the products and services that you buy f
 
 The term cloud subscription is synonymous with Azure subscription.
 
-- **No cost for cloud subscriptions** - Cloud subscriptions themselves don't cost any money. They're used to organizing and managing the things you buy. While products like virtual machines or Enterprise Support managed within a cloud subscription might incur charges, the subscription itself doesn't.
+- **No cost for cloud subscriptions** - Cloud subscriptions themselves don't cost any money. They're used to organize and manage the things you buy. While products like virtual machines or Enterprise Support managed within a cloud subscription might incur charges, the subscription itself doesn't.
 - **Multiple subscriptions** - You can create multiple cloud subscriptions to delegate management to different users in your organization or to apply policies for security, budgeting, and compliance.
 - **Familiar management tools** - If you used Azure subscriptions before, you can manage cloud subscriptions similarly, with more manageability for a broader set of products and services.
 
@@ -36,7 +35,7 @@ If you're signing in for the first time, search for **Subscriptions** in the sea
 
 ### Do I get charged for creating and using cloud subscriptions?
 
-No, cloud subscriptions are created silently and are used to manage the things that you buy. They don't incur charges or cost money.
+No. Cloud subscriptions get created on the back end and are used to manage the things that you buy. They don't incur charges or cost money.
 
 ### How do I manage my cloud subscriptions?
 

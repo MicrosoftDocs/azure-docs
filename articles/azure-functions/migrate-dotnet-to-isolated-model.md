@@ -1,33 +1,33 @@
 ---
-title: Migrate .NET function apps from the in-process model to the isolated worker model
-description: This article shows you how to migrate your existing .NET function apps running on the in-process model to the isolated worker model.
+title: Migrate C# app from in-process to isolated worker model
+description: Learn how to migrate your existing C# function apps running on .NET in the in-process model to the isolated worker model.
 ms.service: azure-functions
 ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/17/2024
+ms.date: 04/04/2025
 ---
 
-# Migrate .NET apps from the in-process model to the isolated worker model
+# Migrate C# apps from the in-process model to the isolated worker model
 
 > [!IMPORTANT]
-> [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model). We highly recommend that you migrate your apps to the isolated worker model by following the instructions in this article.
+> [Support for the in-process model ends on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model). We highly recommend that you migrate your apps to the isolated worker model by following the instructions in this article.
 
 This article walks you through the process of safely migrating your .NET function app from the [in-process model](./functions-dotnet-class-library.md) to the [isolated worker model][isolated-guide]. To learn about the high-level differences between these models, see the [execution mode comparison](./dotnet-isolated-in-process-differences.md).
 
-This guide assumes that your app is running on version 4.x of the Functions runtime. If not, you should instead follow the guides for upgrading your host version:
+This guide assumes that your app is running on version 4.x of the Functions runtime. If not, you should use the following guides to upgrade your host version. These host-version migration guides also help you migrate to the isolated worker model as you work through them.
 
 - [Migrate apps from Azure Functions version 2.x and 3.x to version 4.x](./migrate-version-3-version-4.md)
 - [Migrate apps from Azure Functions version 1.x to version 4.x](./migrate-version-1-version-4.md)
 
-These host version migration guides also help you migrate to the isolated worker model as you work through them.
+When supported, this article takes advantage of [ASP.NET Core integration] in the isolated worker model, which improves performance and provides a familiar programming model when your app uses HTTP triggers. 
 
 ## Identify function apps to migrate
 
 Use the following Azure PowerShell script to generate a list of function apps in your subscription that currently use the in-process model.
 
-The script uses subscription that Azure PowerShell is currently configured to use. You can change the subscription by first running `Set-AzContext -Subscription '<YOUR SUBSCRIPTION ID>'` and replacing `<YOUR SUBSCRIPTION ID>` with the ID of the subscription you would like to evaluate.
+The script uses the subscription that Azure PowerShell is currently configured to use. You can change the subscription by first running `Set-AzContext -Subscription '<YOUR SUBSCRIPTION ID>'` and replacing `<YOUR SUBSCRIPTION ID>` with the ID of the subscription you would like to evaluate.
 
 ```azurepowershell-interactive
 $FunctionApps = Get-AzFunctionApp
@@ -58,28 +58,26 @@ This guide doesn't present specific examples for .NET 9. If you need to target t
 
 ## Prepare for migration
 
-If you haven't already, identify the list of apps that need to be migrated in your current Azure Subscription by using the [Azure PowerShell](#identify-function-apps-to-migrate).
-
 Before you migrate an app to the isolated worker model, you should thoroughly review the contents of this guide. You should also familiarize yourself with the features of the [isolated worker model][isolated-guide] and the [differences between the two models](./dotnet-isolated-in-process-differences.md).
 
-To migrate the application, you will:
+To migrate the application:
 
 1. Migrate your local project to the isolated worker model by following the steps in [Migrate your local project](#migrate-your-local-project).
-1. After migrating your project, fully test the app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). 
+1. After migrating your project, fully test the app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md).
 1. [Update your function app in Azure](#update-your-function-app-in-azure) to the isolated model.
 
 ## Migrate your local project
 
-The section outlines the various changes that you need to make to your local project to move it to the isolated worker model. Some of the steps change based on your target version of .NET. Use the tabs to select the instructions that match your desired version. These steps assume a local C# project, and if your app is instead using C# script (`.csx` files), you should [convert to the project model](./functions-reference-csharp.md#convert-a-c-script-app-to-a-c-project) before continuing.
+The section outlines the various changes that you need to make to your local project to move it to the isolated worker model. Some of the steps change based on your target version of .NET. Use the tabs to select the instructions that match your desired version.
 
 > [!TIP]
-> If you are moving to an LTS or STS version of .NET, the [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
+> If you're moving to an LTS or STS version of .NET, the [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
 
-First, convert the project file and update your dependencies. As you do, you will see build errors for the project. In subsequent steps, you'll make the corresponding changes to remove these errors.
+First, convert the project file and update your dependencies. As you do, you see build errors for the project. In subsequent steps, you'll make the corresponding changes to remove these errors.
 
 ### Project file
 
-The following example is a `.csproj` project file that uses .NET 8 on version 4.x:
+The following example is a *.csproj* project file that uses .NET 8 on version 4.x:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -115,17 +113,17 @@ Use one of the following procedures to update this XML file to run in the isolat
 
 ---
 
-Changing your project's target framework might also require changes to parts of your toolchain, outside of project code. For example, in VS Code, you might need to update the `azureFunctions.deploySubpath` extension setting through user settings or your project's `.vscode/settings.json` file. Check for any dependencies on the framework version that may exist outside of your project code, as part of build steps or a CI/CD pipeline.
+Changing your project's target framework might also require changes to parts of your toolchain, outside of project code. For example, in VS Code, you might need to update the `azureFunctions.deploySubpath` extension setting through user settings or your project's *.vscode/settings.json* file. Check for any dependencies on the framework version that might exist outside of your project code, as part of build steps or a CI/CD pipeline.
 
 ### Package references
 
- When migrating to the isolated worker model, you need to change the packages your application references.
+When migrating to the isolated worker model, you need to change the packages your application references.
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
 ### Program.cs file
 
-When migrating to run in an isolated worker process, you must add a `Program.cs` file to your project with the following contents:
+When migrating to run in an isolated worker process, you must add a *Program.cs* file to your project with the following contents:
 
 # [.NET 8](#tab/net8)
 
@@ -145,7 +143,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-This example includes [ASP.NET Core integration] to improve performance and provide a familiar programming model when your app uses HTTP triggers. If you do not intend to use HTTP triggers, you can replace the call to `ConfigureFunctionsWebApplication` with a call to `ConfigureFunctionsWorkerDefaults`. If you do so, you can remove the reference to `Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore` from your project file. However, for the best performance, even for functions with other trigger types, you should keep the `FrameworkReference` to ASP.NET Core.
+This example includes [ASP.NET Core integration] to improve performance and provide a familiar programming model when your app uses HTTP triggers. If you don't intend to use HTTP triggers, you can replace the call to `ConfigureFunctionsWebApplication` with a call to `ConfigureFunctionsWorkerDefaults`. If you do so, you can remove the reference to `Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore` from your project file. However, for the best performance, even for functions with other trigger types, you should keep the `FrameworkReference` to ASP.NET Core.
 
 # [.NET Framework 4.8](#tab/netframework48)
 
@@ -182,7 +180,7 @@ namespace Company.FunctionApp
 
 Some key types change between the in-process model and the isolated worker model. Many of these relate to the attributes, parameters, and return types that make up the function signature. For each of your functions, you must make changes to:
 
-- The function attribute (which also sets the function's name)
+- The function attribute, which also sets the function's name
 - How the function obtains an `ILogger`/`ILogger<T>`
 - Trigger and binding attributes and parameters
 
@@ -194,11 +192,12 @@ The `Function` attribute in the isolated worker model replaces the `FunctionName
 
 #### Logging
 
-In the in-process model, you could include an optional `ILogger` parameter to your function, or you could use dependency injection to get an `ILogger<T>`. If your app already used dependency injection, the same mechanisms work in the isolated worker model.
+In the in-process model, you could include an optional `ILogger` parameter for your function, or you could use dependency injection to get an `ILogger<T>`. If your app already used dependency injection, the same mechanisms work in the isolated worker model.
 
-However, for any Functions that relied on the `ILogger` method parameter, you need to make a change. It is recommended that you use dependency injection to obtain an `ILogger<T>`.  Use the following steps to migrate the function's logging mechanism:
+However, for any Functions that relied on the `ILogger` method parameter, you need to make a change. We recommended that you use dependency injection to obtain an `ILogger<T>`. Use the following steps to migrate the function's logging mechanism:
 
 1. In your function class, add a `private readonly ILogger<MyFunction> _logger;` property, replacing `MyFunction` with the name of your function class.
+
 1. Create a constructor for your function class that takes in the `ILogger<T>` as a parameter:
 
     ```csharp
@@ -210,21 +209,24 @@ However, for any Functions that relied on the `ILogger` method parameter, you ne
     Replace both instances of `MyFunction` in the preceding code snippet with the name of your function class.
 
 1. For logging operations in your function code, replace references to the `ILogger` parameter with `_logger`.
+
 1. Remove the `ILogger` parameter from your function signature.
 
 To learn more, see [Logging in the isolated worker model](./dotnet-isolated-process-guide.md#logging).
 
 #### Trigger and binding changes
 
-When you [changed your package references in a previous step](#package-references), you introduced errors for your triggers and bindings that you will now fix:
+When you [changed your package references in a previous step](#package-references), you introduced errors for your triggers and bindings that you can now fix:
 
 1. Remove any `using Microsoft.Azure.WebJobs;` statements.
+
 1. Add a `using Microsoft.Azure.Functions.Worker;` statement.
+
 1. For each binding attribute, change the attribute's name as specified in its reference documentation, which you can find in the [Supported bindings](./functions-triggers-bindings.md#supported-bindings) index. In general, the attribute names change as follows:
 
     - **Triggers typically remain named the same way.** For example, `QueueTrigger` is the attribute name for both models.
-    - **Input bindings typically need "Input" added to their name.** For example, if you used the `CosmosDB` input binding attribute in the in-process model, the attribute would now be `CosmosDBInput`.
-    - **Output bindings typically need "Output" added to their name.** For example, if you used the `Queue` output binding attribute in the in-process model, this attribute would now be `QueueOutput`.
+    - **Input bindings typically need `Input` added to their name.** For example, if you used the `CosmosDB` input binding attribute in the in-process model, the attribute would now be `CosmosDBInput`.
+    - **Output bindings typically need `Output` added to their name.** For example, if you used the `Queue` output binding attribute in the in-process model, this attribute would now be `QueueOutput`.
  
 1. Update the attribute parameters to reflect the isolated worker model version, as specified in the binding's reference documentation. 
 
@@ -240,9 +242,9 @@ When you [changed your package references in a previous step](#package-reference
 
 ### local.settings.json file
 
-The local.settings.json file is only used when running locally. For information, see [Local settings file](functions-develop-local.md#local-settings-file). 
+The *local.settings.json* file is only used when running locally. For information, see [Local settings file](functions-develop-local.md#local-settings-file).
 
-When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated". Make sure that your local.settings.json file has at least the following elements:
+When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to *dotnet-isolated*. Make sure that your *local.settings.json* file has at least the following elements:
 
 ```json
 {
@@ -254,15 +256,15 @@ When migrating from running in-process to running in an isolated worker process,
 }
 ```
 
-The value you have for `AzureWebJobsStorage`` might be different. You do not need to change its value as part of the migration.
+The value you have for `AzureWebJobsStorage` might be different. You don't need to change its value as part of the migration.
 
 ### host.json file
 
-No changes are required to your `host.json` file. However, if your Application Insights configuration in this file from your in-process model project, you might want to make additional changes in your `Program.cs` file. The `host.json` file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
+No changes are required to your *host.json* file. However, if your Application Insights configuration is in this file from your in-process model project, you might want to make additional changes in your *Program.cs* file. The *host.json* file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
 
 ### Other code changes
 
-This section highlights other code changes to consider as you work through the migration. These changes are not needed by all applications, but you should evaluate if any are relevant to your scenarios.
+This section highlights other code changes to consider as you work through the migration. These changes aren't needed by all applications, but you should evaluate if any are relevant to your scenarios.
 
 [!INCLUDE [functions-dotnet-migrate-isolated-other-code-changes](../../includes/functions-dotnet-migrate-isolated-other-code-changes.md)]
 
@@ -371,30 +373,33 @@ namespace Company.Function
 Updating your function app to the isolated model involves two changes that should be completed together, because if you only complete one, the app is in an error state. Both of these changes also cause the app process to restart. For these reasons, you should perform the update using a [staging slot](./functions-deployment-slots.md). Staging slots help minimize downtime for your app and allow you to test and verify your migrated code with your updated configuration in Azure. You can then deploy your fully migrated app to the production slot through a swap operation.
 
 > [!IMPORTANT]
-> [When an app's deployed payload doesn't match the configured runtime, it will be in an error state](./errors-diagnostics/diagnostic-events/azfd0013.md). During the migration process, you will put the app into this state, ideally only temporarily. Deployment slots help mitigate the impact of this, because the error state will be resolved in your staging (non-production) environment before the changes are applied as single update to your production environment. Slots also defend against any mistakes and allow you to detect any other issues before reaching production.
+> When an app's deployed payload doesn't match the configured runtime, it's in [an error state](./errors-diagnostics/diagnostic-events/azfd0013.md). During the migration process, you put the app into this state, ideally only temporarily. Deployment slots help mitigate the effect of this, because the error state will be resolved in your staging (nonproduction) environment before the changes are applied as single update to your production environment. Slots also defend against any mistakes and allow you to detect any other issues before reaching production.
 > 
-> During the process, you might still see errors in logs coming from your staging (non-production) slot. This is expected, though these should go away as you proceed through the steps. Before you perform the slot swap operation, you should confirm that these errors stop being raised and that your application is working as expected.
+> During the process, you might still see errors in logs coming from your staging (nonproduction) slot. This is expected, though these should go away as you proceed through the steps. Before you perform the slot swap operation, you should confirm that these errors stop being raised and that your application is working as expected.
 
 Use the following steps to use deployment slots to update your function app to the isolated worker model:
 
 1. [Create a deployment slot](./functions-deployment-slots.md#add-a-slot) if you haven't already. You might also want to familiarize yourself with the slot swap process and ensure that you can make updates to the existing application with minimal disruption.
-1. Change the configuration of the staging (non-production) slot to use the isolated worker model by setting the `FUNCTIONS_WORKER_RUNTIME` application setting to `dotnet-isolated`. `FUNCTIONS_WORKER_RUNTIME` should **not** be marked as a "slot setting".
 
-    If you are also targeting a different version of .NET as part of your update, you should also change the stack configuration. To do so, see the [instructions to update the stack configuration for the isolated worker model](./update-language-versions.md?pivots=programming-language-csharp#update-the-stack-configuration). You will use the same instructions for any future .NET version updates you make.
+1. Change the configuration of the staging (nonproduction) slot to use the isolated worker model by setting the `FUNCTIONS_WORKER_RUNTIME` application setting to `dotnet-isolated`. `FUNCTIONS_WORKER_RUNTIME` should **not** be marked as a *slot setting*.
+
+    If you're also targeting a different version of .NET as part of your update, you should also change the stack configuration. To do so, see [Update the stack configuration](./update-language-versions.md?pivots=programming-language-csharp#update-the-stack-configuration). You can use the same instructions for any future .NET version updates you make.
 
     If you have any automated infrastructure provisioning such as a CI/CD pipeline, make sure that the automations are also updated to keep `FUNCTIONS_WORKER_RUNTIME` set to `dotnet-isolated` and to target the correct .NET version.
 
-1. Publish your migrated project to the staging (non-production) slot of your function app.
-    
-    If you use Visual Studio to publish an isolated worker model project to an existing app or slot that uses the in-process model, it can also complete the previous step for you at the same time. If you did not complete the previous step, Visual Studio prompts you to update the function app during deployment. Visual Studio presents this as a single operation, but these are still two separate operations. You might still see errors in your logs from the staging (non-production) slot during the interim state.
+1. Publish your migrated project to the staging (nonproduction) slot of your function app.
 
-1. Confirm that your application is working as expected within the staging (non-production) slot.
-1. Perform a [slot swap operation](./functions-deployment-slots.md#swap-slots). This applies the changes you made in your staging (non-production) slot to the production slot. A slot swap happens as a single update, which avoids introducing the interim error state in your production environment.
+    If you use Visual Studio to publish an isolated worker model project to an existing app or slot that uses the in-process model, it can also complete the previous step for you at the same time. If you didn't complete the previous step, Visual Studio prompts you to update the function app during deployment. Visual Studio presents this as a single operation, but these are still two separate operations. You might still see errors in your logs from the staging (nonproduction) slot during the interim state.
+
+1. Confirm that your application is working as expected within the staging (nonproduction) slot.
+
+1. Perform a [slot swap operation](./functions-deployment-slots.md#swap-slots) to apply the changes you made in your staging (nonproduction) slot to the production slot. A slot swap happens as a single update, which avoids introducing the interim error state in your production environment.
+
 1. Confirm that your application is working as expected within the production slot.
 
-Once you complete these steps, the migration is complete, and your app runs on the isolated model. Congratulations! Repeat the steps from this guide as necessary for [any other apps needing migration](#identify-function-apps-to-migrate).
+Once you complete these steps, the migration is complete, and your app runs on the isolated model. Congratulations! Repeat the steps from this guide as necessary for [any other apps that need migration](#identify-function-apps-to-migrate).
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn more about the isolated worker model][isolated-guide]

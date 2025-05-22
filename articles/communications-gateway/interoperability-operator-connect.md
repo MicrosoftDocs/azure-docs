@@ -1,8 +1,6 @@
 ---
 title: Overview of Operator Connect and Teams Phone Mobile with Azure Communications Gateway
 description: Understand how Azure Communications Gateway fits into your fixed and mobile networks and into the Operator Connect and Teams Phone Mobile environments.
-author: GemmaWakeford
-ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 02/16/2024
@@ -44,7 +42,7 @@ Your core mobile network must supply this information to Azure Communications Ga
 Your core mobile network must also be able to anchor and divert calls into the Microsoft Phone System. You can choose from the following options.
 
 - Using Mobile Control Point (MCP) in Azure Communications Gateway. MCP is an IMS Application Server that queries the Teams Phone Mobile Consultation API to determine whether the call involves a Teams Phone Mobile Subscriber. MCP then adds X-MS-FMC headers and updates the signaling to divert the call into the Microsoft Phone System through Azure Communications Gateway. For more information, see [Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile](mobile-control-point.md).
-- Deploying an on-premises version of Mobile Control Point (MCP) from Metaswitch. For more information, see the [Metaswitch description of Mobile Control Point](https://www.metaswitch.com/products/mobile-control-point). This version of MCP isn't included in Azure Communications Gateway.
+- Deploying an on-premises version of Mobile Control Point (MCP) from Metaswitch. For more information, see the [Metaswitch description of Mobile Control Point](https://info.metaswitch.com/hubfs/pdfs/MobileControlPoint_How%20it%20Works.pdf). This version of MCP isn't included in Azure Communications Gateway.
 - Using other routing capabilities in your core network to detect Teams Phone Mobile subscribers and route INVITEs to or from these subscribers into the Microsoft Phone System through Azure Communications Gateway.
 
 > [!IMPORTANT]

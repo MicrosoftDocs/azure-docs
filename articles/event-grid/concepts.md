@@ -1,10 +1,9 @@
 ---
-title: Azure Event Grid concepts (push delivery) in Event Grid basic
+title: Concepts (push delivery) in Event Grid basic
 description: Describes Azure Event Grid concepts that pertain to push delivery. Defines several key components of Event Grid.
-ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-ms.date: 11/15/2023
+ms.topic: concept-article
+ms.date: 12/12/2024
+# Customer intent: I want to basic concepts of Azure Event Grid. 
 ---
 
 # Azure Event Grid's push delivery - concepts
@@ -63,7 +62,7 @@ System topics are built-in topics provided by Azure services such as Azure Stora
 
 ## Partner topics
 
-Partner topics are a kind of topic used to subscribe to events published by a [partner](#partners).  The feature that enables this type of integration is called [Partner Events](partner-events-overview.md). Through that integration, you get a partner topic where events from a partner system are made available. Once you have a partner topic, you create an [event subscription](#event-subscriptions) as you would do for any other kind of topic.
+Partner topics are a kind of topic used to subscribe to events published by a [partner](#partners). The feature that enables this type of integration is called [Partner Events](partner-events-overview.md). Through that integration, you get a partner topic where events from a partner system are made available. Once you have a partner topic, you create an [event subscription](#event-subscriptions) as you would do for any other kind of topic.
 
 ## Event subscriptions
 
@@ -112,7 +111,7 @@ If you're a [partner](partner-events-overview-for-partners.md), you can define t
 
 Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. For more information about availability zones, see [Regions and availability zones](../reliability/availability-zones-overview.md).
 
-## Next steps
+## Related content
 
 - For an introduction to Event Grid, see [About Event Grid](overview.md).
 - To get started using custom topics, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).

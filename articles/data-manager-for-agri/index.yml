@@ -7,9 +7,10 @@ metadata:
   title: Azure Data Manager for Agriculture Preview.
   description: description
   ms.topic: landing-page
-  author: gourdsay
-  ms.author: angour
+  author: BlackRider97
+  ms.author: ramithar
   ms.date: 02/20/2023
+  ms.service: azure-data-manager-agriculture
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 

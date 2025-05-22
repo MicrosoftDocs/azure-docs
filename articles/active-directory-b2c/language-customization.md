@@ -5,7 +5,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 01/05/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -15,6 +15,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Language customization in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -466,7 +468,7 @@ Microsoft provides the `ui_locales` OIDC parameter to social logins. But some so
 
 ### Browser behavior
 
-Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Microsoft Edge currently doesn't request a language and goes straight to the default language.
+Microsoft Edge, Chrome and Firefox request for their set language. If it's a supported language, it's displayed before the default.
 
 ## Supported languages
 

@@ -1,7 +1,7 @@
 ---
 title: Arc enable discovered inventory in Azure Migrate
 description: Describes how to enable arc in Azure Migrate
-author: v-sreedevank
+author: SnehaSudhirG
 ms.author: anjalimishra
 ms.service: azure-migrate
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.date: 10/14/2024
 # Enable Arc on Migrate inventory 
 
 
-This article describes how to view the Arc status of your Migrate discovered inventory and Arc enable your on-premises servers discovered in your datacenter with Azure Migrate: Discovery and assessment tool’s [appliance-based discovery](./vmware/how-to-set-up-appliance-vmware.md).  
+This article describes how to view the Arc status of your Migrate discovered inventory and Arc enable your on-premises servers discovered in your datacenter with Azure Migrate: Discovery and assessment tool’s [appliance-based discovery](how-to-set-up-appliance-vmware.md).  
 
 The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure. 
 
@@ -20,7 +20,7 @@ The [Azure Migrate appliance](migrate-appliance.md) is a lightweight applian
 
 - Make sure you've [created](create-manage-projects.md) an Azure Migrate project. You can also reuse an existing project to use this capability. 
 - Once you've created a project, the Azure Migrate: Discovery and assessment tool is automatically [added](how-to-create-assessment.md) to the project. 
-- Discover your IT estate using Azure Migrate appliance. Follow our tutorials for [VMware](./vmware/tutorial-discover-vmware.md) or [Hyper-V](tutorial-discover-hyper-v.md) or [Physical/Bare-metal](tutorial-discover-physical.md) or other clouds to try out these steps. 
+- Discover your IT estate using Azure Migrate appliance. Follow our tutorials for [VMware](./tutorial-discover-vmware.md) or [Hyper-V](tutorial-discover-hyper-v.md) or [Physical/Bare-metal](tutorial-discover-physical.md) or other clouds to try out these steps. 
 
 ## Overview 
 
@@ -31,9 +31,9 @@ The Arc-enable Migrate Inventory helps you view the Arc status of inventory disc
 
 ### Arc status in Azure Migrate
  
-To view the Arc Status in Azure Migrate, follow these steps: 
+To view the Arc Status in Azure Migrate, follow these steps:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discovered servers**.
+1. In **Servers, databases and web apps**, select **Discovered servers**.
 The **Discovered servers** page lists all the machines discovered. You can see the **Sync Arc Status** option here. 
 
    :::image type="content" source="./media/how-to-arc-enable-inventory/discovered-servers-inline.png" alt-text="Screenshot of the discovered servers." lightbox="./media/how-to-arc-enable-inventory/discovered-servers-expanded.png":::
@@ -57,7 +57,7 @@ The Arc status has two states. If a machine is Arc-enabled, the Migrate inventor
 
 To enable Arc for Azure Migrate discovered inventory, follow these steps:  
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discovered items**.
+1. In **Servers, databases and web apps**, select **Discovered items**.
 
 2. Navigate to **Enable Arc** and select **Generate onboarding script**. 
  

@@ -159,7 +159,7 @@ In this case, `package.json` could be:
 ```
 
 Then you should run `yarn install --flat`. It installs all the dependencies, but only allow one version for each package. On the first run, it prompts you to choose a single version for each package that is depended on at multiple version ranges. 
-For our case, it could prompt you to choose versions of `socket.io`, `enigne.io`, `engine.io-parser` and maybe more. Make sure their versions are matched with each other according to [the native implementation of `socket.io` package](https://github.com/socketio/socket.io/) and [`engine.io` package](https://github.com/socketio/engine.io/).
+For our case, it could prompt you to choose versions of `socket.io`, `engine.io`, `engine.io-parser` and maybe more. Make sure their versions are matched with each other according to [the native implementation of `socket.io` package](https://github.com/socketio/socket.io/) and [`engine.io` package](https://github.com/socketio/engine.io/).
 
 The final versions are added to your `package.json`` under a resolutions field.
 ```json

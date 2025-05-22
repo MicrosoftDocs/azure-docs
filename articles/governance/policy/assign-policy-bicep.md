@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Bicep file"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using a Bicep file.
-ms.date: 02/26/2024
+ms.date: 03/04/2025
 ms.topic: quickstart
 ms.custom: subject-bicepqs, devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
 ---

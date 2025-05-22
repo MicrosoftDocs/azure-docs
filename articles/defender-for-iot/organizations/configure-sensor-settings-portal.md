@@ -54,7 +54,7 @@ Your new setting is now listed on the **Sensor settings (Preview)** page under i
 
 > [!TIP]
 > You may want to configure exceptions to your settings for a specific OT sensor or zone. In such cases, create an extra setting for the exception. 
-> 
+>
 > Settings override each other in a hierarchical manner, so that if your setting is applied to a specific OT sensor, it overrides any related settings that are applied to the entire zone or site. To create an exception for an entire zone, add a setting for that zone to override any related settings applied to the entire site.
 >
 
@@ -120,6 +120,8 @@ The **Type** settings are:
 - [Local subnets](#local-subnets)
 - [VLAN naming](#vlan-naming)
 - [Public addresses](#public-addresses)
+- [Single sign-on](#single-sign-on)
+- [DHCP ranges](#dhcp-ranges)
 
 To add a new setting **Type**, select **Sites and sensors** > **Sensor settings**. Select the setting from the **Type** drop down, for example:
 
@@ -186,17 +188,52 @@ Select **Add VLAN** to add more VLANs as needed.
 
 ### Public addresses
 
-Add public addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data<!-- Theo is this correct? OR-->.
-Excluded public IP addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data.
+Add the public addresses of internal devices into this configuration to ensure that the sensor includes them in the inventory and doesn't treat them as internet communication.
 
 1. In the **Settings** tab, type the **IP address** and **Mask** address.
 
     :::image type="content" source="media/configure-sensor-settings-portal/sensor-settings-ip-addresses.png" alt-text="The screenshot shows the Settings tab for adding public addresses to the sensor settings.":::
 
-1. Select **Next**.
+1. Select **Next**
 1. In the **Apply** tab, select sites, and toggle the **Add selection by specific zone/sensor** to optionally apply the IP addresses to specific zones and sensors.
 1. Select **Next**.
 1. Review the details and select **Create** to add the address to the public addresses list.
+
+### Single sign-on
+
+With Single sign-on (SSO), users simply sign into the sensor console and don't need multiple login credentials across different sensors and sites. For more information, see [create SSO configuration](set-up-sso.md#create-sso-configuration).
+
+### DHCP ranges
+
+Add the range of IP addresses to configure the DHCP settings that can apply to a device that might have multiple IP addresses associated with it.
+
+1. In the **Settings** tab, type the **From** and **To** IP addresses, and optionally enter a **Name**.
+
+    :::image type="content" source="media/configure-sensor-settings-portal/dhcp-ranges.png" alt-text="The screenshot shows the Settings tab for adding DHCP IP addresses to the sensor settings.":::
+
+1. To add additional ranges, select **Add range**.
+1. Select **Next: Selection**.
+1. In the **Apply to** tab, select the sites, and toggle the **Add selection by specific zone/sensor** to optionally apply the IP addresses to specific zones and sensors.
+1. Select **Next: Review**.
+1. Review the details and select **Save and assign** to add the range of addresses to the DHCP range list.
+
+## Configure a backup server
+
+Your OT sensor can have a backup server setup during its initially deployment or later on. In both cases, follow this procedure to confirm that the backup server is correctly configured once it's setup.
+
+A misconfigured backup server might falsely recognize traffic as malware and trigger a [Malware engine alert](alert-engine-messages.md#malware-engine-alerts). If you think a **Suspicion of Malicious Activity** malware alert was triggered falsely, consider following this procedure to check the backup server configuration.
+
+**To configure the backup server:**
+
+1. Sign into your OT sensor console and select **System settings** > **Sensor management** > **Advanced configurations**.
+
+1. Select the **Global** category. Ensure the parameter **is_reduce_backup_malware_enabled** is set to **1** or **true**.
+
+1. Select the **Vulnerability assessment** category. Ensure **backup_servers** lists the backup server device's IP address.
+
+1. Select the **Ports** category. Ensure that **backup_known_ports** lists the port(s) that the backup server uses.
+
+1. Select **Save**.
 
 ## Next steps
 

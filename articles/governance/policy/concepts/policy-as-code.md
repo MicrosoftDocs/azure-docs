@@ -1,7 +1,7 @@
 ---
 title: Design Azure Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
-ms.date: 08/17/2021
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 # Design Azure Policy as Code workflows
@@ -147,7 +147,7 @@ or the initiative(s) it's part of should then be assigned to resources in the en
 from production. This environment is typically _Dev_.
 
 >[!NOTE]
-> In this step, we are conducting integration testing of the policy definition within your Azure environment, this is seperate from [verfying the functionality of the policy definition](./evaluate-impact.md#test-your-policys-effectiveness) which should occur during the definition creation process.
+> In this step, we are conducting integration testing of the policy definition within your Azure environment, this is separate from [verifying the functionality of the policy definition](./evaluate-impact.md#test-your-policys-effectiveness) which should occur during the definition creation process.
 
 The assignment should use [enforcementMode](./assignment-structure.md#enforcement-mode) of
 _disabled_ so that resource creation and updates aren't blocked, but that existing resources are

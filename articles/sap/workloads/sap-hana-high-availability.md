@@ -144,7 +144,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    1. Run this command to list all the available disks:
 
       ```bash
-      /dev/disk/azure/scsi1/lun*
+      ls /dev/disk/azure/scsi1/lun*
       ```
 
       Example output:
@@ -436,7 +436,7 @@ sapcontrol -nr <instance number> -function StopSystem
   
       [trace]
       ha_dr_sushanasr = info
-      ha_dr_saphanasr = info
+      ha_dr_suschksrv = info
       ```
   
       If you point parameter path to the default `/usr/share/SAPHanaSR-angi` location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like `/hana/shared/myHooks`, you can decouple OS updates from the hook version that you use.
@@ -486,7 +486,8 @@ sapcontrol -nr <instance number> -function StopSystem
    #### [SAPHanaSR-angi](#tab/saphanasr-angi)
    ```bash
    cdtrace
-   grep HADR.*load.*SAPHanaSR nameserver_*.trc
+   grep HADR.*load.*susHanaSR nameserver_*.trc
+   grep susHanaSR.init nameserver_*.trc
    # Example output
    # ha_dr_provider HADRProviderManager.cpp(00083) : loading HA/DR Provider 'susHanaSR' from /usr/share/SAPHanaSR-angi
    ```
@@ -626,6 +627,7 @@ sudo crm configure clone cln_SAPHanaFil_<HANA SID>_HDB<instance number> rsc_SAPH
 sudo crm configure primitive rsc_ip_<HANA SID>_HDB<instance number> ocf:heartbeat:IPaddr2 \
   meta target-role="Started" \
   operations \$id="rsc_ip_<HANA SID>_HDB<instance number>-operations" \
+  op start timeout=60s on-fail=fence \
   op monitor interval="10s" timeout="20s" \
   params ip="<front-end IP address>"
 
@@ -657,6 +659,7 @@ sudo crm configure rsc_defaults migration-threshold=5000
 # Replace <placeholders> with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 sudo crm configure primitive rsc_ip_<HANA SID>_HDB<instance number> ocf:heartbeat:IPaddr2 \
   meta target-role="Started" \
+  op start timeout=60s on-fail=fence \
   op monitor interval="10s" timeout="20s" \
   params ip="<front-end IP address>"
 

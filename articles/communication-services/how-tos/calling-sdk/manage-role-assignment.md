@@ -45,10 +45,16 @@ You create a 'Call' instance when you join the Teams meeting or Room with callin
 - Presenter
 - Organizer
 - Consumer
+- Collaborator
+
+To learn about the roles and capabilities in Rooms please see more [here](./../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions-in-virtual-rooms-calls). 
 
 ```js
 const role = meetingCall.role;
 ```
+
+> [!NOTE]
+> Collaborator is only available for Azure Communication Services Calling Web SDK. 
 
 ## Subscribe to role changes
 

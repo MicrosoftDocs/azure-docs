@@ -46,7 +46,7 @@ The following lines of code instantiate a *AzureCodeInterpreterToolSpec* and pro
 
 ```python
 code_interpreter_tool = AzureCodeInterpreterToolSpec(
-    pool_managment_endpoint=pool_management_endpoint,
+    pool_management_endpoint=pool_management_endpoint,
 )
 agent = ReActAgent.from_tools(code_interpreter_tool.to_tool_list(), llm=llm, verbose=True)
 ```

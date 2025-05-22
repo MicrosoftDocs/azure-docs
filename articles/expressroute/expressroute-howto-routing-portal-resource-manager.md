@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 02/11/2025
 ms.author: duau
 ---
 
@@ -17,8 +17,6 @@ This article shows you  how to create and manage routing configuration for an Az
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [Video - Private peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Video - Microsoft peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
@@ -82,8 +80,6 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 1. You can select the peering you wish to configure, as shown in the following example. Select the Microsoft peering row.
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/select-microsoft-peering.png" alt-text="Screenshot showing how to select the Microsoft peering row.":::
-
 1. Configure Microsoft peering. **Save** the configuration once you've specified all parameters. The following image shows an example configuration:
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m-validation-needed.png" alt-text="Screenshot showing Microsoft peering configuration.":::
@@ -94,9 +90,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
     > If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket. 
     >
 
-   If your circuit gets to a **Validation needed** state, you must open a support ticket to show proof of ownership of the prefixes to our support team. You can open a support ticket directly from the portal, as shown in the following example:
-
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/ticket-portal-m.png" alt-text="Screenshot showing new support ticket request to submit proof of ownership for public prefixes.":::
+   If your circuit gets to a **Validation needed** state, you must open a support ticket to show proof of ownership of the prefixes to our support team. You can open a support ticket directly from the portal.
 
 ### <a name="getmsft"></a>To view Microsoft peering details
 
@@ -143,8 +137,6 @@ This section helps you create, get, update, and delete the Azure private peering
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/select-private-peering.png" alt-text="Screenshot showing how to select the private peering row.":::
 
 1. Configure private peering. **Save** the configuration once you've specified all parameters.
-
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/private-peering-configuration.png" alt-text="Screenshot showing private peering configuration.":::
 
 ### <a name="getprivate"></a>To view Azure private peering details
 

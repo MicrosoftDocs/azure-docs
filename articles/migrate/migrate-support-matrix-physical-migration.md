@@ -4,9 +4,9 @@ description: Learn about support for physical server migration in Azure Migrate 
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 09/26/2024
+ms.date: 01/27/2025
 ms.custom: engagement-fy25
 ---
 
@@ -74,7 +74,7 @@ Component | Requirements | Details
 --- | --- | ---
 Guest operating system | Verifies supported operating systems.<br/> You can migrate any workload running on a supported OS. | Check fails if unsupported.
 Guest operating system architecture | 64 bit. | Check fails if unsupported.
-Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
+Operating system disk size | Up to 2TB for Gen1 VM and 4TB for Gen2 VM. | Check fails if unsupported.
 Operating system disk count | 1. | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
 Data disk size | Up to 32 TB. | Check fails if unsupported.

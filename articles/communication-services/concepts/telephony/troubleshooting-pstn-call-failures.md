@@ -16,7 +16,7 @@ When you're troubleshooting Azure Communication Services PSTN call failures, we 
 
 ## Use ResultCategories to troubleshoot failures
 
-The `ResultCategories` array is a property of the [call summary log schema](../analytics/logs/voice-and-video-logs.md#call-summary-log-schema). It contains a list of general reasons that describe how the call ended:
+The `ResultCategories` array is a property of the [Call Summary Log Schema](../analytics/logs/call-summary-log-schema.md). It contains a list of general reasons that describe how the call ended:
 
 - `Success`
 - `Failure`
@@ -27,7 +27,7 @@ This information can help you determine why a call ended without generating a de
 
 ## Use ParticipantEndReason and ParticipantEndSubCode to troubleshoot failures
 
-If the level of detail in `ResultCategories` isn't sufficient when you're troubleshooting PSTN calls, you can use `ParticipantEndReason` and `ParticipantEndSubCode` to understand the reasons why a call ended in greater detail. `ParticipantEndReason` and `ParticipantEndSubCode` are also properties of the [call summary log schema](../analytics/logs/voice-and-video-logs.md#call-summary-log-schema).
+If the level of detail in `ResultCategories` isn't sufficient when you're troubleshooting PSTN calls, you can use `ParticipantEndReason` and `ParticipantEndSubCode` to understand the reasons why a call ended in greater detail. `ParticipantEndReason` and `ParticipantEndSubCode` are also properties of the [Call Summary Log Schema](../analytics/logs/call-summary-log-schema.md).
 
 ### ParticipantEndReason
 
@@ -41,11 +41,11 @@ This code is based on Session Initiation Protocol (SIP) response codes. For more
   
 A key factor in troubleshooting Azure Communication Services PSTN calls is determining whether the final SIP response code for the call came from a Microsoft process or the user's/operator's session border controller (SBC). An easy way to determine where the code originated is to look at the `ParticipantEndSubCode` response.
 
-If the `ParticipantEndSubCode` value starts with `560`, it indicates that the user's/operator's SBC generated the response code. In that case, you should check the SBC configuration.
+If the `ParticipantEndSubCode` value starts with 560 or 540, it indicates that the user's/operator's SBC generated the response code. This is useful for troubleshooting Direct Routing calls, as the subcode can help determine whether the error is from your SBC or the Microsoft service. A subcode starting with 560 represents an outbound call, while a subcode starting with 540 represents an inbound call. In either case, check the SBC logs.
 
-For example, if the `ParticipantEndSubCode` value is `560403`, it means that the SBC generated the final response code, and the code is `403`. In that case, you should start troubleshooting the calls by using the SBC logs.
+For example, if the `ParticipantEndSubCode` value is `560403`, it means that it was an outbound call, the SBC generated the final response code, and the SIP response code from the SBC was 403. Start troubleshooting the calls by checking your SBC logs.
 
-For `ParticipantEndSubCode` responses that don't start with `560`, the Microsoft service generated the final response code.
+For `ParticipantEndSubCode` responses that don't start with 560 or 540, the Microsoft service generated the final response code.
 
 ## Related content
 

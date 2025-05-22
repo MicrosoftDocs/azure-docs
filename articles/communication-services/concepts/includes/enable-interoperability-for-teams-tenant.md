@@ -37,7 +37,7 @@ You'll be informed about the modules that will be installed, which you can confi
 
 ### 2. Connect to Microsoft Teams module
 
-When the module is installed and ready, you can connect to the MicrosftTeams module with the following command. You'll be prompted with an interactive window to log in. The user account that you're going to use needs to have Teams administrator permissions. Otherwise, you might get an `access denied` response in the next steps.
+When the module is installed and ready, you can connect to the MicrosoftTeams module with the following command. You'll be prompted with an interactive window to log in. The user account that you're going to use needs to have Teams administrator permissions. Otherwise, you might get an `access denied` response in the next steps.
 
 ```script
 Connect-MicrosoftTeams

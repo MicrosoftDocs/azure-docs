@@ -21,7 +21,7 @@ The `import` operation supports two modes: initial and incremental. Each mode ha
 
 - Intended for loading FHIR resources into an empty FHIR server.
 
-- Supports only `create` operations and (when enabled) blocks API writes to the FHIR server.
+- Blocks API writes to the FHIR server.
 
 ### Incremental mode
 
@@ -30,12 +30,10 @@ The `import` operation supports two modes: initial and incremental. Each mode ha
 - Allows you to load `lastUpdated` and `versionId` values from resource metadata if they're present in the resource JSON.
 
 - Allows you to load resources in a nonsequential order of versions.
- 
-  - If import files don't have the `version` and `lastUpdated` field values specified, there's no guarantee of importing resources in the FHIR service.
+  Note for non-sequential ingestion of resources
+  - If import files don't have the `version` and `lastUpdated` field values specified, there's no guarantee of importing all resources in the FHIR service.
   - If import files have resources with duplicate `version` and `lastUpdated` field values, only one resource is randomly ingested in the FHIR service.
-  - If multiple resources share the same resource ID, only one of those resources is imported at random. An error is logged for the resources that share the same resource ID.
-
-- Allows you to ingest soft-deleted resources. This capability is beneficial when you migrate from Azure API for FHIR to the FHIR service in Azure Health Data Services.
+  - During parallel execution, if multiple resources share the same resource ID, only one of those resources is imported at random.
 
 The following table shows the difference between import modes.
 
@@ -90,6 +88,7 @@ The following tables describe the body parameters and inputs.
 | `inputFormat`| String that represents the name of the data source format. Only FHIR NDJSON files are supported. | 1..1 | `application/fhir+ndjson` |
 | `mode`| Import mode value. | 1..1 | For an initial-mode import,  use the `InitialLoad` mode value. For incremental-mode import, use the `IncrementalLoad` mode value. If you don't provide a mode value, the `IncrementalLoad` mode value is used by default. |
 | `allowNegativeVersions`|	Allows FHIR server assigning negative versions for resource records with explicit lastUpdated value and no version specified when input doesn't fit in contiguous space of positive versions existing in the store. | 0..1 |	To enable this feature, pass true. By default it's false. |
+|`errorContainerName`|  String that represents the name of the container where errors encountered during the import process will be logged.  | 0..1 | Custom container name for error logs. The name should be between 3-63 characters and only contain lowercase letters, numbers, and hyphens. If not specified, the default container will be used. |
 | `input`| Details of the input files. | 1..* | A JSON array with the three parts described in the following table. |
 
 
@@ -114,6 +113,10 @@ The following tables describe the body parameters and inputs.
         {
             "name": "allowNegativeVersions",
             "valueBoolean": true
+        },
+        {
+            "name": "errorContainerName",
+            "valueString": "import-error-logs"
         },
         {
             "name": "input",

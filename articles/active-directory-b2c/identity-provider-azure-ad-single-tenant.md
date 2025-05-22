@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/27/2024
+ms.date: 01/27/2025
 ms.author: godonnell
 ms.subservice: b2c
 ms.custom: fasttrack-edit, 
@@ -20,6 +20,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article shows you how to enable sign-in for users from a specific Microsoft Entra organization using a user flow in Azure AD B2C.
 

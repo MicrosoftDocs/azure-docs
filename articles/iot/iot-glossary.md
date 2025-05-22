@@ -1,5 +1,5 @@
 ---
-title: Azure IoT glossary of terms | Microsoft Docs
+title: Azure IoT glossary of terms
 description: Developer guide - a glossary explaining some of the common terms used in the Azure IoT articles.
 author: dominicbetts
 ms.author: dobett
@@ -29,7 +29,7 @@ First and subsequent mentions: Depending on the context spell out in full. Other
 
 Abbreviation: AMQP
 
-Applies to: Iot Hub, IoT Central, Device developer
+Applies to: IoT Hub, IoT Central, Device developer
 
 ### Allocation policy
 
@@ -60,7 +60,7 @@ Casing rules: Always lowercase when you're referring to a specific asset.
 
 Always capitalize and style as code when you're referring to `Asset` as a named code or configuration element.
 
-Example usage: An industrial CNC machine is an *asset* in an edge-based solution.  The *`Asset`* Custom Resource Definition (CRD) is used with an edge-based solution built on Azure IoT Operations.  The *`Asset`* resource type is used with Azure Resource Manager (ARM) in the cloud.
+Example usage: An industrial CNC machine is an *asset* in an edge-based solution. The *`Asset`* Custom Resource Definition (CRD) is used with an edge-based solution built on Azure IoT Operations. The *`Asset`* resource type is used with Azure Resource Manager (ARM) in the cloud.
 
 Applies to: Azure IoT Operations
 
@@ -86,13 +86,13 @@ Applies to: IoT Edge
 
 ### Automatic device configuration
 
-A feature of [IoT Hub](#iot-hub) that enables your [solution](#solution) back end to assign [desired properties](#desired-properties) to a set of [device twins](#device-twin) and report [device](#device) status using system and custom metrics.
+A feature of [IoT Hub](#iot-hub) that enables your [solution back end](#solution-back-end) to assign [desired properties](#desired-properties) to a set of [device twins](#device-twin) and report [device](#device) status using system and custom metrics.
 
 [Learn more](../iot-hub/iot-hub-automatic-device-management.md)
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Automatic device management
 
@@ -102,7 +102,7 @@ Consists of [automatic device configurations](../iot-hub/iot-hub-automatic-devic
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Azure Device Registry
 
@@ -124,17 +124,17 @@ First and subsequent mentions: When you're referring to the service, always spel
 
 Example usage: The data in your *Azure Digital Twins* model can be routed to downstream Azure services for more analytics or storage.
 
-Applies to: Digital Twins
+Applies to: Azure Digital Twins
 
 ### Azure Digital Twins instance
 
-A single instance of the [Azure Digital Twins](#azure-digital-twins) service in a customer's subscription. While Azure [Digital Twins](#digital-twin) refers to the Azure service as a whole, your Azure Digital Twins *instance* is your individual Azure Digital Twins resource.
+A single instance of the [Azure Digital Twins](#azure-digital-twins) service in a customer's subscription. While [Azure Digital Twins](#digital-twin) refers to the Azure service as a whole, your Azure Digital Twins *instance* is your individual Azure Digital Twins resource.
 
 Casing rules: Always capitalize the service name.
 
 First and subsequent mentions: Always spell out in full as *Azure Digital Twins instance*.
 
-Applies to: Digital Twins
+Applies to: Azure Digital Twins
 
 ### Azure IoT
 
@@ -144,7 +144,7 @@ First and subsequent mentions: When you're referring to the collection of Azure 
 
 Example usage: *Azure IoT* is a collection of managed and platform services that connect, monitor, and control your IoT devices. 
 
-Applies to: Azure IoT Operations, Iot Hub, IoT Central, IoT Edge, Azure Digital Twins, Device Provisioning Service, IoT Central
+Applies to: Azure IoT Operations, IoT Hub, IoT Central, IoT Edge, Azure Digital Twins, Device Provisioning Service, IoT Central
 
 ### Azure IoT Layered Network Management (preview)
 
@@ -162,7 +162,7 @@ A tool you can use to view the [telemetry](#telemetry) the [device](#device) is 
 
 Casing rules: Always capitalize as *Azure IoT Explorer*.
 
-Applies to: Iot Hub, Device developer
+Applies to: IoT Hub, Device developer
 
 ### Azure IoT Operations - enabled by Azure Arc
 
@@ -180,7 +180,7 @@ A cross-platform, open-source, Visual Studio Code extension that helps you manag
 
 Casing rules: Always capitalize as *Azure IoT Tools*.
 
-Applies to: Iot Hub, IoT Edge, IoT Central, Device developer
+Applies to: IoT Hub, IoT Edge, IoT Central, Device developer
 
 ### Azure IoT device SDKs
 
@@ -194,7 +194,7 @@ First and subsequent mentions: On first mention, always use *Azure IoT device SD
 
 Example usage: The *Azure IoT device SDKs* are a set of device client libraries, developer guides, samples, and documentation. The *device SDKs* help you to programmatically connect devices to Azure IoT services.
 
-Applies to: Iot Hub, IoT Central, Device developer
+Applies to: IoT Hub, IoT Central, Device developer
 
 ### Azure IoT service SDKs
 
@@ -206,7 +206,7 @@ Casing rules: Always refer to as *Azure IoT service SDKs*.
 
 First and subsequent mentions: On first mention, always use *Azure IoT service SDKs*. On subsequent mentions abbreviate to *service SDKs*.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ## B
 
@@ -216,7 +216,7 @@ In the context of [IoT Hub](#iot-hub), an app that connects to one of the servic
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Built-in endpoints
 
@@ -224,7 +224,7 @@ Applies to: Iot Hub
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ## C
 
@@ -236,7 +236,7 @@ You can build cloud-based solutions using the services described in the [Azure I
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, IoT Edge, Azure Digital Twins, Device Provisioning Service, IoT Central
+Applies to: IoT Hub, IoT Central, IoT Edge, Azure Digital Twins, Device Provisioning Service, IoT Central
 
 ### Cloud gateway
 
@@ -244,7 +244,7 @@ A cloud-hosted app that enables connectivity for [devices](#device) that can't c
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central
+Applies to: IoT Hub, IoT Central
 
 ### Cloud property
 
@@ -262,13 +262,13 @@ Casing rules: Always lowercase.
 
 Abbreviation: Don't use *C2D*.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Command
 
 A command is defined in an IoT Plug and Play [interface](#interface) to represent a method that can be called on the [digital twin](#digital-twin). For example, a command to reboot a [device](#device). In IoT Central, commands are defined in the [device template](#device-template).
 
-Applies to: Iot Hub, IoT Central, Device developer
+Applies to: IoT Hub, IoT Central, Device developer
 
 ### Component
 
@@ -276,7 +276,7 @@ In IoT Plug and Play and [Azure Digital Twins](#azure-digital-twins), components
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, Digital Twins, Device developer
+Applies to: IoT Hub, Azure Digital Twins, Device developer
 
 ### Configuration
 
@@ -284,7 +284,7 @@ In the context of [automatic device configuration](#automatic-device-configurati
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Connector for OPC UA
 
@@ -303,7 +303,7 @@ Use in your app code to encapsulate the information required to connect to an [e
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, Device developer
+Applies to: IoT Hub, Device developer
 
 ### Custom endpoints
 
@@ -311,7 +311,7 @@ User-defined [endpoints](#endpoint) on an [IoT hub](#iot-hub) that deliver messa
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Custom gateway
 
@@ -319,13 +319,13 @@ Enables connectivity for [devices](#device) that can't connect directly to [IoT 
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central
+Applies to: IoT Hub, IoT Central
 
 ## D
 
-### Dataflows
+### Data flows
 
-An Azure IoT Operations component that lets you aggregate, enrich, normalize, and filter the data from your devices and assets. Dataflows is a data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud.
+An Azure IoT Operations component that lets you aggregate, enrich, normalize, and filter the data from your devices and assets. Data flows is a data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud.
 
 Casing rules: Always lowercase.
 
@@ -337,7 +337,7 @@ All [IoT Plug and Play device](#iot-plug-and-play-device) [models](#model) have 
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device developer
+Applies to: IoT Hub, IoT Central, Device developer
 
 ### Deployment manifest
 
@@ -353,7 +353,7 @@ In the context of a [device twin](#device-twin), desired [configuration](#config
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Desired properties
 
@@ -361,11 +361,11 @@ In the context of a [device twin](#device-twin), desired [properties](#propertie
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Device
 
-In the context of IoT, a device is a piece of computer hardware that can collect or generate data, and send or exchange data with other devices and systems. Devices can connect to edge or cloud solutions.  Typically, a device might be in a location you don't control (such as a third party business) and connects to the public internet.
+In the context of IoT, a device is a piece of computer hardware that can collect or generate data, and send or exchange data with other devices and systems. Devices can connect to edge or cloud solutions. Typically, a device might be in a location you don't control (such as a third party business) and connects to the public internet.
 
 The following items are examples of IoT devices:
 - consumer wearables
@@ -379,7 +379,7 @@ The following items are examples of IoT devices:
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, IoT Edge, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, IoT Edge, Device Provisioning Service
 
 ### Device Provisioning Service
 
@@ -391,7 +391,7 @@ First and subsequent mentions: IoT Hub Device Provisioning Service
 
 Abbreviation: DPS
 
-Applies to: Iot Hub, Device Provisioning Service, IoT Central
+Applies to: IoT Hub, Device Provisioning Service, IoT Central
 
 ### Device REST API
 
@@ -401,7 +401,7 @@ A REST API you can use on a [device](#device) to send [device-to-cloud](#device-
 
 Casing rules: Always *device REST API*.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Device app
 
@@ -409,7 +409,7 @@ A [device](#device) app runs on your device and handles the communication with y
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device developer
+Applies to: IoT Hub, IoT Central, Device developer
 
 ### Device builder
 
@@ -417,7 +417,7 @@ The person responsible for creating the code to run on your [devices](#device). 
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, IoT Edge, Device developer
+Applies to: IoT Hub, IoT Central, IoT Edge, Device developer
 
 ### Device identity
 
@@ -427,7 +427,7 @@ Casing rules: Always lowercase. If you're using the abbreviation, *ID* is all up
 
 Abbreviation: Device ID
 
-Applies to: Iot Hub, IoT Central
+Applies to: IoT Hub, IoT Central
 
 ### Device management
 
@@ -435,7 +435,7 @@ Applies to: Iot Hub, IoT Central
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central
+Applies to: IoT Hub, IoT Central
 
 ### Device model
 
@@ -445,7 +445,7 @@ A description, that uses the [Digital Twins Definition Language](#digital-twins-
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device developer, Digital Twins
+Applies to: IoT Hub, IoT Central, Device developer, Azure Digital Twins
 
 ### Device provisioning
 
@@ -453,7 +453,7 @@ The process of adding the initial [device](#device) data to the stores in your [
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, Device Provisioning Service
 
 ### Device template
 
@@ -469,13 +469,13 @@ Applies to: IoT Central
 
 ### Device twin
 
-A [device](#device) twin is JSON document that stores device state information such as metadata, [configurations](#configuration), and conditions. [IoT Hub](#iot-hub) persists a device twin for each device that you provision in your IoT hub. Device twins enable you to synchronize device conditions and configurations between the device and the [solution](#solution) back end. You can query device twins to locate specific devices and for the status of long-running operations.
+A [device](#device) twin is JSON document that stores device state information such as metadata, [configurations](#configuration), and conditions. [IoT Hub](#iot-hub) persists a device twin for each device that you provision in your IoT hub. Device twins enable you to synchronize device conditions and configurations between the device and the [solution back end](#solution-back-end). You can query device twins to locate specific devices and for the status of long-running operations.
 
 See also [Digital twin](#digital-twin)
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Device-to-cloud
 
@@ -485,7 +485,7 @@ Casing rules: Always lowercase.
 
 Abbreviation: Don't use *D2C*.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Digital Twins Definition Language
 
@@ -497,7 +497,7 @@ First and subsequent mentions: Spell out in full as *Digital Twins Definition La
 
 Abbreviation: DTDL
 
-Applies to: Iot Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ### Digital twin
 
@@ -507,7 +507,7 @@ See also [Device twin](#device-twin)
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Digital Twins, Device developer
+Applies to: IoT Hub, IoT Central, Azure Digital Twins, Device developer
 
 ### Digital twin change events
 
@@ -517,7 +517,7 @@ Casing rules: Always lowercase.
 
 Abbreviation: Always spell out in full to distinguish from other types of change event.
 
-Applies to: Iot Hub, IoT Central
+Applies to: IoT Hub, IoT Central
 
 ### Digital twin graph
 
@@ -527,7 +527,7 @@ Casing rules: Always lowercase.
 
 First and subsequent mentions: Use *digital twin graph* on first mention, then use *twin graph*.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Direct method
 
@@ -535,15 +535,15 @@ A way to trigger a method to execute on a [device](#device) by invoking an API o
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Downstream service
 
-A relative term describing services that receive data from the current context. For example, in the context of [Azure Digital Twins](#azure-digital-twins), Time Series Insights is a downstream service if you set up your data to flow from Azure [Digital Twins](#digital-twin) into Time Series Insights.
+A relative term describing services that receive data from the current context. For example, in the context of [Azure Digital Twins](#azure-digital-twins), Time Series Insights is a downstream service if you set up your data to flow from [Azure Digital Twins](#azure-digital-twins) into Time Series Insights.
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ## E
 
@@ -565,7 +565,7 @@ An [IoT hub](#iot-hub) exposes multiple endpoints that enable your apps to conne
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Enrollment
 
@@ -573,7 +573,7 @@ In the [Device Provisioning Service](#device-provisioning-service), an enrollmen
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, Device Provisioning Service
 
 ### Enrollment group
 
@@ -581,7 +581,7 @@ In the [Device Provisioning Service](#device-provisioning-service) and IoT Centr
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, Device Provisioning Service, IoT Central
+Applies to: IoT Hub, Device Provisioning Service, IoT Central
 
 ### Event Hubs-compatible endpoint
 
@@ -589,7 +589,7 @@ An [IoT Hub](#iot-hub) [endpoint](#endpoint) that lets you use any Event Hubs-co
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Event handler
 
@@ -597,17 +597,17 @@ A process that's triggered by the arrival of an event. For example, you can crea
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Event routing
 
 The process of sending events and their data from one [device](#device) or service to the [endpoint](#endpoint) of another.
 
-In [Iot Hub](#iot-hub), you can define [routing rules](#routing-rule) to describe how messages should be sent. In [Azure Digital Twins](#azure-digital-twins), event routes are entities that are created for this purpose. Azure [Digital Twins](#digital-twin) event routes can contain filters to limit what types of events are sent to each endpoint.
+In [IoT Hub](#iot-hub), you can define [routing rules](#routing-rule) to describe how messages should be sent. In [Azure Digital Twins](#azure-digital-twins), event routes are entities that are created for this purpose. [Azure Digital Twins](#azure-digital-twins) event routes can contain filters to limit what types of events are sent to each endpoint.
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, Digital Twins
+Applies to: IoT Hub, Azure Digital Twins
 
 ## F
 
@@ -617,7 +617,7 @@ Enables connectivity for [devices](#device) that can't connect directly to [IoT 
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central
+Applies to: IoT Hub, IoT Central
 
 ## G
 
@@ -627,7 +627,7 @@ A gateway enables connectivity for [devices](#device) that can't connect directl
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central
+Applies to: IoT Hub, IoT Central
 
 ### Gateway device
 
@@ -637,7 +637,7 @@ A gateway device enables connectivity for downstream devices that can't connect 
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, IoT Edge
+Applies to: IoT Hub, IoT Central, IoT Edge
 
 ## H
 
@@ -651,7 +651,7 @@ First and subsequent mentions: Spell out in full on first mention as *hardware s
 
 Abbreviation: HSM
 
-Applies to: Iot Hub, Device developer, Device Provisioning Service
+Applies to: IoT Hub, Device developer, Device Provisioning Service
 
 ## I
 
@@ -663,7 +663,7 @@ IoT Central applications make use of DPS instances and make the ID scope availab
 
 Casing rules: Always use *ID scope*.
 
-Applies to: Iot Hub, IoT Central, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, Device Provisioning Service
 
 ### Identity registry
 
@@ -671,7 +671,7 @@ A built-in [component](#component) of an [IoT hub](#iot-hub) that stores informa
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Individual enrollment
 
@@ -679,7 +679,7 @@ Identifies a single [device](#device) that the [Device Provisioning Service](#de
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, Device Provisioning Service
+Applies to: IoT Hub, Device Provisioning Service
 
 ### Interface
 
@@ -689,7 +689,7 @@ In [Azure Digital Twins](#azure-digital-twins), *interface* may be used to refer
 
 Casing rules: Always lowercase.
 
-Applies to: Device developer, Digital Twins
+Applies to: Device developer, Azure Digital Twins
 
 ### IoT Edge
 
@@ -737,7 +737,7 @@ Applies to: IoT Edge
 
 ### IoT Hub
 
-A fully managed Azure service that enables reliable and secure bidirectional communications between millions of [devices](#device) and a [solution](#solution) back end. For more information, see [What is Azure IoT Hub?](../iot-hub/about-iot-hub.md). Using your Azure subscription, you can create IoT hubs to handle your IoT messaging workloads.
+A fully managed Azure service that enables reliable and secure bidirectional communications between millions of [devices](#device) and a [solution back end](#solution-back-end). For more information, see [What is Azure IoT Hub?](../iot-hub/about-iot-hub.md). Using your Azure subscription, you can create IoT hubs to handle your IoT messaging workloads.
 
 [Learn more](../iot-hub/about-iot-hub.md)
 
@@ -747,7 +747,7 @@ First and subsequent mentions: Spell out in full as *Azure IoT Hub*. Subsequent 
 
 Example usage: The Azure IoT Hub service enables secure, bidirectional communication. The device sends data to your IoT hub.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### IoT Hub Resource REST API
 
@@ -755,7 +755,7 @@ An API you can use to manage the [IoT hubs](#iot-hub) in your Azure subscription
 
 Casing rules: Always capitalize as *IoT Hub Resource REST API*.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### IoT Hub metrics
 
@@ -763,7 +763,7 @@ A feature in the Azure portal that lets you monitor the state of your [IoT hubs]
 
 Casing rules: Always capitalize as *IoT Hub metrics*.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### IoT Hub query language
 
@@ -773,7 +773,7 @@ Casing rules: Always capitalize as *IoT Hub query language*.
 
 First and subsequent mentions: Spell out in full as *IoT Hub query language*, if the context is clear subsequent mentions can be *query language*.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### IoT Plug and Play bridge
 
@@ -783,7 +783,7 @@ Casing rules: Always capitalize as *IoT Plug and Play bridge*.
 
 First and subsequent mentions: Spell out in full as *IoT Plug and Play bridge*. If the context is clear, subsequent mentions can be *bridge*.
 
-Applies to: Iot Hub, Device developer, IoT Central
+Applies to: IoT Hub, Device developer, IoT Central
 
 ### IoT Plug and Play conventions
 
@@ -791,7 +791,7 @@ A set of conventions that IoT [devices](#device) should follow when they exchang
 
 Casing rules: Always capitalize as *IoT Plug and Play conventions*.
 
-Applies to: Iot Hub, IoT Central, Device developer
+Applies to: IoT Hub, IoT Central, Device developer
 
 ### IoT Plug and Play device
 
@@ -799,7 +799,7 @@ Typically a small-scale, standalone computing [device](#device) that collects da
 
 Casing rules: Always capitalize as *IoT Plug and Play device*.
 
-Applies to: Iot Hub, IoT Central, Device developer
+Applies to: IoT Hub, IoT Central, Device developer
 
 ### IoT extension for Azure CLI
 
@@ -809,7 +809,7 @@ An extension for the Azure CLI. The extension lets you complete tasks such as ma
 
 Casing rules: Always capitalize as *IoT extension for Azure CLI*.
 
-Applies to: Iot Hub, IoT Central, IoT Edge, Device Provisioning Service, Device developer
+Applies to: IoT Hub, IoT Central, IoT Edge, Device Provisioning Service, Device developer
 
 ## J
 
@@ -821,7 +821,7 @@ In the context of IoT Central, jobs let you manage your connected devices in bul
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central
+Applies to: IoT Hub, IoT Central
 
 ## L
 
@@ -839,7 +839,7 @@ In [Azure Digital Twins](#azure-digital-twins), this type of event is fired when
 
 Casing rules: Always lowercase.
 
-Applies to: Digital Twins, Iot Hub, IoT Central
+Applies to: Azure Digital Twins, IoT Hub, IoT Central
 
 ### Linked IoT hub
 
@@ -847,7 +847,7 @@ An [IoT hub](#iot-hub) that is linked to a [Device Provisioning Service](#device
 
 Casing rules: Always capitalize as *linked IoT hub*.
 
-Applies to: Iot Hub, Device Provisioning Service
+Applies to: IoT Hub, Device Provisioning Service
 
 ## M
 
@@ -861,7 +861,7 @@ First and subsequent mentions: MQTT
 
 Abbreviation: MQTT
 
-Applies to: Iot Hub, IoT Central, Device developer
+Applies to: IoT Hub, IoT Central, Device developer
 
 ### MQTT broker
 
@@ -879,7 +879,7 @@ In the [Azure Digital Twins](#azure-digital-twins) service, models define [devic
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Digital Twins, Device developer
+Applies to: IoT Hub, IoT Central, Azure Digital Twins, Device developer
 
 ### Model ID
 
@@ -887,7 +887,7 @@ When an [IoT Plug and Play device](#iot-plug-and-play-device) connects to an [Io
 
 Casing rules: Always capitalize as *model ID*.
 
-Applies to: Iot Hub, IoT Central, Device developer, Digital Twins
+Applies to: IoT Hub, IoT Central, Device developer, Azure Digital Twins
 
 ### Model repository
 
@@ -895,7 +895,7 @@ Stores [Digital Twins Definition Language](#digital-twins-definition-language) [
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ### Model repository REST API
 
@@ -903,7 +903,7 @@ An API for managing and interacting with a [model repository](#model-repository)
 
 Casing rules: Always capitalize as *model repository REST API*.
 
-Applies to: Iot Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ### Module
 
@@ -915,7 +915,7 @@ In [IoT Edge](#iot-edge), a module is a Docker container that you can deploy to 
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Edge, Device developer
+Applies to: IoT Hub, IoT Edge, Device developer
 
 ### Module identity
 
@@ -925,7 +925,7 @@ The module identity details the security credentials the module uses to authenti
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Edge, Device developer
+Applies to: IoT Hub, IoT Edge, Device developer
 
 ### Module image
 
@@ -937,25 +937,25 @@ Applies to: IoT Edge
 
 ### Module twin
 
-Similar to [device twin](#device-twin), a [module](#module) twin is JSON document that stores module state information such as metadata, [configurations](#configuration), and conditions. [IoT Hub](#iot-hub) persists a module twin for each [module identity](#module-identity) that you provision under a [device identity](#device-identity) in your IoT hub. Module twins enable you to synchronize module conditions and configurations between the module and the [solution](#solution) back end. You can query module twins to locate specific modules and query the status of long-running operations.
+Similar to [device twin](#device-twin), a [module](#module) twin is JSON document that stores module state information such as metadata, [configurations](#configuration), and conditions. [IoT Hub](#iot-hub) persists a module twin for each [module identity](#module-identity) that you provision under a [device identity](#device-identity) in your IoT hub. Module twins enable you to synchronize module conditions and configurations between the module and the [solution back end](#solution-back-end). You can query module twins to locate specific modules and query the status of long-running operations.
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ## O
 
 ### Ontology
 
-In the context of [Digital Twins](#digital-twin), a set of [models](#model) for a particular domain, such as real estate, smart cities, IoT systems, energy grids, and more. Ontologies are often used as schemas for knowledge graphs like the ones in [Azure Digital Twins](#azure-digital-twins), because they provide a starting point based on industry standards and best practices.
+In the context of [digital twins](#digital-twin), a set of [models](#model) for a particular domain, such as real estate, smart cities, IoT systems, energy grids, and more. Ontologies are often used as schemas for knowledge graphs like the ones in [Azure Digital Twins](#azure-digital-twins), because they provide a starting point based on industry standards and best practices.
 
 [Learn more](../digital-twins/concepts-ontologies.md)
 
-Applies to: Digital Twins
+Applies to: Azure Digital Twins
 
 ### Operations experience
 
-This web UI provides a unified experience for operational technologists to manage assets and dataflows in an Azure IoT Operations deployment.
+This web UI provides a unified experience for operational technologists to manage assets and data flows in an Azure IoT Operations deployment.
 
 Casing rules: Always lowercase.
 
@@ -969,7 +969,7 @@ Casing rules: Always lowercase.
 
 Abbreviation: OT
 
-Applies to: Iot Hub, IoT Central, IoT Edge
+Applies to: IoT Hub, IoT Central, IoT Edge
 
 ### Operations monitoring
 
@@ -977,7 +977,7 @@ A feature of [IoT Hub](#iot-hub) that lets you monitor the status of operations 
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ## P
 
@@ -987,7 +987,7 @@ A real IoT [device](#device) that connects to an [IoT hub](#iot-hub). For conven
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device developer, IoT Edge
+Applies to: IoT Hub, IoT Central, Device developer, IoT Edge
 
 ### Primary and secondary keys
 
@@ -995,7 +995,7 @@ When you connect to a [device](#device)-facing or service-facing [endpoint](#end
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central
+Applies to: IoT Hub, IoT Central
 
 ### Properties
 
@@ -1003,7 +1003,7 @@ In the context of a [digital twin](#digital-twin), data fields defined in an [in
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Digital Twins, Device developer
+Applies to: IoT Hub, IoT Central, Azure Digital Twins, Device developer
 
 ### Property change event
 
@@ -1011,7 +1011,7 @@ An event that results from a property change in a [digital twin](#digital-twin).
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ### Protocol gateway
 
@@ -1019,7 +1019,7 @@ A [gateway](#gateway) typically deployed in the cloud to provide protocol transl
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central
+Applies to: IoT Hub, IoT Central
 
 ## R
 
@@ -1029,7 +1029,7 @@ A record of a [device](#device) in the [IoT Hub](#iot-hub) [identity registry](#
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, Device Provisioning Service
 
 ### Registration ID
 
@@ -1037,7 +1037,7 @@ A unique [device identity](#device-identity) in the [Device Provisioning Service
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, Device Provisioning Service
 
 ### Relationship
 
@@ -1045,15 +1045,15 @@ Used in the [Azure Digital Twins](#azure-digital-twins) service to connect [digi
 
 Casing rules: Always lowercase.
 
-Applies to: Digital Twins
+Applies to: Azure Digital Twins
 
 ### Reported configuration
 
-In the context of a [device twin](#device-twin), refers to the complete set of [properties](#properties) and metadata in the [device](#device) twin that are reported to the [solution](#solution) back end.
+In the context of a [device twin](#device-twin), refers to the complete set of [properties](#properties) and metadata in the [device](#device) twin that are reported to the [solution back end](#solution-back-end).
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, Device developer
+Applies to: IoT Hub, Device developer
 
 ### Reported properties
 
@@ -1061,7 +1061,7 @@ In the context of a [device twin](#device-twin), reported [properties](#properti
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, Device developer
+Applies to: IoT Hub, Device developer
 
 ### Retry policy
 
@@ -1069,15 +1069,15 @@ A way to handle transient errors when you connect to a cloud service.
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device developer
+Applies to: IoT Hub, IoT Central, Device developer
 
 ### Routing rule
 
-A feature of [IoT Hub](#iot-hub) used to route [device-to-cloud](#device-to-cloud) messages to a built-in [endpoint](#endpoint) or to [custom endpoints](#custom-endpoints) for processing by your [solution](#solution) back end.
+A feature of [IoT Hub](#iot-hub) used to route [device-to-cloud](#device-to-cloud) messages to a built-in [endpoint](#endpoint) or to [custom endpoints](#custom-endpoints) for processing by your [solution back end](#solution-back-end).
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ## S
 
@@ -1089,15 +1089,15 @@ A protocol that [Advanced Message Queueing Protocol](#advanced-message-queueing-
 
 Abbreviation: SASL/PLAIN
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Service REST API
 
-A REST API you can use from the [solution](#solution) back end to manage your [devices](#device). For example, you can use the [Iot Hub](#iot-hub) service API to retrieve and update [device twin](#device-twin) [properties](#properties), invoke [direct methods](#direct-method), and schedule [jobs](#job). Typically, you should use one of the higher-level service SDKs.
+A REST API you can use from the [solution back end](#solution-back-end) to manage your [devices](#device). For example, you can use the [IoT Hub](#iot-hub) service API to retrieve and update [device twin](#device-twin) [properties](#properties), invoke [direct methods](#direct-method), and schedule [jobs](#job). Typically, you should use one of the higher-level service SDKs.
 
 Casing rules: Always *service REST API*.
 
-Applies to: Iot Hub, IoT Central, Device Provisioning Service, IoT Edge
+Applies to: IoT Hub, IoT Central, Device Provisioning Service, IoT Edge
 
 ### Service operations endpoint
 
@@ -1105,7 +1105,7 @@ An [endpoint](#endpoint) that an administrator uses to manage service settings. 
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, Device Provisioning Service, IoT Edge, Digital Twins
+Applies to: IoT Hub, Device Provisioning Service, IoT Edge, Azure Digital Twins
 
 ### Shared access policy
 
@@ -1113,7 +1113,7 @@ A way to define the permissions granted to anyone who has a valid primary or sec
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Edge, Device Provisioning Service
+Applies to: IoT Hub, IoT Edge, Device Provisioning Service
 
 ### Shared access signature
 
@@ -1123,7 +1123,7 @@ Casing rules: Always lowercase.
 
 Abbreviation: SAS
 
-Applies to: Iot Hub, Digital Twins, IoT Central, IoT Edge
+Applies to: IoT Hub, Azure Digital Twins, IoT Central, IoT Edge
 
 ### Simulated device
 
@@ -1131,33 +1131,41 @@ For convenience, many of the tutorials and quickstarts run [device](#device) cod
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device developer, IoT Edge, Digital Twins, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, Device developer, IoT Edge, Azure Digital Twins, Device Provisioning Service
 
 ### Solution
 
-In the context of IoT, *solution* typically refers to an IoT solution that includes elements such as [devices](#device), [device apps](#device-app), an [IoT hub](#iot-hub), other Azure services, and [back-end apps](#back-end-app).
+In the context of IoT, *solution* typically refers to an end-to-end IoT solution that encompasses IoT devices or assets as well as the cloud services they connect to. A solution includes elements such as [devices](#device), [assets](#asset), [device apps](#device-app), an [IoT hub](#iot-hub), other Azure services, and [back-end apps](#back-end-app).
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Device Provisioning Service, IoT Edge, Digital Twins
+Applies to: IoT Hub, IoT Central, Device Provisioning Service, IoT Edge, Azure Digital Twins
+
+### Solution back end
+
+The subset of an IoT [solution](#solution) that tends to handle cloud-side tasks like device management or data processing and analytics, including an [IoT hub](#iot-hub), other Azure services, and [back-end apps](#back-end-app).
+
+Casing rules: Always lowercase.
+
+Applies to: IoT Hub, IoT Central, Device Provisioning Service, IoT Edge, Azure Digital Twins
 
 ### System properties
 
-In the context of a [device twin](#device-twin), the read-only [properties](#properties) that include information regarding the [device](#device) usage such as last activity time and connection state.
+In the context of a [device twin](#device-twin), system properties are the read-only [properties](#properties) that include information regarding the [device](#device) usage such as last activity time and connection state.
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ## T
 
 ### Tag
 
-In the context of a [device twin](#device-twin), tags are [device](#device) metadata stored and retrieved by the [solution](#solution) back end in the form of a JSON document. Tags aren't visible to apps on a device.
+In the context of a [device twin](#device-twin), tags are [device](#device) metadata stored and retrieved by the [solution back end](#solution-back-end) in the form of a JSON document. Tags aren't visible to apps on a device.
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Target condition
 
@@ -1180,7 +1188,7 @@ Casing rules: Always lowercase.
 Example usage: Don't use the word *telemetries*, telemetry refers to the collection of data a device sends. For example: When the device connects to your IoT hub, it starts sending telemetry. One of the telemetry values the device sends is the environmental temperature.
 
 
-Applies to: Iot Hub, IoT Central, Digital Twins, IoT Edge, Device developer
+Applies to: IoT Hub, IoT Central, Azure Digital Twins, IoT Edge, Device developer
 
 ### Telemetry event
 
@@ -1188,7 +1196,7 @@ An event in an [IoT hub](#iot-hub) that indicates the arrival of [telemetry](#te
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Twin queries
 
@@ -1196,7 +1204,7 @@ A feature of [IoT Hub](#iot-hub) that lets you use a SQL-like query language to 
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ### Twin synchronization
 
@@ -1204,14 +1212,14 @@ The process in [IoT Hub](#iot-hub) that uses the [desired properties](#desired-p
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub
+Applies to: IoT Hub
 
 ## U
 
 ### Upstream service
 
-A relative term describing services that feed data into the current context. For instance, in the context of [Azure Digital Twins](#azure-digital-twins), [IoT Hub](#iot-hub) is considered an upstream service because data flows from IoT Hub into Azure [Digital Twins](#digital-twin).
+A relative term describing services that feed data into the current context. For instance, in the context of [Azure Digital Twins](#azure-digital-twins), [IoT Hub](#iot-hub) is considered an upstream service because data flows from IoT Hub into [Azure Digital Twins](#azure-digital-twins).
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins

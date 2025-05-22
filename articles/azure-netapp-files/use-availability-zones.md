@@ -1,14 +1,14 @@
 ---
-title: Use availability zone placement for application high availability with Azure NetApp Files
+title: Use availability zone placement volume for application high availability with Azure NetApp Files
 description: Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/22/2024
 ms.author: anfdocs
 ---
-# Use availability zone placement for application high availability with Azure NetApp Files
+# Use availability zone volume placement for application high availability with Azure NetApp Files
 
 Azure [availability zones](../reliability/availability-zones-overview.md) are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all [availability zone-enabled regions](../reliability/availability-zones-region-support.md). 
 

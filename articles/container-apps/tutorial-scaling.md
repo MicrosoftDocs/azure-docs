@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 08/02/2023
+ms.date: 03/26/2025
 ms.author: cshoe
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -37,7 +37,7 @@ Create and deploy your container app with the `containerapp up` command. This co
 
 If any of these resources already exist, the command uses the existing resources rather than creating new ones.
 
-Lastly, the command creates and deploys the container app using a public container image.
+Lastly, the command creates and deploys the container app using a public container image, `mcr.microsoft.com/dotnet/samples:aspnetapp`. This image is used to trigger the scale rules you create in this article. You don't need to know or use .NET to complete this procedure.
 
 # [Bash](#tab/bash)
 
@@ -47,13 +47,13 @@ az containerapp up \
   --resource-group my-container-apps \
   --location centralus \
   --environment 'my-container-apps' \
-  --image mcr.microsoft.com/k8se/quickstart:latest \
+  --image mcr.microsoft.com/dotnet/samples:aspnetapp \
   --target-port 8080 \
   --ingress external \
   --query properties.configuration.ingress.fqdn \
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp up `
@@ -61,7 +61,7 @@ az containerapp up `
   --resource-group my-container-apps `
   --location centralus `
   --environment my-container-apps `
-  --image mcr.microsoft.com/k8se/quickstart:latest `
+  --image mcr.microsoft.com/dotnet/samples:aspnetapp `
   --target-port 8080 `
   --ingress external `
   --query properties.configuration.ingress.fqdn `
@@ -74,7 +74,7 @@ az containerapp up `
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-The `up` command returns the fully qualified domain name (FQDN) for the container app. Copy this FQDN to a text file. You'll use it in the [Send requests](#send-requests) section. Your FQDN looks like the following example:
+The `up` command returns the fully qualified domain name (FQDN) for the container app. Copy this FQDN to a text file. You use it in the [Send requests](#send-requests) section. Your FQDN looks like the following example:
 
 ```text
 https://my-container-app.icydune-96848328.centralus.azurecontainerapps.io
@@ -88,18 +88,22 @@ Add an HTTP scale rule to your container app by running the `az containerapp upd
 
 ```azurecli
 az containerapp update \
-	--name my-container-app \
-	--resource-group my-container-apps \
+    --name my-container-app \
+    --resource-group my-container-apps \
+    --min-replicas 1 \
+    --max-replicas 10 \
     --scale-rule-name my-http-scale-rule \
     --scale-rule-http-concurrency 1
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp update `
-	--name my-container-app `
-	--resource-group my-container-apps `
+    --name my-container-app `
+    --resource-group my-container-apps `
+    --min-replicas 1 `
+    --max-replicas 10 `
     --scale-rule-name my-http-scale-rule `
     --scale-rule-http-concurrency 1
 ```
@@ -118,20 +122,20 @@ You can observe the effects of your application scaling by viewing the logs gene
 
 ```azurecli
 az containerapp logs show \
-	--name my-container-app \
-	--resource-group my-container-apps \
-	--type=system \
-	--follow=true
+    --name my-container-app \
+    --resource-group my-container-apps \
+    --type=system \
+    --follow=true
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp logs show `
-	--name my-container-app `
-	--resource-group my-container-apps `
-	--type=system `
-	--follow=true
+    --name my-container-app `
+    --resource-group my-container-apps `
+    --type=system `
+    --follow=true
 ```
 
 ---
@@ -140,46 +144,46 @@ The `show` command returns entries from the system logs for your container app i
 
 ```json
 {
-	"TimeStamp":"2023-08-01T16:49:03.02752",
-	"Log":"Connecting to the container 'my-container-app'..."
+    "TimeStamp":"2023-08-01T16:49:03.02752",
+    "Log":"Connecting to the container 'my-container-app'..."
 }
 {
-	"TimeStamp":"2023-08-01T16:49:03.04437",
-	"Log":"Successfully Connected to container:
-	'my-container-app' [Revision: 'my-container-app--9uj51l6',
-	Replica: 'my-container-app--9uj51l6-5f96557ffb-5khg9']"
+    "TimeStamp":"2023-08-01T16:49:03.04437",
+    "Log":"Successfully Connected to container:
+    'my-container-app' [Revision: 'my-container-app--9uj51l6',
+    Replica: 'my-container-app--9uj51l6-5f96557ffb-5khg9']"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9480811+00:00",
-	"Log":"Microsoft.Hosting.Lifetime[14]"
+    "TimeStamp":"2023-08-01T16:47:31.9480811+00:00",
+    "Log":"Microsoft.Hosting.Lifetime[14]"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9481264+00:00",
-	"Log":"Now listening on: http://[::]:8080"
+    "TimeStamp":"2023-08-01T16:47:31.9481264+00:00",
+    "Log":"Now listening on: http://[::]:80"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9490917+00:00",
-	"Log":"Microsoft.Hosting.Lifetime[0]"
+    "TimeStamp":"2023-08-01T16:47:31.9490917+00:00",
+    "Log":"Microsoft.Hosting.Lifetime[0]"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9491036+00:00",
-	"Log":"Application started. Press Ctrl+C to shut down."
+    "TimeStamp":"2023-08-01T16:47:31.9491036+00:00",
+    "Log":"Application started. Press Ctrl+C to shut down."
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.949723+00:00",
-	"Log":"Microsoft.Hosting.Lifetime[0]"
+    "TimeStamp":"2023-08-01T16:47:31.949723+00:00",
+    "Log":"Microsoft.Hosting.Lifetime[0]"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9497292+00:00",
-	"Log":"Hosting environment: Production"
+    "TimeStamp":"2023-08-01T16:47:31.9497292+00:00",
+    "Log":"Hosting environment: Production"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9497325+00:00",
-	"Log":"Microsoft.Hosting.Lifetime[0]"
+    "TimeStamp":"2023-08-01T16:47:31.9497325+00:00",
+    "Log":"Microsoft.Hosting.Lifetime[0]"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9497367+00:00",
-	"Log":"Content root path: /app/"
+    "TimeStamp":"2023-08-01T16:47:31.9497367+00:00",
+    "Log":"Content root path: /app/"
 }
 ```
 
@@ -211,7 +215,7 @@ For more information, see the documentation for:
 - [xargs](https://www.man7.org/linux/man-pages/man1/xargs.1.html)
 - [curl](https://www.man7.org/linux/man-pages/man1/curl.1.html)
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Open a new command prompt and enter PowerShell. Run the following commands, replacing `<YOUR_CONTAINER_APP_FQDN>` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
 
@@ -248,15 +252,15 @@ In the first shell, where you ran the `az containerapp logs show` command, the o
 
 ```json
 {
-	"TimeStamp":"2023-08-01 18:09:52 +0000 UTC",
-	"Type":"Normal",
-	"ContainerAppName":"my-container-app",
-	"RevisionName":"my-container-app--9uj51l6",
-	"ReplicaName":"my-container-app--9uj51l6-5f96557ffb-f795d",
-	"Msg":"Replica 'my-container-app--9uj51l6-5f96557ffb-f795d' has been scheduled to run on a node.",
-	"Reason":"AssigningReplica",
-	"EventSource":"ContainerAppController",
-	"Count":0
+    "TimeStamp":"2023-08-01 18:09:52 +0000 UTC",
+    "Type":"Normal",
+    "ContainerAppName":"my-container-app",
+    "RevisionName":"my-container-app--00001111",
+    "ReplicaName":"my-container-app--00001111-aaaaa22222-bbbb",
+    "Msg":"Replica 'my-container-app--00001111-aaaaa22222-bbbb' has been scheduled to run on a node.",
+    "Reason":"AssigningReplica",
+    "EventSource":"ContainerAppController",
+    "Count":0
 }
 ```
 
@@ -269,9 +273,9 @@ In the first shell, where you ran the `az containerapp logs show` command, the o
 1. In the *Scale and Replicas* page, select **Replicas**.
 1. Your container app now has more than one replica running.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas.png" alt-text="Screenshot of container app replicas.":::
+    :::image type="content" source="media/scale-app/azure-container-apps-scale-replicas.png" alt-text="Screenshot of container app replicas.":::
 
-You may need to select **Refresh** to see the new replicas.
+    You might need to select **Refresh** to see the new replicas.
 
 1. In the navigation bar at the left, expand **Monitoring** and select **Metrics**.
 1. In the *Metrics* page, set **Metric** to **Requests**.
@@ -283,20 +287,189 @@ You may need to select **Refresh** to see the new replicas.
     :::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-1.png" alt-text="Container app metrics graph, showing requests split by replica.":::
 
 1. By default, the graph scale is set to last 24 hours, with a time granularity of 15 minutes. Select the scale and change it to the last 30 minutes, with a time granularity of one minute. Select the **Apply** button.
+
 1. Select on the graph and drag to highlight the recent increase in requests received by your container app.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-2.png" alt-text="Screenshot of container app metrics graph, showing requests split by replica, with a scale of 30 minutes and time granularity of one minute.":::
+    :::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-2.png" alt-text="Screenshot of container app metrics graph, showing requests split by replica, with a scale of 30 minutes and time granularity of one minute.":::
 
-The following screenshot shows a zoomed view of how the requests received by your container app are divided among replicas.
+    The following screenshot shows a zoomed view of how the requests received by your container app are divided among replicas.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-3.png" alt-text="Screenshot of container app metrics graph, showing requests split by replica, in a zoomed view.":::
+    :::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-3.png" alt-text="Screenshot of container app metrics graph, showing requests split by replica, in a zoomed view.":::
+
+## CPU and memory scaling
+
+You should prefer [HTTP scale rules](/azure/container-apps/scale-app#http) to CPU or memory scale rules when possible. CPU and memory scaling don't allow your container app to scale to zero.
+
+After you add a CPU or memory scale rule, you can test it by [sending requests to your container app](#send-requests) and [viewing the scaling in Azure portal](#view-scaling-in-azure-portal-optional).
+
+After you send requests to your scale app, it might take a minute before the scale rule is triggered and the new replicas are created.
+
+### CPU scaling
+
+CPU scaling allows your app to scale in or out depending on how much the CPU is being used.
+
+For example, if you create a CPU scale rule with a utilization value of `50`, Azure Container Apps creates more replicas of your container app when the average CPU utilization for all replicas reaches 50%.
+
+CPU scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
+
+Add a CPU scale rule to your container app by running the `az containerapp update` command.
+
+> [!NOTE]
+> When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
+
+Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when the average CPU utilization for all replicas reaches 1%. This value is for demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az containerapp update \
+    --name my-container-app \
+    --resource-group my-container-apps \
+    --min-replicas 1 \
+    --max-replicas 10 \
+    --scale-rule-name my-cpu-scale-rule \
+    --scale-rule-type cpu \
+    --scale-rule-metadata type=Utilization value=<UTILIZATION>
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az containerapp update `
+    --name my-container-app `
+    --resource-group my-container-apps `
+    --min-replicas 1 `
+    --max-replicas 10 `
+    --scale-rule-name my-cpu-scale-rule `
+    --scale-rule-type cpu `
+    --scale-rule-metadata type=Utilization value=<UTILIZATION>
+```
+
+---
+
+### Memory scaling
+
+Memory scaling allows your app to scale in or out depending on how much memory is being used.
+
+For example, if you create a memory scale rule with a utilization value of `50`, Azure Container Apps creates more replicas of your container app when the average memory utilization for all replicas reaches 50%.
+
+Memory scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA memory scale trigger](https://keda.sh/docs/scalers/memory/).
+
+Add a memory scale rule to your container app by running the `az containerapp update` command.
+
+> [!NOTE]
+> When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
+
+Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when the average memory utilization for all replicas reaches 1%. This value is for demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az containerapp update \
+    --name my-container-app \
+    --resource-group my-container-apps \
+    --min-replicas 1 \
+    --max-replicas 10 \
+    --scale-rule-name my-memory-scale-rule \
+    --scale-rule-type memory \
+    --scale-rule-metadata type=Utilization value=<UTILIZATION>
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az containerapp update `
+    --name my-container-app `
+    --resource-group my-container-apps `
+    --min-replicas 1 `
+    --max-replicas 10 `
+    --scale-rule-name my-memory-scale-rule `
+    --scale-rule-type memory `
+    --scale-rule-metadata type=Utilization value=<UTILIZATION>
+```
+
+---
+
+## Multiple scale rules
+
+To add multiple scale rules to your container app using the Azure CLI, you must use YAML.
+
+1. Export your container app configuration to YAML with the `az containerapp show` command.
+
+    # [Bash](#tab/bash)
+
+    ```azurecli
+    az containerapp show \
+        --name my-container-app \
+        --resource-group my-container-apps \
+        --output yaml > app.yaml
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az containerapp show `
+        --name my-container-app `
+        --resource-group my-container-apps `
+        --output yaml > app.yaml
+    ```
+
+    ---
+
+1. In the `properties` > `template` > `scale` > `rules` section of `app.yaml`, add the following properties. Replace the `<PLACEHOLDERS>` with your values.
+
+    ```yaml
+    ...
+    properties:
+    ...
+      template:
+    ...
+        scale:
+    ...
+          rules:
+            - name: cpu-scaling-rule
+              custom:
+                type: cpu
+                metadata:
+                  type: "Utilization"
+                  value: "<CPU_UTILIZATION>"
+            - name: memory-scaling-rule
+              custom:
+                type: memory
+                metadata:
+                  type: "Utilization"
+                  value: "<MEMORY_UTILIZATION>"
+    ...
+    ```
+
+1. Import your container app configuration from `app.yaml` with the `az containerapp update` command.
+
+    # [Bash](#tab/bash)
+
+    ```azurecli
+    az containerapp update \
+      --name my-container-app \
+      --resource-group my-container-apps \
+      --yaml app.yaml
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az containerapp update `
+      --name my-container-app `
+      --resource-group my-container-apps `
+      --yaml app.yaml
+    ```
+
+    ---
 
 ## Clean up resources
 
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this tutorial.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they'll also be deleted.
 
 ```azurecli
 az group delete --name my-container-apps

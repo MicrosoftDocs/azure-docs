@@ -6,7 +6,7 @@ manager: alkohli
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.topic: article
-ms.date: 11/07/2024
+ms.date: 12/03/2024
 ms.author: alkohli
 ROBOTS: NOINDEX
 ---

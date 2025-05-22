@@ -2,13 +2,10 @@
 title: Azure IoT Edge for Linux on Windows updates
 description: Overview of Azure IoT Edge for Linux on Windows updates. Learn how to update your IoT Edge for Linux on Windows devices when a new version is available.
 author: PatAltimore
-
-# this is the PM responsible
-ms.reviewer: fcabrera
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/05/2024
 ms.author: patricka
 ---

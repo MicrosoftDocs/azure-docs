@@ -113,6 +113,6 @@ For more information about quotas and limits, see [Event Hubs quotas and limits]
 
 Contact your Microsoft sales representative or Microsoft Support to get more details about Event Hubs Dedicated. You can also create a cluster or learn more about Event Hubs pricing tiers:
 
-- [Create an Event Hubs cluster through the Azure portal](https://aka.ms/eventhubsclusterquickstart).
+- [Create an Event Hubs cluster through the Azure portal](https://portal.azure.com).
 - Check out [Event Hubs Dedicated pricing](https://azure.microsoft.com/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get more details about Event Hubs Dedicated capacity.
 - See the [Event Hubs FAQ](event-hubs-faq.yml) for pricing information and answers to frequently asked questions about Event Hubs.

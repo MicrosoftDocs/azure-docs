@@ -4,6 +4,9 @@ description: Learn how to upload and access data for Apache Hadoop jobs in HDIns
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/10/2024
 ---
 

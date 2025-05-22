@@ -5,7 +5,7 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/08/2022
 ms.topic: how-to
-ms.custon: subject-rbac-steps
+ms.custom: subject-rbac-steps
 ---
 
 # Deploy Start/Stop VMs v2 to an Azure subscription

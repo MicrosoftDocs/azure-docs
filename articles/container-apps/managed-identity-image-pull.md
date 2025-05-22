@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 02/03/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-azure-portal-console-bicep
 ---
@@ -174,9 +174,12 @@ Follow these steps to create a container app with the default quickstart image.
     | **Subscription** | Select your Azure subscription. |
     | **Resource group** | Select an existing resource group or create a new one. |
     | **Container app name** | Enter a container app name. |
-    | **Location** | Select a location. |
-    | **Create Container App Environment** | Create a new or select an existing environment. |
+    | **Deployment source** | Leave this set to **Container image**. |
+    | **Region** | Select a region. |
+    | **Container Apps Environment** | Select an existing environment or select **Create new**. For more information see [Azure Container Apps environments](environment.md) |
 
+1. Select **Next : Container >**.
+1. In the **Container** tab, enable **Use quickstart image**. Leave **Quickstart image** set to **Simple hello world container**.
 1. Select the **Review + Create** button at the bottom of the **Create Container App** page.
 1. Select the **Create** button at the bottom of the **Create Container App** page.
 
@@ -186,23 +189,21 @@ Allow a few minutes for the container app deployment to finish. When deployment 
 
 Edit the container to use the image from your private Azure Container Registry, and configure the authentication to use system-assigned identity.
 
-1. The **Containers** from the side menu on the left.
-1. Select **Edit and deploy**.
+1. In **Application**, select **Containers**.
+1. In the *Containers* page, select **Edit and deploy**.
 1. Select the *simple-hello-world-container* container from the list.
+1. In the *Edit a container* page, do the following actions.
 
     | Setting | Action |
     |---|---|
     |**Name**| Enter the container app name. |
     |**Image source**| Select **Azure Container Registry**. |
-    |**Authentication**| Select **Managed identity**. |
-    |**Identity**| Select **System assigned**. |
-    |**Registry**| Enter the Registry name. |
+    |**Subscription** | Select your Azure subscription. |
+    |**Registry**| Select your container registry. |
     |**Image**| Enter the image name. |
-    |**Image tag**| Enter the tag. |
-
-    :::image type="content" source="media/managed-identity/screenshot-edit-a-container-system-assigned-identity.png" alt-text="Screen shot Edit a container with system-assigned managed identity.":::
-    >[!NOTE]
-    > If the administrative credentials are not enabled on your Azure Container Registry registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
+    |**Image tag**| Enter the image tag. |
+    |**Authentication type**| Select **Managed identity**. |
+    |**Managed identity**| Select **System assigned**. |
 
 1. Select **Save** at the bottom of the page.
 1. Select **Create** at the bottom of the **Create and deploy new revision** page
@@ -259,7 +260,7 @@ CONTAINERAPP_NAME="<YOUR_CONTAINERAPP_NAME>"
 IMAGE_NAME="<YOUR_IMAGE_NAME>"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -282,7 +283,7 @@ az group create \
   --location $LOCATION
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Location $Location -Name $ResourceGroupName
@@ -305,7 +306,7 @@ az containerapp env create \
   --location $LOCATION
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 A Log Analytics workspace is required for the Container Apps environment. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to variables.
 
@@ -365,7 +366,7 @@ az identity create \
   --resource-group $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Create a user-assigned managed identity. Before you run the following command, replace the *\<PLACEHOLDERS\>* with the name of your managed identity. 
 
@@ -381,16 +382,17 @@ New-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup
 
 # [Bash](#tab/bash)
 
-Get identity's resource ID.
+Get the identity's resource ID.
 
 ```azurecli
 IDENTITY_ID=$(az identity show \
   --name $IDENTITY \
   --resource-group $RESOURCE_GROUP \
-  --query id)
+  --query id \
+  --output tsv)
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Get the identity's resource and principal ID. 
 
@@ -436,7 +438,7 @@ az containerapp create \
   --image "${REGISTRY_NAME}.azurecr.io/${IMAGE_NAME}:latest"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $CredentialArgs = @{
@@ -457,8 +459,7 @@ $AppArgs = @{
     ResourceGroupName = $ResourceGroupName
     ManagedEnvironmentId = $EnvId
     ConfigurationRegistry = $CredentialObject
-    IdentityType = 'UserAssigned'
-    IdentityUserAssignedIdentity = @{ $IdentityId = @{ } }
+    UserAssignedIdentity = @($IdentityId)
     TemplateContainer = $TemplateObj
     IngressTargetPort = 80
     IngressExternal = $true
@@ -479,7 +480,7 @@ New-AzContainerApp @AppArgs
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
@@ -511,7 +512,7 @@ az containerapp create \
   --ingress external
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 $ImageParams = @{
@@ -560,7 +561,7 @@ az containerapp update \
   --image "${REGISTRY_NAME}.azurecr.io/${IMAGE_NAME}:latest"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 $CredentialArgs = @{
@@ -600,7 +601,7 @@ Update-AzContainerApp @AppArgs
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
@@ -611,7 +612,7 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ::: zone-end
 ::: zone pivot="bicep"
 
-This article describes how to use a Bicep template to configure your container app to use user-assigned managed identities to pull images from private Azure Container Registry repositories.
+This article describes how to use a Bicep file to configure your container app to use user-assigned managed identities to pull images from private Azure Container Registry repositories.
 
 ## Prerequisites
 
@@ -641,7 +642,7 @@ az bicep upgrade
 
 For more information, see [Installing Bicep](/azure/azure-resource-manager/bicep/install).
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 You must manually install Bicep for any use other than Azure CLI. For more information, see [Installing Bicep](/azure/azure-resource-manager/bicep/install#install-manually).
 
@@ -669,7 +670,7 @@ APP_INSIGHTS_NAME="<APP_INSIGHTS_NAME>"
 ACR_PULL_DEFINITION_ID="7f951dda-4ed3-4680-a7ca-43fe172d538d"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -691,9 +692,9 @@ $AcrPullDefinitionId = '7f951dda-4ed3-4680-a7ca-43fe172d538d'
 
 The [`AcrPull`](/azure/role-based-access-control/built-in-roles#acrpull) role grants your user-assigned managed identity permission to pull the image from the registry.
 
-## Bicep template
+## Bicep file
 
-Copy the following Bicep template and save it as a file with the extension `.bicep`.
+Copy the following Bicep file and save it as a file with the extension `.bicep`.
 
 ```bicep
 param environmentName string 
@@ -830,7 +831,7 @@ az deployment group create \
   location="${LOCATION}"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $params = @{
@@ -865,13 +866,13 @@ This command deploys the following.
 - A container to store the image.
 - A container app based on the image.
 
-If you receive the error `Failed to parse '<YOUR_BICEP_FILE_NAME>', please check whether it is a valid JSON format`, make sure your Bicep template file has the extension `.bicep`.
+If you receive the error `Failed to parse '<YOUR_BICEP_FILE_NAME>', please check whether it is a valid JSON format`, make sure your Bicep file has the extension `.bicep`.
 
 ## Additional resources
 
 For more information, see the following.
 - [Bicep format](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep)
-- [Example Bicep templates](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep#quickstart-templates)
+- [Example Bicep files](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep#quickstart-templates)
 - [Using Managed Identity and Bicep to pull images with Azure Container Apps](https://azureossd.github.io/2023/01/03/Using-Managed-Identity-and-Bicep-to-pull-images-with-Azure-Container-Apps/)
 
 ::: zone-end

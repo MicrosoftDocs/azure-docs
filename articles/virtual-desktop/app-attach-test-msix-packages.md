@@ -2,12 +2,15 @@
 title: Test and troubleshoot MSIX packages for app attach - Azure
 description: Learn how to mount disk images for testing and troubleshooting outside of Azure Virtual Desktop.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 03/04/2024
 ---
 
 # Test MSIX packages for app attach
+
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
 
 This article shows you how to mount MSIX packages outside of Azure Virtual Desktop to help test your packages for app attach. The APIs that power app attach are available for Windows 11 Enterprise and Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop for testing, however there's no management plane for app attach or MSIX app attach outside of Azure Virtual Desktop.
 

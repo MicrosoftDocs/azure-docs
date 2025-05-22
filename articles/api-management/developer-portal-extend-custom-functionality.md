@@ -60,7 +60,7 @@ For more advanced use cases, you can create and upload a custom widget to the de
 
 ### Prerequisites 
  
-* Install [Node.JS runtime](https://nodejs.org/en/) locally 
+* Install [Node.js runtime](https://nodejs.org/en/) locally 
 * Basic knowledge of programming and web development
 
 ### Create widget

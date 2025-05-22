@@ -4,8 +4,8 @@ titleSuffix: Azure VPN Gateway
 description: Learn how you can use VPN Gateway point-to-site connections in order to work remotely.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
-ms.date: 07/10/2024
+ms.topic: concept-article
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---

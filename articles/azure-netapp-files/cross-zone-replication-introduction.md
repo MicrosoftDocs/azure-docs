@@ -1,10 +1,10 @@
 ---
-title: Cross-zone replication of Azure NetApp Files volumes | Microsoft Docs
+title: Cross-zone replication of Azure NetApp Files volumes 
 description: Describes what Azure NetApp Files cross-zone replication does.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/29/2024
 ms.author: anfdocs
 ms.custom: references_regions
@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Understand cross-zone replication of Azure NetApp Files
 
-In many cases resiliency across availability zones is achieved by HA architectures using application-based replication and HA, as explained in [Use availability zones for high availability](use-availability-zones.md). However, simpler, more cost-effective approaches are often considered by using storage-based data replication instead.  
+In many cases resiliency across availability zones is achieved by HA architectures using application-based replication and HA, as explained in [Use availability zone volume placement for high availability](use-availability-zones.md). However, simpler, more cost-effective approaches are often considered by using storage-based data replication instead.  
 
 Similar to the Azure NetApp Files [cross-region replication feature](cross-region-replication-introduction.md), the cross-zone replication (CZR) capability provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one availability zone to another Azure NetApp Files volume (destination) in another availability zone. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens. 
 
@@ -41,3 +41,4 @@ Replicated volumes are hosted on a [capacity pool](azure-netapp-files-understand
 
 * [Requirements and considerations for using cross-zone replication](cross-zone-replication-requirements-considerations.md)
 * [Create cross-zone replication](create-cross-zone-replication.md)
+* [Configure cross-zone-region replication](cross-zone-region-replication-configure.md)

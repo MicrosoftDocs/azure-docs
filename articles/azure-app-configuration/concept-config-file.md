@@ -19,7 +19,7 @@ The rest of this document discusses both file content profiles in detail and use
 
 ## File content profile: default
 
-The default file content profile in App Configuration tools refers to the conventional configuration file schema widely adopted by existing programming frameworks or systems. App Configuration supports JSON, Yaml, or Properties file formats.
+The default file content profile in App Configuration tools refers to the conventional configuration file schema widely adopted by existing programming frameworks or systems. App Configuration supports JSON, YAML, or Properties file formats.
 
 The following example is a configuration file named `appsettings.json` containing one configuration setting and one feature flag.
 
