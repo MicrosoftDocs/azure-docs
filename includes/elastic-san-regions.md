@@ -42,6 +42,7 @@ Elastic SAN is also available in the following regions, but without Availability
 - Japan West - LRS
 - North Central US - LRS
 - Australia Central - LRS
+- Australia Southeast - LRS
 - Southeast Brazil - LRS
 - Korea South - LRS
 - UAE Central - LRS
