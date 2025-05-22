@@ -16,7 +16,9 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (May 2025)
 
-- General availability: Azure Migrate now offers expanded support for configuring disk settings across multiple migration scenarios, including Change Block Tracking (CBT), Physical, and Hyper-V based migrations. The users can choose Premium SSD v2 [Pv2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli), [Ultra](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal), or [ZRS](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) disks when migrating servers using VMware Agentless, Hyper-V, or Physical migration methods. It empowers users to fine-tune their target disk setup, enabling more efficient and tailored migrations to Azure infrastructure.
+- General availability: Azure Migrate enhances support for [Premium v2 SSD Disks](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli). This offers a seamless experience to migrate their on-premise workloads to Azure and benefit from the with advanced disk options that offer greater flexibility and enhanced performance of Pv2 disks in Azure. 
+- Public preview: Azure Migrate expands support for migrations with [Ultra SSD](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal).
+- Public preview: Azure Migrate  enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration only. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
 
 - General availability: Azure Migrate now supports a simplified experience through its upgraded version of the agent-based migration stack. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
 

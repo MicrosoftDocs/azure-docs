@@ -119,8 +119,7 @@ Enable replication as follows:
     :::image type="content" source="./media/tutorial-migrate-vmware/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware/disks-expanded.png":::
 
     > [!NOTE]
-    > To optimize costs and enhance performance, you can now migrate to Premium managed disks for OS Premium V2, Ultra & ZRS, standard SSD/HDD, or Premium Managed disks (preview) for data disks exclusively in a VMware environment.
-
+    > To optimize costs and enhance performance, you can now migrate to Premium V2 SSD Disk as data disk.
 
 13. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
 

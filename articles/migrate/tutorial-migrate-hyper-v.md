@@ -149,7 +149,8 @@ After discovery is finished, you can begin the replication of Hyper-V VMs to Azu
 1. In **Replicate** > **Source settings** > **Are your machines virtualized?**, select **Yes, with Hyper-V**. Then select **Next: Virtual machines**.
 
 1. In **Virtual machines**, select the machines you want to replicate.
-    - If you ran an assessment for the VMs, you can apply VM sizing and disk type (Premium V2, Ultra & ZRS, standard SSD/HDD or Premium Managed disks) recommendations from the assessment results. To do this step, in **Import migration settings from an Azure Migrate assessment?**, select **Yes**.
+    - If you ran an assessment for the VMs, you can apply VM sizing and disk type (Premium V2, Ultra SSD, Standard SSD, Standard HDD or Premium Managed disks) recommendations from the assessment results. To do this step, in **Import migration settings from an Azure Migrate assessment?**, select **Yes**.
+    - The customer can choose to migrate the Standard SSD as a [ZRS Disk](/azure/virtual-machines/disks-deploy-zrs?tabs=portal).
     - If you didn't run an assessment, or you don't want to use the assessment settings, select **No**.
     - If you selected to use the assessment, select the VM group and assessment name.
 
