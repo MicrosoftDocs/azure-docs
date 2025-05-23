@@ -5,7 +5,7 @@ author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: conceptual
-ms.date: 01/02/2024
+ms.date: 12/17/2024
 ---
 # Understand and adjust Stream Analytics streaming units
 
@@ -13,11 +13,11 @@ ms.date: 01/02/2024
 
 Streaming Units (SUs) represents the computing resources that are allocated to execute a Stream Analytics job. The higher the number of SUs, the more CPU and memory resources are allocated for your job. This capacity lets you focus on the query logic and abstracts the need to manage the hardware to run your Stream Analytics job in a timely manner.
 
-Azure Stream Analytics supports two streaming unit structures: SU V1(to be deprecated) and **SU V2(recommended)**.  
+Azure Stream Analytics supports two streaming unit structures: SU V1(to be deprecated) and **SU V2(recommended)**.
 
-The SU V1 model is ASA's original offering where every 6 SUs correspond to a single streaming node for a job. Jobs may run with 1 and 3 SUs as well and these correspond with fractional streaming nodes. Scaling occurs in increments of 6 beyond 6 SU jobs, to 12, 18, 24 and beyond by adding more streaming nodes that provide distributed computing resources.
+The SU V1 model is Azure Stream Analytics(ASA)'s original offering where every 6 SUs correspond to a single streaming node for a job. Jobs might run with 1 and 3 SUs as well and they correspond with fractional streaming nodes. Scaling occurs in increments of 6 beyond 6 SU jobs, to 12, 18, 24 and beyond by adding more streaming nodes that provide distributed computing resources.
 
-The **SU V2 model(recommended)** is a simplified structure with favorable pricing for the same compute resources. In the SU V2 model, 1 SU V2 corresponds to one streaming node for your job.  2 SU V2s corresponds to 2, 3 to 3, and so on.  Jobs with 1/3 and 2/3 SU V2s are also available with one streaming node but a fraction of the computing resources. The 1/3 and 2/3 SU V2 jobs provide a cost-effective option for workloads that require smaller scale.
+The **SU V2 model(recommended)** is a simplified structure with favorable pricing for the same compute resources. In the SU V2 model, 1 SU V2 corresponds to one streaming node for your job. 2 SU V2s corresponds to 2, 3 to 3, and so on. Jobs with 1/3 and 2/3 SU V2s are also available with one streaming node but a fraction of the computing resources. The 1/3 and 2/3 SU V2 jobs provide a cost-effective option for workloads that require smaller scale.
 
 The underlying compute power for V1 and V2 streaming units is as follows:
 
@@ -26,7 +26,7 @@ The underlying compute power for V1 and V2 streaming units is as follows:
 For information on SU pricing, visit the [Azure Stream Analytics Pricing Page](https://azure.microsoft.com/pricing/details/stream-analytics/).
 
 ## Understand streaming unit conversions and where they apply
-There's an automatic conversion of Streaming Units which occurs from REST API layer to UI (Azure Portal and Visual Studio Code).  You will notice this conversion in the [Activity log](stream-analytics-job-diagnostic-logs.md) as well where SU values appear different than the values on the UI.  This is by design and the reason for it is because REST API fields are limited to integer values and ASA jobs support fractional nodes (1/3 and 2/3 Streaming Units).  ASA's UI displays node values 1/3, 2/3, 1, 2, 3, … etc, while backend (activity logs, REST API layer) display the same values multiplied by 10 as 3, 7, 10, 20, 30 respectively. 
+There's an automatic conversion of Streaming Units which occurs from REST API layer to UI (Azure portal and Visual Studio Code). You notice this conversion in the [Activity log](stream-analytics-job-diagnostic-logs.md) as well where SU values appear different than the values on the UI. This behavior is by design and the reason for it is because REST API fields are limited to integer values and ASA jobs support fractional nodes (1/3 and 2/3 Streaming Units). ASA's UI displays node values 1/3, 2/3, 1, 2, 3, … etc., while backend (activity logs, REST API layer) display the same values multiplied by 10 as 3, 7, 10, 20, 30 respectively. 
 
 | Standard  | Standard V2 (UI) | Standard V2 (Backend such as logs, Rest API, etc.) |
 | ------------- | ------------- | ------------- |
@@ -37,10 +37,10 @@ There's an automatic conversion of Streaming Units which occurs from REST API la
 | 18  | 3  | 30  |
 | ...  | ...  | ... |
 
-This allows us to convey the same granularity and eliminate the decimal point at the API layer for V2 SKUs.  This conversion is automatic and has no impact on your job's performance.
+It allows us to convey the same granularity and eliminate the decimal point at the API layer for V2 SKUs. This conversion is automatic and has no impact on your job's performance.
 
 ## Understand consumption and memory utilization
-To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory.  When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there's enough resource allocated to keep the jobs running 24/7.
+To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory. When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there's enough resource allocated to keep the jobs running 24/7.
 
 The SU % utilization metric, which ranges from 0% to 100%, describes the memory consumption of your workload. For a streaming job with minimal footprint, this metric is usually between 10% to 20%. If SU% utilization is high (above 80%), or if input events get backlogged (even with a low SU% utilization since it doesn't show CPU usage), your workload likely requires more compute resources, which requires you to increase the number of streaming units. It's best to keep the SU metric below 80% to account for occasional spikes. To react to increased workloads and increase streaming units, consider setting an alert of 80% on the SU Utilization metric. Also, you can use watermark delay and backlogged events metrics to see if there's an impact.
 
@@ -56,7 +56,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
     
 4. Choose the SU option in drop-down list to set the SUs for the job. Notice that you're limited to a specific SU range. 
 
-5. You can change the number of SUs assigned to your job while it is running. You may be restricted to choosing from a set of SU values when the job is running if your job uses a [non-partitioned output.](./stream-analytics-parallelization.md#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](./stream-analytics-parallelization.md#multi-step-query-with-different-partition-by-values). 
+5. You can change the number of SUs assigned to your job while it's running. You might be restricted to choosing from a set of SU values when the job is running if your job uses a [non-partitioned output.](./stream-analytics-parallelization.md#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](./stream-analytics-parallelization.md#multi-step-query-with-different-partition-by-values). 
 
 ## Monitor job performance
 Using the Azure portal, you can track the performance related metrics of a job. To learn about the metrics definition, see [Azure Stream Analytics job metrics](./monitor-azure-stream-analytics-reference.md#metrics). To learn more about the metrics monitoring in portal, see [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md).
@@ -80,9 +80,9 @@ For more information about choosing the right number of SUs, see this page: [Sca
 
 Temporal (time-oriented) query elements are the core set of stateful operators provided by Stream Analytics. Stream Analytics manages the state of these operations internally on user’s behalf, by managing memory consumption, checkpointing for resiliency, and state recovery during service upgrades. Even though Stream Analytics fully manages the states, there are many best practice recommendations that users should consider.
 
-Note that a job with complex query logic could have high SU% utilization even when it isn't continuously receiving input events. This can happen after a sudden spike in input and output events. The job might continue to maintain state in memory if the query is complex.
+A job with complex query logic could have high SU% utilization even when it isn't continuously receiving input events. It can happen after a sudden spike in input and output events. The job might continue to maintain state in memory if the query is complex.
 
-SU% utilization may suddenly drop to 0 for a short period before coming back to expected levels. This happens due to transient errors or system initiated upgrades. Increasing number of streaming units for a job might not reduce SU% Utilization if your query isn't [fully parallel](./stream-analytics-parallelization.md).
+SU% utilization might suddenly drop to 0 for a short period before coming back to expected levels. It happens due to transient errors or system initiated upgrades. Increasing number of streaming units for a job might not reduce SU% Utilization if your query isn't [fully parallel](./stream-analytics-parallelization.md).
 
 While comparing utilization over a period of time, use [event rate metrics](monitor-azure-stream-analytics-reference.md#metrics). InputEvents and OutputEvents metrics show how many events were read and processed. There are metrics that indicate number of error events as well, such as deserialization errors. When the number of events per time unit increases, SU% increases in most cases.
 
@@ -110,7 +110,7 @@ For example, in the following query, the number associated with `clusterid` is t
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-In order to mitigate any issues caused by high cardinality in the previous query, you can send events to Event Hubs partitioned by `clusterid`, and scale out the query by allowing the system to process each input partition separately using **PARTITION BY** as shown in the example below:
+In order to mitigate any issues caused by high cardinality in the previous query, you can send events to Event Hubs partitioned by `clusterid`, and scale out the query by allowing the system to process each input partition separately using **PARTITION BY** as shown in the following example:
 
    ```sql
    SELECT count(*) 
@@ -135,7 +135,7 @@ The number of unmatched events in the join affect the memory utilization for the
 
 In this example, it's possible that lots of ads are shown and few people click on it and it's required to keep all the events in the time window. Memory consumed is proportional to the window size and event rate. 
 
-To remediate this, send events to Event Hubs partitioned by the join keys (ID in this case), and scale out the query by allowing the system to process each input partition separately using  **PARTITION BY** as shown:
+To remediate this behavior, send events to Event Hubs partitioned by the join keys (ID in this case), and scale out the query by allowing the system to process each input partition separately using  **PARTITION BY** as shown:
 
    ```sql
    SELECT clicks.id
@@ -161,13 +161,13 @@ Each input partition of a job input has a buffer. The larger number of input par
 
 Typically, a job configured with 1/3 streaming unit is sufficient for an event hub with two partitions (which is the minimum for event hub). If the event hub has more partitions, your Stream Analytics job consumes more resources, but not necessarily uses the extra throughput provided by Event Hubs. 
 
-For a job with 1 V2 streaming unit, you may need 4 or 8 partitions from the event hub. However, avoid too many unnecessary partitions since that causes excessive resource usage. For example, an event hub with 16 partitions or larger in a Stream Analytics job that has 1 streaming unit. 
+For a job with 1 V2 streaming unit, you might need 4 or 8 partitions from the event hub. However, avoid too many unnecessary partitions since that causes excessive resource usage. For example, an event hub with 16 partitions or larger in a Stream Analytics job that has 1 streaming unit. 
 
 ## Reference data 
 Reference data in ASA are loaded into memory for fast lookup. With the current implementation, each join operation with reference data keeps a copy of the reference data in memory, even if you join with the same reference data multiple times. For queries with **PARTITION BY**, each partition has a copy of the reference data, so the partitions are fully decoupled. With the multiplier effect, memory usage can quickly get very high if you join with reference data multiple times with multiple partitions.  
 
 ## Use of UDF functions
-When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime into memory. This will affect the SU%.
+When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime into memory, which affects the SU%.
 
 ## Next steps
 * [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)

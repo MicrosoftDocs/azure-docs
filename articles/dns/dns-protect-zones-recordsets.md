@@ -152,7 +152,7 @@ The following example shows a custom role definition for managing CNAME records 
     "NotActions": [
     ],
     "AssignableScopes": [
-        "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
     ]
 }
 ```

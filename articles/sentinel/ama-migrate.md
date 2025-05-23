@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: reference
 ms.date: 10/01/2024
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to migrate from the Log Analytics Agent to the Azure Monitor Agent so that we can maintain support for our Microsoft Sentinel deployment, while benefiting from improved performance and new features.
+
 ---
 
 # AMA migration for Microsoft Sentinel
@@ -17,8 +21,7 @@ The Log Analytics agent is [retired as of 31 August, 2024](https://azure.microso
 
 - Start with the [Azure Monitor documentation](/azure/azure-monitor/agents/azure-monitor-agent-migration), which provides an agent comparison and general information for this migration process. This article provides specific details and differences for Microsoft Sentinel.
 
-
-## Recommended migration plan
+## Migrate to the Azure Monitor Agent
 
 Each organization will have different metrics of success and internal migration processes. This section provides suggested guidance to consider when migrating from the Log Analytics MMA/OMS agent to the AMA, specifically for Microsoft Sentinel.
 

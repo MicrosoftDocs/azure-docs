@@ -39,7 +39,7 @@ Network Function Manager is available in the following regions:
 
 [!INCLUDE [Available regions](../../includes/network-function-manager-regions-include.md)]
 
-Azure Stack Edge Pro with GPU is available in several countries to deploy and run your choice of network functions. For a list of all the countries/regions where the Azure Stack Edge Pro GPU device is available, go to the [Azure Stack Edge Pro GPU pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro) page. On the **Azure Stack Edge Pro** tab, see the **Availability** section.
+Azure Stack Edge Pro with GPU is available in several countries/regions to deploy and run your choice of network functions. For a list of all the countries/regions where the Azure Stack Edge Pro GPU device is available, go to the [Azure Stack Edge Pro GPU pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro) page. On the **Azure Stack Edge Pro** tab, see the **Availability** section.
 
 You can register the Azure Stack Edge device and Network Function Manager resources based on your regulatory and data sovereignty requirements. The Azure region associated with Network Function Manager resources is used to guide the management operations from the cloud service to the physical device.
 

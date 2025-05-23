@@ -5,7 +5,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 02/19/2025
 # Customer intent: As a logic app workflow developer, I want to write and run my own C# scripts so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
@@ -41,7 +41,7 @@ This guide shows how to add the action in your workflow and add the C# script co
 
 ## Example scenarios
 
-The following list describes some example scenarios where you can use a script helps with certain integration tasks:
+The following list describes some example scenarios where you can use a script to help with certain integration tasks:
 
 - Parse and perform transformations or manipulations on a payload beyond the built-in expressions and data operations capabilities. For example, you can use a script to return a modified schema for downstream processing.
 
@@ -78,7 +78,7 @@ The following list describes some example scenarios where you can use a script h
 
 1. In the designer, [follow these general steps to add the **Inline Code Operations** action named **Execute CSharp Script Code** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopluated sample code with your own script code.
+1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopulated sample code with your own script code.
 
    - At the top of the script, [import the necessary namespaces](#import-namespaces) and [add any required assembly references](#add-assembly-references) as usual.
 

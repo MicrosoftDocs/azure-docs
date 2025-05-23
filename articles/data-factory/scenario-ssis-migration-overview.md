@@ -5,7 +5,7 @@ author: chugugrace
 ms.author: chugu
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Migrate on-premises SSIS workloads to SSIS in ADF or Synapse Pipelines

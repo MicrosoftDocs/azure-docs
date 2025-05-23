@@ -4,8 +4,8 @@ description: Learn about Azure DDoS Protection pricing and compare pricing betwe
 services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
-ms.topic: conceptual
-ms.date: 07/17/2024
+ms.topic: concept-article
+ms.date: 03/17/2025
 ms.author: abell
 ---
 

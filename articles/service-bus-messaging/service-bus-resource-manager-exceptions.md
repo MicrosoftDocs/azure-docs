@@ -3,7 +3,7 @@ title: Azure Service Bus Resource Manager exceptions
 description: This article provides a list of Service Bus exceptions surfaced by Azure Resource Manager and suggested actions.
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 03/19/2024
+ms.date: 04/29/2025
 ---
 
 # Service Bus Resource Manager exceptions
@@ -26,9 +26,9 @@ Here are the various exceptions/errors that are surfaced through the Azure Resou
 | Bad Request | 40000 | Sub code=40000. The supplied lock time exceeds the allowed maximum of '5' minutes. | The time for which a message can be locked must be between 1 minute (minimum) and 5 minutes (maximum). | Ensure that the supplied lock time is between 1 min and 5 mins. |
 | Bad Request | 40000 | Sub code=40000. Both DelayedPersistence and RequiresDuplicateDetection property can't be enabled together. | Entities with Duplicate detection enabled on them must be persistent, so persistence can't be delayed. | Learn more about [Duplicate Detection](duplicate-detection.md) |
 | Bad Request | 40000 | Sub code=40000. The value for RequiresSession property of an existing Queue can't be changed. | Support for sessions should be enabled at the time of entity creation. Once created, you can't enable/disable sessions on an existing entity (queue or subscription) | Delete and recreate a new queue (or subscription) with the "RequiresSession" property enabled. |
-| Bad Request | 40000 | Sub code=40000. 'URI_PATH' contains character(s) that isn't allowed by Service Bus. Entity segments can contain only letters, numbers, periods(.), hyphens(-), and underscores(_). | Entity segments can contain only letters, numbers, periods(.), hyphens(-), and underscores(_). Any other characters cause the request to fail. | Ensure that there are no invalid characters in the URI Path. |
+| Bad Request | 40000 | Sub code=40000. 'URI_PATH' contains characters that aren't allowed by Service Bus. Entity segments can contain only letters, numbers, periods(.), hyphens(-), and underscores(_). | Entity segments can contain only letters, numbers, periods(.), hyphens(-), and underscores(_). Any other characters cause the request to fail. | Ensure that there are no invalid characters in the URI Path. |
 | Bad Request | 40000 | Sub code=40000. Bad request. To know more visit `https://aka.ms/sbResourceMgrExceptions`. TrackingId:00000000-0000-0000-0000-00000000000000_000, SystemTracker:contososbusnamesapce.servicebus.windows.net:myqueue, Timestamp:yyyy-mm-ddThh:mm:ss | This error occurs when you try to create a queue in a non-premium tier namespace with a value set to the property `maxMessageSizeInKilobytes`. This property can only be set for queues in the premium namespace. |
-| Bad Request | 40300 | Sub code=40300. The maximum number of resources of type `EnablePartioning == true` has been reached or exceeded. | There's a limit on number of partitioned entities per namespace. See [Quotas and limits](service-bus-quotas.md). | |
+| Bad Request | 40300 | Sub code=40300. The maximum number of resources of type `EnablePartioning == true` has reached or exceeded. | There's a limit on number of partitioned entities per namespace. See [Quotas and limits](service-bus-quotas.md). | |
 | Bad Request | 40400 | Sub code=40400. The auto forwarding destination entity doesn't exist. | The destination for the autoforwarding destination entity doesn't exist. | The destination entity (queue or topic), must exist before the source is created. [Retry](/azure/architecture/best-practices/retry-service-specific#service-bus) after creating the destination entity. |
 
 ## Error code: 429
@@ -37,7 +37,7 @@ Just like in HTTP, "Error code 429" indicates too many requests. It implies that
 
 | Error code | Error sub code | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| 429 | 50004 | Sub code=50004. The request was terminated because the namespace *your namespace* is being throttled. | This error condition is hit when the number of incoming requests exceed the limitation of the resource. | Wait for a few seconds and try again. <br/> <br/> Learn more about the [quotas](service-bus-quotas.md) and [Azure Resource Manager request limits](../azure-resource-manager/management/request-limits-and-throttling.md)|
+| 429 | 50004 | Sub code=50004. The request was terminated because the namespace *your namespace* is being throttled. | This error condition is hit when the number of incoming requests exceeds the limitation of the resource. | Wait for a few seconds and try again. <br/> <br/> Learn more about the [quotas](service-bus-quotas.md) and [Azure Resource Manager request limits](../azure-resource-manager/management/request-limits-and-throttling.md)|
 | 429 | 40901 | Sub code=40901. Another conflicting operation is in progress. | Another conflicting operation is in progress on the same resource/entity | Wait for the current in-progress operation to complete before trying again. |
 | 429 | 40900 | Sub code=40900. Conflict. You're requesting an operation that isn't allowed in the resource's current state. | This condition might be hit when multiple requests are made to perform the operations on the same entity (queue, topic, subscription, or rule) at the same time. | Wait for a few seconds and try again |
 | 429 | 40901 | Request on entity *'entity name'* conflicted with another request | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |

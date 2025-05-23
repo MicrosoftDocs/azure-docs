@@ -4,10 +4,10 @@ description: Learn how to create and manage Microsoft Sentinel playbooks to auto
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 08/15/2024
+ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to manage automated response playbooks so that I can efficiently handle incidents and alerts in my environment.
 
@@ -50,13 +50,13 @@ This article describes how to create and manage Microsoft Sentinel playbooks. Yo
 
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
-1. In the [Azure portal](https://portal.azure.com) or in the [Defender portal](https://security.microsoft.com/), go to your Microsoft Sentinel workspace. On the workspace menu, under **Configuration**, select **Automation**.
+1. In the [Defender portal](https://security.microsoft.com/) or in the [Azure portal](https://portal.azure.com), go to your Microsoft Sentinel workspace. On the workspace menu, under **Configuration**, select **Automation**.
+
+     #### [Defender portal](#tab/defender-portal)
+     :::image type="content" source="../media/create-playbooks/add-new-playbook-defender.png" alt-text="Screenshot shows Defender portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook-defender.png":::
 
      #### [Azure portal](#tab/azure-portal)
      :::image type="content" source="../media/create-playbooks/add-new-playbook.png" alt-text="Screenshot shows Azure portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook.png":::
-
-     #### [Defender portal](#tab/defender-portal)
-   :::image type="content" source="../media/create-playbooks/add-new-playbook-defender.png" alt-text="Screenshot shows Defender portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook-defender.png":::
 
      ---
 
@@ -402,7 +402,7 @@ To use custom fields for incident triggers, follow these steps for your workflow
 
 Select the **Automation > Active playbooks** tab to view all the playbooks you have access to, filtered by your subscription view.
 
-After you onboard to the unified security operations platform, by default the **Active playbooks** tab shows a predefined filter with onboarded workspace's subscription. **In the Azure portal**, edit the subscriptions you're showing from the **Directory + subscription** menu in the global Azure page header.
+After you onboard to the Microsoft Defender portal, by default the **Active playbooks** tab shows a predefined filter with onboarded workspace's subscription. **In the Azure portal**, edit the subscriptions you're showing from the **Directory + subscription** menu in the global Azure page header.
 
 While the **Active playbooks** tab displays all the active playbooks available across any selected subscriptions, by default a playbook can be used only within the subscription to which it belongs, unless you specifically grant Microsoft Sentinel permissions to the playbook's resource group.
 

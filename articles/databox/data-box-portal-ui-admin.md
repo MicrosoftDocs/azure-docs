@@ -4,8 +4,7 @@ description: Learn how to manage the Data Box Disk by using the Azure portal. Ma
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: shaas

@@ -1,18 +1,18 @@
 ---
-title: Use blob index tags to manage and find data with JavaScript
+title: Use blob index tags to manage and find data with JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to categorize, manage, and query for blob objects by using the JavaScript client library.  
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 08/05/2024
+ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Use blob index tags to manage and find data with JavaScript
+# Use blob index tags to manage and find data with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
 
@@ -32,64 +32,43 @@ This article shows how to use blob index tags to manage and find data using the 
 
 [!INCLUDE [storage-dev-guide-auth-set-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-set-blob-tags.md)]
 
-To set tags at blob upload time, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method:
+You can set tags by using the following method:
 
 - [BlobClient.setTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-settags)
 
-The following example performs this task.
+The specified tags in this method replace existing tags. If old values must be preserved, they must be downloaded and included in the call to this method. The following example shows how to set tags:
 
-```javascript
-// A blob can have up to 10 tags. 
-//
-// const tags = {
-//   project: 'End of month billing summary',
-//   reportOwner: 'John Doe',
-//   reportPresented: 'April 2022'
-// }
-async function setTags(containerClient, blobName, tags) {
+### [JavaScript](#tab/javascript)
 
-  // Create blob client from container client
-  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/set-and-retrieve-blob-tags.js" id="Snippet_setTags":::
 
-  // Set tags
-  await blockBlobClient.setTags(tags);
+### [TypeScript](#tab/typescript)
 
-  console.log(`uploading blob ${blobName}`);
-}
-```
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-tags.ts" id="Snippet_setTags" :::
 
-You can delete all tags by passing an empty JSON object into the setTags method.
+---
 
-| Related articles |
-|--|
-| [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
-| [Set Blob Tags](/rest/api/storageservices/set-blob-tags) (REST API) |
+You can delete all tags by passing an empty JSON object into the `setTags` method.
 
 ## Get tags
 
 [!INCLUDE [storage-dev-guide-auth-get-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-get-blob-tags.md)]
 
-To get tags, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method: 
+You can get tags by using the following method: 
 
 - [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags)
 
-The following example shows how to get and iterate over the blob's tags.
+The following example shows how to retrieve and iterate over the blob's tags.
 
-```javascript
-async function getTags(containerClient, blobName) {
+### [JavaScript](#tab/javascript)
 
-  // Create blob client from container client
-  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/set-and-retrieve-blob-tags.js" id="Snippet_getTags":::
 
-  // Get tags
-  const result = await blockBlobClient.getTags();
+### [TypeScript](#tab/typescript)
 
-  for (const tag in result.tags) {
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-tags.ts" id="Snippet_getTags" :::
 
-      console.log(`TAG: ${tag}: ${result.tags[tag]}`);
-  }
-}
-```
+---
 
 ## Filter and find data with blob index tags
 
@@ -109,58 +88,21 @@ The following table shows some query strings:
 |`@container = 'my-container' AND createdBy = 'Jill'`|**Filter by container** and specific property. In this query, `createdBy` is a text match and doesn't indicate an authorization match through Active Directory. |
 
 
-To find blobs, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method: 
+You can find data by using the following method: 
 
 - [BlobServiceClient.findBlobsByTags](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-findblobsbytags)
 
-The following example finds all blobs matching the tagOdataQuery parameter.
+The following example finds all blobs matching the `tagOdataQuery` parameter.
 
-```javascript
-async function findBlobsByQuery(blobServiceClient, tagOdataQuery) {
+### [JavaScript](#tab/javascript)
 
-  // page size
-  const maxPageSize = 10;
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/set-and-retrieve-blob-tags.js" id="Snippet_findBlobsByQuery":::
 
-  let i = 1;
-  let marker;
+### [TypeScript](#tab/typescript)
 
-  const listOptions = {
-    includeMetadata: true,
-    includeSnapshots: false,
-    includeTags: true,
-    includeVersions: false
-  };
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-and-retrieve-tags.ts" id="Snippet_findBlobsByQuery" :::
 
-  let iterator = blobServiceClient.findBlobsByTags(tagOdataQuery, listOptions).byPage({ maxPageSize });
-  let response = (await iterator.next()).value;
-
-  // Prints blob names
-  if (response.blobs) {
-    for (const blob of response.blobs) {
-      console.log(`Blob ${i++}: ${blob.name} - ${JSON.stringify(blob.tags)}`);
-    }
-  }
-
-  // Gets next marker
-  marker = response.continuationToken;
-  
-  // no more blobs
-  if (!marker) return;
-  
-  // Passing next marker as continuationToken
-  iterator = blobServiceClient
-    .findBlobsByTags(tagOdataQuery, listOptions)
-    .byPage({ continuationToken: marker, maxPageSize });
-  response = (await iterator.next()).value;
-
-  // Prints blob names
-  if (response.blobs) {
-    for (const blob of response.blobs) {
-      console.log(`Blob ${i++}: ${blob.name} - ${JSON.stringify(blob.tags)}`);
-    }
-  }
-}
-```
+---
 
 And example output for this function shows the matched blobs and their tags, based on the console.log code in the preceding function:
 
@@ -172,6 +114,10 @@ And example output for this function shows the matched blobs and their tags, bas
 
 To learn more about how to use index tags to manage and find data using the Azure Blob Storage client library for JavaScript, see the following resources.
 
+### Code samples
+
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/set-and-retrieve-blob-tags.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-and-retrieve-tags.ts) code samples from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for managing and using blob index tags use the following REST API operations:
@@ -179,10 +125,6 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 - [Get Blob Tags](/rest/api/storageservices/get-blob-tags) (REST API)
 - [Set Blob Tags](/rest/api/storageservices/set-blob-tags) (REST API)
 - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) (REST API)
-
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/set-and-retrieve-blob-tags.js)
 
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
 

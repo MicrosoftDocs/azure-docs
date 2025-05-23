@@ -6,8 +6,13 @@ ms.topic: reference
 ms.date: 06/14/2024
 ms.author: yelevin
 appliesto:
-- Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to identify and deploy relevant workbooks in Microsoft Sentinel so that I can effectively monitor and investigate security data.
+
 ---
 
 # Commonly used Microsoft Sentinel workbooks

@@ -3,7 +3,7 @@ title: Azure Files customer case studies
 description: Case studies describing how Microsoft customers use Azure Files and Azure File Sync in different industries.
 author: nataraj
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/24/2023
 ms.author: nasindam
 ---
@@ -34,4 +34,4 @@ A sportswear brand was looking for ways to elevate the speed and ease of collabo
 
 ## Azure Files large files use case
 
- Game studios deal with large files on a daily basis to store their valuable digital assets, sharing builds and reviewing crash dumps. When the COVID-19 pandemic prompted game developers to transition from an in-office workforce to a globally distributed remote team, working with large files didn’t scale well. The increased demand for remote access resulted in high latency when working with large files, as well as an increase in internet egress costs. Azure Files offered a scalable solution for the team to easily work with large files.
+ Game studios deal with large files on a daily basis to store their valuable digital assets, sharing builds and reviewing crash dumps. When the COVID-19 pandemic prompted game developers to transition from an in-office workforce to a globally distributed remote team, working with large files didn't scale well. The increased demand for remote access resulted in high latency when working with large files, as well as an increase in internet egress costs. Azure Files offered a scalable solution for the team to easily work with large files.

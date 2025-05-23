@@ -137,17 +137,11 @@ Now, you can run the function. But first, check in the portal and see what outbo
 
 1. In your function app, select **Properties** and review the **Outbound IP Addresses** field.
 
-    ![View function app outbound IP addresses](./media/functions-how-to-use-nat-gateway/function-properties-ip.png)
-
 1. Now, return to your HTTP trigger function, select **Code + Test** and then **Test/Run**.
 
     ![Test function](./media/functions-how-to-use-nat-gateway/function-code-test.png)
 
-1. Select **Run** to execute the function, then switch to the **Output**. 
-
-    ![Test function output](./media/functions-how-to-use-nat-gateway/function-test-1-output.png)
-
-1. Verify that IP address in the HTTP response body is one of the values from the outbound IP addresses you viewed earlier.
+1. Select **Run** to execute the function, then switch to the **Output** and verify that IP address in the HTTP response body is one of the values from the outbound IP addresses you viewed earlier.
 
 Now, you can create a public IP and use a NAT gateway to modify this outbound IP address.
 

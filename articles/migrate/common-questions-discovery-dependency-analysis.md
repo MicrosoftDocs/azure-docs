@@ -4,9 +4,9 @@ description: Get answers to common questions about discovery and dependency anal
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 08/07/2024
+ms.date: 09/09/2024
 ms.custom: engagement-fy25
 ---
 

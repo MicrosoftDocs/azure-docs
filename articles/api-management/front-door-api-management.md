@@ -20,8 +20,11 @@ Azure Front Door is a modern application delivery network platform providing a s
 
 This article shows how to:
 
-* Set up an Azure Front Door Standard/Premium profile in front of a publicly accessible Azure API Management instance: either non-networked, or injected in a virtual network in [external mode](api-management-using-with-vnet.md). 
+* Set up an Azure Front Door Standard/Premium profile in front of a publicly accessible Azure API Management instance: either non-networked, or a Developer or Premium instance injected in a virtual network in [external mode](api-management-using-with-vnet.md). 
 * Restrict API Management to accept API traffic only from Azure Front Door. 
+
+> [!TIP]
+> You can also configure Azure Front Door Premium to route traffic to an API Management gateway using a [private endpoint](../frontdoor/standard-premium/how-to-enable-private-link-apim.md).
 
 ## Prerequisites
 
@@ -79,7 +82,7 @@ We recommend updating the default route that's associated with the API Managemen
 
 ### Test the configuration
 
-Test the Front Door profile configuration by calling an API hosted by API Management, for example, the Demo Conference API. First, call the API directly through the API Management gateway to ensure that the API is reachable. Then, call the API through Front Door.
+Test the Front Door profile configuration by calling an API hosted by API Management, for example, the Swagger Petstore API. First, call the API directly through the API Management gateway to ensure that the API is reachable. Then, call the API through Front Door.
 
 ### Call an API directly through API Management
 
@@ -139,9 +142,9 @@ The following are high level steps to add an endpoint for the developer portal t
 For more information and details about settings, see [How to configure an origin for Azure Front Door](../frontdoor/how-to-configure-origin.md#create-a-new-origin-group).
 
 > [!NOTE]
-> If you've configured an [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md) identity provider for the developer portal, you need to update the corresponding app registration with an additional redirect URL to Front Door. In the app registration, add the URL for the developer portal endpoint configured in your Front Door profile.
+> If you've configured an [Microsoft Entra ID](api-management-howto-aad.md) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam) identity provider for the developer portal, you need to update the corresponding app registration with an additional redirect URL to Front Door. In the app registration, add the URL for the developer portal endpoint configured in your Front Door profile.
 
-## Next steps
+## Related content
 
 * To automate deployments of Front Door with API Management, see the template [Front Door Standard/Premium with API Management origin](https://azure.microsoft.com/resources/templates/front-door-standard-premium-api-management-external/)
 

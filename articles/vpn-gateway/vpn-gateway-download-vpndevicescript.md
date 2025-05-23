@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -51,13 +51,7 @@ Once the connection resource is created, use the following instructions to downl
 1. In the Azure portal, go to your VPN gateway.
 1. In the left pane, select **Connections** to view a list of connections.
 1. Select the connection to open the page for that connection. At the top of the page, click **Download configuration**.
-
-   :::image type="content" source="./media/vpn-gateway-download-vpndevicescript/download-configuration.png" alt-text="Screenshot of the configuration screen showing the download configuration link." lightbox="./media/vpn-gateway-download-vpndevicescript/download-configuration.png":::
-
 1. On the **Download configuration** page, from the dropdowns, select the device vendor, device family, and firmware version.
-
-   :::image type="content" source="./media/vpn-gateway-download-vpndevicescript/download-configuration-page.png" alt-text="Screenshot of the configuration screen showing the download configuration page to select vendor, family, and firmware version." lightbox="./media/vpn-gateway-download-vpndevicescript/download-configuration-page.png":::
-
 1. Once you've selected the device, click **Download configuration**. The configuration is generated and you're prompted to save the downloaded script (a text file) from your browser.
 1. Open the configuration script with a text editor and search for the keyword "REPLACE" to identify and examine the parameters that might need to be replaced before applying the script to your VPN device.
 

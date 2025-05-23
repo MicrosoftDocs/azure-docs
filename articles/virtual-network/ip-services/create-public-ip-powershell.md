@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 08/24/2023
+ms.date: 01/08/2025
 ms.custom: mode-api, devx-track-azurepowershell
 ---
 
@@ -42,9 +42,9 @@ New-AzResourceGroup @rg
 # [**Standard SKU**](#tab/create-public-ip-standard)
 
 >[!NOTE]
->Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
+>Standard SKU public IP is recommended for production workloads. For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
 >
->The following command works for Az.Network module version 4.5.0 or later.  For more information about the PowerShell modules currently being used, please refer to the [PowerShellGet documentation](/powershell/module/powershellget/).
+>The following command works for `Az.Network` module version 4.5.0 or later. For more information about the PowerShell modules currently being used, see the [PowerShellGet documentation](/powershell/module/powershellget/).
 
 In this section, you create a public IP with zones. Public IP addresses can be zone-redundant or zonal.
 
@@ -65,17 +65,17 @@ $ip = @{
 New-AzPublicIpAddress @ip
 ```
 > [!IMPORTANT]
-> For Az.Network modules older than 4.5.0, run the command above without specifying a zone parameter to create a zone-redundant IP address. 
+> For `Az.Network` modules older than 4.5.0, run the command above without specifying a zone parameter to create a zone-redundant IP address. 
 >
 
 # [**Basic SKU**](#tab/create-public-ip-basic)
 
 >[!NOTE]
->Standard SKU public IP is recommended for production workloads.  For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
+>Standard SKU public IP is recommended for production workloads. For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
 
 In this section, you create a basic IP. Basic public IPs don't support availability zones.
 
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a basic static public IPv4 address named **myBasicPublicIP** in **QuickStartCreateIP-rg**.  
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a basic static public IPv4 address named **myBasicPublicIP** in **QuickStartCreateIP-rg**. 
 
 To create an IPv6 address, modify the **`--IpAddressVersion`** parameter to **IPv6**. 
 
@@ -93,7 +93,7 @@ New-AzPublicIpAddress @ip
 If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected by changing the **`-AllocationMethod`** to **Dynamic**. 
 
 >[!NOTE]
-> A basic IPv6 address must always be 'Dynamic'.
+> A basic IPv6 address must always be `Dynamic`.
 
 ---
 
@@ -120,14 +120,14 @@ $ip = @{
 New-AzPublicIpAddress @ip
 ```
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 # [**Non-zonal**](#tab/create-public-ip-non-zonal)
 
-In this section, you create a non-zonal IP address.  
+In this section, you create a non-zonal IP address. 
 
 >[!NOTE]
->The following command works for Az.Network module version 4.5.0 or later.  For more information about the PowerShell modules currently being used, please refer to the [PowerShellGet documentation](/powershell/module/powershellget/).
+>The following command works for `Az.Network` module version 4.5.0 or later. For more information about the PowerShell modules currently being used, see the [PowerShellGet documentation](/powershell/module/powershellget/).
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP-nozone** in **QuickStartCreateIP-rg**. 
 
@@ -144,9 +144,9 @@ $ip = @{
 }
 New-AzPublicIpAddress @ip
 ```
-The removal of the **`-Zone`** parameter in the command is valid in all regions.  
+The removal of the **`-Zone`** parameter in the command is valid in all regions. 
 
-The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 
@@ -156,9 +156,9 @@ Standard SKU static public IPv4 addresses support Routing Preference or the Glob
 
 # [**Routing Preference**](#tab/routing-preference)
 
-By default, the routing preference for public IP addresses is set to **Microsoft network**, which delivers traffic over Microsoft's global wide area network to the user.  
+By default, the routing preference for public IP addresses is set to **Microsoft network**, which delivers traffic over Microsoft's global wide area network to the user. 
 
-The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate.  
+The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate. 
 
 For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md).
 
@@ -188,7 +188,7 @@ New-AzPublicIpAddress @ip
 
 # [**Tier**](#tab/tier)
 
-Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions. **Global** tier is required for the frontends of cross-region load balancers.  
+Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions. **Global** tier is required for the frontends of cross-region load balancers. 
 
 For more information, see [Cross-region load balancer](../../load-balancer/cross-region-overview.md).
 

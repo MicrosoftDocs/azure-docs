@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Power BI visual
 description: This article describes how to use the heat map layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 09/15/2023
+ms.date: 01/17/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -45,7 +45,7 @@ The **Heat map** section of the **Format** pane provides flexibility to customiz
 - Specify if the value in size field should be used as the weight of each data point.
 - Pick different colors from color pickers.
 - Set the minimum and maximum zoom level for heat map layer to be visible.
-- Decide the heat map layer position amongst different layers, such as the 3D column and bubble layer.
+- Decide the heat map layer position among different layers, such as the 3D column and bubble layer.
 
 The following table shows the primary settings that are available in the **Heat map** section of the **Format** pane:
 

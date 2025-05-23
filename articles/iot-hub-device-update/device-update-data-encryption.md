@@ -5,7 +5,8 @@ author: eshashah
 ms.author: eshashah
 ms.date: 09/22/2023
 ms.topic: conceptual
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Data encryption for Device Update for IoT Hub

@@ -13,7 +13,7 @@ ms.topic: conceptual
 # Event handlers destinations in Event Grid on Kubernetes
 An event handler is any system that exposes an endpoint and is the destination for events sent by Event Grid. An event handler receiving an event acts upon it and uses the event payload to execute some logic, which might lead to the occurrence of new events.
 
-The way to configure Event Grid to send events to a destination is through the creation of an event subscription. It can be done through [Azure CLI](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create), [management SDK](../sdk-overview.md#management-sdks), or using direct HTTPs calls using the [2020-10-15-preview API](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update) version.
+The way to configure Event Grid to send events to a destination is through the creation of an event subscription. It can be done through [Azure CLI](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create), [management SDK](../sdk-overview.md#management-sdks), or using direct HTTPS calls using the [2020-10-15-preview API](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update) version.
 
 In general, Event Grid on Kubernetes can send events to any destination via **Webhooks**. Webhooks are HTTP(s) endpoints exposed by a service or workload to which Event Grid has access. The webhook can be a workload hosted in the same cluster, in the same network space, on the cloud, on-premises or anywhere that Event Grid can reach.
 

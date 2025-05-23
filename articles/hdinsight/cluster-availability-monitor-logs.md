@@ -3,6 +3,9 @@ title: How to monitor cluster availability with Azure Monitor logs in HDInsight
 description: Learn how to use Azure Monitor logs to monitor cluster health and availability.
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 06/15/2024
 ---
 

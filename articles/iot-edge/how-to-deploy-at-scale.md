@@ -4,8 +4,8 @@ description: Use the Azure portal to create automatic deployments for groups of 
 author: PatAltimore
 ms.author: patricka
 ms.date: 06/12/2024
-ms.topic: conceptual
-ms.service: iot-edge
+ms.topic: concept-article
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 # Deploy IoT Edge modules at scale using the Azure portal

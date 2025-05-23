@@ -119,7 +119,7 @@ Check if your client request has multiple `hub` query strings. The `hub` is pres
 
 ### Root cause
 
-Currently the default value of JWT token's lifetime is one (1) hour.
+Currently the default value of JWT's lifetime is one (1) hour.
 
 For ASP.NET Core SignalR, when it's using WebSocket transport type, it's OK.
 
@@ -129,7 +129,7 @@ For ASP.NET SignalR, the client sends a `/ping` "keep alive" request to the serv
 
 ### Solution
 
-For security concerns, extend TTL isn't encouraged. We suggest adding reconnect logic from the client to restart the connection when such 401 occurs. When the client restarts the connection, it negotiates with app server to get the JWT token again and get a renewed token.
+For security concerns, extend TTL isn't encouraged. We suggest adding reconnect logic from the client to restart the connection when such 401 occurs. When the client restarts the connection, it negotiates with app server to get the JWT again and get a renewed token.
 
 Check [here](#restart_connection) for how to restart client connections.
 
@@ -311,8 +311,8 @@ This issue often occurs when someone establishes a SignalR client connection in 
 #### Solution
 
 * Remember to close client connection if you use SignalR clients in Azure function or use SignalR client as a singleton.
-* Instead of using SignalR clients in Azure function, you can create SignalR clients anywhere else and use [Azure Functions Bindings for Azure SignalR Service](https://github.com/Azure/azure-functions-signalrservice-extension) to [negotiate](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L22) the client to Azure SignalR. And you can also utilize the binding to [send messages](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L40). Samples to negotiate client and send messages can be found [here](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples). Further information can be found [here](https://github.com/Azure/azure-functions-signalrservice-extension).
-* When you use SignalR clients in Azure function, there might be a better architecture to your scenario. Check if you design a proper serverless architecture. You can refer to [Real-time serverless applications with the SignalR Service bindings in Azure Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService).
+* Instead of using SignalR clients in Azure function, you can create SignalR clients anywhere else and use [Azure Functions Bindings for Azure SignalR Service](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/signalr/Microsoft.Azure.WebJobs.Extensions.SignalRService) to [negotiate](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/signalr/Microsoft.Azure.WebJobs.Extensions.SignalRService/tests/Samples/BasicNegotiate.cs) the client to Azure SignalR. And you can also utilize the binding to [send messages](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/signalr/Microsoft.Azure.WebJobs.Extensions.SignalRService/tests/Samples/SendMessages.cs). Samples to negotiate client and send messages can be found [here](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/signalr/Microsoft.Azure.WebJobs.Extensions.SignalRService/tests/Samples). Further information can be found [here](signalr-concept-serverless-development-config.md).
+* When you use SignalR clients in Azure function, there might be a better architecture to your scenario. Check if you design a proper serverless architecture. You can refer to [Real-time apps with Azure SignalR Service and Azure Functions](signalr-concept-azure-functions.md).
 
 <a name="server_connection_drop"></a>
 
@@ -447,7 +447,7 @@ Here are the [Sample codes](https://github.com/Azure/azure-signalr/tree/dev/samp
 
 * [ASP.NET Core C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.Net70/wwwroot/js/chat.js)
+* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.RazorPages/wwwroot/js/chat.js#L53)
 
 * [ASP.NET C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 

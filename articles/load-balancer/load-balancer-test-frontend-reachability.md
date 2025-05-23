@@ -104,9 +104,6 @@ This section describes how to test reachability of a standard public load balanc
 1. In the Search bar at the top of the portal, enter **Virtual machines** and select Virtual machines.
 1. In **Virtual machines**, select your virtual machine from the list.
 1. In the virtual machine’s menu, select **Networking** and then select **Add inbound port rule**.
-
-    :::image type="content" source="media/load-balancer-front-end-reachability-testing/virtual-machine-port-rules-thumb.png" alt-text="Screenshot of Virtual network page listing port rules and selection of add outbound port rule button." lightbox="media/load-balancer-front-end-reachability-testing/virtual-machine-port-rules.png":::
-
 1. In **Add inbound security rule**, enter or select the following information:
 
     | **Setting** | **Value** |
@@ -121,9 +118,6 @@ This section describes how to test reachability of a standard public load balanc
     | **Priority** | Enter **100** or a priority of your choosing. |
     | **Name** | Enter **AllowICMP** or a name of your choosing |
     | **Description** | Leave as Blank or enter a description |
-
-    :::image type="content" source="media/load-balancer-front-end-reachability-testing/add-Inbound-port-rule-thumb.png" alt-text="Screenshot of Add inbound port rule windows with settings allowing ICMP echo messages."lightbox="media/load-balancer-front-end-reachability-testing/add-Inbound-port-rule.png":::
-
 1. Select **Add**.
 
 ### Connect to the virtual machine

@@ -2,12 +2,12 @@
 title: Configure Private Link for Azure Health Data Services
 description: Learn how to set up Private Link for secure access to Azure Health Data Services.
 services: healthcare-apis
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 05/06/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Configure Private Link for Azure Health Data Services
@@ -52,7 +52,7 @@ For the resource type, search and select **Microsoft.HealthcareApis/workspaces**
 
 ### Manual approval
 
-For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subcriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target subresource, enter **healthcareworkspace** as in Auto Approval.
+For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target subresource, enter **healthcareworkspace** as in Auto Approval.
 
 :::image type="content" source="media/private-link/private-link-resource-id.png" alt-text="Screen image of the Manual Approval Resources tab.":::
 

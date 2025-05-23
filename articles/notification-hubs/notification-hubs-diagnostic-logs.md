@@ -28,12 +28,12 @@ Here's an example of an operational log JSON string:
 ```json
 {
     "operationName": "Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/action",
-    "resourceId": "/SUBSCRIPTIONS/2CAC2A14-BA6B-46A6-BCE8-2D9781A41BA2/RESOURCEGROUPS/SAMPLES/PROVIDERS/MICROSOFT.NOTIFICATIONHUBS/NAMESPACES/SAMPLE-NS",
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/SAMPLES/PROVIDERS/MICROSOFT.NOTIFICATIONHUBS/NAMESPACES/SAMPLE-NS",
     "time": "1/1/2021 5:16:32 AM +00:00",
     "category": "OperationalLogs",
     "resultType": "Succeeded",
     "resultDescription": "Gets Hub Authorization Rules",
-    "correlationId": "00000000-0000-0000-0000-000000000000",
+    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "callerIdentity": "{ \"identityType\": \"Portal\", \"identity\": \"\" }"
 }
 ```

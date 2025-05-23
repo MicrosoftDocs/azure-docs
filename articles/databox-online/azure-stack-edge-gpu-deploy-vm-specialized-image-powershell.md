@@ -4,8 +4,7 @@ description: Describes how to create VM images from specialized images starting 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/28/2023
@@ -214,28 +213,28 @@ This article used only one resource group to create all the VM resource. Deletin
     ResourceGroupName : myasevm1rg
     ResourceType      : Microsoft.Compute/disks
     Location          : dbelocal
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Compute/disk
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasevm1rg/providers/Microsoft.Compute/disk
                         s/myasemd1
     
     Name              : myasetestvm1
     ResourceGroupName : myasevm1rg
     ResourceType      : Microsoft.Compute/virtualMachines
     Location          : dbelocal
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Compute/virt
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasevm1rg/providers/Microsoft.Compute/virt
                         ualMachines/myasetestvm1
     
     Name              : myasevmnic1
     ResourceGroupName : myasevm1rg
     ResourceType      : Microsoft.Network/networkInterfaces
     Location          : dbelocal
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Network/netw
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasevm1rg/providers/Microsoft.Network/netw
                         orkInterfaces/myasevmnic1
     
     Name              : myasevmsa
     ResourceGroupName : myasevm1rg
     ResourceType      : Microsoft.Storage/storageaccounts
     Location          : dbelocal
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myasevm1rg/providers/Microsoft.Storage/stor
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasevm1rg/providers/Microsoft.Storage/stor
                         ageaccounts/myasevmsa
     
     PS C:\WINDOWS\system32>
@@ -272,19 +271,19 @@ This article used only one resource group to create all the VM resource. Deletin
     Location          : dbelocal
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/ase-image-resourcegroup
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ase-image-resourcegroup
     
     ResourceGroupName : ASERG
     Location          : dbelocal
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/ASERG
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ASERG
     
     ResourceGroupName : myaserg
     Location          : dbelocal
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myaserg
         
     PS C:\WINDOWS\system32>
     ```

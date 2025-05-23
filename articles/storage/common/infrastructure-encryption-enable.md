@@ -6,8 +6,8 @@ services: storage
 author: normesta
 
 ms.service: azure-storage
-ms.date: 06/05/2024
-ms.topic: conceptual
+ms.date: 01/23/2025
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Enable infrastructure encryption for double encryption of data
 
-Azure Storage automatically encrypts all data in a storage account at the service level using 256-bit AES with GCM mode encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES with CBC encryption at the Azure Storage infrastructure level for double encryption. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys might be compromised. In this scenario, the additional layer of encryption continues to protect your data.
+Azure Storage automatically encrypts all data in a storage account at the service level using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level for double encryption. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys might be compromised. In this scenario, the additional layer of encryption continues to protect your data.
 
 Infrastructure encryption can be enabled for the entire storage account, or for an encryption scope within an account. When infrastructure encryption is enabled for a storage account or an encryption scope, data is encrypted twice &mdash; once at the service level and once at the infrastructure level &mdash; with two different encryption algorithms and two different keys.
 

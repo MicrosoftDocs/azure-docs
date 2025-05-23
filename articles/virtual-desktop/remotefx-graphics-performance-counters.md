@@ -1,10 +1,10 @@
 ---
 title: Diagnose graphics performance issues Remote Desktop - Azure
 description: This article describes how to use RemoteFX graphics counters in remote desktop protocol sessions to diagnose performance issues with graphics in Azure Virtual Desktop.
-author: dknappettmsft
+author: dougeby
 ms.topic: troubleshooting
 ms.date: 05/23/2019
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
@@ -96,5 +96,5 @@ If client resources are causing the bottleneck, try one of the following approac
 ## Next steps
 
 - To create a GPU optimized Azure virtual machine, see [Enable GPU acceleration for Azure Virtual Desktop](enable-gpu-acceleration.md).
-- For an overview of troubleshooting and escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- For an overview of troubleshooting and escalation tracks, see [Troubleshooting overview, feedback, and support](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview).
 - To learn more about the service, see [Windows Desktop environment](environment-setup.md).

@@ -1,24 +1,24 @@
 ---
-title: Copy and transform data in Snowflake
+title: Copy and transform data in Snowflake V2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy and transform data in Snowflake using Data Factory or Azure Synapse Analytics.
+description: Learn how to copy and transform data in Snowflake V2 using Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/23/2024
+ms.date: 05/07/2025
 ai-usage: ai-assisted
 ---
 
-# Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
+# Copy and transform data in Snowflake V2 using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
->[!IMPORTANT]
->The new Snowflake connector provides improved native Snowflake support. If you are using the legacy Snowflake connector in your solution, please [upgrade your Snowflake connector](#upgrade-the-snowflake-linked-service) before **October 31, 2024**. Refer to this [section](#differences-between-snowflake-and-snowflake-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [Snowflake V2 connector](connector-snowflake.md) provides improved native Snowflake support. If you are using the [Snowflake V1 connector](connector-snowflake-legacy.md) in your solution, you are recommended to [upgrade your Snowflake connector](#upgrade-the-snowflake-linked-service) before **June 30, 2025**. Refer to this [section](#differences-between-snowflake-and-snowflake-legacy) for details on the difference between V2 and V1. 
 
 ## Supported capabilities
 
@@ -29,7 +29,7 @@ This Snowflake connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
-|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|
+|[Script activity](transform-data-using-script.md) (Apply version 1.1 (Preview) when you use the script parameter)|&#9312; &#9313;|
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
@@ -93,11 +93,13 @@ These generic properties are supported for the Snowflake linked service:
 | Property         | Description                                                  | Required |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | The type property must be set to **SnowflakeV2**.              | Yes      |
+| version           | The version that you specify. Recommend upgrading to the latest version to take advantage of the newest enhancements.       | Yes for version 1.1 (Preview)     |
 | accountIdentifier | The name of the account along with its organization. For example, myorg-account123.   | Yes |
 | database | The default database used for the session after connecting. | Yes |
 | warehouse | The default virtual warehouse used for the session after connecting. |Yes|
 | authenticationType | Type of authentication used to connect to the Snowflake service. Allowed values are: **Basic** (Default) and  **KeyPair**. Refer to corresponding sections below on more properties and examples respectively.  | No |
 | role | The default security role used for the session after connecting. | No |
+| host | The host name of the Snowflake account. For example: `contoso.snowflakecomputing.com`. `.cn` is also supported.| No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No |
 
 This Snowflake connector supports the following authentication types. See the corresponding sections for details.
@@ -170,8 +172,6 @@ To use **Basic** authentication, in addition to the generic properties that are 
     }
 }
 ```
-> [!NOTE]
-> Mapping Data Flows only supports Basic authentication.
 
 ### Key pair authentication
 
@@ -215,6 +215,9 @@ In addition to the generic properties that are described in the preceding sectio
     }
 }
 ```
+> [!NOTE]
+> For mapping data flows, we recommend generating a new RSA private key using the PKCS#8 standard in PEM format (.p8 file).
+
 
 ## Dataset properties
 
@@ -269,7 +272,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
 | storageIntegration | Specify the name of your storage integration that you created in the Snowflake. For the prerequisite steps of using the storage integration, see [Configuring a Snowflake storage integration](https://docs.snowflake.com/en/user-guide/data-load-azure-config#option-1-configuring-a-snowflake-storage-integration). | No |
 | additionalCopyOptions | Additional copy options, provided as a dictionary of key-value pairs. Examples: MAX_FILE_SIZE, OVERWRITE. For more information, see [Snowflake Copy Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
-| additionalFormatOptions | Additional file format options that are provided to COPY command as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. For more information, see [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
+| additionalFormatOptions | Additional file format options that are provided to COPY command as a dictionary of key-value pairs. Examples: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT, NULL_IF. For more information, see [Snowflake Format Type Options](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). <br/><br/>When you use NULL_IF, the NULL value in Snowflake is converted to the specified value (which needs to be single-quoted) when writing to the delimited text file in the staging storage. This specified value is treated as NULL when reading from the staging file to the sink storage. The default value is `'NULL'`. | No |
 
 >[!Note]
 > Make sure you have permission to execute the following command and access the schema *INFORMATION_SCHEMA* and the table *COLUMNS*.
@@ -356,7 +359,7 @@ When your sink data store or format isn't natively compatible with the Snowflake
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
-- When you specify `storageIntegration` in the source, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication, and grant at least **Storage Blob Data Contributor** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
+- When you specify `storageIntegration` in the source, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication when using the Azure integration runtime, or with anonymous, account key, shared access signature or service principal authentication when using the self-hosted integration runtime. In addition, grant at least **Storage Blob Data Contributor** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
 
 - When you don't specify `storageIntegration` in the source, the staging Azure Blob Storage linked service must use shared access signature authentication, as required by the Snowflake COPY command. Make sure you grant proper access permission to Snowflake in the staging Azure Blob Storage. To learn more about this, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token). 
 
@@ -537,7 +540,7 @@ When your source data store or format isn't natively compatible with the Snowfla
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
-- When you specify `storageIntegration` in the sink, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication, and grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
+- When you specify `storageIntegration` in the sink, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication when using the Azure integration runtime, or with anonymous, account key, shared access signature or service principal authentication when using the self-hosted integration runtime. In addition, grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
 
 - When you don't specify `storageIntegration` in the sink, the staging Azure Blob Storage linked service need to use shared access signature authentication as required by the Snowflake COPY command.
 
@@ -682,98 +685,94 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Snowflake linked service
+## <a name="differences-between-snowflake-and-snowflake-legacy"></a> Snowflake connector lifecycle and upgrade
 
-To upgrade the Snowflake linked service, you can do a side-by-side upgrade, or an in-place upgrade.
+The following table shows the release stage and change logs for different versions of the Snowflake connector:
 
-### Side-by-side upgrade
+| Version  | Release stage | Change log |  
+| :----------- | :------- |:------- |
+| Snowflake V1 | GA version available | / |  
+| Snowflake V2 (version 1.0) | GA version available | • Add support for Key pair authentication.<br><br>• The `accountIdentifier`, `warehouse`, `database`, `schema` and `role` properties are used to establish a connection instead of `connectionstring` property.<br><br>• Add support for BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. If you want to covert it to numeric type in V2, you can use the pipeline parameter with [int function](control-flow-expression-language-functions.md#int) or [float function](control-flow-expression-language-functions.md#float). For example, `int(activity('lookup').output.firstRow.VALUE)`, `float(activity('lookup').output.firstRow.VALUE)`<br><br>• timestamp data type in Snowflake is read as DateTimeOffset data type in Lookup and Script activity. If you still need to use the Datetime value as a parameter in your pipeline after upgrading to V2, you can convert DateTimeOffset type to DateTime type by using [formatDateTime function](control-flow-expression-language-functions.md#formatdatetime) (recommended) or [concat function](control-flow-expression-language-functions.md#concat). For example: `formatDateTime(activity('lookup').output.firstRow.DATETIMETYPE)`, `concat(substring(activity('lookup').output.firstRow.DATETIMETYPE, 0, 19), 'Z')`<br><br>• Script parameters are not supported in Script activity. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md).<br><br>• Multiple SQL statements execution in Script activity is not supported. |  
+| Snowflake V2 (version 1.1) | Preview version available | • Add support for script parameters.<br><br>• Add support for multiple statement execution in Script activity. |  
+
+### <a name="upgrade-the-snowflake-linked-service"></a> Upgrade the Snowflake connector from V1 to V2
+
+To upgrade the Snowflake connector from V1 to V2, you can do a side-by-side upgrade, or an in-place upgrade.
+
+#### Side-by-side upgrade
 
 To perform a side-by-side upgrade, complete the following steps:
 
-1. Create a new Snowflake linked service and configure it by referring to the linked service properties.  
+1. Create a new Snowflake linked service and configure it by referring to the V2 linked service properties.  
 1. Create a dataset based on the newly created Snowflake linked service.
-1. Replace the new linked service and dataset with the existing ones in the pipelines that targets the legacy objects. 
+1. Replace the new linked service and dataset with the existing ones in the pipelines that targets the V1 objects. 
 
-### In-place upgrade
+#### In-place upgrade
 
-To perform an in-place upgrade, you need to edit the existing linked service payload.
+To perform an in-place upgrade, you need to edit the existing linked service payload and update dataset to use the new linked service.
 
-1. Update the type from ‘Snowflake’ to ‘SnowflakeV2’.
-1. Modify the linked service payload from its legacy format to the new pattern. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties.  The following examples show the differences in payload for the legacy and new Snowflake connectors:
+1. Update the type from **Snowflake** to **SnowflakeV2**.
+1. Modify the linked service payload from its V1 format to V2. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties. The following examples show the differences in payload for the V1 and V2 Snowflake linked services:
 
-   **Legacy Snowflake connector JSON payload:**
+   **Snowflake V1 linked service JSON payload:**
    ```json
-   { 
-       "name": "Snowflake1", 
-       "type": "Microsoft.DataFactory/factories/linkedservices", 
-       "properties": { 
-           "annotations": [], 
-           "type": "Snowflake", 
-           "typeProperties": { 
-               "authenticationType": "Basic", 
-               "connectionString": "jdbc:snowflake://<fake_account>.snowflakecomputing.com/?user=FAKE_USER&db=FAKE_DB&warehouse=FAKE_DW&schema=PUBLIC", 
-               "encryptedCredential": "<your_encrypted_credential_value>" 
-           }, 
-           "connectVia": { 
-               "referenceName": "AzureIntegrationRuntime", 
-               "type": "IntegrationRuntimeReference" 
-           } 
-       }
-   } 
+     {
+        "name": "Snowflake1",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "annotations": [],
+            "type": "Snowflake",
+            "typeProperties": {
+                "authenticationType": "Basic",
+                "connectionString": "jdbc:snowflake://<fake_account>.snowflakecomputing.com/?user=FAKE_USER&db=FAKE_DB&warehouse=FAKE_DW&schema=PUBLIC",
+                "encryptedCredential": "<your_encrypted_credential_value>"
+            },
+            "connectVia": {
+                "referenceName": "AzureIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+            }
+        }
+    }
    ```
 
-   **New Snowflake connector JSON payload:**
+   **Snowflake V2 linked service JSON payload:**
    ```json
-   { 
-       "name": "Snowflake2", 
-       "type": "Microsoft.DataFactory/factories/linkedservices", 
-       "properties": { 
-           "parameters": { 
-              "schema": { 
-                   "type": "string", 
-                   "defaultValue": "PUBLIC" 
-               } 
-           }, 
-           "annotations": [], 
-           "type": "SnowflakeV2", 
-           "typeProperties": { 
-               "authenticationType": "Basic", 
-               "accountIdentifier": "<FAKE_Account", 
-               "user": "FAKE_USER", 
-               "database": "FAKE_DB", 
-               "warehouse": "FAKE_DW", 
-               "encryptedCredential": "<placeholder>" 
-           }, 
-           "connectVia": { 
-               "referenceName": "AutoResolveIntegrationRuntime", 
-               "type": "IntegrationRuntimeReference" 
-           } 
-       } 
-   } 
+    {
+        "name": "Snowflake2",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "parameters": {
+                "schema": {
+                    "type": "string",
+                    "defaultValue": "PUBLIC"
+                }
+            },
+            "annotations": [],
+            "type": "SnowflakeV2",
+            "typeProperties": {
+                "authenticationType": "Basic",
+                "accountIdentifier": "<FAKE_Account>",
+                "user": "FAKE_USER",
+                "database": "FAKE_DB",
+                "warehouse": "FAKE_DW",
+                "encryptedCredential": "<placeholder>"
+            },
+            "connectVia": {
+                "referenceName": "AutoResolveIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+            }
+        }
+    }
    ```
 
-   1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from _SnowflakeTable_ to _SnowflakeV2Table_. 
+1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from **SnowflakeTable** to **SnowflakeV2Table**.
 
-## Differences between Snowflake and Snowflake (legacy)
+>[!NOTE]
+>When transitioning linked services, the override template parameter section might only display database properties. You can resolve this by manually editing the parameters. After that the **Override template parameters** section will show the connection strings.
 
-The Snowflake connector offers new functionalities and is compatible with most features of Snowflake (legacy) connector. The table below shows the feature differences between Snowflake and Snowflake (legacy).  
+### Upgrade the Snowflake V2 connector from version 1.0 to version 1.1 (Preview)
 
-| Snowflake  | Snowflake (legacy) | 
-| :----------- | :------- |
-| Support Basic and Key pair authentication. | Support Basic authentication. | 
-| Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
-| Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. | BigDecimal is not supported in Lookup activity.  | 
-| Legacy ```connectionstring``` property is deprecated in favor of required parameters **Account**, **Warehouse**, **Database**, **Schema**, and **Role** | In the legacy Snowflake connector, the `connectionstring` property was used to establish a connection. |
-
-To determine the version of the Snowflake connector used in your existing Snowflake linked service, check the ```type``` property. The legacy version is identified by ```"type": "Snowflake"```, while the latest V2 version is identified by ```"type": "SnowflakeV2"```.
-
-The V2 version offers several enhancements over the legacy version, including:
-
-Autoscaling: Automatically adjusts resources based on traffic load.<br/>
-
-Multi-Availability Zone Operation: Provides resilience by operating across multiple availability zones.<br/>
-
-Static IP Support: Enhances security by allowing the use of static IP addresses.
+In **Edit linked service** page, select 1.1 for version. For more information, see [Linked service properties](#linked-service-properties).
 
 ## Related content
 

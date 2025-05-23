@@ -3,7 +3,7 @@ title: Use source control integration in Azure Automation
 description: This article tells you how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/10/2024
+ms.date: 05/08/2025
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
@@ -40,7 +40,7 @@ Azure Automation supports three types of source control:
 > If you have both a Run As account and managed identity enabled, then managed identity is given preference.
 
 > [!Important]
-> Azure Automation Run As Account will retire on **September 30, 2023** and will be replaced with Managed Identities. Before that date, you need to [migrate from a Run As account to Managed identities](migrate-run-as-accounts-managed-identity.md).
+> Azure Automation Run As Account has retired on **September 30, 2023**. We recommend that you use [Managed Identities](migrate-run-as-accounts-managed-identity.md).
 
 > [!NOTE]
 > According to [this](/azure/devops/organizations/accounts/change-application-access-policies#application-connection-policies) Azure DevOps documentation, **Third-party application access via OAuth** policy is defaulted to **off** for all new organizations. So if you try to configure source control in Azure Automation with **Azure DevOps (Git)** as source control type without enabling **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps then you might get **SourceControl securityToken is invalid** error. Hence to avoid this error, make sure you first enable **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps. 
@@ -98,6 +98,7 @@ Use this procedure to configure source control using the Azure portal.
 > [!NOTE]
 > - The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **dev.azure.com**, **visualstudio.com**, or **github.com**, and try reconnecting to source control. 
 > - Cross-tenant authentication isn't supported.
+> - Auto-sync may fail if Source Control was created over a year ago, as the webhook used to invoke the Source Control expires after one year. To resolve this issue, create a new Source Control in the Automation account with the same configuration, which will generate a new webhook with an extended expiry date.
 
 ### Configure source control in PowerShell
 

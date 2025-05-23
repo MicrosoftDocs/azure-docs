@@ -105,7 +105,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     - If all the parameters are provided, the firewall and proxy URLs must be allowlisted for the lps between K8sNodeIPPoolStart, k8sNodeIPPoolEnd.
     - If you're skipping the optional fields, the firewall and proxy URLs must be allowlisted the following IPs in the segment. If the networkCIDRForApplianceVM is x.y.z.1/28, the IPs to allowlist are between x.y.z.11 – x.y.z.14. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).  
 
-    **Json example**
+    **JSON example**
     ```json
     { 
       "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
@@ -119,7 +119,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     } 
     ```
 
-3. Run the installation scripts. You can optionionally setup this preview from a Windows or Linux-based jump box/VM. 
+3. Run the installation scripts. You can optionally setup this preview from a Windows or Linux-based jump box/VM. 
 
     Run the following commands to execute the installation script. 
 

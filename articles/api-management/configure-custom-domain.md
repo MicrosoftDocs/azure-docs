@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/24/2024
+ms.date: 05/09/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -26,6 +26,8 @@ When you create an Azure API Management service instance in the Azure cloud, Azu
 
 > [!NOTE]
 > Currently, custom domain names aren't supported in a [workspace gateway](workspaces-overview.md#workspace-gateway).
+
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
 
 ## Prerequisites
 
@@ -89,8 +91,7 @@ To fetch a TLS/SSL certificate, API Management must have the list and get secret
     1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal ID on that page.
     1.  Assign permissions to the managed identity to access the key vault. Use steps in the following section.
     
-    [!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
-
+    [!INCLUDE [api-management-key-vault-certificate-access](../../includes/api-management-key-vault-certificate-access.md)]
 
 If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service.
 
@@ -168,11 +169,6 @@ Choose the steps according to the [domain certificate](#domain-certificate-optio
 1. Select **Add**, or select **Update** for an existing endpoint.
 1. Select **Save**.
 
-> [!NOTE]
-> The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer tier has downtime, while Basic and higher tiers do not.
-
-
-
 ---
 
 ## DNS configuration
@@ -206,7 +202,15 @@ You can also get a domain ownership identifier by calling the [Get Domain Owners
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## Next steps
+[!INCLUDE [api-management-standard-v2-limitation](../../includes/api-management-standard-v2-limitation.md)]
+
+## Troubleshooting: Hostname certificate rotation from Azure Key Vault failed
+
+Because of a configuration change or connectivity problem, your API Management instance might be unable to fetch a hostname certificate from Azure Key Vault after a certificate is updated or rotated there. When this happens, your API Management instance continues to use a cached certificate until it receives an updated certificate. If the cached certificate expires, runtime traffic to the gateway will be blocked. Any upstream service such as Application Gateway that uses the hostname certificate configuration could also block runtime traffic to the gateway when an expired cached certificate is used. 
+
+To mitigate this problem, confirm that the key vault exists, and the certificate is stored in the key vault. If your API Management instance is deployed in a virtual network, confirm outbound connectivity to the AzureKeyVault service tag. Check whether the managed identity used to access the key vault exists. Confirm the managed identity's permissions to access the key vault. Review [Set up a custom domain name - Key Vault](#set-a-custom-domain-name---portal), earlier in this article, for detailed configuration steps. After the configuration is restored, the hostname certificate will refresh in API Management within 4 hours. 
+
+## Related content
 
 [Upgrade and scale your service](upgrade-and-scale.md)
 

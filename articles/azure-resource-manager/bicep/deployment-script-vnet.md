@@ -3,7 +3,7 @@ title: Access a private virtual network from a Bicep deployment script
 description: Learn how to run and test Bicep deployment scripts in private networks.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Access a private virtual network from a Bicep deployment script
@@ -34,7 +34,7 @@ param storageAccountName string = '${prefix}stg${uniqueString(resourceGroup().id
 param vnetName string = '${prefix}Vnet'
 param subnetName string = '${prefix}Subnet'
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   name: vnetName
   location: location
   properties: {
@@ -68,11 +68,11 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
   }
 }
 
-resource subnet 'Microsoft.Network/virtualNetworks/subnets@2023-05-01' existing = {
+resource subnet 'Microsoft.Network/virtualNetworks/subnets@2024-05-01' existing = {
   parent: vnet
   name: subnetName
 }
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -94,7 +94,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   }
 }
 
-resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
+resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2024-11-30' = {
   name: userAssignedIdentityName
   location: location
 }
@@ -129,7 +129,7 @@ param vnetName string
 param subnetName string
 param userAssignedIdentityName string
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' existing = {
+resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' existing = {
   name: vnetName
 
   resource subnet 'subnets' existing = {
@@ -137,7 +137,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' existing = {
   }
 }
 
-resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' existing = {
+resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2024-11-30' existing = {
   name: userAssignedIdentityName
 }
 

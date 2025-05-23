@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: reference
 ms.date: 03/17/2024
 ms.author: yelevin
+
+
+#Customer intent: As a security analyst, I want to understand the types of anomalies detected by machine learning models in my SIEM solution so that I can effectively monitor and respond to potential security threats.
+
 ---
 
 # Anomalies detected by the Microsoft Sentinel machine learning engine

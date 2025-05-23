@@ -4,9 +4,9 @@ description: Get answers to frequently asked questions (FAQ) about Azure Files a
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.date: 06/24/2024
+ms.date: 03/28/2025
 ms.author: kendownie
-ms.topic: conceptual
+ms.topic: faq
 ---
 
 # Frequently asked questions (FAQ) about Azure Files and Azure File Sync
@@ -51,7 +51,7 @@ ms.topic: conceptual
   **Why are my tiered files not showing thumbnails or previews in Windows File Explorer?**  
     For tiered files, thumbnails and previews won't be visible at your server endpoint. This is expected behavior because the thumbnail cache feature in Windows intentionally skips reading files with the offline attribute. With Cloud Tiering enabled, reading through tiered files would cause them to be downloaded (recalled).
 
-    This behavior isn't specific to Azure File Sync. Windows File Explorer displays a "grey X" for any files that have the offline attribute set. You'll see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [Why don’t I get thumbnails for files that are marked offline?](https://devblogs.microsoft.com/oldnewthing/20170503-00/?p=96105)
+    This behavior isn't specific to Azure File Sync. Windows File Explorer displays a "grey X" for any files that have the offline attribute set. You'll see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [Why don't I get thumbnails for files that are marked offline?](https://devblogs.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
     For questions on how to manage tiered files, see [How to manage tiered files](../file-sync/file-sync-how-to-manage-tiered-files.md).
 
@@ -120,7 +120,29 @@ ms.topic: conceptual
 **Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares?**
 
   Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
-   
+
+* <a id="printer-or-scanner"></a>
+**Can I save to an Azure file share using a printer or scanner?**
+
+  Azure Files only supports Windows, Linux, and macOS. Accessing an Azure file share directly from a printer or scanner isn't supported. However, if you're already using Azure File Sync, you can print or scan to your Windows file server and then sync the file to an Azure file share.
+
+* <a id="alternate-data-streams"></a>
+**Does Azure Files support alternate data streams?**
+
+Azure Files doesn't support [alternate data streams](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8). Transferring data via SMB will throw a **file already exists** message if an alternate data stream is found. You can check alternate streams by using the following PowerShell command:
+
+```powershell
+get-item <file path+name> -Stream *
+```
+
+If more than one stream is shown, you can remove them using the following PowerShell command:
+
+```powershell
+remove-Item <file path+name> -Stream *
+```
+
+Alternate data streams are preserved on-premises when Azure File Sync is used.
+
 ### Identity-based authentication
 
 * <a id="ad-support-devices"></a>
@@ -131,7 +153,7 @@ ms.topic: conceptual
 * <a id="ad-file-mount-cname"></a>
 **Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication?**
 
-    Yes, this scenario is now supported in both [single-forest](storage-files-identity-ad-ds-mount-file-share.md#mount-file-shares-using-custom-domain-names) and [multi-forest](storage-files-identity-multiple-forests.md) environments for SMB Azure file shares. However, Azure Files only supports configuring CNAMEs using the storage account name as a domain prefix. If you don't want to use the storage account name as a prefix, consider using [DFS Namespaces](files-manage-namespaces.md) instead.
+    Yes, this scenario is now supported in both [single-forest](storage-files-identity-mount-file-share.md#mount-file-shares-using-custom-domain-names) and [multi-forest](storage-files-identity-multiple-forests.md) environments for SMB Azure file shares. However, Azure Files only supports configuring CNAMEs using the storage account name as a domain prefix. If you don't want to use the storage account name as a prefix, consider using [DFS Namespaces](files-manage-namespaces.md) instead.
 
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure file shares with Microsoft Entra credentials from a VM under a different subscription?**
@@ -149,7 +171,7 @@ ms.topic: conceptual
     Azure Files on-premises AD DS authentication only integrates with the forest of the domain service that the storage account is registered to. To support authentication from another forest, your environment must have a forest trust configured correctly. For detailed instructions, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
    > [!Note]  
-   > In a multi-forest setup, don't use File Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls) instead.
+   > In a multi-forest setup, don't use File Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-configure-file-level-permissions.md#configure-windows-acls-with-icacls) instead.
 
    
 * <a id="ad-aad-smb-files"></a>
@@ -225,11 +247,7 @@ ms.topic: conceptual
 
 * <a id="transactions-billing"></a>
 **What are transactions in Azure Files, and how are they billed?**
-    Protocol transactions occur any time a user, application, script, or service interacts with Azure file shares (writing, reading, listing, deleting files, etc.). It's important to remember that some actions that you might perceive as a single operation might actually involve multiple transactions. For standard Azure file shares billed on a pay-as-you-go model, different types of transactions have different prices based on their impact on the file share. Transactions don't affect billing for premium file shares, which are billed using a provisioned model. For more information, see [Understanding billing](understanding-billing.md).
-
-* <a id="share-snapshot-price"></a>
-**How much do share snapshots cost?**  
-    Share snapshots are incremental in nature. The base share snapshot is the share itself. All subsequent share snapshots are incremental and store only the difference from the preceding share snapshot. You're billed only for the changed content. If you have a share with 100 GiB of data but only 5 GiB has changed since your last share snapshot, the share snapshot consumes only 5 additional GiB, and you're billed for 105 GiB. For more information about transaction and standard egress charges, see the [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+    Protocol transactions occur any time a user, application, script, or service interacts with Azure file shares (writing, reading, listing, deleting files, etc.). It's important to remember that some actions that you might perceive as a single operation might actually involve multiple transactions. For pay-as-you-go file shares, different types of transactions have different prices based on their impact on the file share. Transactions don't affect billing for provisioned file shares. For more information, see [Understanding billing](understanding-billing.md).
 
 ## Interoperability with other services
 

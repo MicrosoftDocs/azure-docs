@@ -1,13 +1,14 @@
 ---
 title: Tutorial - Assign devices to multiple hubs using DPS
 description: This tutorial shows how to provision devices using a custom allocation policy in your Azure IoT Hub Device Provisioning Service (DPS) instance.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 03/21/2024
 ms.topic: tutorial
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)
@@ -39,7 +40,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
 
-- Git installed. For more information, see [Git downloads](https://git-scm.com/download/).
+- Git installed. For more information, see [Git downloads](https://git-scm.com/downloads).
 
 - Azure CLI installed. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). Or, you can run the commands in this tutorial in the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview).
 
@@ -358,6 +359,9 @@ In this section, you create a new enrollment group that uses the custom allocati
 1. On the **Review + create** tab, verify all of your values then select **Create**.
 
 After saving the enrollment, reopen it and make a note of the **Primary key**. You must save the enrollment first to have the keys generated. This key is used to generate unique device keys for simulated devices in the next section.
+
+>[!TIP]
+>When you create an enrollment group in the Azure portal and select a custom allocation policy, the Azure portal automatically retrieves and embeds the function key on your behalf. If you create an enrollment programmatically, you need to provide the key as part of the creation step.
 
 ## Derive unique device keys
 

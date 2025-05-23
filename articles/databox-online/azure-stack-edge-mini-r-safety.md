@@ -4,10 +4,9 @@ description: Describes safety conventions, guidelines, considerations, and expla
 services: databox
 author:   alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
-ms.date: 09/30/2024
+ms.date: 03/24/2025
 ms.author: alkohli
 ---
 
@@ -178,7 +177,7 @@ This device complies with part 15 of the FCC Rules and Industry Canada license-e
 
 ![Regulatory information warning 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
 
-CAN ICES-3(A)/NMB-3(A)
+CAN ICES(A)/NMB(A)
 
 Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA
 

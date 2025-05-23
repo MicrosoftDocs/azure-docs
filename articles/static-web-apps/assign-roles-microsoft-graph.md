@@ -1,16 +1,16 @@
 ---
-title: "Tutorial: Assign Azure Static Web Apps roles with Microsoft Graph"
+title: "Tutorial: Assign Azure Static Web Apps roles with Microsoft Graph (preview)"
 description: Learn to use a serverless function to assign custom user roles based on Entra ID group membership.
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  tutorial
-ms.date: 06/13/2024
-ms.author: cshoe
+ms.date: 12/13/2024
+ms.author: wujia
 keywords: "static web apps authorization, assign user roles, custom roles"
 ---
 
-# Tutorial: Assign custom roles with a function and Microsoft Graph
+# Tutorial: Assign custom roles with a function and Microsoft Graph (preview)
 
 This article demonstrates how to use a function to query [Microsoft Graph](https://developer.microsoft.com/graph) and assign custom roles to a user based on their Entra ID group membership.
 

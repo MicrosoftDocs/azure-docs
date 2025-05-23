@@ -1,17 +1,14 @@
 ---
 title: Azure Virtual Desktop diagnostics log analytics - Azure
 description: How to use log analytics with the Azure Virtual Desktop diagnostics feature.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
 # Send diagnostic data to Log Analytics for Azure Virtual Desktop
-
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 
 Azure Virtual Desktop uses [Azure Monitor](/azure/azure-monitor/overview) for monitoring and alerts like many other Azure services. This lets admins identify issues through a single interface. The service creates activity logs for both user and administrative actions. Each activity log falls under the following categories:
 
@@ -194,4 +191,4 @@ WVDErrors
 ## Next steps
 
 - [Enable Insights to monitor Azure Virtual Desktop](insights.md).
-- To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](./troubleshoot-set-up-overview.md).
+- To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview).

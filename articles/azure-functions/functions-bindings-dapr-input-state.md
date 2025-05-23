@@ -50,7 +50,7 @@ More samples for the Dapr input state binding are available in the [GitHub repos
 
 ::: zone pivot="programming-language-java"
 
-The following example creates a `"RetreveOrder"` function using the `DaprStateInput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-trigger-svc-invoke.md):
+The following example creates a `"RetrieveOrder"` function using the `DaprStateInput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-trigger-svc-invoke.md):
 
 
 ```java

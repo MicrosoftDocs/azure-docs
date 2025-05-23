@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Add a PostgreSQL database connection in Azure Static Web Apps"
 description: Learn to add a PostgreSQL database connection to a web application in Azure Static Web Apps
-author: craigshoemaker
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 03/15/2023
@@ -32,7 +32,7 @@ To complete this tutorial, you need to have an existing Azure Database for Postg
 
 | Resource | Description |
 |---|---|
-| [Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-portal) or [Azure Database for PostgreSQL Single Server Database](/azure/postgresql/single-server/quickstart-create-server-database-portal) | If you don't already have one, follow the steps in the [create an Azure Database for PostgreSQL Flexible Server database](/azure/postgresql/flexible-server/quickstart-create-server-portal) guide, or in the [create an Azure Database for PostgeSQL Single Server database](/azure/postgresql/single-server/quickstart-create-server-database-portal) guide. If you plan to use a connection string authentication for Static Web Apps' database connections, ensure that you create your Azure Database for PostgreSQL Server with PostgreSQL authentication. You can change this value if you want to use managed identity later on. |
+| [Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-portal) or [Azure Database for PostgreSQL Single Server Database](/azure/postgresql/single-server/quickstart-create-server-database-portal) | If you don't already have one, follow the steps in the [create an Azure Database for PostgreSQL Flexible Server database](/azure/postgresql/flexible-server/quickstart-create-server-portal) guide, or in the [create an Azure Database for PostgreSQL Single Server database](/azure/postgresql/single-server/quickstart-create-server-database-portal) guide. If you plan to use a connection string authentication for Static Web Apps' database connections, ensure that you create your Azure Database for PostgreSQL Server with PostgreSQL authentication. You can change this value if you want to use managed identity later on. |
 | [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started](getting-started.md) guide to create a *No Framework* static web app. |
 | [Azure Data Studio, with the PostgreSQL extension](/azure-data-studio/quickstart-postgres) | If you don't already have Azure Data Studio installed, follow the guide to install [Azure Data Studio, with the PostgreSQL extension](/azure-data-studio/quickstart-postgres). Alternatively, you may use any other tool to query your PostgreSQL database, such as PgAdmin. |
 

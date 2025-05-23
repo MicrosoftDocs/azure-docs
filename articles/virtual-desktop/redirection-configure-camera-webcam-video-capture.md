@@ -3,8 +3,8 @@ title: Configure camera, webcam, and video capture redirection over the Remote D
 description: Learn how to redirect camera, webcam, and video capture peripherals, and also video encoding and quality, from a local device to a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 04/24/2024
 ---
 
@@ -33,7 +33,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the session host, host pool RDP properties, or local device. 
 >
 > - [Microsoft Teams](teams-on-avd.md) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -42,7 +42,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the Cloud PC or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -51,7 +51,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the dev box or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -181,9 +181,9 @@ To allow or disable video capture redirection, which includes cameras and webcam
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow video capture redirection** to **Enabled** or **Disabled**, depending on your requirements:
 
-   - To allow video capture redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To allow video capture redirection, toggle the switch to **Disabled**.
 
-   - To disable video capture redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To disable video capture redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 
@@ -201,7 +201,7 @@ To allow or disable video capture redirection, which includes cameras and webcam
 
 To allow or disable video capture redirection, which includes cameras and webcams, using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -223,7 +223,7 @@ To allow or disable video capture redirection, which includes cameras and webcam
 
 You can disable camera redirection on a local device to prevent a camera from being redirected from a local device to a remote session. This method is useful if you want to enable camera redirection for most users, but disable it for specific devices.
 
-For iOS/iPadOS and Android devices, you can disable camera redirection using Intune. For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For iOS/iPadOS and Android devices, you can disable camera redirection using Intune. For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ---
 
@@ -233,7 +233,7 @@ For iOS/iPadOS and Android devices, you can disable camera redirection using Int
 Video encoding redirection controls whether to encode video in a remote session or redirected to the local device, and is configured with a host pool RDP property. The corresponding RDP property is `encode redirected video capture:i:<value>`. For more information, see [Supported RDP properties](rdp-properties.md#device-redirection).
 
 > [!TIP]
-> Redirect video encoding is different to [multimedia redirection](multimedia-redirection-intro.md), which redirects video playback and calls to your local device for faster processing and rendering.
+> Redirect video encoding is different to [multimedia redirection](multimedia-redirection-video-playback-calls.md), which redirects video playback and calls to your local device for faster processing and rendering.
 
 To configure redirect video encoding:
 

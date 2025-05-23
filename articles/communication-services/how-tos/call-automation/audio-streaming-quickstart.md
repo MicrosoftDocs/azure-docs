@@ -37,22 +37,6 @@ Functionality described in this quickstart is currently in public preview.
 ::: zone-end
 
 
-## Audio streaming schema
-After sending through the metadata packet, Azure Communication Services will start streaming audio media to your WebSocket server. Below is an example of what the media object your server will receive looks like. 
-
-``` code
-{
-    "kind": <string>, // What kind of data this is, e.g. AudioMetadata, AudioData.
-    "audioData":{
-        "data": <string>, // Base64 Encoded audio buffer data
-        "timestamp": <string>, // In ISO 8601 format (yyyy-mm-ddThh:mm:ssZ) 
-        "participantRawID": <string>, 
-        "silent": <boolean> // Indicates if the received audio buffer contains only silence.
-    }
-}
-```
-
-
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).

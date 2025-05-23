@@ -46,8 +46,6 @@ Follow these steps to add a NAS core filer:
 
 1. Click **Create**.
 
-   ![Screenshot of the Add new core filer page with a cursor over the Create button](media/avere-vfxt-add-core-filer-start.png)
-
 1. Fill in the required information in the wizard:
 
    * Name your core filer.

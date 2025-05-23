@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a linked template
 description: Learn how to deploy a linked template
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ---

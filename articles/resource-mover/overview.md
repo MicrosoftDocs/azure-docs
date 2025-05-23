@@ -1,10 +1,10 @@
 ---
 title: What is Azure Resource Mover?
-description: Learn about Azure Resource Mover
+description: Learn about Azure Resource Mover.
 author: ankitaduttaMSFT
 ms.service: azure-resource-mover
 ms.topic: overview
-ms.date: 03/29/2024
+ms.date: 12/27/2024
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23, UpdateFrequency.5
 

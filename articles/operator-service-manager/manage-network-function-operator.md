@@ -39,6 +39,9 @@ az k8s-extension create --cluster-name
                         [--config global.networkfunctionextension.clusterRegistry.storageClassName=]
                         [--config global.networkfunctionextension.clusterRegistry.storageSize=]
                         [--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=]
+                        [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence=]
+                        [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=]
+                        [--config global.networkfunctionextension.clusterRegistry.registryService.scale={"small", "medium", "large"}]
                         [--version]
 ```
 
@@ -100,6 +103,7 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 * This condition comes into play only when the CNF/Component/Application are getting installed into the namespace as per the rules and namespaceSelectors. If there are more pods getting spin up in that namespace, this condition is applied.   
 
 #### Cluster Registry
+
 `--config global.networkfunctionextension.enableClusterRegistry=`
 * This configuration provisions a registry in the cluster to locally cache artifacts.
 * Default values enable lazy loading mode unless global.networkfunctionextension.enableEarlyLoading=true.
@@ -109,6 +113,7 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 `--config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=`
 * This configuration provisions the cluster registry in high availability mode if cluster registry is enabled.
 * Default value is true and uses Nexus Azure kubernetes service (NAKS) nexus-shared volume on AKS recommendation is set false.
+* Registry Pod Replica Count: minimum: 3, maximum: 5
 * Accepted values: true, false.
 * Default value: true.
 
@@ -143,12 +148,6 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
   * Azure Stack Edge (ASE): managed-premium
 * Default value: nexus-shared.
 
-`--config global.networkfunctionextension.clusterRegistry.storageSize=`
-* This configuration must be provided when global.networkfunctionextension.enableClusterRegistry=true.
-* This configuration configures the size we reserve for cluster registry.
-* This configuration uses unit as Gi and Ti for sizing.
-* Default value: 100Gi
-
 > [!NOTE]
 > * When managing a NAKS cluster with AOSM, the default parameter values enable HA as the recommended configuration.
 > * When managing a AKS cluster with AOSM, HA must be disabled using the following configuration options:
@@ -159,11 +158,79 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 >    --config global.networkfunctionextension.clusterRegistry.storageClassName=managed-csi
 >```
 
+`--config global.networkfunctionextension.clusterRegistry.storageSize=`
+* This configuration must be provided when global.networkfunctionextension.enableClusterRegistry=true.
+* This configuration configures the size we reserve for cluster registry.
+* This configuration uses unit as Gi and Ti for sizing.
+* Default value: 100Gi
+
+`--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence=`
+* This configuration must be provided as a schedule in standard Unix crontab format. 
+* This configuration specified as an empty string disable the scheduled job, allowing customers to opt out of running garbage collection.
+* Default value: "0 0 * * *" -- Runs the job once everyday.
+
+`--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=`
+* This configuration specifies the percent threshold value to trigger the cluster registry garbage collection process.
+* This configuration triggers garbage collection process when cluster registry usage exceeds this value.
+* Default value: 0.
+
+`--config global.networkfunctionextension.clusterRegistry.registryService.scale=`
+* This configuration sets the CPU and memory resources for cluster registry to a pre-defined scale option.
+* Accetped values: small, medium, large.
+* Default value: medium.
+*  Following are the registry resource specifications for all 3 scales:
+```
+    - requests:
+      - small: cpu: 100m, memory: 250Mi
+      - medium: cpu: 250m, memory: 500Mi
+      - large: cpu: 500m, memory: 1Gi
+    - limits:
+      - small: cpu: 100m, memory: 2Gi
+      - medium: cpu: 500m, memory: 2Gi
+      - large: cpu: 1, memory: 4Gi
+```     
+
 ## Update network function extension
 The Azure CLI command 'az k8s-extension update' is executed to update the NFO extension.
 
+```bash
+az k8s-extension update --resource-group
+                        --cluster-name
+                        --cluster-type {connectedClusters}
+                        --extension-type {Microsoft.Azure.HybridNetwork}
+                        --name
+                        --release-namespace {azurehybridnetwork}
+                        --release-train {preview, stable}
+                        --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator
+                        [--version] {version-target}
+                        [--config global.networkfunctionextension.enableClusterRegistry={false, true}]
+                        [--config global.networkfunctionextension.enableLocalRegistry={false, true}]
+                        [--config global.networkfunctionextension.enableEarlyLoading={false,true}]
+                        [--config global.networkfunctionextension.clusterRegistry.highAvailability.enabled={true, false}]
+                        [--config global.networkfunctionextension.clusterRegistry.autoScaling.enabled={true, false}]
+                        [--config global.networkfunctionextension.webhook.highAvailability.enabled={true, false}]
+                        [--config global.networkfunctionextension.webhook.autoScaling.enabled={true, false}]
+                        [--config global.networkfunctionextension.clusterRegistry.storageClassName=]
+                        [--config global.networkfunctionextension.clusterRegistry.storageSize=]
+                        [--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=]
+                        [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence=]
+                        [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=]
+```
+
+
 ## Delete network function extension
 The Azure CLI command 'az k8s-extension delete' is executed to delete  the NFO extension.
+
+```bash
+az k8s-extension delete --resource-group
+                        --cluster-name
+                        --cluster-type {connectedClusters}
+                        --extension-type {Microsoft.Azure.HybridNetwork}
+                        --name
+                        --release-namespace {azurehybridnetwork}
+                        --release-train {preview, stable}
+                        --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator
+```
 
 ## Examples
 Create a network function extension with auto upgrade.
@@ -194,4 +261,14 @@ az k8s-extension create --resource-group myresourcegroup --cluster-name mycluste
 Create a network function extension with side loading feature enabled.
 ```bash
 az k8s-extension create --resource-group myresourcegroup --cluster-name mycluster --name myextension --cluster-type connectedClusters --extension-type Microsoft.Azure.HybridNetwork --scope cluster --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator --release-namespace azurehybridnetwork --config global.networkfunctionextension.enableLocalRegistry=true
+```
+
+Update a network function extension to enable cluster registry.
+```bash
+az k8s-extension update --resource-group naks-1-rg --cluster-name naks-1  --cluster-type connectedClusters --name networkfunction-operator  --extension-type Microsoft.Azure.HybridNetwork --release-namespace azurehybridnetwork --config networkFunctionExtension.EnableManagedInClusterEdgeRegistry=true –-config networkFunctionExtension.EdgeRegistrySizeInGB=1024
+```
+
+Update a network function extension to reach a new target version.
+```bash
+az k8s-extension update --resource-group naks-1-rg --cluster-name naks-1  --cluster-type connectedClusters --name networkfunction-operator  --extension-type Microsoft.Azure.HybridNetwork --release-namespace azurehybridnetwork --version X.X.XXXX-YYY
 ```

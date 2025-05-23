@@ -4,8 +4,7 @@ description: The second tutorial about installing Azure Stack Edge Pro R involve
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 5/17/2022
 ms.author: alkohli
@@ -108,7 +107,7 @@ On your Azure Stack Edge Pro R device:
     - QLogic FastLinQ 41264
     - QLogic FastLinQ 41262
 
-For a full list of supported cables, switches, and transceivers for these network cards, go to [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).-->
+For a full list of supported cables, switches, and transceivers for these network cards, go to [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/content/dam/marvell/en/public-collateral/ethernet-adaptersandcontrollers/marvell-ethernet-adapters-fastlinq-41000-interoperability-matrix.pdf).-->
  
 Take the following steps to cable your device for power and network.
 

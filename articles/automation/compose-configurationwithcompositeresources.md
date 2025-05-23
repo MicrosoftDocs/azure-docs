@@ -4,13 +4,15 @@ description: This article tells how to compose configurations using composite re
 keywords: powershell dsc, desired state configuration, powershell dsc azure, composite resources
 services: automation
 ms.subservice: desired-state-config
-ms.date: 09/09/2024
+ms.date: 10/22/2024
 ms.topic: how-to
 ms.service: azure-automation
 ---
 # Compose DSC configurations
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
 
 When you need to manage resource with more than a single desired state configuration (DSC), the best
 path is to use [composite resources][04]. A composite resource is a nested and parameterized

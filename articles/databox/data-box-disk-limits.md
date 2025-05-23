@@ -4,9 +4,8 @@ description: Describes system limits and recommended sizes for the Microsoft Azu
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
-ms.topic: conceptual
+ms.service: azure-data-box-disk
+ms.topic: concept-article
 ms.date: 03/10/2024
 ms.author: shaas
 ---

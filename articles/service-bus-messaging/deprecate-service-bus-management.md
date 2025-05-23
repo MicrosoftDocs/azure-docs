@@ -2,7 +2,7 @@
 title: Azure messaging services - Service Manager to Resource Manager
 description: This article provides mapping of deprecated Azure Service Manager REST API & PowerShell cmdlets to Resource Manager REST API & PowerShell cmdlets.
 ms.topic: article
-ms.date: 04/10/2023
+ms.date: 01/16/2025
 ---
 
 # Deprecation of Azure Service Manager support for Azure Service Bus, Relay, and Event Hubs
@@ -22,7 +22,7 @@ For more information on Service Manager and Resource Manager APIs for Azure Serv
 | Service Manager APIs (Deprecated) | Resource Manager - Service Bus API | Resource Manager - Event Hubs API | Resource Manager - Relay API |
 | --------------- | ----------------- | ----------------- | ----------------- | 
 | **Namespaces-GetNamespaceAsync** <br/>[Service Bus Get Namespace](/rest/api/servicebus/get-namespace)<br/>[Event Hubs Get Namespace](/rest/api/eventhub/get-event-hub)<br/>[Relay Get Namespace](/rest/api/servicebus/get-relays)<br/> ```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}``` | [get](/rest/api/servicebus/controlplane-stable/namespaces/get) | [get](/rest/api/eventhub/controlplane-stable/namespaces/get) | [get](/rest/api/relay/controlplane-preview/namespaces/get) |
-| **ConnectionDetails-GetConnectionDetails**<br/>Service Bus/Event Hub/Relay GetConnectionDetals<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/ConnectionDetails``` | [listkeys](/rest/api/servicebus/controlplane-stable/namespaces-authorization-rules/list-keys) | [listkeys](/rest/api/eventhub/controlplane-stable/authorization-rules-event-hubs/list-keys) | [listkeys](/rest/api/relay/controlplane-stable/wcf-relays/list-keys) |
+| **ConnectionDetails-GetConnectionDetails**<br/>Service Bus/Event Hub/Relay GetConnectionDetails<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/ConnectionDetails``` | [listkeys](/rest/api/servicebus/controlplane-stable/namespaces-authorization-rules/list-keys) | [listkeys](/rest/api/eventhub/controlplane-stable/authorization-rules-event-hubs/list-keys) | [listkeys](/rest/api/relay/controlplane-stable/wcf-relays/list-keys) |
 | **Topics-GetTopicsAsync**<br/>Service Bus<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/topics? $skip={skip}&$top={top}``` | [list](/rest/api/servicebus/controlplane-preview/topics/list-by-namespace) | &nbsp; | &nbsp; | 
 | **Queues-GetQueueAsync** <br/>Service Bus<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/queues/{queueName}``` | [get](/rest/api/servicebus/controlplane-stable/queues/get) | &nbsp; | &nbsp; | 
 | **Relays-GetRelaysAsync**<br/>[Get Relays](/rest/api/servicebus/get-relays)<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/relays? $skip={skip}&$top={top}```| &nbsp; | &nbsp; | [list](/rest/api/relay/controlplane-stable/wcf-relays/list-by-namespace) | 
@@ -47,14 +47,14 @@ Service Bus/Event Hub/Relay<br/>```PUT https://management.core.windows.net/{subs
 ## Service Manager PowerShell - Resource Manager PowerShell
 | Service Manager PowerShell command (Deprecated) | New Resource Manager  Commands | Newer Resource Manager Command |
 | ----- | ----- | ----- | 
-| Get-AzureSBAuthorizationRule | [Get-AzureRmServiceBusAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusauthorizationrule) | [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule) |
-| Get-AzureSBLocation | [Get-AzureRmServiceBusGeoDRConfiguration](/powershell/module/azurerm.servicebus/get-azurermservicebusgeodrconfiguration) | [Get-AzServiceBusGeoDRConfiguration](/powershell/module/az.servicebus/get-azservicebusgeodrconfiguration) |
-| Get-AzureSBNamespace | [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace) | [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace) |
-| New-AzureSBAuthorizationRule | [New-AzureRmServiceBusAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusauthorizationrule) | [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule) |
-| New-AzureSBNamespace | [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace) | [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace) |
-| Remove-AzureSBAuthorizationRule | [Remove-AzureRmServiceBusAuthorizationRule](/powershell/module/azurerm.servicebus/remove-azurermservicebusauthorizationrule) | [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) |
-| Remove-AzureSBNamespace | [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace) | [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace) |
-| Set-AzureSBAuthorizationRule | [Set-AzureRmServiceBusAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusauthorizationrule) | [Set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule) |
+| Get-AzureSBAuthorizationRule | [Get-AzureRmServiceBusAuthorizationRule](/previous-versions/powershell/module/azurerm.servicebus/get-azurermservicebusauthorizationrule) | [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule) |
+| Get-AzureSBLocation | [Get-AzureRmServiceBusGeoDRConfiguration](/previous-versions/powershell/module/azurerm.servicebus/get-azurermservicebusgeodrconfiguration) | [Get-AzServiceBusGeoDRConfiguration](/powershell/module/az.servicebus/get-azservicebusgeodrconfiguration) |
+| Get-AzureSBNamespace | [Get-AzureRmServiceBusNamespace](/previous-versions/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace) | [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace) |
+| New-AzureSBAuthorizationRule | [New-AzureRmServiceBusAuthorizationRule](/previous-versions/powershell/module/azurerm.servicebus/new-azurermservicebusauthorizationrule) | [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule) |
+| New-AzureSBNamespace | [New-AzureRmServiceBusNamespace](/previous-versions/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace) | [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace) |
+| Remove-AzureSBAuthorizationRule | [Remove-AzureRmServiceBusAuthorizationRule](/previous-versions/powershell/module/azurerm.servicebus/remove-azurermservicebusauthorizationrule) | [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) |
+| Remove-AzureSBNamespace | [Remove-AzureRmServiceBusNamespace](/previous-versions/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace) | [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace) |
+| Set-AzureSBAuthorizationRule | [Set-AzureRmServiceBusAuthorizationRule](/previous-versions/powershell/module/azurerm.servicebus/set-azurermservicebusauthorizationrule) | [Set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule) |
 
 ## Next steps
 See the following documentation: 
@@ -64,6 +64,6 @@ See the following documentation:
     - [Azure Event Hubs](/rest/api/eventhub/)
     - [Azure Relay](/rest/api/relay/)
 - Latest PowerShell documentation
-    - [Azure Service Bus](/powershell/module/azurerm.servicebus/#service_bus)
-    - [Azure Event Hubs](/powershell/module/azurerm.eventhub/#event_hub)
-    - [Azure Event Grid](/powershell/module/azurerm.eventgrid/#event_grid)
+    - [Azure Service Bus](/powershell/module/az.servicebus/#service_bus)
+    - [Azure Event Hubs](/powershell/module/az.eventhub/#event_hub)
+    - [Azure Event Grid](/powershell/module/az.eventgrid/#event_grid)

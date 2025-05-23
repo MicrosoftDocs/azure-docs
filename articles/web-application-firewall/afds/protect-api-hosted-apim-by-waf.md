@@ -1,11 +1,10 @@
 ---
-title:        Protect APIs hosted in APIM using Azure Web Application Firewall with Azure Front Door
-description:  This article guides you through a process of creating an API in APIM and protects it from a web application attack using Azure Web Application Firewall integrated with Azure Front Door.
-author:      sowmyam2019 # GitHub alias
-ms.author:   sowmyam # Microsoft alias
+title: Protect APIs hosted in APIM using Azure WAF with Azure Front Door
+description: This article guides you through a process of creating an API in APIM and protects it from a web application attack using Azure Web Application Firewall integrated with Azure Front Door.
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.topic:    how-to
-ms.reviewer: vhorne
+ms.topic: how-to
 ms.date: 07/13/2023
 ---
 
@@ -19,27 +18,18 @@ This article describes how to use [Azure Web Application Firewall on Azure Front
 
 ## Create an APIM instance and publish an API in APIM that generates a mock API response
 
-1. Create an APIM instance
-
-   [Quickstart: Create a new Azure API Management service instance by using the Azure portal](../../api-management/get-started-create-service-instance.md)
+1. Create an APIM instance. For more information, see [Quickstart: Create a new Azure API Management service instance by using the Azure portal](../../api-management/get-started-create-service-instance.md).
 
    The following screenshot shows that an APIM instance called **contoso-afd-apim-resource** has been created. It can take up to 30 to 40 minutes to create and activate an API Management service. 
 
    :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/contoso-main-page.png" alt-text="A screenshot showing the APIM instance created." lightbox="../media/protect-api-hosted-in-apim-by-waf/contoso-main-page.png":::
 
 
-2. Create an API and generate mock API responses
-   
-   [Tutorial: Mock API responses](../../api-management/mock-api-responses.md#add-an-operation-to-the-test-api)
+2. Create an API and generate mock API responses. For more information, see [Tutorial: Mock API responses](../../api-management/mock-api-responses.md#add-an-operation-to-the-test-api).
 
    Replace the name of API from **Test API** given in the above tutorial with **Book API**.
 
    The Book API does a GET operation for `_/test_` as the URL path for the API. You can see the response for the API is set as **200 OK** with content type as application/json with text as `{“Book”:” $100”}`.
-
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-get-test.png" alt-text="A screenshot showing the GET operation defined in APIM." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-get-test.png":::
-
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-200-ok.png" alt-text="A screenshot showing the mock response created." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-200-ok.png":::
-
 
 3. Deselect **Subscription required** check box under the API settings tab and select **Save**.
 
@@ -86,23 +76,15 @@ Requests routed through the Front Door include headers specific to your Front Do
  
 1. Copy the Front Door ID from the AFD overview page.
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/afd-endpoint-fd-id.png" alt-text="A screenshot showing the AFD ID." lightbox="../media/protect-api-hosted-in-apim-by-waf/afd-endpoint-fd-id.png":::
-
-
 2. Access the APIM API page, select the Book API, select **Design** and **All operations**.  In the Inbound policy, select **+ Add policy**.
 
    :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-inbound-policy.png" alt-text="A screenshot showing how to add an inbound policy." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-inbound-policy.png":::
 
 3. Select Other policies
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-other-policies.png" alt-text="A screenshot showing other policies selected." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-other-policies.png":::
-
 4. Select “Show snippets" and select **Check HTTP header**.
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-check-http-header.png" alt-text="A screenshot showing check header selected." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-check-http-header.png":::
-
    Add the following code to the inbound policy for HTTP header `X-Azure-FDID`. Replace the `{FrontDoorId}`  with the AFD ID copied in the first step of this section.
-
 
    ```
    <check-header name="X-Azure-FDID" failed-check-httpcode="403" failed-check-error-message="Invalid request" ignore-case="false">
@@ -111,9 +93,7 @@ Requests routed through the Front Door include headers specific to your Front Do
 
    ```
 
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/apim-final-check-header.png" alt-text="A screenshot showing the final policy configuration." lightbox="../media/protect-api-hosted-in-apim-by-waf/apim-final-check-header.png":::
-
-   Select **Save**.
+5. Select **Save**.
 
    At this point, APIM access is restricted to the Azure Front Door endpoint only.
 
@@ -128,8 +108,6 @@ Requests routed through the Front Door include headers specific to your Front Do
 3. Under the **Security Policies** section, verify that the WAF policy **bookwafpolicy** is provisioned.
 
 4. Select **bookwafpolicy** and verify that the **bookwafpolicy** has Managed rules provisioned. The latest versions of Microsoft_DefaultRueSet and Microsoft_BotManagerRuleSet is provisioned which protects the origin against OWASP top 10 vulnerabilities and malicious bot attacks.
-
-   :::image type="content" source="../media/protect-api-hosted-in-apim-by-waf/book-waf-policy.png" alt-text="A screenshot showing the WAF policy for managed rules." lightbox="../media/protect-api-hosted-in-apim-by-waf/book-waf-policy.png":::
 
 At this point, the end-to-end call is set up, and the API is protected by Azure Web Application Firewall.
 

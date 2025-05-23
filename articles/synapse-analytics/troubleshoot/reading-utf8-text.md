@@ -1,19 +1,19 @@
 ---
 title: "Troubleshoot: Reading UTF-8 text from CSV or PARQUET files using serverless SQL pool"
 description: Reading UTF-8 text from CSV or PARQUET files using serverless SQL pool in Azure Synapse Analytics
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: Danzhang-msft
+ms.author: danzhang
 ms.topic: troubleshooting
 ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
-ms.date: 12/03/2020
+ms.date: 02/27/2025
 ---
 
 # Troubleshoot reading UTF-8 text from CSV or Parquet files using serverless SQL pool in Azure Synapse Analytics
 
 This article provides troubleshooting steps for reading UTF-8 text from CSV or Parquet files using serverless SQL pool in Azure Synapse Analytics.
 
-When UTF-8 text is read from a CSV or PARQUET file using serverless SQL pool, some special characters like ü and ö are incorrectly converted if the query returns VARCHAR columns with non-UTF8 collations. This is a known issue in SQL Server and Azure SQL. Non-UTF8 collation is the default in Synapse SQL so customer queries will be affected. Customers who use standard English characters and some subset of extended Latin characters may not notice the conversion errors. The incorrect conversion is explained in more detail in [Always use UTF-8 collations to read UTF-8 text in serverless SQL pool](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/always-use-utf-8-collations-to-read-utf-8-text-in-serverless-sql/ba-p/1883633)
+When UTF-8 text is read from a CSV or PARQUET file using serverless SQL pool, some special characters like `ü` and `ö` are incorrectly converted if the query returns **varchar** columns with non-UTF8 collations. This is a known issue in SQL Server and Azure SQL. Non-UTF8 collation is the default in Synapse SQL so customer queries will be affected. Customers who use standard English characters and some subset of extended Latin characters might not notice the conversion errors. The incorrect conversion is explained in more detail in [Always use UTF-8 collations to read UTF-8 text in serverless SQL pool](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/always-use-utf-8-collations-to-read-utf-8-text-in-serverless-sql/ba-p/1883633).
 
 ## Workaround
 
@@ -26,7 +26,7 @@ The workaround to this issue is to always use UTF-8 collation when reading UTF-8
          COLLATE Latin1_General_100_BIN2_UTF8;
    ```
 
-- You can explicitly define collation on VARCHAR column in OPENROWSET or external table:
+- You can explicitly define collation on **varchar** column in OPENROWSET or external table:
 
    ```sql
    select geo_id, cases = sum(cases)
@@ -37,10 +37,9 @@ The workaround to this issue is to always use UTF-8 collation when reading UTF-8
    group by geo_id
    ```
  
-- If you did not specify UTF8 collation on external tables that read UTF8 data, you need to re-create impacted external tables and set UTF8 collation on VARCHAR columns (metadata operation).
+- If you didn't specify UTF8 collation on external tables that read UTF8 data, you need to re-create impacted external tables and set UTF8 collation on **varchar** columns (metadata operation).
 
-
-## Next steps
+## Related content
 
 * [Query Parquet files with Synapse SQL](../sql/query-parquet-files.md)
 * [Query CSV files with Synapse SQL](../sql/query-single-csv-file.md)

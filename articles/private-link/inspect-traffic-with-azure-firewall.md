@@ -4,8 +4,8 @@ titleSuffix: Azure Private Link
 description: Learn about different scenarios to inspect traffic destined to a private endpoint using Azure Firewall.
 author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
-ms.date: 08/14/2023
+ms.topic: concept-article
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: template-how-to
 ---

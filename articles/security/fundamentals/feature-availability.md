@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: feature-availability
-ms.date: 06/27/2024
+ms.date: 04/30/2025
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -103,7 +103,7 @@ For more information, see the [Azure Information Protection product documentatio
 |---------|---------|---------|---------|
 |**Administration**     |         |         | |
 |- [PowerShell for RMS service administration](/powershell/module/aipservice/)      |  GA       |    GA     |   GA      |
-|- [PowerShell for AIP UL client bulk operations](/powershell/module/azureinformationprotection/)      |         |         |         |
+|- [PowerShell for AIP UL client bulk operations](/powershell/azure/aip/overview)      |         |         |         |
 |**SDK**     |         |         |         |
 |- [MIP and AIP Software Development Kit (SDK)](/information-protection/develop/)     |     GA       |    GA     |   GA  |
 |**Customizations**     |         |         |         |
@@ -158,6 +158,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](/azure/defender-for-cloud/custom-dashboards-azure-workbooks)                               | GA             | GA                             |
 | **Microsoft Defender plans and extensions**                                                                                                                                          |                |                                |
 | <li> [Microsoft Defender for servers](/azure/defender-for-cloud/defender-for-servers-introduction)                                                                                    | GA             | GA                             |
+| <li> [Microsoft Defender AI Services](/azure/defender-for-cloud/ai-threat-protection)                                                                                    | GA             | Not Available|
 | <li> [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)                                                                            | GA             | Not Available                  |
 | <li> [Microsoft Defender for DNS](/azure/defender-for-cloud/defender-for-dns-introduction)                                                                                            | Not available for new subscriptions | Not available for new subscriptions |
 | <li> [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) <sup>[9](#footnote4)</sup>                                                  | GA                                   | GA                             |
@@ -314,7 +315,6 @@ The following table displays the current Microsoft Defender for IoT feature avai
 | [SYSLOG Server (LEEF format)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
 | [SYSLOG Server (Object)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
 | [SYSLOG Server (Text Message)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [Web callback (Webhook)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
 
 ### For device builders
 

@@ -8,7 +8,7 @@ ms.topic: how-to
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
-Machine configuration uses [Desired State Configuration][02] (DSC) when auditing and configuring
+Machine configuration uses [PowerShell Desired State Configuration][02] (PSDSC) when auditing and configuring
 both Windows and Linux. The DSC configuration defines the condition that the machine should be in.
 
 > [!IMPORTANT]
@@ -120,6 +120,8 @@ Parameters of the `New-GuestConfigurationPackage` cmdlet when creating Windows c
 - **Type**: (`Audit`, `AuditandSet`) Determines whether the configuration should only audit or if
   the configuration should change the state of the machine if it's out of the desired state. The
   default is `Audit`.
+- **FrequencyMinutes**: The frequency of evaluation of the package on the machine in minutes.
+- **FilesToInclude**: An array list of paths to additional files to include in the generated package.
 
 This step doesn't require elevation. The **Force** parameter is used to overwrite existing
 packages, if you run the command more than once.
@@ -220,7 +222,7 @@ third-party platform in the content artifact.
 
 <!-- Reference link definitions -->
 [01]: ../../overview.md
-[02]: /powershell/dsc/overview
+[02]: /powershell/dsc/overview?view=dsc-2.0&preserve-view=true
 [03]: ./1-set-up-authoring-environment.md
 [05]: /powershell/dsc/resources/authoringResourceClass
 [06]: https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22

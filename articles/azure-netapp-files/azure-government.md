@@ -4,9 +4,9 @@ description: Learn how to connect to Azure Government to use Azure NetApp Files 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
-ms.topic: conceptual
-ms.date: 07/17/2024
+ms.custom: devx-track-azurecli, no-azure-ad-ps-ref
+ms.topic: concept-article
+ms.date: 05/21/2025
 ms.author: anfdocs
 ---
 
@@ -24,7 +24,8 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
-| Azure NetApp Files large volumes | Generally available (GA) | Generally available [(select regions)](large-volumes-requirements-considerations.md#supported-regions) |
+| Azure NetApp Files customer-managed key with managed Hardware Security Module | Generally available | No |
+| Azure NetApp Files file access logs | Public preview | No |
 
 ## Portal access
 
@@ -70,10 +71,11 @@ When you connect to Azure Government through PowerShell, you must specify an env
 
 | Connection type | Command | 
 | --- | --- | 
-| [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands |`Connect-AzAccount -EnvironmentName AzureUSGovernment` | 
-| [Microsoft Entra ID](/powershell/module/azuread/connect-azuread) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` | 
-| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount) commands |`Add-AzureAccount -Environment AzureUSGovernment` | 
-| [Microsoft Entra ID (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` | 
+| [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands | `Connect-AzAccount -EnvironmentName AzureUSGovernment` | 
+| [Microsoft Graph PowerShell](/powershell/microsoftgraph/authentication-commands) | `Connect-MgGraph -Environment USGov` |
+| [Microsoft Entra PowerShell](/powershell/module/microsoft.entra/connect-entra) | `Connect-Entra -Environment USGov` | 
+| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount) commands | `Add-AzureAccount -Environment AzureUSGovernment` | 
+| [Microsoft Entra ID (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands | `Connect-MsolService -AzureEnvironment UsGovernment` | 
 
 For more information, see [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md).
 
