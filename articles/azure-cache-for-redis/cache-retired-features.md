@@ -27,7 +27,7 @@ During the upgrade process, the replica node of the cache was first upgraded to 
 
 - Cache instances that had geo-replication enabled had to unlink the caches before upgrade, upgrade both caches, and relink them after the upgrade.
 
-- Caches that were affected by Cloud Service retirement had to migrate to a caches built on Virtual Machine Scale Set, or undergo an automatic upgrade requiring 30 minutes of downtime and full cache data loss.
+- Caches that were affected by Cloud Service retirement had to migrate to caches built on Virtual Machine Scale Set, or undergo an automatic upgrade requiring 30 minutes of downtime and full cache data loss.
 
 The Redis version upgrade process can be triggered through REST API, Azure CLI, or PowerShell command. For more information about upgrading Redis versions in Azure Cache for Redis, see [How to upgrade the version of your Redis instance](cache-how-to-upgrade.md). Also see [Best practices for connection resilience](cache-best-practices-connection.md).
 
