@@ -162,8 +162,8 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 
 ## Known Limitations  
 
-1. **VMSS VM Health status** isn't supported by default. If you have a requirement, do let us know by emailing the Azure Resource Graph team. 
-2. **Supported Resources** - The ARG GET/LIST API supports resources part of  ‘resources’ and ‘computeresources’ table. If you have a requirement for a specific resource type outside of these tables, do let us know by emailing team. 
+1. **VMSS VM Health status** isn't supported by default. If you have a requirement, do let us know by emailing the ARG team. 
+2. **Supported Resources** - The ARG GET/LIST API supports all resource types as part of the ‘resources’ and ‘computeresources’ table. If you have a requirement for a specific resource type outside of these tables, do let us know by emailing the ARG team. 
 3. **Single API Version Support** - ARG GET/LIST today only supports a single API version for each resource type, which is generally the latest non-preview version of the type that exists in the Azure REST API spec. The `api-version` parameter in the request URL is ignored by the ARG GET/LIST today. ARG GET/LIST returns `apiVersion` field in resource payloads in responses; this is the version that ARG GET/LIST indexed the resource in. Callers can apply this field to understand the apiVersion to use, if its relevant for their scenario.  
 4. **Client Support** - Azure REST API: Supported | Azure SDK: Supported [sample .NET code](#sample-sdk-code)| PowerShell: Currently not supported | Azure CLI: Currently not supported | Azure portal: Currently not supported 
 5. **Client Deserialization Concerns**
@@ -183,27 +183,26 @@ The following example is a .NET Code sample to call ARG GET/LIST API by creating
 First, We create custom ArmClientOption with policy that adds the `useResourceGraph=True` flag per call: 
 
 ```bicep
-var ArmClientOptions = new ArmClientOptions(); 
-
-ArmClientOptions.AddPolicy(new ARG GET/LISTHttpPipelinePolicy(),  
-
-HttpPipelinePosition.PerCall); 
-
+var armClientOptions = new ArmClientOptions(); 
+armClientOptions.AddPolicy(new ArgGetListHttpPipelinePolicy(), HttpPipelinePosition.PerCall); 
 ```
 
 Then, we create ArmClient using the custom ArmClientOptions:
 
 ```bicep
-ArmClient client = new ArmClient(new DefaultAzureCredential(), null,  
-
-ArmClientOptions);
+ArmClient resourceGraphClient = new ArmClient(new DefaultAzureCredential(), null, armClientOptions); 
 ```
 
 What if we want to create an ARMClient using a default subscription? We would set the ArmClient client value to:
 
 ```bicep
-new ArmClient(new DefaultAzureCredential(), defaultSubId,  
-ArmClientOptions); 
+ArmClient resourceGraphClient = new ArmClient(new DefaultAzureCredential(), defaultSubId, armClientOptions);
+```
+
+Optionally, to create a default client that does not add the `useResourceGraph` flag, the client code chooses which client to use based on the specific scenario and needs. To do so, use the following:
+ 
+```bicep
+ArmClient defaultClient = new ArmClient(new DefaultAzureCredential(), null, new ArmClientOptions()); 
 ```
 
 Then use this policy to add query parameters for every request through the client:
@@ -211,13 +210,24 @@ Then use this policy to add query parameters for every request through the clien
 internal class ARG GET/LISTHttpPipelinePolicy : HttpPipelineSynchronousPolicy 
 
 ```bicep
+internal class ArgGetListHttpPipelinePolicy : HttpPipelineSynchronousPolicy 
+
 { 
- public override void OnSendingRequest(HttpMessage message) 
- { 
- // Adds the required query param to explicitly query ARG GET/LIST  
- message.Request.Uri.AppendQuery("useResourceGraph", bool.TrueString); 
+
+    private static const string UseResourceGraph = "useResourceGraph"; 
+    public override void OnSendingRequest(HttpMessage message) 
+
+    { 
+        // Adds the required query parameter to explicitly query ARG GET/LIST if the flag is not already present 
+        if (!message.Request.Uri.ContainsQuery(UseResourceGraph)) 
+        { 
+          message.Request.Uri.AppendQuery(UseResourceGraph, bool.TrueString); 
+
+        } 
+
+    } 
+
 } 
-}
 ```
 
 ## Frequently asked questions  
