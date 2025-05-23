@@ -4,8 +4,8 @@ description: Learn about how to configure access the dTPM on your  Azure IoT Edg
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/29/2024
-ms.topic: conceptual
-ms.service: iot-edge
+ms.topic: concept-article
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---

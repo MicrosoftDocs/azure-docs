@@ -2,8 +2,8 @@
 title: "Cybersixgill Actionable Alerts (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cybersixgill Actionable Alerts (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
-ms.date: 04/26/2024
+ms.topic: generated-reference
+ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
@@ -56,7 +56,7 @@ To integrate with Cybersixgill Actionable Alerts (using Azure Functions) make su
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the Cybersixgill Actionable Alerts data connector using an ARM Tempate.
+Use this method for automated deployment of the Cybersixgill Actionable Alerts data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
@@ -73,7 +73,8 @@ Use the following step-by-step instructions to deploy the Cybersixgill Actionabl
 
 **1. Deploy a Function App**
 
-> NOTE:You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> [!NOTE]
+>You will need to [prepare VS Code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Cybersixgill-Actionable-Alerts/Data%20Connectors/CybersixgillAlerts.zip?raw=true) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -91,7 +92,7 @@ If you're already signed in, go to the next step.
 
 	d. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. CybersixgillAlertsXXX).
 
-	e. **Select a runtime:** Choose Python 3.8.
+	e. **Select a runtime:** Choose Python 3.11.
 
 	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft sentinel is located.
 

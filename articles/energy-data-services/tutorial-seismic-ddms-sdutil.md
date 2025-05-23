@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Data Manager for Energy
 description: This tutorial shows you how to set up and use sdutil, a command-line tool for interacting with Seismic Store.
 author: elizabethhalper
 ms.author: elhalper
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 09/09/2022
 ms.custom: template-tutorial

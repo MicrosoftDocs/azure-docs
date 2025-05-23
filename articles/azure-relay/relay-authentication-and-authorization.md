@@ -1,8 +1,9 @@
 ---
 title: Azure Relay authentication and authorization | Microsoft Docs
 description: This article provides an overview of Shared Access Signature (SAS) authentication with the Azure Relay service.
-ms.topic: article
-ms.date: 08/10/2023
+ms.topic: concept-article
+ms.date: 12/10/2024
+# Customer intent: As an Azure Relay user, I want to know different ways to authenticate and authorize access to Azure Relay resources. 
 ---
 
 # Azure Relay authentication and authorization
@@ -11,7 +12,7 @@ There are two ways to authenticate and authorize access to Azure Relay resources
 <a name='azure-active-directory'></a>
 
 ## Microsoft Entra ID 
-Microsoft Entra integration for Azure Relay resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Microsoft Entra ID to return an OAuth 2.0 token. The token can be used to authorize a request to access an Azure Relay resource.
+Microsoft Entra integration for Azure Relay resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which can be a user, a group, or an application service principal. The security principal is authenticated by Microsoft Entra ID to return an OAuth 2.0 token. The token can be used to authorize a request to access an Azure Relay resource.
 
 For more information about authenticating with Microsoft Entra ID, see the following articles:
 - [Authenticate with managed identities](authenticate-managed-identity.md)

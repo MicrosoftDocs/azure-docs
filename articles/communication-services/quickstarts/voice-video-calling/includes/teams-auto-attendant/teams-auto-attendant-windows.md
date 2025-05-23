@@ -6,8 +6,6 @@ ms.date: 09/26/2024
 ms.author: jiyoonlee
 ---
 
-[!INCLUDE [public-preview-note](../../../../includes/public-preview-include.md)]
-
 In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Auto Attendant. You are going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.

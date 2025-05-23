@@ -1,10 +1,10 @@
 ---
 title: Use Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
-ms.date: 08/28/2024
-ms.author: daknappe
+ms.date: 12/02/2024
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
@@ -16,7 +16,7 @@ There are two versions of Teams, *Classic Teams* and *[New Teams](/microsoftteam
 
 To redirect calling and meeting functionality to the local device, Azure Virtual Desktop uses an extra component. This component is either *SlimCore* or the *WebRTC Redirector Service*. The option you use depends on the following:
 
-- New Teams can use either SlimCore or the WebRTC Redirector Service. SlimCore is available in preview and you need [to opt in to the preview](/microsoftteams/public-preview-doc-updates?tabs=new-teams-client) to use it. If you use SlimCore, you should also install the WebRTC Redirector Service. This allows a user to fall back to WebRTC, such as if they roam between different devices that don't support the new optimization architecture. For more information about SlimCore and how to opt into the preview, see [New VDI solution for Teams](/microsoftteams/vdi-2).
+- New Teams can use either SlimCore or the WebRTC Redirector Service. If you use SlimCore, you should also install the WebRTC Redirector Service. This allows a user to fall back to WebRTC, such as if they roam between different devices that don't support the new optimization architecture. For more information about SlimCore, see [New VDI solution for Teams](/microsoftteams/vdi-2).
 
 - Classic Teams uses the WebRTC Redirector Service.
 
@@ -31,7 +31,7 @@ Before you can use Microsoft Teams on Azure Virtual Desktop, you need:
 
 - Connect to a session host running Windows 10 or 11 multi-session or Windows 10 or 11 Enterprise. Session hosts running an N or KN SKU of Windows aren't supported.
 
-- For Windows, you also need to install the latest version of the [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) on your client device and session hosts. The C++ Redistributable is required to use media optimization for Teams on Azure Virtual Desktop.
+- For Windows, you also need to install the latest version of the [Microsoft Visual C++ Redistributable](/cpp/windows/latest-supported-vc-redist) on your client device and session hosts. The C++ Redistributable is required to use media optimization for Teams on Azure Virtual Desktop.
 
 - Install the latest version of [Windows App](/windows-app/get-started-connect-devices-desktops-apps) or the [Remote Desktop client](./users/connect-windows.md) on Windows or macOS that meets the [hardware requirements for Microsoft Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 
@@ -46,7 +46,7 @@ Media optimization for Microsoft Teams is only available for the following clien
 
 - [Remote Desktop client for Windows](users/connect-windows.md) or the [Azure Virtual Desktop app](users/connect-windows-azure-virtual-desktop-app.md), version 1.2.1026.0 or later, including ARM64-based devices.
 
-- [Remote Desktop client for macOS](users/connect-macos.md), version 10.7.7 or later.
+- [Remote Desktop client for macOS](users/connect-macos.md), version 10.7.7 or later. Teams optimizations on macOS aren't supported when using Teams as a RemoteApp.
 
 - [Windows App](/windows-app/get-started-connect-devices-desktops-apps).
 
@@ -109,13 +109,13 @@ After installing the WebRTC Redirector Service and the Teams desktop app, follow
 
 1. Quit and restart the Teams application.
 
-1. Select your user profile image, then select **About**.
+1. Select the More options menu (...) in the title bar, then select **Settings**. 
 
-1. Select **Version**.
+1. Select **About Teams** to see the version.
 
       If media optimizations loaded, the banner shows you  **AVD SlimCore Media Optimized** or **AVD Media Optimized**. If the banner shows you **AVD Media not connected**, quit the Teams app and try again.
 
-1. Select your user profile image, then select **Settings**.
+1. Select the More options menu (...) in the title bar, then select **Settings**.
 
    If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, check the Privacy settings on your local PC. Ensure the under **Settings** > **Privacy** > **App permissions - Microphone** the setting **"Allow apps to access your microphone"** is toggled **On**. Disconnect from the remote session, then reconnect and check the audio and video devices again. To join calls and meetings with video, you must also grant permission for apps to access your camera.
 

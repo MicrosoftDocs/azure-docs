@@ -1,7 +1,7 @@
 ---
-title: How to add custom verified email domains
-titleSuffix: An Azure Communication Services quick start guide
-description: Learn about adding custom email domains in Azure Communication Services.
+title: Add custom verified email domains
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add custom verified email domains in Azure Communication Services.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
@@ -13,9 +13,10 @@ zone_pivot_groups: acs-plat-azp-azcli-net-ps
 ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
-# Quickstart: How to add custom verified email domains
 
-In this quick start, you learn how to provision a custom verified email domain in Azure Communication Services.
+# Add custom verified email domains
+
+This article describes how to provision a custom verified email domain in Azure Communication Services.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-custom-managed-domain-resource-az-portal.md)]
@@ -41,6 +42,10 @@ Before provisioning a custom email domain, review the following table to decide 
 |---|---|---|
 |**Pros:** | - Setup is quick & easy<br/>- No domain verification required<br /> | - Emails are sent from your own domain |
 |**Cons:** | - Sender domain isn't personalized and can't be changed<br/>- Sender usernames can't be personalized<br/>- Limited sending volume<br />- User Engagement Tracking can't be enabled<br /> | - Requires verification of domain records<br /> - Longer setup for verification |
+
+### Service limits
+
+Both Azure managed domains and Custom domains are subject to service limits. Service limits include failure, rate, and size limits. For more information, see [Service limits for Azure Communication Services > Email](../../concepts/service-limits.md#email).
 
 ## Change MailFrom and FROM display names for custom domains
 
@@ -96,3 +101,5 @@ The following links provide more information about how to add a CNAME record usi
 ## Related articles
 
 * Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
+* Review email failure limits, rate limits, and size limits in [Service limits for Azure Communication Services > Email](../../concepts/service-limits.md#email).
+* Learn how to send emails with Azure Managed Domains in [Quickstart: How to add Azure Managed Domains to Email Communication Service](../../quickstarts/email/add-azure-managed-domains.md).

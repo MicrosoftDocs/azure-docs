@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: how-to
-ms.date: 03/26/2024
+ms.date: 04/28/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
@@ -78,7 +78,7 @@ For security, use:
 * [autoProvisioningSettings](/azure/templates/microsoft.security/autoprovisioningsettings)
 * [connectors](/azure/templates/microsoft.security/connectors)
 * [deviceSecurityGroups](/azure/templates/microsoft.security/devicesecuritygroups)
-* [ingestionSettings](/azure/templates/microsoft.security/ingestionsettings)
+* [ingestionSettings](/javascript/api/@azure/arm-security/ingestionsettings)
 * [pricings](/azure/templates/microsoft.security/pricings)
 * [securityContacts](/azure/templates/microsoft.security/securitycontacts)
 * [settings](/azure/templates/microsoft.security/settings)

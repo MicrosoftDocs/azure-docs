@@ -5,7 +5,7 @@ description: Learn how to enable SSH File Transfer Protocol (SFTP) support for A
 author: normesta
 ms.custom:
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2024
 ms.author: normesta
 ---

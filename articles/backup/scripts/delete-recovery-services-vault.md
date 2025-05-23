@@ -2,11 +2,11 @@
 title: Script Sample - Delete a Recovery Services vault for Azure Backup
 description: Learn about how to use a PowerShell script to delete a Recovery Services vault.
 ms.topic: sample
-ms.date: 03/26/2024
+ms.date: 12/03/2024
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # PowerShell script to delete a Recovery Services vault
@@ -195,7 +195,7 @@ if ($null -ne $fabricObjects) {
             $NetworkMappings = Get-AzRecoveryServicesAsrNetworkMapping -Network $PrimaryNetwork
             foreach ($networkMappingObject in $NetworkMappings)
             {
-                #Get the Neetwork Mappings
+                #Get the Network Mappings
                 $NetworkMapping = Get-AzRecoveryServicesAsrNetworkMapping -Name $networkMappingObject.Name -Network $PrimaryNetwork
                 Remove-AzRecoveryServicesAsrNetworkMapping -InputObject $NetworkMapping
             }
@@ -279,7 +279,7 @@ $authHeader = @{
 $restUri = "https://management.azure.com/subscriptions/"+$SubscriptionId+'/resourcegroups/'+$ResourceGroup+'/providers/Microsoft.RecoveryServices/vaults/'+$VaultName+'?api-version=2021-06-01&operation=DeleteVaultUsingPS'
 $response = Invoke-RestMethod -Uri $restUri -Headers $authHeader -Method DELETE
 
-$VaultDeleted = Get-AzRecoveryServicesVault -Name $VaultName -ResourceGroupName $ResourceGroup -erroraction 'silentlycontinue'
+$VaultDeleted = Get-AzRecoveryServicesVault -Name $VaultName -ResourceGroupName $ResourceGroup -ErrorAction 'SilentlyContinue'
 if ($VaultDeleted -eq $null){
 Write-Host "Recovery Services Vault" $VaultName "successfully deleted"
 }

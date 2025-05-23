@@ -17,7 +17,7 @@ In addition to these storage-related features and all capabilities and protocol 
 > - Event Hubs Premium supports TLS 1.2 or greater.
 > - The Premium tier isn't available in all regions. Try to create a namespace in the Azure portal. See the supported regions in the **Location** dropdown list on the **Create Namespace** page.
 
-You can purchase 1, 2, 4, 8, and 16 processing units (PUs) for each namespace. Because the Premium tier is a capacity-based offering, the achievable throughput isn't set by a throttle like it is in the Standard tier. The throughput depends on the work you ask Event Hubs to do, which is similar to the Dedicated tier. The effective ingest and stream throughput per PU depends on various factors, such as the:
+You can purchase 1, 2, 4, 6, 8, 10, 12, and 16 processing units (PUs) for each namespace. Because the Premium tier is a capacity-based offering, the achievable throughput isn't set by a throttle like it is in the Standard tier. The throughput depends on the work you ask Event Hubs to do, which is similar to the Dedicated tier. The effective ingest and stream throughput per PU depends on various factors, such as the:
 
 * Number of producers and consumers.
 * Payload size.
@@ -60,10 +60,10 @@ The Premium tier offers all the features of the Standard plan but with better pe
 
 ## High availability with availability zones
 
-Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](../availability-zones/az-overview.md#availability-zones) support with no extra cost. By using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures.
+Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](../reliability/availability-zones-service-support.md) support with no extra cost. By using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures.
 
 > [!IMPORTANT]
-> - Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
+> - Availability zone support is only available in [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
 > - In certain regions, the Premium tier's support for availability zones is limited even though the region supports availability zones.
 
 ## Premium vs. Dedicated tiers

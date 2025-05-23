@@ -31,15 +31,14 @@ While we're working on a solution, you can turn off real-time notifications feat
  implementation 'com.azure.android:azure-communication-calling:1.0.0'
  ```
  
-Note: if the application tries to touch any of the notification APIs like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, there will be a runtime error.
+Note: if the application tries to touch any of the notification APIs like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, results in a runtime error.
 
-## iOS ongoing video Picture in Picture (PiP)
-
-Incoming video stops when app goes to background. If the application is in foreground the video renders correctly.
+## Android Page Size
+[16-KB page size](https://android-developers.googleblog.com/2024/08/adding-16-kb-page-size-to-android.html) feature, available since Android 15, is currently not supported.
 
 ## iOS answering incoming call via CallKit
 
-Outgoing audio settings would not apply when CallKit is enabled and users answer the incoming calls through CallKit directly. 
+Outgoing audio settings wouldn't apply when CallKit is enabled and users answer the incoming calls through CallKit directly. 
 
 ## UI Library
 

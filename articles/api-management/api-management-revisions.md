@@ -4,7 +4,7 @@ description: Learn about the concept of revisions in Azure API Management.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.date: 02/22/2022
 ms.author: danlep
 ms.custom: fasttrack-new

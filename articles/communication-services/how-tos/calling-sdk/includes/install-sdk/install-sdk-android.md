@@ -8,7 +8,7 @@ ms.author: rifox
 
 ## Install the SDK
 
-Locate your project-level *build.gradle* file and add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`:
+Locate your project-level `build.gradle` file and add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`:
 
 ```groovy
 buildscript {
@@ -30,7 +30,7 @@ allprojects {
 }
 ```
 
-Then, in your module-level *build.gradle* file, add the following lines to the `dependencies` section:
+Then, in your module-level `build.gradle` file, add the following lines to the `dependencies` section:
 
 ```groovy
 dependencies {
@@ -40,7 +40,7 @@ dependencies {
 }
 ```
 
-### Initialize the required objects
+## Initialize the required objects
 
 To create a `CallAgent` instance, you have to call the `createCallAgent` method on a `CallClient` instance. This call asynchronously returns a `CallAgent` instance object.
 

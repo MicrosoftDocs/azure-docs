@@ -1,66 +1,57 @@
 ---
-title: Add replicas to Azure Cache for Redis
-description: Learn how to add more replicas to your Premium tier Azure Cache for Redis instances
+title: Add replicas to a Premium cache
+description: Learn how to create Premium tier Azure Cache for Redis instances with added replicas.
 
 
 
-ms.topic: conceptual
-ms.date: 08/11/2020
+ms.topic: how-to
+ms.date: 05/14/2025
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
-# Add replicas to Azure Cache for Redis
+# Add replicas to Premium tier Azure Cache for Redis
 
-In this article, you'll learn how to set up an Azure Cache for Redis instance with additional replicas using the Azure portal.
+Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs) configured as primary and replica. If the primary VM becomes unavailable, the replica automatically takes over as the new primary.
 
-Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs). These VMs are configured as primary and replica. When the primary VM becomes unavailable, the replica detects that and takes over as the new primary automatically. You can now increase the number of replicas in a Premium cache up to three, giving you a total of four VMs backing a cache. Having multiple replicas results in higher resilience than what a single replica can provide.
+When you create a Premium cache, you can increase the number of replicas up to three, giving a total of four VMs backing a cache. Multiple replicas provide higher resilience than a single replica.
+
+This article describes how to create an Azure Cache for Redis Premium cache with added replicas by using the Azure portal.
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+You need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 
-## Create a cache
+## Limitations
 
-To create a cache, follow these steps:
+Creating more than one replica for a cache has the following limitations:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.
-  
-1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
+- Only Premium-tier Azure Cache for Redis supports adding more than one replica.
+- You can't change the number of replicas after you create the cache.
+- You can't use geo-replication with caches that have more than one replica.
+- You can't use Append-only File (AOF) data persistence with caches that have more than one replica.
 
-    :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Select Azure Cache for Redis.":::
+## Create a Premium cache with added replicas
 
-1. On the **Basics** page, configure the settings for your new cache.
+1. Create a cache by following the instructions at [Quickstart: Create an Azure Redis cache](quickstart-create-redis.md). On the **Basics** tab, select [Premium](https://azure.microsoft.com/pricing/details/cache/) for **Cache SKU**, and select a **Size** from **P0** to **P6**.
 
-    | Setting      | Suggested value  | Description |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Subscription** | Select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. |
-    | **Resource group** | Select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
-    | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contains only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. |
-    | **Location** | Select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
-    | **Cache type** | Select a [Premium tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
+1. On the **Advanced** tab, for **Replica count**, increase the number of replicas to **2** or **3** replicas.
 
-1. On the **Advanced** page, choose **Replica count**.
+1. Configure clustering, data persistence, and other settings as desired.
+
+   > [!NOTE]
+   > You can't use Append-only File (AOF) data persistence if you create more than one replica.
 
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
 
-1. Configure your settings for clustering or relational database persistence.  
+1. Select **Review + Create**, and when validation passes, select **Create**.
 
-    > [!NOTE]
-    > Currently, you can't use Append-only File (AOF) persistence or geo-replication with multiple replicas (more than one replica).
-    >
+It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
-1. Leave other options in their default settings.
+> [!NOTE]
+> You can't change the number of replicas in a cache after the cache is created.
 
-1. Select **Create**.
+## Related content
 
-    It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
-
-    > [!NOTE]
-    > The number of replicas in a cache can't be changed after it's created.
-    >
-
-## Next Steps
-
-Learn more about Azure Cache for Redis features.
-
-> [!div class="nextstepaction"]
-> [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
+- [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
+- [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/)

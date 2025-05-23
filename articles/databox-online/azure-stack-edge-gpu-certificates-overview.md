@@ -4,8 +4,7 @@ description: Describes an overview of all the certificates that can be used on A
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 09/01/2021
 ms.author: alkohli

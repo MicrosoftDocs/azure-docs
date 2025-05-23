@@ -44,7 +44,7 @@ Identity validations are all about establishing the identity on the certificates
 
 - **Public Trust** means that all identity values must be validated in accordance to the [Microsoft PKI Services Third-Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This requirement aligns with the expectations for publicly trusted code signing certificates.
 
-- **Private Trust** is intended for situations in which there's an established trust in a private identity across one or many relying parties (consumers of signatures) or internally in app control or line-of-business (LOB) scenarios. With Private Trust identity validations, there's minimal verification of the identity attributes (for example, the `Organization Unit` value). Verification is tightly associated with the Azure Tenant of the subscriber (for example, `Costoso.onmicrosoft.com`). The values in Private Trust certificate profiles aren't validated beyond the Azure Tenant information.
+- **Private Trust** is intended for situations in which there's an established trust in a private identity across one or many relying parties (consumers of signatures) or internally in app control or line-of-business (LOB) scenarios. With Private Trust identity validations, there's minimal verification of the identity attributes (for example, the `Organization Unit` value). Verification is tightly associated with the Azure Tenant of the subscriber (for example, `Contoso.onmicrosoft.com`). The values in Private Trust certificate profiles aren't validated beyond the Azure Tenant information.
 
 For more information about Public Trust and Private Trust, see [Trusted Signing trust models](./concept-trusted-signing-trust-models.md).
 

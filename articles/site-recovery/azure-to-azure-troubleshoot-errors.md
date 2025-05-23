@@ -4,15 +4,12 @@ description: Troubleshoot errors when replicating Azure virtual machines for dis
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 03/07/2024
+ms.date: 03/31/2025
 ms.author: ankitadutta
 ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Azure-to-Azure VM replication errors
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
@@ -68,6 +65,9 @@ For more information, see [Configure trusted roots and disallowed certificates](
 #### Linux
 
 Follow the guidance provided by the distributor of your Linux operating system version to get the latest trusted root certificates and the latest certificate revocation list on the VM.
+
+> [!IMPORTANT]
+> For RedHat Linux machines, add the Ca -Trust certificates to the `/etc/pki/ca-trust/` to avoid certificate errors.
 
 Because SUSE Linux uses symbolic links, or symlinks, to maintain a certificate list, follow these steps:
 
@@ -548,7 +548,7 @@ The installer is unable to find the root disk that hosts the root file-system.
 
 Perform the following steps to fix this issue.
 
-1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL and CentOS machines using the below command: <br>
+1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL machines using the below command: <br>
 
 	`# find /var/lib/ -name Micro\*.gz`
 

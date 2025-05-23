@@ -1,14 +1,18 @@
 ---
-title: Manage a dev box pool
+title: Manage Dev Box Pools Effectively
 titleSuffix: Microsoft Dev Box
-description: Microsoft Dev Box dev box pools are collections of dev boxes that you manage together. Learn how to create, configure, and delete dev box pools.
+description: Manage dev box pools in Microsoft Dev Box with step-by-step guidance on creating, configuring, and deleting pools for optimal developer productivity.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/05/2024
+ms.date: 03/23/2025
 ms.topic: how-to
-#Customer intent: As a platform engineer, I want to be able to manage dev box pools so that I can provide appropriate dev boxes to my users.
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:03/23/2025
+  - ai-gen-title
 ---
 
 # Manage a dev box pool in Microsoft Dev Box
@@ -18,6 +22,8 @@ In this article, you learn how to manage a dev box pool in Microsoft Dev Box by 
 A dev box pool is a collection of dev boxes that have the same settings, such as the dev box definition and network connection. A dev box pool is associated with a Microsoft Dev Box project.
 
 Dev box pools define the location of the dev boxes through the network connection. You can choose to deploy dev boxes to a Microsoft-hosted network or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in multiple geographical locations can create dev box pools for each location by specifying a nearby region.
+
+Select a region close to your developers' physical location to ensure the lowest latency experience with dev box.
 
 Developers that have access to the project in the dev center can create a dev box from a dev box pool.
 
@@ -92,11 +98,11 @@ To manage dev boxes in a pool, you must access the pool through the associated p
 
 1. Select **Dev box pools**.
  
-1. Select the pool that contains the dev box that you want to manage. The names of pools that you can manage are displayed as links. If you don't see the pool name displayed as a link, check that you're a member of the Project Admin role for this project.
+1. Select the pool that contains the dev box that you want to manage. The names of pools you can manage display as links. If you don't see the pool name displayed as a link, check that you're a member of the Project Admin role for this project.
 
    :::image type="content" source="media/how-to-manage-dev-box-pools/manage-dev-box-pool.png" alt-text="Screenshot showing a list of dev box pools in Azure portal." lightbox="media/how-to-manage-dev-box-pools/manage-dev-box-pool.png":::
  
-1. Select more actions (**...**) for the dev box that you want to manage. 
+1. Select more actions for the dev box that you want to manage. 
  
    :::image type="content" source="media/how-to-manage-dev-box-pools/manage-dev-box-in-azure-portal.png" alt-text="Screenshot of the Azure portal, showing dev boxes in a dev box pool." lightbox="media/how-to-manage-dev-box-pools/manage-dev-box-in-azure-portal.png":::
 
@@ -111,6 +117,8 @@ You can delete a dev box pool when you're no longer using it.
 > [!CAUTION]
 > When you delete a dev box pool, all existing dev boxes within the pool are permanently deleted.
 
+Deleting a dev box pool permanently deletes all existing dev boxes within the pool.
+
 To delete a dev box pool in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -119,11 +127,13 @@ To delete a dev box pool in the Azure portal:
 
 1. Open the project from which you want to delete the dev box pool.
 
-1. Select more actions (**...**) for the dev box pool that you want to delete.
+1. Select more actions for the dev box pool that you want to delete.
 
 1. Select **Delete**.
 
 1. In the confirmation message, confirm the deletion by entering the name of the dev box pool that you want to delete, and then select **Delete**.
+
+   Select **Delete** to confirm.
 
    :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-delete-confirm.png" alt-text="Screenshot of the confirmation message for deleting a dev box pool." lightbox="./media/how-to-manage-dev-box-pools/dev-box-pool-delete-confirm.png":::
 

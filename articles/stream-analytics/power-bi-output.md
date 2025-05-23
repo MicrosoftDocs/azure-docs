@@ -1,11 +1,12 @@
 ---
 title: Power BI output from Azure Stream Analytics
-description: This article describes how to output data from Azure Stream Analytics to Power BI.
+description: This article describes how to output data from Azure Stream Analytics to Power BI for a rich visualization experience of analysis results. 
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
-ms.date: 07/20/2023
+ms.topic: concept-article
+ms.date: 01/23/2025
+# Customer intent: I want to learn how to send output from a Stream Analytics job to Power BI. 
 ---
 
 # Power BI output from Azure Stream Analytics
@@ -14,6 +15,10 @@ You can use [Power BI](/power-bi/fundamentals/power-bi-overview) as an output fo
 
 > [!NOTE]
 > Power BI output from Stream Analytics is currently not available in Microsoft Azure operated by 21Vianet and Azure Germany (T-Systems International).
+
+> [!Important]
+> Real-time streaming in Power BI is deprecating. For more information about the retirement of real-time streaming in Power BI, see the [blog](https://powerbi.microsoft.com/en-us/blog/announcing-the-retirement-of-real-time-streaming-in-power-bi/) post.
+> Beginning Oct 31,2027 users will not be able to create Stream Analytics jobs with Power BI output connector and the existing jobs running with Power BI connector will be stopped. Microsoft recommends users to explore Real-Time Intelligence in Microsoft Fabric. If you are interested in migrating to Fabric Real-Time Intelligence, you can use the guidance provided in this [blog](https://techcommunity.microsoft.com/blog/analyticsonazure/simplifying-migration-to-fabric-real-time-intelligence-for-power-bi-real-time-re/4283180) post. If you need more migration guidance from Microsoft, such as architecture review, clarification about specific capabilities, please fill out your request [here](https://forms.office.com/r/sQeaA8KLAZ).
 
 ## Output configuration
 
@@ -40,7 +45,7 @@ Azure Stream Analytics creates a Power BI dataset and table schema for the user 
 Power BI uses the first-in, first-out (FIFO) retention policy. Data is collected in a table until it hits 200,000 rows.
 
 > [!NOTE]
-> We do not recommend using multiple outputs to write to the same dataset because it can cause several issues. Each output tries to create the Power BI dataset independently which can result in multiple datasets with the same name. Additionally, if the outputs don't have consistent schemas, the dataset changes the schema on each write, which leads to too many schema change requests. Even if these issues are avoided, multiple outputs will be less performant than a single merged output.
+> We don't recommend using multiple outputs to write to the same dataset because it can cause several issues. Each output tries to create the Power BI dataset independently which can result in multiple datasets with the same name. Additionally, if the outputs don't have consistent schemas, the dataset changes the schema on each write, which leads to too many schema change requests. Even if these issues are avoided, multiple outputs are less performant than a single merged output.
 
 ### Convert a data type from Stream Analytics to Power BI
 
@@ -54,7 +59,7 @@ This table covers the data type conversions from [Stream Analytics data types](/
 | nvarchar(max) | String |
 | datetime | Datetime |
 | float | Double |
-| Record array | String type, constant value `IRecord` or `IArray` |
+| Record array | String type, constant value `IRecord`, or `IArray` |
 
 ### Update the schema
 
@@ -79,7 +84,7 @@ You can use the following equation to compute the value to give your window in s
 For example:
 
 * You have 1,000 devices sending data at one-second intervals.
-* You're using the Power BI Pro SKU that supports 1,000,000 rows per hour.
+* You're using the Power BI Pro Stock Keeping Unit (SKU) that supports 1,000,000 rows per hour.
 * You want to publish the amount of average data per device to Power BI.
 
 As a result, the equation becomes:
@@ -109,7 +114,7 @@ Similarly, if a job starts after the token has expired, an error occurs and the 
 
 After the authorization has been refreshed with Power BI, a green alert appears in the authorization area to reflect that the issue has been resolved. To overcome this limitation, it's recommended to [use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md)
 
-## Next steps
+## Related content
 
 * [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)

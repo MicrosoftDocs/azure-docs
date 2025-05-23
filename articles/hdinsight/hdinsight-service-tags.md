@@ -4,9 +4,10 @@ description: Use HDInsight service tags to allow inbound traffic to your cluster
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.author: sairamyeturi
-author: yeturis
-ms.date: 11/23/2023
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 11/25/2024
 ---
 
 # NSG service tags for Azure HDInsight

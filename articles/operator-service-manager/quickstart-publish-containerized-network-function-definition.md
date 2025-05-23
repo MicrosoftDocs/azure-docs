@@ -103,10 +103,10 @@ The Az CLI AOSM extension generates a directory called `cnf-cli-output`. This di
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | nfDefinition/deployParameters.json | Defines the schema for the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV). |
 | nfDefinition/nginxdemo-mappings.json   | Maps the deployment parameters for the Network Function Definition Version (NFDV) to the values required for the helm chart.       |
-| nfDefinition/deploy.bicep              | Bicep template for creating the Network Function Definition Version (NFDV) itself.                                                 |
+| nfDefinition/deploy.bicep              | Bicep file for creating the Network Function Definition Version (NFDV) itself.                                                 |
 | artifacts/artifacts.json               | A list of the helm packages and container images required by the NF.                                                               |
-| artifactManifest/deploy.bicep          | Bicep template for creating the artifact manifest.                                                                                 |
-| base/deploy.bicep                      | Bicep template for creating the publisher, network function definition group, and artifact store resources                         |
+| artifactManifest/deploy.bicep          | Bicep file for creating the artifact manifest.                                                                                 |
+| base/deploy.bicep                      | Bicep file for creating the publisher, network function definition group, and artifact store resources                         |
 
 ## Publish the Network Function Definition and upload artifacts
 
@@ -120,7 +120,7 @@ Execute the following command to publish the Network Function Definition (NFD) a
 >
 >If you get an error saying "**A private publisher resource with the name 'nginx-publisher' already exists in the provided region**", edit the `publisher_name` field in the config file so that it is unique (e.g. add a random string suffix), re-run the `build` command (above), and then re-run this `publish` command.
 >
->If you go on to create a network service design, you will need to use this new pubilsher name in the `resource_element_templates` array.
+>If you go on to create a network service design, you will need to use this new publisher name in the `resource_element_templates` array.
 
 ```azurecli
 az aosm nfd publish -b cnf-cli-output --definition-type cnf

@@ -31,7 +31,7 @@ The [Azure Education Hub](https://azureforeducation.microsoft.com/devtools) hous
 
 Azure Dev Tools for Teaching is available in more than 140 countries/regions where Azure is commercially available. The Education Hub Store is available in the following languages: Arabic, Chinese Simplified, Chinese Traditional, Danish, Dutch, English, French, German, Hebrew, Italian, Japanese, Korean, Portuguese, Russian, Spanish, Swedish, and Turkish.
 
-## Eligibility to purchase Azure Dev Tools for Teaching
+## Eligibility for Azure Dev Tools for Teaching
 
 Azure Dev Tools for Teaching is available to redeem only if you have a Volume Licensing agreement with Microsoft. [Learn more about Volume Licensing for educational institutions](https://aka.ms/ees).
 

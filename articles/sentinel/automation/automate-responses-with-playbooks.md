@@ -6,8 +6,8 @@ author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a SOC analyst, I want to automate threat response using playbooks so that I can efficiently manage security alerts and incidents, reducing manual intervention and focusing on deeper investigations.
 

@@ -1,12 +1,14 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 06/06/2023
 ---
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
+
+[!INCLUDE [iot-authentication-device-connection-string](iot-authentication-device-connection-string.md)]
 
 ## Prerequisites
 
@@ -43,7 +45,7 @@ gcc --version
 To complete this tutorial on Windows, install the following software on your local Windows environment:
 
 * [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
-* [Git](https://git-scm.com/download/).
+* [Git](https://git-scm.com/downloads).
 * [CMake](https://cmake.org/download/).
 
 ## Download the code
@@ -107,7 +109,7 @@ int main(void)
     // for extended periods of time when using DPS.
     else if ((deviceClient = CreateAndConfigureDeviceClientHandleForPnP()) == NULL)
     {
-        LogError("Failure creating Iot Hub device client");
+        LogError("Failure creating IoT Hub device client");
         PnP_ThermostatComponent_Destroy(g_thermostatHandle1);
         PnP_ThermostatComponent_Destroy(g_thermostatHandle2);
     }

@@ -6,14 +6,15 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
+  - ignite-2024
 ms.topic: conceptual
-ms.date: 10/02/2024
+ms.date: 11/19/2024
 ms.author: cshoe
 ---
 
 # Billing in Azure Container Apps
 
-Billing in Azure Container Apps is based on your [plan type](plans.md).
+Billing in Azure Container Apps is based on your [plan type](plans.md) (Consumption or Dedicated), which is determined by your environment type you select.
 
 | Plan type | Description |
 |--|--|
@@ -51,6 +52,7 @@ There are 2 meters for resource consumption:
 
 - **vCPU-seconds**: The number of vCPU cores allocated to your container app on a per-second basis.
 - **GiB-seconds**: The amount of memory allocated to your container app on a per-second basis.
+- **GPU-seconds**: The number of GPUs allocated to your container apps on a per-second basis.
 
 The first 180,000 vCPU-seconds and 360,000 GiB-seconds in each subscription per calendar month are free.
 
@@ -68,6 +70,9 @@ Idle usage charges might apply when a container app's revision is running under 
 
 - Configured with a [minimum replica count](scale-app.md) greater than zero
 - Scaled to the minimum replica count
+
+> [!NOTE]
+> Idle usage charges don't apply to serverless GPU apps. They're always billed for active usage.
 
 Usage charges are calculated individually for each replica. A replica is considered idle when *all* of the following conditions are true:
 

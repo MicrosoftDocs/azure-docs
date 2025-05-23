@@ -4,10 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: The Until activity in Azure Data Factory and Synapse Analytics pipelines executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 03/20/2025
 ms.custom: devx-track-azurepowershell, synapse
 ---
 
@@ -29,7 +29,9 @@ To use an Until activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-until-activity/dynamic-content-to-check-variable-value.png" alt-text="Shows the &nbsp;Add dynamic content&nbsp; pane with an expression to check a variable for a defined value.":::
 
-2. Define activities that the Until activity executes by selecting the Edit Activities button on the Until activity directly, or by selecting the Activities tab to select it there. A new activities editor pane is displayed where you can add any activities for the Until activity to execute. In this example, a Set Variable activity simply sets the value of the variable referenced in the aforementioned expression to ['done'], so the Until activity's expression will be true the first time it's executed, and the Until activity will stop. In your real-world use, you can check any conditions required and the Until activity will continue to execute its child activities each time the expression is evaluated, until the conditions are met.
+2. Define activities that the Until activity executes by selecting the Edit Activities button on the Until activity directly, or by selecting the Activities tab to select it there. A new activities editor pane is displayed where you can add any activities for the Until activity to execute. In this example, a Set Variable activity sets the value of the referenced variable to 'done'. So the Until activity's expression will be true the first time it's executed, and then the Until activity will stop. 
+You can use similar variables to check any conditions. The Until activity executes its child activities each time the expression is evaluated, until the conditions are met. If you iterate over multiple activities, there's potential delay in exiting the loop because of aggregation and cleanup work performed by the pipeline. 
+
 
    :::image type="content" source="media/control-flow-until-activity/child-activities-editor.png" alt-text="Shows the activities editor for an Until activity with a Set Variable activity defined.":::
 
@@ -258,7 +260,7 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-These commands assume that you have saved the JSON files into the folder: C:\ADF. 
+These commands assume that you saved the JSON files into the folder: C:\ADF. 
 
 ```powershell
 Connect-AzAccount

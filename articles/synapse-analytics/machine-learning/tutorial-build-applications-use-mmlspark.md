@@ -39,7 +39,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 
 ## Get started
-To get started, import SynapseML and configurate service keys. 
+To get started, import SynapseML and configure service keys. 
 
 ```python
 import synapse.ml
@@ -50,7 +50,7 @@ from notebookutils import mssparkutils
 ai_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_SERVICE_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME") 
 # A Bing Search v7 subscription key
 bingsearch_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_BING_SEARCH_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
-# An Anomaly Dectector subscription key
+# An Anomaly Detector subscription key
 anomalydetector_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_ANOMALY_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
 ```
 
@@ -196,7 +196,7 @@ df_timeseriesdata = spark.createDataFrame([
 ], ["timestamp", "value"]).withColumn("group", lit("series1"))
 
 # Run the Anomaly Detector service to look for irregular data
-anamoly_detector = (SimpleDetectAnomalies()
+anomaly_detector = (SimpleDetectAnomalies()
   .setSubscriptionKey(anomalydetector_key)
   .setLocation("eastasia")
   .setTimestampCol("timestamp")
@@ -206,7 +206,7 @@ anamoly_detector = (SimpleDetectAnomalies()
   .setGranularity("monthly"))
 
 # Show the full results of the analysis with the anomalies marked as "True"
-display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value", "anomalies.isAnomaly"))
+display(anomaly_detector.transform(df_timeseriesdata).select("timestamp", "value", "anomalies.isAnomaly"))
 ```
 
 ### Expected results

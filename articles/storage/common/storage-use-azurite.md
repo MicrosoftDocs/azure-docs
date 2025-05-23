@@ -488,6 +488,14 @@ There's no restriction on the value specified for this option, but virtual memor
 
 To learn more, see [Use in-memory storage](https://github.com/Azure/Azurite#use-in-memory-storage).
 
+#### Disable telemetry collection
+
+**Optional**. By default, Azurite collects telemetry data to help improve the product. Use the `--disableTelemetry` option to disable telemetry data collection for the current Azurite execution, like following command:
+
+```console
+azurite --disableTelemetry
+```
+
 ## Connect to Azurite with SDKs and tools
 
 You can connect to Azurite from Azure Storage SDKs, or tools like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Authentication is required, and Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.

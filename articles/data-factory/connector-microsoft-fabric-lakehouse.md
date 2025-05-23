@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/19/2024
+ms.date: 12/18/2024
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
@@ -203,7 +203,7 @@ The following properties are supported for Microsoft Fabric Lakehouse Table data
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | The **type** property of the dataset must be set to **LakehouseTable**. | Yes                         |
 | schema | Name of the schema. If not specified, the default value is `dbo`. | No |
-| table | The name of your table. | Yes |
+| table | The name of your table. The table name must be at least one character long, without '/' or '\\', no trailing dot, and no leading or trailing spaces. | Yes |
 
 **Example:**
 

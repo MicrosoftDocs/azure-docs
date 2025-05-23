@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Use the email object model to send the email payload using Azure Communication Service
+title: Use the email object model to send the email payload using Azure Communication Service
 titleSuffix: An Azure Communication Services Quickstart
 description: Learn how to use the email object model to send the email payload using Azure Communication Services.
 author: natekimball-msft
@@ -12,9 +12,9 @@ ms.service: azure-communication-services
 ms.custom: devx-track-dotnet
 ---
 
-# Quickstart: Use the email object model to send the email payload
+# Use the email object model to send the email payload
 
-In this quick start, you'll learn about how to use the email object model to send the email payload using our Email SDKs.
+This article describes how to use the email object model to send the email payload using our Email SDKs.
 
 [!INCLUDE [prepend-net](./includes/prepend-net.md)]
 [!INCLUDE [email-object-model-net](./includes/email-object-model-net.md)]
@@ -26,14 +26,14 @@ In this quick start, you'll learn about how to use the email object model to sen
 To troubleshoot issues related to email delivery, you can [get status of the email delivery](../handle-email-events.md) to capture delivery details.
 
 > [!IMPORTANT]
-> The success result returned by polling for the status of the send operation only validates the fact that the email has successfully been sent out for delivery. To get additional information about the status of the delivery on the recipient end, you will need to reference [how to handle email events](../handle-email-events.md).
+> The success result returned by polling for the status of the send operation only validates that the email is sent out for delivery. For more information about the status of the delivery on the recipient end, see [how to handle email events](../handle-email-events.md).
 
 ### Email Throttling
 
-If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](../send-email-advanced/throw-exception-when-tier-limit-reached.md).
+If your application is hanging, it could be due to email sending being throttled. You can [handle email throttling by logging or by implementing a custom policy](../send-email-advanced/throw-exception-when-tier-limit-reached.md).
 
 > [!NOTE]
-> This sandbox setup is to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Submit a support request to raise your desired sending limit if you require sending a volume of messages exceeding the rate limits.
+> This sandbox is intended to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Submit a support request to raise your desired sending limit if you need to send more messages than the rate limits.
 
 ## Clean up Azure Communication Service resources
 
@@ -41,11 +41,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-In this quick start, you learned how to manually poll for status when sending email using Azure Communication Services.
-
-You may also want to:
-
  - Learn how to [send email to multiple recipients](./send-email-to-multiple-recipients.md)
  - Learn more about [sending email with attachments](./send-email-with-attachments.md)
  - Familiarize yourself with [email client library](../../../concepts/email/sdk-features.md)
- 

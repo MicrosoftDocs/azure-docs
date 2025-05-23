@@ -4,10 +4,10 @@ description: Learn how Identity Protection gives you visibility into risky sign-
 ms.service: azure-active-directory
 ms.subservice: b2c
 ms.topic: overview
-ms.date: 01/11/2024
+ms.date: 05/20/2025
 ms.author: kengaderdus
 author: kengaderdus
-manager: CelesteDG
+manager: mwongerapk
 ms.collection: M365-identity-device-management
 
 #Customer intent: As an Azure AD B2C application owner, I want to enhance the security of my applications by using Identity Protection and Conditional Access, so that I can detect and respond to risky authentications and enforce organizational policies.
@@ -15,6 +15,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Identity Protection and Conditional Access for Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Enhance the security of Azure Active Directory B2C (Azure AD B2C) with Microsoft Entra ID Protection and Conditional Access. The Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected and displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine actions and enforce organizational policies. Together, these capabilities give Azure AD B2C application owners greater control over risky authentications and access policies.
   

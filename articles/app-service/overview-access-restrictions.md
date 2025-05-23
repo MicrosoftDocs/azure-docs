@@ -67,7 +67,7 @@ Service endpoints allow you to lock down *inbound* access to your app so that th
 > [!NOTE]
 > Access restriction rules based on service endpoints are not supported on apps that have private endpoint configured or apps that use IP-based SSL ([App-assigned address](./networking-features.md#app-assigned-address)).
 
-To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions](../virtual-network/virtual-network-service-endpoints-overview.md).
+To learn more about configuring service endpoints with your app, see [Azure Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 #### Any service endpoint source
 
@@ -89,9 +89,9 @@ Multi-source rules are defined the same way you define single-source rules, but 
 
 You can't create these rules in the portal, but you can modify an existing service tag or IP-based rule and add more sources to the rule.
 
-### Http header filtering for site access restriction rules
+### HTTP header filtering for site access restriction rules
 
-For any rule, regardless of type, you can add http header filtering. Http header filters allow you to further inspect the incoming request and filter based on specific http header values. Each header can have up to eight values per rule. The following lists the supported http headers:
+For any rule, regardless of type, you can add http header filtering. HTTP header filters allow you to further inspect the incoming request and filter based on specific http header values. Each header can have up to eight values per rule. The following lists the supported http headers:
 
 * **X-Forwarded-For**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-For) for identifying the originating IP address of a client connecting through a proxy server. Accepts valid IP addresses.
 * **X-Forwarded-Host**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) for identifying the original host requested by the client. Accepts any string up to 64 characters in length.

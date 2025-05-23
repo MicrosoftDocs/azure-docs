@@ -1,12 +1,11 @@
 ---
 title: Web application firewall custom rule for Azure Front Door
 description: Learn how to use web application firewall (WAF) custom rules to protect your web applications from malicious attacks.
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-services: web-application-firewall
 ms.date: 05/31/2024
-ms.author: victorh
 ---
 
 # Custom rules for Azure Web Application Firewall on Azure Front Door

@@ -6,7 +6,7 @@ ms.author: abell
 ms.service: azure-private-link
 ms.topic: tutorial
 ms.custom: mvc, linux-related-content
-ms.date: 10/13/2023
+ms.date: 02/18/2025
 ---
 # Tutorial: Inspect private endpoint traffic with Azure Firewall
 

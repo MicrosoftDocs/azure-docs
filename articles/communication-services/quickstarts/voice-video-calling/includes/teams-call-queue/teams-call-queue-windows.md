@@ -6,8 +6,6 @@ ms.date: 09/26/2024
 ms.author: jiyoonlee
 ---
 
-[!INCLUDE [public-preview-note](../../../../includes/public-preview-include.md)]
-
 In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Call Queue. You are going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.
@@ -62,7 +60,7 @@ To complete this tutorial, you need the following prerequisites:
   ```
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
-- Minimum support for Teams calling applications: 1.10.0-beta.1
+- Minimum support for Teams calling applications: 1.11.0
 
   
 ## Setting up

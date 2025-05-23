@@ -52,7 +52,7 @@ More samples for the Dapr output invoke binding are available in the [GitHub rep
 
 ::: zone pivot="programming-language-java"
 
-The following example creates a `"SendMessagetoKafka"` function using the `DaprBindingOutput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-output.md):
+The following example creates a `"SendMessageToKafka"` function using the `DaprBindingOutput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-output.md):
 
 
 ```java
@@ -88,7 +88,7 @@ app.generic('SendMessageToKafka', {
         type: 'daprServiceInvocationTrigger',
         name: "payload"
     }),
-    return: daprBindingOuput,
+    return: daprBindingOutput,
     handler: async (request, context) => {
         context.log("Node function processed a SendMessageToKafka request from the Dapr Runtime.");
         context.log(context.triggerMetadata.payload)

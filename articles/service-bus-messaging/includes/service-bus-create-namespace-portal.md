@@ -1,10 +1,10 @@
 ---
- title: include file
- description: include file
+ title: Create a namespace
+ description: Provides step-by-step instructions to create an Azure Service Bus namespace using the Azure portal. 
  author: spelluru
  ms.service: azure-service-bus
  ms.topic: include
- ms.date: 11/28/2023
+ ms.date: 01/16/2025
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -21,15 +21,16 @@ To create a namespace:
     :::image type="content" source="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" alt-text="Image showing selection of Create a resource, Integration, and then Service Bus in the menu." lightbox="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png":::
 4. In the **Basics** tag of the **Create namespace** page, follow these steps: 
     1. For **Subscription**, choose an Azure subscription in which to create the namespace.
-    1. For **Resource group**, choose an existing resource group in which the namespace will live, or create a new one.      
+    1. For **Resource group**, choose an existing resource group, or create a new one.      
     1. Enter a **name for the namespace**. The namespace name should adhere to the following naming conventions:
         - The name must be unique across Azure. The system immediately checks to see if the name is available. 
         - The name length is at least 6 and at most 50 characters.
-        - The name can contain only letters, numbers, hyphens “-“.
+        - The name can contain only letters, numbers, hyphens `-`.
         - The name must start with a letter and end with a letter or number.
-        - The name doesn't end with “-sb“ or “-mgmt“.
+        - The name doesn't end with `-sb` or `-mgmt`.
     1. For **Location**, choose the region in which your namespace should be hosted.
     1. For **Pricing tier**, select the pricing tier (Basic, Standard, or Premium) for the namespace. For this quickstart, select **Standard**. 
+    1. If you select **Premium** tier, select whether you can enable **geo-replication** for the namespace. The Geo-Replication feature ensures that the metadata and data of a namespace are continuously replicated from a primary region to one or more secondary regions.
     
         > [!IMPORTANT]
         > If you want to use [topics and subscriptions](../service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), choose either Standard or Premium. Topics/subscriptions aren't supported in the Basic pricing tier. 

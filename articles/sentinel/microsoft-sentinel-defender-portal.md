@@ -1,76 +1,72 @@
 ---
 title: Microsoft Sentinel in the Microsoft Defender portal
-description: Learn about changes in the Microsoft Defender portal with the integration of Microsoft Sentinel.
-author: cwatson-cat
-ms.author: cwatson
+description: Learn about the Microsoft Sentinel experience when you onboard Microsoft Sentinel to the Microsoft Defender portal.
+author: batamig
+ms.author: bagol
 ms.topic: conceptual
-ms.date: 08/16/2024
+ms.date: 05/04/2025
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security operations analyst, I want to understand the integration of Microsoft Sentinel within the Microsoft Defender portal so that I can effectively navigate and utilize the new and improved security capabilities.
+
 ---
 
 # Microsoft Sentinel in the Microsoft Defender portal
 
-This article describes the Microsoft Sentinel experience in the Microsoft Defender portal. Microsoft Sentinel is now generally available within the Microsoft unified security operations platform in the Microsoft Defender portal. For more information, see:
+Microsoft Defender provides a unified cybersecurity solution that integrates endpoint protection, cloud security, identity protection, email security, threat intelligence, exposure management, and SIEM into a centralized platform. It uses AI-driven defense to help organizations anticipate and stop attacks, ensuring efficient and effective security operations.
 
-- Blog post: [General availability of the Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
-- Blog post: [Frequently asked questions about the unified security operations platform](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/frequently-asked-questions-about-the-unified-security-operations/ba-p/4212048)
-- [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
+Microsoft Sentinel is generally available in the Microsoft Defender portal, either with [Microsoft Defender XDR](/microsoft-365/security/defender), or on its own, delivering a unified experience across SIEM and XDR for faster and more accurate threat detection and response, simplified workflows, and enhanced operational efficiency.
+
+This article describes the Microsoft Sentinel experience in the Defender portal. We recommend that customers using Microsoft Sentinel in the Azure portal move into Microsoft Defender to take advantage of the unified SecOps experience and the latest capabilities. For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+
 
 ## New and improved capabilities
 
-The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel and Defender XDR.
+The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel. Microsoft continues to innovate in this new experience with features that might be exclusive to the Defender portal.
 
-| Capabilities      | Description              |
-| ----------------- | ------------------------ |
-| Advanced hunting  | Query from a single portal across different data sets to make hunting more efficient and remove the need for context-switching. Use Copilot for Security to help generate your KQL. View and query all data including data from Microsoft security services and Microsoft Sentinel. Use all your existing Microsoft Sentinel workspace content, including queries and functions.<br><br>  For more information, see the following articles:<br>- [Advanced hunting in the Microsoft Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2264410)<br>- [Copilot for Security in advanced hunting](/defender-xdr/advanced-hunting-security-copilot) |
-| Attack disrupt    |  Deploy automatic attack disruption for SAP with both the unified security operations platform and the Microsoft Sentinel solution for SAP applications. For example, contain compromised assets by locking suspicious SAP users in case of a financial process manipulation attack.  <br><br>Attack disruption capabilities for SAP are available in the Defender portal only. To use attack disruption for SAP, update your data connector agent version and ensure that the relevant Azure role is assigned to your agent's identity. <br><br>  For more information, see [Automatic attack disruption for SAP](sap/deployment-attack-disrupt.md).  |
-|SOC optimizations   | Get high-fidelity and actionable recommendations to help you identify areas to:<br>- Reduce costs <br>- Add security controls<br>- Add missing data<br>SOC optimizations are available in the Defender and Azure portals, are tailored to your environment, and are based on your current coverage and threat landscape.  <br><br>For more information, see the following articles:<br>- [Optimize your security operations](soc-optimization/soc-optimization-access.md) <br>- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)  |
-| Unified entities  | Entity pages for devices, users, IP addresses, and Azure resources in the Defender portal display information from Microsoft Sentinel and Defender data sources. These entity pages give you an expanded context for your investigations of incidents and alerts in the Defender portal.<br><br>For more information, see [Investigate entities with entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages). |
-| Unified incidents | Manage and investigate security incidents in a single location and from a single queue in the Defender portal. Use Copilot for Security to summarize, respond and report. Incidents include:<br>- Data from the breadth of sources<br>- AI analytics tools of security information and event management (SIEM)<br>- Context and mitigation tools offered by extended detection and response (XDR) <br><br> For more information, see the following articles:<br>- [Incident response in the Microsoft Defender portal](/microsoft-365/security/defender/incidents-overview)<br>- [Investigate Microsoft Sentinel incidents in Copilot for Security](sentinel-security-copilot.md) |
 
-## Capability differences between portals
+| Capabilities      | Description              | Learn more |
+| ----------------- | ------------------------ | ---------- |
+| **Streamlined operations** | Manage all security incidents, alerts, and investigations from a single, unified interface.<br><br>- **Unified entity pages** for devices, users, IP addresses, and Azure resources in the Defender portal display information from Microsoft Sentinel and Defender data sources. These entity pages give you an expanded context for your investigations of incidents and alerts in the Defender portal.<br><br>- **Unified incidents** let you manage and investigate security incidents in a single location and from a single queue in the Defender portal. Use Security Copilot to summarize, respond, and report. Unified incidents include data from the breadth of sources, AI analytics tools of security information and event management (SIEM), and context and mitigation tools offered by extended detection and response (XDR).<br><br>- Use **Advanced hunting** to query from a single portal across different data sets to make hunting more efficient and remove the need for context-switching. Use Security Copilot to help generate your KQL, view and query all data including data from Microsoft security services and Microsoft Sentinel, and then use all your existing Microsoft Sentinel workspace content, including queries and functions, to investigate. | - [Investigate entities with entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages)<br><br>-  [Incident response in the Microsoft Defender portal](/microsoft-365/security/defender/incidents-overview)<br><br>- [Investigate Microsoft Sentinel incidents in Security Copilot](sentinel-security-copilot.md)<br><br>- [Advanced hunting in the Microsoft Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2264410)<br>[Security Copilot in advanced hunting](/defender-xdr/advanced-hunting-security-copilot) |
+| **Enhanced threat detection** | Use advanced AI and machine learning for faster and more accurate threat detection and response. Benefit from an improved signal-to-noise ratio and enhanced alert correlation, ensuring critical threats are addressed promptly. | [Threat detection for unified security operations](/unified-secops-platform/detect-threats-overview) |
+| **New features** | Access robust tools like [Case management](/unified-secops-platform/cases-overview) for organizing and managing security incidents, [automatic attack disruption](/defender-xdr/automatic-attack-disruption?toc=%2Funified-secops-platform%2Ftoc.json&bc=%2Funified-secops-platform%2Fbreadcrumb%2Ftoc.json) for remediating compromised entities on high-fidelity true positives, and an embedded Security Copilot experience for [automated incident summary](/defender-xdr/security-copilot-m365d-incident-summary) and [guided response actions](/microsoft-365/security/defender/security-copilot-m365d-guided-response), and more.<br><br>For example, when investigating incidents in the Defender portal, use Security Copilot to [analyze scripts](/defender-xdr/security-copilot-m365d-script-analysis), [analyze files](/defender-xdr/copilot-in-defender-file-analysis), and [create incident reports](/defender-xdr/security-copilot-m365d-create-incident-report). When hunting for threats in advanced hunting, [create ready-to-run KQL queries](/defender-xdr/advanced-hunting-security-copilot) by using the query assistant. | - [Case management](/unified-secops-platform/cases-overview)<br><br>- [Automatic attack disruption](/defender-xdr/automatic-attack-disruption?toc=%2Funified-secops-platform%2Ftoc.json&bc=%2Funified-secops-platform%2Fbreadcrumb%2Ftoc.json)<br><br>- [Automated incident summary](/defender-xdr/security-copilot-m365d-incident-summary)<br><br>- [Guided response actions](/microsoft-365/security/defender/security-copilot-m365d-guided-response)<br><br>- [Analyze scripts](/defender-xdr/security-copilot-m365d-script-analysis)<br><br>- [Analyze files](/defender-xdr/copilot-in-defender-file-analysis)<br><br>- [Create incident reports](/defender-xdr/security-copilot-m365d-create-incident-report)<br><br>- [Create ready-to-run KQL queries](/defender-xdr/advanced-hunting-security-copilot) |
+| **Enhanced visibility and reduced risk exposure** | Analyze attack paths to see how a cyber attacker could exploit vulnerabilities. Use guided SOC optimization recommendations to reduce costs and exposure, and prioritize actions based on potential impact. | - [Optimize your security operations](soc-optimization/soc-optimization-access.md)<br><br>- [Use SOC optimizations programmatically](soc-optimization/soc-optimization-api.md)<br><br>- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md) |
+| **Tailored post-incident recommendations** | Prevent similar or repeat cyberattacks with tailored recommendations tied to Microsoft Security Exposure Management initiatives. | [Microsoft Security Exposure Management for enhanced security posture](/unified-secops-platform/overview-msem-strategy) |
+| **Cost and data optimization** | Customers can access both Microsoft Sentinel and Defender XDR data in a unified and consistent schema in the Defender portal. <br><br>Advanced hunting raw logs are available for 30 days for hunting free of charge without needing to ingest them into Microsoft Sentinel. | [What to expect to for Defender XDR tables streamed to Microsoft Sentinel](/defender-xdr/advanced-hunting-microsoft-defender#what-to-expect-for-defender-xdr-tables-streamed-to-microsoft-sentinel) |
 
-Most Microsoft Sentinel capabilities are available in both the Azure and Defender portals. In the Defender portal, some Microsoft Sentinel experiences open out to the Azure portal for you to complete a task.
+## Limited or unavailable capabilities with Microsoft Sentinel only in the Defender portal
 
-This section covers the Microsoft Sentinel capabilities or integrations in the unified security operations platform that are only available in either the Azure portal or Defender portal or other significant differences between the portals. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
+When you onboard Microsoft Sentinel to the Defender portal without Defender XDR or other services enabled, the following capabilities are limited or unavailable:
 
-| Capability |Availability |Description |
-| ------------ | ----------- |----------- |
-| Advanced hunting using bookmarks | Azure portal only |Bookmarks aren't supported in the advanced hunting experience in the Microsoft Defender portal. In the Defender portal, they're supported in the **Microsoft Sentinel > Threat management > Hunting**. <br><br> For more information, see [Keep track of data during hunting with Microsoft Sentinel](/azure/sentinel/bookmarks). |
-| Attack disruption for SAP | Defender portal only| This functionality is unavailable in the Azure portal. <br><br>For more information, see [Automatic attack disruption in the Microsoft Defender portal](/microsoft-365/security/defender/automatic-attack-disruption). |
-| Automation |Some automation procedures are available only in the Azure portal.<br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified security operations platform and workspaces that aren't.  | <br><br>For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform). |
-| Data connectors: visibility of connectors used by the unified security operations platform | Azure portal only|In the Defender portal, after you onboard Microsoft Sentinel, the following data connectors that are part of the unified security operations platform aren't shown in the **Data connectors** page:<li>Microsoft Defender for Cloud Apps<li>Microsoft Defender for Endpoint<li>Microsoft Defender for Identity<li>Microsoft Defender for Office 365 (Preview)<li>Microsoft Defender XDR<li>Subscription-based Microsoft Defender for Cloud (Legacy)<li>Tenant-based Microsoft Defender for Cloud (Preview)<br><br>In the Azure portal, these data connectors are still listed with the installed data connectors in Microsoft Sentinel. |
-| Entities: Add entities to threat intelligence from incidents |Azure portal only |This functionality is unavailable in the unified security operations platform. <Br><br>For more information, see [Add entity to threat indicators](add-entity-to-threat-intelligence.md). |
-| Fusion: Advanced multistage attack detection |Azure portal only  |The Fusion analytics rule, which creates incidents based on alert correlations made by the Fusion correlation engine, is disabled when you onboard Microsoft Sentinel to the unified security operations platform. <br><br>The unified security operations platform uses Microsoft Defender XDR's incident-creation and correlation functionalities to replace those of the Fusion engine. <br><br>For more information, see [Advanced multistage attack detection in Microsoft Sentinel](fusion.md) |
-| Incidents: Adding alerts to incidents /<br>Removing alerts from incidents | Defender portal only|After onboarding Microsoft Sentinel to the unified security operations platform, you can no longer add alerts to, or remove alerts from, incidents in the Azure portal. <br><br>You can remove an alert from an incident in the Defender portal, but only by linking the alert to another incident (existing or new). |
-| Incidents: editing comments |Azure portal only| After onboarding Microsoft Sentinel to the unified security operations platform, you can add comments to incidents in either portal, but you can't edit existing comments. <br><br>Edits made to comments in the Azure portal don't synchronize to the unified security operations platform. |
-| Incidents: Programmatic and manual creation of incidents |Azure portal only  |Incidents created in Microsoft Sentinel through the API, by a Logic App playbook, or manually from the Azure portal, aren't synchronized to the unified security operations platform. These incidents are still supported in the Azure portal and the API. See [Create your own incidents manually in Microsoft Sentinel](create-incident-manually.md). |
-| Incidents: Reopening closed incidents |Azure portal only  |In the unified security operations platform, you can't set alert grouping in Microsoft Sentinel analytics rules to reopen closed incidents if new alerts are added. <br>Closed incidents aren't reopened in this case, and new alerts trigger new incidents. |
-| Incidents: Tasks |Azure portal only | Tasks are unavailable in the unified security operations platform. <br><br>For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md). |
-|Multiple workspace management for Microsoft Sentinel|Defender portal: Limited to one Microsoft Sentinel workspace per tenant <br><br>Azure portal: Centrally manage multiple Microsoft Sentinel workspaces for tenants  |Only one Microsoft Sentinel workspace per tenant is currently supported in the unified security operations platform. So, Microsoft Defender multitenant management supports one Microsoft Sentinel workspace per tenant.<br><br> For more information, see the following articles:<br>- Defender portal: [Microsoft Defender multitenant management](/defender-xdr/mto-overview) <br>- Azure portal: [Manage multiple Microsoft Sentinel workspaces with workspace manager](/azure/sentinel/workspace-manager)|
+- [Microsoft Security Exposure Management](/security-exposure-management/)
+- [Custom detection rules](/defender-xdr/custom-detections-overview), provided by Microsoft Defender XDR
+- The [Action center](/defender-xdr/m365d-action-center), provided by Microsoft Defender XDR
 
 ## Quick reference
 
-Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in the unified security operations platform. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
+Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in Microsoft's unified security operations platform. Many other Microsoft Sentinel capabilities are available in the  Microsoft Sentinel  section of the Defender portal.
 
-The following image shows the **Microsoft Sentinel** menu in the Defender portal:
+The following image shows the  Microsoft Sentinel  menu in the Defender portal:
 
 :::image type="content" source="media/microsoft-sentinel-defender-portal/navigation-defender-portal.png" alt-text="Screenshot of the Defender portal left navigation with the Microsoft Sentinel section." lightbox="media/microsoft-sentinel-defender-portal/navigation-defender-portal.png":::
 
-The following sections describe where to find Microsoft Sentinel features in the Defender portal. The sections are organized as Microsoft Sentinel is in the Azure portal.
+The following sections describe where to find Microsoft Sentinel features in the Defender portal, and are intended for existing customers who are moving to the Defender portal. The sections are organized as Microsoft Sentinel is in the Azure portal.
+
+For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
 
 ### General
 
 The following table lists the changes in navigation between the Azure and Defender portals for the **General** section in the Azure portal.
 
 | Azure portal  | Defender portal                                       |
-|---------------|-------------------------------------------------------|
-| Overview      | Overview                                              |
-| Logs          | Investigation & response > Hunting > Advanced hunting |
-| News & guides | Not available                                         |
-| Search        | Microsoft Sentinel > Search                           |
+| ------------- | ----------------------------------------------------- |
+| **Overview**      | **Overview**                                              |
+| **Logs**          | **Investigation & response** > **Hunting** > **Advanced hunting** |
+| **News & guides** | Not available                                         |
+| **Search**        | **Microsoft Sentinel** > **Search**                           |
 
 ### Threat management
 
@@ -78,39 +74,40 @@ The following table lists the changes in navigation between the Azure and Defend
 
 | Azure portal        | Defender portal                                              |
 | ------------------- | ------------------------------------------------------------ |
-| Incidents           | Investigation & response > Incidents & alerts > Incidents    |
-| Workbooks           | Microsoft Sentinel > Threat management> Workbooks            |
-| Hunting             | Microsoft Sentinel > Threat management >  Hunting            |
-| Notebooks           | Microsoft Sentinel > Threat management >  Notebooks          |
-| Entity behavior     | *User entity page:* Assets > Identities > *{user}* > Sentinel events<br>*Device entity page:* Assets > Devices > *{device}* > Sentinel events<br><br>Also, find the entity pages for the user, device, IP, and Azure resource entity types from incidents and alerts as they appear.                               |
-| Threat intelligence | Microsoft Sentinel > Threat management > Threat intelligence |
-| MITRE ATT&CK        | Microsoft Sentinel > Threat management > MITRE ATT&CK        |
+| **Incidents**           | **Investigation & response** > **Incidents & alerts** > **Incidents**    |
+| **Workbooks**           | **Microsoft Sentinel** > **Threat management** > **Workbooks**            |
+| **Hunting**             |**Microsoft Sentinel** > **Threat management** >  **Hunting**            |
+| **Notebooks**           |**Microsoft Sentinel** > **Threat management** >  **Notebooks**          |
+| **Entity behavior**     | *User entity page:* **Assets** > **Identities** > *{user}* > **Sentinel events**<br>AND<br>*Device entity page:* **Assets** > **Devices** > *{device}* > **Sentinel events**<br><br>Also, find the entity pages for the user, device, IP, and Azure resource entity types from incidents and alerts as they appear.                               |
+| **Threat intelligence** | **Threat intelligence** > **Intel management** |
+| **MITRE ATT&CK**        |**Microsoft Sentinel** > **Threat management** > **MITRE ATT&CK**        |
 
 ### Content management
 
 The following table lists the changes in navigation between the Azure and Defender portals for the **Content management** section in the Azure portal.
 
 | Azure portal | Defender portal                                        |
-|--------------|--------------------------------------------------------|
-| Content hub  | Microsoft Sentinel > Content management > Content hub  |
-| Repositories | Microsoft Sentinel > Content management > Repositories |
-| Community    | Microsoft Sentinel > Content management > Community    |
+| ------------ | ------------------------------------------------------ |
+| **Content hub**  |**Microsoft Sentinel** > **Content management** > **Content hub**  |
+| **Repositories** |**Microsoft Sentinel** > **Content management** > **Repositories** |
+| **Community**    |**Microsoft Sentinel** > **Content management** > **Community**    |
 
 ### Configuration
 
 The following table lists the changes in navigation between the Azure and Defender portals for the **Configuration** section in the Azure portal.
 
 | Azure portal      | Defender portal                                      |
-|-------------------|------------------------------------------------------|
-| Workspace manager | Not available                                        |
-| Data connectors   | Microsoft Sentinel > Configuration > Data connectors |
-| Analytics         | Microsoft Sentinel > Configuration > Analytics       |
-| Watchlists        | Microsoft Sentinel > Configuration > Watchlists      |
-| Automation        | Microsoft Sentinel > Configuration > Automation      |
-| Settings          | System > Settings > Microsoft Sentinel               |
+| ----------------- | ---------------------------------------------------- |
+| **Workspace manager** | Not available                                        |
+| **Data connectors**   |**Microsoft Sentinel** > **Configuration** > **Data connectors** |
+| **Analytics**         |**Microsoft Sentinel** > **Configuration** > **Analytics**<br>AND<br>**Investigation and response** > **Hunting** > **Custom detection rules**      |
+| **Watchlists**        |**Microsoft Sentinel** > **Configuration** > **Watchlists**      |
+| **Automation**        |**Microsoft Sentinel** > **Configuration** > **Automation**      |
+| **Settings**          | **System** > **Settings** >**Microsoft Sentinel**              |
+
 
 ## Related content
 
+- [What is Microsoft's unified security operations platform?](/unified-secops-platform/overview-unified-security)
 - [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md)
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
-- [Microsoft Defender XDR documentation](/microsoft-365/security/defender)

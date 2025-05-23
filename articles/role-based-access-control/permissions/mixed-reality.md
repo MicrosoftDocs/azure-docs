@@ -2,11 +2,11 @@
 title: Azure permissions for Mixed reality - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Mixed reality category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 04/25/2025
 ms.custom: generated
 ---
 
@@ -19,7 +19,7 @@ This article lists the permissions for the Azure resource providers in the Mixed
 
 Blend your physical and digital worlds to create immersive, collaborative experiences.
 
-Azure service: [Azure Spatial Anchors](/azure/spatial-anchors/)
+Azure service: Microsoft.MixedReality
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

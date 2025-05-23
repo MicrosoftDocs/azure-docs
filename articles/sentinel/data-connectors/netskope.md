@@ -2,7 +2,7 @@
 title: "Netskope (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Netskope (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -86,7 +86,7 @@ To integrate with Netskope (using Azure Functions) make sure you have:
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-This method provides an automated deployment of the Netskope connector using an ARM Tempate.
+This method provides an automated deployment of the Netskope connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
@@ -109,9 +109,9 @@ This method provides the step-by-step instructions to deploy the Netskope connec
 **1. Create a Function App**
 
 1.  From the Azure Portal, navigate to [Function App](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp), and select **+ Add**.
-2. In the **Basics** tab, ensure Runtime stack is set to **Powershell Core**. 
+2. In the **Basics** tab, ensure Runtime stack is set to **PowerShell Core**. 
 3. In the **Hosting** tab, ensure the **Consumption (Serverless)** plan type is selected.
-4. Make other preferrable configuration changes, if needed, then click **Create**.
+4. Make other preferable configuration changes, if needed, then click **Create**.
 
 
 **2. Import Function App Code**
@@ -136,9 +136,9 @@ This method provides the step-by-step instructions to deploy the Netskope connec
 		timeInterval
 		logTypes
 		logAnalyticsUri (optional)
-> - Enter the URI that corresponds to your region. The `uri` value must follow the following schema: `https://<Tenant Name>.goskope.com` - There is no need to add subsquent parameters to the Uri, the Function App will dynamically append the parameteres in the proper format.
+> - Enter the URI that corresponds to your region. The `uri` value must follow the following schema: `https://<Tenant Name>.goskope.com` - There is no need to add subsequent parameters to the Uri, the Function App will dynamically append the parameters in the proper format.
 > - Set the `timeInterval` (in minutes) to the default value of `5` to correspond to the default Timer Trigger of every `5` minutes. If the time interval needs to be modified, it is recommended to change the Function App Timer Trigger accordingly to prevent overlapping data ingestion. 
-> - Set the `logTypes` to `alert, page, application, audit, infrastructure, network` - This list represents all the avaliable log types. Select the log types based on logging requirements, seperating each by a single comma.
+> - Set the `logTypes` to `alert, page, application, audit, infrastructure, network` - This list represents all the available log types. Select the log types based on logging requirements, separating each by a single comma.
 > - Note: If using Azure Key Vault, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 > - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
 4. Once all application settings have been entered, click **Save**.
@@ -148,4 +148,4 @@ This method provides the step-by-step instructions to deploy the Netskope connec
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netskope.netskope_mss?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netskope.netskope-for-azure?tab=Overview) in the Azure Marketplace.

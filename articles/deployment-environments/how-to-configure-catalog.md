@@ -1,12 +1,12 @@
 ---
-title: Add a catalog from a GitHub or Azure DevOps repository
+title: Add a catalog from a GitHub or Azure Repos repository
 titleSuffix: Azure Deployment Environments
 description: Learn how to add a catalog in your Azure Deployment Environments dev center or project to provide environment definitions for your developers.
 ms.service: azure-deployment-environments
 ms.custom: build-2023, build-2024
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 05/10/2024
+ms.date: 02/24/2025
 ms.topic: how-to
 #customer intent: As a platform engineer, I want to learn how to add a catalog in my Azure Deployment Environments dev center or project so that I can provide environment definitions for my developers.
 ---
@@ -15,7 +15,7 @@ ms.topic: how-to
 
 This article explains how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) for your Azure Deployment Environments dev center or project. 
 
-Catalogs help you provide a set of curated infrastructure-as-code(IaC) templates, known as environment definitions for your development teams to create environments. You can attach your own source control repository from GitHub or Azure DevOps as a catalog and specify the folder with your environment definitions. Deployment Environments scans the folder for environment definitions and makes them available for dev teams to create environments. 
+Catalogs help you provide a set of curated infrastructure-as-code(IaC) templates, known as environment definitions for your development teams to create environments. You can attach your own source control repository from GitHub or Azure Repos as a catalog and specify the folder with your environment definitions. Deployment Environments scans the folder for environment definitions and makes them available for dev teams to create environments. 
 
 To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
 
@@ -36,7 +36,7 @@ In this article, you learn how to:
 
 Attaching catalogs at the project level enables platform engineers to provide curated environment definitions that are specific to the development teams. Additionally, it empowers dev team leads assigned as Project Admins to manage the environment definitions made available to their teams.
  
-Platform engineers have full control over the use of catalogs at the project level. The use of project level catalogs must be enabled at the dev center level before a catalog can be added to a project. Platform engineers can also configure which types of catalogs items, such as environment definitions, can be consumed at the project level.
+Platform engineers have full control over the use of catalogs at the project level. The use of project-level catalogs must be enabled at the dev center level before a catalog can be added to a project. Platform engineers can also configure which types of catalogs items, such as environment definitions, can be consumed at the project level.
  
 By default, use of catalogs at the project level is disabled and none of the catalog item types are enabled. Environment definitions from a project-level catalog are synced and usable under two conditions. First, you must enable project-based catalogs at the corresponding dev center level. Second, you must enable the use of environment definitions for the project.
 
@@ -47,13 +47,10 @@ You must enable project-level catalogs at the dev center level before you can ad
 To enable the use of project-level catalogs at the dev center level:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your dev center.
-1. In the left menu, under **Settings**, select **Configuration**.
- 
-    :::image type="content" source="media/how-to-configure-catalog/dev-center-overview.png" alt-text="Screenshot showing the Overview page for a dev center with Configuration highlighted." lightbox="media/how-to-configure-catalog/dev-center-overview.png"::: 
- 
-1. In the **Project level catalogs** pane, select **Enable catalogs per project**, and then select **Apply**.
+1. In the left menu, under **Settings**, select **Dev center settings**.
+1. Under **Project level catalogs**, select **Enable catalogs per project**, and then select **Apply**.
 
-    :::image type="content" source="media/how-to-configure-catalog/dev-center-project-catalog-selected.png" alt-text="Screenshot showing the Project level catalogs pane, with Enable catalogs per project highlighted." lightbox="media/how-to-configure-catalog/dev-center-project-catalog-selected.png":::
+    :::image type="content" source="media/how-to-configure-catalog/dev-center-settings-project-catalog.png" alt-text="Screenshot showing the Dev center settings, with Enable catalogs per project selected and highlighted." lightbox="media/how-to-configure-catalog/dev-center-settings-project-catalog.png":::
 
 To enable the use of environment definitions in the project:
 
@@ -212,7 +209,7 @@ Use the following steps to create an RBAC key vault:
 
 1. On the **Review + create** tab, select **Create**.
 
-If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
+If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access and set your Key Vault to allow trusted Microsoft services to bypass your rule. Key vaults with private endpoints or private link integration are not currently supported for this scenario.
 
 :::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
 
@@ -418,7 +415,7 @@ Use the following steps to create an RBAC key vault:
 
 1. On the **Review + create** tab, select **Create**.
  
-If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
+If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access and set your Key Vault to allow trusted Microsoft services to bypass your rule. Key vaults with private endpoints or private link integration are not currently supported for this scenario.
 
 :::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
 
@@ -516,6 +513,8 @@ When you configure a catalog to sync automatically, Deployment Environments scan
 
     :::image type="content" source="media/how-to-configure-catalog/catalog-automatic-sync-pane.png" alt-text="Screenshot showing the edit details pane for a catalog, with Automatically sync this catalog highlighted." lightbox="media/how-to-configure-catalog/catalog-automatic-sync-pane.png":::  
 
+If an autosync fails, you should perform a manual sync. Deployment Environments doesn't make any further autosync attempts until a manual sync succeeds.
+
 ## Delete a catalog
 
 You can delete a catalog to remove it from the Azure Deployment Environments dev center or project. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the environment definition reference for any existing environments that were created by using the environment definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
@@ -554,13 +553,13 @@ In the Azure portal, you can get more information about the catalog sync status 
  
 1. In the **Status** column, select the status link for the catalog that synced but reports a warning.
  
-   :::image type="content" source="media/how-to-configure-catalog/catalog-items-errors.png" alt-text="Screenshot showing the Catalogs pane, with Errors in 3 items highlighted." lightbox="media/how-to-configure-catalog/catalog-items-errors.png":::  
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-errors.png" alt-text="Screenshot showing the Catalogs pane, with Errors in three items highlighted." lightbox="media/how-to-configure-catalog/catalog-items-errors.png":::  
  
 1. You see a details pane that shows the changes in the last sync, the number of item errors, and the type and source of each error.
  
     :::image type="content" source="media/how-to-configure-catalog/catalog-items-error-details.png" alt-text="Screenshot showing the Catalog sync errors pane." lightbox="media/how-to-configure-catalog/catalog-items-error-details.png"::: 
  
-1. You can view items that have synced successfully from a catalog that also reports sync errors. From the **Catalogs** pane, select the catalog name.
+1. You can view items that synced successfully from a catalog that also reports sync errors. From the **Catalogs** pane, select the catalog name.
 
     :::image type="content" source="media/how-to-configure-catalog/catalog-with-error-view-successful-items.png" alt-text="Screenshot showing the Catalog pane, with a catalog name highlighted." lightbox="media/how-to-configure-catalog/catalog-with-error-view-successful-items.png":::
 

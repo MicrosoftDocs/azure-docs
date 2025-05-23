@@ -4,8 +4,8 @@ description: Define the SAP system properties for SAP Deployment Automation Fram
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/31/2023
-ms.topic: conceptual
+ms.date: 02/16/2025
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-terraform
@@ -46,20 +46,31 @@ The distributed (highly available) deployment is similar to the distributed arch
 
 To configure this topology, define the database tier values and set `database_high_availability` to true. Set `scs_server_count` = 1 and `scs_high_availability` = true and `application_server_count` >= 1.
 
+### HANA Scale-Out
+
+The supported configurations for HANA Scale-Out are:
+
+- Scale out with Standby node. Requires that HANA shared (single volume), HANA Data and HANA log to be deployed on Azure Netapp Files.
+- Scale out with two sites replicated using HANA System Replication and managed by Pacemaker.
+-  
+To configure this topology, define the database tier values and set `database_HANA_use_scaleout_scenario` to true. Set `stand_by_node_count` = to the desired number of standby notes or disable it by setting  `database_HANA_no_standby_role` = false.
+
+
 ## Environment parameters
 
 This section contains the parameters that define the environment settings.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                  | Description                                              | Type       | Notes                                                                                       |
-> | ------------------------- | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`             | Identifier for the workload zone (max five characters)   | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
-> | `location`                | The Azure region in which to deploy                      | Required   |                                                                                             |
-> | `custom_prefix`           | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
-> | `use_prefix`              | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
-> | `name_override_file`      | Name override file                                       | Optional   | See [Custom naming](naming-module.md).                                                      |
-> | `save_naming_information` | Creates a sample naming JSON file                        | Optional   | See [Custom naming](naming-module.md).                                                      |
-> | `tags`                    | A dictionary of tags to associate with all resources.    | Optional   |                                                                                             |
+> | Variable                                                    | Description                                              | Type       | Notes                                                                                       |
+> | ----------------------------------------------------------- | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`                                               | Identifier for the workload zone (max five characters)   | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
+> | `location`                                                  | The Azure region in which to deploy                      | Required   |                                                                                             |
+> | `custom_prefix`                                             | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
+> | `use_prefix`                                                | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
+> | `name_override_file`                                        | Name override file                                       | Optional   | See [Custom naming](naming-module.md).                                                      |
+> | `save_naming_information`                                   | Creates a sample naming JSON file                        | Optional   | See [Custom naming](naming-module.md).                                                      |
+> | `tags`                                                      | A dictionary of tags to associate with all resources.    | Optional   |                                                                                             |
+> | `prevent_deletion_if_contains_resources`                    | Controls resource groups deletion.                       | Optional   | Terraform does not by default delete resource groups which contain resources.               |
 
 ## Resource group parameters
 
@@ -90,13 +101,19 @@ This section contains the parameters related to the Azure infrastructure.
 > | `use_random_id_for_storageaccounts`            | If defined will append a random string to the storage account name                                | Optional   |
 > | `use_scalesets_for_deployment`                 | Use Flexible Virtual Machine Scale Sets for the deployment                                        | Optional   |
 > | `scaleset_id`                                  | Azure resource identifier for the virtual machine scale set                                       | Optional   |
+> |                                                |                                                                                                   | Optional   |
 > | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups.                  |            |
 > | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups.                                            |            |
 > | `use_app_proximityplacementgroups`             | Controls if the app tier virtual machines are placed in a different ppg from the database.        | Optional   |
 > | `app_proximityplacementgroup_arm_ids`          | Specifies the Azure resource identifiers of existing proximity placement groups for the app tier. |            |
 > | `app_proximityplacementgroup_names`            | Specifies the names of the proximity placement groups for the app tier.                           |            |
+> |                                                |                                                                                                   | Optional   |
 > | `use_spn`                                      | If defined the deployment will be performed using a Service Principal, otherwise an MSI           | Optional   |
 > | `use_private_endpoint`                         | Use private endpoints.                                                                            | Optional   |
+> |                                                |                                                                                                   | Optional   |
+> | `shared_access_key_enabled`                    | Indicates the storage account authorization type, Shared Access Key or Entra Id                   | Optional   |
+> | `shared_access_key_enabled_nfs`                | Indicates the File Share storage account authorization type, Shared Access Key or Entra Id        | Optional   |
+> | `data_plane_available`                         | Boolean value indicating if storage account access is via data plane                              | Optional   |
 
 
 The `resource_offset` parameter controls the naming of resources. For example, if you set the `resource_offset` to 1, the first disk will be named `disk1`. The default value is 0.
@@ -144,27 +161,28 @@ The database tier defines the infrastructure for the database tier. Supported da
 See [High-availability configuration](configure-system.md#high-availability-configuration) for information on how to configure high availability.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                                        | Type         | Notes  |
-> | ---------------------------------- | ---------------------------------------------------------------------------------- | ------------ | ------ |
-> | `database_platform`                | Defines the database back end                                                      | Required     |        |
-> | `database_vm_image`                | Defines the virtual machine image to use                                           | Optional     |        |
-> | `database_vm_sku`                  | Defines the virtual machine SKU to use                                             | Optional     |        |
-> | `database_server_count`            | Defines the number of database servers                                             | Optional     |        |
-> | `database_high_availability`       | Defines if the database tier is deployed highly available                          | Optional     |        |
-> | `database_vm_zones`                | Defines the availability zones for the database servers                            | Optional     |        |
-> | `db_sizing_dictionary_key`         | Defines the database sizing information                                            | Required     | See [Custom sizing](configure-extra-disks.md). |
-> | `database_vm_use_DHCP`             | Controls if Azure subnet-provided IP addresses should be used                      | Optional     |        |
-> | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet)                | Optional     |        |
-> | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet)      | Optional     |        |
-> | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet)                   | Optional     |        |
-> | `database_loadbalancer_ips`        | List of IP addresses for the database load balancer (db subnet)                    | Optional  |  |
-> | `database_vm_authentication_type`  | Defines the authentication type (key/password)                                     | Optional     |        |
-> | `database_use_avset`               | Controls if the database servers are placed in availability sets                   | Optional     |        |
-> | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups          | Optional     |        |
-> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional     | Primarily used with Azure NetApp Files pinning. |
-> | `database_use_premium_v2_storage`  | Controls if the database tier will use premium storage v2 (HANA)                   | Optional     |        |
-> | `database_dual_nics`               | Controls if the HANA database servers will have dual network interfaces            | Optional     |        |
-> | `database_tags`	                   | Defines a list of tags to be applied to the database servers                       | Optional  |         |
+> | Variable                           | Description                                                                                        | Type         | Notes  |
+> | ---------------------------------- | -------------------------------------------------------------------------------------------------- | ------------ | ------ |
+> | `database_platform`                | Defines the database back end                                                                      | Required     |        |
+> | `database_vm_image`                | Defines the virtual machine image to use                                                           | Optional     |        |
+> | `database_vm_sku`                  | Defines the virtual machine SKU to use                                                             | Optional     |        |
+> | `database_server_count`            | Defines the number of database servers                                                             | Optional     |        |
+> | `database_high_availability`       | Defines if the database tier is deployed highly available                                          | Optional     |        |
+> | `database_vm_zones`                | Defines the availability zones for the database servers                                            | Optional     |        |
+> | `db_sizing_dictionary_key`         | Defines the database sizing information                                                            | Required     | See [Custom sizing](configure-extra-disks.md). |
+> | `database_vm_use_DHCP`             | Controls if Azure subnet-provided IP addresses should be used                                      | Optional     |        |
+> | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet)                                | Optional     |        |
+> | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet)                      | Optional     |        |
+> | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet)                                   | Optional     |        |
+> | `database_loadbalancer_ips`        | List of IP addresses for the database load balancer (db subnet)                                    | Optional  |  |
+> | `database_vm_authentication_type`  | Defines the authentication type (key/password)                                                     | Optional     |        |
+> | `database_use_avset`               | Controls if the database servers are placed in availability sets                                   | Optional     |        |
+> | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups                          | Optional     |        |
+> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                                          | Optional     | Primarily used with Azure NetApp Files pinning. |
+> | `database_use_premium_v2_storage`  | Controls if the database tier will use premium storage v2 (HANA)                                   | Optional     |        |
+> | `database_dual_nics`               | Controls if the HANA database servers will have dual network interfaces                            | Optional     |        |
+> | `database_tags`	                   | Defines a list of tags to be applied to the database servers                                       | Optional     |        |
+> | `use_sles_saphanasr_angi`          | Defines if SAP HANA SR cluster will be configured with SAP HANA SR - An Next Generation Interface  | Optional     | Only applicable for SUSE       |
 
 
 
@@ -301,7 +319,7 @@ This section defines the parameters used for defining the key vault information.
 > | ------------------------------------ | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
 > | `user_keyvault_id`	                 | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     |
 > | `spn_keyvault_id`                    | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     |
-> | `enable_purge_control_for_keyvaults` | Disables the purge protection for Azure key vaults                             | Optional     | Only use for test environments.     |
+> | `enable_purge_control_for_keyvaults` | Disables the purge protection for Azure Key Vaults                             | Optional     | Only use for test environments.     |
 
 ### Anchor virtual machine parameters
 
@@ -483,6 +501,21 @@ This section contains the Terraform parameters. These parameters need to be ent
 > | `landscaper_tfstate_key`  | The name of the state file for the workload zone                                                                 | Required * |
 
 \* = Required for manual deployments
+
+## Scale Out configuration
+
+This section contains The configuration setting for the HANA Scale Out configuration
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                                  | Description                                                                                       | Type       |
+> | ----------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------- |
+> | `database_HANA_use_scaleout_scenario`     | Defines if the HANA database is configured using a Scale Out configuration                        | Optional   |
+> | `database_HANA_no_standby_role`           | Defines that the Scale Out tier will not have a standby node                                      | Optional |
+> | `stand_by_node_count`                     | The number of standby nodes                                                                       | Optional |
+> | `hanashared_id`                           | The Azure Resource Identifier for the pre-created HANA Shared resource                            | Optional |
+> | `hanashared_private_endpoint_id`          | The Azure Resource Identifier for the pre-created Private Endpoint                                | Optional |
+
 
 ## High-availability configuration
 

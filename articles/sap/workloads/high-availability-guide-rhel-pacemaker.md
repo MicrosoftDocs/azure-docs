@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
-ms.date: 07/22/2024
+ms.date: 10/28/2024
 ms.author: radeltch
 ---
 
@@ -834,9 +834,10 @@ Based on the selected fencing mechanism, follow only one section for relevant in
 2. **[1]** Run the appropriate command depending on whether you're using a managed identity or a service principal for the Azure fence agent.
 
    > [!NOTE]
-   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names are *not* identical. Specify the mapping in the format **hostname:vm-name**.
-   >
-   > Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961).
+   > When using Azure government cloud, you must specify `cloud=` option when configuring fence agent. For example, `cloud=usgov` for the Azure US government cloud. For details on RedHat support on Azure government cloud, see [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341).
+
+   > [!TIP]
+   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names are *not* identical. Specify the mapping in the format **hostname:vm-name**. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961).
 
    #### [Managed identity](#tab/msi)
 
@@ -906,11 +907,13 @@ The monitoring and fencing operations are deserialized. As a result, if there's 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are sent via the metadata service and allow time for the application to prepare for such events.
+Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. 
 
-The Pacemaker resource agent `azure-events-az` monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute.
+Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a node-level health attribute `#health-azure` to `-1000000`. 
 
-When the cluster health attribute is set for a node, the location constraint triggers and all resources with names that don't start with `health-` are migrated away from the node with the scheduled event. After the affected cluster node is free of running cluster resources, the scheduled event is acknowledged and can execute its action, such as a restart.
+When this special cluster health attribute is set for a node, the node is considered unhealthy by the cluster and all resources are migrated away from the affected node. The location constraint ensures resources with name starting with ‘health-‘ are excluded, as the agent needs to run in this unhealthy state. Once the affected cluster node is free of running cluster resources, scheduled event can execute its action, such as restart, without risk to running resources. 
+
+The `#heath-azure` attribute is set back to `0` on pacemaker startup once all events have been processed, marking the node as healthy again.
 
 1. **[A]** Make sure that the package for the `azure-events-az` agent is already installed and up to date.
 
@@ -959,10 +962,11 @@ When the cluster health attribute is set for a node, the location constraint tri
    ```bash
    sudo pcs resource create health-azure-events \
    ocf:heartbeat:azure-events-az \
+   meta failure-timeout=120s \
    op monitor interval=10s timeout=240s \
    op start timeout=10s start-delay=90s
 
-   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true failure-timeout=120s
+   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
    ```
 
 6. Take the Pacemaker cluster out of maintenance mode.

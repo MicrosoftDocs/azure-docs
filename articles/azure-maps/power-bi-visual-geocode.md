@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article describes geocoding in Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 03/16/2022
+ms.date: 01/23/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -32,7 +32,7 @@ When entering multiple values into the **Location** field, you create a geo-hier
 
 | Button  | Description |
 |:-:|-------------------------------------------------------------------------------------------|
-| 1 | The drill button on the far right, called Drill Mode, allows you to select a map Location and drill down into that specific location one level at a time. For example, if you turn on the drill-down option and select North America, you move down in the hierarchy to the next level--states in North America. For geocoding, Power BI sends Azure Maps country and state data for North America only. The button on the left goes back up one level. |
+| 1 | The drill button called "Drill Mode", allows you to select a map Location and drill down into that specific location one level at a time. For example, if you turn on the drill-down option and select North America, you move down in the hierarchy to the next level--states in North America. For geocoding, Power BI sends Azure Maps country and state data for North America only. The button on its left goes up one level. |
 | 2 | The double arrow drills to the next level of the hierarchy for all locations at once. For example, if you're currently looking at countries/regions and then use this option to move to the next level, states, Power BI displays state data for all countries/regions. For geocoding, Power BI sends Azure Maps state data (no country/region data) for all locations. This option is useful if each level of your hierarchy is unrelated to the level above it. |
 | 3 | Similar to the drill-down option, except that you don't need to select the map. It expands down to the next level of the hierarchy remembering the current level's context. For example, if you're currently looking at countries/regions and select this icon, you move down in the hierarchy to the next level--states. For geocoding, Power BI sends data for each state and its corresponding country/region to help Azure Maps geocode more accurately. In most maps, either use this option or the drill-down option on the far right. This sends Azure as much information as possible and result in more accurate location information. |
 
@@ -48,7 +48,7 @@ To ensure fields are correctly geocoded, you can set the Data Category on the da
 > For instance:
 >
 > - Correct Usage: State = GA, County = Decatur County
-> - Incorrect Usage: State = Decatur County, GA or County = Decatur County, GA
+> - Incorrect Usage: State = Decatur County, GA, or County = Decatur County, GA
 
 ## Next steps
 
