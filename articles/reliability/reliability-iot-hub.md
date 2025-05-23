@@ -16,13 +16,13 @@ ms.date: 05/02/2025
 
 This article describes reliability support in Azure IoT Hub, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multiregion deployments](#multiregion-support).
 
-Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs. You can use this guide to find out which reliability options fulfill your specific business objectives and uptime goals. When you evaluate reliability options, you also need to evaluate the trade-offs between:
+Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs. You can use this guide to find out which reliability options fulfill your specific business objectives and uptime goals. When you evaluate reliability options, you also need to evaluate the trade-offs between the following items:
 
 - Level of resiliency that you require
 - Implementation and maintenance complexity
 - Cost of implementing different options
 
-For a deeper understanding of trade-offs when choosing reliability options, see [Well-Architected Framework - Reliability tradeoffs](/azure/well-architected/reliability/tradeoffs).
+For more information about trade-offs when choosing reliability options, see [Reliability trade-offs](/azure/well-architected/reliability/tradeoffs).
 
 ## Transient faults
 
@@ -44,10 +44,10 @@ The types of availability zone support available in a specific IoT hub depend on
 
 ### Region support
 
-The type of availability zone support for your IoT hub depends on the region it's deployed in:
+The type of availability zone support for your IoT hub depends on the region that it's deployed in.
 
 | Region | Zone redundancy for data | Zone redundancy for compute |
-| :------ | :--------------- | :------------ |
+| :------ | :----- | :------ |
 | Australia East | :::image type="content" source="./media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="./media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | Brazil South | :::image type="content" source="./media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="./media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | Canada Central | :::image type="content" source="./media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="./media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
@@ -116,11 +116,11 @@ However, if your resources are in a [region that's paired](./regions-paired.md),
 
 Your IoT hub might fail over to the paired region in the following scenarios:
 
-- *Customer initiated failover:* You can trigger manual failover to the paired region yourself, whether the region is experiencing downtime or not. You can use this approach to perform planned failovers and drills.
+- *Customer-initiated failover:* You can trigger manual failover to the paired region yourself, whether the region is experiencing downtime or not. You can use this approach to perform planned failovers and drills.
 
 - *Microsoft initiated failover:* If a region is lost, Microsoft can initiate a failover of IoT hubs to the paired region. However, Microsoft is unlikely to initiate failover except after a significant delay and on a best-effort basis. Failover of IoT Hub resources might occur at a different time than failover of other Azure services. This process is a default option and requires no intervention from you.
 
-If resources are in a *nonpaired region*, Microsoft doesn’t replicate configuration and data across regions, and there’s no built-in cross-region failover. However, you can deploy separate resources into multiple regions. In this case, it's your responsibility to manage replication, traffic distribution, failover, etc.
+If resources are in a *nonpaired region*, Microsoft doesn’t replicate configuration and data across regions, and there’s no built-in cross-region failover. However, you can deploy separate resources into multiple regions. In this scenario, it's your responsibility to manage replication, traffic distribution, and failover.
 
 If your IoT hub is in a nonpaired region, or if the default replication and failover behavior doesn't meet your needs, you can use [alternative multiregion approaches](#alternative-multiregion-approaches) to plan for and initiate failovers.
 
@@ -150,7 +150,7 @@ By default, cross-region data replication is automatically configured when you c
 
 If your IoT hub is in the Brazil South or Southeast Asia (Singapore) regions, you can disable data replication and opt out of failover. For more information, see [Disable disaster recovery (DR)](../iot-hub/how-to-disable-dr.md).
 
-If your IoT hub is in a nonpaired region, you need to plan your own cross-region replication and failover approach. For more information, see [alternative multiregion approaches](#alternative-multiregion-approaches)
+If your IoT hub is in a nonpaired region, you need to plan your own cross-region replication and failover approach. For more information, see the[alternative multiregion approaches](#alternative-multiregion-approaches) section.
 
 ### Normal operations
 
@@ -162,26 +162,26 @@ This section describes what to expect when an IoT hub is configured for cross-re
 
 ### Region-down experience
 
-This section describes what to expect when an IoT hub is configured for cross-region replication and failover, and there's an outage in the primary region.
+This section describes what to expect when an IoT hub is configured for cross-region replication and failover and there's an outage in the primary region.
 
-- **Detection and response:** Responsibility for detecting and responding to an outage in the primary region can vary:
+- **Detection and response:** Responsibility for detecting and responding to an outage in the primary region can vary.
 
-  - *Customer initiated failover.* You're responsible for detecting a region loss and deciding when to fail over. For more information about how to perform customer initiated failover between paired regions, see [Tutorial: Perform manual failover for an IoT hub](../iot-hub/tutorial-manual-failover.md).
+  - *Customer-initiated failover.* You're responsible for detecting a region loss and deciding when to fail over. For more information about how to perform customer-initiated failover between paired regions, see [Tutorial: Perform manual failover for an IoT hub](../iot-hub/tutorial-manual-failover.md).
 
-    There are limits on how frequently you can perform customer initiated failover or failback:
+    There are limits on how frequently you can perform customer-initiated failover or failback:
 
-    - Users are allowed to perform two successful failover and two successful failback operations per day.
+    - Users are allowed to perform two successful failover operations and two successful failback operations per day.
 
     - Back-to-back failover or failback operations aren't allowed. You must wait for one hour between these operations.
 
-  - *Microsoft-initiated failover.* Microsoft can decide to perform a failover if the primary region is lost. This process could take several hours after the loss of the primary region, or even longer in some scenarios. Failover of IoT Hub resources might occur at a different time to any failover of other Azure services.
+  - *Microsoft-initiated failover.* Microsoft can decide to perform a failover if the primary region is lost. This process can take several hours after the loss of the primary region, or even longer in some scenarios. Failover of IoT Hub resources might occur at a different time to any failover of other Azure services.
 
 - **Active requests:** Any requests that the primary region is processing during a failover are likely to be lost. Clients should retry requests after failover completes.
 
-- **Expected data loss:** For regions that are paired, data is replicated asynchronously to the paired region, which means that some data loss is expected after failover. This process applies to both Microsoft-managed and customer-managed failovers. The *recovery point objective* (RPO), or expected data loss, of each type of data stored by IoT hubs is:
+- **Expected data loss:** For regions that are paired, data is replicated asynchronously to the paired region. As a result, some data loss is expected after failover. This process applies to both Microsoft-managed and customer-managed failovers. The following table outlines the *recovery point objective (RPO)*, or expected data loss, of each type of data that IoT hubs stores.
 
   | Data type | RPO |
-  | --- | --- |
+  | :--- | :--- |
   | Identity registry | 0-5 mins data loss |
   | Device twin data | 0-5 mins data loss |
   | Cloud-to-device messages <sup>1</sup> | 0-5 mins data loss |
@@ -193,32 +193,32 @@ This section describes what to expect when an IoT hub is configured for cross-re
 
 - **Expected downtime:** The expected downtime during region failover depends on the failover type.
 
-  - *Customer initiated failover.* Expect approximately 10 minutes to 2 hours of downtime from when the region is lost to when the resource is operational in the paired region. The number of devices registered against the IoT hub instance being failed over affects the recovery time. You can expect that the recovery time for a hub hosting approximately 100,000 devices to be around 15 minutes.
+  - *Customer-initiated failover.* Expect approximately 10 minutes to 2 hours of downtime from when the region is lost to when the resource is operational in the paired region. The number of devices registered against the IoT hub instance being failed over affects the recovery time. You can expect that the recovery time for a hub hosting approximately 100,000 devices to be around 15 minutes.
 
   - *Microsoft initiated failover.* Expect approximately 2 to 26 hours of downtime from when the region is lost to when the resource is available in the paired region.
 
-    The high amount of recovery time is because Microsoft must perform the failover operation on behalf of all the affected customers in that region. For critical systems, we recommend that you use customer-initiated failover to achieve less downtime. However, if you run a less-critical IoT solution that can sustain a downtime of roughly a day, it might be acceptable for you to take a dependency on the Microsoft-initiated option to satisfy the overall DR goals for your IoT solution.
+    The high amount of recovery time is because Microsoft must perform the failover operation on behalf of all the affected customers in that region. For critical systems, you should use customer-initiated failover to achieve less downtime. However, if you run a less-critical IoT solution that can sustain a downtime of roughly a day, it might be possible to take a dependency on the Microsoft-initiated option to satisfy the overall DR goals for your IoT solution.
 
-  - For both failover types, the fully qualified domain name of the IoT hub instance remains the same after failover, which means that the connection string also remains the same. However, the underlying IP address changes, and clients need to wait for Domain Name System (DNS) records to be updated before they can access the IoT hub after failover.
+  - For both failover types, the fully qualified domain name of the IoT hub instance remains the same after failover, which means that the connection string also remains the same. However, because the underlying IP address changes, clients must wait for Domain Name System (DNS) records to update before accessing the IoT hub after failover.
 
     > [!IMPORTANT]
-    > The IoT SDKs don't cache the IP address of the IoT hub. We recommend that user code interfacing with the SDKs also shouldn't cache the IP address of the IoT hub.
+    > The IoT SDKs don't cache the IP address of the IoT hub. User code interfacing with the SDKs also shouldn't cache the IP address of the IoT hub.
 
     Because of these factors, the time for the runtime operations being performed against your IoT hub instance to become fully operational after the failover process can be expressed by using the following function:
 
     > Time to recover = RTO [10 min - 2 hours for customer-initiated failover or 2 - 26 hours for Microsoft-initiated failover] + DNS propagation delay + Time that the client application takes to refresh any cached IoT hub IP address.
 
-- **Traffic rerouting** During the failover process, IoT Hub updates DNS records to point to the paired region. All subsequent requests are sent to the paired region.
+- **Traffic rerouting:** During the failover process, IoT Hub updates DNS records to point to the paired region. All subsequent requests are sent to the paired region.
 
   After the failover operation for the IoT hub completes, all operations from the device and back-end applications are expected to continue working without requiring manual intervention. This continuity ensures that your device-to-cloud messages should continue to work, and the entire device registry is intact. Events emitted via Event Grid can be consumed via the same subscriptions configured earlier as long as those Event Grid subscriptions continue to be available. No further handling is required for custom endpoints.
 
 ### Post-failover configuration required
 
-Depending on where you route your IoT hub's messages to, you might need to perform extra steps after failover completes.
+Depending on where you route your IoT hub's messages, you might need to perform extra steps after failover completes.
 
-- **Azure Event Hubs:** The Event Hubs-compatible name and endpoint of your IoT hub's built-in events endpoint change after failover. This change occurs because Event Hubs client doesn't have visibility into IoT Hub events.
+- **Azure Event Hubs:** The Event Hubs-compatible name and endpoint of your IoT hub's built-in events endpoint change after failover. This change occurs because the Event Hubs client doesn't have visibility into IoT Hub events.
 
-  When receiving telemetry messages from the built-in endpoint using either the Event Hubs client or event processor host, you should [use the IoT hub's connection string](../iot-hub/iot-hub-devguide-messages-read-builtin.md#connect-to-the-built-in-endpoint) to establish the connection. This approach ensures that your back-end applications continue to work without requiring manual intervention post failover.
+  When you receive telemetry messages from the built-in endpoint by using either the Event Hubs client or event processor host, [use the IoT hub's connection string](../iot-hub/iot-hub-devguide-messages-read-builtin.md#connect-to-the-built-in-endpoint) to establish the connection. This approach ensures that your back-end applications continue to work without requiring manual intervention after failover.
 
   If you use the Event Hub-compatible name and endpoint in your application directly, you need to [fetch the new Event Hub-compatible endpoint](../iot-hub/iot-hub-devguide-messages-read-builtin.md#connect-to-the-built-in-endpoint) after failover to continue operations. To retrieve the endpoint and name, you can use the Azure portal or the .NET SDK:
 
@@ -226,23 +226,23 @@ Depending on where you route your IoT hub's messages to, you might need to perfo
 
   - *The .NET SDK:* To use the IoT hub connection string to recapture the Event Hubs-compatible endpoint, use the sample code in [How to request the IoT Hub built-in Event Hubs-compatible endpoint connection string](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs). This code example uses the connection string to get the new Event Hubs endpoint and re-establish the connection. You must have Visual Studio installed.
 
-- **Azure Functions and Azure Stream Analytics:** If you use Azure Functions or Azure Stream Analytics to connect the built-in Events endpoint, you need to update the Event Hubs endpoint that the function or job connects to, following the same process described in the preceding bullet point. Then, perform a **Restart** action. This is because any event stream offsets are no longer valid after failover.
+- **Azure Functions and Azure Stream Analytics:** If you use Azure Functions or Stream Analytics to connect to the built-in Events endpoint, you must update the Event Hubs endpoint that the function or job connects to, following the same process outlined in the preceding bullet point. Then perform a **Restart** action because any event stream offsets become invalid after failover.
 
-- **Azure Storage:** When routing to Azure Storage, we recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or customer initiated failover. You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/filesystem/list) for the list of files. To learn more, see [Azure Storage as a routing endpoint](../iot-hub//iot-hub-devguide-endpoints.md#azure-storage-as-a-routing-endpoint).
+- **Azure Storage:** When routing to Azure Storage, list the blobs or files first. Then iterate over them to ensure that all blobs or files are read without assuming partitioning. The partition range can potentially change during a Microsoft-initiated failover or customer-initiated failover. You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/filesystem/list) for the list of files. For more information, see [Azure Storage as a routing endpoint](../iot-hub//iot-hub-devguide-endpoints.md#azure-storage-as-a-routing-endpoint).
 
 ### Failback
 
 To fail back to the primary region, you can manually trigger the failover action a second time. It's important to remember the [restrictions on how frequently you can fail over](#region-down-experience).
 
-If the original failover operation was performed to recover from an extended outage in the original primary region, we recommend that you perform failback to the primary region after the primary region recovers from the outage.
+If the original failover operation was performed to recover from an extended outage in the original primary region, perform failback to the primary region after the primary region recovers from the outage.
 
 ### Testing for region failures
 
-To simulate a failure during a region outage, you can trigger a manual failover of your IoT hub. However, because regional failover causes both downtime and data loss, as described in [region-down experience](#region-down-experience), you should only perform test failovers in nonproduction environments. Consider setting up a test IoT Hub instance to initiate the planned failover option periodically. Periodic testing can help you gain confidence in your ability to get your end-to-end solutions up and running when a real disaster occurs.
+To simulate a failure during a region outage, you can trigger a manual failover of your IoT hub. However, because regional failover causes both downtime and data loss, you should only perform test failovers in nonproduction environments. For more information, see the [Region-down experience](#region-down-experience) section. Consider setting up a test IoT Hub instance to initiate the planned failover option periodically. Periodic testing can help you build confidence in your ability to restore and operate your end-to-end solutions effectively when a real disaster occurs.
 
 ### Alternative multiregion approaches
 
-There are scenarios where the cross-region failover capabilities of IoT Hub aren't suitable, such as:
+The following scenarios illustrate cases where the cross-region failover capabilities of IoT Hub aren't suitable.
 
 - Your IoT hub is in a nonpaired region.
 
@@ -250,17 +250,17 @@ There are scenarios where the cross-region failover capabilities of IoT Hub aren
 
 - You need to fail over to a region that isn't your primary region's pair.
 
-You can design a cross-region failover solution on a per-device basis. While a complete treatment of deployment topologies in IoT solutions is outside the scope of this article, you can consider a multiregion deployment model. In this model, your primary IoT hub and solution back end run primarily in one Azure region. A secondary IoT hub and back end are deployed in another Azure region. If the IoT hub in the primary region suffers an outage or the network connectivity from the device to the primary region is interrupted, devices use a secondary service endpoint.
+You can design a cross-region failover solution tailored to each individual device. A complete treatment of deployment topologies in IoT solutions is outside the scope of this article, but you can consider a multiregion deployment model. In this model, your primary IoT hub and solution back end run primarily in one Azure region. A secondary IoT hub and back end are deployed in another Azure region. If the IoT hub in the primary region experiences an outage or the network connectivity from the device to the primary region is interrupted, devices use a secondary service endpoint.
 
 - **Expected downtime.** This approach can provide a short amount of downtime (less than one minute), but can be complex to implement.
 
-- **Expected data loss.** The amount of data loss depends on the specific data stores you use, and how you configure geo-replication between them.
+- **Expected data loss.** The amount of data loss depends on the specific data stores that you use and the way that you configure geo-replication between them.
 
-- **Cost.** This approach requires provisioning at least one extra IoT hub, which increases your overall cost.
+- **Cost.** This approach requires you to provision at least one extra IoT hub, which increases your overall cost.
 
 At a high level, to implement a regional failover model with IoT Hub, you need to take the following measures:
 
-- **A secondary IoT hub and device routing logic.** If service in your primary region is disrupted, devices must start connecting to your secondary region. Given the state-aware nature of most services involved, it's common for solution administrators to manually trigger the inter-region failover process. The best way to communicate the new endpoint to devices, while maintaining control of the process, is to have them regularly check a *concierge* service for the current active endpoint. The concierge service can be a web application that is replicated and kept reachable by using DNS-redirection techniques, such as [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+- **A secondary IoT hub and device routing logic.** If service in your primary region is disrupted, devices must begin to connect to your secondary region. Because of the state-aware nature of most services involved, solution administrators commonly trigger the inter-region failover process manually. The best way to communicate the new endpoint to devices while maintaining control over the process is to have them regularly check a concierge service for the current active endpoint. The concierge service can be a web application that's replicated and kept reachable by using DNS-redirection techniques, such as [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
   > [!NOTE]
   > Azure Traffic Manager doesn't have built-in support for IoT Hub. You can configure custom Traffic Manager endpoints for each IoT hub. Configure the Traffic Manager endpoint's health probe to use the IoT hub's endpoint.
@@ -269,7 +269,7 @@ At a high level, to implement a regional failover model with IoT Hub, you need t
 
 - **Merging logic.** When the primary region becomes available again, all the state and data created in the secondary region must be migrated back to the primary region. This state and data mostly relate to device identities and application metadata, which must be merged with the primary IoT hub and any other application-specific stores in the primary region.
 
-  To simplify this step, you should use *idempotent* operations. Idempotent operations minimize the side-effects from the eventual consistent distribution of events and from duplicates or out-of-order delivery of events. Also, the application logic should be designed to tolerate potential inconsistencies or slightly out-of-date state. This scenario can occur because of the extra time it takes for the system to heal based on RPOs.
+  To simplify this step, use *idempotent* operations. Idempotent operations minimize the side-effects from the eventual consistent distribution of events and from duplicates or out-of-order delivery of events. Also, the application logic should be designed to tolerate potential inconsistencies or slightly out-of-date state. This scenario can occur because of the extra time that it takes for the system to heal based on RPOs.
 
 ## Backups
 
