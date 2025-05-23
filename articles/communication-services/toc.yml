@@ -129,7 +129,7 @@ items:
       - name: Add file sharing in Teams interop chat
         href: tutorials/file-sharing-tutorial-interop-chat.md
       - name: Add inline image support in Teams interop chat
-        href: tutorials/inline-image-tutorial-interop-chat.md.      
+        href: tutorials/inline-image-tutorial-interop-chat.md
       - name: Add Adaptive Cards in chat
         href: quickstarts/ui-library/get-started-chat-adaptive-card.md
     - name: Connect to Teams
