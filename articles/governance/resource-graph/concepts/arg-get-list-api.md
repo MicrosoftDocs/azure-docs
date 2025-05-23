@@ -10,16 +10,16 @@ ms.custom: devx-track-csharp
 
 ARG GET/LIST API significantly reduces READ throttling by serving all incoming GET and LIST calls against ARG platform with smart routing controls in control plane. The API aligns with the existing request and response contracts of Azure control plane APIs while addressing throttling issues for customers. 
 
-ARG GET/LIST provides a default quota of 4k /min /user / subscription on a moving window. This is not a hard limit; we can support more than this based on scenario requirement. The API provides a response header “x-ms-user-quota-remaining" indicating remaining quota and "x-ms-user-quota-resets-after" indicating the time for a full quota reset based on which you can understand your quota consumption.  
+ARG GET/LIST provides a default quota of 4k /min /user /subscription on a moving window. This is not a hard limit; we can support more than this based on scenario requirement. The API provides a response header “x-ms-user-quota-remaining" indicating remaining quota and "x-ms-user-quota-resets-after" indicating the time for a full quota reset based on which you can understand your quota consumption.  
 
 > [!NOTE]
 > Please keep in mind that the Azure Resource Manager (ARM) quota applies to these calls. Read about the ARM limits here : Understand how Azure Resource Manager throttles requests - Azure Resource Manager | Microsoft Learn. Refer to section "Migrating to regional throttling and token bucket algorithm" , these are the new limits which ARM follows for Azure Public cloud.  
 
 ## Using the ARG GET/LIST API 
 
-Using ARG GET/LIST API is very straightforward. If you feel your scenario matches the conditions mentioned [here](./guidance-for-throttled-requests.md#arg-getlist-api), you can simply append the flag &useResourceGraph=true to your control plane API calls, and the request will be routed to the ARG GET/LIST API backend.  
+Using the ARG GET/LIST API is very straightforward. If you feel your scenario matches the conditions mentioned [here](./guidance-for-throttled-requests.md#arg-getlist-api), you can simply append the flag `&useResourceGraph=true` to your control plane API calls, and the request will be routed to the ARG GET/LIST API backend.  
 
-Contact the ARG Product group by sending an email to Azure Resource Graph team sharing a brief overview of your scenario and the ARG team will reach out to you with next steps. Callers must also design appropriate retry logic and implement fallback mechanisms to ensure smooth and reliable experience. This opt-in model has been deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
+Contact the ARG product group by sending an email to Azure Resource Graph team sharing a brief overview of your scenario and the ARG team will reach out to you with next steps. Callers must also design appropriate retry logic and implement fallback mechanisms to ensure smooth and reliable experience. This opt-in model has been deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
 
 Refer to some known limitations [here](#known-limitations) and [frequently asked questions](#frequently-asked-questions).
 
@@ -246,7 +246,7 @@ No special permissions are required for ARG GET/LIST APIs; ARG GET/LIST APIs are
 
 5. What is the rollback strategy, if we find issues while using ARG GET/LIST APIs?   
 
-If onboarded through the flag “useResourceGraph=true”, the caller may choose to remove the flag (or) “useResourceGraph =false” and the call will be automatically routed to be Resource Provider.  
+If onboarded through the flag `useResourceGraph=true`, the caller may choose to remove the flag (or) `useResourceGraph=false` and the call will be automatically routed to be Resource Provider.  
 
 6. What if you're getting a 404 Not Found when trying to get a resource from ARG GET/LIST that was recently created? 
 
