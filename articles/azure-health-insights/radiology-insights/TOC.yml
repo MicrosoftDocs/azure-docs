@@ -58,7 +58,7 @@ items:
            href: recommendation-inference.md
          - name: Communication
            href: communication-inference.md
-          -name: Radiology Procedure
+         - name: Radiology Procedure
            href: radiology-procedure-inference.md
          - name: Scoring and Assessment
            href: scoring-and-assessment-inference.md
