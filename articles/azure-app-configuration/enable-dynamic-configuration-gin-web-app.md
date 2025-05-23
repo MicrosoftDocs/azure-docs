@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this quickstart, learn how to dynamically update configuration data for Gin web applications
 author: linglingye
 ms.service: azure-app-configuration
-ms.devlang: go
+ms.devlang: golang
 ms.topic: quickstart
 ms.date: 01/05/2024
 ms.author: linglingye
@@ -68,9 +68,7 @@ Finish the quickstart: [Create a Gin web app with Azure App Configuration](./qui
     })
     ```
 
-3. Add a configuration refresh middleware
-
-    Update *`main.go`* with the following code.
+3. Add a configuration refresh middleware. Update *`main.go`* with the following code.
 
     ```golang
     func configRefreshMiddleware(provider *azureappconfiguration.AzureAppConfiguration) gin.HandlerFunc {
@@ -90,7 +88,7 @@ Finish the quickstart: [Create a Gin web app with Azure App Configuration](./qui
     }
     ```
 
-4. Use the refresh middleware:
+4. Use the configuration refresh middleware:
 
     ```golang
     // Existing code
@@ -124,7 +122,7 @@ Now that you've set up dynamic configuration refresh, let's test it to see it in
 
 2. Open a web browser and navigate to `http://localhost:8080` to access your application. The web page looks like this:
 
-    :::image type="content" source="./media/quickstarts/gin-app-refresh-before.png" alt-text="Screenshot of the browser.Launching quickstart app locally.":::
+    :::image type="content" source="./media/quickstarts/gin-app-refresh-before.png" alt-text="Screenshot of the gin web app refresh before.":::
 
 3. Navigate to your App Configuration store and update the value of the `Config.Message` key.
 
@@ -134,7 +132,7 @@ Now that you've set up dynamic configuration refresh, let's test it to see it in
 
 4. After refreshing the browser a few times, you'll see the updated content once the ConfigMap is updated in 30 seconds.
 
-    :::image type="content" source="./media/quickstarts/gin-app-refresh-after.png" alt-text="Screenshot of the browser.Launching quickstart app locally.":::
+    :::image type="content" source="./media/quickstarts/gin-app-refresh-after.png" alt-text="Screenshot of the gin web app refresh after.":::
 
 
 ## Clean up resources
