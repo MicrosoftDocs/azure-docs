@@ -640,7 +640,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few restaurants to the list.
@@ -659,11 +659,7 @@ The sample application includes `print()` statements to demonstrate this capabil
 
 :::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
 
-In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
-
-<pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
-</pre>
+In the AZD output, find the link to stream App Service logs and navigate to it in the browser.
 
 Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 

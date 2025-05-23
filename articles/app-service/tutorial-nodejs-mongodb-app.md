@@ -372,7 +372,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     :::column span="2":::
         **Step 1:** In the App Service page:
         1. From the left menu, select **Overview**.
-        1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
+        1. Select the URL of your app.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-1.png":::
@@ -422,7 +422,7 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
     :::column span="2":::
         **Step 1:** In the App Service page:
         1. From the left menu, select **Advanced Tools**.
-        1. Select **Go**. You can also navigate directly to `https://<app-name>.scm.azurewebsites.net`.
+        1. Select **Go**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-1.png" alt-text="A screenshot showing how to navigate to the App Service Kudu page." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-1.png":::

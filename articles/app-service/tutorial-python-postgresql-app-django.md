@@ -667,7 +667,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: <URL>
+    Open SSH session to App Service container at: &lt;URL>
     </pre>
 
 1. In the SSH session, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
@@ -688,7 +688,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: <URL>
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few restaurants to the list.
@@ -710,7 +710,7 @@ The sample application includes `print()` statements to demonstrate this capabil
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser.
 
 <pre>
-Stream App Service logs at: <URL>
+Stream App Service logs at: &lt;URL>
 </pre>
 
 Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
