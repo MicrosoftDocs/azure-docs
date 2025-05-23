@@ -424,14 +424,11 @@ After you sign in as an agent with a dual persona identity, you can add that Tea
 
 The following example shows a request to add a Teams Phone extensibility call agent with Microsoft Entra OID identifier `e5b7f628-ea94-4fdc-b3d9-1af1fe231111` in tenant `87d349ed-44d7-43e1-9a83-5f2406dee5bd` scoped to Azure Communication Services Resource `0269be4d-5be0-4770-bf9c-a1bf50ee78d5`. 
 
-> [!NOTE]
-> We expect to introduce a new type for dual persona. For now, use the type `CommunicationUserIdentifier`.
-
 ```csharp
 //Call is already established
 ...
 ...
- var target = new CommunicationUserIdentifier("8:acs:0269be4d-5be0-4770-bf9c-a1bf50ee78d5_87d349ed-44d7-43e1-9a83-5f2406dee5bd_e5b7f628-ea94-4fdc-b3d9-1af1fe231111");
+ var target = new TeamsExtensionUserIdentifier("0269be4d-5be0-4770-bf9c-a1bf50ee78d5", "87d349ed-44d7-43e1-9a83-5f2406dee5bd","e5b7f628-ea94-4fdc-b3d9-1af1fe231111");
  await callConnection.AddParticipantAsync(new AddParticipantOptions(new CallInvite(target))
  {
      InvitationTimeoutInSeconds = 60,

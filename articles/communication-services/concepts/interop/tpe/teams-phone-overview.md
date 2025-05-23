@@ -22,7 +22,7 @@ Artificial intelligence (AI) technologies increase the complexity of customer en
 
 Azure Communication Services is enhancing Call Automation and Calling SDKs, empowering software developers to extend Microsoft Teams Phone into their line of business applications. Software developers can now provide their end users with access to Teams Phone features such as phone numbers, emergency calling, direct routing, and many others.
 
-Contact Center as a Service (CCaaS) Independent Software Vendors (ISVs) can enable their end customers to connect with their existing Teams Phone deployment and let them use Teams Phone capabilities within the application provided by the ISV. At the same time, customers can now extend their Teams Phone with advanced call queuing, agent handling, and routing capabilities provided by third party CCaaS ISVs applications.
+Contact center as a Sservice (CCaaS) independent software vendors (ISVs) can enable their end customers to connect with their existing Teams Phone deployment and let them use Teams Phone capabilities within the application provided by the ISV. At the same time, customers can now extend their Teams Phone with advanced call queuing, agent handling, and routing capabilities provided by third-party CCaaS ISVs applications.
 
 ## Overview
 
@@ -72,7 +72,7 @@ Some conversational AI features include:
 - Automated responses: Provides instant responses to common queries, reducing the need for human intervention.
 - Contextual awareness: Maintains context across interactions, ensuring coherent and relevant responses.
 
-Using Call Automation, CCaaS developers can use simple AI powered tools to:
+CCaaS developers can use Call Automation to implement simple AI powered tools to:
 
 - Play personalized greeting messages.
 - Recognize conversational voice inputs to gather information on contextual questions to drive a more self-service model with customers.
@@ -94,12 +94,11 @@ Teams Phone extensibility supports both outbound calling and emergency calling.
 
 ### Inbound PSTN call to the resource account
 
-Inbound Public Switched Telephone Network (PSTN) calls to the phone number assigned to the Teams Resource Account (RA) trigger an Incoming Call Event Grid notification. The Incoming Call notification goes to the configured endpoint in the Azure Communication Services Resource you linked to the RA during provisioning. The CCaaS server-side application uses the Call Automation SDK to answer the call.
+Inbound public switched telephone network (PSTN) calls to the phone number assigned to the Teams Resource Account (RA) trigger an Incoming Call Event Grid notification. The Incoming Call notification goes to the configured endpoint in the Azure Communication Services Resource you linked to the RA during provisioning. The CCaaS server-side application uses the Call Automation SDK to answer the call.
 
 The following diagram shows the Inbound PSTN Call flow.
 
-:::image type="content" source="./media/" alt-text="."  lightbox="./media/":::
-![Diagram shows the Inbound PSTN Call flow.](./media/teams-phone-extensibility-pstn-inbound-call-flow.png)
+:::image type="content" source="./media/teams-phone-extensibility-pstn-inbound-call-flow.png" alt-text="Diagram shows the inbound PSTN call flow."  lightbox="./media/teams-phone-extensibility-pstn-inbound-call-flow.png":::
 
 Call flow description:
 
@@ -132,7 +131,7 @@ Call flow description:
 
 ## Emergency calling
 
-Using enhanced emergency calling support, Microsoft Teams customers can use existing investments and configurations to extend robust emergency calling functions to their platforms. Agents using the Calling SDK can dial emergency services, provide their static address location, alert security desks and receive callbacks from a Public Safety Answering Points (PSAP). Emergency calling is available in all countries supported today in MS Teams for user calling.
+Microsoft Teams customers can use enhanced emergency calling support to take advantage of existing investments and configurations that extend robust emergency calling functions to their platforms. Agents using the Calling SDK can dial emergency services, provide their static address location, alert security desks and receive callbacks from a Public Safety Answering Points (PSAP). Emergency calling is available in all countries supported today in MS Teams for user calling.
 
 Emergency calling is enabled using Teams user phone numbers or shared calling phone numbers. Teams admins configure users with emergency calling policies and assign the policy to the user in the TAC portal and/or with PowerShell cmdlets. The user connected to the CCaaS client (using the Calling WebJS SDK and WebUI) can dial emergency services from their assigned Teams Phone number. The user can also provide a location, alert a security desk when they dial emergency services, and receive callbacks from a PSAP.
 
@@ -148,7 +147,7 @@ The following diagram shows the emergency call-back scenario call flow.
 
 ## Multi persona
 
-Agents often use multiple applications on their desktops, such as an Azure Communication Services web application for the contact center and a Teams application for unified communications. Some customers prefer to use the standard Teams application for both purposes.
+Agents often use multiple applications on their desktops. The applications can include an Azure Communication Services web application for the contact center and a Teams application for unified communications. Some customers prefer to use the standard Teams application for both purposes.
 
 With multi persona support, Microsoft Teams enables customers to separate their work and calls between different applications. For example, a user might use Teams for internal collaboration and the Azure Communication Services web application for customer care. This separation ensures that communication channels are distinct and tailored to the user needs, while still using a common phone system.
 
@@ -167,7 +166,7 @@ Call flow description:
 1. Inbound PSTN call to a Teams Phone number provisioned for Azure Communication Services is routed to Call Automation.
 2. Contoso receives webhook notification of inbound call.
 3. Contoso routes call to the correct destination.
-4. Teams, Azure Communication Services Calling SDK, or PSTN clients receive inbound call notification. This is implemented in Teams policy today. There is no API to choose the Calling SDK vs Teams client for inbound call ringing. It is controlled by policy.
+4. Teams, Azure Communication Services Calling SDK, or PSTN clients receive inbound call notification. The notification is currently implemented in Teams policy. There's no API to choose the Calling SDK vs Teams client for inbound call ringing. It's controlled by policy.
 
 Outbound OBO calls from RAs are available in the CCaaS client / server applications. Call history and other call activity streams are contained within the specific end client the call is associated with. For example, the Teams client only shows Teams client calls, CCaaS calls to the user are omitted from the Teams client (and vice versa).
 
@@ -191,7 +190,7 @@ Call flow description:
 
 1. Contoso receives webhook notification of an inbound call.
 2. Contoso routes the call to the correct destination by adding the required participant.
-3. The call is picked up by an agent on the Azure Communication Services Calling SDK client.
+3. An agent picks up the call on the Azure Communication Services Calling SDK client.
 
 ### Call transfer
 
@@ -205,10 +204,10 @@ Call flow description:
 
 1. Contoso receives webhook notification of an inbound call.
 2. Contoso routes call to the correct destination by transferring it to the required participant. The bot is removed from the call.
-3. The call is picked up by agent on Azure Communication Services Calling SDK client.
+3. An agent picks up the call on Azure Communication Services Calling SDK client.
 
 > [!NOTE]
-> The *Redirect* option is available in the Call Automation SDK. We do not recommend using redirect for CCaaS scenarios. For better integration and support, we strongly recommend using the `AddParticipant` function when adding CCaaS agents to the call. This method ensures compatibility with future updates and provides a more robust solution for your needs.
+> The *Redirect* option is available in the Call Automation SDK. We don't recommend using redirect for CCaaS scenarios. For better integration and support, we strongly recommend using the `AddParticipant` function when adding CCaaS agents to the call. This method ensures compatibility with future updates and provides a more robust solution for your needs.
 
 ## Value added services
 
@@ -234,22 +233,22 @@ The following diagram shows the audio insights call transcription flow.
 
 Azure Communication Services provides developers with Call recording capabilities using runtime APIs to start, stop, pause, and resume recording for CCaaS scenarios. This capability enables developers to seamlessly integrate server-side call recording capabilities into Microsoft Teams calling experiences built with Call Automation and WebUI.
 
-Developers can use Azure Communication Services Call recording APIs to customize their recording processes via internal business logic triggers, such as a server application creating a group call and recording the conversation end-to-end, limiting any action to end users. You can also enable actions triggered by a user that tell the server application to start recording. By using Azure Communication Services Call recording, developers have access to a broader set of formats and features such as unmixed audio for post-call analysis or quality assurance processes.
+Developers can use Azure Communication Services Call recording APIs to customize their recording processes via internal business logic triggers. For example, a server application creates a group call and records the conversation end-to-end, limiting any action to end users. You can also enable actions triggered by a user that tell the server application to start recording. Developers can use Azure Communication Services Call recording to access a broader set of formats and features such as unmixed audio for post-call analysis or quality assurance processes.
 
-These use cases are CCaaS admin highly controlled scenarios. Whether it is a Business-to-Consumer (B2C) or a Call Center scenario, CCaaS admin has strict control of the business logic for the recording process. Contoso internal retention policies and behaviors like automatic or manual recording initiation and subsequent processing of the recording, are determined by the CCaaS admin. The initial release focuses on enabling Azure Communication Services Call recording for CCaaS use cases on inbound and outbound calls. Prioritizing CCaaS ensures a streamlined integration with fewer complexities.
+These use cases are CCaaS admin highly controlled scenarios. Whether it's a Business-to-Consumer (B2C) or a Call Center scenario, CCaaS admin has strict control of the business logic for the recording process. The CCaaS admin determines Contoso internal retention policies and behaviors like automatic or manual recording initiation and subsequent processing of the recording. The initial TPE release focuses on enabling Azure Communication Services Call recording for CCaaS use cases on inbound and outbound calls. Prioritizing CCaaS ensures a streamlined integration with fewer complexities.
 
-The following diagram shows an example call recording flow. In this example, there is an ongoing PSTN TPE call between a caller and a CCaaS user. The CCaaS user initiates the recording and the call recording bot produces the recording file.
+The following diagram shows an example call recording flow. In this example, there's an ongoing PSTN TPE call between a caller and a CCaaS user. The CCaaS user initiates the recording and the call recording bot produces the recording file.
 
 :::image type="content" source="./media/teams-phone-extensibility-call-recording.png" alt-text="Diagram shows an example call recording flow for an ongoing PSTN TPW call between a caller and a CCaaS user. The CCaaS user initiates the recording and the call recording bot produces the recording file." lightbox="./media/teams-phone-extensibility-call-recording.png":::
 
 ## Next steps
 
 - [Teams Phone System extensibility quickstart](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md)
-<!-- - [](teams-phone-extensibility-connectivity-cost.md) -->
+- [Cost and connectivity options](teams-phone-extensibility-connectivity-cost.md)
 
 ## Related articles
 <!-- 
 - [](teams-phone-client-capabilities.md)
-- [](teams-phone-extensibility-faq.md)
+- [Teams Phone extensibility FAQ](./teams-phone-extensibility-faq.md)
 - [](teams-phone-extensibility-troubleshooting.md)
 -->
