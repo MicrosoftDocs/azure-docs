@@ -54,10 +54,12 @@ Newer REST Service API versions support older agents unless specified. Device Up
 
 | Release notes and assets | deviceupdate-agent | Upgrade Supported from agent version | DU PnP Models supported | API Versions|
 | ------------------------ | ------------------ | ------------------------------------ | ----------------------- |-------------|
+| 1.2.0 | 1.2.0 <br /> | 1.1.0 | dtmi:azure:iot:deviceUpdateContractModel;3 <br /> dtmi:azure:iot:deviceUpdateModel;3  | 2022-10-01 |
+| 1.1.0 | 1.1.0|1.0.x | dtmi:azure:iot:deviceUpdateContractModel;3 <br /> dtmi:azure:iot:deviceUpdateModel;3| 2022-10-01 |
 | 1.0.0 | 1.0.0 <br /> 1.0.1 <br /> 1.0.2 | 0.8.x | dtmi:azure:iot:deviceUpdateContractModel;2 <br /> dtmi:azure:iot:deviceUpdateModel;2  | 2022-10-01 |
 |0.0.8 (Preview)(Deprecated) | 0.8.0 <br /> 0.8.1 <br /> 0.8.2 |  | dtmi:azure:iot:deviceUpdateContractModel;1 <br /> dtmi:azure:iot:deviceUpdateModel;1 | 2022-10-01 <br /> 2021-06-01-preview (Deprecated)|
 
-The latest API version, 2022-10-01 will be supported until the next stable release and the latest agent version, 1.0.x, will receive bug fixes and security fixes until the next stable release. 
+The latest API version, 2022-10-01 will be supported until the next stable release and the latest agent version, 1.x.x, will receive bug fixes and security fixes until the next stable release. 
 
 > [!NOTE]
 > Users, that have extended from the reference agent and customized the agent, are responsible for ensuring the bug fixes and security fixes are incorporated. You will also need to ensure the agent is built and configured correctly as defined by the service to connect service, perform updates, and manage devices from the IoT hub. 
