@@ -73,13 +73,13 @@ You can create an Azure support request to increase the adjustable limits from t
     ![Screenshot that shows the How can we help heading.](./media/azure-netapp-files-resource-limits/support-how-can-we-help.png)
     
 1. Under the **Current selection** heading, search for "Service and subscription limits (Quotas)" in the text field for **Which service are you having an issue with?**.
-    1. Select **Service and subscription limits (Quotas)** then click **Next**. 
+    1. Select **Service and subscription limits (Quotas)** then select **Next**. 
 
-1. Click **Create a support request**. 
+1. Select **Create a support request**. 
     1. For **Issue type**, select **Service and Subscription Limits (Quotas)**.
     2. For **Subscription**, select your subscription. 
     3. For **Quota type**, select **Storage: Azure NetApp Files limits**.
-    4. Click **Next**.
+    4. Select **Next**.
 
     ![Screenshot that shows the Problem Description tab.](./media/shared/support-problem-descriptions.png)
     
@@ -91,12 +91,12 @@ You can create an Azure support request to increase the adjustable limits from t
     1. For **Quota type**, search and select **Regional Capacity Quota per Subscription (TiB)**. 
     2. For **Region requested**, select your region.   
     3. For **Quota State**, enter the new request value for the quota type you specified.
-    4. Click **Save and continue**. 
+    4. Select **Save and continue**. 
     
     ![Screenshot that shows how to display and request increase for regional quota.](./media/azure-netapp-files-resource-limits/quota-details-regional-request.png)
 
-1. Enter the support preference details in the New support request window that appears and click **Next**.
-2. Review the details and click **Create** to create the request.
+1. Enter the support preference details in the New support request window that appears and select **Next**.
+2. Review the details and select **Create** to create the request.
 
 >[!NOTE]
 > After the regional capacity quota limit has been increased, perform the capacity pool create and resize operation.
