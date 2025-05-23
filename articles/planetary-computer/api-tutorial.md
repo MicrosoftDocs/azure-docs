@@ -440,8 +440,8 @@ for item in items:
         params={"api-version": api_version}
     )
 
-    operation_ids.append(response.json()["operationId"])
-    print(f"Ingesting item {item_json['id']} with operation id {response.json()['operationId']}")
+    operation_ids.append(response.json()['id'])
+    print(f"Ingesting item {item_json['id']} with operation id {response.json()['id']}")
 
 ```
 
