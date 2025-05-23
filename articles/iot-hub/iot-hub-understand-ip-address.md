@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/22/2025
 ---
 
