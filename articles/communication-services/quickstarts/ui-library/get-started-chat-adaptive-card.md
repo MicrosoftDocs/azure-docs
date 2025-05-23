@@ -2,13 +2,11 @@
 title: Add Adaptive Cards in Chat
 titleSuffix: An Azure Communication Services article
 description: This article shows you how to integrate Adaptive Cards into your chat application using the UI Library chat composites or chat components.
-author: leahxia
 ms.author: leahxia
 ms.date: 05/22/2025
 ms.topic: tutorial
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-web-ios-android
-ms.custom: mode-other
+sms.custom: mode-other
 ms.subservice: chat
 ---
 
