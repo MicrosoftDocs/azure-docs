@@ -196,7 +196,6 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 		Selectors: []azureappconfiguration.Selector{
 			{
 				KeyFilter:   "Config.*",
-				LabelFilter: "",
 			},
 		},
 		TrimKeyPrefixes: []string{"Config."},

@@ -79,10 +79,14 @@
     items:
     - name: Configuration
       href: quickstart-go-console-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-go-console-app.md
   - name: Gin (Go Framework)
     items:
     - name: Configuration
       href: quickstart-go-web-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-gin-web-app.md
   - name: Azure Functions
     items:
     - name: Configuration

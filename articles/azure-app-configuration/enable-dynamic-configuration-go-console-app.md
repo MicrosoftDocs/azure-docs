@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use dynamic configuration in a Go console app
+title: "Tutorial - Use dynamic configuration in a Go console app"
 description: In this quickstart, learn how to dynamically refresh Azure App Configuration data in a Go console application
 ms.service: azure-app-configuration
 services: azure-app-configuration
@@ -37,8 +37,8 @@ In this quickstart, you'll enhance a basic Go console application to dynamically
     }
     ```
 
-> [!TIP]
-> You can set the `Interval` property of the `RefreshOptions` to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests made to your App Configuration store.
+    > [!TIP]
+    > You can set the `Interval` property of the `RefreshOptions` to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests made to your App Configuration store.
 
 2. Open the file *`unmarshal_sample.go`* and add the following code to your main function:
 
