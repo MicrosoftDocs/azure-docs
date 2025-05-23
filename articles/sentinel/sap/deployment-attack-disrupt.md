@@ -26,7 +26,7 @@ For a video demonstration of attack disruption for SAP, watch the following vide
 Content in this article is intended for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
 > [!NOTE]
-> Attack disruption requires a data connector agent and isn't supported for the [SAP agentless data connector](deployment-overview.md#data-connector) (Preview).
+> Attack disruption requires a data connector agent and isn't supported for the [SAP agentless data connector](deployment-overview.md#data-connector) (Limited preview).
 
 ## Attack disruption for SAP in Microsoft's unified security operations platform
 
@@ -51,4 +51,4 @@ For more information, see:
 
 ## Related content
 
-For more information, see [Microsoft Sentinel in the Microsoft Defender portal (preview)](../microsoft-sentinel-defender-portal.md).
+For more information, see [Microsoft Sentinel in the Microsoft Defender portal](../microsoft-sentinel-defender-portal.md).

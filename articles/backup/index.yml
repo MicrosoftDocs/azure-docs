@@ -195,7 +195,7 @@ landingContent:
           - text: Azure Backup pricing 
             url: azure-backup-pricing.md
           - text: Azure Backup service updates
-            url: https://azure.microsoft.com/updates/?product=backup
+            url: https://azure.microsoft.com/updates/?searchterms=Azure+Backup
           - text: Azure Backup Microsoft Q&A question page
             url: /answers/topics/azure-backup.html
           - text: Azure Backup sample queries for reporting  
