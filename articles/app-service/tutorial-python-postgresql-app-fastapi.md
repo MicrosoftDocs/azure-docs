@@ -497,7 +497,7 @@ In this section, you'll run this command manually for demonstration purposes. Wi
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: \<URL>
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few restaurants to the list.

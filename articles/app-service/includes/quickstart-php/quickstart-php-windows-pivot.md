@@ -127,7 +127,7 @@ To complete this quickstart:
   remote: Finished successfully.
   remote: Running post deployment command(s)...
   remote: Deployment successful.
-  To \<URL>
+  To &lt;URL>
       cc39b1e..25f1805  main -> main
   </pre>
 
