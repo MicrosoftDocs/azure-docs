@@ -14,11 +14,11 @@ appliesto:
 ---
 # Migrate to or between Azure Cache for Redis instances
 
-This article describes several Azure Cache for Redis migration scenarios. You can migrate Redis caches running in private data centers, on cloud virtual machines (VMs), or in another cloud to Azure Cache for Redis.
+This article describes several Azure Cache for Redis migration scenarios. You can migrate open-source Redis caches running on-premises or in cloud virtual machines (VMs), or hosted caches from other cloud platforms, to Azure Cache for Redis.
 
 You can also migrate one Azure Cache for Redis instance to another instance. If you only need to move an Azure Redis cache from one Azure region to another, see [Move Azure Cache for Redis instances to different regions](cache-moving-resources.md).
 
-Open-source Redis can run in many compute environments, such as private on-premises data centers or cloud-hosted virtual machines (VMs). Other hosting platforms like Amazon Web Services (AWS) host Redis cache services like AWS ElastiCache. You can usually migrate these Redis caches to Azure Cache for Redis with minimal interruption or downtime.
+Open-source Redis can run in many compute environments, such as private on-premises data centers or cloud-hosted VMs. Other hosting platforms like Amazon Web Services (AWS) host Redis cache services like AWS ElastiCache. You can usually migrate these Redis caches to Azure Cache for Redis with minimal interruption or downtime.
 
 ## Migration options
 
@@ -33,7 +33,7 @@ How you migrate from one cache to another depends on where your cache exists and
 
 ### Create a new cache
 
-If uninterrupted operations and potential data loss aren't concerns, the easiest way to move data to Azure Cache for Redis is to create an Azure Redis cache instance and connect your application to it. This approach isn't technically a migration. For example, if you use Redis as a look-aside cache of database records, you can easily rebuild the cache from scratch.
+If uninterrupted operations and potential data loss aren't concerns, the easiest way to move data to Azure Cache for Redis is to create an Azure Redis cache instance and connect your application to it. For example, if you use Redis as a look-aside cache of database records, you can easily rebuild the cache from scratch. This approach isn't technically a migration.
 
 General steps to implement this option are:
 
@@ -50,20 +50,20 @@ Open-source Redis defines a standard mechanism to take a snapshot of a cache's i
 
 General steps to implement this option are:
 
-1. Save a snapshot of the existing Redis cache. You can [configure Redis to save snapshots](https://redis.io/topics/persistence) periodically, or save manually using the [SAVE](https://redis.io/commands/save) or [BGSAVE](https://redis.io/commands/bgsave) commands. The RDB file is named *dump.rdb* by default and is located at the path specified in the *redis.conf* configuration file.
+1. Save a snapshot of the existing Redis cache. You can [configure Redis to save snapshots](https://redis.io/topics/persistence) periodically, or save one manually using the [SAVE](https://redis.io/commands/save) or [BGSAVE](https://redis.io/commands/bgsave) commands. The RDB file is named *dump.rdb* by default and is located at the path specified in the *redis.conf* configuration file.
 1. Create a new Premium-tier Azure Cache for Redis instance that's at least as large as the existing cache.
 1. Copy the RDB file to an Azure storage account in the region where your new cache is located. You can use `AzCopy` for this task.
 1. [Import](cache-how-to-import-export-data.md#import) the RDB file into the new cache. You can also use the PowerShell [Import-AzRedisCache](/powershell/module/az.rediscache/import-azrediscache) cmdlet.
 1. Update your application to use the new cache instance.
 
 > [!NOTE]
-> To migrate data from another Azure Redis instance, first [export](cache-how-to-import-export-data.md#export) the RDB file from that instance, or use the PowerShell [Export](/powershell/module/az.rediscache/export-azrediscache) cmdlet.
+> To migrate data from another Azure Redis instance, first [export](cache-how-to-import-export-data.md#export) the RDB file from that instance, or use the PowerShell [Export-AzRedisCache](/powershell/module/az.rediscache/export-azrediscache) cmdlet.
 
 ### Write to two Redis caches during migration
 
-Rather than moving data between caches, you can temporarily set your application to write data to both an existing cache and a new one. The application reads data from the existing cache initially. When the new cache has enough data, you switch the application to that cache and retire the old one.
+Rather than moving data between caches, you can temporarily set your application to write data to both an existing cache and a new one. The application reads data from the existing cache initially. When the new cache has enough data, you can switch the application to that cache and retire the old one.
 
-For example, suppose you use Redis as a session store and the application sessions expire after seven days. After writing to both caches for seven days, you know the new cache contains all nonexpired session information and you can safely rely on it from that point on.
+For example, suppose you use Redis as a session store and the application sessions expire after seven days. After writing to both caches for seven days, you know the new cache contains all nonexpired session information and you can safely rely on it from that point on. You can then retire the old cache.
 
 General steps to implement this option are:
 

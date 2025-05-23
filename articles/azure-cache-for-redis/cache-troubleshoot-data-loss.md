@@ -36,8 +36,7 @@ Azure Cache for Redis removes a key automatically if the key is assigned a timeo
 
 To get statistics on how many keys have expired, use the [INFO](https://redis.io/commands/info) command. The `Stats` section shows the total number of expired keys. The `Keyspace` section provides more information about the number of keys with timeouts and the average timeout value.
 
-```console
-
+```output
 # Stats
 
 expired_keys:46583
@@ -51,9 +50,9 @@ db0:keys=3450,expires=2,avg_ttl=91861015336
 
 Azure Cache for Redis requires memory space to store data and purges keys to free up available memory when necessary. When the `used_memory` or `used_memory_rss` values approach the configured `maxmemory` setting, Azure Redis starts evicting keys from memory based on [cache policy](https://redis.io/topics/lru-cache).
 
-You can monitor the number of evicted keys by using the [INFO](https://redis.io/commands/info) command:
+You can monitor the number of evicted keys by using the [INFO](https://redis.io/commands/info) command.
 
-```console
+```output
 # Stats
 
 evicted_keys:13224
@@ -63,7 +62,7 @@ evicted_keys:13224
 
 Redis clients can issue the Redis [DEL](https://redis.io/commands/del) or [HDEL](https://redis.io/commands/hdel) commands to explicitly remove keys from Azure Redis. You can track the number of delete operations by using the [INFO](https://redis.io/commands/info) command. If `DEL` or `HDEL` commands were called, they're listed in the `Commandstats` section.
 
-```console
+```output
 # Commandstats
 
 cmdstat_del:calls=2,usec=90,usec_per_call=45.00
@@ -75,7 +74,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 Standard or Premium tier Azure Cache for Redis instances are configured with a primary node and at least one replica. Data is copied from the primary to a replica asynchronously by using a background process.
 
-The [redis.io](https://redis.io/topics/replication) website describes how Redis data replication works in general. For scenarios where clients write to Redis frequently, partial data loss can occur because replication isn't guaranteed to be instantaneous.
+[Redis replication](https://redis.io/topics/replication) on the Redis website describes how Redis data replication works in general. For scenarios where clients write to Redis frequently, partial data loss can occur because replication isn't designed to be instantaneous.
 
 For example, if the primary goes down after a client writes a key to it, but before the background process has a chance to send that key to the replica, the key is lost when the replica takes over as the new primary.
 
@@ -93,7 +92,7 @@ If most or all keys disappear from your cache, check the following possible caus
 
 Azure Redis clients can call the Redis [FLUSHDB](https://redis.io/commands/flushdb) command to remove all keys in a single database or [FLUSHALL](https://redis.io/commands/flushall) to remove all keys from all databases in a Redis cache. To find out whether keys were flushed, use the [INFO](https://redis.io/commands/info) command. The `Commandstats` section shows whether either `FLUSH` command was called.
 
-```console
+```output
 # Commandstats
 
 cmdstat_flushall:calls=2,usec=112,usec_per_call=56.00
@@ -103,15 +102,15 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### Incorrect database selection
 
-Azure Cache for Redis uses the `db0` database by default. If you switch to another database such as `db1` and try to read keys from it, Azure Redis doesn't find them. Every database is a logically separate unit and holds a different dataset. Use the Redis [SELECT](https://redis.io/commands/select) command to look for keys in other available databases.
+Every database is a logically separate unit and holds a different dataset. Azure Cache for Redis uses the `db0` database by default. If you switch to another database such as `db1` and try to read keys from it, Azure Redis doesn't find them. Use the Redis [SELECT](https://redis.io/commands/select) command to look for keys in other available databases.
 
 ### Redis instance failure
 
-Redis is an in-memory data store that keeps data on the physical or virtual machines (VMs) that host the Redis cache. A Basic-tier Azure Cache for Redis instance runs on only a single virtual machine (VM). If that VM is down, all data that you stored in the cache is lost.
+Redis keeps data in memory on the physical or virtual machines (VMs) that host the Redis cache. A Basic-tier Azure Cache for Redis instance runs on only a single virtual machine (VM). If that VM goes down, all data that you stored in the cache is lost.
 
 Caches in the Standard and Premium tiers offer higher resiliency against data loss by using two VMs in a replicated configuration. When the primary node in such a cache fails, the replica node takes over to serve data automatically.
 
-These VMs are located on separate domains for faults and updates, to minimize the chance of both VMs becoming unavailable at once. If a major datacenter outage happens, however, both VMs could still go down together. In these rare cases, your data is lost. Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](cache-how-to-geo-replication.md) to improve data protection against infrastructure failures.
+These VMs are located on separate domains for faults and updates, to minimize the chance of both VMs becoming unavailable at once. If a major datacenter outage happens, however, both VMs could go down. In these rare cases, your data is lost. Consider using [data persistence](cache-how-to-premium-persistence.md) and [geo-replication](cache-how-to-geo-replication.md) to improve data protection against infrastructure failures.
 
 ## Related content
 
