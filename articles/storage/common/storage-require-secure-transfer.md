@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/23/2025
+ms.date: 05/23/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
