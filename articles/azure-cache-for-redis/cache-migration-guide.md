@@ -28,7 +28,7 @@ How you migrate from one cache to another depends on where your cache exists and
    | ------------ | ---------- | ------------- |
    | Create a new cache | Simplest to implement. | Must repopulate data to the new cache, which might not work with some applications. |
    | Export and import data via read-only database (RDB) file. | Compatible with any Redis cache. | Data written to the existing cache after the RDB file is generated could be lost. | 
-   | Dual-write data to two caches. | No data loss or downtime, uninterrupted cache operations, and easier testing. | Needs two caches for an extended time period. | 
+   | Dual-write data to two caches. | No data loss or downtime, no interrupted cache operations, and easier testing. | Needs two caches for an extended time period. | 
    | Migrate data programmatically. | Full control over how data is moved. | Requires custom code. | 
 
 ### Create a new cache
