@@ -24,7 +24,7 @@ Azure VMware Solution AV48 node size is now available in the Japan East region. 
 
 **Azure Native Pure Storage Cloud (preview)**
 
-Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for AVS, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
+Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for Azure VMware Solution, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
 
 **Azure VMware Solution Generation 2 Private Clouds (preview)**
 
