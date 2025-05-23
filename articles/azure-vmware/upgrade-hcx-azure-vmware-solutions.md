@@ -97,16 +97,16 @@ Please refer to [HCX 4.11.0 release notes](https://techdocs.broadcom.com/us/en/v
 
 #### Local Mode
 
-From HCX 4.11.0 onwards, only HCX local mode will be available. This means that HCX systems running 4.11.0 or later will no longer receive upgrade notifications under the System Updates section from Broadcom. Connected Sites that upgrade to 4.11.0 using offline bundles will operate in Local Mode after the upgrade.
+From HCX 4.11.0 onwards, only HCX local mode is available. This means that HCX systems running 4.11.0 or later will no longer receive upgrade notifications under the System Updates section from Broadcom. Connected Sites that upgrade to 4.11.0 using offline bundles will operate in Local Mode after the upgrade.
 
 #### Connection to VMware & Hybridity Depot
 
-Activation Keys-based licensing will be deprecated as of HCX 4.11.0. Activation Keys in HCX 4.11.0 will stop working 450 days after the upgrade to HCX 4.11.0 takes place. HCX systems running older versions that are currently using Activation Keys will stop working when connect.hcx.vmware.com is decommissioned.
+Activation Keys-based licensing is deprecated as of HCX 4.11.0. Activation Keys in HCX 4.11.0 will stop working 450 days after the upgrade to HCX 4.11.0 takes place. HCX systems running older versions that are currently using Activation Keys will stop working when connect.hcx.vmware.com is decommissioned.
 
 - <ins>hybridity-depot.vmware.com</ins> and <ins>connect.hcx.vmware.com</ins> endpoints for licensing, activation, and updates are removed post-activation or upgrade to HCX 4.11.0. HCX services of <ins>hybridity-depot.vmware.com</ins> and <ins>connect.hcx.vmware.com</ins> will be decommissioned.
 - All connected systems automatically transition to local licensing mode as part of upgrade to 4.11.0.
 
-Moving forward, until customers are upgraded to HCX 4.11.0, they will need to submit a Support Request to receive the requested upgrade bundle for their chosen HCX connection version. After the upgrade has taken place, customers will find previous and current versions of HCX Connector bundles, including HCX 4.11.0, in their vSAN datastores under a folder named _"AVS_Official_HCX_Connector_Binaries"_.
+Moving forward, until customers are upgraded to HCX 4.11.0, they need to submit a Support Request to receive the requested upgrade bundle for their chosen HCX connection version. After the upgrade has taken place, customers will find previous and current versions of HCX Connector bundles, including HCX 4.11.0, in their vSAN datastores under a folder named _"AVS_Official_HCX_Connector_Binaries"_.
 
 >[!NOTE]
 > The following HCX functionality is **deprecated** in HCX 4.11.0 and will be **removed** in a future release. HCX 4.11.0 will no longer be supported as of December 24, 2025. Customers should plan to migrate to an alternative solution at the earliest if they use any of the following features:
@@ -119,7 +119,7 @@ Moving forward, until customers are upgraded to HCX 4.11.0, they will need to su
 
 ### What actions will the customer need to take?
 
-To ensure smooth migration, customers will be required to upgrade any paired HCX connectors and service mesh appliances to HCX 4.11.0.  Furthermore, customers may be required to execute a resync operation on each HCX service mesh on both the source and connector sides to ensure that no errors have occurred due to the upgrade.
+To ensure smooth migration, customers are required to upgrade any paired HCX connectors and service mesh appliances to HCX 4.11.0.  Furthermore, customers may be required to execute a resync operation on each HCX service mesh on both the source and connector sides to ensure that no errors have occurred due to the upgrade.
 
 ## FAQ 
 
