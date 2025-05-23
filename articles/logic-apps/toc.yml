@@ -472,11 +472,11 @@ items:
   - name: Test
     items:
     - name: Create unit tests from Standard workflow definitions
-      href: create-unit-tests-standard-workflow-definitions-visual-studio-code.md
+      href: testing-framework/create-unit-tests-standard-workflow-definitions-visual-studio-code.md
     - name: Create unit tests from Standard workflow runs
-      href: create-unit-tests-standard-workflow-runs-visual-studio-code.md      
+      href: testing-framework/create-unit-tests-standard-workflow-runs-visual-studio-code.md      
     - name: Test workflows with mock outputs
-      href: test-logic-apps-mock-data-static-results.md
+      href: testing-framework/test-logic-apps-mock-data-static-results.md
   - name: Deploy
     items:
     - name: About automated deployment - Multitenant
