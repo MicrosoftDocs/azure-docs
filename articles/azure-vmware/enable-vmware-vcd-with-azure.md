@@ -25,7 +25,7 @@ Azure VMware Solution provides private clouds that contain VMware vSphere cluste
 
 VMware Cloud Director enables multi-tenancy by using organizations. Each organization can have one or more organization virtual data centers (VDC). Every Organization's VDC can have its own dedicated Tier-1 router (Organization VDC Edge Gateway), which connects to the shared Tier-0 router (Provider gateway).
 
-:::image type="content" source="media/vmware-vcd/vmware-cloud-director-azure-services-diagram.png" alt-text="Diagram showing typical architecture of VMware Cloud Director in Azure VMware Solution." lightbox="media/vmware-vcd/vmware-cloud-director-azure-services-diagram.png":::
+:::image type="content" source="media/vmware-cloud-director/vmware-cloud-director-azure-services-diagram.png" alt-text="Diagram showing typical architecture of VMware Cloud Director in Azure VMware Solution." lightbox="media/vmware-cloud-director/vmware-cloud-director-azure-services-diagram.png":::
 
 ## How to install and configure VMware Cloud Director on Azure VMware Solution
 
@@ -77,7 +77,7 @@ VMware Cloud Director is deployed in two stages:
     - The primary cell is the first member in the VMware Cloud Director server group. The embedded database is configured as the VMware Cloud Director database. 
     - The database name is vcloud, and the database user is vcloud.
 
-:::image type="content" source="media/vmware-vcd/vmware-cloud-director-ovf-install.png" alt-text="Diagram showing ovf installation of VMware Cloud Director in Azure VMware Solution." border="false" lightbox="media/vmware-vcd/vmware-cloud-director-ovf-install.png":::
+:::image type="content" source="media/vmware-cloud-director/vmware-cloud-director-ovf-install.png" alt-text="Diagram showing ovf installation of VMware Cloud Director in Azure VMware Solution." border="false" lightbox="media/vmware-cloud-director/vmware-cloud-director-ovf-install.png":::
 
 
 2.	For initial configuration of primary appliance, sign-in to VMware Cloud Director’s Virtual Appliance Management Interface (VAMI) at https://VCD_eth1_ip_address:5480
@@ -108,10 +108,8 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
 -	[Create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to perform customization on NSX-T before you integrate Azure VMware Solution NSX-T manager with VMware cloud director and create provider gateway.
     - You must perform this task before adding Azure VMware Solution NSX-T manager is added to VMware Cloud Director, else adding provide gateway will fail.
 -	Integrate Azure VMware Solution vCenter and NSX-T using credentials mapped with “CloudAdmin” role
-    - CloudAdmin credentials can be found under your Azure private cloud portal. 
+    - CloudAdmin credentials can be found in the Azure portal under your Private Cloud resource by navigating to Manage and then selecting VMware Credentials.
     - Learn about [CloudAdmin role and permissions](architecture-identity.md).
-
-:::image type="content" source="media/vmware-vcd/azure-vmware-solution-vmware-credentials.png" alt-text="Diagram showing how to obtain cloud admin credentials." border="false" lightbox="media/vmware-vcd/azure-vmware-solution-vmware-credentials.png":::
 
 -	Create a resource pool to map with Provide Virtual datacenter (PVDC). The cluster or resource pool must be available for use in a connected vCenter server instance. 
 
@@ -142,7 +140,7 @@ Eligible Enterprise and hosters can self-install and self-managed VMware Cloud D
 
 ### What limitations does Azure VMware Solution CloudAdmin role have for VMware Cloud Director?
 
-Azure VMware Solution CloudAdmin Role is a restricted role, and it currently doesn't allow BGP configuration or prefix on NSX-T Tier-0, NSX projects/NSX tenancy, VM encryption, and CMK with VMware Cloud Director on Azure VMware Solution. Note:  VM encryption works at vCenter level. Learn more about CloudAdmin role and permissions under, [Architecture - Identity and access](architecture-identity.md)
+Azure VMware Solution CloudAdmin Role is a restricted role, and it currently doesn't allow BGP configuration or prefix on NSX-T Tier-0, NSX projects/NSX tenancy, VM encryption, and CMK with VMware Cloud Director on Azure VMware Solution. VM encryption can be managed at vCenter level. Learn more about CloudAdmin role and permissions under, [Architecture - Identity and access](architecture-identity.md)
 
 ### How is VMware Cloud Director supported on Azure VMware Solution?
 

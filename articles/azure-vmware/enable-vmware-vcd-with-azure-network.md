@@ -20,7 +20,7 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 
 - VMware Cloud Director Tenants can use the public IP address for SNAT configuration to enable Internet access for virtual machine in tenant's organization virtual data center.
 
-:::image type="content" source="media/vmware-vcd/vmware-cloud-director-internet-diagram.png" alt-text="Diagram showing how tenants in VMware Cloud Director connects to internet in Azure VMware Solution." border="false" lightbox="media/vmware-vcd/vmware-cloud-director-internet-diagram.png":::
+:::image type="content" source="media/vmware-cloud-director/vmware-cloud-director-internet-diagram.png" alt-text="Diagram showing how tenants in VMware Cloud Director connects to internet in Azure VMware Solution." border="false" lightbox="media/vmware-cloud-director/vmware-cloud-director-internet-diagram.png":::
 
 - Organization virtual data center Edge gateway has default DENY ALL firewall rule. Virtual datacenter organization administrators need to open appropriate ports to allow access through the firewall by adding a new firewall rule.
 
@@ -32,7 +32,7 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 
 To enable access to Azure services in Azure virtual network, you can create a site to site VPN connection from VMware Cloud Director tenant's organization edge router gateway and Azure VPN gateway. 
 
-:::image type="content" source="media/vmware-vcd/vmware-cloud-director-azure-services-diagram.png" alt-text="Diagram showing how tenants in VMware Cloud Director connects to Azure services in Azure VMware Solution." border="false" lightbox="media/vmware-vcd/vmware-cloud-director-azure-services-diagram.png":::
+:::image type="content" source="media/vmware-cloud-director/vmware-cloud-director-azure-services-diagram.png" alt-text="Diagram showing how tenants in VMware Cloud Director connects to Azure services in Azure VMware Solution." border="false" lightbox="media/vmware-cloud-director/vmware-cloud-director-azure-services-diagram.png":::
 
 Follow the steps below to achieve this connectivity:
 - Configure Azure virtual network with an Azure VPN gateway. 
