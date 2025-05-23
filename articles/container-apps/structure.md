@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 02/05/2025
+ms.date: 05/21/2025
 ms.author: cshoe
 ---
 
@@ -39,7 +39,7 @@ To better understand these relationships, start by considering the differences b
 
 ## Workload profiles
 
-Each *Workload profiles (v2)* environment automatically comes with a consumption profile. The consumption profile allows you to run applications where you only want to pay for usage. Ultimately, you decide whether or not to use the consumption profile since you only incur costs as when apps are running in the consumption workload profile.
+Each *Workload profiles (v2)* environment automatically comes with a consumption profile. The consumption profile allows you to run applications where you only want to pay for usage. Ultimately, you decide whether or not to use the consumption profile since you only incur costs when apps are running in the consumption workload profile.
 
 By default, every *v2* environment only comes with a consumption workload profile. Depending on the needs of your app, you can choose to add any other specialized workload profiles that are best tailored for your application's needs.
 

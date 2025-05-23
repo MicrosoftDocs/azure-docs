@@ -259,8 +259,8 @@ items:
         - name: Add OPC UA assets to your cluster
           href: end-to-end-tutorials/tutorial-add-assets.md
           displayName: tutorial, e2e, end-to-end, asset, asset endpoint, OPC UA, connector, MQTT
-        - name: Upload data to the cloud
-          href: end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md
+        - name: Upload sensor data to the cloud
+          href: end-to-end-tutorials/tutorial-upload-messages-to-cloud.md
           displayName: tutorial, e2e, end-to-end, asset, asset endpoint, OPC UA, connector, MQTT
         - name: Get insights from your data
           href: end-to-end-tutorials/tutorial-get-insights.md
@@ -317,4 +317,7 @@ items:
       - name: IoT Glossary
         href: ../iot/iot-glossary.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
         displayName: term, terminology, definition, usage
-
+      - name: Digital twin builder (preview) in Fabric
+        href: /fabric/real-time-intelligence/digital-twin-builder/overview
+        displayName: modeling, ontology, real-time, analytics
+        
