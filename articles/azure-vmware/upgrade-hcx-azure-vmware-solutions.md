@@ -81,7 +81,7 @@ While Service Mesh appliances are upgraded independently to the HCX Manager, the
 
 **Procedure**
  
-To follow the Service Mesh appliances upgrade process, see [Upgrading the HCX Service Mesh Appliances](https://docs.vmware.com/en/VMware-HCX/4.9/hcx-user-guide/GUID-EF89A098-D09B-4270-9F10-AEFA37CE5C93.html)
+To follow the Service Mesh appliances upgrade process, see [Upgrading the HCX Service Mesh Appliances](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/hcx-service-update-procedures/upgrade-the-hcx-service-mesh-appliances.html)
 
 ## HCX 4.11.0 Upgrade and what it means for current HCX users
 
