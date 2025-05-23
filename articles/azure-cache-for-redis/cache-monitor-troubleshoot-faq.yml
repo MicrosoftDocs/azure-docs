@@ -33,14 +33,16 @@ sections:
       - question: |
           What can cause timeouts?
         answer: |
-          Timeouts can happen during client communication with Redis. When a client sends a command to the Redis server, the command is queued. The Redis server eventually picks up the command and executes it. The client request can time out during this process, and an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Troubleshoot Azure Cache for Redis latency and timeouts](cache-troubleshoot-timeouts.md) and [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](https://azure.microsoft.com/blog/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
+          Timeouts can happen during client communication with Redis. When a client sends a command to the Redis server, the command is queued. The Redis server eventually picks up the command and executes it. The client request can time out during this process, and an exception is raised on the calling side.
+          
+          For more information on troubleshooting timeout issues, see [Troubleshoot Azure Cache for Redis latency and timeouts](cache-troubleshoot-timeouts.md) and [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](https://azure.microsoft.com/blog/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
           
       - question: |
           Why was my client disconnected from the cache?
         answer: |
           The following are some common reasons for a cache disconnect.
           
-          **Client-side causes**
+          **Client-side**
           * The client application was redeployed.
           * The client application did a scaling operation. Cloud Services or Web Apps might cause a cache disconnect during autoscaling.
           * The networking layer on the client side changed.
@@ -48,25 +50,27 @@ sections:
           * The bandwidth threshold limits were reached.
           * CPU-bound operations took too long to complete.
           
-          **Server-side causes**
+          **Server-side**
           * A Standard-tier cache started a failover from the primary node to the replica node.
           * Azure was patching the cache instance during a Redis server update or general virtual machine (VM) maintenance.
 
       - question: |
           Why do I see a "Cache is busy processing a previous update request..." message?
         answer: |
-          The error message **Cache is busy processing a previous update request or is undergoing system maintenance. As such, it's currently unable to accept the update request. Try again later.** indicates that a management operation, like scaling or patching, is in progress on your cache. All other management operations are blocked until the ongoing operation completes. The ongoing management operation usually completes in a few hours. If you see this error for more than 12 hours, contact Azure support. During this time, your Azure Redis cache is fully functional for client operations.
+          The error message **Cache is busy processing a previous update request or is undergoing system maintenance. As such, it's currently unable to accept the update request. Try again later.** indicates that a management operation, like scaling or patching, is in progress on your cache. All other management operations are blocked until the ongoing operation completes.
+          
+          The ongoing management operation usually completes in a few hours. If you see this error for more than 12 hours, contact Azure support. During this time, your Azure Redis cache is fully functional for client operations.
       - question: |
-          Why is my cache in "Failed" state?
+          Why is my cache in a Failed state?
         answer: |
-          An Azure Redis cache can show a *Failed* state if a management operation fails. Despite this state, your Azure Redis cache is fully functional for client operations.
+          An Azure Redis cache can show a **Failed** state if a management operation fails. Despite this state, your Azure Redis cache is fully functional for client operations.
       - question: |
           Why is zone information missing from my subscription?
         answer: |
           Zone information might be missing from your subscription for the following reasons:
-          - Your subscription might not be registered with the 'Microsoft.Cache' provider. Sign in to your subscription and run the following PowerShell command:
-                `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cache`
-          - Your subscription might not be enabled for zones. Open an Azure support request so they can enable your subscription for zones. Once that's done, reregister the Microsoft.Cache provider even if you already registered it for your subscription.
+          - Your subscription might not be registered with the `Microsoft.Cache` provider. Sign in to your subscription and run the following PowerShell command:
+                `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cache`.
+          - Your subscription might not be enabled for zones. Contact Azure support so they can enable your subscription for zones. Then reregister the `Microsoft.Cache` provider even if you already registered it for your subscription.
           
 additionalContent: |
 
