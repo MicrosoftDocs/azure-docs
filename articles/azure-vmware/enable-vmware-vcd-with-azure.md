@@ -77,7 +77,7 @@ VMware Cloud Director is deployed in two stages:
     - The primary cell is the first member in the VMware Cloud Director server group. The embedded database is configured as the VMware Cloud Director database. 
     - The database name is vcloud, and the database user is vcloud.
 
-:::image type="content" source="media/vmware-vcd/media/vmware-cloud-director-ovf-install.png" alt-text="Diagram showing ovf installation of VMware Cloud Director in Azure VMware Solution." border="false" lightbox="media/vmware-cloud-director-ovf-install.png":::
+:::image type="content" source="media/vmware-vcd/vmware-cloud-director-ovf-install.png" alt-text="Diagram showing ovf installation of VMware Cloud Director in Azure VMware Solution." border="false" lightbox="media/vmware-vcd/vmware-cloud-director-ovf-install.png":::
 
 
 2.	For initial configuration of primary appliance, sign-in to VMware Cloud Director’s Virtual Appliance Management Interface (VAMI) at https://VCD_eth1_ip_address:5480
@@ -111,7 +111,7 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
     - CloudAdmin credentials can be found under your Azure private cloud portal. 
     - Learn about [CloudAdmin role and permissions](architecture-identity.md).
 
-:::image type="content" source="media/vmware-vcd/media/azure-vmware-solution-vmware-credentials.png" alt-text="Diagram showing how to obtain cloud admin credentials." border="false" lightbox="media/azure-vmware-solution-vmware-credentials.png":::
+:::image type="content" source="media/vmware-vcd/azure-vmware-solution-vmware-credentials.png" alt-text="Diagram showing how to obtain cloud admin credentials." border="false" lightbox="media/vmware-vcd/azure-vmware-solution-vmware-credentials.png":::
 
 -	Create a resource pool to map with Provide Virtual datacenter (PVDC). The cluster or resource pool must be available for use in a connected vCenter server instance. 
 
