@@ -27,8 +27,10 @@ items:
         displayName: Resource Manager
       - name: Azure Health De-identification client library for .NET
         href: quickstart-sdk-net.md
-      - name: Python
+      - name: Python - synchronous
         href: quickstart-python.md
+      - name: Python - asynchronous
+        href: quickstart-asynchronous-python.md
   - name: Tutorials
     expanded: true
     items:

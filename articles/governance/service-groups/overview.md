@@ -84,6 +84,15 @@ This table shows a summary of the differences between the groups.
 
 ***: Azure tags can be used as criteria within Azure Policy to apply policies to certain resources. Azure tags are subject to limitations.
 
+### Important facts about service groups
+
+- A single tenant can support 10,000 service groups.
+- A service group tree can support up to ten levels of depth.
+  This limit doesn't include the root level or the subscription level.
+- Each service group can have many children.
+- A single service group name/ID can be up to 250 characters.
+- There are no limits of number of members of service groups, there is a limit of 2,000 relationships (including ServiceGroupMember) within a subscription
+
 ### The Root Service Group 
 
 Service Groups is similar to Management Groups, in that there's only one root Service Group which is the top parent of all service groups in that tenant. Root Service Group's ID is same as its Tenant ID.

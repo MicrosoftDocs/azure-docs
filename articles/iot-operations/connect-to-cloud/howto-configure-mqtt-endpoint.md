@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/03/2025
+ms.date: 05/21/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure data flow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -1017,7 +1017,7 @@ CloudEvent properties are passed through for messages that contain the required 
 | `type`            | Yes      | `ms.aio.telemetry`                                     | Passed through as is                                                                                    |
 | `source`          | Yes      | `aio://mycluster/myoven`                               | Passed through as is                                                                                    |
 | `id`              | Yes      | `A234-1234-1234`                                       | Passed through as is                                                                                    |
-| `subject`         | No       | `aio/myoven/telemetry/temperature`                     | Passed through as is                                                                                    |
+| `subject`         | No       | `aio/myoven/sensor/temperature`                     | Passed through as is                                                                                    |
 | `time`            | No       | `2018-04-05T17:31:00Z`                                 | Passed through as is. It's not restamped. |
 | `datacontenttype` | No       | `application/json`                                     | Changed to the output data content type after the optional transform stage.                             |
 | `dataschema`      | No       | `sr://fabrikam-schemas/123123123234234234234234#1.0.0` | If an output data transformation schema is given in the transformation configuration, `dataschema` is changed to the output schema.         |
