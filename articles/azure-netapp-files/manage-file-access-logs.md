@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/04/2025
+ms.date: 04/18/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -24,7 +24,7 @@ File access logs provide file access logging for individual volumes, capturing f
 * File access logs occasionally create duplicate log entries that must be filtered manually. 
 * Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. See the [diagnostic setting configuration](#diagnostic) for more information. 
 * Before enabling file access logs on a volume, either [access control lists (ACLs)](configure-access-control-lists.md) or Audit access control entries (ACEs) need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
-* File access logs provide no explicit or implicit expectations or guarantees around logging for auditing and compliance purposes. 
+* Azure NetApp Files file access logs provide detailed information about successful and failed requests to the storage service. This information can be used to monitor individual requests and to diagnose file access issues. Requests are logged on a best-effort basis, meaning that most requests result in a log record, but the completeness and timeliness of file access logs aren't guaranteed. The Azure NetApp Files file access logs feature doesn't provide explicit or implicit expectations or guarantees around logging for auditing and compliance purposes.  
 
 ### Performance considerations 
 
@@ -104,18 +104,24 @@ Availability for file access log is limited to the following regions:
 - Canada East
 - Central India
 - Central US
+- East Asia
 - East US
 - East US 2
 - Japan East
 - Japan West
+- Korea Central
+- Korea South
 - North Europe
 - South Central US
+- Southeast Asia
+- South India
 - Switzerland North
 - Switzerland West
 - UK South
 - West Europe
 - West US
 - West US 2
+- West US 3
 
 ## Set SACLs or Audit ACEs on files and directories  
 

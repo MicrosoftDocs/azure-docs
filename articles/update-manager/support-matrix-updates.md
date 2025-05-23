@@ -48,6 +48,7 @@ Following is the list of supported images and no other marketplace images releas
 | center-for-internet-security-inc | cis-windows-server | cis-windows-server2016-l* |  |
 | center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l1 | cis-ws2012-r2-l1 |  |
 | center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l2 | cis-ws2012-r2-l2 |  |
+| center-for-internet-security-inc | cis-windows-server-2012-v2-0-1-l2  | cis-ws2012-l2 | |
 | center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l1 | cis-ws2016-l1 |  |
 | center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 |  |
 | center-for-internet-security-inc | cis-windows-server-2019-v1-0-0-l1 | cis-ws2019-l1 |  |
@@ -94,7 +95,7 @@ Following is the list of supported images and no other marketplace images releas
 | microsoftwindowsserver | windowsserverupgrade | * |  |
 | microsoftwindowsserverhpcpack | windowsserverhpcpack | * |  |
 | ntegralinc1586961136942 | ntg_windows_datacenter_2019 | ntg_windows_server_2019 |  |
-| outsystems | os11-vm-baseimage | platformserver |  |
+| outsystems | os11-vm-baseimage | platformserver lifetime |  |
 | southrivertech1586314123192 | tn-ent-payg | tnentpayg* |  |
 | southrivertech1586314123192 | tn-sftp-payg | tnsftppayg* |  |
 | tidalmediainc | windows-server-2022-datacenter | windows-server-2022-datacenter |  |
@@ -115,7 +116,8 @@ Following is the list of supported images and no other marketplace images releas
 |almalinux | | 9-gen*| |
 |almalinux | almalinux-x86_64  | 8_7-gen2 | |
 |almalinux |almalinux | 8-gen* | |
-|almalinux |almalinux-hpc | 8_6-hpc | |
+|almalinux |almalinux-hpc | 8_6-hpc </br> 8_7-hpc-gen*  | |
+| ||8_10-hpc-gen* |
 |aviatrix-systems | aviatrix-bundle-payg | aviatrix-enterprise-bundle-byol | |
 |aviatrix-systems || avx-cplt-byol-02 | | 
 |aviatrix-systems |aviatrix-companion-gateway-v9 | aviatrix-companion-gateway-v9 | | 
@@ -126,7 +128,7 @@ Following is the list of supported images and no other marketplace images releas
 |aviatrix-systems |aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16 | | 
 |aviatrix-systems |aviatrix-copilot | avx-cplt-byol-01 | | 
 |canonical| *| *||
-|center-for-internet-security-inc | cis-rhel | cis-redhat7-l1-gen1 <br> cis-redhat8-l*-gen1 <br> cis-redhat9-l1-gen* ||
+|center-for-internet-security-inc | cis-rhel | cis-redhat7-l1-gen1 <br> cis-redhat7-l*-gen1 </br> cis-redhat8-l*-gen1 <br> cis-redhat8-l*-gen2 </br> cis-redhat9-l*-gen1 </br> cis-redhat9-l*-gen2 ||
 |center-for-internet-security-inc | cis-rhel-7-l2 | cis-rhel7-l2 ||
 |center-for-internet-security-inc| cis-oracle-linux-8-l1 | cis-oracle8-l1||
 |center-for-internet-security-inc| cis-oracle| cis-oraclelinux8-l1-gen1 <br> cis-oraclelinux9-l1-gen*||
@@ -145,9 +147,10 @@ Following is the list of supported images and no other marketplace images releas
 |cloud-infrastructure-services| squid-ubuntu-2004| squid-ubuntu-2004||
 |cloudera | cloudera-centos-os| 7_5| |
 |cloudrichness| rockey_linux_image| rockylinux86||
-|cncf-upstream | capi | ubuntu-1804-gen1||
+|cncf-upstream| capi | ubuntu-1804-gen1||
 |cncf-upstream|| ubuntu-2004-gen1||
 |cncf-upstream|| ubuntu-2204-gen1||
+|cognosys |centos-77-free | centos-77-free ||
 |credativ| debian| 8||
 |credativ|| 9-backports||
 |credativ|| 9||
@@ -169,11 +172,12 @@ Following is the list of supported images and no other marketplace images releas
 |debian|| 11-gen2||
 |erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux| free||
 |erockyenterprisesoftwarefoundationinc1653071250513| rockylinux-9| rockylinux-9||
+|kali-linux | kali | kali-2024-3 |
 |github| github-enterprise| github-enterprise| |
 |matillion| matillion | matillion-etl-for-snowflake | |
 |microsoft-dsvm| aml-workstation| ubuntu||
 |microsoft-dsvm| ubuntu-1804| 1804-gen2||
-|microsoft-dsvm| ubuntu-2004| 2004||
+|microsoft-dsvm| ubuntu-2004| 2004 </br> 2004-gen2||
 |microsoft-dsvm| ubuntu-hpc| 1804||
 |microsoft-dsvm|| 2004-gen2||
 |microsoft-dsvm|| 2004-preview-ndv5||
@@ -202,7 +206,7 @@ Following is the list of supported images and no other marketplace images releas
 |oracle| oracle-database-19-3| oracle-database-19-0904 |
 |oracle| oracle-database| oracle_db_21||
 |oracle| oracle-linux| 7* <br> ol7* <br> ol8* <br> ol9* <br> ol9-lvm*||
-|oracle| oracle-linux| 8 <br> 8-ci <br> 81 <br> 81-ci <br> 81-gen2 <br> ol82 <br> ol8_2-gen2 <br> ol82-gen2 <br> ol83-lvm <br> ol83-lvm-gen2 <br> ol84-lvm <br> ol84-lvm-gen2||
+|oracle| oracle-linux| 8 <br> 8-ci <br> 81 <br> 81-ci <br> 81-gen2 <br> ol82 <br> ol8_2-gen2 <br> ol82-gen2 <br> ol83-lvm <br> ol83-lvm-gen2 <br> ol84-lvm <br> ol84-lvm-gen2 </br> ol9-lvm*||
 |procomputers| almalinux-8-7| almalinux-8-7||
 |procomputers| rhel-8-2| rhel-8-2||
 |procomputers| rhel-8-8-gen2| rhel-8-8-gen2||
@@ -217,6 +221,7 @@ Following is the list of supported images and no other marketplace images releas
 |redhat| rhel-sap-ha| 7* <br> 8* <br> 9_2 <br> 92sapha-gen2||
 |redhat| rhel-sap| 7*||
 |redhat| rhel| 7* <br> 8* <br> 9*||
+|resf| rockylinux-x86_64 | 8-base </br> 8-lvm </br> 9-base </br> 9-lvm || 
 |suse| opensuse-leap-15-*| gen*||
 |suse| sle-hpc-15-sp4-byos| gen*||
 |suse| sle-hpc-15-sp4| gen*||
@@ -229,6 +234,7 @@ Following is the list of supported images and no other marketplace images releas
 |suse| sles-15-sp2-basic| gen1 <br> gen2||
 |suse| sles-15-sp2-hpc| gen2||
 |suse| sles-15-sp2| gen1 <br> gen2||
+|suse| sles-15-sp3| gen2 ||
 |suse| sles-15-sp3-basic| gen1 <br> gen2||
 |suse| sles-15-sp3-sapcal| gen*||
 |suse| sles-15-sp4-basic| gen*||
@@ -243,14 +249,19 @@ Following is the list of supported images and no other marketplace images releas
 |suse| sles-15-sp5-chost-byos| gen*||
 |suse| sles-15-sp5-hardened-byos| gen*|
 |suse| sles-15-sp5-sapcal| gen*||
+|suse| sles-15-sp6*| gen*||
 |suse| sles-byos| 12-sp4 <br> 12-sp4-gen2||
 |suse| sles-sap-12-sp5*| gen*||
+|suse| sles-sap-15-sp1-byos | gen1||
+|suse| sles-sap-15-sp2-byos | gen2||
+|suse| sles-sap-15-sp4-byos | gen1||
+|suse| sles-sap-15-* | gen*|
 |suse| sles-sap-15-*| gen*||
 |suse| sles-sap-byos| 12-sp4 <br> 12-sp4-gen2 <br> gen2-12-sp4 <br> 15||
 |suse| sles-sap| 12-sp3 <br> 12-sp4 <br> 12-sp4-gen2 <br> 15 <br> gen2-15||
 |suse| sles-sapcal| 12-sp3||
 |suse| sles-standard| 12-sp4-gen2||
-|suse| sles| 12-sp4-gen2 <br> 12-sp3||
+|suse| sles| 12-sp3 </br> 12-sp4-gen2 </br> 15||
 |talend| talend_re_image| tlnd_re||
 |tenable| tenablecorenessus| tenablecorenessusbyol||
 |tenable| tenablecorewas| tenablecoreol8wasbyol||
@@ -331,7 +342,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 ## Next steps
 
 - Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
-- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manger.
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manager.
 - Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).
 - Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).
 - Learn about [security vulnerabilities and Ubuntu Pro support](security-awareness-ubuntu-support.md).

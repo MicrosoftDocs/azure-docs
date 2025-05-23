@@ -16,7 +16,7 @@ zone_pivot_groups: logic-app-hosting-types
 
 This article describes reliability support in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a resilient solution that meets your needs.
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 Logic app workflows help you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code that you have to write. When you plan for resiliency, make sure that you consider not just your logic apps, but also these Azure resources that you use with your logic apps:
 
@@ -179,7 +179,6 @@ To prepare for availability zone failure, consider *over-provisioning* the capac
 
 This section describes what to expect when Azure Logic Apps resources are configured for zone redundancy and all availability zones are operational.
 
-
 ::: zone pivot="consumption"
 
 **Traffic routing between zones:**  During normal operations, workflow invocations can use compute resources in any of the availability zones within the region.
@@ -193,6 +192,8 @@ This section describes what to expect when Azure Logic Apps resources are config
 ::: zone-end
 
 ### Zone-down experience
+
+This section describes what to expect when Azure Logic Apps resources are configured for zone redundancy and there's an availability zone outage.
 
 - **Detection and response:** The Azure Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 

@@ -1,7 +1,7 @@
 ---
 title: Key next steps after accepting your Microsoft Customer Agreement - Azure
 description: This article helps you get started as you begin to manage Azure billing and subscriptions under your new Microsoft Customer Agreement.
-author: PreetiSGit
+author: preetione
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual

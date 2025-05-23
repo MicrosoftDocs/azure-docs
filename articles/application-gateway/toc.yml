@@ -47,7 +47,7 @@
       href: configuration-listeners.md
     - name: Request routing rules
       href: configuration-request-routing-rules.md
-    - name: HTTP settings
+    - name: Backend settings
       href: configuration-http-settings.md
   - name: Routing
     items:
@@ -77,6 +77,8 @@
     href: application-gateway-faq.yml
 - name: Security
   items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
   - name: Private Deployment
     href: application-gateway-private-deployment.md
   - name: Private Link
@@ -93,8 +95,6 @@
     href: key-vault-certs.md
   - name: SSL certificate management
     href: ssl-certificate-management.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
   - name: TLS 1.0 and 1.1 retirement
     href: application-gateway-tls-version-retirement.md
   - name: Network security blog
@@ -284,11 +284,13 @@
   - name: Relocate
     items:
     - name: Relocate to another region
-      href: ../operational-excellence/relocation-app-gateway.md?toc=/azure/application-gateway/toc.json
+      href: ../azure-resource-manager/management/relocation/relocation-app-gateway.md?toc=/azure/application-gateway/toc.json
     - name: Migrate to availability zone support
       href: ../reliability/migrate-app-gateway-v2.md?toc=/azure/application-gateway/toc.json
   - name: Proxy buffer configuration
     href: proxy-buffers.md
+  - name: Using Server-sent events
+    href: use-server-sent-events.md    
   - name: Custom error pages
     href: custom-error.md
   - name: Migrate to v2 SKU

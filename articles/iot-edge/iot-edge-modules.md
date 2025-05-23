@@ -4,7 +4,7 @@ description: Learn how Azure IoT Edge modules run logic on devices, using contai
 author: PatAltimore
 ms.author: patricka
 ms.date: 03/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
 ms.custom:

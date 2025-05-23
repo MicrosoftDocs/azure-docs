@@ -5,20 +5,19 @@ description: Learn about Virtual WAN routing scenarios to route traffic through 
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 03/26/2025
+ms.date: 04/07/2025
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
 ---
 # Scenario: Route traffic through an NVA
 
-When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this NVA scenario, the goal is to route traffic through an NVA (Network Virtual Appliance) for branch to VNet and VNet to branch. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this NVA scenario, the goal is to route traffic through an NVA (Network Virtual Appliance) for branch to virtual network and virtual network to branch. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> If you already have a set up with routes that are prior to the new capabilities [How to configure virtual hub routing](how-to-virtual-hub-routing.md) becoming available, please use the steps in these versions of the articles:
->* [Azure portal article](virtual-wan-route-table-nva-portal.md)
->* [PowerShell article](virtual-wan-route-table-nva.md)
->
+> If you already have a setup with routes that are prior to the new capabilities [How to configure virtual hub routing](how-to-virtual-hub-routing.md) becoming available, use the steps in these versions of the articles:
+> * [Azure portal article](virtual-wan-route-table-nva-portal.md)
+> * [PowerShell article](virtual-wan-route-table-nva.md)
 
 ## <a name="design"></a>Design
 
@@ -94,6 +93,12 @@ In **Figure 2**, there are two hubs; **Hub1** and **Hub2**.
 **Figure 2**
 
 :::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figure 2" lightbox="./media/routing-scenarios/nva/nva.png":::
+
+## Considerations
+
+* For this scenario, you can use either a third party NVA, or Azure Firewall in VNet 2 and VNet 4.
+
+* This scenario doesn't support Secure Hubs with Routing Intent due to the [routing policies limitations](how-to-routing-policies.md#knownlimitations) regarding static routes. However, you can use the [BGP peering feature](scenario-bgp-peering-hub.md) to use indirect spokes together with Secure Hubs with Routing Intent.
 
 ## <a name="workflow"></a>Scenario workflow
 

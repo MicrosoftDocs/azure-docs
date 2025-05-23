@@ -32,32 +32,30 @@ using Microsoft.Azure.Management.EventGrid.Models;
 
 ## Authenticate with Azure Identity library
 
-### Prerequisites
-
 1. Create a Microsoft Entra application and Service Principal and set up a client secret or trusted certificate issued by certificate authority. Follow the instructions at [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
 1. Store the secret or the certificate in the Azure Keyvault. 
 1. Give contributor or owner access to the subscription to that application following the instructions at [Grant a user access to Azure resources using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal).
 1. Read more about [Authorizing access to Event Grid resources](/azure/event-grid/security-authorization).
 
-The Azure Identity library provides Microsoft Entra ID (Formerly Azure Active Directory) token authentication support across the Azure SDK. It provides a set of TokenCredential implementations, which you can use to construct Azure SDK clients that support Microsoft Entra token authentication. For more information, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
+The Azure Identity library provides Microsoft Entra ID token authentication support across the Azure SDK. It provides a set of TokenCredential implementations, which you can use to construct Azure SDK clients that support Microsoft Entra token authentication. For more information, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
 1. Include the Azure Identity client library for .NET with [NuGet](https://www.nuget.org/).
 
-```csharp
-dotnet add package Azure.Identity;
-dotnet add package Azure.Security.KeyVault.Secrets
-```
+   ```csharp
+   dotnet add package Azure.Identity;
+   dotnet add package Azure.Security.KeyVault.Secrets
+   ```
 
 2. Include the Azure Identity library in your C# project.
 
-```csharp
-using Microsoft.Azure.Identity;
-using Azure.Security.KeyVault.Secrets
-```
+   ```csharp
+   using Microsoft.Azure.Identity;
+   using Azure.Security.KeyVault.Secrets
+   ```
 
 3. You can either pass the secret credentials or certificate credentials to get access token, based on how your Service Principal is configured.
 
-    * Get access token using secret credential
+    - Get access token using secret credential
 
         To get the secret credentials, you need to read it from the Keyvault you created in Prerequisite **2** using [SecretClient](/azure/key-vault/secrets/quick-create-net). 
         
@@ -80,7 +78,7 @@ using Azure.Security.KeyVault.Secrets
                         .ExecuteAsync();
         ```
 
-    * Get access token using certificate credential.
+    - Get access token using certificate credential.
 
         To get the certificate credentials, you need to read it from the Keyvault you created in Prerequisite **2** using [CertificateClient](/azure/key-vault/certificates/quick-create-net). 
         

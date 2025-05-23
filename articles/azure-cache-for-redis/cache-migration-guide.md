@@ -1,14 +1,12 @@
 ---
 title: Migrate to Azure Cache for Redis
 description: Learn how to migrate your existing cache to Azure Cache for Redis
-
-
-
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
-  - migration
-  - aws-to-azure
+ms.collection: 
+ - migration
+ - aws-to-azure
 ms.date: 11/17/2021
 appliesto:
   - ✅ Azure Cache for Redis

@@ -1,17 +1,16 @@
 ---
-title: Configure Azure Front Door TLS policy (preview)
+title: Configure Azure Front Door TLS policy
 description: Learn how you can configure TLS policy to meet security requirements for your Front Door custom domains.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 04/09/2025
 ---
 
-# Configure TLS policy on a Front Door custom domain (preview)
+# Configure TLS policy on a Front Door custom domain 
 
-> [!IMPORTANT]
-> TLS policy is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs. If you use Azure Front Door (classic) and Microsoft CDN (classic), you'll continue to use the minimum TLS 1.2 version.
 
@@ -58,6 +57,6 @@ View the supported cipher suite of your domain via [www.ssllabs.com/ssltest](htt
 
 ## Related content
 
-- [Azure Front Door TLS Policy (preview)](tls-policy.md)
+- [Azure Front Door TLS Policy](tls-policy.md)
 - [Add a custom domain on Azure Front Door](how-to-add-custom-domain.md)
 - [Configure HTTPS for your custom domain on Azure Front Door](how-to-configure-https-custom-domain.md)

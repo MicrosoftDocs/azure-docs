@@ -8,7 +8,7 @@ metadata:
   ms.topic: landing-page
   author: dominicbetts
   ms.author: dobett
-  ms.date: 03/01/2024
+  ms.date: 04/15/2025
 landingContent:
   - title: Get started
     linkLists:
@@ -56,8 +56,6 @@ landingContent:
         links:
           - text: Create and connect a device
             url: core/tutorial-connect-device.md
-          - text: Connect an IoT Edge device
-            url: /training/modules/connect-iot-edge-device-to-iot-central/
   - title: Manage your devices and analyze your data
     linkLists:
       - linkListType: overview

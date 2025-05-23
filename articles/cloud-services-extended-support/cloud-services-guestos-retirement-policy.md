@@ -3,16 +3,20 @@ title: Supportability and retirement policy guide for Azure Guest OS | Microsoft
 description: Provides information about what Microsoft supports regarding the Azure Guest OS used by Cloud Services.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: raiye
+author: SivaSun
 manager: timlt
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: azure-cloud-services-classic
-ms.topic: article
-ms.date: 04/03/2025
-ms.author: raiye
+ms.topic: concept-article
+ms.date: 05/09/2025
+ms.author: ssundara
 ms.custom: compute-evergreen
 ---
 # Azure Guest OS supportability and retirement policy
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 The information on this page relates to the Azure Guest operating system ([Guest OS](cloud-services-guestos-update-matrix.md)) for Cloud Services worker and web roles (PaaS). It doesn't apply to Virtual Machines (IaaS).
 
 Microsoft has a published [support policy for the Guest OS](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). This page describes how the policy is implemented.
@@ -67,7 +71,7 @@ We recommend that you use latest Guest OS family for designing your Cloud Servic
 
 **What if my web application requires deeper integration with the OS?**
 
-If your web application architecture depends on underlying features of the operating system, use platform supported capabilities such as [startup tasks](/previous-versions/azure/cloud-services/cloud-services-startup-tasks.md) or other extensibility mechanisms. Alternatively, you can also use [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you're responsible for maintaining the underlying operating system.
+If your web application architecture depends on underlying features of the operating system, use platform supported capabilities such as [startup tasks](/previous-versions/azure/cloud-services/cloud-services-startup-tasks) or other extensibility mechanisms. Alternatively, you can also use [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you're responsible for maintaining the underlying operating system.
 
 ## Next steps
 Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).

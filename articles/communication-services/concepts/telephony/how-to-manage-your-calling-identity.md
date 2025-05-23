@@ -34,7 +34,7 @@ To request a CNAM registration for an Azure Communication Services number, custo
 - Customer and Azure account details including:
    - Company name
    - Company website
-   - Azure subcrition ID
+   - Azure subscription ID
    - Azure Communication Services Resource name
    - Azure Tenant ID
 - List a number and the corresponding caller name to register for each number. The customer must own these numbers under the Azure Resource provided. Customer can register only **US local numbers**.
@@ -60,4 +60,4 @@ Once the request is approved by the carrier, it takes **48 hours to be published
 - This registration is available only for US local numbers. It doesn't support toll free numbers.
 - This service only applies to *outbound* calls for numbers that customer owns.
 - CNAM databases aren't always up to date and not consistently updated. There's a potential for misspellings.
-- There are multiple CNAM databases across the country and terminating carriers may subscribe to one or more databases.
+- There are multiple CNAM databases across the country/region and terminating carriers may subscribe to one or more databases.

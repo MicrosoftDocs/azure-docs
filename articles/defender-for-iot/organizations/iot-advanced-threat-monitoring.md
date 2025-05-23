@@ -48,13 +48,13 @@ For more information, see [About Microsoft Sentinel content and solutions](../..
 
 ## Detect threats out-of-the-box with Defender for IoT data
 
-The **Microsoft Defender for IoT** data connector includes a default *Microsoft Security* rule named **Create incidents based on Azure Defender for IOT alerts**, which automatically creates new incidents for any new Defender for IoT alerts detected.
+The **Microsoft Defender for IoT** data connector includes a default *Microsoft Security* rule named **Create incidents based on Microsoft Defender for IoT alerts**, which automatically creates new incidents for any new Defender for IoT alerts detected.
 
 The **Microsoft Defender for IoT** solution includes a more detailed set of out-of-the-box analytics rules, which are built specifically for Defender for IoT data and fine-tune the incidents created in Microsoft Sentinel for relevant alerts.
 
 **To use out-of-the-box Defender for IoT alerts**:
 
-1. On the Microsoft Sentinel **Analytics** page, search for and disable the **Create incidents based on Azure Defender for IOT alerts** rule. This step prevents duplicate incidents from being created in Microsoft Sentinel for the same alerts.
+1. On the Microsoft Sentinel **Analytics** page, search for and disable the **Create incidents based on Microsoft Defender for IoT alerts** rule. This step prevents duplicate incidents from being created in Microsoft Sentinel for the same alerts.
 
 1. Search for and enable any of the following out-of-the-box analytics rules, installed with the **Microsoft Defender for IoT** solution:
 

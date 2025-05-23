@@ -4,7 +4,7 @@ description: Learn ways to improve the performance and throughput of NFS Azure f
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/09/2024
 ms.author: kendownie
 ---

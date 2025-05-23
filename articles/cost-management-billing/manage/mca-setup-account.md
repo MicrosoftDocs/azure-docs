@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2025
+ms.date: 05/22/2025
 ms.author: jkinma
 ---
 
@@ -408,6 +408,7 @@ Enterprise administrators and department administrators are listed as invoice se
 - EA API keys - Azure Enterprise Reporting APIs are retired aren't available on MCA. Instead, you use Microsoft Cost Management APIs. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
 - Management groups – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+- Tax exemption certificates - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 Here are some points to consider after migration.
 

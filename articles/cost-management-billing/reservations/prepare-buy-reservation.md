@@ -24,7 +24,7 @@ You can't buy a reservation if you have a custom role that mimics owner role or 
 
 Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, navigate to the **Policies** menu.
 
-Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, navigate to the **Policies** menu under **Billing Profile**.
+Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Beginning in June 2025, Microsoft Customer Agreement (MCA), Billing Profile, and Billing Account Owners will have the ability to purchase Reservations even if the Reserved Instances policy option is disabled in the Azure portal. To change settings, navigate to the **Policies** menu under **Billing Profile**.
 
 EA admins or Billing Profile Owners must have owner or reservation purchaser access on at least one EA or MCA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
 
@@ -65,10 +65,11 @@ Reservation discounts apply to the following eligible subscriptions and offer ty
 - Microsoft Customer Agreement subscriptions.
 - Individual plans with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P)
 - CSP subscriptions
+- Microsoft Azure Sponsorship subscriptions (offer number: MS-AZR-0036P)
 
 Resources that run in a subscription with other offer types don't receive the reservation discount.
 
-Some Azure services do not support Reserved Instance (RI) discounts, so it's important to check eligibility before making a purchase to avoid unnecessary costs. For example: Azure SQL Serverless and Azure Cosmos DB serverless
+Some Azure services do not support Reservation (RI) discounts, so it's important to check eligibility before making a purchase to avoid unnecessary costs. For example: Azure SQL Serverless and Azure Cosmos DB serverless
 
 ## Purchase reservations
 

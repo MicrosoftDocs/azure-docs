@@ -132,4 +132,4 @@ Install the Azure Monitor Agent (AMA) on your syslog server to enable data colle
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cteranetworksltd1651947437632.microsoft-sentinel-solution-ctera?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/?tab=Overview) in the Azure Marketplace.

@@ -16,6 +16,7 @@ ms.custom: b2c-support
 ---
 
 # User profile attributes
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Your Azure Active Directory B2C (Azure AD B2C) directory user profile comes with a set of built-in attributes, such as given name, surname, city, postal code, and phone number. You can extend the user profile with your own application data without requiring an external data store.
 
@@ -39,7 +40,7 @@ Azure AD B2C directory user profile supports the [user resource type](/graph/api
 - Whether the attribute can be used in a user flow
 - Whether the attribute can be used in a custom policy [Microsoft Entra ID technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
 
-|Name     |Date type     |Description|Available in Azure portal|Used in user flows|Used in custom policy|
+|Name     |Data type     |Description|Available in Azure portal|Used in user flows|Used in custom policy|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Whether the user account is enabled or disabled: **true** if the account is enabled, otherwise **false**.|Yes|No|Persisted, Output|
 |ageGroup        |String|The user's age group. Possible values: null, Undefined, Minor, Adult, NotAdult.|Yes|No|Persisted, Output|

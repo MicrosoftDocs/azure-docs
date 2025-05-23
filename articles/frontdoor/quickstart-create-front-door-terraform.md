@@ -14,6 +14,8 @@ ai-usage: ai-assisted
 
 # Quickstart: Create an Azure Front Door (classic) using Terraform
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This quickstart describes how to use Terraform to create an Azure Front Door (classic) profile to set up high availability for a web endpoint.
