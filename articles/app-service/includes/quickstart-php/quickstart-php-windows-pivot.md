@@ -78,7 +78,7 @@ To complete this quickstart:
     When the web app has been created, the Azure CLI shows output similar to the following example:
 
     <pre>
-    Local git is configured with url of \<URL>
+    Local git is configured with url of &lt;URL>
     {
       "availabilityState": "Normal",
       "clientAffinityEnabled": true,

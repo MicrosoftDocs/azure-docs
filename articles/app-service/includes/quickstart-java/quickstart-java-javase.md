@@ -205,7 +205,7 @@ With all the configuration ready in your [pom.xml](https://github.com/Azure-Samp
     Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When the deployment completes, you see the following output:
 
     ```output
-    [INFO] Successfully deployed the artifact to https://<app-name>.azurewebsites.net
+    [INFO] Successfully deployed the artifact to <URL>
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
@@ -214,7 +214,7 @@ With all the configuration ready in your [pom.xml](https://github.com/Azure-Samp
     [INFO] ------------------------------------------------------------------------
     ```
 
-    Your application is ready at `http://<appName>.azurewebsites.net/`. 
+    Your application is ready.
 
 ### [Spring Boot](#tab/springboot)
 
