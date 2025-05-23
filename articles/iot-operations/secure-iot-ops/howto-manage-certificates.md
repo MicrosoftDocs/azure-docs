@@ -152,24 +152,24 @@ The certificate management experience for external communications uses Azure Key
 For example, the connector for OPC UA uses the certificate management experience to configure OPC UA client application authentication to an external OPC UA server. Azure IoT Operations manages two distinct certificate stores for the connector for OPC UA: one for the *Trust list* and one for the *Issuer list*. To learn more about how the connector for OPC UA uses certificates to establish mutual trust with an OPC UA server, see [OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/overview-opcua-broker-certificates-management.md).
 
 
-When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the edge to be used in the *Trust list* and *Issuer list* stores for OPC UA connections:
+When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the Kubernetes cluster to be used in the *Trust list* and *Issuer list* stores for OPC UA connections:
 
 :::image type="content" source="media/howto-manage-certificates/add-new-certificate.png" alt-text="Screenshot that shows the Upload certificate and Add from Azure Key Vault options when adding a new certificate to the asset endpoints page.":::
 
-- **Upload Certificate**: Uploads a certificate which is then added as a secret to Azure Key Vault and automatically synchronized to the edge using Secret Store extension. 
+- **Upload Certificate**: Uploads a certificate which is then added as a secret to Azure Key Vault and automatically synchronized to the cluster using Secret Store extension. 
 
     > [!TIP]
-    > - View the certificate details once uploaded, to ensure you have the correct certificate before adding to Azure Key Vault and synchronizing to edge.
+    > - View the certificate details once uploaded, to ensure you have the correct certificate before adding to Azure Key Vault and synchronizing to the cluster.
     > - Use an intuitive name so that you can recognize which secret represents your secret in the future.
     
     > [!NOTE]
-    > Simply uploading the certificate won't add the secret to Azure Key Vault and synchronize to edge, you must select **Apply** for the changes to be applied.
+    > Simply uploading the certificate won't add the secret to Azure Key Vault and synchronize to the cluster, you must select **Apply** for the changes to be applied.
      
 
-- **Add from Azure Key Vault**: Add an existing secret from the Azure Key vault to be synchronized to the edge.
+- **Add from Azure Key Vault**: Add an existing secret from the Azure Key vault to be synchronized to the cluster.
 
     > [!NOTE]
-    > Make sure to select the secret that holds the certificate you would like to synchronize to the edge. Selecting a secret which isn't the correct certificate causes the connection to fail.
+    > Make sure to select the secret that holds the certificate you would like to synchronize to the cluster. Selecting a secret which isn't the correct certificate causes the connection to fail.
 
 
 Using the list view you can manage the synchronized certificates. You can view all the synchronized certificates, and which certificate store it's synchronized to:
@@ -178,4 +178,4 @@ Using the list view you can manage the synchronized certificates. You can view a
 
 - To learn more about the *Trust list* and *Issuer list* stores, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
 
-You can delete synced certificates as well. When you delete a synced certificate, it only deletes the synced certificate from the edge, and doesn't delete the contained secret reference from Azure Key Vault. You must delete the certificate secret manually from the key vault.
+You can delete synced certificates as well. When you delete a synced certificate, it only deletes the synced certificate from the Kubernetes cluster, and doesn't delete the contained secret reference from Azure Key Vault. You must delete the certificate secret manually from the key vault.
