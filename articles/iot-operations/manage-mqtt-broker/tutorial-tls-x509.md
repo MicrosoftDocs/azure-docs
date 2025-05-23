@@ -251,7 +251,7 @@ mqtts-endpoint   LoadBalancer   10.43.28.140   XXX.XX.X.X    8883:30988/TCP   10
 Instead of using the external IP, we use `localhost` for the tutorial. 
 
 > [!TIP]
-> The codespace configuration automatically sets up port forwarding for 8883. To setup other environments, see [Use port forwarding](./howto-test-connection.md#use-port-forwarding).
+> The codespace configuration automatically sets up port forwarding for 8883. To set up other environments, see [Use port forwarding](./howto-test-connection.md#use-port-forwarding).
 
 ## Use a single Mosquito client to publish messages over TLS
 
