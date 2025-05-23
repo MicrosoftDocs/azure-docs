@@ -13,7 +13,7 @@ The ARG GET/LIST API significantly reduces READ throttling by serving all incomi
 ARG GET/LIST provides a default quota of 4k /min /user /subscription on a moving window. This range isn't a hard limit; we can support more than this based on scenario requirement. The API provides a response header “x-ms-user-quota-remaining" indicating remaining quota and "x-ms-user-quota-resets-after" indicating the time for a full quota reset based on which you can understand your quota consumption.  
 
 > [!NOTE]
-> Keep in mind that the Azure Resource Manager (ARM) quota applies to these calls. Read about the [Azure Resource Manager limits](../../../azure-resource-manager/management/request-limits-and-throttling.md#migrating-to-regional-throttling-and-token-bucket-algorithm), which are the new limits that ARM follows for Azure Public cloud.  
+> Keep in mind that the Azure Resource Manager (ARM) quota applies to these calls. Read about the [Azure Resource Manager limits](../../../azure-resource-manager/management/request-limits-and-throttling.md#azure-resource-graph-throttling), which are the new limits that ARM follows for Azure Public cloud.  
 
 ## Using the ARG GET/LIST API 
 
