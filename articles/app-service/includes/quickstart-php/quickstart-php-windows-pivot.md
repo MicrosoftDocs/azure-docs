@@ -78,7 +78,7 @@ To complete this quickstart:
     When the web app has been created, the Azure CLI shows output similar to the following example:
 
     <pre>
-    Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
+    Local git is configured with url of \<URL>
     {
       "availabilityState": "Normal",
       "clientAffinityEnabled": true,
@@ -127,7 +127,7 @@ To complete this quickstart:
   remote: Finished successfully.
   remote: Running post deployment command(s)...
   remote: Deployment successful.
-  To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+  To \<URL>
       cc39b1e..25f1805  main -> main
   </pre>
 

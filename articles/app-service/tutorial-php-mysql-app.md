@@ -697,7 +697,7 @@ With the MySQL database protected by the virtual network, the easiest way to run
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>-&lt;hash>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: \<URL>
     </pre>
 
 1. In the SSH session, run database migrations from the */home/site/wwwroot* directory:
@@ -723,7 +723,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: \<URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -745,7 +745,7 @@ The sample app outputs console log messages in each of its endpoints to demonstr
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: \<URL>
 </pre>
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).

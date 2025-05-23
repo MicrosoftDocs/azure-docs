@@ -619,7 +619,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: \<URL>
     </pre>
 
 1. In the SSH session, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).

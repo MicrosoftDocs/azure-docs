@@ -538,7 +538,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>-&lt;hash>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: \<URL>
     </pre>
 
 1. In the SSH terminal, run `$JBOSS_HOME/bin/jboss-cli.sh --connect`.
@@ -609,7 +609,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: \<URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -631,7 +631,7 @@ The sample application includes standard Log4j logging statements to demonstrate
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: \<URL>
 </pre>
 
 Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
