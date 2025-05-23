@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Managed Redis and Azure Cache for Redis FAQ
+  title: Azure Redis Cache FAQ
   description: Learn the answers to common questions, patterns, and best practices for Azure Managed Redis and Azure Cache for Redis
   ms.date: 05/18/2025
   ms.topic: faq
@@ -9,7 +9,8 @@ metadata:
       - build-2025
   appliesto:
     - ✅ Azure Managed Redis
-title: Azure Managed Redis and Azure Cache for Redis FAQ
+    - ✅ Azure Cache for Redis
+title: Azure Redis cache FAQ
 summary: |
   Learn the answers to common questions, patterns, and best practices for Azure Managed Redis and Azure Cache for Redis.
   
