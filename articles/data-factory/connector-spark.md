@@ -81,7 +81,7 @@ The following properties are supported for Spark linked service version 2.0 (Pre
 | type | The type property must be set to: **Spark** | Yes |
 | version | The version that you specify. The value is `2.0`.  | Yes |
 | host | IP address or host name of the Spark server  | Yes |
-| port | The TCP port that the Spark server uses to listen for client connections. If you connect to Azure HDInsights, specify port as 443. | Yes |
+| port | The TCP port that the Spark server uses to listen for client connections. If you connect to Azure HDInsight, specify port as 443. | Yes |
 | serverType | The type of Spark server. <br/>The allowed value is: **SparkThriftServer** | No |
 | thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>The allowed value is: **HTTP** | No |
 | authenticationType | The authentication method used to access the Spark server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
@@ -122,7 +122,7 @@ The following properties are supported for Spark linked service version 1.0:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Spark** | Yes |
 | host | IP address or host name of the Spark server  | Yes |
-| port | The TCP port that the Spark server uses to listen for client connections. If you connect to Azure HDInsights, specify port as 443. | Yes |
+| port | The TCP port that the Spark server uses to listen for client connections. If you connect to Azure HDInsight, specify port as 443. | Yes |
 | serverType | The type of Spark server. <br/>Allowed values are: **SharkServer**, **SharkServer2**, **SparkThriftServer** | No |
 | thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed values are: **Binary**, **SASL**, **HTTP** | No |
 | authenticationType | The authentication method used to access the Spark server. <br/>Allowed values are: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
