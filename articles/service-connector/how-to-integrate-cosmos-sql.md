@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 03/14/2025
 ---
 
 # Integrate the Azure Cosmos DB for NoSQL with Service Connector
@@ -38,13 +38,18 @@ The table below shows which combinations of client types and authentication meth
 
 This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Cosmos DB for NoSQL using Service Connector.
 
-## Default environment variable names or application properties and Sample code
+> [!NOTE]
+> Cosmos DB does not natively support authentication via managed identity. Therefore, Service Connector uses the managed identity to retrieve the connection string, and the connection is subsequently established using that connection string.
+
+## Default environment variable names or application properties and sample code
 
 Use the connection details below to connect your compute services to the Azure Cosmos DB for NoSQL. For each example below, replace the placeholder texts `<database-server>`, `<database-name>`,`<account-key>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`, `<SQL-server>`, `<client-secret>`, `<tenant-id>`, and `<access-key>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 
-#### SpringBoot client type
+Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
+
+#### Spring Boot client type
 
 Using a system-assigned managed identity as the authentication type is only available for Spring Cloud Azure version 4.0 or higher.
 
@@ -68,6 +73,8 @@ Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using 
 [!INCLUDE [code for cosmos sql me id](./includes/code-cosmossql-me-id.md)]
 
 ### User-assigned managed identity
+
+Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
 
 #### SpringBoot client type
 

@@ -2,8 +2,8 @@
 title: Configure Start VM on Connect for Azure Virtual Desktop
 description: Learn how to enable or disable Start VM on Connect for Azure Virtual Desktop to power on session host virtual machines only when they're needed.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 10/07/2024
 ---
 
@@ -15,7 +15,7 @@ For personal host pools, Start VM on Connect only powers on an existing session 
 
 The time it takes for a user to connect to a remote session on a session host that is powered off (deallocated) increases because the VM needs time to power on again, much like turning on a physical computer. When a user uses Windows App and the Remote Desktop app to connect to Azure Virtual Desktop, they're told a VM is being powered on while they're connecting.
 
-You can enable Start VM on Connect for session hosts on Azure and Azure Stack HCI in personal or pooled host pools using the Azure portal, Azure PowerShell, or Azure CLI. Start VM on Connect is configured per host pool.
+You can enable Start VM on Connect for session hosts on Azure and Azure Local in personal or pooled host pools using the Azure portal, Azure PowerShell, or Azure CLI. Start VM on Connect is configured per host pool.
 
 ## Prerequisites
 

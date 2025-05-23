@@ -2,12 +2,11 @@
 title: Troubleshoot backend health issues in Azure Application Gateway
 description: Describes how to troubleshoot backend health issues for Azure Application Gateway
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 09/30/2024
-ms.author: greglin 
-ms.custom:
+ms.author: mbender 
 ---
 
 # Troubleshoot backend health issues in Application Gateway
@@ -48,14 +47,14 @@ BackendAddressPools :
 BackendAddressPoolsText : [
 {
                               "BackendAddressPool": {
-                                "Id": "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appgw1/b
+                                "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appgw1/b
                           ackendAddressPools/appGatewayBackendPool"
                               },
                               "BackendHttpSettingsCollection": [
                                 {
                                   "BackendHttpSettings": {
                                     "TrustedRootCertificates": [],
-                                    "Id": "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appg
+                                    "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appg
                           w1/backendHttpSettingsCollection/appGatewayBackendHttpSettings"
                                   },
                                   "Servers": [

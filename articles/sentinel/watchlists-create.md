@@ -7,8 +7,8 @@ ms.author: cwatson
 ms.topic: how-to
 ms.date: 3/14/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -40,17 +40,14 @@ You have two ways to upload a CSV file from your local machine to create a watch
 
 If you didn't use a watchlist template to create your file,
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.
 
 1. Select **+ New**.
-   
-   #### [Azure portal](#tab/azure-portal)
-    
-   :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new.png":::
 
-   #### [Defender portal](#tab/defender-portal)
-
+   ### [Defender portal](#tab/defender-portal)
    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new-defender.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new-defender.png":::
+   ### [Azure portal](#tab/azure-portal)
+   :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new.png":::
    ---
 
 1. On the **General** page, provide the name, description, and alias for the watchlist.
@@ -66,7 +63,7 @@ If you didn't use a watchlist template to create your file,
    |Select a type for the dataset     |   CSV file with a header (.csv)     |
    |Number of lines before row with headings     |  Enter the number of lines before the header row that's in your data file.       |
    |Upload file   |  Either drag and drop your data file, or select **Browse for files** and select the file to upload.      |
-   |SearchKey  |  Enter the name of a column in your watchlist that you expect to use as a join with other data or a frequent object of searches. For example, if your server watchlist contains country names and their respective two-letter country codes, and you expect to use the country codes often for search or joins, use the **Code** column as the SearchKey.    |
+   |SearchKey  |  Enter the name of a column in your watchlist that you expect to use as a join with other data or a frequent object of searches. For example, if your server watchlist contains country/region names and their respective two-letter country codes, and you expect to use the country codes often for search or joins, use the **Code** column as the SearchKey.    |
 
    >[!NOTE]
    > If your CSV file is greater than 3.8 MB, you need to use the instructions for [Create a large watchlist from file in Azure Storage](#create-a-large-watchlist-from-file-in-azure-storage-preview).
@@ -187,7 +184,7 @@ For more information, see [CORS support for Azure Storage](/rest/api/storageserv
    |Select a type for the dataset     |   CSV file with a header (.csv)     |
    |Number of lines before row with headings     |  Enter the number of lines before the header row that's in your data file.       |
    |Blob SAS URL (Preview)    |  Paste in the shared access URL you created.       |
-   |SearchKey  |  Enter the name of a column in your watchlist that you expect to use as a join with other data or a frequent object of searches. For example, if your server watchlist contains country names and their respective two-letter country codes, and you expect to use the country codes often for search or joins, use the **Code** column as the SearchKey.    |
+   |SearchKey  |  Enter the name of a column in your watchlist that you expect to use as a join with other data or a frequent object of searches. For example, if your server watchlist contains country/region names and their respective two-letter country codes, and you expect to use the country codes often for search or joins, use the **Code** column as the SearchKey.    |
    
    After you enter all the information, your page will look similar to following image.
 

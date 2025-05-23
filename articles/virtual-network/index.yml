@@ -138,6 +138,8 @@ landingContent:
             url: /azure/virtual-network/how-to-multiple-prefixes-subnet
           - text: Update address space for a virtual network peer
             url: /azure/virtual-network/update-virtual-network-peering-address-space
+          - text: Configure subnet peering
+            url: /azure/virtual-network/how-to-configure-subnet-peering  
   # Card
   - title: Network foundation
     linkLists:

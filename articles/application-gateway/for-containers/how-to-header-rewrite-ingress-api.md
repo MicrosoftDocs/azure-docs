@@ -2,11 +2,11 @@
 title: Header rewrite for Azure Application Gateway for Containers - Ingress API
 description: Learn how to rewrite headers in Ingress API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Header rewrite for Azure Application Gateway for Containers - Ingress API
@@ -173,7 +173,7 @@ In this example, we set a static user-agent with a value of `rewritten-user-agen
 This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `AGC-value` and removes a request header called `client-custom-header`.
 
 > [!TIP]
-> For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illistration of further capabilities.
+> For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illustration of further capabilities.
 
 ```bash
 kubectl apply -f - <<EOF

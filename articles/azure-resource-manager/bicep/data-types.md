@@ -2,29 +2,21 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
+ms.date: 05/20/2025
 ms.custom: devx-track-bicep
-ms.date: 08/20/2024
 ---
 
 # Data types in Bicep
 
 This article describes the data types that are supported in [Bicep](./overview.md). To define custom data types, see [User-defined data types](./user-defined-data-types.md).
 
-## Supported types
-
-Within Bicep, you can use these data types:
-
-* [array](#arrays)
-* [bool](#booleans)
-* [int](#integers)
-* [object](#objects)
-* [secureObject (indicated by a decorator in Bicep](#secure-strings-and-objects))
-* [secureString (indicated by a decorator in Bicep](#secure-strings-and-objects))
-* [string](#strings)
-
 ## Arrays
 
-Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, you can declare an array in a single line or in multiple lines. Commas (`,`) are used between values in single-line declarations, but they aren't used in multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI version 0.7.X or higher](./install.md).
+A **array** in Bicep is an ordered collection of values—such as strings, integers, objects, or even other arrays—commonly used to group related items like resource names, configuration settings, or parameters. Arrays are helpful for organizing deployment data, passing lists to resources, and iterating over multiple values.
+
+Arrays in Bicep are immutable. Once declared, their contents can't be changed. To "modify" an array, create a new array using functions like [`concat`](./bicep-functions-array.md#concat), [`map`](./bicep-functions-lambda.md#map), or [`filter`](./bicep-functions-lambda.md#filter).
+
+You can declare arrays in Bicep using either single-line or multi-line syntax. Multi-line array declarations require [Bicep CLI version 0.7.X or later](https://github.com/Azure/bicep/releases/tag/v0.7.4).
 
 ```bicep
 var multiLineArray = [
@@ -39,9 +31,9 @@ var mixedArray = ['abc', 'def'
     'ghi']
 ```
 
-Each array element can be of any type. You can have an array where each item is the same data type, or an array that holds different data types.
+**Single-line arrays** use commas (`,`) to separate values. **Multi-line arrays** don't use commas between values. You can mix single-line and multi-line declarations as needed.
 
-The following example shows an array of integers and an array of different types.
+Each array element can be of any type. You can have an array where each item is the same data type, or an array that holds different data types.
 
 ```bicep
 var integerArray = [
@@ -56,27 +48,40 @@ var mixedArray = [
   true
   'example string'
 ]
-```
 
-Arrays in Bicep are based on zero. In the following example, the expression `exampleArray[0]` evaluates to 1 and `exampleArray[2]` evaluates to 3. The index of the indexer might be another expression. The expression `exampleArray[index]` evaluates to 2. Integer indexers are only allowed on the expression of array types.
-
-```bicep
-var index = 1
-
-var exampleArray = [
-  1
-  2
-  3
+var arrayOfObjects = [
+  { name: 'dev', size: 1 }
+  { name: 'prod', size: 2 }
 ]
 ```
 
-You get the following error when the index is out of bounds:
+Arrays in Bicep are zero-based. You can access elements by index:
+
+```bicep
+var exampleArray = [1, 2, 3]
+output firstElement int = exampleArray[0] // 1
+output thirdElement int = exampleArray[2] // 3
+
+var index = 1
+output secondElement int = exampleArray[index] // 2
+```
+
+Starting with [Bicep CLI version 0.34.x](https://github.com/Azure/bicep/releases/tag/v0.34.1), you can use the `array[^index]` syntax to access elements from the end of an array — `^1` refers to the last element, `^2` to the second-to-last, and so on.
+
+```bicep
+var exampleArray = [1, 2, 3]
+
+output lastElement int = exampleArray[^1] // 3
+output secondToLastElement int = exampleArray[^2] // 2
+```
+
+If you access an index that is out of bounds, you get an error:
 
 ```error
 The language expression property array index 'x' is out of bounds
 ```
 
-To avoid this exception, use the [Or logical operator](./operators-logical.md#or-), as shown in the following example:
+To avoid out-of-bounds exception, use the [Or logical operator](./operators-logical.md#or-), as shown in the following example:
 
 ```bicep
 param emptyArray array = []
@@ -86,6 +91,18 @@ output foo bool = empty(emptyArray) || emptyArray[0] == 'bar'
 output bar bool = length(numberArray) <= 3 || numberArray[3] == 4
 ```
 
+### Array-related operators
+
+- Use [Comparison operators](./operators-comparison.md) to compare two arrays.
+- Use [Index accessor](./operators-access.md#index-accessor) to get an element from an array.
+- Use [Safe-dereference operator](./operator-safe-dereference.md) to access elements of an array.
+- Use [Spread](./operator-spread.md) to merge arrays.
+
+### Array-related functions
+
+- See [Array functions](./bicep-functions-array.md).
+- See [Lambda functions](./bicep-functions-lambda.md).
+
 ## Booleans
 
 When you specify Boolean values, use `true` or `false`. Don't surround the value with quotation marks.
@@ -93,6 +110,15 @@ When you specify Boolean values, use `true` or `false`. Don't surround the value
 ```bicep
 param exampleBool bool = true
 ```
+
+### Boolean-related operators
+
+- Use [Comparison operators](./operators-comparison.md) to compare boolean values.
+- See [Logical operators](./operators-logical.md).
+
+### Boolean-related functions
+
+See [Logical function](./bicep-functions-logical.md)
 
 ## Integers
 
@@ -102,7 +128,7 @@ When you specify integer values, don't use quotation marks.
 param exampleInt int = 1
 ```
 
-Bicep integers are 64-bit integers. When they're passed as inline parameters, the SDK or command-line tool you use for deployment can limit the range of values. For example, when you use PowerShell to deploy Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
+Bicep integers are 64-bit integers. When they're passed as inline parameters, the SDK or command-line tool you use for deployment can limit the range of values. For example, when you use PowerShell to deploy Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameters file](parameter-files.md). Resource types apply their own limits for integer properties.
 
 Bicep supports an integer literal type that refers to a specific value that's an exact integer. In the following example, `1` is an integer literal type, and `foo` can only be assigned the value `1` and no other value.
 
@@ -129,9 +155,18 @@ output bar 1 | 2 | 3 = 3
 
 Floating point, decimal, or binary formats aren't currently supported.
 
+### Integer-related operators
+
+- See [Comparison operators](./operators-comparison.md).
+- See [Numeric operators](./operators-numeric.md).
+
+### Integer-related functions
+
+See [Numeric functions](./bicep-functions-numeric.md).
+
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, you can declare an object in a single line or in multiple lines. Each property in an object consists of a key and a value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but they aren't used between properties for multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI version 0.7.X or higher](./install.md).
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, you can declare an object in a single line or in multiple lines. Each property in an object consists of a key and a value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but they aren't used between properties for multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.7.X or later.
 
 ```bicep
 param singleLineObject object = {name: 'test name', id: '123-abc', isCurrent: true, tier: 1}
@@ -217,6 +252,17 @@ param objectToTest object = {
 output bar bool = contains(objectToTest, 'four') && objectToTest.four == 4
 ```
 
+### Object-related operators
+
+- Use [Comparison operators](./operators-comparison.md) to compare objects.
+- Use [Index accessor](./operators-access.md#index-accessor) to get a property from an object.
+- Use [Safe-dereference operator](./operator-safe-dereference.md) to access object members.
+- Use [Spread](./operator-spread.md) to merge objects.
+
+### Object-related functions
+
+See [Object functions](./bicep-functions-object.md).
+
 ## Strings
 
 In Bicep, strings are marked with single quotation marks, and you must declare them on a single line. All Unicode characters with code points between `0` and `10FFFF` are allowed.
@@ -279,7 +325,7 @@ var storageName = 'storage${uniqueString(resourceGroup().id)}'
 In Bicep, multi-line strings are defined between three single quotation marks (`'''`) followed optionally by a newline (the opening sequence) and three single quotation marks (`'''` is the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
 
 > [!NOTE]
-> The Bicep parser reads all characters as is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
+> The Bicep parser reads every characters as it is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
 >
 > Interpolation isn't currently supported in multi-line strings. Because of this limitation, you might need to use the [`concat`](./bicep-functions-string.md#concat) function instead of using [interpolation](#strings).
 >
@@ -317,6 +363,14 @@ var myVar6 = '''interpolation
 is ${blocked}'''
 ```
 
+### String-related operators
+
+- See [Comparison operators](./operators-comparison.md).
+
+### String-related functions
+
+- See [String functions](./bicep-functions-string.md).
+
 ## Union types
 
 In Bicep, a union type allows the creation of a combined type that consists of a set of subtypes. An assignment is valid if any of the individual subtype assignments are permitted. The `|` character separates individual subtypes that use an `or` condition. For example, the syntax `a | b` means that a valid assignment could be either `a` or `b`. Union types are translated into the [allowed-value](../templates/definitions.md#allowed-values) constraint in Bicep, so only literals are permitted as members. Unions can include any number of literal-typed expressions.
@@ -335,7 +389,7 @@ Type unions must be reducible to a single Azure Resource Manager type, such as `
 type foo = 'a' | 1
 ```
 
-You can use any type expression as a subtype in a union type declaration (between `|` characters). For example, the following examples are all valid:
+You can use any type of expression as a subtype in a union type declaration (between `|` characters). For example, the following examples are all valid:
 
 ```bicep
 type foo = 1 | 2
@@ -345,7 +399,7 @@ type baz = bar | (4 | 5) | 6
 
 ### Custom-tagged union data type
 
-Bicep supports a custom-tagged union data type, which is used to represent a value that can be one of several types. To declare a custom-tagged union data type, you can use a `@discriminator()` decorator. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The syntax is:
+Bicep supports a custom-tagged union data type, which represents a value that can be one of several types. To declare a custom-tagged union data type, you can use a `@discriminator()` decorator. [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.21.X or later is required to use this decorator. The syntax is:
 
 ```bicep
 @discriminator('<property-name>')
@@ -372,22 +426,22 @@ The parameter value is validated based on the discriminated property value. For 
 
 The union type has some limitations:
 
-  - Union types must be reducible to a single Azure Resource Manager type. The following definition is invalid:
-    
-    ```bicep
-    type foo = 'a' | 1
-    ```
+- Union types must be reducible to a single Azure Resource Manager type. The following definition is invalid:
+  
+  ```bicep
+  type foo = 'a' | 1
+  ```
 
-  - Only literals are permitted as members.
-  - All literals must be of the same primitive data type (for example, all strings or all integers).
+- Only literals are permitted as members.
+- All literals must be of the same primitive data type (for example, all strings or all integers).
 
 You can use the union type syntax in [user-defined data types](./user-defined-data-types.md).
 
 ## Secure strings and objects
 
-Secure string uses the same format as string, and secure object uses the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#use-decorators) to a string or object.
+Secure strings use the same format as string, and secure objects use the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#use-decorators) to a string or object.
 
-When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
+When you set a parameter (or an output) to a secure string or secure object, the value of the parameter (or the output) isn't saved to the deployment history or logged. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 
 The following example shows two secure parameters:
 
@@ -398,6 +452,8 @@ param password string
 @secure()
 param configValues object
 ```
+
+For more information, see [Secure parameters](./parameters.md#secure-parameters) and [Secure outputs](./outputs.md#secure-outputs).
 
 ## Data type assignability
 
@@ -420,6 +476,6 @@ In Bicep, you can assign a value of one type (source type) to another type (targ
 | Named resource |X| | | | | | |?| |?| | |
 | Named module   |X| | | | | | |?| | |?| |
 
-## Related content
+## Next steps
 
-To learn about the structure and syntax of Bicep, see [Bicep file structure](./file.md).
+To learn about the structure and syntax of Bicep, see [Bicep file structure and syntax](./file.md).

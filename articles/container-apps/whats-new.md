@@ -8,13 +8,17 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 08/30/2023
+ms.date: 05/22/2025
 # Customer Intent: As an Azure Container Apps user, I'd like to know about new and improved features in Azure Container Apps.
 ---
 
 # What's new in Azure Container Apps
 
 This article lists significant updates and new features available in Azure Container Apps.
+
+## November 2024 and beyond
+
+You can now find updates and release announcements for [Azure Container Apps](https://aka.ms/aca/updates) and [Dapr in Azure Container Apps](https://aka.ms/dapr-aca-updates) in GitHub.
 
 ## May 2024 
 

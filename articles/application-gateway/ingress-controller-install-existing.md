@@ -2,12 +2,12 @@
 title: Create an ingress controller by using an existing Application Gateway deployment
 description: This article provides information on how to deploy the Application Gateway Ingress Controller by using an existing Application Gateway deployment.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: how-to
-ms.date: 9/17/2024
-ms.author: greglin
+ms.date: 4/4/2025
+ms.author: mbender
 ---
 
 # Install AGIC by using an existing Application Gateway deployment
@@ -118,7 +118,7 @@ For this configuration, you need authorization for the AGIC pod to make HTTP req
     ```
 
 > [!NOTE]
-> Make sure the identity that AGIC uses has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet where Application Gateway is deployed. If you didn't define a custom role that has this permission, you can use the built-in **Network Contributor** role.
+> Please ensure the identity used by AGIC has the proper permissions. A list of permissions needed by the identity can be found here: [Configure Infrastructure - Permissions](configuration-infrastructure.md#permissions). If a custom role is not defined with the required permissions, you may use the _Network Contributor_ role.
 
 ### Set up a service principal
 
@@ -264,7 +264,7 @@ Use [Cloud Shell](https://shell.azure.com/) to install the AGIC Helm package:
 1. Install the Helm chart with the `helm-config.yaml` configuration from the previous step:
 
     ```bash
-    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.7.5 -f helm-config.yaml
+    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.8.1 -f helm-config.yaml
     ```
 
     Alternatively, you can combine `helm-config.yaml` and the Helm command in one step:
@@ -272,7 +272,7 @@ Use [Cloud Shell](https://shell.azure.com/) to install the AGIC Helm package:
     ```bash
     helm install oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure \
          --name agic-controller \
-         --version 1.7.5 \
+         --version 1.8.1 \
          --namespace default \
          --debug \
          --set appgw.name=applicationgatewayABCD \

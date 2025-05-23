@@ -207,11 +207,16 @@ Add `EnableProxies` to this list to re-enable proxies on version 4.x of the Func
 
 ## AzureWebJobsKubernetesSecretName 
 
-Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. This setting requires you to set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
+Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. 
 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsKubernetesSecretName|`<SECRETS_RESOURCE>`|
+
+Considerations when use a Kubernetes Secrets resource:
++ You must also set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. 
++ The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
++ [Immutable secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) aren't supported and using them results in runtime errors.
 
 To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
@@ -910,6 +915,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `WEBSITE_CONTENTOVERVNET` |Not used for networking in Flex Consumption|
 | `WEBSITE_CONTENTSHARE` |Replaced by functionAppConfig's deployment section|
 | `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated virtual network in Flex|
+| `WEBSITE_MAX_DYNAMIC_APPLICATION_SCALE_OUT` |Replaced by `maximumInstanceCount` in `properties.functionAppConfig.scaleAndConcurrency`|
 | `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `WEBSITE_RUN_FROM_PACKAGE`|Not used for deployments in Flex Consumption|
 | `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` |Content share is not used in Flex Consumption|

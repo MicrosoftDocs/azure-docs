@@ -2,12 +2,12 @@
 title: External traffic redirection using CLI - Azure Application Gateway
 description: Learn how to create an application gateway that redirects external web traffic to the appropriate pool using the Azure CLI.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Create an application gateway with external redirection using the Azure CLI
@@ -65,12 +65,13 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 8080 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 10 
 ```
 
 It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features of it:
@@ -83,7 +84,7 @@ It may take several minutes for the application gateway to be created. After the
 
 ### Add the redirection configuration
 
-Add the redirection configuration that sends traffic from *www\.consoto.org* to the listener for *www\.contoso.com* to the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
+Add the redirection configuration that sends traffic from *www\.contoso.org* to the listener for *www\.contoso.com* to the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -116,7 +117,9 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener redirectListener \
   --rule-type Basic \
-  --redirect-config myredirect
+  --redirect-config myredirect \
+  --priority 11
+
 ```
 
 ## Test the application gateway

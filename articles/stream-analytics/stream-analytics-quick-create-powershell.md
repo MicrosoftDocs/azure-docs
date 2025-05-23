@@ -76,10 +76,10 @@ The following Azure CLI code block has many commands to prepare the input data r
     az iot hub create --name "MyASAIoTHub" --resource-group $resourceGroup --sku S1
     ```
 
-    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command. Copy the entire connection string and save it. You need it when you add the IoT Hub as an input to your Stream Analytics job.
+    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command. Copy the entire connection string and save it. You need it when you add the IoT Hub as an input to your Stream Analytics job.
 
     ```azurecli
-    az iot hub show-connection-string --resource-group $resourceGroup --hub-name "MyASAIoTHub"
+    az iot hub connection-string show --resource-group $resourceGroup --hub-name "MyASAIoTHub"
     ```
 
 3. Add a device to IoT Hub using the [`az iot hub device-identity create`](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command. This example creates a device called **MyASAIoTDevice**.

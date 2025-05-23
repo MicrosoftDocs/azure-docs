@@ -2,11 +2,11 @@
 title: 'Tutorial: Improve web application access - Azure Application Gateway'
 description: In this tutorial, learn how to create an autoscaling, zone-redundant application gateway with a reserved IP address using Azure PowerShell.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 03/08/2021
-ms.author: greglin
+ms.author: mbender
 ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As an IT administrator new to Application Gateway, I want to configure the service in a way that automatically scales based on customer demand and is highly available across availability zones to ensure my customers can access their web applications when they need them.
 ---
@@ -151,9 +151,9 @@ $listener02 = New-AzApplicationGatewayHttpListener -Name "HTTPListener" `
 $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting1" `
           -Port 80 -Protocol Http -CookieBasedAffinity Disabled -PickHostNameFromBackendAddress
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
-         -BackendHttpSettings $setting -HttpListener $listener01 -BackendAddressPool $pool
+         -BackendHttpSettings $setting -HttpListener $listener01 -BackendAddressPool $pool -Priority 1
 $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType basic `
-         -BackendHttpSettings $setting -HttpListener $listener02 -BackendAddressPool $pool
+         -BackendHttpSettings $setting -HttpListener $listener02 -BackendAddressPool $pool -Priority 2
 ```
 
 ## Specify autoscale

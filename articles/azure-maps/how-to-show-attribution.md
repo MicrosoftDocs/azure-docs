@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: The map copyright attribution information must be displayed in all applications that use the Render API, including web and mobile applications. This article discusses how to display the correct attribution every time you display or update a tile. 
 author: faterceros
 ms.author: aterceros
-ms.date: 3/16/2022
+ms.date: 3/31/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: render
@@ -28,9 +28,7 @@ The [Get Map Attribution API] enables you to request map copyright attribution i
 
 ### When to use the Get Map Attribution API
 
-The map copyright attribution information must be displayed on the map in any applications that use the Render API, including web and mobile applications.
-
-The attribution is automatically displayed and updated on the map When using any of the Azure Maps SDKs, including the [Web], [Android] and [iOS] SDKs.
+The map copyright attribution information must be displayed on the map in any applications that use the Render API.
 
 When using map tiles from the Render service in a third-party map, you must display and update the copyright attribution information on the map.
 
@@ -53,18 +51,16 @@ You need the following information to run the `attribution` command:
 Run the following GET request to get the corresponding copyright attribution to display on the map:
 
 ```http
-https://atlas.microsoft.com/map/attribution?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.1&tilesetId=microsoft.base&zoom=6&bounds=-122.414162,47.579490,-122.247157,47.668372
+https://atlas.microsoft.com/map/attribution?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2024-04-01&tilesetId=microsoft.base&zoom=6&bounds=-122.414162,47.579490,-122.247157,47.668372
 ```
 
 ## Additional information
 
 * For more information, see the [Render service] documentation.
 
-[Android]: how-to-use-android-map-control-library.md
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Get Map Attribution API]: /rest/api/maps/render/get-map-attribution
 [Get Map Attribution]: /rest/api/maps/render/get-map-attribution#tilesetid
-[iOS]: how-to-use-ios-map-control-library.md
 [Render service]: /rest/api/maps/render
 [Tileset Create API]: /rest/api/maps-creator/tileset/create
 [TilesetID]: /rest/api/maps/render/get-map-attribution#tilesetid

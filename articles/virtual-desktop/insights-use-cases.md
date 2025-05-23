@@ -2,8 +2,8 @@
 title: Use cases for Azure Virtual Desktop Insights - Azure Virtual Desktop
 description: Learn about how using Azure Virtual Desktop Insights can help you understand your deployments of Azure Virtual Desktop, including some use cases and example scenarios.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 06/21/2024
 ---
 
@@ -166,6 +166,9 @@ To view a list of users with outdated clients:
    :::image type="content" source="media/insights-use-cases/insights-client-version-usage-2.png" alt-text="A screenshot showing a table of users with outdated clients." lightbox="media/insights-use-cases/insights-client-version-usage-2.png":::
 
 You should periodically review the versions of clients in use to ensure your users are getting the best experience.
+
+> [!NOTE]
+> Some clients, such as Windows App on iOS/iPadOS and Android are listed in the report with their build number, not their version number. You can match the build number to the version number in the **About** section of Windows App settings.
 
 ## Cost saving opportunities
 

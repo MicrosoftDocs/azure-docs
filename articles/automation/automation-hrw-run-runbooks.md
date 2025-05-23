@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 05/05/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.service: azure-automation
@@ -13,7 +13,8 @@ ms.service: azure-automation
 
 
 > [!Important]
-> Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+> - Starting 1st April 2025, all jobs running on agent-based Hybrid Worker will be stopped. 
+> - Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 > [!NOTE]
 > Azure Automation Run As Account has retired on September 30, 2023 and is replaced with Managed Identities. Follow the guidelines on [how to start migrating your runbooks to use managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md#sample-scripts).
@@ -268,7 +269,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
     > [!NOTE]
     > You can find the client Id of the user-assigned managed identity in the Azure portal.
 
-    > :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id-inline.png" alt-text="Screenshot of client id in Managed Identites." lightbox="./media/automation-hrw-run-runbooks/managed-identities-client-id-expanded.png":::
+    > :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id-inline.png" alt-text="Screenshot of client id in Managed Identities." lightbox="./media/automation-hrw-run-runbooks/managed-identities-client-id-expanded.png":::
 
 ---
 
@@ -482,11 +483,11 @@ You can now upload the signed runbook to Azure Automation and execute it like a 
 
 ## Logging
 
-To help troubleshoot issues with your runbooks running on a hybrid runbook worker, logs are stored locally in the following location:
+To help troubleshoot issues with your runbooks running on an extension-based hybrid runbook worker, logs are stored locally in the following location:
 
-* On Windows at `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` for detailed job runtime process logging. High-level runbook job status events are written to the **Application and Services Logs\Microsoft-Automation\Operations** event log.
+* On Windows at `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows<version>` for detailed extension and job runtime process logging. High-level runbook job status events are written to the **Applications and Services Logs/Microsoft-SMA/Operational** event log.
 
-* On Linux, the user hybrid worker logs can be found at `/home/nxautomation/run/worker.log`, and system runbook worker logs can be found at `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
+* On Linux, the extension-based hybrid worker logs can be found at  `/home/hweautomation/run/worker.log`, and `/var/log/azure/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux`.
 
 ## Next steps
 

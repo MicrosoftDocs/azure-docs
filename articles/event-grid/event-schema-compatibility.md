@@ -11,7 +11,7 @@ ms.custom: FY25Q1-Linter
 # Event schema compatibility
 When a topic is created, an incoming event schema is defined. And, when a subscription is created, an outgoing event schema is defined. This article shows you the compatibility between input and output schema that's allowed when creating an event subscription.
 
-## Input schema to outupt schema
+## Input schema to output schema
 The following table shows you the compatibility allowed when creating a subscription. 
 
 | Incoming event schema | Outgoing event schema | Supported |

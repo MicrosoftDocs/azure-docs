@@ -3,8 +3,8 @@ title: Configure serial or COM port redirection over the Remote Desktop Protocol
 description: Learn how to redirect serial or COM ports from a local device to a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 04/29/2024
 ---
 
@@ -169,7 +169,7 @@ To allow or disable serial or COM port redirection using Microsoft Intune:
 
 To allow or disable serial or COM port redirection using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -221,7 +221,7 @@ To test serial or COM port redirection from a local Windows device:
       chgport
       ```
       
-      The output is similar to the following output:
+      The output is similar to the following example:
 
       - On the local device:
 

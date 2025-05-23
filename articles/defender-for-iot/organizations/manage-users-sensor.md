@@ -7,7 +7,7 @@ ms.topic: how-to
 ---
 # Create and manage users on an OT network sensor
 
-Microsoft Defender for IoT provides tools for managing on-premises user access in the OT network sensor, and the legacy on-premises management console. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
+Microsoft Defender for IoT provides tools for managing on-premises user access in the OT network sensor. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
 
 This article describes how to manage on-premises users directly on an OT network sensor.
 

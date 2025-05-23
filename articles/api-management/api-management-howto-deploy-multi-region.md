@@ -23,8 +23,11 @@ When adding a region, you configure:
 
 * [Virtual network](virtual-network-concepts.md) settings in the added region, if networking is configured in the existing region or regions.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
+
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
+
 
 ## About multi-region deployment
 
@@ -180,7 +183,7 @@ This section provides considerations for multi-region deployments when the API M
 
 * **Internal VNet mode** - Private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage routing and private load balancing across multiple regions. 
 
-## Next steps
+## Related content
 
 * Learn more about configuring API Management for [high availability](high-availability.md).
 

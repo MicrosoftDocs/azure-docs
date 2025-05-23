@@ -12,7 +12,7 @@ ms.author: junbchen
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.1.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.1.0` or later. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -383,9 +383,7 @@ spec:
 
 ### Configuration refresh
 
-When you make changes to your data in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. It's common to update multiple key-values, but you don't want the cluster to pick up a change midway through the update. To maintain configuration consistency, you can use a key-value to signal the completion of your update. This key-value is known as the sentinel key. The Kubernetes provider can monitor this key-value, and the ConfigMap and Secret will only be regenerated with updated data once a change is detected in the sentinel key.
-
-In the following sample, a key-value named `app1_sentinel` is polled every minute, and the configuration is refreshed whenever changes are detected in the sentinel key.
+When you make changes to your data in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. In the following sample, the Kubernetes provider checks Azure App Configuration for updates every minute. The associated ConfigMap and Secret are regenerated only when changes are detected. For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -403,10 +401,6 @@ spec:
     refresh:
       enabled: true
       interval: 1m
-      monitoring:
-        keyValues:
-          - key: app1_sentinel
-            label: common
 ```
 
 ### Key Vault references
@@ -444,6 +438,57 @@ Two Kubernetes built-in [types of Secrets](https://kubernetes.io/docs/concepts/c
 |Name|Value|
 |---|---|
 |.kubernetes.secret.type|kubernetes.io/tls|
+
+The following examples show how the data is populated in the generated Secrets with different types.
+
+Assuming an App Configuration store has these Key Vault references:
+
+|key|value|tags|
+|---|---|---|
+|app1-secret1|<Key Vault reference 1>|`{}`|
+|app1-secret2|<Key Vault reference 2>|`{}`|
+|app1-certificate|<Key Vault reference 3>|`{".kubernetes.secret.type": "kubernetes.io/tls"}`|
+
+The following sample generates Secrets of both Opaque and TLS types.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: app1*
+  secret:
+    target:
+      secretName: secret-created-by-appconfig-provider
+    auth:
+      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
+```
+
+The generated Secrets are populated with the following data:
+
+```yaml
+name: secret-created-by-appconfig-provider
+type: Opaque
+data:
+  app1-secret1: <secret value retrieved from Key Vault>
+  app1-secret2: <secret value retrieved from Key Vault>
+```
+
+```yaml
+name: app1-certificate
+type: kubernetes.io/tls
+data:
+  tls.crt: |
+    <certificate data retrieved from Key Vault>
+  tls.key: |
+    <certificate key retrieved from Key Vault>
+```
 
 #### Refresh of secrets from Key Vault
 
@@ -497,6 +542,34 @@ spec:
     refresh:
       enabled: true
       interval: 10m
+```
+
+### On-demand Refresh
+
+While you can set up automatic data refresh, there are times when you might want to trigger an on-demand refresh to get the latest data from App Configuration and Key Vault. This can be done by adding or updating any annotations in the `metadata.annotations` section of the `AzureAppConfigurationProvider`. The Kubernetes provider will then reconcile and update the ConfigMap and Secret with the latest data from your App Configuration store and Key Vault.
+
+In the following example, the `AzureAppConfigurationProvider` is updated with a new annotation. After the modification, apply the changes using `kubectl apply` to trigger an on-demand refresh.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+  annotations:
+    key1: value1
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
+  secret:
+    target:
+      secretName: secret-created-by-appconfig-provider
+    auth:
+      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
 ```
 
 ### ConfigMap Consumption

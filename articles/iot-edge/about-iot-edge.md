@@ -1,24 +1,29 @@
 ---
 title: What is Azure IoT Edge
-description: Overview of the Azure IoT Edge service and its components. Learn how to deploy, run, and monitor containerized Linux workloads at the edge.
+description: Learn how Azure IoT Edge enables you to deploy, run, and monitor containerized Linux workloads at the edge for better business insights and offline decision-making.
 author: PatAltimore
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: overview
-ms.date: 06/12/2024
+ms.date: 03/20/2025
 ms.author: patricka
-ms.custom: mvc, linux-related-content
+ms.custom:
+  - mvc, linux-related-content
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:03/20/2025
+#customer intent: As a developer, I want to know how to create and deploy custom IoT Edge modules so that I can run my business logic on edge devices.
 ---
 
 # What is Azure IoT Edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Azure IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads.
+Azure IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads, bringing analytics closer to your devices for faster insights and offline decision-making.
 
 Analytics drives business value in IoT solutions, but not all analytics need to be in the cloud. Azure IoT Edge helps you bring the analytical power of the cloud closer to your devices to drive better business insights and enable offline decision making. For example, you can run anomaly detection workloads at the edge to respond as quickly as possible to emergencies happening on a production line. If you want to reduce bandwidth costs and avoid transferring terabytes of raw data, you can clean and aggregate the data locally then only send the insights to the cloud for analysis.
 
-Azure IoT Edge is a feature of [Azure IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) and enables you to scale out and manage an IoT solution from the cloud. By packaging your business logic into standard containers and using optional pre-built IoT Edge module images from partners or the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name), you can easily compose, deploy, and maintain your solution.
+Azure IoT Edge brings edge-based capabilities to a cloud-based solution and is a feature of [Azure IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) that enables you to scale out and manage an IoT solution from the cloud. By packaging your business logic into standard containers and using optional pre-built IoT Edge module images from partners or the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name), you can easily compose, deploy, and maintain your solution.
 
 Azure IoT Edge is made up of three components:
 
@@ -35,7 +40,7 @@ IoT Edge modules are units of execution, implemented as Docker-compatible contai
 
 ### Artificial intelligence at the edge
 
-Azure IoT Edge allows you to deploy complex event processing, machine learning, image recognition, and other high value AI without writing it in-house. Azure services like Azure Stream Analytics and Azure Machine Learning can all be run on-premises via Azure IoT Edge. You're not limited to Azure services, though. Anyone is able to create AI modules for your own use.
+Azure IoT Edge allows you to deploy advanced AI workloads like machine learning, image recognition, and complex event processing directly at the edge—without the need for in-house development. Azure services like Azure Stream Analytics and Azure Machine Learning can all be run on-premises via Azure IoT Edge. You're not limited to Azure services, though. Anyone is able to create AI modules for your own use.
 
 ### Bring your own code
 
@@ -67,11 +72,11 @@ Azure IoT Edge integrates seamlessly with [Azure IoT Central](../iot-central/ind
 * Send a workload to a set of devices.
 * Monitor workloads running on devices in the field.
 
-:::image type="content" source="./media/about-iot-edge/cloud-interface.png" alt-text="Diagram of how device telemetry and actions are coordinated with the cloud.":::
+:::image type="content" source="./media/about-iot-edge/cloud-interface.png" alt-text="Diagram of how device data and actions are coordinated with the cloud.":::
 
 ## Next steps
 
-Try out IoT Edge concepts by deploying your first IoT Edge module to a device:
+Take the next step learning IoT Edge concepts by deploying your first IoT Edge module to a device:
 
 * [Deploy modules to a Linux IoT Edge device](quickstart-linux.md)
 * [Deploy modules to a Windows IoT Edge device](quickstart.md)

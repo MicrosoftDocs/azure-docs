@@ -1,41 +1,64 @@
 - name: Virtual Network Manager documentation
   href: index.yml
-- name: Overview
+- name: Get started
   items:
   - name: What is Azure Virtual Network Manager?
     href: overview.md
   - name: Common use cases for Azure Virtual Network Manager
     href: concept-use-cases.md
-- name: Quickstarts
-  items:
-  - name: Create Virtual Network Manager - Portal
-    href: create-virtual-network-manager-portal.md
-  - name: Create Virtual Network Manager - PowerShell
-    href: create-virtual-network-manager-powershell.md
-  - name: Create Virtual Network Manager - CLI
-    href: create-virtual-network-manager-cli.md
-  - name: Create Virtual Network Manager - Terraform
-    href: create-virtual-network-manager-terraform.md
-  - name: Create Virtual Network Manager - ARM
-    href: create-virtual-network-manager-template.md
-  - name: Create Virtual Network Manager - Bicep
-    href: create-virtual-network-manager-bicep.md
-  expanded: true
-- name: Tutorials
-  items:
-  - name: Create a secured hub and spoke
-    href: tutorial-create-secured-hub-and-spoke.md
-- name: Concepts
-  items:
+  - name: Limitations
+    href: concept-limitations.md
   - name: FAQ
     href: faq.md
-  - name: Use cases
-    href: concept-use-cases.md
-  - name: limitations
-    href: concept-limitations.md
-  - name: IP address management
-    href: concept-ip-address-management.md
-  - name: Scope
+- name: Deploy 
+  items:
+  - name: Deployment overview
+    href: concept-deployments.md
+  - name: Quickstarts
+    items:
+    - name: Create Virtual Network Manager - Portal
+      href: create-virtual-network-manager-portal.md
+    - name: Create Virtual Network Manager - PowerShell
+      href: create-virtual-network-manager-powershell.md
+    - name: Create Virtual Network Manager - CLI
+      href: create-virtual-network-manager-cli.md
+    - name: Create Virtual Network Manager - Terraform
+      href: create-virtual-network-manager-terraform.md
+    - name: Create Virtual Network Manager - ARM
+      href: create-virtual-network-manager-template.md
+    - name: Create Virtual Network Manager - Bicep
+      href: create-virtual-network-manager-bicep.md
+  - name: Create a secured hub and spoke
+    href: tutorial-create-secured-hub-and-spoke.md
+  - name: Resource Manager Templates
+    href: resource-manager-template-samples.md
+  - name: Cross-tenant connection support
+    items:
+    - name: Cross-tenant connection support
+      href: concept-cross-tenant.md
+    - name: Configure cross-tenant connections - Portal
+      href: how-to-configure-cross-tenant-portal.md
+    - name: Configure cross-tenant connections - CLI
+      href: how-to-configure-cross-tenant-cli.md
+  - name: Create a network topology
+    items:
+    - name: Hub-and-spoke
+      items:
+      - name: Azure portal
+        href: how-to-create-hub-and-spoke.md
+      - name: Azure PowerShell
+        href: how-to-create-hub-and-spoke-powershell.md
+      - name: Deploy hub and spoke topology with Azure Firewall
+        href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
+    - name: Mesh
+      items: 
+      - name: Azure portal
+        href: how-to-create-mesh-network.md
+      - name: Azure PowerShell
+        href: how-to-create-mesh-network-powershell.md
+- name: Configure
+  items:
+  - name: Scope overview
     href: concept-network-manager-scope.md
   - name: Network groups
     items:
@@ -43,41 +66,33 @@
       href: concept-network-groups.md
     - name: Azure Policy integration with network groups
       href: concept-azure-policy-integration.md
-    - name: Cross-tenant connection support
-      href: concept-cross-tenant.md
+    - name: Define dynamic network group membership with Azure Policy
+      href: how-to-define-network-group-membership-azure-policy.md
   - name: Configuration types
     items:
-    - name: Connectivity
+    - name: Connectivity configuration overview
       href: concept-connectivity-configuration.md
     - name: Security admin rules
       items: 
-      - name: Security admin rule concepts
+      - name: Security admin rule overview
         href: concept-security-admins.md
       - name: Security admin rule enforcement
         href: concept-enforcement.md
       - name: Network groups as source and destination
         href: concept-security-admin-rules-network-group.md
-    - name: User-defined routes (UDRs) management 
-      href: concept-user-defined-route.md
-  - name: Deployments
-    href: concept-deployments.md
-  - name: Remove or update components
+    - name: User-defined routes (UDRs) management
+      items:
+      - name: User-defined routes (UDRs) management overview
+        href: concept-user-defined-route.md
+      - name: Create user-defined routes (UDRs)
+        href: how-to-create-user-defined-route.md
+      - name: Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologies
+        href: how-to-manage-user-defined-routes-multiple-hub-spoke-topologies.md
+    - name: View applied configurations
+      href: how-to-view-applied-configurations.md
+  - name: Remove or update network manager components
     href: concept-remove-components-checklist.md
-  - name: Monitoring
-    items:
-    - name: Event Log Options for Azure Virtual Network Manager
-      href: concept-event-logs.md
-    - name: Monitoring security admin rules with Virtual Network Flow Logs
-      href: concept-virtual-network-flow-logs.md
-    - name: Query Azure Virtual Network Manager using Azure Resource Graph (ARG)
-      href: query-azure-resource-graph.md
-    - name: Verify resource reachability with Virtual Network Verifier
-      href: concept-virtual-network-verifier.md
-- name: Samples
-  items:
-    - name: Resource Manager Templates
-      href: resource-manager-template-samples.md
-- name: How-to guides
+- name: Secure network traffic
   items:
   - name: Secure network traffic with security admin rules
     items:
@@ -89,52 +104,36 @@
       href: how-to-block-network-traffic-powershell.md
     - name: Protect high-risk network ports with security admin rules and exceptions
       href: how-to-block-high-risk-ports.md
-  - name: Create user-defined routes (UDRs)
-    href: how-to-create-user-defined-route.md
-  - name: Create a network topology
-    items:
-    - name: Hub-and-spoke
-      items:
-      - name: Azure portal
-        href: how-to-create-hub-and-spoke.md
-      - name: Azure PowerShell
-        href: how-to-create-hub-and-spoke-powershell.md
-    - name: Mesh
-      items: 
-      - name: Azure portal
-        href: how-to-create-mesh-network.md
-      - name: Azure PowerShell
-        href: how-to-create-mesh-network-powershell.md
-  - name: Cross-tenant connection support
-    items:
-    - name: Configure cross-tenant connection - Portal
-      href: how-to-configure-cross-tenant-portal.md
-    - name: Configure cross-tenant connection - CLI
-      href: how-to-configure-cross-tenant-cli.md
-  - Name: Manage IP addresses
-    href: how-to-manage-ip-addresses-network-manager.md
-  - name: Monitoring
-    items:
+- name: Manage IP addresses (IPAM)
+  items:
+    - name: IP address management overview
+      href: concept-ip-address-management.md
+    - name: Automate IP address management
+      href: automate-ip-address-management-ipam-sample.md
+    - name: Prevent overlapping IP address spaces with Azure Policy and IPAM
+      href: Prevent-overlapping-ip-address-space-policy-ipam.md
+    - Name: Create IP address pools with IPAM
+      href: how-to-manage-ip-addresses-network-manager.md
+    - name: Deploy cross-tenant IP address pools
+      href: deploy-cross-tenant-ip-address-management.md
+- name: Troubleshoot
+  items:
+    - name: Common issues 
+      href: common-issues.md
+    - name: Event Log Options for Azure Virtual Network Manager
+      href: concept-event-logs.md
     - name: Configure Event Logs for Azure Virtual Network Manager
       href: how-to-configure-event-logs.md
-    - name: Monitor security admin rules with Virtual Network Flow Logs
+    - name: Monitoring security admin rules with Virtual Network Flow Logs
       href: concept-virtual-network-flow-logs.md
-    - name: View applied configurations
-      href: how-to-view-applied-configurations.md
-    - name: Define dynamic network group membership with Azure Policy
-      href: how-to-define-network-group-membership-azure-policy.md
-    - name: Verify resource reachability
-      href: how-to-verify-reachability-with-virtual-network-verifier.md
-  - name: User-defined routes (UDRs) management
-    items:
-      - name: Create user-defined routes (UDRs)
-        href: how-to-create-user-defined-route.md
-      - name: Deploy hub and spoke topology with Azure Firewall
-        href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
-      - name: Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologies
-        href: how-to-manage-user-defined-routes-multiple-hub-spoke-topologies.md 
-  - name: Common issues
-    href: common-issues.md
+    - name: Query Azure Virtual Network Manager using Azure Resource Graph (ARG)
+      href: query-azure-resource-graph.md
+    - name: Virtual Network Verifier
+      items:
+      - name: Virtual Network Verifier overview 
+        href: concept-virtual-network-verifier.md
+      - name: Verify resource reachability with Virtual Network Verifier
+        href: how-to-verify-reachability-with-virtual-network-verifier.md
 - name: Reference
   items:
   - name: Code samples
@@ -153,10 +152,3 @@
     href: /azure/templates/microsoft.network/networkmanagers
     displayName: ARM
 - name: Resources
-  items:
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/

@@ -2,17 +2,17 @@
 title: PowerShell Script Sample - Back up an Azure VM
 description: In this article, learn how to use an Azure PowerShell Script sample to back up an Azure virtual machine.
 ms.topic: sample
-ms.date: 03/05/2019
+ms.date: 04/30/2025
 ms.custom: mvc, devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up an encrypted Azure virtual machine with PowerShell
 
-This script creates a Recovery Services vault with geo-redundant storage (GRS) for an encrypted Azure virtual machine. The default protection policy is applied to the vault. The policy generates a daily backup for the virtual machine, and retains each backup for 365 days. The script also triggers the initial recovery point for the virtual machine and retains that recovery point for 30 days.
+This script creates a Recovery Services vault with geo-redundant storage (GRS) for an encrypted Azure VM. It applies the default protection policy, enabling daily backups retained for 365 days. Also, it triggers an initial recovery point, stored for 30 days.
 
-[!INCLUDE [sample-powershell-install](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powerShell-install](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -49,4 +49,4 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/new-azureps-module-az).
+Learn more about [the Azure PowerShell module](/powershell/azure/new-azureps-module-az).

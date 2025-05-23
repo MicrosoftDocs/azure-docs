@@ -10,7 +10,5 @@ ms.author: crdun
 > * [Facebook](../articles/app-service/configure-authentication-provider-facebook.md)
 > * [Google](../articles/app-service/configure-authentication-provider-google.md)
 > * [X](../articles/app-service/configure-authentication-provider-twitter.md)
-> * [An OpenID Connect provider](../articles/app-service/configure-authentication-provider-openid-connect.md)
-> * [Sign in with Apple (Preview)](../articles/app-service/configure-authentication-provider-apple.md)
-> 
-> 
+> * [OpenID Connect provider](../articles/app-service/configure-authentication-provider-openid-connect.md)
+> * [Sign in with Apple (preview)](../articles/app-service/configure-authentication-provider-apple.md)

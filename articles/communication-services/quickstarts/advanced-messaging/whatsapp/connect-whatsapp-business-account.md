@@ -1,6 +1,6 @@
 ---
-title: Register WhatsApp business account
-titleSuffix: An Azure Communication Services concept document
+title: Register WhatsApp Business Account
+titleSuffix: An Azure Communication Services article
 description: Learn about Communication Service WhatsApp Business Accounts concepts.
 author: darmour
 manager: sundraman
@@ -12,16 +12,17 @@ ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ---
 
-# Quickstart: Register WhatsApp business account
+# Register WhatsApp Business Account
 
 Get started with the Azure Communication Services Advanced Messaging, which extends messaging to users on WhatsApp. This feature enables your organization to send and receive messages with WhatsApp users using a WhatsApp Business Account. The Advanced Communication Messages SDK extends your communications to interact with the large global WhatsApp community for common scenarios:
 
--   Receive inquiries from your customers for product feedback or support, price quotes, and reschedule appointments.
--   Send your customer's notifications like appointment reminders, product discounts, transaction receipts, and one-time passcodes.
+- Receive inquiries from your customers for product feedback or support, price quotes, and reschedule appointments.
+- Send your customer's notifications like appointment reminders, product discounts, transaction receipts, and one-time passcodes.
 
 ## Overview
 
-This document provides information about registering a WhatsApp Business Account with Azure Communication Services. The following video demonstrates this process. 
+This article describes how to register a WhatsApp Business Account with Azure Communication Services. The following video demonstrates this process.
+
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=04c63978-6f27-4289-93d6-625d8569ee28]
 
 ## Prerequisites
@@ -47,13 +48,17 @@ This document provides information about registering a WhatsApp Business Account
 1. After selecting Meta Business Account, you need to **create/select** a WhatsApp Business profile. Fill out the required information.
 
     > [!NOTE]
-    > A WhatsApp Business Account can only be registered with Advanced Messaging one time. Selecting a WhatsApp Business Account already in use will result in an error when trying to create the channel.
+    > You can now use your WhatsApp Business Account multiple times with different Phone Numbers.
 
+    > [!NOTE]
+    > If you try to create a WhatsApp channel multiple times using the same WhatsApp Business Account and Phone Number, you might encounter errors. This problem happens because the Phone Number is already shared with Microsoft and `locked`. To fix the problem, delete the Phone Number and WhatsApp Business Account on the META portal. If you can't delete your WhatsApp Business Account, open a Support Case for manual assistance.
+    
     :::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" lightbox="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows WhatsApp Business account details.":::
 
-2. Once you complete the form, select **Next** to continue.
+1. Once you complete the form, select **Next** to continue.
 
 ## Verify your WhatsApp business number
+
 [!INCLUDE [Verify WhatsApp Business Phonenumber](./includes/register-whatsapp-account/verify-phone-number.md)]
 
 ## View your WhatsApp account in the Azure Communication Services Resource
@@ -74,7 +79,7 @@ You can see the status of your WhatsApp Business account in the Azure portal. Ac
 |**Disconnected**| A WhatsApp account is disconnected from the Azure portal side. | If you no longer want to use the WhatsApp Business account, you need to go to WhatsApp manager portal to unshare the WhatsApp Business Account or delete the phone number or delete the WhatsApp Business Account for a complete disconnection. If you still want the WhatsApp Business account connected, you need to redo the registration process by disconnecting then reconnecting the account. |
 |**Phone number deleted**| A WhatsApp business phone number is deleted from the WhatsApp side. | If you no longer want to use the WhatsApp Business account, you can disconnect the account. If you still want the WhatsApp Business account connected, you need to redo the registration process by disconnecting then reconnecting the account with adding the same phone number. |
 |**Business account review rejected**| WhatsApp disabled the business account because it doesn't comply with WhatsApp Business's Commerce Policy. | Check details on WhatsApp manager portal and request a review if you believe that this rejection is incorrect. |
-|**Display name review not started**| WhatsApp hasn't started WhatsApp Business display name review for your business phone number. Typically, the review didn't start because your Meta business account has not yet finish Meta Business Verification. [See this link for details about Meta Business Verification.](https://www.facebook.com/business/help/2058515294227817) | WhatsApp Business display name review isn't required to get started. You can immediately start sending messages to customers. You have limited number of messages and recipients per day until WhatsApp Business display name review is approved. |
+|**Display name review not started**| WhatsApp didn't start a WhatsApp Business display name review for your business phone number. Typically, the review didn't start because your Meta business account has not yet finish Meta Business Verification. [See this link for details about Meta Business Verification.](https://www.facebook.com/business/help/2058515294227817) | WhatsApp Business display name review isn't required to get started. You can immediately start sending messages to customers. You have limited number of messages and recipients per day until WhatsApp Business display name review is approved. |
 |**Display name review pending**| The WhatsApp business phone number display name is under review by WhatsApp. | WhatsApp Business display name review isn't required to get started. You can immediately start sending messages to customers. You have limited number of messages and recipients per day until WhatsApp Business display name review is approved. |
 |**Display name review rejected**| WhatsApp rejects the WhatsApp business phone number display name. | Check details and submit a new phone number display name on WhatsApp manager portal. WhatsApp Business display name review isn't required to get started. You can immediately start sending messages to customers. You have limited number of messages and recipients per day until WhatsApp Business display name review is approved. |
 
@@ -91,16 +96,16 @@ Provide the company details to be used in your Meta Business Account then select
 Once Business account is created, continue with [**Set up WhatsApp Profile**](#select-whatsapp-business-profile) step.
 
 > [!NOTE]
-> More details on how-to and required information on Meta Business Account can be found [Here](https://www.facebook.com/business/tools/meta-business-suite)
+> For details about how-to and required information for Meta Business Account, see  can be found [Meta Business Suite](https://www.facebook.com/business/tools/meta-business-suite).
 
 ## Next steps
 
-In this quickstart, you learned how to register your WhatsApp Business Account with Azure Communication Services. Now, you're ready to send and receive WhatsApp messages.
+This article described how to register your WhatsApp Business Account with Azure Communication Services. Now you're ready to send and receive WhatsApp messages.
 
 > [!div class="nextstepaction"]
-> [Get Started With Advanced Messages SDK](../../../quickstarts//advanced-messaging/whatsapp/get-started.md)
+> [Get started With Advanced Messages SDK](../../../quickstarts//advanced-messaging/whatsapp/get-started.md)
 
-You might also want to see the following articles: 
+## Related articles
 
 -    [WhatsApp Business Account FAQ](../../../quickstarts//advanced-messaging/whatsapp/whatsapp-business-account-faq.md)
 -    [WhatsApp Business Help Center](https://www.facebook.com/business/help/524220081677109?id=2129163877102343)

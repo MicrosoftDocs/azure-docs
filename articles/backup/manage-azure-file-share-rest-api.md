@@ -1,15 +1,15 @@
 ---
-title: Manage Azure File share backup with REST API
-description: Learn how to use REST API to manage and monitor Azure file shares that are backed up by Azure Backup.
+title: Manage Azure Files backup with REST API
+description: Learn how to use REST API to manage and monitor Azure Files that are backed up by Azure Backup.
 ms.topic: how-to
-ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 05/22/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Manage Azure File share backup with REST API
+# Manage Azure Files backup with REST API
 
-This article explains how to perform tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](./backup-overview.md).
+This article explains how to perform tasks for managing and monitoring the Azure Files that are backed up using REST API. You can also manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md).
 
 ## Monitor jobs
 
@@ -35,7 +35,7 @@ For example, the final response of a [trigger backup REST API](backup-azure-file
 }
 ```
 
-The Azure file share backup job is identified by the **jobId** field and can be tracked as mentioned [here](/rest/api/backup/job-details) using a GET request.
+The Azure Files backup job is identified by the **jobId** field and can be tracked as mentioned [here](/rest/api/backup/job-details) using a GET request.
 
 ### Tracking the job
 
@@ -108,7 +108,7 @@ HTTP/1.1" 200
 
 ## Modify policy
 
-To change the policy with which the file share is protected, you can use the same format as enabling protection. Just provide the new policy ID in the request policy and submit the request.
+To change the policy with which the File Share is protected, you can use the same format as enabling protection. Just provide the new policy ID in the request policy and submit the request.
 
 For example: To change the protection policy of *testshare* from *schedule1* to *schedule2*, provide the *schedule2* ID in the request body.
 
@@ -124,7 +124,7 @@ For example: To change the protection policy of *testshare* from *schedule1* to 
 
 ## Stop protection but retain existing data
 
-You can remove protection on a protected file share but retain the data already backed up. To do so, remove the policy in the request body you used to [enable backup](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) and submit the request. Once the association with the policy is removed, backups are no longer triggered, and no new recovery points are created.
+You can remove protection on a protected File Share but retain the data already backed up. To do so, remove the policy in the request body you used to [enable backup](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) and submit the request. Once the association with the policy is removed, backups are no longer triggered, and no new recovery points are created.
 
 ```json
 {
@@ -139,7 +139,7 @@ You can remove protection on a protected file share but retain the data already 
 
 ### Sample response
 
-Stopping protection for a file share is an asynchronous operation. The operation creates another operation that needs to be tracked. It returns two responses: 202 (Accepted) when another operation is created, and 200 when that operation completes.
+Stopping protection for a File Share is an asynchronous operation. The operation creates another operation that needs to be tracked. It returns two responses: 202 (Accepted) when another operation is created, and 200 when that operation completes.
 
 Response header when operation is successfully accepted:
 
@@ -187,7 +187,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## Stop protection and delete data
 
-To remove the protection on a protected file share and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/protected-items/delete).
+To remove the protection on a protected File Share and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/protected-items/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
@@ -195,7 +195,7 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 
 The parameters {containerName} and {protectedItemName} are as set [here](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname).
 
-The following example triggers an operation to stop protection for the *testshare* file share protected with *azurefilesvault*.
+The following example triggers an operation to stop protection for the *testshare* File Share protected with *azurefilesvault*.
 
 ```http
 DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2/protectedItems/azurefileshare;testshare?api-version=2016-12-01
@@ -208,4 +208,4 @@ It returns two responses: 202 (Accepted) when another operation is created and 2
 
 ## Next steps
 
-* Learn how to [troubleshoot problems while configuring backup for Azure File shares](troubleshoot-azure-files.md).
+* Learn how to [troubleshoot problems while configuring backup for Azure Files](troubleshoot-azure-files.md).

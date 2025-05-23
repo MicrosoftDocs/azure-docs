@@ -3,7 +3,7 @@ title: Deploy templates with Cloud Shell
 description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in an Azure Resource Manager template (ARM template).
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ---
 
 # Deploy ARM templates from Azure Cloud Shell
@@ -18,9 +18,13 @@ You can deploy to any scope. This article shows deploying to a resource group.
 
 To deploy an external template, provide the URI of the template exactly as you would for any external deployment. The external template could be in a GitHub repository or and an external storage account.
 
-1. Open the Cloud Shell prompt.
+1. Open the Cloud Shell prompt by selecting the cloud shell icon from the [Azure portal](https://portal.azure.com).
 
    :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Screenshot of the button to open Cloud Shell.":::
+
+1. Toggle between Bash and PowerShell by selecting **Switch to Bash** or **Switch to PowerShell**.
+
+   :::image type="content" source="./media/deploy-cloud-shell/toggle-between-bash-powershell.png" alt-text="Screenshot of the button to switch between Bash and PowerShell.":::
 
 1. To deploy the template, use the following commands:
 

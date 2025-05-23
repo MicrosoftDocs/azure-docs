@@ -12,6 +12,9 @@ ms.author: chrupa
 
 # How to enable diagnostic settings for the MedTech service
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 In this article, learn how to enable diagnostic settings for the MedTech service to:
 
 * Create a diagnostic setting to export logs and metrics for audit, analysis, or troubleshooting of the MedTech service.

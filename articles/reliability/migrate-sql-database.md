@@ -6,7 +6,7 @@ ms.service: sql
 ms.topic: conceptual
 ms.date: 03/25/2024
 ms.author: anaharris 
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Azure SQL Database to availability zone support
@@ -17,14 +17,14 @@ Enabling zone redundancy for Azure SQL Database guarantees high availability as 
 
 ## Prerequisites
 
-Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones](/azure/reliability/availability-zones-service-support).
+Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones](regions-list.md).
 
 | Service tier | Deployment model | Zone redundancy availability |
 |-----|------|------|
-| Premium  | Single database or Elastic Pool | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support)|
-| Business Critical | Single database or Elastic Pool | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support) |
+| Premium  | Single database or Elastic Pool | [All regions that support availability zones](regions-list.md)|
+| Business Critical | Single database or Elastic Pool | [All regions that support availability zones](regions-list.md) |
 | General Purpose  | Single database or Elastic Pool | [Selected regions that support availability zones](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell&preserve-view=true#general-purpose-service-tier-zone-redundant-availability)|
-| Hyperscale | Single database | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support) |
+| Hyperscale | Single database | [All regions that support availability zones](regions-list.md) |
  
 
 ## Downtime requirements
@@ -102,7 +102,7 @@ To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/s
 
 1. Go to the [Azure portal](https://portal.azure.com) to find and select the elastic pool that you want to migrate.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **Yes** for **Would you like to make this elastic pool zone redundant?**.
 
@@ -206,7 +206,7 @@ To disable zone-redundancy for a single database or an elastic pool, you can use
 
 1. Go to the  [Azure portal](https://portal.azure.com) to find and select the database that you no longer want to be zone-redundant.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **No** for **Would you like to make this database zone redundant?**
 
@@ -236,7 +236,7 @@ See [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/datab
 
 1. Go to the  [Azure portal](https://portal.azure.com) to find and select the elastic pool that you no longer want to be zone-redundant.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **No** for **Would you like to make this elastic pool zone redundant?**.
 
@@ -271,4 +271,7 @@ To disable zone-redundancy for Hyperscale service tier, you can reverse the step
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](availability-zones-service-support.md)
+> [Azure services that support availability zones](availability-zones-service-support.md)
+
+> [!div class="nextstepaction"]
+> [Azure regions that support availability zones](regions-list.md)

@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 02/12/2024
+ms.date: 03/31/2025
 ms.author: danlep
 ---
 
@@ -20,4 +20,6 @@ ms.author: danlep
 * If a region goes offline, API requests are automatically routed around the failed region to the next closest gateway.
 
 * If the primary region goes offline, the API Management management plane and developer portal become unavailable, but secondary regions continue to serve API requests using the most recent gateway configuration.
+
+* If configured, the [rate-limit](/azure/api-management/rate-limit-policy) and [rate-limit-by-key](/azure/api-management/rate-limit-by-key-policy) policies count calls separately at each regional gateway in the deployment. The policies don't aggregate all call data for the instance. Similarly, the [azure-openai-token-limit](/azure/api-management/azure-openai-token-limit-policy) and [llm-token-limit](/azure/api-management/llm-token-limit-policy) policies count token usage separately at each regional gateway in the deployment. 
   

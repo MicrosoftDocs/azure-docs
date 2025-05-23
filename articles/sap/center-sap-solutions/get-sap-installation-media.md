@@ -1,6 +1,6 @@
 ---
 title: Get SAP installation media 
-description: Learn how to download the necessary SAP media for installing the SAP software and upload it for use with Azure Center for SAP solutions. Please note this is an *optional* step and media and BOM can be obtained with a method preffered by customer.
+description: Learn how to download the necessary SAP media for installing the SAP software and upload it for use with Azure Center for SAP solutions. Please note this is an *optional* step and media and BOM can be obtained with a method preferred by customer.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to

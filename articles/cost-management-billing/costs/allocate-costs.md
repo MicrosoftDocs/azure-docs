@@ -1,9 +1,9 @@
 ---
 title: Allocate Azure costs
 description: This article explains how create cost allocation rules to distribute costs of subscriptions, resource groups, or tags to others.
-author: bandersmsft
-ms.author: banders
-ms.date: 08/01/2024
+author: sdoultani
+ms.author: sadoulta
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management

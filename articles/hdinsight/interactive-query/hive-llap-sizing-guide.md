@@ -3,9 +3,10 @@ title: HDInsight Interactive Query Cluster(LLAP) sizing guide
 description: LLAP sizing guide 
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-author: reachnijel 
-ms.author: nijelsf
-ms.date: 12/08/2023
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
+ms.date: 12/02/2024
 ---
 
 # Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide
@@ -63,7 +64,7 @@ For D14 v2 worker nodes, the recommended value is **102400 MB**
 #### **3. Determining maximum amount of `vcores` per YARN container request**  
 Configuration: ***yarn.scheduler.maximum-allocation-vcores***  
 
-This value indicates the maximum number of virtual CPU cores for every container request at the Resource Manager. Requesting a higher number of `vcores` then this value won't take effect. It's a global property of the YARN scheduler. For LLAP daemon container, this value can be set to 75% of total available `vcores`. The remaining 25% should be reserved for NodeManager, DataNode, and other services running on the worker nodes.  
+This value indicates the maximum number of virtual CPU cores for every container request at the Resource Manager. Requesting a higher number of `vcores` than this value won't take effect. It's a global property of the YARN scheduler. For LLAP daemon container, this value can be set to 75% of total available `vcores`. The remaining 25% should be reserved for NodeManager, DataNode, and other services running on the worker nodes.  
 There are `16 vcores` on D14 v2 VMs and 75% of total `16 vcores` can be used by LLAP daemon container.  
 For D14 v2, the recommended value is **12**.  
 

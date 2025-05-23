@@ -4,7 +4,7 @@ description: This article describes how to run the Azure Site Recovery Deploymen
 author: ankitaduttaMSFT
 manager: rochakm
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/09/2019
 ms.author: ankitadutta
 ---
@@ -132,7 +132,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Dire
 
 #### Profile VMs for 15 days
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  15  -User contoso\HyperVUser1
 ```
 
 #### Profile VMs for 60 minutes for a quick test of the tool

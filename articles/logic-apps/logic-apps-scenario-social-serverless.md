@@ -34,16 +34,9 @@ Office 365, Survey Monkey, X, and an
 [HTTP request from a web form](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). 
 The workflow that you create monitors a hashtag on X.
 
-You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
-and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). 
-For a video walkthrough that shows how to create this solution, 
-[watch this Channel 9 video](/shows/). 
-
 ## Trigger on customer data
 
-1. In the Azure portal or Visual Studio, create a blank logic app workflow.
-
-   If you're new to logic apps, review the [quickstart for the Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md) or the [quickstart for Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+1. In the Azure portal, create a blank logic app workflow.
 
 2. In workflow designer, find and add the X trigger that has this action: **When a new tweet is posted**
 
@@ -139,25 +132,13 @@ and then select the function that you created.
 To review any current or previous runs for your logic app, 
 you can use the rich debugging and monitoring capabilities 
 that Azure Logic Apps provides in the Azure portal, 
-Visual Studio, or through the Azure REST APIs and SDKs.
+Visual Studio Code, or through the Azure REST APIs and SDKs.
 
 To easily test your logic app, in Logic App Designer, 
 choose **Run Trigger**. The trigger polls for tweets 
 based on your specified schedule until a tweet that 
 meets your criteria is found. While the run progresses, 
 the designer shows a live view for that run.
-
-To view previous run histories in Visual Studio or the Azure portal: 
-
-* Open Visual Studio Cloud Explorer. 
-Find your logic app, open the app's shortcut menu. 
-Select **Open run history**.
-
-  > [!TIP]
-  > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
-
-* In the Azure portal, find your logic app. 
-On your logic app's menu, choose **Overview**. 
 
 ## Create automated deployment templates
 

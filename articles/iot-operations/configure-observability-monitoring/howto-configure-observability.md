@@ -1,8 +1,8 @@
 ---
 title: Deploy observability resources
 description: How to get started with configuring observability features with a script in Azure IoT Operations, so that you can monitor your solution.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom:
   - ignite-2023
@@ -13,8 +13,6 @@ ms.date: 10/22/2024
 
 # Deploy observability resources and set up logs
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 Observability provides visibility into every layer of your Azure IoT Operations configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This guide shows you how to set up Azure Managed Prometheus and Grafana and enable monitoring for your Azure Arc cluster.
 
 Complete the steps in this article *before* deploying Azure IoT Operations to your cluster.
@@ -22,9 +20,9 @@ Complete the steps in this article *before* deploying Azure IoT Operations to yo
 ## Prerequisites
 
 * An Arc-enabled Kubernetes cluster.
-* Azure CLI installed on your development machine. For instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-* Helm installed on your development machine. For instructions, see [Install Helm](https://helm.sh/docs/intro/install/).
-* Kubectl installed on your development machine. For instructions, see [Install Kubernetes tools](https://kubernetes.io/docs/tasks/tools/).
+* Azure CLI installed on your cluster machine. For instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Helm installed on your cluster machine. For instructions, see [Install Helm](https://helm.sh/docs/intro/install/).
+* Kubectl installed on your cluster machine. For instructions, see [Install Kubernetes tools](https://kubernetes.io/docs/tasks/tools/).
 
 ## Create resources in Azure
 

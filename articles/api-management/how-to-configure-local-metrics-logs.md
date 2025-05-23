@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 manager: gwallace
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/12/2024
 ms.author: danlep
 ---
@@ -310,13 +310,13 @@ For example, you can filter all syslogs to just the ones from the self-hosted ga
 
 ```shell
 $ cat host/var/log/syslog | grep "apimuser"
-May 15 05:54:20 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05-15T05:54:20.0445178Z, isRequestSuccess=True, totalTime=290, category=GatewayLogs, callerIpAddress=141.134.132.243, timeGenerated=2023-05-15T05:54:20.0445178Z, region=Repro, correlationId=b28565ec-73e0-41e6-9312-efcdd6841846, method=GET, url="http://20.126.242.200/echo/resource?param1\=sample", backendResponseCode=200, responseCode=200, responseSize=628, cache=none, backendTime=287, apiId=echo-api, operationId=retrieve-resource, apimSubscriptionId=master, clientProtocol=HTTP/1.1, backendProtocol=HTTP/1.1, apiRevision=1, backendMethod=GET, backendUrl="http://echoapi.cloudapp.net/api/resource?param1\=sample"
-May 15 05:54:21 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05-15T05:54:21.1189171Z, isRequestSuccess=True, totalTime=150, category=GatewayLogs, callerIpAddress=141.134.132.243, timeGenerated=2023-05-15T05:54:21.1189171Z, region=Repro, correlationId=ab4d7464-acee-40ae-af95-a521cc57c759, method=GET, url="http://20.126.242.200/echo/resource?param1\=sample", backendResponseCode=200, responseCode=200, responseSize=628, cache=none, backendTime=148, apiId=echo-api, operationId=retrieve-resource, apimSubscriptionId=master, clientProtocol=HTTP/1.1, backendProtocol=HTTP/1.1, apiRevision=1, backendMethod=GET, backendUrl="http://echoapi.cloudapp.net/api/resource?param1\=sample"
+May 15 05:54:20 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05-15T05:54:20.0445178Z, isRequestSuccess=True, totalTime=290, category=GatewayLogs, callerIpAddress=141.134.132.243, timeGenerated=2023-05-15T05:54:20.0445178Z, region=Repro, correlationId=aaaa0000-bb11-2222-33cc-444444dddddd, method=GET, url="http://20.126.242.200/echo/resource?param1\=sample", backendResponseCode=200, responseCode=200, responseSize=628, cache=none, backendTime=287, apiId=echo-api, operationId=retrieve-resource, apimSubscriptionId=master, clientProtocol=HTTP/1.1, backendProtocol=HTTP/1.1, apiRevision=1, backendMethod=GET, backendUrl="http://echoapi.cloudapp.net/api/resource?param1\=sample"
+May 15 05:54:21 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05-15T05:54:21.1189171Z, isRequestSuccess=True, totalTime=150, category=GatewayLogs, callerIpAddress=141.134.132.243, timeGenerated=2023-05-15T05:54:21.1189171Z, region=Repro, correlationId=bbbb1111-cc22-3333-44dd-555555eeeeee, method=GET, url="http://20.126.242.200/echo/resource?param1\=sample", backendResponseCode=200, responseCode=200, responseSize=628, cache=none, backendTime=148, apiId=echo-api, operationId=retrieve-resource, apimSubscriptionId=master, clientProtocol=HTTP/1.1, backendProtocol=HTTP/1.1, apiRevision=1, backendMethod=GET, backendUrl="http://echoapi.cloudapp.net/api/resource?param1\=sample"
 ```
 > [!NOTE]
 > If you have changed the root with `chroot`, for example `chroot /host`, then the above path needs to reflect that change.
 
-## Next steps
+## Related content
 
 * Learn about the [observability capabilities of the Azure API Management gateways](observability.md).
 * Learn more about the [Azure API Management self-hosted gateway](self-hosted-gateway-overview.md).

@@ -2,11 +2,11 @@
 title: Configure Application Gateway for Containers for Prometheus and Grafana
 description: Configure Application Gateway for Containers metrics to be sent to Prometheus and displayed on Grafana.
 services: application-gateway
-author: greglin
+author: mbender-ms
 ms.service: azure-appgw-for-containers
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/21/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Configure Application Gateway for Containers for Prometheus and Grafana
@@ -132,7 +132,7 @@ In this section, we enter Grafana default dashboards.
 
 4. After entering your user credentials, refer to the Grafana introduction.
 5. Select on the left side bar to access default dashboards under dashboards.
-   ![A screenshot of Dafault Grafana Dashboard.](./media/prometheus-grafana/grafana-default.png)
+   ![A screenshot of Default Grafana Dashboard.](./media/prometheus-grafana/grafana-default.png)
 
 ## Graph Prometheus metrics on Grafana 
 

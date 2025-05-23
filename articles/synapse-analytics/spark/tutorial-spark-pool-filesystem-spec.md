@@ -4,17 +4,16 @@ description: Tutorial for how to use FSSPEC in PySpark notebook to read/write AD
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.reviewer: whhender, garye
 ms.date: 11/02/2021
-author: JasonWHowell
-ms.author: jasonh
+author: jejiang
+ms.author: jejiang
 ---
 
 # Tutorial: Use FSSPEC to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics
 
 Learn how to use Filesystem Spec (FSSPEC) to read/write data to Azure Data Lake Storage (ADLS) using a linked service in a serverless Apache Spark pool in Azure Synapse Analytics.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Read/write ADLS data in a dedicated Spark session.
@@ -32,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create linked services
 
-In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add an Azure Synapse Analytics and Azure Data Lake Storage Gen2 linked service.
+In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you add an Azure Synapse Analytics and Azure Data Lake Storage Gen2 linked service.
 
 1. Open the Azure Synapse Studio and select the **Manage** tab.
 1. Under **External connections**, select **Linked services**.
@@ -44,8 +43,8 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 
 > [!IMPORTANT]
 >
-> - If the above created Linked Service to Azure Data Lake Storage Gen2 uses a [managed private endpoint](../security/synapse-workspace-managed-private-endpoints.md) (with a *dfs* URI) , then we need to create another secondary managed private endpoint using the Azure Blob Storage option (with a **blob** URI) to ensure that the internal [fsspec/adlfs](https://github.com/fsspec/adlfs/blob/main/adlfs/spec.py#L400) code can connect using the *BlobServiceClient* interface.
-> - In case the secondary managed private endpoint is not configured correctly, then we would see an error message like *ServiceRequestError: Cannot connect to host [storageaccountname].blob.core.windows.net:443 ssl:True [Name or service not known]*
+> - If the preceding Linked Service to Azure Data Lake Storage Gen2 uses a [managed private endpoint](../security/synapse-workspace-managed-private-endpoints.md) (with a *dfs* URI) , then you need to create another secondary managed private endpoint using the Azure Blob Storage option (with a **blob** URI) to ensure that the internal [fsspec/adlfs](https://github.com/fsspec/adlfs/blob/main/adlfs/spec.py#L400) code can connect using the *BlobServiceClient* interface.
+> - If the secondary managed private endpoint isn't configured correctly, then an error message appears: `ServiceRequestError: Cannot connect to host [storageaccountname].blob.core.windows.net:443 ssl:True [Name or service not known]`.
 > 
 > ![Screenshot of creating a managed private end-point to an ADLS Gen2 storage using blob endpoint.](./media/tutorial-spark-pool-filesystem-spec/create-mpe-blob-endpoint.png)
 
@@ -98,7 +97,7 @@ FSSPEC can read/write ADLS data by specifying the linked service name.
 1. Run the following code.
 
    > [!NOTE]
-   > Update the file URL, Linked Service Name and ADLS Gen2 storage name in this script before running it.
+   > Update the file URL, Linked Service Name, and ADLS Gen2 storage name in this script before running it.
 
    ```PYSPARK
    # To read data
@@ -135,11 +134,13 @@ Run the following code.
 
    > [!NOTE]
    > Update the file URL in this script before running it.
+   > Ensure you import pandas when using the following code snippet. This is critical for proper handling of access tokens.  
 
    ```PYSPARK
    # Import libraries
    import fsspec
    import os
+   import pandas
    
    # Set variables
    local_file_name = "<local_file_name>"

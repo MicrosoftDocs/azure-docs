@@ -139,7 +139,7 @@ In the instructions that follow, we assume that you've already created the resou
    1. Open [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the [Azure portal](https://portal.azure.com/#home).
    2. Execute the following commands to enable accelerated networking for the additional network interfaces, which are attached to the `inter` and `hsr` subnets.
 
-      ```bash
+      ```azurecli
       az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db1-inter --accelerated-networking true
       az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db2-inter --accelerated-networking true
       az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db3-inter --accelerated-networking true
@@ -155,6 +155,9 @@ In the instructions that follow, we assume that you've already created the resou
       az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db3-hsr --accelerated-networking true
       ```
 
+      > [!NOTE]
+      > You don’t have to install the Azure CLI package on your HANA nodes to run `az` command. You can run it from any machine that has the CLI installed, or use Azure Cloud Shell.
+
 6. Start the HANA DB virtual machines
 
 ### Configure Azure load balancer
@@ -166,7 +169,7 @@ During VM configuration, you have an option to create or select exiting load bal
 > * For HANA scale out, select the NIC for the `client` subnet when adding the virtual machines in the backend pool.
 > * The full set of command in Azure CLI and PowerShell adds the VMs with primary NIC in the backend pool.
 
-#### [Azure Portal](#tab/lb-portal)
+#### [Azure portal](#tab/lb-portal)
 
 [!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-db-portal.md)]
 
@@ -953,6 +956,7 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
 
       ```bash
       sudo crm configure primitive rsc_ip_HN1_HDB03 ocf:heartbeat:IPaddr2 \
+        op start timeout=60s on-fail=fence \
         op monitor interval="10s" timeout="20s" \
         params ip="10.23.0.27"
       

@@ -28,6 +28,8 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 * Simultaneous SNAT connection limits.
 
 * Connection timeouts.
+  
+* Removal of public IP addresses or subnets from NAT Gateway.
 
 **Troubleshoot steps**
 
@@ -40,6 +42,8 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 * Check the [dropped packets metric](/azure/nat-gateway/nat-metrics#dropped-packets) for any packet drops that align with connection failures or high connection volume.
 
 * Adjust the [Transmission Control Protocol (TCP) idle timeout timer](./nat-gateway-resource.md#tcp-idle-timeout) settings as needed. An idle timeout timer set higher than the default (4 minutes) holds on to flows longer, and can create [extra pressure on SNAT port inventory](./nat-gateway-resource.md#timers).
+  
+* Check NAT Gateway public IP and subnet configurations and if any public IPs or subnets have been removed from the NAT Gateway recently.
 
 ### Possible solutions for SNAT port exhaustion or hitting simultaneous connection limits
 
@@ -56,7 +60,7 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 * If your investigation is inconclusive, open a support case to [further troubleshoot](#more-troubleshooting-guidance).
 
 >[!NOTE]
->It is important to understand why SNAT port exhaustion occurs. Make sure you use the right patterns for scalable and reliable scenarios. Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns. For more informations, see [best practices for efficient use of outbound connections](#outbound-connectivity-best-practices).
+>It is important to understand why SNAT port exhaustion occurs. Make sure you use the right patterns for scalable and reliable scenarios. Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns. For more information, see [best practices for efficient use of outbound connections](#outbound-connectivity-best-practices).
 
 ### Possible solutions for TCP connection timeouts
 
@@ -72,6 +76,9 @@ TCP keepalives only need to be enabled from one side of a connection in order to
 UDP idle timeout timers are set to 4 minutes and aren't configurable. Enable UDP keepalives for both directions in a connection flow to maintain long connections. When a UDP keepalive is enabled, it's only active for one direction in a connection. The connection can still go idle and time out on the other side of a connection. To prevent a UDP connection from idle time-out, UDP keepalives should be enabled for both directions in a connection flow.
 
 Application layer keepalives can also be used to refresh idle flows and reset the idle timeout. Check the server side for what options exist for application specific keepalives.
+
+### Impact of removing public IPs or subnets from the NAT Gateway
+Any active connections associated with a public IP address terminate when the public IP address is removed from the NAT gateway. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs. Traffic will also be disrupted if NAT gateway is removed from any subnets with active connections. Consider updating configurations on your NAT gateway during maintenance windows so as to minimize impact to outbound connectivity.
 
 ## Datapath availability drop on NAT gateway but no connection failures
 
@@ -111,7 +118,7 @@ You observe no outbound connectivity on your NAT gateway.
 
 **Troubleshooting steps**
 
-* Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway isn't operational until a public IP and subnet attached. For more information, see [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics).
+* Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway isn't operational until a public IP and subnet are attached. For more information, see [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics).
 
 * Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to a Network Virtual Appliance (NVA), ExpressRoute, or VPN Gateway will take priority over NAT gateway. For more information, see [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
 
@@ -149,7 +156,7 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
 * NAT gateway misconfiguration.
 
-* Active connection with another Azure outbound connectivity method such as Azure Load balancer or instance-level public IPs on virtual machines. Active connection flows continue to use the previous public IP address that was assigned when the connection was established. When NAT gateway is deployed, new connections start using NAT gateway right away.
+* Active connection with another Azure outbound connectivity method such as Azure Load balancer or instance-level public IPs on virtual machines or default outbound access. Active connection flows continue to use the previous public IP address that was assigned when the connection was established. When NAT gateway is deployed, **new** connections start using NAT gateway right away.
 
 * Private IPs are used to connect to Azure services by service endpoints or Private Link.
 
@@ -167,21 +174,19 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
 * Check if you have [Private Link](/azure/private-link/manage-private-endpoint?tabs=manage-private-link-powershell#manage-private-endpoint-connections-on-azure-paas-resources) or [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) enabled for connecting to other Azure services.
 
-* Ensure that your virtual machine is located in the same region as the Azure storage when making a storage connection.
-
+* Check if your virtual machine is located in the same region as the Azure storage when making a storage connection.
 
 * Verify if the public IP address used for connections is originating from another Azure service within your Azure virtual network, such as a Network Virtual Appliance (NVA).
-
 
 ### Possible solutions for NAT gateway public IP not used to connect outbound
 
 * Attach a public IP address or prefix to NAT gateway. Ensure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](/azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
 
-* Test and resolve issues with VMs holding on to old SNAT IP addresses from another outbound connectivity method by:
+* Test and resolve issues with VMs holding on to Public IP addresses from another outbound connectivity method, including Load balancer, instance-level public IPs or default outbound access by:
 
   * Ensure you establish a new connection and that existing connections aren't being reused in the OS or that the browser is caching the connections. For example, when using curl in PowerShell, make sure to specify the -DisableKeepalive parameter to force a new connection. If you're using a browser, connections can also be pooled.
 
-  * It isn't necessary to reboot a virtual machine in a subnet configured to NAT gateway. However, if a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all connections begin using the NAT gateway resource's IP address or addresses. This behavior is a side effect of the virtual machine reboot and not an indicator that a reboot is required.
+  * Reboot the virtual machine (perform a STOP / START) in a subnet configured to NAT gateway. If a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all new connections begin using the NAT gateway resource's IP address or addresses. Keep in mind that if the VM has any active connections at the time that you reboot, those connections will be dropped.
 
   * If your investigation is inconclusive, open a support case to [further troubleshoot](#more-troubleshooting-guidance).
 

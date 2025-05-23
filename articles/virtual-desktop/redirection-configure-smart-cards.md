@@ -3,8 +3,8 @@ title: Configure smart card device redirection over the Remote Desktop Protocol
 description: Learn how to redirect smart card devices from a local device to a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 07/05/2024
 ---
 
@@ -170,7 +170,7 @@ To allow or disable smart card device redirection using Microsoft Intune:
 
 To allow or disable smart card device redirection using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 

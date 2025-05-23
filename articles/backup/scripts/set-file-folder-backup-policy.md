@@ -2,9 +2,9 @@
 title: Script Sample - Create a new or modify the current file and folder backup policy
 description: Learn about how to use a script to create a new policy or modify the current file and folder Backup policy.
 ms.topic: sample
-ms.date: 06/23/2021
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 05/20/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # PowerShell Script to create a new or modify the current file and folder backup policy
@@ -162,10 +162,12 @@ Catch {
 
 ```
 
-## How to execute the script
+## Run the script
 
-1. Save the above script on your machine with a name of your choice and .ps1 extension.
-1. Execute the script by providing the following parameters:
+To run the PowerShell Script to create a new or modify the current file and folder backup policy, follow these steps:
+
+1. Save the preceding script on your machine with a name of your choice and `.ps1` extension.
+1. Run the script by providing the following parameters:
    - Schedule of backup and number of days/weeks/months or years that the backup needs to be retained.
    - -filePath- Files and folders that should be included or excluded from backup.
 

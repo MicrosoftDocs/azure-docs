@@ -4,7 +4,7 @@ description: Learn how to configure the prerequisites for using Azure AI service
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
-ms.reviewer: whhender, garye
+
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust

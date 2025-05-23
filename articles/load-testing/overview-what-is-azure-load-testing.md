@@ -28,7 +28,7 @@ Azure Load Testing enables you to test private application endpoints or applicat
 
 The following diagram shows an architecture overview of Azure Load Testing.
 
-:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture-large.png" alt-text="Diagram that shows the Azure Load Testing architecture.":::
+:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" alt-text="Diagram that shows the Azure Load Testing architecture.":::
 
 > [!NOTE]
 > The overview image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components. Learn more about the [supported Azure resource types](./resource-supported-azure-resource-types.md).
@@ -44,7 +44,7 @@ Azure Load Testing can use the Apache JMeter or Locust testing frameworks and su
 - Databases via JDBC
 - TCP-based endpoints
 
-For JMeter, you can [use JMeter plugins](./how-to-use-jmeter-plugins.md) in your test script, you can load test more application types.
+For JMeter, you can [use JMeter plugins](./how-to-use-jmeter-plugins.md) in your test script, you can load test more application types. For Locust, you can [use third party extensions](https://docs.locust.io/en/stable/extensions.html), Locust plugins, or any other Python libraries to extend the capabilities of Locust. 
 
 With the quick test experience you can [test a single URL-based HTTP endpoint](./quickstart-create-and-run-load-test.md). By [uploading a JMeter script](how-to-create-and-run-load-test-with-jmeter-script.md), you can use all JMeter-supported communication protocols.
 

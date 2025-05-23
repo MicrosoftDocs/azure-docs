@@ -1,25 +1,19 @@
 ---
-title: Restore Azure file shares with REST API
-description: Learn how to use REST API to restore Azure file shares or specific files from a restore point created by Azure Backup 
+title: Restore Azure Files with REST API
+description: Learn how to use REST API to restore Azure Files or specific files from a restore point created by Azure Backup 
 ms.topic: how-to
-ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 05/22/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Restore Azure File Shares using REST API
+# Restore Azure Files using REST API
 
-This article explains how to restore an entire file share or specific files from a restore point created by [Azure Backup](./backup-overview.md) by using the REST API.
-
-By the end of this article, you learn how to perform the following operations using REST API:
-
-* View restore points for a backed-up Azure file share.
-* Restore a full Azure file share.
-* Restore individual files or folders.
+This article explains how to restore an entire File Share or specific files from a restore point created by [Azure Backup](./backup-overview.md) by using the REST API. You can also restore Azure Files using [Azure portal](restore-afs.md), [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md).
 
 ## Prerequisites
 
-We assume that you already have a backed-up file share you want to restore. If you don’t, check [Backup Azure file share using REST API](backup-azure-file-share-rest-api.md) to learn how to create one.
+We assume that you already have a backed-up File Share you want to restore. If you don’t, check [Backup Azure Files using REST API](backup-azure-file-share-rest-api.md) to learn how to create one.
 
 For this article, we use the following resources:
 
@@ -30,7 +24,7 @@ For this article, we use the following resources:
 
 ## Fetch ContainerName and ProtectedItemName
 
-For most of the restore related API calls, you need to pass values for the {containerName} and {protectedItemName} URI parameters. Use the ID attribute in the response body of the [GET backupprotectableitems](/rest/api/backup/protected-items/get) operation to retrieve values for these parameters. In our example, the ID of the file share we want to protect is:
+For most of the restore related API calls, you need to pass values for the {containerName} and {protectedItemName} URI parameters. Use the ID attribute in the response body of the [GET backupprotectableitems](/rest/api/backup/protected-items/get) operation to retrieve values for these parameters. In our example, the ID of the File Share we want to protect is:
 
 `"/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;afsaccount/protectableItems/azurefileshare;azurefiles`
 
@@ -39,9 +33,9 @@ So the values translate as follows:
 * {containername} - *storagecontainer;storage;azurefiles;afsaccount*
 * {protectedItemName} - *azurefileshare;azurefiles*
 
-## Fetch recovery points for backed up Azure file share
+## Fetch recovery points for backed up Azure Files
 
-To restore any backed-up file share or files, first select a recovery point to perform the restore operation. The available recovery points of a backed-up item can be listed using the [Recovery Point-List](/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) REST API call. It's a GET operation with all the relevant values.
+To restore any backed-up File Share or files, first select a recovery point to perform the restore operation. The available recovery points of a backed-up item can be listed using the [Recovery Point-List](/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) REST API call. It's a GET operation with all the relevant values.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13&$filter={$filter}
@@ -140,7 +134,7 @@ The recovery point is identified with the {name} field in the response above.
 
 ## Full share recovery using REST API
 
-Use this restore option to restore the complete file share in the original or an alternate location.
+Use this restore option to restore the complete File Share in the original or an alternate location.
 Triggering restore is a POST request and you can perform this operation using the [trigger restore](/rest/api/backup/restores/trigger) REST API.
 
 ```http
@@ -155,7 +149,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 ### Create request body
 
-To trigger a restore for an Azure file share, the following are the components of the request body:
+To trigger a restore for an Azure Files, the following are the components of the request body:
 
 Name |  Type   |   Description
 --- | ---- | ----
@@ -167,7 +161,7 @@ For the complete list of definitions of the request body and other details, refe
 
 #### Request body example for restore to original location
 
-The following request body defines properties required to trigger an Azure file share restore:
+The following request body defines properties required to trigger an Azure Files restore:
 
 ```json
 {
@@ -186,12 +180,12 @@ The following request body defines properties required to trigger an Azure file 
 Specify the following parameters for alternate location recovery:
 
 * **targetResourceId**: The storage account to which the backed-up content is restored. The target storage account must be in the same location as the vault.
-* **name**: The file share within the target storage account to which the backed-up content is restored.
-* **targetFolderPath**: The folder under the file share to which data is restored.
+* **name**: The File Share within the target storage account to which the backed-up content is restored.
+* **targetFolderPath**: The folder under the File Share to which data is restored.
 
 #### Request body example for restore to alternate location
 
-The following request body restores the *azurefiles* file share in the *afsaccount* storage account to the *azurefiles1* file share in the *afaccount1* storage account.
+The following request body restores the *azurefiles* File Share in the *afsaccount* storage account to the *azurefiles1* File Share in the *afaccount1* storage account.
 
 ```json
 {
@@ -347,7 +341,7 @@ For alternate location recovery, the response body will be like this:
 }
 ```
 
-Since the backup job is a long running operation, it should be tracked as explained in the [monitor jobs using REST API document](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Since the backup job is a long running operation, it should be tracked as explained in the [monitor jobs using REST API document](./backup-azure-arm-userestapi-managejobs.md#track-the-job).
 
 ## Item level recovery using REST API
 
@@ -365,7 +359,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 ### Create request body for item-level recovery using REST API
 
-To trigger a restore for an Azure file share, the following are the components of the request body:
+To trigger a restore for an Azure Files, the following are the components of the request body:
 
 Name |  Type   |   Description
 --- | ---- | ----
@@ -375,7 +369,7 @@ For the complete list of definitions of the request body and other details, refe
 
 ### Restore to original location for item-level recovery using REST API
 
-The following request body is to restore the *Restoretest.txt* file in the *azurefiles* file share in the *afsaccount* storage account.
+The following request body is to restore the *Restoretest.txt* file in the *azurefiles* File Share in the *afsaccount* storage account.
 
 Create Request Body
 
@@ -401,7 +395,7 @@ Create Request Body
 
 ### Restore to alternate location for item-level recovery using REST API
 
-The following request body is to restore the *Restoretest.txt* file in the *azurefiles* file share in the *afsaccount* storage account to the *restoredata* folder of the *azurefiles1* file share in the *afaccount1* storage account.
+The following request body is to restore the *Restoretest.txt* file in the *azurefiles* File Share in the *afsaccount* storage account to the *restoredata* folder of the *azurefiles1* File Share in the *afaccount1* storage account.
 
 Create request body
 
@@ -432,4 +426,4 @@ The response should be handled in the same way as explained above for [full shar
 
 ## Next steps
 
-* Learn how to [manage Azure file shares backup using REST API](manage-azure-file-share-rest-api.md).
+Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

@@ -5,15 +5,13 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: concept-article
-ms.date: 09/16/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand how the OPC UA industrial edge Kubernetes environment should be configured to enable mutual trust between the connector for OPC UA and the downstream OPC UA servers.
 ms.service: azure-iot-operations
 ---
 
 # OPC UA certificates infrastructure for the connector for OPC UA
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 The connector for OPC UA is an OPC UA client application that lets you connect securely to OPC UA servers. In OPC UA, the security includes:
 
@@ -28,7 +26,7 @@ To learn more about OPC UA application security, see [Application Authentication
 
 ## Connector for OPC UA application instance certificate
 
-The connector for OPC UA is an OPC UA client application. The connector for OPC UA makes use of a single OPC UA application instance certificate for all the sessions it establishes to collect telemetry data from OPC UA servers. A default deployment of the connector for OPC UA uses [cert-manager](https://cert-manager.io/) to manage its application instance certificate:
+The connector for OPC UA is an OPC UA client application. The connector for OPC UA makes use of a single OPC UA application instance certificate for all the sessions it establishes to collect messages and data from OPC UA servers. A default deployment of the connector for OPC UA uses [cert-manager](https://cert-manager.io/) to manage its application instance certificate:
 
 - Cert-manager generates a self-signed OPC UA compatible certificate and stores it as Kubernetes native secret. The default name for this certificate is *aio-opc-opcuabroker-default-application-cert*.
 - The connector for OPC UA maps and uses this certificate for all the pods it uses to connect to OPC UA servers.
@@ -49,11 +47,9 @@ You need to maintain a trusted certificate list that contains the certificates o
 - The OPC UA server validates the connector's certificate against its trusted certificates list.
 - The connector validates the OPC UA server's certificate against its trusted certificates list.
 
-By default, the connector for OPC UA stores its trusted certificate list in Azure Key Vault and uses the [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/) to project the trusted certificates into the connector for OPC UA pods. Azure Key Vault stores the certificates encoded in DER or PEM format.
-
 If the connector for OPC UA trusts a certificate authority, it automatically trusts any server that has a valid application instance certificate signed by the certificate authority.
 
-To learn how to project the trusted certificates from Azure Key Vault into the Kubernetes cluster, see [Manage secrets for your Azure IoT Operations Preview deployment](../secure-iot-ops/howto-manage-secrets.md).
+To learn how to project the trusted certificates from Azure Key Vault into the Kubernetes cluster, see [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
 
 The default name for the `SecretProviderClass` custom resource that handles the trusted certificates list is *aio-opc-ua-broker-trust-list*.
 

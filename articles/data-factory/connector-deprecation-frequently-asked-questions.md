@@ -67,13 +67,16 @@ There are three key deadlines outlined in our documentation:
 
 ## What should I do if I encounter the feature gaps and errors/ bugs that are preventing me from migrating to the new connectors?
 
-If you encounter any feature gaps while migrating from legacy connectors, please review our connector documentation to check if it’s a known limitation. Additionally, send us an email at **dfconnectorupgrade@microsoft.com** with a description of the feature gap.
+If you encounter any feature gaps while migrating from legacy connectors, please review our connector documentation to check if it’s a known limitation. Additionally, send us an email at **dfconnectorupgrade@microsoft.com** with a description of the feature gap. 
 
 If you encounter any errors or bugs while migrating from legacy connectors, please contact our Microsoft support team and open a support ticket. Be sure to include detailed information about the connector, the error encountered, and your use case.
 
-Our Azure Data Factory team will assist you and ensure a smooth transition to the new connectors.
+Our Azure Data Factory team will assist you and ensure a smooth transition to the new connectors. We invite you to fill out this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR94fEtK94M9FsNIwB3-nUTtUQTFGMjVFNkNEVkFaTEJQMUVaQlc3TlRDVi4u&route=shorturl) to help us better understand your needs and explore possible solutions.
 
 ## Related content
 
-- [Planned connector deprecations for Azure Data Factory](connector-deprecation-plan.md)
-
+- [Connector overview](connector-overview.md)  
+- [Connector lifecycle overview](connector-lifecycle-overview.md) 
+- [Connector upgrade guidance](connector-upgrade-guidance.md) 
+- [Connector upgrade assistant](connector-upgrade-advisor.md)  
+- [Connector release stages and timelines](connector-release-stages-and-timelines.md)  

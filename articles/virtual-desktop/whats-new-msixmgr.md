@@ -2,13 +2,16 @@
 title: What's new in the MSIXMGR tool - Azure Virtual Desktop
 description: Learn about what's new in the release notes for the MSIXMGR tool.
 ms.topic: release-notes
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 04/18/2023
 ms.custom: docs_inherited
 ---
 
 # What's new in the MSIXMGR tool
+
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
 
 This article provides the release notes for the latest updates to the MSIXMGR tool, which you use for expanding MSIX-packaged applications into MSIX images for use with Azure Virtual Desktop.
 

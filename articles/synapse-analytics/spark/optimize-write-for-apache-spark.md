@@ -7,7 +7,6 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 08/03/2022
 ms.author: dacoelho 
-ms.reviewer: whhender
 ---
 
 # The need for optimize write on Apache Spark
@@ -110,7 +109,7 @@ Using the [DeltaTableBuilder API](https://docs.delta.io/latest/delta-apidoc.html
 ```scala
 val table = DeltaTable.create()
   .tableName("<table_name>")
-  .addColumnn("<colName>", <dataType>)
+  .addColumn("<colName>", <dataType>)
   .location("<table_location>")
   .property("delta.autoOptimize.optimizeWrite", "true") 
   .execute()

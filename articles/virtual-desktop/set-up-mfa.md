@@ -1,10 +1,10 @@
 ---
 title: Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access - Azure
 description: How to enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access to help make it more secure.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
-ms.date: 07/26/2024
-ms.author: daknappe
+ms.date: 04/02/2025
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
@@ -17,9 +17,7 @@ Users can sign into Azure Virtual Desktop from anywhere using different devices 
 
 When a user connects to a remote session, they need to authenticate to the Azure Virtual Desktop service and the session host. If MFA is enabled, it's used when connecting to the Azure Virtual Desktop service and the user is prompted for their user account and a second form of authentication, in the same way as accessing other services. When a user starts a remote session, a username and password is required for the session host, but this is seamless to the user if single sign-on (SSO) is enabled. For more information, see [Authentication methods](authentication.md#authentication-methods).
 
-How often a user is prompted to reauthenticate depends on [Microsoft Entra session lifetime configuration settings](../active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md#azure-ad-session-lifetime-configuration-settings). For example, if their Windows client device is registered with Microsoft Entra ID, it receives a [Primary Refresh Token (PRT)](../active-directory/devices/concept-primary-refresh-token.md) to use for single sign-on (SSO) across applications. Once issued, a PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device.
-
-While remembering credentials is convenient, it can also make deployments for Enterprise scenarios using personal devices less secure. To protect your users, you can make sure the client keeps asking for Microsoft Entra multifactor authentication credentials more frequently. You can use Conditional Access to configure this behavior.
+How often a user is prompted to reauthenticate depends on [Microsoft Entra Conditional Access adaptive session lifetime policies](/entra/identity/conditional-access/concept-session-lifetime). While remembering credentials is convenient, it can also make deployments using personal devices less secure. To protect your users, you can make sure the client asks for Microsoft Entra multi-factor authentication credentials more frequently. You can use Conditional Access sign-in frequency to configure this behavior.
 
 Learn how to enforce MFA for Azure Virtual Desktop and optionally configure sign-in frequency in the following sections.
 
@@ -43,38 +41,37 @@ Here's how to create a Conditional Access policy that requires multifactor authe
 1. Under the **Include** tab, select **Select users and groups** and check **Users and groups**, then under **Select**, select **0 users and groups selected**.
 1. On the new pane that opens, search for and choose the group that contains your Azure Virtual Desktop users as group members, then select **Select**.
 1. Under **Assignments** > **Target resources**, select **No target resources selected**.
-1. Under the **Include** tab, select **Select apps**, then under **Select**, select **None**.
+1. For the drop-down list **Select what this policy applies to**, leave the default of **Resources (formerly cloud apps)**. Under the **Include** tab, select **Select resources**, then under **Select**, select **None**.
 1. On the new pane that opens, search for and select the necessary apps based on the resources you're trying to protect. Select the relevant tab for your scenario. When searching for an application name on Azure, use search terms that begin with the application name in order instead of keywords the application name contains out of order. For example, when you want to use Azure Virtual Desktop, you need to enter '*Azure Virtual*', in that order. If you enter '*virtual*' by itself, the search doesn't return the desired application.
 
    # [Azure Virtual Desktop](#tab/avd)
 
    For Azure Virtual Desktop (based on Azure Resource Manager), you can configure MFA on these different apps:
 
-   - **Azure Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07), which applies when the user subscribes to Azure Virtual Desktop, authenticates to the Azure Virtual Desktop Gateway during a connection, and when diagnostics information is sent to the service from the user's local device.
+   - **Azure Virtual Desktop** (app ID `9cdead84-a844-4324-93f2-b2e6bb768d07`), which applies when the user subscribes to Azure Virtual Desktop, authenticates to the Azure Virtual Desktop Gateway during a connection, and when diagnostics information is sent to the service from the user's local device.
 
-        > [!TIP]
-        > The app name was previously *Windows Virtual Desktop*. If you registered the *Microsoft.DesktopVirtualization* resource provider before the display name changed, the application will be named **Windows Virtual Desktop** with the same app ID as Azure Virtual Desktop.
+      > [!TIP]
+      > The app name was previously *Windows Virtual Desktop*. If you registered the *Microsoft.DesktopVirtualization* resource provider before the display name changed, the application will be named **Windows Virtual Desktop** with the same app ID as Azure Virtual Desktop.
 
-      - **Microsoft Remote Desktop** (app ID a4a365df-50f1-4397-bc59-1a1564b8bb9c) and **Windows Cloud Login** (app ID 270efc09-cd0d-444b-a71f-39af4910ec45). These apply when the user authenticates to the session host when [single sign-on](configure-single-sign-on.md) is enabled. It's recommended to match conditional access policies between these apps and the Azure Virtual Desktop app, except for the [sign-in frequency](#configure-sign-in-frequency).
+   - **Microsoft Remote Desktop** (app ID `a4a365df-50f1-4397-bc59-1a1564b8bb9c`) and **Windows Cloud Login** (app ID `270efc09-cd0d-444b-a71f-39af4910ec45`). These apply when the user authenticates to the session host when [single sign-on](configure-single-sign-on.md) is enabled. We recommended you match conditional access policies between these apps and the Azure Virtual Desktop app, except for the [sign-in frequency](#configure-sign-in-frequency).
 
       > [!IMPORTANT]
-      > The clients used to access Azure Virtual Desktop use the **Microsoft Remote Desktop** Entra ID app to authenticate to the session host today. An upcoming change will transition the authentication to the **Windows Cloud Login** Entra ID app. To ensure a smooth transition, you need to add both Entra ID apps to your CA policies.
-
-   > [!IMPORTANT]
-   > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID 50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.   
+      > - The clients used to access Azure Virtual Desktop use the **Microsoft Remote Desktop** Entra ID app to authenticate to the session host today. An upcoming change will transition the authentication to the **Windows Cloud Login** Entra ID app. To ensure a smooth transition, you need to add both Entra ID apps to your CA policies.
+      >
+      > - Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID `50e95039-b200-4007-bc97-8d5790743a63`). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.   
 
    # [Azure Virtual Desktop (classic)](#tab/avd-classic)
 
    For Azure Virtual Desktop (classic), you configure MFA on these apps:
        
-   - **Windows Virtual Desktop** (app ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7).
+   - **Windows Virtual Desktop** (app ID `5a0aa725-4958-4b0c-80a9-34562e23f3b7`).
 
-   - **Windows Virtual Desktop Client** (app ID fa4345a4-a730-4230-84a8-7d9651b86739), which lets you set policies on the web client.
+   - **Windows Virtual Desktop Client** (app ID `fa4345a4-a730-4230-84a8-7d9651b86739`), which lets you set policies on the web client.
 
-   - **Azure Virtual Desktop/Windows Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07). Not adding this app ID blocks feed discovery of Azure Virtual Desktop (classic) resources.
+   - **Azure Virtual Desktop/Windows Virtual Desktop** (app ID `9cdead84-a844-4324-93f2-b2e6bb768d07`). Not adding this app ID blocks feed discovery of Azure Virtual Desktop (classic) resources.
 
    > [!IMPORTANT]
-   > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID 50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.
+   > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID `50e95039-b200-4007-bc97-8d5790743a63`). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.
 
 1. Once you selected your apps, select **Select**.
 
@@ -108,7 +105,7 @@ Here's how to create a Conditional Access policy that requires multifactor authe
 
 ## Configure sign-in frequency
 
-Sign-in frequency policies let you configure how often users are required to sign-in when accessing Microsoft Entra-based resources. This can help secure your environment and is especially important for personal devices, where the local OS may not require MFA or may not lock automatically after inactivity. Users are prompted to authenticate only when a new access token is requested from Microsoft Entra ID when accessing a resource.
+[Sign-in frequency policies](/entra/identity/conditional-access/concept-session-lifetime) let you configure how often users are required to sign-in when accessing Microsoft Entra-based resources. This can help secure your environment and is especially important for personal devices, where the local OS may not require MFA or may not lock automatically after inactivity. Users are prompted to authenticate only when a new access token is requested from Microsoft Entra ID when accessing a resource.
 
 Sign-in frequency policies result in different behavior based on the Microsoft Entra app selected:
 
@@ -124,7 +121,7 @@ To configure the time period after which a user is asked to sign-in again:
 1. In the **Session** pane, select **Sign-in frequency**.
 1. Select **Periodic reauthentication** or **Every time**.
     - If you select **Periodic reauthentication**, set the value for the time period after which a user is asked to sign-in again when performing an action that requires a new access token, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, requires multifactor authentication if a connection is launched more than an hour after the last user authentication.
-    - The **Every time** option is currently available in preview and is only supported when applied to the **Microsoft Remote Desktop** and **Windows Cloud Login** apps when single sign-on is enabled for your host pool. If you select **Every time**, users are prompted to reauthenticate when launching a new connection after a period of 5 to 10 minutes since their last authentication.
+    - The [**Every time**](/entra/identity/conditional-access/concept-session-lifetime#require-reauthentication-every-time) option is only supported when applied to the **Microsoft Remote Desktop** and **Windows Cloud Login** apps when single sign-on is enabled for your host pool. If you select **Every time**, users are prompted to reauthenticate when launching a new connection after a period of 5 to 10 minutes since their last authentication.
 1. At the bottom of the page, select **Save**.
 
 > [!NOTE]

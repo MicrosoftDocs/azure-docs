@@ -40,7 +40,7 @@ Once your repository is created with your .NET application and supporting docker
 1. Under the Configure tab, choose the **Starter Pipeline** option
 1. Under the next Review tab, click the **Save** button
 
-## Build and push image to Azure container registry
+## Build and push image to Azure Container Registry
 After your pipeline is created and saved, you'll need to edit the pipeline to run the steps for building the container, pushing to a registry, and deploying the image to App Service. To start, navigate to the **Pipelines** menu, choose your pipeline that you created and click the **Edit** button.
 
 First, you need to add the docker task so you can build the image. Add the following code and replace the Dockerfile: app/Dockerfile with the path to your Dockerfile.

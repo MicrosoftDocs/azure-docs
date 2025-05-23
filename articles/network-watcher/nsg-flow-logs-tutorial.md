@@ -43,7 +43,7 @@ In this section, you create **myVNet** virtual network with one subnet for the v
 
 1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** from the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-tutorial/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal." lightbox="./media/nsg-flow-logs-tutorial/virtual-network-azure-portal.png":::
+    :::image type="content" source="./media/virtual-networks-portal-search.png" alt-text="Screenshot that shows how to search for virtual networks in the Azure portal." lightbox="./media/virtual-networks-portal-search.png":::
 
 1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
 
@@ -130,7 +130,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To check its stat
 
 1. Confirm the status of the provider displayed is **Registered**. If the status is **NotRegistered**, select the **Microsoft.Insights** provider then select **Register**.
 
-    :::image type="content" source="./media/nsg-flow-logs-tutorial/register-microsoft-insights.png" alt-text="Screenshot of registering Microsoft Insights provider in the Azure portal." lightbox="./media/nsg-flow-logs-tutorial/register-microsoft-insights.png":::
+    :::image type="content" source="./media/register-microsoft-insights.png" alt-text="Screenshot that shows how to register Microsoft Insights provider in the Azure portal." lightbox="./media/register-microsoft-insights.png":::
 
 ## Create a storage account
 
@@ -289,6 +289,6 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 ## Related content
 
 - To learn more about NSG flow logs, see [Flow logging for network security groups](nsg-flow-logs-overview.md).
-- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logs-portal.md).
+- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logs-manage.md).
 - To learn about Traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
 

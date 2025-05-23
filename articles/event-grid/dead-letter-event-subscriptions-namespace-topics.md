@@ -35,7 +35,7 @@ The format used when storing dead-letter events is the [CloudEvents JSON format]
     - `deliveryresult` - The last result during the last time the service attempted to deliver the event.
     - `publishutc` - The UTC time at which the event was persisted and accepted (HTTP 200 OK, for example) by Event Grid.
     - `deliveryattemptutc` - The UTC time of the last delivery attempt.
-- `customDeliveryProperties` - Headers (custom push delivery properties) configured on the event subscription to go with every outgoing HTTP push delivery request. One or more of these custom properties might be present in the persisted dead-letter JSON. Custom properties identified as secrets aren't stored. This metadata are described using a separate object whose key name is `customDeliveryProperties`. The property key names inside that object and their values are exactly the same as the ones set in the event subscription. Here's an exmaple: 
+- `customDeliveryProperties` - Headers (custom push delivery properties) configured on the event subscription to go with every outgoing HTTP push delivery request. One or more of these custom properties might be present in the persisted dead-letter JSON. Custom properties identified as secrets aren't stored. This metadata are described using a separate object whose key name is `customDeliveryProperties`. The property key names inside that object and their values are exactly the same as the ones set in the event subscription. Here's an example: 
 
     ```
     Custom-Header-1: value1

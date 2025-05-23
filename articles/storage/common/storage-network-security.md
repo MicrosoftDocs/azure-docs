@@ -6,10 +6,10 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 05/01/2025
 ms.author: normesta
 ms.reviewer: santoshc
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement, ignite-2024
 ---
 
 # Configure Azure Storage firewalls and virtual networks
@@ -64,7 +64,7 @@ There are two types of virtual network endpoints for storage accounts:
 - [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Private endpoints](storage-private-endpoints.md)
 
-Virtual network service endpoints are public and accessible via the internet. The Azure Storage firewall provides the ability to control access to your storage account over such public endpoints. When you enable public network access to your storage account, all incoming requests for data are blocked by default. Only applications that request data from allowed sources that you configure in your storage account firewall settings will be able to access your data. Sources can include the source IP address or virtual network subnet of a client, or an Azure service or resource instance through which clients or services access your data. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services, unless you explicitly allow access in your firewall configuration.
+Virtual network service endpoints are public and accessible via the internet. The Azure Storage firewall provides the ability to control access to your storage account over such public endpoints. When you disable public network access to your storage account, all incoming requests for data are blocked by default. Only applications that request data from allowed sources that you configure in your storage account firewall settings will be able to access your data. Sources can include the source IP address or virtual network subnet of a client, or an Azure service or resource instance through which clients or services access your data. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services, unless you explicitly allow access in your firewall configuration.
 
 A private endpoint uses a private IP address from your virtual network to access a storage account over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the storage account are secured over a private link. Storage firewall rules only apply to the public endpoints of a storage account, not private endpoints. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. You can use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) to control traffic over private endpoints if you want to refine access rules. If you want to use private endpoints exclusively, you can use the firewall to block all access through the public endpoint.
 
@@ -85,6 +85,42 @@ To secure your storage account and build a secure network boundary for your appl
     1. Add exceptions for logging and metrics.
 
 After you apply network rules, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but they don't grant new access beyond configured network rules.
+
+### Network security perimeter (preview)
+
+[Network security perimeter](../../private-link/network-security-perimeter-concepts.md) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Blob Storage and SQL Database) that are deployed outside their virtual networks. The feature restricts public network access to PaaS resources outside the perimeter. However, you can exempt access by using explicit access rules for public inbound and outbound traffic. By design, access to a storage account from within a network security perimeter takes the highest precedence over other network access restrictions.
+
+Currently, network security perimeter is in public preview for Azure Blob Storage, Azure Files (REST), Azure Tables, and Azure Queues. See [Transition to a network security perimeter](../../private-link/network-security-perimeter-transition.md). 
+
+The list of services that have been onboarded to network security perimeter can be found [here](../../private-link/network-security-perimeter-concepts.md#onboarded-private-link-resources). 
+
+For services that are not on this list, as they have not yet been onboarded to network security perimeter, if you would like to allow access you can use a subscription-based rule on the network security perimeter. All resources within that subscription will then be given access to that network security perimeter. For more information on adding subscription-based access rule, refer [here](/rest/api/networkmanager/nsp-access-rules/create-or-update).
+
+> [!IMPORTANT]
+> Private endpoint traffic is considered highly secure and therefore isn't subject to network security perimeter rules. All other traffic, including trusted services, will be subject to network security perimeter rules if the storage account is associated with a perimeter.
+
+#### Limitations
+
+This preview doesn't support the following services, operations, and protocols on a storage account:
+
+- [Object replication](../blobs/object-replication-overview.md) for Azure Blob Storage
+- [Lifecycle management](../blobs/lifecycle-management-overview.md) for Azure Blob Storage
+- [SSH File transfer protocol (SFTP)](../blobs/secure-file-transfer-protocol-support.md) over Azure Blob Storage
+- Network file system (NFS) protocol with [Azure Blob Storage](../blobs/network-file-system-protocol-support.md) and [Azure Files](../files/files-nfs-protocol.md).
+- Server message block (SMB) protocol with Azure Files can only be achieved through IP allowlisting at this time.
+- [Azure Blob Inventory](../blobs/blob-inventory.md)
+- [Unmanaged disks](/azure/virtual-machines/unmanaged-disks-deprecation) do not honor network security perimeter rules. 
+
+- Vaulted backups for Azure Blob Storage
+
+We recommend you don't enable network security perimeter if you need to use any of these services, operations, or protocols. This is to prevent any potential data loss or data exfiltration risk.
+
+> [!WARNING]
+> For storage accounts that are associated with a network security perimeter, in order for customer managed keys (CMK) scenarios to work, ensure that the Azure Key Vault is accessible from within the perimeter to which the storage account has been associated.
+
+#### Associate a network security perimeter with a storage account
+
+To associate a network security perimeter with a storage account, follow these [common instructions](../../private-link/network-security-perimeter-concepts.md) for all PaaS resources.
 
 ## Restrictions and considerations
 
@@ -121,15 +157,13 @@ You must set the default rule to **deny**, or network rules have no effect. Howe
 
 1. Go to the storage account that you want to secure.
 
-2. Locate the **Networking** settings under **Security + networking**.
+2. In the service menu, under **Security + networking**, select **Networking**.
 
-3. Choose which type of public network access you want to allow:
+3. Choose what network access is enabled through the storage account's public endpoint:
 
-   - To allow traffic from all networks, select **Enabled from all networks**.
+   - Select either **Enabled from all networks** or **Enabled from selected virtual networks and IP addresses**. If you select the second option, you'll be prompted to add virtual networks and IP address ranges.
 
-   - To allow traffic only from specific virtual networks, select **Enabled from selected virtual networks and IP addresses**.
-
-   - To block traffic from all networks, select **Disabled**.
+   - To restrict inbound access while allowing outbound access, select **Disabled**.
 
 4. Select **Save** to apply your changes.
 
@@ -185,9 +219,6 @@ You must set the default rule to **deny**, or network rules have no effect. Howe
 
 ---
 
-> [!CAUTION]
-> By design, access to a storage account from trusted services takes the highest precedence over other network access restrictions. If you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [resource instances](#grant-access-from-azure-resource-instances) and [exceptions](#manage-exceptions) that you previously configured, including [Allow Azure services on the trusted services list to access this storage account](#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services might still have access to the storage account.
-
 ## Grant access from a virtual network
 
 You can configure storage accounts to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. With [cross-region service endpoints](#azure-storage-cross-region-service-endpoints), the allowed subnets can also be in different regions from the storage account.
@@ -219,27 +250,21 @@ When you're planning for disaster recovery during a regional outage, create the 
 
 Local and cross-region service endpoints can't coexist on the same subnet. To replace existing service endpoints with cross-region ones, delete the existing `Microsoft.Storage` endpoints and re-create them as cross-region endpoints (`Microsoft.Storage.Global`).
 
-### Managing virtual network rules
+### Managing virtual network and access rules
 
-You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or the Azure CLI v2.
+You can manage virtual network and access rules for storage accounts through the Azure portal, PowerShell, or the Azure CLI v2.
 
-If you want to enable access to your storage account from a virtual network or subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Microsoft Entra tenants.
+If you want to enable access to your storage account from a virtual network or subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal doesn't show subnets in other Microsoft Entra tenants.
 
 #### [Portal](#tab/azure-portal)
 
-1. Go to the storage account that you want to secure.
+1. Go to the storage account for which you want to configure virtual network and access rules.
 
-2. Select **Networking**.
+2. In the service menu, under **Security + networking**, select **Networking**.
 
-3. Check that you've chosen to allow access from **Selected networks**.
+3. Check that you've chosen to enable public network access from selected virtual networks and IP addresses.
 
-4. To grant access to a virtual network by using a new network rule, under **Virtual networks**, select **Add existing virtual network**. Select the **Virtual networks** and **Subnets** options, and then select **Add**.
-
-    To create a new virtual network and grant it access, select **Add new virtual network**. Provide the necessary information to create the new virtual network, and then select **Create**.
-
-    If a service endpoint for Azure Storage wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
-
-    Presently, only virtual networks that belong to the same Microsoft Entra tenant appear for selection during rule creation. To grant access to a subnet in a virtual network that belongs to another tenant, use PowerShell, the Azure CLI, or REST APIs.
+4. To grant access to a virtual network by using a new network rule, under **Virtual networks**, select **Add existing virtual network**. Select the **Virtual networks** and **Subnets** options, and then select **Add**. To create a new virtual network and grant it access, select **Add new virtual network**. Provide the necessary information to create the new virtual network, and then select **Create**. Currently, only virtual networks that belong to the same Microsoft Entra tenant appear for selection during rule creation. To grant access to a subnet in a virtual network that belongs to another tenant, use PowerShell, the Azure CLI, or REST API.
 
 5. To remove a virtual network or subnet rule, select the ellipsis (**...**) to open the context menu for the virtual network or subnet, and then select **Remove**.
 
@@ -336,7 +361,7 @@ The following restrictions apply to IP address ranges:
 > You can't use IP network rules in the following cases:
 >
 > - To restrict access to clients in same Azure region as the storage account. IP network rules have no effect on requests that originate from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
-> - To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) that are in a virtual network that has a service endpoint.
+> - To restrict access to clients in a [paired region](../../reliability/cross-region-replication-azure.md) that are in a virtual network that has a service endpoint.
 > - To restrict access to Azure services deployed in the same region as the storage account. Services deployed in the same region as the storage account use private Azure IP addresses for communication. So, you can't restrict access to specific Azure services based on their public outbound IP address range.
 
 ### Configuring access from on-premises networks
@@ -353,11 +378,11 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 #### [Portal](#tab/azure-portal)
 
-1. Go to the storage account that you want to secure.
+1. Go to the storage account for which you want to manage IP network rules.
 
-2. Select **Networking**.
+2. In the service menu, under **Security + networking**, select **Networking**.
 
-3. Check that you've chosen to allow access from **Selected networks**.
+3. Check that you've chosen to enable public network access from selected virtual networks and IP addresses.
 
 4. To grant access to an internet IP range, enter the IP address or address range (in CIDR format) under **Firewall** > **Address Range**.
 
@@ -451,13 +476,13 @@ You can add or remove resource network rules in the Azure portal:
 
 2. Locate your storage account and display the account overview.
 
-3. Select **Networking**.
+3. In the service menu, under **Security + networking**, select **Networking**.
 
-4. Under **Firewalls and virtual networks**, for **Selected networks**, select the option to allow access.
+4. Check that you've chosen to enable public network access from selected virtual networks and IP addresses.
 
 5. Scroll down to find **Resource instances**. In the **Resource type** dropdown list, select the resource type of your resource instance.
 
-6. In the **Instance name** dropdown list, select the resource instance. You can also choose to include all resource instances in the active tenant, subscription, or resource group.
+6. In the **Instance name** dropdown list, select the resource instance. You can also choose to include all resource instances in the current tenant, subscription, or resource group.
 
 7. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the page for network settings.
 
@@ -586,6 +611,7 @@ Resources of some services can access your storage account for selected operatio
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Azure Backup             | `Microsoft.RecoveryServices` | Run backups and restores of unmanaged disks in infrastructure as a service (IaaS) virtual machines (not required for managed disks). [Learn more](../../backup/backup-overview.md). |
 | Azure Data Box           | `Microsoft.DataBox`          | Import data to Azure. [Learn more](../../databox/data-box-overview.md). |
+| Azure Data Explorer           | `Microsoft.Kusto`          | Read data for ingestion and external tables, and write data to external tables. [Learn more](/azure/data-explorer/data-explorer-overview). |
 | Azure DevTest Labs       | `Microsoft.DevTestLab`       | Create custom images and install artifacts. [Learn more](../../devtest-labs/devtest-lab-overview.md). |
 | Azure Event Grid         | `Microsoft.EventGrid`        | Enable [Azure Blob Storage event publishing](../../event-grid/concepts.md#event-sources) and allow [publishing to storage queues](../../event-grid/event-handlers.md). |
 | Azure Event Hubs         | `Microsoft.EventHub`         | Archive data by using Event Hubs Capture. [Learn More](../../event-hubs/event-hubs-capture-overview.md). |
@@ -611,13 +637,14 @@ The following table lists services that can access your storage account data if 
 | Azure Cache for Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md).| 
 | Azure AI Search          | `Microsoft.Search/searchServices`       | Enables access to storage accounts for indexing, processing, and querying. |
 | Azure AI services        | `Microsoft.CognitiveService/accounts`   | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
-| Azure Container Registry        | `Microsoft.ContainerRegistry/registries`| Through the ACR Tasks suite of features, enables access to storage accounts when you're building container images. |
-| Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-export-acm-data.md).|
+| Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-improved-exports.md).|
 | Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. |
 | Azure Data Factory              | `Microsoft.DataFactory/factories`       | Enables access to storage accounts through the Data Factory runtime. |
+| Azure Data Explorer           | `Microsoft.Kusto/Clusters`          | Read data for ingestion and external tables, and write data to external tables. [Learn more](/azure/data-explorer/data-explorer-overview). |
 | Azure Backup Vault              | `Microsoft.DataProtection/BackupVaults` | Enables access to storage accounts. |
 | Azure Data Share                | `Microsoft.DataShare/accounts`          | Enables access to storage accounts. |
 | Azure Database for PostgreSQL   | `Microsoft.DBForPostgreSQL`             | Enables access to storage accounts. |
+| Azure Device Registry           | `Microsoft.DeviceRegistry/schemaRegistries`     | Enables access to storage accounts. |
 | Azure IoT Hub                   | `Microsoft.Devices/IotHubs`             | Allows data from an IoT hub to be written to Blob Storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources). |
 | Azure DevTest Labs              | `Microsoft.DevTestLab/labs`             | Enables access to storage accounts. |
 | Azure Event Grid                | `Microsoft.EventGrid/domains`           | Enables access to storage accounts. |
@@ -636,7 +663,6 @@ The following table lists services that can access your storage account data if 
 | Azure Machine Learning          | `Microsoft.MachineLearningServices/workspaces` | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](/azure/machine-learning/how-to-network-security-overview#secure-the-workspace-and-associated-resources). |
 | Azure Media Services            | `Microsoft.Media/mediaservices`         | Enables access to storage accounts. |
 | Azure Migrate                   | `Microsoft.Migrate/migrateprojects`     | Enables access to storage accounts. |
-| Azure Spatial Anchors           | `Microsoft.MixedReality/remoteRenderingAccounts` | Enables access to storage accounts. |
 | Azure ExpressRoute              | `Microsoft.Network/expressRoutePorts`   | Enables access to storage accounts. |
 | Microsoft Power Platform        | `Microsoft.PowerPlatform/enterprisePolicies` | Enables access to storage accounts. |
 | Microsoft Project Arcadia       | `Microsoft.ProjectArcadia/workspaces`   | Enables access to storage accounts. |
@@ -645,6 +671,7 @@ The following table lists services that can access your storage account data if 
 | Azure Site Recovery             | `Microsoft.RecoveryServices/vaults`     | Enables access to storage accounts. |
 | Security Center                 | `Microsoft.Security/dataScanners`       | Enables access to storage accounts. |
 | Singularity                     | `Microsoft.Singularity/accounts`        | Enables access to storage accounts. |
+| Azure Storage Actions           | `Microsoft.Storageactions/Storagetasks` | Enables access to storage accounts. |
 | Azure SQL Database              | `Microsoft.Sql`                         | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure SQL Servers               | `Microsoft.Sql/servers`                 | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure Synapse Analytics         | `Microsoft.Sql`                         | Allows import and export of data from specific SQL databases via the `COPY` statement or PolyBase (in a dedicated pool), or the `openrowset` function and external tables in a serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |
@@ -671,11 +698,11 @@ To learn more about working with storage analytics, see [Use Azure Storage analy
 
 #### [Portal](#tab/azure-portal)
 
-1. Go to the storage account that you want to secure.
+1. Go to the storage account for which you want to manage exceptions.
 
-2. Select **Networking**.
+2. In the service menu, under **Security + networking**, select **Networking**.
 
-3. Check that you've chosen to allow access from **Selected networks**.
+3. Check that you've chosen to enable public network access from selected virtual networks and IP addresses.
 
 4. Under **Exceptions**, select the exceptions that you want to grant.
 
@@ -729,5 +756,5 @@ To learn more about working with storage analytics, see [Use Azure Storage analy
 
 ## Next steps
 
-Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
-Dig deeper into [Azure Storage security](../blobs/security-recommendations.md).
+- Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
+- Dig deeper into [security recommendations for Azure Blob storage](../blobs/security-recommendations.md).

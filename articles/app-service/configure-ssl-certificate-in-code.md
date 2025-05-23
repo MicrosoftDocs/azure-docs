@@ -1,15 +1,16 @@
 ---
-title: Use a TLS/SSL certificate in code
-description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
+title: Use TLS/SSL certificates in app code
+description: Understand how to use TLS/SSL certificates in your application code to secure connections in Azure App Service.
+keywords: TLS/SSL in code, secure app, HTTPS integration, Azure App Service security
 ms.topic: article
 ms.custom: linux-related-content
-ms.date: 05/01/2024
+ms.date: 02/14/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
 ---
 
-# Use a TLS/SSL certificate in your code in Azure App Service
+# Use TLS/SSL certificates in your application code
 
 In your application code, you can access the [public or private certificates you add to App Service](configure-ssl-certificate.md). Your app code may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks. This how-to guide shows how to use public or private certificates in your application code.
 

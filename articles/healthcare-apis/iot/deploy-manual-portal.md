@@ -11,6 +11,9 @@ ms.author: chrupa
 
 # Quickstart: Deploy the MedTech service using the Azure portal
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 The MedTech service deployment using the Azure portal is divided into the following three sections:
 
 * [Deploy prerequisite resources](#deploy-prerequisite-resources)
@@ -158,7 +161,7 @@ To begin the validation process of your MedTech service deployment, select the *
 
 Your validation screen should look something like this:
 
-:::image type="content" source="media\deploy-manual-portal\validate-and-review-tab.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\deploy-manual-portal\validate-and-review-tab.png":::
+:::image type="content" source="media\deploy-manual-portal\validate-and-review-tab-fix-nov-24.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\deploy-manual-portal\validate-and-review-tab-fix-nov-24.png":::
 
 If your deployment didn't validate, review the validation failure message(s), and troubleshoot the issue(s). Check all properties under each MedTech service tab that you've configured and then try the validation process again.
 
@@ -177,13 +180,13 @@ If your deployment didn't validate, review the validation failure message(s), an
 
 Your screen should look something like this:
 
-:::image type="content" source="media\deploy-manual-portal\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\deploy-manual-portal\created-medtech-service.png":::
+:::image type="content" source="media\deploy-manual-portal\created-medtech-service-fix-nov-24.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\deploy-manual-portal\created-medtech-service-fix-nov-24.png":::
 
 ## Post-deployment
 
 ### Grant resource access to the MedTech service system-managed identity
 
-There are two post-deployment access steps you must perform or the MedTech service can't read data from the event hub or write data to the FHIR service.
+There are two post-deployment access steps you must perform or the MedTech service can't read data from the event hub, or write data to the FHIR service.
 
 These steps are:
 

@@ -3,10 +3,10 @@ title: Quickstart - Cross region restore for PostgreSQL database with PowerShell
 description: In this Quickstart, learn how to restore PostgreSQL database across region with the Azure PowerShell module.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/01/2024
+ms.date: 12/03/2024
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Restore Azure Database for PostgreSQL server across regions with PowerShell by using Azure Backup
@@ -58,7 +58,7 @@ To restore the database to a secondary region after enabling Cross Region Restor
       ```azurepowershell
       $targetResourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"
       ```
-   2. Use the `Intialize-AzDataProtectionRestoreRequest` cmdlet to prepare the restore request with relevant details.
+   2. Use the `Initialize-AzDataProtectionRestoreRequest` cmdlet to prepare the restore request with relevant details.
 
       ```azurepowershell
       $OssRestoreReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore VaultStore -RestoreLocation $vault.ReplicatedRegion[0] -RestoreType AlternateLocation -RecoveryPoint $recoveryPointsCrr[0].Property.RecoveryPointId -TargetResourceId $targetResourceId -SecretStoreURI $secretURI -SecretStoreType AzureKeyVault
@@ -76,7 +76,7 @@ To restore the database to a secondary region after enabling Cross Region Restor
       $contURI = https://testossstorageaccount.blob.core.windows.net/testcontainerrestore
       ```
       
-   2. Use the `Intialize-AzDataProtectionRestoreRequest` cmdlet to prepare the restore request with relevant details.
+   2. Use the `Initialize-AzDataProtectionRestoreRequest` cmdlet to prepare the restore request with relevant details.
 
       ```azurepowershell
       $OssRestoreReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore VaultStore -RestoreLocation $vault.ReplicatedRegion[0] -RestoreType RestoreAsFiles -RecoveryPoint $recoveryPointsCrr[0].Property.RecoveryPointId -TargetContainerURI $targetContainerURI -FileNamePrefix $fileNamePrefix

@@ -3,15 +3,14 @@
 title: Reference list of Azure domains 
 description: Reference list of Azure domains (not comprehensive) 
 services: security
-author: memildin
+author: msmbaldwin
+ms.author: mbaldwin
 manager: rkarlin
 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 07/07/2020
-ms.author: memildin
-
+ms.date: 04/11/2025
 ---
 # Reference list of Azure domains (not comprehensive)
 

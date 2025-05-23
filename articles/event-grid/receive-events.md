@@ -1,35 +1,36 @@
 ---
 title: Receive events from Azure Event Grid to an HTTP endpoint
 description: Describes how to validate an HTTP endpoint, then receive and deserialize Events from Azure Event Grid.
-ms.topic: conceptual
-ms.date: 01/10/2024
+ms.topic: how-to
+ms.date: 02/12/2025
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
+# Customer intent: As a developer, I want to learn how to receive events from Azure Event Grid to an HTTP endpoint. 
 ---
 
 # Receive events to an HTTP endpoint
 
-This article describes how to [validate an HTTP endpoint](end-point-validation-cloud-events-schema.md) to receive events from an Event Subscription and then receive and deserialize events. This article uses an Azure Function for demonstration purposes, however the same concepts apply regardless of where the application is hosted.
+This article describes how to [validate an HTTP endpoint](end-point-validation-cloud-events-schema.md) to receive events from an Event Subscription and then receive and deserialize events. This article uses an Azure Function for demonstration purposes. However the same concepts apply regardless of where the application is hosted.
 
 > [!NOTE]
-> We recommend that you use an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) when triggering an Azure Function with Event Grid. It provides an easier and quicker integration between Event Grid and Azure Functions. However, note that Azure Functions' Event Grid trigger does not support the scenario where the hosted code needs to control the HTTP status code returned to Event Grid. Given this limitation, your code running on an Azure Function would not be able to return a 5XX error to initiate an event delivery retry by Event Grid, for example.
+> We recommend that you use an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) when triggering an Azure Function with Event Grid. It provides an easier and quicker integration between Event Grid and Azure Functions. However Azure Functions' Event Grid trigger doesn't support the scenario where the hosted code needs to control the HTTP status code returned to Event Grid. Given this limitation, your code running on an Azure Function wouldn't be able to return a 5XX error to initiate an event delivery retry by Event Grid, for example.
 
 ## Prerequisites
 
-You need a function app with an HTTP triggered function.
+- You need a function app with an HTTP triggered function.
 
 ## Add dependencies
 
 If you're developing in .NET, [add a dependency](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) to your function for the `Azure.Messaging.EventGrid` [NuGet package](https://www.nuget.org/packages/Azure.Messaging.EventGrid).
 
-SDKs for other languages are available via the [Publish SDKs](./sdk-overview.md#data-plane-sdks) reference. These packages have the models for native event types such as `EventGridEvent`, `StorageBlobCreatedEventData`, and `EventHubCaptureFileCreatedEventData`.
+SDKs for other languages are available via the [Publishing SDKs](./sdk-overview.md#data-plane-sdks) reference. These packages have the models for native event types such as `EventGridEvent`, `StorageBlobCreatedEventData`, and `EventHubCaptureFileCreatedEventData`.
 
 ## Endpoint validation
 
 The first thing you want to do is handle `Microsoft.EventGrid.SubscriptionValidationEvent` events. Every time someone subscribes to an event, Event Grid sends a validation event to the endpoint with a `validationCode` in the data payload. The endpoint is required to echo this back in the response body to [prove the endpoint is valid and owned by you](end-point-validation-cloud-events-schema.md). If you're using an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) rather than a WebHook triggered Function, endpoint validation is handled for you. If you use a third-party API service (like [Zapier](https://zapier.com/) or [IFTTT](https://ifttt.com/)), you might not be able to programmatically echo the validation code. For those services, you can manually validate the subscription by using a validation URL that is sent in the subscription validation event. Copy that URL in the `validationUrl` property and send a GET request either through a REST client or your web browser.
 
-In C#, the `ParseMany()` method is used to deserialize a `BinaryData` instance containing one or more events into an array of `EventGridEvent`. If you knew ahead of time that you are deserializing only a single event, you could use the `Parse` method instead.
+In C#, the `ParseMany()` method is used to deserialize a `BinaryData` instance containing one or more events into an array of `EventGridEvent`. If you knew ahead of time that you're deserializing only a single event, you could use the `Parse` method instead.
 
 To programmatically echo the validation code, use the following code.
 
@@ -250,7 +251,7 @@ Test the new functionality of the function by putting a [Blob storage event](./e
 
 You should see the blob URL output in the function log:
 
-```
+```bash
 2022-11-14T22:40:45.978 [Information] Executing 'Function1' (Reason='This function was programmatically called via the host APIs.', Id=8429137d-9245-438c-8206-f9e85ef5dd61)
 2022-11-14T22:40:46.012 [Information] C# HTTP trigger function processed a request.
 2022-11-14T22:40:46.017 [Information] Received events: [{"topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount","subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt","eventType": "Microsoft.Storage.BlobCreated","eventTime": "2017-06-26T18:41:00.9584103Z","id": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e","data": {"api": "PutBlockList","clientRequestId": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f","requestId": "cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a","eTag": "0x8D4BCC2E4835CD0","contentType": "text/plain","contentLength": 524288,"blobType": "BlockBlob","url": "https://example.blob.core.windows.net/testcontainer/testfile.txt","sequencer": "00000000000004420000000000028963","storageDiagnostics": {"batchId": "dddd3d3d-ee4e-ff5f-aa6a-bbbbbb7b7b7b"}},"dataVersion": "","metadataVersion": "1"}]
@@ -385,7 +386,7 @@ You can also test this functionality live by [sending a custom event with CURL f
 
 [!INCLUDE [message-headers](./includes/message-headers.md)]
 
-## Next steps
+## Related content
 
 * Explore the [Azure Event Grid Management and Publish SDKs](./sdk-overview.md)
 * Learn how to [post to a custom topic](./post-to-custom-topic.md)

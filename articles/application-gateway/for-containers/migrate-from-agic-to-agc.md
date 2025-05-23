@@ -2,11 +2,11 @@
 title: Migration Overview - Move Application Gateway Ingress Controller (AGIC) services to Application Gateway for Containers
 description: Learn how to migrate services from AGIC to Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/28/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Migrate from Application Gateway Ingress Controller (AGIC) to Application Gateway for Containers
@@ -329,7 +329,7 @@ Application Gateway for Containers implementation
 
 #### [Header rewrite in Gateway API](how-to-header-rewrite-ingress-api.md)
 
-In Gateway API, you define a RequestHeaderModifer match and filter to rewrite the request.
+In Gateway API, you define a RequestHeaderModifier match and filter to rewrite the request.
 
 #### [Header rewrite in Ingress API](how-to-header-rewrite-ingress-api.md)
 
