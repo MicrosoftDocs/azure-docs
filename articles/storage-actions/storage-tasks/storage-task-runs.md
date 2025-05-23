@@ -1,22 +1,18 @@
 ---
 title: Analyze storage task runs
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Learn how to view lists of runs and review run reports.
 author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta
-ms.date: 01/17/2024
+ms.date: 05/05/2025
 ---
 
 # Analyze storage task runs
 
 You can view a list of task runs. For each completed run, you can open a report that lists each object that met the conditions of the task and the outcome of the operation against that object.
-
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## View a list of task runs
 
@@ -31,7 +27,7 @@ Navigate to the storage task in the Azure portal and then under **Storage task m
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the the storage task list when opened from a storage task.](../media/storage-tasks/storage-task-runs/storage-task-runs-storage-task-view.png)
 
-Metrics appear as tiles that you can select to view a list of the task runs which comprise the metric. For example, to view list of task runs where at least one operation failed, select the **Objects on which the operation failed** tile. Then, a filtered list of task runs will appear. You can filter this list by time frame. The following table describes each field that appears in this list.
+Metrics appear as tiles that you can select to view a list of the task runs which comprise the metric. For example, to view list of task runs where at least one operation failed, select the **Objects on which the operation failed** tile. Then, a filtered list of task runs appear. You can filter this list by time frame. The following table describes each field that appears in this list.
 
 | Column  | Description |
 |--|--|
@@ -65,7 +61,7 @@ A list of task runs appears. You can filter this list by time frame. The followi
 
 Each task run generates an execution report. That report is stored in a container that is located in the targeted storage account. The name of that container is specified when the assignment is created.  A link to the report appears next to each run in the task run list. Use that link to open a report which contains status information about each object that was targeted by the run.
 
-To open the report, select the **View report** link for any listed task run. Then, the report will begin downloading. The report is packaged as a compressed file so you'll have to extract the contents of that file to a directory on your client.
+To open the report, select the **View report** link for any listed task run. Then, the report begins downloading. The report is packaged as a compressed file so you have to extract the contents of that file to a directory on your client.
 
 The report is formatted as a CSV file. Each row of the report contains the details about the execution of the operation on each object that is targeted by the task. The following table describes the columns of information that appear in the execution report:
 

@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 04/28/2025
+ms.date: 05/22/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -17,6 +17,38 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## May 2025
+
+- [All Microsoft Sentinel use cases generally available in the Defender portal](#all-microsoft-sentinel-use-cases-generally-available-in-the-defender-portal)
+- [Unified *IdentityInfo* table](#unified-identityinfo-table)
+- [Additions to SOC optimization support (Preview)](#additions-to-soc-optimization-support-preview)
+
+### All Microsoft Sentinel use cases generally available in the Defender portal
+
+All Microsoft Sentinel use cases that are in general availability, including [multi-tenant](/unified-secops-platform/mto-overview) and [multi-workspace](workspaces-defender-portal.md) capabilities and support for all government and commercial clouds, are now also supported for general availability in the Defender portal.
+
+We recommend that you [onboard your workspaces to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) to take advantage of unified security operations. For more information, see:
+
+For more information, see:
+
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+- [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md)
+
+### Unified *IdentityInfo* table
+
+Customers of Microsoft Sentinel in the Defender portal who have enabled UEBA can now take advantage of a new version of the IdentityInfo table, located in the Defender portal's *Advanced hunting* section, that includes the largest possible set of fields common to both the Defender and Azure portals. This unified table helps enrich your security investigations across the entire unified SecOps experience.
+
+For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table).
+
+### Additions to SOC optimization support (Preview)
+
+SOC optimization support for:
+
+- **AI MITRE ATT&CK tagging recommendations (Preview)**: Uses artificial intelligence to suggest tagging security detections with MITRE ATT&CK tactics and techniques.
+- **Risk-based recommendations (Preview)**: Recommends implementing controls to address coverage gaps linked to use cases that may result in business risks or financial losses, including operational, financial, reputational, compliance, and legal risks. 
+ 
+For more information, see [SOC optimization reference](soc-optimization/soc-optimization-reference.md).
 
 ## April 2025
 
@@ -74,7 +106,7 @@ The Microsoft Sentinel agentless data connector for SAP and related security con
 - **Enhanced instructions** in the portal for deploying and configuring the data connector. [External documentation](sap/preparing-sap.md#next-step) is updated to rely on the instructions in the portal.
 - **[More data ingested](sap/sap-solution-log-reference.md)**, such as Change Docs logs and User Master data.
 - **Optional parameters** to [Customize data connector behavior (optional)](sap/deploy-data-connector-agent-container.md#customize-data-connector-behavior-optional).
-- [**A new tool to verify system prerequisites and compatibility**](sap/preparing-sap.md#perform-initial-connector-configuration), recommended both before deploying and when [troubleshooting](sap/sap-deploy-troubleshoot.md#check-for-prerequisites).
+- [**A new tool to verify system prerequisites and compatibility**](sap/preparing-sap.md#configure-the-connector-in-microsoft-sentinel-and-in-your-sap-system), recommended both before deploying and when [troubleshooting](sap/sap-deploy-troubleshoot.md#check-for-prerequisites).
 
 For more information, see:
 
@@ -90,7 +122,7 @@ For more information, see:
 - [Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables](#unlock-advanced-hunting-with-new-stix-objects-by-opting-in-to-new-threat-intelligence-tables)
 - [Threat intelligence upload API now supports more STIX objects](#threat-intelligence-upload-api-now-supports-more-stix-objects)
 - [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#microsoft-defender-threat-intelligence-data-connectors-now-generally-available-ga)
-- [Bicep template support for repositories (Preview)](#bicep-template-support-for-repositories-preview)
+- [Bicep file support for repositories (Preview)](#bicep-file-support-for-repositories-preview)
 - [SOC optimization updates for unified coverage management](#soc-optimization-updates-for-unified-coverage-management)
 - [View granular solution content in the Microsoft Sentinel content hub](#view-granular-solution-content-in-the-microsoft-sentinel-content-hub)
 
@@ -151,8 +183,8 @@ Both premium and standard Microsoft Defender Threat Intelligence data connectors
 - [Explore Defender Threat Intelligence licenses](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence#areaheading-oc8e7d)
 - [Enable the Microsoft Defender Threat Intelligence data connector](connect-mdti-data-connector.md)
 
-### Bicep template support for repositories (Preview)
-Use Bicep templates alongside or as a replacement of ARM JSON templates in Microsoft Sentinel repositories. Bicep provides an intuitive way to create templates of Azure resources and Microsoft Sentinel content items. Not only is it easier to develop new content items, Bicep makes reviewing and updating content easier for anyone that's a part of the continuous integration and delivery of your Microsoft Sentinel content.
+### Bicep file support for repositories (Preview)
+Use Bicep files alongside or as a replacement of ARM JSON templates in Microsoft Sentinel repositories. Bicep provides an intuitive way to create templates of Azure resources and Microsoft Sentinel content items. Not only is it easier to develop new content items, Bicep makes reviewing and updating content easier for anyone that's a part of the continuous integration and delivery of your Microsoft Sentinel content.
 
 For more information, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 

@@ -48,6 +48,7 @@ The following table is the list of FQDNs and endpoints your session host VMs nee
 | `168.63.129.16` | TCP | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 | `oneocsp.microsoft.com` | TCP | 80 | Certificates | `AzureFrontDoor.FirstParty` |
 | `www.microsoft.com` | TCP | 80 | Certificates | N/A |
+|`ctldl.windowsupdate.com`| TCP| 80| Certificates|N/A|
 | `aka.ms` | TCP | 443 | Microsoft URL shortener, used during session host deployment on Azure Local | N/A |
 
 The following table lists optional FQDNs and endpoints that your session host virtual machines might also need to access for other services:
