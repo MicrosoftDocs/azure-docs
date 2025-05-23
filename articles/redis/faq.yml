@@ -31,10 +31,6 @@ sections:
         answer: |
           No. No action is required for Azure Managed Redis or Azure Cache for Redis customers as a result of this change.
 
-      - question: What do I need to do as an Azure Cache for Redis or Azure Managed Redis customer in response to this licensing announcement?
-        answer: |
-          No action is required for Azure customers regarding the licensing announcement.
-      
       - question: |
           Will Azure Redis instances continue to receive patches and bug fixes?
         answer: |
