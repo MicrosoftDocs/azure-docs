@@ -166,7 +166,7 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
 
     This command creates a function app running in your specified language runtime on Linux in the [Flex Consumption Plan](flex-consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
-8. Add your user-assigned managed identity to the [Monitoring Metrics Publisher](../role-based-access-control/built-in-roles/monitor#monitoring-metrics-publisher) role in your Application Insights instance:
+8. Add your user-assigned managed identity to the [Monitoring Metrics Publisher](../role-based-access-control/built-in-roles/monitor.md#monitoring-metrics-publisher) role in your Application Insights instance:
 
     :::code language="azurecli" source="~/azure_cli_scripts/azure-functions/create-function-app-flex-plan-identities/create-function-app-flex-plan-identities.md" range="42-44":::
 
