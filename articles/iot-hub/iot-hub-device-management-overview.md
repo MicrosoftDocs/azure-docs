@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.author: sonialopez
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/25/2025
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
 ---
