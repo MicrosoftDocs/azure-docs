@@ -134,7 +134,7 @@ Follow these steps to create a diagnostics setting to send Device Streams resour
 
    :::image type="content" source="./media/iot-hub-device-streams-overview/device-streams-view-logs.png" alt-text="Screenshot that shows the AzureDiagnostic logs for an IoT hub, highlighting the identity, operation, and results for a Device Streams resource log entry.":::
 
-To learn more about using Azure Monitor with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md). For information about all of the resource logs, metrics, and tables available for IoT Hub, see [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md).
+To learn more about using Azure Monitor with IoT Hub, see [Monitor Azure IoT Hub](monitor-iot-hub.md). For information about all of the resource logs, metrics, and tables available for IoT Hub, see [Azure IoT Hub monitoring data reference](monitor-iot-hub-reference.md).
 
 ## Regional availability
 
