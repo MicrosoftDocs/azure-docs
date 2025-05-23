@@ -86,7 +86,7 @@ const appConfig = await load(endpoint, credential, {
 
 #### [Go](#tab/go)
 
-```go
+```golang
 options := &azureappconfiguration.Options{
     Selectors: []azureappconfiguration.Selector{
         {
@@ -155,7 +155,7 @@ const appConfig = await load(endpoint, credential, {
 
 #### [Go](#tab/go)
 
-```go
+```golang
 options := &azureappconfiguration.Options{
     Selectors: []azureappconfiguration.Selector{
         {

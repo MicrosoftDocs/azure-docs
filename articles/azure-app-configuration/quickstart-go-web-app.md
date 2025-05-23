@@ -110,7 +110,7 @@ Create a file named `appconfig.go` with the following content. You can connect t
 
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-```go
+```golang
 package main
 
 import (
@@ -166,7 +166,7 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 
 ### [Connection string](#tab/connection-string)
 
-```go
+```golang
 package main
 
 import (
@@ -212,11 +212,13 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 }
 ```
 
+---
+
 ## Create a web application with Gin
 
 Create a file named `main.go` with the following content:
 
-```go
+```golang
 package main
 
 import (
@@ -280,8 +282,6 @@ func main() {
 	}
 }
 ```
-
----
 
 ## Run the web application
 

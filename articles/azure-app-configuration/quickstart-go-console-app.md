@@ -59,7 +59,7 @@ Add the following key-values to the App Configuration store. For more informatio
 
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-```go
+```golang
 package main
 
 import (
@@ -115,7 +115,7 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 
 ### [Connection string](#tab/connection-string)
 
-```go
+```golang
 package main
 
 import (
@@ -169,7 +169,7 @@ The `Unmarshal` method provides a type-safe way to load configuration values int
 
 Create a file named `unmarshal_sample.go` with the following content:
 
-```go
+```golang
 package main
 
 import (
@@ -226,7 +226,7 @@ The `GetBytes` method retrieves your configuration as raw JSON data, offering a 
 
 Create a file named `getbytes_sample.go` with the following content:
 
-```go
+```golang
 package main
 
 import (
