@@ -18,7 +18,7 @@ The Event Hubs Geo-replication feature provides replication of both metadata (en
 
 This feature ensures that metadata and data of a namespace is continuously replicated from a primary region to the secondary region. The namespace can be thought of as being virtually extended to more than one region, with one region being the primary and the other being the secondary.
 
-At any time, the secondary region can be promoted to become a primary region. Promoting a secondary repoints the namespace to the selected secondary region, and the previous primary region is demoted to a secondary region.
+At any time, the secondary region can be promoted to become a primary region. Promoting a secondary repoints the namespace FQDN (fully qualified domain name) to the selected secondary region, and the previous primary region is demoted to a secondary region.
 
 ## Scenarios
 
@@ -38,7 +38,7 @@ Geo-replication can also be used to facilitate data migration, maintenance, and 
 
 ## Basic concepts
 
-The Geo-Replication feature implements metadata and data replication in a primary-secondary replication model. At a given time there’s a single primary region, which is serving both producers and consumers. The secondaries act as hot stand-by regions, meaning that it isn't possible to interact with these secondary regions. However, they run in the same configuration as the primary region, allowing for fast promotion, and meaning they your workloads can immediately continue running after promotion has been completed. 
+The Geo-Replication feature implements metadata and data replication in a primary-secondary replication model. At a given time there’s a single primary region, which is serving both producers and consumers. The secondary acts as a hot stand-by region, meaning that it isn't possible to interact with these secondary regions. However, they run in the same configuration as the primary region, allowing for fast promotion, ready to step in after promotion has been completed. 
 
 Some of the key aspects of Geo-data Replication feature are: 
 
@@ -61,7 +61,7 @@ There are two replication consistency configurations, synchronous and asynchrono
 
 ### Asynchronous replication
 
-Using asynchronous replication, all requests are committed on the primary, after which an acknowledgment is sent to the client. Replication to the secondary regions happens asynchronously. Users can configure the maximum acceptable amount of lag time. The lag time is the service side offset between the latest action on the primary and the secondary regions. The service continuously replicates the data and metadata, ensuring the lag remains as small as possible. If the lag for an active secondary grows beyond the user configured maximum replication lag, the primary starts throttling incoming requests.
+Using asynchronous replication, all requests are committed on the primary, after which an acknowledgment is sent to the client. Replication to the secondary regions happens asynchronously. Users can configure the maximum acceptable amount of lag time - the service side offset between the latest action on the primary and the secondary regions. The service continuously replicates the data and metadata, ensuring the lag remains as small as possible. If the lag for an active secondary grows beyond the user configured maximum replication lag, the primary starts throttling incoming requests.
 
 ### Synchronous replication
 
@@ -99,6 +99,10 @@ The replication mode can be changed after configuring Geo-Replication. You can g
 ## Secondary region selection
 To enable the Geo-Replication feature, you need to use primary and secondary regions where the feature is enabled. The Geo-Replication feature depends on being able to replicate published messages from the primary to the secondary regions. If the secondary region is on another continent, this has a major impact on replication lag from the primary to the secondary region. If using Geo-Replication for availability reasons, you're best off with secondary regions being at least on the same continent where possible. To get a better understanding of the latency induced by geographic distance, you can learn more from Azure network round-trip latency statistics.
 
+> [!NOTE]
+> Geo-replication requires that primary and secondary copies of the Event Hubs be on the same tier. The configuration cannot be done across tiers.
+> 
+
 ## Geo-replication management
 
 The Geo-Replication feature enables customers to configure a secondary region towards which to replicate metadata and data. As such, customers can perform the following management tasks:
@@ -107,6 +111,20 @@ The Geo-Replication feature enables customers to configure a secondary region to
 -	**Configure the replication consistency** - Synchronous and asynchronous replication is set when Geo-Replication is configured but can also be switched afterwards.
 -	**Trigger promotion/failover** - All promotions are customer initiated.
 -	**Remove a secondary** - If at any time you want to remove a secondary region, you can do so after which the data in the secondary region is deleted.
+
+### Criteria to trigger promotion
+
+Here are some cases where a promotion of a secondary to primary may be triggered.
+
+   * Regional Outage: If there is a regional outage affecting the primary region, you should promote the secondary region to ensure business continuity and minimize downtime.
+   
+   * Maintenance Activities: During planned maintenance activities in the primary region, promoting the secondary region can help maintain high availability for mission-critical applications.
+
+   * Disaster Recovery: In the event of a disaster affecting the primary region, promoting the secondary region ensures that your data remains accessible and your applications continue to function.
+
+   * Performance Issues: If the primary region is experiencing performance issues that impact the availability or reliability of your Event Hubs, promoting the secondary region can help mitigate these issues.
+
+It is recommended to occasionally test failover mechanisms to ensure the business continuity plan is effeective, and your applications can seamlessly switch to the secondary region when needed.
 
 ## Monitoring data replication
 Users can monitor the progress of the replication job by monitoring the replication lag metric in Application Metrics logs.
@@ -142,8 +160,8 @@ Consuming applications can consume data using the namespace hostname of a namesp
 Event consuming applications can continue to maintain offset management as they would do it with a non-geo replicated namespace. No special consideration is needed for offset management for geo-replication enabled namespaces.
 
 > [!WARNING]
-> In the event of forced failover (i.e. non graceful failover), some of the data that hasn't been copied over may be lost. This may cause the offsets of that specific data to be different across the primary and secondary regions for the namespace, however it would still be within the bounds of the maximum replication lag configured for the namespace.
-> In such cases, it is preferred to start consuming from the last committed offset. Some data might have duplicate processing and must be handled on the client side.
+> In the event of forced failover (that is, non graceful failover), some of the data that is yet to be copied over may be lost. This may cause the offsets of that specific data to be different across the primary and secondary regions for the namespace, however it would still be within the bounds of the maximum replication lag configured for the namespace.
+> In such cases, it's preferred to start consuming from the last committed offset. Some data might have duplicate processing and must be handled on the client side.
 >
 
 #### Kafka
@@ -157,7 +175,7 @@ Here are the list of Apache Kafka clients that are supported -
 | Apache Kafka | 2.1.0 or later |
 | Librdkafka and derived libraries | 2.1.0 or later |
 
-In the case of other libraries, these are supported based on the versioning of the specific definitions - 
+In the case of other libraries, the ones using the below API versions are supported - 
 
 | API name | Version supported |
 | -------------- | ----------------- |
@@ -170,7 +188,7 @@ In the case of other libraries, these are supported based on the versioning of t
 
 #### Event Hubs SDK/AMQP
 
-In the case of AMQP, the checkpoint is managed by users with a checkpoint store such as Azure Blob storage or a custom storage solution. If there's a failover, the checkpoint store must be available from the secondary region so that clients can retrieve checkpoint data and avoid loss of messages.
+For AMQP, the checkpoint is managed by users with a checkpoint store such as Azure Blob storage or a custom storage solution. If there's a failover, the checkpoint store must be available from the secondary region so that clients can retrieve checkpoint data and avoid loss of messages.
 
 The latest version of the Event Hubs SDK has made some changes to checkpoint representation to supports failovers. We recommend using the [latest versions of the SDKs](sdks.md), but prior versions of the below SDKs are supported as well.
 
@@ -182,9 +200,9 @@ The latest version of the Event Hubs SDK has made some changes to checkpoint rep
 > [!WARNING]
 > As part of the implementation, the checkpoint format is adapted when geo-replication is enabled on a namespace. Subsequent checkpoints after the geo-replication is complete will be written with a new format. If you force promote a secondary region to primary right after the geo-replication pairing is done but before a new checkpoint is stored (this may happen in the case of forced promotion/failover), then a new data published post promotion may be lost.
 >
-> In such cases, it is preferred to start consuming from the last committed offset. Some data might have duplicate processing and must be handled on the client side.
+> In such cases, it's preferred to start consuming from the last committed offset. Some data might have duplicate processing and must be handled on the client side.
 >
-> It is also recommended to upgrade to the [latest versions of the SDKs](sdks.md).
+> It's also recommended to upgrade to the [latest versions of the SDKs](sdks.md).
 >
 
 ## Considerations
@@ -202,7 +220,7 @@ The pricing varies based on the tier you pick, but generally has 2 parameters -
    * The bandwidth charge for the data being replicated between the primary and secondary regions.
 
 > [!NOTE]
-> Please refer to the pricing details listed at [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs/) to determine the charges. The geo-replication charge depends on location of the primary region.
+> Refer to the pricing details listed at [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs/) to determine the charges. The geo-replication charge depends on location of the primary region.
 >
 
 ### Dedicated clusters
@@ -213,9 +231,9 @@ When geo-replication is enabled, the only additional charge is the bandwidth cha
 
 ### Premium namespaces
 
-For Premium namespaces, enabling geo-replication provisions the same number of processing units (PUs) in the secondary region. Thus, you pay for the **number of PUs** you are using and the **bandwidth for the data transferred between the primary and secondary region**.
+For Premium namespaces, enabling geo-replication provisions the same number of processing units (PUs) in the secondary region. Thus, you pay for the **number of PUs** you're using and the **bandwidth for the data transferred between the primary and secondary region**.
 
-For example, if you enable geo-replication on a Premium namespace which has been provisioned with **4 PU**, you will be billed for
+For example, if you enable geo-replication on a Premium namespace which has been provisioned with **4 PU**, you'll be billed for
 
    * 4 PUs in the primary region,
    * 4 PUs in the secondary region,
@@ -227,12 +245,12 @@ Bandwidth is charged based on the data transferred between the primary and secon
 
 This section provides additional considerations when using Geo-Replication with namespaces that utilize private endpoints. For general information on using private endpoints with Event Hubs, see [Integrate Azure Event Hubs with Azure Private Link](private-link-service.md).
 
-When implementing Geo-Replication for a Event Hubs namespace that uses private endpoints, it is important to create private endpoints for both the primary and secondary regions. These endpoints should be configured against virtual networks hosting both primary and secondary instances of your application. For example, if you have two virtual networks, VNET-1 and VNET-2, you need to create two private endpoints on the Event Hubs namespace, using subnets from VNET-1 and VNET-2 respectively. Moreover, the VNETs should be set up with [cross-region peering](/azure/virtual-network/virtual-network-peering-overview), so that clients can communicate with either of the private endpoints. Finally, the [DNS](/azure/private-link/private-endpoint-dns) needs to be managed in such a way that all clients get the DNS information, which should point the namespace endpoint (namespacename.servicebus.windows.net) to the IP address of the private endpoint in the current primary region.
+When implementing Geo-Replication for an Event Hubs namespace that uses private endpoints, it is important to create private endpoints for both the primary and secondary regions. These endpoints should be configured against virtual networks hosting both primary and secondary instances of your application. For example, if you have two virtual networks, VNET-1 and VNET-2, you need to create two private endpoints on the Event Hubs namespace, using subnets from VNET-1 and VNET-2 respectively. Moreover, the VNETs should be set up with [cross-region peering](/azure/virtual-network/virtual-network-peering-overview), so that clients can communicate with either of the private endpoints. Finally, the [DNS](/azure/private-link/private-endpoint-dns) needs to be managed in such a way that all clients get the DNS information, which should point the namespace endpoint (namespacename.servicebus.windows.net) to the IP address of the private endpoint in the current primary region.
 
 > [!IMPORTANT]
 > When promoting a secondary region for Event Hubs, the DNS entry also needs to be updated to point to the corresponding endpoint.
 
-:::image type="content" source="./media/geo-replication/geo-replication-private-endpoints.png" alt-text="Screenshot showing two VNETs with their own private endpoints and VMs connected to an on-premises instance and a Event Hubs namespace.":::
+:::image type="content" source="./media/geo-replication/geo-replication-private-endpoints.png" alt-text="Screenshot showing two VNETs with their own private endpoints and VMs connected to an on-premises instance and an Event Hubs namespace.":::
 
 The advantage of this approach is that failover can occur independently at the application layer or on the Event Hubs namespace:
 

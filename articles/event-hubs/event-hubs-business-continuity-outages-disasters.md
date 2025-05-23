@@ -20,13 +20,13 @@ The Event Hubs Geo-Disaster Recovery and Geo-Replication features are designed t
 
 ## Definitions
 
-It’s important to distinguish between the different scenarios where business continuity and disater recovery features may be used:
+It’s important to distinguish between the different scenarios where business continuity and disaster recovery features may be used:
 
-- **Planned Maintenance :** A customer planned event where resources in the specific region are optimized to meet business goals. In these events, workflows may be adjusted to use a secondary region while the primary region is being optimized. For e.g. Blue-green deployments, database backups and recovery, data integrity checks.
+- **Planned Maintenance :** A customer planned event where resources in the specific region are optimized to meet business goals. In these events, workflows may be adjusted to use a secondary region while the primary region is being optimized. For example, Blue-green deployments, database backups and recovery, data integrity checks.
 
 - **Outage:** A temporary unavailability of Event Hubs, which could affect individual partitions, the messaging store, or even the entire datacenter. Outages are typically resolved without data loss, and the service resumes normal operation once the underlying issue is fixed. Examples include hardware failures, software bugs, or short-term network issues.
 
-- **Disaster:** The permanent or prolonged loss of an Event Hubs cluster, region, or datacenterThe region or datacenter might or might not become available again, or might be down for hours or days. Examples of such disasters are fire, flooding, or earthquake. A disaster that becomes permanent might cause the loss of some messages, events, or other data. However, in most cases there should be no data loss and messages can be recovered once the data center comes back up.
+- **Disaster:** The permanent or prolonged loss of an Event Hubs cluster, region, or datacenter. The region or datacenter may or may not become available again, or might be down for hours or days. Examples of such disasters are fire, flooding, or earthquake. While this is unlikely, a disaster that becomes permanent might cause the loss of some messages, events, or other data. However, in most cases there should be no data loss and messages can be recovered once the data center comes back up.
 
 
 ## Protection Against Outages and Disasters
@@ -42,13 +42,13 @@ Event Hubs supports **availability zones** in select Azure regions. Data (metada
 
 ### Geo-Disaster Recovery (Geo-DR)
 
-Event Hubs supports [Geo-Disaster Recovery (Geo-DR)](event-hubs-geo-dr.md) at the namespace level, which implements metadata disaster recovery between the primary and secondary namespace in different Azure regions. With Geo-disaster recovery, **only metadata** for entites is replicated between primary and secondary namespaces.
+Event Hubs supports [Geo-Disaster Recovery (Geo-DR)](event-hubs-geo-dr.md) at the namespace level, which implements metadata disaster recovery between the primary and secondary namespace in different Azure regions. With Geo-disaster recovery, **only metadata** for entities is replicated between primary and secondary namespaces.
 
 ### Geo-replication
 
 Geo-replication ensures that metadata and data of a namespace is continuously replicated from a primary region to the secondary region. The namespace can be thought of as being virtually extended to more than one region, with one region being the primary and the other being the secondary.
 
-At any time, the secondary region can be promoted to become a primary region. Promoting a secondary repoints the namespace to the selected secondary region, and the previous primary region is demoted to a secondary region.
+At any time, the secondary region can be promoted to become a primary region. Promoting a secondary repoints the namespace FQDN to the selected secondary region, and the previous primary region is demoted to a secondary region.
 
 #### How does Geo-replication differ from Availability Zones
 
