@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 07/11/2023
+ms.date: 05/22/2025
 ms.author: radeltch
 ---
 
@@ -197,15 +197,18 @@ The next instructions assume that you've already created the resource group, the
 
     2. Execute the following commands to enable accelerated networking for the additional network interfaces, which are attached to the `storage` and `hana` subnets.
 
-        ```bash
+        ```azurecli
         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb1-storage --accelerated-networking true
-         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb2-storage --accelerated-networking true
-         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb3-storage --accelerated-networking true
+        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb2-storage --accelerated-networking true
+        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb3-storage --accelerated-networking true
         
-         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb1-hana --accelerated-networking true
-         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb2-hana --accelerated-networking true
-         az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb3-hana --accelerated-networking true
+        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb1-hana --accelerated-networking true
+        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb2-hana --accelerated-networking true
+        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hanadb3-hana --accelerated-networking true
         ```
+
+        > [!NOTE]
+        > You don’t have to install the Azure CLI package on your HANA nodes to run `az` command. You can run it from any machine that has the CLI installed, or use Azure Cloud Shell.
 
 7. Start the virtual machines by doing the following steps:
 

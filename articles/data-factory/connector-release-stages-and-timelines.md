@@ -31,8 +31,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Drill](connector-drill.md)                              | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [Google BigQuery V2](connector-google-bigquery.md)          | /              | GA                                | /                   | /                   |
 | [Google BigQuery V1](connector-google-bigquery-legacy.md)   | /              | End of support                    | October 31, 2024      | September 30, 2025    |
-| [Greenplum](connector-greenplum.md)                        | version 2.0    | Public Preview                    | /                   | /                   |
-|                                    | version 1.0    | GA                                | To be determined      | /                     |
+| [Greenplum](connector-greenplum.md)                        | version 2.0    | GA                   | /                   | /                   |
+|                                    | version 1.0    | End of support announced                                | August 31, 2025     | September 30, 2025                    |
 | [HBase](connector-hbase.md)                              | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [Magento (Preview)](connector-magento.md)                  | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [MariaDB](connector-mariadb.md)                            | version 2.0    | GA                                | /                   | /                   |
@@ -49,8 +49,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Phoenix](connector-phoenix.md)                            | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [PostgreSQL V2](connector-postgresql.md)                   | /              | GA                                | /                   | /                   |
 | [PostgreSQL V1](connector-postgresql-legacy.md)            | /              | End of support                    | October 31, 2024      | September 30, 2025    |
-| [Presto](connector-presto.md)                             | version 2.0    | Public Preview                              | /                   | /                   |
-|                                    | version 1.0    | GA                                | To be determined      | /                     |
+| [Presto](connector-presto.md)                             | version 2.0    | GA                           | /                   | /                   |
+|                                    | version 1.0    | End of support announced                             | August 31, 2025      | September 30, 2025                    |
 | [Salesforce V2](connector-salesforce.md)                   | /              | GA                                | /                   | /                   |
 | [Salesforce V1](connector-salesforce-legacy.md)            | /              | End of support announced          | June 30, 2025         | September 30, 2025    |
 | [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md) | /              | End of support                    | December 31, 2024     | December 31, 2024     |
@@ -61,10 +61,10 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Snowflake V2](connector-snowflake.md)                     | version 1.1    | Public Preview                    | /                   | /                   |
 |                                    | version 1.0    | GA                                | /                   | /                   |
 | [Snowflake V1](connector-snowflake-legacy.md)              | /              | End of support announced          | June 30, 2025         | September 30, 2025    |
-| [Spark](connector-spark.md)                               | version 2.0    | Public Preview                    | /                   | /                   |
-|                                    | version 1.0    | GA                                | To be determined      | /                     |
-| [Teradata](connector-teradata.md)                          | version 2.0    | Public Preview                    | /                   | /                   |
-|                                    | version 1.0    | GA                                | To be determined      | /                     |
+| [Spark](connector-spark.md)                               | version 2.0    | GA                 | /                   | /                   |
+|                                    | version 1.0    | End of support announced                                |September 30, 2025     | October 31, 2025                  |
+| [Teradata](connector-teradata.md)                          | version 2.0    | GA                  | /                   | /                   |
+|                                    | version 1.0    | End of support announced                                | September 30, 2025     | October 31, 2025                     |
 | [Vertica](connector-vertica.md)                            | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | July 31, 2025         | September 30, 2025    |
 | [Zoho (Preview)](connector-zoho.md)                        | /              | End of support                    | December 31, 2024     | December 31, 2024     |
