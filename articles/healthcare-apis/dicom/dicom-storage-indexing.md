@@ -9,7 +9,7 @@ ms.date: 05/31/2025
 ms.author: wisuga
 ---
 
-# Azure Data Lake Storage Indexing
+# Azure Data Lake Storage Indexing (Preview)
 
 The [DICOM&reg; service](overview.md) automatically uploads DICOM files to Azure Data Lake Storage when using STOW-RS. This way, users can query their data either using DICOMweb&trade; APIs, like WADO-RS, or Azure Blob/Data Lake APIs. However, with storage indexing DICOM files will be automatically indexed by the DICOM service after uploading the data directly to the ADLS Gen 2 file system. Whether the files were uploaded using STOW-RS, an Azure Blob SDK, or even `AzCopy`, they can be accessed using either DICOMweb&trade; APIs or directly through the ADLS Gen 2 file system.
 
@@ -26,10 +26,6 @@ The DICOM service indexes an ADLS Gen 2 file system by reacting to Blob or Data 
 
 First, create an [Azure Storage Queue](../../storage/queues/storage-queues-introduction.md) in the same Azure Storage Account connected to the DICOM service The DICOM service will also need access to the queue; it will need to be able to dequeue messages as well as enqueue its own messages for errors and complex tasks. So, make sure the same managed identity used by the DICOM service, either user-assigned or system-assigned, has the [**Storage Queue Data Contributor**](../../storage/queues/assign-azure-role-data-access.md) role assigned.
 
-#### [Azure Portal](#tab/queue-portal)
-
-#### [ARM](#tab/queue-arm)
-
 ### Publish Storage Events to the Queue
 
 With the Storage Queue in place, events must be published from the Storage Account to an Azure Event Grid System Topic and routed to queue using an Azure Event Grid Subscription. Before creating the event subscription, be sure to grant the role **Storage Queue Data Message Sender** to the event subscription so that it is authorized to send messages. The event subscription can either use a user-assigned or system-assigned managed identity from the system topic to authenticate its operations.
@@ -38,7 +34,7 @@ By default, event subscriptions send all of the subscribed event types to their 
 - The message must be a Base64 `CloudEvent`
 - The event type must be `Microsoft.Storage.BlobCreated` or `Microsoft.Storage.BlobDeleted`
 - The file system must be the same one configured for the DICOM service
-- The file path must be within `AHDS/<workspace-name>/dicom/<dicom-service-name>`
+- The file path must be within `AHDS/<workspace-name>/dicom/<dicom-service-name>[/<partition-name>]`
 - The file must be a DICOM file as defined in Part 10 of the DICOM standard
 - The operation must not have been performed by the DICOM service itself
 
@@ -47,61 +43,274 @@ Thankfully, the event subscription can be configured to filter out irrelevant da
 - Optionally, the subject ends with `.dcm`
 - Under advanced filters, the key `data.clientRequestId` does not begin with `tag:<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com,`
 
-#### [Azure Portal](#tab/events-portal)
-
-#### [ARM](#tab/events-arm)
-
-1. Use the Azure CLI command [`az deployment group create`](../../azure-resource-manager/bicep/deploy-cli.md) to deploy a system topic and event subscription like below:
-
 ### Enable Storage Indexing
 
-Once the event grid subscription has been successfully configured, it's time to let the DICOM service know from where to read the storage events.
+Once the event grid subscription has been successfully configured, it's time to let the DICOM service know from where to read the storage events. Storage indexing is available starting in version `2025-04-01-preview` for Azure Resource Manager (ARM) which introduced a new property `storageConfiguration.storageIndexingConfiguration.storageEventQueueName`. It is currently unavailable to configure via the Azure Portal.
 
-#### [ARM](#tab/dicom-arm)
-
-Storage indexing is available starting in the preview ARM version `2025-04-01-preview` which introduced a new property within `storageConfiguration` called `storageIndexingConfiguration.storageEventQueueName`. Deploy, or redeploy, a DICOM service using this new property with the Azure CLI command [`az deployment group create`](../../azure-resource-manager/bicep/deploy-cli.md):
+The example ARM template below can be deployed using the Azure CLI command [`az deployment group create`](../../azure-resource-manager/bicep/deploy-cli.md). It includes all of the necessary resources for a DICOM service:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "workspaceName": {
-            "type": "String"
-        },
-        "dicomServiceName": {
-            "type": "String"
-        },
-        "storageAccountResourceId": {
-            "type": "String"
-        },
-        "fileSystemName": {
-            "type": "String"
-        },
-        "queueName": {
-            "type": "String"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "type": "String"
     },
-    "resources": [
-        {
-            "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
-            "apiVersion": "2024-03-31",
-            "name": "[concat(parameters('workspaceName'), '/', parameters('dicomServiceName'))]",
-            "location": "[resourceGroup().location]",
-            "identity": {
-                "type": "SystemAssigned"
+    "dicomServiceName": {
+      "type": "String"
+    },
+    "enableDataPartitions": {
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "storageAccountName": {
+      "type": "String"
+    },
+    "storageAccountSku": {
+      "defaultValue": "Standard_LRS",
+      "type": "String"
+    },
+    "fileSystemName": {
+      "type": "String"
+    },
+    "storageEventQueueName": {
+      "defaultValue": "storage-events",
+      "type": "String"
+    },
+    "systemTopicName": {
+      "type": "String"
+    },
+    "eventSubscriptionName": {
+      "defaultValue": "dicom-storage-events",
+      "type": "String"
+    }
+  },
+  "variables": {
+    "storageBlobDataContributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe')]",
+    "storageQueueDataContributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '974c5e8b-45b9-4653-ba55-5f855dd0fb88')]",
+    "storageQueueDataMessageSender": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'c6a89b2d-59bc-44d0-9896-0f6e12d7b80a')]",
+    "dicomIdentityName": "[concat(parameters('storageAccountName'), '-', parameters('storageEventQueueName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "apiVersion": "2023-01-31",
+      "name": "[variables('dicomIdentityName')]",
+      "location": "[resourceGroup().location]"
+    },
+    {
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "apiVersion": "2023-01-31",
+      "name": "[parameters('systemTopicName')]",
+      "location": "[resourceGroup().location]"
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-05-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "[parameters('storageAccountSku')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "isHnsEnabled": true,
+        "accessTier": "Hot",
+        "supportsHttpsTrafficOnly": true,
+        "minimumTlsVersion": "TLS1_2",
+        "defaultToOAuthAuthentication": true,
+        "allowBlobPublicAccess": false,
+        "allowSharedKeyAccess": false,
+        "encryption": {
+          "keySource": "Microsoft.Storage",
+          "requireInfrastructureEncryption": true,
+          "services": {
+            "blob": {
+              "enabled": true
             },
-            "properties": {
-                "storageConfiguration": {
-                    "fileSystemName": "[parameters('fileSystemName')]",
-                    "storageResourceId": "[parameters('storageAccountResourceId')]",
-                    "storageIndexingConfiguration": {
-                        "storageEventQueueName": "[parameters('queueName')]"
-                    }
+            "queue": {
+              "enabled": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2022-05-01",
+      "name": "[format('{0}/default/{1}', parameters('storageAccountName'), parameters('fileSystemName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/queueServices/queues",
+      "apiVersion": "2024-01-01",
+      "name": "[format('{0}/default/{1}', parameters('storageAccountName'), parameters('storageEventQueueName'))]",
+      "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/queueServices/queues",
+      "apiVersion": "2024-01-01",
+      "name": "[format('{0}/default/{1}-poison', parameters('storageAccountName'), parameters('storageEventQueueName'))]",
+      "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2021-04-01-preview",
+      "name": "[guid(resourceGroup().id, parameters('workspaceName'), parameters('dicomServiceName'))]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('dicomIdentityName'))]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[variables('storageBlobDataContributor')]",
+        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('dicomIdentityName'))).principalId]",
+        "principalType": "ServicePrincipal"
+      },
+      "scope": "[concat('Microsoft.Storage/storageAccounts', '/', parameters('storageAccountName'))]"
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2021-04-01-preview",
+      "name": "[guid(resourceGroup().id, parameters('workspaceName'), parameters('dicomServiceName'), parameters('storageEventQueueName'))]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('dicomIdentityName'))]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[variables('storageQueueDataContributor')]",
+        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('dicomIdentityName'))).principalId]",
+        "principalType": "ServicePrincipal"
+      },
+      "scope": "[concat('Microsoft.Storage/storageAccounts', '/', parameters('storageAccountName'))]"
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2021-04-01-preview",
+      "name": "[guid(resourceGroup().id, parameters('systemTopicName'), parameters('storageEventQueueName'))]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('systemTopicName'))]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[variables('storageQueueDataMessageSender')]",
+        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('systemTopicName'))).principalId]",
+        "principalType": "ServicePrincipal"
+      },
+      "scope": "[concat('Microsoft.Storage/storageAccounts', '/', parameters('storageAccountName'))]"
+    },
+    {
+      "type": "Microsoft.EventGrid/systemTopics",
+      "apiVersion": "2025-02-15",
+      "name": "[parameters('systemTopicName')]",
+      "location": "[resourceGroup().location]",
+      "identity": {
+        "type": "userAssigned",
+        "userAssignedIdentities": {
+          "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('systemTopicName'))]": {}
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('systemTopicName'))]"
+      ],
+      "properties": {
+          "source": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+          "topicType": "Microsoft.Storage.StorageAccounts"
+      }
+    },
+    {
+        "type": "Microsoft.EventGrid/systemTopics/eventSubscriptions",
+        "apiVersion": "2025-02-15",
+        "name": "[concat(parameters('systemTopicName'), '/', parameters('eventSubscriptionName'))]",
+        "dependsOn": [
+            "[resourceId('Microsoft.EventGrid/systemTopics', parameters('systemTopicName'))]"
+        ],
+        "properties": {
+            "deliveryWithResourceIdentity": {
+                "identity": {
+                    "type": "UserAssigned",
+                    "userAssignedIdentity": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('systemTopicName'))]"
+                },
+                "destination": {
+                    "properties": {
+                        "resourceId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+                        "queueName": "[parameters('storageEventQueueName')]",
+                        "queueMessageTimeToLiveInSeconds": 604800
+                    },
+                    "endpointType": "StorageQueue"
                 }
+            },
+            "filter": {
+                "subjectBeginsWith": "[format('/blobServices/default/containers/{0}/blobs/AHDS/{1}/dicom/{2}/', parameters('fileSystemName'), parameters('workspaceName'), parameters('dicomServiceName'))]",
+                "subjectEndsWith": ".dcm",
+                "includedEventTypes": [
+                    "Microsoft.Storage.BlobCreated",
+                    "Microsoft.Storage.BlobDeleted"
+                ],
+                "isSubjectCaseSensitive": true,
+                "enableAdvancedFilteringOnArrays": true,
+                "advancedFilters": [
+                    {
+                        "values": [
+                          "[format('tag:{0}-{1}.dicom.azurehealthcareapis.com,', parameters('workspaceName'), parameters('dicomServiceName'))]"
+                        ],
+                        "operatorType": "StringNotBeginsWith",
+                        "key": "data.clientRequestId"
+                    }
+                ]
+            },
+            "labels": [],
+            "eventDeliverySchema": "CloudEventSchemaV1_0",
+            "retryPolicy": {
+                "maxDeliveryAttempts": 30,
+                "eventTimeToLiveInMinutes": 1440
             }
         }
-    ]
+    },
+    {
+      "type": "Microsoft.HealthcareApis/workspaces",
+      "name": "[parameters('workspaceName')]",
+      "apiVersion": "2024-03-31",
+      "location": "[resourceGroup().location]"
+    },
+    {
+      "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
+      "apiVersion": "2024-03-31",
+      "name": "[concat(parameters('workspaceName'), '/', parameters('dicomServiceName'))]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.HealthcareApis/workspaces', parameters('workspaceName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('dicomIdentityName'))]",
+        "[resourceId('Microsoft.EventGrid/systemTopics/eventSubscriptions', parameters('systemTopicName'), parameters('eventSubscriptionName'))]"
+      ],
+      "identity": {
+        "type": "userAssigned",
+        "userAssignedIdentities": {
+          "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('dicomIdentityName'))]": {}
+        }
+      },
+      "properties": {
+        "storageConfiguration": {
+          "storageResourceId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+          "fileSystemName": "[parameters('fileSystemName')]",
+          "storageIndexingConfiguration": {
+            "storageEventQueueName": "[parameters('storageEventQueueName')]"
+          }
+        },
+        "enableDataPartitions": "[parameters('enableDataPartitions')]"
+      }
+    }
+  ]
 }
 ```
 
@@ -111,7 +320,7 @@ Storage indexing is available starting in the preview ARM version `2025-04-01-pr
 
 If there is an error when processing an event, the problematic event will be enqueued in a "poison queue" called `<queue-name>-poison` in the same Storage Account. Details about every processed event can be found in the `AHDSDicomAuditLogs` and `AHDSDicomDiagnosticLogs` tables by filtering for all logs where `OperationName = 'index-storage'`. The audit logs will only record when the operation started and completed whereas the diagnostic table will provide details about each operation including any errors, if any. Operations may be correlated across the tables using `CorrelationId`.
 
-Failures are divided into two types: `User` and `Server`. User errors include
+Failures are divided into two types: `User` and `Server`. User errors include any problem connecting to the storage account or with the DICOM file itself, while server errors include any unexpected error that prevents processing. Unlike server errors, user errors are not retried by the DICOM service.
 
 ## Next Steps
 * [Interact with data using DICOMweb&trade;](dicomweb-standard-apis-with-dicom-services.md)
