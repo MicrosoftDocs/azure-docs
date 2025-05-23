@@ -40,7 +40,7 @@ IoT Hub supports two distinct types of availability zone support:
 
 - *Zone redundancy for compute*, which provides resiliency in the components responsible for managing the devices and routing messages.
 
-The types of availability zone support available in a specific IoT hub depend on the region it's deployed to.
+The types of availability zone support available in a specific IoT hub depend on the region that it's deployed to.
 
 ### Region support
 

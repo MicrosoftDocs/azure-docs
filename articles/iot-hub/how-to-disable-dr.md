@@ -24,6 +24,7 @@ To disable DR in IoT Hub, you need the following requirements:
 - **Regions that support disabling DR.** The following regions support disabling DR:
 
   - **Brazil South:** Paired region, South Central US.
+
   - **Southeast Asia (Singapore):** Paired region, East Asia (Hong Kong SAR).
 
 ## Create an IoT hub without DR
@@ -40,7 +41,7 @@ To disable DR in the Azure portal, you need to complete the following steps.
 
     :::image type="content" source="media/iot-hub-ha-dr/disaster-recovery-disabled.png" alt-text="Screenshot that shows DR disabled for an IoT hub in the Singapore region." lightbox="media/iot-hub-ha-dr/disaster-recovery-disabled.png":::
 
-You can also disable DR when you create an IoT hub by using an [Azure Resource Manager template](/azure/templates/microsoft.devices/iothubs?tabs=bicep#iothubproperties).
+You can also disable DR when you create an IoT hub by using an [Azure Resource Manager template](/azure/templates/microsoft.devices/iothubs?pivots=deployment-language-arm-template).
 
 ## Disable DR for an existing IoT hub
 
@@ -48,7 +49,7 @@ You can only disable DR to avoid data replication when you create an IoT hub. If
 
 1. [Create a new IoT hub that has DR disabled](#create-an-iot-hub-without-dr).
 
-1. To manually migrate your existing IoT hub, follow the steps in [How to migrate an IoT hub](migrate-hub-state-cli.md).
+1. To manually migrate your existing IoT hub, follow the steps in [Migrate an IoT hub](migrate-hub-state-cli#migrate-an-iot-hub).
 
 ## Related content
 
