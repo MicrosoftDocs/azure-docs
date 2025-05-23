@@ -81,7 +81,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Amazon RDS for Oracle connector now supports version 2.0. Refer to this [section](#upgrade-the-amazon-rds-for-oracle-connector) to upgrade your Amazon RDS for Oracle connector version from version 1.0. For the property details, see the corresponding sections.
+The Amazon RDS for Oracle connector version 2.0 supports TLS 1.3. Refer to this [section](#upgrade-the-amazon-rds-for-oracle-connector) to upgrade your Amazon RDS for Oracle connector version from version 1.0. For the property details, see the corresponding sections.
 
 - [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
@@ -176,6 +176,17 @@ For `server` property, you can specify it in one of the following three formats:
 |[Connect Descriptor](https://docs.oracle.com/en/database/oracle/oracle-database/23/netag/identifying-and-accessing-database.html#GUID-8D28E91B-CB72-4DC8-AEFC-F5D583626CF6)|	(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=sales-server)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=sales.us.acme.com)))|
 |[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
 |[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
+
+The following list shows the supported parameters used in `server`. If you use parameters that are not in the following list, your connection fails.
+
+- When using the Azure integration runtime:
+
+    HOST<br>PORT<br>PROTOCOL<br>SERVICE_NAME<br>SID<br>INSTANCE_NAME<br>SERVER<br>CONNECT_TIMEOUT<br>RETRY_COUNT<br>RETRY_DELAY<br>SSL_VERSION<br>SSL_SERVER_DN_MATCH<br>SSL_SERVER_CERT_DN
+    
+- When using the self-hosted integration runtime:
+
+    HOST<br>PORT<br>PROTOCOL<br>ENABLE<br>EXPIRE_TIME<br>FAILOVER<br>LOAD_BALANCE<br>RECV_BUF_SIZE<br>SDU<br>SEND_BUF_SIZE<br>SOURCE_ROUTE<br>TYPE_OF_SERVICE<br>COLOCATION_TAG<br>CONNECTION_ID_PREFIX<br>FAILOVER_MODE<br>GLOBAL_NAME<br>HS<br>INSTANCE_NAME<br>POOL_BOUNDARY<br>POOL_CONNECTION_CLASS<br>POOL_NAME<br>POOL_PURITY<br>RDB_DATABASE<br>SHARDING_KEY<br>SHARDING_KEY_ID<br>SUPER_SHARDING_KEY<br>SERVER<br>SERVICE_NAME<br>SID<br>TUNNEL_SERVICE_NAME<br>SSL_CLIENT_AUTHENTICATION<br>SSL_CERTIFICATE_ALIAS<br>SSL_CERTIFICATE_THUMBPRINT<br>SSL_VERSION<br>SSL_SERVER_DN_MATCH<br>SSL_SERVER_CERT_DN<br>WALLET_LOCATION<br>CONNECT_TIMEOUT<br>RETRY_COUNT<br>RETRY_DELAY<br>TRANSPORT_CONNECT_TIMEOUT<br>RECV_TIMEOUT<br>COMPRESSION<br>COMPRESSION_LEVELS
+
 
 ### Version 1.0
 
@@ -329,7 +340,7 @@ To copy data from Amazon RDS for Oracle, set the source type in the copy activit
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `AmazonRdsForOracleSource`. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Amazon RDS for Oracle](#parallel-copy-from-amazon-rds-for-oracle) section. | No |
-| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Oracle version 2.0, this property will only be allowed to be set when supportV1DataTypes is true. | No |
+| convertDecimalToInteger | Amazon RDS for Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Amazon RDS for Oracle version 2.0, this property will only be allowed to be set when supportV1DataTypes is true. | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Amazon RDS for Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Amazon RDS for Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | partitionNames | The list of physical partitions that needs to be copied. <br>Apply when the partition option is `PhysicalPartitionsOfTable`. If you use a query to retrieve the source data, hook `?AdfTabularPartitionName` in the WHERE clause. For an example, see the [Parallel copy from Amazon RDS for Oracle](#parallel-copy-from-amazon-rds-for-oracle) section. | No |
@@ -464,6 +475,139 @@ Here are steps that help you upgrade the Amazon RDS for Oracle connector:
 
 1. In **Edit linked service** page, select version 2.0 and configure the linked service by referring to [Linked service properties version 2.0](#version-20). 
 
+    For the authentication related properties including username and password, specify the original values in the corresponding fields in version 2.0. Other connection properties such as host, port, and Amazon RDS for Oracle Service Name/Amazon RDS for Oracle SID in version 1.0 are now parameters of the [`server` property in version 2.0](#server-property-configuration).
+
+    For example, if you configure the version 1.0 linked service as shown below:
+    
+    :::image type="content" source="media/connector-amazon-rds-for-oracle/version-1-linked-service.png" alt-text="Screenshot of version 1.0 linked service.":::
+    
+    ```json
+    { 
+        "name": "AmazonRdsForOracleLinkedService", 
+        "properties": { 
+            "type": "AmazonRdsForOracle", 
+            "typeProperties": { 
+                "connectionString": "host=amazonrdsfororaclesample.com;port=1521;servicename=db1" 
+            }, 
+            "connectVia": { 
+                "referenceName": "<name of Integration Runtime>", 
+                "type": "IntegrationRuntimeReference" 
+            } 
+        } 
+    }
+    ```
+    
+    The identical version 2.0 linked service configuration using **Easy Connect (Plus) Naming** is: 
+    
+    :::image type="content" source="media/connector-amazon-rds-for-oracle/easy-connect-naming-linked-service.png" alt-text="Screenshot of linked service using easy connector (Plus) naming.":::
+    
+    ```json
+    { 
+        "name": "AmazonRdsForOracleLinkedService", 
+        "properties": { 
+            "type": "AmazonRdsForOracle", 
+            "version": "2.0", 
+            "typeProperties": { 
+                "server": "amazonrdsfororaclesample.com:1521/db1",  
+                "username": "<user name>",  
+                "password": "<password>",  
+                "authenticationType": "<authentication type>" 
+            }, 
+            "connectVia": { 
+                "referenceName": "<name of Integration Runtime>", 
+                "type": "IntegrationRuntimeReference" 
+            } 
+        } 
+    } 
+    ```
+    
+    The identical version 2.0 linked service configuration using **Connector Descriptor** is:
+    
+    :::image type="content" source="media/connector-amazon-rds-for-oracle/connector-descriptor-linked-service.png" alt-text="Screenshot of linked service using connector descriptor.":::
+    
+    ```json
+    { 
+        "name": "AmazonRdsForOracleLinkedService", 
+        "properties": { 
+            "type": "AmazonRdsForOracle", 
+            "version": "2.0", 
+            "typeProperties": { 
+                "server": "(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST= amazonrdsfororaclesample.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=db1)))",  
+                "username": "<user name>",  
+                "password": "<password>",  
+                "authenticationType": "<authentication type>" 
+            }, 
+            "connectVia": { 
+                "referenceName": "<name of Integration Runtime>", 
+                "type": "IntegrationRuntimeReference" 
+            } 
+        } 
+    } 
+    ```
+
+    > [!TIP]
+    > Azure Key Vault is supported for the `server` property. You can edit the linked service JSON to add the Azure Key Vault reference, as shown below:<br>
+    > :::image type="content" source="media/connector-amazon-rds-for-oracle/azure-key-vault-server.png" alt-text="Screenshot of using Azure Key Vault in server."::: 
+
+    Note that: 
+    
+    - If you use **Oracle Service Name** in version 1.0, you can use **Easy Connect (Plus) Naming** or **Connector Descriptor** as the server format in version 2.0.  
+    
+    - If you use **Oracle SID** in version 1.0, you need to use **Connector Descriptor** as the server format in version 2.0.  
+    
+    - For some additional connection properties in version 1.0, we provide alternative properties or parameters in the `server` property in version 2.0. You can refer to the table below to upgrade the version 1.0 properties.
+    
+        | Version 1.0 | Version 2.0 | 
+        |:--- |:--- |
+        | encryptionmethod| PROTOCOL (parameter in `server`) | 
+        | tnsnamesfile | TNS_ADMIN (environment variable supported on the self-hosted integration runtime)  | 
+        | servername | server  | 
+        | enablebulkload<br>Value: 1, 0 | enableBulkLoad <br>Value: true, false | 
+        | fetchtswtzastimestamp<br>Value: 1, 0 | fetchTswtzAsTimestamp <br>Value: true, false | 
+        | alternateservers | DESCRIPTION_LIST  (parameter in `server`) | 
+        | arraysize | fetchSize  | 
+        | cachedcursorlimit | statementCacheSize | 
+        | connectionretrycount | RETRY_COUNT (parameter in `server`) | 
+        | initializationstring | initializationString  | 
+        | logintimeout | CONNECT_TIMEOUT (parameter in `server`) | 
+        | cryptoprotocolversion | SSL_VERSION (parameter in `server`) | 
+        | truststore | WALLET_LOCATION (parameter in `server`) | 
+    
+        For example, if you use `alternateservers` in version 1.0, you can set the `DESCRIPTION_LIST` parameter in the server property in version 2.0:
+    
+        Version 1.0 linked service using `alternateservers`:
+    
+        ```json
+        {
+            "name": "AmazonRdsForOracleV1",
+            "properties": {
+                "type": "AmazonRdsForOracle",
+                "typeProperties": {
+                    "connectionString": "host=amazonrdsfororaclesample.com;port=1521;servicename=db1;alternateservers=(HostName= amazonrdsfororaclesample2.com:PortNumber=1521:SID=db2,HostName=255.201.11.24:PortNumber=1522:ServiceName=db3)"
+                }
+            }
+        }
+        ```
+        
+        Identical version 2.0 linked service using `DESCRIPTION_LIST` parameter in **Connector Descriptor**:
+    
+        ```json
+        {
+            "name": "AmazonRdsForOracleV2",
+            "properties": {
+                "type": "AmazonRdsForOracle",
+                "version": "2.0",
+                "typeProperties": {
+                    "server": "(DESCRIPTION_LIST=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=amazonrdsfororaclesample.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=db1)))(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=amazonrdsfororaclesample2.com)(PORT=1521))(CONNECT_DATA=(SID=db2)))(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=255.201.11.24)(PORT=1522))(CONNECT_DATA=(SERVICE_NAME=db3))))",
+                    "username": "<user name>",  
+                    "password": "<password>",  
+                    "authenticationType": "<authentication type>" 
+                }
+            }
+        }
+        ```
+
+
 2. The data type mapping for the Amazon RDS for Oracle linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Amazon RDS for Oracle](#data-type-mapping-for-amazon-rds-for-oracle). 
 
     An additional connection property `supportV1DataTypes` in version 2.0 can reduce upgrade difficulties caused by data type changes. Setting this property to `true` ensures that the data type in version 2.0 remains consistent with version 1.0. 
@@ -476,7 +620,7 @@ The Amazon RDS for Oracle connector version 2.0 offers new functionalities and i
 |:--- |:--- |
 |The following mappings are used from Amazon RDS for Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Double, Single, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Amazon RDS for Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
 | Support convertDecimalToInteger in copy source when `supportV1DataTypes` is set to `true`. | Support convertDecimalToInteger in copy source.  | 
-
+| Support TLS 1.3.| TLS 1.3 is not supported. | 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
