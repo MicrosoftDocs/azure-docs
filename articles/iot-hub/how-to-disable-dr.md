@@ -49,7 +49,7 @@ You can only disable DR to avoid data replication when you create an IoT hub. If
 
 1. [Create a new IoT hub that has DR disabled](#create-an-iot-hub-without-dr).
 
-1. To manually migrate your existing IoT hub, follow the steps in [Migrate an IoT hub](migrate-hub-state-cli#migrate-an-iot-hub).
+1. To manually migrate your existing IoT hub, follow the steps in [Migrate an IoT hub](migrate-hub-state-cli.md#migrate-an-iot-hub).
 
 ## Related content
 
