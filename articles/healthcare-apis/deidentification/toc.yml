@@ -30,7 +30,7 @@ items:
       - name: Python - synchronous
         href: quickstart-python.md
       - name: Python - asynchronous
-        href: quickstart-asyncpython.md
+        href: quickstart-asynchronous-python.md
   - name: Tutorials
     expanded: true
     items:
