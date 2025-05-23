@@ -1,12 +1,9 @@
 ---
 title: Questions about assessments in Azure Migrate
 description: Get answers to common questions about assessments in Azure Migrate.
-author: rashijoshi
-ms.author: rajosh
-ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 08/06/2024
+ms.date: 05/08/2025
 ms.custom: engagement-fy25
 ---
 
@@ -21,7 +18,7 @@ This article answers common questions about assessments in Azure Migrate. If you
 
 ## What geographies are supported for discovery and assessment with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+Review the supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 ## How many servers can I discover with an appliance?
 
@@ -73,20 +70,20 @@ Performance data isn't captured for Azure App Service assessment and hence you d
 
 ## Why is the confidence rating of my assessment low?
 
-The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
+The confidence rating is calculated for **Performance-based** assessments based on the percentage of [available data points](./assessment-report.md#confidence-ratings-performance-based) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you're creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you can't wait for the duration, change the performance duration to a smaller period and **Recalculate** the assessment.
 - Assessment isn't able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that: 
     - Servers are powered on for the duration of the assessment
     - Outbound connections on ports 443 are allowed
     - For Hyper-V Servers, dynamic memory is enabled
-    - The connection status of agents in Azure Migrate is "Connected" and check the last heartbeat
-    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance section.
+    - The connection status of agents in Azure Migrate are 'Connected' and check the last heartbeat
+    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is **Connected** in the discovered SQL instance section.
 
     **Recalculate** the assessment to reflect the latest changes in confidence rating.
 
-- For Azure VM and AVS assessments, few servers were created after discovery started. For example, if you're creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
-- For Azure SQL assessments, few SQL instances or databases were created after discovery started. For example, if you're creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings).
+- For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings-performance-based).
+- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings-performance-based).
 
 ## Why is my RAM utilization greater than 100%?
 
@@ -140,7 +137,7 @@ Discovery and assessment of .NET web apps running in your VMware environment is 
 
 ## I want to understand how was the readiness for my instance computed?
 
-The readiness for your SQL instances has been computed after doing a feature compatibility check with the targeted Azure SQL deployment type (SQL Server on Azure VM or Azure SQL Managed Instance or Azure SQL Database). [Learn more](./concepts-azure-sql-assessment-calculation.md#calculate-readiness). 
+The readiness for your SQL instances has been computed after doing a feature compatibility check with the targeted Azure SQL deployment type (SQL Server on Azure VM or Azure SQL Managed Instance or Azure SQL Database). [Learn more](./concepts-assessment-calculation.md#server-properties). 
 
 ## I want to understand how was the readiness for my web apps is computed?
 
@@ -194,7 +191,7 @@ If there are changes to on-premises SQL instances and databases that are in a gr
 
 ## Why was I recommended a particular target deployment type?
 
-Azure Migrate recommends a specific Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft recommended target reduces your overall migration effort. This Azure SQL configuration (SKU) has been recommended after considering the performance characteristics of your SQL instance and the databases it manages. If multiple Azure SQL configurations are eligible, we recommend the one, which is the most cost effective. [Learn more](./concepts-azure-sql-assessment-calculation.md#calculate-sizing).
+Azure Migrate recommends a specific Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft recommended target reduces your overall migration effort. This Azure SQL configuration (SKU) has been recommended after considering the performance characteristics of your SQL instance and the databases it manages. If multiple Azure SQL configurations are eligible, we recommend the one, which is the most cost effective. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment).
 
 ## What deployment target should I choose if my SQL instance is ready for Azure SQL DB and Azure SQL MI?
 
@@ -206,7 +203,7 @@ The Azure SQL assessment only includes databases that are in online status. In c
 
 ## I want to compare costs for running my SQL instances on Azure VM vs Azure SQL Database/Azure SQL Managed Instance
 
-You can create a single **Azure SQL** assessment consisting of desired SQL servers across VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. A single assessment covers readiness, SKUs, estimated costs, and migration blockers for all the available SQL migration targets in Azure - Azure SQL Managed Instance, Azure SQL Database, and SQL Server on Azure VM. You can then compare the assessment output for the desired targets. [Learn More](./concepts-azure-sql-assessment-calculation.md)
+You can create a single **Azure SQL** assessment consisting of desired SQL servers across VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. A single assessment covers readiness, SKUs, estimated costs, and migration blockers for all the available SQL migration targets in Azure - Azure SQL Managed Instance, Azure SQL Database, and SQL Server on Azure VM. You can then compare the assessment output for the desired targets. [Learn More](./concepts-azure-sql-assessment-calculation.md).
 
 ## The storage cost in my Azure SQL assessment is zero
 
@@ -225,7 +222,7 @@ No. Currently, both Azure Migrate and Azure Site Recovery don't support migratio
 
 ### Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
 
-As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra Disk is billed based on the provisioned size, provisioned IOPS and provisioned throughput. As per an example provided:
+As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra Disk is billed based on the provisioned size, provisioned IOPS, and provisioned throughput. As per an example provided:
 
 If you provisioned a 200 GiB Ultra Disk, with 20,000 IOPS and 1,000 MB/second and deleted it after 20 hours, it will map to the disk size offer of 256 GiB and you'll be billed for the 256 GiB, 20,000 IOPS and 1,000 MB/second for 20 hours.
 
@@ -304,4 +301,4 @@ For machines imported via a CSV file, the default migration tool in an AVS asses
 
 ## Next steps
 
-Learn more about discovering [VMware VMs](./vmware/tutorial-discover-vmware.md?context=/azure/migrate/context/migrate-context), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).
+Learn more about discovering [VMware VMs](tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).

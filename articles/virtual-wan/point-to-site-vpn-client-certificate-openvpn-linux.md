@@ -22,11 +22,11 @@ Verify that you are on the correct article. The following table shows the config
 
 ### Prerequisites
 
-This article assumes that you've already performed the following prerequisites:
+This article assumes that you completed the following prerequisites:
 
-* You configured a virtual WAN according to the steps in the [Create User VPN point-to-site connections](virtual-wan-point-to-site-portal.md) article. Your User VPN configuration must use certificate authentication and the OpenVPN tunnel type.
+* You configured a virtual WAN according to the steps in the [Create a User VPN point-to-site connection](virtual-wan-point-to-site-portal.md) article. Your User VPN configuration must use certificate authentication and the IKEv2 tunnel type.
 * You generated and downloaded the VPN client configuration files. For steps to generate a VPN client profile configuration package, see [Generate VPN client configuration files](virtual-wan-point-to-site-portal.md#p2sconfig).
-* You can either generate client certificates, or acquire the appropriate client certificates necessary for authentication.
+* You have permissions to either generate client certificates, or acquire the appropriate client certificates necessary for authentication.
 
 ### Connection requirements
 
@@ -48,7 +48,7 @@ The workflow for this article is:
 
 For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
 
-The OpenVPN client in this article uses certificates exported with a *.pfx* format. You can export a client certificate easily to this format using the Windows instructions. See [Export a client certificate - pfx](../vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport). If you don't have a Windows computer, as a workaround, you can use a small Windows VM to export certificates to the needed *.pfx* format. At this time, the [OpenSSL](../vpn-gateway/point-to-site-certificates-linux-openssl.md) Linux instructions we provide only result in the *.pem* format.
+The OpenVPN client in this article uses certificates exported with a *.pfx* format. You can export a client certificate easily to this format using the Windows instructions. See [Export a client certificate - pfx](certificates-point-to-site.md#clientexport). If you don't have a Windows computer, as a workaround, you can use a small Windows VM to export certificates to the needed *.pfx* format. At this time, the [OpenSSL](point-to-site-certificates-linux-openssl.md) Linux instructions we provide only result in the *.pem* format.
 
 ## <a name="openvpn"></a>Configuration steps
 

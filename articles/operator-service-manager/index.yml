@@ -92,6 +92,8 @@ landingContent:
         links:
           - text: Control Upgrade Behavior on Failure
             url: safe-upgrades-nf-level-rollback.md
+          - text: Run Tests After Install or Upgrade
+            url: safe-upgrades-helm-test.md
 
  # Card
   - title: Edge Registry and Private Link

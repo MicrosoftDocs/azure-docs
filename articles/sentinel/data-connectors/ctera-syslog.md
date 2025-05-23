@@ -2,7 +2,7 @@
 title: "CTERA Syslog connector for Microsoft Sentinel"
 description: "Learn how to install the connector CTERA Syslog to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 12/24/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -132,4 +132,4 @@ Install the Azure Monitor Agent (AMA) on your syslog server to enable data colle
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cteranetworksltd1651947437632.microsoft-sentinel-solution-ctera?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/?tab=Overview) in the Azure Marketplace.

@@ -15,7 +15,7 @@ ms.custom: engagement-fy23
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Citizen developers using the Microsoft [Power Platform](https://powerplatform.microsoft.com) often need to reach the business capabilities that are developed by professional developers and deployed in Azure. [Azure API Management](https://aka.ms/apimrocks) enables professional developers to publish their backend service as APIs, and easily export these APIs to the Power Platform ([Power Apps](/powerapps/powerapps-overview) and [Power Automate](/power-automate/getting-started)) as custom connectors for discovery and consumption by citizen developers. 
+Citizen developers using the Microsoft [Power Platform](https://powerplatform.microsoft.com) often need to reach the business capabilities that are developed by professional developers and deployed in Azure. [Azure API Management](https://aka.ms/apimrocks) enables professional developers to publish their backend service as APIs, and easily export these APIs to the Power Platform ([Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio), [Power Apps](/powerapps/powerapps-overview) and [Power Automate](/power-automate/getting-started)) as custom connectors for discovery and consumption by citizen developers. 
 
 This article walks through the steps in the Azure portal to create a Power Platform [custom connector](/connectors/custom-connectors/) to an API in API Management. With this capability, citizen developers can use the Power Platform to create and distribute apps that are based on internal and external APIs managed by API Management.
 ## Prerequisites
@@ -64,7 +64,7 @@ From API Management, you can update a connector to target a different API or Pow
 1. Select the API you want to update the connector for, update settings as needed, and select **Update**.
 
 
-## Next steps
+## Related content
 
 * [Learn more about the Power Platform](https://powerplatform.microsoft.com/) and [licensing](/power-platform/admin/pricing-billing-skus)
 * [Learn more about creating and using custom connectors](/connectors/custom-connectors/)

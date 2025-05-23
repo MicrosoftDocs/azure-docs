@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-portal-azd
 
 # Deploy a Python FastAPI web app with PostgreSQL in Azure
 
-In this tutorial, you deploy a data-driven Python web app (**[FastAPI](https://fastapi.tiangolo.com/)** ) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. If you want, see the [Flask tutorial](tutorial-python-postgresql-app-flask.md) or the [Django tutorial](tutorial-python-postgresql-app-django.md) instead.
+In this tutorial, you deploy a data-driven Python web app (**[FastAPI](https://fastapi.tiangolo.com/)** ) to **[Azure App Service](./overview.md)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. If you want, see the [Flask tutorial](tutorial-python-postgresql-app-flask.md) or the [Django tutorial](tutorial-python-postgresql-app-django.md) instead.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app-fastapi/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app-fastapi/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 
@@ -360,7 +360,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Select **Delete**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-clean-up-resources-3.png"::::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-clean-up-resources-3.png":::
     :::column-end:::
 :::row-end:::
 ::: zone-end

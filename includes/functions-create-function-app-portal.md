@@ -12,7 +12,7 @@ ms.custom: include file, devdivchpfy22
 
 1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 
-1. In the **New** page, select **Compute** > **Function App**.
+1. In the **New** page, select **Function App**.
 
 1. Under **Select a hosting option**, select **Consumption** > **Select** to create your app in the default **Consumption** plan. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting option, you pay only for the time your functions run. [Premium plan](../articles/azure-functions/functions-premium-plan.md) also offers dynamic scaling. When you run in an App Service plan, you must manage the [scaling of your function app](../articles/azure-functions/functions-scale.md). 
 

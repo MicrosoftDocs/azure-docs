@@ -1,13 +1,13 @@
 ---
 title: Save costs with Microsoft Fabric Capacity reservations
 description: Learn about how to save costs with Microsoft Fabric Capacity reservations.
-author: bandersmsft
-ms.reviewer: franciscosa
+author: pri-mittal
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/05/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ms.custom: ignite-2023
 ---
 
@@ -98,7 +98,7 @@ If you bought an Azure Synapse Analytics Dedicated SQL pool reservation and you 
 
 The new reservation's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. For example, assume you have a three-year reservation that costs $100 per month. You exchange it after the 18th payment. The new reservation's lifetime commitment should be $1,800 or more (paid monthly or upfront).
 
-The exchange value of your Azure Synapse Analytics reserved capacity is based on the prorated remaining term and the current price of the reservation. The exchange value is applied as a credit to your Azure account. If the exchange value is less than the cost of the Fabric capacity reservation, you must pay the difference.
+An exchange is processed as a refund and a repurchase – different transactions are created for the cancellation and the new reservation purchase. The prorated reservation amount is refunded for the reservations that's traded-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
 
 After you exchange the reservation, the Fabric capacity reservation is applied to your Fabric capacity automatically. You can view and manage your reservations on the Reservations page in the Azure portal.
 

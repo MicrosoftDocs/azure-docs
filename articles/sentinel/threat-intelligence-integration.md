@@ -1,13 +1,13 @@
 ---
 title: Threat intelligence integration in Microsoft Sentinel
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
-author: austinmccollum
+author: guywi-ms
 ms.topic: concept-article
 ms.date: 03/14/2024
-ms.author: austinmc
+ms.author: guywild
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -68,7 +68,7 @@ One component of Cyware's TIP, CTIX, is to make intel actionable with a TAXII fe
 
 ### IntSights
 
-- Learn more about the [IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel).
+- Learn more about the [IntSights integration with Microsoft Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/intsights.41547b1e-f1e4-44b5-85de-55becff4cd64?tab=overview).
 - Connect Microsoft Sentinel to the IntSights TAXII server. Obtain the API root, collection ID, username, and password from the IntSights portal after you configure a policy of the data that you want to send to Microsoft Sentinel.
 
 ### Kaspersky
@@ -119,7 +119,7 @@ To connect to TIP feeds, see [Connect threat intelligence platforms to Microsoft
 
 ### Filigran OpenCTI
 
-- [Filigran OpenCTI](https://filigran.io/solutions/open-cti/) can send threat intelligence to Microsoft Sentinel via either a [dedicated connector](https://filigran.notion.site/Microsoft-Sentinel-Intel-11c8fce17f2a80209a60e8914e6d1009) which runs in realtime, or by acting as a TAXII 2.1 server that Sentinel will poll regularly. It can also receive structured incidents from Sentinel via the [Microsoft Sentinel Incident connector](https://filigran.notion.site/Microsoft-Sentinel-Incidents-11c8fce17f2a80f1b461c6379265d5d3).
+- [Filigran OpenCTI](https://filigran.io/solutions/open-cti/) can send threat intelligence to Microsoft Sentinel via either a [dedicated connector](https://filigran.notion.site/Microsoft-Sentinel-934a09d3736c403e88a8944ec6badfc9) which runs in realtime, or by acting as a TAXII 2.1 server that Sentinel will poll regularly. It can also receive structured incidents from Sentinel via the [Microsoft Sentinel Incident connector](https://filigran.notion.site/Microsoft-Sentinel-Incidents-11c8fce17f2a80f1b461c6379265d5d3).
 
 
 ### GroupIB Threat Intelligence and Attribution

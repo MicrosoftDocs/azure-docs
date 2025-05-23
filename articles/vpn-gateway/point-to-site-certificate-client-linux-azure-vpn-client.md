@@ -6,8 +6,10 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 09/06/2024
+ms.date: 02/26/2025
 ms.author: cherylmc
+
+# This disclaimer is in the "vpn-gateway-vwan-azure-vpn-client-certificate-linux" include file, so it doesn't need to be repeated in the article. "Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable."
 ---
 
 # Configure Azure VPN Client – Certificate authentication OpenVPN – Linux (Preview)
@@ -27,7 +29,7 @@ Verify that you are on the correct article. The following table shows the config
 This article assumes that you've already performed the following prerequisites:
 
 * The VPN gateway is configured for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md) for steps.
-* VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
+* VPN client profile configuration files are already generated and are available. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
 
 [!INCLUDE [Configuration steps](../../includes/vpn-gateway-vwan-azure-vpn-client-certificate-linux.md)]
 

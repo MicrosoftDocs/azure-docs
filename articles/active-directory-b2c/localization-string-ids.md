@@ -19,6 +19,8 @@ ms.subservice: b2c
 
 # Localization string IDs
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 The **Localization** element enables you to support multiple locales or languages in the policy for the user journeys. This article provides the list of localization IDs that you can use in your policy. For more information about UI localization, see [Localization](localization.md).
@@ -397,12 +399,15 @@ The following IDs are used for a [Verification display control](display-control-
 | `but_send_new_code` | Send new code|
 | `but_change_claims` | Change e-mail|
 | `UserMessageIfVerificationControlClaimsNotVerified` <sup>2</sup> | The claims for verification control have not been verified. |
+| `UserMessageIfVerificationControlClaimsHaveChanged` <sup>3</sup> | The claims to verify have been changed. |
 
 <sup>1</sup> The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customization](customize-ui-with-html.md) with Cascading Style Sheets. For example:
 
 `.verificationInfoText div{display: block!important}`
 
 <sup>2</sup> This error message is displayed to the user if they enter a verification code, but instead of completing the verification by selecting on the **Verify** button, they select the **Continue** button.
+
+<sup>3</sup> This error message is displayed to the user if they validate an email address but then they select the **Change e-mail** button and don't validate the new email.
 
 ### Verification display control example
 
@@ -420,6 +425,7 @@ The following IDs are used for a [Verification display control](display-control-
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationControlClaimsNotVerified">The claims for verification control have not been verified.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationControlClaimsHaveChanged">The claims to verify have been changed.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -496,18 +502,18 @@ The following IDs are used for a [time-based one-time password (TOTP) display co
       </LocalizedResources>
 ```
 
-## Restful service error messages
+## RESTful service error messages
 
-The following IDs are used for [Restful service technical profile](restful-technical-profile.md) error messages:
+The following IDs are used for [RESTful service technical profile](restful-technical-profile.md) error messages:
 
 | ID | Default value |
 | --- | ------------- |
-| `DefaultUserMessageIfRequestFailed` | Failed to establish connection to restful service end point. Restful service URL: {0} |
-| `UserMessageIfCircuitOpen` | {0} Restful Service URL: {1} |
-| `UserMessageIfDnsResolutionFailed` | Failed to resolve the hostname of the restful service endpoint. Restful service URL: {0} |
-| `UserMessageIfRequestTimeout` | Failed to establish connection to restful service end point within timeout limit {0} seconds. Restful service URL: {1} |
+| `DefaultUserMessageIfRequestFailed` | Failed to establish connection to restful service end point. RESTful service URL: {0} |
+| `UserMessageIfCircuitOpen` | {0} RESTful Service URL: {1} |
+| `UserMessageIfDnsResolutionFailed` | Failed to resolve the hostname of the restful service endpoint. RESTful service URL: {0} |
+| `UserMessageIfRequestTimeout` | Failed to establish connection to restful service end point within timeout limit {0} seconds. RESTful service URL: {1} |
 
-### Restful service example
+### RESTful service example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -667,21 +673,20 @@ This example shows localized messages for CAPTCHA display control.
 ```xml
       <LocalizedResources Id="api.localaccountsignup.en">
         <LocalizedStrings>
-          <LocalizedString ElementType="UxElement" StringId="newCaptcha_arialabel">Create new CAPTCHA</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="switchCaptchaType_title">Switch CAPTCHA type to {0}</LocalizedString>
-          <LocalizedString ElementType="UxElement"  StringId="captchatype_visual_help">Enter the characters you see</LocalizedString>
-          <LocalizedString ElementType="UxElement"  StringId="captchatype_audio_title">Press audio button to play the challenge</LocalizedString>
-          <LocalizedString ElementType="UxElement"  StringId="captchatype_audio_help"> Enter the characters you hear</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage"  StringId="charsnotmatched_error"> The characters did not match for CAPTCHA challenge. Please try again</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage"  StringId="api_error"> Api error on CAPTCHA control</LocalizedString>
-          <LocalizedString ElementType="UxElement"  StringId="captcha_resolved"> Success!</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="newCaptcha_arialabel">Create new CAPTCHA</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="switchCaptchaType_title">Switch CAPTCHA type to {0}</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="captchatype_visual_help">Enter the characters you see</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="captchatype_audio_title">Press audio button to play the challenge</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="captchatype_audio_help">Enter the characters you hear</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="charsnotmatched_error">The characters did not match for CAPTCHA challenge. Please try again</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="api_error">API error on CAPTCHA control</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="captcha_resolved">Success!</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="DisplayName">Help us beat the bots</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
 ```
 
-## Next steps
-
+## Related content
 See the following articles for localization examples:
 
 - [Language customization with custom policy in Azure AD B2C](language-customization.md)

@@ -1,167 +1,104 @@
 ---
-title: Comparison of migration tools in Azure Storage Migration Program
-description: Basic functionality and comparison between migration tools supported by Azure Storage Migration Program
-author: dukicn
-ms.author: nikoduki
-ms.topic: conceptual
+title: Azure Storage Migration Program Details
+description: Overview of the Azure Storage Migration Program and how to use it
+author: karauten
+ms.author: karauten
+ms.topic: concept-article
 ms.date: 03/24/2022
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
 ---
 
-# Comparison Matrix for Azure Storage Migration Program participants
+# Engaging with Azure Storage Migration Partners
 
-The following comparison matrix shows basic functionality, and comparison of migration tools that participate in [Azure Storage Migration Program](https://azure.microsoft.com/blog/migrating-your-files-to-azure-has-never-been-easier/).
-&nbsp;
+In our [Migration tools comparison](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) page, we highlighted cases where an Independent Software Vendor (ISV) partner solution is required or well-suited to meet specific source - target storage combinations. In this page, we share more details on the ISVs enrolled in our Storage Migration Program (SMP), how to engage with them, and answer common questions about the program.
 
-## Supported Azure services
+## What is the Storage Migration Program?
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |[Cirrus Data](https://www.cirrusdata.com/) |
-|--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------| -------- |
-|  **Solution name**| [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|     [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview%E2%80%8B) |[Cirrus Migrate Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cirrusdatasolutionsinc1618222951068.cirrus-migrate-cloud-sponsored-by-azure?tab=Overview)|
-| **Support provided by**             | [Atempo](https://www.atempo.com/support-en/contacting-support/)   | [Data Dynamics](https://ddsupport.datadynamicsinc.com/)<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> |[Cirrus Data](https://customer.cirrusdata.com/)|
-| **Azure Files support (all tiers)** | Yes   | Yes            | Yes| No|
-| **Azure NetApp Files support**      | Yes   | Yes            | Yes| No|
-| **Azure Blob Hot / Cool support**   | Yes   | Yes            | Yes | No|
-| **Azure Blob Archive tier support** | Yes   | No             | Yes| No|
-| **Azure Data Lake Storage support** | No   | Yes             | Yes | No|
-| **Azure Block storage support** | No| No| No| Yes|
-| **Supported Sources**      | Any NAS, S3, PFS, and Swift   | Any NAS, and S3 | Any NAS, Cloud File Storage, or S3 |Any Block storage               |
+Azure offers native migration tools for offline ([Azure Data Box](/azure/databox/data-box-overview)) and online ([Azure Storage Mover](/azure/storage-mover/service-overview)) data movement, but as the [tool comparison article](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) highlights they are not able to address all source – target scenarios. As a result, we collaborated with the SMP partners to build support for data migration to Azure Storage Services.
 
-> [!TIP]
->  As Cirrus Data specializes in SAN / Block data migrations, we have omitted them from the remainder of this document, which compares File data migration features. For more information about Cirrus Data and their Migrate Cloud solution, please review the [Cirrus Data getting Started Guide](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
+This page only lists the partners participating in our Storage Migration program who offer their software to customers for free due to sponsorship from the Azure Storage team. This list is not a comprehensive list of vetted migration solution partners. You can find the full list of vetted migration partners [here](/azure/storage/solution-integration/validated-partners/data-management/partner-overview).
 
-## Supported protocols (source / destination)
+## Storage Migration Program Partners
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
-|--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
-| **SMB 2.1**       | Yes   | Yes | Yes |
-| **SMB 3.0**       | Yes   | Yes | Yes |
-| **SMB 3.1**       | Yes   | Yes | Yes |
-| **NFS v3**        | Yes   | Yes | Yes |
-| **NFS v4.1**      | Yes   | Yes | Yes |
-| **Blob REST API** | Yes   | Yes | Yes |
-| **S3**            | Yes   | Yes | Yes |
+__Free to use – refer to [FAQ](#faq) for program parameters__
 
-## Extended features
+- __[Atempo Miria](https://aka.ms/atempooffer)__ – Migrate files and objects to Azure Blob Storage, Azure Files, and Azure NetApp Files  
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
-|--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
-| **UID / SID remapping**                   | No  | Yes | No                             |
-| **Protocol ACL remapping**                | No  | No  | Yes                            |
-| **DFS Support**                           | No  | Yes | Yes                            |
-| **Throttling support**                    | Yes | Yes | Yes                            |
-| **File pattern exclusions**               | Yes | Yes | Yes                            |
-| **Support for selective file attributes** | Yes | Yes | Yes                            |
-| **Delete propagations**                   | Yes | Yes | Yes                            |
-| **Follow NTFS junctions**                 | Yes | No  | Yes                            |
-| **Override SMB Owner and Group Owner**    | Yes | Yes | No                             |
-| **Chain of custody reporting**            | Yes | Yes | Yes                            |
-| **Support for alternate data streams**    | Yes | Yes | Yes                            |
-| **Scheduling for migration**              | Yes | Yes | Yes                            |
-| **Preserving ACL**                        | Yes | Yes | Yes                            |
-| **DACL support**                          | Yes | Yes | Yes                            |
-| **SACL support**                          | Yes | Yes | No                             |
-| **Preserving access time**                | Yes | Yes | Yes                            |
-| **Preserving modified time**              | Yes | Yes | Yes                            |
-| **Preserving creation time**              | Yes | Yes | Yes                            |
-| **Azure Data Box support**                | Yes | Yes | Yes                            |
-| **Migration of snapshots**                | No  | Yes | Yes                            |
-| **Symbolic link support**                 | Yes | No  | Yes                            |
-| **Hard link support**                     | Yes | Yes | Yes                            |
-| **Support for open / locked files**       | Yes | Yes | Yes                            |
-| **Incremental migration**                 | Yes | Yes | Yes                            |
-| **Switchover support**                    | Yes | Yes | No (manual only)               |
-| **[Other features](#other-features)**         | [Link](#atempo-miria) | [Link](#data-dynamics-data-mobility-and-migration) | [Link](#komprise-elastic-data-migration) |
+- __[Cirrus Migrate Cloud](https://aka.ms/cirrusoffer)__ – Migrate from Storage Area Networks and Block Storage
 
-## Assessment and reporting
+- __[Data Dynamics StorageX](https://aka.ms/datdynoffer)__ – Migrate files and objects to Azure Blob Storage, Azure Files, and Azure NetApp Files
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
-|--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)| [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview%E2%80%8B)    |
-| **Capacity**                        | Yes | Yes | Yes            |
-| **# of files / folders**            | Yes | Yes | Yes            |
-| **Age distribution over time**      | Yes | Yes | Yes            |
-| **Access time**                     | Yes | Yes | Yes            |
-| **Modified time**                   | Yes | Yes | Yes            |
-| **Creation time**                   | Yes | Yes | Yes            |
-| **Per file / object report status** | Yes | Yes | Yes            |
+- __[Komprise Elastic Data Migration](https://aka.ms/kompriseoffer)__ – Migrate files and objects to Azure Blob Storage, Azure Files, and Azure NetApp Files
 
-## Licensing
+> [!IMPORTANT]
+> The list was last updated in March of 2025.
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
-|--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview%E2%80%8B)    |
-| **BYOL**             | Yes | Yes | Yes |
-| **Azure Commitment** | No | Yes | Yes |
+## FAQ
+__Q:__ Is the program ___really___ free?
 
-## Other features
+__A:__ Yes, the software IS free to use for migrations to Azure Storage services. However, if your need is continuous replication for disaster recovery or perpetual tiering of on-premises or Cloud-based data, you need separate licensing from the partner. Azure is only offsetting the cost of the software for one-time migration. We found that migration performance is often fastest when the data copy engines are running as Azure VMs – so there may be a small monthly cost for the VMs while the migration is underway.
 
-### Atempo Miria
-- Premigration assessment via analytics
-- Predefined analysis report by file characteristics (type, size, age, …)
-- Built-in integrity check during migration transfer
-- Optional integrity check when writing on target - Integrity on target
-- Progressive migration cycles via continuous tasks run on -demand or scheduled
-- FastScan exclusive technology that detects changes between cycles on leading NAS platforms
-- Built-in Progress reporting at task level and project level - Web UI
-- Migration can run without stopping source storage production 
-- Migration tasks run from Web UI, CLIs, or fully documented REST API
-- High scalability: just add another  Data Mover to scale performances 
+ 
 
-### Data Dynamics Data Mobility and Migration
+__Q:__ What is provided by the ISV as part of the program?
 
-- Hash validation
-- Project based migrations 
-- Migration planning with analytics
-- Assessment / reporting: File types, file size, project based
-- Assessment / reporting: Custom metadata-based searches
-- Simple UI migration management 
-- API access to automate large migration jobs 
-- Tagging support 
-- Support 24 x 7 x 365 
-- Hash validation
-- OneDrive Migrations
-- End to End API support
-- NFSv3 POSIX -> v4 ACL migration support
-- Symbolic link support (NFS only)
-- Bulk policy creation with templates
-- Disaster Recovery
-- Open Shares / at risk share permissions report
-- Duplicate file report 
+__A:__ The software license to support your migration, an onboarding session (live or recorded education), and email based support.
+
+The ISVs do have right of refusal to accept an engagement under 50 TB. They can suggest that you purchase a professional services or support contract if hands-on or phone support is required.
+
+> [!IMPORTANT]
+> Support is provided by the ISV, not Microsoft.
+
+ 
+
+**Q:** How do I choose between the ISVs?
+
+**A:** Review our [comparison page](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) and select the solution that best matches your environment.
 
 
-### Komprise Elastic Data Migration
+__Q:__ What paperwork or approvals are necessary?
 
-- Project/directory based migrations
-- Migration prechecks with analytics
-- Migration planning with analytics
-- Assessment / reporting: File types, file size, project based
-- Assessment / reporting: Custom metadata-based searches
-- Simple UI migration management
-- API access to automate large migration jobs
-- Automatic retry of failures
-- Access time-based analytics for Azure Blob Storage, and S3
-- Tagging support
-- Support 24 x 7 x 365
-- In-product support via chat built-in
-- Hash validation
+__A:__ None. Reach out to [azure@atempo.com](mailto:azure@atempo.com), [azure@cirrusdata.com](mailto:azure@cirrusdata.com), [azure@komprise.com](mailto:azure@komprise.com), or [azure@datdyn.com](mailto:azure@datdyn.com).
 
+ 
 
-> [!NOTE]
-> List was last verified on May 11, 2023
+__Q:__ Does participating in the program mean I am no longer eligible for other programs like the [Azure Migrate and Modernize](https://azure.microsoft.com/solutions/migration/migrate-modernize-innovate) (AMM) Program?
 
+__A:__ No. The Storage Migration Program (SMP) is complimentary and additive to AMM. You can use AMM to migrate databases and VMs and use SMP to migrate the shared file or object store used by the same application. SMP does not impact the scope of your AMM engagement at all.
+
+ 
+
+__Q:__ What if my source files and objects are on another cloud?
+
+__A:__ You can use the program and tools to move the data from either on-premises or another cloud to Azure Storage. CIFS/SMB, NFS, and S3 compatible sources outside of Azure are all eligible.
+
+ 
+
+__Q:__ I am concerned that my available bandwidth is a problem and migration may impact day-to-day business. How can I be sure the copy activity is not disruptive?
+
+__A:__ Each partner has the experience and the tooling to help guide a nonimpactful migration. Komprise developed a tool to identify bottlenecks and use that data to tune migration parameters and windows accordingly, for example. If bandwidth and project windows are a problem, you can use Azure DataBox for initial seeding. The ISVs do a tremendous amount of work continuously to improve copy performance and efficiency as Komprise illustrates with [HyperTransport](https://www.komprise.com/blog/komprise-hypertransfer-is-here-turbocharge-your-cloud-migrations/).
+
+ 
+
+__Q:__ How long is the program running? What about [Azure Storage Mover](/azure/storage-mover/service-overview)?
+
+__A:__ We do not have an end date for the Azure Storage Migration Program. Microsoft is committed to our relationships with Atempo, Cirrus Data, Data Dynamics, and Komprise and received excellent feedback. One year’s notice is expected before the discontinuation of the Storage Migration Program.
+
+Storage Mover is a maturing service and the supported source - target pairings will increase over time. Our partners have robust offerings today that support every combination of migration scenario encountered. Their robust features helped customers save money by selectively moving data from a single source to multiple targets. The movement is based on business value. Example: Older files are migrated to Azure Blob Storage Cold or Archive tier and active data migrated to Azure Files or Azure NetApp Files. We expect Storage Mover and the Storage Migration Program to coexist for some time.
 
 ## Next steps
 
-- [Azure Storage Migration Program](https://www.microsoft.com/en-us/us-partner-blog/2022/02/23/new-azure-file-migration-program-streamlines-unstructured-data-migration/)
-- [Storage migration overview](../../../common/storage-migration-overview.md)
+- [Learn more about Storage migration](../../../common/storage-migration-overview.md)
+
 - [Choose an Azure solution for data transfer](../../../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json)
+
 - [Migrate to Azure file shares](../../../files/storage-files-migration-overview.md)
+
 - [Migrate to Data Lake Storage with WANdisco LiveData Platform for Azure](../../../blobs/migrate-gen2-wandisco-live-data-platform.md)
+
 - [Copy or move data to Azure Storage with AzCopy](../../../common/storage-use-azcopy-v10.md)
+
 - [Migrate large datasets to Azure Blob Storage with AzReplicate (sample application)](/samples/azure/azreplicate/azreplicate/)
 
 > [!IMPORTANT]

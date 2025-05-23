@@ -141,6 +141,30 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "remote-mcp-functions-dotnet",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-dotnet",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "remote-mcp-functions-typescript",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-typescript",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "remote-mcp-functions-python",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-python",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "remote-mcp-functions-java",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-java",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "azure-functions-durable-js",
             "url": "https://github.com/Azure/azure-functions-durable-js",
             "branch": "v2.x",
@@ -156,6 +180,12 @@
             "path_to_root": "azure-functions-kafka-extension",
             "url": "https://github.com/Azure/azure-functions-kafka-extension",
             "branch": "dev",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "azure-functions-mongodb-extension",
+            "url": "https://github.com/Azure/Azure-functions-mongodb-extension",
+            "branch": "main",
             "branch_mapping": {}
         },
         {
@@ -239,12 +269,6 @@
         {
             "path_to_root": "azure-load-testing-samples",
             "url": "https://github.com/Azure-Samples/azure-load-testing-samples",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-proactive-resiliency-library",
-            "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
             "branch": "main",
             "branch_mapping": {}
         },
@@ -587,6 +611,12 @@
         {
             "path_to_root": "msdocs-jboss-mysql-sample-app",
             "url": "https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "laravel-tasks",
+            "url": "https://github.com/Azure-Samples/laravel-tasks",
             "branch": "main",
             "branch_mapping": {}
         },

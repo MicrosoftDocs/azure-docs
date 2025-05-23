@@ -2,11 +2,11 @@
 title: Application Gateway Ingress Controller troubleshooting
 description: This article provides documentation on how to troubleshoot common questions and issues with the Application Gateway Ingress Controller.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 01/31/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Troubleshoot common questions or issues with Ingress Controller
@@ -17,7 +17,7 @@ and AGIC installation. Launch your shell from [shell.azure.com](https://shell.az
 :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## Test with a simple Kubernetes app
 

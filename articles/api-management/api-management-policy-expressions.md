@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.custom: devx-track-dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 03/07/2023
 ms.author: danlep
 ---
@@ -230,8 +230,8 @@ The `context` variable is implicitly available in every policy [expression](api-
 |`BasicAuthCredentials AsBasic(input: this string)`|`input`: `string`<br /><br /> If the input parameter contains a valid HTTP Basic Authentication authorization request header value, the method returns an object of type `BasicAuthCredentials`; otherwise the method returns null.|
 |`bool TryParseBasic(input: this string, result: out BasicAuthCredentials)`|`input`: `string`<br /><br /> `result`: `out BasicAuthCredentials`<br /><br /> If the input parameter contains a valid HTTP Basic Authentication authorization value in the request header, the method returns `true` and the result parameter contains a value of type `BasicAuthCredentials`; otherwise the method returns `false`.|
 |`BasicAuthCredentials`|`Password`: `string`<br /><br /> `UserId`: `string`|
-|`Jwt AsJwt(input: this string)`|`input`: `string`<br /><br /> If the input parameter contains a valid JWT token value, the method returns an object of type `Jwt`; otherwise the method returns `null`.|
-|`bool TryParseJwt(input: this string, result: out Jwt)`|`input`: `string`<br /><br /> `result`: `out Jwt`<br /><br /> If the input parameter contains a valid JWT token value, the method returns `true` and the result parameter contains a value of type `Jwt`; otherwise the method returns `false`.|
+|`Jwt AsJwt(input: this string)`|`input`: `string`<br /><br /> If the input parameter contains a valid JWT value, the method returns an object of type `Jwt`; otherwise the method returns `null`.|
+|`bool TryParseJwt(input: this string, result: out Jwt)`|`input`: `string`<br /><br /> `result`: `out Jwt`<br /><br /> If the input parameter contains a valid JWT value, the method returns `true` and the result parameter contains a value of type `Jwt`; otherwise the method returns `false`.|
 |`Jwt`|`Algorithm`: `string`<br /><br /> `Audiences`: `IEnumerable<string>`<br /><br /> `Claims`: `IReadOnlyDictionary<string, string[]>`<br /><br /> `ExpirationTime`: `DateTime?`<br /><br /> `Id`: `string`<br /><br /> `Issuer`: `string`<br /><br /> `IssuedAt`: `DateTime?`<br /><br /> `NotBefore`: `DateTime?`<br /><br /> `Subject`: `string`<br /><br /> `Type`: `string`|
 |`string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)`|`claimName`: `string`<br /><br /> `defaultValue`: `string`<br /><br /> Returns comma-separated claim values or `defaultValue` if the header isn't found.|
 |`byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])`|`input` - plaintext to be encrypted<br /><br />`alg` - name of a symmetric encryption algorithm<br /><br />`key` - encryption key<br /><br />`iv` - initialization vector<br /><br />Returns encrypted plaintext.|
@@ -243,22 +243,13 @@ The `context` variable is implicitly available in every policy [expression](api-
 |`bool VerifyNoRevocation(input: this System.Security.Cryptography.X509Certificates.X509Certificate2)`|Performs an X.509 chain validation without checking certificate revocation status.<br /><br />`input` - certificate object<br /><br />Returns `true` if the validation succeeds; `false` if the validation fails.|
 
 
-## Related content
-
-For more information working with policies, see:
-
-* [Policies in API Management](api-management-howto-policies.md)
-* [Tutorial: Transform and protect APIs](transform-api.md)
-* [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
-* [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
-* [Azure API Management policy toolkit](https://github.com/Azure/azure-api-management-policy-toolkit/)
-* [Author policies using Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
 
 For more information:
 
 - See how to supply context information to your backend service. Use the [Set query string parameter](set-query-parameter-policy.md) and [Set HTTP header](set-header-policy.md) policies to supply this information.
 - See how to use the [Validate JWT](validate-jwt-policy.md) policy to pre-authorize access to operations based on token claims.
-- See how to use an [API Inspector](./api-management-howto-api-inspector.md) trace to detect how policies are evaluated and the results of those evaluations.
+- See how to use [API tracing](./api-management-howto-api-inspector.md) to detect how policies are evaluated and the results of those evaluations.
 - See how to use expressions with the [Get from cache](cache-lookup-policy.md) and [Store to cache](cache-store-policy.md) policies to configure API Management response caching. Set a duration that matches the response caching of the backend service as specified by the backed service's `Cache-Control` directive.
 - See how to perform content filtering. Remove data elements from the response received from the backend using the [Control flow](choose-policy.md) and [Set body](set-body-policy.md) policies.
 - To download the policy statements, see the [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub repo.

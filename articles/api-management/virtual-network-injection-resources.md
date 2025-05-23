@@ -4,8 +4,8 @@ description: Learn about requirements for network resources when you deploy (inj
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
-ms.date: 06/10/2024
+ms.topic: concept-article
+ms.date: 04/17/2025
 ms.author: danlep
 ---
 
@@ -13,12 +13,11 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
-The following are virtual network resource requirements for injection of an API Management Developer or Premium instance into a virtual network. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
+The following are virtual network resource requirements for injection of an API Management Developer or Premium instance into a virtual network. 
 
 > [!NOTE]
 > To inject a Premium v2 instance in a virtual network, the requirements and configuration are different. [Learn more](inject-vnet-v2.md)
 
-#### [stv2](#tab/stv2)
 
 * An Azure Resource Manager virtual network is required.
 * The subnet used to connect to the API Management instance might contain other Azure resource types.
@@ -28,14 +27,6 @@ The following are virtual network resource requirements for injection of an API 
 * The API Management service, virtual network and subnet, and public IP address resource (if provided) must be in the same region and subscription.
 * For multi-region API Management deployments, configure virtual network resources separately for each location.
 
-#### [stv1](#tab/stv1)
-
-* An Azure Resource Manager virtual network is required.
-* The subnet used to connect to the API Management instance must be dedicated to API Management. It can't contain other Azure resource types.
-* The subnet used to connect to the API Management instance shouldn't have any delegations enabled. The "Delegate subnet to a service" setting for the subnet should be set to "None". 
-* The API Management service, virtual network, and subnet resources must be in the same region and subscription.
-* For multi-region API Management deployments, configure virtual network resources separately for each location.
----
 
 ## Subnet size
 
@@ -90,22 +81,10 @@ Related information:
 
 ## Limitations
 
-Some virtual network limitations differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
-
-#### [stv2](#tab/stv2)
 
 * A subnet containing API Management instances can't be moved across subscriptions.
 * For multi-region API Management deployments configured in internal virtual network mode, users own the routing and are responsible for managing the load balancing across multiple regions.
 * To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
-
-#### [stv1](#tab/stv1)
-
-* A subnet containing API Management instances can't be moved across subscriptions.
-* For multi-region API Management deployments configured in internal virtual network mode, users own the routing and are responsible for managing the load balancing across multiple regions.
-* To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
-* Due to platform limitations, connectivity between a resource in a globally peered virtual network in another region and an API Management service in internal mode doesn't work. For more information, see the [virtual network documentation](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
-
----
 
 
 ## Related content

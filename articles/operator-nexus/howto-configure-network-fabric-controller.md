@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus: Configure a network fabric controller"
 description: Learn commands to create and modify a network fabric controller in Azure Operator Nexus instances.
-author: jdasari
-ms.author: jdasari
+author: sushantjrao
+ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 07/20/2023
@@ -15,20 +15,72 @@ This document also shows you how to check the status, or delete a Network Fabric
 
 ## Prerequisites
 
-You must implement all the prerequisites prior to creating an NFC.
+Before configuring NFC, ensure you meet the following requirements:
 
-Names, such as for resources, shouldn't contain the underscore (\_) character.
+- Resource names must start with a letter (uppercase or lowercase).
+
+- Only letters, digits, and hyphens are allowed.
+
+- Underscores (_) and other special characters are not permitted.
+
+- The maximum length is 63 characters.
 
 ### Validate ExpressRoute circuit
 
-Validate the ExpressRoute circuit(s) for correct connectivity (CircuitID)(AuthID);  NFC provisioning would fail if connectivity is incorrect.
+Validate the ExpressRoute circuits for correct connectivity (CircuitID)(AuthID); NFC provisioning would fail if connectivity is incorrect.
 
+## Virtual Machine (VM) SKU update for Network Fabric Controller  
+
+With the latest update, all new NFC Cluster deployments uses `Standard_D8s_v3` virtual machine SKU instead of `Standard_Ds4_v2`. 
+This change is required due to the limited availability of `Standard_Ds4_v2` in several Azure regions.
+
+> [!Note]
+> Existing NFC Clusters will continue to run on `Standard_Ds4_v2.
+
+### Minimum vCPU requirement
+
+The new VM SKU 'DSv3' requires a minimum of **120 vCPUs** to ensure optimal performance and resource availability.  
+
+### Checking VM Quota for the new SKU
+
+To check if your subscription has sufficient vCPU quota for the new SKU 'DSv3', follow these steps:  
+
+1. **Azure Portal**:  
+   - Navigate to **Azure Portal** → **Subscriptions**  
+
+   - Go to **Usage + quotas**  
+   
+   - Search for the required VM SKU 'DSv3' 
+   
+   - Check the **Total Quota** and **Current Usage**  
+
+2. **Azure CLI**:  
+   
+   Run the following command to check your available quota:  
+
+   ```azurecli
+      az vm list-usage --location <region> --output table
+   ```
+
+Look for the **vCPUs** quota and ensure it meets the minimum requirement.  
+
+### Requesting more vCPU quota  
+
+If your quota is insufficient, request an increase by:  
+
+- Submitting a quota increase request via **Azure Portal** → **Help + Support** → **New Support Request** 
+
+- Selecting **Quota** as the issue type and specifying the required increase  
+
+> [!Note]
+> Ensure your quota request is approved before proceeding with the deployment.  
 
 ## Create a Network Fabric Controller
 
 You must create a resource group before you create your NFC.
 
-**Note**: You should create a separate Resource Group for each NFC.
+>[!Note]
+> You should create a separate Resource Group for each NFC.
 
 You create resource groups by running the following commands:
 
@@ -42,7 +94,7 @@ az group create -n NFCResourceGroupName -l "<Location>"
 |---------|------------------------------|----------------------------|----------------------------|------------|------|
 | Resource-Group | A resource group is a container that holds related resources for an Azure solution. | NFCResourceGroupName | XYZNFCResourceGroupName | True | String |
 | Location | The Azure Region is mandatory to provision your deployment. | eastus, westus3, southcentralus, eastus2euap | eastus | True         | String |
-| Resource-Name | The Resource-name will be the name of the Network Fabric Controller | nfcname | XYZnfcname | True         | String |
+| Resource-Name | The Resource-name is the name of the Network Fabric Controller. | nfcname | XYZnfcname | True         | String |
 | ipv4-address-space | IPv4 Network Fabric Controller Address Space, the default subnet block is 10.0.0.0/19, and it also shouldn't overlap with any of the ExpressRoute IPs | 10.0.0.0/19 | 10.0.0.0/19 | Not Required | String |
 | ipv6-address-space | IPv6 Network Fabric Controller Address Space, this parameter defaults to FC00::/59, with the permissible range being /59 | "FC00::/59" | "FC00::/59" | Not Required | String |
 | Express Route Circuits | The ExpressRoute circuit is a dedicated 10G link that connects Azure and on-premises. You need to know the ExpressRoute Circuit ID and Auth key for an NFC to successfully provision. There are two Express Route Circuits, one for the Infrastructure services and other one for Workload (Tenant) services | --infra-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]' <br /><br /> --workload-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]' | subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}] | True         | string |
@@ -63,10 +115,9 @@ az networkfabric controller create \
 --debug --no-wait
 ```
 
-**Note:** The NFC creation takes between 30-45 mins.
-Use the `show` command to monitor NFC creation progress.
-You'll see different provisioning states such as, Accepted, updating and Succeeded/Failed.
-Delete and recreate the NFC if the creation fails (`Failed`).
+> [!Note] 
+> The NFC creation takes between 30-45 mins. <br> > Use the `show` command to monitor NFC creation progress. <br> You see different provisioning states such as, Accepted, updating and Succeeded/Failed. <br> > Delete and recreate the NFC if the creation fails (`Failed`).
+
 The expected output only shows running as soon as you execute via AzureCLI
 
 Expected output:

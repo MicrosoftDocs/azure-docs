@@ -51,8 +51,8 @@ landingContent:
         links:
           - text: Manage inventory - Azure CLI
             url: manage-apis-azure-cli.md
-          - text: Import APIs from API Management
-            url: import-api-management-apis.md
+          - text: Synchronize APIs from API Management
+            url: synchronize-api-management-apis.md
           - text: Build and register APIs - VS Code extension
             url: use-vscode-extension.md
  # Card
@@ -71,8 +71,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Self-host Azure API Center portal
-            url: enable-api-center-portal.md
+          - text: Set up Azure API Center portal
+            url: set-up-api-center-portal.md
   # Card
   - title: Related service
     linkLists:

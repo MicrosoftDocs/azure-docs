@@ -3,8 +3,8 @@ title: Understand Azure Files billing
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure Files. Understand total cost of ownership, storage reservations, and burst credits.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 01/23/2025
+ms.topic: concept-article
+ms.date: 05/1/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -20,7 +20,7 @@ Azure Files has multiple pricing models including provisioned and pay-as-you-go 
 
 - **Provisioned billing models**: In a provisioned billing model, the primary costs of the file share are based on the amount of storage, IOPS (input and output operations per second), and throughput you provision when you create or update your file share, regardless of how much you use. Azure Files has two different provisioned models *provisioned v2* and *provisioned v1*.
     - **Provisioned v2**: In the provisioned v2 model, you have the ability to separately provision storage, IOPS, and throughput, although we provide a recommendation for you to help you with first time provisioning.
-    - **Provisioned v1**: In the provisioned v1 model, you provision the amount of storage you need for the share while IOPS and throughput are determined based on how much storage you provision. The provisioned v1 model for Azure Files is only available for SSD (premium) file shares.
+    - **Provisioned v1**: In the provisioned v1 model, you provision the amount of storage you need for the share while IOPS and throughput are determined based on how much storage you provision. The provisioned v1 model for Azure Files is only available for SSD file shares.
     
 - **Pay-as-you-go billing model**: In a pay-as-you-go model, the cost of the file share is based on how much you use the share, in the form of used storage, transaction, and data transfer costs. The pay-as-you-go model for Azure Files is only available for HDD file shares. We recommend using the provisioned v2 model for new HDD file share deployments.
 
@@ -32,6 +32,15 @@ This article explains how the billing models for Azure Files work to help you un
     :::column-end:::
     :::column:::
         This video covers the Azure Files billing models including pay-as-you-go, provisioned v1, and provisioned v2.
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/1sXwvHaTqfg]
+    :::column-end:::
+    :::column:::
+        This video focus on Azure Files provisioned v2 billing model.
    :::column-end:::
 :::row-end:::
 
@@ -125,6 +134,40 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - Canada East
 - UAE Central
 - UAE North
+- Brazil South
+- Brazil Southeast
+- South Central US
+- North Central US
+- West US
+- East US
+- Japan East
+- Japan West
+- Korea Central
+- Korea South
+- East US 2
+- Central US
+- US Gov Virginia
+- US Gov Arizona
+- US Gov Texas
+- Poland Central
+- West US 3
+- Spain Central
+- New Zealand North
+- Italy North
+- Indonesia Central
+- Sweden Central
+- Sweden South
+- Australia Central
+- Australia Central 2
+- South Africa North
+- South Africa West
+- Switzerland North
+- Switzerland West
+- Norway East
+- Norway West
+- Israel Central
+- Qatar Central
+- Mexico Central
 
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:
@@ -258,6 +301,9 @@ The amount of IOPS and throughput provisioned on the share are determined by the
 Depending on your individual file share requirement, you may find that you require more IOPS or throughput than our provisioning formulas provide. In this case, you will need to provision more storage to get the required IOPS or throughput.
 
 ### Provisioned v1 bursting
+The provisioned v1 model supports two types of bursting: credit-based bursting, which is included for free as a part of the provisioning, and paid bursting, which is an advanced feature that can optionally be enabled to support usage-based billing whenever the IOPS and throughput go over the provisioned amount.
+
+#### Provisioned v1 credit-based bursting
 Credit-based IOPS bursting provides added flexibility around IOPS usage. This flexibility is best used as a buffer against unanticipated IO-spikes. For established IO patterns, we recommend provisioning for IO peaks.
 
 Burst IOPS credits accumulate whenever traffic for your file share is below provisioned (baseline) IOPS. Whenever a file share's IOPS usage exceeds the provisioned IOPS and there are available burst IOPS credits, the file share can burst up to the maximum allowed burst IOPS limit. File shares can continue to burst as long as there are credits remaining, but this is based on the number of burst credits accrued. Each IO beyond provisioned IOPS consumes one credit. Once all credits are consumed, the share returns to the provisioned IOPS. IOPS against the file share don't have to do anything special to use bursting. Bursting operates on a best effort basis.  
@@ -288,7 +334,20 @@ The following table illustrates a few examples of these formulas for the provisi
 | 51,200 | 54,200 | Up to 102,400 | 164,880,000 | 5,220 |
 | 102,400 | 102,400 | Up to 102,400 | 0 | 10,340 |
 
-Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. To achieve maximum benefit from parallelization, we recommend enabling [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on SSD file shares. Refer to [SMB performance](smb-performance.md) and [performance troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json) for some common performance issues and workarounds.
+#### Provisioned v1 paid bursting
+Paid bursting is an advanced feature of the provisioned v1 model designed to support customers who never want to be throttled. Unlike credit-based bursting which is included for free as part of provisioned storage, paid bursting adds additional usage-based billing for any amount of IOPS or throughput above the provisioned storage. While this can add powerful flexibility to how you provision your file share, it can also lead to unexpected billing if used incorrectly.
+
+Like credit-based bursting, paid bursting is not a replacement for provisioning the correct amount of IOPS and throughput, but rather an additional protection against throttling in the case of unexpected demand. If you have a consistent level of IOPS or throughput usage, it is cheaper to provision enough IOPS and throughput (through storage provisioning) to cover demand instead relying on paid bursting.
+
+Paid bursting is disabled by default, but can be enabled following the instructions to [change the cost and performance characteristics of a provisioned v1 file share](./storage-how-to-create-file-share.md?tabs=azure-powershell#change-the-cost-and-performance-characteristics-of-a-provisioned-v1-file-share) (PowerShell and CLI only). If paid bursting is enabled, we recommend carefully monitoring IOPS and throughput usage using the following metrics available through Azure monitor:
+
+- File Share Provisioned IOPS
+- File Share Provisioned Bandwidth MiB/s (throughput)
+- Transactions by Max IOPS
+- Bandwidth by Max MiB/sec (throughput)
+- Burst Credits for IOPS (credit-based bursting)
+- Paid Bursting IOS (IOs)
+- Paid Bursting Bandwidth
 
 ### Provisioned v1 snapshots
 Azure Files supports snapshots, which are similar to volume shadow copies (VSS) on Windows File Server. For more information on share snapshots, see [Overview of snapshots for Azure Files](storage-snapshots-files.md).
@@ -493,7 +552,7 @@ Azure Files supports reservations (also referred to as *reserved instances*) for
 
 - **Capacity size**: Reservations can be for either 10 TiB or 100 TiB, with more significant discounts for purchasing a higher capacity Reservation. You can purchase multiple Reservations, including Reservations of different capacity sizes to meet your workload requirements. For example, if your production deployment has 120 TiB of file shares, you could purchase one 100 TiB Reservation and two 10 TiB Reservations to meet the total storage capacity requirements.
 - **Term**: You can purchase reservations for either a one-year or three-year term, with more significant discounts for purchasing a longer Reservation term.
-- **Tier**: The tier of Azure Files for the Reservation. Reservations currently are available for the premium (SSD), hot (HDD), and cool (HDD) tiers.
+- **Tier**: The tier of Azure Files for the Reservation. Reservations currently are available for the SSD provisioned v1 (as "premium") and HDD pay-as-you-go (hot and cool access tiers only) billing models.
 - **Location**: The Azure region for the Reservation. Reservations are available in a subset of Azure regions.
 - **Redundancy**: The storage redundancy for the Reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
 - **Billing frequency**: Indicates how often the account is billed for the Reservation. Options include *Monthly* or *Upfront*.

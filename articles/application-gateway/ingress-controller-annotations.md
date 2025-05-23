@@ -2,11 +2,11 @@
 title: Application Gateway Ingress Controller annotations
 description: This article provides documentation on the annotations that are specific to the Application Gateway Ingress Controller. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 9/17/2024
-ms.author: greglin
+ms.date: 5/23/2025
+ms.author: mbender
 ---
 
 # Annotations for Application Gateway Ingress Controller
@@ -14,7 +14,7 @@ ms.author: greglin
 You can annotate the Kubernetes ingress resource with arbitrary key/value pairs. Application Gateway Ingress Controller (AGIC) relies on annotations to program Azure Application Gateway features that aren't configurable via the ingress YAML. Ingress annotations are applied to all HTTP settings, backend pools, and listeners derived from an ingress resource.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## List of supported annotations
 
@@ -66,7 +66,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-bkprefix
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"
@@ -104,7 +103,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-timeout
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/backend-hostname: "internal.example.com"
@@ -152,7 +150,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/health-probe-hostname: "contoso.com"
@@ -192,7 +189,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-redirect
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/ssl-redirect: "true"
@@ -233,7 +229,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-drain
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/connection-draining: "true"
@@ -268,7 +263,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-affinity
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
@@ -302,7 +296,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-timeout
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/request-timeout: "20"
@@ -338,7 +331,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-privateip
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/use-private-ip: "true"
@@ -375,7 +367,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-overridefrontendport
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/override-frontend-port: "8080"
@@ -416,7 +407,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-timeout
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/backend-protocol: "https"
@@ -450,7 +440,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-multisite
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/hostname-extension: "hostname1, hostname2"
@@ -488,7 +477,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ad-server-ingress
-  namespace: commerce
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/waf-policy-for-path: "/subscriptions/abcd/resourceGroups/rg/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/adserver"
@@ -532,7 +520,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-certificate
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/appgw-ssl-certificate: "name-of-appgw-installed-certificate"
@@ -567,7 +554,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-certificate
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/appgw-ssl-certificate: "name-of-appgw-installed-certificate"
@@ -602,7 +588,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-certificate
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/backend-protocol: "https"
@@ -636,7 +621,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-bkprefix
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/rewrite-rule-set: add-custom-response-header
@@ -727,7 +711,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-rulepriority
-  namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/rule-priority: 10
@@ -745,3 +728,8 @@ spec:
 ```
 
 The preceding example sets a priority of 10 for the request routing rule.
+
+## Next steps
+
+- [Application Gateway for Containers](for-containers/overview.md)
+- [Migrate to Application Gateway for Containers](for-containers/migrate-from-agic-to-agc.md)

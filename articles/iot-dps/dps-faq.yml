@@ -2,8 +2,8 @@
 metadata:
   title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ) 
   description: Find answer to common questions about Azure IoT Hub Device Provisioning Service.
-  author: kgremban
-  ms.author: kgremban
+  author: SoniaLopezBravo
+  ms.author: sonialopez
   ms.date: 02/06/2023
   ms.topic: faq
   ms.service: azure-iot-hub

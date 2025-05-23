@@ -29,6 +29,9 @@ When Route Server has multiple routes to an on-premises destination prefix, Rout
     > Routing preference doesn't allow users to set preference between routes learned over VPN and NVA connections. If the same routes are learned over VPN and NVA connections, Route Server will prefer the route with the shortest BGP AS path.
     - **AS Path**: Prefer routes with the shortest BGP AS path length, irrespective of the source of the route advertisement.
 
+> [!Note]
+> For a given set of destination route-prefixes, if the ExpressRoute routes are preferred and the ExpressRoute connection subsequently goes down, then routes advertised from on-premises via S2S VPN or NVAs will be preferred for traffic destined to the same route-prefixes. When the ExpressRoute connection is restored, traffic destined for these route-prefixes might continue to prefer the S2S VPN or NVA paths. To prevent this from happening, you need to configure your on-premises device to utilize AS-Path prepending for the routes being advertised to your S2S VPN Gateway and SD-WAN NVA, as you need to ensure the AS-Path length is longer for VPN/NVA routes than ExpressRoute routes.
+
 ## Next step
 
 > [!div class="nextstepaction"]

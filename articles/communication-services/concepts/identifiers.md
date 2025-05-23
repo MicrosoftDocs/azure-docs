@@ -1,7 +1,7 @@
 ---
-title: Communication Identifier types
-titleSuffix: An Azure Communication Services concept
-description: Understand identifier types and their usage
+title: Understand Identifiers
+titleSuffix: An Azure Communication Services article
+description: Understand identifier types and how to use them.
 author: DominikMe
 manager: RezaJooyandeh
 services: azure-communication-services
@@ -15,16 +15,16 @@ ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python-ios-android-rest
 ---
 
-# Understand identifier types
+# Understand identifiers
 
-Communication Services SDKs and REST APIs use the *identifier* type to identify who is communicating with whom. For example, identifiers specify who to call, or who has sent a chat message.
+Communication Services SDKs and REST APIs use the *identifier* type to identify who is communicating with whom. For example, identifiers specify who to call, or who sent a chat message.
 
 Depending on context, identifiers get wrapped with extra properties, like inside the `ChatParticipant` in the Chat SDK or inside the `RemoteParticipant` in the Calling SDK.
 
-In this article, you'll learn about different types of identifiers and how they look across programming languages. You'll also get tips on how to use them.
+This article describes different types of identifiers and how they look across programming languages. You also get tips on how to use them.
 
 
-## The CommunicationIdentifier type
+## The `CommunicationIdentifier` type
 
 There are user identities that you create yourself and there are external identities. Microsoft Teams users and phone numbers are external identities that come to play in interop scenarios. Each of these different identity types has a corresponding identifier that represents it. An identifier is a structured type that offers type-safety and works well with your editor's code completion.
 

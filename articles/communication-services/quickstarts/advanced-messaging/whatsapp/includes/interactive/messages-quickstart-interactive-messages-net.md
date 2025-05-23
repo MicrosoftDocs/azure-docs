@@ -7,7 +7,7 @@ manager: camilo.ramirez
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 12/15/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
@@ -59,7 +59,7 @@ The Messages SDK supports the following WhatsApp Interactive messages:
 
 - [Send an Interactive List options message to a WhatsApp user](#send-an-interactive-list-options-message-to-a-whatsapp-user).
 - [Send an Interactive Reply Button message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
-- [Send an Interactive Click-to-action URL-based message to a WhatsApp user](#send-an-interactive-click-to-action-url-based-message-to-a-whatsapp-user).
+- [Send an Interactive Click-to-action URL-based message to a WhatsApp user](#send-an-interactive-call-to-action-url-based-message-to-a-whatsapp-user).
 
 ### Send an Interactive List options message to a WhatsApp user
 
@@ -124,14 +124,14 @@ public async Task SendWhatsAppListMessage()
 }
 ```
 
-### Send an Interactive Reply Button message to a WhatsApp user
+### Send an interactive reply button message to a WhatsApp user
 
 To send reply button messages:
 
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E.164 format](#set-recipient-list).
 
-Reply Button Messages can be created using the following properties:
+Create reply button messages using the following properties:
 
    | Action type | Description |
    | --- | --- |
@@ -168,14 +168,13 @@ public async Task SendWhatsAppReplyButtonMessage()
 }
 ```
 
-### Send an Interactive Click-to-action URL-based message to a WhatsApp user
+### Send an interactive call-to-action URL-based message to a WhatsApp user
 
-To send Click-To-Action or URL-based messages:
+To send click-to-action or URL-based messages:
 
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E.164 format](#set-recipient-list).
-
-Click-To-Action Messages can be created using the following properties:
+- Call-To-Action Messages can be created using the following properties:
 
 | Action type   | Description |
 | --- | --- |

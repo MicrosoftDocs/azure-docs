@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/15/2024
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
  
 # Migrate an Azure Cache for Redis instance to availability zone support
@@ -17,10 +17,7 @@ This guide describes how to migrate your Azure Cache for Redis instance from non
 Azure Cache for Redis supports zone redundancy in its Standard, Premium, Enterprise, and Enterprise Flash tiers. A zone-redundant cache runs on VMs spread across multiple availability zone to provide high resilience and availability.  
 
 > [!NOTE]
-   > Converting an existing resource from non-availability zone support to availability zone support is in preview for standard & premium tier caches.
-
- > [!NOTE]
-   > Zone redundancy isn't supported with geo-replication.
+   > Converting an existing resource from non-availability zone support to availability zone support is available for Standard and Premium tier caches. Enterprise and Enterprise Flash tier caches are created to be zonal by default. 
 
 ## Enabling Zone Redundancy for Enterprise, and Enterprise Flash tiers
 
@@ -59,7 +56,7 @@ Running multiple caches simultaneously as you convert your data to the new cache
 
 ## Enabling Zone Redundancy for Standard and Premium tiers
 
-Updating an existing Standard or Premium cache to use zone redundancy is supported in-place (Preview). Users can enable it by navigating to the **Advanced settings** on the Resource menu and selecting **Allocate Zones automatically** check-box followed by the save button.
+Updating an existing Standard or Premium cache to use zone redundancy is supported in-place. Users can enable it by navigating to the **Advanced settings** on the Resource menu and selecting **Allocate Zones automatically** check-box followed by the save button.
 
 Users can't disable zone redundancy once it's enabled.
 
@@ -67,7 +64,7 @@ Users can't disable zone redundancy once it's enabled.
 
 This update can also be done by passing `ZonalAllocationPolicy` as `Automatic` in the request body while updating the cache using REST API. For more information regarding the update process using REST API, see [Update - ZonalAllocationPolicy](/rest/api/redis/redis/update#zonalallocationpolicy).
 
-Updating `ZonalAllocationPolicy to any other value than `Automatic` isn't supported.
+Updating `ZonalAllocationPolicy` to any other value than `Automatic` isn't supported.
 
   > [!IMPORTANT]
   > Automatic Zonal Allocation cannot be modified once enabled for a cache.
@@ -83,4 +80,4 @@ Learn more about:
 > [Azure services that support availability zones](availability-zones-service-support.md)
 
 > [!div class="nextstepaction"]
-> [Azure regions that support availability zones](availability-zones-region-support.md)
+> [Azure regions that support availability zones](regions-list.md)

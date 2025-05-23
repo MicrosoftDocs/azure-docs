@@ -1249,6 +1249,51 @@
             "source_path_from_root": "/articles/virtual-network/ip-services/configure-routing-preference-virtual-machine-cli.md",
             "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-peering-different-deployment-models.md",
+            "redirect_url": "/azure/azure-resource-manager/management/deployment-models",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-peering-different-deployment-models-subscriptions.md",
+            "redirect_url": "/azure/azure-resource-manager/management/deployment-models",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-portal.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-powershell.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-cli.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-template.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-bicep.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-terraform.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-disaster-recovery-guidance.md",
+            "redirect_url": "/azure/reliability/reliability-virtual-network",
+            "redirect_document_id": false
         }
     ]
 }

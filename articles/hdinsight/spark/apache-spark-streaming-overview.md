@@ -4,6 +4,9 @@ description: How to use Apache Spark Streaming applications on HDInsight Spark c
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/15/2024
 ---
 

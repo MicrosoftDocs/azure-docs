@@ -4,8 +4,8 @@ description: Learn about the impact of maxfiles on Azure NetApp Files quotas and
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 02/11/2025
+ms.topic: concept-article
+ms.date: 04/16/2025
 ms.author: anfdocs
 ---
 # Understand `maxfiles` limits in Azure NetApp Files
@@ -18,7 +18,9 @@ Azure NetApp Files volumes have a value called `maxfiles` that refers to the max
 - Each inode uses roughly 288 bytes of capacity in the volume. Having many inodes in a volume can consume a non-trivial amount of physical space overhead on top of the capacity of the actual data.
     - If a file is less than 64 bytes in size, it's stored in the inode itself and doesn't use additional capacity. This capacity is only used when files are actually allocated to the volume.
     - Files larger than 64 bytes do consume additional capacity on the volume. For instance, if there are one million files greater than 64 bytes in an Azure NetApp Files volume, then approximately 274 MiB of capacity would belong to the inodes.
-
+    
+    >[!NOTE]
+    >Snapshots contribute to the total `maxfiles` count.
 
 The following table shows examples of the relationship `maxfiles` values based on volume sizes for regular volumes. 
 
@@ -39,12 +41,14 @@ The following table shows examples of the relationship `maxfiles` values based o
 | 200 TiB (214,748,364,800 KiB)	| 6,375,342,024  |
 | 500 TiB (536,870,912,000 KiB)	| 15,938,355,048 |
 
-To see the `maxfiles` allocation for a specific volume size, check the **Maximum number of files** field in the volume’s overview pane. You can also view the `maxfiles` consumption for a volume as a percentage in [Azure monitor](azure-netapp-files-metrics.md#volumes).
+To see the `maxfiles` allocation for a specific volume size, check the **Maximum number of files** field in the volume’s overview pane. You can also view metrics for available and consumed `maxfiles` in [Azure monitor](azure-netapp-files-metrics.md#volumes).
 
 :::image type="content" source="./media/azure-netapp-files-resource-limits/maximum-number-files.png" alt-text="Screenshot of volume overview menu." lightbox="./media/azure-netapp-files-resource-limits/maximum-number-files.png":::
 
-When the `maxfiles` limit is reached, clients receive "out of space" messages when attempting to create new files or folders. Adjusting your quota based on this information can create greater inode availability. If you have further issues with the `maxfiles` limit, contact Microsoft technical support.
+>[!NOTE]
+>The maximum number of files metric is reported against the `maxfiles` account quota limit. The metric in Azure Mmonitor might reflect fewer files than metrics provided by the operating system mounting the volume. This behavior is expected. 
 
+When the `maxfiles` limit is reached, clients receive "out of space" messages when attempting to create new files or folders. Adjusting your quota based on this information can create greater inode availability. If you have further issues with the `maxfiles` limit, contact Microsoft technical support.
 
 You can't set `maxfiles` limits for data protection volumes via a quota request. Azure NetApp Files automatically increases the `maxfiles` limit of a data protection volume to accommodate the number of files replicated to the volume. When a failover happens on a data protection volume, the `maxfiles` limit remains the last value before the failover. In this situation, you can submit a `maxfiles` [quota request](azure-netapp-files-resource-limits.md#request-limit-increase) for the volume.
 

@@ -2,8 +2,8 @@
 title: Understand usage details fields
 titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/31/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
@@ -13,7 +13,7 @@ ms.reviewer: jojoh
 
 # Understand cost details fields
 
-This document describes the cost details (formerly known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. For more information about cost details best practices, see [Choose a cost details solution](usage-details-best-practices.md).
+This document describes the cost details (formerly known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-improved-exports.md) from Cost Management, or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. For more information about cost details best practices, see [Choose a cost details solution](usage-details-best-practices.md).
 
 ## Migration to new cost details formats
 
@@ -38,7 +38,6 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | AccountName | EA, pay-as-you-go | Display name of the EA enrollment account or pay-as-you-go billing account. |
 | AccountOwnerId¹ | EA, pay-as-you-go | The email ID of the EA enrollment account owner. |
 | AdditionalInfo¹  | All | Service-specific metadata. For example, an image type for a virtual machine. |
-| AvailabilityZone | External account | Valid only for cost data obtained from the cross-cloud connector. The field displays the availability zone in which the AWS service is deployed. |
 | BenefitId¹ | EA, MCA | Unique identifier for the purchased savings plan instance. |
 | BenefitName | EA, MCA | Unique identifier for the purchased savings plan instance. |
 | BillingAccountId¹ | All | Unique identifier for the root billing account. |
@@ -48,8 +47,8 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | BillingPeriod | EA, pay-as-you-go | The billing period of the charge. |
 | BillingPeriodEndDate | All | The end date of the billing period. |
 | BillingPeriodStartDate | All | The start date of the billing period. |
-| BillingProfileId¹ | All | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS⁴ consolidated account. |
-| BillingProfileName | All | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS⁴ consolidated account. |
+| BillingProfileId¹ | All | Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile. |
+| BillingProfileName | All | Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile. |
 | ChargeType | All | Indicates whether the charge represents usage (**Usage**), a purchase (**Purchase**), or a refund (**Refund**). |
 | ConsumedService | All | Name of the service the charge is associated with. |
 | CostCenter¹ | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts). |
@@ -96,11 +95,11 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | ProductId¹ | MCA | Unique identifier for the product. |
 | ProductOrderId | All | Unique identifier for the product order. |
 | ProductOrderName | All | Unique name for the product order. |
-| Provider | MCA | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS⁴. |
+| Provider | MCA | Identifier for product category or Line of Business. For example, Azure and Microsoft 365. |
 | PublisherId | MCA | The ID of the publisher. It's only available after the invoice is generated. |
 | PublisherName | All | The name of the publisher. For first-party services, the value should be listed as `Microsoft` or `Microsoft Corporation`.  |
-| PublisherType | All |Supported values: **Microsoft**, **Azure**, **AWS**⁴, **Marketplace**. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`. |
-| Quantity³ | All | The number of units used by the given product or service for a given day. |
+| PublisherType | All |Supported values: **Microsoft**, **Azure**, **Marketplace**. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`. |
+| Quantity³ | All |The number of units consumed by a product or service on a given day. For refund transactions in MCA accounts, the quantity reflects the number of units refunded. |
 | ResellerName | MPA | The name of the reseller associated with the subscription. |
 | ResellerMpnId | MPA | ID for the reseller associated with the subscription. |
 | ReservationId¹ | EA, MCA | Unique identifier for the purchased reservation instance. |
@@ -130,11 +129,9 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
 
-² For MCA customers, prices are shown in the pricing currency in the Actual Cost and Amortized Cost reports. In contrast, for EA customers, the billing and pricing currencies are the same.
+² For MCA customers, prices are shown in the pricing currency in the Actual Cost and Amortized Cost reports. In contrast, for EA customers, the billing and pricing currencies are the same with exception of `PricingModel` column with value `Spot` where the pricing currency is USD irrespective of the billing currency. For more details on Spot pricing, see [Azure Spot VM FAQ](https://azure.microsoft.com/products/virtual-machines/spot#FAQ-9).
 
 ³ For more information about pricing terms and definitions, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).
-
-⁴ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](../costs/retire-aws-connector.md).
 
 The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself.
 
@@ -259,6 +256,6 @@ UsageStart | Date
 
 - Get an overview of how to [ingest cost data](automation-ingest-usage-details-overview.md).
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).
-- [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
+- [Create and manage exported data](../costs/tutorial-improved-exports.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

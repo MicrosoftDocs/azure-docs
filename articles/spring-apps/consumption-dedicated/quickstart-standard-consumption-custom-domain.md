@@ -2,7 +2,8 @@
 title: Quickstart - Map a Custom Domain to Azure Spring Apps with the Standard Consumption and Dedicated Plan
 description: Learn how to map a web domain to apps in Azure Spring Apps.
 author: KarlErickson
-ms.author: haojianzhong
+ms.author: karler
+ms.reviewer: haojianzhong
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/29/2024

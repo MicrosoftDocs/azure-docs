@@ -41,7 +41,7 @@ To set up the BTP account and the solution:
 
     :::image type="content" source="./media/deploy-sap-btp-solution/btp-audit-log-sub-account.png" alt-text="Screenshot that shows creating an instance of the BTP subaccount." lightbox="./media/deploy-sap-btp-solution/btp-audit-log-sub-account.png":::
 
-1. Create a service key and record the values for `url`, `uaa.clientid`, `uaa.clientecret`, and `uaa.url`. These values are required to deploy the data connector.
+1. Create a service key and record the values for `url`, `uaa.clientid`, `uaa.clientsecret`, and `uaa.url`. These values are required to deploy the data connector.
 
     Here are examples of these field values:
 

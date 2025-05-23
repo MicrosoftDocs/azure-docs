@@ -43,6 +43,10 @@ Yes, this is expected behavior. User-defined routes with next hop type **Virtual
 
 If you advertise a route from your NVA to Route Server that is an exact prefix match as another user-defined route, then the advertised route's next hop must be valid. If the advertised next hop is a load balancer without a configured backend pool, then this invalid route will take precedence over the user-defined route. In your network interface's effective routes, the invalid advertised route will be displayed as a user-defined route with next hop type set to **None**. 
 
+### Why do I face connectivity issues after advertising Azure routes back into Azure?
+
+If you plan to remove Azure BGP communities from VNet and UDR routes, do not advertise these routes back into Azure, as this will cause routing issues. As a result, it is not recommended to advertise Azure routes back into Azure. 
+
 ### Why do I lose connectivity after associating a service endpoint policy to the RouteServerSubnet or GatewaySubnet?
  
 If you associate a service endpoint policy to the RouteServerSubnet or GatewaySubnet, then communication may break between Azure's underlying management platform and these respective Azure services (Route Server and VPN/ExpressRoute gateway). This can cause these Azure resources to enter an unhealthy state, resulting in connectivity loss between your on-premises and Azure workloads.

@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub communication protocols and ports
 description: This article describes the supported communication protocols for device-to-cloud and cloud-to-device communications and the port numbers that must be open for those protocols.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 11/21/2022
+ms.date: 03/20/2025
 ms.custom:
   - amqp
   - mqtt
@@ -26,7 +26,7 @@ IoT Hub allows devices to use the following protocols for device-side communicat
 * HTTPS
 
 > [!NOTE]
-> IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md). For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
+> IoT Hub provides limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, see [Overview of the MQTT broker feature in Azure Event Grid](../event-grid/mqtt-overview.md). For more information, see the [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid) section of [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md).
 
 For information about how these protocols support specific IoT Hub features, see [Device-to-cloud communications guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md).
 
@@ -44,20 +44,20 @@ Consider the following points when you choose your protocol for device-side comm
 
 * **Field gateways**. MQTT and HTTPS support only a single device identity (device ID plus credentials) per TLS connection. For this reason, these protocols aren't supported for field gateway scenarios that require multiplexing messages, using multiple device identities, across either a single connection or a pool of upstream connections to IoT Hub. Such gateways can use a protocol that supports multiple device identities per connection, like AMQP, for their upstream traffic.
 
-* **Low resource devices**. The MQTT and HTTPS libraries have a smaller footprint than the AMQP libraries. As such, if the device has limited resources (for example, less than 1 MB of RAM), these protocols might be the only protocol implementation available.
+* **Low resource devices**. The MQTT and HTTPS libraries have a smaller footprint than the AMQP libraries. As such, if the device provides limited resources (for example, less than 1 MB of RAM), these protocols might be the only protocol implementation available.
 
 * **Network traversal**. The standard AMQP protocol uses port 5671, and MQTT listens on port 8883. Use of these ports could cause problems in networks that are closed to non-HTTPS protocols. Use MQTT over WebSockets, AMQP over WebSockets, or HTTPS in this scenario.
 
 * **Payload size**. MQTT and AMQP are binary protocols, which result in more compact payloads than HTTPS.
 
 > [!WARNING]
-> When using HTTPS, each device should poll for cloud-to-device messages no more than once every 25 minutes. In development, each device can poll more frequently, if desired.
+> When devices use the HTTPS protocol, each device should poll for cloud-to-device messages no more than once every 25 minutes. In development, each device can poll more frequently, if desired.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## Port numbers
 
-Devices can communicate with IoT Hub in Azure using various protocols. Typically, the choice of protocol is driven by the specific requirements of the solution. The following table lists the outbound ports that must be open for a device to be able to use a specific protocol:
+Devices can communicate with IoT Hub in Azure using various protocols. Typically, the specific requirements of the solution determine the choice of protocol. The following table lists the outbound ports that must be open for a device to be able to use a specific protocol:
 
 | Protocol | Port |
 | --- | --- |
@@ -71,4 +71,4 @@ The IP address of an IoT hub is subject to change without notice. To learn how t
 
 ## Next steps
 
-For more information about how IoT Hub implements the MQTT protocol, see [Communicate with your IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md).
+For more information about how IoT Hub implements the MQTT protocol, see [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md).

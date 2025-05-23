@@ -8,9 +8,9 @@ metadata:
   description: Learn how to deploy Azure Firewall, a cloud-based network security service.
   ms.service: azure-firewall
   ms.topic: landing-page
-  author: vhorne
-  ms.author: victorh
-  ms.date: 05/30/2024
+  author: duongau
+  ms.author: duau
+  ms.date: 03/17/2025
   ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

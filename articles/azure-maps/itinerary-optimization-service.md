@@ -78,31 +78,47 @@ Matrix size = 5 origins x 5 destinations = 25
 The Route Matrix POST request:
 
 ```html
-https://atlas.microsoft.com/route/matrix/json?api-version=1.0&routeType=shortest
+https://atlas.microsoft.com/route/matrix?api-version=2025-01-01&routeType=shortest&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 ```json
 {
-  "origins": { 
-    "type": "MultiPoint", 
-    "coordinates": [ 
-      [4.85106, 52.36006], //restaurant or depot 
-      [4.85056, 52.36187], //delivery location 1 
-      [4.85003, 52.36241], //delivery location 2 
-      [4.42937, 52.50931], //delivery location 3 
-      [4.42940, 52.50843]  //delivery location 4 
-    ] 
-  }, 
-  "destinations": { 
-    "type": "MultiPoint", 
-      [4.85106, 52.36006], //restaurant or depot 
-      [4.85056, 52.36187], //delivery location 1 
-      [4.85003, 52.36241], //delivery location 2 
-      [4.42937, 52.50931], //delivery location 3 
-      [4.42940, 52.50843]  //delivery location 4 
-    ] 
-  } 
-} 
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+            [4.85106, 52.36006], //restaurant or depot 
+            [4.85056, 52.36187], //delivery location 1 
+            [4.85003, 52.36241], //delivery location 2 
+            [4.42937, 52.50931], //delivery location 3 
+            [4.42940, 52.50843]  //delivery location 4 
+        ]
+      },
+      "properties": {
+        "pointType": "origins"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+            [4.85106, 52.36006], //restaurant or depot 
+            [4.85056, 52.36187], //delivery location 1 
+            [4.85003, 52.36241], //delivery location 2 
+            [4.42937, 52.50931], //delivery location 3 
+            [4.42940, 52.50843]  //delivery location 4 
+        ]
+      },
+      "properties": {
+        "pointType": "destinations"
+      }
+    }
+  ]
+}
 ```
 
 The Route Matrix response returns a 5x5 multi-dimensional array where each row represents the origins and columns represent the destinations. Use the field `travelTimeInSeconds` to get the time cost for each location pair. The time unit should be consistent across the solution. Once the preprocessing stage is complete, the order, depot, fleet info and the cost matrix, are sent over and imported to the cuOpt Server via API calls.
@@ -197,7 +213,7 @@ Fleet data could describe the fleet description such as the number of vehicles, 
 ```
 
 - **Vehicle locations**: In the above example, fleet data indicates two vehicles, one array for each vehicle. Both vehicles start at location 0 and end trip at location 1. In the context of a cost matrix description of the environment, these vehicle locations correspond to row (or column) indices in the cost matrix.
-- **Capacities**: The capacity array indicates the vehicle capacity; the first vehicle has a capacity of two and second vehicle has a capacity of three. Capacity could represent various things, for example package weight, service skills and their amounts transported by each vehicle. In the next section, you'll create a task json that will require a demand dimension for each task location and the count of demand dimension will correspond to the number of capacity dimensions in the fleet data. ​​​For example, if a truck is delivering goods, the capacity would be how much weight in total each vehicle can carry, and the demand would be the weight of each order. Make sure the same unit is used for both (such as pounds or kilograms).​
+- **Capacities**: The capacity array indicates the vehicle capacity; the first vehicle has a capacity of two and second vehicle has a capacity of three. Capacity could represent various things, for example package weight, service skills and their amounts transported by each vehicle. In the next section, you'll create a task JSON that will require a demand dimension for each task location and the count of demand dimension will correspond to the number of capacity dimensions in the fleet data. ​​​For example, if a truck is delivering goods, the capacity would be how much weight in total each vehicle can carry, and the demand would be the weight of each order. Make sure the same unit is used for both (such as pounds or kilograms).​
 - **Vehicle time windows**: Time windows specify the operating time of the vehicle to complete the tasks. This could be the agent’s shift start and end time. Raw data can include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
 - **Vehicle breaks**: Vehicle break windows and duration can also be specified. This could represent the agent’s lunch break, or other breaks as needed. The break window format would be same as the vehicle time window format. All time/cost units provided to the cuOpt solver should be in the same unit.
 
@@ -348,7 +364,7 @@ Sample response
 
 ## Call Azure Maps Route Directions API for routing
 
-After the locations in the cuOpt response are mapped to the corresponding coordinates, the cuOpt service can be used with the Azure Maps [Route Directions] API and web SDK to create a web app that displays the assigned itineraries and optimized routes on the map. You can color code the route path for individual vehicles based on the assigned stops and display it on the Azure Maps base data.
+After the locations in the cuOpt response are mapped to the corresponding coordinates, the cuOpt service can be used with the Azure Maps [Route Directions] API and Web SDK to create a web app that displays the assigned itineraries and optimized routes on the map. You can color code the route path for individual vehicles based on the assigned stops and display it on the Azure Maps base data.
 
 :::image type="content" source="media/multi-itinerary-optimization-service/multi-itinerary-route.png" alt-text="A screenshot showing the multi-itinerary route on a map.":::
 

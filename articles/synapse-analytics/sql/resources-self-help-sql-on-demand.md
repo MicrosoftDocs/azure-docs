@@ -3,8 +3,8 @@ title: Serverless SQL pool self-help
 description: This article contains information that can help you troubleshoot problems with serverless SQL pool.
 author: azaricstefan
 ms.author: stefanazaric
-ms.reviewer: whhender, wiassaf
-ms.topic: overview
+
+ms.topic: troubleshooting-known-issue
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.date: 09/26/2024
@@ -677,7 +677,7 @@ If your query returns NULL values instead of partitioning columns or can't find 
 
 The error `Inserting value to batch for column type DATETIME2 failed` indicates that the serverless pool can't read the date values from the underlying files. The datetime value stored in the Parquet or Delta Lake file can't be represented as a `DATETIME2` column.
 
-Inspect the minimum value in the file by using Spark, and check that some dates are less than 0001-01-03. If you stored the files by using the [Spark 2.4 (unsupported runtime version)](../spark/apache-spark-24-runtime.md) version or with the higher Spark version that still uses legacy datetime storage format, the datetime values before are written by using the Julian calendar that isn't aligned with the proleptic Gregorian calendar used in serverless SQL pools.
+Inspect the minimum value in the file by using Spark, and check that some dates are less than 0001-01-03. If you stored the files by using the higher Spark version that still uses legacy datetime storage format, the datetime values before are written by using the Julian calendar that isn't aligned with the proleptic Gregorian calendar used in serverless SQL pools.
 
 There might be a two-day difference between the Julian calendar used to write the values in Parquet (in some Spark versions) and the proleptic Gregorian calendar used in serverless SQL pool. This difference might cause conversion to a negative date value, which is invalid.
 
@@ -992,7 +992,7 @@ This is a public preview limitation. Drop and re-create the Delta table in Spark
 
 ### Query timeout or performance degradation on a table
 
-When the original table in Spark or Dataverse is modified, the corresponding tables in the serverless pool is automatically recreated. This process results in the loss of existing statistics on the table. Without these statistics, queries on the table may experience delays or even timeouts.
+When the original table in Spark or Dataverse is modified, the corresponding tables in the serverless pool are automatically recreated. This process results in the loss of existing statistics on the table. Without these statistics, queries on the table may experience delays or even timeouts.
 
 If you encounter this issue, consider setting up a job to recreate statistics on the tables after changes in Spark/Dataverse or on a regular schedule.
 

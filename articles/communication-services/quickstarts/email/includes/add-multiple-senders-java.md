@@ -16,9 +16,7 @@ ms.custom: mode-other
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - An Azure Email Communication Services Resource ready to provision domains. [Get started creating an Email Communication Resource](../create-email-communication-resource.md).
 - An [Azure Managed Domain](../add-azure-managed-domains.md) or [Custom Domain](../add-custom-verified-domains.md) provisioned and ready to send emails.
-- We are using a [service principal for authentication](/entra/identity-platform/howto-create-service-principal-portal). Set the values of the client ID, tenant ID and client secret of the AAD application as the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
-
-
+- We're using a [service principal for authentication](/entra/identity-platform/howto-create-service-principal-portal). Set the values of the client ID, tenant ID, and client secret of the Microsoft Entra ID application as the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
 
 ## Install the required packages
 
@@ -47,7 +45,7 @@ CommunicationManager manager = CommunicationManager
 
 ## Add sender usernames
 
-When an Azure Managed Domain resource is provisioned, the MailFrom address defaults to donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net. If you have configured a custom domain such as "notification.azurecommtest.net" the MailFrom address defaults to "donotreply@notification.azurecommtest.net". 
+When an Azure Managed Domain resource is provisioned, the MailFrom address defaults to `donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net`. If you configured a custom domain such as `notification.azurecommtest.net` the MailFrom address defaults to `donotreply@notification.azurecommtest.net`.
 
 The username is the user alias that is used in the MailFrom address. For example, the username in the MailFrom address `contosoNewsAlerts@notification.azurecommtest.net` would be `contosoNewsAlerts`. You can add extra sender usernames, which can also be configured with a more user friendly display name. In our example, the display name is `Contoso News Alerts`.
 
@@ -71,7 +69,7 @@ manager
 
 ## Remove sender usernames
 
-To delete the sender username, call the deleteWithResponse function on the client.
+To delete the sender username, call the `deleteWithResponse` function on the client.
 
 ```java
 manager
@@ -90,7 +88,7 @@ manager
 
 * [Get started by connecting Email Communication Service with a Azure Communication Service resource](../connect-email-communication-resource.md)
 
-The following documents may interest you:
+## Related articles
 
-- Familiarize yourself with the [Email client library](../../../concepts/email/sdk-features.md)
-- How to send emails with custom verified domains?[Add custom domains](../add-custom-verified-domains.md)
+- [Email client library](../../../concepts/email/sdk-features.md)
+- [Add custom domains](../add-custom-verified-domains.md)

@@ -17,23 +17,23 @@ For Windows support, see [Windows VMs with the Microsoft Azure Network Adapter](
 
 For more info about MANA, see [Microsoft Azure Network Adapter overview](./accelerated-networking-mana-overview.md).
 
-> [!IMPORTANT]
-> MANA is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Supported Azure Marketplace images
 
 Several Linux images from [Azure Marketplace](/marketplace/azure-marketplace-overview) have built-in support for the Ethernet driver in MANA:
 
-- Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
+- Ubuntu 24.04 LTS
 - Red Hat Enterprise Linux 8.8
+- Red Hat Enterprise Linux 8.10
 - Red Hat Enterprise Linux 9.2
+- Red Hat Enterprise Linux 9.4
 - SUSE Linux Enterprise Server 15 SP4
 - Debian 12 "Bookworm"
-- Oracle Linux 9.0
+- Oracle Linux 8.0 UEK R7
+- Oracle Linux 9.0 UEK R7
 
 > [!NOTE]
-> None of the current Linux distributions in Azure Marketplace are on a 6.2 or later kernel, which is required for RDMA/InfiniBand and Data Plane Development Kit (DPDK). If you use an existing Linux image from Azure Marketplace, you need to update the kernel.
+> Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates. 
 
 ## Check the status of MANA support
 

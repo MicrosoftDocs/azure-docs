@@ -7,7 +7,7 @@ author: WillEastbury
 manager: alberts
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 05/20/2025
 ms.author: wieastbu
 ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 ---
@@ -15,6 +15,8 @@ ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 # Protect serverless APIs with Azure API Management and Azure AD B2C for consumption from a SPA
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This scenario shows you how to configure your Azure API Management instance to protect an API.
 We'll use the Azure AD B2C SPA (Auth Code + PKCE) flow to acquire a token, alongside API Management to secure an Azure Functions backend using EasyAuth.
@@ -36,7 +38,7 @@ For defense in depth, we then use EasyAuth to validate the token again inside th
 > * Import of an Azure Functions API into Azure API Management
 > * Securing the API in Azure API Management
 > * Calling the Azure Active Directory B2C Authorization Endpoints via the Microsoft identity platform Libraries (MSAL.js)
-> * Storing a HTML / Vanilla JS Single Page Application and serving it from an Azure Blob Storage Endpoint
+> * Storing an HTML / Vanilla JS Single Page Application and serving it from an Azure Blob Storage Endpoint
 
 ## Prerequisites
 
@@ -70,7 +72,7 @@ Here's a quick overview of the steps:
 1. Test the Client Application
 
    > [!TIP]
-   > We're going to capture quite a few pieces of information and keys etc as we walk this document, you might find it handy to have a text editor open to store the following items of configuration temporarily.
+   > We're going to capture quite a few pieces of information and keys etc. as we walk this document, you might find it handy to have a text editor open to store the following items of configuration temporarily.
    >
    > B2C BACKEND CLIENT ID:
    > B2C BACKEND CLIENT SECRET KEY:
@@ -174,7 +176,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Switch back to the Code + Test tab, click 'Get Function URL', then copy the URL that appears and save it for later.
 
    > [!NOTE]
-   > The bindings you just created simply tell Functions to respond on anonymous http GET requests to the URL you just copied (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`). Now we have a scalable serverless https API, that is capable of returning a very simple payload.
+   > The bindings you just created simply tell Functions to respond on anonymous http GET requests to the URL you just copied (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`). Now we have a scalable serverless https API that is capable of returning a very simple payload.
    >
    > You can now test calling this API from a web browser using your version of the URL above that you just copied and saved. You can also remove the query string parameters "?code=secretkey" portion of the URL , and test again, to prove that Azure Functions will return a 401 error.
 
@@ -221,7 +223,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Click Browse, choose the function app you're hosting the API inside, and click select. Next, click select again.
 1. Give the API a name and description for API Management's internal use and add it to the ‘unlimited’ Product.
 1. Copy and record the API's 'base URL' and click 'create'.
-1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we'll use the OAuth JWT token in this case to rate limit. Note that if you're using the consumption tier, this would still be required in a production environment.
+1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we'll use the OAuth JWT in this case to rate limit. Note that if you're using the consumption tier, this would still be required in a production environment.
 
    > [!TIP]
    > If using the consumption tier of APIM the unlimited product won't be available as an out of the box. Instead, navigate to "Products" under "APIs" and hit "Add".
@@ -456,10 +458,10 @@ Now we have a simple app with a simple secured API, let's test it.
 
 The steps above can be adapted and edited to allow many different uses of Azure AD B2C with API Management.
 
-## Next steps
+## Related content
 
 * Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
-* Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
+* Check out more [information](https://azure.microsoft.com/products/api-management) about API Management.
 * For other ways to secure your back-end service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
 * [Create an API Management service instance](get-started-create-service-instance.md).
 * [Manage your first API](import-and-publish.md).

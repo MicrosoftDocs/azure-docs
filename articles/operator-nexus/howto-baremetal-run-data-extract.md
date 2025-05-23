@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 2/5/2025
+ms.date: 2/13/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -25,6 +25,8 @@ The command produces an output file containing the results of the data extract. 
 ## Send command output to a user specified storage account
 
 See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
+
+To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 
 ### Clear the cluster's CommandOutputSettings
 
@@ -84,7 +86,7 @@ The current list of supported commands are
   Command Name: `hardware-rollup-status`\
   Arguments: None
 
-- [Generate Cluster CVE Report](#generate-cluster-cve-report)\
+- [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
   Arguments: None
 
@@ -399,6 +401,10 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
           "type": "string",
           "description": "The name of the resource."
         },
+        "clusterId": {
+          "type": "string",
+          "description": "The resource ID of the cluster."
+        },
         "runtimeVersion": {
           "type": "string",
           "description": "The version of the runtime."
@@ -410,35 +416,41 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
         "vulnerabilitySummary": {
           "type": "object",
           "properties": {
-            "criticalCount": {
-              "type": "integer",
-              "description": "Number of critical vulnerabilities."
+            "uniqueVulnerabilities": {
+              "type": "object",
+              "properties": {
+                "critical": { "type": "integer" },
+                "high": { "type": "integer" },
+                "medium": { "type": "integer" },
+                "low": { "type": "integer" },
+                "unknown": { "type": "integer" }
+              },
+              "required": ["critical", "high", "medium", "low", "unknown"]
             },
-            "highCount": {
-              "type": "integer",
-              "description": "Number of high severity vulnerabilities."
-            },
-            "mediumCount": {
-              "type": "integer",
-              "description": "Number of medium severity vulnerabilities."
-            },
-            "lowCount": {
-              "type": "integer",
-              "description": "Number of low severity vulnerabilities."
-            },
-            "noneCount": {
-              "type": "integer",
-              "description": "Number of vulnerabilities with no severity."
-            },
-            "unknownCount": {
-              "type": "integer",
-              "description": "Number of vulnerabilities with unknown severity."
+            "totalVulnerabilities": {
+              "type": "object",
+              "properties": {
+                "critical": { "type": "integer" },
+                "high": { "type": "integer" },
+                "medium": { "type": "integer" },
+                "low": { "type": "integer" },
+                "unknown": { "type": "integer" }
+              },
+              "required": ["critical", "high", "medium", "low", "unknown"]
             }
           },
-          "required": ["criticalCount", "highCount", "mediumCount", "lowCount", "noneCount", "unknownCount"]
+          "required": ["uniqueVulnerabilities", "totalVulnerabilities"]
         }
       },
-      "required": ["dateRetrieved", "platform", "resource", "runtimeVersion", "managementVersion", "vulnerabilitySummary"]
+      "required": [
+        "dateRetrieved",
+        "platform",
+        "resource",
+        "clusterId",
+        "runtimeVersion",
+        "managementVersion",
+        "vulnerabilitySummary"
+      ]
     },
     "containers": {
       "type": "object",
@@ -448,12 +460,17 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
           "type": "object",
           "properties": {
             "namespace": {
-              "type": "string",
-              "description": "The namespace of the container."
+              "type": "array",
+              "description": "The namespaces where the container image is in-use.",
+              "items": { "type": "string" }
             },
             "digest": {
               "type": "string",
               "description": "The digest of the container image."
+            },
+            "observedCount": {
+              "type": "integer",
+              "description": "The number of times the container image has been observed."
             },
             "os": {
               "type": "object",
@@ -465,97 +482,46 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
               },
               "required": ["family"]
             },
-            "summary": {
-              "type": "object",
-              "properties": {
-                "criticalCount": {
-                  "type": "integer",
-                  "description": "Number of critical vulnerabilities in this container."
-                },
-                "highCount": {
-                  "type": "integer",
-                  "description": "Number of high severity vulnerabilities in this container."
-                },
-                "lowCount": {
-                  "type": "integer",
-                  "description": "Number of low severity vulnerabilities in this container."
-                },
-                "mediumCount": {
-                  "type": "integer",
-                  "description": "Number of medium severity vulnerabilities in this container."
-                },
-                "noneCount": {
-                  "type": "integer",
-                  "description": "Number of vulnerabilities with no severity in this container."
-                },
-                "unknownCount": {
-                  "type": "integer",
-                  "description": "Number of vulnerabilities with unknown severity in this container."
-                }
-              },
-              "required": ["criticalCount", "highCount", "lowCount", "mediumCount", "noneCount", "unknownCount"]
-            },
             "vulnerabilities": {
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
-                  "title": {
-                    "type": "string",
-                    "description": "Title of the vulnerability."
-                  },
-                  "vulnerabilityID": {
-                    "type": "string",
-                    "description": "Identifier of the vulnerability."
-                  },
-                  "fixedVersion": {
-                    "type": "string",
-                    "description": "The version in which the vulnerability is fixed."
-                  },
-                  "installedVersion": {
-                    "type": "string",
-                    "description": "The currently installed version."
-                  },
-                  "referenceLink": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to the vulnerability details."
-                  },
-                  "publishedDate": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "The date when the vulnerability was published."
-                  },
-                  "score": {
-                    "type": "number",
-                    "description": "The CVSS score of the vulnerability."
-                  },
-                  "severity": {
-                    "type": "string",
-                    "description": "The severity level of the vulnerability."
-                  },
-                  "resource": {
-                    "type": "string",
-                    "description": "The resource affected by the vulnerability."
-                  },
-                  "target": {
-                    "type": "string",
-                    "description": "The target of the vulnerability."
-                  },
-                  "packageType": {
-                    "type": "string",
-                    "description": "The type of the package."
-                  },
-                  "exploitAvailable": {
-                    "type": "boolean",
-                    "description": "Indicates if an exploit is available for the vulnerability."
-                  }
+                  "title": { "type": "string" },
+                  "vulnerabilityID": { "type": "string" },
+                  "fixedVersion": { "type": "string" },
+                  "installedVersion": { "type": "string" },
+                  "referenceLink": { "type": "string", "format": "uri" },
+                  "publishedDate": { "type": "string", "format": "date-time" },
+                  "dataSource": { "type": "string" },
+                  "score": { "type": "number" },
+                  "severity": { "type": "string" },
+                  "severitySource": { "type": "string" },
+                  "resource": { "type": "string" },
+                  "target": { "type": "string" },
+                  "packageType": { "type": "string" },
+                  "exploitAvailable": { "type": "boolean" }
                 },
-                "required": ["title", "vulnerabilityID", "fixedVersion", "installedVersion", "referenceLink", "publishedDate", "score", "severity", "resource", "target", "packageType", "exploitAvailable"]
+                "required": [
+                  "title",
+                  "vulnerabilityID",
+                  "fixedVersion",
+                  "installedVersion",
+                  "referenceLink",
+                  "publishedDate",
+                  "dataSource",
+                  "score",
+                  "severity",
+                  "severitySource",
+                  "resource",
+                  "target",
+                  "packageType",
+                  "exploitAvailable"
+                ]
               }
             }
           },
-          "required": ["namespace", "digest", "os", "summary", "vulnerabilities"]
+          "required": ["namespace", "digest", "os", "observedCount", "vulnerabilities"]
         }
       }
     }

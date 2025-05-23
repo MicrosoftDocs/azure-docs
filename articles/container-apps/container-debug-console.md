@@ -161,7 +161,7 @@ By default, debug console runs as root user.
 You can access `/proc/1` to access container's file system if your container runs as root user. If your container doesn't run as root user, run below command to switch user before accessing `/proc/1` directory, or you'll get a permission denied error.
 
 ```bash
-switch-to-app-user
+switch-user
 ```
 
 ---

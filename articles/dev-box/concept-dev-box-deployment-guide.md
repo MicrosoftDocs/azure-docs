@@ -13,6 +13,8 @@ ms.custom: template-concept
 
 # Microsoft Dev Box deployment guide
 
+[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
+
 In this article, you learn about the process, configuration options, and considerations for planning and implementing a Microsoft Dev Box deployment.
 
 The deployment of Microsoft Dev Box requires the [involvement of different roles](#organizational-roles-and-responsibilities) within your organization. Each role has particular responsibilities and requirements. Before you start the implementation of Microsoft Dev Box, it's important to [collect all requirements](#define-your-requirements-for-microsoft-dev-box) from the different roles, as they influence the configuration settings for the different components in Microsoft Dev Box. Once you have outlined your requirements, you can then go through the [deployment steps to roll out Dev Box](#deploy-microsoft-dev-box) in your organization.
@@ -38,8 +40,8 @@ Each of these roles has specific responsibilities during the deployment of Micro
     - Provide input to platform engineers for creating and managing dev box definitions in the dev center
  
 - **Developer**: self-serve one or more dev boxes within their assigned projects.
-    - Create and manage a dev box based on project dev box pool from the developer portal
-    - Connect to a dev box by using a Remote Desktop client like Windows App
+    - Connect to a dev box from the developer portal
+    - Create and manage a dev box from the developer portal
 
 :::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" alt-text="Diagram that shows roles and responsibilities for Dev Box platform engineers, team leads, and developers." lightbox="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" border="false":::
 

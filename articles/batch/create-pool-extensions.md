@@ -3,7 +3,7 @@ title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes.
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 12/05/2023
+ms.date: 03/04/2025
 ---
 
 # Use extensions with Batch pools
@@ -37,6 +37,7 @@ The following extensions can currently be installed when creating a Batch pool:
 - [Microsoft Antimalware extension for Windows](/azure/virtual-machines/extensions/iaas-antimalware-windows)
 - [Azure Monitor agent for Linux](/azure/azure-monitor/agents/azure-monitor-agent-manage)
 - [Azure Monitor agent for Windows](/azure/azure-monitor/agents/azure-monitor-agent-manage)
+- [Application Health extension](/azure/virtual-machines/extensions/health-extension)
 
 You can request support for other publishers and/or extension types by opening a support request.
 
@@ -222,6 +223,12 @@ If Key Vault extension is configured incorrectly, the compute node might be in a
 
 - [Azure Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
 - [Azure Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
+
+## Considerations for Application Health extension
+
+The Batch Node Agent running on the node always starts an HTTP server that returns the health status of the agent. This HTTP server listens on local IP address 127.0.0.1 and port 29879. It always returns a 200 status but with the response body being either healthy or unhealthy. Any other response (or lack thereof) is considered an "unknown" status. This setup is in line with the guidelines running a HTTP server which provides a "Rich Health State" per the official "Application Health extension" documentation.
+ 
+If you set up your own health server, please ensure that the HTTP server listens on an unique port. It is suggested that your health server should query the Batch Node Agent server and combine with your health signal to generate a composite health result. Otherwise you might end up with a "healthy" node that doesn't have a properly functioning Batch Agent.
 
 ## Next steps
 

@@ -2,20 +2,20 @@
 title: What is Azure IoT Hub?
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Azure IoT Hub helps users connect IoT applications and their attached devices.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 02/22/2024
+ms.date: 02/27/2025
 #Customer intent: As a developer new to IoT Hub, learn the basic concepts.
 ---
 
 # What is Azure IoT Hub?
 
-The Internet of Things (IoT) is a network of physical devices that connect to and exchange data with other devices and services over the Internet or other network. There are currently over ten billion connected devices in the world and more are added every year. Anything that can be embedded with the necessary sensors and software can be connected over the internet.
+The Internet of Things (IoT) is a network of physical devices that connect to and exchange data with other devices and services over the Internet or other network. There are currently over 10 billion connected devices in the world and more are added every year. Anything that can be embedded with the necessary sensors and software can be connected over the internet.
 
-Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT hub.
+Azure IoT Hub is a managed service that acts as a central message hub in a cloud-based IoT solution. It enables reliable and secure communication at scale between an IoT application and its attached devices. Almost any device can be connected to an IoT hub.
 
 Several messaging patterns are supported, including device-to-cloud messages, uploading files from devices, and request-reply methods to control your devices from the cloud. IoT Hub also supports monitoring to help you track device creation, device connections, and device failures.
 
@@ -23,24 +23,21 @@ IoT Hub scales to millions of simultaneously connected devices and millions of e
 
 You can integrate IoT Hub with other Azure services to build complete, end-to-end solutions. For example, use:
 
-- [Azure Event Grid](../event-grid/index.yml) to enable your business to react quickly to critical events in a reliable, scalable, and secure manner.
-
+- [Azure Event Grid](../event-grid/index.yml) to enable your business to react quickly to critical events.
 - [Azure Logic Apps](../logic-apps/index.yml) to automate business processes.
-
 - [Azure Machine Learning](/azure/machine-learning/) to add machine learning and AI models to your solution.
-
 - [Azure Stream Analytics](../stream-analytics/index.yml) to run real-time analytic computations on the data streaming from your devices.
 
 ## IoT devices
 
 IoT devices differ from other clients such as browsers and mobile apps. Specifically, IoT devices:
 
-- Are often embedded systems with no human operator.
-- Can be deployed in remote locations where physical access is expensive.
-- Might only be reachable through the solution back end.
-- Might have limited power and processing resources.
-- Might have intermittent, slow, or expensive network connectivity.
-- Might need to use proprietary, custom, or industry-specific application protocols.
+- Are often embedded systems with no human operator
+- Can be deployed in remote locations where physical access is expensive
+- Might only be reachable through the solution back end
+- Might have limited power and processing resources
+- Might have intermittent, slow, or expensive network connectivity
+- Might need to use proprietary, custom, or industry-specific application protocols
 
 ## Device identity and authentication
 
@@ -62,7 +59,7 @@ Typically, IoT devices send data from the sensors to back-end services in the cl
 
 - A refrigeration truck sending temperature every 5 minutes to an IoT hub.
 - A back-end service sending a command to a device to change the frequency at which it sends data to help diagnose a problem.
-- A device monitoring a batch reactor in a chemical plant, sending an alert when the temperature exceeds a certain value.
+- A device monitoring a batch reactor in a chemical plant sending an alert when the temperature exceeds a certain value.
 
 For more information, see [Device infrastructure and connectivity](../iot/iot-overview-device-connectivity.md).
 
@@ -78,7 +75,7 @@ You can enable properties in IoT Hub using [Device twins](iot-hub-devguide-devic
 
 ## Device commands
 
-An example of a command is rebooting a device. IoT Hub implements commands by allowing you to invoke direct methods on devices. [Direct methods](iot-hub-devguide-direct-methods.md) represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond.
+IoT Hub implements commands by allowing you to invoke direct methods on devices. An example of a command is rebooting a device. [Direct methods](iot-hub-devguide-direct-methods.md) represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified time-out). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond.
 
 ## Act on device data
 
@@ -103,21 +100,17 @@ For more information about IoT Hub endpoints, see [IoT Hub endpoints](iot-hub-de
 
 Data can also be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. For a tutorial showing multiple uses of message routing, see  [Tutorial: Send device data to Azure Storage using IoT Hub message routing](tutorial-routing.md).
 
-IoT Hub supports setting up custom endpoints for Azure services including Storage containers, Event Hubs, Service Bus queues, Service Bus topics, and Cosmos DB. Once the endpoint has been set up, you can route your IoT data to any of these endpoints to perform downstream data operations.
+IoT Hub supports setting up custom endpoints for Azure services including Storage containers, Event Hubs, Service Bus queues, Service Bus topics, and Cosmos DB. Once the endpoint is set up, you can route your IoT data to any of these endpoints to perform downstream data operations.
 
-IoT Hub also integrates with Event Grid, which enables you to fan out data to multiple subscribers. Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Event Grid simplifies building event-driven applications and serverless architectures.
-
-For more information, see [Compare message routing and Event Grid for IoT Hub](iot-hub-event-grid-routing-comparison.md).
+IoT Hub also integrates with Event Grid, which enables you to fan out data to multiple subscribers. Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Event Grid simplifies building event-driven applications and serverless architectures. For more information, see [Compare message routing and Event Grid for IoT Hub](iot-hub-event-grid-routing-comparison.md).
 
 ## Next steps
 
 To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 
 - [Send telemetry from a device to IoT Hub](quickstart-send-telemetry-cli.md)
-- [Send telemetry from an IoT Plug and Play device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
-- [Quickstart: Control a device connected to an IoT hub](quickstart-control-device.md)
+- [Control a device connected to an IoT hub](quickstart-control-device.md)
 
 To learn more about the ways you can build and deploy IoT solutions with Azure IoT, visit:
 
 - [What is Azure Internet of Things?](../iot/iot-introduction.md)
-- [What is Azure IoT device and application development?](../iot/concepts-iot-device-development.md)

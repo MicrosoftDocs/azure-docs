@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 01/27/2025
 ms.author: danlep
 ---
@@ -205,6 +205,8 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
     </required-claims>
 </validate-jwt>
 ```
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 ### Token validation using decryption key
 

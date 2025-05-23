@@ -8,7 +8,7 @@ ms.subservice: metadata
 ms.date: 01/22/2025
 author: juluczni
 ms.author: juluczni
-ms.reviewer: wiassaf, jovanpop
+ms.reviewer:  jovanpop
 ms.custom: devx-track-csharp
 ---
 
@@ -68,7 +68,7 @@ If a security principal requires the ability to create objects or drop objects i
 
 ### SQL security model
 
-The Azure Synapse workspace provides a T-SQL endpoint that lets you query the lake database using the serverless SQL pool. In addition to the data access, SQL interface allows you to control who can access the tables. You need to enable a user to access the shared lake databases using the serverless SQL pool. There are two types of users who can access the lake databases:
+The Azure Synapse workspace provides a T-SQL endpoint that enables you to query the lake database using the serverless SQL pool. In addition to the data access, SQL interface enables you to control who can access the tables. You need to enable a user to access the shared lake databases using the serverless SQL pool. There are three types of users who can access the lake databases:
 
 - Administrators: Assign the **Synapse SQL Administrator** workspace role or **sysadmin** server-level role inside the serverless SQL pool. This role has full control over all databases. The **Synapse Administrator** and **Synapse SQL Administrator** roles also have all permissions on all objects in a serverless SQL pool, by default. 
 - Workspace readers: Grant the server-level permissions **GRANT CONNECT ANY DATABASE** and **GRANT SELECT ALL USER SECURABLES** on serverless SQL pool to a login that enables the login to access and read any database. This might be a good choice for assigning reader/non-admin access to a user.
@@ -110,7 +110,7 @@ This script lets you create users without admin privileges who can read any tabl
 
 ### Create and connect to Spark database with serverless SQL pool
 
-First, create a new Spark database named `mytestlakedb` using a Spark cluster you already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
+First, create a new Spark database named `mytestlakedb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
 
 ```csharp
 spark.sql("CREATE DATABASE mytestlakedb")

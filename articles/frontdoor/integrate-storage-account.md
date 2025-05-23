@@ -2,16 +2,17 @@
 title: Integrate an Azure Storage account with Azure Front Door
 titleSuffix: Azure Front Door
 description: This article shows you how to use Azure Front Door to deliver high-bandwidth content by caching blobs from Azure Storage.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/13/2024
-ms.author: duau
 ms.custom: mvc, mode-other
 ---
 
 # Integrate an Azure Storage account with Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door can be used to deliver high-bandwidth content by caching blobs from Azure Storage. In this article, you create an Azure Storage account and enable Front Door to cache and accelerate content from Azure Storage.
 
@@ -31,8 +32,6 @@ A storage account provides access to Azure Storage services. It represents the h
 
 1. On the **Create a resource** page, search for **Storage account** and select **Storage account** from the list. Then select **Create**.
 
-    :::image type="content" source="./media/integrate-storage-account/create-new-storage-account.png" alt-text="Screenshot of creating a storage account.":::
-
 1. On the **Create a storage account** page, enter or select the following information for the new storage account:
 
     | Setting | Value |
@@ -48,8 +47,6 @@ A storage account provides access to Azure Storage services. It represents the h
 ## Enable Azure Front Door CDN for the storage account
 
 1. From the storage account resource, select **Front Door and CDN** under **Security + networking** in the left menu.
-
-    :::image type="content" source="./media/integrate-storage-account/storage-endpoint-configuration.png" alt-text="Screenshot of creating an AFD endpoint.":::
     
 1. In the **New endpoint** section, enter the following information:
 
@@ -64,8 +61,6 @@ A storage account provides access to Azure Storage services. It represents the h
     | Caching | *Optional* - Toggle on to [enable caching](front-door-caching.md) for your static content. Choose an appropriate query string behavior and enable compression if needed. |
     | WAF | *Optional* - Toggle on to protect your endpoint from vulnerabilities, malicious actors, and bots with [Web Application Firewall](web-application-firewall.md). Use an existing policy from the WAF policy dropdown or create a new one. |
     | Private link | *Optional* - Toggle on to keep your storage account private, not exposed to the public internet. Select the region that matches your storage account or is closest to your origin. Choose **blob** as the target subresource. |
-
-    :::image type="content" source="./media/integrate-storage-account/security-settings.png" alt-text="Screenshot of the caching, WAF, and private link settings for an endpoint.":::
 
     > [!NOTE]
     > * With the Standard tier, you can only use custom rules with WAF. To deploy managed rules and bot protection, choose the Premium tier. For a detailed comparison, see [Azure Front Door tier comparison](./standard-premium/tier-comparison.md).

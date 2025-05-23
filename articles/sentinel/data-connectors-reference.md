@@ -7,8 +7,8 @@ ms.date: 11/18/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -62,11 +62,18 @@ The following connectors use the current codeless connector platform but don't h
 
 |Codeless connector name  |Azure Marketplace solution  |
 |---------|---------|
-|Atlassian Jira Audit (using REST API) (Preview)     |  [Atlassian Jira Audit ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-atlassianjiraaudit?tab=Overview)      |       
+|Atlassian Jira Audit (using REST API) (Preview)     |  [Atlassian Jira Audit ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-atlassianjiraaudit?tab=Overview)      |
+|Auth0| [Auth0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-auth0?tab=Overview)
+|Box| [Box Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-box?tab=Overview)
 |Cisco Meraki (using Rest API)    |   [Cisco Meraki Events via REST API](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-ciscomerakinativepoller?tab=Overview)|        
-|Ermes Browser Security Events    |  [Ermes Browser Security for Microsoft Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ermes.azure-sentinel-solution-ermes-browser-security?tab=Overview)|        
+|Ermes Browser Security Events    |  [Ermes Browser Security for Microsoft Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ermes.azure-sentinel-solution-ermes-browser-security?tab=Overview)|
+| Google Cloud Platform Firewall Logs | [Google Cloud Platform Firewall Logs](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-gcpfirewalllogs-api?tab=Overview)
+| Google Cloud Platform Load Balancer (including WAF aka Cloud Armour logs) (Preview)| [Google Cloud Platform Load Balancer Logs (Preview)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-gcploadbalancerlogs-api?tab=Overview)
 |Okta Single Sign-On (Preview)|[Okta Single Sign-On Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-okta?tab=Overview)|
+|Palo Alto Corex XDR | [Palo Alto Cortex XDR CCP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-cortexccp?tab=Overview)
+|SentinelOne | [SentinelOne](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelone?tab=Overview)
 |Sophos Endpoint Protection (using REST API) (Preview)|[Sophos Endpoint Protection Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sophosep?tab=Overview)|
+|VMWare Carbon Black | [VMware Carbon Black Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-vmwarecarbonblack?tab=Overview)
 |Workday User Activity (Preview)|[Workday (Preview)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-workday?tab=Overview)|
 
 For more information about the codeless connector platform, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
@@ -241,6 +248,10 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Digital Shadows Searchlight (using Azure Functions)](data-connectors/digital-shadows-searchlight.md)
 
+## Doppel
+
+- [Doppel Data Connector](data-connectors/doppel-data-connector.md)
+
 ## Dynatrace
 
 - [Dynatrace Attacks](data-connectors/dynatrace-attacks.md)
@@ -280,6 +291,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## Fortinet
 
 - [Fortinet FortiNDR Cloud (using Azure Functions)](data-connectors/fortinet-fortindr-cloud.md)
+
+## Garrison Technology
+
+- [Garrison ULTRA Remote Logs (using Azure Functions)](data-connectors/garrison-ultra-remote-logs.md)
 
 ## Gigamon, Inc
 

@@ -14,6 +14,8 @@ ms.date: 02/05/2025
 
 # Configure imaging for Dev Box team customizations
 
+[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
+
 Using a customization file simplifies the creation of dev boxes for your team. With dev box customizations, you can create a shared team customization by creating a file called an *image definition*. Creating a reusable image from this image definition optimizes customizations and saves time during dev box creation. In this article, you learn how to configure a pool to use an image definition and build reusable images for your development teams.
 
 To configure imaging for Microsoft Dev Box team customizations, enable project-level catalogs and configure catalog sync settings for the project. Then, attach a catalog that contains a definition file to your project, configure a dev box pool to use an image definition, and verify that the customizations apply to a new dev box. When the customizations apply correctly, you can choose to build a reusable image, which makes the creation of new dev boxes quicker.
@@ -118,6 +120,8 @@ In order to generate an image, you need to assign the DevCenter service the requ
 1. Search for the managed by resource group with the name *DevCenter(yourProjectName)(a random ID)*. 
 
 1. Under that resource group, navigate to Access Control, and give the **Windows 365** and **Project Fidalgo** applications the roles **Storage Account Contributor**, **Storage Blob Data Contributor**, and **Reader**.
+
+During the process of building an image, Dev Box creates a temporary storage account in your subscription to store a snapshot, from which Dev Box generates an image. This storage account does not allow anonymous blob access and can only be accessed by identities with the Storage Blob Reader access. This storage account must be accessible from public networks, so that the Dev Box service can export your snapshot to it. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
 
 ### Build the image
  

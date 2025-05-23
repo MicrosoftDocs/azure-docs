@@ -26,7 +26,7 @@ Finding an existing Azure Migrate project depends upon whether you're using the 
 
 ## Can't find a geography
 
-You can create an Azure Migrate project in supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+You can create an Azure Migrate project in supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 ## What are VM limits?
 

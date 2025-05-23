@@ -1,8 +1,8 @@
 ---
 title: Reliability in Microsoft Purview for governance experiences
 description: Find out about reliability in Microsoft Purview for governance experiences
-author: whhender
-ms.author: whhender
+author: chvukosw
+ms.author: chvukosw
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: purview
@@ -30,29 +30,29 @@ Microsoft Purview makes commercially reasonable efforts to provide availability 
 
 | Region | Data Map  | Scan | Policy | Insights |
 | ---     | ---      | ---  | ---    | ---     |
-|Southeast Asia||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|East US||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|Australia East|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg"::: |:::image type="icon" source="media/yes-icon.svg":::|
-|West US 2||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|Canada Central|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg"::: |:::image type="icon" source="media/yes-icon.svg":::|
-|Central India||:::image type="icon" source="media/yes-icon.svg":::||:::image type="icon" source="media/yes-icon.svg":::|
-|East US 2||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|France Central||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|Germany West Central||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|Japan East||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|Korea Central||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|West US 3||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|North Europe||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|South Africa North||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|Sweden Central||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg"::: |
-|Switzerland North||:::image type="icon" source="media/yes-icon.svg":::|||
-|USGov Virginia|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg"::: |:::image type="icon" source="media/yes-icon.svg":::|
-|South Central US||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|Brazil South||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|UK South|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg"::: |:::image type="icon" source="media/yes-icon.svg":::|
-|Qatar Central||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|China North 3|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg"::: |:::image type="icon" source="media/yes-icon.svg":::|
-|West Europe||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
+|Southeast Asia||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|East US||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|Australia East|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg"::: |:::image type="icon" source="media/icon-checkmark.svg":::|
+|West US 2||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|Canada Central|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg"::: |:::image type="icon" source="media/icon-checkmark.svg":::|
+|Central India||:::image type="icon" source="media/icon-checkmark.svg":::||:::image type="icon" source="media/icon-checkmark.svg":::|
+|East US 2||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|France Central||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|Germany West Central||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|Japan East||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|Korea Central||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|West US 3||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|North Europe||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|South Africa North||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|Sweden Central||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg"::: |
+|Switzerland North||:::image type="icon" source="media/icon-checkmark.svg":::|||
+|USGov Virginia|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg"::: |:::image type="icon" source="media/icon-checkmark.svg":::|
+|South Central US||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|Brazil South||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|UK South|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg"::: |:::image type="icon" source="media/icon-checkmark.svg":::|
+|Qatar Central||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
+|China North 3|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg"::: |:::image type="icon" source="media/icon-checkmark.svg":::|
+|West Europe||:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|:::image type="icon" source="media/icon-checkmark.svg":::|
 
 ## Disaster recovery and business continuity
 

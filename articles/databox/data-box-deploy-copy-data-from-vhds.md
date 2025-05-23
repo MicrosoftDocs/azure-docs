@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 10/20/2019
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises VM data from my server onto Azure.
 ---
 # Tutorial: Use Data Box to import data as managed disks in Azure
@@ -23,18 +24,39 @@ In this tutorial, you learn how to:
 > * Copy data to Data Box
 
 ## Prerequisites
-
+:::zone pivot="dbx"
 Before you begin, make sure that:
 
 1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
 2. You've received your Data Box and the order status in the portal is **Delivered**.
-3. You're connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds are affected.
+3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must:
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds are impacted.
 4. You've reviewed the:
 
     - Supported [managed disk sizes in Azure object size limits](data-box-limits.md#azure-object-size-limits).
     - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview). 
 
 5. You've maintained a copy of the source data until you've confirmed that the Data Box transferred your data into Azure Storage.
+
+:::zone-end
+
+:::zone pivot="dbx-ng"
+Before you begin, make sure that:
+
+1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+2. You've received your Data Box and the order status in the portal is **Delivered**.
+3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must:
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available, use a 10-GbE or 1-GbE data link but the copy speeds are impacted.
+4. You've reviewed the:
+
+    - Supported [managed disk sizes in Azure object size limits](data-box-limits.md#azure-object-size-limits).
+    - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview). 
+
+5. You've maintained a copy of the source data until you've confirmed that the Data Box transferred your data into Azure Storage.
+
+:::zone-end
 
 ## Connect to Data Box
 

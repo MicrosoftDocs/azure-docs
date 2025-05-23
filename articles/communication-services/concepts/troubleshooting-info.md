@@ -113,7 +113,10 @@ In addition to one of these IDs, you need to provide details about the failing u
 
 ## Access your client call ID
 
-When you troubleshoot voice or video calls, you might need to provide a `call ID`. Access this value via the `id` property of the `call` object.
+When you troubleshoot voice or video calls, you might need to provide a `call ID`. Access this value via the `id` property of the `call` object. 
+
+> [!IMPORTANT]
+> A `call ID` is unique and identifies a specific call, the `call ID` is the same for all the participants of that call. The `call ID` initial value is set by the local client and later it may change after the local client connects to a call that is already ongoing. If the local client was first to initiate the call then the `call ID` it created will become the `call ID` that the server and other call participants will use going forward in the call. 
 
 # [JavaScript](#tab/javascript)
 ```javascript

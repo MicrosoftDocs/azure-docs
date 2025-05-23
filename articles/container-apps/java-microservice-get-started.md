@@ -3,11 +3,12 @@ title: Launch your First Java Microservice Application with Managed Java Compone
 description: Learn how to deploy a Java microservice project in Azure Container Apps with managed Java components.
 services: container-apps
 author: KarlErickson
+ms.author: karler
+ms.reviewer: yiliu6
 ms.service: azure-container-apps
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-java
 ms.topic: quickstart
 ms.date: 11/25/2024
-ms.author: yiliu6
 ---
 
 # Quickstart: Launch your first Java microservice application with managed Java components in Azure Container Apps

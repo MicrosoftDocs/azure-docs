@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a deployment stack with Bicep from template specs
 description: Learn how to use Bicep to create and deploy a deployment stack from template specs.
-ms.date: 05/22/2024
+ms.date: 03/17/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack from a template spec.
@@ -26,7 +26,7 @@ param resourceGroupLocation string = resourceGroup().location
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param vnetName string = 'vnet${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: storageAccountName
   location: resourceGroupLocation
   kind: 'StorageV2'
@@ -35,7 +35,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   name: vnetName
   location: resourceGroupLocation
   properties: {

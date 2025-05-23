@@ -5,7 +5,7 @@ services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 1/24/2025
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: armohamed
@@ -59,7 +59,7 @@ Follow these steps to add required code snippets to your `send-messages.js` file
 Follow these steps to add required code snippets to your `send-messages.js` file.
 - [Send an Interactive List options message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
 - [Send an Interactive Reply Button message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
-- [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-click-to-action-url-based-message-to-a-whatsapp-user)
+- [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-call-to-action-url-based-message-to-a-whatsapp-user)
 
 
 ### Send an Interactive List options message to a WhatsApp user
@@ -245,7 +245,7 @@ main().catch((error) => {
 });
 ```
 
-### Send an Interactive Click-to-action Url based message to a WhatsApp user
+### Send an Interactive Call-To-Action Url based message to a WhatsApp user
 
 The Messages SDK enables Contoso to send interactive WhatsApp messages, when initiated by a WhatsApp users. To send interactive messages:
 - [WhatsApp Channel ID](#set-channel-registration-id).
@@ -330,4 +330,4 @@ node ./send-messages.js
 
 ## Full sample code
 
-Find the finalized code for this sample on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).
+Find the finalized code for this sample on GitHub at [JavaScript Messages SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).

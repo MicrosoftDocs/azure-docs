@@ -11,6 +11,9 @@ zone_pivot_groups: functions-container-hosting
 
 :::zone pivot="container-apps"
 This article demonstrates the support that Azure Functions provides for working with containerized function apps running in an Azure Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+
+[!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
+
 ::: zone-end
 :::zone pivot="azure-functions,azure-arc"
 This article demonstrates the support that Azure Functions provides for working with function apps running in Linux containers. 
@@ -307,7 +310,10 @@ When you create a containerized function app in an environment that has workload
 ::: zone-end  
 ## Application settings
 
-Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).  
+Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+
+>[!TIP]  
+>By default, a containerized function app monitors port 80 for incoming requests. If your app must use a different port, use the [`WEBSITES_PORT` application setting](../app-service/reference-app-settings.md#custom-containers) to change this default port.    
 
 :::zone pivot="container-apps"
 ## Enable continuous deployment to Azure
@@ -404,6 +410,8 @@ SSH enables secure communication between a container and a client. With SSH enab
 The following articles provide more information about deploying and managing containers:
 
 + [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)
++ [Native Azure Functions Support in Azure Container Apps](../../articles/container-apps/functions-overview.md)
++ [Create your Native Azure Functions on Azure Container Apps](../../articles/container-apps/functions-usage.md)
 + [Scale and hosting options](functions-scale.md)
 + [Kubernetes-based serverless hosting](functions-kubernetes-keda.md)
 

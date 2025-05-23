@@ -15,8 +15,6 @@ ms.custom: references_regions
 
 In this article, you learn how to monitor and alert with Azure Load Balancer health event logs. These logs can help you identify and troubleshoot ongoing issues affecting your load balancer resource’s health. The health event logs are provided through the Azure Monitor resource log category *LoadBalancerHealthEvent*.
 
-[!INCLUDE [load-balancer-health-event-logs-preview](../../includes/load-balancer-health-event-logs-preview.md)]
-
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).

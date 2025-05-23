@@ -26,7 +26,7 @@ To improve log query experience, an application log is required to be in JSON fo
 
 **JSON schema requirements:**
 
-| Json Key      | Json value Type|  Required | Column in Log Analytics| Description |
+| JSON Key      | JSON value Type|  Required | Column in Log Analytics| Description |
 | --------------| ------------|-----------|-----------------|--------------------------|
 | timestamp     | string      |     Yes   | AppTimestamp    | timestamp in UTC format  |
 | logger        | string      |     No    | Logger          | logger                   |
@@ -66,7 +66,7 @@ When using Spring Boot starters, Logback is used by default. For Logback apps, u
 
 The procedure:
 
-1. Add logstash dependency in your `pom.xml` file.
+1. Add logstash dependency in your **pom.xml** file.
 
     ```xml
     <dependency>
@@ -152,7 +152,7 @@ For log4j2 apps, use [json-template-layout](https://logging.apache.org/log4j/2.x
 
 The procedure:
 
-1. Exclude `spring-boot-starter-logging` from `spring-boot-starter`, add dependencies `spring-boot-starter-log4j2`, `log4j-layout-template-json` in your `pom.xml` file.
+1. Exclude `spring-boot-starter-logging` from `spring-boot-starter`, add dependencies `spring-boot-starter-log4j2`, `log4j-layout-template-json` in your **pom.xml** file.
 
     ```xml
     <dependency>

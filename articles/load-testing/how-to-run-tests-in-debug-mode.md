@@ -35,8 +35,6 @@ A test can be run in a debug mode to validate the test plan configuration and ap
 
 - The test run has request and response data for every failed request during the test run.
 
-- This is applicable only for URL based and JMeter based tests. Locust tests don't support debug mode.
-
 - A test run in debug mode can't be marked as baseline test run.
 
 - A test run in debug mode isn't included in the metrics trends.

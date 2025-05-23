@@ -7,9 +7,11 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 01/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+zone_pivot_groups: sentinel-sap-connection
+
 #Customer intent: As a security analyst, I want to understand the functions, logs, and tables available in the Microsoft Sentinel solution for SAP applications so that I can effectively monitor and analyze SAP system security and performance.
 
 ---
@@ -18,12 +20,16 @@ ms.collection: usx-security
 
 This article describes the logs and tables available as part of the Microsoft Sentinel solution for SAP applications and its data connector.
 
+:::zone pivot="connection-agent"
+
 Some logs, noted in this article, aren't sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)
+
+:::zone-end
 
 Content in this article is intended for your **SAP BASIS** teams.
 
 > [!IMPORTANT]
-> Some components of the Microsoft Sentinel Threat Monitoring for SAP solution are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Noted features are currently in **PREVIEW**. The agentless data connector is in **LIMITED PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Use functions in your queries instead of underlying logs or tables
@@ -48,11 +54,29 @@ The Microsoft Sentinel solution for SAP applications collects logs from the appl
 
 - **Database layer**: Ingest database logs into Microsoft Sentinel to monitor database activities, such as database administration activities and changes to table data. The Microsoft Sentinel solution for SAP applications is database-agnostic.
 
+:::zone pivot="connection-agent"
+
 All logs collected by the data connector agent are stored first on the data collector agent machine, at `/opt/sapcon/<sid>/log` folder in the container instance. The logs are then forwarded to your Log Analytics workspace, where you can view, audit, and query them from Microsoft Sentinel.
 
 Audit logs are collected and ingested every minute, while other logs might be ingested less frequently. Microsoft Sentinel also monitors the data connector agent heartbeat to ensure that logs are being collected and sent to the Log Analytics workspace.
 
-## Log reference
+:::zone-end
+
+:::zone pivot="connection-agentless"
+## Logs collected by the agentless data connector (Limited preview)
+
+The following built-in Log Analytics tables are collected by the agentless data connector:
+
+- [ABAPAuditLog](/azure/azure-monitor/reference/tables/abapauditlog)
+- [ABAPAuthorizationDetails](/azure/azure-monitor/reference/tables/abapauthorizationdetails)
+- [ABAPChangeDocsLog](/azure/azure-monitor/reference/tables/abapchangedocslog)
+- [ABAPUserDetails](/azure/azure-monitor/reference/tables/abapuserdetails)
+
+:::zone-end
+
+
+:::zone pivot="connection-agent"
+## Log reference for the data connector agent
 
 The following sections describe the SAP logs available from the Microsoft Sentinel solution for SAP applications data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas.
 
@@ -84,6 +108,8 @@ Schema field descriptions are based on the field descriptions in the relevant [S
 - **Log purpose**: Records the progress of an application execution so that you can reconstruct it later as needed.
 
     Available by using RFC based on standard SAP table and standard services of XBP interface. This log is generated per client.
+
+    This log is ingested only with the data connector agent.
 
 #### ABAPAppLog_CL log schema
 
@@ -692,6 +718,8 @@ For best results, refer to these tables using the name in the **Microsoft Sentin
 | PAHI       | History of the system, database, and SAP parameters   | SAP_PAHI        |
 | SNCSYSACL (PREVIEW)| SNC Access Control List (ACL): Systems        | SAP_SNCSYSACL   |
 | USRACL (PREVIEW)| SNC Access Control List (ACL): User              | SAP_USRACL      |
+
+:::zone-end
 
 ## Related content
 

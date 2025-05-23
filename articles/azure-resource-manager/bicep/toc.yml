@@ -1,3 +1,4 @@
+items:
 - name: Bicep documentation
   href: index.yml
 - name: Overview
@@ -18,10 +19,10 @@
     href: installation-troubleshoot.md
 - name: Quickstarts
   items:
-  - name: Create Bicep templates - VS Code
+  - name: Create Bicep files - VS Code
     displayName: vscode,vs code
     href: quickstart-create-bicep-use-visual-studio-code.md
-  - name: Create Bicep templates - Visual Studio
+  - name: Create Bicep files - Visual Studio
     href: quickstart-create-bicep-use-visual-studio.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
@@ -112,7 +113,7 @@
   - name: Databases
     items:
     - name: Cache for Redis
-      href: ../../azure-cache-for-redis/cache-redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../redis/redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Azure Cosmos DB
       href: /azure/cosmos-db/sql/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for MariaDB
@@ -162,7 +163,7 @@
     - name: Advisor
       href: /azure/advisor/advisor-alerts-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Backup
-      href: ../../backup/quick-backup-vm-bicep-template.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../backup/quick-backup-vm-bicep-file.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Cost Management + Billing
       href: ../../cost-management-billing/costs/quick-create-budget-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Microsoft Purview account
@@ -250,7 +251,7 @@
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Redis Web App
-      href: ../../azure-cache-for-redis/cache-web-app-bicep-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../redis/web-app-bicep-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
@@ -338,6 +339,9 @@
     - name: File functions
       displayName: loadFileAsBase64,loadJsonContent,loadYamlContent,loadTextContent
       href: bicep-functions-files.md
+    - name: Flow-control functions
+      displayName: fail
+      href: bicep-functions-flow-control.md
     - name: Lambda functions
       displayName: filter,map,reduce,sort,toObject
       href: bicep-functions-lambda.md
@@ -387,7 +391,7 @@
     - name: Best practices
       href: best-practices.md
     - name: Visual Studio Code
-      displayName: vscode,vs code
+      displayName: vscode,vs code,deployment pane
       href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
@@ -584,6 +588,10 @@
       href: deploy-powershell.md
     - name: Deploy - Cloud Shell
       href: deploy-cloud-shell.md
+  - name: Export 
+    items:
+    - name: Portal
+      href: export-bicep-portal.md
   - name: Configure settings
     items:
     - name: Bicep config file
@@ -633,6 +641,8 @@
       href: diagnostics/bcp037.md
     - name: BCP040
       href: diagnostics/bcp040.md
+    - name: BCP048
+      href: diagnostics/bcp048.md
     - name: BCP052
       href: diagnostics/bcp052.md
     - name: BCP053
@@ -645,12 +655,16 @@
       href: diagnostics/bcp062.md
     - name: BCP063
       href: diagnostics/bcp063.md
+    - name: BCP070
+      href: diagnostics/bcp070.md
     - name: BCP071
       href: diagnostics/bcp071.md
     - name: BCP072
       href: diagnostics/bcp072.md
     - name: BCP073
       href: diagnostics/bcp073.md
+    - name: BCP076
+      href: diagnostics/bcp076.md
     - name: BCP077
       href: diagnostics/bcp077.md
     - name: BCP078
@@ -677,6 +691,8 @@
       href: diagnostics/bcp129.md
     - name: BCP132
       href: diagnostics/bcp132.md
+    - name: BCP135
+      href: diagnostics/bcp135.md
     - name: BCP139
       href: diagnostics/bcp139.md
     - name: BCP147
@@ -687,8 +703,14 @@
       href: diagnostics/bcp153.md
     - name: BCP166
       href: diagnostics/bcp166.md
+    - name: BCP170
+      href: diagnostics/bcp170.md
     - name: BCP192
       href: diagnostics/bcp192.md
+    - name: BCP201
+      href: diagnostics/bcp201.md
+    - name: BCP238
+      href: diagnostics/bcp238.md
     - name: BCP266
       href: diagnostics/bcp266.md
     - name: BCP288

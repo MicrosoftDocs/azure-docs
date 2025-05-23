@@ -69,6 +69,16 @@
       "source_path": "howto-create-cluster-with-user-assigned-managed-identity.md",
       "redirect_url": "howto-cluster-managed-identity-user-provided-resources",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-replace-a-terminal-server.md",
+      "redirect_url": "howto-replace-terminal-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-cluster-runtime-upgrade-with-pauserack-strategy.md",
+      "redirect_url": "howto-cluster-runtime-upgrade-with-pauseafterrack-strategy",
+      "redirect_document_id": false
     }
   ]
 }

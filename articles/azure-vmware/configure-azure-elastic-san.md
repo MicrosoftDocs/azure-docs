@@ -14,6 +14,8 @@ This article explains how to use Azure Elastic SAN as backing storage for Azure 
 
 Azure Elastic storage area network (SAN) addresses the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. For more information on Azure Elastic SAN, see [What is Azure Elastic SAN?](../storage/elastic-san/elastic-san-introduction.md).
 
+To accompany the steps below, you can use this [interactive demo](https://regale.cloud/microsoft/play/4092/expand-storage-with-elastic-san#/0/0) as a visual representation of what you need to do to connect Elastic SAN and AVS.
+
 ## Prerequisites
 
 The following prerequisites are required to continue.
@@ -30,7 +32,7 @@ The following prerequisites are required to continue.
 
 ## Supported host types
 
-To use Elastic SAN with Azure VMware Solution, you can use any of these three host types:
+To use Elastic SAN with Azure VMware Solution, you can use any of these host types:
 
 - AV36 
 
@@ -38,7 +40,9 @@ To use Elastic SAN with Azure VMware Solution, you can use any of these three ho
 
 - AV52 
 
-Using AV64 with Elastic SAN is not currently supported.
+- AV64
+
+- AV48
 
 ## Set up Elastic SAN
 
@@ -90,7 +94,7 @@ Start by providing an IP block for deploying external storage. Navigate to the *
 After you provide an External storage address block, you need to connect your private cloud express route with the private endpoint(s) you set up for your Elastic SAN volume group(s). To learn how to establish these connections, see [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking.md). 
 
 > [!NOTE]
-> Connection to Elastic SAN from Azure VMWare Solution happens via private endpoints to provide the highest network security. Since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you may experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
+> Connection to Elastic SAN from Azure VMware Solution happens via private endpoints to provide the highest network security. Since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you may experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
 > These connectivity issues aren't expected to impact the availability of the datastore backed by Elastic SAN as the connection will be re-established within seconds. The potential impact from gateway maintenance is covered under the [Service Level Agreement](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for ExpressRoute virtual network gateways and private endpoints.
 ## Add an Elastic SAN volume as a datastore
 

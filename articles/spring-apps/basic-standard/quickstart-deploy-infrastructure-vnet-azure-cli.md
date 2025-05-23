@@ -6,7 +6,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java, mode-api
-ms.author: vramasubbu
+ms.author: karler
+ms.reviewer: vramasubbu
 ms.date: 08/28/2024
 ---
 

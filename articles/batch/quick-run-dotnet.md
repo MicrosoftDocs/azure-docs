@@ -2,7 +2,7 @@
 title: 'Quickstart: Use .NET to create a pool and run a job'
 description: Follow this quickstart to run a C# app that uses the Batch .NET client library to create and run Batch pools, nodes, jobs, and tasks.
 ms.topic: quickstart
-ms.date: 04/28/2023
+ms.date: 04/02/2025
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, mode-api, devx-track-dotnet
 ---

@@ -53,6 +53,12 @@
     href: troubleshoot-route-server.md
   - name: Monitor Route Server
     href: monitor-route-server.md
+- name: Security
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-route-server-security-baseline?toc=/azure/route-server/toc.json
+  - name: Azure Network Security Blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -61,15 +67,19 @@
     href: /cli/azure/network/routeserver
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Networking Blog
-    href: https://azure.microsoft.com/blog/topics/networking/
+  - name: Microsoft Q&A
+    href: /answers/tags/501/route-server
+  - name: Azure Networking Blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Networking feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+  - name: Azure support
+    href: https://azure.microsoft.com/support
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/route-server/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=routeserver
+    href: https://azure.microsoft.com/updates/?filters=%5B%22Azure+Route+Server%22%5D
   - name: SLA
-    href: https://azure.microsoft.com/support/legal/sla/route-server/v1_0/
+    href: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services

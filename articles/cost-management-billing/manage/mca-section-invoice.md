@@ -1,13 +1,13 @@
 ---
 title: Organize your invoice based on your needs - Azure
 description: Learn how to organize costs on your invoice. You can customize your billing account by creating billing profiles and invoice sections.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: jkinma
 ---
 
 # Organize costs by customizing your billing account
@@ -108,17 +108,17 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
    :::image type="content" border="true" source="./media/mca-section-invoice/mca-list-profiles.png" lightbox="./media/mca-section-invoice/mca-list-profiles-zoomed-in.png" alt-text="Screenshot that shows a billing profile list with Add selected.":::
 
-4. Fill the form and select **Create**.
+1. Fill the form and select **Create**.
 
-   :::image type="content" border="true" source="./media/mca-section-invoice/mca-add-profile.png" lightbox="./media/mca-section-invoice/mca-add-profile-zoomed-in.png" alt-text="Screenshot that shows the billing profile creation page.":::
+      :::image type="content" border="true" source="./media/mca-section-invoice/mca-add-profile.png" lightbox="./media/mca-section-invoice/mca-add-profile-zoomed-in.png" alt-text="Screenshot that shows the billing profile creation page.":::
 
-    |Field  |Definition  |
-    |---------|---------|
-    |Name     | A display name that helps you easily identify the billing profile in the Azure portal.  |
-    |PO number    | An optional purchase order number. The PO number is displayed on the invoices generated for the billing profile. |
-    |Bill to  | The bill to information is displayed on the invoices generated for the billing profile. |
-    |Email invoice   | Check the email invoice box to receive the invoices for this billing profile by email. If you don't opt in, you can view and download the invoices in the Azure portal.|
-
+   |Field  |Definition  |
+   |---------|---------|
+   |Name     | A display name that helps you easily identify the billing profile in the Azure portal.  |
+   |PO number    | An optional purchase order number. The PO number is displayed on the invoices generated for the billing profile. |
+   |Bill to  | The bill to information is displayed on the invoices generated for the billing profile. |
+   |Email invoice   | Option to receive the invoices for this billing profile by email. This is selected by default. If you choose to opt out, you can view and download the invoices in the Azure portal.|
+   
 5. Select **Create**.
 
 ## Link charges to invoice sections and billing profiles

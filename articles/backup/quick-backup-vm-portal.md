@@ -25,7 +25,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 >[!Important]
->If you have [Azure Files for protection](azure-file-share-backup-overview.md), after vault creation, [configure backup for Azure Files, and then initiate an on-demand backup](backup-azure-files.md). Learn more [about the best practices for Azure Files backup](backup-azure-files.md?tabs=backup-center#best-practices).
+>If you have [Azure Files for protection](azure-file-share-backup-overview.md), after vault creation, [configure backup for Azure Files, and then initiate an on-demand backup](backup-azure-files.md). Learn more [about the best practices for Azure Files backup](tutorial-backup-azure-files-vault-tier-portal.md#best-practices).
 
 ## Apply a backup policy
 

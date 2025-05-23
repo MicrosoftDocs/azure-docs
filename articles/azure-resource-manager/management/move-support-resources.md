@@ -2,7 +2,7 @@
 title: Azure resource types for move operations
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 01/23/2025
+ms.date: 04/29/2025
 ms.custom: tbd
 ---
 
@@ -136,7 +136,7 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | attestationproviders | **Yes** | **Yes** | No |
+> | attestationproviders | No | No | No |
 
 ## Microsoft.Authorization
 
@@ -460,7 +460,7 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | sharedvmextensions | No | No | No |
 > | sharedvmimages | No | No | No |
 > | sharedvmimages / versions | No | No | No |
-> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> **Yes** - Incremental |
+> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> No - Incremental |
 > | sshpublickeys | No | No | No |
 > | virtualmachines | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure Virtual Machines. |
 > | virtualmachines / extensions | **Yes** | **Yes** | No |
@@ -756,6 +756,7 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | hostpools | **Yes** | **Yes** | No |
 > | scalingplans | **Yes** | **Yes** | No |
 > | workspaces | **Yes** | **Yes** | No |
+> | appattachpackages | **Yes** | **Yes** | No |
 
 ## Microsoft.Devices
 
@@ -790,8 +791,8 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | ------------- | ----------- | ---------- | ----------- |
 > | labcenters | No | No | No |
 > | labs | **Yes** | No | No |
-> | labs / environments | **Yes** | **Yes** | No |
-> | labs / servicerunners | **Yes** | **Yes** | No |
+> | labs / environments | **Yes** |No| No |
+> | labs / servicerunners | **Yes** |No| No |
 > | labs / virtualmachines | **Yes** | No | No |
 > | schedules | **Yes** | **Yes** | No |
 
@@ -1000,7 +1001,7 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No. [Learn more](/azure/azure-monitor/app/create-workspace-resource#how-do-i-move-an-application-insights-resource-to-a-new-region). |
-> | actiongroups | No | No | No |
+> | actiongroups | Yes | Yes | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
 > | autoscalesettings | **Yes** | **Yes** | No |
@@ -1372,7 +1373,7 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | privateendpointredirectmaps | No | No | No |
 > | privateendpoints | **Yes** - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | **Yes** - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | No |
 > | privatelinkservices | No | No | No |
-> | publicipaddresses | **Yes** | **Yes** - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | **Yes**<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
+> | publicipaddresses | **Yes** | **Yes** - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | **No**<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | **Yes** | **Yes** | No |
 > | routefilters | No | No | No |
 > | routetables | **Yes** | **Yes** | No |
@@ -1804,8 +1805,10 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | sqlvirtualmachinegroups | **Yes** | **Yes** | No |
-> | sqlvirtualmachines | **Yes** | **Yes** | No |
+> | sqlvirtualmachinegroups | **No** | **No** | No |
+> | sqlvirtualmachines | **No** | **No** | No |
+
+If you need to move your SQL virtual machines resource, first delete the [SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#delete-the-extension) from the virtual machine, move the virtual machine to a different resource group or subscription, and then [re-register](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#register-with-extension) your SQL Server VM with the SQL IaaS Agent extension again. 
 
 ## Microsoft.Storage
 

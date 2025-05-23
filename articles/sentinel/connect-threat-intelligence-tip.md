@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -146,8 +146,6 @@ The last step in the integration process is to enable the TIP data connector in 
 1. To configure the TIP data connector, select **Configuration** > **Data connectors**.
 
 1. Find and select the **Threat Intelligence Platforms - BEING DEPRECATED** data connector, and then select **Open connector page**.
-
-    :::image type="content" source="media/connect-threat-intelligence-tip/threat-intelligence-platforms-data-connector.png" alt-text="Screenshot that shows the Data connectors page with the Threat Intelligence Platforms data connector listed." lightbox="media/connect-threat-intelligence-tip/threat-intelligence-platforms-data-connector.png":::
 
 1. Because you already finished the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to select **Connect**.
 

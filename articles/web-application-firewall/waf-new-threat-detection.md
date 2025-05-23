@@ -5,8 +5,8 @@ services: web-application-firewall
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.date: 01/19/2024
 ms.topic: how-to
+ms.date: 01/19/2024
 ---
 
 # Detect new threats using Microsoft Sentinel with Azure Web Application Firewall
@@ -36,16 +36,15 @@ The following prerequisites are required to set up analytic rules:
 - A working WAF and a Log Analytics Workspace that is configured to receive logs from the respective Azure Application Gateway or Azure Front Door. For more information, see [Resource logs for Azure Web Application Firewall](ag/web-application-firewall-logs.md).
 - Additionally, Microsoft Sentinel should be enabled for the Log Analytics Workspace that is being used here. For more information, see [Quickstart: Onboard Microsoft Sentinel](../sentinel/quickstart-onboard.md).
 
-Use the following steps to configure an analytic rule in Sentinel.
+Use the following steps to configure an analytic rule in Sentinel:
 
-1. Navigate to Microsoft Sentinel and select the **Analytics** tab. Select **Create** and then select **Scheduled query rule**.
+1. Go to Microsoft Sentinel and select the **Analytics** tab. Select **Create** and then select **Scheduled query rule**.
+
    :::image type="content" source="media/waf-new-threat-detection/scheduled-query-rule.png" alt-text="Screenshot showing creating a scheduled query rule." lightbox="media/waf-new-threat-detection/scheduled-query-rule.png":::
 
    The tactics and techniques provided here are informational only and are sourced from [MITRE Attack Knowledgebase](https://attack.mitre.org/) This is a knowledge base of adversary tactics and techniques based on real-world observations.
 
 1. You can use the Analytics rule wizard to set a severity level for this incident. Since these are major attacks, High Severity is selected.
-
-   :::image type="content" source="media/waf-new-threat-detection/analytics-rule-wizard.png" alt-text="Screenshot showing the analytics rule wizard." lightbox="media/waf-new-threat-detection/analytics-rule-wizard.png":::
 
 1. On the **Set rule logic** page, enter the following prebuilt Code Injection query: You can find this query in the [Azure Network Security GitHub repository](https://github.com/Azure/Azure-Network-Security/blob/9170800bbb0322ca1c904803954fbb477dff8421/Azure%20WAF/Playbook%20-%20Sentinel%20additional%20detections/Code-Injection-AppGW-WAF-CRS3-2.json). Likewise, you can use any other query that is available in the repository to create Analytic rules and detect respective attack patterns.
 
@@ -65,20 +64,18 @@ Use the following steps to configure an analytic rule in Sentinel.
     | summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated), TransactionID = make_set   (transactionId_g,100), Message = make_set(Message,100), Detail_Message = make_set(details_message_s,   100), Detail_Data = make_set(details_data_s,100), Total_TransactionId = dcount(transactionId_g) by    clientIp_s, Uri, action_s
     | where Total_TransactionId >= Threshold
    ```
-   :::image type="content" source="media/waf-new-threat-detection/rule-query.png" alt-text="Screenshot showing the rule query." lightbox="media/waf-new-threat-detection/rule-query.png":::
+
    > [!NOTE]
-   > It is important to ensure that the WAF logs are already in the Log Analytics Workspace before you create this Analytical rule. Otherwise, Sentinel will not recognize some of the columns in the query and you will have to add extra input like `| extend action_s = column_ifexists(“action_s”, “”), transactionId_g = column_ifexists(“transactionId_g”, “”)` for each column that gives an error. This input creates the column names manually and assigns them null values. To skip this step, send the WAF logs to the workspace first.
+   > It is important to ensure that the WAF logs are already in the Log Analytics workspace before you create this Analytical rule. Otherwise, Sentinel will not recognize some of the columns in the query and you will have to add extra input like `| extend action_s = column_ifexists(“action_s”, “”), transactionId_g = column_ifexists(“transactionId_g”, “”)` for each column that gives an error. This input creates the column names manually and assigns them null values. To skip this step, send the WAF logs to the workspace first.
 
 1. On the **Incident Settings** page, Enable the **Create incidents from alerts triggered by this analytics rule.** The alert grouping can be configured as required.
 1. Optionally, you can also add any automated response to the incident if needed. See [Automated detection and response for Azure WAF with Microsoft Sentinel](afds/automated-detection-response-with-sentinel.md) for more detailed information on automated response configuration.
 1. Finally, select **Save** on the **Review and create** tab.
 
-
 This analytic rule enables Sentinel to create an incident based on the WAF logs that record any Code Injection attacks. The Azure WAF blocks these attacks by default, but the incident creation provides more support for the security analyst to respond to future threats.
 
 You can configure Analytic Rules in Sentinel for various web application attacks using the pre-built detection queries available in the [Azure Network Security GitHub repository](https://github.com/Azure/Azure-Network-Security/blob/9170800bbb0322ca1c904803954fbb477dff8421/Azure%20WAF/Playbook%20-%20Sentinel%20additional%20detections/Code-Injection-AppGW-WAF-CRS3-2.json). These queries will be added directly to Sentinel Detection Templates. Once added, these queries will be directly available in the Analytic Rule Templates section of Sentinel.
 
- 
 ## Next steps
 
 - [Learn more about Microsoft Sentinel](../sentinel/overview.md)

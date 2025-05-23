@@ -15,30 +15,31 @@ ms.service: azure-communication-services
 
 Azure Communication Services capabilities are conceptually organized into discrete areas based on their functional area. Most areas have fully open-source SDKs programmed against published REST APIs that you can use directly over the Internet. The Calling SDK uses proprietary network interfaces and is closed-source.
 
-In the tables below we summarize these areas and availability of REST APIs and SDK libraries. We note if APIs and SDKs are intended for end-user clients or trusted service environments. APIs such as SMS shouldn't be directly accessed by end-user devices in low trust environments.
+The following tables summarize these areas and availability of REST APIs and SDK libraries. We note whether APIs and SDKs are intended for end-user clients or trusted service environments. You shouldn't directly access APIs such as SMS using end-user devices in low trust environments.
 
-Development of Calling and Chat applications can be accelerated by the  [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
+You can accelerate development of Calling and Chat applications using the [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
 
 ## Creating a practice to use the latest SDK
-Browsers and operating systems are constantly evolving to support the latest enhancements and to fix existing bugs. Using the most recent Azure Communication Services SDK can help you achieve the best overall end user experience for your application when used with updated browsers and operating system updates. The most update Azure Communication Services SDK offers many benefits, such as better performance, security, compatibility, quality, and usability. Updating allows you to access the newest features and updates that are regularly added to the browser and operating system. Azure Communication Services SDKs are updated frequently (approximately every 6 weeks to once a quarter). It's advised that you create a process to ensure that you're always updating to the most recent SDKs.
+
+Browsers and operating systems are constantly evolving to support the latest enhancements and to fix existing bugs. Using the most recent Azure Communication Services SDK can help you achieve the best overall end user experience for your application when used with updated browsers and operating system updates. The most update Azure Communication Services SDK offers many benefits, such as better performance, security, compatibility, quality, and usability. Updating allows you to access the newest features and updates that are regularly added to the browser and operating system. Azure Communication Services SDKs are updated frequently (approximately every six weeks to once a quarter). We recommend creating a process to ensure that you're always updating to the most recent SDKs.
 
 ## SDKs
 
 | Assembly | Protocols| Environment | Capabilities|
 |--------|----------|---------|----------------------------------|
-| Azure Resource Manager | [REST](/rest/api/communication/resourcemanager/communication-services)| Service| Provision and manage Communication Services resources|
-| Common | N/A | Client & Service | Provides base types for other SDKs |
-| Identity | [REST](/rest/api/communication/communication-identity) | Service| Manage users, access tokens|
-| Phone numbers| [REST](/rest/api/communication/phonenumbers) | Service| Acquire and manage phone numbers |
-| SMS | [REST](/rest/api/communication/sms) | Service| Send and receive SMS messages|
-| Email | [REST](/rest/api/communication/Email) | Service|Send and get status on Email messages|
-| Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
-| Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
-| Call Automation | [REST](/rest/api/communication/callautomation/call-connection) | Service | Build customized calling workflows for PSTN and VoIP calls |
-| Job Router | [REST](/rest/api/communication/jobrouter/job-router-operations) | Service | Optimize the management of customer interactions across various applications |
-| Rooms | [REST](/rest/api/communication/rooms/operation-groups)| Service| Create and manage structured communication rooms  |
-| UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
-| Advanced Messaging | [REST](/rest/api/communication/advancedmessaging/operation-groups) | Service | Send and receive WhatsApp Business messages |
+| Azure Resource Manager | [REST](/rest/api/communication/resourcemanager/communication-services) | Service | Provision and manage Communication Services resources. |
+| Common | N/A | Client & Service | Provides base types for other SDKs. |
+| Identity | [REST](/rest/api/communication/identity/communication-identity) | Service | Manage users and access tokens. |
+| Phone numbers | [REST](/rest/api/communication/phonenumbers/phone-numbers) | Service | Acquire and manage phone numbers. |
+| SMS | [REST](/rest/api/communication/sms/sms) | Service | Send and receive SMS messages. |
+| Email | [REST](/rest/api/communication/email/email) | Service | Send and get status on Email messages. |
+| Chat | [REST](/rest/api/communication/chat/operation-groups) with proprietary signaling | Client & Service | Add real-time text chat to your applications. |
+| Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication. |
+| Call Automation | [REST](/rest/api/communication/callautomation/operation-groups) | Service | Build customized calling workflows for PSTN and VoIP calls. |
+| Job Router | [REST](/rest/api/communication/jobrouter/operation-groups) | Service | Optimize the management of customer interactions across various applications. |
+| Rooms | [REST](/rest/api/communication/rooms/operation-groups)| Service | Create and manage structured communication rooms. |
+| UI Library | N/A | Client | Production-ready UI components for chat and calling apps. |
+| Advanced Messaging | [REST](/rest/api/communication/advancedmessaging/operation-groups) | Service | Send and receive WhatsApp Business messages. |
 
 ### Languages and publishing locations
 
@@ -57,7 +58,7 @@ Publishing locations for individual SDK packages:
 | Call Automation |[npm](https://www.npmjs.com/package/@azure/communication-call-automation)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallAutomation/)|[PyPi](https://pypi.org/project/azure-communication-callautomation/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callautomation)
 | Job Router |[npm](https://www.npmjs.com/package/@azure-rest/communication-job-router)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.JobRouter/)|[PyPi](https://pypi.org/project/azure-communication-jobrouter/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter)
 | Rooms          | [npm](https://www.npmjs.com/package/@azure/communication-rooms)     | [NuGet](https://www.nuget.org/packages/Azure.Communication.Rooms)     | [PyPi](https://pypi.org/project/azure-communication-rooms/)    | [Maven](https://search.maven.org/search?q=a:azure-communication-rooms) | - | - | - |
-| UI Library | [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
+| UI Library | [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs) |
 | Advanced Messaging | [npm](https://www.npmjs.com/package/@azure-rest/communication-messages) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Messages) | [PyPi](https://pypi.org/project/azure-communication-messages/) | [Maven](https://central.sonatype.com/artifact/com.azure/azure-communication-messages) | - | - | - |
 | Reference Documentation | [docs](/javascript/api/overview/azure/communication) | [docs](/dotnet/api/overview/azure/communication)| [docs](/python/api/overview/azure/communication) | [docs](/java/api/overview/azure/communication) | [docs](/objectivec/communication-services/calling/)| [docs](/java/api/com.azure.android.communication.calling)| - |
 
@@ -73,14 +74,14 @@ Publishing locations for individual SDK packages:
 
 The Android ecosystem is extensive, encompassing various versions and specialized platforms designed for diverse types of devices. The next table lists the Android platforms currently supported:
 
-| Devices                | Description                                                                              | Support          |
-| -----------------------            | -----------------------------------------------------------------------------------------| ----------------- |
-| Phones and tablets                 | Standard devices running [Android Commercial](https://developer.android.com/get-started).          | Fully support with [the video resolution](./voice-video-calling/calling-sdk-features.md?#supported-video-resolutions).       |
+| Devices | Description | Support |
+| --- | --- | --- |
+| Phones and tablets | Standard devices running [Android Commercial](https://developer.android.com/get-started). | Fully support with [the video resolution](./voice-video-calling/calling-sdk-features.md#supported-video-resolutions). |
 
 > [!NOTE]
-> We **only support video calls on phones and tablets**. For use cases involving video on non-standard devices or platforms (such as smart glasses or custom devices), we suggest [contacting us](https://github.com/Azure/communication) early in your development process to help determine the most suitable integration approach.
+> We **only support video calls on phones and tablets**. For use cases involving video on nonstandard devices or platforms (such as smart glasses or custom devices), we suggest [contacting us](https://github.com/Azure/communication) early in your development process to help determine the most suitable integration approach.
 
-In case that you found issues during your implementation we encourage you to visit [the troubleshooting guide](./troubleshooting-info.md?#access-support-files-in-the-calling-sdk).
+If you found issues during your implementation, see [the troubleshooting guide](./troubleshooting-info.md#access-support-files-in-the-calling-sdk).
 
 #### iOS Calling SDK support
 
@@ -115,26 +116,29 @@ All other Communication Services packages target .NET Standard 2.0, which suppor
   - Xamarin iOS 10.14
   - Xamarin Mac 3.8
 
+> [!NOTE]
+> [Unpackaged app](/windows/apps/package-and-deploy/) is currently not supported
+
 #### SDK package size
 
 | SDK                   |      Compressed size (MB)     |    Uncompressed size (MB)     |
 |-----------------------| ------------------------------|-------------------------------|
-|iOS SDK                |  ARM64 - 17.1 MB              | ARM64 - 61.1 MB               |
+|iOS SDK                |  Arm64 - 17.1 MB              | Arm64 - 61.1 MB               |
 |Android SDK            |  x86 – 13.3 MB                | x86 – 33.75 MB                |
 |                       |  x86_64 – 13.3 MB             | x86_64 – 35.75 MB             |
-|                       |  ARM64-v8a – 13.1 MB          | ARM64-v8a – 37.02 MB          |
+|                       |  Arm64-v8a – 13.1 MB          | Arm64-v8a – 37.02 MB          |
 |                       |  armeabi-v7a – 11.4 MB        | armeabi-v7a – 23.97 MB        |
 
-If you want to improve your app, we suggest read [the Best Practices article](./best-practices.md). It provides recommendations and a checklist to review before releasing your app.
+If you want to improve your app, see [the Best Practices article](./best-practices.md). It provides recommendations and a checklist to review before releasing your app.
 
 ## REST APIs
 
-Communication Services APIs are documented alongside other [Azure REST APIs](/rest/api/azure/). This documentation tells you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs). You can find throttling limits for individual APIs on [service limits page](./service-limits.md).
+Communication Services APIs are documented with other [Azure REST APIs](/rest/api/azure/). This documentation describes how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in OpenAPI format on [GitHub](https://github.com/Azure/azure-rest-api-specs). You can find throttling limits for individual APIs in [service limits](./service-limits.md).
 
 ## API stability expectations
 
 > [!IMPORTANT]
-> This section provides guidance on REST APIs and SDKs marked **stable**. APIs marked pre-release, preview, or beta may be changed or deprecated **without notice**.
+> This section provides guidance on REST APIs and SDKs marked **stable**. APIs marked prerelease, preview, or beta may be changed or deprecated **without notice**.
 
 In the future we may retire versions of the Communication Services SDKs, and we may introduce breaking changes to our REST APIs and released SDKs. Azure Communication Services *generally* follows two supportability policies for retiring service versions:
 

@@ -1,10 +1,10 @@
 ---
 title: Delete Azure Virtual Desktop host pool - Azure
 description: How to delete a host pool in Azure Virtual Desktop.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 07/23/2021
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited 
 ---
 

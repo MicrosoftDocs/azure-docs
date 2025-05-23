@@ -8,7 +8,7 @@ ms.author: weetok
 ms.subservice: orchestration
 ms.custom: FY25Q1-Linter, synapse
 ms.topic: concept-article
-ms.date: 03/11/2024
+ms.date: 02/13/2025
 ---
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
@@ -32,7 +32,7 @@ Azure Data Factory and Azure Synapse Analytics have three groupings of activitie
 An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. For more information about datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md) article.
 
 > [!NOTE]
-> There is a default soft limit of maximum 80 activities per pipeline, which includes inner activities for containers.
+> There's a default soft limit of maximum 80 activities per pipeline, which includes inner activities for containers.
 
 ## Data movement activities
 
@@ -40,7 +40,7 @@ Copy Activity in Data Factory copies data from a source data store to a sink dat
 
 For more information, see [Copy Activity - Overview](copy-activity-overview.md) article.
 
-Click a data store to learn how to copy data to and from that store.
+Select a data store to learn how to copy data to and from that store.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
 
@@ -82,8 +82,8 @@ Control activity | Description
 [If Condition Activity](control-flow-if-condition-activity.md) | The If Condition can be used to branch based on condition that evaluates to true or false. The If Condition activity provides the same functionality that an if statement provides in programming languages. It evaluates a set of activities when the condition evaluates to `true` and another set of activities when the condition evaluates to `false.`
 [Lookup Activity](control-flow-lookup-activity.md) | Lookup Activity can be used to read or look up a record/ table name/ value from any external source. This output can further be referenced by succeeding activities.
 [Set Variable](control-flow-set-variable-activity.md) | Set the value of an existing variable.
-[Until Activity](control-flow-until-activity.md) | Implements Do-Until loop that is similar to Do-Until looping structure in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity.
-[Validation Activity](control-flow-validation-activity.md) | Ensure a pipeline only continues execution if a reference dataset exists, meets a specified criteria, or a timeout has been reached.
+[Until Activity](control-flow-until-activity.md) | Implements Do-Until loop that is similar to Do-Until looping structure in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a time-out value for the until activity.
+[Validation Activity](control-flow-validation-activity.md) | Ensure a pipeline only continues execution if a reference dataset exists, meets a specified criteria, or a time-out is reached.
 [Wait Activity](control-flow-wait-activity.md) | When you use a Wait activity in a pipeline, the pipeline waits for the specified time before continuing with execution of subsequent activities.
 [Web Activity](control-flow-web-activity.md) | Web Activity can be used to call a custom REST endpoint from a pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 [Webhook Activity](control-flow-webhook-activity.md) | Using the webhook activity, call an endpoint, and pass a callback URL. The pipeline run waits for the callback to be invoked before proceeding to the next activity.
@@ -91,30 +91,30 @@ Control activity | Description
 ## Creating a pipeline with UI
 
 # [Azure Data Factory](#tab/data-factory)
-To create a new pipeline, navigate to the Author tab in Data Factory Studio (represented by the pencil icon), then click the plus sign and choose Pipeline from the menu, and Pipeline again from the submenu.
+To create a new pipeline, navigate to the Author tab in Data Factory Studio (represented by the pencil icon), then select the plus sign and choose Pipeline from the menu, and Pipeline again from the submenu.
 
 :::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui.png" alt-text="Shows the steps to create a new pipeline using Azure Data Factory Studio.":::
 
-Data factory will display the pipeline editor where you can find:
+Data factory displays the pipeline editor where you can find:
 
 1. All activities that can be used within the pipeline.
-1. The pipeline editor canvas, where activities will appear when added to the pipeline.
+1. The pipeline editor canvas, where activities appear when added to the pipeline.
 1. The pipeline configurations pane, including parameters, variables, general settings, and output.
-1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured.  This pane will also show any related items to the pipeline within the data factory.
+1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured. This pane also shows any related items to the pipeline within the data factory.
 
-:::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui.png" alt-text="Shows the pipeline editor pane in Azure Data Factory studio with each of the sections described above highlighted.":::
+:::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui.png" alt-text="Screenshot that shows the pipeline editor pane in Azure Data Factory studio with each of the sections described highlighted.":::
 
 # [Synapse Analytics](#tab/synapse-analytics)
-To create a new pipeline, navigate to the Integrate tab in Synapse Studio (represented by the pipeline icon), then click the plus sign and choose Pipeline from the menu.
+To create a new pipeline, navigate to the Integrate tab in Synapse Studio (represented by the pipeline icon), then select the plus sign and choose Pipeline from the menu.
 
 :::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui-synapse.png" alt-text="Shows the steps to create a new pipeline using Synapse Studio.":::
 
-Synapse will display the pipeline editor where you can find:
+Synapse displays the pipeline editor where you can find:
 
 1. All activities that can be used within the pipeline.
-1. The pipeline editor canvas, where activities will appear when added to the pipeline.
+1. The pipeline editor canvas, where activities appear when added to the pipeline.
 1. The pipeline configurations pane, including parameters, variables, general settings, and output.
-1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured.  This pane will also show any related items to the pipeline in the Synapse workspace.
+1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured. This pane also shows any related items to the pipeline in the Synapse workspace.
 
 :::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui-synapse.png" alt-text="Shows the pipeline editor pane in Synapse studio with each of the sections described above highlighted.":::
 
@@ -122,7 +122,7 @@ Synapse will display the pipeline editor where you can find:
 
 ## Pipeline JSON
 
-Here is how a pipeline is defined in JSON format:
+Here's how a pipeline is defined in JSON format:
 
 ```json
 {
@@ -144,11 +144,11 @@ Here is how a pipeline is defined in JSON format:
 
 Tag | Description | Type | Required
 --- | ----------- | ---- | --------
-name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 140</li><li>Must start with a letter, number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" </li></ul> | String | Yes
+name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 140</li><li>Must start with a letter, number, or an underscore (\_)</li><li>Following characters aren't allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" </li></ul> | String | Yes
 description | Specify the text describing what the pipeline is used for. | String | No
 activities | The **activities** section can have one or more activities defined within it. See the [Activity JSON](#activity-json) section for details about the activities JSON element. | Array | Yes
 parameters | The **parameters** section can have one or more parameters defined within the pipeline, making your pipeline flexible for reuse. | List | No
-concurrency | The maximum number of concurrent runs the pipeline can have. By default, there is no maximum. If the concurrency limit is reached, additional pipeline runs are queued until earlier ones complete | Number | No 
+concurrency | The maximum number of concurrent runs the pipeline can have. By default, there's no maximum. If the concurrency limit is reached, extra pipeline runs are queued until earlier ones complete | Number | No 
 annotations | A list of tags associated with the pipeline | Array | No
 
 ## Activity JSON
@@ -181,12 +181,12 @@ Following table describes properties in the activity JSON definition:
 
 Tag | Description | Required
 --- | ----------- | ---------
-name | Name of the activity. Specify a name that represents the action that the activity performs. <br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter-number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | Yes</li></ul>
+name | Name of the activity. Specify a name that represents the action that the activity performs. <br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter-number, or an underscore (\_)</li><li>Following characters aren't allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | Yes</li></ul>
 description | Text describing what the activity or is used for | Yes
 type | Type of the activity. See the [Data Movement Activities](#data-movement-activities), [Data Transformation Activities](#data-transformation-activities), and [Control Activities](#control-flow-activities) sections for different types of activities. | Yes
 linkedServiceName | Name of the linked service used by the activity.<br/><br/>An activity might require that you specify the linked service that links to the required compute environment. | Yes for HDInsight Activity, ML Studio (classic) Batch Scoring Activity, Stored Procedure Activity. <br/><br/>No for all others
-typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, click links to the activity in the previous section. | No
-policy | Policies that affect the run-time behavior of the activity. This property includes a timeout and retry behavior. If it isn't specified, default values are used. For more information, see [Activity policy](#activity-policy) section. | No
+typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, select links to the activity in the previous section. | No
+policy | Policies that affect the run-time behavior of the activity. This property includes a time-out and retry behavior. If it isn't specified, default values are used. For more information, see [Activity policy](#activity-policy) section. | No
 dependsOn | This property is used to define activity dependencies, and how subsequent activities depend on previous activities. For more information, see [Activity dependency](#activity-dependency) | No
 
 ### Activity policy
@@ -223,7 +223,7 @@ Policies affect the run-time behavior of an activity, giving configuration optio
 
 JSON name | Description | Allowed Values | Required
 --------- | ----------- | -------------- | --------
-timeout | Specifies the timeout for the activity to run. | Timespan | No. Default timeout is 12 hours, minimum 10 minutes.
+timeout | Specifies the time-out for the activity to run. | Timespan | No. Default time-out is 12 hours, minimum 10 minutes.
 retry | Maximum retry attempts | Integer | No. Default is 0
 retryIntervalInSeconds | The delay between retry attempts in seconds | Integer | No. Default is 30 seconds
 secureOutput | When set to true, the output from activity is considered as secure and aren't logged for monitoring. | Boolean | No. Default is false.
@@ -248,10 +248,10 @@ Control activities have the following top-level structure:
 
 Tag | Description | Required
 --- | ----------- | --------
-name | Name of the activity. Specify a name that represents the action that the activity performs.<br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | Yes</li><ul>
+name | Name of the activity. Specify a name that represents the action that the activity performs.<br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters aren't allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | Yes</li><ul>
 description | Text describing what the activity or is used for | Yes
 type | Type of the activity. See the [data movement activities](#data-movement-activities), [data transformation activities](#data-transformation-activities), and [control activities](#control-flow-activities) sections for different types of activities. | Yes
-typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, click links to the activity in the previous section. | No
+typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, select links to the activity in the previous section. | No
 dependsOn | This property is used to define Activity Dependency, and how subsequent activities depend on previous activities. For more information, see [activity dependency](#activity-dependency). | No
 
 ### Activity dependency
@@ -310,7 +310,7 @@ For example, if a pipeline has Activity A -> Activity B, the different scenarios
 
 ## Sample copy pipeline
 
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
+In the following sample pipeline, there's one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
 
 ```json
 {
@@ -352,15 +352,15 @@ In the following sample pipeline, there is one activity of type **Copy** in the 
 ```
 Note the following points:
 
-- In the activities section, there is only one activity whose **type** is set to **Copy**.
+- In the activities section, there's only one activity whose **type** is set to **Copy**.
 - Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. See [Datasets](concepts-datasets-linked-services.md) article for defining datasets in JSON.
-- In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. In the [data movement activities](#data-movement-activities) section, click the data store that you want to use as a source or a sink to learn more about moving data to/from that data store.
+- In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. In the [data movement activities](#data-movement-activities) section, select the data store that you want to use as a source or a sink to learn more about moving data to/from that data store.
 
 For a complete walkthrough of creating this pipeline, see [Quickstart: create a Data Factory](quickstart-create-data-factory-powershell.md).
 
 ## Sample transformation pipeline
 
-In the following sample pipeline, there is one activity of type **HDInsightHive** in the **activities** section. In this sample, the [HDInsight Hive activity](transform-data-using-hadoop-hive.md) transforms data from an Azure Blob storage by running a Hive script file on an Azure HDInsight Hadoop cluster.
+In the following sample pipeline, there's one activity of type **HDInsightHive** in the **activities** section. In this sample, the [HDInsight Hive activity](transform-data-using-hadoop-hive.md) transforms data from an Azure Blob storage by running a Hive script file on an Azure HDInsight Hadoop cluster.
 
 ```json
 {
@@ -400,23 +400,23 @@ In the following sample pipeline, there is one activity of type **HDInsightHive*
 ```
 Note the following points:
 
-- In the activities section, there is only one activity whose **type** is set to **HDInsightHive**.
+- In the activities section, there's only one activity whose **type** is set to **HDInsightHive**.
 - The Hive script file, **partitionweblogs.hql**, is stored in the Azure Storage account (specified by the scriptLinkedService, called AzureStorageLinkedService), and in script folder in the container `adfgetstarted`.
 - The `defines` section is used to specify the runtime settings that are passed to the hive script as Hive configuration values (for example, $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
-The **typeProperties** section is different for each transformation activity. To learn about type properties supported for a transformation activity, click the transformation activity in the [Data transformation activities](#data-transformation-activities).
+The **typeProperties** section is different for each transformation activity. To learn about type properties supported for a transformation activity, select the transformation activity in the [Data transformation activities](#data-transformation-activities).
 
 For a complete walkthrough of creating this pipeline, see [Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md).
 
 ## Multiple activities in a pipeline
 
-The previous two sample pipelines have only one activity in them. You can have more than one activity in a pipeline. If you have multiple activities in a pipeline and subsequent activities are not dependent on previous activities, the activities might run in parallel.
+The previous two sample pipelines have only one activity in them. You can have more than one activity in a pipeline. If you have multiple activities in a pipeline and subsequent activities aren't dependent on previous activities, the activities might run in parallel.
 
 You can chain two activities by using [activity dependency](#activity-dependency), which defines how subsequent activities depend on previous activities, determining the condition whether to continue executing the next task. An activity can depend on one or more previous activities with different dependency conditions.
 
 ## Scheduling pipelines
 
-Pipelines are scheduled by triggers. There are different types of triggers (Scheduler trigger, which allows pipelines to be triggered on a wall-clock schedule, as well as the manual trigger, which triggers pipelines on-demand). For more information about triggers, see [pipeline execution and triggers](concepts-pipeline-execution-triggers.md) article.
+Pipelines are scheduled by triggers. There are different types of triggers (Scheduler trigger, which allows pipelines to be triggered on a wall-clock schedule, and the manual trigger, which triggers pipelines on-demand). For more information about triggers, see [pipeline execution and triggers](concepts-pipeline-execution-triggers.md) article.
 
 To have your trigger kick off a pipeline run, you must include a pipeline reference of the particular pipeline in the trigger definition. Pipelines & triggers have an n-m relationship. Multiple triggers can kick off a single pipeline, and the same trigger can kick off multiple pipelines. Once the trigger is defined, you must start the trigger to have it start triggering the pipeline. For more information about triggers, see [pipeline execution and triggers](concepts-pipeline-execution-triggers.md) article.
 

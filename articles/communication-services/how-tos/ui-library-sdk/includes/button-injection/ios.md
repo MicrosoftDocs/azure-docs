@@ -39,7 +39,7 @@ cameraButton.visible = true
 
 `Call composite` is using Fluent UI icons. You can download the icons directly from [the Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/) and incorporate them into your project as needed. This approach guarantees visual consistency across all user interface elements, enhancing the overall user experience.
 
-:::image type="content" source="../../media/add-button-experience.png" alt-text="Screenshot that shows the experienc when you add a new button the UI Library.":::
+:::image type="content" source="../../media/add-button-experience.png" alt-text="Screenshot that shows the experience when you add a new button the UI Library.":::
 
 ```swift
 // Custom header button

@@ -7,7 +7,6 @@ ms.topic: concept-article
 ms.subservice: security
 ms.date: 11/15/2024
 ms.author: seshin
-ms.reviewer: whhender
 ---
 
 # Azure Synapse Analytics managed private endpoints
