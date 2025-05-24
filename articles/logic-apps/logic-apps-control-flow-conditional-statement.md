@@ -1,11 +1,11 @@
 ---
-title: Add conditions to workflows
-description: Create conditions that control workflow actions in Azure Logic Apps.
+title: Add Conditions to Control Workflow Actions
+description: Learn how to create conditions that control workflow actions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 05/22/2025
 ---
 
 # Add conditions to control workflow actions in Azure Logic Apps
@@ -39,19 +39,25 @@ This guide shows how to add a condition to your workflow and use the result to h
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. [Follow these general steps to add the **Condition** action to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. Add the trigger named **When a feed item is published** to your workflow. For detailed steps, see [Add a trigger to start your workflow](add-trigger-action-workflow.md?tabs=consumption#add-trigger).
+
+1. Below the trigger, add the **Condition** action to your workflow. For detailed steps, see [Add an action to run a task](add-trigger-action-workflow.md?tabs=consumption#add-action).
 
 1. In the **Condition** action, follow these steps to build your condition:
 
-   1. In the left-side box named **Choose a value**, enter the first value or field that you want to compare.
+   1. In the box named **Choose a value**, enter the first value or field that you want to compare.
 
-      When you select inside the **Choose a value** box, the dynamic content list opens automatically. From this list, you can select outputs from previous steps in your workflow.
+      After you select inside the **Choose a value** box, the options to open the dynamic content list (lightning icon) or expression editor (formula icon) appear.
 
-      This example selects the RSS trigger output named **Feed summary**.
+      :::image type="content" source="media/logic-apps-control-flow-conditional-statement/open-dynamic-content-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, RSS trigger, and Condition action with information pane open, and dynamic content button selected.":::
 
-      ![Screenshot shows Azure portal, Consumption workflow designer. RSS trigger, and Condition action with criteria construction.](./media/logic-apps-control-flow-conditional-statement/edit-condition-consumption.png)
+   1. Select the lightning icon to open the dynamic content list.
 
-   1. Open the middle list, select the operation to perform.
+      From this list, you can select outputs from previous steps in your workflow. This example selects the RSS trigger output named **Feed summary**. If you don't see this option, you might need to select **See more**.
+
+      :::image type="content" source="media/logic-apps-control-flow-conditional-statement/edit-condition-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, RSS trigger, and Condition action with criteria construction.":::
+
+   1. From the middle box, select the operation to perform.
    
       This example selects **contains**.
 
@@ -59,19 +65,19 @@ This guide shows how to add a condition to your workflow and use the result to h
    
       This example specifies the following string: **Microsoft**
 
-   The complete condition now looks like the following example:
+   The following example shows the complete condition:
 
-   ![Screenshot shows the Consumption workflow and the complete condition criteria.](./media/logic-apps-control-flow-conditional-statement/complete-condition-consumption.png)
+   :::image type="content" source="media/logic-apps-control-flow-conditional-statement/complete-condition-consumption.png" alt-text="Screenshot shows the Consumption workflow and the complete condition criteria.":::
 
-   - To add another row to your condition, from the **Add** menu, select **Add row**.
+   - To add another row to your condition, from the **New item** menu, select **Add row**.
 
-   - To add a group with subconditions, from the **Add** menu, select **Add group**.
+   - To add a group with subconditions, from the **New item** menu, select **Add group**.
 
    - To group existing rows, select the checkboxes for those rows, select the ellipses (...) button for any row, and then select **Make group**.
 
 1. In the **True** and **False** action paths, add the actions that you want to run, based on whether the condition is true or false respectively, for example:
 
-   ![Screenshot shows the Consumption workflow and the condition with true and false paths.](./media/logic-apps-control-flow-conditional-statement/condition-true-false-path-consumption.png)
+   :::image type="content" source="media/logic-apps-control-flow-conditional-statement/condition-true-false-path-consumption.png" alt-text="Screenshot shows the Consumption workflow and the condition with true and false paths.":::
 
    > [!TIP]
    >
@@ -83,25 +89,25 @@ This guide shows how to add a condition to your workflow and use the result to h
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. [Follow these general steps to add the **Condition** action to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. Add the trigger named **When a feed item is published** to your workflow. For detailed steps, see [Add a trigger to start your workflow](add-trigger-action-workflow.md?tabs=standard#add-trigger).
 
-1. On the designer, select the **Condition** action to open the information pane. Follow these steps to build your condition:
+1. Below the trigger, add the **Condition** action to your workflow. For detailed steps, see [Add an action to run a task](add-trigger-action-workflow.md?tabs=standard#add-action).
 
-   1. In the left-side box named **Choose a value**, enter the first value or field that you want to compare.
+1. In the **Condition** action, follow these steps to build your condition:
+
+   1. In the box named **Choose a value**, enter the first value or field that you want to compare.
 
       After you select inside the **Choose a value** box, the options to open the dynamic content list (lightning icon) or expression editor (formula icon) appear.
 
+      :::image type="content" source="media/logic-apps-control-flow-conditional-statement/open-dynamic-content-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, RSS trigger, and Condition action with information pane open, and dynamic content button selected.":::
+
    1. Select the lightning icon to open the dynamic content list.
 
-      From this list, you can select outputs from previous steps in your workflow.
+      From this list, you can select outputs from previous steps in your workflow. This example selects the RSS trigger output named **Feed summary**.
 
-      ![Screenshot shows Azure portal, Standard workflow designer, RSS trigger, and Condition action with information pane open, and dynamic content button selected.](./media/logic-apps-control-flow-conditional-statement/open-dynamic-content-standard.png)
+      :::image type="content" source="media/logic-apps-control-flow-conditional-statement/edit-condition-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, RSS trigger, and Condition action with criteria construction.":::
 
-      This example selects the RSS trigger output named **Feed summary**.
-
-      ![Screenshot shows Azure portal, Standard workflow designer, RSS trigger, and Condition action with criteria construction.](./media/logic-apps-control-flow-conditional-statement/edit-condition-standard.png)
-
-   1. From the middle list, select the operation to perform.
+   1. From the middle box, select the operation to perform.
    
       This example selects **contains**.
 
@@ -111,7 +117,7 @@ This guide shows how to add a condition to your workflow and use the result to h
 
    The following example shows the complete condition:
 
-   ![Screenshot shows the Standard workflow and the complete condition criteria.](./media/logic-apps-control-flow-conditional-statement/complete-condition-standard.png)
+   :::image type="content" source="media/logic-apps-control-flow-conditional-statement/complete-condition-standard.png" alt-text="Screenshot shows the Standard workflow and the complete condition criteria.":::
 
    - To add another row to your condition, from the **New item** menu, select **Add Row**.
 
@@ -121,7 +127,7 @@ This guide shows how to add a condition to your workflow and use the result to h
 
 1. In the **True** and **False** action paths, add the actions to run, based on whether the condition is true or false respectively, for example:
 
-   ![Screenshot shows the Standard workflow and the condition with true and false paths.](./media/logic-apps-control-flow-conditional-statement/condition-true-false-path-standard.png)
+   :::image type="content" source="media/logic-apps-control-flow-conditional-statement/condition-true-false-path-standard.png" alt-text="Screenshot shows the Standard workflow and the condition with true and false paths.":::
 
    > [!TIP]
    >
@@ -167,9 +173,9 @@ The following code shows the high-level JSON definition for the **Condition** ac
 },
 ```
 
-## Next steps
+## Related content
 
-* [Run steps based on different values (switch actions)](logic-apps-control-flow-switch-statement.md)
-* [Run and repeat steps (loops)](logic-apps-control-flow-loops.md)
-* [Run or merge parallel steps (branches)](logic-apps-control-flow-branches.md)
-* [Run steps based on grouped action status (scopes)](logic-apps-control-flow-run-steps-group-scopes.md)
+* [Create switch actions that run workflow actions based on specific values](logic-apps-control-flow-switch-statement.md)
+* [Add loops to repeat actions in workflows](logic-apps-control-flow-loops.md)
+* [Create or join parallel branches with workflow actions](logic-apps-control-flow-branches.md)
+* [Run actions based on group status by using scopes](logic-apps-control-flow-run-steps-group-scopes.md)
