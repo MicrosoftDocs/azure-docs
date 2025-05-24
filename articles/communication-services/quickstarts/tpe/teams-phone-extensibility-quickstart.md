@@ -5,7 +5,7 @@ description: This article describes how to extend Teams Phone System with Azure 
 author: radubulboaca
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: include
+ms.topic: coneptual
 ms.date: 05/20/2025
 ms.author: radubulboaca
 ms.custom: public_preview
@@ -28,7 +28,7 @@ This article describes how an independent software vendor (ISV) can provision Te
 - You grant Teams Tenant access to a CCaaS service for Graph API usage.
 - ISV is using the latest alpha version of Azure Communication Services Call Automation which as of publishing this document is 1.4.0-alpha.20250129.2 or newer.
 - ISV is using the Alpha version of the Azure Communication Services Client SDK v1.3.3 or newer.
-- You have allowlisted the ISV’s Azure subscription in Microsoft Teams.
+- You allowlisted the ISV’s Azure subscription in Microsoft Teams.
 
 ## Quick start
 
@@ -84,11 +84,11 @@ For this step, when you configure Teams, the webhook can be any URL. Enter any v
 
 ### Teams Admin: Provision Resource Account
 
-The Teams Administrator needs to run the following cmdlets. The Teams Admin needs to provision a Teams Resource Account for Teams Phone extensibility via cmdlets. Teams Admin Center is out of scope, requiring PowerShell 6.1.1 or greater. 
+The Teams Administrator needs to run the following cmdlets. The Teams Admin needs to provision a Teams Resource Account for Teams Phone extensibility via cmdlets. Teams Admin Center is out of scope, requiring PowerShell 6.1.1 or greater.
 
-Sign in to Teams PowerShell and update to the latest version by running this command: 
+Sign in to Teams PowerShell and update to the latest version by running this command:
 
-Example: 
+Example:
 
 ```azurecli
 Connect-MicrosoftTeams 
@@ -96,7 +96,7 @@ Connect-MicrosoftTeams
 Update-Module MicrosoftTeams 
 ```
 
-Use the [New-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/new-csonlineapplicationinstance?view=teams-ps) cmdlet to create a Resource Account. There's no change for Teams Phone extensibility in this command. The ApplicationId parameter is your third party bot ID. Don't use the Teams first person Application IDs defined in [Set-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/set-csonlineapplicationinstance?view=teams-ps#-applicationid) because they don't work for Teams Phone extensibility. It's up to the CCaaS developer on how to communicate the Application ID to the Teams Tenant.
+Use the [New-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/new-csonlineapplicationinstance) cmdlet to create a Resource Account. There's no change for Teams Phone extensibility in this command. The ApplicationId parameter is your third party bot ID. Don't use the Teams first person Application IDs defined in [Set-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/set-csonlineapplicationinstance#-applicationid) because they don't work for Teams Phone extensibility. It's up to the CCaaS developer on how to communicate the Application ID to the Teams Tenant.
 
 Example:
 
@@ -104,33 +104,33 @@ Example:
  New-CsOnlineApplicationInstance -UserPrincipalName myteamsphoneresourceaccount@contoso.com -ApplicationId aa123456-1234-1234-1234-aaa123456789 -DisplayName "My Teams Phone Resource Account" 
 ```
 
-Use the updated [Set-CSonlineApplicationInstance](/powershell/module/skype/set-csonlineapplicationinstance?view=skype-ps) command to assign the Resource Account to your Azure Communication Services Resource. This routes calls to that Azure Communication Services Resource. It's up to the CCaaS developer on how to communicate the `ACSResourceID` to the Teams Tenant.
+Use the updated [Set-CSonlineApplicationInstance](/powershell/module/skype/set-csonlineapplicationinstance) command to assign the Resource Account to your Azure Communication Services Resource. This command routes calls to that Azure Communication Services Resource. It's up to the CCaaS developer on how to communicate the `ACSResourceID` to the Teams Tenant.
 
-Example: 
+Example:
 
 ```azurecli
 Set-CsOnlineApplicationInstance -Identity myteamsphoneresourceaccount@contoso.com -ApplicationId aa123456-1234-1234-1234-aaa123456789 -AcsResourceId bb567890-1234-1234-1234-bbb123456789 
-``` 
+```
 
-Use the updated [Sync-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/sync-csonlineapplicationinstance?view=teams-ps) command to sync the Resource Account to your Agent Provisioning Service. This routes calls to that Azure Communication Services Resource. There's no change for Teams Phone extensibility in this command. 
+Use the updated [Sync-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/sync-csonlineapplicationinstance) command to sync the Resource Account to your Agent Provisioning Service. This command routes calls to that Azure Communication Services Resource. There's no change for Teams Phone extensibility in this command.
 
-Example: 
+Example:
 
 ```azurecli
 Sync-CsOnlineApplicationInstance -ObjectId cc123456-5678-5678-1234-ccc123456789 -ApplicationId aa123456-1234-1234-1234-aaa123456789  
 ```
 
-Optionally, you can use the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/get-csonlineapplicationinstance?view=teams-ps) cmdlet to return the provisioned Resource Account.
+Optionally, you can use the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/get-csonlineapplicationinstance) cmdlet to return the provisioned Resource Account.
 
 ### Teams Admin: Acquire and assign a phone number to Resource Account
 
-You need to assign a PSTN number to your RA to make a call to this endpoint. Let’s provision a Teams Phone Number and assign it to your recently provisioned Teams Resource Account. 
+You need to assign a PSTN number to your RA to make a call to this endpoint. Let’s provision a Teams Phone Number and assign it to your recently provisioned Teams Resource Account.
 
-1. Go to your [Teams Admin Center](https://admin.teams.microsoft.com/dashboard).   
+1. Go to your [Teams Admin Center](https://admin.teams.microsoft.com/dashboard).
 1. Sign in with your Teams admin user credentials.
-1. Go to the **Phone Number** section and provision your choice of Teams Phone number **Service** type. For more information, see [Get service phone numbers for Calling Plans - Microsoft Teams](/microsoftteams/getting-service-phone-numbers). 
-  Once provisioned, you need to assign the phone number to your Resource Account. 
-1. Run the following commands to assign the Teams Phone number to your Resource Account: 
+1. Go to the **Phone Number** section and provision your choice of Teams Phone number **Service** type. For more information, see [Get service phone numbers for Calling Plans - Microsoft Teams](/microsoftteams/getting-service-phone-numbers).
+  Once provisioned, you need to assign the phone number to your Resource Account.
+1. Run the following commands to assign the Teams Phone number to your Resource Account:
 
     ```azurecli
     Set-CsPhoneNumberAssignment -Identity <your-TeamsResourceAccount> -PhoneNumber <acquired-number> -PhoneNumberType <DirectRouting|CallingPlan|OperatorConnect> 
@@ -175,7 +175,7 @@ Once you grant the Microsoft Entra application appropriate Graph permissions, th
 
 The CCaaS Admin also needs elevated permissions to access Teams Resource Account information. The Graph API is getting Teams Resource Account information and that information is an asset owned by Teams Admin, so it requires privileged access as a Teams Admin. For more information, see [Permissions for Managing Resource Accounts](/microsoftteams/manage-resource-accounts#assign-permissions-for-managing-a-resource-account).
 
-Query definition: 
+Query definition:
 
 > https://graph.microsoft.com/beta/admin/teams/resourceAccounts 
 
@@ -202,25 +202,24 @@ Successful response:
 } 
 ```
 
-### CCaaS Developer: Receive and answer incoming call 
+### CCaaS Developer: Receive and answer incoming call
 
-The following steps demonstrate how to receive and answer an incoming Teams call. 
+The following steps demonstrate how to receive and answer an incoming Teams call.
 
 #### Prerequisites
 
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-1. A deployed Communication Services resource. [Create a Communication Services resource](/azure/communication-services/quickstarts/create-communication-resource). 
-1. A configured Event Grid endpoint: [Incoming call concepts - An Azure Communication Services concept document | Microsoft Learn](../../concepts/call-automation/incoming-call-notification#receiving-an-incoming-call-notification-from-event-grid).
+1. A deployed Communication Services resource. [Create a Communication Services resource](/azure/communication-services/quickstarts/create-communication-resource).
+1. A configured Event Grid endpoint: [Incoming call concepts - An Azure Communication Services concept document | Microsoft Learn](../../concepts/call-automation/incoming-call-notification.md#receiving-an-incoming-call-notification-from-event-grid).
 1. A Teams Phone number assigned to the resource account.
 1. A Teams Resource Account provisioned to send calls to the Azure Communication Services Resource.
 1. A Teams Resource Account provisioned with a Calling Plan.
 1. An Azure Communication Services Resource with permission to receive call from the Teams Resource Account.
 1. [Create and host a dev tunnel](/azure/developer/dev-tunnels/get-started).
-1. (Optional) Create a Microsoft Teams user with a phone license that is voice enabled. Teams Phone license is required to add Teams users to the call. Learn more about [Microsoft Teams business options](/microsoft-teams/compare-microsoft-teams-business-options). For more information, see [Set up Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system).
+1. (Optional) Create a Microsoft Teams user with a phone license that is voice enabled. Teams Phone license is required to add Teams users to the call. Learn more about [Microsoft Teams business options](/microsoftteams/compare-microsoft-teams-business-options). For more information, see [Set up Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system).
 1. Complete client and server consent as defined in [Access a user's Teams Phone separate from their Teams client](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md).
 
- 
-#### Setup and host your Azure dev tunnel 
+#### Setup and host your Azure dev tunnels
 
 Azure dev tunnels enable you to share local web services hosted on the internet. Run the commands to connect your local development environment to the public internet. Dev tunnels creates a persistent endpoint URL and which enables anonymous access. We use this endpoint to notify your application about calling events from the Azure Communication Services Call Automation service. 
 
@@ -360,7 +359,7 @@ The following code is a schema definition of a streaming data object. The audio 
 
 ### CCaaS Client Developer: How to authenticate as dual persona
 
-Developer needs to acquire the Teams Tenant ID and client ID. The developer needs to implement this acquisition. Once the client application acquires the Tenant ID and client ID, the developer implements the means to prompt the user. For more information, see [InteractiveBrowserCredential Class (Azure.Identity)](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
+Developer needs to acquire the Teams Tenant ID and client ID. The developer needs to implement this acquisition. Once the client application acquires the Tenant ID and client ID, the developer implements the means to prompt the user. For more information, see [InteractiveBrowserCredential Class (Azure.Identity)](/dotnet/api/azure.identity.interactivebrowsercredential).
 
 Once the user interaction is complete and auth is successful, a token is returned and passed to [AzureCommunicationTokenCredential class](/javascript/api/@azure/communication-common/azurecommunicationtokencredential?view=azure-node-latest) to return an Azure Communication Services token.
 
@@ -383,10 +382,9 @@ this._teamsCallAgent = await this._callClient.createTeamsCallAgent(this.tokenCre
 
 Developers need to get the on behalf of (OBO) identity (ID) Resource Account that the call needs to be placed on behalf of. The following articles describe how to place an outbound OBO call.
 
-Once the OBO identity is acquired, you need to set the `onBehalfOfOptions` in the `StartTeamsGroupCallOptions()` or `StartTeamsCallOptions()` method. For more information, see [StartTeamsGroupCallOptions interface](/javascript/api/azure-communication-services/@azure/communication-calling/startteamsgroupcalloptions?view=azure-communication-services-js) or [StartTeamsCallOptions interface](https://learn.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/startteamscalloptions?view=azure-communication-services-js).
+Once the OBO identity is acquired, you need to set the `onBehalfOfOptions` in the `StartTeamsGroupCallOptions()` or `StartTeamsCallOptions()` method. For more information, see [StartTeamsGroupCallOptions interface](/javascript/api/azure-communication-services/@azure/communication-calling/startteamsgroupcalloptions?view=azure-communication-services-js) or [StartTeamsCallOptions interface](/javascript/api/azure-communication-services/@azure/communication-calling/startteamscalloptions?view=azure-communication-services-js).
 
 Once you set the call options, then use the `startCall()` method in the [TeamsCallAgent interface](/javascript/api/azure-communication-services/@azure/communication-calling/teamscallagent?view=azure-communication-services-js).
-
 
 ```javascript
 ...

@@ -2,7 +2,7 @@
 title: Teams Phone extensibility overview
 titleSuffix: An Azure Communication Services article
 description: This article describes features of Teams Phone extensibility (TPE).
-author: vac0224
+author: henikaraa
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.date: 05/20/2025
@@ -22,7 +22,7 @@ Artificial intelligence (AI) technologies increase the complexity of customer en
 
 Azure Communication Services is enhancing Call Automation and Calling SDKs, empowering software developers to extend Microsoft Teams Phone into their line of business applications. Software developers can now provide their end users with access to Teams Phone features such as phone numbers, emergency calling, direct routing, and many others.
 
-Contact center as a Sservice (CCaaS) independent software vendors (ISVs) can enable their end customers to connect with their existing Teams Phone deployment and let them use Teams Phone capabilities within the application provided by the ISV. At the same time, customers can now extend their Teams Phone with advanced call queuing, agent handling, and routing capabilities provided by third-party CCaaS ISVs applications.
+Contact center as a Service (CCaaS) independent software vendors (ISVs) can enable their end customers to connect with their existing Teams Phone deployment and let them use Teams Phone capabilities within the application provided by the ISV. At the same time, customers can now extend their Teams Phone with advanced call queuing, agent handling, and routing capabilities provided by third-party CCaaS ISVs applications.
 
 ## Overview
 
@@ -55,12 +55,13 @@ For Contact Centers and Agents:
 
 ## Prerequisites
 
-- Your ISV must have Azure subscription allowlisted by Microsoft Teams.
-- To provision the Teams environment for these extensions, you must enable the following licenses:
-   - Teams Phone license for the agent, see [Assign Teams add-on licenses to users > Product names and SKU identifiers for licensing](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses#product-names-and-sku-identifiers-for-licensing).
-   - Enterprise voice enabled as described in [Teams Phone features](../../../concepts/pricing/teams-interop-pricing.md).
-   - [Microsoft Teams Phone Resource Account licenses](/microsoftteams/teams-add-on-licensing/virtual-user) for the designed Teams resource account, included in the Teams Phone license.
-   - PSTN connectivity: Teams Calling Plans, Operator Connect, or Direct Routing.
+Your ISV must have Azure subscription allowlisted by Microsoft Teams.
+
+To provision the Teams environment for these extensions, you must enable the following licenses:
+- Teams Phone license for the agent, see [Assign Teams add-on licenses to users > Product names and SKU identifiers for licensing](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses#product-names-and-sku-identifiers-for-licensing).
+- Enterprise voice enabled as described in [Teams Phone features](../../../concepts/pricing/teams-interop-pricing.md).
+- [Microsoft Teams Phone Resource Account licenses](/microsoftteams/teams-add-on-licensing/virtual-user) for the designed Teams resource account, included in the Teams Phone license.
+- PSTN connectivity: Teams Calling Plans, Operator Connect, or Direct Routing.
 
 ## Conversational AI integration
 
@@ -116,8 +117,7 @@ Using a resource account for outbound calls also enables the server application 
 
 The following diagram shows the Outbound PSTN Call flow.
 
-:::image type="content" source="./media/" alt-text="."  lightbox="./media/":::
-![Diagram shows the Outbound PSTN Call flow.](./media/teams-phone-extensibility-pstn-outbound-call-flow.png)
+:::image type="content" source="./media/teams-phone-extensibility-pstn-outbound-call-flow.png" alt-text="Diagram shows the Outbound PSTN Call flow in which starts with Azure Communication Services Calling SDK requesting an outbound call on behalf of Teams resource account. The Contoso Control Plane app places a call to the PSTN user."  lightbox="./media/teams-phone-extensibility-pstn-outbound-call-flow.png":::
 
 Call flow description:
 
@@ -166,7 +166,7 @@ Call flow description:
 1. Inbound PSTN call to a Teams Phone number provisioned for Azure Communication Services is routed to Call Automation.
 2. Contoso receives webhook notification of inbound call.
 3. Contoso routes call to the correct destination.
-4. Teams, Azure Communication Services Calling SDK, or PSTN clients receive inbound call notification. The notification is currently implemented in Teams policy. There's no API to choose the Calling SDK vs Teams client for inbound call ringing. It's controlled by policy.
+4. Teams, Azure Communication Services Calling SDK, or PSTN clients receive inbound call notification. The notification is currently implemented in Teams policy. There's no API to choose the Calling SDK vs Teams client for inbound call ringing. This behavior is controlled by policy.
 
 Outbound OBO calls from RAs are available in the CCaaS client / server applications. Call history and other call activity streams are contained within the specific end client the call is associated with. For example, the Teams client only shows Teams client calls, CCaaS calls to the user are omitted from the Teams client (and vice versa).
 
@@ -247,8 +247,7 @@ The following diagram shows an example call recording flow. In this example, the
 - [Cost and connectivity options](teams-phone-extensibility-connectivity-cost.md)
 
 ## Related articles
-<!-- 
-- [](teams-phone-client-capabilities.md)
+
+- [Teams Phone client capabilities](./teams-phone-client-capabilities.md)
 - [Teams Phone extensibility FAQ](./teams-phone-extensibility-faq.md)
-- [](teams-phone-extensibility-troubleshooting.md)
--->
+- [Teams Phone extensibility troubleshooting](./teams-phone-extensibility-troubleshooting.md)

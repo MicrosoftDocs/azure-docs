@@ -2,10 +2,12 @@
 title: Teams Phone extensibility FAQ
 titleSuffix: An Azure Communication Services article
 description: This article describes most common asked questions about Teams Phone extensibility.
-author: vac0224
+author: henikaraa
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.date: 05/20/2025
+ms.topic: conceptual
 ms.author: henikaraa
 ms.custom: public_preview
 services: azure-communication-services
@@ -60,7 +62,7 @@ Teams users need to ensure they enable one of the following options: Teams calli
 
 ## Can we expect a new business model for Teams Phone extensibility?
 
-The business model for TPE is consistent with Azure Communication Services regular business model. ISVs or developers are charged on pay-as-you-go model to benefit from Azure Communication Services Calling SDK (CTE pricing per minute). When customers consume Azure Consumer Services recording, AI Action API, or any other value added service. For more information, see [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/). Developers aren't charged for the PSTN usage because it uses the Teams users connectivity plans and licenses.
+The business model for TPE is consistent with Azure Communication Services regular business model. ISVs or developers are charged on pay-as-you-go model to benefit from Azure Communication Services Calling SDK for Custom Teams Endpoint (CTE) pricing per minute. When customers consume Azure Consumer Services recording, AI Action API, or any other value added service. For more information, see [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/). Developers aren't charged for the PSTN usage because it uses the Teams users connectivity plans and licenses.
 
 ## How can I monitor and debug calling issues?
 

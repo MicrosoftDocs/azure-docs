@@ -6,6 +6,8 @@ author: henikaraa
 ms.service: azure-communication-services
 ms.subservice: pstn
 ms.date: 05/20/2025
+ms.topic: conceptual
+ms.author: henikaraa
 ms.custom: public_preview
 services: azure-communication-services
 ---
@@ -62,9 +64,9 @@ Choosing the best PSTN connectivity solution for Teams Phone extensibility depen
 
 The Teams Phone Extensibility business model for independent software vendors (ISVs) includes charging contact center as a service (CCaaS) vendors for using Azure Communication Services SDKs. This model includes Calling SDK and VoIP consumption, which require charges for each leg between the call automation bot and the CCaaS agent.
 
-This solution also includes Audio Insights with access to mixed/unmixed audio streams or direct transcriptions. Using transcription incurs an [Azure AI Speech cost](/pricing/details/cognitive-services/speech-services/) for the selected Azure resource and Call Recording with pay-as-you-go for mixed/unmixed AV recordings. You can review current pricing for VoIP, transcription, and recording at [Azure Communication Services pricing](/pricing/details/communication-services/).
+This solution also includes Audio Insights with access to mixed/unmixed audio streams or direct transcriptions. Using transcription incurs an [Azure AI Speech pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/) for the selected Azure resource and Call Recording with pay-as-you-go for mixed/unmixed AV recordings. You can review current pricing for VoIP, transcription, and recording at [Azure Communication Services pricing](https://azure.microsoft.com/en-us/pricing/details/communication-services/).
 
-End users can take advantage of their Teams Calling plans or any of the connectivity options for PSTN usage with inbound / outbound and any associated extra usage. Users must enable the required Teams licenses including Teams Phone License for any agent involved in the call including SMEs, and Resource Account license for the provisioned Teams resource account. For more information, see [Microsoft Teams Phone - Cloud Phone System](/microsoft-teams/microsoft-teams-phone).
+End users can take advantage of their Teams Calling plans or any of the connectivity options for PSTN usage with inbound / outbound and any associated extra usage. Users must enable the required Teams licenses including Teams Phone License for any agent involved in the call including SMEs, and Resource Account license for the provisioned Teams resource account. For more information, see [Microsoft Teams Phone - Cloud Phone System](/microsoftteams/microsoft-teams-phone).
 
 ## Related articles
 

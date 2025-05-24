@@ -5,7 +5,7 @@ description: Conceptual documentation describing which capabilities Azure Commun
 author: jacadd
 manager: chpalm
 services: azure-communication-services
-ms.author: jamescadd
+ms.author: jacadd
 ms.date: 05/20/2025
 ms.topic: conceptual
 ms.custom: public_preview
@@ -68,7 +68,7 @@ The following list of capabilities is supported for scenarios where at least one
 | | Place call on hold and take call off hold (1:1 call only)   | PP | ✔️  | ❌ |
 | | Play music to the participant put on hold  | N/A | ❌  | ✔️ |
 | | Developer/agent can stream real-time audio out of the call to a WebSocket | PP | N/A | ✔️  |
-| Mid call media controls and device management | Existing Client Calling capabilities conform to [Calling SDK Features](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) | N/A | ✔️ | ❌ |
+| Mid call media controls and device management | Existing Client Calling capabilities conform to [Calling SDK Features](../../../concepts/voice-video-calling/calling-sdk-features) | N/A | ✔️ | ❌ |
 | Accessibility  | Agent can turn on Teams closed captions  | N/A | ❌  | N/A |
 | Emergency calling  | Agent can make an emergency call | PP | ✔️  | N/A |
 | | Honor Security desk policy for emergency calls  | PP | ✔️  | N/A |
@@ -90,10 +90,10 @@ The following list of capabilities is supported for scenarios where at least one
 | | Park a call  | N/A | ❌  | ❌  |
 | | Be parked  | N/A | ❌  | ❌  |
 | DevOps | Developers can access API operational metrics under Azure Metrics  | PuP | ✔️  | ✔️  |
-| | Developer can access call diagnostics under [Call Diagnostics Center](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/call-diagnostics) | PuP | ✔️  | ✔️  |
+| | Developer can access call diagnostics under [Call Diagnostics Center](../../../concepts/voice-video-calling/call-diagnostics) | PuP | ✔️  | ✔️  |
 | | Developers can subscribe to get API and call logs under [Azure Monitor](../../analytics/logs/voice-and-video-logs.md) | PuP | ✔️  | ✔️  |
 | | Developers can get insights about their resource usage under [Azure Communication Services Insights](../../analytics/logs/voice-and-video-logs.md)  | PuP | ✔️  | ✔️  |
-| | Developers can subscribe to receive call state and roster changes events via Event Grid: [Azure Communication Services Voice and video calling events](/azure/communication-services/quickstarts/voice-video-calling/handle-calling-events) | N/A | ❌  | ❌  |
+| | Developers can subscribe to receive call state and roster changes events via Event Grid: [Azure Communication Services Voice and video calling events](../../../quickstarts/voice-video-calling/handle-calling-events) | N/A | ❌  | ❌  |
 | Teams caller ID policies  | Replace the caller ID with Replace the caller ID with this service number (Outbound PSTN call from the Teams Resource account honors its assigned Caller ID policy in the Teams Admin Center) | GA  | ✔️  | N/A |
 | | Block incoming caller ID  | GA  | ✔️  | ✔️  |
 | | Override the caller ID policy  | GA  | ✔️  | ✔️  |
@@ -108,8 +108,8 @@ The following list of capabilities is supported for scenarios where at least one
 
 ## Next Steps
 
-- [Microsoft Teams Phone overview](https://learn.microsoft.com/en-us/microsoftteams/what-is-phone-system-in-office-365)
-- [Set up Microsoft Teams Phone in your organization](https://learn.microsoft.com/en-us/microsoftteams/setting-up-your-phone-system)
+- [Microsoft Teams Phone overview](/microsoftteams/what-is-phone-system-in-office-365)
+- [Set up Microsoft Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system)
 - [Access a user's Teams Phone separate from their Teams client](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md)
 - [Answer Teams Phone calls from Call Automation](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-answer-teams-calls.md)
 
