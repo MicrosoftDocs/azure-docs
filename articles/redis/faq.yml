@@ -10,7 +10,7 @@ metadata:
   appliesto:
     - ✅ Azure Managed Redis
     - ✅ Azure Cache for Redis
-title: Azure Redis cache FAQ
+title: Azure Redis Cache FAQ
 summary: |
   This article covers some basic questions about Azure Managed Redis and Azure Cache for Redis, and how the latest open-source Redis licensing changes affect Azure Redis.
 
@@ -24,7 +24,7 @@ sections:
 
       - question: Is Azure Cache for Redis or Azure Managed Redis also covered by the RSALv2 and SSPLv1 licenses?  
         answer: |
-          No, Azure Cache for Redis and Azure Managed Redis are offered to customers under the Microsoft terms of service. The RSALv2 and SSPLv1 licenses don't apply to your use of Azure Cache for Redis. 
+          No, Azure Cache for Redis and Azure Managed Redis are offered to customers under the Microsoft terms of service. The RSALv2 and SSPLv1 licenses don't apply to Azure Cache for Redis or Azure Managed Redis. 
 
       - question: |
           Do I need to do anything in response to the Redis licensing change?
@@ -34,14 +34,14 @@ sections:
       - question: |
           Will Azure Redis instances continue to receive patches and bug fixes?
         answer: |
-          Yes. All Azure Managed Redis and Azure Cache for Redis tiers will continue to receive patches and bug fixes.
+          Yes. All Azure Managed Redis and Azure Cache for Redis tiers will continue to receive Redis patches and bug fixes.
                           
   - name: General Azure Redis questions
     questions:
       - question: |
           Are there any deprecated Azure Cache for Redis services?
         answer: |
-          Yes. The [Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) and [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) services were retired on November 30, 2016.
+          Yes. The Managed Cache service and In-Role Cache service were retired on November 30, 2016.
 
       - question: |
           How can I get answers to frequently asked questions about Azure Redis?
