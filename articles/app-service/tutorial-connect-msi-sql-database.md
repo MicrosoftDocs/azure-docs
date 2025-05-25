@@ -237,7 +237,7 @@ Here's an example of the output:
 
 1. Connect to your Azure SQL's virtual server using Entra as the configured Entra Administrator user:
     * For instructions for  Microsoft SQL Server Management Studio (SSMS) or Visual Studio SQL Server Database Tools (SSDT), follow [the instructions in Azure SQL's documentation](/azure/azure-sql/database/authentication-microsoft-entra-connect-to-azure-sql?#connect-with-ssms-or-ssdt)
-    * For the ODBC and Go editions of `sqlcmd`, follow [the instructions in SQLCMD's documentation](../sql/tools/sqlcmd/sqlcmd-authentication).
+    * For the ODBC and Go editions of `sqlcmd`, follow [the instructions in SQLCMD's documentation](/sql/tools/sqlcmd/sqlcmd-authentication).
 2. Create `LOGIN` and `USER` objects that represent your App Service's Managed Identity in Azure SQL:
    * If you only intend your App Service to use a single database in your Azure SQL virtual server then you can create a Contained `USER` object without a server-level `LOGIN` object:
        1. First, ensure your connection in SSMS, SSDT or SQLCMD is to your intended target database and not the built-in `master` database.
