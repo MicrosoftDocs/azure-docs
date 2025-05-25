@@ -130,6 +130,8 @@ items:
         href: tutorials/file-sharing-tutorial-interop-chat.md
       - name: Add inline image support in Teams interop chat
         href: tutorials/inline-image-tutorial-interop-chat.md
+      - name: Add Adaptive Cards in chat
+        href: quickstarts/ui-library/get-started-chat-adaptive-card.md
     - name: Connect to Teams
       items:
       - name: Add Teams meeting chat to your app
@@ -1166,6 +1168,8 @@ items:
         href: tutorials/calling-widget/calling-widget-js-tutorial.md
     - name: Enable audio conferencing
       href: how-tos/calling-sdk/audio-conferencing.md
+    - name: Manage Teams meeting lobby
+      href: how-tos/calling-sdk/lobby.md
     - name: Enable breakout rooms
       href: how-tos/calling-sdk/breakoutrooms.md
     - name: Enable Together Mode

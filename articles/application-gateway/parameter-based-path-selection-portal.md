@@ -2,11 +2,11 @@
 title: Route traffic using parameter-based path selection in portal - Azure Application Gateway
 description: Use the Azure portal to configure an application gateway to choose the backend pool based on the value of a header, part of a URL, or a query string in the request.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 09/10/2024
-ms.author: greglin
+ms.author: mbender
 ms.custom: mvc
 ---
 # Perform parameter-based path selection with Azure Application Gateway - Azure portal
