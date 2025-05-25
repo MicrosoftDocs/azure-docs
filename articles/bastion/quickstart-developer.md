@@ -4,7 +4,7 @@ description: Learn how to connect to VMs using Bastion Developer.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: quickstart
-ms.date: 03/14/2025
+ms.date: 05/22/2025
 ms.author: cherylmc
 ms.custom: references_regions
 ---
