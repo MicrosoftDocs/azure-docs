@@ -78,7 +78,7 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
 
 1. Select **Next: Set summary logic >** to continue.
 
-1. On the **Set summary logic** page, enter your summary query. For example, to pull content from Google Cloud Platform, you might want to enter:
+1. On the **Set summary logic** page, enter your summary query. For example, to summarize data from Google Cloud Platform, you might want to enter:
 
     ```kusto
     GCPAuditLogs
@@ -86,7 +86,7 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
     | summarize count() by Severity
     ```
 
-    For for more information, see [Sample summary rule scenarios](#sample-summary-rule-scenarios) and [Kusto Query Language (KQL) in Azure Monitor](/azure/azure-monitor/log-query/log-query-overview).
+    For for more information, see [Sample summary rule scenarios](#sample-summary-rule-scenarios-in-microsoft-sentinel) and [Kusto Query Language (KQL) in Azure Monitor](/azure/azure-monitor/log-query/log-query-overview).
 
 1. Select **Preview results** to show an example of the data you'd collect with the configured query.
 
