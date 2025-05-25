@@ -235,6 +235,37 @@ Here's an example of the output:
 
 ### Grant permissions to managed identity
 
+1. Connect to your Azure SQL's virtual server using Entra as the configured Entra Administrator user:
+    * For instructions for  Microsoft SQL Server Management Studio (SSMS) or Visual Studio SQL Server Database Tools (SSDT), follow [the instructions in Azure SQL's documentation](../azure-sql/database/authentication-microsoft-entra-connect-to-azure-sql?view=azuresql#connect-with-ssms-or-ssdt)
+    * For the ODBC and Go editions of `sqlcmd`, follow [the instructions in SQLCMD's documentation](../sql/tools/sqlcmd/sqlcmd-authentication).
+2. Create `LOGIN` and `USER` objects that represent your App Service's Managed Identity in Azure SQL:
+   * If you only intend your App Service to use a single database in your Azure SQL virtual server then you can create a Contained `USER` object without a server-level `LOGIN` object:
+       1. First, ensure your connection in SSMS, SSDT or SQLCMD is to your intended target database and not the built-in `master` database.
+       2. Execute the following T-SQL: `CREATE USER [<app-service-name><disambiguation-suffix>] FROM EXTERNAL PROVIDER WITH OBJECT_ID = '<object-id>'`.
+           * Note that the square-brackets are T-SQL syntax for escaping identifiers; they do not represent optional syntax in this context [while they do in other documentation](../windows-server/administration/windows-commands/command-line-syntax-key).
+           * Replace `<object-id>` with the Entra Object ID string displayed in the System Managed Identity blade in the Azure Portal; values have the format "'01234567-89ab-cdef-0123-4567890abcdef'".
+           * Replace `<app-service-name>` in the above T-SQL with the Name of your Azure App Service, keeping the outer `[]` brackets.
+           * If an existing `USER` object has the same name as your `<app-service-name>`, or if another System Managed Identity elsewhere in your Tenant has the same Name as this `<app-service-name>`, then replace `<disambiguation-suffix>` with arbitrary text such that the final `USER` name is unique. [Note that the `USER` name **must** start with the `app-service-name`](../azure/azure-sql/database/authentication-microsoft-entra-create-users-with-nonunique-names?view=azuresql#t-sql-create-loginuser-syntax-for-nonunique-display-names). We recommend using the initial characters of the Object ID string. For example `CREATE USER [MyAppService01234567] FROM EXTERNAL PROVIDER WITH OBJECT_ID = '01234567-89ab-cdef-0123-4567890abcdef';`.
+               * Otherwise, no `<disambiguation-suffix>` is needed; for example: `CREATE USER [MyAppService] FROM EXTERNAL PROVIDER WITH OBJECT_ID = '01234567-89ab-cdef-0123-4567890abcdef';`.
+           
+           * If you are using App Service Slots, you will need to create additional `USER` objects for each Slot. The `USER` Name must take the form `<app-service-name>/slots/<slot-name><disambiguation-suffix>`. As before, the `<disambiguation-suffix>` can be omitted if the resultant `USER` Name is unique. For example: `CREATE USER [MyAppService/slots/staging] FROM EXTERNAL PROVIDER WITH OBJECT_ID = '76543210-cdef-89ab-cdef-3210-abcdef4567890';`. Remember that each Slot will have its own separate System Managed Identity and `OBJECT_ID` value.
+
+   * Otherwise, [if you prefer your App Service to connect to Azure SQL using a single server-level `LOGIN` object](../azure/azure-sql/database/authentication-azure-ad-logins?view=azuresql) which is mapped to one or more database-level `USER` objects:
+       1. First, ensure your connection in SSMS, SSDT or SQLCMD is the built-in `master` database.
+       2. Execute the following T-SQL: `CREATE LOGIN [<app-service-name><disambiguation-suffix>] FROM EXTERNAL PROVIDER WITH OBJECT_ID = '<object-id>';` after first replacing `<app-service-name>`, `<disambiguation-suffix>`, and `<object-id>` as per above for `CREATE USER`, and for any App Service deployment Slots too.
+       3. Then, for each intended target database, change your connection to point to that database and execute the following T-SQL: `CREATE USER [<arbitrary-user-name>] FROM LOGIN [<login-name>];` such that `<login-name>` **exactly matches** the newly-created `LOGIN` object from the previous step. The `USER` Name, however, can be any valid T-SQL `USER` name: there is no requirement it match the Managed Identity's associated Azure Resource object's name.
+          * Note that Azure SQL does not support the `USE <db-name>` statement to change the current connection's target database.
+
+3. After all `USER` objects have been created you will then need to grant them permission to read-from or write-to your database, and/or to perform other operations, depending on the minimal set of privileges your application needs to function correctly.
+   * If your application needs to read any data using T-SQL `SELECT` statements issued directly by the client (as opposed to using `EXEC` to call a `PROCEDURE` which contains the `SELECT` statement) then execute the following T-SQL for each `USER` you created above: `ALTER ROLE db_datareader ADD MEMBER [<user-name>];`
+   * If your application needs to write any data using T-SQL DML statements, such as `INSERT`, `UPDATE`, `DELETE` or `MERGE` statements (as opposed to using `EXEC` to call a `PROCEDURE` which contains DML) then execute the following T-SQL for each `USER` you created above: `ALTER ROLE db_datawriter ADD MEMBER [<user-name>];`
+   * If your application needs to execute any Stored Procedures using `EXEC` or will run any T-SQL making use of user-defined Table-Types or Table-valued Parameters then execute `GRANT EXECUTE TO [<user-name>];`
+  
+   * Avoid adding the new `USER` objects to the `db_owner` or `db_ddladmin` roles as that would widen a hypothetical SQL-injection bug in the App Service from being a narrow data-exfiltration vulnerability to a gaping wide hole enabling significant privilege-escalation.
+   * Note that the above `ALTER ROLE` and `GRANT` statements apply to all schemas in the database; if your App Service only needs read-access to a single table or a single schema then consider using the granular `GRANT SELECT ON SCHEMA::[<schema-name>]` or `GRANT SELECT ON OBJECT::[<schema-name>].[<object-name>]` commands instead of using the database-wide `db_datareader` role.
+
+#### Using Entra Groups instead of individual Managed Identities
+
 > [!NOTE]
 > If you want, you can add the identity to an [Microsoft Entra group](../active-directory/fundamentals/active-directory-manage-groups.md), then grant SQL Database access to the Microsoft Entra group instead of the identity. For example, the following commands add the managed identity from the previous step to a new group called _myAzureSQLDBAccessGroup_:
 > 
@@ -246,31 +277,15 @@ Here's an example of the output:
 > ```
 >
 
-1. In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<server-name>_ with your server name, _\<db-name>_ with the database name your app uses, and _\<aad-user-name>_ and _\<aad-password>_ with your Microsoft Entra user's credentials.
+To grant permissions for a Microsoft Entra group, use the group's display name instead (for example, *myAzureSQLDBAccessGroup*).
 
-    ```bash
-    sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
-    ```
+### Remarks
 
-1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs. For example, 
+> [!NOTE]
+> The back-end services of managed identities also [maintains a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you make a mistake configuring your SQL Database permissions and try to modify the permissions *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires.
 
-    ```sql
-    CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER With OBJECT_ID='xxx';
-    ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
-    ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
-    ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
-    GO
-    ```
-
-    *\<identity-name>* is the name of the managed identity in Microsoft Entra ID. If the identity is system-assigned, the name is always the same as the name of your App Service app. For a [deployment slot](deploy-staging-slots.md), the name of its system-assigned identity is *\<app-name>/slots/\<slot-name>*. To grant permissions for a Microsoft Entra group, use the group's display name instead (for example, *myAzureSQLDBAccessGroup*).
-
-1. Type `EXIT` to return to the Cloud Shell prompt.
-
-    > [!NOTE]
-    > The back-end services of managed identities also [maintains a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you make a mistake configuring your SQL Database permissions and try to modify the permissions *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires.
-
-    > [!NOTE]
-    > Microsoft Entra ID and managed identities are not supported for on-premises SQL Server. 
+> [!NOTE]
+> Microsoft Entra ID and managed identities are not supported for on-premises SQL Server. 
 
 ### Modify connection string
 
