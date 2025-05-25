@@ -32,6 +32,7 @@ We recommend that you [onboard your workspaces to the Defender portal](/unified-
 
 For more information, see:
 
+- [The Best of Microsoft Sentinel - now in Microsoft Defender](https://techcommunity.microsoft.com/blog/MicrosoftThreatProtectionBlog/the-best-of-microsoft-sentinel-%E2%80%94-now-in-microsoft-defender/4415822) (blog)
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
 - [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md)
 
