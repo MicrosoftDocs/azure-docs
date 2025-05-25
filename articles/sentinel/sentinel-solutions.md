@@ -14,7 +14,7 @@ appliesto:
 
 ---
 
-# About Microsoft Sentinel Out-of-the-box content
+# About Microsoft Sentinel out-of-the-box content
 
 Microsoft Sentinel *content* is Security Information and Event Management (SIEM) solution components that enable customers to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products, platforms, and services.
 
@@ -28,6 +28,7 @@ Content in Microsoft Sentinel includes any of the following types:
 - **[Notebooks](notebooks.md)** help SOC teams use advanced hunting features in Jupyter and Azure Notebooks
 - **[Watchlists](watchlists.md)** support the ingestion of *specific* data for enhanced threat detection and reduced alert fatigue
 - **[Playbooks and Azure Logic Apps custom connectors](automate-responses-with-playbooks.md)** provide features for automated investigation, remediation, and response scenarios in Microsoft Sentinel
+- **[Summary rule templates](summary-rules.md#deploy-pre-built-summary-rule-templates)** let you deploy tested, prebuilt rules that optimize costs and improve query performance by aggregating insights from incoming verbose logs   
 
 Microsoft Sentinel offers these content types as *solutions* and *standalone* items. *Solutions* are packages of Microsoft Sentinel content or Microsoft Sentinel API integrations, which fulfill an end-to-end product, domain, or industry vertical scenario in Microsoft Sentinel. Both solutions and standalone items are discoverable and managed from the Content hub.
 

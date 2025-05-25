@@ -1,16 +1,16 @@
 ---
 title: Summarize insights from raw data in an Auxiliary table to an Analytics table in Microsoft Sentinel (Preview)
-description: This article walks you through a sample process for using summary rules with auxiliary logs in Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+description: This article walks you through a sample process of using summary rules to extract actionable analytics from verbose logs ingested into low-cost storage.
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to #Don't change
-ms.date: 10/16/2024
+ms.date: 05/25/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
-#customer intent: As a SOC engineer, I want to create summary rules in Microsoft Sentinel to aggregate large sets of data for use across my SOC team activities.
+#customer intent: As a SOC engineer, I want to understand how to use summary rules extract actionable analytics from verbose logs ingested into low-cost storage.
 
 ---
 
@@ -56,9 +56,11 @@ This diagram shows the process described in this tutorial:
     - `dcr_immutable_id`
     - `dcr_stream_name`
 
-1. Grant the Microsoft Entra application you created earlier the **Log Analytics Data Contributor** role on the Log Analytics workspace. For more information, see [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Navigate to your data collection endpoint, and assign the **Log Analytics Data Contributor** role to your your Microsoft Entra application. This role grants your application permission to send logs to your Log Analytics workspace. For more information, see [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-1. Use our [sample script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin/examples/auxiliry-logs/config/bronze.conf) to update your Logstash configuration file. The updates configure Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to DCR format. In this script, make sure to replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
+1. Update the Logstash configuration file on your VM by copying our [sample Logstash configuration](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin/examples/auxiliry-logs/config/bronze.conf). The updates configure Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to the format used in your destination table schema. Make sure to replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
+
+    After you update the configuration file, CEF data that your VM logs will be sent to your Log Analytics workspace.
 
 1. Check to see that your CEF data is flowing from Logstash as expected. For example, in Microsoft Sentinel, go to the **Logs** page and run the following query:
 
