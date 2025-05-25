@@ -39,7 +39,7 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
   - Private-Links for the following managed resources:
     - Log Analytics Workspace (Optional)
 
-- [**Workloads**](./what-workload.md) - platform-managed resource groups protected by Azure policy guardrails and RBAC Deny Assignments that serve as the resource container for an individual service or application hosted within an Enclave. The primary components of a workload include:
+- [**Workloads**](./what-workload.md) - The resource group for customer deployed resourcesplatform-managed resource groups protected by Azure policy guardrails and RBAC Deny Assignments that serve as the resource container for an individual service or application hosted within an Enclave. The primary components of a workload include:
   - Managed resources protected by Azure Policy and Deny Assignments
   - Service Catalog - Collection of templates that can be used to deploy well-known services and applications.
 
@@ -53,7 +53,7 @@ When you deploy Azure Virtual Enclave resources, these are the resources that ar
   - Azure Firewall
   - Firewall Policy
   - Log Analytics Workspace
-  - Virtual WAN regional hub - A hub is created during enclave creation for each new region an enclave is deployed in.
+  - Virtual WAN regional hub - A secured hub is created during enclave creation for each new region an enclave is deployed in.
   - Virtual WAN hub for transit - Select one below per transit hub.
     - (Optional) VPN Gateway - Based on the transit hub configuration.
     - (Optional) ExpressRoute Gateway - Based on the transit hub configuration.
@@ -63,21 +63,20 @@ When you deploy Azure Virtual Enclave resources, these are the resources that ar
   - Azure monitor private link scope
   - Data collection endpoint
   - Data collection rule
-  - IP Group
   - Managed Identity
   - Network Interface
-  - Network security group / subnet (1 required, 1 for each customer subnet)
-  - Private DNS zone x5
+  - Network security group for each subnet (1 required, 1 for each customer subnet)
+  - Private DNS zone x5 
   - Private endpoint
   - Storage Account (for network flow logs)
   - May require Key Vault with Customer Managed Key (CMK)
   - (Optional) Log Analytics
   - (Optional) Bastion
   - (Optional) Bastion Subnet
-  - (Optional) Public IP
+  - (Optional) Public IP for Bastion
 
 - [**Workloads**](./what-workload.md)
-  - Resource Groups - You create each [resource group]() you need to organize your resources.
+  - Workload Resource Groups - You create each [workload resource group](./what-workload.md#workload-resource-group) you need to organize your resources.
 
 
 ## Virtual connection management
@@ -94,7 +93,7 @@ Azure Virtual Enclaves provides the following security layers built directly int
 
 **Azure Policy Guardrails**: Built in guardrails that secure the Virtual boundary ensuring only authorized resource types can be deployed into a given workload within an Enclave.
 These guardrails include:
-  - Resource Type protections
+  - Resource type protections
   - Network protections
   - Protections toward specific services and applications
 

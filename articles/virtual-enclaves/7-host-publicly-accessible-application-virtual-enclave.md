@@ -22,23 +22,23 @@ Web applications can be hosted inside of an enclave and made publicly accessible
 
 2. Deploy an enclave to host an Application Gateway (`Enclave-DMZ`) 
 
-3. Deploy a workload + the resources required to host the web application into `Enclave-WebApp`
+3. Deploy a workload and the resources required to host the web application into `Enclave-WebApp`
 
 4. Deploy an Endpoint that allows traffic to the web application's IP Address over port `443` and/or `80` into `Enclave-WebApp` (`endpoint-MyService`)
 
-5. Deploy a workload + Application Gateway into `Enclave-DMZ`
+5. Deploy a workload and Application Gateway into `Enclave-DMZ`
 
 6. Configure the Web Application Storage Account to Proxy through the Application Gateway
 
-7. Create an enclave Connection from `Enclave-DMZ` to `Enclave-WebApp`
-    - **Source Enclave**:`Enclave-DMZ`
-    - **Source IP/CIDR**:`Application Gateway PIP`
-    - **Destination Enclave**:`Enclave-WebApp`
-    - **Destination Endpoint**:`endpoint-MyService`
+7. Create an enclave connection from `Enclave-DMZ` to `Enclave-WebApp`
+    - **Source Enclave**: `Enclave-DMZ`
+    - **Source IP/CIDR**: `Application Gateway PIP`
+    - **Destination Enclave**: `Enclave-WebApp`
+    - **Destination Endpoint**: `endpoint-MyService`
 
 ## Public Web Application in the PLx Managed Service
 
-![Diagram showing the architecture for securely hosting an application in PLX Managed Service.](./media/secure-webapp-architecture-plx.png)
+![Diagram showing the architecture for securely hosting an application in the PLX Managed Service.](./media/secure-webapp-architecture-plx.png)
 
 ## Steps to make your web app accessible from the internet in the Gates managed service
 
