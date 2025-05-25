@@ -29,9 +29,9 @@ This article provides an example of how to use summary rules to aggregate insigh
 To complete this tutorial, you need:
 
 - A Microsoft Sentinel-enabled workspace.
-- Access to Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
-- [Monitoring Contributor](/azure/role-based-access-control/built-in-roles#monitoring-contributor) permissions to create a data collection rule (DCR) and a data collection endpoint (DCE). For more information, see [Data collection rules](https://learn.microsoft.com/azure/azure-monitor/logs/data-collection-rules).
 - A virtual machine (VM) with Logstash installed. For more information, see [Install Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html).
+- Access to Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
+- [Monitoring Contributor](/azure/role-based-access-control/built-in-roles#monitoring-contributor) permissions to create a data collection rule (DCR) and a data collection endpoint (DCE). For more information, see [Data collection rules](..//azure/azure-monitor/data-collection/data-collection-rule-overview).
 - To create summary rules in the Microsoft Defender portal, you must first onboard your workspace to the Defender portal. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 ## Process overview
@@ -56,7 +56,7 @@ This diagram shows the process described in this tutorial:
     - `dcr_immutable_id`
     - `dcr_stream_name`
 
-1. Navigate to your data collection endpoint, and assign the **Log Analytics Data Contributor** role to your your Microsoft Entra application. This role grants your application permission to send logs to your Log Analytics workspace. For more information, see [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Navigate to your data collection endpoint, and assign the **Log Analytics Data Contributor** role to your your Microsoft Entra application. This role grants your application permission to send logs to your Log Analytics workspace. For more information, see [Assign Azure roles using the Azure portal](../azure/role-based-access-control/role-assignments-portal).
 
 1. Update the Logstash configuration file on your VM by copying our [sample Logstash configuration](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin/examples/auxiliry-logs/config/bronze.conf). The updates configure Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to the format used in your destination table schema. Make sure to replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
 
