@@ -15,16 +15,17 @@ The **Commit Workflow v2** ensures that device-impacting changes to a Network Fa
 
 ## Prerequisites
 
+* **Runtime version**: `5.0.1` or later is required for Commit Workflow v2.
+
 * Your **Network Fabric must be in `Provisioned` state** and **configuration state must be `Succeeded`**.
 
 * The **fabric and all impacted resources must have admin state set to `Enabled`**.
 
 * You must have **BYOS (Bring Your Own Storage)** configured on the fabric to use the optional validation step.
 
-
 ## Commit Workflow v2 overview
 
-Any **patch operation** on parent resources or **Create/Update/Delete (CUD)** operation on connected child resources will now require an **explicit commit step**. Changes are **batched** until you lock, validate (optional), and commit them.
+Any `patch` operation on parent resources or `Create`/`Update`/`Delete` (CUD) operation on connected child resources now requires an explicit commit step. Changes are **batched** until you lock, validate (optional), and commit them.
 
 ### Step 1: Update resources
 
@@ -34,11 +35,11 @@ Once these changes are made, the fabric's configuration state will change to `Ac
 #### Example scenarios:
 
 * Create a new **Route Policy** and attach it to **Internal Network 1**
-* Create an additional **Internal Network 2**
 
-All these changes will be **batched**, but **not applied** to devices yet.
+* Create another **Internal Network 2**
 
----
+All these changes are **batched**, but **not applied** to devices yet.
+
 
 ### Step 2: Lock Configuration (Mandatory)
 
@@ -46,12 +47,12 @@ Lock the configuration to signal that all intended updates are completed. After 
 
 #### Azure CLI Command:
 
-```bash
-az networkfabric fabric networkFabricLock \
-  --type "configuration updates" \
-  --state "enable" \
-  --resource-group "example-rg" \
-  --resource-name "example-fabric"
+```Azure CLI
+az networkfabric fabric lock-fabric \
+    --action Lock \
+    --lock-type Configuration \
+    --network-fabric-name "example-fabric" \
+    --resource-group "example-rg"
 ```
 
 - Successful execution transitions the fabric to a **locked state**.
@@ -61,17 +62,18 @@ az networkfabric fabric networkFabricLock \
 
 ### Step 3: Validate updates (Optional but recommended)
 
-Validate the configuration using the `ViewDeviceConfiguration` post-action. This shows you how the device configuration will change before you commit.
+Validate the configuration using the `view-device-configuration` post-action. This provides insight into the expected configuration outcomes.
 
 > [!Important] 
 > BYOS must be configured on the Network Fabric.
 
 #### Azure CLI Command:
 
-```bash
-az networkfabric fabric ViewDeviceConfiguration \
-  --resource-group "example-rg" \
-  --resource-name "example-fabric"
+```Azure CLI
+
+az networkfabric fabric view-device-configuration \
+    --network-fabric-name "example-fabric"\
+    --resource-group "example-rg"
 ```
 
 This provides:
@@ -86,12 +88,12 @@ Unlock the configuration to make further changes, then repeat the lock/validate/
 
 #### Unlock Example:
 
-```bash
-az networkfabric fabric networkFabricLock \
-  --type "configuration updates" \
-  --state "disable" \
-  --resource-group "example-rg" \
-  --resource-name "example-fabric"
+```Azure CLI
+az networkfabric fabric lock-fabric \
+    --action Unlock \
+    --lock-type Configuration \
+    --network-fabric-name "example-fabric" \
+    --resource-group "example-rg"
 ```
 
 ### Step 4: Commit Configuration (Mandatory)
@@ -100,8 +102,8 @@ Commit the configuration to apply the batched changes to all relevant fabric dev
 
 #### Azure CLI Command:
 
-```bash
-az networkfabric fabric commitConfiguration \
+```Azure CLI
+az networkfabric fabric commit-configuration \
   --resource-group "example-rg" \
   --resource-name "example-fabric"
 ```
