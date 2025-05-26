@@ -19,7 +19,7 @@ ms.collection: usx-security
 This article provides an example of how to use summary rules to aggregate insights from an [auxiliary logs table](basic-logs-use-cases.md) to an Analytics table. In this example, you ingest CEF data from Logstash by deploying a custom connector using an ARM template.
 
 > [!IMPORTANT]
-> Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 >
@@ -50,6 +50,7 @@ This diagram shows the process described in this tutorial:
 
 
 1.  **Create a data collection endpoint (DCE), data collection rule (DCR), and a custom Auxiliary table.** 
+    
     Deploy this ARM template to create the required resources:
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FDataConnectors%2Fmicrosoft-sentinel-log-analytics-logstash-output-plugin%2Fexamples%2Fauxiliry-logs%2Farm-template%2Fdeploy-dcr-dce-cef-table.json)
@@ -65,7 +66,7 @@ This diagram shows the process described in this tutorial:
 
 1. **Grant your application permission to send data to your data collection endpoint.**
 
-    Navigate to your data collection endpoint, and assign the **Log Analytics Data Contributor** role to your your Microsoft Entra application. 
+    Navigate to your data collection endpoint, and assign the **Log Analytics Data Contributor** role to your Microsoft Entra application. 
 
     For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
@@ -88,6 +89,9 @@ This diagram shows the process described in this tutorial:
 
 1. **Create a summary rule.**
 
+    Create a summary rule to aggregate insights from the Auxiliary table to an Analytics table.
+    For more information about creating summary rules in Microsoft Sentinel, see [Create a new summary rule](../summary-rules.md#create-a-new-summary-rule).
+    
     Here are a couple of examples of summary rules to aggregate your CEF data:
 
     - **Lookup indicator of compromise (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurrences, and then query only those occurrences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other metadata, which can then be used against IoC lookups:
@@ -116,6 +120,11 @@ This diagram shows the process described in this tutorial:
           | project TimeGenerated, SentBytes, DeviceVendor 
           | make-series TotalBytesSent=sum(SentBytes) on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DeviceVendor 
         ```
+
+1. **Query the destination Analytics table.**
+
+    To view the data that was aggregated by the summary rule, run a query against the Analytics table you specified in the summary rule. 
+
 
 See more information on the following items used in the preceding examples, in the Kusto documentation:
 - [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
