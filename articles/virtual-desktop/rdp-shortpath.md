@@ -192,8 +192,8 @@ The following sections contain the source, destination and protocol requirements
  
 > If you want to wait to use the dedicated subnet, please follow the steps in [Configure host pool networking settings](configure-rdp-shortpath.md#configure-host-pool-networking-settings) and set **RDP Shortpath for public network (via TURN/relay)** to **Disabled**. Alternatively you can disable UDP on the local device, but that will disable UDP for all connections. To disable UDP on the local device, follow the steps in [Check that UDP is enabled on Windows client devices](configure-rdp-shortpath.md#check-that-udp-is-enabled-on-windows-client-devices), but set **Turn Off UDP On Client** to **Enabled**. If you block the IP range `20.202.0.0/16` on your network and are using VPN applications, it might cause disconnection issues.  
 >   
-> For a relayed connection with TURN, the IP subnet **20.202.0.0/16** is shared with Azure Communication Services. However, **Azure Virtual Desktop and Windows 365 will transition to the dedicated IP range 51.5.0.0/16**, which is exclusively reserved for these services.
-> **What to expect:** Starting **June 15**, Microsoft will begin rolling out the new TURN relay IP range **51.5.0.0/16** across **40 Azure regions**. This upgrade enhances **RDP Shortpath for public networks (via TURN/Relay)** connectivity, delivering faster, more reliable performance for Azure Virtual Desktop (AVD) and Windows 365 (W365) users.
+> For a relayed connection with TURN, the IP subnet `**20.202.0.0/16**` is shared with Azure Communication Services. However, **Azure Virtual Desktop and Windows 365 will transition to the dedicated IP range `51.5.0.0/16`**, which is exclusively reserved for these services.
+> **What to expect:** Starting **June 15**, Microsoft will begin rolling out the new TURN relay IP range `**51.5.0.0/16**` across **40 Azure regions**. This upgrade enhances **RDP Shortpath for public networks (via TURN/Relay)** connectivity, delivering faster, more reliable performance for Azure Virtual Desktop (AVD) and Windows 365 (W365) users.
 > **What admins should do:** To ensure uninterrupted service and optimal performance, administrators should:
 > - **Ensure accessibility**: Make sure the 51.5.0.0/16 subnet is accessible from all networks used for AVD and W365 connectivity. This includes both on-premises and cloud environments.
 > - **Use the ‘WindowsVirtualDesktop’ service tag**: This tag now includes the new subnet, simplifying firewall and network rule configuration.
@@ -203,9 +203,16 @@ The following sections contain the source, destination and protocol requirements
 >          - **Bypass VPNs, proxies, and Secure Web Gateways (SWGs)** for this traffic to reduce latency and improve reliability.
 >             - Use **User Defined Routes (UDRs)** in Azure to direct traffic to the internet instead of through virtual firewalls when needed.
 > **Supported regions:** The new TURN relay infrastructure is being deployed in 40 regions, including:
-> - **Americas**: South Central US, East US, West US, Canada Central, Brazil South, Mexico Central
-> - **EMEA**: UK South, West Europe, North Europe, France Central, Germany West Central, Switzerland North, Norway East, Italy North, Poland Central, Spain Central, South Africa North
-> - **Asia Pacific**: South India, Central India, UAE North, UAE Central, Southeast Asia, Korea Central, Korea South, Taiwan North, Israel Central, Australia East, Australia Southeast, Japan East, Japan West
+>| Continent       | Regions                                                                 |
+>|-----------------|-------------------------------------------------------------------------|
+>| **North America** | South Central US, East US, East US 2, East US2 EUAP, West Central US, West US, West US 2, West US 3, Central US, North Central US, Canada Central, >Canada East, Mexico Central |
+>| **South America** | Brazil South                                                          |
+>| **Europe**        | UK South, UK West, West Europe, North Europe, France Central, Germany West Central, Switzerland North, Norway East, Italy North, Poland Central, Sweden >Central, Spain Central |
+>| **Asia**          | South India, Central India, UAE North, UAE Central, South East Asia, Korea Central, Korea South, Taiwan North, Israel Central, Japan East, Japan West |
+>| **Oceania**       | Australia East, Australia Southeast                                   |
+>| **Africa**        | South Africa North, South Africa West                                 |
+>
+
 
 #### Session host virtual network
 
