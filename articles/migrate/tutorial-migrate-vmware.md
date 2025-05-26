@@ -77,6 +77,8 @@ Enable replication as follows:
 
     :::image type="content" source="./media/tutorial-migrate-vmware/select-assessment.png" alt-text="Screenshot on selecting assessment."::: 
 
+    :::image type="content" source="./media/tutorial-migrate-vmware/target-vm-security-type.png" alt-text="Screenshot shows the trusted virtual machines."::: 
+
 5. In **Virtual machines**, select VMs you want to migrate. Then select **Next: Target settings**.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/select-vms-inline.png" alt-text="Screenshot on selecting VMs." lightbox="./media/tutorial-migrate-vmware/select-vms-expanded.png":::
