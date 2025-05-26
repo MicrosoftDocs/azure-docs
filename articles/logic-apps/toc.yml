@@ -569,6 +569,21 @@ items:
         href: logic-apps-workflow-actions-triggers.md
       - name: Functions reference
         href: workflow-definition-language-functions-reference.md
+  - name: Logic Apps Standard Automated Test Framework Overview
+    href: testing-framework/automated-test-sdk-overview.md
+    items:
+      - name: Action Mock Class Definition
+        href: testing-framework/action-mock-class-definition.md
+      - name: Trigger Mock Class Definition
+        href: testing-framework/trigger-mock-class-definition.md
+      - name: Test Execution Context Class Definition
+        href: testing-framework/test-execution-context-class-definition.md
+      - name: Test Action Execution Context Class Definition
+        href: testing-framework/test-action-execution-context-class-definition.md
+      - name: Test Iteration Item Class Definition
+        href: testing-framework/test-iteration-item-class-definition.md
+      - name: Test Workflow Run Class Definition
+        href: testing-framework/test-workflow-run-class-definition.md     
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
