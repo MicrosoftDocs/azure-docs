@@ -369,9 +369,13 @@ Now, select machines for migration.
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/source-settings.png" alt-text="Screenshot that shows source settings.":::
 
 1. In **Virtual machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
-1. Check each VM you want to migrate. Then select **Next: Target settings**.
+1. By default, VMs that are eligible for Trusted Launch are migrated as TVMs. Trusted Launch VMs provide enhanced security features such as secure boot and virtual TPM at no additional cost, and we recommend using them whenever applicable.
+
+
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-vms-inline.png" alt-text="Screenshot that shows selecting VMs." lightbox="./media/tutorial-migrate-physical-virtual-machines/select-vms-expanded.png":::
+
+1. Check each VM you want to migrate. Then select **Next: Target settings**.
 
 1. In **Target settings**, select the subscription to which you'll migrate. (The region is set to your selection in the previous step and can't be modified.) Specify the resource group in which the Azure VMs will reside after migration.
 1. In **Virtual Network**, select the Azure virtual network/subnet to which the Azure VMs will be joined after migration.
@@ -406,6 +410,8 @@ Now, select machines for migration.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use.
+
+1. **VM Security Type**: Azure Migrate recommends migrating eligible VMs to Trusted Launch Virtual Machines (TVMs) for enhanced security. By default, the VM security type is set to Trusted Launch. VMs that are not eligible for Trusted Launch are automatically be configured as standard security VMs. 
 
 1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
