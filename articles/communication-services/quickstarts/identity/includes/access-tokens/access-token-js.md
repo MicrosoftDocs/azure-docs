@@ -145,7 +145,7 @@ You can use the `getUserDetail` method to retrieve information about a user, inc
 ```javascript
 const customId = "alice@contoso.com";
 let user = await identityClient.createUser({ customId });
-var userDetails = client.getUserDetail(user);
+let userDetails = client.getUserDetail(user);
 console.log(`\nUser ID: ${user.communicationUserId}`);
 console.log(`\nCustom ID: ${userDetails.customId}`);
 console.log(`\nLast token issued at: ${userDetails.lastTokenIssuedAt}`);
