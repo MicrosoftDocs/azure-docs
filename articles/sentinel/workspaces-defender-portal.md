@@ -35,9 +35,6 @@ For example, you might be working on a global SOC team in a company that has mul
 
 Where you have multiple Microsoft Sentinel workspaces within a Microsoft Entra ID tenant, consider using the primary workspace for your global security operations center.
 
-##
-Important: Prior to onboarding, customers who have IRM services enabled will be required to connect IRM to the XDR-Sentinel connector in their primary workspace. If the customer does not want to see IRM alerts and incidents in the primary workspace, IRM can be opted out of the integration with XDR. If the direct Sentinel-IRM connector is connected to any of Sentinel's secondary workspaces, the customer must disconnect it prior to onboarding.
-
 ## Permissions to manage workspaces and view workspace data
 
 Use one of the following roles or role combinations to manage primary and secondary workspaces:
