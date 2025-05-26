@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 04/14/2025
+ms.date: 05/26/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -39,7 +39,7 @@ Some details about storage accounts:
 - **Restore disk**: The VM restore job generates a template, which you can download and use to specify custom VM settings. VHD files are also copied when restoring managed disks **< 4 TB** or VMs containing **< 16 disks** from a Vault-Standard recovery point, or when restoring unmanaged disks. These files are then moved to Managed storage. To prevent extra charges, delete VHDs from the Staging Storage Account.
 - **Replace disk**: When replacing a managed disk from a Vault-Standard recovery point that's **< 4 TB** or a VM containing **< 16 disks**, a VHD file is created in the specified storage account. After replacement, source VM disks remain in the designated Resource Group, and VHDs stay in the storage account; you can delete or retain the source disk and the VHDs as needed.
 - **Storage account location**: The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
-- **Storage type**: Blob storage isn't supported.
+- **Storage type**: Blob Storage account isn't supported because the Premium Storage account  it requires is excluded for cost optimization.
 - **Premium storage**:
   - When you restore non-premium VMs, premium storage accounts aren't supported.
   - When you restore managed VMs, premium storage accounts configured with network rules aren't supported.
