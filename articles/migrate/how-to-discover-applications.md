@@ -79,7 +79,7 @@ The sign-in used to connect to a source SQL Server instance requires sysadmin ro
 
 Once connected, the appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours, and the performance data is captured every 30 seconds. Hence, any change to the properties of the SQL Server instance and databases such as database status, compatibility level, etc. can take up to 24 hours to update on the portal.
 
-## Discover MySQL Server instances and databases(preview)
+## Discover MySQL Server instances and databases (preview)
 
 - Software inventory also identifies the MySQL Server instances running in your VMware, Microsoft Hyper-V, and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
 - If you haven't provided Windows or Linux authentication and MySQL Server authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective MySQL Server instances.
