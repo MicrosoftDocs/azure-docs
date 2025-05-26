@@ -190,7 +190,7 @@ The following list shows the supported parameters used in `server`. If you use p
 
 ### Version 1.0
 
-The Amazon RDS for Oracle linked service supports the following properties:
+The Amazon RDS for Oracle linked service supports the following properties when apply version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
