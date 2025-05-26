@@ -30,7 +30,7 @@ Any `patch` operation on parent resources or `Create`/`Update`/`Delete` (CUD) op
 ### Step 1: Update resources
 
 Make patch or CUD operations via Azure CLI, Portal, or ARM template.
-Once these changes are made, the fabric's configuration state will change to `Accepted (Pending Commit)`.
+Once these changes are made, the fabric's configuration state will changes to `Accepted (Pending Commit)`.
 
 #### Example scenarios:
 
@@ -62,7 +62,7 @@ az networkfabric fabric lock-fabric \
 
 ### Step 3: Validate updates (Optional but recommended)
 
-Validate the configuration using the `view-device-configuration` post-action. This provides insight into the expected configuration outcomes.
+Validate the configuration using the `view-device-configuration` post-action. This step provides insight into the expected configuration outcomes.
 
 > [!Important] 
 > BYOS must be configured on the Network Fabric.
@@ -75,8 +75,6 @@ az networkfabric fabric view-device-configuration \
     --network-fabric-name "example-fabric"\
     --resource-group "example-rg"
 ```
-
-This provides:
 
 - **Pre-Device Changes**: Current config for all devices (CE, TOR, Management Switches)
 
