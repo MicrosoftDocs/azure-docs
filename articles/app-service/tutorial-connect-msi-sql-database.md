@@ -235,11 +235,11 @@ Here's an example of the output:
 
 ### Grant permissions to managed identity
 
-1. Connect to your Azure SQL's virtual server using Entra as the configured Entra Administrator user:
+1. Connect to your Azure SQL database's logical server using Entra as the configured Entra Administrator user:
     * For instructions for  Microsoft SQL Server Management Studio (SSMS) or Visual Studio SQL Server Database Tools (SSDT), follow [the instructions in Azure SQL's documentation](/azure/azure-sql/database/authentication-microsoft-entra-connect-to-azure-sql?#connect-with-ssms-or-ssdt)
     * For the ODBC and Go editions of `sqlcmd`, follow [the instructions in SQLCMD's documentation](/sql/tools/sqlcmd/sqlcmd-authentication).
 2. Create `LOGIN` and `USER` objects that represent your App Service's Managed Identity in Azure SQL:
-   * If you only intend your App Service to use a single database in your Azure SQL virtual server then you can create a Contained `USER` object without a server-level `LOGIN` object:
+   * If you only intend your App Service to use a single database in your Azure SQL logical server then you can create a Contained `USER` object without a server-level `LOGIN` object:
        1. First, ensure your connection in SSMS, SSDT or SQLCMD is to your intended target database and not the built-in `master` database.
        2. Execute the following T-SQL: `CREATE USER [<app-service-name><disambiguation-suffix>] FROM EXTERNAL PROVIDER WITH OBJECT_ID = '<object-id>'`.
            * Note that the square-brackets are T-SQL syntax for escaping identifiers; they do not represent optional syntax in this context [while they do in other documentation\(https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/command-line-syntax-key).
