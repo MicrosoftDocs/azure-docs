@@ -42,10 +42,7 @@ Before getting started, here’s a quick refresher on core Azure Web PubSub conc
 
 In this scenario, you’ll simulate server-side broadcasting using the `sendToGroup` REST API. This demonstrates how the service routes a message from your backend to all clients in a specified group.
 
-### Watch the video walkthrough
-[!!!!MISSING!!!!]
-
-### Steps (recap from video)
+### Steps
 1. In the Azure portal, navigate to your Azure Web PubSub resource.  
 2. Open the **LiveTry** blade.  
 3. Click **+ Add Client** to simulate multiple connections.  
@@ -65,10 +62,7 @@ Try repeating the steps with multiple clients to visualize message broadcasting 
 
 In this scenario, you’ll simulate a client sending a message to other clients in the same group—similar to a user posting a message in a chat room.
 
-### Watch the video walkthrough
-[!!!!MISSING!!!!]
-
-### Steps (recap from video)
+### Steps
 1. In **LiveTry**, add two or more clients and specify the same value for the `Initial Groups` field.  
 2. For the client that will send the message, select **Allow client to send to all groups**.  
 3. Switch to that client’s panel, specify the group name, enter a message, and click **Invoke**.  
