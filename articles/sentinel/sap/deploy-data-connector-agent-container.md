@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 10/28/2024
+ms.date: 05/26/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -47,6 +47,9 @@ Content in this article is relevant for your **security** team.
 Before you connect your SAP system to Microsoft Sentinel:
 
 - Make sure that all of the deployment prerequisites are in place. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
+
+    > [!IMPORTANT]
+    > If you're working with the agentless data connector, you need the **Entra ID Application Developer** role or higher to connect the data connector. If you don't have this permission, work with a colleague that has these permissions to manually create the data collection rule (DCR) and data collection endpoint (DCE). For the full procedure, see the [connect the agentless data connector](#connect-your-agentless-data-connector-limited-preview) step.
 
 - Make sure that you have the Microsoft Sentinel solution for **SAP applications** [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md)
 
@@ -336,7 +339,28 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 
 1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agent-less (Preview)** data connector.
 
-1. In the **Configuration** area, scroll down and select **Add SAP client**.
+1. In the **Configuration** area, expand step **1. Trigger automatic deployment of required Azure resources / SOC Engineer**, and before you select **deploy required Azure resources**, check if you have the correct permissions.
+
+    > [!IMPORTANT]
+    > If you don't have the **Entra ID Application Developer** role or higher, don't select **Deploy required azure resources**. Continue to the next step instead. If you select **deploy required Azure resources** without the required permissions, the deployment fails with an error message, for example: "Deploy required azure resources" (errors may vary).
+
+1. Do one of the following: 
+    - If you have the **Entra ID Application Developer** role or higher, select **Deploy required Azure resources** and continue to the next step.
+    - If you don't have the **Entra ID Application Developer** role or higher, work with your Entra ID administrator or another colleague with the required permissions to [manually create the required DCR and DCE](deploy-data-connector-agentless.md#create-a-data-collection-rule-and-data-collection-endpoint-for-the-sap-agentless-data-connector) in your Azure subscription. As part of this process:
+        - Share the DCR ID with your colleague. 
+        - After your colleague is finished setting up the DCR, ask for the client ID and client secret from the DCR. The SAP admin uses this information to post the DCR. 
+        - Ensure that as part of setting up the DCR, this colleague assigns the **Monitoring Metrics Publishing** role to the service principal.        
+               
+        1. Skip step 1 (don't select **Deploy required azure resources**) and continue to step **2. Connect to an SAP Client / SAP Basis**.  
+    
+1. Review the information in step **2. Deploy an OAuth2 client credentials artifact in the SAP Integration Suite / SAP Admin** and copy any information you might need for a later step.
+
+1. In the **Configuration** area, expand step **2. Connect to an SAP Client / SAP Basis**.
+
+    > [!NOTE]
+    > If you're a SAP administrator and don't have access to the connector installation, download the [integration package](https://aka.ms/SAPAgentlessPackage) directly. 
+
+1. Scroll down and select **Add SAP client**.
 
 1. In the **Connect to an SAP Client** side pane, enter the following details:
 
