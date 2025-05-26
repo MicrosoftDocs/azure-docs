@@ -1,3 +1,14 @@
+---
+title: Test Action Execution Context Class Definition
+description: Describes the TestActionExecutionContext class that stores information about the current action being executed in Logic Apps workflow tests, including action name, inputs, parent action, and iteration context.
+services: logic-apps
+ms.suite: integration
+author: wsilveiranz
+ms.reviewer: estfan, azla
+ms.topic: conceptual
+ms.date: 05/26/2025
+---
+
 # TestActionExecutionContext
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions

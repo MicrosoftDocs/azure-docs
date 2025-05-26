@@ -1,3 +1,14 @@
+---
+title: Trigger Mock Class Definition
+description: Describes the TriggerMock class for simulating triggers in Logic Apps workflow unit tests, including its constructors, usage examples for static and dynamic outputs, and error handling.
+services: logic-apps
+ms.suite: integration
+author: wsilveiranz
+ms.reviewer: estfan, azla
+ms.topic: conceptual
+ms.date: 05/26/2025
+---
+
 # TriggerMock
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions

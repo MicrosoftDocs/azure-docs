@@ -1,3 +1,14 @@
+---
+title: Test Execution Context Class Definition
+description: Describes the TestExecutionContext class that provides execution context for Logic Apps workflow testing, helping maintain state during test execution and creating dynamic mocks.
+services: logic-apps
+ms.suite: integration
+author: wsilveiranz
+ms.reviewer: estfan, azla
+ms.topic: conceptual
+ms.date: 05/26/2025
+---
+
 # TestExecutionContext
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
@@ -48,7 +59,7 @@ var dynamicMock = new ActionMock(
             TestWorkflowStatus.Succeeded, 
             "ProcessOrder", 
             new MockOutput { Body = JToken.Parse(@"{""status"": ""standard""}") }
-        );
+            );
     }
 );
 ```

@@ -1,3 +1,14 @@
+---
+title: Test Iteration Item Class Definition
+description: Describes the TestIterationItem class that represents an item in an iteration context when testing Logic Apps workflows with looping actions, providing access to current item and index.
+services: logic-apps
+ms.suite: integration
+author: wsilveiranz
+ms.reviewer: estfan, azla
+ms.topic: conceptual
+ms.date: 05/26/2025
+---
+
 # TestIterationItem
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
