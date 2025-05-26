@@ -325,7 +325,7 @@
     - name: Purview Information Protection data
       href: connect-microsoft-purview.md
     - name: Windows security events
-      href: data-connectors/windows-security-events-via-ama.md
+      href: data-connectors-reference.md#windows-security-events-via-ama
   - name: Configure ingestion-time transformation
     href: configure-data-transformation.md
   - name: Configure RDP login detection

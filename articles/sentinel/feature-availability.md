@@ -58,12 +58,12 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |[Azure Activity](data-connectors-reference.md#azure-activity) |GA |&#x2705;| &#x2705;|&#x2705; |
 |[Azure DDoS Protection](connect-services-diagnostic-setting-based.md) |GA |&#x2705;| &#x2705;|&#10060; |
 |[Azure Firewall](data-connectors-reference.md#azure-firewall) |GA |&#x2705;| &#x2705;|&#x2705; |
-|[Azure Information Protection (Preview)](data-connectors-reference.md#azure-information-protection) |Deprecated |&#10060; |&#10060; |&#10060; |
+|[Azure Information Protection (Preview)](data-connectors-reference.md#microsoft-purview-information-protection) |Deprecated |&#10060; |&#10060; |&#10060; |
 |[Azure Key Vault](data-connectors-reference.md#azure-key-vault) |Public preview |&#x2705; |&#x2705;|&#x2705; |
 |[Azure Kubernetes Service (AKS)](data-connectors-reference.md#azure-kubernetes-service-aks) |Public preview |&#x2705;| &#x2705;|&#x2705; |
 |[Azure SQL Databases](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-sql-solution-query-deep-dive/ba-p/2597961) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Azure Web Application Firewall (WAF)](data-connectors-reference.md#azure-web-application-firewall-waf) |GA |&#x2705; |&#x2705;|&#x2705; |
-|[Cisco ASA](data-connectors-reference.md#cisco-asa) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Cisco ASA](data-connectors-reference.md#cisco-asaftd-via-ama-preview) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Codeless Connectors Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) |Public preview |&#x2705; |&#10060;|&#10060; |
 |[Common Event Format (CEF)](connect-common-event-format.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Common Event Format (CEF) via AMA](connect-cef-syslog-ama.md) |GA |&#x2705;|&#x2705;  |&#x2705; |
