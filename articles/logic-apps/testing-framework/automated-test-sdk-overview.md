@@ -21,10 +21,10 @@ The classes below are part of the `Microsoft.Azure.Workflows.UnitTesting.Definit
 |-------|-------------|
 | [ActionMock](action-mock-class-definition.md) | Creates a mocked instance of an action in a workflow |
 | [TriggerMock](trigger-mock-class-definition.md) | Creates a mocked instance of a trigger in a workflow |
-| [TestExecutionContext](TestExecutionContext-document.md) | Represents the execution context for a unit test |
-| [TestActionExecutionContext](TestActionExecutionContext-document.md) | Represents the execution context for a unit test action |
-| [TestIterationItem](TestIterationItem-document.md) | Represents an iteration item for unit test execution context |
-| [TestWorkflowRun](TestWorkflowRun-document.md) | Represents flow run properties for a workflow test |
+| [TestExecutionContext](test-execution-context-class-definition.md) | Represents the execution context for a unit test |
+| [TestActionExecutionContext](test-action-execution-context-class-definition.md) | Represents the execution context for a unit test action |
+| [TestIterationItem](test-iteration-item-class-definition.md) | Represents an iteration item for unit test execution context |
+| [TestWorkflowRun](test-workflow-run-class-definition.md) | Represents flow run properties for a workflow test |
 
 
 

@@ -71,7 +71,7 @@ var iterationContext = new TestActionExecutionContext
 | ActionName | Gets or sets the current action name | string |
 | ActionInputs | Gets or sets the current action inputs | JToken |
 | ParentActionName | Gets or sets the current parent action name | string |
-| CurrentIterationInput | Gets or sets the current iteration input | [TestIterationItem](TestIterationItem-document.md) |
+| CurrentIterationInput | Gets or sets the current iteration input | [TestIterationItem](test-iteration-item-class-definition.md) |
 
 ## Constructor
 

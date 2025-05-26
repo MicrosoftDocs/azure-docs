@@ -68,7 +68,7 @@ var dynamicMock = new ActionMock(
 
 | Name | Description | Type |
 |------|-------------|------|
-| ActionContext | Gets the current action context | [TestActionExecutionContext](TestActionExecutionContext-document.md) |
+| ActionContext | Gets the current action context | [TestActionExecutionContext](test-action-execution-context-class-definition.md) |
 
 ## Constructor
 
