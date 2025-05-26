@@ -51,7 +51,7 @@
         - name: Network Packet Broker
           href: concepts-nexus-network-packet-broker.md
         - name: Commit Workflow v2
-          href: concepts-commit-workflow-v2
+          href: concepts-commit-workflow-v2.md
         - name: Route Policy
           expanded: false
           items:
