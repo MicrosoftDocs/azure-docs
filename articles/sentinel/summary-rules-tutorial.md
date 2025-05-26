@@ -42,10 +42,15 @@ This diagram shows the process described in this tutorial:
 
 ## Use summary rules with auxiliary logs
 
-1. Create a Microsoft Entra application, and note the application's **Client ID** and **Secret**. For more information, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal).
+1. **Register a Microsoft Entra application.**
+
+    Create a Microsoft Entra application, and note the application's **Client ID** and **Secret**. For more information, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal).
+
+    The Microsoft Entra application authenticates the Logstash output plugin, which sends logs to your Log Analytics workspace.
 
 
-1. Deploy the following ARM template to your Microsoft Sentinel workspace to create a custom table with data collection rules (DCR) and a data collection endpoint (DCE):
+1.  **Create a data collection endpoint (DCE), data collection rule (DCR), and a custom Auxiliary table.** 
+    Deploy this ARM template to create the required resources:
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FDataConnectors%2Fmicrosoft-sentinel-log-analytics-logstash-output-plugin%2Fexamples%2Fauxiliry-logs%2Farm-template%2Fdeploy-dcr-dce-cef-table.json)
 
@@ -55,21 +60,35 @@ This diagram shows the process described in this tutorial:
     - `data_collection_endpoint`
     - `dcr_immutable_id`
     - `dcr_stream_name`
+    
+    The data collection endpoint is the endpoint to which your Logstash instance sends logs. The data collection rule (DCR) defines which data to send to which table and how to process that data. For more information, see [Data collection endpoints](/azure/azure-monitor/data-collection/data-collection-endpoint-overview) and [Data collection rules](/azure/azure-monitor/data-collection/data-collection-rule-overview). 
 
-1. Navigate to your data collection endpoint, and assign the **Log Analytics Data Contributor** role to your your Microsoft Entra application. This role grants your application permission to send logs to your Log Analytics workspace. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+1. **Grant your application permission to send data to your data collection endpoint.**
 
-1. Update the Logstash configuration file on your VM by copying our [sample Logstash configuration](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin/examples/auxiliry-logs/config/bronze.conf). The updates configure Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to the format used in your destination table schema. Make sure to replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
+    Navigate to your data collection endpoint, and assign the **Log Analytics Data Contributor** role to your your Microsoft Entra application. 
 
-    After you update the configuration file, CEF data that your VM logs will be sent to your Log Analytics workspace.
+    For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-1. Check to see that your CEF data is flowing from Logstash as expected. For example, in Microsoft Sentinel, go to the **Logs** page and run the following query:
+1. **Update the Logstash configuration file on your VM.** 
+
+    Copy our [sample Logstash configuration](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin/examples/auxiliry-logs/config/bronze.conf) to your VM. Make sure to replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
+
+    This file configures Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to the format used in your destination table schema. 
+    
+    After you update the configuration file and restart Logstash, CEF data that your VM logs will be sent to your Log Analytics workspace.
+
+1. **Query your Auxiliary table to verify that data is being ingested.**
+
+    In Microsoft Sentinel, go to the **Logs** page and run a query. For example:
 
     ```kusto
     CommonSecurityLog_CL
     | take 10
     ```
 
-1. Create summary rules that aggregate your CEF data. For example:
+1. **Create a summary rule.**
+
+    Here are a couple of examples of summary rules to aggregate your CEF data:
 
     - **Lookup indicator of compromise (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurrences, and then query only those occurrences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other metadata, which can then be used against IoC lookups:
 
