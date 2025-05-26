@@ -1,23 +1,24 @@
 ---
-title: Best practices for Using and Monitoring the Server Load for Azure Managed Redis (preview)
+title: Best practices for Using and Monitoring the Server Load for Azure Managed Redis
 description: Learn how to use and monitor your server load for Azure Managed Redis.
-
-
+ms.date: 05/18/2025
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.date: 11/15/2024
+  - build-2025
 appliesto:
-  - ✅ Azure Managed Redis
+  - ✅ Azure Managed Redis 
 ---
 
-# Manage Server Load for Azure Managed Redis (preview)
+# Manage Server Load for Azure Managed Redis
+
+In this article, we discuss how to use and monitor the load of an Azure Managed Redis cache.
 
 ## Value sizes
 
 The design of your client application determines whether you should store many small values or a smaller number of larger values. From a Redis server perspective, smaller values give better performance. We recommend keeping value size smaller than 100 kB.
 
-If your design requires you to store larger values in the Azure Managed Redis (preview), the server load will be higher. In this case, you might need to use a higher cache tier to ensure CPU usage doesn't limit throughput.
+If your design requires you to store larger values in the Azure Managed Redis, the server load will be higher. In this case, you might need to use a higher cache tier to ensure CPU usage doesn't limit throughput.
 
 Even if the cache has sufficient CPU capacity, larger values do increase latencies, so follow the guidance in [Configure appropriate timeouts](best-practices-connection.md#configure-appropriate-timeouts).
 
@@ -45,10 +46,6 @@ The **CPU** metric indicates the CPU usage for the node that hosts the cache. Th
 The **Server Load** metric represents the load on the Redis Server alone. We recommend monitoring the **Server Load** metric instead of **CPU**.
 
 When monitoring server load, we also recommend that you examine the max spikes of Server Load rather than average because even brief spikes can trigger failovers and command timeouts.
-
-## Plan for server maintenance
-
-Ensure you have enough server capacity to handle your peak load while your cache servers are undergoing maintenance. Test your system by rebooting nodes while under peak load. For more information on how to simulate deployment of a patch, see [reboot](administration.md#reboot).
 
 ## Test for increased server load after failover
 

@@ -114,12 +114,12 @@ Enable replication as follows:
     > [!NOTE]
     > If you want to select a different availability option for a set of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
-12. In **Disks**, indicate whether the VM disks should be replicated to Azure, and specify the disk type (standard SSD/HDD or Premium-managed disks) in Azure. Then select **Next**.
+12. In **Disks**, indicate whether the VM disks should be replicated to Azure, and specify the disk type (Premium v2, Ultra SSD, Standard SSD, Standard HDD, or Premium Managed disks) in Azure. Then select **Next**.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware/disks-expanded.png":::
 
     > [!NOTE]
-    > To optimize costs and enhance performance, you can now migrate to Premium managed disks for OS disks and Premium V2 SSD (preview) for data disks exclusively on VMware environment.
+    > To optimize costs and enhance performance, you can now migrate to Premium V2 SSD Disk as data disk.
 
 13. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
 
@@ -148,7 +148,6 @@ Replication occurs as follows:
 
 ## Run a test migration
 
-
 When delta replication begins, you can run a test migration for the VMs, before running a full migration to Azure. We highly recommend that you do this at least once for each machine, before you migrate it.
 
 - Running a test migration checks that migration will work as expected, without impacting the on-premises machines, which remain operational, and continue replicating.
@@ -156,7 +155,6 @@ When delta replication begins, you can run a test migration for the VMs, before 
 - You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
 
 Do a test migration as follows:
-
 
 1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
 
