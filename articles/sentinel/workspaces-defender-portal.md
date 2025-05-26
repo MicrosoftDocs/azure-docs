@@ -93,7 +93,7 @@ How incident changes sync between the Azure portal and the Defender portal depen
 
 [Microsoft Purview Insider Risk Management (IRM)](/defender-xdr/irm-investigate-alerts-defender) alerts are correlated to the primary workspace only. If you have IRM alerts with [Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md), you must connect IRM to the Microsoft Defender XDR connector in your primary workspace before onboarding the workspace to the Defender portal. This is required to ensure that IRM alerts and incidents are available in the primary workspace. If you don't want to see IRM alerts in the primary workspace, you can instead opt out of the integration with Microsoft Defender XDR. 
 
-Also, if the direct [Microsoft 365 Insider Risk Management connector for Microsoft Sentinel](data-connectors/microsoft-365-insider-risk-management.md) data connector is connected to any of the secondary workspaces, you must disconnect it before onboarding the workspace to the Defender portal.
+Also, if the direct [Microsoft 365 Insider Risk Management connector for Microsoft Sentinel](data-connectors-reference.md#microsoft-365-insider-risk-management) data connector is connected to any of the secondary workspaces, you must disconnect it before onboarding the workspace to the Defender portal.
 
 ## Related content
 
