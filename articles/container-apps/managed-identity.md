@@ -487,7 +487,11 @@ To remove all user-assigned identities:
 
 ```azurecli
 az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> \
-    --user-assigned <IDENTITY1_RESOURCE_ID> <IDENTITY2_RESOURCE_ID>
+    --user-assigned $(az containerapp show \
+    --name <APP_NAME> \
+    --resource-group <GROUP_NAME> \
+    --query "identity.userAssignedIdentities | keys(@)" \
+    --output tsv)
 ```
 
 # [ARM template](#tab/arm)
