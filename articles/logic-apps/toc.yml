@@ -569,9 +569,10 @@ items:
         href: logic-apps-workflow-actions-triggers.md
       - name: Functions reference
         href: workflow-definition-language-functions-reference.md
-  - name: Logic Apps Standard Automated Test Framework Overview
-    href: testing-framework/automated-test-sdk-overview.md
+  - name: Logic Apps Standard Automated Test Framework
     items:
+      - name: Logic Apps Standard Automated Test Framework Overview
+        href: testing-framework/automated-test-sdk-overview.md      
       - name: Action Mock Class Definition
         href: testing-framework/action-mock-class-definition.md
       - name: Trigger Mock Class Definition
