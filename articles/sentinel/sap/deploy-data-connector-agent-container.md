@@ -49,7 +49,7 @@ Before you connect your SAP system to Microsoft Sentinel:
 - Make sure that all of the deployment prerequisites are in place. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
     > [!IMPORTANT]
-    > If you're working with the agentless data connector, you need the **Entra ID Application Developer** role or higher to connect the data connector. If you don't have this permission, work with a colleague that has the permission to manually create the data collection rule (DCR) and data collection endpoint (DCE). For the full procedure, see the [connect the agentless data connector](#connect-your-agentless-data-connector-limited-preview) step.
+    > If you're working with the agentless data connector, you need the **Entra ID Application Developer** role or higher to successfully deploy the relevant Azure resources. If you don't have this permission, work with a colleague that has the permission to complete the process. For the full procedure, see the [connect the agentless data connector](#connect-your-agentless-data-connector-limited-preview) step.
 
 - Make sure that you have the Microsoft Sentinel solution for **SAP applications** [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md)
 
@@ -339,18 +339,17 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 
 1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agent-less (Preview)** data connector.
 
-1. In the **Configuration** area, expand step **1. Trigger automatic deployment of required Azure resources / SOC Engineer**, and before you select **deploy required Azure resources**, check if you have the correct permissions.
+1. In the **Configuration** area, expand step **1. Trigger automatic deployment of required Azure resources / SOC Engineer**, and select **Deploy required Azure resources**.
 
     > [!IMPORTANT]
-    > If you don't have the **Entra ID Application Developer** role or higher, don't select **Deploy required azure resources**. If you select **deploy required Azure resources** without the required permissions, the deployment fails with an error message, for example: "Deploy required azure resources" (errors may vary).
+    > If you don't have the **Entra ID Application Developer** role or higher, and you select **deploy required Azure resources**, an error message is displayed, for example: "Deploy required azure resources" (errors may vary). This means that the DCR and DCE were created, but you need to follow a few steps to ensure that the resources are created correctly.
 
 1. Do one of the following: 
     - If you have the **Entra ID Application Developer** role or higher, select **Deploy required Azure resources** and continue to the next step.
-    - If you don't have the **Entra ID Application Developer** role or higher, work with your Entra ID administrator or another colleague with the required permissions to manually create the required [DCR](/azure-monitor/data-collection/data-collection-rule-create-edit) and [DCE](/azure-monitor/data-collection/data-collection-endpoint-overview#how-to-set-up-data-collection-endpoints-based-on-your-deployment) in your Azure subscription. As part of this process:
-        - Share the DCR ID with your colleague. 
-        - After your colleague is finished setting up the DCR, ask for the client ID and client secret from the DCR. The SAP admin uses this information to post the DCR. 
-        - Ensure that as part of setting up the DCR, this colleague assigns the **Monitoring Metrics Publishing** role to the service principal.                       
-        - Skip step 1 (don't select **Deploy required azure resources**). Continue to step **2. Connect to an SAP Client / SAP Basis**.     
+    - If you don't have the **Entra ID Application Developer** role or higher:
+        - Share the DCR ID with your Entra ID administrator or colleague with the required permissions. 
+        - Ask your colleague for the client ID and client secret from the DCR. The SAP admin uses this information to post the DCR. 
+        - Ensure that as part of setting up the DCR, this colleague assigns the **Monitoring Metrics Publishing** role to the service principal.                           
 
         > [!NOTE]
         > If you're a SAP administrator and don't have access to the connector installation, download the [integration package](https://aka.ms/SAPAgentlessPackage) directly. 
