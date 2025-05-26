@@ -90,6 +90,12 @@ Query performance of Delta Lake format is influenced by the number of JSON files
 
 A balanced approach is to maintain around 10 JSON files between checkpoints, which typically offers good performance for both readers and writers. Be cautious of configurations that delay checkpoint creation, as they can lead to excessive JSON file accumulation and degrade query performance.
 
+Set the following table property to ensure a checkpoint is created after every 10 JSON log files:
+
+```sql
+ALTER TABLE tableName SET TBLPROPERTIES ('delta.checkpointInterval' = '10')
+```
+
 ## Data types
 
 Here are best practices for using data types in serverless SQL pool.
