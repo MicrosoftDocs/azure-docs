@@ -30,7 +30,7 @@ Use the following migration guides as examples to help structure your migration 
 
 | Scenario | Key services | Description |
 |--|--|--|
-| [Connect AWS and Azure using a BGP-enabled VPN gateway](/azure/vpn-gateway/vpn-gateway-howto-aws-bgp) |  AWS virtual private gateway to Azure VPN gateway | Demonstrates how to setup a BGP-enabled connection between Azure and Amazon Web Services (AWS). |
+| [Connect AWS and Azure using a BGP-enabled VPN gateway](/azure/vpn-gateway/vpn-gateway-howto-aws-bgp) |  AWS virtual private gateway to Azure VPN gateway | Demonstrates how to set up a BGP-enabled connection between Azure and Amazon Web Services (AWS). |
 
 ## Related workload components
 
