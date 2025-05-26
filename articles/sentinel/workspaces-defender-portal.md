@@ -4,7 +4,7 @@ description: Learn about the support of multiple workspaces for Microsoft Sentin
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: concept-article
-ms.date: 02/27/2025
+ms.date: 05/26/2025
 appliesto: 
     - Microsoft Sentinel with Defender XDR in the Defender portal
 
