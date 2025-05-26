@@ -235,7 +235,7 @@ Here's an example of the output:
 
 ### Grant permissions to managed identity
 
-1. Connect to your Azure SQL database's logical server using Entra as the configured Entra Administrator user:
+1. Connect to your Azure SQL database's logical server as the configured Entra Administrator user; you will need to select one of the Entra authentication schemes intended for interactive human users (such as "Microsoft Entra MFA", but not an Entra scheme intended for non-human clients such as "Microsoft Entra Service Principal", and not a non-Entra scheme like SQL Server Authentication or Windows Authentication).
     * For instructions for  Microsoft SQL Server Management Studio (SSMS) or Visual Studio SQL Server Database Tools (SSDT), follow [the instructions in Azure SQL's documentation](/azure/azure-sql/database/authentication-microsoft-entra-connect-to-azure-sql?#connect-with-ssms-or-ssdt)
     * For the ODBC and Go editions of `sqlcmd`, follow [the instructions in SQLCMD's documentation](/sql/tools/sqlcmd/sqlcmd-authentication).
 2. Create `LOGIN` and `USER` objects that represent your App Service's Managed Identity in Azure SQL:
