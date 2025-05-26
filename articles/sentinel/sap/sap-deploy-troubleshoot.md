@@ -39,7 +39,7 @@ Some legacy SAP systems may be missing required functionality for the **RFC_READ
 
 For more information, see [Configure SAP Cloud Connector settings](preparing-sap.md#configure-sap-cloud-connector-settings).
 
-## Error when setting up the agentless data connector
+## Error when setting up the data connector
 
 When you set up the Microsoft Sentinel for SAP - agentless data connector, under the **Initial connector configuration > Step 1: Trigger automatic deployment of required Azure resources / SOC Engineer**, after you select **Deploy required resources**, you might see the "Deploy required azure resources" error or similar (errors may vary). This error might indicate that you're missing the required permissions.
 
