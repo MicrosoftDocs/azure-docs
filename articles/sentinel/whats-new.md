@@ -20,9 +20,14 @@ The listed features were released in the last three months. For information abou
 
 ## May 2025
 
+- Microsoft Sentinel solution for Microsoft Business Apps generally available in the Azure portal
 - [All Microsoft Sentinel use cases generally available in the Defender portal](#all-microsoft-sentinel-use-cases-generally-available-in-the-defender-portal)
 - [Unified *IdentityInfo* table](#unified-identityinfo-table)
 - [Additions to SOC optimization support (Preview)](#additions-to-soc-optimization-support-preview)
+
+### Microsoft Sentinel solution for Microsoft Business Apps generally available in the Azure portal
+
+The [Microsoft Sentinel solution for Microsoft Business Apps](business-applications/solution-overview.md) is now generally available in the Azure portal.
 
 ### All Microsoft Sentinel use cases generally available in the Defender portal
 
