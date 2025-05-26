@@ -93,4 +93,3 @@ How incident changes sync between the Azure portal and the Defender portal depen
 
 - [Microsoft Defender multitenant management](/unified-secops-platform/mto-overview)
 - [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard)
-
