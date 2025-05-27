@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Blob Storage From Workflows
-description: Learn how to connect to Azure Blob Storage from workflows in Azure Logic Apps using the Azure Blob Storage connector.
+description: Learn how to connect to Azure Blob Storage from workflows in Azure Logic Apps by using the Azure Blob Storage connector.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -14,7 +14,7 @@ ms.date: 05/06/2025
 
 This guide shows how to access your Azure Blob Storage account and container from a workflow in Azure Logic Apps by using the Azure Blob Storage connector. This connector provides triggers and actions that your workflow can use for blob operations. You can then create automated workflows that run when triggered by events in your storage container or in other systems, and run actions to work with data in your storage container. For example, you can access and manage files stored as blobs in your Azure storage account.
 
-You can connect to Azure Blob Storage from a workflow in **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multitenant Azure Logic Apps and in single-tenant Azure Logic Apps. With **Logic App (Standard)**, you can use either the **Azure Blob** *built-in* connector operations or the **Azure Blob Storage** managed connector operations.
+You can connect to Azure Blob Storage from a workflow in **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multitenant Azure Logic Apps and in single-tenant Azure Logic Apps. With Standard logic apps, you can use either the **Azure Blob** *built-in* connector operations or the **Azure Blob Storage** managed connector operations.
 
 ## Connector technical reference
 
@@ -27,7 +27,7 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
 
 ## Limitations
 
-- Azure Blob Storage *managed* connector actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB but up to 1024 MB, Azure Blob Storage actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The Blob Storage action named [**Get blob content**](/connectors/azureblobconnector/#get-blob-content-(v2)) implicitly uses chunking.
+- Azure Blob Storage *managed* connector actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB but up to 1,024 MB, Azure Blob Storage actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The Blob Storage action named [**Get blob content**](/connectors/azureblobconnector/#get-blob-content-(v2)) implicitly uses chunking.
 
 - While Azure Blob Storage *managed* and *built-in* triggers don't support chunking, the *built-in* triggers can handle files that are 50 MB or more. However, when a *managed* trigger requests file content, the trigger selects only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
 
@@ -54,7 +54,7 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
 
 ## Add a Blob trigger
 
-A *Consumption* logic app workflow can use only the Azure Blob Storage managed connector. However, a *Standard* logic app workflow can use either the Azure Blob Storage managed connector or the Azure blob built-in connector. Although both connector versions provide only one Blob trigger, the trigger name differs as follows, based on whether you're working with a Consumption or Standard workflow:
+A Consumption logic app workflow can use only the Azure Blob Storage managed connector. However, a Standard logic app workflow can use either the Azure Blob Storage managed connector or the Azure blob built-in connector. Although both connector versions provide only one Blob trigger, the trigger name differs as follows, based on whether you're working with a Consumption or Standard workflow:
 
 | Logic app | Connector version | Trigger name | Description |
 |-----------|-------------------|--------------|-------------|
@@ -218,7 +218,7 @@ The steps to add and use a Blob trigger differ based on whether you want to use 
 
 ## Add a Blob action
 
-A *Consumption* logic app workflow can use only the Azure Blob Storage managed connector. However, a *Standard* logic app workflow can use either the Azure Blob Storage managed connector or the Azure blob built-in connector. Each version has multiple, but differently named actions. For example, both managed and built-in connector versions have their own actions to get file metadata and get file content.
+A Consumption logic app workflow can use only the Azure Blob Storage managed connector. However, a Standard logic app workflow can use either the Azure Blob Storage managed connector or the Azure blob built-in connector. Each version has multiple, but differently named actions. For example, both managed and built-in connector versions have their own actions to get file metadata and get file content.
 
 - Managed connector actions run in a Consumption or Standard workflow.
 
@@ -410,6 +410,7 @@ You can add network security to an Azure storage account by [restricting access 
 If you don't use managed identity authentication, logic app workflows can't directly access storage accounts behind firewalls when both the logic app resource and storage account exist in the same region. As a workaround, put your logic app resource in a different region than your storage account. Then, give access to the [outbound IP addresses for the managed connectors in your region](/connectors/common/outbound-ip-addresses#azure-logic-apps).
 
 > [!NOTE]
+>
 > This solution doesn't apply to the Azure Table Storage connector and Azure Queue Storage connector. 
 > Instead, to access your Table Storage or Queue Storage, [use the built-in HTTP trigger and action](../logic-apps/logic-apps-http-endpoint.md).
 
@@ -453,9 +454,10 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
 To connect to Azure Blob Storage in any region, you can use [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md). You can create an exception that gives Azure trusted services, such as a managed identity, access to your storage account through a firewall.
 
-  > [!NOTE]
-  > This solution doesn't apply to Standard logic apps. Even if you use a system-assigned managed identity with a Standard logic app, 
-  > the Azure Blob Storage managed connector can't connect to a storage account in the same region.
+> [!NOTE]
+>
+> This solution doesn't apply to Standard logic apps. Even if you use a system-assigned managed identity with a Standard logic app, 
+> the Azure Blob Storage managed connector can't connect to a storage account in the same region.
 
 To use managed identities in your logic app to access Blob Storage, follow these steps:
 
@@ -466,6 +468,7 @@ To use managed identities in your logic app to access Blob Storage, follow these
 1. [Enable support for the managed identity in your logic app](#enable-managed-identity-support)
 
 > [!NOTE]
+>
 > This solution has the following limitations:
 >
 > To authenticate your storage account connection, you have to set up a system-assigned managed identity. 
