@@ -210,7 +210,7 @@ When using the delta query, [temporal tables in Azure SQL Database](/azure/azure
 
 5. Choose your connection.
 
-   ![The dialog box says "Create a connection profile from the list below", and the list has one entry, which is hightlighted.](./media/sql-reference-data/choose-connection.png)
+   ![The dialog box says "Create a connection profile from the list below", and the list has one entry, which is highlighted.](./media/sql-reference-data/choose-connection.png)
 
 6. Review and verify your query result.
 

@@ -1,20 +1,20 @@
 ---
 title: Voice and video concepts in Azure Communication Services
-titleSuffix: An Azure Communication Services concept document
+titleSuffix: An Azure Communication Services article
 description: Learn about Communication Services call types.
 author: sloanster
 manager: chpalm
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 03/11/2023
+ms.date: 05/01/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 # Voice and video concepts
 
-You can use Azure Communication Services to make and receive one to one or group voice and video calls. Your calls can be made to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS SDKs to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or Bots.
+You can use Azure Communication Services to make and receive one to one or group voice and video calls. You can make calls to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS SDKs to build applications that enable your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or bots.
 
 ## Call types in Azure Communication Services
 
@@ -26,7 +26,7 @@ When a user of your application calls another user of your application over an i
 
 ### Public switched telephone network (PSTN)
 
-Anytime your users interact with a traditional telephone number, calls are facilitated by PSTN (Public Switched Telephone Network) voice calling. To make and receive PSTN calls, you need to add telephony capabilities to your Azure Communication Services resource. In this case, signaling and media use a combination of IP-based and PSTN-based technologies to connect your users.
+Any time your users interact with a traditional telephone number, the Public Switched Telephone Network (PSTN) voice calling facilitates the calls. To make and receive PSTN calls, you need to add telephony capabilities to your Azure Communication Services resource. In this case, signaling and media use a combination of IP-based and PSTN-based technologies to connect your users.
 
 ### One-to-one call
 
@@ -38,17 +38,18 @@ A group call on Azure Communication Services happens when three or more particip
 
 ### Rooms call
 
-A call that takes place within the context of a Room. A Room is a container that manages activity between Azure Communication Services end-users. A Room offers application developers better control over *who* can join a call, *when* they meet and *how* they collaborate. To learn more about Rooms, see the [conceptual documentation](../rooms/room-concept.md). 
+A call that takes place within the context of a Room. A Room is a container that manages activity between Azure Communication Services end-users. A Room offers application developers better control over *who* can join a call, *when* they meet and *how* they collaborate. For more information, see the [rooms conceptual documentation](../rooms/room-concept.md). 
 
 ### Supported video standards
 We support H.264 (MPEG-4) video codec.
 
 ### Video quality
+
 | Maximum video resolution | WebJS | iOS | Android | Windows |
 | ------------- | ----- | ----- | ------- | ------- |
-| **Receiving a remote video stream or screen share** | 1080P | 1080P | 1080P   | 1080P   | 
-| **Sending video**    | 720P  | 720P  | 720P    | 1080P   |
-| **Sending screen share**    | 1080P  | 1080P  | 1080P    | 1080P   |
+| **Receiving a remote video stream or screen share** | 1080-P | 1080-P | 1080-P   | 1080-P   | 
+| **Sending video**    | 720-P  | 720-P  | 720-P    | 1080-P   |
+| **Sending screen share**    | 1080-P  | 1080-P  | 1080-P    | 1080-P   |
 
 The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, hardware capabilities of local participant who renders remote video streams and other overall call parameters.
 
@@ -57,7 +58,8 @@ The resolution can vary depending on the number of participants on a call, the a
 > [!div class="nextstepaction"]
 > [Get started with calling](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-For more information, see the following articles:
-- Familiarize yourself with general [call flows](../call-flows.md)
-- [Phone number types](../telephony/plan-solution.md)
-- Learn about the [Calling SDK capabilities](../voice-video-calling/calling-sdk-features.md)
+## Related articles
+
+- Familiarize yourself with general [call flows](../call-flows.md).
+- Learn about [Phone number types](../telephony/plan-solution.md).
+- Learn about the [Calling SDK capabilities](../voice-video-calling/calling-sdk-features.md).

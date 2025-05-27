@@ -7,16 +7,16 @@ ms.author: kkendrick
 
 ### Subscribe from the Azure portal
 
-Begin by signing into the [Azure portal](https://portal.azure.com/).
+Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
-1. From the Azure portal menu's global search bar, search for **marketplace**. Select **Marketplace** from the **Services** results. 
+1. In the Azure portal, on the service menu's global search bar, search for **marketplace**. In the **Services** results, select **Marketplace**.
 
-    The Marketplace's **Get Started** page displays in the working pane. 
+    The Azure Marketplace **Get Started** pane appears.
 
-1. From the command bar, type the name of the service into the **Search the Marketplace** search bar.
+1. On the command bar, enter the name of the service in the **Search the Marketplace** search box.
 
-1. Choose the provider from the search results displayed in the working pane.
+1. In the search results, choose the provider.
 
-1. Choose your preferred plan, then select **Subscribe**. 
+1. Choose your preferred plan, and then select **Subscribe**.
 
-The **Create** resource pane displays in the working pane. 
+The pane for creating a resource appears.

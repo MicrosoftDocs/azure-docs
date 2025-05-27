@@ -58,7 +58,7 @@ To create an Event Hubs connection string, see [Get an Event Hubs connection str
 ## Create an API Management logger
 The next step is to configure a [logger](/rest/api/apimanagement/current-ga/logger) in your API Management service so that it can log events to the event hub.
 
-Create and manage API Management loggers by using the [API Management REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) directly or by using tools including [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementlogger), a Bicep template, or an Azure Resource Management template.
+Create and manage API Management loggers by using the [API Management REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) directly or by using tools including [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementlogger), a Bicep file, or an Azure Resource Management template.
 
 ### Option 1: Logger with managed identity credentials (recommended)
 
@@ -89,7 +89,7 @@ Use the API Management [Logger - Create or Update](/rest/api/apimanagement/curre
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template.
+Include a snippet similar to the following in your Bicep file.
 
 ```Bicep
 resource ehLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
@@ -155,7 +155,7 @@ Use the API Management [Logger - Create or Update](/rest/api/apimanagement/curre
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template.
+Include a snippet similar to the following in your Bicep file.
 
 ```Bicep
 resource ehLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
@@ -220,7 +220,7 @@ New-AzApiManagementLogger -Context $context -LoggerId "ContosoLogger1" -Name "Ap
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template.
+Include a snippet similar to the following in your Bicep file.
 
 ```Bicep
 resource ehLoggerWithConnectionString 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {

@@ -48,7 +48,7 @@ To use NFS Azure file shares, you must either [create a private endpoint](storag
 
 ### Disable secure transfer
 
-Azure Files doesn't currently support encryption-in-transit with the NFS protocol and relies instead on network-level security. Therefore, you need to disable secure transfer on your storage account.
+Follow these steps to disable secure transfer on your storage account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and access the storage account containing the NFS share you created.
 1. Select **Configuration**.
