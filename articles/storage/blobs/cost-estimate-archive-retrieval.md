@@ -19,7 +19,7 @@ This sample estimates the cost to retrieve a portion of data from the archive ti
 
 ## Scenario
 
-Your company has stored 20 TB of data in the archive tier for long term retention. However, after only 3 months in archive storage, 20% of that data must be retrieved for analysis. You've been asked to estimate what it will cost to get that data from archive storage and then download that data to clients for analysis. The account is located in the West US region, and is configured for locally-redundant storage (LRS), and hierarchical namespaces are not enabled.
+Your company has an account that is located in the West US region, is configured for locally-redundant storage (LRS), and does not have hierarchical namespaces. The company has stored 20 TB of data in the archive tier for long term retention. However, after only 3 months in archive storage, 20% of that data must be retrieved for analysis. You've been asked to estimate what it will cost to get that data from archive storage and then download that data to clients for analysis. 
 
 ## Cost components
 

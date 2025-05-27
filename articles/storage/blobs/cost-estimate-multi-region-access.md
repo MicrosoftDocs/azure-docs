@@ -12,14 +12,14 @@ ms.author: normesta
 
 # Cost estimate: Upload and access data from multiple regions 
 
-This sample estimates the costs associated with uploading and downloading data from multiple Azure regions.
+This sample estimates the cost to upload and download data from multiple Azure regions.
 
 > [!IMPORTANT]
 > This estimate is based on [these sample prices](blob-storage-estimate-costs.md#sample-prices). Sample prices shouldn't be used to calculate your production costs. To find official prices, see [Find the unit price for each meter](../common/storage-plan-manage-costs.md#find-the-unit-price-for-each-meter).
 
 ## Scenario
 
-Your company has a storage account that is located in the West US region and hierarchical namespaces are not enabled. This year, a new client application is being distributed to users located in multiple Azure regions across the continent. The clients will generate and upload an estimated **50,000** log files this quarter. Each file is **1 GB** in size. During the quarter, your company estimates that client applications will download about half of those log files for diagnostic analysis. You've been asked to create an estimate.
+Your company has a storage account that is located in the West US region, is configured for Geo-redundant storage (GRS) and does not have hierarchical namespaces enabled. This year, a new client application is being distributed to users located in multiple Azure regions across the continent. The clients will generate and upload an estimated **50,000** log files (roughly 1 GB each in size) this quarter. During this time, your company estimates that client applications will download about half of those log files for diagnostic analysis. You've been asked to create an estimate.
 
 ## Cost components
 
@@ -45,8 +45,8 @@ Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), th
 |                         | Price a read operation on the hot tier        | Taken from sample prices             | $0.00440      |
 |                         | Cost of read operations<br></br>              | 25,000 GB * $0.00440                 | **$110.00**   |
 |                         | Number of blobs downloaded from other regions | 25,000 * 75%                         | 1875          |
-|                         | Data transfer fee (downloads)                 | 1875 * $0.02                         | $375.00       |
-|                         | Network bandwidth fee (downloads)             | 1875 * $0.02                         | $375.00       |
+|                         | Data transfer fee                             | 1875 * $0.02                         | $375.00       |
+|                         | Network bandwidth fee                         | 1875 * $0.02                         | $375.00       |
 |                         | Cost to transfer data out of region<br></br>  | $375 + $375                          | **$750.00**   |
 | **Total cost**          |                                               |                                      | **860.00**    |
 
