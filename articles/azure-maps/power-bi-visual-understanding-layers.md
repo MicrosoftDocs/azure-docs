@@ -100,17 +100,17 @@ Within each Layer position, the order of layers remains consistent. For instance
 
 The following table outlines the layer order from top to bottom along with their respective layer position types. Layers marked as "Adjustable" can have their position changed using the Layer position dropdown, as shown in the previous screenshot. Layers marked as "Fixed" don't offer this option.
 
-| Layer Name           | Layer Order | Layer position | Description                                           |
-|----------------------|-------------|----------------|-------------------------------------------------------|
-| Category Labels      | 1           | Fixed          |                                                       |
-| Selection Tools      | 2           | Fixed          |                                                       |
-| 3D Bar chart Layer    | 3           | Adjustable     |                                                       |
+| Layer Name           | Layer Order | Position type | Description                                           |
+|----------------------|-------------|---------------|-------------------------------------------------------|
+| Category Labels      | 1           | Fixed         |  The Category Labels is fixed as the top-most layer. You can consider this layer as "fixed" at the highest position. |
+| Selection Tools      | 2           | Fixed         |The Selection tool layer is fixed as the second-highest layer, overlaying all other map layers. "Fixed" means it remains in the second level.|
+| 3D Bar chart Layer   | 3           | Adjustable    |                                                       |
 | Pie chart Layer<br>Bubble Layer<br>Cluster Bubble Layer<br>Path Layer | 4 | Adjustable | These layers share the same "Layer position" as the bubble layer, and their relative order within this group remains fixed. |
-| Heat Map Layer       | 5           | Adjustable     |                                                       |
-| Reference Layer      | 6           | Fixed          |                                                       |
-| Filled Map Layer     | 7           | Adjustable     |                                                       |
-| Tile Layer           | 8           | Adjustable     |                                                       |
-| Map Tiles            | 9           | Fixed          |                                                       |
+| Heat Map Layer       | 5           | Adjustable    |                                                       |
+| Reference Layer      | 6           | Fixed         |The Reference Layer is fixed at "Below labels".   |
+| Filled Map Layer     | 7           | Adjustable    |                                                       |
+| Tile Layer           | 8           | Adjustable    |                                                       |
+| Map Tiles            | 9           | Fixed         |The Map Tiles layer is fixed as the bottom-most map layer. It's the base map layer of the Azure Maps visual.|
 
 ## Next steps
 
