@@ -157,7 +157,7 @@ The asterisk (*) in the Offer or Plan columns acts as a wildcard. * means all po
 |credativ| debian| 8||
 |credativ|| 9-backports||
 |credativ|| 9||
-|debian| | debian - 11 |11-backports-gen2 |
+|debian| debian - 11| 11-backports-gen2 | |
 |debian| debian-10-daily| 10||
 |debian| debian-10| 10||
 |debian| debian-11-daily| 11| |
@@ -168,13 +168,13 @@ The asterisk (*) in the Offer or Plan columns acts as a wildcard. * means all po
 |debian|| 10-backports||
 |debian|| 10-gen2||
 |debian|| 10-gen2||
-|debian|| debian-11| 0 |
-|debian|| debian-11|11-backports|
-|debian|| debian-11|11 backports|
-|debian|| debian-11-daily|11-gen2|
-|debian|| debian-11|11-gen2|
-|debian|| debian-12|12 </br> 12-arm64 </br>  12-gen2 |
-|debian|| debian-12-daily|12 </br> 12-arm64  </br> 12-gen2 </br> 12-backports </br> 12-backports-arm64 </br> 12-backports-gen2 |
+|debian| debian-11-daily |11 |  |
+|debian|debian-11| 11-backports||
+|debian|debian-11-daily|11 backports ||
+|debian| debian-11|11-gen2||
+|debian|debian-11| 11-gen2||
+|debian|debian-12| 12 </br> 12-arm64 </br>  12-gen2| |
+|debian|debian-12-daily| 12 </br> 12-arm64  </br> 12-gen2 </br> 12-backports </br> 12-backports-arm64 </br> 12-backports-gen2 ||
 |erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux| free||
 |erockyenterprisesoftwarefoundationinc1653071250513| rockylinux-9| rockylinux-9||
 |kali-linux | kali | kali-2024-3 |
