@@ -199,9 +199,13 @@ If you stop here, you have a self-contained app that's already secured by the Ap
 
 Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. To complete the authentication, you need to do three things:
 
+- Expose the backend app as an API by defining a scope
 - Grant the frontend app access to the backend app
 - Configure App Service to return a usable token
 - Use the token in your code.
+
+> [!NOTE]
+> Before you can grant the frontend app access to the backend, you must expose the backend API by setting an Application ID URI and defining at least one scope. This allows the backend to be selectable under "My APIs" when assigning API permissions.
 
 > [!TIP]
 > If you run into errors and reconfigure your app's authentication/authorization settings, the tokens in the token store may not be regenerated from the new settings. To make sure your tokens are regenerated, you need to sign out and sign back in to your app. An easy way to do it is to use your browser in private mode, and close and reopen the browser in private mode after changing the settings in your apps.
