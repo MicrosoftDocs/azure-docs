@@ -126,7 +126,7 @@ For X.509 self-signed authentication, sometimes referred to as thumbprint authen
 
 5. Depending on your preferred language, review samples of how X.509 certificates can be referenced in IoT applications:
 
-   * C#: [Set up X.509 security in your Azure IoT Hub](../iot-hub/tutorial-x509-test-certificate.md)
+   * C#: [x509 device certificate with chain sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/X509DeviceCertWithChainSample)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/send-event-x509)
