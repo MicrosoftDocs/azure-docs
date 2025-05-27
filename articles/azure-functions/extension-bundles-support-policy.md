@@ -8,7 +8,7 @@ ms.date: 05/27/2025
 
 # Azure Functions Extension Bundles Support Policy
 
-This article explains Azure functions extension bundles support policy. 
+This article explains Azure Functions Extension Bundles support policy. 
 
 ## Support policy 
 
