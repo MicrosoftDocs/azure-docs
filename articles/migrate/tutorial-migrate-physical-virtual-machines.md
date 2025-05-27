@@ -369,7 +369,7 @@ Now, select machines for migration.
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/source-settings.png" alt-text="Screenshot that shows source settings.":::
 
 1. In **Virtual machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
-1. By default, **VMs that are eligible for Trusted Launch are migrated as TVMs**. Trusted Launch VMs provide enhanced security features such as secure boot and virtual TPM at no additional cost, and we recommend using them whenever applicable.
+1. By default, **VMs that are eligible for Trusted Launch are migrated as TVMs**. Trusted Launch VMs provide enhanced security features such as secure boot and virtual TPM at no additional cost. We recommend using them wherever applicable.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-vms-inline.png" alt-text="Screenshot that shows selecting VMs." lightbox="./media/tutorial-migrate-physical-virtual-machines/select-vms-expanded.png":::
 

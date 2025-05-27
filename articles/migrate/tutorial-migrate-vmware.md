@@ -75,9 +75,9 @@ Enable replication as follows:
 
 4. In **Virtual machines**, select the machines you want to replicate. To apply VM sizing and disk type from an assessment if you've run one, in **Import migration settings from an Azure Migrate assessment?**, select **Yes**, and select the VM group and assessment name. If you aren't using assessment settings, select **No**. Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs).By default, eligible VMs are migrated as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost. We recommend using them wherever applicable.
 
-    :::image type="content" source="./media/tutorial-migrate-vmware/select-assessment.png" alt-text="Screenshot on selecting assessment."::: 
-
     :::image type="content" source="./media/tutorial-migrate-vmware/target-vm-security-type.png" alt-text="Screenshot shows the trusted virtual machines."::: 
+    
+    :::image type="content" source="./media/tutorial-migrate-vmware/select-assessment.png" alt-text="Screenshot on selecting assessment.":::  
 
 5. In **Virtual machines**, select VMs you want to migrate. Then select **Next: Target settings**.
 
