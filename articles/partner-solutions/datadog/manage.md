@@ -167,6 +167,10 @@ To stop sending logs and metrics from Azure to Datadog:
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
+## Get support
+
+Contact [Datadog](https://www.datadoghq.com/support) for customer support. 
+
 ## Related content
 
 - [Troubleshooting Datadog solutions](troubleshoot.md)

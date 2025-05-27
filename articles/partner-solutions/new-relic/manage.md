@@ -173,6 +173,10 @@ You can install New Relic agents on Virtual Machine, Virtual Machine Scale Set, 
 > [!NOTE]
 > If you have other New Relic resources linked to the New Relic account, billing for those other resources continues through Azure Marketplace.
 
+## Get support
+
+Contact [New Relic](https://support.newrelic.com/) for customer support. 
+
 ## Next steps
 
 - [Troubleshoot Azure Native New Relic Service](troubleshoot.md)

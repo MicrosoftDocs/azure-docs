@@ -88,6 +88,11 @@ To monitor resources for Azure Arc Machines, select **Dynatrace environment conf
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
+
+## Get support
+
+Contact [Dynatrace](https://support.dynatrace.com/) for customer support. 
+
 ## Related content
 
 - [Troubleshooting Dynatrace integration with Azure](dynatrace-troubleshoot.md).
