@@ -24,7 +24,12 @@ Microsoft will provide advance notification before retiring a package/extension 
 
 After the retirement of a package/extension bundle version, function apps that use retired packages/extension bundle versions can still be created and deployed, and they continue to run on the platform. However, the retired packages/bundle version aren’t eligible for new features, security patches, and performance optimizations until you upgrade them to a supported extension bundle version. Additionally, functions apps using a retired extension bundle will need to be upgraded before receiving support. 
 
-## Bundle version state 
+# Preview Bundles
+
+Preview bundles offer early access to Azure Functions extensions that are still in development. They are intended for evaluation and testing in non-production environments. These bundles may change without notice - functionality, bindings, or triggers can shift between versions, and performance or stability may vary. It's important to move to a Generally Available bundle version as soon as the needed features are available.
+To stay informed about what’s transitioning from preview to GA, monitor the [bundle release notes](https://github.com/Azure/azure-functions-extension-bundles/releases), extension documentation, and NuGet changelogs.
+
+# Bundle version state 
 
 This table shows the major bundle versions and their current lifecycle state: 
 
