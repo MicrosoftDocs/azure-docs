@@ -1,11 +1,10 @@
 ---
-title: Watchlists in Microsoft Sentinel
-titleSuffix: Microsoft Sentinel
-description: Learn how watchlists allow you to correlate data with events and when to use them in Microsoft Sentinel.
-author: cwatson-cat
-ms.author: cwatson
+title: Use Watchlists to Correlate and Enrich Event Data in Microsoft Sentinel
+description: Learn how to use watchlists in Microsoft Sentinel to efficiently correlate and enrich event data, reduce alert fatigue, and respond to threats. Discover best practices and get started today.
+author: batamig
+ms.author: bagol
 ms.topic: concept-article
-ms.date: 3/14/2024
+ms.date: 05/27/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -18,11 +17,9 @@ ms.collection: usx-security
 
 # Watchlists in Microsoft Sentinel
 
-Watchlists in Microsoft Sentinel allow you to correlate data from a data source you provide with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high-value assets, terminated employees, or service accounts in your environment.
+Watchlists in Microsoft Sentinel help security analysts efficiently correlate and enrich event data. They give you a flexible way to manage reference data, like lists of high-value assets or terminated employees. Integrate watchlists into your detection rules, threat hunting, and response workflows to reduce alert fatigue and respond to threats faster. This article explains how to use watchlists in Microsoft Sentinel, outlines key scenarios and limitations, and gives guidance on creating and querying watchlists to enhance your security operations.
 
-Use watchlists in your search, detection rules, threat hunting, and response playbooks.
-
-Watchlists are stored in your Microsoft Sentinel workspace in the `Watchlist` table as name-value pairs and are cached for optimal query performance and low latency.
+Use watchlists in your search, detection rules, threat hunting, and response playbooks. Watchlists are stored in your Microsoft Sentinel workspace in the `Watchlist` table as name-value pairs. They're cached for optimal query performance and low latency.
 
 > [!IMPORTANT]
 > The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -30,9 +27,9 @@ Watchlists are stored in your Microsoft Sentinel workspace in the `Watchlist` ta
 
 ## When to use watchlists
 
-Use watchlists to help you with following scenarios:
+Use watchlists in these scenarios:
 
-- **Investigate threats** and respond to incidents quickly with the rapid import of IP addresses, file hashes, and other data from CSV files. After you import the data, use watchlist name-value pairs for joins and filters in alert rules, threat hunting, workbooks, notebooks, and general queries.
+- **Investigate threats** and respond to incidents quickly by importing IP addresses, file hashes, and other data from CSV files. After you import the data, use watchlist name-value pairs for joins and filters in alert rules, threat hunting, workbooks, notebooks, and queries.
 
 - **Import business data** as a watchlist. For example, import user lists with privileged system access, or terminated employees. Then, use the watchlist to create allowlists and blocklists to detect or prevent those users from logging in to the network.
 
@@ -53,7 +50,7 @@ Before you create a watchlist, be aware of the following limitations:
 - File uploads from an Azure Storage account (in preview) are currently limited to files up to 500 MB in size.
 - Watchlists must adhere to the same column and table restrictions as KQL entities. For more information, see [KQL entity names](/kusto/query/schema-entities/entity-names?view=microsoft-sentinel&preserve-view=true).
 
-## Options to create watchlists
+## Ways to create watchlists in Microsoft Sentinel
 
 Create a watchlist in Microsoft Sentinel from a file you upload from a local folder or from a file in your Azure Storage account.
 
@@ -126,13 +123,10 @@ See more information on the following items used in the preceding examples, in t
 
 [!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
-## Next steps
+## Related content
 
-To learn more about Microsoft Sentinel, see the following articles:
+For more information, see:
 
 - [Create watchlists](watchlists-create.md)
 - [Build queries and detection rules with watchlists](watchlists-queries.md)
 - [Manage watchlists](watchlists-manage.md)
-- Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
-- [Use workbooks](monitor-your-data.md) to monitor your data.
