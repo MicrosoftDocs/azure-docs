@@ -3,9 +3,9 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: Learn about new features and product updates for Azure Virtual Desktop.
 ms.topic: release-notes
 ms.custom: references_regions
-author: sipastak
-ms.author: sipastak
-ms.date: 04/02/2025
+author: dougeby
+ms.author: avdcontent
+ms.date: 04/30/2025
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -43,6 +43,12 @@ For more information, see [Windows App](https://aka.ms/WindowsApp).
 Using Microsoft Entra sign-in frequency with Azure Virtual Desktop prompts users to reauthenticate when launching a new connection after a period of time, and is now generally available You can now require reauthentication after a shorter period of time. 
 
 For more information, see [Configure sign-in frequency](set-up-mfa.md?tabs=avd#configure-sign-in-frequency). 
+
+### Using Microsoft Entra Conditional Access token protection with Windows App on Windows devices to connect to Azure Virtual Desktop is now in preview
+
+You can now use Microsoft Entra Conditional Access token protection with Windows App on Windows devices to connect to Azure Virtual Desktop, which is now in preview. Token protection helps reduce token theft attacks by ensuring a token is usable only from the intended device.
+
+For more information, see [Microsoft Entra Conditional Access: token protection](/entra/identity/conditional-access/concept-token-protection).
 
 ## March 2025
 
@@ -1184,7 +1190,7 @@ On September 30, 2021, the Azure Virtual Desktop web client will no longer suppo
 
 ### Microsoft Intune preview
 
-We've started the preview for Microsoft Intune support in Windows 10 Enterprise multi-session. Intune support lets you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+We've started the preview for Microsoft Intune support in Windows 10 Enterprise multi-session. Intune support lets you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manager documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 ### FSLogix version 2105 preview
 

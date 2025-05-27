@@ -1,7 +1,7 @@
 ---
-title: Links to the Azure Maps Creator Rest API
+title: Links to the Azure Maps Creator REST API
 titleSuffix: Microsoft Azure Maps Creator
-description: Links to the Azure Maps Creator Rest API
+description: Links to the Azure Maps Creator REST API
 author: faterceros
 ms.author: aterceros
 ms.date: 09/23/2024
@@ -10,7 +10,7 @@ ms.service: azure-maps
 ms.subservice: creator
 ---
 
-# Creator Rest API
+# Creator REST API
 
 > [!NOTE]
 >
@@ -52,7 +52,7 @@ Pre-release version of a Creator service. Preview releases contain new functiona
 | [Tileset][Tileset-preview] | 2023-03-01-preview | A collection of vector tiles that render on the map, created from an existing dataset. |
 | [Wayfinding] | 2023-03-01-preview | Wayfinding is a technology that helps people navigate through complex indoor environments such as malls, offices, stadiums, airports and office buildings. |
 
-<!--- V2 is the latest stable release of each Creator service --->
+<!--- v2 is the latest stable release of each Creator service --->
 
 [Alias]: /rest/api/maps-creator/alias
 [Conversion]: /rest/api/maps-creator/conversion

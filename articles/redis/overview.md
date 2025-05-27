@@ -1,24 +1,27 @@
 ---
-title: What is Azure Managed Redis (preview)?
+title: What is Azure Managed Redis?
 description: Learn about Azure Managed Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: how-to
 ms.custom:
   - ignite-2024
-ms.topic: how-to
-ms.date: 11/15/2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# What is Azure Managed Redis (preview)?
+# What is Azure Managed Redis?
 
-Azure Managed Redis (preview) provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Redis Enterprise improves the performance and reliability of the community edition of Redis, while maintaining compatibility. Microsoft operates the service, hosted on Azure, and usable by any application within or outside of Azure.
+Azure Managed Redis provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Redis Enterprise improves the performance and reliability of the community edition of Redis, while maintaining compatibility. Microsoft operates the service, hosted on Azure, and usable by any application within or outside of Azure.
 For more information on how Azure Managed Redis is built, see [Azure Managed Redis Architecture](architecture.md).
 
-> [!IMPORTANT]
-> Azure Managed Redis is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> [!NOTE]
+> Azure Managed Redis is Generally Available (GA) as a product. However, certain features remain in Public Preview.
+>
+> - Scaling a cache
+> - Data persistence
+> - Non-clustered caches
 
 Azure Managed Redis can improve the performance and scalability of an application that heavily uses backend data stores. It's able to process large volumes of application requests by keeping frequently accessed data in the server memory, which can be written to and read from quickly.
 
@@ -53,25 +56,26 @@ There are four tiers of Azure Managed Redis available, each with different perfo
 
 Three tiers are for in-memory data:
 
+[!INCLUDE [tier-preview](includes/tier-preview.md)]
+
 - **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
 - **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (4:1) ratio, making it ideal for standard workloads. This tier provides a healthy balance of memory and compute resources.
 - **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
 
 One tier stores data both in-memory and on-disk:
-<!--Kyle [umanag] should On-disk section callout the difference from Persistence which uses attached managed disk too -->
 
-- **Flash Optimized** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
+- **Flash Optimized (preview)** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
 
 >[!NOTE]
 > For more information on how the Flash Optimized tier is architected, see [Azure Managed Redis Architecture](architecture.md#flash-optimized-tier)
 >
 
 >[!IMPORTANT]
-> You can also use the [data persistence](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. This is different than the Flash Optimized tier, which is designed to store data on-disk for typical operations.
+> You can also use the [data persistence (preview)](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. This is different than the Flash Optimized tier, which is designed to store data on-disk for typical operations.
 > Storing some data on-disk using the Flash Optimized tier doesn't increase data resiliency. You can use data persistence on the Flash Optimized tier as well.
 >
 
-For instructions on how to scale between tiers and SKUs, see [Scale an Azure Managed Redis instance](how-to-scale.md).
+For instructions on how to scale between tiers and SKUs, see [Scale (preview) an Azure Managed Redis instance](how-to-scale.md).
 
 ### Tiers and SKUs at a glance
 
@@ -91,29 +95,24 @@ The following table helps describe some of the features supported by tier:
 | [Replication and failover](failover.md)                                                 | Yes               | Yes               | Yes               | Yes               |
 | [Network isolation](private-link.md)                                                    | Yes               | Yes               | Yes               | Yes               |
 | [Microsoft Entra ID based authentication](entra-for-authentication.md)                             | Yes               | Yes               | Yes               | Yes               |
-| [Scaling](how-to-scale.md)                                                              | Yes               | Yes               | Yes               | Yes               |
-| [Data persistence](how-to-persistence.md)                                       | Yes               | Yes               | Yes               | Yes               |
+| [Scaling (preview)](how-to-scale.md)                                                              | Yes               | Yes               | Yes               | Yes               |
+| [Data persistence (preview)](how-to-persistence.md)                                       | Yes               | Yes               | Yes               | Yes               |
 | [Zone redundancy](high-availability.md)                                                 | Yes               | Yes               | Yes               | Yes               |
 | [Geo-replication](how-to-active-geo-replication.md)                                     | Yes (Active)      | Yes (Active)      | Yes (Active)      | No                |
+| Non-clustered instances (preview)                                                               | Yes             | Yes               | Yes                 | No                |
 | [Connection audit logs](monitor-diagnostic-settings.md)                                 | Yes (Event-based) | Yes (Event-based) | Yes (Event-based) | Yes (Event-based) |
 | [JSON data structures(that is, Redis JSON)](redis-modules.md)                              | Yes               | Yes               | Yes               | Yes               |
 | [Search functionality (including vector search)](redis-modules.md)                      | Yes               | Yes               | Yes               | No                |
 | [Probabilistic data structures (that is, Redis Bloom)](redis-modules.md)                    | Yes               | Yes               | Yes               | Yes               |
 | [Time Series database capability (that is, Redis TimeSeries)](redis-modules.md)             | Yes               | Yes               | Yes               | Yes               |
-| [Redis on Flash(also known as autotiering)](architecture.md#flash-optimized-tier)       | Yes               | Yes               | Yes               | Yes               |
 | [Import/Export](how-to-import-export-data.md)                                           | Yes               | Yes               | Yes               | Yes               |
-| [Update channel and Schedule updates](administration.md)                                | No                | No                | No                | No                |
 
 > [!IMPORTANT]
 > The Balanced B0 and B1 SKU options don't support active geo-replication.
 >
 
-> [!IMPORTANT]
-> SLA is only available at GA, and isn't available during preview.
->
-
 > [!NOTE]
-> Scaling down support is limited in some situations. For more information, see [Prerequisites/limitations of scaling Azure Managed Redis](how-to-scale.md#prerequisiteslimitations-of-scaling-azure-managed-redis).
+> Scaling down support is limited in some situations. For more information, see [Limitations of scaling Azure Managed Redis](how-to-scale.md#limitations-of-scaling-azure-managed-redis).
 >
 
 ### Other considerations when picking a tier
@@ -136,32 +135,73 @@ The following table helps describe some of the features supported by tier:
 
 Azure Managed Redis is continually expanding into new regions.
 
-| Americas | Europe | Middle East | Africa | Asia Pacific |
-|---|---|---|---|---|
-|Brazil South |Germany West Central | | |East Asia |
-|West Central US | UK South  |   |   | Australia East |
-|North Central US | West Europe |   |   | Japan East |
-|West US 3 |Sweden Central | | |South East Asia |
-|East US 2 | | | |Central India |
-|South Central US | | | | |
-|West US 2 | | | | |
-|East US | | | | |
-|West US | | | | |
-|Central US | | | | |
-|Canada Central | | | | |
-
+- Americas
+  - Brazil South
+  - Brazil Southeast
+  - Canada Central
+  - Canada East
+  - Central US
+  - East US
+  - East US 2
+  - Mexico Central
+  - North Central US
+  - South Central US
+  - West Central US
+  - West US
+  - West US 2
+  - West US 3
+  
+- Europe
+  - France South
+  - Germany North
+  - Germany West Central
+  - Italy North
+  - Norway East
+  - Norway West
+  - Spain Central
+  - Sweden Central
+  - Sweden South
+  - Switzerland North
+  - Switzerland West
+  - UK South
+  - UK West
+  - West Europe
+  
+- Middle East
+  - Israel Central
+  - UAE Central
+  - UAE North
+  
+- Africa
+  - South Africa North
+  - South Africa West
+  
+- Asia Pacific
+  - East Asia
+  - Australia Central
+  - Australia Central 2
+  - Australia East
+  - Australia Southeast
+  - Central India
+  - Indonesia Central
+  - Japan East
+  - Japan West
+  - Jio India Central
+  - Jio India West
+  - Korea Central
+  - Korea South
+  - South East Asia
+  - South India
+  - Taiwan North
+  - Taiwan Northwest
+  
 To check the availability by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 
-## Migration from Azure Cache for Redis
+## Moving from Azure Cache for Redis
 
-For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis](../migrate/migrate-overview.md)
+For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis](migrate/migrate-overview.md).
 
 ## Related content
 
 - [Create an Azure Managed Redis instance](quickstart-create-managed-redis.md)
-- [Use Azure Managed Redis in an ASP.NET web app](web-app-cache-howto.md)
-- [Use Azure Managed Redis in .NET Core](dotnet-core-quickstart.md)
-- [Use Azure Managed Redis in .NET Framework](dotnet-how-to-use-azure-redis-cache.md)
-- [Use Azure Managed Redis in Node.js](nodejs-get-started.md)
-- [Use Azure Managed Redis in Java](java-get-started.md)
-- [Use Azure Managed Redis in Python](python-get-started.md)
+- [Azure Managed Redis Architecture](architecture.md)

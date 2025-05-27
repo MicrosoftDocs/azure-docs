@@ -1,8 +1,8 @@
 ---
 title: Understand reservations discount for Azure disk storage
 description: Learn how an Azure reserved disks discount is applied to your Azure premium SSD managed disks.
-author: roygara
-ms.author: rogarana
+author: pri-mittal
+ms.author: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual

@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 10/28/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 zone_pivot_groups: sentinel-sap-connection
 
@@ -40,7 +40,7 @@ Content in this article is relevant for your **security** team.
 
 
 > [!IMPORTANT]
-> Microsoft Sentinel's agentless data connector for SAP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Sentinel's agentless data connector for SAP is currently in **LIMITED PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ Includes more details about using Azure KeyVault. No audio, demonstration only w
 
 We recommend creating a dedicated virtual machine for your data connector agent container to ensure optimal performance and avoid potential conflicts. For more information, see [System prerequisites for the data connector agent container](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#system-prerequisites-for-the-data-connector-agent-container).
 
-We recommend that you store your SAP and authentication secrets in an [Azure key vault](/azure/key-vault/general/authentication). How you access your key vault depends on where your virtual machine (VM) is deployed:
+We recommend that you store your SAP and authentication secrets in an [Azure Key Vault](/azure/key-vault/general/authentication). How you access your key vault depends on where your virtual machine (VM) is deployed:
 
 |Deployment method  |Access method  |
 |---------|---------|
@@ -84,7 +84,7 @@ If you can't use a registered application or a service principal, use a configur
 For more information, see:
 
 - [Authentication in Azure Key Vault](/azure/key-vault/general/authentication)
-- [What are manged identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
+- [What are managed  identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser)
 
 Your virtual machine is typically created by your **infrastructure** team. Configuring access to credentials and managing key vaults is typically done by your **security** team.
@@ -324,7 +324,7 @@ While deployment is also supported from the command line, we recommend that you 
 
 1. Review the settings you defined. Select **Previous** to modify any settings, or select **Deploy** to deploy the system.
 
-The system configuration you defined is deployed into the Azure key vault you defined during the deployment. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the portal or otherwise.
+The system configuration you defined is deployed into the Azure Key Vault you defined during the deployment. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the portal or otherwise.
 
 At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
 
@@ -332,7 +332,7 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 
 :::zone pivot="connection-agentless"
 
-## Connect your agentless data connector (Preview)
+## Connect your agentless data connector (Limited preview)
 
 1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agent-less (Preview)** data connector.
 

@@ -35,7 +35,6 @@ Here's the list of partners and a link to submit a request to enable events flow
 
 - [Auth0](auth0-how-to.md)
 - [Microsoft Graph API](subscribe-to-graph-api-events.md)
-- [SAP](subscribe-to-sap-events.md)
 - [Tribal Group](subscribe-to-tribal-group-events.md)
 
 

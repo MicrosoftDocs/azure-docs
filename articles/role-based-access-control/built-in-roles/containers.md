@@ -2,12 +2,12 @@
 title: Azure built-in roles for Containers - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Containers category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -20,7 +20,7 @@ This article lists the Azure built-in roles in the Containers category.
 
 Delete repositories, tags, or manifests from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -61,7 +61,7 @@ Delete repositories, tags, or manifests from a container registry.
 
 Push trusted images to or pull trusted images from a container registry enabled for content trust.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -104,7 +104,7 @@ Push trusted images to or pull trusted images from a container registry enabled 
 
 Pull artifacts from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -145,7 +145,7 @@ Pull artifacts from a container registry.
 
 Push artifacts to or pull artifacts from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -188,7 +188,7 @@ Push artifacts to or pull artifacts from a container registry.
 
 Pull quarantined images from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -231,7 +231,7 @@ Pull quarantined images from a container registry.
 
 Push quarantined images to or pull quarantined images from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2286,6 +2286,7 @@ Install Container Storage Interface (CSI) drivers that enable your cluster to us
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/read | Get the properties of a Disk |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/delete | Deletes the Disk |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/beginGetAccess/action | Get the SAS URI of the Disk for blob access |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/diskEncryptionSets/read | Get the properties of a disk encryption set |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
@@ -2319,6 +2320,7 @@ Install Container Storage Interface (CSI) drivers that enable your cluster to us
         "Microsoft.Compute/disks/write",
         "Microsoft.Compute/disks/read",
         "Microsoft.Compute/disks/delete",
+        "Microsoft.Compute/disks/beginGetAccess/action",
         "Microsoft.Compute/diskEncryptionSets/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
@@ -2627,6 +2629,7 @@ Install and upgrade the networking components on an OpenShift cluster.
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2651,6 +2654,7 @@ Install and upgrade the networking components on an OpenShift cluster.
         "Microsoft.Network/virtualNetworks/read",
         "Microsoft.Network/virtualNetworks/subnets/join/action",
         "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+        "Microsoft.Network/loadBalancers/backendAddressPools/read",
         "Microsoft.Compute/virtualMachines/read"
       ],
       "notActions": [],
@@ -2756,9 +2760,95 @@ Built-in role that allows a Connected Cluster managed identity to call the check
 }
 ```
 
+## Container Registry Cache Rule Administrator
+
+Create, Read, Update, and Delete Cache Rules in Container Registry. This role doesn't grant permissions to manage Credential Sets.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/read | Gets the properties of the specified cache rule or lists all the cache rules for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/write | Creates or updates a cache rule for a container registry with the specified parameters |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/delete | Deletes a cache rule from a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/operationStatuses/read | Gets a cache rule async operation status |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, Read, Update, and Delete Cache Rules in Container Registry. This role doesn't grant permissions to manage Credential Sets.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/df87f177-bb12-4db1-9793-a413691eff94",
+  "name": "df87f177-bb12-4db1-9793-a413691eff94",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/cacheRules/read",
+        "Microsoft.ContainerRegistry/registries/cacheRules/write",
+        "Microsoft.ContainerRegistry/registries/cacheRules/delete",
+        "Microsoft.ContainerRegistry/registries/cacheRules/operationStatuses/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Cache Rule Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Cache Rule Reader
+
+Read the configuration of Cache Rules in Container Registry. This permission doesn't grant permission to read Credential Sets.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/read | Gets the properties of the specified cache rule or lists all the cache rules for the specified container registry |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read the configuration of Cache Rules in Container Registry. This permission doesn't grant permission to read Credential Sets.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c357b964-0002-4b64-a50d-7a28f02edc52",
+  "name": "c357b964-0002-4b64-a50d-7a28f02edc52",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/cacheRules/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Cache Rule Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Container Registry Configuration Reader and Data Access Configuration Reader
 
 Provides permissions to list container registries and registry configuration properties. Provides permissions to list data access configuration such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2850,6 +2940,8 @@ Provides permissions to list container registries and registry configuration pro
 ## Container Registry Contributor and Data Access Configuration Administrator
 
 Provides permissions to create, list, and update container registries and registry configuration properties. Provides permissions to configure data access such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2994,9 +3086,95 @@ Provides permissions to create, list, and update container registries and regist
 }
 ```
 
+## Container Registry Credential Set Administrator
+
+Create, Read, Update, and Delete Credential Sets in Container Registry. This role doesn't affect the needed permissions for storing content inside Azure Key Vault. This role also doesn't grant permissions to manage Cache Rules.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/read | Gets the properties of the specified credential set or lists all the credential sets for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/write | Creates or updates a credential set for a container registry with the specified parameters |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/delete | Deletes a credential set from a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/operationStatuses/read | Gets a credential set async operation status |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, Read, Update, and Delete Credential Sets in Container Registry. This role doesn't affect the needed permissions for storing content inside Azure Key Vault. This role also doesn't grant permissions to manage Cache Rules.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f094fb07-0703-4400-ad6a-e16dd8000e14",
+  "name": "f094fb07-0703-4400-ad6a-e16dd8000e14",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/credentialSets/read",
+        "Microsoft.ContainerRegistry/registries/credentialSets/write",
+        "Microsoft.ContainerRegistry/registries/credentialSets/delete",
+        "Microsoft.ContainerRegistry/registries/credentialSets/operationStatuses/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Credential Set Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Credential Set Reader
+
+Read the configuration of Credential Sets in Container Registry. This permission doesn't allow permission to see content inside Azure Key vault only the content inside Container Registry. This permission doesn't grant permission to read Cache Rules.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/read | Gets the properties of the specified credential set or lists all the credential sets for the specified container registry |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read the configuration of Credential Sets in Container Registry. This permission doesn't allow permission to see content inside Azure Key vault only the content inside Container Registry. This permission doesn't grant permission to read Cache Rules.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/29093635-9924-4f2c-913b-650a12949526",
+  "name": "29093635-9924-4f2c-913b-650a12949526",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/credentialSets/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Credential Set Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Container Registry Data Importer and Data Reader
 
 Provides the ability to import images into a registry through the registry import operation. Provides the ability to list repositories, view images and tags, get manifests, and pull images. Does not provide permissions for importing images through configuring registry transfer pipelines such as import and export pipelines. Does not provide permissions for importing through configuring Artifact Cache or Sync rules.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3007,7 +3185,9 @@ Provides the ability to import images into a registry through the registry impor
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | *none* |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/read | Pull or Get images from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/read | Gets the metadata of a specific repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/catalog/read | List repositories in a container registry. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -3027,7 +3207,11 @@ Provides the ability to import images into a registry through the registry impor
         "Microsoft.ContainerRegistry/registries/pull/read"
       ],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/content/read",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read",
+        "Microsoft.ContainerRegistry/registries/catalog/read"
+      ],
       "notDataActions": []
     }
   ],
@@ -3215,6 +3399,8 @@ Allows for read and write access to Azure Container Registry repositories, but e
 
 Provides permissions to configure, read, list, trigger, or cancel Container Registry Tasks, Task Runs, Task Logs, Quick Runs, Quick Builds, and Task Agent Pools. Permissions granted for Tasks management can be used for full registry data plane permissions including reading/writing/deleting container images in registries. Permissions granted for Tasks management can also be used to run customer authored build directives and run scripts to build software artifacts.
 
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -3299,6 +3485,8 @@ Provides permissions to configure, read, list, trigger, or cancel Container Regi
 ## Container Registry Transfer Pipeline Contributor
 
 Provides the ability to transfer, import, and export artifacts through configuring registry transfer pipelines that involve intermediary storage accounts and key vaults. Does not provide permissions to push or pull images. Does not provide permissions to create, manage, or list storage accounts or key vaults. Does not provide permissions to perform role assignments.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

@@ -3,7 +3,7 @@ title: Configure Microsoft Entra Authentication
 description: Learn how to configure Microsoft Entra authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 03/28/2025
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin

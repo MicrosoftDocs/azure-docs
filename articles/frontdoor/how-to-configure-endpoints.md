@@ -11,6 +11,8 @@ ms.date: 02/18/2025
 
 # Add a new endpoint with Front Door manager
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 This article shows you how to add a new endpoint to an existing Azure Front Door profile in the Front Door manager.
 
 ## Prerequisites

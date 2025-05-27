@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/21/2025
+ms.date: 05/07/2025
 ms.author: jianleishen
 ---
 # Copy data from Cassandra using Azure Data Factory or Synapse Analytics
@@ -14,6 +14,9 @@ ms.author: jianleishen
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from a Cassandra database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!IMPORTANT]
+> The Cassandra connector version 2.0 provides improved native Cassandra support. If you are using Cassandra connector version 1.0 in your solution, please [upgrade the Cassandra connector](#upgrade-the-cassandra-connector) before **July 31, 2025**. Refer to this [section](#differences-between-cassandra-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -30,7 +33,7 @@ For a list of data stores that are supported as sources/sinks, see the [Supporte
 
 Specifically, this Cassandra connector supports:
 
-- Cassandra **versions 3.x.x and 4.x.x** for version 2.0 (Preview). 
+- Cassandra **versions 3.x.x and 4.x.x** for version 2.0. 
 - Cassandra **versions 2.x and 3.x** for version 1.0. 
 - Copying data using **Basic** or **Anonymous** authentication.
 
@@ -81,7 +84,7 @@ The following properties are supported for Cassandra linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to: **Cassandra** |Yes |
-| version | The version that you specify. The value is `2.0`. | Yes for version 2.0 (Preview), not supported for version 1.0. |
+| version | The version that you specify. | Yes for version 2.0. |
 | host |One or more IP addresses or host names of Cassandra servers.<br/>Specify a comma-separated list of IP addresses or host names to connect to all servers concurrently. |Yes |
 | port |The TCP port that the Cassandra server uses to listen for client connections. |No (default is 9042) |
 | authenticationType | Type of authentication used to connect to the Cassandra database.<br/>Allowed values are: **Basic**, and **Anonymous**. |Yes |
@@ -92,7 +95,7 @@ The following properties are supported for Cassandra linked service:
 >[!NOTE]
 >Currently connection to Cassandra using TLS is not supported.
 
-**Example: version 2.0 (Preview)**
+**Example: version 2.0**
 
 ```json
 {
@@ -180,7 +183,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Cassandra as source
 
-If you use version 2.0 (Preview) to copy data from Cassandra, set the source type in the copy activity to **CassandraSource**. The following properties are supported in the copy activity **source** section:
+If you use version 2.0 to copy data from Cassandra, set the source type in the copy activity to **CassandraSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -233,7 +236,7 @@ If you use version 1.0 to copy data from Cassandra, set the source type in the c
 
 When copying data from Cassandra, the following mappings are used from Cassandra data types to interim data types used internally within the service. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| Cassandra data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
+| Cassandra data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
 | ASCII |String |String |
 | BIGINT |Int64 |Int64 |
@@ -262,9 +265,9 @@ When copying data from Cassandra, the following mappings are used from Cassandra
 > The length of Binary Column and String Column lengths cannot be greater than 4000.
 >
 
-## Work with collections when using version 2.0 (Preview)
+## Work with collections when using version 2.0
 
-When using version 2.0 (Preview) to copy data from your Cassandra database, no virtual tables for collection types are created. You can copy a source table to the sink in its original type in JSON format.
+When using version 2.0 to copy data from your Cassandra database, no virtual tables for collection types are created. You can copy a source table to the sink in its original type in JSON format.
 
 ### Example
 
@@ -351,21 +354,21 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade the Cassandra connector:
 
-1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties](#linked-service-properties).
+1. In **Edit linked service** page, select version 2.0 and configure the linked service by referring to [Linked service properties](#linked-service-properties).
 
-2. In version 2.0 (Preview), the `query` in the copy activity source supports only CQL query, not SQL-92 query. For more information, see [Cassandra as source](#cassandra-as-source).
+2. In version 2.0, the `query` in the copy activity source supports only CQL query, not SQL-92 query. For more information, see [Cassandra as source](#cassandra-as-source).
 
-3. The data type mapping for version 2.0 (Preview) is different from that for version 1.0. To learn the latest data type mapping, see [Data type mapping for Cassandra](#data-type-mapping-for-cassandra). 
+3. The data type mapping for version 2.0 is different from that for version 1.0. To learn the latest data type mapping, see [Data type mapping for Cassandra](#data-type-mapping-for-cassandra). 
 
-## Differences between Cassandra version 2.0 (Preview) and version 1.0 
+## Differences between Cassandra version 2.0 and version 1.0 
 
-The Cassandra connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 (Preview) and version 1.0. 
+The Cassandra connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 and version 1.0. 
 
-| Version 2.0 (Preview) | Version 1.0 |
+| Version 2.0 | Version 1.0 |
 | --- | --- |
 | Support CQL query. | Support SQL-92 query or CQL query. |
 | Support specifying `keyspace` and `tableName` separately in dataset. | Support editing `keyspace` when you select enter manually table name in dataset. |
-| No virtual tables are created for collection types. For more information, see [Work with collections when using version 2.0 (Preview)](#work-with-collections-when-using-version-20-preview).  | Virtual tables are created for collection types. For more information, see [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10). |
+| No virtual tables are created for collection types. For more information, see [Work with collections when using version 2.0](#work-with-collections-when-using-version-20).  | Virtual tables are created for collection types. For more information, see [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10). |
 | The following mappings are used from Cassandra data types to interim service data type. <br><br> SMALLINT -> Short <br> TINYINT -> SByte | The following mappings are used from Cassandra data types to interim service data type. <br><br> SMALLINT -> Int16 <br> TINYINT -> Int16 | 
 
 ## Related content

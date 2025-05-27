@@ -6,7 +6,9 @@ ms.author: maghan
 ms.reviewer: prwilk, chkittel
 ms.date: 03/24/2025
 ms.topic: concept-article
-ms.custom: migration
+ms.collection:
+ - migration
+ - aws-to-azure
 ---
 
 # Migrate databases from Amazon Web Services (AWS) to Azure
@@ -44,7 +46,7 @@ Use the following scenarios as examples for your migration process.
 
 Databases make up only part of your workload. Explore other components that you might migrate:
 
-- [Compute](./migrate-compute-from-aws.md)
-- [Storage](./migrate-storage-from-aws.md)
-
-Use the table of contents to explore other articles that relate to your workload's architecture.
+- [Compute](migrate-compute-from-aws.md)
+- [Storage](migrate-storage-from-aws.md)
+- [Networking](migrate-networking-from-aws.md)
+- [Security](migrate-security-from-aws.md)

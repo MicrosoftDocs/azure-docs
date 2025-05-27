@@ -137,7 +137,7 @@ az redis update --cluster-name myCache --resource-group myGroup --set "sku.name"
 For more information on scaling with Azure CLI, see [Change settings of an existing Azure Cache for Redis](cache-manage-cli.md#scale).
 
 > [!NOTE]
-> When you scale a cache up or down programatically (e.g. using PowerShell or Azure CLI), any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
+> When you scale a cache up or down programmatically (e.g. using PowerShell or Azure CLI), any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
 >
 
 ### [Scale out and in - Premium only](#tab/scale-out-and-in---premium-only)
@@ -348,7 +348,7 @@ While Standard, Premium, Enterprise, and Enterprise Flash caches have a SLA for 
 
 With [passive geo-replication](cache-how-to-geo-replication.md) configured, you might notice that you can’t scale a cache or change the shards in a cluster. A geo-replication link between two caches prevents you from scaling operation or changing the number of shards in a cluster. You must unlink the cache to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md).
 
-With [active geo-replication](cache-how-to-active-geo-replication.md) configured, you can't scale a cache. All caches in a geo replication group must be the same size and capacity.
+With [active geo-replication](cache-how-to-active-geo-replication.md) configured, you can scale a cache with some limitations. All caches in a geo-replication group must be the same size and capacity. For more information, see [Configure active geo-replication for Enterprise Azure Cache for Redis instances](cache-how-to-active-geo-replication.md).
 
 ### Operations that aren't supported
 

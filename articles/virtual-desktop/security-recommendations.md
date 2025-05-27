@@ -2,8 +2,8 @@
 title: Security recommendations for Azure Virtual Desktop
 description: Learn about recommendations for helping keep your Azure Virtual Desktop environment secure.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 12/11/2024
 ---
 

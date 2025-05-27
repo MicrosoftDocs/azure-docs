@@ -6,7 +6,8 @@ ms.author: austinmc
 ms.topic: how-to
 ms.date: 10/17/2024
 ms.custom: template-how-to
-appliesto: Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 
 
 #Customer intent: As a Managed Security Services Provider (MSSP) or global enterprise, I want to centrally manage multiple security workspaces so that I can efficiently operate at scale across one or more Azure tenants.

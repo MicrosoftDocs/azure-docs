@@ -37,7 +37,8 @@ If ADU.200703.R _isn't_ on your devices for some reason - such as if you created
 ## How to validate if your devices are impacted
 
 The Device Update team created a test mechanism to validate if your devices can receive content signed with ADU.200703.R. You can use this at any time before the August 26 rotation. Instructions:
-1. Download a [special test file](https://a.b.nlu.dl.adu.microsoft.com/swedencentral/testfiles/root-key-test-update.txt). This exact file _must_ be used, because the Device Update service will look for the file hash at import time.
+1. Download a [special test file](https://a.b.nlu.dl.adu.microsoft.com/swedencentral/testfiles/root-key-test-update.txt). This exact file _must_ be used, because the Device Update service will look for the file hash at import time. The matching file hash in your import manifest should be: **KGyJ9tM6JSLHQq0gdKUmsVvB6Y4z0pMKdQNAd8jTGH0=**
+
 2. [Create an update](create-update.md) to test with. You can use any file(s) you'd like, but you must also include the special test file in your import manifest. It's recommended that your update change the devices in a way that's easy to verify later (such as changing the version number on a file, or adding a new file that wasn't on the device).
 3. Import and deploy the update to your devices just like you normally would.
 4. Verify that the update succeeded on your devices. If it did, your devices can receive updates signed with ADU.200703.R and are ready for the August 26 rotation.

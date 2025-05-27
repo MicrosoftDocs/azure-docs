@@ -1,6 +1,6 @@
 ---
-title: Azure Database for MySQL output binding for Functions
-description: Learn to use the Azure Database for MySQL output binding in Azure Functions.
+title: Azure Database for MySQL Output Binding for Functions
+description: Learn how to use the Azure Database for MySQL output binding in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
 ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
@@ -10,11 +10,11 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure Database for MySQL output binding for Azure Functions (Preview)
+# Azure Database for MySQL output binding for Azure Functions
 
-The Azure Database for MySQL output binding lets you write to a database.
+You can use the Azure Database for MySQL output binding to write to a database.
 
-For information on setup and configuration details, see the [overview](./functions-bindings-azure-mysql.md).
+For information on setup and configuration, see the [overview](./functions-bindings-azure-mysql.md).
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
@@ -37,7 +37,7 @@ This section contains the following example:
 
 * [HTTP trigger, write one record](#http-trigger-write-one-record-c-oop)
 
-The examples refer to a `Product` class and a corresponding database table:
+The example refers to a `Product` class and a corresponding database table:
 
 ```csharp
 namespace AzureMySqlSamples.Common
@@ -59,9 +59,9 @@ namespace AzureMySqlSamples.Common
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
@@ -69,7 +69,7 @@ CREATE TABLE Products (
 
 ### HTTP trigger, write one record
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, using data provided in an HTTP POST request as a JSON body.
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, by using data provided in an HTTP `POST` request as a JSON body.
 
 ```cs
 using Microsoft.AspNetCore.Mvc;
@@ -103,7 +103,7 @@ This section contains the following example:
 
 * [HTTP trigger, write one record](#http-trigger-write-one-record-c)
 
-The examples refer to a `Product` class and a corresponding database table:
+The example refers to a `Product` class and a corresponding database table:
 
 ```csharp
 namespace AzureMySqlSamples.Common
@@ -125,9 +125,9 @@ namespace AzureMySqlSamples.Common
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
@@ -135,7 +135,7 @@ CREATE TABLE Products (
 
 ### HTTP trigger, write one record
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, using data provided in an HTTP POST request as a JSON body.
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, by using data provided in an HTTP `POST` request as a JSON body.
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -161,7 +161,6 @@ namespace AzureMySqlSamples.OutputBindingSamples
 }
 ```
 
-
 ---
 
 ::: zone-end
@@ -174,7 +173,7 @@ This section contains the following example:
 
 * [HTTP trigger, write a record to a table](#http-trigger-write-record-to-table-java)
 
-The examples refer to a `Product` class  and a corresponding database table:
+The example refers to a `Product` class  and a corresponding database table:
 
 ```java
 package com.function.Common;
@@ -204,16 +203,16 @@ public class Product {
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
 <a id="http-trigger-write-record-to-table-java"></a>
 ### HTTP trigger, write a record to a table
 
-The following example shows a MySQL output binding in a Java function that adds a record to a table, using data provided in an HTTP POST request as a JSON body. The function takes an additional dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
+The following example shows an Azure Database for MySQL output binding in a Java function that adds a record to a table, by using data provided in an HTTP `POST` request as a JSON body. The function takes an additional dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
 
 ```xml
 <dependency>
@@ -278,22 +277,22 @@ This section contains the following example:
 
 * [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-javascript)
 
-The examples refer to a database table:
+The example refers to a database table:
 
 ```sql
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
 <a id="http-trigger-write-records-to-table-javascript"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a MySQL output binding that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+The following example shows an Azure Database for MySQL output binding that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
 
 ::: zone-end
 
@@ -311,13 +310,13 @@ const mysqlOutput = output.generic({
 })
 
 // Upsert the product, which will insert it into the Products table if the primary key (ProductId) for that item doesn't exist.
-// If it does then update it to have the new name and cost.
+// If it does, update it to have the new name and cost.
 app.http('AddProduct', {
     methods: ['POST'],
     authLevel: 'anonymous',
     extraOutputs: [mysqlOutput],
     handler: async (request, context) => {
-        // Note that this expects the body to be a JSON object or array of objects which have a property
+        // Note that this expects the body to be a JSON object or array of objects that have a property
         // matching each of the columns in the table to upsert to.
         const product = await request.json();
         context.extraOutputs.set(mysqlOutput, product);
@@ -352,13 +351,13 @@ const mysqlOutput = output.generic({
 })
 
 // Upsert the product, which will insert it into the Products table if the primary key (ProductId) for that item doesn't exist.
-// If it does then update it to have the new name and cost.
+// If it does, update it to have the new name and cost.
 app.http('AddProduct', {
     methods: ['POST'],
     authLevel: 'anonymous',
     extraOutputs: [mysqlOutput],
     handler: async (request, context) => {
-        // Note that this expects the body to be a JSON object or array of objects which have a property
+        // Note that this expects the body to be a JSON object or array of objects that have a property
         // matching each of the columns in the table to upsert to.
         const product = await request.json();
         context.extraOutputs.set(mysqlOutput, product);
@@ -370,7 +369,6 @@ app.http('AddProduct', {
     }
 });
 ```
-
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -406,7 +404,7 @@ The following example is binding data in the function.json file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
 The following example is sample JavaScript code:
 
@@ -421,6 +419,7 @@ module.exports = async function (context, req, product) {
     };
 }
 ```
+
 ---
 
 ::: zone-end
@@ -433,22 +432,22 @@ This section contains the following example:
 
 * [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-powershell)
 
-The examples refer to a database table:
+The example refers to a database table:
 
 ```sql
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
 <a id="http-trigger-write-records-to-table-powershell"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a MySQL output binding in a function.json file and a PowerShell function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+The following example shows an Azure Database for MySQL output binding in a function.json file and a PowerShell function that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
 
 The following example is binding data in the function.json file:
 
@@ -482,29 +481,29 @@ The following example is binding data in the function.json file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
-The following example is sample PowerShell code for the function in the `run.ps1` file:
+The following example is sample PowerShell code for the function in the run.ps1 file:
 
 ```powershell
 using namespace System.Net
 
-# Trigger binding data passed in via param block
+# Trigger binding data passed in via parameter block.
 param($Request, $TriggerMetadata)
 
 # Write to the Azure Functions log stream.
 Write-Host "PowerShell function with MySql Output Binding processed a request."
 
 # Note that this expects the body to be a JSON object or array of objects 
-# which have a property matching each of the columns in the table to upsert to.
+# that have a property matching each of the columns in the table to upsert to.
 $req_body = $Request.Body
 
-# Assign the value we want to pass to the MySql Output binding. 
-# The -Name value corresponds to the name property in the function.json for the binding
+# Assign the value that you want to pass to the MySQL output binding. 
+# The -Name value corresponds to the name property in the function.json file for the binding.
 Push-OutputBinding -Name product -Value $req_body
 
 # Assign the value to return as the HTTP response. 
-# The -Name value matches the name property in the function.json for the binding
+# The -Name value matches the name property in the function.json file for the binding.
 Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
     StatusCode = [HttpStatusCode]::OK
     Body = $req_body
@@ -512,7 +511,6 @@ Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 ```
 
 ::: zone-end  
-
 
 ::: zone pivot="programming-language-python"  
 
@@ -522,31 +520,29 @@ This section contains the following example:
 
 * [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-python)
 
-The examples refer to a database table:
+The example refers to a database table:
 
 ```sql
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
 > [!NOTE]
-> Please note that Azure Functions version 1.22.0b4 must be used for Python .
->
-
+> You must use Azure Functions version 1.22.0b4 for Python.
 
 <a id="http-trigger-write-records-to-table-python"></a>
 ### HTTP trigger, write records to a table
 
-The following example shows a MySQL output binding in a function.json file and a Python function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+The following example shows an Azure Database for MySQL output binding in a function.json file and a Python function that adds records to a table, by using data provided in an HTTP `POST` request as a JSON body.
 
 # [v2](#tab/python-v2)
 
-The following example is sample python code for the function_app.py file:
+The following example is sample Python code for the function_app.py file:
 
 ```python
 import json 
@@ -607,7 +603,7 @@ The following example is binding data in the function.json file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
 The following example is sample Python code:
 
@@ -621,8 +617,8 @@ def main(req: func.HttpRequest, product: func.Out[func.MySqlRow]) -> func.HttpRe
     and cost.
     """
 
-    # Note that this expects the body to be a JSON object which
-    # have a property matching each of the columns in the table to upsert to.
+    # Note that this expects the body to be a JSON object that
+    # has a property matching each of the columns in the table to upsert to.
     body = json.loads(req.get_body())
     row = func.MySqlRow.from_dict(body)
     product.set(row)
@@ -638,30 +634,30 @@ def main(req: func.HttpRequest, product: func.Out[func.MySqlRow]) -> func.HttpRe
 
 ::: zone-end
 
-
 ::: zone pivot="programming-language-csharp"
-## Attributes 
 
-The [C# library](functions-dotnet-class-library.md) uses the MySqlAttribute attribute to declare the MySQL bindings on the function, which has the following properties:
+## Attributes
+
+The [C# library](functions-dotnet-class-library.md) uses the `MySqlAttribute` attribute to declare the MySQL bindings on the function, which has the following properties:
 
 | Attribute property |Description|
 |---------|---------|
-| **CommandText** | Required. The name of the table being written to by the binding.  |
-| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. | 
-
+| `CommandText` | Required. The name of the table that the binding writes to.  |
+| `ConnectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This value isn't the actual connection string and must instead resolve to an environment variable. |
 
 ::: zone-end  
 
 ::: zone pivot="programming-language-java"  
+
 ## Annotations
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@MySQLOutput` annotation on parameters whose value would come from Azure Database for MySQL. This annotation supports the following elements:
 
 | Element |Description|
 |---------|---------|
-| **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
-|**name** |  Required. The unique name of the function binding. | 
+| `commandText` | Required. The name of the table that the binding writes to.  |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This value isn't the actual connection string and must instead resolve to an environment variable.|
+| `name` |  Required. The unique name of the function binding. |
 
 ::: zone-end  
 
@@ -671,61 +667,60 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 # [Model v4](#tab/nodejs-v4)
 
-The following table explains the properties that you can set on the `options` object passed to the `output.generic()` method.
+The following table explains the properties that you can set on the `options` object passed to the `output.generic()` method:
 
 | Property | Description |
 |---------|----------------------|
-| **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. |
+| `commandText` | Required. The name of the table that the binding writes to.  |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This value isn't the actual connection string and must instead resolve to an environment variable. |
 
 # [Model v3](#tab/nodejs-v3)
 
-The following table explains the binding configuration properties that you set in the *function.json* file.
+The following table explains the binding configuration properties that you set in the function.json file:
 
 | Property | Description |
 |---------|----------------------|
-|**type** | Required. Must be set to `Mysql`.|
-|**direction** | Required. Must be set to `out`. |
-|**name** | Required. The name of the variable that represents the entity in function code. | 
-| **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. |
+|`type` | Required. Must be set to `Mysql`.|
+|`direction` | Required. Must be set to `out`. |
+|`name` | Required. The name of the variable that represents the entity in function code. |
+| `commandText` | Required. The name of the table that the binding writes to.  |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This value isn't the actual connection string and must instead resolve to an environment variable. |
 
 ---
 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell,programming-language-python"
+
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file.
+The following table explains the binding configuration properties that you set in the function.json file:
 
-|function.json property | Description|
+|Property | Description|
 |---------|----------------------|
-|**type** | Required. Must be set to `Mysql`.|
-|**direction** | Required. Must be set to `out`. |
-|**name** | Required. The name of the variable that represents the entity in function code. | 
-| **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. |
+|`type` | Required. Must be set to `Mysql`.|
+|`direction` | Required. Must be set to `out`. |
+|`name` | Required. The name of the variable that represents the entity in function code. |
+| `commandText` | Required. The name of the table that the binding writes to.  |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database to which data is written. This value isn't the actual connection string and must instead resolve to an environment variable. |
 
 ::: zone-end  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!NOTE]
->The output binding supports all special characters including ($, `, -, _) . It is same as mentioned in mysql community [documentation](https://dev.mysql.com/doc/refman/8.0/en/identifiers.html)
+> The output binding supports all special characters, including dollar sign ($), backtick (`), hyphen (-), and underscore (_). For more information, see the [MySQL community documentation](https://dev.mysql.com/doc/refman/8.0/en/identifiers.html).
 >
->It is on different programming language if special character is supported to define members attributes containing special characters. For example, C# have few limitations to define [variables](/dotnet/csharp/fundamentals/coding-style/identifier-names)
+> A programming language might define member attributes that contain special characters that it supports. For example, C# has a few limitations for defining [variables](/dotnet/csharp/fundamentals/coding-style/identifier-names).
 >
->Apart from that, the output binding covering all special characters can be done using 'JObject'. The detailed example can be followed in this [GitHub link](https://github.com/Azure/azure-functions-mysql-extension/blob/main/samples/samples-csharp/OutputBindingSamples/AddProductJObject.cs)
->
+> Otherwise, you can use `JObject` for the output binding that covers all special characters. You can follow a [detailed example on GitHub](https://github.com/Azure/azure-functions-mysql-extension/blob/main/samples/samples-csharp/OutputBindingSamples/AddProductJObject.cs).
 
 ## Usage
 
-The `CommandText` property is the name of the table where the data is to be stored. The connection string setting name corresponds to the application setting that contains the connection string to Azure Database for MySQL.
+The `CommandText` property is the name of the table where the data is stored. The name of the connection string setting corresponds to the application setting that contains the connection string to Azure Database for MySQL.
 
-If an exception occurs when a MySQL output binding is executed then the function code stop executing. This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.  
+If an exception occurs when a MySQL input binding is executed, the function code won't run. The result might be an error code, such as an HTTP trigger that returns a 500 error code.
 
-## Next steps
+## Related content
 
-- [Read data from a database (Input binding)](./functions-bindings-azure-mysql-input.md)
-
+* [Read data from a database (input binding)](./functions-bindings-azure-mysql-input.md)

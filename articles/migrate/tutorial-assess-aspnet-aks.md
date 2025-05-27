@@ -1,26 +1,25 @@
 ---
 title: Assess ASP.NET/Java web apps for migration to Azure Kubernetes Service
 description: Assessments of ASP.NET web apps to Azure Kubernetes Service using Azure Migrate
-author: SnehaSudhirG
-ms.author: sudhirsneha
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/31/2024
+ms.date: 02/05/2025
 ms.custom: template-tutorial, devx-track-extended-java
 zone_pivot_groups: web-apps-assessment-aks
+monikerRange: migrate-classic
 ---
 
 # Assess web apps for migration to Azure Kubernetes Service (preview)
 
 ::: zone pivot="asp-net"
 
-This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Creating an assessment for your ASP.NET web app provides key insights such as **app-readiness**, **target right-sizing**, and **cost** to host and run these apps month over month.
+This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Create an assessment for your ASP.NET web app to provide key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
 ::: zone-end
 
 ::: zone pivot="java"
 
-This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Creating an assessment for your Java web app provides key insights such as **app-readiness**, **target right-sizing**, and **cost** to host and run these apps month over month.
+This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Create an assessment for your Java web app to provide key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
 ::: zone-end
 
@@ -49,7 +48,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Deploy and configure the Azure Migrate appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical environment](./tutorial-discover-physical.md).
+- Deploy and configure the Azure Migrate appliance in your [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md) or [physical environment](./tutorial-discover-physical.md).
 - Check the [appliance requirements](./migrate-appliance.md#appliance---vmware) and [URL access](./migrate-appliance.md#url-access) to be provided.
 ::: zone pivot="asp-net"
 - Follow [these steps](./how-to-discover-sql-existing-project.md) to discover ASP.NET web apps running on your environment.
@@ -61,7 +60,7 @@ In this tutorial, you learn how to:
 ## Create an assessment
 
 1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for Azure Migrate.
-1. On the **Azure Migrate** page, select **Servers, databases and web apps**.
+1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Web apps on Azure** from the **Assess** dropdown menu.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-assess-webapps.png" alt-text="Screenshot of selecting web app assessments.":::
@@ -71,7 +70,7 @@ In this tutorial, you learn how to:
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-scenario.png" alt-text="Screenshot of selecting the scenario for web app assessment.":::
 
-    2. Select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
+    2. Select **Edit** to modify assessment settings. See the table to update the various assessment settings.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-settings.png" alt-text="Screenshot of changing the target settings for web app assessment.":::
 
@@ -83,7 +82,7 @@ In this tutorial, you learn how to:
     | Currency | All common currencies such as USD, INR, GBP, Euro | We generate the cost in the currency selected here. |
     | Discount Percentage | Numeric decimal value | Use this to factor in any custom discount agreements with Microsoft. This is disabled if Savings options are selected. |
     | EA subscription | Subscription ID | Select the subscription ID for which you have an Enterprise Agreement. |
-    | Savings options | One year reserved <br> Three years reserved <br> One year savings plan <br> Three years savings plan <br> None | Select a savings option if you opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/pricing/offers/savings-plan-compute/). |
+    | Savings options | 1 year reserved <br> 3 years reserved <br> 1 year savings plan <br> 3 years savings plan <br> None | Select a savings option if you've opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/pricing/offers/savings-plan-compute/). |
     | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category ensures we recommend the best AKS Node SKUs from that category. |
     | AKS pricing tier | Standard | Pricing tier for AKS |
 
@@ -112,13 +111,13 @@ In this tutorial, you learn how to:
 
 The assessment can take around 10 minutes to complete.
 
-1. On the **Azure Migrate** page, select **Servers, databases and web apps**.
+1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number next to the Web apps on Azure assessment. 
 1. On the **Assessments** page, select a desired assessment name to view from the list of assessments.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-view-assessments.png" alt-text="Screenshot of selecting the hyperlink to see the list of web app assessments.":::
 
-1. Use the search bar to filter for your assessment. It should be in the **Ready** state. 
+2. Use the search bar to filter for your assessment. It should be in the **Ready** state. 
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-list.png" alt-text="Screenshot of filtering for the created assessment.":::
 
@@ -131,7 +130,6 @@ The assessment can take around 10 minutes to complete.
 ### Assessment overview
 
 ::: zone pivot="asp-net"
-
 :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-overview.png" alt-text="Screenshot of the assessment overview.":::
 ::: zone-end
 
@@ -141,9 +139,9 @@ The assessment can take around 10 minutes to complete.
 
 On the **Overview** page, you're provided with the following details:
 
-1. **Assessed entities**: This section provides the count of servers, web servers, and web apps that are part of this assessment.
+1. **Assessed entities**: This section provides the count of servers, web servers and web apps that are part of this assessment.
 
-2. **Migration readiness**: The assessed web apps have one of the following statuses:
+2. **Migration readiness**: The assessed web apps will have one of the following statuses:
 
     | Status | Definition |
     | --- | --- |
@@ -165,13 +163,13 @@ Selecting the **Export assessment** option exports the entire assessment to an E
 
 #### Readiness
 
-On the **Readiness** tab, you see the list of web apps assessed. For each web app, you see the readiness status, the cluster, and the recommended AKS Node SKU.
+On the **Readiness** tab, you see the list of web apps assessed. For each web app, you see the readiness status, the cluster and the recommended AKS Node SKU.
 
 :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-readiness-list.png" alt-text="Screenshot of the readiness tab in the assessment details page.":::
 
-Select the readiness condition of an app to see the migration warnings or issues. For apps that are *Ready with conditions*, you'll only see warnings. For apps that are *Not ready*, you see errors and potentially warnings.
+Select the readiness condition of an app to see the migration warnings or issues. For apps that are *Ready with conditions*, you'll only see warnings. For apps that are *Not ready*, you'll see errors and potentially warnings.
 
-For each issue or warning, you're provided the description, cause, and mitigation steps along with useful documentation/blogs for reference.
+For each issue or warning, you're provided the description, cause and mitigation steps along with useful documentation/blogs for reference.
 
 :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-readiness-errors.png" alt-text="Screenshot of the readiness errors and warnings for a web app.":::
 
@@ -183,7 +181,7 @@ Selecting the recommended cluster for the app opens the **Cluster details** page
 
 On the **Cost details** tab, you see the breakdown of the monthly cost estimate distributed across AKS node pools. AKS pricing is intrinsically dependent on the node pool costs.
 
-For each node pool, you see the associated node SKU, node count, and the number of web apps recommended to be scheduled, along with the cost. By default, there will be at least two node pools:
+For each node pool, you see the associated node SKU, node count and the number of web apps recommended to be scheduled, along with the cost. By default, there will be at least 2 node pools:
 
 1. *System*: Used to host critical system pods such as `CoreDNS`.
 2. *User*: As ASP.NET framework apps need a Windows node to run, the assessment recommends at least one additional Windows-based node pool.

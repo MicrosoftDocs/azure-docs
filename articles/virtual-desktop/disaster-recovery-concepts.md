@@ -2,8 +2,8 @@
 title: Azure Virtual Desktop disaster recovery concepts
 description: Learn how to design and implement a disaster recovery plan for Azure Virtual Desktop to keep your organization up and running.
 ms.topic: how-to
-author: sipastak
-ms.author: sipastak
+author: dougeby
+ms.author: avdcontent
 ms.date: 06/28/2024
 ---
 

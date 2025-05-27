@@ -1,15 +1,17 @@
 ---
-title: Azure Front Door WebSocket (preview)
+title: Azure Front Door WebSocket
 description: This article describes how WebSocket work on Azure Front Door for real-time bidirectional communication between a server and client over a long running TCP connection.
 author: jessie-jyy
 ms.author: halkazwini
 manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 3/31/2025
+ms.date: 03/31/2025
 ---
 
 # Azure Front Door WebSocket
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door supports WebSocket on both Standard and Premium tiers without requiring any extra configurations. WebSocket, standardized in [RFC6455](https://tools.ietf.org/html/rfc6455), is a TCP-based protocol that facilitates full-duplex communication between a server and a client over a long-running TCP connection. It eliminates the need for polling as required in HTTP and avoids some of the overhead of HTTP. It can reuse the same TCP connection for multiple requests or responses, resulting in a more efficient utilization of resources. This enables more interactive and real-time scenarios.
 
