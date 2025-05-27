@@ -42,7 +42,7 @@ You can execute the `$bulk-delete` operation at the system level or for individu
     ```
 
 > [!NOTE]
-> Use the `$bulk-delete` operation with caution. Deleted resources can't be restored.
+> Use the `$bulk-delete` operation with caution. Deleted resources can't be restored. 
 
 
 #### Query parameters
@@ -140,3 +140,11 @@ The following example using `_revinclude` will bulk delete all Patient resources
 The following example using `_include` will bulk delete all DiagnosticReport resources that were last updated before 12/18/2021, as well as all ServiceRequest resources that are referenced by those DiagnosticReport resources (via DiagnosticReport.basedOn relationship), and all Encounter resources that are referenced by those ServiceRequest resources (via ServiceRequest.encounters relationship):
 
 `DELETE [base]/DiagnosticReport/$bulk-delete?_lastUpdated=lt2021-12-12&_include=DiagnosticReport:based-on:ServiceRequest&_include:iterate=ServiceRequest:encounter`
+
+### `$bulk-delete` with `_not-referenced`
+Note: This feature is available in Azure Health Data Services FHIR Server only, and is not available in Azure API for FHIR.
+
+As mentioned in the "Query parameters" section above, the `$bulk-delete` operation uses FHIR service supported search parameters. This includes the new `_not-referenced` parameter, which allows you to search for and delete resources that are not referenced by any other resources. 
+
+The following example will bulk delete all Patient resources that are not referenced by any other resources:
+`DELETE [base]/Patient/$bulk-delete?_not-referenced=*:*`
