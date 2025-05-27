@@ -113,7 +113,7 @@ client.on("stopped", () => {
 });
 ```
 
-### Use an application server to generate `Client Access URL` programatically
+### Use an application server to generate `Client Access URL` programmatically
 In production, clients usually fetch `Client Access URL` from an application server. The server holds the `connection string` to your Web PubSub resource and generates the `Client Access URL` with help from the server-side library `@azure/web-pubsub`.
 
 #### 1. Application server 
