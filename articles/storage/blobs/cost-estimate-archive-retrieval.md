@@ -1,6 +1,6 @@
 ---
-title: 'Cost estimate: Early retrieval from archive (Azure Blob Storage)' 
-description: This article shows an example of what it costs to archive and then retrieve data in Azure Blob Storage.
+title: 'Cost estimate: Analyze archived data (Azure Blob Storage)' 
+description: This article shows an example of what it costs to retrieve and analyze archived data in Azure Blob Storage.
 services: storage
 author: normesta
 
@@ -10,7 +10,7 @@ ms.topic: concept-article
 ms.author: normesta
 ---
 
-# Cost estimate: Early data retrieval from archive 
+# Cost estimate: Retrieve data from archive storage for analysis 
 
 This sample estimates the cost to retrieve a portion of data from the archive tier before the 180 day limit.
 
@@ -21,13 +21,9 @@ This sample estimates the cost to retrieve a portion of data from the archive ti
 
 Your company has stored 20 TB of data in the archive tier for long term retention. However, after only 3 months in archive storage, 20% of that data must be retrieved for analysis. You've been asked to estimate what it will cost to get that data from archive storage and then download that data to clients for analysis. The account is located in the West US region, and is configured for locally-redundant storage (LRS), and hierarchical namespaces are not enabled.
 
-## Cost factors
+## Cost components
 
-To analyze this data, you must first rehydrate data from the archive tier to the hot tier. You can accomplish this by changing the access tier of all blobs needed for analysis. Changing the tier from archive to hot is billed as a **read operation on the archive tier**. 
-
-Moving data out of archive storage also incurs a **data retrieval fee** and because that data is retrieved before 180 days, you'll also be assessed an **early deletion fee**. 
-
-Once data is moved into the hot tier, clients will need to read that data. Each blob read incurs a **read operation on the hot tier**. Aside from these cost components, rehydration time at standard priority can take up to 15 hours to complete.
+To analyze this data, you must first rehydrate data from the archive tier to the hot tier. You can accomplish this by changing the access tier of all blobs needed for analysis. Changing the tier from archive to hot is billed as a **read operation on the archive tier**. Moving data out of archive storage also incurs a **data retrieval fee** and because that data is retrieved before 180 days, you'll also be assessed an **early deletion fee**. Once data is moved into the hot tier, clients will need to read that data. Each blob read incurs a **read operation on the hot tier**. Aside from these cost components, rehydration time at standard priority can take up to 15 hours to complete.
 
 ## Estimate
 
@@ -47,7 +43,7 @@ Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), th
 |                        | Cost of early deletion<br></br>               | (4000 blobs * $0.0020) * 3            | **$24.00**  |
 | **Read from hot tier** | Number of read operations on hot tier         | The number of blobs moved to hot tier | 400         |
 |                        | Price of a read operation on the hot tier     | Taken from sample prices              | $0.00000044 |
-|                        | Cost to read blobs from the hot tier<br></br> | 400 operations * $0.00000044          | $0.0002     |
+|                        | Cost to read blobs from the hot tier<br></br> | 400 operations * $0.00000044          | **$0.0002** |
 | **Total cost**         |                                               |                                       | **$112.22** |
 
 > [!TIP]

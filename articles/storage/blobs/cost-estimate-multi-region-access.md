@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 05/14/2025
+ms.date: 05/27/2025
 ms.topic: concept-article
 ms.author: normesta
 ---
@@ -19,43 +19,39 @@ This sample estimates the costs associated with uploading and downloading data f
 
 ## Scenario
 
-In this scenario, client applications are located in different Azure regions across the continent. These client applications generate and upload **50,000** log files. Each file is **1 GB** in size. Because the account is configured for Geo-redundant storage (GRS), each file that is uploaded incurs a data transfer fee and a network bandwidth fee. 
+Your company has a storage account that is located in the West US region and hierarchical namespaces are not enabled. This year, a new client application is being distributed to users located in multiple Azure regions across the continent. The clients will generate and upload an estimated **50,000** log files this quarter. Each file is **1 GB** in size. During the quarter, your company estimates that client applications will download about half of those log files for diagnostic analysis. You've been asked to create an estimate.
 
-Client applications download about half of those log files for diagnostic analysis. However, **75%** of those client applications are not located in the same region as the storage account so they incur a data transfer fee and a network bandwidth fee for each download. 
+## Cost components
 
-The account is located in the West US region and hierarchical namespaces are not enabled.
+Client applications incur write operations on the hot tier. Because the account is configured for Geo-redundant storage (GRS), each file that is uploaded incurs a data transfer fee and a network bandwidth fee. 
+Each download incurs a read cost on the hot tier. However, **75%** of those client applications are not located in the same region as the storage account so they incur a data transfer fee and a network bandwidth fee for each download. 
 
 ## Estimate
 
-Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated.
+Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated. This sample estimate doesn't include the [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB.
 
-| Cost factor                                           | Calculation                                  | Value       |
-|-------------------------------------------------------|----------------------------------------------|-------------|
-| PutBlock operations per blob                          | 1 GiB / 8-MiB block                          | 155         |
-| PutBlockList operations per blob                      | 1 per blob                                   | 1           |
-| **Cost of write operations**                          | (50,000 blobs * 156) * write operation price | **$163.80** |
-| Data transfer fee (replication)                       | 50,000 GB * data transfer fee                | $1,000.00   |
-| Network bandwidth fee (replication)                   | 50,000 GB * network bandwidth fee            | $1,000.00   |
-| **Cost to transfer data out of region (replication)** | data transfer fee + network bandwidth fee    | **$2,000**  |
-| Number of read operations                             | 50,000 / 2                                   | 25,000      |
-| **Cost of read operations**                           | 25,000 GB * read operation price             | **$110.00** |
-| Number of blobs downloaded from other regions         | 25,000 * 75%                                 | 1875        |
-| Data transfer fee (downloads)                         | 1875 * data transfer fee                     | $375.00     |
-| Network bandwidth fee (downloads)                     | 1875 * network bandwidth fee                 | $375.00     |
-| **Cost to transfer data out of region (download)**    | data transfer fee + network bandwidth fee    | **$750.00** |
-| **Total cost**                                        | write + read + data transfer                 | **860.00**  |
+| Cost component          | Cost factor                                   | Calculation                          | Value         |
+|-------------------------|-----------------------------------------------|--------------------------------------|---------------|
+| **Cost to write**       | PutBlock operations per blob                  | 1 GiB / 8-MiB block                  | 155           |
+|                         | PutBlockList operations per blob              | 1 per blob                           | 1             |
+|                         | Price of a write operation on the hot tier    | Taken from sample prices             | $0.0000210000 |
+|                         | Cost to upload log files<br></br>             | (50,000 blobs * 156) * $0.0000210000 | **$163.80**   |
+| **Cost of replication** | Price of data transfer (per GB)               | Taken from sample prices             | $0.02         |
+|                         | Data transfer fee                             | 50,000 GB * $0.02                    | $1,000.00     |
+|                         | Price of network bandwidth (per GB)           | Taken from sample prices             | $0.02         |
+|                         | Network bandwidth fee                         | 50,000 GB * $0.02$                   | $1,000.00     |
+|                         | Cost to replicate<br></br>                    | $1,000 + $1,000                      | **$2,000**    |
+| **Cost to read**        | Number of read operations                     | 50,000 / 2                           | 25,000        |
+|                         | Price a read operation on the hot tier        | Taken from sample prices             | $0.00440      |
+|                         | Cost of read operations<br></br>              | 25,000 GB * $0.00440                 | **$110.00**   |
+|                         | Number of blobs downloaded from other regions | 25,000 * 75%                         | 1875          |
+|                         | Data transfer fee (downloads)                 | 1875 * $0.02                         | $375.00       |
+|                         | Network bandwidth fee (downloads)             | 1875 * $0.02                         | $375.00       |
+|                         | Cost to transfer data out of region<br></br>  | $375 + $375                          | **$750.00**   |
+| **Total cost**          |                                               |                                      | **860.00**    |
 
-This sample estimate doesn't include the [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB.
-
-## Factors that can impact the cost
-
-The following table describes factors that can impact the cost of this scenario. 
-
-| Factor | Impact | Learn more |
-|---|---|----|
-| Block size    | Larger block size reduces the number of write operations required to upload data. | [The cost to upload data](blob-storage-estimate-costs.md) |
-| Uploading data by using the Data Lake Storage endpoint | Smaller fixed block sizes of 4 MiB increases the number of write operations. | [Cost of uploading to the Data Lake Storage endpoint](azcopy-cost-estimation.md#cost-of-uploading-to-the-data-lake-storage-endpoint) |
-| Redundancy configuration of the account | Storage redundancy configuration impacts the cost of certain operations. For example, you could configure your account for read-access geo-zone-redundant storage (RA-GZRS) which enables clients to download from either the primary or secondary regions. However, moving the RA-GZRS changes the price of certain operations. | [Azure Storage redundancy](../common/storage-redundancy.md) | 
+> [!TIP]
+> You can estimate the cost of these components in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) 
 
 ## See also
 
