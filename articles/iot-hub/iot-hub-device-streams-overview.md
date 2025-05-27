@@ -113,7 +113,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Ensure that you install Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli) page.
+> Ensure that you install Azure CLI version 2.73.0 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli) page.
 >
 
 ## Troubleshoot via Device Streams resource logs
