@@ -47,7 +47,7 @@ For more information about Azure VPN Gateway, see [VPN Gateway overview](../../v
 
 ## Azure ExpressRoute
 
-[Azure ExpressRoute](../../expressroute/index.yml) provides private, dedicated connectivity between on-premises networks and Azure datacenters. It offers higher reliability, faster speeds, and lower latencies compared to connections over the public internet. ExpressRoute connections can be established through an ExpressRoute circuit, which is a dedicated connection between your on-premises network and an Azure datacenter. ExpressRoute is suitable for scenarios requiring low latency connections and high bandwidth requirements.
+[Azure ExpressRoute](../../expressroute/about) provides private, dedicated connectivity between on-premises networks and Azure datacenters. It offers higher reliability, faster speeds, and lower latencies compared to connections over the public internet. ExpressRoute connections can be established through an ExpressRoute circuit, which is a dedicated connection between your on-premises network and an Azure datacenter. ExpressRoute is suitable for scenarios requiring low latency connections and high bandwidth requirements.
 
 :::image type="content" source="./media/hybrid-connectivity/expressroute.png" alt-text="Diagram showing the on-premises network connecting to Microsoft and Azure services through an ExpressRoute circuit.":::
 
