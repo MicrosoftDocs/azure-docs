@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/07/2025
+ms.date: 05/15/2025
 ai-usage: ai-assisted
 ---
 
@@ -681,6 +681,28 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 > [!NOTE]
 > We don't support temporary tables in Snowflake, as they are local to the session or user who creates them, making them inaccessible to other sessions and prone to being overwritten as regular tables by Snowflake. While Snowflake offers transient tables as an alternative, which are accessible globally, they require manual deletion, contradicting our primary objective of using Temp tables which is to avoid any delete operations in source schema.
 
+## Data type mapping for Snowflake V2
+
+When you copy data from Snowflake, the following mappings are used from Snowflake data types to interim data types within the service internally. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Snowflake data type    | Service interim data type |
+|--------------------|---------------------------------------------|
+| NUMBER (p,0)       | Decimal                                  |
+| NUMBER (p,s where s>0) | Decimal                              |
+| FLOAT              | Double                                      |
+| VARCHAR            | String                                      |
+| CHAR               | String                                      |
+| BINARY             | Byte[]                                      |
+| BOOLEAN            | Boolean                                     |
+| DATE               | DateTime                                    |
+| TIME               | TimeSpan                                    |
+| TIMESTAMP_LTZ      | DateTimeOffset                              |
+| TIMESTAMP_NTZ      | DateTimeOffset                              |
+| TIMESTAMP_TZ       | DateTimeOffset                              |
+| VARIANT            | String                                      |
+| OBJECT             | String                                      |
+| ARRAY              | String                                      |
+
 ## Lookup activity properties
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
@@ -692,7 +714,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Snowflake V1 | GA version available | / |  
-| Snowflake V2 (version 1.0) | GA version available | • Add support for Key pair authentication.<br><br>• The `accountIdentifier`, `warehouse`, `database`, `schema` and `role` properties are used to establish a connection instead of `connectionstring` property.<br><br>• Add support for BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. If you want to covert it to numeric type in V2, you can use the pipeline parameter with [int function](control-flow-expression-language-functions.md#int) or [float function](control-flow-expression-language-functions.md#float). For example, `int(activity('lookup').output.firstRow.VALUE)`, `float(activity('lookup').output.firstRow.VALUE)`<br><br>• timestamp data type in Snowflake is read as DateTimeOffset data type in Lookup and Script activity. If you still need to use the Datetime value as a parameter in your pipeline after upgrading to V2, you can convert DateTimeOffset type to DateTime type by using [formatDateTime function](control-flow-expression-language-functions.md#formatdatetime) (recommended) or [concat function](control-flow-expression-language-functions.md#concat). For example: `formatDateTime(activity('lookup').output.firstRow.DATETIMETYPE)`, `concat(substring(activity('lookup').output.firstRow.DATETIMETYPE, 0, 19), 'Z')`<br><br>• Script parameters are not supported in Script activity. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md).<br><br>• Multiple SQL statements execution in Script activity is not supported. |  
+| Snowflake V2 (version 1.0) | GA version available | • Add support for Key pair authentication.<br><br>• The `accountIdentifier`, `warehouse`, `database`, `schema` and `role` properties are used to establish a connection instead of `connectionstring` property.<br><br>• Add support for Decimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. If you want to covert it to numeric type in V2, you can use the pipeline parameter with [int function](control-flow-expression-language-functions.md#int) or [float function](control-flow-expression-language-functions.md#float). For example, `int(activity('lookup').output.firstRow.VALUE)`, `float(activity('lookup').output.firstRow.VALUE)`<br><br>• timestamp data type in Snowflake is read as DateTimeOffset data type in Lookup and Script activity. If you still need to use the Datetime value as a parameter in your pipeline after upgrading to V2, you can convert DateTimeOffset type to DateTime type by using [formatDateTime function](control-flow-expression-language-functions.md#formatdatetime) (recommended) or [concat function](control-flow-expression-language-functions.md#concat). For example: `formatDateTime(activity('lookup').output.firstRow.DATETIMETYPE)`, `concat(substring(activity('lookup').output.firstRow.DATETIMETYPE, 0, 19), 'Z')` <br><br>• NUMBER (p,0) is read as Decimal data type.<br><br>• TIMESTAMP_LTZ, TIMESTAMP_NTZ and TIMESTAMP_TZ is read as DateTimeOffset data type.<br><br>• Script parameters are not supported in Script activity. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md).<br><br>• Multiple SQL statements execution in Script activity is not supported. |  
 | Snowflake V2 (version 1.1) | Preview version available | • Add support for script parameters.<br><br>• Add support for multiple statement execution in Script activity. |  
 
 ### <a name="upgrade-the-snowflake-linked-service"></a> Upgrade the Snowflake connector from V1 to V2
