@@ -32,9 +32,9 @@ Any `patch` operation on parent resources or `Create`/`Update`/`Delete` (CUD) op
 ### Step 1: Update resources
 
 Make patch or CUD operations via Azure CLI, Portal, or ARM template.
-Once these changes are made, the fabric's configuration state will changes to `Accepted (Pending Commit)`.
+Once these changes are made, the fabric's configuration state will change to `Accepted (Pending Commit)`.
 
-#### Example scenarios:
+#### Example scenarios
 
 * Create a new **Route Policy** and attach it to **Internal Network 1**
 
@@ -47,7 +47,7 @@ All these changes are **batched**, but **not applied** to devices yet.
 
 Lock the configuration to signal that all intended updates are completed. After this lock, **no further updates** can be made to any fabric-related resources until you unlock.
 
-#### Azure CLI Command:
+#### Azure CLI Command
 
 ```Azure CLI
 az networkfabric fabric lock-fabric \
@@ -69,7 +69,7 @@ Validate the configuration using the `view-device-configuration` post-action. Th
 > [!Important] 
 > BYOS must be configured on the Network Fabric.
 
-#### Azure CLI Command:
+#### Azure CLI Command
 
 ```Azure CLI
 
@@ -86,7 +86,7 @@ az networkfabric fabric view-device-configuration \
 
 Unlock the configuration to make further changes, then repeat the lock/validate/commit steps.
 
-#### Unlock Example:
+#### Unlock Example
 
 ```Azure CLI
 az networkfabric fabric lock-fabric \
@@ -100,7 +100,7 @@ az networkfabric fabric lock-fabric \
 
 Commit the configuration to apply the batched changes to all relevant fabric devices.
 
-#### Azure CLI Command:
+#### Azure CLI Command
 
 ```Azure CLI
 az networkfabric fabric commit-configuration \
@@ -112,7 +112,7 @@ az networkfabric fabric commit-configuration \
 
 - Use CLI polling or Azure Activity Logs to monitor progress
 
-> [Important]
+> [!Important]
 > - This workflow applies **only when the fabric is in Provisioned state** and **admin state is Enabled**. <br>
 > - Locking is mandatory before commit; **commit cannot proceed without locking first**. <br>
 > - **Rollback is not supported** – any incorrect configuration must be updated and re-committed. <br>
