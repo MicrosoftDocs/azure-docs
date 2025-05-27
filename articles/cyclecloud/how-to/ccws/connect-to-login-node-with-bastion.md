@@ -15,7 +15,7 @@ Locate the private SSH key file associated with the public key provided during t
 ## Step 2 – Retrieve the Resource ID of the Login Node
 From the CycleCloud UI, select the Login node to which you want to connect and double click on that line to open the detail view of the node. Select the VM tab to display the resource details below and copy the `ResourceId`.
 
-![Login Node properties](../../images/ccws/login-node-resource-id.png)
+::image type="content" source="../../images/ccws/login-node-resource-id.png" alt-text="Login Node properties":::
 
 ## Step 3 – Create a connect script
 Create a login script using the template below. Paste the login node `resourceID` retrieved above and specify the resource group and the private SSH key file to use.

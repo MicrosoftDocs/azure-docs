@@ -33,7 +33,7 @@ Azure CycleCloud Workspace for Slurm can be deployed either from the Azure Marke
 Azure CycleCloud Workspace for Slurm is not a PaaS service: the whole infrastructure will be deployed in your tenant, thereby allowing you to deploy everything (greenfield deployment) or specify existing resources to be reused (brownfield deployment), such as the target Resource Group, Virtual Network, Azure NetApp Files, and more.
 
 ## What an Azure CycleCloud Workspace for Slurm Deployed Environment Looks Like
-![Overview Architecture](./images/ccws/architecture.png)
+::image type="content" source="./images/ccws/architecture.png" alt-text="Overview Architecture":::
 
 Here is the typical architecture of what will be deployed by Azure CycleCloud Workspace for Slurm. There will be mandatory resources like a Virtual Machine for running CycleCloud, a Shared filesystem for users‘s home directories, a storage account for CycleCloud projects storage.
 

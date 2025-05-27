@@ -1,6 +1,6 @@
 ---
 title: How to deploy a CycleCloud Workspace for Slurm environment using the CLI
-description: How to deploy a CycleCloud Workspace for Slurm environment using the Azure CLI and the Azure Portal UI Sandbox
+description: How to deploy a CycleCloud Workspace for Slurm environment using the Azure CLI and the Azure portal UI Sandbox
 author: xpillons
 ms.date: 04/30/2025
 ms.author: xpillons
@@ -19,8 +19,8 @@ git clone --depth 1 https://github.com/azure/cyclecloud-slurm-workspace.git
 - Copy the content of the UI definition file `./uidefinitions/createUiDefinition.json`
 
 - Browse to the UI Definition Sandbox:
-    - For Azure Public Cloud [Azure Public Portal](https://portal.azure.com/#view/Microsoft_Azure_CreateUIDef/SandboxBlade)
-    - For Azure US Gov [Azure US Gov Portal](https://portal.azure.us/#view/Microsoft_Azure_CreateUIDef/SandboxBlade)
+    - For Azure Public Cloud [Azure Public portal](https://portal.azure.com/#view/Microsoft_Azure_CreateUIDef/SandboxBlade)
+    - For Azure US Gov [Azure US Gov portal](https://portal.azure.us/#view/Microsoft_Azure_CreateUIDef/SandboxBlade)
 
 - Paste the content of the UI Definition file into the multiline text box in the right,
 - Click `Preview >>` in the bottom-left corner to bring up a UI experience. 
@@ -40,11 +40,11 @@ az vm image terms accept --urn azurecyclecloud:azure-cyclecloud:cyclecloud8-gen2
 az deployment sub create --template-file ./cyclecloud-slurm-workspace/bicep/mainTemplate.bicep --parameters parameters.json --location [ANY AZURE LOCATION E.G. eastus] --name [OPTIONAL BUT HELPFUL, DELETE IF UNUSED] 
 ```
 
-- Wait until the shell indicates that the deployment was successful. One can also track the progress of the deployment in the Azure Portal by navigating to the resource group indicated in the UI, selecting `Deployments` from the Settings dropdown menu on the left-hand side menu, and checking the Status of the Deployment Name that begins with “pid-” at the bottom of the displayed list.
+- Wait until the shell indicates that the deployment was successful. One can also track the progress of the deployment in the Azure portal by navigating to the resource group indicated in the UI, selecting `Deployments` from the Settings dropdown menu on the left-hand side menu, and checking the Status of the Deployment Name that begins with “pid-” at the bottom of the displayed list.
 
 ## Resources
 
-* [Configure Open OnDemand with CycleCloud](./configure-ood.md)
-* [Add users for Open OnDemand](./ood-add-users.md)
-* [How to connect to the CycleCloud Portal through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-portal-with-bastion)
+* [Configure Open OnDemand with CycleCloud](./configure-open-ondemand.md)
+* [Add users for Open OnDemand](./open-ondemand-add-users.md)
+* [How to connect to the CycleCloud portal through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-portal-with-bastion)
 * [How to connect to a Login Node through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-login-node-with-bastion)

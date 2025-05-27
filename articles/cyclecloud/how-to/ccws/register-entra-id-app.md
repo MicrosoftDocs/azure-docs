@@ -1,16 +1,16 @@
 ---
-title: Register an Entra ID application for Open OnDemand Authentication
-description: How to register an Entra ID application for Open OnDemand Authentication
+title: Register a Microsoft Entra ID application for Open OnDemand authentication
+description: How to register a Microsoft Entra ID application for Open OnDemand authentication
 author: xpillons
 ms.date: 04/30/2025
 ms.author: padmalathas
 ---
 
-# Register an Entra ID application for Open OnDemand Authentication
-The Open OnDemand front end use Open ID Connect (OIDC) for authentication. The OIDC provider is an Entra ID application that you need to register which uses Federated credentials with a User-Assigned Managed Identity to avoid storing secrets in the Open OnDemand configuration. The following steps describe how to register an Entra ID application for Open OnDemand authentication.
+# Register a Microsoft Entra ID application for Open OnDemand authentication
+The Open OnDemand front end use Open ID Connect (OIDC) for authentication. The OIDC provider is a Microsoft Entra ID application that you need to register which uses Federated credentials with a User-Assigned Managed Identity to avoid storing secrets in the Open OnDemand configuration. The following steps describe how to register a Microsoft Entra ID application for Open OnDemand authentication.
 
-## Entra ID Application Registration right after a successful deployment
-After the deployment is finished, it is necessary to execute the following commands from a Linux shell with Azure CLI installed to register and configure the Entra ID application for authentication. The account logged into the CLI must have the appropriate permissions to register an application and its active subscription must be the one used for the deployment if it is not already set.
+## Microsoft Entra ID application registration right after a successful deployment
+After the deployment is finished, it is necessary to execute the following commands from a Linux shell with Azure CLI installed to register and configure the Microsoft Entra ID application for authentication. The account logged into the CLI must have the appropriate permissions to register an application and its active subscription must be the one used for the deployment if it is not already set.
 
 > [!NOTE]
 > Make sure you have `jq` utility installed on your system.
@@ -23,16 +23,16 @@ az deployment group create -g $resource_group --template-uri https://raw.githubu
 Once executed, check that the application is indeed registered and copy its client ID. 
 Ensure the redirect URI in Authentication is correct, federated credentials are set, `upn` is an optional claim in Token configuration, and API permissions are present.
 
-## Update an existing Entra ID Application after a successful deployment
-Update the redirect URI with either the private IP or the FQDN of the Open OnDemand virtual machine if an Entra ID application is already registered.
+## Update an existing Microsoft Entra ID application after a successful deployment
+Update the redirect URI with either the private IP or the FQDN of the Open OnDemand virtual machine if a Microsoft Entra ID application is already registered.
 
 Verify that both the `ccw` and `OpenOnDemand` clusters are started. Although there may be some temporary errors, both clusters should be ready within a few minutes. 
 Complete the configuration of the registered application by adding a new redirect URI, 'https://\<ip\>/oidc', in the Authentication settings of the application as illustrated below.
 
-![Screenshot of Entra ID redirect URI update](../../images/ccws/entraid-redirect-uri.png)
+::image type="content" source="../../images/ccws/entraid-redirect-uri.png" alt-text="Screenshot of Microsoft Entra ID redirect URI update.":::
 
-## Register an Entra ID application before a deployment
-It is possible to register an Entra ID application before the deployment of a full environment and configure it afterwards. 
+## Register a Microsoft Entra ID application before a deployment
+It is possible to register a Microsoft Entra ID application before the deployment of a full environment and configure it afterwards. 
 
 Create an  app.json parameter file containing:
 - **appName** : the name of the application to be registered,
@@ -53,7 +53,7 @@ Create an  app.json parameter file containing:
 }
 ```
 
-Execute the below commands to create a resource group and a user-assigned managed identity and to register the Entra ID application.
+Execute the below commands to create a resource group and a user-assigned managed identity and to register the Microsoft Entra ID application.
 ```bash
 resource_group=<the_resource_group_you_deployed_in>
 location=<location>
@@ -63,5 +63,5 @@ az deployment group create -g $resource_group --template-uri https://raw.githubu
 ```
 
 ## Resources
-* [Configure Open OnDemand with CycleCloud](./configure-ood.md)
-* [Add users for Open OnDemand](./ood-add-users.md)
+* [Configure Open OnDemand with CycleCloud](./configure-open-ondemand.md)
+* [Add users for Open OnDemand](./open-ondemand-add-users.md)
