@@ -20,10 +20,10 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Apache Spark | 3.5    |
 | Operating System | Mariner 3.0  |
 | Java | 17  |
-| Scala | 2.13      |
-| Delta Lake | 3.2.0        |
-| Python | 3.10     |
-| R | 4.2.2    |
+| Scala | 2.12.18      |
+| Delta Lake | 3.2        |
+| Python | 3.11     |
+| R | 4.4.1    |
 
 > [!TIP]
 > For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.5).
