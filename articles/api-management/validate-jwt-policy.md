@@ -206,6 +206,8 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 </validate-jwt>
 ```
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 ### Token validation using decryption key
 
 This example shows how to use the `validate-jwt` policy to validate a token that is decrypted using a decryption key. The key is specified using the ID of an uploaded certificate (in PFX format) that contains the public key.
