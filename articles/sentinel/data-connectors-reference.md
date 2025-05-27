@@ -60,6 +60,9 @@ Filter and ingest logs in text-file format from network or security applications
 
 [!INCLUDE [data-connector-codeless](includes/connector_details.md)]
 
+
+[!INCLUDE [data-connector-codeless](includes/deprecated_connectors.md)]
+
 ## Next steps
 
 For more information, see:
