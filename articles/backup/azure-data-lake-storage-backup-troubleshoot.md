@@ -26,7 +26,7 @@ This article provides troubleshooting details for error codes that appear when c
 
 **Error code**: `UserErrorBackupRequestThrottled`
 
-**Error message**: The backup request is throttled as the number of backups on a given backup instance in a day has reached the maximum limit.
+**Error message**: The backup request is throttled as the number of backups on a given backup instance in a day reached the maximum limit.
 
 **Recommended action**: Wait for a day before triggering a new backup operation.
 
@@ -54,7 +54,7 @@ This article provides troubleshooting details for error codes that appear when c
 
 **Error code**: `UserErrorTargetContainersExistOnAccount`
 	
-**Error message**: The containers that're part of restore request shouldn't exist on target storage account.
+**Error message**: The containers that are part of restore request shouldn't exist on target storage account.
 
 **Recommended action**: Ensure that the target storage account doesn't have containers with the same name you're trying to restore. Choose another storage target or retry the restore operation after removing containers with the same name.
 
