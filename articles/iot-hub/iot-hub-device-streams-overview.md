@@ -95,7 +95,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 ```
 
 > [!NOTE]
-> Ensure that you install Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli) page.
+> Ensure that you install Azure CLI version 2.73.0 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli) page.
 >
 
 ## Allow outbound connectivity to the device streaming endpoints
