@@ -171,6 +171,10 @@ To stop sending logs and metrics from Azure to Datadog:
 
 Contact [Datadog](https://www.datadoghq.com/support) for customer support. 
 
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** > **New support request**. 
+
 ## Related content
 
 - [Troubleshooting Datadog solutions](troubleshoot.md)

@@ -158,7 +158,7 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 
 Contact [Elastic](https://cloud.elastic.co/help) for customer support.
 
-You can also request support from the Azure portal from the [resource overview](#resource-overview).  
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
 Select **Support + Troubleshooting** > **New support request**. 
 
