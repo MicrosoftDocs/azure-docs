@@ -31,34 +31,38 @@ Use watchlists in these scenarios:
 
 - **Investigate threats** and respond to incidents quickly by importing IP addresses, file hashes, and other data from CSV files. After you import the data, use watchlist name-value pairs for joins and filters in alert rules, threat hunting, workbooks, notebooks, and queries.
 
-- **Import business data** as a watchlist. For example, import user lists with privileged system access, or terminated employees. Then, use the watchlist to create allowlists and blocklists to detect or prevent those users from logging in to the network.
+- **Import business data** as a watchlist. For example, import user lists with privileged system access or lists of terminated employees. Then, use the watchlist to create allowlists and blocklists to detect or prevent those users from signing in to the network.
 
-- **Reduce alert fatigue**. Create allowlists to suppress alerts from a group of users, such as users from authorized IP addresses that perform tasks that would normally trigger the alert. Prevent benign events from becoming alerts.
+- **Reduce alert fatigue**. Create allowlists to suppress alerts from a group of users, like users from authorized IP addresses who perform tasks that would normally trigger the alert. Prevent benign events from becoming alerts.
 
-- **Enrich event data**. Use watchlists to enrich your event data with name-value combinations derived from external data sources.
+- **Enrich event data**. Use watchlists to add name-value combinations from external data sources to your event data.
 
-## Limitations of watchlists
+## Watchlist limitations
 
-Before you create a watchlist, be aware of the following limitations:
+We recommend reviewing the following limitations before creating watchlists:
 
-- When you create a watchlist, the watchlist name and alias must each be between 3 and 64 characters. The first and last characters must be alphanumeric. But you can include whitespaces, hyphens, and underscores in between the first and last characters.
-- The use of watchlists should be limited to reference data, as they aren't designed for large data volumes.
-- The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items don't count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](/azure/azure-monitor/agents/data-sources-custom-logs) instead.
-- Watchlists are refreshed in your workspace every 12 days, updating the `TimeGenerated` field.
-- Using Lighthouse to manage watchlists across different workspaces is not supported at this time.
-- Local file uploads are currently limited to files of up to 3.8 MB in size.
-- File uploads from an Azure Storage account (in preview) are currently limited to files up to 500 MB in size.
-- Watchlists must adhere to the same column and table restrictions as KQL entities. For more information, see [KQL entity names](/kusto/query/schema-entities/entity-names?view=microsoft-sentinel&preserve-view=true).
+| Limitation | Details |
+|------------|---------|
+| **Watchlist name and alias length** | Watchlist names and aliases must be between 3 and 64 characters. First and last characters must be alphanumeric; spaces, hyphens, and underscores allowed between. |
+| **Intended use** | Use watchlists only for reference data. Watchlists aren't designed for large data volumes. |
+| **Maximum active watchlist items** | You can have a maximum of 10 million active watchlist items across all watchlists in a workspace. Deleted items don't count. For larger volumes, use [custom logs](/azure/azure-monitor/agents/data-sources-custom-logs). |
+| **Refresh interval** | Watchlists refresh every 12 days, updating the `TimeGenerated` field. |
+| **Cross-workspace management** | Managing watchlists across workspaces using Azure Lighthouse isn't supported. |
+| **Local file upload size** | Local file uploads are limited to files of up to 3.8 MB. |
+| **Azure Storage file upload size (preview)** | Azure Storage uploads are limited to files of up to 500 MB. |
+| **Column and table restrictions** | Watchlists must follow [KQL entity naming restrictions](/kusto/query/schema-entities/entity-names?view=microsoft-sentinel&preserve-view=true) for columns and names. |
 
-## Ways to create watchlists in Microsoft Sentinel
+## Microsoft Sentinel watchlist creation methods
 
-Create a watchlist in Microsoft Sentinel from a file you upload from a local folder or from a file in your Azure Storage account.
+Use one of the following methods to create watchlists in Microsoft Sentinel:
 
-You have the option to download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.  
+- Uploading a file from a local folder or from your Azure Storage account.
 
-To create a watchlist from a large file that's up to 500 MB in size, upload the file to your Azure Storage account. Then create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. A shared access signature URL is an URI that contains both the resource URI and shared access signature token of a resource like a csv file in your storage account. Finally, add the watchlist to your workspace in Microsoft Sentinel.
+- Download a watchlist template from Microsoft Sentinel, add your data, and then upload the file when you create the watchlist.
 
-For more information, see the following articles:
+To create a watchlist from a large file (up to 500 MB), upload the file to your Azure Storage account. Create a shared access signature (SAS) URL so Microsoft Sentinel can retrieve the watchlist data. A SAS URL includes both the resource URI and the SAS token for a resource, like a CSV file in your storage account. Add the watchlist to your workspace in Microsoft Sentinel.
+
+For more information, see:
 
 - [Create watchlists in Microsoft Sentinel](watchlists-create.md)
 - [Built-in watchlist schemas](watchlist-schemas.md)
@@ -66,8 +70,9 @@ For more information, see the following articles:
 
 ## Watchlists in queries for searches and detection rules
 
-To correlate your watchlist data with other Microsoft Sentinel data, use Kusto tabular operators such as `join` and `lookup` with the `Watchlist` table. Microsoft Sentinel creates two functions in the workspace to help reference and query your watchlists.
-- `_GetWatchlistAlias` - simply returns the aliases of all your watchlists
+To correlate your watchlist data with other Microsoft Sentinel data, use Kusto tabular operators such as `join` and `lookup` with the `Watchlist` table. Microsoft Sentinel creates the following functions in the workspace to help reference and query your watchlists:
+
+- `_GetWatchlistAlias` - returns the aliases of all your watchlists
 - `_GetWatchlist` - queries the name-value pairs of the specified watchlist
 
 When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country/region names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
@@ -78,9 +83,9 @@ When you create a watchlist, you define the *SearchKey*. The search key is the n
     on $left.RemoteIPCountry == $right.SearchKey
   ```
 
-Let's look some other example queries. 
+Let's look at some other example queries.
 
-Suppose you want to use a watchlist in an analytics rule. You create a watchlist called `ipwatchlist` that includes columns for `IPAddress` and `Location`. You define `IPAddress` as the **SearchKey**.
+Suppose you want to use a watchlist in an analytics rule. You create a watchlist called `ipwatchlist` with columns for `IPAddress` and `Location`. You set `IPAddress` as the **SearchKey**.
 
    |`IPAddress,Location`   |
    |---------|
@@ -89,9 +94,9 @@ Suppose you want to use a watchlist in an analytics rule. You create a watchlist
    |`10.0.150.39,Home`     |
    |`172.20.32.117,Work`   |
 
-To only include events from IP addresses in the watchlist, you might use a query where `watchlist` is used as a variable or where the watchlist is used inline.
+To include only events from IP addresses in the watchlist, you might use a query where `watchlist` is used as a variable or inline.
 
-The following example query uses the watchlist as a variable:
+This example query uses the watchlist as a variable:
 
   ```kusto
     //Watchlist as a variable
@@ -100,7 +105,7 @@ The following example query uses the watchlist as a variable:
     | where ComputerIP in (watchlist)
   ```
 
-The following example query uses the watchlist inline with the query and the search key defined for the watchlist.
+This example query uses the watchlist inline with the query and the search key defined for the watchlist.
 
   ```kusto
     //Watchlist inline with the query
@@ -112,9 +117,8 @@ The following example query uses the watchlist inline with the query and the sea
     )
   ```
 
-For more information, see [Build queries and detection rules with watchlists in Microsoft Sentinel](watchlists-queries.md).
+For more information, see [Build queries and detection rules with watchlists in Microsoft Sentinel](watchlists-queries.md) and the following articles in the Kusto documentation:
 
-See more information on the following items used in the preceding examples, in the Kusto documentation:
 - [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
 - [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
 - [***lookup*** operator](/kusto/query/lookup-operator?view=microsoft-sentinel&preserve-view=true)
