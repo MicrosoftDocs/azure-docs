@@ -22,6 +22,8 @@ items:
     href: manage.md
   - name: Troubleshoot
     items:
+    - name: Get support
+      href: https://support.dynatrace.com/
     - name: Fix common errors
       href: troubleshoot.md
 - name: Reference

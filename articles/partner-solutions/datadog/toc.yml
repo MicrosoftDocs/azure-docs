@@ -21,6 +21,8 @@ items:
     href: manage.md
   - name: Troubleshoot
     items:
+    - name: Get support
+      href: https://www.datadoghq.com/support
     - name: Fix common errors
       href: troubleshoot.md
 - name: Reference
