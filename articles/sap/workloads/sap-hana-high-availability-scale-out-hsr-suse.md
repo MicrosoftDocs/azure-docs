@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 06/18/2024
+ms.date: 05/26/2025
 ms.author: radeltch
 ---
 
@@ -282,22 +282,7 @@ Configure and prepare your OS by doing the following steps:
     > [!TIP]
     > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more information, see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-3. **[A]** SUSE delivers special resource agents for SAP HANA and by default agents for SAP HANA scale-up are installed. Uninstall the packages for scale-up, if installed and install the packages for scenario SAP HANA scale-out. The step needs to be performed on all cluster VMs, including the majority maker.
-
-   > [!NOTE]
-   > SAPHanaSR-ScaleOut version 0.181 or higher must be installed.
-
-    ```bash
-    # Uninstall scale-up packages and patterns
-    sudo zypper remove patterns-sap-hana
-    sudo zypper remove SAPHanaSR SAPHanaSR-doc yast2-sap-ha
-    
-    # Install the scale-out packages and patterns
-    sudo zypper in SAPHanaSR-ScaleOut SAPHanaSR-ScaleOut-doc 
-    sudo zypper in -t pattern ha_sles
-    ```
-
-4. **[AH]** Prepare the VMs - apply the recommended settings per SAP note [2205917] for SUSE Linux Enterprise Server for SAP Applications.  
+3. **[AH]** Prepare the VMs - apply the recommended settings per SAP note [2205917] for SUSE Linux Enterprise Server for SAP Applications.  
 
 ## Prepare the file systems
 
@@ -528,9 +513,10 @@ Set up the disk layout with  **Logical Volume Manager (LVM)**. The following exa
 Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) to create a basic Pacemaker cluster for this HANA server.
 Include all virtual machines, including the majority maker in the cluster.  
 
-> [!IMPORTANT]
-> Don't set `quorum expected-votes` to 2, as this is not a two node cluster.  
-> Make sure that cluster property `concurrent-fencing`  is enabled, so that node fencing is deserialized.
+For a scale-out cluster, ensure the following parameters are set correctly:
+- Don't set `quorum expected-votes` to 2, as this is not a two node cluster.  
+- Make sure that cluster property `concurrent-fencing=true` is set, so that node fencing is deserialized. 
+- The stonith-sbd resource should include parameter `pcmk_action_limit=-1` with value negative 1 (unlimited) to allow deserialized stonith actions. 
 
 ## Installation  
 
@@ -777,70 +763,46 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 
    For more information, see [Host Name resolution for System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/c0cba1cb2ba34ec89f45b48b2157ec7b.html?version=2.0.05).  
 
-## Create file system resources
+## Implement HANA resource agents
 
-Create a dummy file system cluster resource, which will monitor and report failures, in case there's a problem accessing the NFS-mounted file system `/hana/shared`. That allows the cluster to trigger failover, in case there's a problem accessing `/hana/shared`. For more information, see [Handling failed NFS share in SUSE HA cluster for HANA system replication](https://www.suse.com/support/kb/doc/?id=000019904)
+SUSE provides two different software packages for the Pacemaker resource agent to manage SAP HANA. Software packages SAPHanaSR and SAPHanaSR-angi are using slightly different syntax and parameters and aren't compatible. See [SUSE release notes](https://www.suse.com/releasenotes/x86_64/SLE-SAP/15-SP6/index.html#bsc-1210005) and [documentation](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-scaleout-perfopt-15/index.html) for details and differences between SAPHanaSR-angi and SAPHanaSR-ScaleOut. This document covers both packages in separate tabs in the respective sections.
 
-1. **[1]** Place pacemaker in maintenance mode, in preparation for the creation of the HANA cluster resources.
+> [!WARNING]
+> Don't replace the package SAPHanaSR-ScaleOut by SAPHanaSR-angi in an already configured cluster. Upgrading from SAPHanaSR to SAPHanaSR-angi requires a specific procedure.
 
-    ```bash
-    crm configure property maintenance-mode=true
-    ```
+1. **[A]** Install the SAP HANA high availability packages:
 
-2. **[1,2]** Create the directory on the NFS mounted file system /hana/shared, which will be used in the special file system monitoring resource. The directories need to be created on both sites.
-
-    ```bash
-    mkdir -p /hana/shared/HN1/check
-    ```
-
-3. **[AH]** Create the directory, which will be used to mount the special file system monitoring resource. The directory needs to be created on all HANA cluster nodes.
-
-    ```bash
-    mkdir -p /hana/check
-    ```
-
-4. **[1]** Create the file system cluster resources.
-
-    ```bash
-    crm configure primitive fs_HN1_HDB03_fscheck Filesystem \
-      params device="/hana/shared/HN1/check" \
-      directory="/hana/check" fstype=nfs4 \
-      options="bind,defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock" \
-      op monitor interval=120 timeout=120 on-fail=fence \
-      op_params OCF_CHECK_LEVEL=20 \
-      op start interval=0 timeout=120 op stop interval=0 timeout=120
-   
-    crm configure clone cln_fs_HN1_HDB03_fscheck fs_HN1_HDB03_fscheck \
-      meta clone-node-max=1 interleave=true
-   
-    crm configure location loc_cln_fs_HN1_HDB03_fscheck_not_on_mm \
-      cln_fs_HN1_HDB03_fscheck -inf: hana-s-mm    
-    ```
-
-   `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system may remain mounted, despite being inaccessible.  
-
-   `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.
-
-## Implement HANA HA hooks SAPHanaSrMultiTarget and susChkSrv
-
-This important step is to optimize the integration with the cluster and detection when a cluster failover is possible. It's highly recommended to configure SAPHanaSrMultiTarget Python hook. For HANA 2.0 SP5 and higher, implementing both SAPHanaSrMultiTarget and susChkSrv hooks is recommended.
-
+### [SAPHanaSR-angi](#tab/saphanasr-angi)
 > [!NOTE]
-> SAPHanaSrMultiTarget HA provider replaces SAPHanaSR for HANA scale-out. SAPHanaSR was described in earlier version of this document.  
-> See [SUSE blog post](https://www.suse.com/c/sap-hana-scale-out-multi-target-upgrade/) about changes with the new HANA HA hook.  
+> SAPHanaSR-angi has a minimum version requirement of SAP HANA 2.0 SPS 05 and SUSE SLES for SAP Applications 15 SP4 or higher.
 
-Provided steps for SAPHanaSrMultiTarget hook are for a new installation. Upgrading an existing environment from SAPHanaSR to SAPHanaSrMultiTarget provider requires several changes and are *NOT* described in this document. If the existing environment uses no third site for disaster recovery and [HANA multi-target system replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/ba457510958241889a459e606bbcf3d3.html) isn't used, SAPHanaSR HA provider can remain in use.
+Run the following command on all cluster VMs, including the majority maker to install the high availability packages:
 
-SusChkSrv extends the functionality of the main SAPHanaSrMultiTarget HA provider. It acts in the situation when HANA process hdbindexserver crashes. If a single process crashes typically HANA tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database isn't responsive. With susChkSrv implemented, an immediate and configurable action is executed, instead of waiting on hdbindexserver process to restart on the same node. In HANA scale-out susChkSrv acts for every HANA VM independently. The configured action will kill HANA or fence the affected VM, which triggers a failover in the configured timeout period.
+```bash
+sudo zypper install SAPHanaSR-angi
+sudo zypper in -t pattern ha_sles
+```
 
-SUSE SLES 15 SP1 or higher is required for operation of both HANA HA hooks. Following table shows other dependencies.  
+### [SAPHanaSR-ScaleOut](#tab/saphanasr-scaleout)
+> [!NOTE]
+> SAPHanaSR-ScaleOut version 0.181 or higher must be installed.
 
-|SAP  HANA HA hook     | HANA version required   | SAPHanaSR-ScaleOut required |
-|----------------------| ----------------------- | --------------------------- |
-| SAPHanaSrMultiTarget | HANA 2.0 SPS4 or higher | 0.180 or higher             |
-| susChkSrv            | HANA 2.0 SPS5 or higher | 0.184.1 or higher           |
+SUSE delivers special resource agents for SAP HANA and by default agents for SAP HANA scale-up are installed. Uninstall the packages for scale-up, if installed and install the packages for scenario SAP HANA scale-out. Run the following command on all cluster VMs, including the majority maker to install the high availability packages:
 
-Steps to implement both hooks:
+```bash
+sudo zypper in SAPHanaSR-ScaleOut SAPHanaSR-ScaleOut-doc 
+sudo zypper in -t pattern ha_sles
+```
+
+---
+
+### Set up SAP HANA HA/DR providers
+
+The SAP HANA HA/DR providers optimize the integration with the cluster and improve detection when a cluster failover is needed. The main hook script is susHanaSR (for SAPHanaSR-angi) or SAPHanaSrMultiTarget (for SAPHanaSR-ScaleOut package). We highly recommend that you configure the susHanaSR/SAPHanaSrMultiTarget python hook. For HANA 2.0 SPS 05 and later, we recommend that you implement both susHanaSR/SAPHanaSrMultiTarget and the susChkSrv hooks.  
+
+The susChkSrv hook extends the functionality of the main susHanaSR/SAPHanaSrMultiTarget HA provider. It acts when the HANA process hdbindexserver crashes. If a single process crashes, HANA typically tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database isn't responsive.
+
+With susChkSrv implemented, an immediate and configurable action is executed. The action triggers a failover in the configured timeout period instead of waiting for the hdbindexserver process to restart on the same node. In HANA scale-out, susChkSrv acts for every HANA VM independently. The configured action will kill HANA or fence the affected VM, which triggers a failover in the configured timeout period.
 
 1. **[1,2]** Stop HANA on both system replication sites. Execute as <sid\>adm:
 
@@ -848,68 +810,379 @@ Steps to implement both hooks:
    sapcontrol -nr 03 -function StopSystem
    ```
 
-2. **[1,2]** Adjust `global.ini` on each cluster site. If the prerequisites for susChkSrv hook aren't met, entire block `[ha_dr_provider_suschksrv]` shouldn't be configured.  
-You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid values are `[ ignore | stop | kill | fence ]`.
+2. **[1,2]** Install the HANA system replication hooks. The hooks must be installed on both HANA database sites.
+
+   ### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+   1. **[1,2]** Adjust `global.ini` on each cluster site. If the prerequisites for susChkSrv hook aren't met, entire block `[ha_dr_provider_suschksrv]` shouldn't be configured.  
+      You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid values are `[ ignore | stop | kill | fence ]`.
+      
+      ```bash
+      # add to global.ini on both sites. Do not copy global.ini between sites.
+      [ha_dr_provider_sushanasr]
+      provider = susHanaSR
+      path = /usr/share/SAPHanaSR-angi
+      execution_order = 1
+      
+      [ha_dr_provider_suschksrv]
+      provider = susChkSrv
+      path = /usr/share/SAPHanaSR-angi
+      execution_order = 3
+      action_on_lost = kill
+      
+      [trace]
+      ha_dr_sushanasr = info
+      ha_dr_suschksrv = info
+      ```
+
+      Default location of the HA hooks as delivered by SUSE is /usr/share/SAPHanaSR-angi. Using the standard location brings a benefit, that the python hook code is automatically updated through OS or package updates and gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
+
+   2. **[AH]** The cluster requires sudoers configuration on the cluster nodes for <sid\>adm. In this example that is achieved by creating a new file. Run the following command as root. Replace \<sid\> by lowercase SAP system ID, \<SID\> by uppercase SAP system ID and \<siteA/B\> with HANA site names chosen.  
+
+      ```bash
+      cat << EOF > /etc/sudoers.d/20-saphana
+      # SAPHanaSR-angi requirements for HA/DR hook scripts
+      Cmnd_Alias SOK_SITEA    = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteA> -v SOK   -t crm_config -s SAPHanaSR
+      Cmnd_Alias SFAIL_SITEA  = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteA> -v SFAIL -t crm_config -s SAPHanaSR
+      Cmnd_Alias SOK_SITEB    = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteB> -v SOK   -t crm_config -s SAPHanaSR
+      Cmnd_Alias SFAIL_SITEB  = /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_<siteB> -v SFAIL -t crm_config -s SAPHanaSR
+      Cmnd_Alias HELPER_TAKEOVER  = /usr/bin/SAPHanaSR-hookHelper --sid=<SID> --case=checkTakeover
+      Cmnd_Alias HELPER_FENCE     = /usr/bin/SAPHanaSR-hookHelper --sid=<SID> --case=fenceMe
+      
+      <sid>adm ALL=(ALL) NOPASSWD: SOK_SITEA, SFAIL_SITEA, SOK_SITEB, SFAIL_SITEB, HELPER_TAKEOVER, HELPER_FENCE
+      ```
+
+      For details about implementing the SAP HANA system replication hook, see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-scaleout-perfopt-15/index.html#id-implementing-sushanasr-py-for-srconnectionchanged).
+
+   ### [SAPHanaSR-ScaleOut](#tab/saphanasr-scaleout)
+
+   SUSE SLES 15 SP1 or higher is required for operation of both HANA HA hooks. Following table shows other dependencies.  
+   
+   |SAP  HANA HA hook     | HANA version required   | SAPHanaSR-ScaleOut required |
+   |----------------------| ----------------------- | --------------------------- |
+   | SAPHanaSrMultiTarget | HANA 2.0 SPS4 or higher | 0.180 or higher             |
+   | susChkSrv            | HANA 2.0 SPS5 or higher | 0.184.1 or higher           |
+   
+   Steps to implement both hooks:
+
+   1. **[1,2]** Adjust `global.ini` on each cluster site. If the prerequisites for susChkSrv hook aren't met, entire block `[ha_dr_provider_suschksrv]` shouldn't be configured.  
+   You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid values are `[ ignore | stop | kill | fence ]`.
+
+      ```bash
+      # add to global.ini on both sites. Do not copy global.ini between sites.
+      [ha_dr_provider_saphanasrmultitarget]
+      provider = SAPHanaSrMultiTarget
+      path = /usr/share/SAPHanaSR-ScaleOut
+      execution_order = 1
+      
+      [ha_dr_provider_suschksrv]
+      provider = susChkSrv
+      path = /usr/share/SAPHanaSR-ScaleOut
+      execution_order = 3
+      action_on_lost = kill
+      
+      [trace]
+      ha_dr_saphanasrmultitarget = info
+      ```
+
+      Default location of the HA hooks as delivered by SUSE is /usr/share/SAPHanaSR-ScaleOut. Using the standard location brings a benefit, that the python hook code is automatically updated through OS or package updates and gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
+
+   2. **[AH]** The cluster requires sudoers configuration on the cluster nodes for <sid\>adm. In this example that is achieved by creating a new file. Run the following command as root. Replace \<sid\> by lowercase SAP system ID.    
+
+      ```bash
+      cat << EOF > /etc/sudoers.d/20-saphana
+      # SAPHanaSR-ScaleOut requirements for HA/DR hook scripts
+      <sid>adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_<sid>_site_srHook_*
+      <sid>adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_<sid>_gsh *
+      <sid>adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=<sid> *
+      EOF
+      ```
+      
+      For details about implementing the SAP HANA system replication hook, see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-scaleout-multitarget-perfopt-15/index.html#id-implementing-saphanasrmultitarget-py-for-srconnectionchanged).
+
+---
+
+3. **[1,2]** Start SAP HANA on both replication sites. Execute as <sid\>adm.  
+
+```bash
+sapcontrol -nr 03 -function StartSystem 
+```
+
+4. **[1]** Verify the hook installation. 
+Run the following command as \<sap-sid\>adm on the active HANA system replication site:
+
+### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+```bash
+cdtrace    
+grep HADR.*load.*susHanaSR nameserver_*.trc | tail -3
+# Example output
+# nameserver_hana-s1-db1.30301.453.trc:[140145]{-1}[-1/-1] 2025-05-26 07:51:34.677221 i ha_dr_provider   HADRProviderManager.cpp(00083) : loading HA/DR Provider 'susHanaSR' from /usr/share/SAPHanaSR-angi
+grep susHanaSR.*init nameserver_*.trc | tail -3
+# Example output
+# nameserver_hana-s1-db1.30301.453.trc:[140157]{-1}[-1/-1] 2025-05-26 07:51:34.724422 i ha_dr_susHanaSR  susHanaSR.py(00042) : susHanaSR.init() version 1.001.1
+```
+
+### [SAPHanaSR-ScaleOut](#tab/saphanasr-scaleout)
+
+```bash
+cdtrace
+grep HADR.*load.*SAPHanaSrMultiTarget nameserver_*.trc | tail -3
+# Example output
+# nameserver_hana-s1-db1.31001.000.trc:[14162]{-1}[-1/-1] 2023-01-26 12:53:55.728027 i ha_dr_provider   HADRProviderManager.cpp(00083) : loading HA/DR Provider 'SAPHanaSrMultiTarget' from /usr/share/SAPHanaSR-ScaleOut/
+grep SAPHanaSr.*init nameserver_*.trc | tail -3
+# Example output
+# nameserver_hana-s1-db1.31001.000.trc:[17636]{-1}[-1/-1] 2023-01-26 16:30:19.256705 i ha_dr_SAPHanaSrM SAPHanaSrMultiTarget.py(00080) : SAPHanaSrMultiTarget.init() CALLING CRM: <sudo /usr/sbin/crm_attribute -n hana_hn1_gsh -v 2.2  -l reboot> rc=0
+# nameserver_hana-s1-db1.31001.000.trc:[17636]{-1}[-1/-1] 2023-01-26 16:30:19.256739 i ha_dr_SAPHanaSrM SAPHanaSrMultiTarget.py(00081) : SAPHanaSrMultiTarget.init() Running srHookGeneration 2.2, see attribute hana_hn1_gsh too
+```
+
+---
+
+5. **[AH]** Verify the susChkSrv hook installation.
+   Run the following command as \<sap-sid\>adm on any HANA node:
+
+   ```bash
+   cdtrace
+   egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
+   # Example output
+   # 2023-01-19 08:23:10.581529  [1674116590-10005] susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
+   # 2023-01-19 08:23:31.553566  [1674116611-14022] START: indexserver event looks like graceful tenant start
+   # 2023-01-19 08:23:52.834813  [1674116632-15235] START: indexserver event looks like graceful tenant start (indexserver started)
+   ```
+
+## Create SAP HANA cluster resources
+
+1. **[1]** Create the HANA Topology resource. Make sure the cluster is in maintenance mode.  
+
+### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+```bash
+sudo crm configure property maintenance-mode=true
+
+# Replace <placeholders> with your instance number and HANA system ID
+
+sudo crm configure primitive rsc_SAPHanaTopology_<SID>_HDB<InstanceNumber> ocf:suse:SAPHanaTopology \
+  op monitor interval="50" timeout="600" \
+  op start interval="0" timeout="600" \
+  op stop interval="0" timeout="300" \
+  params SID="<SID>" InstanceNumber="<InstanceNumber>"
+
+sudo crm configure clone cln_SAPHanaTopology_<SID>_HDB<InstanceNumber> rsc_SAPHanaTopology_<SID>_HDB<InstanceNumber> \
+  meta clone-node-max="1" interleave="true"
+```
+
+### [SAPHanaSR-ScaleOut](#tab/saphanasr-scaleout)
+
+```bash
+sudo crm configure property maintenance-mode=true
+
+# Replace <placeholders> with your instance number and HANA system ID
+
+sudo crm configure primitive rsc_SAPHanaTopology_<SID>_HDB<InstanceNumber> ocf:suse:SAPHanaTopology \
+  op monitor interval="10" timeout="600" \
+  op start interval="0" timeout="600" \
+  op stop interval="0" timeout="300" \
+  params SID="<SID>" InstanceNumber="<InstanceNumber>"
+  
+sudo crm configure clone cln_SAPHanaTopology_<SID>_HDB<InstanceNumber> rsc_SAPHanaTopology_<SID>_HDB<InstanceNumber> \
+  meta clone-node-max="1" target-role="Started" interleave="true"
+```
+
+---
+
+2. **[1]** Next, create the HANA instance resource.
+
+### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+```bash
+# Replace <placeholders> with your instance number and HANA system ID
+
+sudo crm configure primitive rsc_SAPHanaController_<SID>_HDB<InstanceNumber> ocf:suse:SAPHanaController \
+  op start interval="0" timeout="3600" \
+  op stop interval="0" timeout="3600" \
+  op promote interval="0" timeout="900" \
+  op demote interval="0" timeout="320" \
+  op monitor interval="60" role="Promoted" timeout="700" \
+  op monitor interval="61" role="Unpromoted" timeout="700" \
+  params SID="<SID>" InstanceNumber="<InstanceNumber>" PREFER_SITE_TAKEOVER="true" \
+  DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false" \
+  HANA_CALL_TIMEOUT="120"
+
+sudo crm configure clone msl_SAPHanaController_<SID>_HDB<InstanceNumber> rsc_SAPHanaController_<SID>_HDB<InstanceNumber> \
+  meta clone-node-max="1" interleave="true" promotable="true"
+```
+
+### [SAPHanaSR-ScaleOut](#tab/saphanasr-scaleout)
+
+> [!NOTE]
+> This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
+
+```bash
+# Replace <placeholders> with your instance number and HANA system ID
+
+sudo crm configure primitive rsc_SAPHana_<SID>_HDB<InstanceNumber> ocf:suse:SAPHanaController \
+  op start interval="0" timeout="3600" \
+  op stop interval="0" timeout="3600" \
+  op promote interval="0" timeout="3600" \
+  op monitor interval="60" role="Master" timeout="700" \
+  op monitor interval="61" role="Slave" timeout="700" \
+  params SID="<SID>>" InstanceNumber="<InstanceNumber>" PREFER_SITE_TAKEOVER="true" \
+  DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
+
+sudo crm configure ms msl_SAPHana_<SID>_HDB<InstanceNumber> rsc_SAPHana_<SID>_HDB<InstanceNumber> \
+  meta clone-node-max="1" master-max="1" interleave="true"
+```
+---
+
+> [!IMPORTANT]
+> We recommend as a best practice that you only set AUTOMATED_REGISTER to **no**, while performing thorough fail-over tests, to prevent failed primary instance to automatically register as secondary. Once the fail-over tests have completed successfully, set AUTOMATED_REGISTER to **yes**, so that after takeover system replication can resume automatically.
+
+3. **[1]** Create file system resource agents for /hana/shared
+
+### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+SAPHanaSR-angi adds a new resource agent SAPHanaFilesystem to monitor read/write access to /hana/shared/SID. OS static mounts the /hana/shared/SID filesystem with each host having entries in /etc/fstab. SAPHanaFilesystem and Pacemaker doesn't mount the filesystem for HANA.
+
+```bash
+# Replace <placeholders> with your instance number and HANA system ID
+
+sudo crm configure primitive rsc_SAPHanaFilesystem_SA5_HDB10 ocf:suse:SAPHanaFilesystem \
+  op start interval="0" timeout="10" \
+  op stop interval="0" timeout="20" \
+  op monitor interval="120" timeout="120" \
+  params SID="<SID>" InstanceNumber="<InstanceNumber>" ON_FAIL_ACTION="fence"
+
+sudo crm configure clone cln_SAPHanaFilesystem_<SID>_HDB<InstanceNumber> rsc_SAPHanaFilesystem_<SID>_HDB<InstanceNumber> \
+  meta clone-node-max="1" interleave="true"
+
+sudo crm configure location SAPHanaFilesystem_not_on_majority_maker cln_SAPHanaFilesystem_<SID>>_HDB<InstanceNumber> -inf: hana-s-mm
+```
+
+### [SAPHanaSR-ScaleOut](#tab/saphanasr-scaleout)
+
+Create a dummy file system cluster resource, which will monitor and report failures, in case there's a problem accessing the NFS-mounted file system `/hana/shared`. That allows the cluster to trigger failover, in case there's a problem accessing `/hana/shared`. For more information, see [Handling failed NFS share in SUSE HA cluster for HANA system replication](https://www.suse.com/support/kb/doc/?id=000019904)
+
+  1. **[1,2]** Create the directory on the NFS mounted file system /hana/shared, which will be used in the special file system monitoring resource. The directories need to be created on both sites.
+
+     ```bash
+     mkdir -p /hana/shared/HN1/check
+     ```
+
+  2. **[AH]** Create the directory, which will be used to mount the special file system monitoring resource. The directory needs to be created on all HANA cluster nodes.
+
+     ```bash
+     mkdir -p /hana/check
+     ```
+
+  3. **[1]** Create the file system cluster resources.
+
+     ```bash
+     # Replace <placeholders> with your instance number and HANA system ID
+
+     crm configure primitive fs_HN1_HDB03_fscheck Filesystem \
+       params device="/hana/shared/HN1/check" \
+       directory="/hana/check" fstype=nfs4 \
+       options="bind,defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock" \
+       op monitor interval=120 timeout=120 on-fail=fence \
+       op_params OCF_CHECK_LEVEL=20 \
+       op start interval=0 timeout=120 op stop interval=0 timeout=120
+
+     crm configure clone cln_fs_HN1_HDB03_fscheck fs_HN1_HDB03_fscheck \
+       meta clone-node-max=1 interleave=true
+
+     crm configure location loc_cln_fs_HN1_HDB03_fscheck_not_on_mm \
+       cln_fs_HN1_HDB03_fscheck -inf: hana-s-mm    
+     ```
+
+     `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system may remain mounted, despite being inaccessible.  
+
+     `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.
+
+---
+
+4. **[1]** Continue with cluster resources for virtual IPs, defaults, and constraints.
+
+   ### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+   text 123
+
+   ### [SAPHanaSR-ScaleOut](#tab/saphanasr-scaleout)
+      
+   ```bash
+   sudo crm configure primitive rsc_ip_HN1_HDB03 ocf:heartbeat:IPaddr2 \
+     op start timeout=60s on-fail=fence \
+     op monitor interval="10s" timeout="20s" \
+     params ip="10.23.0.27"
+      
+   sudo crm configure primitive rsc_nc_HN1_HDB03 azure-lb port=62503 \
+     op monitor timeout=20s interval=10 \
+     meta resource-stickiness=0
+      
+   sudo crm configure group g_ip_HN1_HDB03 rsc_ip_HN1_HDB03 rsc_nc_HN1_HDB03
+   ```
+
+   Create the cluster constraints
+
+   ```bash
+   # Replace <placeholders> with your instance number and HANA system ID      
+
+   # Colocate the IP with HANA master
+   sudo crm configure colocation col_saphana_ip_HN1_HDB03 4000: g_ip_HN1_HDB03:Started \
+     msl_SAPHana_HN1_HDB03:Master  
+      
+   # Start HANA Topology before HANA  instance
+   sudo crm configure order ord_SAPHana_HN1_HDB03 Optional: cln_SAPHanaTopology_HN1_HDB03 \
+     msl_SAPHana_HN1_HDB03
+      
+   # HANA resources don't run on the majority maker node
+   sudo crm configure location loc_SAPHanaCon_not_on_majority_maker msl_SAPHana_HN1_HDB03 -inf: hana-s-mm
+   sudo crm configure location loc_SAPHanaTop_not_on_majority_maker cln_SAPHanaTopology_HN1_HDB03 -inf: hana-s-mm
+   ```
+
+---
+
+5. **[1]** Configure additional cluster properties
 
     ```bash
-    # add to global.ini on both sites. Do not copy global.ini between sites.
-    [ha_dr_provider_saphanasrmultitarget]
-    provider = SAPHanaSrMultiTarget
-    path = /usr/share/SAPHanaSR-ScaleOut
-    execution_order = 1
+    sudo crm configure rsc_defaults resource-stickiness=1000
+    sudo crm configure rsc_defaults migration-threshold=50
+    ```
+
+6. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is ok and that all of the resources are started.
+
+    ```bash
+    # Cleanup any failed resources - the following command is example 
+    crm resource cleanup rsc_SAPHana_HN1_HDB03
     
-    [ha_dr_provider_suschksrv]
-    provider = susChkSrv
-    path = /usr/share/SAPHanaSR-ScaleOut
-    execution_order = 3
-    action_on_lost = kill
-    
-    [trace]
-    ha_dr_saphanasrmultitarget = info
+    # Place the cluster out of maintenance mode
+    sudo crm configure property maintenance-mode=false
     ```
 
-   Default location of the HA hooks as delivered by SUSE is /usr/share/SAPHanaSR-ScaleOut. Using the standard location brings a benefit, that the python hook code is automatically updated through OS or package updates and gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
-
-3. **[AH]** The cluster requires sudoers configuration on the cluster nodes for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root` adapt the values of hn1 with correct lowercase SID.  
+7. **[1]** Verify the communication between the HANA HA hook and the cluster, showing status SOK for SID and both replication sites with status P(rimary) or S(econdary).
 
     ```bash
-    cat << EOF > /etc/sudoers.d/20-saphana
-    # SAPHanaSR-ScaleOut needs for HA/DR hook scripts
-    so1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
-    so1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_gsh *
-    so1adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=hn1 *
-    EOF
+    sudo /usr/sbin/SAPHanaSR-showAttr
+    # Expected result
+    # Global cib-time                 maintenance prim  sec sync_state upd
+    # ---------------------------------------------------------------------
+    # HN1    Fri Jan 27 10:38:46 2023 false       HANA_S1 -   SOK        ok
+    # 
+    # Sites     lpt        lss mns        srHook srr
+    # -----------------------------------------------
+    # HANA_S1     1674815869 4   hana-s1-db1 PRIM   P
+    # HANA_S2     30         4   hana-s2-db1 SWAIT  S
     ```
+  
+   > [!NOTE]
+   > The timeouts in the above configuration are just examples and may need to be adapted to the specific HANA setup. For instance, you may need to increase the start timeout, if it takes longer to start the SAP HANA database.
 
-4. **[1,2]** Start SAP HANA on both replication sites. Execute as <sid\>adm.  
 
-    ```bash
-    sapcontrol -nr 03 -function StartSystem 
-    ```
 
-5. **[A]** Verify the hook installation is active on all cluster nodes. Execute as <sid\>adm.
 
-    ```bash
-    cdtrace
-    grep HADR.*load.*SAPHanaSrMultiTarget nameserver_*.trc | tail -3
-    # Example output
-    # nameserver_hana-s1-db1.31001.000.trc:[14162]{-1}[-1/-1] 2023-01-26 12:53:55.728027 i ha_dr_provider   HADRProviderManager.cpp(00083) : loading HA/DR Provider 'SAPHanaSrMultiTarget' from /usr/share/SAPHanaSR-ScaleOut/
-    grep SAPHanaSr.*init nameserver_*.trc | tail -3
-    # Example output
-    # nameserver_hana-s1-db1.31001.000.trc:[17636]{-1}[-1/-1] 2023-01-26 16:30:19.256705 i ha_dr_SAPHanaSrM SAPHanaSrMultiTarget.py(00080) : SAPHanaSrMultiTarget.init() CALLING CRM: <sudo /usr/sbin/crm_attribute -n hana_hn1_gsh -v 2.2  -l reboot> rc=0
-    # nameserver_hana-s1-db1.31001.000.trc:[17636]{-1}[-1/-1] 2023-01-26 16:30:19.256739 i ha_dr_SAPHanaSrM SAPHanaSrMultiTarget.py(00081) : SAPHanaSrMultiTarget.init() Running srHookGeneration 2.2, see attribute hana_hn1_gsh too
-    ```
 
-   Verify the susChkSrv hook installation. Execute as <sid\>adm.
 
-    ```bash
-    cdtrace
-    egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
-    # Example output
-    # 2023-01-19 08:23:10.581529  [1674116590-10005] susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
-    # 2023-01-19 08:23:31.553566  [1674116611-14022] START: indexserver event looks like graceful tenant start
-    # 2023-01-19 08:23:52.834813  [1674116632-15235] START: indexserver event looks like graceful tenant start (indexserver started)
-    ```
+
+
 
 ## Create SAP HANA cluster resources
 
