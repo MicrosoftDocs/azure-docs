@@ -16,8 +16,6 @@ items:
     href: manage.md
   - name: Fix common errors
     href: troubleshoot.md
-  - name: Get support
-    href: support.md
 - name: Reference
   items:
   - name: REST API
