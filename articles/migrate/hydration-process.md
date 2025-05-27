@@ -22,7 +22,7 @@ Azure Migrate will create the network interface, a new virtual network, subnet, 
 
 After the virtual machine is created, Azure Migrate will invoke the [Custom Script Extension](/azure/virtual-machines/extensions/custom-script-windows) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script containing the required configuration for Azure readiness on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Migrate owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Migrate storage account for invoking the script.
 
- :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/migration-steps.png" alt-text="Image of VMware agentless migration steps." lightbox="./media/concepts-prepare-vmware-agentless-migration/migration-steps.png":::.
+ :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/migration-steps.png" alt-text="Diagram of VMware agentless migration steps." lightbox="./media/concepts-prepare-vmware-agentless-migration/migration-steps.png":::.
 
 >[!NOTE]
 >Hydration VM disks do not support Customer Managed Key (CMK). Platform Managed Key (PMK) is the default option.
@@ -69,7 +69,7 @@ The preparation script executes the following changes based on the OS type of th
 
       - On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**.
 
-      :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png" alt-text="Image of command prompt diskpart." lightbox="./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png":::  
+      :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png" alt-text="Screenshot of command prompt diskpart." lightbox="./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png":::  
 
       - Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
