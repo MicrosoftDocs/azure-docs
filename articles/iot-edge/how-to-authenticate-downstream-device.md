@@ -147,7 +147,7 @@ Next, [Retrieve and modify the connection string](#retrieve-and-modify-connectio
 
 For X.509 certificate authority (CA) signed authentication, you need a root CA certificate registered in IoT Hub that you use to sign certificates for your downstream device. Any device using a certificate that was issues by the root CA certificate or any of its intermediate certificates is permitted to authenticate.
 
-For an introduction about using X.509 CA certificates to authenticate in IoT Hub, see [Benefits of X.509 CA certificate authentication](../iot-hub/tauthenticate-authorize-x509#benefits-of-x509-ca-certificate-authentication).
+For an introduction about using X.509 CA certificates to authenticate in IoT Hub, see [Benefits of X.509 CA certificate authentication](../iot-hub/authenticate-authorize-x509#benefits-of-x509-ca-certificate-authentication).
 
 To set up X.509 CA-signed authentication for a downstream device, follow these steps:
 
