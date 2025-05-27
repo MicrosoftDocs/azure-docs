@@ -93,8 +93,7 @@ The Hive linked service supports the following properties when apply version 2.0
 | password | The password corresponding to the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | The partial URL corresponding to the Hive server.  | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is true.  | No |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. 
-Always use System Trust Store. The default value is true. | No |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. Always use System Trust Store. The default value is true. | No |
 | storageReference | A reference to the linked service of the storage account used for staging data in mapping data flow. This is required only when using the Hive linked service in mapping data flow. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
@@ -343,7 +342,7 @@ The Hive connector version 2.0 (Preview) offers new functionalities and is compa
 | Version 2.0 (Preview) | Version 1.0 |
 |:--- |:--- |
 | Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is not supported.| Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is supported.|
-| `ServerType` does not support `HiveServer1` and `HiveThriftServer` | `ServerType` supports `HiveServer1` and `HiveThriftServer`|
+| `ServerType` does not support `HiveServer1` and `HiveThriftServer`. | `ServerType` supports `HiveServer1` and `HiveThriftServer`. |
 | `authenticationType` does not support `Username`. | `authenticationType` supports `Username`. |
 | The default value of `enableSSL` is true. <br><br>`enableServerCertificateValidation` is supported.<br><br>`serviceDiscoveryMode`, `zooKeeperNameSpace`, `useNativeQuery`, `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.| The default value of `enableSSL` is false.<br><br>`enableServerCertificateValidation` is not supported.<br><br>`serviceDiscoveryMode`, `zooKeeperNameSpace`, `useNativeQuery`, `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are supported. |
 | `thriftTransportProtocol` does not support `Binary` and `SASL`.| `thriftTransportProtocol` supports `Binary` and `SASL`. |
