@@ -24,7 +24,7 @@ $schema: 1.0
 name: project-sample-1
 image: MicrosoftWindowsDesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
 tasks:
-- task: "powershell"
+- name: "powershell"
   inputs:
     command:
 ```
@@ -49,11 +49,13 @@ The image you would like to use as the base image for your image definition. Thi
 image: MicrosoftWindowsDesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
 ```
 
-Or a custom image:
+Or a custom image from an attached Azure Compute Gallery:
 
 ```
 image: galleryname/imagename@version
 ```
+To learn how to attach an Azure Compute Gallery to your DevCenter, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md).
+
 
 To get a list of images that your DevCenter has access to, use this az cli command:
 

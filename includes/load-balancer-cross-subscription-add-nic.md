@@ -36,6 +36,7 @@ $nic = @{
     ResourceGroupName = '<Resource Group Subscription A>'
     Location = 'eastus'
     IpConfiguration = $IP1Config
+    LoadBalancerBackendAddressPool = "/subscriptions/<Subscription B ID>/resourceGroups/myResourceGroupLB/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/BackendPool1"
 }
 New-AzNetworkInterface @nic
 ```

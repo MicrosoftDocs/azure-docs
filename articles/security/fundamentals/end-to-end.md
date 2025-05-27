@@ -9,7 +9,7 @@ ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 04/23/2025
+ms.date: 05/23/2025
 ms.author: mbaldwin
 
 ---
@@ -68,7 +68,7 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | **Customer Access** |  |
 | [Microsoft Entra External ID](../../active-directory/external-identities/external-identities-overview.md) | With External Identities in Microsoft Entra ID, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. |
 |  | You can share your apps and resources with external users via [Microsoft Entra B2B](../../active-directory/external-identities/what-is-b2b.md) collaboration. |
-|  | [Azure AD B2C](../../active-directory-b2c/overview.md) lets you support millions of users and billions of authentications per day, monitoring and automatically handling threats like denial-of-service, password spray, or brute force attacks. |
+|  | [Microsoft Entra External ID in external tenants](/entra/external-id/customers/overview-customers-ciam) lets you support millions of users and billions of authentications per day, monitoring and automatically handling threats like denial-of-service, password spray, or brute force attacks. |
 
 ## Detect threats
 
