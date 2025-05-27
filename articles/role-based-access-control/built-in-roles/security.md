@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -47,7 +47,7 @@ Allows managing App Compliance Automation tool for Microsoft 365
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/delete | Deletes a resource group and all its resources. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/write | Creates or updates a resource group. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/tags/read | Gets all the tags on a resource. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/automations/read | Gets the automations for the scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/automations/delete | Deletes the automation for the scope |

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -235,6 +235,11 @@ Grants full access to the cluster and its resources, including the ability to re
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Write | Creates/Updates storage containers resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
 > | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/register/action | Register the subscription for Microsoft.HybridContainerService |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/write | Writes an Azure Arc settings |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/read | Reads any Azure Arc settings |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/read | Reads any Azure Arc gateways |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/write | Writes an Azure Arc gateways |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/delete | Deletes an Azure Arc gateways |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -352,7 +357,12 @@ Grants full access to the cluster and its resources, including the ability to re
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.AzureStackHCI/StorageContainers/Write",
         "Microsoft.AzureStackHCI/StorageContainers/Read",
-        "Microsoft.HybridContainerService/register/action"
+        "Microsoft.HybridContainerService/register/action",
+        "Microsoft.HybridCompute/settings/write",
+        "Microsoft.HybridCompute/settings/read",
+        "Microsoft.HybridCompute/gateways/read",
+        "Microsoft.HybridCompute/gateways/write",
+        "Microsoft.HybridCompute/gateways/delete"
       ],
       "notActions": [],
       "dataActions": [],
@@ -567,7 +577,7 @@ Grants permissions to perform all VM actions
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |

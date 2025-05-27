@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -1753,6 +1753,7 @@ Read access to view files, models, deployments. The ability to create completion
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/embeddings/action | Return the embeddings for a given prompt. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/images/generations/action | Create image generations. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/video/generations/*/action |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/video/generations/*/delete |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/assistants/* |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/responses/* |  |
 > | **NotDataActions** |  |
@@ -1788,6 +1789,7 @@ Read access to view files, models, deployments. The ability to create completion
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/video/generations/*/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/video/generations/*/delete",
         "Microsoft.CognitiveServices/accounts/OpenAI/assistants/*",
         "Microsoft.CognitiveServices/accounts/OpenAI/responses/*"
       ],

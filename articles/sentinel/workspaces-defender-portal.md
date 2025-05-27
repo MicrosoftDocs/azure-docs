@@ -1,10 +1,10 @@
 ---
 title: Multiple workspaces - Microsoft Sentinel in Defender portal
 description: Learn about the support of multiple workspaces for Microsoft Sentinel in the Defender portal including primary and secondary workspaces.
-author: cwatson-cat
-ms.author: cwatson
+author: batamig
+ms.author: bagol
 ms.topic: concept-article
-ms.date: 02/27/2025
+ms.date: 05/26/2025
 appliesto: 
     - Microsoft Sentinel with Defender XDR in the Defender portal
 
@@ -88,6 +88,12 @@ How incident changes sync between the Azure portal and the Defender portal depen
 |---------|---------|
 |Primary     |  For Microsoft Sentinel in the Azure portal, Defender XDR incidents appear in **Threat management** > **Incidents** with the incident provider name **Microsoft XDR**. Any changes you make to the status, closing reason, or assignment of a Defender XDR incident in either the Azure or Defender portal, update in the other's incidents queue.  For more information, see [Working with Microsoft Defender XDR incidents in Microsoft Sentinel and bi-directional sync](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync).|
 |Secondary   | All alerts and incidents that you create for a secondary workspace are synced between that workspace in the Azure and Defender portals.   Data in a workspace is only synced to the workspace in the other portal.      |
+
+## Insider risk management (IRM) support
+
+[Microsoft Purview Insider Risk Management (IRM)](/defender-xdr/irm-investigate-alerts-defender) alerts are correlated to the primary workspace only. If you have IRM alerts with [Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md), you must connect IRM to the Microsoft Defender XDR connector in your primary workspace before onboarding the workspace to the Defender portal. This is required to ensure that IRM alerts and incidents are available in the primary workspace. If you don't want to see IRM alerts in the primary workspace, you can instead opt out of the integration with Microsoft Defender XDR. 
+
+Also, if the direct [Microsoft 365 Insider Risk Management connector for Microsoft Sentinel](data-connectors/microsoft-365-insider-risk-management.md) data connector is connected to any of the secondary workspaces, you must disconnect it before onboarding the workspace to the Defender portal.
 
 ## Related content
 

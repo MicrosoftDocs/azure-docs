@@ -100,7 +100,7 @@ To generate a connection string, open your project or branch in the working pane
 
     :::image type="content" source="media/manage/connect.png" alt-text="A screenshot of the Connect to database options in the working pane with the copy icon emphasized.":::
 
-## Delete a Neon resource
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 

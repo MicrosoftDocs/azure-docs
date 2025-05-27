@@ -166,7 +166,7 @@ You can install New Relic agents on Virtual Machine, Virtual Machine Scale Set, 
 
 [!INCLUDE [change-plan](../includes/change-plan.md)]
 
-## Delete a New Relic resource
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 

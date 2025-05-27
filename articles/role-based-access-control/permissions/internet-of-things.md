@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -129,9 +129,9 @@ Azure service: [IoT Hub](/azure/iot-hub/), [IoT Hub Device Provisioning Service]
 > | Microsoft.Devices/iotHubs/routing/$testall/Action | Test a message against all existing Routes |
 > | Microsoft.Devices/iotHubs/routing/$testnew/Action | Test a message against a provided test Route |
 > | Microsoft.Devices/iotHubs/routingEndpointsHealth/Read | Gets the health of all routing Endpoints for an IotHub |
-> | Microsoft.Devices/iotHubs/securitySettings/Write | Update the Azure Security Center settings on IoT Hub |
-> | Microsoft.Devices/iotHubs/securitySettings/Read | Get the Azure Security Center settings on IoT Hub |
-> | Microsoft.Devices/iotHubs/securitySettings/operationResults/Read | Get the result of the Async Put operation for IoT Hub SecuritySettings |
+> | Microsoft.Devices/iotHubs/securitySettings/Write | Update the Azure Security Center settings on Iot Hub |
+> | Microsoft.Devices/iotHubs/securitySettings/Read | Get the Azure Security Center settings on Iot Hub |
+> | Microsoft.Devices/iotHubs/securitySettings/operationResults/Read | Get the result of the Async Put operation for Iot Hub SecuritySettings |
 > | Microsoft.Devices/iotHubs/skus/Read | Get valid IotHub Skus |
 > | Microsoft.Devices/locations/operationresults/Read | Get Location based Operation Result |
 > | Microsoft.Devices/operationresults/Read | Get Operation Result |

@@ -39,16 +39,12 @@ This integration primarily supports the standalone experience accessed through [
 
 ## Key features
 
-Microsoft Sentinel data integrates with Security Copilot in two ways.
+Microsoft Sentinel data integrates with Security Copilot in the Defender portal as follows:
 
-- In Microsoft's unified security operations platform, Copilot in Microsoft Defender XDR benefits from unified incidents integrated with Microsoft Sentinel.
-- In the standalone experience, Microsoft Sentinel provides two plugins to integrate with Security Copilot:
+- When you also have Microsoft Defender XDR, Copilot in Microsoft Defender XDR benefits from unified incidents integrated with Microsoft Sentinel.
+- In the standalone experience, Microsoft Sentinel provides the following plugins to integrate with Security Copilot:
    <br>**Microsoft Sentinel (Preview)**
    <br>**Natural language to KQL for Microsoft Sentinel (Preview)**.
-
-> [!IMPORTANT]
-> The "Microsoft Sentinel" and "Natural Language to KQL for Microsoft Sentinel" plugins are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Enable Security Copilot integration with Microsoft Sentinel
 

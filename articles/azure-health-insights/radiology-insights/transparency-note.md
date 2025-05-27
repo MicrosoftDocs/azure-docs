@@ -9,7 +9,7 @@ ms.date: 04/04/2025
 ms.author: janschietse
 ---
 
-# Transparency Note for Radiology Insights (Preview)
+# Transparency Note for Radiology Insights
 
 ## What is a Transparency Note?
 

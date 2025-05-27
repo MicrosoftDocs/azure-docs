@@ -37,7 +37,7 @@ Below the essentials, you can navigate to other details about your resource by s
     Select the **Launch** button to [create clusters](https://docs.confluent.io/cloud/current/clusters/create-cluster.html), [connect your apps, systems, and entire organizations](https://docs.confluent.io/cloud/current/connectors/index.html#). 
 - The **Tutorials** tab provides links to free courses and video tutorials.
 
-## Delete a Confluent resource
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
