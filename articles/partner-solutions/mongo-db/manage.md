@@ -34,7 +34,7 @@ To manage your resource, select the links next to corresponding details.
 To access your MongoDB Atlas organization, select **Go to MongoDB Atlas** on the working pane.
 
 > [!NOTE]
-> If you don't have an Atlas account for your Azure email address, you are prompted to configure your account and set a password.
+> If you don't have an Atlas account for your Azure email address, you're prompted to configure your account and set a password.
 
 :::image type="content" source="media/manage/set-password.png" alt-text="Screenshot of a MongoDB Atlas resource overview in the Azure portal. The Go to MongoDB Atlas link is emphasized.":::
 
