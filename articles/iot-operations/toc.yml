@@ -244,11 +244,11 @@ items:
       - name: Reference
         items:
           - name: 🟢MQTT v5
-            href: develop-edge-apps/concept-mqtt-v5.md
+            href: develop-edge-apps/reference-mqtt-v5.md
           - name: 🔵State store protocol
-            href: develop-edge-apps/concept-about-state-store-protocol.md
+            href: develop-edge-apps/reference-state-store-protocol.md
           - name: 🟢Schema registry protocol
-            href: develop-edge-apps/concept-schema-registry-protocol.md
+            href: develop-edge-apps/reference-schema-registry-protocol.md
           - name: SDKS reference documentation
             href: https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md
           - name: Dapr apps
