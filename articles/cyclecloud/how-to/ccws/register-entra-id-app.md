@@ -29,7 +29,7 @@ Update the redirect URI with either the private IP or the FQDN of the Open OnDem
 Verify that both the `ccw` and `OpenOnDemand` clusters are started. Although there may be some temporary errors, both clusters should be ready within a few minutes. 
 Complete the configuration of the registered application by adding a new redirect URI, 'https://\<ip\>/oidc', in the Authentication settings of the application as illustrated below.
 
-:::image type="content" source="../../images/ccws/entraid-redirect-uri.png" alt-text="Screenshot of Microsoft Entra ID redirect URI update.":::
+:::image type="content" source="../../images/ccws/entra-id-redirect-uri.png" alt-text="Screenshot of Microsoft Entra ID redirect URI update.":::
 
 ## Register a Microsoft Entra ID application before a deployment
 It's possible to register a Microsoft Entra ID application before the deployment of a full environment and configure it afterwards. 
