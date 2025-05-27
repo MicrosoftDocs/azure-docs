@@ -58,10 +58,10 @@ Filter and ingest logs in text-file format from network or security applications
 
 [comment]: <> (DataConnector includes end)
 
-[!INCLUDE [data-connector-codeless](includes/connector_details.md)]
+[!INCLUDE [connector-details](includes/connector-details.md)]
 
 
-[!INCLUDE [data-connector-codeless](includes/deprecated_connectors.md)]
+[!INCLUDE [deprecated-connectors](includes/deprecated-connectors.md)]
 
 ## Next steps
 
