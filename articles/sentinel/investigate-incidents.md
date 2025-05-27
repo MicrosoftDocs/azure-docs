@@ -5,8 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 12/22/2024
-appliesto: 
-  - Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to understand how to investigate a Microsoft Sentinel incident in the Azure portal in depth in such a way that I reduce the mean time to resolve (MTTR) and ensure effective incident response.
 ---
 

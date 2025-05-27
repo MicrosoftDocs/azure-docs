@@ -5,8 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 01/17/2023
-appliesto: 
-  - Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to relate alerts to incidents in Microsoft Sentinel so that I can refine and expand the scope of my investigations efficiently.
 ---
 
@@ -28,13 +28,13 @@ You can also use this automation to add alerts to [manually created incidents](c
 
 ### Limitations
 
-- Microsoft Sentinel imports both alerts and incidents from Microsoft Defender XDR. For the most part, you can treat these alerts and incidents like regular Microsoft Sentinel alerts and incidents. 
+- **After onboarding Microsoft Sentinel to the Defender portal**, adding or removing Microsoft Sentinel alerts to or from incidents is supported only in the Defender portal. To remove an alert from an incident in the Defender portal, you must [add the alert to another incident](/defender-xdr/move-alert-to-another-incident). For more information, see [Understand how alerts are correlated and incidents are merged in the Defender portal](move-to-defender.md#understand-how-alerts-are-correlated-and-incidents-are-merged-in-the-defender-portal).
 
-    However, you can only add Defender alerts to Defender incidents (or remove them) in the Defender portal, not in the Sentinel portal. If you try doing this in Microsoft Sentinel, you will get an error message. You can pivot to the incident in the Microsoft Defender Portal using the link in the Microsoft Sentinel incident. Don't worry, though - any changes you make to the incident in the Microsoft Defender Portal are [synchronized](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync) with the parallel incident in Microsoft Sentinel, so you'll still see the added alerts in the incident in the Sentinel portal.
+- **When working in the Azure portal, in a workspace not onboarded to the Defender portal**, Microsoft Sentinel imports both alerts and incidents from Microsoft Defender XDR. For the most part, you can treat these alerts and incidents like regular Microsoft Sentinel alerts and incidents.
 
-    You *can* add Microsoft Defender XDR alerts to non-Defender incidents, and non-Defender alerts to Defender incidents, in the Microsoft Sentinel portal.
+    For example, you can add or remove Microsoft Defender XDR alerts to or from non-Defender incidents, and add or remove non-Defender alerts to Defender incidents, directly from Microsoft Sentinel in the Azure portal. 
 
-- If you onboarded Microsoft Sentinel to the unified security operations portal, you can no longer add Microsoft Sentinel alerts to incidents, or remove Microsoft Sentinel alerts from incidents, in Microsoft Sentinel (in the Azure portal). You can do this only in the Microsoft Defender portal. For more information, see [Capability differences between portals](microsoft-sentinel-defender-portal.md#capability-differences-between-portals).
+    However, you can only manage Defender alerts with Defender incidents in the Defender portal. From the Azure portal, pivot to the incident in the Defender portal using the link in the incident. Changes made in the Defender portal are [synchronized](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync) to the Azure portal, so you'll still see the change reflected in both portals.
 
 - An incident can contain a maximum of 150 alerts. If you try to add an alert to an incident with 150 alerts in it, you will get an error message.
 
@@ -143,7 +143,7 @@ When adding an alert to an incident, depending on the circumstances, you might b
 
 Adding and removing alerts to incidents are also available as Logic Apps actions in the Microsoft Sentinel connector, and therefore in Microsoft Sentinel playbooks. You need to supply the **incident ARM ID** and the **system alert ID** as parameters, and you can find them both in the playbook schema for both the alert and incident triggers.
 
-Microsoft Sentinel supplies a sample playbook template in the templates gallery, that shows you how to work with this capability:
+Microsoft Sentinel supplies a sample playbook template in the templates gallery that shows you how to work with this capability:
 
 :::image type="content" source="media/relate-alerts-to-incidents/playbook.png" alt-text="Screenshot of playbook template for relating alerts to incidents.":::
 

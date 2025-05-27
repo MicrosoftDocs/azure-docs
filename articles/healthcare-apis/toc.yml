@@ -35,7 +35,7 @@ items:
       href: health-data-services-get-started.md
     - name: Azure Health Data Services quickstart
       href: healthcare-apis-quickstart.md
-    - name: Deploy services programatically
+    - name: Deploy services programmatically
       href: deploy-healthcare-apis-using-bicep.md
 - name: How-tos
   expanded: true

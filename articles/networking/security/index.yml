@@ -143,7 +143,7 @@ conceptualContent:
             - url: /training/modules/design-implement-network-security-monitoring/
               itemType: training
               text: Design implement network security
-            - url: /training/modules/secure-networking/
+            - url: /training/paths/secure-networking/
               itemType: training
               text: Secure networking
             - url: /training/modules/troubleshoot-network-security-issues/

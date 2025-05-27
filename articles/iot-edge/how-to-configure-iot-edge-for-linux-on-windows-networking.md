@@ -4,7 +4,7 @@ description: Learn about how to configure custom networking for Azure IoT Edge f
 author: PatAltimore
 ms.author: patricka
 ms.date: 01/21/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge

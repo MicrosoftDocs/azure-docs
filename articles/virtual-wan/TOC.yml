@@ -32,7 +32,7 @@
         href: quickstart-any-to-any-template.md
       - name: Route to shared services VNets
         href: quickstart-route-shared-services-vnet-template.md
-    - name: BICEP templates
+    - name: Bicep files
       items:
       - name: Deploy Virtual WAN with routing intent and routing policies
         href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent
@@ -40,6 +40,8 @@
   items: 
   - name: Migrate to Virtual WAN
     href: migrate-from-hub-spoke-topology.md
+  - name: Interconnect Virtual WANs
+    href: virtual-wan-connectivity.md
   - name: Global transit network architecture
     href: virtual-wan-global-transit-network-architecture.md
   - name: SD-WAN connectivity architecture
@@ -120,14 +122,18 @@
       href: ../firewall-manager/secure-cloud-network.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
     - name: Customer-provided public IP address for secured virtual hub
       href:  ../firewall/secured-hub-customer-public-ip.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
-  - name: Integrated NVA in a virtual hub
-    items:
-    - name: Create an NVA in a virtual hub
-      href: how-to-nva-hub.md
-    - name: Restart an NVA in a virtual hub
-      href: how-to-network-virtual-appliance-restart.md
-    - name: Configure DNAT/Internet inbound
-      href: how-to-network-virtual-appliance-inbound.md
+- name: Integrated NVA in a virtual hub
+  items:
+  - name: Create an NVA in a virtual hub
+    href: how-to-nva-hub.md
+  - name: Restart an NVA in a virtual hub
+    href: how-to-network-virtual-appliance-restart.md
+  - name: Reimage an NVA in a virtual hub
+    href: how-to-network-virtual-appliance-reimage.md
+  - name: Configure DNAT/Internet inbound for NVAs
+    href: how-to-network-virtual-appliance-inbound.md
+  - name: Manage IP configurations for NVAs
+    href: how-to-network-virtual-appliance-add-ip-configurations.md
 - name: Site-to-site (S2S) connections
   items:
   - name: Create a site-to-site connection
@@ -286,6 +292,7 @@
       href: expressroute-powershell.md
   - name: Configure ExpressRoute encryption
     href: vpn-over-expressroute.md
+
 - name: Routing
   items:
   - name: Virtual WAN routing deep dive
@@ -326,6 +333,8 @@
     href: effective-routes-virtual-hub.md
   - name: Configure routing intent and policies
     href: how-to-routing-policies.md
+  - name: Next hop IP support
+    href: next-hop-ip.md
   - name: Route traffic from a virtual hub to an NVA (legacy)
     items:
     - name: Azure portal

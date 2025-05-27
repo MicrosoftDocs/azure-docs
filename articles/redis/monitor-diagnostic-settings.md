@@ -1,28 +1,29 @@
 ---
 title: Monitor Azure Managed Redis data using diagnostic settings
 description: Learn how to use diagnostic settings to monitor connected ip addresses to your Azure Managed Redis.
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
 ms.topic: how-to
-ms.date: 11/15/2024
-ms.custom: template-how-to, devx-track-azurecli, ignite-2024
+ms.custom:
+  - template-how-to
+  - devx-track-azurecli
+  - ignite-2024
+  - build-2025
 ms.devlang: azurecli
 appliesto:
-  - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis
 ---
 
-# Monitor Azure Managed Redis (preview) data using diagnostic settings
+# Monitor Azure Managed Redis data using diagnostic settings
 
-Diagnostic settings in Azure are used to collect resource logs. An Azure resource emits resource logs and provides rich, frequent data about the operation of that resource. These logs are captured per request and are also referred to as "data plane logs". See [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings) for a recommended overview of the functionality in Azure. The content of these logs varies by resource type. In Azure Managed Redis (preview), two options are available to log:
+Diagnostic settings in Azure are used to collect resource logs. An Azure resource emits resource logs and provides rich, frequent data about the operation of that resource. These logs are captured per request and are also referred to as _data plane logs_. See [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings) for a recommended overview of the functionality in Azure. The content of these logs varies by resource type. In Azure Managed Redis, two options are available to log:
 
 - **Cache Metrics** (that is "AllMetrics") used to [log metrics from Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
-- **Connection Logs** logs connections to the cache for security and diagnostic purposes. 
+- **Connection Logs** logs connections to the cache for security and diagnostic purposes.
 
 ## Cache Metrics
 
-Azure Managed Redis (preview) emits [many metrics](monitor-cache-reference.md#metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](monitor-cache.md#view-cache-metrics).
+Azure Managed Redis emits [many metrics](monitor-cache-reference.md#metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](monitor-cache.md#view-cache-metrics).
 
 ## Connection Logs
 
@@ -37,19 +38,19 @@ Azure Managed Redis uses the [audit connection events](https://redis.io/docs/lat
 ## Prerequisites/Limitations of Connection Logging
 
 - When you use **OSS Cluster Policy**, logs are emitted from each data node. When you use **Enterprise Cluster Policy**, only the node being used as a proxy emits logs. Both versions still cover all connections to the cache. This is just an architectural difference.  
-- Data loss (that is, missing a connection event) is rare, but possible. Data loss is typically caused by networking issues. 
-- Disconnection logs aren't yet fully stable and events may be missed.  
+- Data loss (that is, missing a connection event) is rare, but possible. Data loss is typically caused by networking issues.
+- Disconnection logs aren't yet fully stable and events can be missed.  
 - Because connection logs on Azure Managed Redis are event-based, be careful of your retention policies. For instance, if retention is set to 10 days, and a connection event occurred 15 days ago, that connection might still exist, but the log for that connection isn't retained.
 - If using [active geo-replication](how-to-active-geo-replication.md), logging must be configured for each cache instance in the geo-replication group individually.
-- All diagnostic settings may take up to [90 minutes](/azure/azure-monitor/essentials/diagnostic-settings#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
-- Enabling connection logs may cause a small performance degradation to the Redis instance.
+- All diagnostic settings can take up to [90 minutes](/azure/azure-monitor/essentials/diagnostic-settings#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
+- Enabling connection logs might cause a small performance degradation to the Redis instance.
 
 > [!NOTE]
-> It is always possible to use the [INFO](https://redis.io/commands/info/) or [CLIENT LIST](https://redis.io/commands/client-list/) commands to check who is connected to a cache instance on-demand.
+> It's always possible to use the [INFO](https://redis.io/commands/info/) or [CLIENT LIST](https://redis.io/commands/client-list/) commands to check who is connected to a cache instance on-demand.
 >
 
 > [!IMPORTANT]
-> When selecting logs, you can chose either the specific _Category_ or _Category groups_, which are predefined groupings of logs across Azure services. When you use _Category groups_, [you can no longer configure the retention settings](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs). If you need to determine retention duration for your connection logs, select the item in the _Categories_ section instead.
+> When selecting logs, you can choose either the specific _Category_ or _Category groups_, which are predefined groupings of logs across Azure services. When you use _Category groups_, [you can no longer configure the retention settings](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs). If you need to determine retention duration for your connection logs, select the item in the _Categories_ section instead.
 >
 
 ## Log Destinations
@@ -57,7 +58,7 @@ Azure Managed Redis uses the [audit connection events](https://redis.io/docs/lat
 You can turn on diagnostic settings for Azure Managed Redis instances and send resource logs to the following destinations:
 
 - **Log Analytics workspace** - doesn't need to be in the same region as the resource being monitored.
-- **Storage account** - must be in the same region as the cache. [Premium storage accounts are not supported](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations) as a destination, however. 
+- **Storage account** - must be in the same region as the cache. [Premium storage accounts aren't supported](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations) as a destination, however. 
 - **Event hub** - diagnostic settings can't access event hub resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hub resources. The event hub must be in the same region as the cache.
 - **Partner Solution** - a list of potential partner logging solutions can be found [here](/azure/partner-solutions/partners)
 
@@ -134,7 +135,7 @@ Use the `az monitor diagnostic-settings create` command to create a diagnostic s
 az monitor diagnostic-settings create 
     --resource /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisenterprise/{cacheName}/databases/default
     --name {logName}
-    --logs '[{"category": "ConnectionEvents","enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]'
+    --logs '[{"category": "ConnectionEvents","enabled": true,"retentionPolicy": {"enabled": false,"days`: 0}}]'
     --event-hub {eventHubName}
     --event-hub-rule /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/microsoft.eventhub/namespaces/{eventHubNamespace}/authorizationrule/{ruleName}
     --storage-account /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
@@ -162,7 +163,7 @@ These fields and properties appear in the `ConnectionEvents` log category. In **
 | `eventStatus` |  `EventStatus` | Results of an authentication request as a status code (only applicable for authentication event). |
 
 > [!NOTE]
-> If private link is used, only a IPv6 address will be logged (unless you are streaming the data to log analytics). You can convert the IPv6 address to the equivalent IPv4 address by looking at the last four bytes of data in the IPv6 address. For instance, in the private link IPv6 address "fd40:8913:31:6810:6c31:200:a01:104", the last four bytes in hexadecimal are "0a", "01", "01", and "04". (Note that leading zeros are omitted after each colon.) These correspond to "10", "1", "1", and "4" in decimal, giving us the IPv4 address "10.1.1.4".  
+> If private link is used, only a IPv6 address is logged (unless you're streaming the data to log analytics). You can convert the IPv6 address to the equivalent IPv4 address by looking at the last four bytes of data in the IPv6 address. For instance, in the private link IPv6 address `fd40:8913:31:6810:6c31:200:a01:104` the last four bytes in hexadecimal are `0a`, `01`, `01`, and `04`. (Leading zeros are omitted after each colon.) These bytes correspond to `10`, `1`, `1`, and `4` in decimal, giving us the IPv4 address `10.1.1.4`.  
 >
 
 #### Sample storage account log

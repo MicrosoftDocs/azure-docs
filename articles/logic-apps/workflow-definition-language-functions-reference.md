@@ -3397,6 +3397,7 @@ parseDateTime('20/10/2014', 'fr-fr') // Returns '2014-10-20T00:00:00.0000000'.
 parseDateTime('20 octobre 2010', 'fr-FR') // Returns '2010-10-20T00:00:00.0000000'.
 parseDateTime('martes 20 octubre 2020', 'es-es') // Returns '2020-10-20T00:00:00.0000000'.
 parseDateTime('21052019', 'fr-fr', 'ddMMyyyy') // Returns '2019-05-21T00:00:00.0000000'.
+parseDateTime('20190521', 'fr-fr', 'yyyyMMdd') // Returns '2019-05-21T00:00:00.0000000'.
 parseDateTime('10/20/2014 15h', 'en-US', 'MM/dd/yyyy HH\h') // Returns '2014-10-20T15:00:00.0000000'.
 ```
 

@@ -7,13 +7,14 @@ author: dlepow
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 03/18/2025
+ms.date: 05/19/2025
 ms.author: danlep
 ms.custom: Include file
 ---
 
 | Resource | Free plan<sup>1</sup> | Standard plan<sup>2</sup> |
 | ---------------------------------------------------------------------- | -------------------------- |-------------|
+| Maximum number of APIs | 200 |  10,000 |
 | Maximum number of versions per API | 5 | 100 |
 | Maximum number of definitions per version | 5  | 5 |
 | Maximum number of deployments per API | 10 | 10 |
@@ -26,8 +27,9 @@ ms.custom: Include file
 | Maximum number of analysis profiles | 1 | 3 |
 | Maximum number of linked API sources<sup>5</sup> | 1  |  3 |
 | Maximum number of APIs synchronized from a linked API source | 200 | 2,000<sup>4</sup>  |
+| Semantic search in API Center portal | No | Yes |
 
-<sup>1</sup> Free plan provided for 90 days, then service is soft-deleted. Use of full service features including API analysis is limited.<br/>
+<sup>1</sup> Use of full service features including API analysis is limited.<br/>
 <sup>2</sup> To increase a limit in the Standard plan, contact [support](https://azure.microsoft.com/support/options/).<br/>
 <sup>3</sup> Custom metadata properties assigned to APIs, deployments, and environments.<br/>
 <sup>4</sup> Process can take a few minutes to up to 24 hours to complete.<br/> 

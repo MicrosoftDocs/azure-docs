@@ -120,8 +120,8 @@ PATCH
   "identity": {
     "type": "SystemAssigned, UserAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/firstIdentity": {},
-      "/subscriptions/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/secondIdentity": {}
+      "/subscriptions/00a000aa-00a0-00aa-00aa-0a0aa000aa00/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/firstIdentity": {},
+      "/subscriptions/00a000aa-00a0-00aa-00aa-0a0aa000aa00/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/secondIdentity": {}
     }
   }
 }
@@ -130,7 +130,7 @@ PATCH
 The syntax of the API is as follows:
 
 ```http
-https://management.azure.com/subscriptions/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview 
+https://management.azure.com/subscriptions/00a000aa-00a0-00aa-00aa-0a0aa000aa00/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview 
 ```
 
 #### Example
@@ -176,15 +176,15 @@ Perform the following steps.
     ```json
     {
     "type": "SystemAssigned, UserAssigned",
-    "principalId": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
-    "tenantId": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
+    "principalId": "00a000aa-00a0-00aa-00aa-0a0aa000aa00",
+    "tenantId": "00a000aa-00a0-00aa-00aa-0a0aa000aa00",
     "userAssignedIdentities":  {
         "/subscriptions/ContosoID/resourcegroups/ContosoLab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ContosoUAMI1":  {
-                "PrincipalId":  "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
+                "PrincipalId":  "00a000aa-00a0-00aa-00aa-0a0aa000aa00",
                 "ClientId":  "00001111-aaaa-2222-bbbb-3333cccc4444"
                     },
         "/subscriptions/ContosoID/resourcegroups/ContosoLab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ContosoUAMI2":  {
-                "PrincipalId":  "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
+                "PrincipalId":  "00a000aa-00a0-00aa-00aa-0a0aa000aa00",
                 "ClientId":  "00001111-aaaa-2222-bbbb-3333cccc4444"
                     }
         }

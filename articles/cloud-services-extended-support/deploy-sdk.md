@@ -37,7 +37,7 @@ To deploy Cloud Services (extended support) by using the SDK:
                 var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantID}");
                 var credential = new ClientCredential(clientId: "{clientID}", clientSecret: "{clientSecret}");
                 var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
-                if (result == null) throw new InvalidOperationException("Failed to obtain the JWT token");
+                if (result == null) throw new InvalidOperationException("Failed to obtain the JWT");
                 AuthenticationToken = result.Result.AccessToken;
             }
             public override async Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)

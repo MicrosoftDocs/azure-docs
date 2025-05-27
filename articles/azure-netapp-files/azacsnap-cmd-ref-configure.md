@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: reference
-ms.date: 04/01/2025
+ms.date: 04/23/2025
 ms.author: phjensen
 ---
 
@@ -243,7 +243,7 @@ When you add an *SAP HANA database* to the configuration, the following values a
 
 - `HANA SID` (JSON key: `sid`): The SAP HANA system ID (SID).
 - `HANA Instance Number` (JSON key: `instanceNumber`): The SAP HANA instance number.
-- `HANA HDB User Store Key` (JSON key: `hdbUserStoreName`): The SAP HANA user configured with permissions to run database backups.
+- `HANA HDB User Store Key` (JSON key: `hdbUserStoreName`): The SAP HANA KEY as shown by the `hdbuserstore List` command which uses the KEY to link the USER with permissions to run database backups to the ENV (hostname and port).  The [Enable communication with database](azacsnap-configure-database.md?tabs=sap-hana#enable-communication-with-the-database) section provides further details and examples.
 - `HANA Server's Address` (JSON key: `serverAddress`): The SAP HANA server's host name or IP address.
 - `Do you need AzAcSnap to automatically disable/enable backint during snapshot`: Defaults to `n` (no). You can set it to `y` (yes) to allow AzAcSnap to disable or re-enable the Backint interface. The [Backint coexistence](#backint-coexistence) section in this article explains this option in more detail.
 

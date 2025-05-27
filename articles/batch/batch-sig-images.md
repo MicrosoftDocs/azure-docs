@@ -1,7 +1,7 @@
 ---
 title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/25/2024
 ms.devlang: csharp
 # ms.devlang: csharp, python

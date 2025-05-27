@@ -2,8 +2,8 @@
 metadata:
   title: FAQ for Azure Compute Fleet
   description: Get answers to the most frequently asked questions about Azure Compute Fleet.
-  author: rrajeesh
-  ms.author: rajeeshr
+  author: vashan
+  ms.author: vashan
   ms.topic: faq
   ms.service: azure-compute-fleet
   ms.date: 06/19/2024
@@ -19,7 +19,7 @@ sections:
       - question: |
           How many virtual machines (VMs) can I deploy using Azure Compute fleet? 
         answer: |
-          Compute Fleet allows you to deploy up to 10,000 VMs in a singe request, as long as you have enough quota of Spot VMs and Standard VMs.
+          Compute Fleet allows you to deploy up to 10,000 VMs in a single request, as long as you have enough quota of Spot VMs and Standard VMs.
       - question: |
           Can I specify target capacity at a Compute Fleet level without specifying Spot and Standard capacity? 
         answer: |

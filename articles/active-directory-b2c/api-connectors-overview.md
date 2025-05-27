@@ -19,6 +19,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Use API connectors to customize and extend sign-up user flows and custom policies with external identity data sources 
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-user-flow"

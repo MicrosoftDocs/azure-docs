@@ -2,7 +2,7 @@
 title: Create & deploy Visual Studio resource group projects
 description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
 ms.topic: how-to
-ms.date: 10/24/2024
+ms.date: 04/28/2025
 ---
 
 # Creating and deploying Azure resource groups through Visual Studio
