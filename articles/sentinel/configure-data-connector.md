@@ -1,6 +1,6 @@
 ---
-title: Connect your data sources to Microsoft Sentinel by using data connectors
-description: Learn how to install and configure a data connector in Microsoft Sentinel.
+title: Connect Data Sources to Microsoft Sentinel Using Data Connectors
+description: Learn how to connect data sources to Microsoft Sentinel using data connectors for improved threat detection.
 author: batamig
 ms.topic: how-to
 ms.date: 05/27/2025
@@ -15,14 +15,13 @@ ms.collection: usx-security
 
 ---
 
-# Connect your data sources to Microsoft Sentinel by using data connectors
+# Connect data sources to Microsoft Sentinel by using data connectors
 
-Install and configure data connectors to ingest your data into Microsoft Sentinel. Data connectors are available as part of solutions from the content hub in Microsoft Sentinel. After you install a solution from the content hub, the related data connectors are available to enable and configure. To find and install solutions that include data connectors, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
-
-This article provides general information about how to enable a data connector and how to find more detailed installation instructions for other data connectors. For more information, see:
+Connect data sources to Microsoft Sentinel by installing and configuring data connectors. This article generally explains how to install data connectors available in the Microsoft Sentinel **Content hub** to ingest and analyze data for improved threat detection.
 
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
+- [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md)
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
