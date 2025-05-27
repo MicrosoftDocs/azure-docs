@@ -242,7 +242,7 @@ To use the managed identity from inside the **Execute PowerShell Code** action, 
 
 1. On the logic app resource menu, under **Development Tools**, select **Advanced Tools**.
 
-1. On the **Advanced Tools** page, select **Go**, which opens the **KuduPlus** console.
+1. On the **Advanced Tools** page, select **Go**, which opens the **Kudu Plus** console.
 
 1. Open the **Debug console** menu, and select **CMD**.
 
@@ -314,13 +314,13 @@ If you use dependency management, the following considerations apply:
 
 - To download modules, public modules require access to the [PowerShell Gallery](https://www.powershellgallery.com).
 
-- Managed dependencies currently don't support modules that require you to accept a license, either by accepting the license interactively or by providing the **-AcceptLicense** option when you run **Install-Module**.
+- Managed dependencies currently don't support modules that require you to accept a license, either by accepting the license interactively or by providing the `-AcceptLicense` option when you run **Install-Module**.
 
 ### Private modules
 
 You can generate your own private PowerShell modules. To create your first PowerShell module, see [Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
-1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under Development Tools, selects **Advanced Tools**.
+1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under Development Tools, select **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**.
 
@@ -363,7 +363,7 @@ Make sure that you use the `Push-WorkflowOutput` cmdlet.
 
 ### Execute PowerShell Code action fails: "The term '{some-text}' is not recognized..."
 
-If you incorrectly reference a public module in the **requirements.psd1** file or when your private module doesn't exist in the following path: **C:\home\site\wwwroot\Modules\{module-name}**, you get the following error:
+If you incorrectly reference a public module in the **requirements.psd1** file, or if your private module doesn't exist in the path **C:\home\site\wwwroot\Modules\{module-name}**, you get the following error:
 
 **"The term '{some-text}' is not recognized as a name of a cmdlet, function, script file, or executable program. Check the spelling of the name or if a path was included, verify the path is correct and try again."**
 

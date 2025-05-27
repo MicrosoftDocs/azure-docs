@@ -29,7 +29,7 @@ This guide shows how to add a condition to your workflow and use the result to h
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Basic knowledge about [logic app workflows](logic-apps-overview.md)
+* Basic knowledge about [logic app workflows](logic-apps-overview.md).
 
 * To follow the example in this how-to guide, create either an [example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md) or an [example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md) and use either an Outlook.com account or a Microsoft work or school account.
 

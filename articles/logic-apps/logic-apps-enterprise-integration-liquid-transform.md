@@ -148,15 +148,7 @@ After you create your Liquid template, you now have to upload the template based
 
 1. On the **Maps** pane toolbar, select **Add**.
 
-1. On the **Add Map** pane, provide the following information about your template:
-
-   | Property | Value | Description |
-   |----------|-------|-------------|
-   | **Name** | `JsonToJsonTemplate` | The name for your map, which is "JsonToJsonTemplate" in this example |
-   | **Map type** | **Liquid** | The type for your map. For JSON to JSON transformation, you must select **Liquid**. |
-   | **Map** | `SimpleJsonToJsonTemplate.liquid` | An existing Liquid template or map file to use for transformation, which is "SimpleJsonToJsonTemplate.liquid" in this example. To find this file, you can use the file picker. For map size limits, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
-
-1. When you're done, select **OK**.
+1. On the **Add Map** pane, drag and drop your file to the upload box, or select **Browse for files**.
 
    After your map file finishes uploading, the map appears in the **Maps** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded map also appears.
 
@@ -172,9 +164,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
    This example continues with the Request trigger named **When a HTTP request is received**.
 
-1. On the workflow designer, under the step where you want to add the Liquid action, select **New step**.
-
-1. Under the **Choose an operation** search box, select **All**. In the search box, enter **liquid**.
+1. Under the trigger, select **Add an action**. In the search box, enter **liquid**.
 
 1. From the actions list, select the Liquid action that you want to use.
 
@@ -184,7 +174,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. In the action's **Content** property, provide the JSON output from the trigger or a previous action that you want to transform by following these steps.
 
-   1. Click inside the **Content** box so that the dynamic content list appears.
+   1. Click inside the **Content** box so that the dynamic content list appears. Select the lightning icon.
 
    1. From the dynamic content list, select the JSON data that you want to transform.
 
@@ -202,10 +192,6 @@ The following steps show how to add a Liquid transformation action for Consumpti
    >
    > If the maps list is empty, either your logic app resource isn't linked to your 
    > integration account, or your integration account doesn't contain any map files.
-
-   When you're done, the action looks similar to the following example:
-
-   :::image type="content" source="media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-consumption.png" alt-text="Screenshot showing Consumption workflow with finished Transform JSON to JSON action.":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -229,7 +215,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. In the action's **Content** property, provide the JSON output from the trigger or a previous action that you want to transform by following these steps.
 
-   1. Click inside the **Content** box so that the dynamic content list appears.
+   1. Click inside the **Content** box so that the dynamic content list appears. Select the lightning icon.
 
    1. From the dynamic content list, select the JSON data that you want to transform.
 
@@ -259,10 +245,6 @@ The following steps show how to add a Liquid transformation action for Consumpti
    >
    > If the maps list is empty, most likely your logic app resource isn't linked to your integration account. 
    > Make sure to [link your logic app resource to the integration account that has the Liquid template or map](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
-
-   When you're done, the action looks similar to the following example:
-
-   ![Screenshot showing Standard workflow with finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-standard.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
