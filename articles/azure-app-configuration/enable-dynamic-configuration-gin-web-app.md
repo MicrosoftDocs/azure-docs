@@ -6,21 +6,14 @@ author: linglingye
 ms.service: azure-app-configuration
 ms.devlang: golang
 ms.topic: quickstart
-ms.date: 01/05/2024
+ms.date: 05/27/2025
 ms.author: linglingye
 ms.custom: devx-track-go
 ---
 
 # Tutorial: Use dynamic configuration in a Gin web app
 
-This tutorial shows how you can implement dynamic configuration updates in a Gin web application using Azure App Configuration. It builds on the web app introduced in the previous quickstart. Before you continue, complete [Create a Gin web app with Azure App Configuration](./quickstart-go-web-app.md) first.
-
-In this quickstart, you'll learn how to:
-
-> [!div class="checklist"]
-> * Set up your Gin app to update its configuration in response to changes in an App Configuration store
-> * Implement a middleware to refresh configuration on incoming requests
-> * Inject the latest configuration into your app.
+This tutorial shows how you can implement dynamic configuration updates in a Gin web application using Azure App Configuration. It builds on the web app introduced in the previous quickstart.
 
 ## Prerequisites
 
@@ -28,7 +21,7 @@ Finish the quickstart: [Create a Gin web app with Azure App Configuration](./qui
 
 ## Reload data from App Configuration
 
-1. Open the file *`appconfig.go`*. Inside the `loadAzureAppConfiguration` function, update the `options` to enable refresh. Go provider will reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with *Config.* and having no label). For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
+1. Open the file *`appconfig.go`*. Inside the `loadAzureAppConfiguration` function, update the `options` to enable refresh. Go provider will reload the entire configuration whenever it detects a change in any of the selected key-values. For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
 
     ```golang
     options := &azureappconfiguration.Options{
@@ -60,9 +53,9 @@ Finish the quickstart: [Create a Gin web app with Azure App Configuration](./qui
     // Register refresh callback
     provider.OnRefreshSuccess(func() {
         // Re-unmarshal the configuration
-        err := provider.Unmarshal(&Config, nil)
+        err := provider.Unmarshal(&config, nil)
         if err != nil {
-            log.Printf("Error unmarshalling updated configuration: %s", err)
+            log.Printf("Failed to unmarshal updated configuration: %s", err)
             return
         }
     })
@@ -128,7 +121,7 @@ Now that you've set up dynamic configuration refresh, let's test it to see it in
 
     | Key                    | Value                                  | Content type       |
     |------------------------|----------------------------------------|--------------------|
-    | *Config.Message*       | *	Hello from Azure App Configuration - now with live updates!*               | Leave empty        |
+    | *Config.Message*       | *Hello from Azure App Configuration - now with live updates!*               | Leave empty        |
 
 4. After refreshing the browser a few times, you'll see the updated content once the ConfigMap is updated in 30 seconds.
 
