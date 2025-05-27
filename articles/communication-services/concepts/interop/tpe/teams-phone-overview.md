@@ -248,6 +248,6 @@ The following diagram shows an example call recording flow. In this example, the
 
 ## Related articles
 
-- [Teams Phone client capabilities](./teams-phone-client-capabilities.md)
+- [Teams Phone client capabilities](./teams-phone-extensibility-client-capabilities.md)
 - [Teams Phone extensibility FAQ](./teams-phone-extensibility-faq.md)
 - [Teams Phone extensibility troubleshooting](./teams-phone-extensibility-troubleshooting.md)

@@ -5,7 +5,7 @@ description: This article describes how to extend Teams Phone System with Azure 
 author: radubulboaca
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: coneptual
+ms.topic: conceptual
 ms.date: 05/20/2025
 ms.author: radubulboaca
 ms.custom: public_preview
@@ -16,11 +16,9 @@ services: azure-communication-services
 
 [!INCLUDE [public-preview-notice.md](../../includes/public-preview-include-document.md)]
 
-## Introduction
-
 This article describes how an independent software vendor (ISV) can provision Teams Phone for the scope of Teams Phone extensibility (TPE). This article also describes how an ISV can guide their customers because there are operations in Teams that a tenant needs to implement.
 
-## Assumptions
+## Presumptions
 
 - ISV’s Customer has access to Teams Admin Center.
 - ISV’s Customer has access to Microsoft 365 Admin Center.
@@ -32,7 +30,7 @@ This article describes how an independent software vendor (ISV) can provision Te
 
 ## Quick start
 
-The rest of this article describes quick starts are for two different personas: CCaaS Developer and Teams Tenant. The CCaaS developer is the ISV persona building the CCaaS service using Azure Communication Services. The Teams Tenant is the persona that is a customer of the ISV that is administering to Teams Phone.  
+The rest of this article describes quick starts for two different personas: CCaaS Developer and Teams Tenant. The CCaaS developer is the ISV persona building the CCaaS service using Azure Communication Services. The Teams Tenant is the persona that is a customer of the ISV that is administering to Teams Phone.  
 
 ### CCaaS Developer: Provision the AppID (Application ID)
 
@@ -124,7 +122,7 @@ Optionally, you can use the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowe
 
 ### Teams Admin: Acquire and assign a phone number to Resource Account
 
-You need to assign a PSTN number to your RA to make a call to this endpoint. Let’s provision a Teams Phone Number and assign it to your recently provisioned Teams Resource Account.
+You need to assign a public switched telephone network (PSTN) number to your Resource Account (RA) to make a call to this endpoint. Let’s provision a Teams Phone Number and assign it to your recently provisioned Teams Resource Account.
 
 1. Go to your [Teams Admin Center](https://admin.teams.microsoft.com/dashboard).
 1. Sign in with your Teams admin user credentials.
@@ -179,7 +177,7 @@ Query definition:
 
 > https://graph.microsoft.com/beta/admin/teams/resourceAccounts 
 
-Example RURI to get Resource Accounts with a filter on appId:
+Example request URI (RURI) to get Resource Accounts with a filter on appId:
 
 ```rest
 GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$filter=appid eq 'aa123456-1234-1234-1234-aaa123456789'
@@ -216,7 +214,7 @@ The following steps demonstrate how to receive and answer an incoming Teams call
 1. A Teams Resource Account provisioned with a Calling Plan.
 1. An Azure Communication Services Resource with permission to receive call from the Teams Resource Account.
 1. [Create and host a dev tunnel](/azure/developer/dev-tunnels/get-started).
-1. (Optional) Create a Microsoft Teams user with a phone license that is voice enabled. Teams Phone license is required to add Teams users to the call. Learn more about [Microsoft Teams business options](/microsoftteams/compare-microsoft-teams-business-options). For more information, see [Set up Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system).
+1. (Optional) Create a Microsoft Teams user with a phone license that is voice enabled. Teams Phone license is required to add Teams users to the call. Learn more about [Microsoft Teams business options](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-business-options). For more information, see [Set up Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system).
 1. Complete client and server consent as defined in [Access a user's Teams Phone separate from their Teams client](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md).
 
 #### Setup and host your Azure dev tunnels
@@ -343,7 +341,7 @@ var mediaStreamingOptions = new MediaStreamingOptions(
     var response = await callingServerClient.AnswerCallAsync(answerCallOptions); 
 ```
 
-The following code is a schema definition of a streaming data object. The audio packets are base64 encoded and CCaaS needs to decode the value in the `data` attribute to get the PCM bytes 
+The following code is a schema definition of a streaming data object. The audio packets are base64 encoded and CCaaS needs to decode the value in the `data` attribute to get the pulse-code modulation (PCM) bytes.
 
 ```json
 { 
@@ -361,15 +359,15 @@ The following code is a schema definition of a streaming data object. The audio 
 
 Developer needs to acquire the Teams Tenant ID and client ID. The developer needs to implement this acquisition. Once the client application acquires the Tenant ID and client ID, the developer implements the means to prompt the user. For more information, see [InteractiveBrowserCredential Class (Azure.Identity)](/dotnet/api/azure.identity.interactivebrowsercredential).
 
-Once the user interaction is complete and auth is successful, a token is returned and passed to [AzureCommunicationTokenCredential class](/javascript/api/@azure/communication-common/azurecommunicationtokencredential?view=azure-node-latest) to return an Azure Communication Services token.
+Once the user interaction is complete and auth is successful, a token is returned and passed to [AzureCommunicationTokenCredential class](/javascript/api/@azure/communication-common/azurecommunicationtokencredential) to return an Azure Communication Services token.
 
-Parse the Azure Communication Services token to get the [CommunicationUserIdentifier interface | Microsoft Learn](/javascript/api/@azure/communication-common/communicationuseridentifier?view=azure-node-latest).
+Parse the Azure Communication Services token to get the [CommunicationUserIdentifier interface | Microsoft Learn](/javascript/api/@azure/communication-common/communicationuseridentifier).
 
 See the code sample defined in [Create a credential capable of obtaining a Microsoft Entra user token](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md#create-a-credential-capable-of-obtaining-a-microsoft-entra-user-token).
 
 ### CCaaS Client Developer: How to construct the Teams Phone extensibility Call Agent
 
-Developer instantiates a calling client, then calls the [createTeamsCallAgent](/javascript/api/azure-communication-services/@azure/communication-calling/callclient?view=azure-communication-services-js#@azure-communication-calling-callclient-createteamscallagent) method. For more information, see [CallClient class](/javascript/api/azure-communication-services/@azure/communication-calling/callclient?view=azure-communication-services-js).
+Developer instantiates a calling client, then calls the [createTeamsCallAgent](/javascript/api/azure-communication-services/@azure/communication-calling/callclient#@azure-communication-calling-callclient-createteamscallagent) method. For more information, see [CallClient class](/javascript/api/azure-communication-services/@azure/communication-calling/callclient).
 
 ```javascript
 ...
@@ -382,9 +380,9 @@ this._teamsCallAgent = await this._callClient.createTeamsCallAgent(this.tokenCre
 
 Developers need to get the on behalf of (OBO) identity (ID) Resource Account that the call needs to be placed on behalf of. The following articles describe how to place an outbound OBO call.
 
-Once the OBO identity is acquired, you need to set the `onBehalfOfOptions` in the `StartTeamsGroupCallOptions()` or `StartTeamsCallOptions()` method. For more information, see [StartTeamsGroupCallOptions interface](/javascript/api/azure-communication-services/@azure/communication-calling/startteamsgroupcalloptions?view=azure-communication-services-js) or [StartTeamsCallOptions interface](/javascript/api/azure-communication-services/@azure/communication-calling/startteamscalloptions?view=azure-communication-services-js).
+Once the OBO identity is acquired, you need to set the `onBehalfOfOptions` in the `StartTeamsGroupCallOptions()` or `StartTeamsCallOptions()` method. For more information, see [StartTeamsGroupCallOptions interface](/javascript/api/azure-communication-services/@azure/communication-calling/startteamsgroupcalloptions) or [StartTeamsCallOptions interface](/javascript/api/azure-communication-services/@azure/communication-calling/startteamscalloptions).
 
-Once you set the call options, then use the `startCall()` method in the [TeamsCallAgent interface](/javascript/api/azure-communication-services/@azure/communication-calling/teamscallagent?view=azure-communication-services-js).
+Once you set the call options, then use the `startCall()` method in the [TeamsCallAgent interface](/javascript/api/azure-communication-services/@azure/communication-calling/teamscallagent).
 
 ```javascript
 ...
@@ -420,7 +418,7 @@ Once you set the call options, then use the `startCall()` method in the [TeamsCa
 
 After you sign in as an agent with a dual persona identity, you can add that Teams Phone extensibility call agent to an established call using their dual persona identity.
 
-The following example shows a request to add a Teams Phone extensibility call agent with Microsoft Entra OID identifier `e5b7f628-ea94-4fdc-b3d9-1af1fe231111` in tenant `87d349ed-44d7-43e1-9a83-5f2406dee5bd` scoped to Azure Communication Services Resource `0269be4d-5be0-4770-bf9c-a1bf50ee78d5`. 
+The following example shows a request to add a Teams Phone extensibility call agent with Microsoft Entra ID identifier `e5b7f628-ea94-4fdc-b3d9-1af1fe231111` in tenant `87d349ed-44d7-43e1-9a83-5f2406dee5bd` scoped to Azure Communication Services Resource `0269be4d-5be0-4770-bf9c-a1bf50ee78d5`. 
 
 ```csharp
 //Call is already established
@@ -460,7 +458,7 @@ await callConnection.AddParticipantAsync(new AddParticipantOptions(new CallInvit
 
 Once you establish a Teams Phone extensibility call, you can then transfer it to a PSTN user by specifying a phone number.
 
-The following example shows a request to transfer an established call to a PSTN user with phone number +12065551212. 
+The following example shows a request to transfer an established call to a PSTN user with phone number `+12065551212`. 
 
 ```csharp
 //Call is already established

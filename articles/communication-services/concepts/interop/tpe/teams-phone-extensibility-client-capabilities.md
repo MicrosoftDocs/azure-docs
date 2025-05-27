@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 
 # Microsoft Teams Phone client capabilities in Calling client and Call Automation SDK
-
+    
 This article describes which Microsoft Teams Phone client capabilities Azure Communication Services Calling client and Call Automation SDKs support for Teams Phone extensibility.
 
 [!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
@@ -44,7 +44,7 @@ The following list of capabilities is supported for scenarios where at least one
 | | Terminate the entire call (ending the call for all participants)  | PP | ✔️  | ✔️  |
 | | Add an agent to an ongoing call | PP | ✔️  | ✔️  |
 | | Add external phone number from an ongoing call  | PP | ✔️  | ✔️  |
-| | Cancel an already initiated add participant request, as long as the the target agent / phone number hasn't accepted the call invite | PP | ❌  | ✔️  |
+| | Cancel an already initiated add participant request, as long as the the target agent / phone number has yet to accept the call invite | PP | ❌  | ✔️  |
 | | Remove a call participant from ongoing call | PP | ✔️  | ✔️  |
 | | Dial out to same phone number multiple times in a call | N/A | ❌  | ❌  |
 | | Transfer the end user from ongoing 1:1 call to another agent or external phone number  | PP | ✔️  | ✔️  |
@@ -68,7 +68,7 @@ The following list of capabilities is supported for scenarios where at least one
 | | Place call on hold and take call off hold (1:1 call only)   | PP | ✔️  | ❌ |
 | | Play music to the participant put on hold  | N/A | ❌  | ✔️ |
 | | Developer/agent can stream real-time audio out of the call to a WebSocket | PP | N/A | ✔️  |
-| Mid call media controls and device management | Existing Client Calling capabilities conform to [Calling SDK Features](../../../concepts/voice-video-calling/calling-sdk-features) | N/A | ✔️ | ❌ |
+| Mid call media controls and device management | Existing Client Calling capabilities conform to [Calling SDK Features](../../../concepts/voice-video-calling/calling-sdk-features.md) | N/A | ✔️ | ❌ |
 | Accessibility  | Agent can turn on Teams closed captions  | N/A | ❌  | N/A |
 | Emergency calling  | Agent can make an emergency call | PP | ✔️  | N/A |
 | | Honor Security desk policy for emergency calls  | PP | ✔️  | N/A |
@@ -90,10 +90,10 @@ The following list of capabilities is supported for scenarios where at least one
 | | Park a call  | N/A | ❌  | ❌  |
 | | Be parked  | N/A | ❌  | ❌  |
 | DevOps | Developers can access API operational metrics under Azure Metrics  | PuP | ✔️  | ✔️  |
-| | Developer can access call diagnostics under [Call Diagnostics Center](../../../concepts/voice-video-calling/call-diagnostics) | PuP | ✔️  | ✔️  |
+| | Developer can access call diagnostics under [Call Diagnostics Center](../../../concepts/voice-video-calling/call-diagnostics.md) | PuP | ✔️  | ✔️  |
 | | Developers can subscribe to get API and call logs under [Azure Monitor](../../analytics/logs/voice-and-video-logs.md) | PuP | ✔️  | ✔️  |
 | | Developers can get insights about their resource usage under [Azure Communication Services Insights](../../analytics/logs/voice-and-video-logs.md)  | PuP | ✔️  | ✔️  |
-| | Developers can subscribe to receive call state and roster changes events via Event Grid: [Azure Communication Services Voice and video calling events](../../../quickstarts/voice-video-calling/handle-calling-events) | N/A | ❌  | ❌  |
+| | Developers can subscribe to receive call state and roster changes events via Event Grid: [Azure Communication Services Voice and video calling events](../../../quickstarts/voice-video-calling/handle-calling-events.md) | N/A | ❌  | ❌  |
 | Teams caller ID policies  | Replace the caller ID with Replace the caller ID with this service number (Outbound PSTN call from the Teams Resource account honors its assigned Caller ID policy in the Teams Admin Center) | GA  | ✔️  | N/A |
 | | Block incoming caller ID  | GA  | ✔️  | ✔️  |
 | | Override the caller ID policy  | GA  | ✔️  | ✔️  |

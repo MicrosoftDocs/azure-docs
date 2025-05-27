@@ -44,7 +44,7 @@ This feature is available in all supported countries by Microsoft Teams for user
 - Teams Phone License: Required essential for any agent using either a CCaaS client based on Azure Communication Services Calling SDK or a Teams client. The Teams Phone license enables the use of Teams Phone capabilities.
 - Resource Account License: Included in the Teams Phone license and is necessary for managing resource accounts used in call automation and other functionalities.
 - Enterprise Voice: Users must be Enterprise Voice enabled to ensure they can make and receive calls using the Teams Phone system.
-- Calling Plan (or similar connectivity option): For customers making outbound calls.
+- Calling Plan (or similar connectivity option): Applies to customers making outbound calls.
 
 ## What is Dual Persona or Multi Persona?
 

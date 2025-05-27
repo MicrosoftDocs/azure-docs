@@ -2,9 +2,12 @@
 title: Teams Phone extensibility Troubleshooting
 titleSuffix: An Azure Communication Services document
 description: This article describes most common issues and ways to troubleshoot them with Teams Phone extensibility.
+author: henikaraa
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.date: 05/19/2025
+ms.topic: conceptual
 ms.author: henikaraa
 ms.custom: public_preview
 services: azure-communication-services
@@ -23,8 +26,8 @@ By understanding the potential sources of errors, you can ensure a smoother and 
 ## Call Automation troubleshooting
 
 For troubleshooting issues related to call automation, see the following resources:
-- [Troubleshooting call end response codes](../../../resources/troubleshooting/voice-video-calling/troubleshooting-codes?pivots=automation): provides detailed information on troubleshooting call end response codes for Call Automation, including common error codes and their meanings.
-- [Known issues](../../voice-video-calling/known-issues-call-automation): outlines known issues with call automation, offering insights into current limitations and workarounds.
+- [Troubleshooting call end response codes](../../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md?pivots=automation): provides detailed information on troubleshooting call end response codes for Call Automation, including common error codes and their meanings.
+- [Known issues](../../voice-video-calling/known-issues-call-automation.md): outlines known issues with call automation, offering insights into current limitations and workarounds.
   
 ## Calling SDK troubleshooting
 
@@ -52,7 +55,7 @@ For troubleshooting issues related to the Calling SDK, see:
 
 If you receive the following error:
 
-    The app is trying to access a service '1fd5118e-2576-4263-8130-9503064c837a'(Azure Communication Services) that your organization '{GUID}' lacks a service principal for. Contact your IT Admin to review the configuration of your service subscriptions or consent to the application to create the required service principal.
+   The app is trying to access a service '1fd5118e-2576-4263-8130-9503064c837a'(Azure Communication Services) that your organization '{GUID}' lacks a service principal for. Contact your IT Admin to review the configuration of your service subscriptions or consent to the application to create the required service principal.
 
 Your Microsoft Entra ID tenant lacks a service principal for the Azure Communication Services application. To fix this issue, use PowerShell as a Microsoft Entra ID administrator to connect to your tenant. Replace Tenant_ID with an ID of your Microsoft Entra ID tenancy.
 
