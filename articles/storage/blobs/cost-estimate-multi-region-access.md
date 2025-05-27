@@ -27,20 +27,6 @@ The account is located in the West US region and hierarchical namespaces are not
 
 ## Estimate
 
-The following table shows the sample estimate at a glance. 
-
-| Cost component                                    | Estimate    |
-|---------------------------------------------------|-------------|
-| Cost of write operations                          | $163.80     |
-| Cost to transfer data out of region (replication) | $2,000      |
-| Cost of read operations                           | $110.00     |
-| Cost to transfer data out of region (downloads)   | $750.00     |
-| **Total cost**                                    | **$860.00** |
-
-This sample estimate doesn't include the [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB.
-
-## Breakdown
-
 Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated.
 
 | Cost factor                                           | Calculation                                  | Value       |
@@ -57,6 +43,9 @@ Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), th
 | Data transfer fee (downloads)                         | 1875 * data transfer fee                     | $375.00     |
 | Network bandwidth fee (downloads)                     | 1875 * network bandwidth fee                 | $375.00     |
 | **Cost to transfer data out of region (download)**    | data transfer fee + network bandwidth fee    | **$750.00** |
+| **Total cost**                                        | write + read + data transfer                 | **860.00**  |
+
+This sample estimate doesn't include the [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB.
 
 ## Factors that can impact the cost
 

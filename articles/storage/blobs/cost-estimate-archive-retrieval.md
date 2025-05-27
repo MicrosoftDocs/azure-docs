@@ -1,16 +1,16 @@
 ---
-title: 'Cost estimate: Archival & retrieval (Azure Blob Storage)' 
+title: 'Cost estimate: Early retrieval from archive (Azure Blob Storage)' 
 description: This article shows an example of what it costs to archive and then retrieve data in Azure Blob Storage.
 services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 05/07/2025
+ms.date: 05/27/2025
 ms.topic: concept-article
 ms.author: normesta
 ---
 
-# Cost estimate: Large-scale data archival and retrieval 
+# Cost estimate: Early data retrieval from archive 
 
 This sample estimates the cost to archive data and then retrieve some portion of that data before the 180 day limit.
 
@@ -27,45 +27,26 @@ The account is located in the West US region, and is configured for locally-redu
 
 ## Estimate
 
-The following table shows the sample estimate at a glance. 
-
-| Cost component               | Estimate    |
-|--------------------------|-------------|
-| Cost of write operations | $28.18      |
-| Cost of read operations  | $0.22       |
-| Data retrieval fee       | $88.00      |
-| Early deletion penalty   | $24.00      |
-| **Total cost**           | **$140.40** |
-
-This sample estimate doesn't include the [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB.
-
-## Breakdown
-
 Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated.
 
-| Cost factor                      | Calculation                                   | Value      |
-|----------------------------------|-----------------------------------------------|------------|
-| PutBlock operations per blob     | 10 GiB / 8-MiB block                          | 1280       |
-| PutBlockList operations per blob | 1 per blob                                    | 1          |
-| **Cost of write operations**     | (2,000 blobs * 1,281) * write operation price | **$28.18** |
-| SetBlobTier operations           | 2000 blobs * 20%                              | 400        |
-| **Cost of read operations**      | 400 operations * read operation price         | **$0.22**  |
-| Total file size (GB)             |                                               | 20,000     |
-| Data retrieval size              | 20,000 GB * 20%                               | 4,000      |
-| **Data retrieval fee**           | 4,000 blobs * price of data retrieval         | **$88.00** |
-| Rough number of months penalty   | (180 days - 90 days) / 30 days                | 3          |
-| **Early deletion penalty**       | 4000 blobs * price of archive storage / 3     | **$24.00** |
+| Cost component     | Cost factor                                   | Calculation                           | Value       |
+|--------------------|-----------------------------------------------|---------------------------------------|-------------|
+| Change tier to hot | Number of SetBlobTier operations              | 2000 blobs * 20%                      | 400         |
+|                    | Price of a SetBlobTier operation              | Taken from sample prices              | $0.00055    |
+|                    | Cost to change tier to hot<br></br>           | 400 operations * $0.00055             | **$0.22**   |
+| Data retrieval fee | Total file size                               | 20 TB                                 | 20,000 GB   |
+|                    | Data retrieval size                           | 20,000 GB * 20%                       | 4,000       |
+|                    | Price of data retrieval (per GB)              | Taken from sample prices              | $0.0220     |
+|                    | Cost to retrieve data<br></br>                | 4,000 blobs * $0.0220                 | **$88.00**  |
+| Early deletion fee | Rough number of months penalty                | (180 days - 90 days) / 30 days        | 3           |
+|                    | Price per month of archive storage (per GB)   | Taken from sample prices              | $0.0020     |
+|                    | Cost of early deletion<br></br>               | (4000 blobs * $0.0020) * 3            | **$24.00**  |
+| Read from hot tier | Number of read operations on hot tier         | The number of blobs moved to hot tier | 400         |
+|                    | Price of a read operation on the hot tier     | Taken from sample prices              | $0.00000044 |
+|                    | Cost to read blobs from the hot tier<br></br> | 400 operations * $0.00000044          | $0.0002     |
+| **Total cost**     |                                               |                                       | **112.22**  |
 
-## Factors that can impact the cost
-
-The following table describes factors that can impact the cost of this scenario. 
-
-| Factor | Impact | Learn more |
-|---|---|----|
-| Copying blobs instead of changing their tier | Adds a cost to write to the target tier, but avoids the early deletion penalty.| [Blob rehydration from the archive tier](archive-rehydrate-overview.md) |
-| Block size    | Larger block size reduces the number of write operations required to upload data. | [The cost to upload data](blob-storage-estimate-costs.md) |
-| Uploading data by using the Data Lake Storage endpoint | Smaller fixed block sizes of 4 MiB increases the number of write operations. | [Cost of uploading to the Data Lake Storage endpoint](azcopy-cost-estimation.md#cost-of-uploading-to-the-data-lake-storage-endpoint) |
-| Redundancy configuration of the account | Storage redundancy configuration impacts the cost of certain operations. | [Azure Storage redundancy](../common/storage-redundancy.md) | 
+This sample estimate doesn't include the [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB.
 
 ## See also
 
