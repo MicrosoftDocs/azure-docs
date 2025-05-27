@@ -13,7 +13,7 @@ Once your NGINXaaS resource is created in the Azure portal, you might need to ge
 - [Changing the configuration](#changing-the-configuration)
 - [Adding certificates](#adding-certificates)
 - [Send metrics to monitoring](#send-metrics-to-monitoring)
-- [Delete an NGINXaaS deployment](#delete-an-nginxaas-deployment)
+- [Delete an NGINXaaS deployment](#delete-a-resource)
 - [GitHub integration](#github-integration)
 
 ## Configure managed identity

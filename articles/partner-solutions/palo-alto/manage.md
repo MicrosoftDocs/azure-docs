@@ -18,7 +18,7 @@ Once your Cloud NGFW by Palo Alto Networks resource is created in the Azure port
 - [Log settings](#log-settings)
 - [DNS Proxy](#dns-proxy)
 - [Rules](#rules)
-- [Delete a resource](#delete-a-cloud-ngfw-by-palo-alto-networks-resource)
+- [Delete a resource](#delete-a-resource)
 
 From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment. Use the Resource menu to move through the settings for your Cloud NGFW by Palo Alto Networks.
 
