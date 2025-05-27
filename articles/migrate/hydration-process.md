@@ -69,19 +69,20 @@ The preparation script executes the following changes based on the OS type of th
 
       - On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**.
 
-        :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png" alt-text="Image of command prompt diskpart." lightbox="./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png":::  
+      :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png" alt-text="Image of command prompt diskpart." lightbox="./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png":::  
 
       - Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
       - At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting ensures that disks are brought online, and that you can read and write to both disks.
 
-        ![Administrator Command Prompt diskpart online policy](./media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png)
+      :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png" alt-text="Screenshot shows administrator command prompt diskpart online policy." lightbox="./media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png"::: 
 
 1. **Set the DHCP start type**
 
    The preparation script will also set the DHCP service start type as Automatic. This will enable the migrated VM to obtain an IP address and establish connectivity post-migration. Make sure the DHCP service is configured, and the status is running.
 
-    ![Set DHCP Start Type](./media/concepts-prepare-vmware-agentless-migration/get-service-dhcp.png)
+    :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/get-service-dhcp.png" alt-text="Screenshot shows set dhcp start type." lightbox="./media/concepts-prepare-vmware-agentless-migration/get-service-dhcp.png"::: 
+
 
    To edit the DHCP startup settings manually, run the following example in Windows PowerShell:
 
@@ -106,7 +107,7 @@ The preparation script executes the following changes based on the OS type of th
 
     To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
 
-    ![Successful Installation of Azure VM Agent](./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
+    :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png" alt-text="Screenshot shows successful installation of Azure VM agent." lightbox="./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png"::: 
 
     After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for migration.
     [Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
