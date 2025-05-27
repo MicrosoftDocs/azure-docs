@@ -365,7 +365,7 @@ Make sure that you use the `Push-WorkflowOutput` cmdlet.
 
 If you incorrectly reference a public module in the **requirements.psd1** file or when your private module doesn't exist in the following path: **C:\home\site\wwwroot\Modules\{module-name}**, you get the following error:
 
-    **"The term '{some-text}' is not recognized as a name of a cmdlet, function, script file, or executable program. Check the spelling of the name or if a path was included, verify the path is correct and try again."**
+**"The term '{some-text}' is not recognized as a name of a cmdlet, function, script file, or executable program. Check the spelling of the name or if a path was included, verify the path is correct and try again."**
 
 > [!NOTE]
 >

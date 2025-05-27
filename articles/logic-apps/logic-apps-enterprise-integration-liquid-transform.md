@@ -126,7 +126,7 @@ After you create your Liquid template, you now have to upload the template based
 
 1. On the integration account's navigation menu, under **Settings**, select **Maps**.
 
-    :::image type="content" source="media/logic-apps-enterprise-integration-liquid-transform/select-maps.png" alt-text="Screenshot showing integration account navigation menu with "Maps" selected.":::
+    :::image type="content" source="media/logic-apps-enterprise-integration-liquid-transform/select-maps.png" alt-text="Screenshot showing integration account navigation menu with Maps selected.":::
 
 1. On the **Maps** pane, select **Add**. Provide the following information about your map:
 
