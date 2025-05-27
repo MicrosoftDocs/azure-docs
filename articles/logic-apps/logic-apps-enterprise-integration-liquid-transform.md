@@ -132,9 +132,9 @@ After you create your Liquid template, you now have to upload the template based
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Name** | `JsonToJsonTemplate` | The name for your map, which is "JsonToJsonTemplate" in this example |
+   | **Name** | `JsonToJsonTemplate` | The name for your map, which is *JsonToJsonTemplate* in this example |
    | **Map type** | **Liquid** | The type for your map. For JSON to JSON transformation, you must select **Liquid**. |
-   | **Map** | `SimpleJsonToJsonTemplate.liquid` | An existing Liquid template or map file to use for transformation, which is "SimpleJsonToJsonTemplate.liquid" in this example. To find this file, you can use the file picker. For map size limits, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
+   | **Map** | `SimpleJsonToJsonTemplate.liquid` | An existing Liquid template or map file to use for transformation, which is *SimpleJsonToJsonTemplate.liquid* in this example. To find this file, you can use the file picker. For map size limits, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
 
    :::image type="content" source="media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png" alt-text="Screenshot showing Add Map pane with new template uploaded.":::
 
@@ -254,7 +254,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 To trigger your workflow, follow these steps:
 
-1. In the Request trigger, find the **HTTP POST URL** property, and copy the URL.
+1. In the Request trigger, find the **HTTP URL** property, and copy the URL.
 
 1. Open your HTTP request tool and use its instructions to send an HTTP request to the copied URL, including the method that the **Request** trigger expects.
 

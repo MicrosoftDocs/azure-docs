@@ -9,7 +9,7 @@ ms.date: 05/23/2025
 # Customer intent: As a logic app workflow developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
-# Add and run PowerShell script code in Standard workflows for Azure Logic Apps (Preview)
+# Add and run PowerShell scripts in Standard workflows for Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -47,7 +47,7 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
   The *.ps1* file format lets you write less "boilerplate" and focus just on writing PowerShell code. If you rename the action, the file is also renamed, but not vice versa. If you directly rename the file, the renamed version overwrites the previous version. If the action name and file names don't match, the action can't find the file and tries to create a new empty file.
 
-- The script is local to the workflow. To use the same script in other workflows, [view the script file in the **KuduPlus** console](#view-script-file), and then copy the script to reuse in other workflows.
+- The script is local to the workflow. To use the same script in other workflows, [view the script file in the **Kudu** console](#view-script-file), and then copy the script to reuse in other workflows.
 
 ## Limitations
 
@@ -242,7 +242,7 @@ To use the managed identity from inside the **Execute PowerShell Code** action, 
 
 1. On the logic app resource menu, under **Development Tools**, select **Advanced Tools**.
 
-1. On the **Advanced Tools** page, select **Go**, which opens the **Kudu Plus** console.
+1. On the **Advanced Tools** page, select **Go**, which opens the **Kudu** console.
 
 1. Open the **Debug console** menu, and select **CMD**.
 
@@ -287,7 +287,7 @@ To find publicly available modules, visit the [PowerShell gallery](https://www.p
 
 1. On the **Advanced Tools** page, select **Go**.
 
-1. On the **Kudu Plus** toolbar, from the **Debug console** menu, select **CMD**.
+1. On the **Kudu** toolbar, from the **Debug console** menu, select **CMD**.
 
 1. Browse to your logic app's root level at **C:\home\site\wwwroot** by using the directory structure or the command line.
 
@@ -324,7 +324,7 @@ You can generate your own private PowerShell modules. To create your first Power
 
 1. On the **Advanced Tools** page, select **Go**.
 
-1. On the **Kudu Plus** toolbar, from the **Debug console** menu, select **CMD**.
+1. On the **Kudu** toolbar, from the **Debug console** menu, select **CMD**.
 
 1. Browse to your logic app's root level at **C:\home\site\wwwroot** by using the directory structure or the command line.
 
