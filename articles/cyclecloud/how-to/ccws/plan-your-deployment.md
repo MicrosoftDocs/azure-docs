@@ -18,7 +18,7 @@ When doing a deployment, the Azure user account used need to be granted the foll
 - Optional: permission to register a Microsoft Entra application
 
 > [!NOTE]
-> Recommendation is to predeploy a [Hub VNet](/azure/architecture/networking/architecture/hub-spoke) to connect to your enterprise network if one isn't already established. This hub can accommodate a [VPN Gateway](/azure/vpn-gateway/tutorial-create-gateway-portal) and an Azure Bastion. The CycleCloud Workspace for Slurm environment will be a spoke and peered during deployment.
+> Recommendation is to predeploy a [Hub virtual network](/azure/architecture/networking/architecture/hub-spoke) to connect to your enterprise network if one isn't already established. This hub can accommodate a [VPN Gateway](/azure/vpn-gateway/tutorial-create-gateway-portal) and an Azure Bastion. The CycleCloud Workspace for Slurm environment will be a spoke and peered during deployment.
 > Contact Azure HPC Support if VPN or Azure Bastion don't meet your requirements or are blocked by your organization
 
 ## Greenfield Deployment
@@ -35,19 +35,19 @@ In a greenfield deployment, the following resources and role assignments are cre
 - Optionally a NAT gateway named `ccw-nat-gateway` and public IP `pip-ccw-nat-gateway`.
 - Optionally an Azure NetApp Files account, pool, and volume with subnet `hpc-anf-subnet`.
 - Optionally an Azure Managed Lustre Filesystem with subnet `ccw-lustre-subnet`.
-- Optionally a VNET Peering.
+- Optionally a virtual network Peering.
 - Optionally a Private Endpoint to an existing Azure Database for MySQL flexible server instance.
 
 ## Brownfield Deployment
 
 In a brownfield deployment, you can provide existing resources for:
-- The VNET and subnets in which the environment is deployed.
+- The virtual network and subnets in which the environment is deployed.
 - Filesystem Storage for the user's home directories and/or other filers, such as external NFS mount points or Azure Managed Lustre Filesystem (AMLS).
 - An Azure Database for MySQL flexible server instance for Slurm Job Accounting.
 - A registered Microsoft Entra ID application for Open OnDemand authentication.
 - A User-Assigned Managed Identity used by the registered Microsoft Entra ID application for the federated credentials.
 
-If you're bringing your own VNET, follow these prerequisites:
+If you're bringing your own virtual network, follow these prerequisites:
 - A /29 **cyclecloud** subnet for the CycleCloud VM.
 - A **compute** subnet for the nodes, where the scheduler, login, and compute nodes are created.
 - When using Azure NetApp Files, a dedicated **netapp** subnet with the `Microsoft.NetApp/volumes` delegation as documented here [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).

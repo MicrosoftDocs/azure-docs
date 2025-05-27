@@ -84,7 +84,7 @@ Specify here if you want to create a new Virtual Network and subnets or use an e
 - Select the CIDR that corresponds to the number of compute nodes you're targeting and specify a base IP address.
 - Creating a Bastion is recommended if direct connectivity isn't provided by your corporate IT.
 - Creating a NAT Gateway is required to provide outbound connectivity to internet. 
-- Peer to an existing Virtual Network if you already have a HUB that can deliver services like Bastion and a VPN gateway. Ensure that you select a base IP address compatible with your peered VNET. If the peered VNET has a gateway, check the **Allow** gateway transit option.
+- Peer to an existing Virtual Network if you already have a HUB that can deliver services like Bastion and a VPN gateway. Ensure that you select a base IP address compatible with your peered virtual network. If the peered virtual network has a gateway, check the **Allow** gateway transit option.
 
 #### Use existing Virtual Network
 
@@ -92,7 +92,7 @@ Before using an existing virtual network, check for the prerequisites in [Plan y
 
 :::image type="content" source="./images/ccws/marketplace-networking-002.png" alt-text="Screenshot of the Networking options for using an existing one.":::
 
-Please specify how to manage the registration of the private endpoint used for the storage account created to store CycleCloud projects with a private DNS zone. Options include creating a new private DNS zone, using an existing one, or not registering it.
+Specify how to manage the registration of the private endpoint used for the storage account created to store CycleCloud projects with a private DNS zone. Options include creating a new private DNS zone, using an existing one, or not registering it.
 
 :::image type="content" source="./images/ccws/marketplace-networking-003.png" alt-text="Screenshot of the Networking options for Private DNS zone.":::
 
@@ -120,7 +120,7 @@ You can postpone the start of the cluster if you need additional configuration t
 
 To enable Slurm Job Accounting, check the box to display connectivity options. Ensure you have an Azure Database for MySQL flexible server resource that was deployed earlier.
 
-You can connect using an FQDN or private IP if you supply your own virtual network or use VNET peering when creating a new virtual network as part of your deployment. Connection via private endpoint is also available if you choose to create a new virtual network.
+You can connect using an FQDN or private IP if you supply your own virtual network or use virtual network peering when creating a new virtual network as part of your deployment. Connection via private endpoint is also available if you choose to create a new virtual network.
 
 :::image type="content" source="./images/ccws/marketplace-slurm-accounting-001.png" alt-text="Screenshot of the Slurm Setting options for job accounting database, direct FQDN.":::
 
@@ -128,10 +128,10 @@ You can connect using an FQDN or private IP if you supply your own virtual netwo
 
 ### Partition Settings
 
-Azure CycleCloud Workspace for Slurm comes with 3 defined Slurm partitions:
-- HTC : For embarrassingly parallel non-MPI jobs.
-- HPC : For tightly coupled MPI jobs mostly using VM types with or without InfiniBand support.
-- GPU : For MPI and non-MPI GPU jobs using VM types with or without InfiniBand support.
+Azure CycleCloud Workspace for Slurm comes with three defined Slurm partitions:
+- HTC: For embarrassingly parallel non-MPI jobs.
+- HPC: For tightly coupled MPI jobs mostly using VM types with or without InfiniBand support.
+- GPU: For MPI and non-MPI GPU jobs using VM types with or without InfiniBand support.
 
 You can configure the image and the maximum number of nodes for each partition that CycleCloud dynamically provisions. Only the HTC partition allows the use of spot instances, as spot instances aren't suitable for HPC and GPU jobs.
 
