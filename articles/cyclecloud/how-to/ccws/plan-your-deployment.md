@@ -2,7 +2,7 @@
 title: Plan your CycleCloud Workspace for Slurm Deployment
 description: A checklist to help plan for your CycleCloud Workspace for Slurm deployment
 author: xpillons
-ms.date: 04/30/2025
+ms.date: 05/27/2025
 ms.author: padmalathas
 ---
 
@@ -44,8 +44,8 @@ In a brownfield deployment, you can provide existing resources for:
 - The VNET and subnets in which the environment is deployed.
 - Filesystem Storage for the user's home directories and/or other filers, such as external NFS mount points or Azure Managed Lustre Filesystem (AMLS).
 - An Azure Database for MySQL flexible server instance for Slurm Job Accounting.
-- A registered Entra ID application for Open OnDemand authentication.
-- A User-Assigned Managed Identity used by the registered Entra ID application for the federated credentials.
+- A registered Microsoft Entra ID application for Open OnDemand authentication.
+- A User-Assigned Managed Identity used by the registered Microsoft Entra ID application for the federated credentials.
 
 If you're bringing your own VNET, follow these prerequisites:
 - A /29 **cyclecloud** subnet for the CycleCloud VM.
@@ -57,9 +57,9 @@ If you're bringing your own VNET, follow these prerequisites:
 
 ## Open OnDemand
 
-The Azure Bastion tunneling scenario don't work for Open OnDemand. The recommended approach is to use a VPN Gateway with Point-to-Site (P2S) VPN connections or have Azure ExpressRoute configured to allow users to connect securely to the CycleCloud Workspace for Slurm network and access Open OnDemand.
+The Azure Bastion tunneling scenario doesn't work for Open OnDemand. The recommended approach is to use a VPN Gateway with Point-to-Site (P2S) VPN connections or has Azure ExpressRoute configured to allow users to connect securely to the CycleCloud Workspace for Slurm network and access Open OnDemand.
 
-Registration of a Microsoft Entra application is required to support the OpenID Connect authentication mechanism. Ensure that the user or subscription administrator have the proper roles to granted to complete the registration.
+Registration of a Microsoft Entra application is required to support the OpenID Connect authentication mechanism. Ensure that the user or subscription administrator have the proper roles to be granted to complete the registration.
 
 ## Quotas
 

@@ -2,7 +2,7 @@
 title: Register a Microsoft Entra ID application for Open OnDemand authentication
 description: How to register a Microsoft Entra ID application for Open OnDemand authentication
 author: xpillons
-ms.date: 04/30/2025
+ms.date: 05/27/2025
 ms.author: padmalathas
 ---
 
@@ -10,7 +10,7 @@ ms.author: padmalathas
 The Open OnDemand front end use Open ID Connect (OIDC) for authentication. The OIDC provider is a Microsoft Entra ID application that you need to register which uses Federated credentials with a User-Assigned Managed Identity to avoid storing secrets in the Open OnDemand configuration. The following steps describe how to register a Microsoft Entra ID application for Open OnDemand authentication.
 
 ## Microsoft Entra ID application registration right after a successful deployment
-After the deployment is finished, it is necessary to execute the following commands from a Linux shell with Azure CLI installed to register and configure the Microsoft Entra ID application for authentication. The account logged into the CLI must have the appropriate permissions to register an application and its active subscription must be the one used for the deployment if it is not already set.
+After the deployment is finished, it's necessary to execute the following commands from a Linux shell with Azure CLI installed to register and configure the Microsoft Entra ID application for authentication. The account logged into the CLI must have the appropriate permissions to register an application and its active subscription must be the one used for the deployment if it isn't already set.
 
 > [!NOTE]
 > Make sure you have `jq` utility installed on your system.
@@ -29,10 +29,10 @@ Update the redirect URI with either the private IP or the FQDN of the Open OnDem
 Verify that both the `ccw` and `OpenOnDemand` clusters are started. Although there may be some temporary errors, both clusters should be ready within a few minutes. 
 Complete the configuration of the registered application by adding a new redirect URI, 'https://\<ip\>/oidc', in the Authentication settings of the application as illustrated below.
 
-::image type="content" source="../../images/ccws/entraid-redirect-uri.png" alt-text="Screenshot of Microsoft Entra ID redirect URI update.":::
+:::image type="content" source="../../images/ccws/entraid-redirect-uri.png" alt-text="Screenshot of Microsoft Entra ID redirect URI update.":::
 
 ## Register a Microsoft Entra ID application before a deployment
-It is possible to register a Microsoft Entra ID application before the deployment of a full environment and configure it afterwards. 
+It's possible to register a Microsoft Entra ID application before the deployment of a full environment and configure it afterwards. 
 
 Create an  app.json parameter file containing:
 - **appName** : the name of the application to be registered,

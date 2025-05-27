@@ -2,7 +2,7 @@
 title: Configure Open Demand with CycleCloud
 description: How to configure Open OnDemand with CycleCloud
 author: xpillons
-ms.date: 04/30/2025
+ms.date: 05/27/2025
 ms.author: padmalathas
 ---
 
@@ -10,7 +10,7 @@ ms.author: padmalathas
 Open OnDemand is a web-based interface that provides a user-friendly way to interact with the Slurm cluster deployed by Azure CycleCloud. Open OnDemand is automatically installed and configured when deploying Azure CycleCloud Workspace for Slurm, but there remain few steps that must be manually executed.
 
 ## Update settings for Microsoft Entra ID authentication
-The Open OnDemand front end uses Open ID Connect (OIDC) for authentication. The OIDC provider is an Microsoft Entra ID application that was registered specifically for this purpose (see [How to register an Microsoft Entra ID application for Open OnDemand Authentication](./register-entra-id-app.md)). The following steps describe how to update the settings for Entra ID authentication.
+The Open OnDemand front end uses Open ID Connect (OIDC) for authentication. The OIDC provider is a Microsoft Entra ID application that was registered specifically for this purpose (see [How to register a Microsoft Entra ID application for Open OnDemand Authentication](./register-entra-id-app.md)). The following steps describe how to update the settings for Entra ID authentication.
 
 Browse to the CycleCloud web portal, select the OpenOnDemand cluster, and click on the Edit button. This opens the cluster template definition. 
 1. Select Advanced settings,
@@ -24,7 +24,7 @@ Browse to the CycleCloud web portal, select the OpenOnDemand cluster, and click 
  
 Press `Save` and then `Start Cluster` and wait for the Open OnDemand virtual machine to be ready.
 
-::image type="content" source="../../images/ccws/open-ondemand-advanced-settings.png" alt-text="Screenshot of Open OnDemand cluster configuration.":::
+:::image type="content" source="../../images/ccws/open-ondemand-advanced-settings.png" alt-text="Screenshot of Open OnDemand cluster configuration.":::
 
 ## Resources
 * [Add users for Open OnDemand](./open-ondemand-add-users.md)

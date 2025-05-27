@@ -2,7 +2,7 @@
 title: Add users for Open OnDemand
 description: How to add users for Open OnDemand
 author: xpillons
-ms.date: 04/30/2025
+ms.date: 05/27/2025
 ms.author: padmalathas
 ---
 

@@ -2,8 +2,8 @@
 title: How to deploy a CycleCloud Workspace for Slurm environment using the CLI
 description: How to deploy a CycleCloud Workspace for Slurm environment using the Azure CLI and the Azure portal UI Sandbox
 author: xpillons
-ms.date: 04/30/2025
-ms.author: xpillons
+ms.date: 05/27/2025
+ms.author: padmalathas
 ---
 
 # How to deploy a CycleCloud Workspace for Slurm environment using the CLI
