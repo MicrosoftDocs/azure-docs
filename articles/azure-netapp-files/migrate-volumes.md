@@ -192,6 +192,8 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     ```rest
     POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool>/volumes/<volume-names>/finalizeExternalReplication?api-version=2024-09-01
     ```
+
+    Finalizing removes all the peering infromation on Azure NetApp Files. Manually confirm that all replication data is removed on the ONTAP cluster. If any entities remain, run the `cluster peer delete` command. 
  
 ## More information 
 
