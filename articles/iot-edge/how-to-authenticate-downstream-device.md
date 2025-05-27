@@ -14,7 +14,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-In a transparent gateway scenario, downstream devices, sometimes called child devices, need identities in IoT Hub like any other device. This article explains the options for authenticating a downstream device to IoT Hub, and shows how to declare the gateway connection.
+In a transparent gateway scenario, downstream devices, sometimes called child devices, need identities in IoT Hub like any other device. This article explains the options for authenticating a downstream device to IoT Hub and shows how to declare the gateway connection.
 
 >[!NOTE]
 >A downstream device sends data directly to the internet or to gateway devices, whether they're IoT Edge-enabled or not. A child device can be a downstream device or a gateway device in a nested topology.
@@ -27,15 +27,15 @@ There are three general steps to set up a successful transparent gateway connect
 
 Downstream devices can authenticate with IoT Hub using one of three methods: symmetric keys (sometimes called shared access keys), X.509 self-signed certificates, or X.509 certificate authority (CA) signed certificates. The authentication steps are similar to those for setting up any non-IoT Edge device with IoT Hub, with small differences to declare the gateway relationship.
 
-Automatic provisioning of downstream devices with the Azure IoT Hub Device Provisioning Service (DPS) isn't supported.
+Automatic provisioning of downstream devices with Azure IoT Hub Device Provisioning Service (DPS) isn't supported.
 
 ## Prerequisites
 
 Finish the steps in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
 
-If you're using X.509 authentication, you generate certificates for your downstream device. Make sure you have the same root CA certificate and the certificate generating script you used for the transparent gateway article available to use again.
+If you're using X.509 authentication, generate certificates for your downstream device. Make sure you have the same root CA certificate and the certificate generating script you used in the transparent gateway article.
 
-This article refers to the *gateway hostname* at several points. The gateway hostname is set in the **hostname** parameter of the config file on the IoT Edge gateway device. It's also used in the connection string of the downstream device. The gateway hostname must resolve to an IP address, either by using DNS or a host file entry on the downstream device.
+This article refers to the *gateway hostname* at several points. The gateway hostname is set in the **hostname** parameter of the config file on the IoT Edge gateway device. It's also used in the connection string of the downstream device. The gateway hostname must resolve to an IP address by using DNS or a host file entry on the downstream device.
 
 ## Register device with IoT Hub
 
@@ -65,7 +65,7 @@ When you create the new device identity, provide the following information:
 
 * Select **Symmetric key** as the authentication type.
 
-* Select **Set a parent device** and select the IoT Edge gateway device that this downstream device will connect through. You can always change the parent later.
+* Select **Set a parent device** and select the IoT Edge gateway device that this downstream device connects through. You can always change the parent later.
 
    :::image type="content" source="./media/how-to-authenticate-downstream-device/symmetric-key-portal.png" alt-text="Screenshot of how to create a device ID with symmetric key authorization in the Azure portal.":::
 
@@ -116,7 +116,7 @@ For X.509 self-signed authentication, sometimes referred to as thumbprint authen
    * Provide the **Device ID** that matches the subject name of your device certificates.
    * Select **X.509 Self-Signed** as the authentication type.
    * Paste the hexadecimal strings that you copied from your device's primary and secondary certificates.
-   * Select **Set a parent device** and choose the IoT Edge gateway device that this downstream device will connect through. You can always change the parent later.
+   * Select **Set a parent device** and choose the IoT Edge gateway device that this downstream device connects through. You can always change the parent later.
 
    :::image type="content" source="./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png" alt-text="Screenshot that shows how to create a device ID with an X.509 self-signed authorization in the Azure portal.":::
 
@@ -166,18 +166,18 @@ To set up X.509 CA-signed authentication for a downstream device, follow these s
 
 ## Retrieve and modify connection string
 
-After you create an IoT device identity in the portal, retrieve its primary or secondary key. Include one of these keys in the connection string that applications use to communicate with IoT Hub. For symmetric key authentication, IoT Hub shows the complete connection string in the device details. Add information about the gateway device to the connection string.
+After you create an IoT device identity in the portal, get its primary or secondary key. Add one of these keys to the connection string that applications use to talk to IoT Hub. For symmetric key authentication, IoT Hub shows the complete connection string in the device details. Add the gateway device information to the connection string.
 
-A connection string for a downstream device needs these components:
+A connection string for a downstream device needs these parts:
 
 * The IoT Hub the device connects to: `Hostname=<Iot-Hub-Name>.azure-devices.net`
 * The device ID registered with the hub: `DeviceID=<Device-ID>`
-* The authentication method, either symmetric key or X.509 certificate
+* The authentication method, either symmetric key or X.509 certificate.
   * For symmetric key authentication, enter either the primary or secondary key: `SharedAccessKey=<Key>`
   * For X.509 certificate authentication, provide a flag: `x509=true`
-* The gateway device the device connects through. Enter the **hostname** value from the IoT Edge gateway device's config file: `GatewayHostName={gateway hostname}`
+* The gateway device the device connects through. Enter the **hostname** value from the IoT Edge gateway device's config file: `GatewayHostName=<Gateway-Hostname>`
 
-A complete connection string looks like this:
+A complete connection string looks like this example:
 
 ```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
@@ -189,7 +189,7 @@ Or, for X.509 certificate authentication:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Because of the parent and child relationship, simplify the connection string by using the gateway directly as the connection host. For example:
+Because of the parent and child relationship, you can simplify the connection string by using the gateway directly as the connection host. For example:
 
 ```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
@@ -201,4 +201,4 @@ Use this modified connection string in the next article in the transparent gatew
 
 At this point, you have an IoT Edge device registered with your IoT Hub and set it up as a transparent gateway. You also have a downstream device registered with your IoT Hub and pointing to its gateway device.
 
-Next, set up your downstream device to trust the gateway device and connect to it securely. Continue to the next article in the transparent gateway series: [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
+Next, set up your downstream device to trust the gateway device and connect to it securely. Continue with the next article in the transparent gateway series: [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
