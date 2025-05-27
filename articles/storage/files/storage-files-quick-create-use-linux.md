@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: tutorial
-ms.date: 05/07/2025
+ms.date: 05/27/2025
 ms.author: kendownie
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
@@ -150,7 +150,7 @@ Next, set up a private endpoint for your storage account. This gives your storag
 
 ### Disable secure transfer
 
-Follow these steps to disable secure transfer on your storage account.
+Follow these steps to disable secure transfer on your storage account. Alternatively, you can [enable encryption in transit (preview)](encryption-in-transit-for-nfs-shares.md).
 
 1. Select **Home** and then **Storage accounts**.
 
