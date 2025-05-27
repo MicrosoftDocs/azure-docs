@@ -42,7 +42,7 @@ You can execute the `$bulk-delete` operation at the system level or for individu
     ```
 
 > [!NOTE]
-> Use the `$bulk-delete` operation with caution. Deleted resources can't be restored. 
+> Use the `$bulk-delete` operation with caution. Deleted resources can't be restored. We recommend that you first run a FHIR search with the same parameters as the bulk delete job to verify the data that you want to delete.
 
 
 #### Query parameters
