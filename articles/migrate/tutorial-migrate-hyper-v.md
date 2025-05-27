@@ -183,7 +183,7 @@ After discovery is finished, you can begin the replication of Hyper-V VMs to Azu
     - **VM size**: If you're using assessment recommendations, the VM size dropdown list contains the recommended size. Otherwise, Azure Migrate and Modernize picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
-    - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to Trusted Launch Virtual Machines (TVMs) for enhanced security. By default, the VM security type is set to Trusted Launch. VMs that are not eligible for Trusted Launch is automatically be configured as standard security. 
+    - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that are not eligible for Trusted Launch is automatically be configured as **standard security VMs**. 
 
 1. In **Disks**, specify the VM disks that need to be replicated to Azure. Then select **Next**.
     - You can exclude disks from replication.
