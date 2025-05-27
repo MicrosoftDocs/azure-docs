@@ -11,43 +11,46 @@ ms.author: wisuga
 
 # Azure Data Lake Storage Indexing (Preview)
 
-The [DICOM&reg; service](overview.md) automatically uploads DICOM files to Azure Data Lake Storage when using STOW-RS. This way, users can query their data either using DICOMweb&trade; APIs, like WADO-RS, or Azure Blob/Data Lake APIs. However, with storage indexing DICOM files will be automatically indexed by the DICOM service after uploading the data directly to the ADLS Gen 2 file system. Whether the files were uploaded using STOW-RS, an Azure Blob SDK, or even `AzCopy`, they can be accessed using either DICOMweb&trade; APIs or directly through the ADLS Gen 2 file system.
+The [DICOM&reg; service](overview.md) automatically uploads DICOM files to Azure Data Lake Storage (ADLS) when using [STOW-RS](dicom-services-conformance-statement-v2.md#store-stow-rs). That way, users can query their data either using [DICOMweb&trade; APIs](dicomweb-standard-apis-with-dicom-services.md), like [WADO-RS](dicom-services-conformance-statement-v2.md#retrieve-wado-rs), or [Azure Blob/Data Lake APIs](../../storage/blobs/storage-blob-upload.md). However, with storage indexing DICOM files are automatically indexed by the DICOM service after uploading the data directly to the ADLS Gen 2 file system. Whether the files were uploaded using STOW-RS, an Azure Blob SDK, or even [AzCopy](../../storage/common/storage-use-azcopy-v10.md), they can be accessed using DICOMweb&trade; or ADLS Gen 2 APIs.
 
 ## Prerequisites
 
-* An Azure Storage account configured with Hierarchical Namespaces (HNS) enabled
+* An Azure Storage account configured with [Hierarchical Namespaces (HNS) enabled](../../storage/blobs/data-lake-storage-introduction.md)
 * Optionally, a DICOM Service [connected to the Azure Data Lake Storage file system](deploy-dicom-services-in-azure-data-lake.md)
 
 ## Configuring Storage Indexing
 
-The DICOM service indexes an ADLS Gen 2 file system by reacting to Blob or Data Lake storage events. These events must be read from an Azure Storage Queue in the Azure Storage Account that contains the file system. Once in the queue, the DICOM service will asynchronously process each event and update the index accordingly.
+The DICOM service indexes an ADLS Gen 2 file system by reacting to [Blob or Data Lake storage events](../../event-grid/event-schema-blob-storage.md). These events must be read from an [Azure Storage Queue](../../storage/queues/storage-queues-introduction.md) in the Azure Storage Account that contains the file system. Once in the queue, the DICOM service will asynchronously process each event and update the index accordingly.
 
 ### Create the Destination for Storage Events
 
-First, create an [Azure Storage Queue](../../storage/queues/storage-queues-introduction.md) in the same Azure Storage Account connected to the DICOM service The DICOM service will also need access to the queue; it will need to be able to dequeue messages as well as enqueue its own messages for errors and complex tasks. So, make sure the same managed identity used by the DICOM service, either user-assigned or system-assigned, has the [**Storage Queue Data Contributor**](../../storage/queues/assign-azure-role-data-access.md) role assigned.
+First, create a storage queue in the same Azure Storage Account connected to the DICOM service. The DICOM service will also need access to the queue; it will need to be able to dequeue messages as well as enqueue its own messages for errors and complex tasks. So, make sure the same managed identity used by the DICOM service, either user-assigned or system-assigned, has the [**Storage Queue Data Contributor**](../../role-based-access-control/built-in-roles.md#storage) role assigned.
 
 ### Publish Storage Events to the Queue
 
-With the Storage Queue in place, events must be published from the Storage Account to an Azure Event Grid System Topic and routed to queue using an Azure Event Grid Subscription. Before creating the event subscription, be sure to grant the role **Storage Queue Data Message Sender** to the event subscription so that it is authorized to send messages. The event subscription can either use a user-assigned or system-assigned managed identity from the system topic to authenticate its operations.
+With the Storage Queue in place, events must be published from the Storage Account to an [Azure Event Grid System Topic](../../event-grid/system-topics.md) and routed to queue using an [Azure Event Grid Subscription](../../event-grid/create-view-manage-event-subscriptions.md). Before creating the event subscription, be sure to grant the role [**Storage Queue Data Message Sender**](../../role-based-access-control/built-in-roles.md#storage) to the event subscription so that it is authorized to send messages. The event subscription can either use a [user-assigned or system-assigned managed identity from the system topic](../../event-grid/enable-identity-system-topics.md) to authenticate its operations.
 
-By default, event subscriptions send all of the subscribed event types to their designated output. However, while the DICOM service will gracefully handle any message, it will only process ones that meet the following criteria:
-- The message must be a Base64 `CloudEvent`
-- The event type must be `Microsoft.Storage.BlobCreated` or `Microsoft.Storage.BlobDeleted`
-- The file system must be the same one configured for the DICOM service
-- The file path must be within `AHDS/<workspace-name>/dicom/<dicom-service-name>[/<partition-name>]`
-- The file must be a DICOM file as defined in Part 10 of the DICOM standard
-- The operation must not have been performed by the DICOM service itself
+> [!NOTE]
+> By default, event subscriptions send all of the subscribed event types to their designated output. However, while the DICOM service will gracefully handle any message, it will only process ones that meet the following criteria:
+>- The message must be a Base64 [CloudEvent](../../event-grid/event-schema-subscriptions.md#cloud-event-schema)
+>- The event type must one of the following event types:
+  >- `Microsoft.Storage.BlobCreated`
+  >- `Microsoft.Storage.BlobDeleted`
+>- The file system must be the same one configured for the DICOM service
+>- The file path must be within `AHDS/<workspace-name>/dicom/<dicom-service-name>[/<partition-name>]`
+>- The file must be a DICOM file as defined in Part 10 of the DICOM standard
+>- The operation must not have been performed by the DICOM service itself
 
-Thankfully, the event subscription can be configured to filter out irrelevant data to avoid unnecessary processing and billing. Make sure to configure filter such that:
-- The subject must begin with `/blobServices/default/containers/<file-system-name>/blobs/AHDS/<workspace-name>/dicom/<dicom-service-name>/`
-- Optionally, the subject ends with `.dcm`
-- Under advanced filters, the key `data.clientRequestId` does not begin with `tag:<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com,`
+The event subscription can be configured to filter out irrelevant data to avoid unnecessary processing and billing. Make sure to configure filter such that:
+- The *subject* must begin with `/blobServices/default/containers/<file-system-name>/blobs/AHDS/<workspace-name>/dicom/<dicom-service-name>/`
+- Optionally, the *subject* ends with `.dcm`
+- Under *advanced filters*, the key `data.clientRequestId` does not begin with `tag:<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com,`
 
 ### Enable Storage Indexing
 
-Once the event grid subscription has been successfully configured, it's time to let the DICOM service know from where to read the storage events. Storage indexing is available starting in version `2025-04-01-preview` for Azure Resource Manager (ARM) which introduced a new property `storageConfiguration.storageIndexingConfiguration.storageEventQueueName`. It is currently unavailable to configure via the Azure Portal.
+Once the event grid subscription has been successfully configured, the DICOM service must know from where to read the storage events. While in preview, storage indexing may only be configured using an [Azure Resource Manager (ARM) template](../../azure-resource-manager/templates/overview.md) using version `2025-04-01-preview` which introduced a new property called `storageConfiguration.storageIndexingConfiguration.storageEventQueueName`. It is currently unavailable to configure via the Azure Portal.
 
-The example ARM template below can be deployed using the Azure CLI command [`az deployment group create`](../../azure-resource-manager/bicep/deploy-cli.md). It includes all of the necessary resources for a DICOM service:
+The example ARM template below can be deployed using the [Azure CLI](../../azure-resource-manager/templates/deploy-cli.md). It includes all of the necessary resources for a DICOM service:
 
 ```json
 {
@@ -316,11 +319,11 @@ The example ARM template below can be deployed using the Azure CLI command [`az 
 
 ## Diagnosing Issues
 
-:::image type="content" source="media/storage-indexing/diagnostic-logs.png" alt-text="A screenshot of the Azure Portal showing a KQL query of the AHDSDicomAuditLogs table. The example query is filtering for all logs where OperationName is the string 'index-storage'. Undernearth the KQL query is a table of results." lightbox="media/storage-indexing/diagnostic-logs.png":::
+:::image type="content" source="media/storage-indexing/diagnostic-logs.png" alt-text="A screenshot of the Azure Portal showing a KQL query for the AHDSDicomAuditLogs table. The example query is filtering for all logs where OperationName is the string 'index-storage'. Undernearth the KQL query is a table of results." lightbox="media/storage-indexing/diagnostic-logs.png":::
 
-If there is an error when processing an event, the problematic event will be enqueued in a "poison queue" called `<queue-name>-poison` in the same Storage Account. Details about every processed event can be found in the `AHDSDicomAuditLogs` and `AHDSDicomDiagnosticLogs` tables by filtering for all logs where `OperationName = 'index-storage'`. The audit logs will only record when the operation started and completed whereas the diagnostic table will provide details about each operation including any errors, if any. Operations may be correlated across the tables using `CorrelationId`.
+If there is an error when processing an event, the problematic event will be enqueued in a "poison queue" called `<queue-name>-poison` in the same storage account. Details about every processed event can be found in the `AHDSDicomAuditLogs` and `AHDSDicomDiagnosticLogs` tables by filtering for all logs where `OperationName = 'index-storage'`. The audit logs will only record when the operation started and completed whereas the diagnostic table will provide details about each operation including any errors, if any. Operations may be correlated across the tables using `CorrelationId`.
 
 Failures are divided into two types: `User` and `Server`. User errors include any problem connecting to the storage account or with the DICOM file itself, while server errors include any unexpected error that prevents processing. Unlike server errors, user errors are not retried by the DICOM service.
 
 ## Next Steps
-* [Interact with data using DICOMweb&trade;](dicomweb-standard-apis-with-dicom-services.md)
+* [Interact with SOP instances using DICOMweb&trade;](dicomweb-standard-apis-with-dicom-services.md)
