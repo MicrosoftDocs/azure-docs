@@ -495,6 +495,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security/fundamentals/recover-from-identity-compromise.md",
+      "redirect_url": "/azure/security/fundamentals/ransomware-detect-respond#road-to-recovery",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/event-grid/event-schema-storage-actions.md",
       "redirect_url": "/azure/storage-actions/overview",
       "redirect_document_id": false
