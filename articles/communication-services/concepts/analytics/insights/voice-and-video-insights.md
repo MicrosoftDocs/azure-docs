@@ -128,7 +128,7 @@ The Performance tab provides a summary of decile-level performance for key Calli
 
 To explore further, you can select a specific API scenario. When a scenario is selected, the dashboard updates to show a detailed breakdown of that API’s performance, enabling deeper analysis and troubleshooting.
 
-:::image type="content" source="..\media\workbooks\voice-and-video-performance-tab.png" alt-text="Screenshot of voice and video Volume tab."  lightbox="..\media\workbooks\voice-and-video-performance-tab.png":::
+:::image type="content" source="..\media\workbooks\voice-and-video-performance-tab.png" alt-text="Screenshot of voice and video Performance tab."  lightbox="..\media\workbooks\voice-and-video-performance-tab.png":::
 
 ## More information about workbooks
 
