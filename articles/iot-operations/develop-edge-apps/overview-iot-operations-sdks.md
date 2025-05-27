@@ -85,9 +85,11 @@ The SDKs supports the following application types:
 > [!NOTE]
 > The Akri connector is part of the Akri services (preview), which is under active development and will be available in the near future.
 
-## Samples
+## Samples and tutorials
 
 Review the [samples](https://github.com/Azure/iot-operations-sdks/tree/main/samples) directory for samples about creating applications for Azure IoT Operation on the supported languages.
+
+To deploy a fully functional application to a cluster and see the SDKs in action, follow the [Tutorial: Develop an edge app with Azure IoT Operations SDKs for efficient data handling](tutorial-develop-edge-app.md).
 
 ## SDKs reference documentation
 
@@ -95,4 +97,4 @@ For documentation related to the implementation of the SDKs, it's fundamentals p
 
 ## Next step
 
-To deploy a fully functional application to a cluster and see the SDKs in action, follow the [Tutorial: Develop an edge app with Azure IoT Operations SDKs for efficient data handling](tutorial-develop-edge-app.md).
+Try the [Quickstart: Start developing with the Azure IoT Operations SDKs (preview)](quickstart-get-started-sdks.md)
