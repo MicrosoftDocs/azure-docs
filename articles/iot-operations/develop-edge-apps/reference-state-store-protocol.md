@@ -13,7 +13,7 @@ ms.date: 05/07/2025
 
 # State store protocol
 
-The state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the state store. This article provides protocol guidance for developers who need to implement their own state store clients. 
+The state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT v5 to interact with the state store. This article provides protocol guidance for developers who need to implement their own state store clients. 
 
 ## Overview
 
@@ -40,12 +40,12 @@ sequenceDiagram
 
 :::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-basic.svg" alt-text="Diagram of state store basic request and response process." border="false":::
 
-## State store system topic, QoS, and required MQTT5 properties
+## State store system topic, QoS, and required MQTT v5 properties
 
 To communicate with the state store, clients must meet the following requirements:
 
-- Use MQTT5. For more information, see the [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html).
-- Use QoS 1 (Quality of Service level 1). QoS 1 is described in the [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236).
+- Use MQTT v5. For more information, see the [MQTT v5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html).
+- Use QoS 1 (Quality of Service level 1). QoS 1 is described in the [MQTT v5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236).
 - Have a clock that is within one minute of the MQTT broker's clock.
 
 To communicate with the state store, clients must `PUBLISH` requests to the system topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`. Because the state store is part of Azure IoT Operations, it does an implicit `SUBSCRIBE` to this topic on startup.
@@ -362,7 +362,7 @@ Clients can register with the state store to receive notifications of keys being
 
 ### KEYNOTIFY request messages
 
-State store clients request the state store monitor a given `keyName` for changes by sending a `KEYNOTIFY` message. Just like all state store requests, clients PUBLISH a QoS1 message with this message via MQTT5 to the state store system topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
+State store clients request the state store monitor a given `keyName` for changes by sending a `KEYNOTIFY` message. Just like all state store requests, clients PUBLISH a QoS1 message with this message via MQTT v5 to the state store system topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
 
 The request payload has the following form:
 
