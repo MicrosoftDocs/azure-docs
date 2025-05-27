@@ -432,7 +432,7 @@ You will perform the following steps to complete this configuration:
 > [!NOTE]
 > The Create a GPG keyring and keypair are applicable only for the agent-based hybrid workers.
 
-To create the GPG keyring and keypair, use the Hybrid Runbook Worker [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux).
+To create the GPG keyring and keypair, use the Hybrid Runbook Worker.
 
 1. Use the sudo application to sign in as the **nxautomation** account.
 
