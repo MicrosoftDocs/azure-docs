@@ -97,7 +97,7 @@ Other reasons for clients receiving 403 responses include:
 
 #### 404 – Page not found
 
-An HTTP 404 response is generated when a request is made to Application Gateway (V2 SKUs) with a hostname that doesn’t corresponds to any of the configured Multi-site listeners, and there is no Basic listener present. Learn more about [types of listeners](application-gateway-components.md#types-of-listeners.
+An HTTP 404 response is generated when a request is made to Application Gateway (V2 SKUs) with a hostname that doesn’t corresponds to any of the configured Multi-site listeners, and there is no Basic listener present. Learn more about [types of listeners](application-gateway-components.md#types-of-listeners).
 
 #### 408 – Request Time-out
 
