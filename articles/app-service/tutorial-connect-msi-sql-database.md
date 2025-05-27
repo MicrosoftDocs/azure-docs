@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track
 ---
 # Tutorial: Connect to SQL Database from Azure App Service using a managed identity
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. App Service also provides a [managed identity](overview-managed-identity.md) for your app, which is a turnkey solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets, such as credentials in connection strings.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. App Service also provides a [managed identity](overview-managed-identity.md) for your app, which is a turnkey solution for securing access to [Azure SQL](/azure/azure-sql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets, such as credentials in connection strings.
 
 This tutorial shows you how to add managed identity to a sample .NET app that uses Azure SQL Database. After you finish, your app can connect to SQL Database securely without the need for a user name and password.
 
@@ -44,10 +44,10 @@ In this tutorial, you:
   - [Tutorial: Build an ASP.NET app in Azure with Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
   - [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
   
-  You can also use your own .NET app that uses Azure SQL Database as the back end.
+  You can also use your own .NET web app that uses Azure SQL Database as the back end.
 
   > [!NOTE]
-  > The steps covered in this tutorial support the following versions:
+  > The steps in this tutorial support the following versions:
   > - .NET Framework 4.8 and above
   > - .NET 6.0 and above
 
@@ -115,9 +115,7 @@ The Azure Identity client library can use tokens from Azure PowerShell.
 
 ## Modify your project
 
-You're now ready to develop and debug your app that has an Azure SQL database back end, using Microsoft Entra authentication. The steps differ depending on which type of app you have.
-
-whether you're using  or (default for ASP.NET Core) for your project.
+You're now ready to develop and debug your app that has an Azure SQL database back end, using Microsoft Entra authentication. The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
 
 - An ASP.NET app like the one in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) uses the [Entity Framework](/ef/ef6/) by default.
 - An ASP.NET Core app like the one in [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md) uses the [Entity Framework Core](/ef/core/) by default.
@@ -154,7 +152,7 @@ whether you're using  or (default for ASP.NET Core) for your project.
    
    The preceding code uses [Azure.Identity.DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to get a usable token for SQL Database from Microsoft Entra ID, and then adds it to the database connection. You can customize `DefaultAzureCredential`, but it's already versatile. When `DefaultAzureCredential` runs in App Service, it uses the app's system-assigned managed identity by default.
 
-   If you prefer to use a user-assigned managed identity, add a new app setting named `ManagedIdentityClientId` and enter the `Client Id` GUID from your user-assigned managed identity in the `value` field. When the code runs locally, it can get a token using the logged-in identity of Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell.
+   If you prefer to use a user-assigned managed identity, add a new app setting named `ManagedIdentityClientId` and enter the `Client Id` GUID from your user-assigned managed identity in the `value` field. When the code runs locally, it can get a token using the signed-in identity of Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell.
 
 1. In *Web.config*, find the connection string called `MyDbConnection` and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>;"`. Replace `<server-name` and `<db-name>` with your server name and database name. This connection string is used by the default constructor in *Models/MyDbContext.cs*.
    
@@ -179,7 +177,7 @@ whether you're using  or (default for ASP.NET Core) for your project.
    ```
 
    > [!NOTE]
-   > You can use the [Active Directory Default](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-default-authentication) authentication type both on your local machine and in Azure App Service. The driver can acquire a token from Microsoft Entra ID in several different ways.
+   > You can use [Active Directory Default](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-default-authentication) authentication both on your local machine and in Azure App Service. The driver can acquire a token from Microsoft Entra ID in several different ways.
    >
    >If the app is deployed, the driver gets a token from the app's system-assigned managed identity. The driver can also authenticate with a user-assigned managed identity if you include `User Id=<client-id-of-user-assigned-managed-identity>;` in your connection string. If the app is running locally, it tries to get a token from Visual Studio, Visual Studio Code, or Azure CLI.
 
@@ -253,11 +251,11 @@ Here's an example of the output:
 1. Enter `EXIT` to return to the Bash prompt.
 
    > [!NOTE]
-   > The backend managed identity services also [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you make a mistake configuring your SQL Database permissions and try to modify the permissions after trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires.
+   > The backend managed identity services also [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you try to modify your SQL Database permissions after trying to get a token with your app, you don't get a new token with updated permissions until the cached token expires.
 
 ### Modify the connection string
 
-The same changes you made in *Web.config* or *appsettings.json* work with the managed identity, so you can remove the existing connection string that Visual Studio created when deploying your app the first time. To delete the connection string, run the following command, replacing `<app-name>` with the name of your app.
+The same changes you made in *Web.config* or *appsettings.json* work with the managed identity. You can remove the existing connection string that Visual Studio created when it deployed your app the first time. To delete the connection string, run the following command, replacing `<app-name>` with the name of your app.
 
 ```azurecli
 az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names MyDbConnection
