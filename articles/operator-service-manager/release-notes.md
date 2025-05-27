@@ -406,3 +406,31 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 
 * NFO - [602686818] Expose new installation parameter to set cluster registry CPU and memory resources to "small", "medium" or "large" scale option.
 * NFO - [602686818] Tune ORAS concurrency settings for improved performance and resource utilization for all scale options.
+
+## Release 3.0.3054-214 
+
+Document Revision 1.0
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This May 19, 2025 Azure Operator Service Manager release includes updating the NFO version to 3.0.3054-214 and the RP version to 1.0.03050.424, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: NFO version 3.0.3054-214, RP version 1.0.03050.424
+* Release Date: May 19, 2025
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.24.3 - Helm/3.17.2
+
+### Release Highlights
+#### Support for artifact-manifest publisher template
+**[FEATURE 1041747 / ART-399]** adds support for the new artifact-manifest publisher template first introduced in RP API version 2025-03-30. This template improves effeciency of publisher resource cleanup, enabling the safe bulk deleteion of unused resources to automate publisher artifact-store space management. The extension remains backward compatible with earlier API versions and existing workflows. Note: When upgrading a site network service (SNS) deployed using an older API version, to this new version, a pod restart is required, following the upgrade, to ensure the local registry remains in-sync with the publisher artifact-store. If the local registry is not brought in-sync, the SNS may not function in a disconnected scenario.
+
+#### Release Updates
+The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* NFO - [2117907] The TLS daemonset was updateed to pre-load required packages during build time. This reduces startup latency and avoids unnecessary network traffic.
+* NFO - [SFI] Helm version upgrade from 3.15.2 to 3.17.2.
+* NFO - [SFI] Go version upgrade from 1.22.4 to 1.24.3.
+* NFO - [SFI] Base image migrated from CBL-Mariner to AzureLinux.
+* NFO - [SFI] A total of 15 CVEs are addressed in this release.
+* RP - [606065291] Fixes conflict scenarios during SNS delete operations by preventing duplicate requests.
+* RP - [600962417] Populate Chart Details in DeploymentProfile when ConfigurationType is "Secret"
