@@ -2,13 +2,13 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 05/22/2025
+ms.date: 05/27/2025
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
 # Automatic deletions from deployment history
 
-When you deploy resources to Azure, the deployment details are recorded in the deployment history at the scope where the deployment occurs. Each scope—whether it's a resource group, subscription, management group, tenant—can store up to **800 deployments** in its history. Once this limit is reached, Azure **automatically deletes the oldest deployments** to make space for new ones. This automatic cleanup process was implemented on **August 6, 2020**.
+When you deploy resources to Azure, the deployment details are recorded in the deployment history at the scope where the deployment occurs. Each scope—whether it's a [resource group](./deploy-to-resource-group.md), [subscription](./deploy-to-subscription.md), [management group](./deploy-to-management-group.md), [tenant](./deploy-to-tenant.md)—can store up to **800 deployments** in its history. Once this limit is reached, Azure **automatically deletes the oldest deployments** to make space for new ones. This automatic cleanup process was implemented on **August 6, 2020**.
 
 > [!NOTE]
 > Deleting a deployment from the history doesn't affect any of the resources that were deployed.
@@ -67,7 +67,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 You can opt out of automatic deletion to manually manage your deployment history. **Use this option cautiously**, as the **800-deployment limit** remains enforced, and exceeding it causes deployment failures.
 
 > [!IMPORTANT]
-> Opting out is available only for subscription and resource group scopes, as it's controlled by the subscription-level `Microsoft.Resources/DisableDeploymentGrooming` feature flag. For tenant or management group scopes, open a [support ticket](./overview.md#get-support) to disable automatic deletion.
+> Opting out is available only for subscription scopes, as it's controlled by the subscription-level `Microsoft.Resources/DisableDeploymentGrooming` feature flag. You can't opt out for only a particular resource group. For tenant or management group scopes, open a [support ticket](./overview.md#get-support) to disable automatic deletion.
 
 To disable automatic deletion at the subscription scope (affects all resource groups within it):
 
