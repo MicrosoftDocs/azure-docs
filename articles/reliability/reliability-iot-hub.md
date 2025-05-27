@@ -127,8 +127,6 @@ If your IoT hub is in a nonpaired region, or if the default replication and fail
 
 Default replication and failover is only supported in regions that are paired.
 
-In nonpaired regions, there's no built-in cross-region failover. If your IoT hub is in a nonpaired region and needs a failover mechanism to be resilient to region outages, consider [alternative multiregion approaches](#alternative-multiregion-approaches).
-
 ### Requirements
 
 Paired region replication and failover options are available for all IoT Hub tiers.
@@ -181,10 +179,10 @@ This section describes what to expect when an IoT hub is configured for cross-re
 
   | Data type | RPO |
   | :--- | :--- |
-  | Identity registry | 0-5 mins data loss |
-  | Device twin data | 0-5 mins data loss |
-  | Cloud-to-device messages <sup>1</sup> | 0-5 mins data loss |
-  | Parent <sup>1</sup> and device jobs | 0-5 mins data loss |
+  | Identity registry | 0-5 minutes data loss |
+  | Device twin data | 0-5 minutes data loss |
+  | Cloud-to-device messages <sup>1</sup> | 0-5 minutes data loss |
+  | Parent <sup>1</sup> and device jobs | 0-5 minutes data loss |
   | Device-to-cloud messages | All unread messages are lost |
   | Cloud-to-device feedback messages | All unread messages are lost |
 
