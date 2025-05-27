@@ -12,3 +12,4 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 1. From the **Resources** list, select your resource.
 
    The Azure portal displays the resource with the **Overview** page open, by default.
+

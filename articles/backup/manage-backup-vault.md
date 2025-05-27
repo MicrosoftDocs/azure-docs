@@ -2,7 +2,7 @@
 title: Manage Backup vaults
 description: Learn how to manage the Backup vaults.
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 05/20/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
@@ -33,6 +33,16 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 In the **Jobs** tile, you get a summarized view of all backup and restore related jobs in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
 
 :::image type="content" source="./media/backup-vault-overview/backup-jobs.png" alt-text="Screenshot shows the Backup jobs.":::
+
+## Optimize backup and recovery with Azure Business Continuity Center Copilot
+
+Azure Business Continuity Center Copilot introduces new capabilities in the Backup vaults pane, enabling you to configure/manage a secure, resilient backup and recovery environment:
+
+- [Increase security level](../business-continuity-center/tutorial-manage-data-using-copilot.md#increase-security-level-of-recovery-service-vault-and-backup-vault) to strengthen protection for backup data and disaster recovery operations.
+- [Analyze job failures](../business-continuity-center/tutorial-manage-data-using-copilot.md#analyze-job-failures-for-recovery-service-vault-and-backup-vault) to gain insights into failures for precise analysis and faster resolution.
+- [Troubleshoot common errors efficiently](../business-continuity-center/tutorial-manage-data-using-copilot.md#troubleshoot-error-codes-for-recovery-service-vaults-and-backup-vaults).
+
+Learn more about [managing the Business Continuity and Disaster Recovery estate using Copilot (preview)](../business-continuity-center/tutorial-manage-data-using-copilot.md).
 
 ## Move a Backup vault across Azure subscriptions/resource groups
 

@@ -5,7 +5,7 @@ ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/18/2025
+ms.date: 05/15/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -88,7 +88,7 @@ This template enables you to configure backup for an Azure PostgreSQL - Flexible
       "location": "[parameters('region')]",
       "properties": {
         "datasourceTypes": [
-          "AzureDatabaseForPostgreSQLFlexibleServer"
+          "Microsoft.DBforPostgreSQL/flexibleServers"
         ],
         "policyRules": [
           {
@@ -151,7 +151,7 @@ This template enables you to configure backup for an Azure PostgreSQL - Flexible
       "location": "[parameters('region')]",
       "properties": {
         "datasourceInfo": {
-          "datasourceType": "AzureDatabaseForPostgreSQLFlexibleServer",
+          "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "objectType": "Datasource",
           "resourceId": "[resourceId(parameters('postgreSQLResourceGroup'), 'Microsoft.DBforPostgreSQL/flexibleServers', parameters('postgreSQLServerName'))]"
         },

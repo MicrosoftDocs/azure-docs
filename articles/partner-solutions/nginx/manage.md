@@ -20,7 +20,7 @@ Here are some management tasks:
 - [Change the configuration](#change-the-configuration)
 - [Add a certificate](#add-a-certificate)
 - [Send metrics to monitoring](#send-metrics-to-monitoring)
-- [Delete an NGINXaaS deployment](#delete-an-nginxaas-deployment)
+- [Delete an NGINXaaS deployment](#delete-a-resource)
 - [GitHub integration](#github-integration)
 
 ## Configure managed identity
@@ -77,7 +77,7 @@ You can send metrics to Azure Monitor to take advantage of its monitoring capabi
 
 1. For **Send metrics to Azure Monitor**, select **On**, then select **Save**
 
-## Delete an NGINXaaS deployment
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
