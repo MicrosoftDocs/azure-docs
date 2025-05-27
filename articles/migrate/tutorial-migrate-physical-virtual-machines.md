@@ -375,7 +375,7 @@ Now, select machines for migration.
 
 1. Check each VM you want to migrate. Then select **Next: Target settings**.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/migrate-vm.png" alt-text="Screenshot that shows migrating VMs." lightbox="./media/tutorial-migrate-physical-virtual-machines/migrate-vm-expanded.png":::
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/migrate-vm.png" alt-text="Screenshot that shows migrating VMs." lightbox="./media/tutorial-migrate-physical-virtual-machines/migrate-vm.png":::
 
 1. In **Target settings**, select the subscription to which you'll migrate. (The region is set to your selection in the previous step and can't be modified.) Specify the resource group in which the Azure VMs will reside after migration.
 1. In **Virtual Network**, select the Azure virtual network/subnet to which the Azure VMs will be joined after migration.
