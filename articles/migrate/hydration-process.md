@@ -1,49 +1,15 @@
 ---
-title: Prepare machines for agentless migration with Azure Migrate
-description: Learn how to prepare on-premises machines for agentless migration with Azure Migrate.
-author: vijain
+title: Hydration process
+description: Learn about the hydration process in Azure Migrate.
+author: uhabiba
 ms.author: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 05/09/2025
+ms.date: 05/15/2025
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
 ---
 
-# Prepare for VMware agentless migration
-
-This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](tutorial-migrate-vmware.md) method using the Migration and modernization tool.
-
-
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
-Before you migrate your on-premises VM to Azure, you may require a few changes to make the VM ready for Azure. These changes are important to ensure that the migrated VM can boot successfully in Azure and connectivity to the Azure VM can be established.
-Azure Migrate automatically handles these configuration changes for the following operating system versions for both Linux and Windows. This process is called *Hydration*.
-
-> [!Note]
-> If a major version of an operating system is supported in agentless migration, all minor versions and kernels are automatically supported.
-
-**Operating system versions supported for hydration**
-
-- Windows Server 2008 or later
-- Red Hat Enterprise Linux 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x
-- CentOS Stream
-- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
-- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
-- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)
-- Debian 11, 10, 9, 8, 7
-- Oracle Linux 9, 8, 7.7-CI, 7.7, 6
-- Alma Linux 8.x, 9.x
-- Rocky Linux 8.x, 9.x
-You can also use this article to manually prepare the VMs for migration to Azure for operating systems versions not listed above. At a high level, these changes include:
-
-- Validate the presence of the required drivers
-- Enable the serial console
-- Configure network settings
-- Install the VM guest agent
-
-## Hydration process
+# Hydration process
 
 You have to make some changes to the VMs configuration before the migration to ensure that the migrated VMs function properly on Azure. Azure Migrate handles these configuration changes via the *hydration* process. The hydration process is only performed for the versions of Azure supported operating systems given above. Before you migrate, you may need to perform the required changes manually for other operating system versions that aren't listed above. If the VM is migrated without the required changes, the VM may not boot, or you may not have connectivity to the migrated VM. The following diagram shows you that Azure Migrate performs the hydration process.
 
@@ -56,7 +22,7 @@ Azure Migrate will create the network interface, a new virtual network, subnet, 
 
 After the virtual machine is created, Azure Migrate will invoke the [Custom Script Extension](/azure/virtual-machines/extensions/custom-script-windows) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script containing the required configuration for Azure readiness on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Migrate owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Migrate storage account for invoking the script.
 
- ![Migration steps](./media/concepts-prepare-vmware-agentless-migration/migration-steps.png)
+ :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/migration-steps.png" alt-text="Diagram of VMware agentless migration steps." lightbox="./media/concepts-prepare-vmware-agentless-migration/migration-steps.png":::.
 
 >[!NOTE]
 >Hydration VM disks do not support Customer Managed Key (CMK). Platform Managed Key (PMK) is the default option.
@@ -103,19 +69,20 @@ The preparation script executes the following changes based on the OS type of th
 
       - On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**.
 
-        ![Manual Configuration](./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png)
+      :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png" alt-text="Screenshot of command prompt diskpart." lightbox="./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png":::  
 
       - Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
       - At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting ensures that disks are brought online, and that you can read and write to both disks.
 
-        ![Administrator Command Prompt diskpart online policy](./media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png)
+      :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png" alt-text="Screenshot shows administrator command prompt diskpart online policy." lightbox="./media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png"::: 
 
 1. **Set the DHCP start type**
 
    The preparation script will also set the DHCP service start type as Automatic. This will enable the migrated VM to obtain an IP address and establish connectivity post-migration. Make sure the DHCP service is configured, and the status is running.
 
-    ![Set DHCP Start Type](./media/concepts-prepare-vmware-agentless-migration/get-service-dhcp.png)
+    :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/get-service-dhcp.png" alt-text="Screenshot shows set dhcp start type." lightbox="./media/concepts-prepare-vmware-agentless-migration/get-service-dhcp.png"::: 
+
 
    To edit the DHCP startup settings manually, run the following example in Windows PowerShell:
 
@@ -140,7 +107,7 @@ The preparation script executes the following changes based on the OS type of th
 
     To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
 
-    ![Successful Installation of Azure VM Agent](./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
+    :::image type="content" source="./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png" alt-text="Screenshot shows successful installation of Azure VM agent." lightbox="./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png"::: 
 
     After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for migration.
     [Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
@@ -182,7 +149,7 @@ The preparation script executes the following changes based on the OS type of th
    1. If any of these drivers are missing, add the required drivers and regenerate the image for the corresponding kernel version.
 
       >[!NOTE]
-      >This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default. [Learn more about the changes.](/azure/virtual-machines/linux/create-upload-generic#install-kernel-modules-without-hyper-v)
+      >This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built in by default. [Learn more about the changes.](/azure/virtual-machines/linux/create-upload-generic#install-kernel-modules-without-hyper-v)
 
       An illustrative example for rebuilding initrd
 
