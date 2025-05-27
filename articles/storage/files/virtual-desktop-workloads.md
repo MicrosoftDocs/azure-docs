@@ -62,7 +62,7 @@ In large scale Azure Virtual Desktop deployments, you might run out of handles i
 
 ### FSLogix
 
-If you're using [FSLogix with Azure Virtual Desktop](/azure/virtual-desktop/fslogix-containers-azure-files.md), your user profile containers are either Virtual Hard Disk (VHD) or Hyper-V Virtual Hard Disk (VHDX) files, and they're mounted in a user context, not a system context. Each user opens a single root directory handle, which should be to the file share. Azure Files can support a maximum of 10,000 users assuming you have the file share (`\\storageaccount.file.core.windows.net\sharename`) + the profile directory (`%sid%_%username%`) + profile container (`profile_%username.vhd(x)`).
+If you're using [FSLogix with Azure Virtual Desktop](/azure/virtual-desktop/fslogix-containers-azure-files), your user profile containers are either Virtual Hard Disk (VHD) or Hyper-V Virtual Hard Disk (VHDX) files, and they're mounted in a user context, not a system context. Each user opens a single root directory handle, which should be to the file share. Azure Files can support a maximum of 10,000 users assuming you have the file share (`\\storageaccount.file.core.windows.net\sharename`) + the profile directory (`%sid%_%username%`) + profile container (`profile_%username.vhd(x)`).
 
 If you're hitting the limit of 10,000 concurrent handles for the root directory or users are seeing poor performance, try using an additional Azure file share and distributing the containers between the shares.
 
@@ -70,7 +70,7 @@ For example, if you have 2,400 concurrent users, you'd need 2,400 handles on the
 
 ### App attach with CimFS
 
-If you're using [MSIX App attach or App attach](/azure/virtual-desktop/app-attach-overview.md) to dynamically attach applications, you can use Composite Image File System (CimFS) or VHD/VHDX files for [disk images](/azure/virtual-desktop/app-attach-overview.md#application-images). Either way, the scale limits are per VM mounting the image, not per user. The number of users is irrelevant when calculating scale limits. When a VM is booted, it mounts the disk image, even if there are zero users.
+If you're using [MSIX App attach or App attach](/azure/virtual-desktop/app-attach-overview) to dynamically attach applications, you can use Composite Image File System (CimFS) or VHD/VHDX files for [disk images](/azure/virtual-desktop/app-attach-overview#application-images). Either way, the scale limits are per VM mounting the image, not per user. The number of users is irrelevant when calculating scale limits. When a VM is booted, it mounts the disk image, even if there are zero users.
 
 If you're using App attach with CimFS, the disk images only consume handles on the disk image files. They don't consume handles on the root directory or the directory containing the disk image. However, because a CimFS image is a combination of the .cim file and at least two other files, for every VM mounting the disk image, you need one handle each for three files in the directory. So if you have 100 VMs, you need 300 file handles.
 
