@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: bandersmsft
+author: KennyDay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: include
 ms.date: 02/09/2021
-ms.author: banders
+ms.author: kenday
 ms.reviewer: isvargas
 ms.custom: include file
 ---

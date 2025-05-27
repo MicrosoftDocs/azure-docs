@@ -35,7 +35,7 @@ Once your request is approved, a private IP address gets assigned from the Azure
 
 Origin support for direct private endpoint connectivity is currently limited to:
 * Blob Storage
-* Web App
+* App Service (Web App, Function App)
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
 * API Management
@@ -43,7 +43,7 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Azure Container Apps
   
 > [!NOTE]
-> * This feature isn't supported with Azure App Service Slots or Functions.
+> * This feature isn't supported with Azure App Service Slots and Azure Static Web App. 
 
 ## Region availability
 

@@ -22,15 +22,15 @@ In firmware analysis, the most common roles are Owner, Contributor, Security Adm
 ## Understanding the Representation of Firmware Images in the Azure Resource Hierarchy
 Azure organizes resources into resource hierarchies, which are in a top-down structure, and you can assign roles at each level of the hierarchy. The level at which you assign a role is the "scope," and lower scopes may inherit roles assigned at higher scopes. Learn more about the [levels of hierarchy and how to organize your resources in the hierarchy](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources).
 
-When you onboard your subscription to firmware analysis and select your resource group, the action automatically creates the **default** resource within your resource group.
+When you onboard your subscription to firmware analysis, you'll be asked to create a **workspace**. A **workspace** is a resource specific to the firmware analysis service that directly houses your firmware images. You can create multiple **workspaces** in each resource group, which allows you to organize your firmware images into categories at the resource group level, and subcategories at the **workspace** level.
 
-Navigate to your resource group and select **Show hidden types** to show the **default** resource. The **default** resource has the **Microsoft.IoTFirmwareDefense.workspaces** type.
+Navigate to your resource group. Notice that all **workspace** resources have the **Firmware analysis workspace** type.
 
-:::image type="content" source="media/firmware-analysis-rbac/default-workspace.png" alt-text="Screenshot of the toggle button 'Show hidden types' that reveals a resource named 'default'." lightbox="media/firmware-analysis-rbac/default-workspace.png":::
+:::image type="content" source="media/firmware-analysis-rbac/workspaces-in-resource-group.png" alt-text="Screenshot of the workspaces inside a resource group." lightbox="media/firmware-analysis-rbac/workspaces-in-resource-group.png":::
   
-Although the **default** workspace resource isn't something that you'll regularly interact with, each firmware image that you upload will be represented as a resource and stored here.
+As mentioned earlier, the **workspace** resource directly holds your firmware images, so you may regularly interact with your **workspaces** depending on how you organize your images. Each firmware image that you upload will be represented as a resource and stored here.
 
-You can use RBAC at each level of the hierarchy, including at the hidden **default firmware analysis workspace** resource level. 
+You can use RBAC at each level of the hierarchy, including at the **workspace** resource level. 
 
 Here's the resource hierarchy of firmware analysis:
 
@@ -59,7 +59,7 @@ This table categorizes each role and provides a brief description of their permi
 
 ## Firmware analysis roles, scopes, and capabilities
 
-The following table summarizes what roles you need to perform certain actions. These roles and permissions apply at the Subscription and Resource Group levels, unless otherwise stated.
+The following table summarizes what roles you need to perform certain actions. These roles and permissions apply at the Subscription, Resource Group, and Workspace levels, unless otherwise stated.
 
 **Action** | **Role required**
 :---|:---
@@ -74,9 +74,9 @@ To upload firmware images:
 * [Upload a firmware image for analysis](./tutorial-analyze-firmware.md#upload-a-firmware-image-for-analysis).
 
 ## Invite third parties to interact with your firmware analysis results
-You might want to invite someone to interact solely with your firmware analysis results, without allowing access to other parts of your organization (like other resource groups within your subscription). To allow this type of access, invite the user as a Firmware Analysis Admin at the Resource Group level.
+You might want to invite someone to interact solely with your firmware analysis results, without allowing access to other parts of your organization (like other resource groups within your subscription). To allow this type of access, invite the user as a Firmware Analysis Admin at the Resource Group or Workspace level.
 
-To invite a third party, follow the [Assign Azure roles to external guest users using the Azure portal](./../role-based-access-control/role-assignments-external-users.md#invite-an-external-user-to-your-directory) tutorial.
+To invite a third party, you must first invite them to your directory. To do this, follow the [Assign Azure roles to external guest users using the Azure portal](./../role-based-access-control/role-assignments-external-users.md#invite-an-external-user-to-your-directory) tutorial.
 
 * In step 3, navigate to your resource group.
 * In step 7, select the **Firmware Analysis Admin** role.

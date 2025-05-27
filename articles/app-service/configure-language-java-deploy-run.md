@@ -214,7 +214,7 @@ You can deploy WAR files to your Tomcat application by following [this documenta
 
 To deploy WAR files to JBoss EAP, see [this documentation](./deploy-zip.md#deploy-warjarear-packages). When OneDeploy is used, this will automatically rename the WAR file to `app.war` and be placed under `/home/site/wwwroot`. 
 
-To deploy EAR files, [use FTP](deploy-ftp.md). Your EAR application is deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
+To deploy EAR files, [use FTP](deploy-ftp.md). Your EAR application is deployed to the context root defined in your application's configuration. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
 ::: zone-end
 
@@ -309,7 +309,7 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 #### Timed recording
 
-To take a timed recording, you need the process ID (PID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID.
+To take a timed recording, you need the process ID (PID) of the Java application. To find the PID, open your service in the Azure portal. Select **Development Tools** > **Advanced Tools**, then select **Go**. In Kudu, select **Process explorer**. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID.
 
 Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the PID you copied earlier. This command starts a 30-second profiler recording of your Java application and generates a file named `timed_recording_example.jfr` in the `C:\home` directory.
 

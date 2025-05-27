@@ -42,38 +42,37 @@ To use the **firmware analysis** page to analyze your firmware security, your fi
 
 If this is your first interaction with **firmware analysis**, then you'll need to onboard your subscription to the service and select a region in which to upload and store your firmware images.
 
-1. Sign into the Azure portal and go to Defender for IoT.
+1. Sign into the Azure portal and search for "firmware analysis" in the Azure portal search bar.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/defender-portal.png" alt-text="Screenshot of the 'Getting started' page." lightbox="media/tutorial-firmware-analysis/defender-portal.png":::
+    :::image type="content" source="media/tutorial-firmware-analysis/firmware-analysis-landing.png" alt-text="Screenshot of the 'Getting started' page." lightbox="media/tutorial-firmware-analysis/firmware-analysis-landing.png":::
 
-2. Select **Set up a subscription** in the **Get Started** card, or select the **Subscription management** subtab.
+2. Select the blue **Get started** button in the **Get Started** card, or select the **Firmware workspaces** subtab.
 
     :::image type="content" source="media/tutorial-firmware-analysis/subscription-management.png" alt-text="Screenshot of the 'Subscription management' page." lightbox="media/tutorial-firmware-analysis/subscription-management.png":::
 
-3. Select **Onboard a new subscription**
+3. Select **Create a Workspace**
 
-    :::image type="content" source="media/tutorial-firmware-analysis/onboard-subscription.png" alt-text="Screenshot of the 'Onboard subscription' pane appearing on the right side of the screen." lightbox="media/tutorial-firmware-analysis/onboard-subscription.png":::
+    :::image type="content" source="media/tutorial-firmware-analysis/create-workspace.png" alt-text="Screenshot of the 'Onboard subscription' pane appearing on the right side of the screen." lightbox="media/tutorial-firmware-analysis/create-workspace.png":::
 
-4. In the **Onboard subscription** pane, select a subscription from the drop-down list.
+4. In the **Create a workspace** pane, select a subscription from the drop-down list.
 5. Select a resource group from the **Resource group** drop-down or create a new resource group.
-6. Select a region to use for storage in the **Location** drop-down.
-7. Select **Onboard** to onboard your subscription to firmware analysis.
+6. Enter your **Workspace name**.
+7. Select a region to use for storage in the **Location** drop-down.
+8. Select **Onboard** to create your workspace in your selected resource group and onboard your subscription to firmware analysis.
 
     :::image type="content" source="media/tutorial-firmware-analysis/completed-onboarding.png" alt-text="Screenshot of the 'Onboard subscription' pane when it's completed." lightbox="media/tutorial-firmware-analysis/completed-onboarding.png":::
 
 ## Upload a firmware image for analysis
 
-If you've just onboarded your subscription, are signed into the Azure portal, and already in the Defender for IoT portal, skip to step two.
+If you've just onboarded your subscription, are signed into the Azure portal, and already in the firmware analysis portal, skip to step two.
 
-1. Sign into the Azure portal and go to Defender for IoT.
+1. Sign into the Azure portal and go to firmware analysis.
 
-1. Select **Firmware analysis** > **Firmware inventory** > **Upload**.
+1. Go to the **Firmware workspaces** page, then select the workspace in which you'd like to upload images. Click the **Upload** button.
 
-1. In the **Upload a firmware image** pane, select **Choose file**. Browse to and select the firmware image file you want to upload.
+1. In the **Upload a firmware image** pane, drag and drop your firmware image or click on the grey box. Browse to and select the firmware image file you want to upload.
 
     :::image type="content" source="media/tutorial-firmware-analysis/upload.png" alt-text="Screenshot that shows clicking the Upload option within firmware analysis." lightbox="media/tutorial-firmware-analysis/upload.png":::
-
-1. Select a **Subscription** that you have onboarded onto Defender for IoT firmware analysis. Then select a **Resource group** that you would like to upload your firmware image to.
 
 1. Enter the following details:
 
@@ -84,13 +83,13 @@ If you've just onboarded your subscription, are signed into the Azure portal, an
     
 1. Select **Upload** to upload your firmware for analysis.
 
-    Your firmware appears in the grid on the **Firmware inventory** page. 
+    Your firmware appears in the grid on the **All firmware** page. 
 
 ## View firmware analysis results
 
 The analysis time will vary based on the size of the firmware image and the number of files discovered in the image. While the analysis is taking place, the status will say *Extracting* and then *Analyzing*.  When the status is *Ready*, you can see the firmware analysis results.
 
-1. Sign into the Azure portal and go to Microsoft Defender for IoT > **Firmware analysis** > **Firmware inventory**.
+1. Sign into the Azure portal and go to firmware analysis > **All firmware** page. Alternatively, you can go to the **Firmware workspaces** page, and select the workspace in which you have your firmware image.
 
 1. Select the row of the firmware you want to view. The **Firmware overview** pane shows basic data about the firmware on the right.
 

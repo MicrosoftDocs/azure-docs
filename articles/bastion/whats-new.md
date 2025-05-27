@@ -27,8 +27,7 @@ You can also find the latest Bastion updates and subscribe to the RSS feed [here
 | SKU | [Bastion Premium SKU](bastion-overview.md#sku)| Bastion Premium SKU is now generally available in all regions that Bastion is available in. | June 2024 | N/A|
 | Feature | [Microsoft Entra ID support for portal (SSH)](bastion-connect-vm-ssh-linux.md#microsoft-entra-id-authentication)  |Microsoft Entra ID support for SSH connections in portal is now GA. | November 2024 | N/A|
 |Feature  |  [Availability Zones for Bastion](../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json) |Availability Zones is now in public preview as a customer-enabled feature in select regions. | May 2024 | See available region list [here](../reliability/reliability-bastion.md?toc=%2Fazure%2Fbastion%2FTOC.json#regions-supported).
-|Platform Capability|  [Bastion Developer](quickstart-developer.md) | Bastion Developer is now in GA for select regions. | May 2024 | See available region list [here](quickstart-developer.md#developer).
-
+|Platform Capability|  [Bastion Developer](quickstart-developer.md) | Bastion Developer is now in GA for select regions. | May 2024 | See available region list [here](quickstart-developer.md).
 
 ## Next steps
 

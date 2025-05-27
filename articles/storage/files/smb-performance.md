@@ -206,7 +206,8 @@ Supported regions:
 - Germany West Central
 - Central India
 - South India
-- West India 
+- West India
+- Israel Central
 - Italy North
 - Japan East
 - Japan West
@@ -225,10 +226,13 @@ Supported regions:
 - UAE North
 - North Central US
 - South Central US 
+- East US
+- East US 2
 - West US
 - West US 2
 - West US 3
 - West Central US
+- UK South
 - UK West
 
 ### Performance improvements with metadata caching
