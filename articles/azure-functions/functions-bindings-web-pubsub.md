@@ -76,6 +76,9 @@ By default, an application setting named `WebPubSubConnectionString` is used to 
 
 For details on how to configure and use Web PubSub and Azure Functions together, refer to [Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service](../azure-web-pubsub/tutorial-serverless-notification.md).
 
+> [!NOTE]
+> The Azure Web PubSub binding in the isolated process model currently does not support using Managed Identity. It expects the connection string to include an AccessKey, even when the Function App has appropriate role assignments.
+
 ## Next steps
 
 - [Handle client events from Web PubSub  (Trigger binding)](./functions-bindings-web-pubsub-trigger.md)
