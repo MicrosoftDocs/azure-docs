@@ -90,7 +90,7 @@ In addition, for HEVC/H.265 hardware acceleration you also need:
      - [Intel](https://www.intel.com/content/www/us/en/docs/onevpl/developer-reference-media-intel-hardware/1-0/overview.html#DECODE-SUPPORT)
 
    - Microsoft HEVC codec installed. This can be obtained 1 of 3 ways:
-      - The Microsoft HEVC codec is included in clean installs of Windows 11 22H2 or later.
+      - The Microsoft HEVC codec is included in new installations of Windows 11 22H2 or later.
       - You can [purchase the Microsoft HEVC codec from the Microsoft Store](https://www.microsoft.com/store/productid/9NMZLZ57R3T7?ocid=pdpshare).
       - Windows App version 2.0.500.0 can install a version of the HEVC codec compatible with remote connections initiated through Windows App if one is not detected on the client device (requires Store access).
 
