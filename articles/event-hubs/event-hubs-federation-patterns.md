@@ -146,7 +146,7 @@ discussed above will help you to skip events that were already handled and resum
 
 The merge pattern has one or more replication tasks pointing to one target, possibly concurrently with regular producers also sending events to the same target.
 
-Variations of these patters are:
+Variations of these patterns are:
 
 - Two or more replication functions concurrently acquiring events from separate sources and sending them to the same target.
 - One more replication function acquiring events from a source while the target is also used directly by producers.
