@@ -250,10 +250,48 @@ API Management supports the following load balancing options for backend pools:
 
 ### Session awareness
 
-With any of the preceding load balancing options, optionally enable **session awareness** (session affinity) to ensure that all requests from a specific user during a session are directed to the same backend in the pool. API Management sets a cookie to maintain session state. This option is useful, for example, in scenarios with backends such as AI chat assistants or other conversational agents to route requests from the same session to the same endpoint.
+With any of the preceding load balancing options, optionally enable **session awareness** (session affinity) to ensure that all requests from a specific user during a session are directed to the same backend in the pool. API Management sets a session ID cookie to maintain session state. This option is useful, for example, in scenarios with backends such as AI chat assistants or other conversational agents to route requests from the same session to the same endpoint.
 
 > [!NOTE]
 > Session awareness in load-balanced pools is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
+
+#### Manage cookies for session awareness
+
+When using session awareness, the client must handle cookies appropriately. The client needs to store the `Set-Cookie` header value and send it with subsequent requests to maintain session state.
+
+You can use API Management policies to help set cookies for session awareness. For example, for the case of Azure OpenAI Assistant API, the client needs to keep the session ID, extract the thread ID from the body, and keep the pair and send the right cookie for each call. Moreover, the client needs to know when to send a cookie or when not to send a cookie header. These requirements can be handled appropriately by defining the following example policies:
+
+
+```xml
+<policies>
+  <inbound>
+    <base />
+    <set-backend-service backend-id="APIMBackend" />
+  </inbound>
+  <backend>
+    <base />
+  </backend>
+  <outbound>
+    <base />
+    <set-variable name="gwSetCookie" value="@{
+      var payload = context.Response.Body.As<JObject>();
+      var threadId = payload["id"];
+      var gwSetCookieHeaderValue = context.Request.Headers.GetValueOrDefault("SetCookie", string.Empty);
+      if(!string.IsNullOrEmpty(gwSetCookieHeaderValue))
+      {
+        gwSetCookieHeaderValue = gwSetCookieHeaderValue + $";Path=/threads/{threadId};";
+      }
+      return gwSetCookieHeaderValue;
+    }" />
+    <set-header name="Set-Cookie" exists-action="override">
+      <value>Cookie=gwSetCookieHeaderValue</value>
+    </set-header>
+  </outbound>
+  <on-error>
+    <base />
+  </on-error>
+</policies>
+```
 
 ### Example
 
