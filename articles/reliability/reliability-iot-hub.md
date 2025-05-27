@@ -217,9 +217,9 @@ Depending on where you route your IoT hub's messages, you might need to perform 
 
   When you receive telemetry messages from the built-in endpoint by using either the Event Hubs client or event processor host, [use the IoT hub's connection string](../iot-hub/iot-hub-devguide-messages-read-builtin.md#connect-to-the-built-in-endpoint) to establish the connection. This approach ensures that your back-end applications continue to work without requiring manual intervention after failover.
 
-  If you use the Event Hub-compatible name and endpoint in your application directly, you need to [fetch the new Event Hub-compatible endpoint](../iot-hub/iot-hub-devguide-messages-read-builtin.md#connect-to-the-built-in-endpoint) after failover to continue operations. To retrieve the endpoint and name, you can use the Azure portal or the .NET SDK:
+  If you use the Event Hubs-compatible name and endpoint in your application directly, you need to [fetch the new Event Hubs-compatible endpoint](../iot-hub/iot-hub-devguide-messages-read-builtin.md#connect-to-the-built-in-endpoint) after failover to continue operations. To retrieve the endpoint and name, you can use the Azure portal or the .NET SDK:
 
-  - *The Azure portal:* For more information about how to use the portal to retrieve the Event Hub-compatible endpoint and the Event Hub-compatible name, see [Connect to the built-in endpoint](../iot-hub/iot-hub-devguide-messages-read-builtin.md#connect-to-the-built-in-endpoint).
+  - *The Azure portal:* For more information about how to use the portal to retrieve the Event Hubs-compatible endpoint and the Event Hubs-compatible name, see [Connect to the built-in endpoint](../iot-hub/iot-hub-devguide-messages-read-builtin.md#connect-to-the-built-in-endpoint).
 
   - *The .NET SDK:* To use the IoT hub connection string to recapture the Event Hubs-compatible endpoint, use the [sample code](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs). This code example uses the connection string to get the new Event Hubs endpoint and re-establish the connection. You must have Visual Studio installed.
 
