@@ -51,7 +51,8 @@ After migration, the old gateway and its connections are deleted, and the new ga
 
 1. **Validate**: Check that all resources are in a succeeded state. If any prerequisites aren't met, validation fails and migration can't proceed.
 2. **Prepare**: Azure creates a new virtual network gateway, public IP, and connections. This step can take up to 45 minutes. You can specify a name for the new gateway, or Azure will add **_migrate** to the original name by default. During preparation, the existing gateway is locked to prevent changes. If you need to stop the migration, you can **abort** at this stage, which deletes the new gateway and connections.
-    - **Note**: The new gateway is created in the same region as the existing one. To change regions, you must delete the current gateway and create a new one in the desired region.
+> [!NOTE]
+> The new gateway is created in the same region as the existing one. To change regions, you must delete the current gateway and create a new one in the desired region.
 3. **Migrate**: Switch traffic from the old gateway to the new one. This step can take up to 15 minutes and may cause brief connectivity interruptions.
 4. **Commit**: Complete the migration by deleting the old gateway and its connections. If necessary, you can abort and revert to the old gateway before committing.
 
