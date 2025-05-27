@@ -30,7 +30,7 @@ This table shows the major bundle versions and their current lifecycle state: 
 
 | Bundle Version | State      | End of Support Date |
 |----------------|------------|---------------------|
-| 4.x            | Supported  | N/A                 |
+| 4.x            | Supported  | TBD                 |
 | 3.x            | Deprecated | 30/05/2026          |
 | 2.x            | Deprecated | 30/05/2026          |
 | 1.x            | Deprecated | 30/05/2026          |
