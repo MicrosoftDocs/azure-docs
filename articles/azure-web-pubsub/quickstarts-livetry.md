@@ -1,5 +1,5 @@
 ---
-title: Use LiveTry to try out service capabilities
+title: Use LiveTry to try out the capabilities of Azure Web PubSub
 description: How to use LiveTry to explore service capabilities without setting up a code project
 author: kevinguo-ed
 ms.author: kevinguo
@@ -14,16 +14,12 @@ ms.date: 05/27/2025
 
 This guide walks you through two common messaging scenarios in LiveTry, while helping you understand important concepts like **connections**, **groups**, and **messages**.
 
----
-
 ## What you learn
 
 You explore two messaging patterns often used in real-time applications:
 
 - **Server-to-group messaging**: Using the `sendToGroup` API to broadcast messages to all clients in a group.
 - **Client-to-group messaging**: Azure Web PubSub supports a capability that allows a client in a group to send messages directly to other clients in the same group—**without routing through your app server**—reducing latency.
-
----
 
 ## Key concepts
 
@@ -33,8 +29,6 @@ Before we get started, here’s a quick refresher on core Azure Web PubSub conce
 - **Connection**: A persistent WebSocket connection between a client and the Azure Web PubSub service.
 - **Group**: A server-managed subset of connections. Messages sent to a group are delivered only to the connections within that group.
 - **Messages**: The payloads exchanged between clients and the service. Messages can be broadcast to all, targeted to groups, or directed to individual connections.
-
----
 
 ## Scenario 1: Send a message to a group from the server
 
@@ -52,9 +46,7 @@ In this scenario, you simulate server-side broadcasting using the `sendToGroup` 
 ### What you’re learning
 You send messages to a group of clients using RESTful APIs. LiveTry demonstrates how server-to-group communication works without needing to deploy a backend. Azure Web PubSub also provides server SDKs for C#, JavaScript, Java, and Python.
 
-To visualize message broadcasting in action, try repeating the steps with multiple clients . LiveTry supports up to five concurrent simulated clients.
-
----
+To visualize message broadcasting in action, try repeating the steps with multiple clients. LiveTry supports up to five concurrent simulated clients.
 
 ## Scenario 2: Send a message to a group from a client
 
@@ -69,15 +61,10 @@ In this scenario, you create a client sending a message to other clients in the 
 ### What you’re learning
 This scenario showcases **client-to-group messaging**, which is ideal in applications where server round-trips introduce unnecessary latency. It's a core part of Web PubSub’s **client publish/subscribe model**.
 
----
-
-## Tips for using LiveTry
-
-- Open multiple browser tabs to simulate multiple users or devices.
-- Try combining more operations like `joinGroup`, `leaveGroup`, or `sendToConnection`.
-- Use clear group names to better organize your experiments.
-
----
+> [!TIP]
+> Open multiple browser tabs to simulate multiple users or devices.
+> Try combining more operations like `joinGroup`, `leaveGroup`, or `sendToConnection`.
+> Use clear group names to better organize your experiments.
 
 ## Next steps
 
