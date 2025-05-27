@@ -8,8 +8,6 @@ ms.topic: overview
 ms.date: 07/30/2024
 ---
 
-
-
 # What is Azure Web PubSub service?
 
 Azure Web PubSub Service makes it easy to build web applications where server and clients need to exchange data in real-time. Real-time data exchange is the bedrock of certain time-sensitive apps developers build and maintain. Developers have used the service in a variety of applications and industries, for example, in chat apps, real-time dashboards, multi-player games, online auctions, multi-user collaborative apps, location tracking, notifications, and more.
