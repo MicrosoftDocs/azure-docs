@@ -1,10 +1,10 @@
 ---
 title: Connect your data sources to Microsoft Sentinel by using data connectors
 description: Learn how to install and configure a data connector in Microsoft Sentinel.
-author: cwatson-cat
+author: batamig
 ms.topic: how-to
 ms.date: 05/27/2025
-ms.author: cwatson
+ms.author: bagol
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -89,5 +89,3 @@ For more information about solutions and data connectors in Microsoft Sentinel, 
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 - [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
-- [About Microsoft Sentinel content and solutions](sentinel-solutions.md)
-- [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md)
