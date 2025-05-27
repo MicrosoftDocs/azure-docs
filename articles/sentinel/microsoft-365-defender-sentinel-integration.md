@@ -19,9 +19,9 @@ ms.collection: usx-security
 
 Integrate Microsoft Defender XDR with Microsoft Sentinel to stream all Defender XDR incidents and advanced hunting events into Microsoft Sentinel and keep the incidents and events synchronized between the Azure and Microsoft Defender portals. Incidents from Defender XDR include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Microsoft Sentinel. Once in Microsoft Sentinel, incidents remain bi-directionally synced with Defender XDR, allowing you to take advantage of the benefits of both portals in your incident investigation.
 
-Alternatively, onboard Microsoft Sentinel with Defender XDR to Microsoft's unified security operations (SecOps) platform in the Defender portal. Microsoft's unified SecOps platform brings together the full capabilities of Microsoft Sentinel, Defender XDR, and generative AI built specifically for cybersecurity. For more information, see the following resources:
+Alternatively, onboard Microsoft Sentinel to the Defender portal to use it together with Defender XDR for unified security operations. For more information, see the following resources:
 
-- [What is Microsoft's unified security operations platform?](/unified-secops-platform/overview-unified-security)
+- [What are unified security operations?](/unified-secops-platform/overview-unified-security)
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
 
 ## Microsoft Sentinel and Defender XDR
@@ -30,7 +30,7 @@ Use one of the following methods to integrate Microsoft Sentinel with Microsoft 
 
 - Ingest Microsoft Defender XDR service data into Microsoft Sentinel and view Microsoft Sentinel data in the Azure portal. Enable the Defender XDR connector in Microsoft Sentinel.
 
-- Integrate Microsoft Sentinel and Defender XDR into a single, unified security operations platform in the Microsoft Defender portal. In this case, view Microsoft Sentinel data directly in the Microsoft Defender portal with the rest of your Defender incidents, alerts, vulnerabilities, and other security data. Enable the Defender XDR connector in Microsoft Sentinel and onboard Microsoft Sentinel to the Defender portal.
+- Integrate Microsoft Sentinel and Defender XDR directly in the Microsoft Defender portal. In this case, view Microsoft Sentinel data directly with the rest of your Defender incidents, alerts, vulnerabilities, and other security data. To do this, you must onboard Microsoft Sentinel to the Defender portal.
 
 Select the appropriate tab to see what the Microsoft Sentinel integration with Defender XDR looks like depending on which integration method you use.
 
@@ -88,7 +88,7 @@ In addition to collecting alerts from these components and other services, Defen
 
 Consider integrating Defender XDR with Microsoft Sentinel for the following use cases and scenarios:
 
-- Onboard Microsoft Sentinel to Microsoft's unified SecOps platform in the Microsoft Defender portal. Enabling the Defender XDR connector is a prerequisite.
+- Onboard Microsoft Sentinel to the Microsoft Defender portal.
 
 - Enable one-click connect of Defender XDR incidents, including all alerts and entities from Defender XDR components, into Microsoft Sentinel.
 
@@ -98,7 +98,7 @@ Consider integrating Defender XDR with Microsoft Sentinel for the following use 
 
 - Facilitate investigations across both portals with in-context deep links between a Microsoft Sentinel incident and its parallel Defender XDR incident.
 
-For more information about the capabilities of the Microsoft Sentinel integration with Defender XDR in Microsoft's unified SecOps platform, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
+For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
 
 ## Connecting to Microsoft Defender XDR <a name="microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules"></a>
 
