@@ -84,7 +84,7 @@ To monitor resources for Azure Arc Machines, select **Dynatrace environment conf
 
 [!INCLUDE [reconfigure-sso](../includes/reconfigure-sso.md)]
 
-## Delete a Dynatarace resource
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
