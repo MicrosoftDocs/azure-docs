@@ -7,6 +7,8 @@ ms.topic: how-to
 ms.custom:
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Configure disk encryption for Azure Managed Redis instances using customer managed keys

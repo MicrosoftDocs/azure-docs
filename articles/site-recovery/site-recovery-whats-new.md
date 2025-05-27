@@ -24,6 +24,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 79](https://support.microsoft.com/en-us/topic/update-rollup-79-for-azure-site-recovery-04417a2e-e191-450c-8625-29949d094b92) | 9.65.7417.1 | NA | 9.65.7417.1 | NA | NA
 [Rollup 78](https://support.microsoft.com/topic/update-rollup-78-for-azure-site-recovery-d1195ccc-3436-4d2f-bce3-76b18bcd6d53) | 9.64.7374.1 | NA | 9.64.7374.1 | NA | NA
 [Rollup 77](https://support.microsoft.com/topic/update-rollup-77-for-azure-site-recovery-dbd00d14-6b52-48dc-84d7-72b2f71ce20c) | 9.64.7314.1 | NA | 9.64.7314.1 | NA | NA
 [Rollup 76](https://support.microsoft.com/topic/update-rollup-76-for-azure-site-recovery-6ca6833a-5b0f-4bdf-9946-41cd0aa8d6e4) | NA | NA | 9.63.7187.1 | 5.24.0902.11 | 2.0.9938.0
@@ -35,6 +36,18 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (May 2025)
+
+### Update Rollup 79
+
+Update rollup 79 provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added Distro support for Oracle 9.5, Windows 2025 <br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
 
 ## Updates (April 2025)
 

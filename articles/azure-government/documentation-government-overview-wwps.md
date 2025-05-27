@@ -6,7 +6,7 @@ ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 01/21/2025
+ms.date: 05/21/2025
 ---
 
 # Azure for secure worldwide public sector cloud adoption
@@ -96,7 +96,7 @@ Microsoft Entra ID is a non-regional service that may store identity data global
 - Europe, where Microsoft Entra ID keeps most of the identity data within European datacenters except as noted in [Identity data storage for European customers in Microsoft Entra ID](../active-directory/fundamentals/active-directory-data-storage-eu.md).
 - Australia and New Zealand, where identity data is stored in Australia except as noted in [Customer data storage for Australian and New Zealand customers in Microsoft Entra ID](../active-directory/fundamentals/active-directory-data-storage-australia-newzealand.md).
 
-Microsoft Entra ID provides a [dashboard](https://go.microsoft.com/fwlink/?linkid=2092972) with transparent insight into data location for every Microsoft Entra component service. Among other features, Microsoft Entra ID is an identity management service that stores directory data for your Azure administrators, including user **personal data** categorized as **End User Identifiable Information (EUII)**, for example, names, email addresses, and so on. In Microsoft Entra ID, you can create User, Group, Device, Application, and other entities using various attribute types such as Integer, DateTime, Binary, String (limited to 256 characters), and so on. Microsoft Entra ID isn't intended to store your customer content and it isn't possible to store blobs, files, database records, and similar structures in Microsoft Entra ID. Moreover, Microsoft Entra ID isn't intended to be an identity management service for your external end users – [Azure AD B2C](../active-directory-b2c/overview.md) should be used for that purpose.
+Microsoft Entra ID provides a [dashboard](https://go.microsoft.com/fwlink/?linkid=2092972) with transparent insight into data location for every Microsoft Entra component service. Among other features, Microsoft Entra ID is an identity management service that stores directory data for your Azure administrators, including user **personal data** categorized as **End User Identifiable Information (EUII)**, for example, names, email addresses, and so on. In Microsoft Entra ID, you can create User, Group, Device, Application, and other entities using various attribute types such as Integer, DateTime, Binary, String (limited to 256 characters), and so on. Microsoft Entra ID isn't intended to store your customer content and it isn't possible to store blobs, files, database records, and similar structures in Microsoft Entra ID. Moreover, Microsoft Entra ID isn't intended to be an identity management service for your external end users – [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam) should be used for that purpose.
 
 Microsoft Entra ID implements extensive **data protection features**, including tenant isolation and access control, data encryption in transit, secrets encryption and management, disk level encryption, advanced cryptographic algorithms used by various Microsoft Entra components, data operational considerations for insider access, and more. Detailed information is available from a whitepaper [Active Directory Data Security Considerations](https://aka.ms/AADDataWhitePaper).
 

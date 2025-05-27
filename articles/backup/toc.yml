@@ -957,6 +957,8 @@
       href: backup-azure-mars-troubleshoot.md
     - name: Azure Blob backup
       href: backup-azure-troubleshoot-blob-backup.md
+    - name: Azure Data Lake Storage backup (preview)
+      href: azure-data-lake-storage-backup-troubleshoot.md  
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server
@@ -1042,8 +1044,8 @@
   items:
   - name: Compliance
     href: compliance-offerings.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?searchterms=Azure+Backup
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-backup.html
   - name: Pricing calculator
