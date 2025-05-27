@@ -140,6 +140,9 @@ To clone an instance to a local directory, run:
 az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-dir <DIRECTORY>
 ```
 
+> [!TIP]
+> To clone an instance to the current directory, run `--to-dir .`
+
 To clone an instance to a cluster, but splitting and serially applying asset related sub-deployments, run:
 
 ```azurecli
