@@ -67,28 +67,6 @@ The guided gateway migration experience has the following limitations:
 
 For detailed troubleshooting errors and best practices, see [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
 
-## Gateway migration experience
-
-The gateway migration experience allows you to deploy a second virtual network gateway in the same GatewaySubnet. Azure migrates your configurations from the old gateway to the new one. Both gateways run simultaneously during migration, minimizing disruption – though brief connectivity interruptions may still occur.
-
-After migration, the old gateway and its connections are deleted, and the new gateway is tagged with **CreatedBy: GatewaySKUMigration** to identify it as a migrated resource and shouldn’t be deleted.
-
-### Steps to migrate to a new gateway
-
-1. **Validate**: Check that all resources are in a succeeded state. If any prerequisites aren't met, validation fails and migration can't proceed.
-2. **Prepare**: Azure creates a new virtual network gateway, public IP, and connections. This step can take up to 45 minutes. You can specify a name for the new gateway, or Azure will add **_migrate** to the original name by default. During preparation, the existing gateway is locked to prevent changes. If you need to stop the migration, you can **abort** at this stage, which deletes the new gateway and connections.
-    - **Note**: The new gateway is created in the same region as the existing one. To change regions, you must delete the current gateway and create a new one in the desired region.
-3. **Migrate**: Switch traffic from the old gateway to the new one. This step can take up to 15 minutes and may cause brief connectivity interruptions.
-4. **Commit**: Complete the migration by deleting the old gateway and its connections. If necessary, you can abort and revert to the old gateway before committing.
-
-
-> [!IMPORTANT]
-> After migration, validate your connectivity to ensure everything is functioning as expected. You can revert to the old gateway by selecting **Abort** after the prepare step, which will delete the new gateway and connections.
-
-| Migration source (Non-Az-enabled gateway SKU) | Migration target (Az-enabled gateway SKU) |
-|--|--|
-| Basic IP | Standard IP |
-
 ## FAQ
 
 ### How do I add a second prefix to the GatewaySubnet?
