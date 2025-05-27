@@ -134,12 +134,13 @@ The project template creates a project in your chosen language and installs the 
 
 * **Dockerfile** (optional): Lets you create a containerized function app from your project by using an approved base image for your project. You only get this file when you run the command `Azure Functions: Create New Containerized Project...`. You can add a Dockerfile to an existing project using the `func init --docker-only` command in [Core Tools](./functions-core-tools-reference.md#func-init).  
 
-Depending on your language, these other files are created:
-
 ::: zone pivot="programming-language-csharp"  
 An HttpExample.cs class library file, the contents of which vary depending on whether your project runs in an [isolated worker process](dotnet-isolated-process-guide.md#project-structure) or [in-process](functions-dotnet-class-library.md#functions-class-library-project) with the Functions host.
 ::: zone-end  
-::: zone pivot="programming-language-java"  
+::: zone pivot="programming-language-java" 
+
+These files are created:
+ 
 + A pom.xml file in the root folder that defines the project and deployment parameters, including project dependencies and the [Java version](functions-reference-java.md#java-versions). The pom.xml also contains information about the Azure resources that are created during a deployment.
 
 + A [Functions.java file](functions-reference-java.md#triggers-and-annotations) in your src path that implements the function.
@@ -165,7 +166,8 @@ Files generated depend on the chosen Node.js programming model for Functions:
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-An HttpExample folder that contains:
+
+An HttpExample folder is created that contains:
 
 + The [function.json definition file](functions-reference-powershell.md#folder-structure)
 + A run.ps1 file, which contains the function code.
