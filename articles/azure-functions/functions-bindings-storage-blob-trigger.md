@@ -176,7 +176,23 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 This example uses SDK types to directly access the underlying [`BlobClient`](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object provided by the Blob storage trigger: 
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-14,31-39"::: 
+```python
+import logging
+import azure.functions as func
+import azurefunctions.extensions.bindings.blob as blob
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@app.blob_trigger(
+    arg_name="client", path="PATH/TO/BLOB", connection="CONNECTION_SETTING"
+)
+def blob_trigger(client: blob.BlobClient):
+    logging.info(
+        f"Python blob trigger function processed blob \n"
+        f"Properties: {client.get_blob_properties()}\n"
+        f"Blob content head: {client.download_blob().read(size=1)}"
+    )
+```
 
 For examples of using other SDK types, see the [`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py) and [`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py) samples.
 

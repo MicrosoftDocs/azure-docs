@@ -290,6 +290,33 @@ foreach ($i in 1..10) {
 
 The following example demonstrates how to use the Table storage output binding. Configure the `table` binding in the *function.json* by assigning values to `name`, `tableName`, `partitionKey`, and `connection`:
 
+# [v2](#tab/python-v2)
+The following function generates a unique UUI for the `rowKey` value and persists the message into Table storage.
+
+```python
+import logging
+import uuid
+import json
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.route(route="table_out_binding", binding_arg_name="message")
+@app.table_output(arg_name="$return",
+                  connection="AzureWebJobsStorage",
+                  table_name="messages")
+def table_out_binding(req: func.HttpRequest, message: func.Out[func.HttpResponse]):
+    rowKey = str(uuid.uuid4())
+    data = {
+        "Name": "Output binding message",
+        "PartitionKey": "message",
+        "RowKey": rowKey
+    }
+    message.set(json.dumps(data))
+    return func.HttpResponse(f"Message created with the rowKey: {rowKey}")
+```
+
+# [v1](#tab/python-v1)
 ```json
 {
   "scriptFile": "__init__.py",
