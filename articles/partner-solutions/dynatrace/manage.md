@@ -97,7 +97,7 @@ Contact [Dynatrace](https://support.dynatrace.com/) for customer support.
 
 You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
-Select **Support + Troubleshooting** > **New support request**. 
+Select **Support + Troubleshooting** from the Resource pane, then choose the link to [log a support request in the Dynatrace portal](https://support.dynatrace.com/).
 
 ## Related content
 
