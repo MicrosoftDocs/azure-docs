@@ -35,7 +35,7 @@ To access your MongoDB Atlas organization, select **Go to MongoDB Atlas** on the
 
 :::image type="content" source="media/manage/set-password.png" alt-text="Screenshot of a MongoDB Atlas resource overview in the Azure portal. The Go to MongoDB Atlas link is emphasized.":::
 
-## Delete a MongoDB Atlas resource
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 

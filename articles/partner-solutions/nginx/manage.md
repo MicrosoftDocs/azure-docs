@@ -78,7 +78,7 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 
     :::image type="content" source="media/nginx-manage/nginx-send-to-monitor.png" alt-text="screenshot of nginx sent to monitoring":::
 
-## Delete an NGINXaaS deployment
+## Delete a resource
 
 To delete a deployment of NGINXaaS:
 
