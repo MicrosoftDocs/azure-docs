@@ -57,7 +57,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
    The following example shows a sample JSON schema:
 
-   :::image type="content" source="media/connectors-native-reqres/provide-json-schema-consumption.png" alt-text="Screenshot showing Consumption workflow and Request trigger with example JSON schema.":::
+   :::image type="content" source="media/connectors-native-reqres/provide-json-schema-consumption.png" alt-text="Screenshot showing Consumption workflow and Request trigger with example JSON schema." lightbox="media/connectors-native-reqres/provide-json-schema-consumption.png":::
 
    The following example shows the complete sample JSON schema:
 
@@ -117,11 +117,11 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
    1. In the Request trigger, select **Use sample payload to generate schema**.
 
-      :::image type="content" source="media/connectors-native-reqres/generate-from-sample-payload-consumption.png" alt-text="Screenshot showing Consumption workflow, Request trigger, and option to use sample payload to generate schema.":::
+      :::image type="content" source="media/connectors-native-reqres/generate-from-sample-payload-consumption.png" alt-text="Screenshot showing Consumption workflow, Request trigger, and option to use sample payload to generate schema." lightbox="media/connectors-native-reqres/generate-from-sample-payload-consumption.png":::
 
    1. Enter the sample payload, and select **Done**.
 
-      :::image type="content" source="media/connectors-native-reqres/enter-payload-consumption.png" alt-text="Screenshot showing Consumption workflow, Request trigger, and sample payload entered to generate schema.":::
+      :::image type="content" source="media/connectors-native-reqres/enter-payload-consumption.png" alt-text="Screenshot showing Consumption workflow, Request trigger, and sample payload entered to generate schema." lightbox="media/connectors-native-reqres/enter-payload-consumption.png":::
 
       The following example shows the sample payload:
 
@@ -169,7 +169,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
 1. Select the **Method** dropdown list and choose a method from the list.
 
-   :::image type="content" source="media/connectors-native-reqres/select-method-standard.png" alt-text="Screenshot showing Standard workflow, Request trigger, and the Method list opened with a method selected.":::
+   :::image type="content" source="media/connectors-native-reqres/select-method-standard.png" alt-text="Screenshot showing Standard workflow, Request trigger, and the Method list opened with a method selected." lightbox="media/connectors-native-reqres/select-method-standard.png":::
 
 1. When you're ready, save your workflow. On the designer toolbar, select **Save**.
 
@@ -177,7 +177,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
 1. To copy the generated URL, select the copy icon next to the URL.
 
-   :::image type="content" source="media/connectors-native-reqres/generated-url-consumption.png" alt-text="Screenshot showing Consumption workflow, Request trigger, and URL copy button selected.":::
+   :::image type="content" source="media/connectors-native-reqres/generated-url-consumption.png" alt-text="Screenshot showing Consumption workflow, Request trigger, and URL copy button selected." lightbox="media/connectors-native-reqres/generated-url-consumption.png":::
 
    > [!NOTE]
    >
@@ -201,7 +201,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
    The following example shows a sample JSON schema:
 
-   :::image type="content" source="media/connectors-native-reqres/provide-json-schema-standard.png" alt-text="Screenshot showing Standard workflow and Request trigger with example JSON schema.":::
+   :::image type="content" source="media/connectors-native-reqres/provide-json-schema-standard.png" alt-text="Screenshot showing Standard workflow and Request trigger with example JSON schema." lightbox="media/connectors-native-reqres/provide-json-schema-standard.png":::
 
    The following example shows the complete sample JSON schema:
 
@@ -261,11 +261,11 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
    1. In the Request trigger, select **Use sample payload to generate schema**.
 
-      :::image type="content" source="media/connectors-native-reqres/generate-from-sample-payload-standard.png" alt-text="Screenshot showing Standard workflow, Request trigger, and option to use sample payload to generate schema.":::
+      :::image type="content" source="media/connectors-native-reqres/generate-from-sample-payload-standard.png" alt-text="Screenshot showing Standard workflow, Request trigger, and option to use sample payload to generate schema." lightbox="media/connectors-native-reqres/generate-from-sample-payload-standard.png":::
 
    1. Enter the sample payload, and select **Done**.
 
-      :::image type="content" source="media/connectors-native-reqres/enter-payload-standard.png" alt-text="Screenshot showing Standard workflow, Request trigger, and sample payload entered to generate schema.":::
+      :::image type="content" source="media/connectors-native-reqres/enter-payload-standard.png" alt-text="Screenshot showing Standard workflow, Request trigger, and sample payload entered to generate schema." lightbox="media/connectors-native-reqres/enter-payload-standard.png":::
 
       The following example shows the sample payload:
 
@@ -313,7 +313,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
 1. Select the **Method** dropdown list and choose a method from the list.
 
-   :::image type="content" source="media/connectors-native-reqres/select-method-standard.png" alt-text="Screenshot showing Standard workflow, Request trigger, and the Method list opened with a method selected.":::
+   :::image type="content" source="media/connectors-native-reqres/select-method-standard.png" alt-text="Screenshot showing Standard workflow, Request trigger, and the Method list opened with a method selected." lightbox="media/connectors-native-reqres/select-method-standard.png":::
 
 1. When you're ready, save your workflow. On the designer toolbar, select **Save**.
 
@@ -321,7 +321,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
 1. To copy the generated URL, select the copy icon next to the URL.
 
-   :::image type="content" source="media/connectors-native-reqres/generated-url-standard.png" alt-text="Screenshot showing Standard workflow, Request trigger, and URL copy button selected.":::
+   :::image type="content" source="media/connectors-native-reqres/generated-url-standard.png" alt-text="Screenshot showing Standard workflow, Request trigger, and URL copy button selected." lightbox="media/connectors-native-reqres/generated-url-standard.png":::
 
    > [!NOTE]
    >
@@ -416,11 +416,11 @@ When you use the Request trigger to receive inbound requests, you can model the 
 
    For example, in the **Headers** field, include `Content-Type` as the key name, and set the key value to `application/json` as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
 
-   :::image type="content" source="media/connectors-native-reqres/response-details-consumption.png" alt-text="Screenshot showing Azure portal, Consumption workflow, and Response action information.":::
+   :::image type="content" source="media/connectors-native-reqres/response-details-consumption.png" alt-text="Screenshot showing Azure portal, Consumption workflow, and Response action information." lightbox="media/connectors-native-reqres/response-details-consumption.png":::
 
    To view the headers in JSON format, select **Switch to text view**.
 
-   :::image type="content" source="media/connectors-native-reqres/switch-to-text-view-consumption.png" alt-text="Screenshot showing Azure portal, Consumption workflow, and Response action headers in Switch to text view.":::
+   :::image type="content" source="media/connectors-native-reqres/switch-to-text-view-consumption.png" alt-text="Screenshot showing Azure portal, Consumption workflow, and Response action headers in Switch to text view." lightbox="media/connectors-native-reqres/switch-to-text-view-consumption.png":::
 
 1. To add more properties for the action, such as a JSON schema for the response body, from the **Add new parameter** list, select the parameters that you want to add.
 
@@ -444,11 +444,11 @@ When you use the Request trigger to receive inbound requests, you can model the 
 
    For example, for the **Headers** box, enter `Content-Type` as the key name, and set the key value to `application/json` as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
 
-   :::image type="content" source="media/connectors-native-reqres/response-details-standard.png" alt-text="Screenshot showing Azure portal, Standard workflow, and Response action information.":::
+   :::image type="content" source="media/connectors-native-reqres/response-details-standard.png" alt-text="Screenshot showing Azure portal, Standard workflow, and Response action information." lightbox="media/connectors-native-reqres/response-details-standard.png":::
 
    To view the headers in JSON format, select **Switch to text view**.
 
-   :::image type="content" source="media/connectors-native-reqres/switch-to-text-view-standard.png" alt-text="Screenshot showing Azure portal, Standard workflow, and Response action headers in Switch to text view.":::
+   :::image type="content" source="media/connectors-native-reqres/switch-to-text-view-standard.png" alt-text="Screenshot showing Azure portal, Standard workflow, and Response action headers in Switch to text view." lightbox="media/connectors-native-reqres/switch-to-text-view-standard.png":::
 
 1. To add more properties for the action, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
 

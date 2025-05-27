@@ -15,6 +15,7 @@ ms.date: 05/09/2025
 Some scenarios might require that you create a logic app workflow that sends outbound requests to endpoints on other services or systems over HTTP or HTTPS. For example, suppose that you want to monitor a service endpoint for your website by checking that endpoint on a specific schedule. When a specific event happens at that endpoint, such as your website going down, that event triggers your workflow and runs the actions in that workflow.
 
 > [!NOTE]
+>
 > To create a workflow that receives and responds to inbound HTTPS calls instead, see 
 > [Create workflows that you can call, trigger, or nest using HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md). To use the Request built-in trigger, see [Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
@@ -208,6 +209,7 @@ For example, if you're working in Visual Studio Code, follow these steps:
    ```
 
 > [!NOTE]
+>
 > To find the thumbprint, follow these steps:
 > - On your logic app resource menu, under **Settings**, select **Certificates**.
 > - Select **Bring your own certificates (.pfx)** or **Public key certificates (.cer)**.
