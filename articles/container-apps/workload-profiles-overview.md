@@ -74,7 +74,7 @@ There are different types and sizes of workload profiles available by region. By
 > [!NOTE]
 > The command `az containerapp env workload-profile set` is no longer available for selecting a workload profile. Instead, use [az containerapp env workload-profile add](/cli/azure/containerapp/env/workload-profile#az-containerapp-env-workload-profile-add) or [az containerapp env workload-profile update](/cli/azure/containerapp/env/workload-profile#az-containerapp-env-workload-profile-update).
 
-In addition to different core and memory sizes, workload profiles also have different storage sizes allocated to them. However, you should not use this storage for your data. Instead, use a [storage mount](storage-mounts.md). 
+In addition to a different core size and memory size, each workload profile is allocated a different storage size. This allocated space is used for the runtime. Do not use this storage for your application data. Instead, use a [storage mount](storage-mounts.md).
 
 The availability of different workload profiles varies by region.
 
