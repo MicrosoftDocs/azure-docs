@@ -147,15 +147,15 @@ Next, [Retrieve and modify the connection string](#retrieve-and-modify-connectio
 
 For X.509 certificate authority (CA) signed authentication, you need a root CA certificate registered in IoT Hub that you use to sign certificates for your downstream device. Any device using a certificate that was issues by the root CA certificate or any of its intermediate certificates is permitted to authenticate.
 
-For an introduction about using X.509 CA certificates to authenticate in IoT Hub, see [Benefits of X.509 CA certificate authentication](../iot-hub/authenticate-authorize-x509#benefits-of-x509-ca-certificate-authentication).
+For an introduction about using X.509 CA certificates to authenticate in IoT Hub, see the [benefits of X.509 CA certificate authentication](../iot-hub/authenticate-authorize-x509.md#benefits-of-x509-ca-certificate-authentication).
 
 To set up X.509 CA-signed authentication for a downstream device, follow these steps:
 
-1. Get an X.509 CA certificate that you can use to sign certificates for your downstream device. For an example of how to set up X.509 CA-signed authentication, see the following [example scenario](../iot-hub/authenticate-authorize-x509#example-scenario).
-1. Create a certificate chain for your downstream device. To learn more, follow the steps in [create a subordinate CA](../iot-hub/tutorial-x509-test-certs#create-a-client-certificate-for-a-device).
-1. Register the X.509 CA certificate in your IoT Hub. To learn more, follow the steps in [register your subordinate CA certificate to your IoT Hub](../iot-hub/tutorial-x509-test-certs#register-your-subordinate-ca-certificate-to-your-iot-hub).
+1. Get an X.509 CA certificate that you can use to sign certificates for your downstream device. For an example of how to set up X.509 CA-signed authentication, see the following [example scenario](../iot-hub/authenticate-authorize-x509.md#example-scenario).
+1. Create a certificate chain for your downstream device. To learn more, follow the steps in [create a subordinate CA](../iot-hub/tutorial-x509-test-certs.md#create-a-client-certificate-for-a-device).
+1. Register the X.509 CA certificate in your IoT Hub. To learn more, follow the steps in [register your subordinate CA certificate to your IoT Hub](../iot-hub/tutorial-x509-test-certs.md#register-your-subordinate-ca-certificate-to-your-iot-hub).
 1. Copy the device certificate and keys to the downstream device. For more information, see [manage IoT Edge certificates](how-to-manage-device-certificates.md).
-1. Register the device with IoT Hub to use X.509 CA signed authentication. For more information, see [create and manage device identities](../iot-hub/create-connect-device).
+1. Register the device with IoT Hub to use X.509 CA signed authentication. For more information, see [create and manage device identities](../iot-hub/create-connect-device.md).
 1. Depending on your preferred language, review samples of how X.509 certificates can be referenced in IoT applications:
 
    * C#: [x509 device certificate with chain sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/X509DeviceCertWithChainSample)
