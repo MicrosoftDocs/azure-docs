@@ -171,10 +171,12 @@ builder.AddAzureAppConfiguration(options =>
         .Select("App:Settings:*")
         // Load configuration values with prefix "TestApp:" and "Prod" label
         .Select("App:Settings:*", "Prod")
+        // Load configuration values with prefix "TestApp:" and "Prod" label that have the tag "Group" with value "Contoso"
+        .Select("App:Settings:*", "Prod", new[] { "Group=Contoso" })
 });
 ```
 
-The `Select` method takes two parameters, the first parameter is a key filter that specifies which keys to load, and the second parameter is a label filter that specifies which key-values with specific labels to load.
+The `Select` method takes three parameters. The first parameter is a key filter that specifies which keys to load, the second parameter is a label filter that specifies which key-values with specific labels to load, and the third parameter specifies a collection of tag filters that all must be present on a key-value to load.
 
 > [!NOTE]
 > When multiple `Select` calls include overlapping keys, later calls take precedence over earlier ones.
@@ -197,6 +199,13 @@ The label filter parameter selects key-values with a specific label. If not spec
 
 > [!NOTE]
 > The characters asterisk (`*`) and comma (`,`), are not supported for label filter. Backslash (`\`) character is reserved and must be escaped using another backslash (`\`).
+
+#### Tag filters
+
+The tag filters parameter selects key-values with specific tags. A key-value is only loaded if it has all of the tags and corresponding values specified in the filters. To specify a null value for a tag, the built-in `TagValue.Null` can be used.
+
+> [!NOTE]
+> The characters asterisk (`*`), comma (`,`), and backslash (`\`) are reserved and must be escaped with a backslash when used in a tag filter.
 
 ### Trim prefix from keys
 
@@ -417,7 +426,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 });
 ```
 
-Inside the `UseFeatureFlags` method, you call the `Select` method to selectively load feature flags. You can use [key filter](#key-filter) and [label filter](#label-filter) to select the feature flags you want to load. If no `Select` method is called, `UseFeatureFlags` loads all feature flags with no label by default.
+Inside the `UseFeatureFlags` method, you call the `Select` method to selectively load feature flags. You can use [key filter](#key-filter), [label filter](#label-filter), and [tag filters](#tag-filters) to select the feature flags you want to load. If no `Select` method is called, `UseFeatureFlags` loads all feature flags with no label by default.
 
 Different from key-values, feature flags are automatically registered for refresh without requiring explicit `ConfigureRefresh` call. You can specify the minimum time between feature flag refreshes through the `SetRefreshInterval` method. The default refresh interval is 30 seconds.
 
