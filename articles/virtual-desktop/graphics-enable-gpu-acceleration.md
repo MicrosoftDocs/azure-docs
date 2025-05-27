@@ -229,17 +229,15 @@ To verify that a remote session is using GPU acceleration, GPU-accelerated appli
    > [!TIP]
    > For NVIDIA GPUs, you can also use the `nvidia-smi` utility to check for GPU utilization when running your application. For more information, see [Verify driver installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation).
 
-1. To verify GPU-accelerated full-screen encoding using HEVC/H.265 or AVC/H.264, you can open the Connection Information window from your session.
+1. To verify GPU-accelerated full-screen encoding using HEVC/H.265 or AVC/H.264, you can open the **Connection Information** window from your session.
 
-   1. If your session is in full-screen mode, click on the signal strength icon in the RDP connection bar at the top of your session window.
+   1. If your session is in full-screen mode, select the signal strength icon in the RDP connection bar at the top of your session window. If your session is in windowed mode, right-click on the top of the window and select **Connection Information** from the context menu.
   
-   1. If your session is in windowed mode, right-click on the top of the window and select "Connection Information" from the context menu.
-  
-   1. Click on **"See details"** to expand the window with additional information.
-      - If you see **Codecs Used: AVC** under **"[Graphics details]"**, then GPU-accelerated frame encoding with AVC/H.264 and full-screen video encoding is in use.
-      - If you see **Codecs Used: HEVC** under **"[Graphics details]"**, then GPU-accelerated frame encoding with HEVC/H.265 and full-screen video encoding is in use.   
+   1. Select **"See details"** to expand the window with additional information.
+      - If you see **Codecs Used: AVC** under **Graphics details**, then GPU-accelerated frame encoding with AVC/H.264 and full-screen video encoding is in use.
+      - If you see **Codecs Used: HEVC** under **Graphics details**, then GPU-accelerated frame encoding with HEVC/H.265 and full-screen video encoding is in use.   
 
-1. Alternatively, you can use Event Viewer to verify GPU acceleration. To do so, open Event Viewer from the start menu, or run `eventvwr.msc` from the command line.
+1. Alternatively, you can use Event Viewer to verify GPU acceleration. To do so, open **Event Viewer** from the Start menu, or run `eventvwr.msc` from the command line.
 
 1. Navigate to one of the following locations:
 
