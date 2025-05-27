@@ -45,6 +45,8 @@ The following table shows locations by service provider. If you want to view ava
 
 |Service provider | Microsoft Azure | Microsoft 365  | Locations |
 | --- | --- | --- | --- |
+| **[1-IX.EU](https://1-ix.eu/)** |&check; |&check; | Amsterdam<br/>Frankfurt2<br/>Warsaw |
+| **[A1 Telekom Austria](https://www.a1.net/cloud-region)** |&check; |&check; | Vienna |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |&check; |&check; | Melbourne<br/>Sydney<br/>Sydney2 |
 | **[Airtel](https://www.airtel.in/business/#/)** | &check; | &check; | Chennai2<br/>Mumbai2<br/>Pune |
 | **[AIS](https://business.ais.co.th/solution/en/azure-expressroute.html)** | &check; | &check; | Bangkok |
@@ -92,11 +94,11 @@ The following table shows locations by service provider. If you want to view ava
 |Service provider | Microsoft Azure | Microsoft 365  | Locations |
 | --- | --- | --- | --- |
 | **DCI Indonesia** |&check; |&check; | Jakarta |
-| **[DE-CIX](https://www.de-cix.net/en/services/directcloud/microsoft-azure)** | &check; |&check; | Amsterdam<br/>Amsterdam2<br/>Chennai<br/>Chicago2<br/>Copenhagen<br/>Dallas<br/>Dubai2<br/>Frankfurt<br/>Frankfurt2<br/>Jakarta<br/>Kuala Lumpur<br/>Madrid<br/>Marseille<br/>Mumbai<br/>Munich<br/>New York<br/>Osaka<br/>Oslo<br/>Phoenix<br/>Queretaro (Mexico)<br/>Seattle<br/>Singapore2<br/>Tokyo2 |
+| **[DE-CIX](https://www.de-cix.net/en/services/directcloud/microsoft-azure)** | &check; |&check; | Amsterdam<br/>Amsterdam2<br/>Chennai<br/>Chicago2<br/>Copenhagen<br/>Dallas<br/>Dubai2<br/>Frankfurt<br/>Frankfurt2<br/>Jakarta<br/>Kuala Lumpur<br/>Madrid<br/>Madrid2<br/>Marseille<br/>Mumbai<br/>Munich<br/>New York<br/>Osaka<br/>Oslo<br/>Phoenix<br/>Queretaro (Mexico)<br/>Seattle<br/>Singapore2<br/>Tokyo2 |
 | **[Devoli](https://devoli.com/)** | &check; |&check; | Auckland<br/>Melbourne<br/>Sydney |
 | **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | &check; |&check; | Frankfurt |
 | **[Deutsche Telekom AG](https://www.t-systems.com/de/en/cloud-services/solutions/public-cloud/azure-managed-cloud-services/cloud-connect-for-azure)** | &check; |&check; | Amsterdam<br/>Dublin<br/>Frankfurt2<br/>Hong Kong2 |
-| **[Digital Realty](https://www.digitalrealty.com/partners/microsoft-azure)** | &check; | &check; | Atlanta2<br/>Dallas2<br/>Hong Kong2<br/>Phoenix2<br/>Seattle<br/>Silicon Valley<br/>Seoul<br/>Singapore2<br/>Tokyo2<br/>Vienna<br/>Washington DC |
+| **[Digital Realty](https://www.digitalrealty.com/partners/microsoft-azure)** | &check; | &check; | Amsterdam2<br/>Atlanta2<br/>Dallas2<br/>Hong Kong2<br/>Phoenix2<br/>Seattle<br/>Silicon Valley<br/>Seoul<br/>Singapore2<br/>Sydney2<br/>Tokyo2<br/>Vienna<br/>Washington DC |
 | **du datamena** |&check; |&check; | Dubai2 |
 | **[eir evo](https://www.eirevo.ie/cloud-services/cloud-connectivity)** |&check; |&check; | Dublin |
 | **[Elisa](https://elisa.fi/)** |&check; |&check; | Stockholm |
@@ -124,7 +126,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | &check; | &check; | Osaka<br/>Tokyo<br/>Tokyo2 |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** | &check; | &check; | Cape Town<br/>Johannesburg<br/>London |
 | **[Interxion (Digital Realty)](https://www.digitalrealty.com/partners/microsoft-azure)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Copenhagen<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>London<br/>London2<br/>Madrid<br/>Marseille<br/>Paris<br/>Stockholm<br/>Zurich |
-| **IPC** | &check; |&check; | Singapore<br/>Tokyo2<br/>Washington DC |
+| **IPC** | &check; |&check; | Chicago<br/>Singapore<br/>Tokyo2<br/>Washington DC |
 | **[IRIDEOS](https://irideos.it/)** | &check; | &check; | Milan |
 | **Iron Mountain** | &check; |&check; | Phoenix2<br/>Washington DC |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**| &check; | &check; | Amsterdam<br/>London2<br/>Silicon Valley<br/>Tokyo2<br/>Toronto<br/>Washington DC |
@@ -162,6 +164,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[NETSG](https://www.netsg.co/dc-cloud/cloud-and-dc-interconnect/)** | &check; | &check; | Melbourne<br/>Sydney2 |
 | **[Next Generation Data](https://vantage-dc-cardiff.co.uk/)** | &check; | &check; | Newport(Wales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** | &check; | &check; | Melbourne<br/>Perth<br/>Sydney<br/>Sydney2 |
+| **[Next Layer GmbH](https://www.nextlayer.at/)** |&check; |&check; | Vienna<br/>Vienna2 |
 | **NL-IX** | &check; | &check; | Amsterdam2<br/>Dublin2 |
 | **[NOS](https://www.nos.pt/empresas/solucoes/cloud/cloud-publica/nos-cloud-connect)** | &check; | &check; | Amsterdam2<br/>Madrid |
 | **Noovle** | &check; | &check; | Milan |
@@ -205,11 +208,11 @@ The following table shows locations by service provider. If you want to view ava
 
 |Service provider | Microsoft Azure | Microsoft 365  | Locations |
 | --- | --- | --- | --- |
-| **[Tata Communications](https://www.tatacommunications.com/solutions/network/cloud-ready-networks/)** | &check; | &check; | Amsterdam<br/>Chennai<br/>Chicago<br/>Hong Kong<br/>London<br/>London2<br/>Mumbai<br/>Pune<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Washington DC |
+| **[Tata Communications](https://www.tatacommunications.com/solutions/network/cloud-ready-networks/)** | &check; | &check; | Amsterdam<br/>Chennai<br/>Chicago<br/>Hong Kong<br/>London<br/>London2<br/>Mumbai<br/>Pune<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Washington DC |
 | **[Telefonica](https://www.telefonica.com/es/)** | &check; | &check; | Amsterdam<br/>Dallas<br/>Frankfurt2<br/>Hong Kong<br/>Madrid<br/>Sao Paulo<br/>Singapore<br/>Washington DC |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** | &check; | &check; | London<br/>London2<br/>Singapore2 |
 | **Telenor** |&check; |&check; | Amsterdam<br/>London<br/>Oslo<br/>Stavanger |
-| **[Telia Carrier](https://www.arelion.com/products-and-services/internet-and-cloud/cloud-connect)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Frankfurt<br/>Hong Kong<br/>London<br/>Oslo<br/>Paris<br/>Seattle<br/>Silicon Valley<br/>Stockholm<br/>Washington DC |
+| **[Telia Carrier](https://www.arelion.com/products-and-services/internet-and-cloud/cloud-connect)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Frankfurt<br/>Hong Kong<br/>London<br/>Oslo<br/>Paris<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Stockholm<br/>Washington DC |
 | **[Telin](https://telin.net/)** | &check; | &check; | Jakarta |
 | **Telmex Uninet**| &check; | &check; | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | &check; | &check; | Canberra<br/>Melbourne<br/>Singapore<br/>Sydney |
@@ -231,7 +234,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Vodafone](https://www.vodafone.com/business/products/cloud-and-edge)** | &check; | &check; | Amsterdam2<br/>Chicago<br/>Dallas<br/>Hong Kong2<br/>London<br/>London2<br/>Milan<br/>Silicon Valley<br/>Singapore |
 | **[Vi (Vodafone Idea)](https://www.myvi.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | &check; | &check; | Chennai<br/>Mumbai2 |
 | **Vodafone Qatar** | &check; | &check; | Doha |
-| **[Vorboss](https://vorboss.com/)** | &check; | &check; | London |
+| **[Vorboss](https://vorboss.com/)** | &check; | &check; | Amsterdam2<br/>London |
 | **XL Axiata** | &check; | &check; | Jakarta |
 | **[Zayo](https://www.zayo.com/services/packet/cloudlink/)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Denver<br/>Dublin<br/>Frankfurt<br/>Hong Kong<br/>London<br/>London2<br/>Los Angeles<br/>Minneapolis<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC2<br/>Zurich|
 | **[Zenlayer](https://www.zenlayer.com/)** | &check; | &check; | Frankfurt<br/>Frankfurt2<br/>Hong Kong<br/>Hong Kong2<br/>Singapore<br/>Singapore2<br/>Washington DC |
