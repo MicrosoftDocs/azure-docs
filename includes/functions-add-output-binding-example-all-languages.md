@@ -46,7 +46,7 @@ For more information, including links to example binding code that you can refer
 ::: zone pivot="programming-language-javascript"
 ### [v4](#tab/node-v4)
 
-:::code language="javascript" source="~/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js":::
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js":::
 
 
 ### [v3](#tab/node-v3)
@@ -77,7 +77,7 @@ The way you define the output binding depends on the version of your Python mode
 ::: zone pivot="programming-language-typescript"
 ### [v4](#tab/node-v4)
 
-:::code language="typescript" source="~/functions-add-output-binding-storage-queue-cli-v4-programming-model-ts/src/functions/httpTrigger1.ts":::
+:::code language="typescript" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model-ts/src/functions/httpTrigger1.ts":::
 
 ### [v3](#tab/node-v3)
 
