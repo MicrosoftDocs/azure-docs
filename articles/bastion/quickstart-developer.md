@@ -4,7 +4,7 @@ description: Learn how to connect to VMs using Bastion Developer.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: quickstart
-ms.date: 03/14/2025
+ms.date: 05/27/2025
 ms.author: cherylmc
 ms.custom: references_regions
 ---
@@ -17,14 +17,17 @@ The following diagram shows the architecture for Azure Bastion Developer.
 
 :::image type="content" source="./media/quickstart-developer/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion Developer architecture." lightbox="./media/quickstart-developer/bastion-shared-pool.png":::
 
+## <a name="developer"></a>About Bastion Developer
+
+> [!IMPORTANT]
+> Bastion Developer is currently unavailable. We're working to restore service. As a workaround, you can use the [Basic SKU](tutorial-create-host-portal.md) or the [Standard SKU](quickstart-host-portal.md) to connect to your VMs. We'll update this article when Bastion Developer is available again.
+
+[!INCLUDE [Bastion developer](../../includes/bastion-developer-description.md)]
+
 [!INCLUDE [regions](../../includes/bastion-developer-regions.md)]
 
 > [!NOTE]
 > Virtual network peering isn't currently supported for Bastion Developer.
-
-## <a name="developer"></a>About Bastion Developer
-
-[!INCLUDE [Bastion developer](../../includes/bastion-developer-description.md)]
 
 ## <a name="prereq"></a>Prerequisites
 
