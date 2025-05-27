@@ -17,6 +17,8 @@ The **Commit Workflow v2** ensures that device-impacting changes to a Network Fa
 
 * **Runtime version**: `5.0.1` or later is required for Commit Workflow v2.
 
+* **Azure CLI version** `8.0.0b3` or later is installed
+
 * Your **Network Fabric must be in `Provisioned` state** and **configuration state must be `Succeeded`**.
 
 * The **fabric and all impacted resources must have admin state set to `Enabled`**.
