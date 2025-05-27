@@ -16,22 +16,20 @@ This guide walks you through two common messaging scenarios in LiveTry, while he
 
 ---
 
-## What you'll learn
+## What you learn
 
-You'll explore two messaging patterns often used in real-time applications:
+You explore two messaging patterns often used in real-time applications:
 
 - **Server-to-group messaging**: Using the `sendToGroup` API to broadcast messages to all clients in a group.
-- **Client-to-group messaging**: Azure Web PubSub supports a capability that allows a client in a group to send messages directly to other clients in the same group—**without routing through your app server** — reducing latency.
-
-Each scenario is accompanied by a short tutorial video to help you follow along.
+- **Client-to-group messaging**: Azure Web PubSub supports a capability that allows a client in a group to send messages directly to other clients in the same group—**without routing through your app server**—reducing latency.
 
 ---
 
 ## Key concepts
 
-Before getting started, here’s a quick refresher on core Azure Web PubSub concepts that you’ll interact with in LiveTry:
+Before getting started, here’s a quick refresher on core Azure Web PubSub concepts that you interact with in LiveTry:
 
-- **Hub**: A logical unit used to isolate and organize messaging logic. Clients always connects to a hub. With LiveTry, real traffic goes through the resource. For this tutorial, we recommend specifying a test hub name that doesn’t overlap with your production traffic.
+- **Hub**: A logical unit used to isolate and organize messaging logic. Clients always connect to a hub. With LiveTry, real traffic goes through the resource. For this tutorial, we recommend specifying a test hub name that doesn’t overlap with your production traffic.
 - **Connection**: A persistent WebSocket connection between a client and the Azure Web PubSub service.
 - **Group**: A server-managed subset of connections. Messages sent to a group are delivered only to the connections within that group.
 - **Messages**: The payloads exchanged between clients and the service. Messages can be broadcast to all, targeted to groups, or directed to individual connections.
@@ -40,7 +38,7 @@ Before getting started, here’s a quick refresher on core Azure Web PubSub conc
 
 ## Scenario 1: Send a message to a group from the server
 
-In this scenario, you’ll simulate server-side broadcasting using the `sendToGroup` REST API. This demonstrates how the service routes a message from your backend to all clients in a specified group.
+In this scenario, you simulate server-side broadcasting using the `sendToGroup` REST API. This demonstrates how the service routes a message from your backend to all clients in a specified group.
 
 ### Steps
 1. In the Azure portal, navigate to your Azure Web PubSub resource.  
@@ -54,7 +52,7 @@ In this scenario, you’ll simulate server-side broadcasting using the `sendToGr
 ### What you’re learning
 You send messages to a group of clients using RESTful APIs. LiveTry demonstrates how server-to-group communication works without needing to deploy a backend. Azure Web PubSub also provides server SDKs for C#, JavaScript, Java, and Python.
 
-Try repeating the steps with multiple clients to visualize message broadcasting in action. LiveTry supports up to 5 concurrent simulated clients.
+Try repeating the steps with multiple clients to visualize message broadcasting in action. LiveTry supports up to five concurrent simulated clients.
 
 ---
 
@@ -76,7 +74,7 @@ This scenario showcases **client-to-group messaging**, which is ideal in applica
 ## Tips for using LiveTry
 
 - Open multiple browser tabs to simulate multiple users or devices.
-- Try combining additional operations like `joinGroup`, `leaveGroup`, or `sendToConnection`.
+- Try combining more operations like `joinGroup`, `leaveGroup`, or `sendToConnection`.
 - Use clear group names to better organize your experiments.
 
 ---
