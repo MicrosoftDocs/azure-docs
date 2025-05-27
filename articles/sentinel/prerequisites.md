@@ -1,8 +1,8 @@
 ---
 title: Prerequisites for deploying Microsoft Sentinel
 description: Learn about prerequisites to deploy Microsoft Sentinel.
-author: cwatson
-ms.author: cwatson
+author: batamig
+ms.author: bagol
 ms.topic: conceptual
 ms.date: 03/05/2024
 
