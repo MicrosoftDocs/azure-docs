@@ -25,15 +25,12 @@ In this tutorial, you:
 > - Configure Entity Framework to use Microsoft Entra authentication with SQL Database.
 > - Connect to SQL Database from Visual Studio using Microsoft Entra authentication.
 
+For guidance about using Azure Database for MySQL or Azure Database for PostgreSQL in Node.js, Python, and Java frameworks, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
+
 > [!NOTE]
 > Microsoft Entra ID and managed identities aren't supported for on-premises SQL Server.
 > 
 > Microsoft Entra authentication is different from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD) Domain Services (DS). AD DS and Microsoft Entra ID use completely different authentication protocols. For more information, see [Microsoft Entra Domain Services documentation](/azure/active-directory-domain-services/index).
-
-> [!NOTE]
-> **Microsoft.Azure.Services.AppAuthentication** is no longer recommended to use with new Azure SDKs. Use the **Azure Identity client library**, available for .NET, Java, TypeScript, and Python, for all new development. For information about how to migrate to Azure Identity, see [AppAuthentication to Azure.Identity migration guidance](/dotnet/api/overview/azure/app-auth-migration).
-> 
-> For guidance about using Azure Database for MySQL or Azure Database for PostgreSQL in Node.js, Python, and Java frameworks, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
 
 ## Prerequisites
 
@@ -44,12 +41,10 @@ In this tutorial, you:
   - [Tutorial: Build an ASP.NET app in Azure with Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
   - [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
   
-  You can also use your own .NET web app that uses Azure SQL Database as the back end.
+  You can also use your own .NET web app that uses Azure SQL Database as the back end. The steps in this tutorial support the following versions:
 
-  > [!NOTE]
-  > The steps in this tutorial support the following versions:
-  > - .NET Framework 4.8 and above
-  > - .NET 6.0 and above
+  - .NET Framework 4.8 and above
+  - .NET 6.0 and above
 
 - Make sure to allow client connection from your computer to Azure, so you can debug your app. You can add the client IP by following the steps at [Manage server-level IP firewall rules using the Azure portal](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
@@ -59,30 +54,32 @@ In this tutorial, you:
 <a name='1-grant-database-access-to-azure-ad-user'></a>
 ## Grant admin access to a Microsoft Entra user
 
-First, enable Microsoft Entra authentication to SQL Database by assigning a Microsoft Entra user as the admin of the server. This user might be different from the Microsoft account user for your Azure subscription.
+First, enable Microsoft Entra authentication to SQL Database by assigning a Microsoft Entra user as the admin of the server. This user might not be the same as the Microsoft account user for your Azure subscription.
 
-The Microsoft Entra admin must be a user that is created, imported, synced, or invited into Microsoft Entra ID. If your Microsoft Entra tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Microsoft Entra ID](../active-directory/fundamentals/add-users-azure-active-directory.md).
+The Microsoft Entra admin must be a user that is created, imported, synced, or invited into Microsoft Entra ID. If your Microsoft Entra tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Microsoft Entra ID](/entra/fundamentals/how-to-create-delete-users).
 
-1. Find the object ID of the Microsoft Entra user by using the following [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) command, replacing `<user-principal-name>` with the name of the user. The following code saves the result to a variable called `azureaduser`.
+- For more information on allowed Microsoft Entra users, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#limitations).
+- For more information on adding an Azure SQL server admin, see [Provision a Microsoft Entra administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
+Run the following commands in the Bash environment of Azure Cloud Shell, or after signing in to Azure locally.
+
+1. Find the object ID of the Microsoft Entra user by using [`az ad user list`](/cli/azure/ad/user#az-ad-user-list). The following example saves the result of the query on `<user-principal-name>` to a variable called `azureaduser`.
 
    ```azurecli
-   $azureaduser=(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query '[].id' --output tsv)
+   azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query '[].id' --output tsv)
    ```
 
    > [!TIP]
    > To see the list of all user principal names in Microsoft Entra ID, run `az ad user list --query '[].userPrincipalName'`.
 
-1. Add the Microsoft Entra user as an Azure SQL server admin by using the following [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) command. Replace `<server-name>` with your server name without the `.database.windows.net` suffix.
+1. Add the Microsoft Entra user as an Azure SQL server admin by using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create), replacing `<server-name>` with your server name without the `.database.windows.net` suffix.
 
    ```azurecli
    az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
    ```
 
-- For more information on allowed Microsoft Entra users, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
-- For more information on adding an Azure SQL server admin, see [Provision a Microsoft Entra administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 ## Set up your development environment
 
-In your development environment, sign in to Azure. For more information about setting up your dev environment for Microsoft Entra authentication, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/Identity-readme).
+Set up your development environment and sign in to Azure. For more information about setting up your dev environment for Microsoft Entra authentication, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/Identity-readme).
 
 ### Visual Studio for Windows
 
@@ -122,16 +119,16 @@ You're now ready to develop and debug your app that has an Azure SQL database ba
 
 # [ASP.NET app](#tab/ef)
 
-1. In the Visual Studio **Package Manager Console**, add the NuGet package [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) and update **Entity Framework**.
+1. With your app project open in Visual Studio, go to the **Package Manager Console**, add the NuGet package [Azure.Identity](https://www.nuget.org/packages/Azure.Identity), and update `Entity Framework`.
 
    ```powershell
    Install-Package Azure.Identity
    Update-Package EntityFramework
    ```
    > [!NOTE]
-   > The token caching feature for Managed Identity is available starting from **Azure.Identity** version 1.8.0. To help reduce network port usage, consider updating **Azure.Identity** to this version or later.
+   > The token caching feature for Managed Identity is available starting from `Azure.Identity` version 1.8.0. To help reduce network port usage, consider updating `Azure.Identity` to this version or later.
 
-1. In the `DbContext` object in *Models/MyDbContext.cs*, add the following code to the default constructor.
+1. Open *Models/MyDbContext.cs*, and in the `DbContext` object, add the following code to the default constructor.
 
    ```csharp
    Azure.Identity.DefaultAzureCredential credential;
@@ -154,7 +151,7 @@ You're now ready to develop and debug your app that has an Azure SQL database ba
 
    If you prefer to use a user-assigned managed identity, add a new app setting named `ManagedIdentityClientId` and enter the `Client Id` GUID from your user-assigned managed identity in the `value` field. When the code runs locally, it can get a token using the signed-in identity of Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell.
 
-1. In *Web.config*, find the connection string called `MyDbConnection` and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>;"`. Replace `<server-name` and `<db-name>` with your server name and database name. This connection string is used by the default constructor in *Models/MyDbContext.cs*.
+1. Open *Web.config*, find the connection string called `MyDbConnection` and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>;"`, replacing `<server-name` and `<db-name>` with your server name and database name. This connection string is used by the default constructor in *Models/MyDbContext.cs*.
    
    You now have everything you need to connect to SQL Database when you debug in Visual Studio. Your code uses the Microsoft Entra user you configured when you set up your dev environment. Later, you can set up SQL Database to allow connection from the managed identity of your App Service app.
 
@@ -219,7 +216,7 @@ Here's an example of the output:
 ```
 
 > [!NOTE]
-> If you want, you can add the identity to an [Microsoft Entra group](/azure/active-directory/fundamentals/active-directory-manage-groups), then grant SQL Database access to the Microsoft Entra group instead of to the identity. The following commands add the example managed identity from the previous step to a new group called `myAzureSQLDBAccessGroup`.
+> If you want, you can add the identity to a [Microsoft Entra group](/azure/active-directory/fundamentals/active-directory-manage-groups), then grant SQL Database access to the Microsoft Entra group instead of to the identity. The following commands add the example managed identity from the previous step to a new group called `myAzureSQLDBAccessGroup`.
 > 
 > ```azurecli
 > $groupid=(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -230,15 +227,13 @@ Here's an example of the output:
 
 ### Grant permissions to the managed identity
 
-1. In your Bash terminal, sign in to SQL Database by using the following SQLCMD command, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<aad-user-name>` and`<aad-password>` with your Microsoft Entra user credentials.
+1. In your Bash terminal, sign in to SQL Database by using the following SQLCMD command, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<aad-user-name>` and `<aad-password>` with your Microsoft Entra user credentials.
 
    ```bash
-   sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
+   sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P <aad-password> -G -l 30
    ```
 
-1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs. In the following code, `<identity-name>` is the name of the managed identity in Microsoft Entra ID.
-
-   If the identity is system-assigned, the name is always the same as the name of your App Service app. The name of a system-assigned identity for a [deployment slot](deploy-staging-slots.md) is `<app-name>/slots/<slot-name>`. To grant permissions for a Microsoft Entra group, use the group's display name, such as `myAzureSQLDBAccessGroup`. For example:
+1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs, replacing `<identity-name>` with the name of the managed identity in Microsoft Entra ID.
 
    ```sql
    CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER With OBJECT_ID='xxx';
@@ -247,6 +242,8 @@ Here's an example of the output:
    ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
    GO
    ```
+
+   If the identity is system-assigned, the name is always the same as the name of your App Service app. The name of a system-assigned identity for a [deployment slot](deploy-staging-slots.md) is `<app-name>/slots/<slot-name>`. To grant permissions for a Microsoft Entra group, use the group's display name, such as `myAzureSQLDBAccessGroup`.
 
 1. Enter `EXIT` to return to the Bash prompt.
 
@@ -271,7 +268,7 @@ Publish your changes from Visual Studio.
 
 1. In **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
 
-  ![Screenshot of selecting Publish from Solution Explorer.](media//tutorial-connect-msi-sql-database/solution-explorer-publish.png)
+   ![Screenshot of selecting Publish from Solution Explorer.](media//tutorial-connect-msi-sql-database/solution-explorer-publish.png)
 
 1. On the **Publish** page, select **Publish**. 
 
