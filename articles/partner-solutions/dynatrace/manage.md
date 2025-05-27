@@ -57,7 +57,7 @@ To view the list of resources emitting logs to Dynatrace, select **Dynatrace env
 
 You can install Dynatrace OneAgents on virtual machines, App Service extensions, and Azure Arc Machines.
 
-### Virtual Machines
+#### [Virtual machines](#tab/virtual-machines)
 
 To monitor resources for virtual machines, select **Dynatrace environment config > Virtual Machines** from the Resource pane.
 
@@ -68,17 +68,19 @@ To monitor resources for virtual machines, select **Dynatrace environment config
 
 [!INCLUDE [agent](../includes/agent.md)]
 
-### App Service
+#### [App Service](#tab/app-service)
 
 To monitor resources for App Service, select **Dynatrace environment config > App Service** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
  
-### Azure Arc Machines
+#### [Azure Arc Machines](#tab/azure-arc-machines)
 
 To monitor resources for Azure Arc Machines, select **Dynatrace environment config > Azure Arc Machines** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
+
+---
 
 ## Reconfigure single sign-on
 
@@ -92,6 +94,10 @@ To monitor resources for Azure Arc Machines, select **Dynatrace environment conf
 ## Get support
 
 Contact [Dynatrace](https://support.dynatrace.com/) for customer support. 
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** > **New support request**. 
 
 ## Related content
 
