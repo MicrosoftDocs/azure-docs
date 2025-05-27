@@ -259,7 +259,7 @@ With any of the preceding load balancing options, optionally enable **session aw
 
 When using session awareness, the client must handle cookies appropriately. The client needs to store the `Set-Cookie` header value and send it with subsequent requests to maintain session state.
 
-You can use API Management policies to help set cookies for session awareness. For example, for the case of Azure OpenAI Assistant API, the client needs to keep the session ID, extract the thread ID from the body, and keep the pair and send the right cookie for each call. Moreover, the client needs to know when to send a cookie or when not to send a cookie header. These requirements can be handled appropriately by defining the following example policies:
+You can use API Management policies to help set cookies for session awareness. For example, for the case of the Assistants API (a feature of [Azure OpenAI in Azure AI Foundry Models](/azure/ai-services/openai/concepts/models)), the client needs to keep the session ID, extract the thread ID from the body, and keep the pair and send the right cookie for each call. Moreover, the client needs to know when to send a cookie or when not to send a cookie header. These requirements can be handled appropriately by defining the following example policies:
 
 
 ```xml
