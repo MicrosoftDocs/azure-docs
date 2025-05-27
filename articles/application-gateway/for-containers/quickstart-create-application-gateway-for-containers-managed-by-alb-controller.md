@@ -2,12 +2,12 @@
 title: 'Quickstart: Create Application Gateway for Containers managed by ALB Controller'
 description: In this quickstart, you learn how to provision the Application Gateway for Containers resources via Kubernetes definition.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 02/27/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Quickstart: Create Application Gateway for Containers managed by ALB Controller

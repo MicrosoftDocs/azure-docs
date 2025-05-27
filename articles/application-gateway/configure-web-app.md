@@ -3,12 +3,12 @@ title: Manage traffic to App Service
 titleSuffix: Azure Application Gateway
 description: This article provides guidance on how to configure Application Gateway with Azure App Service
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/05/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 <!-- markdownlint-disable MD044 -->

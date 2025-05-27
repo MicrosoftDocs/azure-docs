@@ -25,7 +25,7 @@ landingContent:
           - text: Scenarios
             url: functions-scenarios.md 
           - text: Migrate from AWS Lambda
-            url: ./migration/lambda-functions-migration-overview.md
+            url: ./migration/migrate-aws-lambda-to-azure-functions.md
   - title: Create your first function
     linkLists:
       - linkListType: get-started
