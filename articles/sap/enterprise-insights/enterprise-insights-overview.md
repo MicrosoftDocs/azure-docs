@@ -42,7 +42,7 @@ The key features of the solution include:
 
 ## Reference Architecture
 
-![Reference Architecture Diagram](ei-reference-architecture.png)
+![Diagram of reference architecture](../enterprise-insights/media/enterprise-insights-reference-architecture.png)
 
 The reference architecture for Enterprise Insights follows these main stages:
 
