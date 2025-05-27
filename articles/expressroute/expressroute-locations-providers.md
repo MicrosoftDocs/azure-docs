@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 04/29/2025
+ms.date: 05/26/2025
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -144,8 +144,8 @@ The following table shows connectivity locations and the service providers for e
 | **Rio de Janeiro** | [Equinix-RJ2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/rio-de-janeiro-data-centers/rj2/) | 3 | Brazil Southeast | &check; | Cirion Technologies<br/>Equinix |
 | **San Antonio** | [CyrusOne SA1](https://www.cyrusone.com/data-centers/north-america/san-antonio-texas-sat1) | 1 | South Central US | &check; | CenturyLink Cloud Connect<br/>Megaport<br/>Zayo |
 | **Santiago** | [EdgeConnex SCL](https://www.edgeconnex.com/locations/south-america/santiago/) | 3 | &cross; | &check; | Cirion Technologies<br/>Equinix<br/>PitChile |
-| **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | Brazil South | &check; | Aryaka Networks<br/>Ascenty Data Centers<br/>British Telecom<br/>Embratel<br/>Equinix<br/>InterCloud<br/>Level 3 Communications<br/>Neutrona Networks<br/>Orange<br/>RedCLARA<br/>Tata Communications<br/>Telefonica<br/>UOLDIVEO |
-| **Sao Paulo2** | [TIVIT TSM](https://www.tivit.com/en/tivit/) | 3 | Brazil South | &check; | Ascenty Data Centers<br/>Tivit |
+| **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | Brazil South | &check; | Aryaka Networks<br/>Ascenty Data Centers<br/>British Telecom<br/>Embratel<br/>Equinix<br/>InterCloud<br/>Level 3 Communications<br/>Megaport<br/>Neutrona Networks<br/>Orange<br/>RedCLARA<br/>Tata Communications<br/>Telefonica<br/>UOLDIVEO |
+| **Sao Paulo2** | [TIVIT TSM](https://www.tivit.com/en/tivit/) | 3 | Brazil South | &check; | Ascenty Data Centers<br/>Megaport<br/>Tivit |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | West US 2 | &check; | Aryaka Networks<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Digital Realty<br/>Equinix<br/>Level 3 Communications<br/>Megaport<br/>Pacific Northwest Gigapop<br/>PacketFabric<br/>Telus<br/>Zayo |
 | **Seoul** | [KINX Gasan IDC](https://www.kinx.net/?lang=en) | 2 | Korea Central | &check; | Digital Realty<br/>KINX<br/>KT<br/>LG CNS<br/>LGUplus<br/>Equinix<br/>Sejong Telecom<br/>SK Telecom |
 | **Seoul2** | [KT IDC](https://www.kt-idc.com/eng/introduce/sub1_4_10.jsp#tab) | 2 | Korea Central | &cross; | KT |
@@ -168,7 +168,7 @@ The following table shows connectivity locations and the service providers for e
 | **Tel Aviv2** | SDS | 2 | Israel Central | &check; | Hot Telecom |
 | **Tokyo** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan East | &check; | Aryaka Networks<br/>AT&T NetBond<br/>BBIX<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Equinix<br/>Intercloud<br/>Internet Initiative Japan Inc. - IIJ<br/>Megaport<br/>NTT Communications<br/>NTT EAST<br/>Orange<br/>Softbank<br/>Telehouse - KDDI<br/>Verizon </br></br> |
 | **Tokyo2** | [AT TOKYO](https://www.attokyo.com/) | 2 | Japan East | &check; | AT TOKYO<br/>BBIX<br/>China Telecom Global<br/>China Unicom Global<br/>Colt<br/>DE-CIX<br/>Digital Realty<br/>Equinix<br/>IPC<br/>IX Reach<br/>Megaport<br/>PCCW Global Limited<br/>Tokai Communications |
-| **Tokyo3** | [NEC](https://www.nec.com/en/global/solutions/cloud/inzai_datacenter.html) | 2 | Japan East | &check; | NEC<br/>SCSK |
+| **Tokyo3** | [NEC](https://www.nec.com/en/global/solutions/cloud/inzai_datacenter.html) | 2 | Japan East | &check; | BBIX<br/NEC<br/>SCSK |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | &check; | AT&T NetBond<br/>Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Equinix<br/>IX Reach<br/>Megaport<br/>Orange<br/>Telus<br/>Verizon<br/>Zayo |
 | **Toronto2** | [Allied REIT](https://www.alliedreit.com/property/905-king-st-w/) | 1 | Canada Central | &check; | Fibrenoire<br/>Megaport<br/>Zayo |
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | &cross; | &check; | Bell Canada<br/>Cologix<br/>Megaport<br/>Telus<br/>Zayo |
