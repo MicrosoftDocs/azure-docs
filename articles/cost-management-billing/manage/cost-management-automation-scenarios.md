@@ -1,27 +1,13 @@
 ---
 title: Automation scenarios for Azure billing and cost management
 description: Learn how common billing and cost management scenarios are mapped to different APIs.
-<<<<<<< HEAD
 author: maddieminn
 ms.reviewer: maminn
-=======
-author: KennyDay
-ms.reviewer: adwise
->>>>>>> upstream/main
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 01/22/2025
-<<<<<<< HEAD
 ms.author: maminn
-=======
-ms.author: kenday
->>>>>>> upstream/main
----
-
-# Automation scenarios for billing and cost management
-
-This article lists common scenarios for Azure billing and cost management. It maps these scenarios to APIs that you can use. Under each scenario-to-API mapping, you can find a summary of the APIs and the functionality that they offer.
 
 ## Common scenarios
 
