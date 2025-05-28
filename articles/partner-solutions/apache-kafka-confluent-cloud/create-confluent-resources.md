@@ -8,7 +8,7 @@ ms.date: 11/22/2024
 
 # Create Confluent resources in Azure (preview)
 
-The next step after creating a Confluent Organization is to create other Confluent constructs such as environments, clusters, and topics. This can be done directly in Azure and is a prerequisite to creating Confluent connectors. The feature presented in this article is in preview.
+The next step after creating a Confluent Organization is to create other Confluent constructs like environments, clusters, and topics. This can be done directly in Azure and is a prerequisite to creating Confluent connectors. The feature presented in this article is in preview.
 
 ## Environments
 

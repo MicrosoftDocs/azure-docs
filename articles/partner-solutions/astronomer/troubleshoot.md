@@ -58,7 +58,7 @@ For more information, see the [single sign-on guidance](manage.md#single-sign-on
 
 ### Unable to install Astro using a personal email
 
-Installing Apache Airflow on Astro from the Azure Marketplace using a personal email from a generic domain isn't supported. To install this service, use an email address with a unique domain, such as an email address associated with work or school, or start by creating a new user in Azure and make this user a subscription owner. For more information, see [Install Astro from the Azure Marketplace using a personal email](https://docs.astronomer.io/astro/install-azure#install-astro-from-the-azure-marketplace-using-a-personal-email).
+Installing Apache Airflow on Astro from the Azure Marketplace using a personal email from a generic domain isn't supported. To install this service, use an email address with a unique domain, like an email address associated with work or school, or start by creating a new user in Azure and make this user a subscription owner. For more information, see [Install Astro from the Azure Marketplace using a personal email](https://docs.astronomer.io/astro/install-azure#install-astro-from-the-azure-marketplace-using-a-personal-email).
 
 ## Next steps
 
