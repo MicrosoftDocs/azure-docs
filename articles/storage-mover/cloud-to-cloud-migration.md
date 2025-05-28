@@ -36,17 +36,18 @@ This first step in performing a cross-cloud migration to Azure is the configurat
 Follow the steps in this section to configure an AWS connector in the Azure Arc service. For more details on Azure Arc, visit the [Azure Arc overview](/azure/azure-arc/overview) article.
 
 1. In Azure Arc, navigate to Multicloud connectors.
-    :::image type="content" source="media/cloud-to-cloud-migration/sample-migration-sml.png" alt-text="A screen capture showing the Storage Mover Overview page with the Multicloud Migration tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/sample-migration.png":::
+:::image type="content" source="media/cloud-to-cloud-migration/sample-migration-sml.png" alt-text="A screen capture showing the Storage Mover Overview page with the Multicloud Migration tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/sample-migration.png":::
 1. Select **Create Connector** and enter values for the following fields:
     - An AWS account ID for secure authentication.
     - An Azure region for the connector.
-    :::image type="content" source="media/cloud-to-cloud-migration/add-aws-connector-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Basics tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-aws-connector.png":::
+    
+        :::image type="content" source="media/cloud-to-cloud-migration/add-aws-connector-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Basics tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-aws-connector.png":::
 1. Within the **Solutions** tab:
     - Add an **Inventory** solution, making sure that `AWS Services: S3` is selected.
     - Add a **Storage - Data Management** solution.
 1. Within the **Authentication template** tab, follow the instructions presented to create the *AWS CloudFormation Stack* from the AWS portal.
 1. Finally, select **Review + Create** to create the connector.
-    :::image type="content" source="media/cloud-to-cloud-migration/connectors-available-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/connectors-available.png":::
+:::image type="content" source="media/cloud-to-cloud-migration/connectors-available-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/connectors-available.png":::
 
 ## Configure Source and Destination Endpoints
 
