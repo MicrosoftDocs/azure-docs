@@ -19,17 +19,19 @@ This sample estimates the cost to upload and download data from multiple Azure r
 
 ## Scenario
 
-Your company has a storage account that is located in the West US region, is configured for Geo-redundant storage (GRS) and does not have hierarchical namespaces enabled. This year, a new client application is being distributed to users located in multiple Azure regions across the continent. Users are distributed across the continent and will upload log files and download them for diagnostic analysis. Files are stored as blobs in the hot access tier. Based on expected usage patterns, you've been asked to create a rough estimate of costs.
+Your company plans to distribute a new client application to users located in multiple Azure regions across the continent. This application will be used to upload log files and download them for diagnostic analysis. Files are stored as blobs in the hot access tier. Based on expected usage patterns, you've been asked to create a rough estimate of costs.
+
+The storage account is located in the West US region, is configured for Geo-redundant storage (GRS) and does not have hierarchical namespaces enabled. 
 
 ## Costs
 
-The clients will generate and upload an estimated **50,000** log files (roughly 1 GB each in size) this quarter. During this time, your company estimates that client applications will download about half of those log files for diagnostic analysis. You've been asked to create an estimate.
+The following table describes each cost.
 
-| Cost component | Explanation |
+| Cost | Description |
 |----|----|
-| **Cost to write** | Based on your estimates for this quarter, clients will upload an estimated **50,000** log files (roughly **1 GB** each in size). Clients are configured to upload those log files in 8 MiB blocks. Each block uploaded is billed as a write operation on the hot tier. A final operation is used by the clients to commit those blocks. That operation is also billed as a write operation. A smaller block size is very performant, but you know that a larger block size results in fewer write operations so you plan to include that suggestion along with your estimate. |
-| **Cost of replication** | Because the account is configured for Geo-redundant storage, all blobs uploaded are replicated to a secondary region. This replication process adds a data transfer fee and a network bandwidth fee. This fee is charged per GB.|
-| **Cost to read** | Any blob that is downloaded for diagnostic analysis is billed as a read operation on the hot tier. You believe that client applications will download about half of the files uploaded for diagnostic analysis. You also learn that **75%** of client applications are not located in the same region as the storage account so downloads from those clients incur a data transfer fee and a network bandwidth fee. |
+| **Cost to write** | During this quarter, clients will upload an estimated **50,000** log files (roughly **1 GB** each in size). Clients are configured to upload those log files in 8 MiB blocks. Each block  is billed as a write operation with one additional operation to commit those blocks. A smaller block size is very performant, but you know that a larger block size results in fewer write operations so you plan to include that suggestion along with your estimate. |
+| **Cost of replication** | Because the account is configured for geo-redundant storage, all blobs are replicated to a secondary region. This replication process adds a data transfer fee and a network bandwidth fee. These fees are charged per GB.|
+| **Cost to read** | Any blob that is downloaded for diagnostic analysis is billed as a read operation. You believe that client applications will download about half of the files uploaded for diagnostic analysis. You also learn that **75%** of client applications are not located in the same region as the storage account. Therefore, blobs downloaded by those clients incur a data transfer fee and a network bandwidth fee. |
 
 ## Estimate
 

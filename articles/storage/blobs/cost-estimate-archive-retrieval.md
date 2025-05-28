@@ -19,20 +19,23 @@ This sample estimates the cost to retrieve a portion of data from the archive ti
 
 ## Scenario
 
-Your company has an account that is located in the West US region, is configured for locally-redundant storage (LRS), and does not have hierarchical namespaces. The company has stored 20 TB of data in the archive tier for long term retention. However, after only 3 months in archive storage, 20% of that data must be retrieved for analysis. You've been asked to estimate what it will cost to get that data from archive storage and then download that data to clients for analysis. 
+Your company stores 20 TB of data in the archive tier for long term retention. However, after only three months in archive storage, 20% of that data must be retrieved for analysis. You've been asked to estimate what it will cost to get that data from archive storage and then download that data to clients for analysis. 
+
+The storage account is located in the West US region, is configured for locally-redundant storage (LRS), and does not have hierarchical namespaces.
 
 ## Costs
 
-The following table describes each cost that is applied in this scenario.
+The following table describes each cost.
 
-| Cost component | Explanation |
+| Cost | Description |
 |----|----|
-| **Change tier to hot** | First, blobs must be moved out of archive storage for analysis.To do this, administrators will change the tier of each blob from `archive` to `hot`. All tools and SDKs use the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on each blob to accomplish this task. That operation is billed as a read operation on the archive tier. |
+| **Change tier to hot** | First, blobs must be moved out of archive storage for analysis. To do this, administrators will change the tier of each blob from `archive` to `hot`. All tools and SDKs use the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation to accomplish this task. That operation is billed as a read operation on the archive tier. |
 | **Data retrieval fee** | This meter applies to each GB moved from the archive tier and into an online tier such as the hot tier. |
 | **Early deletion fee** | If data is moved out of the archive tier before 180 days have transpired, a prorated early deletion fee is applied to the bill. |
-| **Read from the hot tier** | Once data is moved into the hot tier, clients will need to read that data. Each blob read is billed as a read operation on the hot tier. |
+| **Read from the hot tier** | Once data is moved into the hot tier, clients will need to download that data. Each download is billed as a read operation. |
 
-Rehydration time at standard priority can take up to 15 hours to complete.
+> [!NOTE] 
+> Rehydration time at standard priority can take up to 15 hours to complete.
 
 ## Estimate
 
