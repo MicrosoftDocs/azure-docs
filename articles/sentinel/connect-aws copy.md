@@ -1,10 +1,10 @@
 ---
 title: Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data
-description: Use the AWS connector to delegate Microsoft Sentinel access to AWS resource logs, creating a trust relationship between Amazon Web Services and Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+description: Set up your Amazon Web Services environment to send AWS logs to Microsoft Sentinel using one of the Microsoft Sentinel AWS connectors.
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 05/28/2025
 
 
 #Customer intent: As a security engineer, I want to connect AWS service logs to Microsoft Sentinel so that analysts can centralize log management and enhance threat detection capabilities.
@@ -13,95 +13,30 @@ ms.date: 01/31/2024
 
 # Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data
 
-Use the Amazon Web Services (AWS) connectors to pull AWS service logs into Microsoft Sentinel. These connectors work by granting Microsoft Sentinel access to your AWS resource logs. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. This is accomplished on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
+Use Amazon Web Services (AWS) connectors to pull AWS service logs into Microsoft Sentinel. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. This is accomplished on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
 
-
-## AWS environment setup
+## AWS setup overview
 
 This graphic shows how to set up your AWS environment to send log data to Azure:
 
 :::image type="content" source="media/connect-aws/s3-connector-architecture.png" alt-text="Screenshot of A W S S 3 connector architecture.":::
 
-1. Configure your AWS services to send their logs to **S3 (Simple Storage Service)** storage buckets.
-
-2. Create a **Simple Queue Service (SQS) queue** to provide notification whenever an S3 bucket receives new logs. 
-
-   The Microsoft Sentinel AWS connector: 
+1. Create an **S3 (Simple Storage Service)** storage bucket and a **Simple Queue Service (SQS) queue** to which the S3 bucket publishes notifications when it receives new logs. 
    
-   - Polls the SQS queue at regular, frequent intervals. Messages in the queue contain the path to the log files.
-   - Reads the message with the path, then fetches the files from the S3 bucket.
+   Microsoft Sentinel connectors:
 
-3. Create a **web identity provider** to authenticate Microsoft Sentinel connectors to AWS through OpenID Connect (OIDC).
+   - Poll the SQS queue, at frequent intervals, for messages, which contain the paths to new log files.
+   - Fetch the files from the S3 bucket based on the path specified in the SQS notifications.
+
+1. Configure AWS services to send logs to the S3 bucket.
+   
+1. Create an Open ID Connect (OIDC) **web identity provider** and an **assumed role** to grant your Microsoft Sentinel connector permissions to access your AWS S3 bucket and SQS resources. 
+
+   Assign the appropriate **IAM permissions policies** to grant the assumed role access to the resources.
+
+1. Create a **web identity provider** to authenticate Microsoft Sentinel connectors to AWS through OpenID Connect (OIDC).
 
    Microsoft Sentinel connectors use Microsoft Entra ID to authenticate with AWS through OpenID Connect (OIDC) and assume an AWS IAM role. 
-
-4. Create an **assumed role** to grant permissions to a Microsoft Sentinel connector authenticated by the OIDC web identity provider to access your AWS resources. 
-
-   Attach the appropriate **IAM permissions policies** to grant the assumed role access to the appropriate resources (S3 bucket, SQS).
-
-
-
-## Automatic setup
-
-To simplify the onboarding process, Microsoft Sentinel has provided a [PowerShell script to automate the setup](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/AWS-S3) of the AWS side of the connector - the required AWS resources, credentials, and permissions.
-
-The script takes the following actions:
-
-- Creates an OIDC web identity provider, to authenticate Microsoft Entra ID users to AWS.
-
-- Creates an *IAM assumed role* with the minimal necessary permissions, to grant OIDC-authenticated users access to your logs in a given S3 bucket and SQS queue.
-
-- Enables specified AWS services to send logs to that S3 bucket, and notification messages to that SQS queue.
-
-- If necessary, creates that S3 bucket and that SQS queue for this purpose.
-
-- Configures any necessary IAM permissions policies and applies them to the IAM role created above.
-
-For Azure Government clouds, a specialized script creates a different OIDC web identity provider, to which it assigns the IAM assumed role.
-
-### Prerequisites for automatic setup
-
-- You must have PowerShell and the AWS CLI on your machine.
-  - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell)
-  - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) (from AWS documentation)
-
-### Instructions
-
-To run the script to set up the connector, use the following steps:
-
-1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
-
-1. Select **Amazon Web Services S3** from the data connectors gallery.
-
-   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel.
-
-1. In the details pane for the connector, select **Open connector page**.
-
-1. In the **Configuration** section, under **1. Set up your AWS environment**, expand **Setup with PowerShell script (recommended)**.
-
-1. Follow the on-screen instructions to download and extract the [AWS S3 Setup Script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScripts.zip?raw=true) (link downloads a zip file containing the main setup script and helper scripts) from the connector page.
-
-   > [!NOTE]
-   > For ingesting AWS logs into an **Azure Government cloud**, download and extract [this specialized AWS S3 Gov Setup Script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScriptsGov.zip?raw=true) instead.
-
-1. Before running the script, run the `aws configure` command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) (from AWS documentation) for details.
-
-1. Now run the script. Copy the command from the connector page (under "Run script to set up the environment") and paste it in your command line.
-
-1. The script will prompt you to enter your Workspace ID. This ID appears on the connector page. Copy it and paste it at the prompt of the script.
-
-   :::image type="content" source="media/connect-aws/aws-run-script.png" alt-text="Screenshot of command to run setup script and workspace ID." lightbox="media/connect-aws/aws-run-script.png":::
-
-1. When the script finishes running, copy the **Role ARN** and the **SQS URL** from the script's output (see example in first screenshot below) and paste them in their respective fields in the connector page under **2. Add connection** (see second screenshot below).
-
-   :::image type="content" source="media/connect-aws/aws-script-output.png" alt-text="Screenshot of output of A W S connector setup script." lightbox="media/connect-aws/aws-script-output.png":::
-
-   :::image type="content" source="media/connect-aws/aws-add-connection.png" alt-text="Screenshot of pasting the A W S role information from the script, to the S3 connector." lightbox="media/connect-aws/aws-add-connection.png":::
-
-1. Select a data type from the **Destination table** drop-down list. This tells the connector which AWS service's logs this connection is being established to collect, and into which Log Analytics table it will store the ingested data. Then select **Add connection**.
-
-> [!NOTE]
-> The script may take up to 30 minutes to finish running.
 
 ## Manual setup
 
@@ -114,7 +49,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
 ### Prepare your AWS resources
 
-1. Create an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, CloudTrail, or CloudWatch.
+1. Create an **S3 bucket** to which you'll send logs from your AWS services.
 
    - See the [instructions to create an S3 storage bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the AWS documentation.
 
@@ -126,21 +61,31 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
    - See the [instructions to publish notifications to your SQS queue](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html) in the AWS documentation.
 
-### Install AWS data connector and prepare environment
 
-1. In Microsoft Sentinel, select **Data connectors** from the navigation menu.
+### Configure an AWS service to export logs to an S3 bucket
 
-1. Select **Amazon Web Services S3** from the data connectors gallery.
+See Amazon Web Services documentation (linked below) for the instructions for sending various types of logs to your S3 bucket:
 
-   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+- [Publish a VPC flow log to an S3 bucket](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html).
 
-1. In the details pane for the connector, select **Open connector page**.
+    > [!NOTE]
+    > If you customize the log format, you must include the *start* attribute, which maps to the *TimeGenerated* field in the Log Analytics workspace. Otherwise, the *TimeGenerated* field is populated with the event's *ingested time*, which doesn't accurately describe the log event.
 
-1. Under **Configuration**, expand **Setup with PowerShell script (recommended)**, then copy the **External ID (Workspace ID)** to your clipboard.
+- [Export your GuardDuty findings to an S3 bucket](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html).
+
+    > [!NOTE]
+    >
+    > - In AWS, findings are exported by default every 6 hours. Adjust the export frequency for updated Active findings based on your environment requirements. To expedite the process, you can modify the default setting to export findings every 15 minutes. See [Setting the frequency for exporting updated active findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html#guardduty_exportfindings-frequency).
+    >
+    > - The *TimeGenerated* field is populated with the finding's *Update at* value.
+
+- AWS CloudTrail trails are stored in S3 buckets by default.
+    - [Create a trail for a single account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html).
+    - [Create a trail spanning multiple accounts across an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html).
+
+- [Export your CloudWatch log data to an S3 bucket](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3Export.html).
 
 ### Create an Open ID Connect (OIDC) web identity provider and an AWS assumed role
-
-1. In a different browser window or tab, open the AWS console.
 
 1. Create a **web identity provider**. Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html). 
 
@@ -195,7 +140,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
    Update (save) the policy when you're done editing.
 
-### Add the AWS role and queue information to the S3 data connector
+### Add the AWS role and queue information your data connector
 
 1. In the browser tab open to the AWS console, enter the **Identity and Access Management (IAM)** service and navigate to the list of **Roles**. Select the role you created above.
 
@@ -211,28 +156,6 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
    :::image type="content" source="media/connect-aws/aws-add-connection.png" alt-text="Screenshot of adding an A W S role connection to the S3 connector." lightbox="media/connect-aws/aws-add-connection.png":::
 
-### Configure an AWS service to export logs to an S3 bucket
-
-See Amazon Web Services documentation (linked below) for the instructions for sending each type of log to your S3 bucket:
-
-- [Publish a VPC flow log to an S3 bucket](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html).
-
-    > [!NOTE]
-    > If you choose to customize the log's format, you must include the *start* attribute, as it maps to the *TimeGenerated* field in the Log Analytics workspace. Otherwise, the *TimeGenerated* field will be populated with the event's *ingested time*, which doesn't accurately describe the log event.
-
-- [Export your GuardDuty findings to an S3 bucket](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html).
-
-    > [!NOTE]
-    >
-    > - In AWS, findings are exported by default every 6 hours. Adjust the export frequency for updated Active findings based on your environment requirements. To expedite the process, you can modify the default setting to export findings every 15 minutes. See [Setting the frequency for exporting updated active findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html#guardduty_exportfindings-frequency).
-    >
-    > - The *TimeGenerated* field is populated with the finding's *Update at* value.
-
-- AWS CloudTrail trails are stored in S3 buckets by default.
-    - [Create a trail for a single account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html).
-    - [Create a trail spanning multiple accounts across an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html).
-
-- [Export your CloudWatch log data to an S3 bucket](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3Export.html).
 
 ## Known issues and troubleshooting
 
