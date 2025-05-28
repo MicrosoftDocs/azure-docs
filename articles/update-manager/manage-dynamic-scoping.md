@@ -2,8 +2,8 @@
 title: Manage various operations of Dynamic Scoping.
 description: This article describes how to manage Dynamic Scoping operations 
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 01/09/2025
 ms.topic: how-to
 ---

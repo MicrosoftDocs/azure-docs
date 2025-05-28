@@ -2,8 +2,8 @@
 title: Create alerts in Azure Update Manager
 description: This article describes on how to enable alerts (preview) with Azure Update Manager to address events as captured in updates data. 
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 06/21/2024
 ms.topic: how-to
 ---
