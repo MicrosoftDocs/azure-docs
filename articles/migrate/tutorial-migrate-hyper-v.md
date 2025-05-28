@@ -158,7 +158,7 @@ After discovery is finished, you can begin the replication of Hyper-V VMs to Azu
     - If you didn't run an assessment, or you don't want to use the assessment settings, select **No**.
     - If you selected to use the assessment, select the VM group and assessment name.
 
-        ![Screenshot that shows the Select assessment screen.](./media/tutorial-migrate-hyper-v/select-assessment.png)
+    ![Screenshot that shows the Select assessment screen.](./media/tutorial-migrate-hyper-v/select-assessment.png)
 
 1. In **Virtual machines**, search for VMs as needed and check each VM you want to migrate. Then, select **Next: Target settings**.
 
