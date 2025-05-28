@@ -69,7 +69,7 @@ China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV
 
 - Azure Backup for AKS provides alerts via Azure Monitor that enables you to have a consistent experience for alert management across different Azure services, including classic alerts, built-in Azure Monitor alerts, and custom log alerts for backup failure notifications. The supported backup alerts [are available here](monitoring-and-alerts-overview.md)
 
-- Azure Backup for AKS supports [various backup-related reports](monitoring-and-alerts-overview.md). Currently, backup data can only be viewed by selecting “All” for workload type in the report filters.
+- Azure Backup for AKS supports various backup-related reports. Currently, backup data can only be viewed by selecting “All” for workload type in the report filters. The supported backup reports [are available here](monitoring-and-alerts-overview.md)
 
 - Azure Backup for AKS supports [Enhanced Soft Delete](backup-azure-enhanced-soft-delete-about.md) for backups stored in the Vault Tier, providing protection against accidental or malicious deletion. For backups stored in the Operational Tier, the underlying snapshots are not protected by soft delete and can be permanently deleted.
 
