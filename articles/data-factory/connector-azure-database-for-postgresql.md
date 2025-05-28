@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/19/2024
+ms.date: 04/29/2025
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -296,8 +296,10 @@ To copy data from Azure Database for PostgreSQL, set the type property of the da
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to **AzurePostgreSqlTable** | Yes |
-| tableName | Name of the table | No (if "query" in activity source is specified) |
+| type | The type property of the dataset must be set to **AzurePostgreSqlTable**. | Yes |
+| schema | Name of the schema. | No (if "query" in activity source is specified) |
+| table | Name of the table/view. | No (if "query" in activity source is specified) |
+| tableName | Name of the table. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No (if "query" in activity source is specified) |
 
 **Example**:
 
@@ -310,7 +312,10 @@ To copy data from Azure Database for PostgreSQL, set the type property of the da
             "referenceName": "<AzurePostgreSql linked service name>",
             "type": "LinkedServiceReference"
         },
-        "typeProperties": {}
+        "typeProperties": {
+            "schema": "<schema_name>",
+            "table": "<table_name>"
+        }
     }
 }
 ```
@@ -375,7 +380,7 @@ To copy data to Azure Database for PostgreSQL, the following properties are supp
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity sink must be set to **AzurePostgreSQLSink**. | Yes |
+| type | The type property of the copy activity sink must be set to **AzurePostgreSqlSink**. | Yes |
 | preCopyScript | Specify a SQL query for the copy activity to execute before you write data into Azure Database for PostgreSQL in each run. You can use this property to clean up the preloaded data. | No |
 | writeMethod | The method used to write data into Azure Database for PostgreSQL.<br>Allowed values are: **CopyCommand** (default, which is more performant), **BulkInsert**. | No |
 | writeBatchSize | The number of rows loaded into Azure Database for PostgreSQL per batch.<br>Allowed value is an integer that represents the number of rows. | No (default is 1,000,000) |
@@ -405,7 +410,7 @@ To copy data to Azure Database for PostgreSQL, the following properties are supp
                 "type": "<source type>"
             },
             "sink": {
-                "type": "AzurePostgreSQLSink",
+                "type": "AzurePostgreSqlSink",
                 "preCopyScript": "<custom SQL script>",
                 "writeMethod": "CopyCommand",
                 "writeBatchSize": 1000000
@@ -532,7 +537,7 @@ IncomingStream sink(allowSchemaDrift: true,
     keys:['keyColumn'],
     format: 'table',
     skipDuplicateMapInputs: true,
-    skipDuplicateMapOutputs: true) ~> AzurePostgreSQLSink
+    skipDuplicateMapOutputs: true) ~> AzurePostgreSqlSink
 ```
 
 ## Lookup activity properties

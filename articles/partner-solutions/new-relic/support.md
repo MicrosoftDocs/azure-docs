@@ -11,6 +11,7 @@ In this article, you learn how to contact support when working with an Azure Nat
 
 > [!TIP]
 > Before contacting support, review our [troubleshooting](new-relic-troubleshoot.md) topic for guidance on common issues.
+> If you're trying out the Azure Native New Relic Service with a pay-as-you-go subscription, post your query in the [discussion forum](https://forum.newrelic.com/s/).
 
 ## Contact New Relic support
 

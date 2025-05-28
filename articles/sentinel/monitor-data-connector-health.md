@@ -6,7 +6,9 @@ ms.author: yelevin
 ms.topic: how-to
 ms.date: 10/17/2024
 ms.service: microsoft-sentinel
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 #Customer intent: As a security analyst, I want to monitor the health and performance of my data connectors so that I can ensure uninterrupted data ingestion and quickly address any issues.
 

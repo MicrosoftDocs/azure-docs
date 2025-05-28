@@ -1,10 +1,10 @@
 ---
 title: Add the administrative template for Azure Virtual Desktop to Group Policy
 description: Learn how to add the administrative template (ADMX) for Azure Virtual Desktop to Group Policy to configure certain features.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 08/12/2024
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Add the administrative template for Azure Virtual Desktop to Group Policy

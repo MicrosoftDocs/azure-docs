@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.date: 11/07/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
 ms.devlang: powershell

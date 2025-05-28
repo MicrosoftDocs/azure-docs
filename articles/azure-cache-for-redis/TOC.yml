@@ -11,16 +11,12 @@
     items:
     - name: Create a cache
       items: 
-      - name: Create an Azure Managed Redis instance
-        href: /redis/quickstart-create-managed-redis
       - name: Create an Azure Cache for Redis instance in the Basic, Standard and Premium tiers
         href: quickstart-create-redis.md
-      - name: Create an Azure Cache for Redis instance in the Enterprise tiers
-        href: quickstart-create-redis-enterprise.md
       - name: Create and manage with Azure PowerShell
         href: /azure/redis/how-to-manage-redis-cache-powershell
       - name: Create and manage with Azure CLI
-        href: /azure/redis/scripts/create-managed-cache
+        href: /azure/redis/scripts/create-manage-cache?pivots=azure-cache-redis
       - name: Create and manage premium cache with Azure CLI
         href: scripts/create-manage-premium-cache-cluster.md
       - name: Create Redis cache - Bicep
@@ -65,7 +61,7 @@
 - name: Azure Cache for Redis 
   expanded: true
   items:
-  - name: What's new?
+  - name: What's new in Azure Cache for Redis?
     href: cache-whats-new.md
 
   - name: Deploy and configure
@@ -93,7 +89,7 @@
       - name: Overview
         href: cli-samples.md
       - name: Create and manage a cache
-        href: /azure/redis/scripts/create-managed-cache
+        href: /azure/redis/scripts/create-manage-cache?pivots=azure-cache-redis
       - name: Create and manage a premium cache
         href: scripts/create-manage-premium-cache-cluster.md
 
@@ -117,10 +113,10 @@
       href: /azure/redis/overview-vector-similarity
     - name: Connection resilience best practices
       href: cache-best-practices-connection.md
-    - name: Use Azure Functions triggers and bindings
-      items:
-      - name: Create a simple Function app for Redis triggers 
-        href: /azure/redis/tutorial-functions-getting-started
+    # - name: Use Azure Functions triggers and bindings
+    #   items:
+    #   - name: Create a simple Function app for Redis triggers 
+    #     href: /azure/redis/tutorial-functions-getting-started
 
   - name: Logs and monitoring
     items:
@@ -184,14 +180,10 @@
       href: cache-how-to-import-export-data.md
     - name: Configure disk encryption 
       href: cache-how-to-encryption.md
-    - name: Reboot
-      href: cache-administration.md#reboot
-    - name: Update channel and schedule updates
-      href: cache-administration.md#update-channel-and-schedule-updates
+    - name: Reboot, flush, and schedule updates
+      href: cache-administration.md
     - name: Configure redis-cli access
       href: cache-how-to-redis-cli-tool.md
-    - name: Create and manage a cache using CLI
-      href: cache-manage-cli.md
     - name: Move between regions
       href: cache-moving-resources.md
     - name: Publishing Azure Cache for Redis events
@@ -234,7 +226,16 @@
       href: cache-troubleshoot-data-loss.md
     - name: Troubleshooting FAQs
       href: cache-monitor-troubleshoot-faq.yml 
-      
+
+- name: Azure Managed Redis 
+  href: /azure/redis/index
+  expanded: true
+  items:
+  - name: About Azure Managed Redis
+    href: /azure/redis/overview
+  - name: Azure Managed Redis architecture
+    href: /azure/redis/architecture
+
 - name: Samples
   items:
   - name: Use Azure Functions triggers and bindings
@@ -290,55 +291,35 @@
 
 - name: Reference
   items:
-    - name: Azure Managed Redis
-      items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/resourcemanager.redisenterprise-readme
-        - name: Java
-          href: /java/api/overview/azure/resourcemanager-redisenterprise-readme
-        - name: Azure PowerShell
-          href: /powershell/module/az.redisenterprisecache
-        - name: Azure CLI
-          href: /cli/azure/redisenterprise
-        - name: REST
-          href: /rest/api/redis/redisenterprisecache/operation-groups
-        - name: Resource Manager template
-          href: /azure/templates/microsoft.cache/redisenterprise
-    - name: Azure Cache for Redis
-      items: 
-        - name: .NET
-          href: /dotnet/api/microsoft.azure.management.redis
-        - name: Java
-          href: /java/api/com.microsoft.azure.management.redis.rediscache
-        - name: Azure PowerShell
-          href: /powershell/module/az.rediscache
-        - name: Azure CLI
-          href: /cli/azure/redis
-        - name: REST
-          href: /rest/api/redis/
-        - name: Resource Manager template
-          href: /azure/templates/microsoft.cache/allversions
-        - name: Azure Policy built-ins
-          displayName: samples, policies, definitions
-          href: policy-reference.md
-        - name: Redis commands
-          href: https://redis.io/commands#
-        - name: Monitoring data reference
-          href: /azure/redis/monitor-cache-reference
-
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.redis
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.redis.rediscache
+    - name: Azure PowerShell
+      href: /powershell/module/az.rediscache
+    - name: Azure CLI
+      href: /cli/azure/redis
+    - name: REST
+      href: /rest/api/redis/
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.cache/allversions
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: policy-reference.md
+    - name: Redis commands
+      href: https://redis.io/commands#
+    - name: Monitoring data reference
+      href: /azure/redis/monitor-cache-reference
 - name:  Resources
   items:
-  - name: Azure Cache for Redis FAQs
+  - name: Azure Redis FAQ
     href: /azure/redis/faq
   - name: Retirements from Azure Cache for Redis
     href: cache-retired-features.md
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+cache+redis
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-cache-redis.html
+    href: https://learn.microsoft.com/answers/tags/170/azure-cache-redis
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cache/
-  - name: Build your skills with Microsoft Learn training
-    href: /training/browse/?products=azure-redis-cache
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=databases
+

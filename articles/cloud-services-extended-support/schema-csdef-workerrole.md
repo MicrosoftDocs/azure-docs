@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Services (extended support) Def. WorkerRole Schema | Microsoft Docs
 description: Information related to the worker role schema for Cloud Services (extended support)
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-cloud-services-extended-support
 ms.date: 07/24/2024
 author: gachandw
@@ -13,7 +13,7 @@ ms.reviewer: mimckitt
 # Azure Cloud Services (extended-support) definition WorkerRole schema
 
 > [!IMPORTANT]
-> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The Azure worker role is a role that is useful for generalized development, and may perform background processing for a web role.
 

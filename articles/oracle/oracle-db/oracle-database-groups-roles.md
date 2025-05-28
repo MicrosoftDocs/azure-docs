@@ -3,7 +3,7 @@ title: Groups and roles in Oracle Database@Azure
 description: Learn about groups and roles in Oracle Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 12/12/2023
 ms.custom: engagement-fy23

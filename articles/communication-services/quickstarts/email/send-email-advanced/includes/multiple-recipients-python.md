@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Multiple recipients Python SDK include file
+description: Multiple recipients for Python SDK
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
@@ -47,4 +47,4 @@ result = poller.result()
 
 ### Sample code 
 
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced)
+You can download the sample app demonstrating this action from GitHub Azure Samples [Send Email for Python](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced).

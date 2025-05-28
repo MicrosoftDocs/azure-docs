@@ -41,7 +41,7 @@ The [key components](../monitor/about-azure-monitor-sap-solutions.md#what-is-the
 - Azure monitor for SAP resource
 - Managed Resource group with in the Azure monitor for SAP that includes:
     - Azure functions resource
-    - Azure key vault
+    - Azure Key Vault
     - Log analytics workspace (optional)
     - Storage account
 

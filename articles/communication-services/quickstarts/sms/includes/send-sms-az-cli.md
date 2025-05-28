@@ -15,7 +15,7 @@ ms.author: mayssamm
 
 Get started with Azure Communication Services by using the Communication module in Azure CLI to send SMS messages.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Prerequisites
 
@@ -32,14 +32,15 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 ### Install the communication module
 
-Run the following command in a terminal or command window to install the communication module.
+To install the communication module, run the following command in a terminal or command window.
 
 ```azurecli-interactive
 az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
-You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
+
+You need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
 ### Make sure you're using the correct subscription
 
@@ -107,7 +108,7 @@ az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumb
 
 Make these replacements in the code:
 
-- Replace `<fromPhoneNumber>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<fromPhoneNumber>` with an SMS-enabled phone number associated with your Communication Services resource.
 - Replace `<toPhoneNumber>` with a phone number that you'd like to send a message to.
 - Replace `<yourConnectionString>` with your connection string.
 
@@ -124,9 +125,9 @@ az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumb
 
 Make these replacements in the code:
 
-- Replace `<fromPhoneNumber>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<fromPhoneNumber>` with an SMS-enabled phone number associated with your Communication Services resource.
 - Replace `<toPhoneNumberN>` with the N'th phone number that you'd like to send a message to.
 - Replace `<yourConnectionString>` with your connection string.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
+> Provide phone numbers in E.164 international standard format, such as +14255550123. The value for `<fromPhoneNumber>` can also be a short code, such as 23456 or an alphanumeric sender ID, such as CONTOSO.

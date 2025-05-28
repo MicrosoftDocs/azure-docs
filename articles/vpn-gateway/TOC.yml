@@ -48,7 +48,7 @@
       href: work-remotely-support.md
     - name: NVA configurations and remote work
       href: nva-work-remotely-support.md
-- name: Gateways and configuration settings
+- name: Configuration settings, SKUs & gateways
   items:
   - name: Gateway SKUs
     items:
@@ -66,15 +66,19 @@
       href: vpn-gateway-about-skus-legacy.md
   - name: Public IP addresses
     items:
-    - name: About public IP address Basic SKU migration
+    - name: About Basic SKU public IP address migration
       href: basic-public-ip-migrate-about.md
+    - name: How to migrate a Basic SKU public IP address to Standard
+      href: basic-public-ip-migrate-howto.md
   - name: About active-active mode gateways
     href: about-active-active-gateways.md
   - name: About zone-redundant gateways
     href: about-zone-redundant-vnet-gateways.md
   - name: VPN Gateway configuration settings
     href: vpn-gateway-about-vpn-gateway-settings.md
-- name: Create and manage VPN gateways
+  - name: IPv6 configuration settings
+    href: ipv6-configuration.md
+- name: Create & manage a VPN gateway
   items:
   - name: Create a VPN gateway
     items:
@@ -120,11 +124,11 @@
       href: vpn-gateway-delete-vnet-gateway-powershell.md
   - name: Verify a gateway connection
     href: vpn-gateway-verify-connection-resource-manager.md
-  - name: Reset a connection or a gateway
+  - name: Reset a gateway or gateway connection
     href: reset-gateway.md
-  - name: Configure customer-controlled gateway maintenance
+  - name: Configure gateway maintenance
     href: customer-controlled-gateway-maintenance.md
-- name: Site-to-site (S2S) VPN connections
+- name: Site-to-site (S2S) VPN
   items:
   - name: Configure site-to-site connections - preshared key
     items:
@@ -178,7 +182,7 @@
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
-- name: Point-to-site (P2S) VPN connections
+- name: Point-to-site (P2S) VPN
   items:
   - name: About point-to-site VPN
     href: point-to-site-about.md
@@ -306,7 +310,7 @@
       href: azure-vpn-client-versions.md
   - name: Intune - Deploy VPN client profile
     href: vpn-profile-intune.md
-- name: VNet-to-VNet VPN connections
+- name: VNet-to-VNet VPN
   items:
   - name: Configure VNet-to-VNet VPN connections
     items:

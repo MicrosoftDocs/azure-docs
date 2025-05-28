@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 02/27/2025
+ms.date: 04/11/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ---
@@ -34,6 +34,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Event Hubs
 - Azure ExpressRoute
 - Azure Key Vault
+- Azure Kubernetes Service (AKS)
 - Azure Load Balancer
 - Azure NAT Gateway
 - Azure Public IP
@@ -83,7 +84,6 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Functions
 - Azure HDInsight
 - Azure IoT Hub
-- Azure Kubernetes Service (AKS)
 - Azure Logic Apps
 - Azure Media Services
 - Azure Monitor: Application Insights
@@ -119,6 +119,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Dedicated HSM
 - Azure Digital Twins
 - Azure HPC Cache
+- Azure Kubernetes Fleet Manager
 - Azure Lab Services
 - Azure Machine Learning
 - Azure Managed HSM

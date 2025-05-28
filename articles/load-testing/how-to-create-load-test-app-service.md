@@ -28,36 +28,35 @@ With the integrated load testing experience in Azure App Service, you can:
 
 ## Create a load test for a web app
 
-You can create a URL-based load test directly from your Azure App Service web app in the Azure portal.
+You can create load test directly from your Azure App Service web app in the Azure portal. You can either create by entering your HTTP requests directly in portal or by uploading a JMeter or Locust test script. 
 
 To create a load test for a web app:
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure App Service web app.
 
-1. On the left pane, select **Load Testing (Preview)** under the **Performance** section.
+1. On the left pane, select **Load Testing** under the **Performance** section.
 
     On this page, you can see the list of tests and the load test runs for this web app.
    
-:::image type="content" source="./media/how-to-create-load-test-app-service/app-service-load-testing.png" lightbox="./media/how-to-create-load-test-app-service/app-service-load-testing.png" alt-text="Screenshot that shows Load Testing page in App Service.":::
+   :::image type="content" source="./media/how-to-create-load-test-app-service/app-service-load-testing.png" lightbox="./media/how-to-create-load-test-app-service/app-service-load-testing.png" alt-text="Screenshot that shows Load Testing page in App Service.":::
 
-1. Optionally, select **Create load testing resource** if you don't have a load testing resource yet.
+1. Select **Create test** to start load test for the web app. Select **Create a URL-based test** if you don't have a test script. Select **Upload a script** if you have a JMeter or Locust test script.
 
-1. Select **Create test** to start creating a URL-based load test for the web app.
 
-1. On the **Create test** page, first enter the test details:
+    1. On the **Create test** page, first enter the test details:
 
-    |Field  |Description  |
-    |-|-|
-    | **Load Testing Resource**    | Select your load testing resource. |
-    | **Test name**                | Enter a unique test name. |
-    | **Test description**         | (Optional) Enter a load test description. |
-    | **Run test after creation**  | When selected, the load test starts automatically after creating the test. |
+        |Field  |Description  |
+        |-|-|
+        | **Load Testing Resource**    | Select your load testing resource. Create new if you don't have one in the Azure subscription. |
+        | **Test name**                | Enter a unique test name. |
+        | **Test description**         | (Optional) Enter a load test description. |
+        | **Run test after creation**  | When selected, the load test starts automatically after creating the test. |
 
-1. If you have multiple deployment slots for the web app, select the **Slot** against which to run the load test.
+    1. If you have multiple deployment slots for the web app, select the **Slot** against which to run the load test.
 
-   :::image type="content" source="./media/how-to-create-load-test-app-service/app-service-create-test-resource-configuration.png" lightbox="./media/how-to-create-load-test-app-service/app-service-create-test-resource-configuration.png" alt-text="Screenshot that shows the resource configuration page for creating a test in App Service.":::
+    :::image type="content" source="./media/how-to-create-load-test-app-service/app-service-create-test-resource-configuration.png" lightbox="./media/how-to-create-load-test-app-service/app-service-create-test-resource-configuration.png" alt-text="Screenshot that shows the resource configuration page for creating a test in App Service.":::
 
-1. Select **Add request** to add HTTP requests to the load test:
+1. For a URL-based test, select **Add request** to add HTTP requests to the load test:
 
     On the **Add request** page, enter the details for the request:
 
@@ -73,25 +72,10 @@ To create a load test for a web app:
 
     Learn more about [adding HTTP requests to a load test](./how-to-add-requests-to-url-based-test.md).
 
-1. Select the **Load configuration** tab to configure the load parameters for the load test.
+1. For a script-based test, upload your test script in the **Test plan** tab. Learn more about [creating a test by uploading a test script](./how-to-create-manage-test.md#create-a-test-by-using-a-test-script).
 
 
-    |Field  |Description  |
-    |-|-|
-    | **Engine instances**            | Enter the number of load test engine instances. The load test runs in parallel across all the engine instances. |
-    | **Load pattern**                | Select the load pattern (linear, step, spike) for ramping up to the target number of virtual users. |
-    | **Concurrent users per engine** | Enter the number of *virtual users* to simulate on each of the test engines. The total number of virtual users for the load test is: #test engines * #users per engine. |
-    | **Test duration (minutes)** | Enter the duration of the load test in minutes. |
-    | **Ramp-up time (minutes)**  | Enter the ramp-up time of the load test in minutes. The ramp-up time is the time it takes to reach the target number of virtual users. |
-
-1. Optionally, configure the network settings if the web app is not publicly accessible.
-
-    Learn more about [load testing privately hosted endpoints](./how-to-test-private-endpoint.md).
-
-   :::image type="content" source="./media/how-to-create-load-test-app-service/app-service-create-test-load-configuration.png" lightbox="./media/how-to-create-load-test-app-service/app-service-create-test-load-configuration.png" alt-text="Screenshot that shows the load configuration page for creating a test in App Service.":::
-
-
-1. Select **Review + create** to review the test configuration, and then select **Create** to create the load test.
+1. After entering all the required details, select **Review + create** to review the test configuration, and then select **Create** to create the load test.
 
     Azure Load Testing now creates the load test. If you selected **Run test after creation** previously, the load test starts automatically.
    

@@ -5,7 +5,7 @@ description: Learn about 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ---
 
@@ -19,7 +19,7 @@ This article gives an overview of 3D Scenes Studio and its key features. For com
 
 ## Studio overview
 
-Work in 3D Scenes Studio is built around the concept of *scenes*. A scene is a view of a single business environment, and is comprised of 3D content, custom business logic, and references to an Azure Digital Twins instance. You can have multiple scenes for a single digital twin instance.
+Work in 3D Scenes Studio is built around the concept of *scenes*. A scene is a view of a single business environment, and is composed of 3D content, custom business logic, and references to an Azure Digital Twins instance. You can have multiple scenes for a single digital twin instance.
 
 Scenes are configured in the [builder](#builder) inside the 3D Scenes Studio. Then, you can view your finished scenes in the studio's [built-in view experience](#viewer), or [embedded in custom web applications](#embeddable-viewer-component). You can extend the built-in viewer or create your own viewers that access the 3D Scenes files and your Azure Digital Twins graph.
 
@@ -43,7 +43,7 @@ To share your scenes with someone else, the recipient will need at least *Reader
 ## Set up
 
 To work with 3D Scenes Studio, you'll need the following required resources:
-* An [Azure Digital Twins instance](how-to-set-up-instance-portal.md)
+* An [Azure Digital Twins instance](how-to-set-up-instance-cli.md)
     * You'll need *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance
     * The instance should be populated with [models](concepts-models.md) and [twins](concepts-twins-graph.md)
 

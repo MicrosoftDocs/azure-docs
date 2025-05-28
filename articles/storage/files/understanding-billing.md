@@ -3,8 +3,8 @@ title: Understand Azure Files billing
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure Files. Understand total cost of ownership, storage reservations, and burst credits.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 03/11/2025
+ms.topic: concept-article
+ms.date: 05/27/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -20,7 +20,7 @@ Azure Files has multiple pricing models including provisioned and pay-as-you-go 
 
 - **Provisioned billing models**: In a provisioned billing model, the primary costs of the file share are based on the amount of storage, IOPS (input and output operations per second), and throughput you provision when you create or update your file share, regardless of how much you use. Azure Files has two different provisioned models *provisioned v2* and *provisioned v1*.
     - **Provisioned v2**: In the provisioned v2 model, you have the ability to separately provision storage, IOPS, and throughput, although we provide a recommendation for you to help you with first time provisioning.
-    - **Provisioned v1**: In the provisioned v1 model, you provision the amount of storage you need for the share while IOPS and throughput are determined based on how much storage you provision. The provisioned v1 model for Azure Files is only available for SSD (premium) file shares.
+    - **Provisioned v1**: In the provisioned v1 model, you provision the amount of storage you need for the share while IOPS and throughput are determined based on how much storage you provision. The provisioned v1 model for Azure Files is only available for SSD file shares.
     
 - **Pay-as-you-go billing model**: In a pay-as-you-go model, the cost of the file share is based on how much you use the share, in the form of used storage, transaction, and data transfer costs. The pay-as-you-go model for Azure Files is only available for HDD file shares. We recommend using the provisioned v2 model for new HDD file share deployments.
 
@@ -31,7 +31,16 @@ This article explains how the billing models for Azure Files work to help you un
         > [!VIDEO https://www.youtube-nocookie.com/embed/dyqQkheaHYg]
     :::column-end:::
     :::column:::
-        This video covers the Azure Files billing models including pay-as-you-go, provisioned v1, and provisioned v2.
+        This video provides a comprehensive overview of the differences between various Azure Files billing models, including pay-as-you-go, provisioned v1, and provisioned v2.
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/1sXwvHaTqfg]
+    :::column-end:::
+    :::column:::
+       This video dives deep into the Azure Files provisioned v2 billing model, offering setup instructions and recommendations to reduce total cost of ownership.
    :::column-end:::
 :::row-end:::
 
@@ -137,13 +146,28 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - Korea South
 - East US 2
 - Central US
-- US Gov Virginia*
-- US Gov Arizona*
-- US Gov Texas*
+- US Gov Virginia
+- US Gov Arizona
+- US Gov Texas
 - Poland Central
 - West US 3
-
-Storage accounts in regions flagged with an asterisks (*) can only be created using Azure PowerShell or Azure CLI. See [create a storage account](./storage-how-to-create-file-share.md) for more information.
+- Spain Central
+- New Zealand North
+- Italy North
+- Indonesia Central
+- Sweden Central
+- Sweden South
+- Australia Central
+- Australia Central 2
+- South Africa North
+- South Africa West
+- Switzerland North
+- Switzerland West
+- Norway East
+- Norway West
+- Israel Central
+- Qatar Central
+- Mexico Central
 
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:
@@ -528,7 +552,7 @@ Azure Files supports reservations (also referred to as *reserved instances*) for
 
 - **Capacity size**: Reservations can be for either 10 TiB or 100 TiB, with more significant discounts for purchasing a higher capacity Reservation. You can purchase multiple Reservations, including Reservations of different capacity sizes to meet your workload requirements. For example, if your production deployment has 120 TiB of file shares, you could purchase one 100 TiB Reservation and two 10 TiB Reservations to meet the total storage capacity requirements.
 - **Term**: You can purchase reservations for either a one-year or three-year term, with more significant discounts for purchasing a longer Reservation term.
-- **Tier**: The tier of Azure Files for the Reservation. Reservations currently are available for the premium (SSD), hot (HDD), and cool (HDD) tiers.
+- **Tier**: The tier of Azure Files for the Reservation. Reservations currently are available for the SSD provisioned v1 (as "premium") and HDD pay-as-you-go (hot and cool access tiers only) billing models.
 - **Location**: The Azure region for the Reservation. Reservations are available in a subset of Azure regions.
 - **Redundancy**: The storage redundancy for the Reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
 - **Billing frequency**: Indicates how often the account is billed for the Reservation. Options include *Monthly* or *Upfront*.

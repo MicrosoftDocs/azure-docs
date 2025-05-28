@@ -6,7 +6,7 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/17/2021
 ms.author: akashdubey
 ---

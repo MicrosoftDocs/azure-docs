@@ -265,7 +265,7 @@ PostgreSQL to return vector tiles.
 
 1. You can now use an Azure Function to Query PostgreSQL and return
     vector tiles for the contour lines. The tile server can be used with
-    the Azure Maps web SDK to create a web app that displays contour
+    the Azure Maps Web SDK to create a web app that displays contour
     lines on the map.
 
     ```python

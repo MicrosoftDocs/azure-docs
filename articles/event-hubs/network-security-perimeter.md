@@ -2,8 +2,6 @@
 title: Network Security Perimeter 
 titleSuffix: Azure Event Hubs
 description: Overview of Network Security Perimeter feature for Event Hubs
-author: samurp
-ms.author: samurp
 ms.reviewer: spelluru
 ms.date: 05/13/2024
 ms.topic: conceptual
