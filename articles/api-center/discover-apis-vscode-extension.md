@@ -4,7 +4,7 @@ description: API developers can use the Azure API Center extension for Visual St
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 05/27/2025
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API developer, I want to use my Visual Studio Code environment to discover and consume APIs in my organizations API center.
@@ -53,7 +53,7 @@ You can view the documentation for an API definition in your API center and try 
     > Depending on the API, you might need to provide authorization credentials or an API key to try the API.
 
     > [!TIP]
-    > Using the pre-release version of the extension, you can generate API documentation in Markdown, a format that's easy to maintain and share with end users. Right-click on the definition, and select **Generate Markdown**.
+    > You can generate API documentation in Markdown, a format that's easy to maintain and share with end users. Right-click on the definition, and select **Generate Markdown**.
 
 ## Generate HTTP file
 
@@ -102,6 +102,27 @@ You can also export a specification using the Command Palette:
 1. Type the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. 
 1. Select **Azure API Center: Export API Specification Document**.
 1. Make selections to navigate to an API definition. A new tab appears that renders an API specification document.
+
+## Use language model tools 
+
+In the pre-release version of the Azure API Center extension, you can add language model tools from your API center to your Visual Studio Code environment to use in GitHub Copilot's agent mode. [earn more about tools in agent mode](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). 
+
+These API Center tools can help you search for APIs and API versions, API definitions and specifications, authentication information and credentials, and deployments using natural language prompts.
+
+To add language model tools to your Visual Studio Code environment:
+
+1. Set the mode of your GitHub Copilot chat to **Agent**.
+1. Select the **Tools** icon in the chat window.
+
+    :::image type="content" source="media/discover-apis-vscode-extension/language-model-tools.png" alt-text="Screenshot of GitHub Copilot chat window in Visual Studio Code.":::
+
+1. Select one or more API Center tools to be available in the chat.
+
+    :::image type="content" source="media/discover-apis-vscode-extension/api-center-tools.png" alt-text="Screenshot of selecting API Center tools in Visual Studio Code.":::
+
+1. 
+
+
 
 ## Related content
 
