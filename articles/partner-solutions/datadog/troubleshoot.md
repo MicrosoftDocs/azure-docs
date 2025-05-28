@@ -25,7 +25,7 @@ To set up the Azure Datadog integration, you must have **Owner** access on the A
 - **Unable to save Single sign-on settings** 
    - This error happens where there's another Enterprise app that is using the Datadog SAML identifier. To find which app is using it, select **Edit** on the Basic SAML Configuration section.
 
-   To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO with Datadog. If you decide to use the other app, ensure the app has the [required settings](create.md#single-sign-on-tab-optional).
+   To fix this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO with Datadog. If you decide to use the other app, ensure the app has the [required settings](create.md#single-sign-on-tab-optional).
 
 - **App not showing in Single sign-on setting page** 
    - First, search for the application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings. 
@@ -71,7 +71,7 @@ If the Datadog agent is configured with an incorrect key, navigate to the API ke
 
 ## Diagnostic settings are active even after disabling the Datadog resource or applying necessary tag rules
 
-If logs are being emitted and diagnostic settings remain active on monitored resources even after the Datadog resource is disabled or tag rules are modified to exclude certain resources, it's likely that there's a delete lock applied to the resources or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve this issue, remove the delete lock from the resource or the resource group. If the lock is removed after the Datadog resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
+If logs are being emitted and diagnostic settings remain active on monitored resources even after the Datadog resource is disabled or tag rules are modified to exclude certain resources, it's likely that there's a delete lock applied to the resources or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To fix this issue, remove the delete lock from the resource or the resource group. If the lock is removed after the Datadog resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
 
 [!INCLUDE [diagnostic-settings](../includes/diagnostic-settings.md)]
 

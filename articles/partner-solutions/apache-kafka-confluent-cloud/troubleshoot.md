@@ -10,7 +10,7 @@ ms.date: 1/31/2024
 
 This document contains information about troubleshooting your solutions that use Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
-If you don't find an answer or can't resolve a problem, [create a request through the Azure portal](get-support.md) or contact [Confluent support](https://support.confluent.io).
+If you don't find an answer or can't fix a problem, [create a request through the Azure portal](get-support.md) or contact [Confluent support](https://support.confluent.io).
 
 ## Can't find offer in the Marketplace
 
