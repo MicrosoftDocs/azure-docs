@@ -60,7 +60,7 @@ To monitor multiple subscriptions:
 
 1. Select **Add subscriptions** from the Command bar.
 
-    The **Add subscriptions** experience that opens displays subscriptions you have _Owner_ role assigned to and any Elastic resource created in those subscriptions that is already linked to the same Elastic organization as the current resource.
+    The **Add subscriptions** experience that opens shows subscriptions you have _Owner_ role assigned to and any Elastic resource created in those subscriptions that is already linked to the same Elastic organization as the current resource.
 
 1. Select the subscriptions you want to monitor through the Elastic resource and click **Add**.
 

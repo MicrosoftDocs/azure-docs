@@ -81,7 +81,7 @@ To view the clusters in your Confluent organization:
 
 ### Manage connectors 
 
-Connectors are nested within the clusters. To manage these connectors and monitor their health and status, click on your cluster name and select **Manage Connector** in the top ribbon within the cluster. This action opens the **Confluent Connectors** blade that displays all existing connectors. 
+Connectors are nested within the clusters. To manage these connectors and monitor their health and status, click on your cluster name and select **Manage Connector** in the top ribbon within the cluster. This action opens the **Confluent Connectors** blade that shows all existing connectors. 
 
 Back in the cluster pane, to further manage your cluster for advanced configurations, select **Manage cluster in Confluent portal** at the top, which opens the Confluent UI.  
 

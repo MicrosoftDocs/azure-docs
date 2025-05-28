@@ -58,7 +58,7 @@ When you use the integrated experience for Dynatrace in the Azure portal, your b
     | Resource Group | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution. |
     | Resource name | Specify a name for the Dynatrace resource. |
     | Region | Select the Azure region where the Dynatrace resource should be created. |
-    | Dynatrace | The Azure portal displays a list of existing environments that can be linked. Select the desired environment from the available options. |
+    | Dynatrace | The Azure portal shows a list of existing environments that can be linked. Select the desired environment from the available options. |
 
     > [!NOTE]
     > Linking requires that the environment and the Dynatrace resource reside in the   same Azure region. The user that is performing the linking action should have   administrator permissions on the Dynatrace environment being linked. If the   environment that you want to link to does not appear in the dropdown list, check if   any of these conditions are not satisfied.
