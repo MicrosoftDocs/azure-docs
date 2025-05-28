@@ -41,9 +41,13 @@ An App Service Environment hosts applications for a single customer on one of th
 App Service Environments have many use cases:
 
 - Internal line-of-business applications
+
 - Applications that need more than 30 App Service plan instances
+
 - Single-tenant systems to satisfy internal compliance or security requirements
+
 - Network-isolated application hosting
+
 - Multiple-tier applications
 
 There are many networking features that enable apps in a multitenant App Service to reach network-isolated resources or become network-isolated themselves. These features are enabled at the application level. With an App Service Environment, apps don't require extra configuration to be on a virtual network. The apps are deployed into a network-isolated environment that's already on a virtual network. If you need a complete isolation story, you can also deploy your App Service Environment on dedicated hardware.
@@ -60,7 +64,7 @@ If you require physical isolation down to the hardware level, you can deploy you
 
 The App Service Environment feature is a deployment of Azure App Service into a single subnet within a virtual network. When you deploy an app into an App Service Environment, it's exposed on the inbound address that's assigned to the environment. If your App Service Environment is deployed with an internal virtual IP (VIP) address, the inbound address for all apps is an address within the App Service Environment subnet. If your App Service Environment is deployed with an external VIP address, the inbound address is an internet-accessible address, and your apps are listed in a public Domain Name System.
 
-An App Service Environment v3 in its subnet uses a varying number of addresses, depending on the number of instances and the amount of traffic. Some infrastructure roles are automatically scaled, depending on the number of App Service plans and the load. The recommended size for your App Service Environment v3 subnet is a `/24` Classless Inter-Domain Routing block with 256 addresses in it because that size can host an App Service Environment v3 that's scaled out to its limit.
+An App Service Environment v3 in its subnet uses a varying number of addresses, depending on the number of instances and the amount of traffic. Some infrastructure roles are automatically scaled, depending on the number of App Service plans and the load. A `/24` Classless Inter-Domain Routing block that has 256 addresses in it is the recommended size for your App Service Environment v3 subnet. That size can host an App Service Environment v3 that's scaled out to its limit.
 
 The apps in an App Service Environment don't need any features enabled to access resources on the same virtual network that the App Service Environment is in. If the App Service Environment virtual network is connected to another network, the apps in the App Service Environment can access resources in those extended networks. User configuration on the network can block traffic.
 
@@ -78,7 +82,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
 
-- Scaling is faster than with an App Service Environment v2. Scaling is much faster than in the multitenant service, though it isn't immediate.
+- Scaling is faster than with an App Service Environment v2. Scaling is much faster than in the multitenant service, but it isn't immediate.
 
 - Front-end scaling adjustments are no longer required. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on better hosts.
 
@@ -98,7 +102,7 @@ With App Service Environment v3, the pricing model varies depending on the type 
 
 - **App Service Environment v3:** If the App Service Environment is empty, there's a charge as though you have one instance of Windows I1v2. The one instance charge isn't an additive charge but is applied only if the App Service Environment is empty.
 
-- **Zone redundant App Service Environment v3:** There's no added charge for availability zone support. The pricing model is the same as a nonzone redundant App Service Environment.
+- **Zone redundant App Service Environment v3:** There's no added charge for availability zone support. The pricing model is the same as an App Service Environment that isn't zone redundant.
 
 - **Dedicated host App Service Environment v3:** With a dedicated host deployment, you pay for two dedicated hosts at the time of App Service Environment v3 creation, based on our pricing. As you scale, you're charged a specialized Isolated v2 rate for each vCore. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores for each instance.
 
@@ -198,7 +202,7 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 > [!NOTE]
 > Windows Container plans don't support memory-intensive SKUs.
  
-### Azure Public:
+### Azure Public
 
 | Region               | Standard     | Large       | Memory intensive  |
 | -------------------- | :----------: | :---------: | :---------------: |
@@ -259,7 +263,7 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 
 \* Windows Container doesn't support Large SKUs in this region.
 
-### Azure Government:
+### Azure Government
 
 | Region               | Standard     | Large       | Memory intensive  |
 | -------------------- | :----------: | :---------: | :---------------: |

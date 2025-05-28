@@ -37,7 +37,7 @@ You can select *single zone*, *zone redundant*, or *host group* for the deployme
 
 In a zone-redundant App Service Environment, your apps are distributed across the maximum number of available zones, up to three, within the same region. Zone redundancy is available in regions that support availability zones. With this deployment type, your App Service plan must include at least two instances to ensure redundancy across zones. You can scale up App Service plans by adding one or more instances at a time. Scaling doesn't have to be in units of two or three. However, the app is only balanced across all availability zones when the total number of instances are multiples of two or three, depending on the number of available zones. To view the number of available zones for your App Service Environment, see the *Maximum available zones* property in the **Configuration** blade of the Azure portal. If the value is two or three, your App Service Environment is zone redundant.
 
-A zone-redundant deployment provides three or four times the infrastructure, depending on the maximum number of available zones. This redundancy ensures that workloads remain available even if one zone experiences an outage. There's no added charge to have a zone-redundant App Service Environment. For more information about zone redundancy, see [Regions and availability zones](../../reliability/reliability-app-service.md?pivots=isolated).
+A zone-redundant deployment provides three or four times the infrastructure, depending on the maximum number of available zones. This redundancy ensures that workloads remain available even if one zone experiences an outage. There's no added charge to have a zone-redundant App Service Environment. For more information about zone redundancy, see [Reliability in App Service](../../reliability/reliability-app-service.md?pivots=isolated).
 
 In a host group deployment, your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. In a host group deployment, you can install and use your App Service Environment on dedicated hardware. There's no minimum instance charge for using App Service Environment on a dedicated host group. However, you must pay for the host group when you provision the App Service Environment. You also pay a discounted App Service plan rate as you create your plans and scale out.
 
@@ -49,7 +49,7 @@ To create an App Service Environment in the Azure portal, complete the following
 
 1. Search Azure Marketplace for *App Service Environment v3*.
 
-1. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound address to be an address in your subnet. Select **External** if you want your inbound address to face the public internet. For **App Service Environment Name**, enter a name. The name must be no more than 36 characters. The name that you choose will also be used for the domain suffix. For example, if the name that you choose is *contoso*, and you have an internal VIP, the domain suffix is `contoso.appserviceenvironment.net`. If the name that you choose is *contoso*, and you have an external VIP, the domain suffix is `contoso.p.azurewebsites.net`. 
+1. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound address to be an address in your subnet. Select **External** if you want your inbound address to face the public internet. For **App Service Environment Name**, enter a name. The name must be no more than 36 characters. The name that you choose is also used for the domain suffix. For example, if the name that you choose is *contoso* and you have an internal VIP, the domain suffix is `contoso.appserviceenvironment.net`. If the name that you choose is *contoso* and you have an external VIP, the domain suffix is `contoso.p.azurewebsites.net`. 
 
    ![Screenshot that shows the App Service Environment basics tab.](./media/creation/creation-basics.png)
 
@@ -65,7 +65,7 @@ To create an App Service Environment in the Azure portal, complete the following
 
    ![Screenshot that shows App Service Environment networking (App Service Environment External) selections.](./media/creation/creation-networking-external.png)
 
-1. From the **Review + create** tab, check that your configuration is correct, then select **Create**. Your App Service Environment can take more than one hour to create. 
+1. From the **Review + create** tab, check that your configuration is correct, and then select **Create**. Your App Service Environment can take more than one hour to create. 
 
 After your App Service Environment is successfully created, you can select it as a location when you create your apps.
 
