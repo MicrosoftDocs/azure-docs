@@ -38,6 +38,9 @@ Azure DNS enables multiple scenarios, including:
 * Increase application [availability](/azure/traffic-manager/traffic-manager-monitoring) and [performance](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
 * [Monitor your application traffic patterns](/azure/traffic-manager/traffic-manager-traffic-view-overview)
 
+> [!NOTE]
+> Azure DNS is one of the services that make up the Network Foundations category in Azure. Other services in this category include [Azure Virtual Networks](/articles/virtual-network/virtual-networks-overview.md) and [Azure Private Link](/articles/private-link/private-link-overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Foundations](/articles/networking/foundations/network-foundations-overview.md).
+
 ## Next steps
 
 * To learn about Public DNS zones and records, see [DNS zones and records overview](dns-zones-records.md).

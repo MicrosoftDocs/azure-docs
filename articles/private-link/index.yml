@@ -82,17 +82,22 @@ landingContent:
             url: troubleshoot-private-link-connectivity.md
 
   # Card
-  - title: Networking foundation
+  - title: Related network foundations services 
     linkLists:
       - linkListType: get-started
         links:
-          - text: Documentation
-            url: https://learn.microsoft.com/en-us/azure/networking/foundations/
-          - text: Virtual Network
-            url: /azure/virtual-network/
+          - text: What is network foundations?
+            url: /azure/networking/foundations/network-foundations-overview
+          - text: Learn more about network foundations
+            url: /azure/networking/foundations/
+      - linkListType: overview
+        links:
+          - text: Azure Bastion overview
+            url: /azure/bastion/bastion-overview
           - text: DNS
-            url: /azure/dns/
-
+            url: /azure/dns/dns-overview
+          - text: Virtual Network
+            url: /azure/virtual-network/virtual-networks-overview
   # Card
 
   - title: Concepts and architecture

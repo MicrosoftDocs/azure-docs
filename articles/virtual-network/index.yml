@@ -141,13 +141,15 @@ landingContent:
           - text: Configure subnet peering
             url: /azure/virtual-network/how-to-configure-subnet-peering  
   # Card
-  - title: Network foundation
+  - title: Related network foundations services 
     linkLists:
       - linkListType: get-started
         links:
-          - text: Documentation
-            url: https://aka.ms/networkfoundationdocs
-      - linkListType: concept
+          - text: What is network foundations?
+            url: /azure/networking/foundations/network-foundations-overview
+          - text: Learn more about network foundations
+            url: /azure/networking/foundations/
+      - linkListType: overview
         links:
           - text: Azure Bastion overview
             url: /azure/bastion/bastion-overview
