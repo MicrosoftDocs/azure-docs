@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial
-ms.date: 03/05/2025
+ms.date: 05/21/2025
 ms.custom: template-tutorial
 ---
 
@@ -409,7 +409,12 @@ $natGateway = New-AzNatGateway @natGatewayParams
 Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate NAT gateway with AzureFirewallSubnet.
 
 ```azurepowershell
-$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $hubVnet -Name AzureFirewallSubnet 
+# Get the AzureFirewallSubnet from the hub virtual network
+$subnetParams = @{
+    VirtualNetwork = $hubVnet
+    Name = 'AzureFirewallSubnet'
+}
+$subnet = Get-AzVirtualNetworkSubnetConfig @subnetParams
 
 $subnet.NatGateway = $natGateway
 
