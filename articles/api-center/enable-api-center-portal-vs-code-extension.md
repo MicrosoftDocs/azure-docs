@@ -30,7 +30,7 @@ This article shows how to provide enterprise developers access to the Azure API 
 * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
 
     > [!NOTE]
-    > Where noted, certain features are available only in the Azure API Center extension's pre-release version. [!INCLUDE [vscode-extension-prerelease-features](vscode-extension-prerelease-features.md)]
+    > Where noted, certain features are available only in the Azure API Center extension's pre-release version. [!INCLUDE [vscode-extension-prerelease-features](includes/vscode-extension-prerelease-features.md)]
     
 The following Visual Studio Code extensions are optional:
 
