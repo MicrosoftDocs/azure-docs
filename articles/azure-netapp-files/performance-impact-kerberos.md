@@ -4,7 +4,7 @@ description: Describes the available security options, the tested performance ve
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/07/2024
 ms.author: anfdocs
 ---

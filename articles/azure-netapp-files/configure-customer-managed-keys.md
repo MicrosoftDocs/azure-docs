@@ -5,8 +5,8 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 04/18/2025
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.date: 04/25/2025
 ms.author: anfdocs
 ---
 
@@ -26,6 +26,8 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
     Customer-managed keys don't affect performance of Azure NetApp Files. Its only difference from platform-managed keys is how the key is managed.
 1. For read/write operations, Azure NetApp Files sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
 
+Cross-tenant customer-managed keys is available in all Azure NetApp Files supported regions.
+
 ## Considerations
 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
@@ -37,57 +39,7 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 * If Azure Key Vault becomes inaccessible, Azure NetApp Files loses its access to the encryption keys and the ability to read or write data to volumes enabled with customer-managed keys. In this situation, create a support ticket to have access manually restored for the affected volumes.
 * Azure NetApp Files supports customer-managed keys on source and data replication volumes with cross-region replication or cross-zone replication relationships.
 * Applying Azure network security groups (NSG) on the private link subnet to Azure Key Vault is supported for Azure NetApp Files customer-managed keys. NSGs don’t affect connectivity to private links unless a private endpoint network policy is enabled on the subnet.
-
-## Supported regions
-
-Azure NetApp Files customer-managed keys is supported for the following regions:
-
-* Australia Central
-* Australia Central 2
-* Australia East
-* Australia Southeast
-* Brazil South
-* Brazil Southeast
-* Canada Central
-* Canada East
-* Central India
-* Central US
-* East Asia
-* East US
-* East US 2
-* France Central
-* Germany North
-* Germany West Central
-* Israel Central
-* Italy North
-* Japan East
-* Japan West
-* Korea Central
-* Korea South
-* North Central US
-* North Europe
-* Norway East
-* Norway West
-* Qatar Central
-* South Africa North
-* South Central US
-* South India
-* Southeast Asia
-* Spain Central
-* Sweden Central
-* Switzerland North
-* Switzerland West 
-* UAE Central
-* UAE North
-* UK South
-* UK West
-* US Gov Arizona
-* US Gov Texas
-* US Gov Virginia
-* West Europe
-* West US
-* West US 2
-* West US 3
+* Wrap/unwrap is not supported. Customer-managed keys uses encrypt/decrypt. For more information, see [RSA algorithms](/azure/key-vault/keys/about-keys-details#rsa-algorithms).
 
 ## Requirements
 
@@ -481,3 +433,5 @@ Making changes to the Azure Private Endpoint after creating a customer-managed k
 * [Troubleshoot customer-managed keys](troubleshoot-customer-managed-keys.md)
 * [Azure NetApp Files API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-11-01)
 * [Configure customer-managed keys with managed Hardware Security Module](configure-customer-managed-keys-hardware.md)
+* [Configure cross-tenant customer-managed keys](customer-managed-keys-cross-tenant.md)
+* [Understand data encryption in Azure NetApp Files](understand-data-encryption.md)

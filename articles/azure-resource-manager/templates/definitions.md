@@ -3,7 +3,7 @@ title: Type definitions in templates
 description: Describes how to create type definitions in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Type definitions in ARM templates

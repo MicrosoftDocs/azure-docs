@@ -57,11 +57,14 @@ az networkfabric networkmonitor create \
   --fabric "example-fabric" \
   --resource-name "example-network-monitor" \
   --bmp-configuration "{\
+    scopeResourceId: '/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric',\
     stationConfigurationState: 'Enabled',\
-    stationName: '<example-station>',\
-    stationIp: '<example-ip>',\
-    stationPort: <example-port>,\
+    stationName: '',\
+    stationIp: '',\
+    stationPort: ,\
     stationConnectionMode: 'Active',\
+    monitoredAddressFamilies: ['ipv4Unicast', 'ipv6Unicast', 'vpnIpv4', 'vpnIpv6'],\
+    exportPolicy: 'Pre-Policy',\
     stationConnectionProperties: {\
       keepaliveIdleTime: 180,\
       probeInterval: 60,\
@@ -69,9 +72,9 @@ az networkfabric networkmonitor create \
     }\
   }" \
   --monitored-networks "[\
-    '<example-arm-reference-id-1>',\
-    '<example-arm-reference-id-2>',\
-    '<example-arm-reference-id-3>'\
+    'l3isd-1-arm-reference-id',\
+    'l3isd-2-arm-reference-id',\
+    '/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain'\
   ]"
 
 ```
@@ -82,18 +85,22 @@ az networkfabric networkmonitor create \
 Nexus generates the following configuration for BMP Station: 
 
 ```output
-router bgp 65050 
-   neighbor <example-ip> peer group CE_PE_VPN 
-   no neighbor <example-ip> monitoring    >>> disabling the bgp monitoring which is opted under NNI OptionBLayer3Configuration 
-   monitoring timestamp send-time 
-   monitoring station example-network-monitor 
-      update-source Vlan39 
-      connection address <example-ip> vrf INFRA-MGMT 
-      connection mode passive 
-   monitoring station BMP2 
-      update-source Vlan39 
-      connection address <example-ip> vrf INFRA-MGMT 
-      connection mode active port <example-port>  >>> Example for BMP Monitoring station with connection mode active 
+router bgp 65501
+       neighbor CE_PE_VPN monitoring
+       neighbor INFRA-MGMT monitoring
+       monitoring received routes address-family ipv4 unicast
+	monitoring received routes address-family ipv6 unicast
+	monitoring received routes address-family vpn-ipv4
+	monitoring received routes address-family vpn-ipv6
+	bgp monitoring
+	monitoring timestamp send-time
+	monitoring station adp-nprd-euap-austxg5-fab-bmp
+		update-source Vlan39
+		connection address <example ip> vrf INFRA-MGMT
+		connection mode active port <example port>
+		connection keepalive 180 60 3
+export-policy received routes pre-policy
+	! 
 ```
 
 ## How to Enable/Disable BMP log streaming under NNI

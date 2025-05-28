@@ -97,7 +97,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 Next, add your eventstream as a data source for your KQL table. For detailed instructions, see [Get data from Eventstream](/fabric/real-time-intelligence/get-data-eventstream#source). As you add the data source, keep the following notes in mind:
 
 * Use the *OPCUA* table as the destination table and your eventstream as the source.
-* On the **Inspect** step, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
+* On the **Inspect** step, select the *opcua_mapping* you created previously:
 
     :::image type="content" source="media/quickstart-get-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
 
@@ -132,7 +132,7 @@ Then, follow these steps to upload the dashboard template and connect it to your
 :::image type="content" source="media/quickstart-get-insights/dashboard-upload-errors.png" alt-text="Screenshot of the dashboard with errors in the visuals.":::
 1. From the **Manage** tab, select **Data sources**. This action opens the **Data sources** pane with a sample source for your AIO data. Select the pencil icon to edit the *AIOdata* data source.
     :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to connect a data source.":::
-1. Choose your database (it's under **OneLake data hub**). When you're finished connecting your data source, select **Apply** and close the **Data sources** pane.
+1. Choose your database (it's under **Eventhouse/KQL Database**). When you're finished connecting your data source, select **Apply** and close the **Data sources** pane.
 
 The visuals populate with the data from your KQL database.
 

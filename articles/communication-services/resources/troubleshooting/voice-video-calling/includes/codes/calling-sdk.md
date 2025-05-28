@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Calling SDK and codes
+title: Understanding calling codes and subcodes errors
 description: include file
 services: azure-communication-services
 author: slpavkov
@@ -83,6 +83,7 @@ For client errors, if the resultCategories property is `ExpectedError`, the erro
 | 43209 | 405 | Failed to render video stream, VideoStreamRenderer was disposed during initialization process. | ExpectedError ||
 | 43210 | 400 | Failed to dispose VideoStreamRenderer because it's already disposed. | ExpectedError ||
 | 43220 | 400 | Failed to create view, maximum number of active `RemoteVideoStream` views already reached. You can dispose of a previous one in order to create new one. | ExpectedError | Learn more about [how to properly support the best number of incoming video streams](../../../../../concepts/troubleshooting-info.md?tabs=csharp%2Cjavascript%2Cdotnet#enable-and-access-call-logs) |
+| 71005 | 401 | Call failed due to a validation error in Azure Communication Services. Try again, if issue persists, contact Azure Communication Services support. | UnexpectedClientError ||
 | | 480 | Remote client endpoint not registered. | | Ensure that the remote endpoint is available. |
 | | 481 | Failed to handle incoming call. | | File a support request through the Azure portal. |
 | | 487 | Call canceled, locally declined, ended due to an endpoint mismatch issue, or failed to generate media offer. | | Expected behavior. |

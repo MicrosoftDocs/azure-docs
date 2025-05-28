@@ -608,8 +608,8 @@ Response results are truncated for brevity.
 
 <!------------------- Links to Route v2025-01-01 API  ----------------------------------------------------->
 [Azure Maps Route v2025-01-01]: /rest/api/maps/route
-[Get Route Operation Result]: /rest/api/maps/route/post-route-operation-result
-[Get Route Operations Status]: /rest/api/maps/route/post-route-operations-status
+[Get Route Operation Result]: /rest/api/maps/route/get-route-operations-result
+[Get Route Operations Status]: /rest/api/maps/route/get-route-operations-status
 [Post Route Directions Batch 2025-01-01]: /rest/api/maps/route/post-route-directions-batch
 [Post Route Directions 2025-01-01]: /rest/api/maps/route/post-route-directions
 [Post Route Matrix Async]: /rest/api/maps/route/post-route-matrix-async

@@ -6,15 +6,15 @@ author: raboilla
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 04/03/2025
+ms.date: 04/09/2025
 ms.author: cherylmc
 ---
 
-# About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway
+# About migrating a Basic SKU public IP address to Standard SKU
 
 This article explains the migration process from a Basic SKU public IP address to a Standard SKU public IP address for VPN Gateway deployments. For more information, see the [announcement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
 
-## Supported migration scenarios
+## <a name="scenarios"></a>Supported migration scenarios
 
 There are separate migration timelines, depending on the VPN Gateway SKU that your gateway is currently configured to use.
 
@@ -36,13 +36,13 @@ This section applies to the following VPN Gateway SKUs that are supported for mi
 
 |Considerations | Anticipated timelines | Customer action/ prerequisites | Documentation | Announcement links |
 |---|---|---|---|---|
-|- New [pricing changes](https://azure.microsoft.com/pricing/details/ip-addresses/).<br>- Customers will have three months to migrate after the release of the migration tool.|- **Apr/May 2025**: Basic SKU public IP address-to-Standard SKU public IP address migration tool is available for for active-passive gateways.<br>- **Jul/Aug 2025**: Basic SKU public IP address-to-Standard SKU public IP address migration tool is available for for active-active gateways.<br>- **May 2025 to Sep 2025**: Customer-controlled migration can be initiated after tool availability.<br>- **Sep 2025**: Basic SKU public IP addresses are deprecated.  |- Ensure you have the correct gateway IP address space and subnet size.<br>- If your VPN gateway is using a Basic SKU public IP address, migrate it to a Standard SKU public IP address.<br> - If your VPN gateway is already using a Standard SKU public IP address, no action is required.|Available when the migration tool is released. |[Basic SKU public IP address retirement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) |
+|- New [pricing changes](https://azure.microsoft.com/pricing/details/ip-addresses/).<br>- Customers will have three months to migrate after the release of the migration tool.|- **Apr/May 2025**: Basic SKU public IP address-to-Standard SKU public IP address migration tool is available for for active-passive gateways.<br>- **Jul/Aug 2025**: Basic SKU public IP address-to-Standard SKU public IP address migration tool is available for for active-active gateways.<br>- **May 2025 to Sep 2025**: Customer-controlled migration can be initiated after tool availability.<br>- **Sep 2025**: Basic SKU public IP addresses are deprecated. |- Ensure you have the correct gateway IP address space and subnet size.<br>- If your VPN gateway is using a Basic SKU public IP address, migrate it to a Standard SKU public IP address.<br> - If your VPN gateway is already using a Standard SKU public IP address, no action is required.|[Migration steps](basic-public-ip-migrate-howto.md) |[Basic SKU public IP address retirement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) |
 
 ### <a name="basicsku-timeline"></a>Basic gateway SKU
 
-Migration plans for VPN gateways that use a Basic gateway SKU with a Basic SKU public IP address will be announced by **April 30, 2025**.
+Migration plans for VPN gateways that use a Basic gateway SKU with a Basic SKU public IP address will be announced by **June 15, 2025**.
 
-## Migration considerations
+## <a name="considerations"></a>Migration considerations
 
 To migrate your gateway, you first need to validate whether your resource is capable of migration. Here are some common situations to be aware of:
 
@@ -91,4 +91,6 @@ Yes, the IP address will change with this approach. This means that you'll have 
 
 ## Next steps
 
-For more information, see the [announcement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
+* For more information, see the [announcement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
+
+* For migration steps, see [How to migrate a Basic SKU public IP address to Standard SKU](basic-public-ip-migrate-howto.md).

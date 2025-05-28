@@ -2,11 +2,11 @@
 title: Azure permissions for Monitor - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Monitor category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -39,6 +39,16 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.AlertsManagement/investigations/write | Set Investigation |
 > | Microsoft.AlertsManagement/investigations/delete | Delete Investigation  |
 > | Microsoft.AlertsManagement/investigations/read | Read Investigation |
+> | Microsoft.AlertsManagement/Issues/read | Read Issue |
+> | Microsoft.AlertsManagement/Issues/write | Write Issue |
+> | Microsoft.AlertsManagement/Issues/delete | Delete Issue |
+> | Microsoft.AlertsManagement/Issues/startInvestigation/action | Start a new investigation based on the data in the Issue |
+> | Microsoft.AlertsManagement/Issues/getInvestigationResult/action | Get result of an investigation by its ID |
+> | Microsoft.AlertsManagement/Issues/fetchInvestigationResult/action | Fetch result of an investigation by its ID |
+> | Microsoft.AlertsManagement/Issues/listAlerts/action | List alerts added to the Issue |
+> | Microsoft.AlertsManagement/Issues/addOrUpdateAlerts/action | Add alerts to the Issue or update alerts that were already added (one or more) |
+> | Microsoft.AlertsManagement/Issues/listResources/action | List resources added to the Issue |
+> | Microsoft.AlertsManagement/Issues/addOrUpdateResources/action | Add resources to the Issue or update resources that were already added (one or more) |
 > | Microsoft.AlertsManagement/migrateFromSmartDetection/read | Get the status of an asynchronous Smart Detection to smart alerts migration process |
 > | Microsoft.AlertsManagement/Operations/read | Reads the operations provided |
 > | Microsoft.AlertsManagement/prometheusRuleGroups/write | Set prometheusRuleGroups |
@@ -65,6 +75,10 @@ Azure service: [Azure Managed Grafana](/azure/managed-grafana/)
 > | Microsoft.Dashboard/checkNameAvailability/action | Checks if grafana resource name is available |
 > | Microsoft.Dashboard/register/action | Registers the subscription for the Microsoft.Dashboard resource provider |
 > | Microsoft.Dashboard/unregister/action | Unregisters the subscription for the Microsoft.Dashboard resource provider |
+> | Microsoft.Dashboard/dashboards/action | Operate dashboard |
+> | Microsoft.Dashboard/dashboards/read | Read dashboard |
+> | Microsoft.Dashboard/dashboards/write | Write dashboard |
+> | Microsoft.Dashboard/dashboards/delete | Delete dashboard |
 > | Microsoft.Dashboard/grafana/read | Read grafana |
 > | Microsoft.Dashboard/grafana/write | Write grafana |
 > | Microsoft.Dashboard/grafana/delete | Delete grafana |
@@ -637,6 +651,9 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | microsoft.monitor/pipelineGroups/read | Read any Pipeline Group |
 > | microsoft.monitor/pipelineGroups/write | Create or Update any Pipeline Group |
 > | microsoft.monitor/pipelineGroups/delete | Delete any Pipeline Group |
+> | microsoft.monitor/slis/read | Read any SLI |
+> | microsoft.monitor/slis/write | Create or Update any SLI |
+> | microsoft.monitor/slis/delete | Delete any SLI |
 > | **DataAction** | **Description** |
 > | microsoft.monitor/accounts/data/metrics/read | Read metrics data in any Monitoring Account |
 > | microsoft.monitor/accounts/data/metrics/write | Write metrics data to any Monitoring Account |
@@ -737,6 +754,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesLogonLogoff/read | Read data from the AADDomainServicesLogonLogoff table |
 > | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPolicyChange/read | Read data from the AADDomainServicesPolicyChange table |
 > | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPrivilegeUse/read | Read data from the AADDomainServicesPrivilegeUse table |
+> | Microsoft.OperationalInsights/workspaces/query/AADGraphActivityLogs/read | Read data from the AADGraphActivityLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AADManagedIdentitySignInLogs/read | Read data from the AADManagedIdentitySignInLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AADNonInteractiveUserSignInLogs/read | Read data from the AADNonInteractiveUserSignInLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AADProvisioningLogs/read | Read data from the AADProvisioningLogs table |
@@ -746,9 +764,11 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/AADServicePrincipalSignInLogs/read | Read data from the AADServicePrincipalSignInLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AADUserRiskEvents/read | Read data from the AADUserRiskEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/ABAPAuditLog/read | Read data from the ABAPAuditLog table |
+> | Microsoft.OperationalInsights/workspaces/query/ABAPAuthorizationDetails/read | Read data from the ABAPAuthorizationDetails table |
+> | Microsoft.OperationalInsights/workspaces/query/ABAPChangeDocsLog/read | Read data from the ABAPChangeDocsLog table |
+> | Microsoft.OperationalInsights/workspaces/query/ABAPTableDataLog/read | Read data from the ABAPTableDataLog table |
+> | Microsoft.OperationalInsights/workspaces/query/ABAPUserDetails/read | Read data from the ABAPUserDetails table |
 > | Microsoft.OperationalInsights/workspaces/query/ABSBotRequests/read | Read data from the ABSBotRequests table |
-> | Microsoft.OperationalInsights/workspaces/query/ABSChannelToBotRequests/read | Read data from the ABSChannelToBotRequests table |
-> | Microsoft.OperationalInsights/workspaces/query/ABSDependenciesRequests/read | Read data from the ABSDependenciesRequests table |
 > | Microsoft.OperationalInsights/workspaces/query/ACICollaborationAudit/read | Read data from the ACICollaborationAudit table |
 > | Microsoft.OperationalInsights/workspaces/query/ACRConnectedClientList/read | Read data from the ACRConnectedClientList table |
 > | Microsoft.OperationalInsights/workspaces/query/ACREntraAuthenticationAuditLog/read | Read data from the ACREntraAuthenticationAuditLog table |
@@ -757,11 +777,14 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/ACSBillingUsage/read | Read data from the ACSBillingUsage table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSCallAutomationIncomingOperations/read | Read data from the ACSCallAutomationIncomingOperations table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSCallAutomationMediaSummary/read | Read data from the ACSCallAutomationMediaSummary table |
+> | Microsoft.OperationalInsights/workspaces/query/ACSCallAutomationStreamingUsage/read | Read data from the ACSCallAutomationStreamingUsage table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSCallClientMediaStatsTimeSeries/read | Read data from the ACSCallClientMediaStatsTimeSeries table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSCallClientOperations/read | Read data from the ACSCallClientOperations table |
+> | Microsoft.OperationalInsights/workspaces/query/ACSCallClientServiceRequestAndOutcome/read | Read data from the ACSCallClientServiceRequestAndOutcome table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSCallClosedCaptionsSummary/read | Read data from the ACSCallClosedCaptionsSummary table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSCallDiagnostics/read | Read data from the ACSCallDiagnostics table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSCallDiagnosticsUpdates/read | Read data from the ACSCallDiagnosticsUpdates table |
+> | Microsoft.OperationalInsights/workspaces/query/ACSCallingMetrics/read | Read data from the ACSCallingMetrics table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSCallRecordingIncomingOperations/read | Read data from the ACSCallRecordingIncomingOperations table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSCallRecordingSummary/read | Read data from the ACSCallRecordingSummary table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSCallSummary/read | Read data from the ACSCallSummary table |
@@ -772,6 +795,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/ACSEmailStatusUpdateOperational/read | Read data from the ACSEmailStatusUpdateOperational table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSEmailUserEngagementOperational/read | Read data from the ACSEmailUserEngagementOperational table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSJobRouterIncomingOperations/read | Read data from the ACSJobRouterIncomingOperations table |
+> | Microsoft.OperationalInsights/workspaces/query/ACSOptOutManagementOperations/read | Read data from the ACSOptOutManagementOperations table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSRoomsIncomingOperations/read | Read data from the ACSRoomsIncomingOperations table |
 > | Microsoft.OperationalInsights/workspaces/query/ACSSMSIncomingOperations/read | Read data from the ACSSMSIncomingOperations table |
 > | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | Read data from the ADAssessmentRecommendation table |
@@ -880,6 +904,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/AOIDatabaseQuery/read | Read data from the AOIDatabaseQuery table |
 > | Microsoft.OperationalInsights/workspaces/query/AOIDigestion/read | Read data from the AOIDigestion table |
 > | Microsoft.OperationalInsights/workspaces/query/AOIStorage/read | Read data from the AOIStorage table |
+> | Microsoft.OperationalInsights/workspaces/query/ApiManagementGatewayLlmLog/read | Read data from the ApiManagementGatewayLlmLog table |
 > | Microsoft.OperationalInsights/workspaces/query/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/ApiManagementWebSocketConnectionLogs/read | Read data from the ApiManagementWebSocketConnectionLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/APIMDevPortalAuditDiagnosticLog/read | Read data from the APIMDevPortalAuditDiagnosticLog table |
@@ -887,6 +912,9 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/AppBrowserTimings/read | Read data from the AppBrowserTimings table |
 > | Microsoft.OperationalInsights/workspaces/query/AppCenterError/read | Read data from the AppCenterError table |
 > | Microsoft.OperationalInsights/workspaces/query/AppDependencies/read | Read data from the AppDependencies table |
+> | Microsoft.OperationalInsights/workspaces/query/AppEnvSessionConsoleLogs/read | Read data from the AppEnvSessionConsoleLogs table |
+> | Microsoft.OperationalInsights/workspaces/query/AppEnvSessionLifecycleLogs/read | Read data from the AppEnvSessionLifecycleLogs table |
+> | Microsoft.OperationalInsights/workspaces/query/AppEnvSessionPoolEventLogs/read | Read data from the AppEnvSessionPoolEventLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AppEnvSpringAppConsoleLogs/read | Read data from the AppEnvSpringAppConsoleLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/AppEvents/read | Read data from the AppEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/AppExceptions/read | Read data from the AppExceptions table |
@@ -930,22 +958,33 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/ASimWebSessionLogs/read | Read data from the ASimWebSessionLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/ASRJobs/read | Read data from the ASRJobs table |
 > | Microsoft.OperationalInsights/workspaces/query/ASRReplicatedItems/read | Read data from the ASRReplicatedItems table |
+> | Microsoft.OperationalInsights/workspaces/query/ASRv2HealthEvents/read | Read data from the ASRv2HealthEvents table |
+> | Microsoft.OperationalInsights/workspaces/query/ASRv2JobEvents/read | Read data from the ASRv2JobEvents table |
+> | Microsoft.OperationalInsights/workspaces/query/ASRv2ProtectedItems/read | Read data from the ASRv2ProtectedItems table |
+> | Microsoft.OperationalInsights/workspaces/query/ASRv2ReplicationExtensions/read | Read data from the ASRv2ReplicationExtensions table |
+> | Microsoft.OperationalInsights/workspaces/query/ASRv2ReplicationPolicies/read | Read data from the ASRv2ReplicationPolicies table |
+> | Microsoft.OperationalInsights/workspaces/query/ASRv2ReplicationVaults/read | Read data from the ASRv2ReplicationVaults table |
 > | Microsoft.OperationalInsights/workspaces/query/ATCExpressRouteCircuitIpfix/read | Read data from the ATCExpressRouteCircuitIpfix table |
 > | Microsoft.OperationalInsights/workspaces/query/ATCMicrosoftPeeringMetadata/read | Read data from the ATCMicrosoftPeeringMetadata table |
 > | Microsoft.OperationalInsights/workspaces/query/ATCPrivatePeeringMetadata/read | Read data from the ATCPrivatePeeringMetadata table |
 > | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | Read data from the AuditLogs table |
-> | Microsoft.OperationalInsights/workspaces/query/AUIEventsAudit/read | Read data from the AUIEventsAudit table |
-> | Microsoft.OperationalInsights/workspaces/query/AUIEventsOperational/read | Read data from the AUIEventsOperational table |
 > | Microsoft.OperationalInsights/workspaces/query/AutoscaleEvaluationsLog/read | Read data from the AutoscaleEvaluationsLog table |
 > | Microsoft.OperationalInsights/workspaces/query/AutoscaleScaleActionsLog/read | Read data from the AutoscaleScaleActionsLog table |
 > | Microsoft.OperationalInsights/workspaces/query/AVNMConnectivityConfigurationChange/read | Read data from the AVNMConnectivityConfigurationChange table |
 > | Microsoft.OperationalInsights/workspaces/query/AVNMIPAMPoolAllocationChange/read | Read data from the AVNMIPAMPoolAllocationChange table |
 > | Microsoft.OperationalInsights/workspaces/query/AVNMNetworkGroupMembershipChange/read | Read data from the AVNMNetworkGroupMembershipChange table |
 > | Microsoft.OperationalInsights/workspaces/query/AVNMRuleCollectionChange/read | Read data from the AVNMRuleCollectionChange table |
+> | Microsoft.OperationalInsights/workspaces/query/AVSEsxiFirewallSyslog/read | Read data from the AVSEsxiFirewallSyslog table |
+> | Microsoft.OperationalInsights/workspaces/query/AVSEsxiSyslog/read | Read data from the AVSEsxiSyslog table |
+> | Microsoft.OperationalInsights/workspaces/query/AVSNsxEdgeSyslog/read | Read data from the AVSNsxEdgeSyslog table |
+> | Microsoft.OperationalInsights/workspaces/query/AVSNsxManagerSyslog/read | Read data from the AVSNsxManagerSyslog table |
 > | Microsoft.OperationalInsights/workspaces/query/AVSSyslog/read | Read data from the AVSSyslog table |
+> | Microsoft.OperationalInsights/workspaces/query/AVSVcSyslog/read | Read data from the AVSVcSyslog table |
 > | Microsoft.OperationalInsights/workspaces/query/AWSCloudTrail/read | Read data from the AWSCloudTrail table |
 > | Microsoft.OperationalInsights/workspaces/query/AWSCloudWatch/read | Read data from the AWSCloudWatch table |
 > | Microsoft.OperationalInsights/workspaces/query/AWSGuardDuty/read | Read data from the AWSGuardDuty table |
+> | Microsoft.OperationalInsights/workspaces/query/AWSRoute53Resolver/read | Read data from the AWSRoute53Resolver table |
+> | Microsoft.OperationalInsights/workspaces/query/AWSSecurityHubFindings/read | Read data from the AWSSecurityHubFindings table |
 > | Microsoft.OperationalInsights/workspaces/query/AWSVPCFlow/read | Read data from the AWSVPCFlow table |
 > | Microsoft.OperationalInsights/workspaces/query/AWSWAF/read | Read data from the AWSWAF table |
 > | Microsoft.OperationalInsights/workspaces/query/AZFWApplicationRule/read | Read data from the AZFWApplicationRule table |
@@ -983,18 +1022,21 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/AzureLoadTestingOperation/read | Read data from the AzureLoadTestingOperation table |
 > | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | Read data from the AzureMetrics table |
 > | Microsoft.OperationalInsights/workspaces/query/AzureMetricsV2/read | Read data from the AzureMetricsV2 table |
-> | Microsoft.OperationalInsights/workspaces/query/BaiClusterEvent/read | Read data from the BaiClusterEvent table |
 > | Microsoft.OperationalInsights/workspaces/query/BaiClusterNodeEvent/read | Read data from the BaiClusterNodeEvent table |
-> | Microsoft.OperationalInsights/workspaces/query/BaiJobEvent/read | Read data from the BaiJobEvent table |
 > | Microsoft.OperationalInsights/workspaces/query/BehaviorAnalytics/read | Read data from the BehaviorAnalytics table |
+> | Microsoft.OperationalInsights/workspaces/query/BehaviorEntities/read | Read data from the BehaviorEntities table |
+> | Microsoft.OperationalInsights/workspaces/query/BehaviorInfo/read | Read data from the BehaviorInfo table |
 > | Microsoft.OperationalInsights/workspaces/query/BlockchainApplicationLog/read | Read data from the BlockchainApplicationLog table |
 > | Microsoft.OperationalInsights/workspaces/query/BlockchainProxyLog/read | Read data from the BlockchainProxyLog table |
+> | Microsoft.OperationalInsights/workspaces/query/CampaignInfo/read | Read data from the CampaignInfo table |
 > | Microsoft.OperationalInsights/workspaces/query/CassandraAudit/read | Read data from the CassandraAudit table |
 > | Microsoft.OperationalInsights/workspaces/query/CassandraLogs/read | Read data from the CassandraLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/CCFApplicationLogs/read | Read data from the CCFApplicationLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/CDBCassandraRequests/read | Read data from the CDBCassandraRequests table |
 > | Microsoft.OperationalInsights/workspaces/query/CDBControlPlaneRequests/read | Read data from the CDBControlPlaneRequests table |
 > | Microsoft.OperationalInsights/workspaces/query/CDBDataPlaneRequests/read | Read data from the CDBDataPlaneRequests table |
+> | Microsoft.OperationalInsights/workspaces/query/CDBDataPlaneRequests15M/read | Read data from the CDBDataPlaneRequests15M table |
+> | Microsoft.OperationalInsights/workspaces/query/CDBDataPlaneRequests5M/read | Read data from the CDBDataPlaneRequests5M table |
 > | Microsoft.OperationalInsights/workspaces/query/CDBGremlinRequests/read | Read data from the CDBGremlinRequests table |
 > | Microsoft.OperationalInsights/workspaces/query/CDBMongoRequests/read | Read data from the CDBMongoRequests table |
 > | Microsoft.OperationalInsights/workspaces/query/CDBPartitionKeyRUConsumption/read | Read data from the CDBPartitionKeyRUConsumption table |
@@ -1002,7 +1044,6 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/CDBQueryRuntimeStatistics/read | Read data from the CDBQueryRuntimeStatistics table |
 > | Microsoft.OperationalInsights/workspaces/query/CDBTableApiRequests/read | Read data from the CDBTableApiRequests table |
 > | Microsoft.OperationalInsights/workspaces/query/ChaosStudioExperimentEventLogs/read | Read data from the ChaosStudioExperimentEventLogs table |
-> | Microsoft.OperationalInsights/workspaces/query/CHSMManagementAuditLogs/read | Read data from the CHSMManagementAuditLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/CIEventsAudit/read | Read data from the CIEventsAudit table |
 > | Microsoft.OperationalInsights/workspaces/query/CIEventsOperational/read | Read data from the CIEventsOperational table |
 > | Microsoft.OperationalInsights/workspaces/query/CloudAppEvents/read | Read data from the CloudAppEvents table |
@@ -1079,18 +1120,20 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/DatabricksWebTerminal/read | Read data from the DatabricksWebTerminal table |
 > | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspace/read | Read data from the DatabricksWorkspace table |
 > | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspaceFiles/read | Read data from the DatabricksWorkspaceFiles table |
-> | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspaceLogs/read | Read data from the DatabricksWorkspaceLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/DataTransferOperations/read | Read data from the DataTransferOperations table |
 > | Microsoft.OperationalInsights/workspaces/query/DataverseActivity/read | Read data from the DataverseActivity table |
 > | Microsoft.OperationalInsights/workspaces/query/DCRLogErrors/read | Read data from the DCRLogErrors table |
 > | Microsoft.OperationalInsights/workspaces/query/DCRLogTroubleshooting/read | Read data from the DCRLogTroubleshooting table |
 > | Microsoft.OperationalInsights/workspaces/query/DefenderIoTRawEvent/read | Read data from the DefenderIoTRawEvent table |
-> | Microsoft.OperationalInsights/workspaces/query/dependencies/read | Read data from the dependencies table |
+> | Microsoft.OperationalInsights/workspaces/query/DevCenterAgentHealthLogs/read | Read data from the DevCenterAgentHealthLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/DevCenterBillingEventLogs/read | Read data from the DevCenterBillingEventLogs table |
+> | Microsoft.OperationalInsights/workspaces/query/DevCenterConnectionLogs/read | Read data from the DevCenterConnectionLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/DevCenterDiagnosticLogs/read | Read data from the DevCenterDiagnosticLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/DevCenterResourceOperationLogs/read | Read data from the DevCenterResourceOperationLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | Read data from the DeviceAppCrash table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | Read data from the DeviceAppLaunch table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceBehaviorEntities/read | Read data from the DeviceBehaviorEntities table |
+> | Microsoft.OperationalInsights/workspaces/query/DeviceBehaviorInfo/read | Read data from the DeviceBehaviorInfo table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | Read data from the DeviceCalendar table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceCleanup/read | Read data from the DeviceCleanup table |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceConnectSession/read | Read data from the DeviceConnectSession table |
@@ -1149,9 +1192,14 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/ExchangeAssessmentRecommendation/read | Read data from the ExchangeAssessmentRecommendation table |
 > | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | Read data from the ExchangeOnlineAssessmentRecommendation table |
 > | Microsoft.OperationalInsights/workspaces/query/FailedIngestion/read | Read data from the FailedIngestion table |
+> | Microsoft.OperationalInsights/workspaces/query/FileMaliciousContentInfo/read | Read data from the FileMaliciousContentInfo table |
 > | Microsoft.OperationalInsights/workspaces/query/FunctionAppLogs/read | Read data from the FunctionAppLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/GCPAuditLogs/read | Read data from the GCPAuditLogs table |
+> | Microsoft.OperationalInsights/workspaces/query/GCPDNS/read | Read data from the GCPDNS table |
 > | Microsoft.OperationalInsights/workspaces/query/GCPFirewallLogs/read | Read data from the GCPFirewallLogs table |
+> | Microsoft.OperationalInsights/workspaces/query/GCPIAM/read | Read data from the GCPIAM table |
+> | Microsoft.OperationalInsights/workspaces/query/GCPLoadBalancer/read | Read data from the GCPLoadBalancer table |
+> | Microsoft.OperationalInsights/workspaces/query/GCPVPCFlow/read | Read data from the GCPVPCFlow table |
 > | Microsoft.OperationalInsights/workspaces/query/GoogleCloudSCC/read | Read data from the GoogleCloudSCC table |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightAmbariClusterAlerts/read | Read data from the HDInsightAmbariClusterAlerts table |
 > | Microsoft.OperationalInsights/workspaces/query/HDInsightAmbariSystemMetrics/read | Read data from the HDInsightAmbariSystemMetrics table |
@@ -1192,13 +1240,11 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/IdentityInfo/read | Read data from the IdentityInfo table |
 > | Microsoft.OperationalInsights/workspaces/query/IdentityLogonEvents/read | Read data from the IdentityLogonEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/IdentityQueryEvents/read | Read data from the IdentityQueryEvents table |
-> | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Read data from the IISAssessmentRecommendation table |
 > | Microsoft.OperationalInsights/workspaces/query/InsightsMetrics/read | Read data from the InsightsMetrics table |
 > | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | Read data from the IntuneAuditLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/IntuneDeviceComplianceOrg/read | Read data from the IntuneDeviceComplianceOrg table |
 > | Microsoft.OperationalInsights/workspaces/query/IntuneDevices/read | Read data from the IntuneDevices table |
 > | Microsoft.OperationalInsights/workspaces/query/IntuneOperationalLogs/read | Read data from the IntuneOperationalLogs table |
-> | Microsoft.OperationalInsights/workspaces/query/IoTHubDistributedTracing/read | Read data from the IoTHubDistributedTracing table |
 > | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | Read data from the KubeEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/KubeHealth/read | Read data from the KubeHealth table |
 > | Microsoft.OperationalInsights/workspaces/query/KubeMonAgentEvents/read | Read data from the KubeMonAgentEvents table |
@@ -1237,7 +1283,6 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | Read data from the MAWindowsCurrencyAssessment table |
 > | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | Read data from the MAWindowsCurrencyAssessmentDailyCounts table |
 > | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | Read data from the MAWindowsDeploymentStatus table |
-> | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | Read data from the MAWindowsDeploymentStatusNRT table |
 > | Microsoft.OperationalInsights/workspaces/query/McasShadowItReporting/read | Read data from the McasShadowItReporting table |
 > | Microsoft.OperationalInsights/workspaces/query/MCCEventLogs/read | Read data from the MCCEventLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/MCVPAuditLogs/read | Read data from the MCVPAuditLogs table |
@@ -1245,20 +1290,23 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/MDCDetectionDNSEvents/read | Read data from the MDCDetectionDNSEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/MDCDetectionFimEvents/read | Read data from the MDCDetectionFimEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/MDCDetectionGatingValidationEvents/read | Read data from the MDCDetectionGatingValidationEvents table |
+> | Microsoft.OperationalInsights/workspaces/query/MDCDetectionK8SApiEvents/read | Read data from the MDCDetectionK8SApiEvents table |
+> | Microsoft.OperationalInsights/workspaces/query/MDCDetectionProcessV2Events/read | Read data from the MDCDetectionProcessV2Events table |
 > | Microsoft.OperationalInsights/workspaces/query/MDCFileIntegrityMonitoringEvents/read | Read data from the MDCFileIntegrityMonitoringEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/MDECustomCollectionDeviceFileEvents/read | Read data from the MDECustomCollectionDeviceFileEvents table |
+> | Microsoft.OperationalInsights/workspaces/query/MDPResourceLog/read | Read data from the MDPResourceLog table |
 > | Microsoft.OperationalInsights/workspaces/query/MicrosoftAzureBastionAuditLogs/read | Read data from the MicrosoftAzureBastionAuditLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/MicrosoftDataShareReceivedSnapshotLog/read | Read data from the MicrosoftDataShareReceivedSnapshotLog table |
 > | Microsoft.OperationalInsights/workspaces/query/MicrosoftDataShareSentSnapshotLog/read | Read data from the MicrosoftDataShareSentSnapshotLog table |
 > | Microsoft.OperationalInsights/workspaces/query/MicrosoftDataShareShareLog/read | Read data from the MicrosoftDataShareShareLog table |
-> | Microsoft.OperationalInsights/workspaces/query/MicrosoftDynamicsTelemetryPerformanceLogs/read | Read data from the MicrosoftDynamicsTelemetryPerformanceLogs table |
-> | Microsoft.OperationalInsights/workspaces/query/MicrosoftDynamicsTelemetrySystemMetricsLogs/read | Read data from the MicrosoftDynamicsTelemetrySystemMetricsLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/MicrosoftGraphActivityLogs/read | Read data from the MicrosoftGraphActivityLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/MicrosoftHealthcareApisAuditLogs/read | Read data from the MicrosoftHealthcareApisAuditLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/MicrosoftPurviewInformationProtection/read | Read data from the MicrosoftPurviewInformationProtection table |
+> | Microsoft.OperationalInsights/workspaces/query/MicrosoftServicePrincipalSignInLogs/read | Read data from the MicrosoftServicePrincipalSignInLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/MNFDeviceUpdates/read | Read data from the MNFDeviceUpdates table |
 > | Microsoft.OperationalInsights/workspaces/query/MNFSystemSessionHistoryUpdates/read | Read data from the MNFSystemSessionHistoryUpdates table |
 > | Microsoft.OperationalInsights/workspaces/query/MNFSystemStateMessageUpdates/read | Read data from the MNFSystemStateMessageUpdates table |
+> | Microsoft.OperationalInsights/workspaces/query/NatGatewayFlowlogsV1/read | Read data from the NatGatewayFlowlogsV1 table |
 > | Microsoft.OperationalInsights/workspaces/query/NCBMBreakGlassAuditLogs/read | Read data from the NCBMBreakGlassAuditLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/NCBMSecurityDefenderLogs/read | Read data from the NCBMSecurityDefenderLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/NCBMSecurityLogs/read | Read data from the NCBMSecurityLogs table |
@@ -1271,9 +1319,11 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/NCSStorageAudits/read | Read data from the NCSStorageAudits table |
 > | Microsoft.OperationalInsights/workspaces/query/NCSStorageLogs/read | Read data from the NCSStorageLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/NetworkAccessAlerts/read | Read data from the NetworkAccessAlerts table |
+> | Microsoft.OperationalInsights/workspaces/query/NetworkAccessConnectionEvents/read | Read data from the NetworkAccessConnectionEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/NetworkAccessTraffic/read | Read data from the NetworkAccessTraffic table |
 > | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | Read data from the NetworkMonitoring table |
 > | Microsoft.OperationalInsights/workspaces/query/NetworkSessions/read | Read data from the NetworkSessions table |
+> | Microsoft.OperationalInsights/workspaces/query/NginxUpstreamUpdateLogs/read | Read data from the NginxUpstreamUpdateLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/NGXOperationLogs/read | Read data from the NGXOperationLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/NGXSecurityLogs/read | Read data from the NGXSecurityLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/NSPAccessLogs/read | Read data from the NSPAccessLogs table |
@@ -1290,7 +1340,13 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/OEPDataplaneLogs/read | Read data from the OEPDataplaneLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/OEPElasticOperator/read | Read data from the OEPElasticOperator table |
 > | Microsoft.OperationalInsights/workspaces/query/OEPElasticsearch/read | Read data from the OEPElasticsearch table |
+> | Microsoft.OperationalInsights/workspaces/query/OEWAuditLogs/read | Read data from the OEWAuditLogs table |
+> | Microsoft.OperationalInsights/workspaces/query/OEWExperimentAssignmentSummary/read | Read data from the OEWExperimentAssignmentSummary table |
+> | Microsoft.OperationalInsights/workspaces/query/OEWExperimentScorecardMetricPairs/read | Read data from the OEWExperimentScorecardMetricPairs table |
+> | Microsoft.OperationalInsights/workspaces/query/OEWExperimentScorecards/read | Read data from the OEWExperimentScorecards table |
 > | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | Read data from the OfficeActivity table |
+> | Microsoft.OperationalInsights/workspaces/query/OGOAuditLogs/read | Read data from the OGOAuditLogs table |
+> | Microsoft.OperationalInsights/workspaces/query/OktaSystemLogs/read | Read data from the OktaSystemLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/OLPSupplyChainEntityOperations/read | Read data from the OLPSupplyChainEntityOperations table |
 > | Microsoft.OperationalInsights/workspaces/query/OLPSupplyChainEvents/read | Read data from the OLPSupplyChainEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/Operation/read | Read data from the Operation table |
@@ -1299,13 +1355,8 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/PowerAppsActivity/read | Read data from the PowerAppsActivity table |
 > | Microsoft.OperationalInsights/workspaces/query/PowerAutomateActivity/read | Read data from the PowerAutomateActivity table |
 > | Microsoft.OperationalInsights/workspaces/query/PowerBIActivity/read | Read data from the PowerBIActivity table |
-> | Microsoft.OperationalInsights/workspaces/query/PowerBIAuditTenant/read | Read data from the PowerBIAuditTenant table |
 > | Microsoft.OperationalInsights/workspaces/query/PowerBIDatasetsTenant/read | Read data from the PowerBIDatasetsTenant table |
-> | Microsoft.OperationalInsights/workspaces/query/PowerBIDatasetsTenantPreview/read | Read data from the PowerBIDatasetsTenantPreview table |
 > | Microsoft.OperationalInsights/workspaces/query/PowerBIDatasetsWorkspace/read | Read data from the PowerBIDatasetsWorkspace table |
-> | Microsoft.OperationalInsights/workspaces/query/PowerBIDatasetsWorkspacePreview/read | Read data from the PowerBIDatasetsWorkspacePreview table |
-> | Microsoft.OperationalInsights/workspaces/query/PowerBIReportUsageTenant/read | Read data from the PowerBIReportUsageTenant table |
-> | Microsoft.OperationalInsights/workspaces/query/PowerBIReportUsageWorkspace/read | Read data from the PowerBIReportUsageWorkspace table |
 > | Microsoft.OperationalInsights/workspaces/query/PowerPlatformAdminActivity/read | Read data from the PowerPlatformAdminActivity table |
 > | Microsoft.OperationalInsights/workspaces/query/PowerPlatformConnectorActivity/read | Read data from the PowerPlatformConnectorActivity table |
 > | Microsoft.OperationalInsights/workspaces/query/PowerPlatformDlpActivity/read | Read data from the PowerPlatformDlpActivity table |
@@ -1316,9 +1367,11 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/PurviewSecurityLogs/read | Read data from the PurviewSecurityLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/REDConnectionEvents/read | Read data from the REDConnectionEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/RemoteNetworkHealthLogs/read | Read data from the RemoteNetworkHealthLogs table |
-> | Microsoft.OperationalInsights/workspaces/query/requests/read | Read data from the requests table |
 > | Microsoft.OperationalInsights/workspaces/query/ResourceManagementPublicAccessLogs/read | Read data from the ResourceManagementPublicAccessLogs table |
+> | Microsoft.OperationalInsights/workspaces/query/RetinaNetworkFlowLogs/read | Read data from the RetinaNetworkFlowLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | Read data from the SCCMAssessmentRecommendation table |
+> | Microsoft.OperationalInsights/workspaces/query/SCGPoolExecutionLog/read | Read data from the SCGPoolExecutionLog table |
+> | Microsoft.OperationalInsights/workspaces/query/SCGPoolRequestLog/read | Read data from the SCGPoolRequestLog table |
 > | Microsoft.OperationalInsights/workspaces/query/SCOMAssessmentRecommendation/read | Read data from the SCOMAssessmentRecommendation table |
 > | Microsoft.OperationalInsights/workspaces/query/SecureScoreControls/read | Read data from the SecureScoreControls table |
 > | Microsoft.OperationalInsights/workspaces/query/SecureScores/read | Read data from the SecureScores table |
@@ -1346,7 +1399,6 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | Read data from the SPAssessmentRecommendation table |
 > | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | Read data from the SQLAssessmentRecommendation table |
 > | Microsoft.OperationalInsights/workspaces/query/SqlAtpStatus/read | Read data from the SqlAtpStatus table |
-> | Microsoft.OperationalInsights/workspaces/query/SqlDataClassification/read | Read data from the SqlDataClassification table |
 > | Microsoft.OperationalInsights/workspaces/query/SQLSecurityAuditEvents/read | Read data from the SQLSecurityAuditEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentResult/read | Read data from the SqlVulnerabilityAssessmentResult table |
 > | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentScanStatus/read | Read data from the SqlVulnerabilityAssessmentScanStatus table |
@@ -1362,6 +1414,8 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/StorageQueueLogs/read | Read data from the StorageQueueLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/StorageTableLogs/read | Read data from the StorageTableLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/SucceededIngestion/read | Read data from the SucceededIngestion table |
+> | Microsoft.OperationalInsights/workspaces/query/SVMPoolExecutionLog/read | Read data from the SVMPoolExecutionLog table |
+> | Microsoft.OperationalInsights/workspaces/query/SVMPoolRequestLog/read | Read data from the SVMPoolRequestLog table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseBigDataPoolApplicationsEnded/read | Read data from the SynapseBigDataPoolApplicationsEnded table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseBuiltinSqlPoolRequestsEnded/read | Read data from the SynapseBuiltinSqlPoolRequestsEnded table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseDXCommand/read | Read data from the SynapseDXCommand table |
@@ -1372,12 +1426,10 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/SynapseDXTableDetails/read | Read data from the SynapseDXTableDetails table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseDXTableUsageStatistics/read | Read data from the SynapseDXTableUsageStatistics table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseGatewayApiRequests/read | Read data from the SynapseGatewayApiRequests table |
-> | Microsoft.OperationalInsights/workspaces/query/SynapseGatewayEvents/read | Read data from the SynapseGatewayEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationActivityRuns/read | Read data from the SynapseIntegrationActivityRuns table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationPipelineRuns/read | Read data from the SynapseIntegrationPipelineRuns table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationTriggerRuns/read | Read data from the SynapseIntegrationTriggerRuns table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseLinkEvent/read | Read data from the SynapseLinkEvent table |
-> | Microsoft.OperationalInsights/workspaces/query/SynapseRBACEvents/read | Read data from the SynapseRBACEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseRbacOperations/read | Read data from the SynapseRbacOperations table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseScopePoolScopeJobsEnded/read | Read data from the SynapseScopePoolScopeJobsEnded table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseScopePoolScopeJobsStateChange/read | Read data from the SynapseScopePoolScopeJobsStateChange table |
@@ -1388,6 +1440,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/SynapseSqlPoolWaits/read | Read data from the SynapseSqlPoolWaits table |
 > | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Read data from the Syslog table |
 > | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | Reading data from any custom log |
+> | Microsoft.OperationalInsights/workspaces/query/ThreatIntelExportOperation/read | Read data from the ThreatIntelExportOperation table |
 > | Microsoft.OperationalInsights/workspaces/query/ThreatIntelIndicators/read | Read data from the ThreatIntelIndicators table |
 > | Microsoft.OperationalInsights/workspaces/query/ThreatIntelligenceIndicator/read | Read data from the ThreatIntelligenceIndicator table |
 > | Microsoft.OperationalInsights/workspaces/query/ThreatIntelObjects/read | Read data from the ThreatIntelObjects table |
@@ -1445,6 +1498,8 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/query/WireData/read | Read data from the WireData table |
 > | Microsoft.OperationalInsights/workspaces/query/WorkloadDiagnosticLogs/read | Read data from the WorkloadDiagnosticLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/WorkloadMonitoringPerf/read | Read data from the WorkloadMonitoringPerf table |
+> | Microsoft.OperationalInsights/workspaces/query/WOUserAudits/read | Read data from the WOUserAudits table |
+> | Microsoft.OperationalInsights/workspaces/query/WOUserDiagnostics/read | Read data from the WOUserDiagnostics table |
 > | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | Read data from the WUDOAggregatedStatus table |
 > | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | Read data from the WUDOStatus table |
 > | Microsoft.OperationalInsights/workspaces/query/WVDAgentHealthStatus/read | Read data from the WVDAgentHealthStatus table |
@@ -1498,6 +1553,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.OperationalInsights/workspaces/views/delete | Delete workspace view. |
 > | Microsoft.OperationalInsights/workspaces/views/write | Create or update workspace view. |
 > | **DataAction** | **Description** |
+> | Microsoft.OperationalInsights/workspaces/jobs/export/action | Lets you export data from Log Analytics workspace per query and time range |
 > | Microsoft.OperationalInsights/workspaces/tables/data/read | Allows you to provide read data access to workspaces, or more fine-grained data entities, such as specific tables or rows. |
 
 ## Microsoft.OperationsManagement

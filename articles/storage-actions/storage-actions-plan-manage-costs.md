@@ -6,7 +6,7 @@ ms.author: normesta
 ms.custom: subject-cost-optimization
 ms.service: azure-storage-actions
 ms.topic: how-to
-ms.date: 04/01/2025
+ms.date: 05/05/2025
 ---
 
 # Plan to manage costs for Azure Storage Actions
@@ -14,10 +14,6 @@ ms.date: 04/01/2025
 This article describes how you plan for and manage costs for Azure Storage Actions.
 
 Costs for Azure Storage Actions are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Storage Actions, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
-
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available in these [regions](overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Understand the full billing model for Azure Storage Actions
 
@@ -117,7 +113,7 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 ## Next steps
 
 - Learn more about Azure Blob Storage costs meters, see [Plan and manage costs for Azure Blob Storage](../storage//common/storage-plan-manage-costs.md)
-- Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Learn [how to optimize your cloud investment with Microsoft Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 

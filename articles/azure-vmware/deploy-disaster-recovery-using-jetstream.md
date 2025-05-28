@@ -108,7 +108,10 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 - [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/access-tiers-overview.md). 
 
    >[!NOTE]
-   >The **Enable hierarchical namespace** option on the blob isn't supported.   
+   >The **Enable hierarchical namespace** option on the blob isn't supported.
+   
+   >[!NOTE]
+   >Protecting a **shared disk** (eg WFC) is not supported.   
 
 - An NSX-T network segment configured on Azure VMware Solution private cloud with DHCP enabled on the segment for the transient JetStream Virtual appliances is employed during recovery or failover.  
 

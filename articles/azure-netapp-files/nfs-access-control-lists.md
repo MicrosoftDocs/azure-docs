@@ -4,8 +4,8 @@ description: Learn about using NFSv4.x access control lists in Azure NetApp File
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 11/13/2023
+ms.topic: concept-article
+ms.date: 02/13/2025
 ms.author: anfdocs
 ---
 

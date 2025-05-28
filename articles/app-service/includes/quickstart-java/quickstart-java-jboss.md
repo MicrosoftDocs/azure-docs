@@ -3,7 +3,7 @@ author: cephalin
 ms.service: azure-app-service
 ms.devlang: java
 ms.topic: include
-ms.date: 08/30/2023
+ms.date: 04/23/2025
 ms.author: cephalin
 ---
 
@@ -52,33 +52,33 @@ The deployment process to Azure App Service uses your Azure credentials from the
 Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.14.1:config
 ```
 
 1. For **Create new run configuration**, type **Y**, then **Enter**.
 1. For **Define value for OS**, type **2** for Linux, then **Enter**.
-1. For **Define value for javaVersion**, type **2** for Java 11, then **Enter**.
-1. For **webContainer** option, type **4** for Jbosseap 7, then **Enter**.
+1. For **Define value for javaVersion**, type **2** for Java 17, then **Enter**. If you select Java 21, you won't see Jbosseap as an option later.
+1. For **Define value for webContainer**, type **4** for Jbosseap 7, then **Enter**.
 1. For **Define value for pricingTier**, type **1** for P1v3, then **Enter**.
 1. For **Confirm**, type **Y**, then **Enter**.
 
     ```
     Please confirm webapp properties
-    AppName : petstoreee7-1690443003536
-    ResourceGroup : petstoreee7-1690443003536-rg
+    AppName : petstoreee7-1745409173307
+    ResourceGroup : petstoreee7-1745409173307-rg
     Region : centralus
     PricingTier : P1v3
     OS : Linux
-    Java Version: Java 11
-    Web server stack: Jbosseap 7
+    Java Version: Java 17
+    Web server stack: Jbosseap 4
     Deploy to slot : false
     Confirm (Y/N) [Y]: 
     [INFO] Saving configuration to pom.
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  19.914 s
-    [INFO] Finished at: 2023-07-27T07:30:20Z
+    [INFO] Total time:  01:36 min
+    [INFO] Finished at: 2025-04-23T11:54:22Z
     [INFO] ------------------------------------------------------------------------
     ```
 
@@ -104,22 +104,12 @@ The relevant portion of the `pom.xml` file should look similar to the following 
 </build>           
 ```
 
-You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed in the following table:
+You can modify the configurations for App Service directly in your `pom.xml`.
 
-Property | Required | Description | Version
----|---|---|---
-`<schemaVersion>` | false | Specify the version of the configuration schema. Supported values are: `v1`, `v2`. | 1.5.2
-`<subscriptionId>` | false | Specify the subscription ID. | 0.1.0+
-`<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
-`<appName>` | true | The name of your Web App. | 0.1.0+
-`<region>` | false | Specifies the region to host your Web App; the default value is **centralus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
-`<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1v2** for production workload, while **B2** is the recommended minimum for Java dev/test. For more information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
-`<runtime>` | false | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
-`<deployment>` | false | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
+- For the complete list of configurations, see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration).
+- For configurations specific to App Service, see [Azure Web App: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).
 
-For the complete list of configurations, see the plugin reference documentation. All the Azure Maven Plugins share a common set of configurations. For these configurations see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration). For configurations specific to App Service, see [Azure Web App: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).
-
-Be careful about the values of `<appName>` and `<resourceGroup>` (`petstoreee7-1690443003536` and `petstoreee7-1690443003536-rg` accordingly in the demo). They're used later.
+Be careful about the values of `<appName>` and `<resourceGroup>` (`petstoreee7-1745409173307` and `petstoreee7-1745409173307-rg` accordingly in the demo). They're used later.
 
 ## 4 - Deploy the app
 
@@ -130,7 +120,7 @@ With all the configuration ready in your *pom.xml* file, you can deploy your Jav
 mvn package azure-webapp:deploy -DskipTests
 ```
 
-Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/` (`http://petstoreee7-1690443003536.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
+Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When deployment completes, your application is ready. In this demo, the URL is `http://petstoreee7-1745409173307.azurewebsites.net`. Open the URL with your local web browser, you should see
 
 ![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/jboss-sample-in-app-service.png)
 
@@ -141,7 +131,7 @@ Once deployment is completed, your application is ready at `http://<appName>.azu
 In the preceding steps, you created Azure resources in a resource group. If you don't need the resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
 
 ```azurecli-interactive
-az group delete --name <your resource group name; for example: petstoreee7-1690443003536-rg> --yes
+az group delete --name <your resource group name; for example: petstoreee7-1745409173307-rg> --yes
 ```
 
 This command may take a minute to run.
