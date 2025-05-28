@@ -289,7 +289,7 @@ public class ToDoItem {
 <a id="http-trigger-get-multiple-items-java"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query and returns the results in the HTTP response.
 
 ```java
 package com.function;
@@ -327,7 +327,7 @@ public class GetToDoItems {
 <a id="http-trigger-look-up-id-from-query-string-java"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query, which is filtered by a parameter from the query string, and it returns the row in the HTTP response.
 
 ```java
 public class GetToDoItem {
@@ -354,7 +354,7 @@ public class GetToDoItem {
 <a id="http-trigger-delete-one-or-multiple-rows-java"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It executes a stored procedure with input from the HTTP request query parameter.
 
 The stored procedure `dbo.DeleteToDo` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
@@ -402,7 +402,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-javascript"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query and returns the results in the HTTP response.
 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
@@ -477,7 +477,7 @@ module.exports = async function (context, req, todoItems) {
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query, which is filtered by a parameter from the query string, and it returns the row in the HTTP response.
 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
@@ -553,7 +553,7 @@ module.exports = async function (context, req, todoItem) {
 <a id="http-trigger-delete-one-or-multiple-rows-javascript"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It executes a stored procedure with input from the HTTP request query parameter.
 
 The stored procedure `dbo.DeleteToDo` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
@@ -644,7 +644,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-powershell"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query and returns the results in the HTTP response.
 
 The following is binding data in the function.json file:
 
@@ -693,7 +693,7 @@ Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
 <a id="http-trigger-look-up-id-from-query-string-powershell"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding in a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query, which is filtered by a parameter from the query string, and it returns the row in the HTTP response.
 
 The following is binding data in the function.json file:
 
@@ -744,7 +744,7 @@ Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
 <a id="http-trigger-delete-one-or-multiple-rows-powershell"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It executes a stored procedure with input from the HTTP request query parameter.
 
 The stored procedure `dbo.DeleteToDo` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
@@ -814,7 +814,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-python"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query and returns the results in the HTTP response.
 
 # [v2](#tab/python-v2)
 
@@ -896,7 +896,7 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding in a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query, which is filtered by a parameter from the query string, and it returns the row in the HTTP response.
 
 # [v2](#tab/python-v2)
 
@@ -981,7 +981,7 @@ def main(req: func.HttpRequest, todoItem: func.SqlRowList) -> func.HttpResponse:
 <a id="http-trigger-delete-one-or-multiple-rows-python"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) reques. It executes a stored procedure with input from the HTTP request query parameter.
 
 The stored procedure `dbo.DeleteToDo` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
