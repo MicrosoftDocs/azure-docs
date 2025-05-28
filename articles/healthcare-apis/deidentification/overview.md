@@ -11,7 +11,8 @@ ms.author: kimiamavon
 
 # What is the de-identification service?
 
-![TAGSURROGATEREDACT](https://github.com/user-attachments/assets/e695e769-b6b9-4c48-88af-8e0796e902ac)
+![Screenshot of the Tag Redact and Surrogation operations.](https://github.com/user-attachments/assets/5fb2a39d-c270-4551-baad-0dcf98cb48e1)
+
 
 The de-identification service in Azure Health Data Services enables healthcare organizations to de-identify clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 27 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
 
@@ -39,7 +40,7 @@ The de-identification service unlocks the power of your data by automating three
 ### **Consistent replacement to preserve patient timelines**
 Consistent surrogation results enable organizations to retain relationships occurring in the underlying dataset, which is critical for research, analytics, and machine learning. By submitting data in the same batch, our service allows for consistent replacement across entities and preserves the relative temporal relationships between events.
 
-![consistentsurrogation](https://github.com/user-attachments/assets/9ac6532d-e21c-4b51-8a83-a89a42e1b7bb)
+![Screenshot of consistent surrogation.](https://github.com/user-attachments/assets/9ac6532d-e21c-4b51-8a83-a89a42e1b7bb)
 
 ## De-identify clinical data securely and efficiently
 
@@ -88,15 +89,10 @@ The following service limits are applicable:
 
 ## Pricing
 
-Pricing is based on the amount of data de-identified by our service. You are charge $0.05 per MB, for any of the three operations we offer, whether you are using the asynchronous or synchornous endpoint.
+Pricing is based on the amount of data de-identified by our service: 
+You are charged $0.05 per MB, for any of the three operations we offer, whether you are using the asynchronous or synchornous endpoint. You have also have a monthly allotment of 50 MB that enables you to try the product for free.
 
 This price is also displayed on our Pricing Tool page, where you can estimate the cost based on your use case: [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-
-You have also have a monthly allotment of 50 MB that enables you to try the product for free.
-
-| Transformation Operation (per MB) | Up to 50 MB | Over 50 MB |
-| ---------------- | ------ | ---- |
-| Unstructured text de-identification | $0 | $0.05 |
 
 When you choose to store documents in Azure Blob Storage, you are charged based on Azure Storage pricing.
 
