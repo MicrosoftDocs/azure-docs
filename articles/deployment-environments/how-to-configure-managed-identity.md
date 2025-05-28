@@ -124,7 +124,7 @@ You can set up your key vault to use either a [key vault access policy](/azure/k
 
 ### Key vault access policy
 
-[!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/includes/key-vault-contributor-role-warning.md)]
+[!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-contributor-role-warning.md)]
 
 If the key vault is configured to use a key vault access policy:
 
