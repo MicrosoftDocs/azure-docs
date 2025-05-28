@@ -49,7 +49,7 @@ A key approach to achieve reliability in a workload is *resiliency*, which is a 
 Azure provides over 60 regions globally, that are located across many different geographies. Each region is a set of physical facilities that include datacenters and networking infrastructure. All regions may be divided into geographical areas called geographies. Each geography is a data residency boundary, and may contain one or more regions.
 
 - For more information on Azure regions, see [What are Azure regions](./regions-overview.md).
-- To learn about paired and nonpaired regions, including lists of region pairs and nonpaired regions, see [Azure region pairs and nonpaired regions](./regions-paired.md). 
+- To view the list of Azure regions, see [List of Azure regions](./regions-list.md).
 - To see the list of services that are deployed to Azure regions, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) 
 
 ## Azure availability zones
@@ -58,8 +58,7 @@ Many Azure regions provide availability zones, which are separated groups of dat
 
 - For more information on availability zones, see [What are availability zones?](./availability-zones-overview.md).
 - To view which regions support availability zones, see [List of Azure regions](./regions-list.md).
-- To learn about how each Azure service supports availability zones, see [Azure services with availability zone support](./availability-zones-service-support.md)
-- To learn how to approach a migration to availability zone support, see [Azure availability zone migration overview](availability-zones-migration-overview.md).
+
 
 ## Reliability concepts
 
