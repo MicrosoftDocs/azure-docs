@@ -25,7 +25,7 @@ Before you begin, prepare the following prerequisites:
 
 ## Setting up
 
-Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow MQTT broker to be accessed directly from the developer environment. The following development environment setup options utilize [k3d](https://k3d.io/#what-is-k3d) to simplify Kubernetes cluster creation. Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
+Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow MQTT broker to be accessed directly from the developer environment. The following development environment setup options use [k3d](https://k3d.io/#what-is-k3d) to simplify Kubernetes cluster creation. Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
 
 Follow the steps in **one of the sections** below to get your development environment up and running:
 
@@ -55,6 +55,14 @@ Follow the steps in **one of the sections** below to get your development enviro
 
     ```bash
     git clone https://github.com/Azure/iot-operations-sdks
+    ```
+
+1. Launch a shell, and change to the root directory of the *Azure IoT Operations SDKs* repository.
+
+1. Initialize the cluster and install required dependencies:
+
+    ```bash
+    sudo ./tools/deployment/initialize-cluster.sh
     ```
 
 ### Option 3 - Linux devcontainer on Windows
@@ -88,6 +96,15 @@ Follow the steps in **one of the sections** below to get your development enviro
     https://github.com/azure/iot-operations-sdks
     ```
 
+1. Launch a shell, and change to the root directory of the *Azure IoT Operations SDKs* repository.
+
+1. Initialize the cluster and install required dependencies:
+
+    ```bash
+    sudo ./tools/deployment/initialize-cluster.sh
+    ```
+
+
 > [!TIP]
 > To reconnect to the container in VSCode, choose `F1 > Dev Containers: Attach to Running Container...` and then select the container name created previously.
 
@@ -116,18 +133,19 @@ Follow the steps in **one of the sections** below to get your development enviro
     git clone https://github.com/Azure/iot-operations-sdks
     ```
 
-<!-- TODO: We will write the steps here instead of pointing to the quickstart -->
-## **Install Azure IoT Operations (NEEDS REWRITING)
-
-Azure IoT Operations will be installed to the development cluster, and then the configuration will be altered to provide additional off-cluster access methods to streamline development:
-
 1. Launch a shell, and change to the root directory of the *Azure IoT Operations SDKs* repository.
 
-1. If required, initialize the cluster and install required dependencies:
+1. Initialize the cluster and install required dependencies:
 
     ```bash
     sudo ./tools/deployment/initialize-cluster.sh
     ```
+
+
+<!-- TODO: We will write the steps here instead of pointing to the quickstart -->
+## **Install Azure IoT Operations (NEEDS REWRITING)
+
+Azure IoT Operations will be installed to the development cluster, and then the configuration will be altered to provide additional off-cluster access methods to streamline development:
 
 1. Follow the [Azure IoT Operations documentation](https://learn.microsoft.com/azure/iot-operations/get-started-end-to-end-sample/quickstart-deploy?tabs=codespaces#connect-cluster-to-azure-arc) to connect Azure Arc and deploy Azure IoT Operations.
 
