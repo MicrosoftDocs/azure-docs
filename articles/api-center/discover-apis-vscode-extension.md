@@ -103,24 +103,7 @@ You can also export a specification using the Command Palette:
 1. Select **Azure API Center: Export API Specification Document**.
 1. Make selections to navigate to an API definition. A new tab appears that renders an API specification document.
 
-## Use language model tools 
-
-In the pre-release version of the Azure API Center extension, you can add language model tools from your API center to your Visual Studio Code environment to use in GitHub Copilot's agent mode. [earn more about tools in agent mode](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). 
-
-These API Center tools can help you search for APIs and API versions, API definitions and specifications, authentication information and credentials, and deployments using natural language prompts.
-
-To add language model tools to your Visual Studio Code environment:
-
-1. Set the mode of your GitHub Copilot chat to **Agent**.
-1. Select the **Tools** icon in the chat window.
-
-    :::image type="content" source="media/discover-apis-vscode-extension/language-model-tools.png" alt-text="Screenshot of GitHub Copilot chat window in Visual Studio Code.":::
-
-1. Select one or more API Center tools to be available in the chat.
-
-    :::image type="content" source="media/discover-apis-vscode-extension/api-center-tools.png" alt-text="Screenshot of selecting API Center tools in Visual Studio Code.":::
-
-1. 
+    
 
 
 
@@ -129,5 +112,5 @@ To add language model tools to your Visual Studio Code environment:
 * [Azure API Center - key concepts](key-concepts.md)
 * [Build and register APIs with the Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md)
 * [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
-* [Enable and view API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
+* [Enable API Center portal view in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
 
