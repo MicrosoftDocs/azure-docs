@@ -96,8 +96,6 @@ landingContent:
             url: how-to-configure-customization-imaging.md
           - text: Create customization tasks
             url: how-to-create-customization-tasks-catalog.md
-          - text: 'Reference: imagedefinition.yaml and task.yaml files'
-            url: reference-dev-box-customizations.md
 
    # Card
   - title: Support & Reference
@@ -110,6 +108,8 @@ landingContent:
             url: how-to-troubleshoot-remote-desktop-connectivity.md   
           - text: Resolve connectivity issues
             url: how-to-resolve-dev-box-connectivity-issues.md
+          - text: 'Reference: imagedefinition.yaml and task.yaml files'
+            url: reference-dev-box-customizations.md
           - text: Get support for Microsoft Dev Box
             url: how-to-get-help.md
         - linkListType: reference
