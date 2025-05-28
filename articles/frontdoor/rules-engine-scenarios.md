@@ -1,0 +1,699 @@
+---
+title: Front Door Rules Engine Scenarios and Configurations
+description: Learn about the scenarios and configurations for Azure Front Door Rules Engine.
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 05/29/2025
+
+---
+
+# Azure Front Door rules engine scenarios and configurations
+
+The Azure Front Door rules engine allows users to customize processing and routing logic on AFD edge with ease by configuring pairs of match conditions and actions. 
+
+You can configure various rule [actions](front-door-rules-engine-actions.md) based on the combination of the currently supported 19 match conditions from incoming requests, to 
+1.	manage cache policy dynamically
+
+1.	forward request to different origins or versions
+
+1.	modify request or response headers to hide sensitive information or passthrough important information through headers, e.g. implementing security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, X-Frame-Options, and Access-Control-Allow-Origin headers for Cross-Origin Resource Sharing (CORS) scenarios. Security-based attributes can also be defined with cookies.
+
+1.	rewrite to new paths or redirect requests to new destinations 
+
+1.	enable complex scenarios with few rules by using regex and server variables which capture dynamic values from incoming requests or responses and further enhances the functionality and appeal of the rules engine. Customers can combine values from different server variables and static strings to support more complex scenarios with fewer rules. We are continuously adding new features to accommodate a broader range of scenarios with greater flexibility.
+This blog intends to discuss the new capabilities Azure Front Door supported recently, supported common use cases, and the configuration of the rules engine to achieve these use cases. We will also provide ARM templates to leverage these capabilities.
+
+## New capabilities
+
+The AFD rules engine has been widely adopted, and we have received constructive feedback. Since May 2024, we have been improving its capabilities and have implemented several updates listed below. These enhancements allow capturing values from incoming requests and using the captured value dynamically to construct a new destination or value in the rules engine action, offering more flexibility with fewer rules for enriched scenarios.
+
+1.	Capture URL path segments in server variable
+1.	Transform URL to lower case
+1.	Capture request header as server variable
+1.	Capture response header as server variable
+1.	Capture request query string as server variable 
+
+## Common rules engine scenarios 
+
+Here are the common scenarios customers leverage AFD rules engine to achieve. However, rules engine is not limited to the following scenarios, you can explore various scenarios and feel free to reach out to us if you have any questions about how to support your scenario. We will continue and are adding more capabilities to support your scenarios.
+
+### Scenario 1: Redirect using query string, URL path segments, or incoming hostname captures
+
+Managing redirects is important for SEO, user experience, and the proper functioning of a website. The Azure Front Door rules engine and server variables enables efficient management of batch redirects based on various parameters.
+
+- To redirect requests using query fields of the incoming URL, you can capture the value of the query string’s key of interest in the format {http_req_arg_<key>}. E.g. extract the value of “cdpb” query key from an incoming URL : https://example.mydomain.com/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount and use it to configure “Destination host” in to redirect to outgoing URL : https://teststorageaccount.blob.core.windows.net/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount. This can be achieved by using {http_req_arg_cdpb}. This helps reduce the number of rules needed where you don’t need to create one rule for each cdpb value.
+Example in portal
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectQueryStringCapture')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 100,
+        "conditions": [],
+        "actions": [
+            {
+                "name": "UrlRedirect",
+                "parameters": {
+                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                    "redirectType": "PermanentRedirect",
+                    "destinationProtocol": "MatchRequest",
+                    "customHostname": "{http_req_arg_cdpb}.blob.core.windows.net"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+- To redirect requests to different origins based on URL path segment when the length of the URL path segment is fixed, you can capture the URL segments using {variable:offset:length}. Read more about server variable format in Server variables - Azure Front Door | Microsoft Learn.
+For example, the tenant ID is embedded in the URL segment with a fixed length of 6 strings or numbers, e.g. `https://api.contoso.com/{tenantId}/xyz`. You would like to be able to extract {tenantId} from the URL and decide the correct redirect to use in the format of tenantId.backend.com/xyz. This helps reduce the number of rules needed where you don’t need to create one rule for each tenant ID. 
+
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectURLSegmentCapture')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 101,
+        "conditions": [],
+        "actions": [
+            {
+                "name": "UrlRedirect",
+                "parameters": {
+                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                    "redirectType": "PermanentRedirect",
+                    "destinationProtocol": "MatchRequest",
+                    "customPath": "/xyz",
+                    "customHostname": "{url_path:0:6}.backend.com"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+- To redirect requests to different origins based on URL path segment with dynamic lengths, you can extract the URL segment using {url_path:seg#}, more details about the format in Server variables - Azure Front Door | Microsoft Learn. The tenant ID or location is embedded in the URL segment, e.g. `https://api.contoso.com/{tenantId}/xyz`. You would like to be able to extract {tenantId} from the URL and decide the correct redirect to use in the format of tenantId.backend.com/xyz with server variable {url_path:seg0}.backend.com in the redirect destination host.  This helps reduce the number of rules needed where you don’t need to create one rule for each tenant ID. This is currently supported by ARM templates and command line tools. 
+
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectURLSegmentCapture')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 101,
+        "conditions": [],
+        "actions": [
+            {
+                "name": "UrlRedirect",
+                "parameters": {
+                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                    "redirectType": "PermanentRedirect",
+                    "destinationProtocol": "MatchRequest",
+                    "customPath": "/xyz",
+                    "customHostname": "{url_path:seg0}.backend.com"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+- To redirect requests to different origins using part of the incoming hostnames,  you can capture part of the incoming hostname https://[tenantName].poc.contoso.com/GB and redirect to s1.example.com/Buyer/Main?realm=[tenantName]&examplename=example1, using the {hostname:0:-16} to capture the offset and length in server variable.  You can learn more about the server variable formats in Server variables - Azure Front Door | Microsoft Learn.
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectHostnameCapture')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 102,
+        "conditions": [
+            {
+                "name": "HostName",
+                "parameters": {
+                    "typeName": "DeliveryRuleHostNameConditionParameters",
+                    "operator": "EndsWith",
+                    "negateCondition": false,
+                    "matchValues": [
+                        "poc.contoso.com"
+                    ],
+                    "transforms": []
+                }
+            }
+        ],
+        "actions": [
+            {
+                "name": "UrlRedirect",
+                "parameters": {
+                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                    "redirectType": "PermanentRedirect",
+                    "destinationProtocol": "MatchRequest",
+                    "customQueryString": "realm={hostname:0:-16}&examplename=example1",
+                    "customPath": "/Buyer/Main",
+                    "customHostname": "s1.example.com"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+### Scenario 2: Populate or modify a response header based on a request header value
+
+For example, add CORS header where needed to serve scripts on multiple origins from the same CDN domain, and response must contain the same FQDN in Access-Control-Allow-Origin header as the request Origin header, rather than allowing all domains (*) to enhance security. This can be achieved using {http_req_header_Origin}. 
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/OverwriteRespHeaderUsingReqHeaderCapture')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 103,
+        "conditions": [
+            {
+                "name": "RequestHeader",
+                "parameters": {
+                    "typeName": "DeliveryRuleRequestHeaderConditionParameters",
+                    "operator": "Contains",
+                    "selector": "Origin",
+                    "negateCondition": false,
+                    "matchValues": [
+                        "my-domain-01.com"
+                    ],
+                    "transforms": []
+                }
+            }
+        ],
+        "actions": [
+            {
+                "name": "ModifyResponseHeader",
+                "parameters": {
+                    "typeName": "DeliveryRuleHeaderActionParameters",
+                    "headerAction": "Overwrite",
+                    "headerName": "Access-Control-Allow-Origin",
+                    "value": "{http_req_header_Origin}"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+### Scenario 3: Rename a response header generated by a cloud provider to a brand-specific one 
+
+This can be achieved by adding a new response header and deleting the original. E.g. Scenario: replace the response header X-Azure-Backend-ID with brand specific header ‘X-Contoso-Scale-ID' instead.
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RenameResponseHeaders')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 104,
+        "conditions": [],
+        "actions": [
+            {
+                "name": "ModifyResponseHeader",
+                "parameters": {
+                    "typeName": "DeliveryRuleHeaderActionParameters",
+                    "headerAction": "Append",
+                    "headerName": "X-Contoso-Scale-ID",
+                    "value": "{http_resp_header_X-Azure-Backend-ID}"
+                }
+            },
+            {
+                "name": "ModifyResponseHeader",
+                "parameters": {
+                    "typeName": "DeliveryRuleHeaderActionParameters",
+                    "headerAction": "Delete",
+                    "headerName": "X-Azure-Backend-ID"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+### Scenario 4: A/B testing (experimentation)
+
+Split incoming traffic based on client port into two origin groups, sending some to origin with experimental experiences. This method is useful for A/B testing, rolling deployments, or load balancing without complex backend logic.
+The follow example routes clients with port ending 1,3,5,7,9 to “experiment-origin-group” else it proceeds to the default origin group for that route per route settings. The regex in this example is just an example, you can explore and test regex for your own needs using public sites like regex101.
+
+
+Note: Since client ports are random, this approach achieves a nearly 50/50 traffic split. The presence of any proxies or load balancers between clients and AFD may affect the assumption that the client port seen by AFD is always randomized, due to connection re-use, rewriting of source ports etc. Use logs or metrics to find out what the actual behavior looks like.
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/ABExperimentation')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]",
+        "[resourceId('Microsoft.Cdn/profiles/origingroups', parameters('profiles_rulesengineblog_name'), 'experiment-origin-group')]"
+    ],
+    "properties": {
+        "order": 105,
+        "conditions": [
+            {
+                "name": "ClientPort",
+                "parameters": {
+                    "typeName": "DeliveryRuleClientPortConditionParameters",
+                    "operator": "RegEx",
+                    "negateCondition": false,
+                    "matchValues": [
+                        "^.*[13579]$"
+                    ],
+                    "transforms": []
+                }
+            }
+        ],
+        "actions": [
+            {
+                "name": "RouteConfigurationOverride",
+                "parameters": {
+                    "typeName": "DeliveryRuleRouteConfigurationOverrideActionParameters",
+                    "originGroupOverride": {
+                        "originGroup": {
+                            "id": "[resourceId('Microsoft.Cdn/profiles/origingroups', parameters('profiles_rulesengineblog_name'), 'experiment-origin-group')]"
+                        },
+                        "forwardingProtocol": "MatchRequest"
+                    }
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+### Scenario 5: Redirect with URL path modification and preserve capability
+
+Users need to add new segments, remove some segments and preserve the rest of the URL path.
+For example, if you want to redirect https://domain.com/seg0/seg1/seg2/seg3 to https://example.com/seg0/insert/seg2/seg3, i.e. replace URL path’s {seg1} with /insert/ and keep the rest of the URL as-is. In this scenario, AFD can achieve the desired redirect by combining values extracted from server variables (URL segments) and combining static string segment “/insert/”. The semantics used to indicate we keep from seg2…n is by indicating Int32.Max (2147483647) for URL segment’s length field. See this page for more details.
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/redirectWithSegCap01')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 106,
+        "conditions": [],
+        "actions": [
+            {
+                "name": "UrlRedirect",
+                "parameters": {
+                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                    "redirectType": "Found",
+                    "destinationProtocol": "Https",
+                    "customPath": "/{url_path:seg0}/insert/{url_path:seg2:2147483647}"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+### Scenario 6: Redirect by removing fixed parts of a URL path
+
+A user needs to remove fixed segments of known size from a URL like, country code (us) or locale (en-us), and preserve the rest of the URL path.
+For example, if you want to redirect https://domain.com/us/seg1/seg2/seg3/ to https://example.com/seg1/seg2/seg3/, i.e. remove country code /us/ and keep the rest of the URL path as-is. Use the {variable:offset} which includes the server variable after a specific offset, until the end of the variable. For more information see, https://learn.microsoft.com/en-us/azure/frontdoor/rule-set-server-variables#server-variable-format.
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectByRemovingFixedUrlLength')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 107,
+        "conditions": [
+            {
+                "name": "RequestUri",
+                "parameters": {
+                    "typeName": "DeliveryRuleRequestUriConditionParameters",
+                    "operator": "RegEx",
+                    "negateCondition": false,
+                    "matchValues": [
+                        "\\/[a-zA-Z0-9]{2}\\/"
+                    ],
+                    "transforms": []
+                }
+            }
+        ],
+        "actions": [
+            {
+                "name": "UrlRedirect",
+                "parameters": {
+                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                    "redirectType": "Found",
+                    "destinationProtocol": "Https",
+                    "customPath": "/{url_path:3}"
+                    "customHostname": "example.com"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+### Scenario 7: URL Rewrite by removing one or more segments of URL path
+
+Users need to remove segments from a URL like, country code (us) or locale (en-us), and also preserve the rest of the URL path.
+For example, if you want to rewrite https://domain.com/us/seg1/seg2/seg3/ to https://origin.com/seg2/seg3/, i.e. remove country code and an additional segment /us/seg1/ and keep the rest of the URL path.
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/URLRewriteRemovingOneorMoreSegments')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 108,
+        "conditions": [],
+        "actions": [
+            {
+                "name": "UrlRewrite",
+                "parameters": {
+                    "typeName": "DeliveryRuleUrlRewriteActionParameters",
+                    "sourcePattern": "/",
+                    "destination": "/{url_path:seg2:2147483647}",
+                    "preserveUnmatchedPath": false
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+### Scenario 8: Use regex to reduce the number of rule conditions and avoid hitting limits
+
+Using regex in rule conditions can reduce the number of rules, which can be a blocker due to rule limits for some customers needing conditions or actions for hundreds of their clients.
+For example, if a customer wants identify their clients with an ID pattern to be allowed to access a resource behind AFD, then they will be sending a header like x-client-id: SN1234-ABCD56 which is of the format
+x-client-id: <SN + 4 digits + - + 4 uppercase letters + 2 digits>
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/UseRegexTogroupConditions')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]",
+        "[resourceId('Microsoft.Cdn/profiles/origingroups', parameters('profiles_rulesengineblog_name'), 'default-origin-group')]"
+    ],
+    "properties": {
+        "order": 109,
+        "conditions": [
+            {
+                "name": "RequestHeader",
+                "parameters": {
+                    "typeName": "DeliveryRuleRequestHeaderConditionParameters",
+                    "operator": "RegEx",
+                    "selector": "x-client-id",
+                    "negateCondition": false,
+                    "matchValues": [
+                        "^SN[0-9]{4}-[A-Z]{4}[0-9]{2}$"
+                    ],
+                    "transforms": []
+                }
+            }
+        ],
+        "actions": [
+            {
+                "name": "RouteConfigurationOverride",
+                "parameters": {
+                    "typeName": "DeliveryRuleRouteConfigurationOverrideActionParameters",
+                    "originGroupOverride": {
+                        "originGroup": {
+                            "id": "[resourceId('Microsoft.Cdn/profiles/origingroups', parameters('profiles_rulesengineblog_name'), 'default-origin-group')]"
+                        },
+                        "forwardingProtocol": "MatchRequest"
+                    }
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+### Scenario 9: Modify origin redirects using response header captures
+
+This allows for making actions fields dynamic, by using response header values as server variables.
+For example, it’s common for the origin servers like Azure App service to issue redirect URLs that reference its own domain name like contoso.azurewebsites.net. If those URLs reach the client unmodified, the next request will bypass AFD which is not intended and can disrupt the user's navigation experience.
+The workaround is to capture the origin’s Location header and rewrite just the host portion so it always reflects the host that the client originally used.
+If frontend client host header to AFD is contoso.com and the origin is contoso.azurewebsites.net, then if the origin issues an absolute redirect URL like this Location: https://contoso.azurewebsites.net/login/, then the location header modification back to contoso.com will be as follows - https://{hostname}{http_resp_header_location:33}, where {hostname} is contoso.com and {http_resp_header_location:33} captures location header from offset 33, i.e. /login/ to give the final location header as Location: https://contoso.com/login/
+More details about the problem is explained here preserve the original HTTP hostname between a reverse proxy and it’s back-end web applications
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RewriteLocationHeaderToModifyRedirect')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 110,
+        "conditions": [
+            {
+                "name": "UrlPath",
+                "parameters": {
+                    "typeName": "DeliveryRuleUrlPathMatchConditionParameters",
+                    "operator": "Contains",
+                    "negateCondition": false,
+                    "matchValues": [
+                        "login",
+                        "update"
+                    ],
+                    "transforms": []
+                }
+            }
+        ],
+        "actions": [
+            {
+                "name": "ModifyResponseHeader",
+                "parameters": {
+                    "typeName": "DeliveryRuleHeaderActionParameters",
+                    "headerAction": "Overwrite",
+                    "headerName": "Location",
+                    "value": " https://{hostname}{http_resp_header_location:33}"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+### Scenario 10: If-elseif-else rules
+
+The current rule engine in Azure Front Door does not natively support traditional conditional logic with "if-elseif-else" structures. Instead, all rules are independently evaluated as "if condition1 then action1," "if condition2 then action2," and so forth. This implies that if multiple conditions (e.g., condition1 and condition2) are simultaneously met, multiple corresponding actions (action1 and action2) will be executed.
+However, it is possible to emulate an "if-elseif-else" that resembles the following:
+-	If condition1 is satisfied, execute action1.
+-	Else if condition2 is satisfied (but condition1 is not), execute action2.
+-	Else, execute a default action.
+If multiple conditions (condition1, condition2, ..., conditionN) are satisfied simultaneously, only the first matching action is executed, effectively simulating traditional conditional branching. If none of the conditions are met, the default action will execute.
+To configure this, create a new ruleset call it “IfElseifElseRuleset” and create rules as normal, the only change would be to check the Stop evaluating remaining rules box after each rule as shown below – 
+
+Note: Due to limitations of current ruleset implementation, this if-elseif-else paradigm will only work if the ruleset is attached as the final ruleset for that route as shown below.
+Here is the Rule set configuration in Azure portal.
+
+### Scenario 11: Removing query strings from incoming URLs using URL redirects
+
+To remove query strings from incoming URLs, implement a 3xx URL redirect to guide users back to the AFD endpoint with the query strings removed. Please note, users will notice the change of the request URL with this operation.
+Here is the configuration in rules engine in portal to strip the whole query string. If you need to strip part of it, you can adjust the offset/length as desired: Server variables - Azure Front Door | Microsoft Learn
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RemoveQueryStrings')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 111,
+        "conditions": [
+            {
+                "name": "QueryString",
+                "parameters": {
+                    "typeName": "DeliveryRuleQueryStringConditionParameters",
+                    "operator": "GreaterThan",
+                    "negateCondition": false,
+                    "matchValues": [
+                        "0"
+                    ],
+                    "transforms": []
+                }
+            }
+        ],
+        "actions": [
+            {
+                "name": "UrlRedirect",
+                "parameters": {
+                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                    "redirectType": "Moved",
+                    "destinationProtocol": "MatchRequest",
+                    "customQueryString": "{query_string:0:0}"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+### Scenario 12: Append SAS token in query string to authenticate AFD to Azure Storage
+
+To protect the files in your storage account, you can set the access of your storage containers from public to private and use the Shared Access Signature (SAS) to grant restricted access rights to your Azure Storage resources from Azure Front Door without exposing your account key. You can also accomplish this using Managed Identity, which is currently in preview on AFD. Or you can inject a SAS token into the route of the call to storage. This can be achieved by capturing an incoming URL path and appending the SAS token to the query string in the rewrite or redirect rule. 
+Here is an example of appending SAS token on AFD.
+•	Incoming URL: https://www.contoso.com/dccp/grammars/0.1.0-59/en-US/grammars/IVR/ssn0100_CollectTIN_QA_dtmf.grxml?version=1.0_1719342835399
+•	Rewrite URL: https://www.contoso.com/grammars/0.1.0-59/en-US/grammars/IVR/ssn0100_CollectTIN_QA_dtmf.grxml?version=1.0_1719342835399&<SASTOKEN>
+In this case, the incoming URL already has query string, and you want the keep the query string while appending the SAS token, please use redirect rule as URL rewrite only acts on path. To achieve this, you can configure URL redirect using /url_path:seg1:20}?{query_string}&sp=racwl&<SASToken>. Please make proper updates to Routes to make sure the routes for /grammars/* are properly configured after redirect.
+Example in portal
+Please replace the SAS token with the proper token. In this case, the SAS token starts with sp=rl, and you want to redirect all requests to apply this rule which doesn’t contain the sp=rl.
+
+```json
+{
+	"type": "Microsoft.Cdn/profiles/rulesets/rules",
+	"apiVersion": "2025-04-15",
+	"name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectForAppendSASToken')]",
+	"dependsOn": [
+	"[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+	"[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+	],
+    "properties": {
+        "order": 100,
+        "conditions": [
+            {
+                "name": "RequestScheme",
+                "parameters": {
+                    "typeName": "DeliveryRuleRequestSchemeConditionParameters",
+                    "matchValues": [
+                        "HTTPS"
+                    ],
+                    "operator": "Equal",
+                    "negateCondition": false,
+                    "transforms": []
+                }
+            },
+            {
+                "name": "QueryString",
+                "parameters": {
+                    "typeName": "DeliveryRuleQueryStringConditionParameters",
+                    "operator": "Contains",
+                    "negateCondition": true,
+                    "matchValues": [
+                        "sp=rl"
+                    ],
+                    "transforms": []
+                }
+            }
+        ],
+        "actions": [
+            {
+                "name": "UrlRedirect",
+                "parameters": {
+                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                    "redirectType": "Found",
+                    "destinationProtocol": "MatchRequest",
+                    "customQueryString": "{ {query_string}&<replace with your SAS token>",
+                    "customPath": "/{url_path:seg1:20}"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+	}
+}
+```
+
+### Scenario 13: Add security headers with rules engine
+
+When you want to add security headers to prevent browser-based vulnerabilities, such as HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, and X-Frame-Options, you can use AFD rules engine to achieve it.
+Here is an example that shows how to add a Content-Security-Policy header to all incoming requests that match the path defined in the route associated with your rules engine configuration. In this scenario, only scripts from the trusted site https://apiphany.portal.azure-api.net are allowed to run on the application. Use script-src 'self' https://apiphany.portal.azure-api.net as the header value.
+
+```json
+{
+    "type": "Microsoft.Cdn/profiles/rulesets/rules",
+    "apiVersion": "2025-04-15",
+    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/ContentSecurityPolicyExample')]",
+    "dependsOn": [
+    "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+    "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+    ],
+    "properties": {
+        "order": 100,
+        "conditions": [],
+        "actions": [
+            {
+                "name": "ModifyResponseHeader",
+                "parameters": {
+                    "typeName": "DeliveryRuleHeaderActionParameters",
+                    "headerAction": "Append",
+                    "headerName": "Content-Security-Policy",
+                    "value": "script-src 'self' https://apiphany.portal.azure-api.net"
+                }
+            }
+        ],
+        "matchProcessingBehavior": "Continue"
+    }
+}
+```
+
+
+
+
