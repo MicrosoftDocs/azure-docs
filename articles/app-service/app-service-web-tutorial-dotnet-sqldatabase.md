@@ -4,7 +4,7 @@ description: Learn how to deploy a data-driven C# ASP.NET app to Azure App Servi
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 05/12/2025
+ms.date: 05/28/2025
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, AppServiceConnectivity
 author: cephalin
 ms.author: cephalin

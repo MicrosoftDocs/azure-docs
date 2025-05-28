@@ -67,10 +67,11 @@ User-Agent: value2
 User-Agent: value3
 ```
 
-The following limitations apply:
+#### Limitations
 
-- Removal of `Server` header isn't supported.
-- Headers: `Connection`, `ContentLength`, `KeepAlive`, `TransferEncoding` cannot be modified or deleted. 
+- The following headers can't be appended, overridden, or deleted: `Connection`, `Content-Length`, `Keep-Alive`, `Transfer-Encoding`
+- The client IP address value in the `X-Forwarded-For` header can't be deleted
+- The `Server` header can't be deleted in responses
 
 ## Examples
 

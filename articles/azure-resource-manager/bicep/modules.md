@@ -549,5 +549,5 @@ With Bicep version 0.35.1 and later, the `@secure()` decorator can be applied to
 
 ## Related content
 
-- For a tutorial, see [Build your first Bicep template](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
+- For a tutorial, see [Build your first Bicep file](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
 - To pass a sensitive value to a module, use the [`getSecret`](bicep-functions-resource.md#getsecret) function.

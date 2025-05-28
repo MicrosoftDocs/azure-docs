@@ -2,8 +2,8 @@
 title: Quickstart - Create an Azure DNS Private Resolver using Azure PowerShell
 description: In this quickstart, you learn how to create and manage your first private DNS resolver using Azure PowerShell.
 services: dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.date: 04/05/2024
 ms.topic: quickstart
 ms.service: azure-dns
