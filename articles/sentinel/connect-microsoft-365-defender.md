@@ -4,7 +4,7 @@ description: Learn how to ingest incidents, alerts, and raw event data from Micr
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/26/2024
+ms.date: 05/22/2025
 appliesto:
     - Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -19,7 +19,7 @@ ms.collection: usx-security
 
 The Microsoft Defender XDR connector for Microsoft Sentinel allows you to stream all Microsoft Defender XDR incidents, alerts, and advanced hunting events into Microsoft Sentinel. This connector keeps the incidents synchronized between both portals. Microsoft Defender XDR incidents include alerts, entities, and other relevant information from all the Microsoft Defender products and services. For more information, see [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
 
-The Defender XDR connector, especially its incident integration feature, is the foundation of Microsoft's unified security operations platform.
+The Defender XDR connector, especially its incident integration feature, is the foundation of unified security operations in the Microsoft Defender portal. The Defender XDR data connector is automatically connected when you onboard Microsoft Sentinel to the Defender portal.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -198,4 +198,4 @@ See more information on the following items used in the preceding examples, in t
 
 In this document, you learned how to integrate Microsoft Defender XDR incidents, alerts, and advanced hunting event data from Microsoft Defender services, into Microsoft Sentinel, by using the Microsoft Defender XDR connector.
 
-To use Microsoft Sentinel integrated with Defender XDR in Microsoft's unified security operations platform, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/defender-xdr/microsoft-sentinel-onboard).
+To use Microsoft Sentinel together with Defender XDR in the Defender portal, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json)
