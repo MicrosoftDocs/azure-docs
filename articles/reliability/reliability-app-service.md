@@ -422,7 +422,7 @@ This feature is useful if it's hard to redeploy your code, or if you store state
 
 ## Reliability during service maintenance
 
-Azure App Service performs regular service upgrades and other maintenance. During an upgrade, the platform automatically adds extra instances of the App Service plan to ensure that the same capacity is available during the upgrade.
+Azure App Service performs regular service upgrades, as well as other forms of maintenance. To ensure that the same capacity is available during an upgrade, the platform automatically adds extra instances of the App Service plan during the upgrade process.
 
 ::: zone pivot="free-shared-basic,premium"
 
@@ -432,11 +432,13 @@ To learn more, see [Routine planned maintenance for Azure App Service](/azure/ap
 
 ::: zone pivot="isolated"
 
-You can choose for upgrades to be applied automatically or manually. If you select automatic upgrades, you can specify whether you want your instance to be early or late in the upgrade cycle. If you select manual upgrades, you'll have a set period of time to initiate the upgrade before the App Service platform performs the upgrade automatically.
+There are two ways for you to customize the upgrade cycle.
 
-If you need to validate the effect of upgrades on your workload, consider configuring your nonproduction instance to use automatic updates with the *early* upgrade preference, and configure your production instance to use the *late* upgrade preference. You can use the time between to perform validation and testing.
+**Automatic upgrades**.  With automatic upgrades, you specify whether you want your instance to be *early* or *late* in the upgrade cycle. If you need to validate the effect of upgrades on your workload, consider configuring your nonproduction instance to use automatic updates with the *early* upgrade preference, and configure your production instance to use the *late* upgrade preference. You can use the time in between to perform validation and testing.
 
-To learn more, see [Upgrade preference for App Service Environment planned maintenance](/azure/app-service/environment/how-to-upgrade-preference).
+**Manual upgrades**. With manual upgrades, you have a set period of time to initiate the upgrade before the App Service platform performs the upgrade automatically.
+
+To learn more about maintenance preferences, see [Upgrade preference for App Service Environment planned maintenance](/azure/app-service/environment/how-to-upgrade-preference).
 
 ::: zone-end
 
