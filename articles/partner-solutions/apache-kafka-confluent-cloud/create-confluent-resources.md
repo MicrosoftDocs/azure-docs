@@ -57,7 +57,7 @@ From the list of environments, select the ellipsis action (**…**) next to the 
 
 ## Clusters
 
-Similar to environments, you can have multiple clusters within a single environment. These clusters are available in various configurations: basic, standard, enterprise, and dedicated. The pricing and feature support for clusters vary depending on the type of cluster. For more information on the cluster types, go to [Confluent Cloud Cluster Types](https://docs.confluent.io/cloud/current/clusters/cluster-types.html). 
+Similar to environments, you can have multiple clusters within a single environment. These clusters are available in different configurations: basic, standard, enterprise, and dedicated. The pricing and feature support for clusters vary depending on the type of cluster. For more information on the cluster types, go to [Confluent Cloud Cluster Types](https://docs.confluent.io/cloud/current/clusters/cluster-types.html). 
 
 ### Create a cluster 
 

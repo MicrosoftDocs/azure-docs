@@ -8,7 +8,7 @@ ms.date: 07/05/2024
 
 # Manage your Informatica serverless runtime environments from Azure portal
 
-In this article, you learn various actions available for each of the serverless runtime environments in an IDMC organization.
+In this article, you learn different actions available for each of the serverless runtime environments in an IDMC organization.
 
 ## Actions
 
