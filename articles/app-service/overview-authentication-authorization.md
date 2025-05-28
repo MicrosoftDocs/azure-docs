@@ -14,8 +14,6 @@ ms.author: cephalin
 
 Azure App Service provides built-in authentication (signing in users) and authorization (providing access to secure data) capabilities. These capabilities are sometimes called *Easy Auth*. You can use them to sign in users and access data by writing little or no code in your web app, RESTful API, mobile server, and [functions](../azure-functions/functions-overview.md).
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 This article describes how App Service helps simplify authentication and authorization for your app.
 
 ## Reasons to use built-in authentication

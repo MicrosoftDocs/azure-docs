@@ -16,8 +16,6 @@ ms.author: cephalin
 
 This article explains how to configure common settings for web apps, a mobile back end, or an API app. For Azure Functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md).
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 ## Configure app settings
 
 In Azure App Service, app settings are variables passed as environment variables to the application code. The following conditions apply to app settings:

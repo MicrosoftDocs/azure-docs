@@ -14,8 +14,6 @@ ai-usage: ai-assisted
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 When you deploy your web app, web app on Linux, mobile back end, or API app to [Azure App Service](./overview.md), you can use a separate deployment slot instead of the default production slot. This approach is available if you run in the Standard, Premium, or Isolated tier of an App Service plan. Deployment slots are live apps with their own host names. App content and configuration elements can be swapped between two deployment slots, including the production slot.
 
 Deploying your application to a nonproduction slot has the following benefits:
