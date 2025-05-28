@@ -1,9 +1,9 @@
 ---
 title: Azure reliability documentation
-description: Overview of Azure reliability documentation, incuding platform capabilities, guides for how each Azure service supports reliability, and reliability fundamentals.
+description: Overview of Azure reliability documentation, including platform capabilities, guides for how each Azure service supports reliability, and reliability fundamentals.
 author: anaharris-ms
-ms.topic: overview
-ms.date: 02/28/2025
+ms.topic: conceptual
+ms.date: 05/27/2025
 ms.author: anaharris
 ms.service: azure
 ms.subservice: azure-reliability
@@ -11,20 +11,28 @@ ms.custom: subject-reliability
 CustomerIntent: As a cloud architect/engineer, I want to learn about Azure Reliability.
 ---
 
-# Azure reliability documentation
+# What is Azure reliability documentation?
 
-The Azure reliability documentation provides information on what reliability means in a cloud platform, how Azure cloud supports reliability, and in what way each Azure service can be configured to support a reliable solution. 
+The Azure reliability documentation primarily provides service-specific guides on how each Azure service supports reliability features, such as transient fault handling, availability zones, multi-region support, and backup support.
 
-The documentation is organized into the following sections:
+Because each Azure service has its own unique reliability characteristics, each reliability guide contains information on how the service supports a range of reliability capabilities, including:
 
-- **Azure reliability guides by service** contains guides on how each Azure service supports reliability, including availability zones, multi-region support, and backup support.
-- **Reliability fundamentals** contains fundamental reliability concepts, such as:
+- *Transient fault handling* such as how the service handles transient faults or retry policies. If applicable, this section also tells you how to configure your resources for transient fault handling.
+- *Availability zones* such as zonal and zone-redundant deployment options, traffic routing and data replication between zones, what happens if a zone experiences an outage, failback, and how to configure your resources for availability zone support.
+- *Multi-region support* such as how to configure multi-region or geo-disaster recovery support, traffic routing and data replication between regions, region-down experience, and failover and failback support. For some services that don't have native multi-region support, the guides present alternative multi-region deployment approaches to consider.
+- *Backup support* such as Microsoft-controlled and customer-controlled backup capabilities, where they are stored, how they can be recovered, and whether they are accessible only within a region or across regions.
+
+To see the current list of reliability service guides, see [Reliability guides by service](./reliability-guidance-overview.md).
+
+In addition to the reliability service guides, Azure reliability documentation also includes general information, such as:
+
+- **Azure regions**: Information on Azure regions, paired and nonpaired regions, and different region configurations.
+- **Azure availability zones**: Information on availability zones, including how they support high availability and disaster recovery. This section also includes lists of Azure services and regions that support availability zones.
+- **Reliability concepts**: Fundamental reliability concepts, such as:
     - Business continuity, high availability, and disaster recovery.
     - Redundancy, replication (Data redundancy), and backup
     - Failover and failback.
     - Shared responsibility between Microsoft and you.
-- **Azure regions** contains information on Azure regions, paired and nonpaired regions, and different region configurations.
-- **Azure availability zones** contains information on how availability zones, including how they support high availability and disaster recovery. The section also includes lists of Azure services and regions that support availability zones.
 
 ## What is reliability?
 
@@ -32,26 +40,30 @@ Reliability refers to the ability of a workload to perform consistently at the e
 
 A key approach to achieve reliability in a workload is *resiliency*, which is a workload's ability to withstand and recover from faults and outages. Azure offers a number of resiliency features such as availability zones, multi-region support, data replication, and backup and restore capabilities. These features must be considered when designing a workload to meet its business continuity requirements. 
 
-The documentation is organized into the following sections:
-
-## Azure reliability guides by service
-
-Each Azure service has its own unique reliability characteristics. Azure provides a set of service-specific reliability guides that can help you design and implement a reliable workload, and the guidance can help you understand how to best use the service to meet your business needs. Each guide may contain the following sections, depending on which reliability features it supports:
-
-Each reliability service guide generally contains information on how the service supports a range of reliability capabilities, including:
-
-- *Availability zones* such as zonal and zone-redundant deployment options, traffic routing and data replication between zones, what happens if a zone experiences an outage, failback, and how to configure your resources for availability zone support.
-- *Multi-region support* such as how to configure multi-region or geo-disaster recovery support, traffic routing and data replication between regions, region-down experience, and failover and failback support. For some services that don't have native multi-region support, the guides present alternative multi-region deployment approaches to consider.
-- *Backup support* such as Microsoft-controlled and customer-controlled backup capabilities, where they are stored, how they can be recovered, and whether they are accessible only within a region or across regions.
-
-For more information and a list of reliability service guides, see [Reliability guides by service](./reliability-guidance-overview.md).
-
 > [!TIP]
 > Reliability also incorporates other elements of your solution design too, including how you deploy changes safely, how you manage your performance to avoid downtime due to high load, and how you test and validate each part of your solution. To learn more, see the [Azure Well-Architected Framework](/azure/well-architected).
 
-## Reliability fundamentals
 
-The reliability fundamentals section provides an overview of the key concepts and principles that underpin reliability in Azure. 
+## Azure regions
+
+Azure provides over 60 regions globally, that are located across many different geographies. Each region is a set of physical facilities that include datacenters and networking infrastructure. All regions may be divided into geographical areas called geographies. Each geography is a data residency boundary, and may contain one or more regions.
+
+- For more information on Azure regions, see [What are Azure regions](./regions-overview.md).
+- To learn about paired and nonpaired regions, including lists of region pairs and nonpaired regions, see [Azure region pairs and nonpaired regions](./regions-paired.md). 
+- To see the list of services that are deployed to Azure regions, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) 
+
+## Azure availability zones
+
+Many Azure regions provide availability zones, which are separated groups of datacenters within a region. Availability zones are close enough to have low-latency connections to other availability zones, but are far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones. 
+
+- For more information on availability zones, see [What are availability zones?](./availability-zones-overview.md).
+- To view which regions support availability zones, see [List of Azure regions](./regions-list.md).
+- To learn about how each Azure service supports availability zones, see [Azure services with availability zone support](./availability-zones-service-support.md)
+- To learn how to approach a migration to availability zone support, see [Azure availability zone migration overview](availability-zones-migration-overview.md).
+
+## Reliability concepts
+
+The reliability concepts section provides an overview of the key concepts and principles that underpin reliability in Azure. 
 
 ### Business continuity, high availability, and disaster recovery
 
@@ -90,29 +102,10 @@ Resiliency defines a workload's ability to automatically self-correct and recove
 
 In the Azure public cloud platform, resiliency is a shared responsibility between Microsoft and you. Because there are different levels of resiliency in each workload that you design and deploy, it's important that you understand who has primary responsibility for each one of those levels from a resiliency perspective. To better understand how shared responsibility works, especially when confronting an outage or disaster, see [Shared responsibility for resiliency](concept-shared-responsibility.md).
 
-## Azure regions
-
-Azure provides over 60 regions globally, that are located across many different geographies. Each region is a set of physical facilities that include datacenters and networking infrastructure. All regions may be divided into geographical areas called geographies. Each geography is a data residency boundary, and may contain one or more regions.
-
-- For more information on Azure regions, see [What are Azure regions](./regions-overview.md).
-- To learn about paired and nonpaired regions, including lists of region pairs and nonpaired regions, see [Azure region pairs and nonpaired regions](./regions-paired.md). 
-- To see the list of services that are deployed to Azure regions, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) 
-
-## Azure availability zones
-
-Many Azure regions provide availability zones, which are separated groups of datacenters within a region. Availability zones are close enough to have low-latency connections to other availability zones, but are far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones. 
-
-- For more information on availability zones, see [What are availability zones?](./availability-zones-overview.md).
-- To view which regions support availability zones, see [List of Azure regions](./regions-list.md).
-- To learn about how each Azure service supports availability zones, see [Azure services with availability zone support](./availability-zones-service-support.md)
-- To learn how to approach a migration to availability zone support, see [Azure availability zone migration overview](availability-zones-migration-overview.md).
 
 ## Related content
 
-- For service specific guides on availability zone support and other reliability capabilities, see [Reliability guidance](./reliability-guidance-overview.md).
-- For service migration guides to availability zone support, see [Availability zone migration guidance](./availability-zones-migration-overview.md).
+
 - [Availability of service by category](availability-service-by-category.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
-- [What are Azure regions and availability zones?](availability-zones-overview.md)
-- [Cross-region replication in Azure | Microsoft Learn](./cross-region-replication-azure.md)
 - [Training: Describe high availability and disaster recovery strategies](/training/modules/describe-high-availability-disaster-recovery-strategies/) 
