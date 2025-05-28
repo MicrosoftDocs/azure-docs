@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 05/27/2025
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ---
-# Tutorial: Connect to SQL Database from Azure App Service using a managed identity
+# Tutorial: Connect to SQL Database from a .net web Azure App Service using a managed identity
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. App Service also provides a [managed identity](overview-managed-identity.md) for your app, which is a turnkey solution for securing access to [Azure SQL](/azure/azure-sql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets, such as credentials in connection strings.
 
@@ -60,6 +60,7 @@ The Microsoft Entra admin must be a user that is created, imported, synced, or i
 
 - For more information on allowed Microsoft Entra users, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#limitations).
 - For more information on adding an Azure SQL server admin, see [Provision a Microsoft Entra administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
+
 Run the following commands in the Bash environment of Azure Cloud Shell, or after signing in to Azure locally.
 
 1. Find the object ID of the Microsoft Entra user by using [`az ad user list`](/cli/azure/ad/user#az-ad-user-list). The following example saves the result of the query on `<user-principal-name>` to a variable called `azureaduser`.
@@ -112,10 +113,10 @@ The Azure Identity client library can use tokens from Azure PowerShell.
 
 ## Modify your project
 
-You're now ready to develop and debug your app that has an Azure SQL database back end, using Microsoft Entra authentication. The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
+You can now start using Microsoft Entra authentication to develop and debug your Azure SQL database-backed web app. The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
 
-- An ASP.NET app like the one in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) uses the [Entity Framework](/ef/ef6/) by default.
-- An ASP.NET Core app like the one in [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md) uses the [Entity Framework Core](/ef/core/) by default.
+- An ASP.NET app like the one in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) uses [Entity Framework](/ef/ef6/) by default.
+- An ASP.NET Core app like the one in [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md) uses [Entity Framework Core](/ef/core/) by default.
 
 # [ASP.NET app](#tab/ef)
 
@@ -151,7 +152,7 @@ You're now ready to develop and debug your app that has an Azure SQL database ba
 
    If you prefer to use a user-assigned managed identity, add a new app setting named `ManagedIdentityClientId` and enter the `Client Id` GUID from your user-assigned managed identity in the `value` field. When the code runs locally, it can get a token using the signed-in identity of Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell.
 
-1. Open *Web.config*, find the connection string called `MyDbConnection` and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>;"`, replacing `<server-name` and `<db-name>` with your server name and database name. This connection string is used by the default constructor in *Models/MyDbContext.cs*.
+1. Open *Web.config*, find the connection string called `MyDbConnection`, and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>"`, replacing `<server-name` and `<db-name>` with your server name and database name. This connection string is used by the default constructor in *Models/MyDbContext.cs*.
    
    You now have everything you need to connect to SQL Database when you debug in Visual Studio. Your code uses the Microsoft Entra user you configured when you set up your dev environment. Later, you can set up SQL Database to allow connection from the managed identity of your App Service app.
 
@@ -191,7 +192,7 @@ You're now ready to develop and debug your app that has an Azure SQL database ba
 Next, configure your App Service app to connect to SQL Database with a system-assigned managed identity.
 
 > [!NOTE]
-> The instructions in this section are for a system-assigned identity. To use a user-assigned identity, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
+> To use a user-assigned identity, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
 
 ### Enable managed identity for the app
 
