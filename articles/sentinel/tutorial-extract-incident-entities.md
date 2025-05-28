@@ -118,7 +118,7 @@ To complete this tutorial, make sure you have:
     1. Select the first **Choose a value** field (on the left), and select **Expression**. 
     1. Paste the value *item()?['kind']*, and select **OK**. 
 
-        :::image type="content" source="media/tutorial-extract-incident-entities/filter-array-information.png" alt-text="Screenshot of filling in the filter array expression." lightbox="media/tutorial-extract-incident-entities/filter-array-information.png" alt-text="Screenshot of filling in the filter array expression.":::
+        :::image type="content" source="media/tutorial-extract-incident-entities/filter-array-information.png" alt-text="Screenshot of filling in the filter array expression." lightbox="media/tutorial-extract-incident-entities/filter-array-information.png":::
 
     1. Leave the **is equal to** value (do not modify it).
     1. In the second **Choose a value** field (on the right), type *Process*. This needs to be an exact match to the value in the system. 
