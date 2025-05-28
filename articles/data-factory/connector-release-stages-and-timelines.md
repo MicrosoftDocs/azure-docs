@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 05/12/2025
+ms.date: 05/27/2025
 ---
 
 # Connector release stages and timelines
@@ -75,5 +75,5 @@ For comprehensive details on support levels and recommended usage at each stage,
 - [Connector overview](connector-overview.md)  
 - [Connector lifecycle overview ](connector-lifecycle-overview.md)
 - [Connector upgrade guidance](connector-upgrade-guidance.md)  
-- [Connector upgrade assistant](connector-upgrade-advisor.md)  
+- [Connector upgrade advisor](connector-upgrade-advisor.md)  
 - [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)
