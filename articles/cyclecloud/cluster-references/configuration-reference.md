@@ -17,12 +17,12 @@ Configuration object attributes behave like other objects, but are extended to p
 No quotes are necessary for strings or for boolean expressions, true or false.
 
 ``` ini
-[[[configuraton my-project]]]
+[[[configuration my-project]]]
 Attribute1 = Value1
 Attribute2 = Value2
 KeyAttribute3.Attribute3 = true
 
-[[[configuraton cyclecloud.mounts.mount1]]]
+[[[configuration cyclecloud.mounts.mount1]]]
 Attribute1 = Value1
 ```
 
