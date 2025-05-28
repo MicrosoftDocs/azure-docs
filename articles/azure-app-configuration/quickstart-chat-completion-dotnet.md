@@ -3,7 +3,7 @@ title: Quickstart for using chat completion configuration in a .NET app
 titleSuffix: Azure App Configuration
 description: Learn to implement chat completion configuration in your .NET application using Azure App Configuration.
 services: azure-app-configuration
-author: mgichohi
+author: MaryanneNjeri
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
@@ -111,8 +111,10 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     ```csharp
     public class ModelConfiguration
     {
+        [ConfigurationKeyName("model")]
         public string Model { get; set; }
 
+        [ConfigurationKeyName("temperature")]
         public float Temperature { get; set; }
 
         [ConfigurationKeyName("max_tokens")]
@@ -121,12 +123,16 @@ In this guide, you build an AI chat application and iterate on the prompt using 
         [ConfigurationKeyName("top_p")]
         public float TopP { get; set; }
 
+        [ConfigurationKeyName("messages")]
         public List<Message> Messages { get; set; }
     }
 
     public class Message
     {
+        [ConfigurationKeyName("role")]
         public string Role { get; set; }
+
+        [ConfigurationKeyName("content")]
         public string Content { get; set; }
     }
     ```
@@ -308,8 +314,10 @@ In this guide, you build an AI chat application and iterate on the prompt using 
 
     public class ModelConfiguration
     {
+        [ConfigurationKeyName("model")]
         public string Model { get; set; }
 
+        [ConfigurationKeyName("temperature")]
         public float Temperature { get; set; }
 
         [ConfigurationKeyName("max_tokens")]
@@ -318,12 +326,16 @@ In this guide, you build an AI chat application and iterate on the prompt using 
         [ConfigurationKeyName("top_p")]
         public float TopP { get; set; }
 
+        [ConfigurationKeyName("messages")]
         public List<Message> Messages { get; set; }
     }
 
     public class Message
     {
+        [ConfigurationKeyName("role")]
         public string Role { get; set; }
+
+        [ConfigurationKeyName("content")]
         public string Content { get; set; }
     }
     ```
