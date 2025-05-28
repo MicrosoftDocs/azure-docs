@@ -274,7 +274,7 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 | US Gov Texas         | ✅          |✅ *         |                   |
 | US Gov Virginia      | ✅          |✅ *         |                   |
 
-### Microsoft Azure operated by 21Vianet:
+### Microsoft Azure operated by 21Vianet
 
 | Region               | Standard     | Large       | Memory intensive  |
 | -------------------- | :----------: | :---------: | :---------------: |
