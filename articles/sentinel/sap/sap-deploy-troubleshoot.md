@@ -41,7 +41,7 @@ For more information, see [Configure SAP Cloud Connector settings](preparing-sap
 
 ## Error when setting up the data connector
 
-When you set up the Microsoft Sentinel for SAP - agentless data connector, under the **Initial connector configuration > Step 1: Trigger automatic deployment of required Azure resources / SOC Engineer**, after you select **Deploy required resources**, you might see the "Deploy required azure resources" error or similar (errors may vary). This error might indicate that you're missing the required permissions.
+When you set up the Microsoft Sentinel for SAP - agentless data connector, under the **Initial connector configuration > Step 1: Trigger automatic deployment of required Azure resources / SOC Engineer**, after you select **Deploy required resources**, you might see the "Deploy required azure resources" error or similar (errors may vary). This error might indicate that you're missing the required permissions for the Entra ID app registration.
 
 If you don't have the **Entra ID Application Developer** role or higher, you need to work with a colleague that has this permission to finish setting up the Azure resources. For more information, follow the procedure in the [data connector agent connection](deploy-data-connector-agent-container.md#connect-your-agentless-data-connector-limited-preview) step.
 
