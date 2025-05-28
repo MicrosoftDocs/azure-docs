@@ -110,7 +110,7 @@ With all the configuration ready in your *pom.xml* file, you can deploy your Jav
 ```azurecli-interactive
 mvn package azure-webapp:deploy
 ```
-Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When deployment completes, your application is ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1745408005556.azurewebsites.net` in the demo). Open the URL with your local web browser, you should see
+Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When deployment completes, your application is ready. In this demo, the URL is `http://helloworld-1745408005556.azurewebsites.net`. Open the URL with your local web browser, you should see
 
 ![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 

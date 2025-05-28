@@ -84,6 +84,10 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 
 :::zone pivot="connection-agentless"
 
+## Sign up for limited preview
+
+To use the agentless data connector for SAP, [sign up for the limited preview](https://forms.cloud.microsoft/r/FeWbvc18MV).
+
 ## Azure prerequisites
 
 Typically, Azure prerequisites are managed by your **security** teams.

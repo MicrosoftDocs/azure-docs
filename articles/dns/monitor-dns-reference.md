@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 01/06/2025
 ms.custom: horz-monitor
 ms.topic: reference
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.service: azure-dns
 ---
 

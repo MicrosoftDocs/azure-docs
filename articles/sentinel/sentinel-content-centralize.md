@@ -54,7 +54,7 @@ The key to experiencing the updated behavior is to start in **Content hub**. For
 
 For more information on the new solution content behavior, see [Discover and deploy OOTB content](sentinel-solutions-deploy.md#enable-content-items-in-a-solution).
 
-If there was a particular sample query for a third party data connector you are looking for, we still publish them in our **All connectors** index. For example, here are the sample queries for the [Jamf Protect connector](data-connectors/jamf-protect.md).
+If there was a particular sample query for a third party data connector you are looking for, we still publish them in our **All connectors** index. For example, here are the sample queries for the [Jamf Protect connector](data-connectors-reference.md#jamf-protect-push-connector).
 
 ## Microsoft Sentinel GitHub changes
 

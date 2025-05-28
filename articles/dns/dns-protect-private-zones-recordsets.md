@@ -3,8 +3,8 @@ title: Protecting private DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting private DNS zones and record sets in Microsoft Azure DNS.
 services: dns
 ms.service: azure-dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.topic: how-to
 ms.date: 11/30/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 

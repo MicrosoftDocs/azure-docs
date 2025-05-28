@@ -2,11 +2,11 @@
 title: 'Tutorial: Host your domain in Azure DNS'
 description: In this tutorial, you learn how to configure Azure DNS to host your DNS zones using Azure portal.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 06/07/2024
-ms.author: greglin
+ms.author: allensu
 ms.custom: template-tutorial
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS, so I can host DNS zones.
 ---

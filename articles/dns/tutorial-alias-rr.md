@@ -2,8 +2,8 @@
 title: 'Tutorial: Create an alias record to refer to a resource record in a zone'
 titleSuffix: Azure DNS
 description: In this tutorial, you learn how to configure an alias record to reference a resource record within the zone.
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.service: azure-dns
 services: dns
 ms.topic: tutorial

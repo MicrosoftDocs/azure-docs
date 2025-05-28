@@ -53,10 +53,15 @@ For more information, see [SOC optimization reference](soc-optimization/soc-opti
 
 ## April 2025
 
+- [Microsoft Sentinel solution for Microsoft Business Apps generally available in the Azure portal](#microsoft-sentinel-solution-for-microsoft-business-apps-generally-available-in-the-azure-portal)
 - [Security Copilot generates incident summaries in Microsoft Sentinel in the Azure portal (Preview)](#security-copilot-generates-incident-summaries-in-microsoft-sentinel-in-the-azure-portal-preview)
 - [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (Preview)](#multi-workspace-and-multitenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
 - [Microsoft Sentinel now ingests all STIX objects and indicators into new threat intelligence tables (Preview)](#microsoft-sentinel-now-ingests-all-stix-objects-and-indicators-into-new-threat-intelligence-tables-preview)
 - [SOC optimization support for unused columns (Preview)](#soc-optimization-support-for-unused-columns-preview)
+
+### Microsoft Sentinel solution for Microsoft Business Apps generally available in the Azure portal
+
+The [Microsoft Sentinel solution for Microsoft Business Apps](business-applications/solution-overview.md) is now generally available in the Azure portal.
 
 ### Security Copilot generates incident summaries in Microsoft Sentinel in the Azure portal (Preview)
 

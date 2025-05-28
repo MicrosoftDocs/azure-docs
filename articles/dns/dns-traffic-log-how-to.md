@@ -1,11 +1,11 @@
 ---
 title: Secure and view DNS traffic - Azure DNS (Preview)
 description: Learn how to filter and view Azure DNS traffic
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 02/24/2025
-ms.author: greglin
+ms.author: allensu
 ---
 
 # Secure and view DNS traffic (Preview)

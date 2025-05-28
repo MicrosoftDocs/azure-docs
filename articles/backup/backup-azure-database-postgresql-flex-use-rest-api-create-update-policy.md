@@ -4,7 +4,7 @@ description: Learn how to create the backup policy to protect Azure PostgreSQL f
 ms.topic: concept-article
 ms.custom:
   - ignite-2024
-ms.date: 02/28/2025
+ms.date: 05/28/2025
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: jyothisuri
 ms.author: jsuri
@@ -14,7 +14,7 @@ ms.author: jsuri
 
 This article describes how to create the backup policy to protect Azure PostgreSQL flexible servers using REST API.
 
-A backup policy governs the retention and schedule of your backups. Azure PostgreSQL flexible servers Backup offers long-term retention and supports a backup per day. 
+A backup policy governs the retention and schedule of your backups.
 
 You can reuse an existing backup policy to configure backup for PostgreSQL flexible servers to a vault, or [create a backup policy for an Azure Recovery Services vault using REST API](/rest/api/dataprotection/backup-policies/create-or-update).
 

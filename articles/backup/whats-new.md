@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 05/16/2025
+ms.date: 05/28/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -19,6 +19,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - May 2025
+  - [Operational backup support for Azure Elastic SAN (preview)](#operational-backup-support-for-azure-elastic-san-preview)
   - [Vaulted Backups for Azure Database for PostgreSQL – flexible server is now generally available](#vaulted-backups-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
   - [Back up SAP ASE (Sybase) database is now generally available](#back-up-sap-ase-sybase-database-is-now-generally-available)
 
@@ -110,6 +111,21 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier for Azure Backup (in preview)](#archive-tier-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Operational backup support for Azure Elastic SAN (preview)
+
+Azure Backup now allows secure backup and restoration for Azure Elastic storage area network (SAN) volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution seamlessly allows you to schedule backups, set expiration timelines for restore points, and restore data to a new volume.
+
+Key features include:
+
+- Protects against accidental deletions, ransomware attacks, and application updates.
+- Captures Elastic SAN volumes at specific points in time as independent Managed Disk incremental snapshots with Locally redundant storage (LRS) resiliency.
+- Stores up to **450 restore points**, with backup frequencies from **4 hours** to **24 hours**.
+
+>[!Note]
+>This feature is in preview and [available in specific Azure regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).
+
+For more information, see [About Azure Elastic SAN backup (preview)](azure-elastic-storage-area-network-backup-overview.md).
 
 ## Vaulted Backups for Azure Database for PostgreSQL – flexible server is now generally available
 

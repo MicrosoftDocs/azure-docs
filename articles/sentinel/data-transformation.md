@@ -68,7 +68,7 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 
 | Data connector type | DCR support |
 | ------------------- | ----------- |
-| [**Azure Monitor agent (AMA) logs**](connect-services-windows-based.md), such as: <li>[Windows Security Events via AMA](./data-connectors/windows-security-events-via-ama.md)<li>[Windows Forwarded Events](./data-connectors/windows-forwarded-events.md)<li>[CEF data](connect-cef-ama.md)<li>[Syslog data](connect-cef-syslog.md) | One or more DCRs associated with the agent |
+| [**Azure Monitor agent (AMA) logs**](connect-services-windows-based.md), such as: <li>[Windows Security Events via AMA](./data-connectors-reference.md#windows-security-events-via-ama)<li>[Windows Forwarded Events](./data-connectors-reference.md#windows-forwarded-events)<li>[CEF data](connect-cef-ama.md)<li>[Syslog data](connect-cef-syslog.md) | One or more DCRs associated with the agent |
 | **Direct ingestion via [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview)** | DCR specified in API call |
 | **Built-in, API-based data connector**, such as: <li>[Codeless data connectors](create-codeless-connector.md) | DCR created for connector |
 | [**Diagnostic settings-based connections**](connect-services-diagnostic-setting-based.md) | Workspace transformation DCR with [supported output tables](/azure/azure-monitor/logs/tables-feature-support) |

@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 02/18/2025
 ms.custom: devx-track-terraform
 ms.service: azure-dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 #customer intent: As a Terraform user, I want to learn how to use Terraform to create and manage an Azure DNS Private Resolver.
 content_well_notification: 
   - AI-contribution

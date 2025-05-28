@@ -2,10 +2,10 @@
 title: Azure DNS delegation overview
 description: Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.date: 06/07/2024
-ms.author: greglin
+ms.author: allensu
 ms.topic: concept-article
 
 ---

@@ -8,8 +8,8 @@ metadata:
   description: Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, show you how to set up and manage DNS zones and records for domain names.
   ms.service: azure-dns
   ms.topic: landing-page
-  author: greg-lindsay
-  ms.author: greglin
+  author: asudbring
+  ms.author: allensu
   ms.date: 10/27/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

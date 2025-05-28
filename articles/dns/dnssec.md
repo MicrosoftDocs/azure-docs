@@ -1,12 +1,12 @@
 ---
 title: Overview of DNSSEC - Azure Public DNS
 description: Learn about DNSSEC zone signing for Azure Public DNS.
-author: greg-lindsay
+author: asudbring
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
 ms.date: 01/27/2025
-ms.author: greglin
+ms.author: allensu
 ---
 
 # DNSSEC overview

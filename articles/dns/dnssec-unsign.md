@@ -1,11 +1,11 @@
 ---
 title: How to unsign your Azure Public DNS zone
 description: Learn how to remove DNSSEC from your Azure public DNS zone. 
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 01/27/2025
-ms.author: greglin
+ms.author: allensu
 ---
 
 # How to unsign your Azure Public DNS zone

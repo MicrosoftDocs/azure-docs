@@ -10,7 +10,8 @@ metadata:
   ms.topic: landing-page
   author: jyothisuri
   ms.author: jsuri
-  ms.date: 05/14/2025
+  ms.date: 05/21/2025
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -64,6 +65,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Elastic SAN backup (preview)
+            url: azure-elastic-storage-area-network-backup-overview.md
           - text: SAP ASE (Sybase) database backup support
             url: sap-ase-database-about.md        
           - text: Azure Data Lake Storage backup support (preview)

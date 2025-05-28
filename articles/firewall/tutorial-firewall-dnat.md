@@ -2,18 +2,18 @@
 title: Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the portal
 description: In this article, you learn how to deploy and configure Azure Firewall DNAT using the Azure portal. 
 services: firewall
-author: duongau
+author: varunkalyana
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 03/17/2025
-ms.author: duau
+ms.date: 05/07/2025
+ms.author: varunkalyana
 ms.custom: mvc
-#Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound Internet access to resources located in a subnet.
+#Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound internet access to resources located in a subnet.
 ---
 
 # Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal
 
-You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound Internet traffic to your subnets or intranet traffic between private networks (preview). When you configure DNAT, the NAT rule collection action is set to **DNAT**. Each rule in the NAT rule collection can then be used to translate your firewall's public or private IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, it's recommended to add a specific source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
+You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound internet traffic to your subnets or intranet traffic between private networks. When you configure DNAT, the NAT rule collection action is set to **DNAT**. Each rule in the NAT rule collection can then be used to translate your firewall's public or private IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, it's recommended to add a specific source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
 > [!NOTE]
 > This article uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this procedure using Firewall Policy, see [Tutorial: Filter inbound Internet traffic with Azure Firewall policy DNAT using the Azure portal](tutorial-firewall-dnat-policy.md).
