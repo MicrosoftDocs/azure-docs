@@ -13,8 +13,8 @@ ms.custom: references_regions, engagement-fy23
 
 # Azure Blob Storage lifecycle management overview
 
-Storing large volumes of data is expensive, especially when much of that data is infrequently used. These expenses can accumulate rapidly and lead to budget constraints. Azure Blob Storage lifecycle management helps you build a more cost-effective storage solution. You can optimize data storage by using a rule-based policy that automatically transitions data to appropriate access tiers or expires data at the end of its lifecycle. By creating lifecycle management policies, you can reduce storage costs while ensuring that data remains accessible and manageable according to its usage patterns. 
-
+Azure Blob Storage empowers organizations to efficiently manage and scale their data storage needs, even as data volumes grow and usage patterns evolve. Leveraging blob lifecycle management, customers can proactively optimize costs by implementing rule-based policies that automatically transition data to cooler tiers or expire it when it is no longer needed. This seamless automation ensures that data is always stored in the most cost-effective manner, maximizing budget efficiency while maintaining easy access and robust data management. With blob lifecycle management, organizations can confidently scale their storage environments, knowing that their costs are optimized and their data is managed according to real-world usage. 
+ 
 With the lifecycle management policy, you can: 
 
 - Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost.
@@ -31,19 +31,13 @@ A lifecycle management policy is a collection of rules in a JSON document. To le
 
 Lifecycle management policies are supported for block blobs and append blobs in general-purpose v2, premium block blob, and Blob Storage accounts. Lifecycle management doesn't affect system containers such as the $logs or $web containers. 
 
-A *rule* is a definition of the conditions, the associated operations and filters that are to be implemented. Conditions can be based on the following set of blob properties:
+A *rule* is a definition of the conditions, the associated actions and filters that are to be implemented. The following table describes each element.
 
-- Creation Time
-
-- Last Modified Time
-
-- Last Accessed Time (only if [access time tracking](lifecycle-management-policy-structure.md#access-time-tracking) is enabled).  
-
-A rule defines one or more *actions*. You must define at least one action per rule. Actions are applied to the filtered blobs that meet the associated conditions. 
-
-A filter limits actions to a subset of blobs within the storage account. If more than one filter is defined, a logical AND runs on all filters. You can use a filter to specify which blobs to include. A filter can't specify which blobs to exclude. 
-
-You can sign-up to receive Event Grid notifications upon the completion of a policy run. You can sign-up to receive Event Grid notifications upon the completion of a policy run, You can also use Storage logs to monitor your policy runs. 
+| Rule element | Description |
+|---|---|
+| Conditions | Conditions are based on the following limited set of blob properties which include Creation Time, Last Modified Time and Last Accessed Time (if access time tracking is enabled). |
+| Actions | Actions are applied to the filtered blobs that meet the associated conditions. You must define at least one action per rule such as changing the blob tier to the cool tier or deleting blobs.  |
+| Filters | Filters limit rule actions to a subset of blobs within the storage account by using path prefixes and blob tags. If more than one filter is defined, a logical AND runs on all filters. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude. |
 
 ## Policy execution
 
@@ -63,13 +57,29 @@ Learn more about [Lifecycle Management Performance Characteristics](lifecycle-ma
 
 You can monitor the outcome of a policy execution by subscribing to the **LifecyclePolicyCompleted** event and diagnose errors by using metrics and logs. See [Lifecycle management policy monitoring](lifecycle-management-policy-monitor.md).
 
-## Pricing and billing
+## Billing
 
 Lifecycle management policies are free of charge. Customers are billed for standard operation costs for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operations are free. However, other Azure services and utilities such as [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction) may charge for operations that are managed through a lifecycle policy.
 
 Each update to a blob's last access time is billed under the [other operations](https://azure.microsoft.com/pricing/details/storage/blobs/) category. Each last access time update is charged as an "other transaction" at most once every 24 hours per object even if it's accessed 1000s of times in a day. This is separate from read transactions charges.
 
 For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+## Known issues and limitations
+
+- Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
+
+- A lifecycle management policy must be read or written in full. Partial updates are not supported.
+
+- Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
+
+- A lifecycle management policy can't be used to change the tier of a blob that uses an encryption scope to the archive tier.
+
+- The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
+
+- Blobs can automatically tier up from cool to hot only once in 30 days. This safeguard is put into place to protect against multiple early deletion penalties charged to the account.
+
+- Lifecycle management doesn't affect system containers such as the $logs or $web containers.
 
 ## Frequently asked questions (FAQ)
 
