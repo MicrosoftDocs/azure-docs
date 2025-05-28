@@ -120,7 +120,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of Python to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -619,7 +619,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: &lt;URL>
     </pre>
 
 1. In the SSH session, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
@@ -640,7 +640,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few restaurants to the list.
@@ -659,11 +659,7 @@ The sample application includes `print()` statements to demonstrate this capabil
 
 :::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
 
-In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
-
-<pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
-</pre>
+In the AZD output, find the link to stream App Service logs and navigate to it in the browser.
 
 Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
