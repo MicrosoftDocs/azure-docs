@@ -981,7 +981,7 @@ def main(req: func.HttpRequest, todoItem: func.SqlRowList) -> func.HttpResponse:
 <a id="http-trigger-delete-one-or-multiple-rows-python"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) reques. It executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It executes a stored procedure with input from the HTTP request query parameter.
 
 The stored procedure `dbo.DeleteToDo` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
@@ -1078,7 +1078,7 @@ The [C# library](functions-dotnet-class-library.md) uses the [SqlAttribute](http
 | **CommandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
 | **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
 | **CommandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **Parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **Parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value cannot contain a comma (`,`) or an equals sign (`=`). |
 
 ::: zone-end  
 
@@ -1093,7 +1093,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is ["Text"](/dotnet/api/system.data.commandtype#fields) for a query and ["StoredProcedure"](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 |**name** |  Required. The unique name of the function binding. | 
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value cannot contain a comma (`,`) or an equals sign (`=`). |
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -1109,7 +1109,7 @@ The following table explains the properties that you can set on the `options` ob
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value cannot contain a comma (`,`) or an equals sign (`=`). |
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1123,7 +1123,7 @@ The following table explains the binding configuration properties that you set i
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value cannot contain a comma (`,`) or an equals sign (`=`). |
 
 ---
 
@@ -1141,7 +1141,7 @@ The following table explains the binding configuration properties that you set i
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value cannot contain a comma (`,`) or an equals sign (`=`). |
 ::: zone-end  
 
 
@@ -1155,7 +1155,7 @@ The binding definition includes the SQL command text, the command type, paramete
 
 Queries executed by the input binding are [parameterized](/dotnet/api/microsoft.data.sqlclient.sqlparameter) in Microsoft.Data.SqlClient to reduce the risk of [SQL injection](/sql/relational-databases/security/sql-injection) from the parameter values passed into the binding.
 
-If an exception occurs when a SQL input binding is executed then the function code won't execute. This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
+If an exception occurs when a SQL input binding is executed, then the function code does not execute. This behavior may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
 
 ## Next steps
 

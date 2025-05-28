@@ -1175,6 +1175,7 @@ func azure functionapp publish <APP_NAME> --no-build
 Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
 ## Unit testing
+### Unit testing through pytest
 
 Functions that are written in Python can be tested like other Python code by using standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package isn't immediately available, be sure to install it via your *requirements.txt* file as described in the [package management](#package-management) section above.
 
@@ -1339,6 +1340,24 @@ class TestFunction(unittest.TestCase):
 ```
 
 Inside your *.venv* Python virtual environment folder, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
+
+### Unit testing by invoking the function directly
+With `azure-functions >= 1.21.0`, functions can also be called directly using the Python interpreter. This example shows how to unit test an HTTP trigger using the v2 programming model:
+```python
+# <project_root>/function_app.py
+import azure.functions as func
+import logging
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@app.route(route="http_trigger")
+def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
+    return "Hello, World!"
+
+print(http_trigger(None))
+```
+
+Note that with this approach, no additional package or setup is required. The function can be tested by calling `python function_app.py`, and it results in `Hello, World!` output in the terminal.
 
 ::: zone-end
 
