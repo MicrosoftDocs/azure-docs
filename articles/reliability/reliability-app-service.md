@@ -213,6 +213,8 @@ If you enable availability zones but specify a capacity of less than two, the pl
     ```azurecli
     az appservice plan update -g <resource group name> -n <app service plan name> --set zoneRedundant=false sku.capacity=1
     ```
+    > [!NOTE]
+    > If you use the Azure CLI to disable the `zoneRedundant` property, you should specify the `sku.capacity` property, otherwise the value defaults to 1.
 
     > [!NOTE]
     > If you use the Azure CLI to disable the zoneRedundant property, you should specify the sku.capacity property. Otherwise, the value defaults to 1.
@@ -334,6 +336,9 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
     az appservice plan update -g <resource group name> -n <app service plan name> --set zoneRedundant=false sku.capacity=1
     ```
+
+    > [!NOTE]
+    > If you use the Azure CLI to disable the `zoneRedundant` property, you should specify the `sku.capacity` property, otherwise the value defaults to 1.
 
     > [!NOTE]
     > If you use the Azure CLI to disable the zoneRedundant property, you should specify the sku.capacity property. Otherwise, the value defaults to 1.
