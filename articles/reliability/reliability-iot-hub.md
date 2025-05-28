@@ -14,7 +14,7 @@ ms.date: 05/02/2025
 
 # Reliability in Azure IoT Hub
 
-This article describes reliability support in Azure IoT Hub. It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiregion deployments](#multiregion-support).
+This article describes reliability support in Azure IoT Hub. It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
@@ -124,7 +124,7 @@ Your IoT hub might fail over to the paired region in the following scenarios:
 
 If resources are in a *nonpaired region*, Microsoft doesn’t replicate configuration and data across regions, and there’s no built-in cross-region failover. However, you can deploy separate resources into multiple regions. In this scenario, it's your responsibility to manage replication, traffic distribution, and failover.
 
-If your IoT hub is in a nonpaired region, or if the default replication and failover behavior doesn't meet your needs, you can use [alternative multiregion approaches](#alternative-multiregion-approaches) to plan for and initiate failovers.
+If your IoT hub is in a nonpaired region, or if the default replication and failover behavior doesn't meet your needs, you can use [alternative multi-region approaches](#alternative-multi-region-approaches) to plan for and initiate failovers.
 
 ### Region support
 
@@ -142,7 +142,7 @@ Don't use customer-initiated failover to permanently migrate your hub between th
 
 For hubs in regions that are paired, there's no extra cost for cross-region data replication or failover.
 
-If your IoT hub is in a nonpaired region, see [alternative multiregion approaches](#alternative-multiregion-approaches) for possible cost information.
+If your IoT hub is in a nonpaired region, see [alternative multi-region approaches](#alternative-multi-region-approaches) for possible cost information.
 
 ### Configure replication and prepare for failover
 
@@ -150,7 +150,7 @@ By default, cross-region data replication is automatically configured when you c
 
 If your IoT hub is in the Brazil South or Southeast Asia (Singapore) regions, you can disable data replication and opt out of failover. For more information, see [Disable disaster recovery (DR)](../iot-hub/how-to-disable-dr.md).
 
-If your IoT hub is in a nonpaired region, you need to plan your own cross-region replication and failover approach. For more information, see [Alternative multiregion approaches](#alternative-multiregion-approaches).
+If your IoT hub is in a nonpaired region, you need to plan your own cross-region replication and failover approach. For more information, see [Alternative multi-region approaches](#alternative-multi-region-approaches).
 
 ### Normal operations
 
@@ -250,7 +250,7 @@ The cross-region failover capabilities of IoT Hub aren't suitable for the follow
 
 - You need to fail over to a region that isn't your primary region's pair.
 
-You can design a cross-region failover solution tailored to each individual device. A complete treatment of deployment topologies in IoT solutions is outside the scope of this article, but you can consider a multiregion deployment model. In this model, your primary IoT hub and solution back end run primarily in one Azure region. A secondary IoT hub and back end are deployed in another Azure region. If the IoT hub in the primary region experiences an outage or the network connectivity from the device to the primary region is interrupted, devices use a secondary service endpoint.
+You can design a cross-region failover solution tailored to each individual device. A complete treatment of deployment topologies in IoT solutions is outside the scope of this article, but you can consider a multi-region deployment model. In this model, your primary IoT hub and solution back end run primarily in one Azure region. A secondary IoT hub and back end are deployed in another Azure region. If the IoT hub in the primary region experiences an outage or the network connectivity from the device to the primary region is interrupted, devices use a secondary service endpoint.
 
 - **Expected downtime:** This approach has less than one minute of downtime but can be complex to implement.
 
