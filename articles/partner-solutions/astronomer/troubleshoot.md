@@ -11,7 +11,7 @@ ms.date: 02/14/2024
 
 # Troubleshooting Astro integration with Azure
 
-You can get support for your Astro  deployment through a **New Support request**. For further assistance, visit the [Astronomer Support](https://support.astronomer.io). In addition, this article includes  troubleshooting for problems you might experience in creating and using an Astro resource.
+You can get support for your Astro  deployment through a **New Support request**. For further assistance, go to the [Astronomer Support](https://support.astronomer.io). In addition, this article includes  troubleshooting for problems you might experience in creating and using an Astro resource.
 
 ## Getting support
 
