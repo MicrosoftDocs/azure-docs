@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/private-multi-access-edge-compute-mec/index.yml",
+      "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/network-watcher/traffic-analytics-schema-update.md",
       "redirect_url": "/previous-versions/azure/network-watcher/traffic-analytics-schema-update",
       "redirect_document_id": false

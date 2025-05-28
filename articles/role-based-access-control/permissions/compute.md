@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -25,6 +25,9 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/register/action | Register microsoft.app resource provider for the subscription |
 > | microsoft.app/unregister/action | Unregister microsoft.app resource provider for the subscription |
 > | microsoft.app/getcustomdomainverificationid/action | Get Subscription Verification Id used for verifying custom domains |
+> | Microsoft.App/agents/read | Read SRE Agent properties |
+> | Microsoft.App/agents/write | Create or Update a SRE Agent |
+> | Microsoft.App/agents/delete | Delete a SRE Agent |
 > | microsoft.app/builders/write | Create or update a Builder |
 > | microsoft.app/builders/read | Get a Builder |
 > | microsoft.app/builders/delete | Delete a Builder |
@@ -124,12 +127,12 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/locations/sourcecontroloperationresults/read | Get Container App Source Control Long Running Operation Result |
 > | microsoft.app/locations/sourcecontroloperationstatuses/read | Get a Container App Source Control Long Running Operation Status |
 > | microsoft.app/locations/usages/read | Get Quota Usages in a Region |
+> | microsoft.app/managedenvironments/checknameavailability/action | Check reource name availability for a Managed Environment |
 > | microsoft.app/managedenvironments/join/action | Allows to create a Container App in a Managed Environment |
 > | microsoft.app/managedenvironments/read | Get a Managed Environment |
 > | microsoft.app/managedenvironments/write | Create or update a Managed Environment |
 > | microsoft.app/managedenvironments/delete | Delete a Managed Environment |
 > | microsoft.app/managedenvironments/getauthtoken/action | Get Auth Token for Managed Environment Dev APIs to get log stream, exec or port forward from a container |
-> | microsoft.app/managedenvironments/checknameavailability/action | Check reource name availability for a Managed Environment |
 > | microsoft.app/managedenvironments/certificates/write | Create or update a Managed Environment Certificate |
 > | microsoft.app/managedenvironments/certificates/read | Get a Managed Environment's Certificate |
 > | microsoft.app/managedenvironments/certificates/delete | Delete a Managed Environment's Certificate |
@@ -179,11 +182,14 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/sessionpools/sessions/generatesessions/action | Generate sessions |
 > | microsoft.app/sessionpools/sessions/read | Get a Session |
 > | **DataAction** | **Description** |
+> | Microsoft.App/agents/threads/read | Read all the conversation threads with an SRE Agent |
+> | Microsoft.App/agents/threads/write | Create new conversation threads with an SRE Agent and reply to existing threads |
 > | microsoft.app/containerApps/logstream/action | View log stream of a container app |
 > | microsoft.app/containerApps/exec/action | Connect to console of a container app |
 > | microsoft.app/containerApps/debug/action | Connect to debug console of a container app |
 > | microsoft.app/jobs/logstream/action | View log stream of a container app job |
 > | microsoft.app/jobs/exec/action | Connect to console of a container app job |
+> | Microsoft.App/managedEnvironments/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | Microsoft.App/sessionPools/executions/action | Execute code in a session pool code interpreter session |
 > | Microsoft.App/sessionPools/files/action | Upload file to a session pool code interpreter session |
 > | Microsoft.App/sessionPools/executions/read | Get the execution result of a previous asynchronous code execution |
@@ -345,6 +351,7 @@ Azure service: [Azure Spring Apps](/azure/spring-apps/)
 > | Microsoft.AppPlatform/Spring/jobs/executions/read | Get the job execution for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/jobs/executions/cancel/action | Cancel the execution for a specific job |
 > | Microsoft.AppPlatform/Spring/jobs/executions/listEnvSecrets/action | List environment variables secret of the job execution for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/maintenance/releaseNote/action | Azure Spring Apps auto patching release note |
 > | Microsoft.AppPlatform/Spring/monitoringSettings/read | Get the monitoring setting for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/monitoringSettings/write | Create or update the monitoring setting for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/operationResults/read | Read resource operation result |
@@ -537,7 +544,6 @@ Azure service: [Batch](/azure/batch/)
 > | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the Batch service |
 > | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for the Batch service |
-> | Microsoft.Batch/deployments/preflight/action | Runs Preflight validation for resources included in the request |
 > | Microsoft.Batch/locations/checkNameAvailability/action | Checks that the account name is valid and not in use. |
 > | Microsoft.Batch/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notifies the NSP updates available at the given location |
 > | Microsoft.Batch/locations/accountOperationResults/read | Gets the results of a long running Batch account operation |
@@ -983,20 +989,22 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | Microsoft.ComputeSchedule/autoActions/listResources/action | A synchronous resource action. |
 > | Microsoft.ComputeSchedule/autoActions/patchResources/action | A synchronous resource action. |
 > | Microsoft.ComputeSchedule/autoActions/triggerManualOccurrence/action | A synchronous resource action. |
-> | Microsoft.ComputeSchedule/autoActions/occurrences/read | List Occurrence resources by AutoAction |
-> | Microsoft.ComputeSchedule/autoActions/occurrences/read | Get a Occurrence |
 > | Microsoft.ComputeSchedule/autoActions/occurrences/cancel/action | A synchronous resource action. |
 > | Microsoft.ComputeSchedule/autoActions/occurrences/delay/action | A synchronous resource action. |
 > | Microsoft.ComputeSchedule/autoActions/occurrences/listResources/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/occurrences/read | List OccurrenceOld resources by AutoAction |
+> | Microsoft.ComputeSchedule/autoActions/occurrences/read | Get a OccurrenceOld |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesCancelOperations/action | VirtualMachinesCancelOperations: Cancel a previously submitted (start/deallocate/hibernate) request |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDeallocate/action | VirtualMachinesExecuteDeallocate: Execute deallocate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteHibernate/action | VirtualMachinesExecuteHibernate: Execute hibernate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteStart/action | VirtualMachinesExecuteStart: Execute start operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitHibernate/action | VirtualMachinesSubmitHibernate: Schedule hibernate operation for a batch of virtual machines at datetime in future. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationStatus/action | VirtualMachinesGetOperationStatus: Polling endpoint to read status of operations performed on virtual machines |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitDeallocate/action | VirtualMachinesSubmitDeallocate: Schedule deallocate operation for a batch of virtual machines at datetime in future. |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitHibernate/action | VirtualMachinesSubmitHibernate: Schedule hibernate operation for a batch of virtual machines at datetime in future. |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteStart/action | VirtualMachinesExecuteStart: Execute start operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDelete/action | VirtualMachinesExecuteDelete: Execute delete operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreate/action | VirtualMachinesExecuteCreate: Execute create operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | Microsoft.ComputeSchedule/locations/OperationStatuses/read | read OperationStatuses |
 > | Microsoft.ComputeSchedule/locations/OperationStatuses/write | write OperationStatuses |
 > | Microsoft.ComputeSchedule/Operations/read | read Operations |
