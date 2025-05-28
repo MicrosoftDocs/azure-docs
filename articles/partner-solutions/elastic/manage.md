@@ -47,7 +47,7 @@ Make the needed changes to how logs are sent to Elastic.
 
 ## View monitored resources
 
-To view the list of resources emitting logs to Elastic, select **Elastic deployment configuration > Monitored resources** in the Resource menu.
+To view the list of resources emitting logs to Elastic, select **Elastic deployment configuration > Monitored resources** in the service menu.
 
 > [!TIP]
 > You can filter the list of resources by type, subscription, resource group, region, and whether the resource is sending logs to Elastic. 
@@ -77,7 +77,7 @@ Once the subscription is added, the status changes to *Active*.
 
 To unlink subscriptions from a Elastic resource:
 
-1. Select **Elastic deployment configuration > Monitored Subscriptions** from the Resource menu. 
+1. Select **Elastic deployment configuration > Monitored Subscriptions** from the service menu. 
 
 1. Select the subscription you want to remove.
 
@@ -91,7 +91,7 @@ You can install Elastic agents on virtual machines.
 
 ### Virtual machines
 
-To monitor resources for virtual machines, select **Elastic deployment configuration > Virtual machine agent** in the Resource menu.
+To monitor resources for virtual machines, select **Elastic deployment configuration > Virtual machine agent** in the service menu.
 
 [!INCLUDE [install-elastic-agent](../includes/agent.md)]
 

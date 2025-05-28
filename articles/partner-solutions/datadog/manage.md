@@ -53,11 +53,11 @@ A summary of resources is also displayed in the working pane.
 
 To change the configuration rules for metrics and logs:
 
-1. Select **Datadog organization configurations > Metrics and Logs** from the Resource menu.
+1. Select **Datadog organization configurations > Metrics and Logs** from the service menu.
 
 ## View monitored resources
 
-To view the list of resources emitting logs to Datadog, select **Datadog organization configurations > Monitored Resources** in the Resource menu.
+To view the list of resources emitting logs to Datadog, select **Datadog organization configurations > Monitored Resources** in the service menu.
 
 > [!TIP]
 > You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics. 
@@ -91,7 +91,7 @@ Once the subscription is added, the status changes to *Active*.
 
 To unlink subscriptions from a Datadog resource:
 
-1. Select **Datadog organization configurations > Monitored Subscriptions** from the Resource menu. 
+1. Select **Datadog organization configurations > Monitored Subscriptions** from the service menu. 
 
 1. Select the subscription you want to remove.
 
@@ -103,7 +103,7 @@ To view the updated list of monitored subscriptions, select **Refresh** from the
 
 To view the list of API keys for your Datadog resource:
 
-1. Select **Settings > Keys** from the Resource menu.
+1. Select **Settings > Keys** from the service menu.
 
     The Azure portal provides a read-only view of the API keys. 
 

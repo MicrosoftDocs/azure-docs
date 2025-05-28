@@ -39,7 +39,7 @@ Application Gateway is deployed in a dedicated virtual network with a front end 
 
 Similar to spoke virtual networks, the Application Gateway virtual network must be peered with the hub virtual network to ensure that the traffic can be routed toward the destination spoke virtual network.
 
-To force incoming web traffic through the Cloud NGFW for Azure resource, you must create a user-defined route and associate it with the Application Gateway subnet. The next hop in this case is the private IP address of Cloud NGFW for Azure. You can find this address by selecting **Overview** from the resource menu in the Azure portal.
+To force incoming web traffic through the Cloud NGFW for Azure resource, you must create a user-defined route and associate it with the Application Gateway subnet. The next hop in this case is the private IP address of Cloud NGFW for Azure. You can find this address by selecting **Overview** from the service menu in the Azure portal.
 
 :::image type="content" source="media/palo-alto-app-gateway/palo-alto-resource.png" alt-text="Screenshot that shows the Cloud NGFW for Azure view in the Azure portal.":::
 

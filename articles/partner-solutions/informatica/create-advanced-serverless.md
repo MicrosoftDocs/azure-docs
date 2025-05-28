@@ -25,7 +25,7 @@ In this quickstart, you use the Azure portal to create advanced serverless runti
 
 In this section, you see how to create an advanced serverless deployment of Informatica Intelligent Data Management Cloud (Informatica IDMC) using the Azure portal.
 
-In the Informatica organization,  select **Serverless Runtime Environment** from the resource menu to navigate to _Advanced Serverless_ section where the existing list of serverless runtime environments are shown.
+In the Informatica organization,  select **Serverless Runtime Environment** from the service menu to navigate to _Advanced Serverless_ section where the existing list of serverless runtime environments are shown.
 
 :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless.png" alt-text="Screenshot of Informatica serverless runtime environments pane.":::
 
