@@ -18,9 +18,6 @@ ms.collection: usx-security
 
 # Find your Microsoft Sentinel data connector
 
->[!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 This article lists all supported, out-of-the-box data connectors and links to each connector's deployment steps.
 
 > [!IMPORTANT]
