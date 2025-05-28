@@ -62,7 +62,7 @@ To monitor multiple subscriptions:
 
     The **Add subscriptions** experience that opens shows subscriptions you have _Owner_ role assigned to and any Elastic resource created in those subscriptions that is already linked to the same Elastic organization as the current resource.
 
-1. Select the subscriptions you want to monitor through the Elastic resource and click **Add**.
+1. Select the subscriptions you want to monitor through the Elastic resource and select **Add**.
 
     > [!IMPORTANT]
     > Setting separate tag rules for different subscriptions isn't supported.

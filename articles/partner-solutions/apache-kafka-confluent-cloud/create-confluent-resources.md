@@ -52,7 +52,7 @@ If you no longer need to use an environment and the clusters operating within it
 > [!NOTE]
 > Azure only supports deleting environments created in Azure. To delete an environment created in Confluent, use the Confluent UI.
 
-From the list of environments, select the ellipsis action (**…**) next to the name of the environment you want to delete and select **Delete Environment**. Alternatively, click on the name of the environment you want to delete and then select **Delete Environment** at the top. A right pane opens up, listing the environment's nested clusters, connectors, and their status. Confirm deletion by entering the environment name in the text box at the bottom and selecting **Delete**. Confirm again. Your environment is now deleted. 
+From the list of environments, select the ellipsis action (**…**) next to the name of the environment you want to delete and select **Delete Environment**. Alternatively, select on the name of the environment you want to delete and then select **Delete Environment** at the top. A right pane opens up, listing the environment's nested clusters, connectors, and their status. Confirm deletion by entering the environment name in the text box at the bottom and selecting **Delete**. Confirm again. Your environment is now deleted. 
 
 
 ## Clusters
@@ -81,7 +81,7 @@ To view the clusters in your Confluent organization:
 
 ### Manage connectors 
 
-Connectors are nested within the clusters. To manage these connectors and monitor their health and status, click on your cluster name and select **Manage Connector** in the top ribbon within the cluster. This action opens the **Confluent Connectors** blade that shows all existing connectors. 
+Connectors are nested within the clusters. To manage these connectors and monitor their health and status, select on your cluster name and select **Manage Connector** in the top ribbon within the cluster. This action opens the **Confluent Connectors** blade that shows all existing connectors. 
 
 Back in the cluster pane, to further manage your cluster for advanced configurations, select **Manage cluster in Confluent portal** at the top, which opens the Confluent UI.  
 
