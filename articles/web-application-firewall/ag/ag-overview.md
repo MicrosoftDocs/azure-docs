@@ -198,7 +198,7 @@ With the built-in Azure WAF firewall events workbook, you can get an overview of
 
 #### Azure Monitor Workbook for WAF
 
-Azure Monitor Workbook for WAF enables custom visualization of security-relevant WAF events across several filterable panels. It works with all WAF types, including Application Gateway, Front Door, and CDN, and can be filtered based on WAF type or a specific WAF instance. Import via ARM Template or Gallery Template. To deploy this workbook, see [WAF Workbook](https://aka.ms/AzWAFworkbook).
+Azure Monitor Workbook for WAF enables custom visualization of security-relevant WAF events across several filterable panels. It works with all WAF types, including Application Gateway, Front Door, and CDN, and it can be filtered based on WAF type or a specific WAF instance. Import via ARM Template or Gallery Template. To deploy this workbook, see [WAF Workbook](https://aka.ms/AzWAFworkbook).
 
 #### Logging
 
