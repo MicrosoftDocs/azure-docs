@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -271,8 +271,8 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='hdinsight-domain-services-contributor'></a>[HDInsight Domain Services Contributor](./built-in-roles/analytics.md#hdinsight-domain-services-contributor) | Can Read, Create, Modify and Delete Domain Services related operations needed for HDInsight Enterprise Security Package | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | <a name='hdinsight-on-aks-cluster-admin'></a>[HDInsight on AKS Cluster Admin](./built-in-roles/analytics.md#hdinsight-on-aks-cluster-admin) | Grants a user/group the ability to create, delete and manage clusters within a given cluster pool. Cluster Admin can also run workloads, monitor, and manage all user activity on these clusters. | fd036e6b-1266-47a0-b0bb-a05d04831731 |
 > | <a name='hdinsight-on-aks-cluster-pool-admin'></a>[HDInsight on AKS Cluster Pool Admin](./built-in-roles/analytics.md#hdinsight-on-aks-cluster-pool-admin) | Can read, create, modify and delete HDInsight on AKS cluster pools and create clusters | 7656b436-37d4-490a-a4ab-d39f838f0042 |
-> | <a name='schema-registry-contributor-preview'></a>[Schema Registry Contributor (Preview)](./built-in-roles/analytics.md#schema-registry-contributor-preview) | Read, write, and delete Schema Registry groups and schemas. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
-> | <a name='schema-registry-reader-preview'></a>[Schema Registry Reader (Preview)](./built-in-roles/analytics.md#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
+> | <a name='schema-registry-contributor'></a>[Schema Registry Contributor](./built-in-roles/analytics.md#schema-registry-contributor) | Read, write, and delete Schema Registry groups and schemas. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
+> | <a name='schema-registry-reader'></a>[Schema Registry Reader](./built-in-roles/analytics.md#schema-registry-reader) | Read and list Schema Registry groups and schemas. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | <a name='stream-analytics-query-tester'></a>[Stream Analytics Query Tester](./built-in-roles/analytics.md#stream-analytics-query-tester) | Lets you perform query testing without creating a stream analytics job first | 1ec5b3c1-b17e-4e25-8312-2acb3c3c5abf |
 
 ## AI + machine learning
