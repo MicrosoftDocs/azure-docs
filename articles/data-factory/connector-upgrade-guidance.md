@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 05/12/2025
+ms.date: 05/27/2025
 ---
 
 # Connector upgrade guidance
@@ -49,6 +49,6 @@ Users can run a PowerShell script to programmatically extract a list of Azure Da
 
 - [Connector overview](connector-overview.md)  
 - [Connector lifecycle overview](connector-lifecycle-overview.md) 
-- [Connector upgrade assistant](connector-upgrade-advisor.md)  
+- [Connector upgrade advisor](connector-upgrade-advisor.md)  
 - [Connector release stages and timelines](connector-release-stages-and-timelines.md)  
 - [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)
