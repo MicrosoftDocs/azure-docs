@@ -238,7 +238,7 @@ sections:
       - question: |
           Will snapshots for all Persistent Volumes (PVs) in a backup configuration be taken at the exact same time, or is there a delay?
         answer: |
-          Azure Backup for AKS does not currently support taking snapshots of all PVs at the exact same millisecond. While the snapshot operations are initiated in parallel, there may be slight delays between individual PV snapshots due to infrastructure and API timing. To help achieve consistency across multiple PVs, Azure Backup supports [application-consistent backups using hooks](azure-kubernetes-service-cluster-backup#use-hooks-during-aks-backup). Hooks allow users to pause application writes before snapshotting and resume them afterward. This approach improves consistency and mimics crash consistency, though it may not be equivalent to true simultaneous snapshots or coordinated database-level consistency.
+          Azure Backup for AKS does not currently support taking snapshots of all PVs at the exact same millisecond. While the snapshot operations are initiated in parallel, there may be slight delays between individual PV snapshots due to infrastructure and API timing. To help achieve consistency across multiple PVs, Azure Backup supports application-consistent backups using hooks. Hooks allow users to pause application writes before snapshotting and resume them afterward. This approach improves consistency and mimics crash consistency, though it may not be equivalent to true simultaneous snapshots or coordinated database-level consistency.
 
       - question: |
           What happens if I select the "Skip" option for Kubernetes resources including PVCs during an AKS restore?
