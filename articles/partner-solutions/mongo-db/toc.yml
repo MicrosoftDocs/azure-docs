@@ -18,5 +18,5 @@ items:
   items:
   - name: Manage a resource
     href: manage.md
-  - name: troubleshoot
+  - name: Troubleshoot
     href: troubleshoot.md

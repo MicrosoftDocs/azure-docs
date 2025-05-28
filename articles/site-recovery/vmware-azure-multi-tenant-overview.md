@@ -1,6 +1,6 @@
 ---
 title: VMware VM multi-tenant disaster recovery with Azure Site Recovery 
-description: Provides an overview of Azure Site Recovery support for VMWare disaster recovery to Azure in a multi-tenant environment (CSP) program.
+description: Provides an overview of Azure Site Recovery support for VMware disaster recovery to Azure in a multi-tenant environment (CSP) program.
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: how-to
@@ -133,4 +133,4 @@ As shown in the following diagram, the architectural difference in a managed ser
 ## Next steps
 - [Learn more](site-recovery-role-based-linked-access-control.md) about role-based access control in Site Recovery.
 - Learn how to [set up disaster recovery of VMware VMs to Azure](vmware-azure-tutorial.md).
-- Learn more about [multi-tenancy with CSP for VMWare VMs](vmware-azure-multi-tenant-csp-disaster-recovery.md).
+- Learn more about [multi-tenancy with CSP for VMware VMs](vmware-azure-multi-tenant-csp-disaster-recovery.md).
