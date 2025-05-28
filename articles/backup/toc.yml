@@ -647,7 +647,9 @@
     - name: Configure backup
       href: azure-data-lake-storage-configure-backup.md
     - name: Restore
-      href: azure-data-lake-storage-restore.md        
+      href: azure-data-lake-storage-restore.md
+    - name: Manage
+      href: azure-data-lake-storage-backup-manage.md          
   - name: Azure Files backup
     items:
     - name: From the Azure portal
