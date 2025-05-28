@@ -7,7 +7,7 @@ ms.custom: references_regions
 #customer intent: As a developer, I want to implement NGINX as a service to simplify NGINX management.
 ---
 
-# QuickStart: Create an NGINXaaS resource
+# QuickStart: Create an NGINXaaS resource – An Azure Native ISV Service
 
 In this quickstart, use Azure Marketplace to create an instance of NGINXaaS.
 
@@ -15,9 +15,7 @@ In this quickstart, use Azure Marketplace to create an instance of NGINXaaS.
 
 [!INCLUDE [Prerequisites](../includes/create-prerequisites.md)]
 
-## Create an NGINXaaS resource
-
-To create an NGINXaaS deployment, use this procedure.
+## Create a resource
 
 1. From the Azure portal menu's global search bar, search for *marketplace*. Select **Marketplace** from the Services results.
 
