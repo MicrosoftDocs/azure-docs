@@ -73,13 +73,13 @@ Instance distribution in a zone-redundant deployment follows specific rules. The
     - Any remaining instances are distributed across the remaining zones.
     - When the App Service platform allocates instances for a zone-redundant App Service plan, it uses best-effort zone balancing that the underlying Azure virtual machine scale sets provide. An App Service plan is balanced if each zone has the same number of VMs or differs by plus one VM or minus one VM from all other zones. For more information, see [Zone balancing](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 
-- **Physical zone placement** You can view the [physical availability zone](availability-zones-overview.md#physical-and-logical-availability-zones) used for each of your App Service plan instances. Use the [REST API](/rest/api/appservice/web-apps/get-instance-info), which returns the `physicalZone` value for each instance.
+- **Physical zone placement:** You can view the [physical availability zone](availability-zones-overview.md#physical-and-logical-availability-zones) used for each of your App Service plan instances. Use the [REST API](/rest/api/appservice/web-apps/get-instance-info), which returns the `physicalZone` value for each instance.
 
     ```azurecli
     az rest --method get --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/sites/{appName}/instances?api-version=2024-04-01
     ```
 
-For App Service plans that aren't configured as zone redundant, the underlying virtual machine instances aren't resilient to availability zone failures. They can experience downtime during an outage in any zone in that region.
+For App Service plans that aren't configured as zone redundant, the underlying VM instances aren't resilient to availability zone failures. They can experience downtime during an outage in any zone in that region.
 
 ### Region support
 
@@ -105,7 +105,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ::: zone pivot="free-shared-basic,premium"
 
-- You must use either the [Premium v2, Premium v3, or Premium v4 plan types](/azure/app-service/overview-hosting-plans).
+- You must use the [Premium v2, Premium v3, or Premium v4 plan types](/azure/app-service/overview-hosting-plans).
 
 ::: zone-end
 
@@ -131,7 +131,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ### Considerations
 
-During an availability zone outage, some aspects of App Service might affect performance, but your application continues to serve traffic. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
+During an availability zone outage, some aspects of Azure App Service might be affected, even though the application continues to serve traffic. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
 
 ### Cost
 
@@ -206,7 +206,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
     If you're on a plan or a stamp that doesn't support availability zones, you must create a new App Service plan in a new resource group so that you land on the App Service footprint that supports zones.
 
     > [!NOTE]
-    > Changing the zone redundancy status of an App Service plan is almost instantaneous. You don't experience downtime or performance issues during the process.
+    > Changing the zone redundancy status of an App Service plan is almost instantaneous. You don't experience downtime or performance problems during the process.
 
 - **Disable zone redundancy.** To disable zone redundancy, you can set the App Service plan `zoneRedundant` property to `false` or use the Azure CLI.
 
@@ -215,7 +215,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
     ```
 
     > [!NOTE]
-    > If you use the Azure CLI to disable the `zoneRedundant` property, you should specify the `sku.capacity` property, otherwise the value defaults to 1.
+    > If you use the Azure CLI to disable the zoneRedundant property, you should specify the sku.capacity property. Otherwise, the value defaults to 1.
 
 ::: zone-end
 
@@ -291,7 +291,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
     ---
 
     > [!NOTE]
-    > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance issues.
+    > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
     For Isolated v2 App Service plans, if the App Service Environment is zone redundant, the App Service plans can be made zone redundant. Each App Service plan has its own independent zone redundancy setting, which means that you can have a mix of zone redundant and non-zone redundant plans in an App Service Environment. To enable zone redundancy on an Isolated v2 App Service plan, set the App Service plan's `zoneRedundant` property to `true` or use the Azure CLI.   
 
@@ -336,7 +336,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
     ```
 
     > [!NOTE]
-    > If you use the Azure CLI to disable the `zoneRedundant` property, you should specify the `sku.capacity` property, otherwise the value defaults to 1.
+    > If you use the Azure CLI to disable the zoneRedundant property, you should specify the sku.capacity property. Otherwise, the value defaults to 1.
 
 ::: zone-end
 
@@ -383,7 +383,7 @@ The App Service platform manages traffic routing, failover, and failback for zon
 
 App Service is a single-region service. If the region becomes unavailable, your application is also unavailable.
 
-### Alternative multi-region solutions
+### Alternative multi-region approaches
 
 To reduce the risk of a single-region failure affecting your application, deploy across multiple regions. The following steps help strengthen resilience:
 
@@ -395,7 +395,7 @@ To reduce the risk of a single-region failure affecting your application, deploy
 
 The following resources are related to this approach: 
 
-- [Reference architecture: Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)
+- [Reference architecture: Highly available multi-region web application](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance)
 
 - [Multi-region App Service apps for disaster recovery](/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service)
 
