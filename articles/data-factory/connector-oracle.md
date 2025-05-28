@@ -515,7 +515,16 @@ When you copy data from and to Oracle, the following interim data type mappings 
 | XMLTYPE |String |String |
 
 > [!NOTE]
-> NUMBER(p,s) is mapped to the appropriate interim service data type depending on the precision (p) and scale (s).
+> NUMBER(p,s) is mapped to the appropriate version 2.0 interim service data type depending on the precision (p) and scale (s):
+>
+> | Interim service data type | Condition                                                                                                    |
+> |--------------------------|----------------------------------------------------------------------------------------------------------------|
+> | Int16                    | scale <= 0 AND (precision - scale) < 5                                                                         |
+> | Int32                    | scale <= 0 AND 5 <= (precision - scale) < 10                                                                   |
+> | Int64                    | scale <= 0 AND 10 <= (precision - scale) < 19                                                                  |
+> | Single                   | precision < 8 AND ((scale <= 0 AND (precision - scale) <= 38) OR (scale > 0 AND scale <= 44))                  |
+> | Decimal                  | precision &gt;= 16 |
+> | Double                   | If none of the above conditions are met.                                                                       |                                           | 
 
 ## Lookup activity properties
 
