@@ -27,7 +27,10 @@ To be notified when a lifecycle management run is complete, subscribe to the `Li
     "eventTime": "2022-05-26T00:00:40.1880331",    
     "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "data": {
-        "scheduleTime": "2022/05/24 22:57:29.3260160",
+          "scheduleTime": "2022/05/24 22:57:29.3260160",
+        "policyRunSummary": { 
+            "completionStatus": "Completed/CompletedWithError/Incomplete" 
+        },
         "deleteSummary": {
             "totalObjectsCount": 5,
             "successCount": 3,

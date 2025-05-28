@@ -53,7 +53,9 @@ This example shows how to transition block blobs prefixed with `sample-container
 In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
 
 > [!TIP]
-> If a blob is moved to the cool tier, and then is automatically moved back before 30 days has elapsed, an early deletion fee is charged. Before you set the `enableAutoTierToHotFromCool` property, make sure to analyze the access patterns of your data so you can reduce unexpected charges.
+> If a blob is moved to the cool tier, and then is automatically moved back before 30 days has elapsed, an early deletion fee is charged. Before you set the `enableAutoTierToHotFromCool` property, make sure to analyze the access patterns of your data so you can reduce unexpected charges. Automatic tiering from cool to hot upon blob access is limited to once in 30 days. This safeguard is in place to help you avoid multiple early deletion penalties from the cool tier. If the object tiers back to cool due to the policy, any transactions on the blob is charged at the cool tier prices. It is cost-efficient to keep the blob in hot tier if it needs to be automatically tiered up more than once in a 30-day period.
+
+Enabling a rule with `enableAutoTierToHotFromCool` applies only to objects that are tiered down with this rule. The `enableAutoTierToHotFromCool` property can't be enabled for blobs that are already in the cool tier. Therefore, the access tier of those blobs won't automatically change to hot when they are accessed.
 
 ```json
 {

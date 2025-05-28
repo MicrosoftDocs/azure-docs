@@ -43,7 +43,7 @@ A *rule* is a definition of the conditions, the associated actions and filters t
 
 When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
 
-An active policy processes objects periodically, and is interrupted if changes are made to the policy. If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will stop in under 24 hours. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
+An active policy processes objects periodically, and is interrupted if changes are made to the policy. If you delete a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. If you disable all of the rules in a policy, then the policy becomes inactive. If a run is already in progress, that run will come to a stop within 24 hours, and no new runs will be scheduled. It is recommended to disable a policy first, wait 24 hours and then delete policy.
 
 The time required for a run to complete depends on the number of blobs evaluated and operated on. The latency with which a blob is evaluated and operated on may be longer if the request rate for the storage account approaches the storage account limit. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads.  To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
