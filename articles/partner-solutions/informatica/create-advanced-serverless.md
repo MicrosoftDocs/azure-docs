@@ -31,7 +31,7 @@ In the Informatica organization,  select **Serverless Runtime Environment** from
 
 ### Create Serverless Runtime Environments
 
-In **Serverless Runtime Environments** pane, select on **Create Serverless Runtime Environment** to launch the workflow to create serverless runtime environment.
+In **Serverless Runtime Environments** pane, select **Create Serverless Runtime Environment** to launch the workflow to create serverless runtime environment.
 
 :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-create.png" alt-text="Screenshot of Option to create serverless runtime environment.":::
 
