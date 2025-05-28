@@ -38,7 +38,7 @@ Each Azure subscription can contain multiple Confluent plans. Each Confluent pla
 
 When you provision a Confluent Cloud resource in Azure, you get a Confluent organization ID, default environment, and user account. For more information, see [QuickStart: Get started with Confluent Cloud on Azure](create.md).
 
-Each Confluent Cloud offer purchased in the Marketplace maps to a unique Confluent organization for billing.
+Each Confluent Cloud offer you buy in Azure Marketplace maps to a unique Confluent organization for billing.
 
 ## Single sign-on
 

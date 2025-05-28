@@ -64,7 +64,7 @@ Similar to environments, you can have multiple clusters within a single environm
 Select **Create Cluster** in the top ribbon of your environment page. A new window opens up. 
 
 1. Select or enter the following information in the **Basics** tab:
-   - Confluent resource details: Use the pre-populated default values of the organization and environment, or optionally modify the environment name to create the new cluster in another environment.
+   - Confluent resource details: Use the pre-populated default values of the organization and environment, or optionally change the environment name to create the new cluster in another environment.
    - Cluster:
      - Cluster name: Enter a name for the new cluster.
      - Cluster type: Select between **Basic**, **Standard**, and **Enterprise**. Select the hyperlink to view a detailed comparison of each plan.
