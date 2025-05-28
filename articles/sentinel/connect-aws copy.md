@@ -43,9 +43,9 @@ This graphic shows how to set up your AWS environment to send log data to Azure:
 Microsoft recommends using the automatic setup script to deploy this connector. If for whatever reason you do not want to take advantage of this convenience, follow the steps below to set up the connector manually.
 
 - [Prepare your AWS resources](#prepare-your-aws-resources)
+- [Configure an AWS service to export logs to an S3 bucket](#configure-an-aws-service-to-export-logs-to-an-s3-bucket)
 - [Create an AWS assumed role and grant access to the AWS Sentinel account](#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account)
 - [Add the AWS role and queue information to the S3 data connector](#add-the-aws-role-and-queue-information-to-the-s3-data-connector)
-- [Configure an AWS service to export logs to an S3 bucket](#configure-an-aws-service-to-export-logs-to-an-s3-bucket)
 
 ### Prepare your AWS resources
 
