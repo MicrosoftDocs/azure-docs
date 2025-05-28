@@ -15,7 +15,7 @@ ms.collection: ms-security
  
 ## Overview  
 
-The Microsoft Sentinel data lake  provides a scalable and cost-effective solution for storing and analyzing security data. It allows you to store large volumes of data in a structured format, making it easier to query and analyze.  The lake enables your organization to collect, ingest, and analyze security data from many sources in a unified manner, providing a comprehensive view of your security landscape.
+Microsoft Sentinel Lake is a next-generation, cloud-native security data lake that extends the capabilities of Microsoft Sentinel by providing a highly scalable, cost-effective platform for long-term storage and data retention, advanced analytics, and AI-driven security operations.
 
 Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by a Visual Studio Code extension that allows you to interact with the data lake using Python and Apache Spark. This enables you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment.
 
@@ -39,6 +39,25 @@ This article shows you how to explore and interact with lake data using Jupyter 
 ## Onboarding to the Microsoft Sentinel data lake
 
 If you have not already onboaded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until you have ingested a sufficient volume of data before you can create meaningful analyses using notebooks.
+
+## Permissions and Roles
+
+You can query data in the data lake based on your roles and permissions.
+ 
+To run interactive notebook queries, you need one of the following roles:
+
++	Global reader 
++	Security reader
++	Security operator 
++	Security administrator
++	Global administrator
+
+To schedule a job, you need one of the following roles:
+
++	Security operator 
++	Security administrator
++	Global administrator
+
 
 ## Install Visual Studio Code  
   
@@ -130,10 +149,10 @@ The `SentinelLakeProvider` class provides methods to interact with the data lake
 | Method | Arguments | Type | Return | Example |
 |--------|-----------|------|--------|---------|
 | `list_databases` <p>List all available databases / Sentinel workspaces | none | None | list[str] | `SentinelLakeProvider.list_databases()` |
-| `list_tables` <p>List all tables in a given database | `database`<br><br>`id` (optional) | str<br><br> str | list[str] | 1. List lake tables:<br>`SentinelLakeProvider.list_tables("workspace1")`<br><br>2. If workspace names are not unique, use the GUID:<br>`SentinelLakeProvider.list_tables("workspace1", id="ab1111112222ab333333")` |
-| `read_table` <p>Load a DataFrame from a table in Lake | `table_name`<br><br>`database`<br><br>`id` (optional) | str<br><br> str<br><br>str | DataFrame | 1. Native tables, custom tables:<br>`SentinelLakeProvider.read_table("user", "default")`<br><br>2. Aux tables:<br>`SentinelLakeProvider.read_table("SignInLogs", "workspace1")`<br><br>3. If duplicate workspaces, use GUID:<br>`SentinelLakeProvider.read_table("SignInLogs", "workspace1", id="ab1111112222ab333333")` |
-| `save_as_table` <p>Write a DataFrame as a managed table | `DataFrame`<br><br>`table_name`<br><br>`database: `<br><br>`id` (optional)<br><br>`WriteOptions {mode: Append, Overwrite}` (optional) | DataFrame<br><br>str<br><br>str<br><br>str<br><br>dict| str (runId) | 1. Create new custom table:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_SPRK", "msgworkspace1")`<br><br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1")`<br><br>2. Append/Overwrite to existing custom table:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1", mode="Append")`<br><br>3. If duplicate workspaces, use GUID:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1", id="ab1111112222ab333333", mode="Append")` |
-| `delete_table` <p>Deletes the table from the schema | `table_name`<br><br>`database`<br><br>`id` (optional) | str<br><br>str<br><br>str| dict | 1. Delete a custom table:<br>`SentinelLakeProvider.delete_table("customtable_SPRK", "msgworkspace")`<br><br>2. If duplicate workspaces, use GUID:<br>`SentinelLakeProvider.delete_table("SignInLogs", "workspace1", id="ab1111112222ab333333")` |
+| `list_tables` <p>List all tables in a given database | `database`<br><br>`id` (optional) | str<br><br> str | list[str] | 1. List lake tables:<br>`SentinelLakeProvider.list_tables("workspace1")`<br><br>2. If your workspace names are not unique, use the table GUID:<br>`SentinelLakeProvider.list_tables("workspace1", id="ab1111112222ab333333")` |
+| `read_table` <p>Load a DataFrame from a table in Lake | `table_name`<br><br>`database`<br><br>`id` (optional) | str<br><br> str<br><br>str | DataFrame | 1. Native tables, custom tables:<br>`SentinelLakeProvider.read_table("user", "default")`<br><br>2. Aux tables:<br>`SentinelLakeProvider.read_table("SignInLogs", "workspace1")`<br><br>3.  If your workspace names are not unique, use the table GUID:<br>`SentinelLakeProvider.read_table("SignInLogs", "workspace1", id="ab1111112222ab333333")` |
+| `save_as_table` <p>Write a DataFrame as a managed table | `DataFrame`<br><br>`table_name`<br><br>`database: `<br><br>`id` (optional)<br><br>`WriteOptions {mode: Append, Overwrite}` (optional) | DataFrame<br><br>str<br><br>str<br><br>str<br><br>dict| str (runId) | 1. Create new custom table:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_SPRK", "msgworkspace1")`<br><br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1")`<br><br>2. Append/Overwrite to existing custom table:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1", mode="Append")`<br><br>3. If your workspace names are not unique, use GUID:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1", id="ab1111112222ab333333", mode="Append")` |
+| `delete_table` <p>Deletes the table from the schema | `table_name`<br><br>`database`<br><br>`id` (optional) | str<br><br>str<br><br>str| dict | 1. Delete a custom table:<br>`SentinelLakeProvider.delete_table("customtable_SPRK", "msgworkspace")`<br><br>2.  If your workspace names are not unique, use the table  GUID:<br>`SentinelLakeProvider.delete_table("SignInLogs", "workspace1", id="ab1111112222ab333333")` |
 | `get_status` <p>Check status of a save/write to table | `run_id`<br><br>`plan: lake/analytics` | str<br><br>str | dict (run_id, status, message_col) | 1. Get write status for lake table:<br>`SentinelLakeProvider.get_status("123456", plan="lake")`<br><br>2. Get write status for analytics table:<br>`SentinelLakeProvider.get_status("123456", plan="analytics")` |
 | `get_metadata` <p>Retrieve metadata about a table | `table_name`, `schema` | str<br><br> str | dict | |
 
@@ -141,26 +160,17 @@ The `SentinelLakeProvider` class provides methods to interact with the data lake
  
 ### Selecting the appropriate runtime pool 
  
-You have three default runtime pools:  
+You have three runtime pools available to run your Spark notebooks in the Microsoft Sentinel extension. Each pool is designed for different workloads and performance requirements. The choice of runtime pool affects the performance, cost, and execution time of your Spark jobs.  
  
-- **Microsoft Sentinel Small**  
-  • Recommended for development, testing, and lightweight exploratory analysis.  
-  • Suitable for small workloads with simple transformations.  
-  • Ideal when cost efficiency is a priority and execution time can be slightly longer.  
- 
-- **Microsoft Sentinel Medium**  
-  • Recommended for ETL jobs involving joins, aggregations, and ML model training.  
-  • Suitable for moderate workloads with more complex transformations and improved performance compared to MSGSmall.  
-  • Handles parallelism and moderately memory-intensive operations.  
- 
-- **Microsoft Sentinel Large**  
-  • Recommended for deep learning and ML workloads requiring significant memory and compute power.  
-  • Best for workloads with extensive data shuffling, large joins, or real-time processing needs.  
-  • Use when minimal delays and critical execution time are required.  
- 
-Note:  
-a. For the first time, kernel options may take about 30 seconds to load.  
-b. After selecting a runtime pool, it can take 3–5 minutes for the session to start.  
+| Runtime Pool | Recommended Use Cases |Characteristics |
+|--------------|-----------------------|----------------|
+| **Microsoft Sentinel Small**  | - Development, testing, and lightweight exploratory analysis<br>- Small workloads with simple transformations<br>- Cost efficiency prioritized | - Suitable for small workloads<br>- Simple transformations<br>- Lower cost, longer execution time               |
+| **Microsoft Sentinel Medium** | - ETL jobs with joins, aggregations, and ML model training<br>- Moderate workloads with complex transformations | - Improved performance over Small<br>- Handles parallelism and moderate memory-intensive operations             |
+| **Microsoft Sentinel Large**  | - Deep learning and ML workloads<br>- Extensive data shuffling, large joins, or real-time processing<br>- Critical execution time | - High memory and compute power<br>- Minimal delays<br>- Best for large, complex, or time-sensitive workloads   |
+
+> [!NOTE]
+> For the first time, kernel options may take about 30 seconds to load.  
+> After selecting a runtime pool, it can take 3–5 minutes for the session to start.  
  
 ## Viewing Logs and Job Results  
  
@@ -169,46 +179,54 @@ b. After selecting a runtime pool, it can take 3–5 minutes for the session to 
 - Select **Debug** to include detailed log entries.  
 - The results of your Spark job executions appear in the notebook output.  
   Note: After the first execution, subsequent runs may execute faster depending on input datasets and query conditions.  
+
+
+
  
 ## Sample Notebook Code Examples  
  
-Below are a few sample code snippets that demonstrate how to interact with lake data using Spark notebooks.  
+Below are some sample code snippets that demonstrate how to interact with lake data using Spark notebooks.  
  
 ### Access Lake Tier Entra ID Group Table  
- 
+
+The following code sample demonstrates how to access the Entra ID `Group` table in the Microsoft Sentinel data lake. It retrieves various fields such as displayName, groupTypes, mail, mailNickname, description, and tenantId. 
+
 ```python  
-from access_module.data_loader import SecurityLakeDataLoader  
-data_loader = SecurityLakeDataLoader(spark)  
+from sentinel_lake.providers import MicrosoftSentinelProvider
+data_provider = MicrosoftSentinelProvider(spark)
  
 table_name = "microsoft.entra.id.group"  
-df = data_loader.load_table(table_name)  
-df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100, truncate=False)  
+df = data_provider.read_table(table_name)  
+df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100, truncate=False)   
 ```  
  
 ### Access Entra ID SignInLogs for a Specific User  
- 
+The following code sample demonstrates how to access the Entra ID `SignInLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
+
 ```python  
-from access_module.data_loader import SecurityLakeDataLoader  
-data_loader = SecurityLakeDataLoader(spark)  
+from sentinel_lake.providers import MicrosoftSentinelProvider
+data_provider = MicrosoftSentinelProvider(spark)
  
 table_name = "microsoft.entra.id.SignInLogs"  
-df = data_loader.load_table(table_name)  
+df = data_provider.read_table(table_name)  
 df.select("UserDisplayName", "UserPrincipalName", "UserId", "CorrelationId", "UserType", 
- "ResourceTenantId", "RiskLevel", "ResourceProvider", "IPAddress", "AppId", "AADTenantId") \  
-  .filter(df.UserPrincipalName == "bebr90@woodgrove.ms") \  
-  .show(100, truncate=False)  
+ "ResourceTenantId", "RiskLevel", "ResourceProvider", "IPAddress", "AppId", "AADTenantId")\
+    .filter(df.UserPrincipalName == "benploni@contoso.com")\
+    .show(100, truncate=False) 
 ```  
  
 ### Examine SignIn Locations  
- 
+
+The following code sample demonstrates how to extract and display sign-in locations from the Entra ID SignInLogs table. It uses the `from_json` function to parse the JSON structure of the `LocationDetails` field, allowing you to access specific location attributes such as city, state, and country or region.
+
 ```python  
-from access_module.data_loader import SecurityLakeDataLoader  
+from sentinel_lake.providers import MicrosoftSentinelProvider
 from pyspark.sql.functions import from_json, col  
 from pyspark.sql.types import StructType, StructField, StringType  
  
-data_loader = SecurityLakeDataLoader(spark)  
+data_provider = MicrosoftSentinelProvider(spark)  
 table_name = "microsoft.entra.id.signinlogs"  
-df = data_loader.load_table(table_name)  
+df = data_provider.read_table(table_name)  
  
 location_schema = StructType([  
   StructField("city", StringType(), True),  
@@ -222,7 +240,7 @@ df = df.select("UserPrincipalName", "CreatedDateTime", "IPAddress",
  "LocationDetails.city", "LocationDetails.state", "LocationDetails.countryOrRegion")  
  
 sign_in_locations_df = df.orderBy("CreatedDateTime", ascending=False)  
-sign_in_locations_df.show(100, truncate=False)  
+sign_in_locations_df.show(100, truncate=False) 
 ```  
  
 ## Usage Limits  
