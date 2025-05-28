@@ -256,7 +256,7 @@ The cluster-init files are downloaded to `/mnt/cluster-init/(project)/(spec)/`. 
 
 ## Syncing Projects
 
-CycleCloud projects can be synced from mirrors into cluster local cloud storage. Set a SourceLocker attribute on a `[cluster-init]` section within your template. The name of the locker specified is be used as the source of the project, and contents sync to your locker at cluster start. You can also use the name of the locker as the first part of the `cluster-init` name. For example, if the source locker is `cyclecloud`, the following two definitions are the same:
+CycleCloud projects can be synced from mirrors into cluster local cloud storage. Set a SourceLocker attribute on a `[cluster-init]` section within your template. The name of the locker specified is used as the source of the project, and contents sync to your locker at cluster start. You can also use the name of the locker as the first part of the `cluster-init` name. For example, if the source locker is `cyclecloud`, the following two definitions are the same:
 
 ``` ini
 [cluster-init my-project:my-spect:1.2.3]
