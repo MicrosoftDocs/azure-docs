@@ -199,7 +199,10 @@ table_name = "microsoft.entra.id.group"
 df = data_provider.read_table(table_name)  
 df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100, truncate=False)   
 ```  
- 
+The following screenshot shows a sample of the output of the code above, displaying the Entra ID group information in a dataframe format.
+
+:::image type="content" source="media/spark-notebooks/sample-1-output.png" alt-text="A screenshot showing sample output for the first code example.":::
+
 ### Access Entra ID SignInLogs for a Specific User  
 The following code sample demonstrates how to access the Entra ID `SignInLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
 
