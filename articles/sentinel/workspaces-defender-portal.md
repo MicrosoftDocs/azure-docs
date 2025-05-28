@@ -29,9 +29,8 @@ In such cases:
 |Area  |Description  |
 |---------|---------|
 |**Other workspaces previously connected to Defender XDR** | Any other workspaces that were previously connected to the Defender XDR connector are disconnected, and function as secondary workspaces. Defender XDR data isn't available in a secondary workspace, and any analytics rules and automation that you had previously configured based on Defender XDR data no longer function.|
-|**Standalone Defender service data connectors** | Any standalone Defender service data connectors, such as for Defender for Identity or Defender for Cloud Apps, are disconnected for all workspaces. Secondary workspaces function in the Defender portal as Microsoft Sentinel only.|
+|**Tenant-based alerts** |Alerts from other Microsoft services, including other Defender services, are tenant-based alerts and relate to the entire tenant instead of a specific workspace.  <br><br>To prevent duplication across workspaces, any direct data connectors for these services are automatically disconnected from Microsoft Sentinel in secondary workspaces. <br><br>Tenant-based alerts surface only in the primary workspace.|
 |**Defender XDR alerts and incidents** | All Defender XDR alerts and incidents are synced to your primary workspace only.|
-|**Tenant-based alerts** | Tenant-based alerts, such as alerts regarding users, are synched to the primary workspace only. Tenant-based alerts relate to the entire tenant instead of a specific workspace. Before connecting your workspaces to the Defender portal, these alerts would have been sent to any workspace with the relevant data connector. |
 |**Incident creation and alert correlation** | The Defender portal keeps incident creation and alert correlation separate between the Microsoft Sentinel workspaces. Incidents in secondary workspaces don't include data from any other workspace, or from Defender XDR.|
 |**One primary workspace required** | One primary workspace must always be connected to the Defender portal.|
 
