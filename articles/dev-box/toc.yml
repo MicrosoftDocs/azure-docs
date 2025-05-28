@@ -172,6 +172,8 @@ items:
         href: how-to-get-help.md
   - name: Reference
     items:
+      - name: 'Reference: imagedefinition.yaml and task.yaml files'
+        href: reference-dev-box-customizations.md
       - name: Install Azure CLI devcenter extension
         href: how-to-install-dev-box-cli.md
       - name: Azure CLI - az devcenter

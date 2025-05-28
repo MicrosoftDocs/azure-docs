@@ -96,6 +96,8 @@ landingContent:
             url: how-to-configure-customization-imaging.md
           - text: Create customization tasks
             url: how-to-create-customization-tasks-catalog.md
+          - text: 'Reference: imagedefinition.yaml and task.yaml files'
+            url: reference-dev-box-customizations.md
 
    # Card
   - title: Support & Reference
