@@ -163,7 +163,7 @@ To stop sending logs and metrics from Azure to Datadog:
 > [!IMPORTANT]
 > Billing continues for other Datadog services that aren't related to monitoring metrics and logs.
 
-## Delete a Datadog resource
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 

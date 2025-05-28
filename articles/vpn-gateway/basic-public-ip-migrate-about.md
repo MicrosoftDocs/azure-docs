@@ -40,7 +40,7 @@ This section applies to the following VPN Gateway SKUs that are supported for mi
 
 ### <a name="basicsku-timeline"></a>Basic gateway SKU
 
-Migration plans for VPN gateways that use a Basic gateway SKU with a Basic SKU public IP address will be announced by **April 30, 2025**.
+Migration plans for VPN gateways that use a Basic gateway SKU with a Basic SKU public IP address will be announced by **June 15, 2025**.
 
 ## <a name="considerations"></a>Migration considerations
 
