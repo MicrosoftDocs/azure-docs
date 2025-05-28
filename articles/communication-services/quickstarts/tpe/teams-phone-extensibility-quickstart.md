@@ -5,7 +5,7 @@ description: This article describes how to extend Teams Phone System with Azure 
 author: radubulboaca
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/20/2025
 ms.author: radubulboaca
 ms.custom: public_preview
