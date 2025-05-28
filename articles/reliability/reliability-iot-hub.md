@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure IoT Hub
-description: Find out about reliability in Azure IoT Hub, including availability zones and multiregion deployments.
+description: Find out about reliability in Azure IoT Hub, including availability zones and multi-region deployments.
 author: kgremban
 ms.author: kgremban
 ms.topic: reliability-article
@@ -16,7 +16,10 @@ ms.date: 05/02/2025
 
 This article describes reliability support in Azure IoT Hub. It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiregion deployments](#multiregion-support).
 
-Resiliency is a shared responsibility between you and Microsoft. You can use this guide to find out which reliability options fulfill your specific business objectives and uptime goals. When you evaluate reliability options, you also need to evaluate the trade-offs between the following items:
+
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+
+When you evaluate reliability options, you also need to evaluate the trade-offs between the following items:
 
 - Level of resiliency that you require
 - Implementation and maintenance complexity
@@ -103,11 +106,11 @@ This section describes what to expect when IoT Hub resources are configured for 
 
 When the availability zone recovers, IoT Hub automatically restores instances in the availability zone and reroutes traffic between your instances as normal.
 
-### Test for zone failures
+### Testing for zone failures
 
 Because IoT Hub fully manages traffic routing, failover, and failback for zone failures, you don't need to validate availability zone failure processes or provide any further input.
 
-## Multiregion support
+## Multi-region support
 
 IoT Hub is a single-region service. If the region becomes unavailable, your IoT Hub resources are also unavailable.
 
@@ -233,11 +236,11 @@ To fail back to the primary region, you can manually trigger the failover action
 
 If the original failover operation was performed to recover from an extended outage in the original primary region, perform failback to the primary region after the primary region recovers from the outage.
 
-### Test for region failures
+### Testing for region failures
 
 To simulate a failure during a region outage, you can trigger a manual failover of your IoT hub. However, because regional failover causes both downtime and data loss, you should only perform test failovers in nonproduction environments. For more information, see [Region-down experience](#region-down-experience). Consider setting up a test IoT Hub instance to initiate the planned failover option periodically. Periodic testing can help you build confidence in your ability to restore and operate your end-to-end solutions effectively when a real disaster occurs.
 
-### Alternative multiregion approaches
+### Alternative multi-region approaches
 
 The cross-region failover capabilities of IoT Hub aren't suitable for the following scenarios:
 
@@ -270,9 +273,9 @@ At a high level, to implement a regional failover model with IoT Hub, you need t
 
 ## Backups
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Import and export IoT Hub device identities in bulk](../iot-hub/iot-hub-bulk-identity-mgmt.md).
+For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](./concept-redundancy-replication-backup.md).
 
-The IoT Hub service enables bulk export operations, which allow you to export the entire identity registry of an IoT hub. This data is transferred to an Azure Storage blob container by using a shared access signature. This method enables you to create reliable backups of your device information in a blob container that you control. 
+The IoT Hub service enables bulk export operations, which allow you to export the entire identity registry of an IoT hub. This data is transferred to an Azure Storage blob container by using a shared access signature. This method enables you to create reliable backups of your device information in a blob container that you control. For more information, see [Import and export IoT Hub device identities in bulk](../iot-hub/iot-hub-bulk-identity-mgmt.md).
 
 You can also export an existing IoT hub's Azure Resource Manager template (ARM template) to create a backup of the IoT hub's configuration. For more information, see [Manually migrate an IoT hub by using an ARM template](../iot-hub/migrate-hub-arm.md).
 
