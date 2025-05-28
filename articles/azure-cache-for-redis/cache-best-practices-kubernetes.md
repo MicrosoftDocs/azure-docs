@@ -3,7 +3,7 @@ title: Best practices for Kubernetes-hosted client apps
 description: Learn about best practices for using Azure Cache for Redis in Kubernetes-hosted client applications.
 ms.custom: linux-related-content, ignite-2024
 ms.topic: conceptual
-ms.date: 05/23/2025
+ms.date: 05/28/2025
 appliesto:
   - ✅ Azure Cache for Redis
 
@@ -44,7 +44,7 @@ annotations:
 
 To avoid connection interference:
 
-- Consider using a nonclustered cache or an Enterprise-tier cache instead.
+- Consider using a nonclustered cache or an Azure Managed Redis cache instead.
 - Avoid configuring Istio sidecars on pods running Azure Redis client code.
 
 ## Related content
