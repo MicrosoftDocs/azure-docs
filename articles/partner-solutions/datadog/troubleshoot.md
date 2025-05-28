@@ -45,11 +45,11 @@ To set up the Azure Datadog integration, you must have **Owner** access on the A
 
 - Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. 
 
-    To verify whether the resource is emitting logs to Datadog: 
+    To check whether the resource is emitting logs to Datadog: 
 
     1. Navigate to Azure diagnostic setting for the specific resource. 
 
-    1. Verify that there's a Datadog diagnostic setting.
+    1. check that there's a Datadog diagnostic setting.
 
 - Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
@@ -61,7 +61,7 @@ To set up the Azure Datadog integration, you must have **Owner** access on the A
 
 The Datadog resource is assigned a **Monitoring Reader** role in the appropriate Azure subscription. This role enables the Datadog resource to collect metrics and send those metrics to Datadog.
 
-To verify the resource has the correct role assignment, open the Azure portal and select the subscription. In the left pane, select **Access Control (IAM)**. Search for the Datadog resource name. Confirm that the Datadog resource has the **Monitoring Reader** role assignment.
+To check the resource has the correct role assignment, open the Azure portal and select the subscription. In the left pane, select **Access Control (IAM)**. Search for the Datadog resource name. Confirm that the Datadog resource has the **Monitoring Reader** role assignment.
 
 ## Datadog agent installation fails
 

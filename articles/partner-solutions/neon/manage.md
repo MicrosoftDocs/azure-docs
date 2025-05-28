@@ -35,7 +35,7 @@ Single sign-on (SSO) is already enabled when you create your Neon resource.
 [!INCLUDE [sso](../includes/sso.md)]
 
 > [!NOTE] 
-> The first time you access this URL, depending on your Azure tenant settings, you might be asked to verify your email address on the Neon portal. Once the email address is verified, you can access the Neon portal.
+> The first time you access this URL, depending on your Azure tenant settings, you might be asked to check your email address on the Neon portal. Once the email address is verified, you can access the Neon portal.
 
 ## Projects
 
@@ -94,7 +94,7 @@ To generate a connection string, open your project or branch in the working pane
 
 1. Select **Connect to database** from the menu bar in the working pane. 
 
-1. Verify the default values or select new values from each dropdown.
+1. check the default values or select new values from each dropdown.
 
 1. Select the copy icon next to the connection string.
 

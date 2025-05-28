@@ -17,12 +17,12 @@ Only users who have *Owner* or *Contributor* access on the Azure subscription ca
 
 ## Logs not being emitted to Elastic
 
-- Only resources listed in [Azure Monitor resource log categories](/azure/azure-monitor/essentials/resource-logs-categories) emit logs to Elastic. To verify whether the resource is emitting logs to Elastic:
+- Only resources listed in [Azure Monitor resource log categories](/azure/azure-monitor/essentials/resource-logs-categories) emit logs to Elastic. To check whether the resource is emitting logs to Elastic:
 
    1. Navigate to [Azure diagnostic setting](/azure/azure-monitor/essentials/diagnostic-settings) for the resource.
-   1. Verify that there's a diagnostic setting option available.
+   1. check that there's a diagnostic setting option available.
 
-   :::image type="content" source="media/troubleshoot/check-diagnostic-setting.png" alt-text="Screenshot of verify diagnostic setting.":::
+   :::image type="content" source="media/troubleshoot/check-diagnostic-setting.png" alt-text="Screenshot of check diagnostic setting.":::
 
 - Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
