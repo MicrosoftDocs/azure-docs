@@ -420,6 +420,26 @@ When you use Basic tier or higher, you can back up your App Service app to a fil
 
 This feature is useful if it's hard to redeploy your code, or if you store state on disk. For most solutions, you shouldn't rely on App Service backups. Use the other methods described in this article to support your resiliency requirements.
 
+## Reliability during service maintenance
+
+Azure App Service performs regular service upgrades and other maintenance. During an upgrade, the platform automatically adds extra instances of the App Service plan to ensure that the same capacity is available during the upgrade.
+
+::: zone pivot="free-shared-basic,premium"
+
+To learn more, see [Routine planned maintenance for Azure App Service](/azure/app-service/routine-maintenance).
+
+::: zone-end
+
+::: zone pivot="isolated"
+
+You can choose for upgrades to be applied automatically or manually. If you select automatic upgrades, you can specify whether you want your instance to be early or late in the upgrade cycle. If you select manual upgrades, you'll have a set period of time to initiate the upgrade before the App Service platform performs the upgrade automatically.
+
+If you need to validate the effect of upgrades on your workload, consider configuring your nonproduction instance to use automatic updates with the *early* upgrade preference, and configure your production instance to use the *late* upgrade preference. You can use the time between to perform validation and testing.
+
+To learn more, see [Upgrade preference for App Service Environment planned maintenance](/azure/app-service/environment/how-to-upgrade-preference).
+
+::: zone-end
+
 ## Service-level agreement (SLA)
 
 The service-level agreement (SLA) for Azure App Service describes the expected availability of the service. It also describes the conditions that must be met to achieve that availability expectation. To understand those conditions, review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
