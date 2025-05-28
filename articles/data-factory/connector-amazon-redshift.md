@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/12/2024
+ms.date: 05/28/2025
 ---
 
 # Copy data from Amazon Redshift using Azure Data Factory or Synapse Analytics
@@ -78,6 +78,7 @@ The following properties are supported for Amazon Redshift linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AmazonRedshift** | Yes |
+| version | The version that you specify.  | Yes |
 | server |IP address or host name of the Amazon Redshift server. |Yes |
 | port |The number of the TCP port that the Amazon Redshift server uses to listen for client connections. |No, default is 5439 |
 | database |Name of the Amazon Redshift database. |Yes |
@@ -85,7 +86,34 @@ The following properties are supported for Amazon Redshift linked service:
 | password |Password for the user account. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
-**Example:**
+**Example: version 2.0 (Preview)**
+
+```json
+{
+    "name": "AmazonRedshiftLinkedService",
+    "properties":
+    {
+        "type": "AmazonRedshift",
+        "version": "2.0",
+        "typeProperties":
+        {
+            "server": "<server name>",
+            "database": "<database name>",
+            "username": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: version 1.0**
 
 ```json
 {
@@ -234,26 +262,43 @@ For this sample use case, copy activity unloads data from Amazon Redshift to Ama
 
 ## Data type mapping for Amazon Redshift
 
-When copying data from Amazon Redshift, the following mappings are used from Amazon Redshift data types to interim data types used internally within the service. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When you copy data from Amazon Redshift, the following mappings apply from Amazon Redshift's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Amazon Redshift data type | Interim service data type |
-|:--- |:--- |
-| BIGINT |Int64 |
-| BOOLEAN |String |
-| CHAR |String |
-| DATE |DateTime |
-| DECIMAL |Decimal |
-| DOUBLE PRECISION |Double |
-| INTEGER |Int32 |
-| REAL |Single |
-| SMALLINT |Int16 |
-| TEXT |String |
-| TIMESTAMP |DateTime |
-| VARCHAR |String |
+| Amazon Redshift data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
+|:--- |:--- |:--- |
+| BIGINT |Int64 |Int64 |
+| BOOLEAN |Boolean |String |
+| CHAR |String |String |
+| DATE |DateTime |DateTime |
+| DECIMAL |String |Decimal |
+| DOUBLE PRECISION |Double |Double |
+| INTEGER |Int32 |Int32 |
+| REAL |Single |Single |
+| SMALLINT |Int16 |Int16 |
+| TEXT |String |String |
+| TIMESTAMP |DateTime |DateTime |
+| VARCHAR |String |String |
 
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Upgrade the Amazon Redshift connector
+
+Here are steps that help you upgrade the Amazon Redshift connector:
+
+1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [linked service properties](#linked-service-properties).
+
+2. The data type mapping for the Amazon Redshift linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Amazon Redshift](#data-type-mapping-for-amazon-redshift).
+
+## Differences between Amazon Redshift connector version 2.0 (Preview) and version 1.0
+
+The Amazon Redshift connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (Preview) and version 1.0.
+
+| Version 2.0 (Preview) | Version 1.0 |
+| :----------- | :------- |
+| Only support the self-hosted integration runtime. | Support the Azure integration runtime and self-hosted integration runtime. |
+| The following mappings are used from Amazon Redshift data types to interim service data type.<br><br>BOOLEAN -> Boolean <br>DECIMAL -> String| The following mappings are used from Amazon Redshift data types to interim service data type.<br><br>BOOLEAN -> String <br>DECIMAL -> Decimal|  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
