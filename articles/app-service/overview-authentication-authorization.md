@@ -181,7 +181,7 @@ Disable [Azure Front Door caching](../frontdoor/front-door-caching.md) for the a
 
 ### Use the Azure Front Door endpoint for redirects
 
-App Service is usually not accessible directly when it's exposed by Azure Front Door. You can prevent this behavior, for example, by exposing App Service by using Azure Private Link in Azure Front Door Premium. To prevent the authentication workflow from redirecting traffic back to App Service directly, it's important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
+App Service is usually not accessible directly when it's exposed by Azure Front Door. You can prevent this behavior, for example, by exposing App Service by using Azure Private Link in Azure Front Door Premium. To prevent the authentication workflow from redirecting traffic back to App Service directly. For more information, see [Redirect URI](/entra/identity-platform/reply-url).
 
 ### Ensure that App Service is using the right redirect URI
 
