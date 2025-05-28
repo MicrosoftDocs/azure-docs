@@ -129,7 +129,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 * New Zealand North.
 
-## Reminder
+### Reminder
 
 * HDInsight service transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
 
@@ -299,7 +299,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
-## Updates
+### Updates
 
 **[Addition of Azure Monitor Agent](./azure-monitor-agent.md) for Log Analytics in HDInsight**
 
