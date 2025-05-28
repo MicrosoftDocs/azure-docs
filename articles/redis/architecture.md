@@ -63,10 +63,10 @@ The **Non-Clustered (preview)** clustering policy stores data on each node witho
 
 The considerations for using Non-Clustered (Preview) policy are:
 
-- It only applies to Azure Managed Redis tiers less than or equal to 25 GB.
-- It’s not as performant as other clustering policies because CPUs can only multi-thread with Redis Enterprise software when it’s sharded.
-- If you want to scale up your Azure Managed Redis cache, you must firs change the cluster policy.
-- If you're moving from Basic, Standard, or Premium non-clustered topology, consider to using OSS clusters to accelerate performance. Non-clustered should only be considered if the application program can't work with either OSS or Enterprise topologies.
+- This only applies to Azure Managed Redis tiers that are less than or equal to 25 GB.
+- It’s not as performant as other clustering policies, because CPUs can only multi-thread with Redis Enterprise software when the cache is sharded.
+- If you want to scale up your Azure Managed Redis cache, you must first change the cluster policy.
+- If you're moving from a Basic, Standard, or Premium non-clustered topology, consider using OSS clusters to improve performance. Non-clustered configurations should only be used if the application cannot support either OSS or Enterprise topologies.
 
 ### Scaling out or adding nodes
 

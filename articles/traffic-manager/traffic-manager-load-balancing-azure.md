@@ -2,12 +2,12 @@
 title: Using load-balancing services in Azure
 description: 'This tutorial shows you how to create a scenario by using the Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer.'
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 manager: kumudD
 ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 04/30/2024
-ms.author: greglin
+ms.author: allensu
 ms.custom: template-how-to
 ---
 
