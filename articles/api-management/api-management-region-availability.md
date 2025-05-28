@@ -47,7 +47,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Switzerland North | ✅ |✅ |  | |
 | UK South | ✅  | ✅ | ✅ | ✅ |
 | UK West | ✅  | ✅ | | |
-| West Europe  | ✅ | ✅ | |  |
+| West Europe  | ✅ | ✅ | | ✅ |
 | West US | ✅ | ✅ |  | ✅ |
 | West US 2 | ✅ | ✅ |  | |
 
