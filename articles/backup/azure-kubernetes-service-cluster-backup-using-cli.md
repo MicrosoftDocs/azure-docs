@@ -153,7 +153,6 @@ Backup for AKS provides multiple backups per day. If you require more frequent b
 
 >[!Important]
 >The time of the day indicates the backup start time and not the time when the backup completes.
-
 >The backup schedule follows the ISO 8601 duration format. However, the repeating interval prefix `R` is not supported, as backups are configured to run indefinitely. Any value specified with `R` will be ignored.
 
 Once you download the template as a JSON file, you can edit it for scheduling and retention as required. Then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, use the `az dataprotection backup-policy trigger set` and/or `az dataprotection backup-policy retention-rule set` commands. 
