@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Access data with managed identity'
+title: 'Tutorial: Access Azure data with managed identity'
 description: Learn how your app can use managed identity for secure access to Azure SQL Database and other Azure services without using passwords or secrets.
 author: cephalin
 ms.author: cephalin
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 05/27/2025
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ---
-# Tutorial: Connect to SQL Database from a .net web Azure App Service using a managed identity
+# Tutorial: Use a managed identity to connect to an Azure ASP.NET web app and Azure SQL back end
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. App Service also provides a [managed identity](overview-managed-identity.md) for your app, which is a turnkey solution for securing access to [Azure SQL](/azure/azure-sql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets, such as credentials in connection strings.
 
-This tutorial shows you how to add managed identity to a sample .NET app that uses Azure SQL Database. After you finish, your app can connect to SQL Database securely without the need for a user name and password.
+This tutorial shows you how to add managed identity to a sample .NET app that has an Azure SQL backend. After you finish, your app can connect to to the Azure SQL database securely without the need for a user name and password.
 
 ![Architecture diagram for tutorial scenario.](media/tutorial-connect-msi-sql-database/architecture.png)
 
@@ -28,9 +28,9 @@ In this tutorial, you:
 For guidance about using Azure Database for MySQL or Azure Database for PostgreSQL in Node.js, Python, and Java frameworks, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
 
 > [!NOTE]
-> Microsoft Entra ID and managed identities aren't supported for on-premises SQL Server.
+> - Microsoft Entra ID and managed identities aren't supported for on-premises SQL Server.
 > 
-> Microsoft Entra authentication is different from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD) Domain Services (DS). AD DS and Microsoft Entra ID use completely different authentication protocols. For more information, see [Microsoft Entra Domain Services documentation](/azure/active-directory-domain-services/index).
+> - Microsoft Entra authentication is different from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD) Domain Services (DS). AD DS and Microsoft Entra ID use completely different authentication protocols. For more information, see [Microsoft Entra Domain Services documentation](/azure/active-directory-domain-services/index).
 
 ## Prerequisites
 
@@ -41,14 +41,14 @@ For guidance about using Azure Database for MySQL or Azure Database for PostgreS
   - [Tutorial: Build an ASP.NET app in Azure with Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
   - [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
   
-  You can also use your own .NET web app that uses Azure SQL Database as the back end. The steps in this tutorial support the following versions:
+  You can also use your own .NET web app that uses Azure SQL Database as the back end. The steps in this tutorial support the following .NET versions:
 
   - .NET Framework 4.8 and above
   - .NET 6.0 and above
 
-- Make sure to allow client connection from your computer to Azure, so you can debug your app. You can add the client IP by following the steps at [Manage server-level IP firewall rules using the Azure portal](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+- Allow client connection from your computer to Azure, so you can debug your app. You can add the client IP address by following the steps at [Manage server-level IP firewall rules using the Azure portal](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-- If necessary, prepare your environment to use the Azure CLI.
+- Use Azure Cloud Shell or prepare your environment to use the Azure CLI.
   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 <a name='1-grant-database-access-to-azure-ad-user'></a>
@@ -63,7 +63,7 @@ The Microsoft Entra admin must be a user that is created, imported, synced, or i
 
 Run the following commands in the Bash environment of Azure Cloud Shell, or after signing in to Azure locally.
 
-1. Find the object ID of the Microsoft Entra user by using [`az ad user list`](/cli/azure/ad/user#az-ad-user-list). The following example saves the result of the query on `<user-principal-name>` to a variable called `azureaduser`.
+1. Use [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) to find the `userPrincipalName` of the Microsoft Entra user, and use it to replace `<user-principal-name>` in the following code. The code saves the result of the query on `<user-principal-name>` to a variable called `azureaduser`.
 
    ```azurecli
    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query '[].id' --output tsv)
@@ -72,7 +72,7 @@ Run the following commands in the Bash environment of Azure Cloud Shell, or afte
    > [!TIP]
    > To see the list of all user principal names in Microsoft Entra ID, run `az ad user list --query '[].userPrincipalName'`.
 
-1. Add the Microsoft Entra user as an Azure SQL server admin by using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create), replacing `<server-name>` with your server name without the `.database.windows.net` suffix.
+1. Add `$azureaduser` as an Azure SQL server admin by using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create), replacing `<server-name>` with your server name without the `.database.windows.net` suffix.
 
    ```azurecli
    az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -80,7 +80,7 @@ Run the following commands in the Bash environment of Azure Cloud Shell, or afte
 
 ## Set up your development environment
 
-Set up your development environment and sign in to Azure. For more information about setting up your dev environment for Microsoft Entra authentication, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/Identity-readme).
+Set up your chosen development environment and sign in to Azure. For more information about setting up your dev environment for Microsoft Entra authentication, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/Identity-readme).
 
 ### Visual Studio for Windows
 
@@ -91,7 +91,7 @@ Visual Studio for Windows is integrated with Microsoft Entra authentication.
 
 ### Visual Studio Code
 
-Visual Studio Code is integrated with Microsoft Entra authentication through the Azure extension.
+Visual Studio Code is integrated with Microsoft Entra authentication through the Azure Tools extension.
 
 1. In Visual Studio Code, install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension.
 1. In the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), select the **Azure** logo.
