@@ -512,9 +512,9 @@ items:
           href: archive-cost-estimation.md
       - name: Estimates
         items:
-        - name: Archive & retrieve
+        - name: Early retrieval from archive
           href: cost-estimate-archive-retrieval.md
-        - name: Data access from multiple regions
+        - name: Cross region data access
           href: cost-estimate-multi-region-access.md
     - name: Optimize costs
       items:
