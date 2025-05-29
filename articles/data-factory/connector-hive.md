@@ -15,6 +15,9 @@ ms.author: jianleishen
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Hive. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+> [!IMPORTANT]
+> The Hive connector version 2.0 (Preview) provides improved native Hive support. If you are using the Hive connector version 1.0 in your solution, please [upgrade your Hive connector](#upgrade-the-hive-connector) before **September 30, 2025**. Refer to this [section](#differences-between-hive-version-20-and-version-10) for details on the difference between version 2.0 (Preview) and version 1.0.
+
 ## Supported capabilities
 
 This Hive connector is supported for the following capabilities:
@@ -87,7 +90,7 @@ The Hive linked service supports the following properties when apply version 2.0
 | host | IP address or host name of the Hive server.  | Yes |
 | port | The TCP port that the Hive server uses to listen for client connections. If you connect to Azure HDInsight, specify port as 443. | Yes |
 | serverType | The type of Hive server. <br/>Allowed value is: **HiveServer2** | No |
-| thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed value is: **HTTP** | No |
+| thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed value is: **Binary**, **SASL**, **HTTP** | No |
 | authenticationType | The authentication method used to access the Hive server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. Kerberos authentication is not supported now. | Yes |
 | username | The user name that you use to access Hive Server.  | No |
 | password | The password corresponding to the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
@@ -335,17 +338,17 @@ Here are steps that help you upgrade the Hive connector:
 
 2. The data type mapping for the Hive linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Hive](#data-type-mapping-for-hive).
 
-## Differences between Hive version 2.0 (Preview) and version 1.0 
+## <a name="differences-between-hive-version-20-and-version-10"></a> Differences between Hive version 2.0 (Preview) and version 1.0 
 
 The Hive connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (Preview) and version 1.0. 
 
 | Version 2.0 (Preview) | Version 1.0 |
 |:--- |:--- |
 | Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is not supported.| Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is supported.|
-| `ServerType` does not support `HiveServer1` and `HiveThriftServer`. | `ServerType` supports `HiveServer1` and `HiveThriftServer`. |
-| `authenticationType` does not support `Username`. | `authenticationType` supports `Username`. |
-| The default value of `enableSSL` is true. <br><br>`enableServerCertificateValidation` is supported.<br><br>`serviceDiscoveryMode`, `zooKeeperNameSpace`, `useNativeQuery`, `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.| The default value of `enableSSL` is false.<br><br>`enableServerCertificateValidation` is not supported.<br><br>`serviceDiscoveryMode`, `zooKeeperNameSpace`, `useNativeQuery`, `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are supported. |
-| `thriftTransportProtocol` does not support `Binary` and `SASL`.| `thriftTransportProtocol` supports `Binary` and `SASL`. |
+| HiveServer1 and HiveThriftServer are not supported for `ServerType`. | Support HiveServer1 and HiveThriftServer for `ServerType`. |
+| Username authentication type is not supported. <br><br> UsernameAndPassword authentication type is only supported for SASL transport protocol. Anonymous authentication type is only supported for Binary transport protocol. | Support Username authentication type. <br><br>UsernameAndPassword and Anonymous authentication types are supported for Binary, SASL and HTTP transport protocols. |
+| `serviceDiscoveryMode`, `zooKeeperNameSpace` and `useNativeQuery` are not supported. | `serviceDiscoveryMode`, `zooKeeperNameSpace`, `useNativeQuery` are supported. |
+| The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br><br>`enableServerCertificateValidation` is supported.| The default value of `enableSSL` is false. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are supported.<br><br>`enableServerCertificateValidation` is not supported.  |
 | The following mappings are used from Hive data types to interim service data type.<br><br>TINYINT -> SByte<br>TIMESTAMP -> DateTimeOffset | The following mappings are used from Hive data types to interim service data type.<br><br>TINYINT -> Int16 <br>TIMESTAMP -> DateTime |  
 
 
