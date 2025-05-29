@@ -175,7 +175,7 @@ Azure IoT Operations will be deployed on the development cluster that you create
 
 1. Check that Azure IoT Operations is successfully installed and **resolve any errors before continuing**:
 
-    ```acurecli
+    ```azurecli
     az iot ops check
     ```
 
