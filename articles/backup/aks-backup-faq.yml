@@ -29,7 +29,7 @@ sections:
 
           - The storage account must be of `Standard general-purpose v2` type.
           - The blob container must be created in the storage account before installing the AKS Backup Extension.
-          - The blob container should preferably be empty before installation or atleast shouldn't haven't nonbackup related data in it, as the extension will create its own folder structure within the container to store backup data and metadata.
+          - The blob container should preferably be empty before installation or at least shouldn't haven't nonbackup related data in it, as the extension will create its own folder structure within the container to store backup data and metadata.
           - In case the AKS cluster is within a Private Network, the storage account must be accessible from the AKS cluster. This can be achieved by using a Private Endpoint for the storage account or by configuring the necessary network rules to allow access from the AKS cluster to the storage account.
 
       - question: |
