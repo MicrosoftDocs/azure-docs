@@ -12,7 +12,7 @@ You can get support for your Neon Serverless Postgres deployment through a New
 
 ## Get support 
 
-To contact support about a Neon resource, select the resource in the Resource menu. 
+To contact support about a Neon resource, select the resource in the service menu. 
 
    :::image type="content" source="media/troubleshoot/troubleshoot.png" alt-text="Screenshot from the Azure portal showing how to open a new support request.":::
 
