@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Integrate NAT gateway with Azure Firewall in a hub and spoke network'
+title: 'Integrate NAT Gateway with Azure Firewall in Hub and Spoke Network'
 titleSuffix: Azure NAT Gateway
-description: Learn how to integrate a NAT gateway and Azure Firewall in a hub and spoke network.
+description: Learn to integrate NAT gateway with Azure Firewall in a hub and spoke network for scalable outbound connectivity. Step-by-step tutorial with Portal, PowerShell, and CLI examples.
 author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
@@ -10,18 +10,18 @@ ms.date: 05/29/2025
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Integrate NAT gateway with Azure Firewall in a hub and spoke network for outbound connectivity
+# Integrate NAT gateway with Azure Firewall in a hub and spoke network for outbound connectivity
 
-In this tutorial, you learn how to integrate a NAT gateway with an Azure Firewall in a hub and spoke network
+In this tutorial, you learn how to integrate a NAT gateway with Azure Firewall in a hub and spoke network for enhanced outbound connectivity and scalability.
 
-Azure Firewall provides [2,496 SNAT ports per public IP address](../firewall/integrate-with-nat-gateway.md) configured per backend Virtual Machine Scale Set instance (minimum of two instances). You can associate up to 250 public IP addresses to Azure Firewall. Depending on your architecture requirements and traffic patterns, you may require more SNAT ports than what Azure Firewall can provide. You may also require the use of fewer public IPs while also requiring more SNAT ports. A better method for outbound connectivity is to use NAT gateway. NAT gateway provides 64,512 SNAT ports per public IP address and can be used with up to 16 public IP addresses. 
+Azure Firewall provides [2,496 SNAT ports per public IP address](../firewall/integrate-with-nat-gateway.md) configured per backend Virtual Machine Scale Set instance (minimum of two instances). You can associate up to 250 public IP addresses to Azure Firewall. Depending on your architecture requirements and traffic patterns, you might require more SNAT ports than what Azure Firewall can provide. You might also require the use of fewer public IPs while also requiring more SNAT ports. A better method for outbound connectivity is to use NAT gateway. NAT gateway provides 64,512 SNAT ports per public IP address and can be used with up to 16 public IP addresses. 
 
-NAT gateway can be integrated with Azure Firewall by configuring NAT gateway directly to the Azure Firewall subnet in order to provide a more scalable method of outbound connectivity. For production deployments, a hub and spoke network is recommended, where the firewall is in its own virtual network. The workload servers are peered virtual networks in the same region as the hub virtual network where the firewall resides. In this architectural setup, NAT gateway can provide outbound connectivity from the hub virtual network for all spoke virtual networks peered.
+NAT gateway can be integrated with Azure Firewall by configuring NAT gateway directly to the Azure Firewall subnet. This association provides a more scalable method of outbound connectivity. For production deployments, a hub and spoke network is recommended, where the firewall is in its own virtual network. The workload servers are peered virtual networks in the same region as the hub virtual network where the firewall resides. In this architectural setup, NAT gateway can provide outbound connectivity from the hub virtual network for all spoke virtual networks peered.
 
 :::image type="content" source="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png":::
 
 >[!NOTE]
->Azure NAT Gateway is not currently supported in secured virtual hub network (vWAN) architectures. You must deploy using a hub virtual network architecture as described in this tutorial. For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](/azure/firewall-manager/vhubs-and-vnets).
+>Azure NAT Gateway isn't currently supported in secured virtual hub network (vWAN) architectures. You must deploy using a hub virtual network architecture as described in this tutorial. For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](/azure/firewall-manager/vhubs-and-vnets).
 
 In this tutorial, you learn how to:
 
@@ -72,13 +72,13 @@ The hub virtual network contains the firewall subnet that is associated with the
 
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create virtual network**, enter or select the following information:
+1. In the **Basics** tab of **Create virtual network**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **test-rg**. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> Enter **test-rg**.</br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **vnet-hub**. |
     | Region | Select **(US) South Central US**. |
@@ -97,7 +97,7 @@ The hub virtual network contains the firewall subnet that is associated with the
     | Setting | Value |
     |---|---|
     | Azure Bastion host name | Enter **bastion**. |
-    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip-bastion** in Name. </br> Select **OK**. |
+    | Azure Bastion public IP address | Select **Create a public IP address**.</br> Enter **public-ip-bastion** in Name.</br> Select **OK**. |
 
 1. Select **Enable Azure Firewall** in the **Azure Firewall** section of the **Security** tab.
 
@@ -109,8 +109,8 @@ The hub virtual network contains the firewall subnet that is associated with the
     |---|---|
     | Azure Firewall name | Enter **firewall**. |
     | Tier | Select **Standard**. |
-    | Policy | Select **Create new**. </br> Enter **firewall-policy** in Name. </br> Select **OK**. |
-    | Azure Firewall public IP address | Select **Create a public IP address**. </br> Enter **public-ip-firewall** in Name. </br> Select **OK**. |
+    | Policy | Select **Create new**.</br> Enter **firewall-policy** in Name.</br> Select **OK**. |
+    | Azure Firewall public IP address | Select **Create a public IP address**.</br> Enter **public-ip-firewall** in Name.</br> Select **OK**. |
 
 1. Select **Next** to proceed to the **IP addresses** tab.
 
@@ -561,7 +561,7 @@ The spoke virtual network contains the test virtual machine used to test the rou
 
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create virtual network**, enter or select the following information:
+1. In the **Basics** tab of **Create virtual network**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -1124,7 +1124,7 @@ An Ubuntu virtual machine is used to test the outbound internet traffic through 
 
 1. In **Virtual machines**, select **+ Create**, then **Azure virtual machine**.
 
-1. On the **Basics** tab of **Create a virtual machine**, enter or select the following information:
+1. On the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -1158,7 +1158,7 @@ An Ubuntu virtual machine is used to test the outbound internet traffic through 
     | Subnet | Select **subnet-private (10.1.0.0/24)**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**. |
-    | Configure network security group | Select **Create new**. </br> Enter **nsg-1** for the name. </br> Leave the rest at the defaults and select **OK**. |
+    | Configure network security group | Select **Create new**.</br> Enter **nsg-1** for the name.</br> Leave the rest at the defaults and select **OK**. |
 
 1. Leave the rest of the settings at the defaults and select **Review + create**.
 
@@ -1202,7 +1202,7 @@ $cred = Get-Credential
 ```
 
 > [!NOTE]
-> A username is required for the VM. The password is optional and won't be used if set. SSH key configuration is recommended for Linux VMs.
+> A username is required for the VM. The password is optional and isn't used if set. SSH key configuration is recommended for Linux VMs.
 
 Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM.
 
@@ -1251,7 +1251,7 @@ $vmConfigParams = @{
 $vmConfig = Add-AzVMNetworkInterface @vmConfigParams
 ```
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM. The command generates SSH keys for the virtual machine for sign-in. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
 
 ```azurepowershell
 $vmParams = @{
