@@ -37,7 +37,7 @@ To complete this quickstart, you need:
 
 Microsoft Dev Box enables you to create cloud-hosted developer workstations in a self-service way. You can create and manage dev boxes by using the developer portal.
 
-Depending on the project configuration and your permissions, you might have access to different projects and associated dev box configurations. If you have a choice of projects, images, and regions, select the resources that best fits your needs. For example, you might choose a region located near to you for the least latency.
+Depending on the project configuration and your permissions, you might have access to different projects and associated dev box configurations. If you have a choice of projects, images, and regions, select the resources that best fit your needs. For example, you might choose a region located near to you for the least latency.
 
 You can create multiple dev boxes in a single project, and you can create multiple dev boxes in different projects. Project administrators can set limits on the number of dev boxes you can create in a project. If you reach the limit, you can't create any more dev boxes in that project until you delete one or more dev boxes.
 
