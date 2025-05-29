@@ -38,7 +38,7 @@ Below the essentials, you can navigate to other details about your resource by s
 
 - **View Dashboards** provides insights on health and performance.
 - **View Logs** allows you to search and analyze logs using adhoc queries.
-- **View host maps** provides a complete view of all hosts (VMs, VMSS, App service plans)
+- **View host maps** provides a complete view of all hosts (Azure Virtual Machines, Azure Virtual Machine Scale Sets, Azure App service plans)
 
 A summary of resources is also displayed in the working pane. 
 
