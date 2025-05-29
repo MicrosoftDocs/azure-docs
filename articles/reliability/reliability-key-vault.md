@@ -56,7 +56,7 @@ If you're using Key Vault in high-throughput scenarios, consider distributing yo
 
 Azure Key Vault automatically leverages availability zones in regions where they're available, providing high availability within a region without requiring any specific configuration from customers.
 
-The service is designed to be resilient to zone failures without any specific configuration required by customers. Key Vault automatically manages the redundancy across availability zones in regions where zones are available.
+The service is designed to be resilient to zone failures without any specific configuration required by customers. Key Vault automatically manages the redundancy across availability zones in regions where zones are available. For more information, see [Failover within a region](/azure/key-vault/general/disaster-recovery-guidance#failover-within-a-region) in the Key Vault availability and redundancy documentation.
 
 ### Region support
 
@@ -117,6 +117,8 @@ Exceptions to cross-region replication include:
 
 When you create key vaults in these regions, they aren't replicated across regions.
 
+For detailed information about how Key Vault replicates data across regions, see [Data replication](/azure/key-vault/general/disaster-recovery-guidance#data-replication) in the Key Vault availability and redundancy guide.
+
 ### Region support
 
 Key Vault's multi-region capabilities depend on Azure region pairs. The replication is only supported between designated paired regions. For more information about Azure region pairs, see [Azure paired regions](/azure/reliability/cross-region-replication-azure).
@@ -156,6 +158,8 @@ There are no additional costs for the built-in multi-region replication capabili
 
 - **Traffic rerouting:** In the event of a region failover, requests are automatically routed to the paired region without requiring any customer intervention.
 
+For a complete description of the failover process and behavior, see [Failover across regions](/azure/key-vault/general/disaster-recovery-guidance#failover-across-regions) in the Key Vault availability and redundancy guide.
+
 ### Failback
 
 When the primary region becomes available again, Azure Key Vault automatically fails back operations to that region. This process is fully managed by the Azure platform and doesn't require any customer intervention.
@@ -170,8 +174,7 @@ If you need a multi-region strategy for regions that don't support cross-region 
 2. Using the backup and restore functionality to maintain consistent secrets across regions
 3. Implementing application-level logic to failover between key vaults
 
-For example approaches to multi-region architectures, see:
-- [Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)
+For example approaches to multi-region architectures, see [Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region).
 
 ## Backups
 
@@ -186,7 +189,7 @@ Key points about the backup functionality:
 
 > For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't, such as accidental deletion of specific secrets.
 
-For detailed instructions on how to back up and restore Key Vault objects, see [Azure Key Vault backup](/azure/key-vault/general/backup).
+For detailed instructions on how to back up and restore Key Vault objects, see [Azure Key Vault backup](/azure/key-vault/general/backup). For guidance on when to use backups, see [When to use backups](/azure/key-vault/general/backup#when-to-use-backups), and for important limitations, refer to [Backup limitations](/azure/key-vault/general/backup#limitations).
 
 ## Recovery features
 
@@ -196,7 +199,7 @@ Azure Key Vault provides two key recovery features to prevent accidental or mali
 
 2. **Purge protection:** When enabled, purge protection prevents permanent deletion of your key vault and its objects until the retention period elapses. This prevents malicious actors from permanently destroying your secrets.
 
-Both features are strongly recommended for production environments. For more information, see [Azure Key Vault recovery management with soft delete and purge protection](/azure/key-vault/general/key-vault-recovery).
+Both features are strongly recommended for production environments. For a detailed explanation of these features, see [What are soft-delete and purge protection](/azure/key-vault/general/key-vault-recovery#what-are-soft-delete-and-purge-protection) in the Key Vault recovery management documentation.
 
 ## Service-level agreement
 
