@@ -25,7 +25,7 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 * <a name="Ultra"></a>Ultra storage:   
     The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
-* <a name="Flexible"></a>Flexible storage (preview):
+* <a name="Flexible"></a>Flexible storage:
 
     The Flexible service level enables you to adjust throughput and size limits independently. This service level is designed for demanding applications such as Oracle or SAP HANA. You can also use the Flexible service level to create high-capacity volumes with (relatively) low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The first 128 MiB/s of throughput, known as the baseline, is included in the Flexible service level. The maximum throughput is 5 x 128 MiB/second/TiB x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level. Cool access isn't currently supported with the Flexible service level. 
 
