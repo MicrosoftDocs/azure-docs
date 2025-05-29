@@ -179,7 +179,7 @@ This typically means that the traffic from the extension agent is being blocked 
 **Cause**
 This error occurs due to a conflict in private DNS resolution when both Azure Arc-enabled Kubernetes and an AKS managed cluster share the same virtual network (VNet) or private DNS server:
 
-The shared VNet (or private DNS zone) contains a pre-existing private endpoint for Azure Arc-enabled Kubernetes.
+The shared VNet (or private DNS zone) contains a preexisting private endpoint for Azure Arc-enabled Kubernetes.
 
 As a result, the data plane endpoint used by the AKS extension agent (e.g., *.dp.kubernetesconfiguration.azure.com) resolves to a private IP address (e.g., 10.x.x.x) instead of the intended public IP.
 
