@@ -47,70 +47,8 @@ For more information on required permissions for Azure Virtual Network Manager d
 
 ## Illustrative relationship between components
 
-```mermaid
-graph TD
-    subgraph "Azure Scope"
-        MG["Management Group / Subscription"]
-    end
+![image](https://github.com/user-attachments/assets/0d42dfd6-2fda-413c-a33b-cd11ec0d26d4)
 
-    subgraph "Azure Virtual Network Manager (AVNM)"
-        AVNM_Instance["AVNM Instance"] -- Manages --> MG
-        AVNM_Instance -- Contains --> NG1["Network Group A (e.g., Production)"]
-        AVNM_Instance -- Contains --> NG2["Network Group B (e.g., Test)"]
-    end
-
-    subgraph "Virtual Networks (VNets)"
-        VNet1["VNet 1"]
-        VNet2["VNet 2"]
-        VNet3["VNet 3"]
-        VNet4["VNet 4"]
-    end
-
-    subgraph "Membership"
-        Static["Static Membership"] -- Manually Adds --> NG1
-        Static -- Manually Adds --> NG2
-        VNet1 -- Member Of --> Static
-        VNet4 -- Member Of --> Static
-
-        Dynamic["Dynamic Membership (Azure Policy)"] -- Automatically Adds --> NG1
-        Dynamic -- Automatically Adds --> NG2
-        Policy["Azure Policy Definition (e.g., 'tag=prod')"] -- Defines --> Dynamic
-        VNet2 -- Meets Policy --> Dynamic
-        VNet3 -- Meets Policy --> Dynamic
-    end
-
-    subgraph "Configurations"
-        ConnConfig["Connectivity Config (Mesh / Hub-Spoke)"] -- Targets --> NG1
-        SecConfig["Security Admin Config (Rules)"] -- Targets --> NG1
-        SecConfig2["Security Admin Config (Rules)"] -- Targets --> NG2
-    end
-
-    subgraph "Deployment & Enforcement"
-        Deploy["Deployment"] -- Applies --> ConnConfig
-        Deploy -- Applies --> SecConfig
-        Deploy -- Applies --> SecConfig2
-        NG1 -- Receives --> ConnConfig
-        NG1 -- Receives --> SecConfig
-        NG2 -- Receives --> SecConfig2
-        VNet1 -- Enforced --> NG1
-        VNet2 -- Enforced --> NG1
-        VNet3 -- Enforced --> NG1
-        VNet4 -- Enforced --> NG2
-    end
-
-    %% Removed 'fill' for better dark mode compatibility, kept colored strokes
-    classDef avnm stroke:#f9f,stroke-width:2px;
-    classDef ng stroke:#ccf,stroke-width:1px;
-    classDef vnet stroke:#cfc,stroke-width:1px;
-    classDef config stroke:#ffc,stroke-width:1px;
-    classDef policy stroke:#fcc,stroke-width:1px;
-
-    class AVNM_Instance avnm;
-    class NG1,NG2 ng;
-    class VNet1,VNet2,VNet3,VNet4 vnet;
-    class ConnConfig,SecConfig,SecConfig2 config;
-    class Policy,Dynamic,Static policy;
-```
 
 ### Diagram Explanation:
 
