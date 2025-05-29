@@ -120,7 +120,7 @@ Follow the instructions below to delete a topic, once you no longer need it.
 In the **Environments (Preview)** menu, open a cluster, then the topic you want to delete, and select **Delete Topic** in the top ribbon. Enter the topic name to confirm the operation. Your topic is now deleted. 
 
 > [!NOTE]
-> Azure only supports deleting topics created in Azure. To delete a topics created in Confluent, use the Confluent UI.
+> Azure only supports deleting topics created in Azure. To delete a topic created in Confluent, use the Confluent UI.
 
 ## Next steps
 
