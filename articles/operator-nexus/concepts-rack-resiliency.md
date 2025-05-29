@@ -26,7 +26,7 @@ During runtime upgrades, Operator Nexus implements a sequential upgrade of the c
 Three compute racks:
 
 KCP = Kubernetes Control Plane Node
-MGMT = Mangement Node Pool Node
+MGMT = Management Node Pool Node
 
 | Rack 1    | Rack 2 | Rack 3 |
 | --------- | ------ | ------ |
