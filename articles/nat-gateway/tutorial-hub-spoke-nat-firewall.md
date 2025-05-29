@@ -908,11 +908,11 @@ Use [New-AzFirewallPolicyNetworkRule](/powershell/module/az.network/new-azfirewa
 ```powershell
 # Create a network rule for web traffic
 $networkRuleParams = @{
-    Name = 'allow-web'
+    Name = 'allow-internet'
     SourceAddress = '10.1.0.0/24'
     Protocol = 'TCP'
     DestinationAddress = '*'
-    DestinationPort = '80,443'
+    DestinationPort = '*'
 }
 $networkRule = New-AzFirewallPolicyNetworkRule @networkRuleParams
 ```
@@ -933,31 +933,13 @@ $ruleCollection = New-AzFirewallPolicyFilterRuleCollection @ruleCollectionParams
 Use [New-AzFirewallPolicyRuleCollectionGroup](/powershell/module/az.network/new-azfirewallpolicyrulecollectiongroup) to create a rule collection group.
 
 ```powershell
-# Check if DefaultNetworkRuleCollectionGroup exists, create it if not
-$existingRuleCollectionGroup = Get-AzFirewallPolicyRuleCollectionGroup -ResourceGroupName 'test-rg' -AzureFirewallPolicyName 'firewall-policy' -Name 'DefaultNetworkRuleCollectionGroup' -ErrorAction SilentlyContinue
-
-if ($null -eq $existingRuleCollectionGroup) {
-    # Create a new rule collection group
-    $newRuleCollectionGroupParams = @{
+$newRuleCollectionGroupParams = @{
         Name = 'DefaultNetworkRuleCollectionGroup'
         Priority = 200
         FirewallPolicyObject = $firewallPolicy
         RuleCollection = $ruleCollection
     }
-    New-AzFirewallPolicyRuleCollectionGroup @newRuleCollectionGroupParams
-} else {
-    # Add the rule collection to the existing group
-    $existingRuleCollectionGroup.Properties.RuleCollection.Add($ruleCollection)
-    
-    # Update the rule collection group
-    $updateRuleCollectionGroupParams = @{
-        Name = 'DefaultNetworkRuleCollectionGroup'
-        Priority = 200
-        FirewallPolicyObject = $firewallPolicy
-        RuleCollection = $existingRuleCollectionGroup.Properties.RuleCollection
-    }
-    Set-AzFirewallPolicyRuleCollectionGroup @updateRuleCollectionGroupParams
-}
+New-AzFirewallPolicyRuleCollectionGroup @newRuleCollectionGroupParams
 ```
 
 ### [CLI](#tab/cli)
