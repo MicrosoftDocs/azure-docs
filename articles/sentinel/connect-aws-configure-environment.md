@@ -13,9 +13,9 @@ ms.date: 05/28/2025
 
 # Set up your Amazon Web Services environment to collect AWS logs to Microsoft Sentinel
 
-Use Amazon Web Services (AWS) connectors to pull AWS service logs into Microsoft Sentinel. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. 
+Microsoft Sentinel provides Amazon Web Services (AWS) connectors that pull AWS logs into Microsoft Sentinel from an S3 (Simple Storage Service) storage bucket. 
 
-This article describes the high-level flow of setting up your AWS environment to send log data to Microsoft Sentinel. Each of the AWS connectors provides different tools to set up the environment. 
+This article describes the high-level flow of setting up your AWS environment to send log data to Microsoft Sentinel using the connectors. Each of the AWS connectors provides its own tools to set up the environment. 
 
 ## AWS environment setup overview
 
@@ -45,9 +45,107 @@ This graphic shows how to set up your AWS environment to send log data to Azure:
 
 1. Configure your connectors to use the assumed role and SQS queue you created to access the S3 bucket and retrieve logs.
 
-## Find the AWS connector you need
+## Prepare your AWS resources
 
-Microsoft Sentinel provides several AWS connectors, each designed to collect logs from different AWS services. The following table lists the available connectors and the AWS services they support:
+1. Create an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, CloudTrail, or CloudWatch.
+
+   - See the [instructions to create an S3 storage bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the AWS documentation.
+
+1. Create a standard **Simple Queue Service (SQS) message queue** to which the S3 bucket will publish notifications.
+
+   - See the [instructions to create a standard Simple Queue Service (SQS) queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/creating-sqs-standard-queues.html) in the AWS documentation.
+
+1. Configure your S3 bucket to send notification messages to your SQS queue. 
+
+   - See the [instructions to publish notifications to your SQS queue](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html) in the AWS documentation.
+
+
+### Create an Open ID Connect (OIDC) web identity provider and an AWS assumed role
+
+> [!IMPORTANT]
+> If you already have an OIDC Connect provider set up for Microsoft Defender for Cloud, add Microsoft Sentinel as an audience to your existing provider (Commercial: `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`, Government:`api://d4230588-5f84-4281-a9c7-2c15194b28f7`). Do not try to create a new OIDC provider for Microsoft Sentinel.
+
+1. In a different browser window or tab, open the AWS console.
+
+1. Create a **web identity provider**. Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html). 
+
+   | Parameter | Selection/Value | Comments |
+   | - | - | - |
+   | **Client ID** | - | Ignore this, you already have it. See **Audience** line below. |
+   | **Provider type** | *OpenID Connect* | Instead of default *SAML*.|
+   | **Provider URL** | Commercial:<br>`sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/`<br><br>Government:<br>`sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` |  |
+   | **Thumbprint** | `626d44e704d1ceabe3bf0d53397464ac8080142c` | If created in the IAM console, selecting **Get thumbprint** should give you this result. |
+   | **Audience** | Commercial:<br>`api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`<br><br>Government:<br>`api://d4230588-5f84-4281-a9c7-2c15194b28f7` |  |
+   
+1. Create an **IAM assumed role**. Follow these instructions in the AWS documentation:<br>[Creating a role for web identity or OpenID Connect Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create). 
+   
+   | Parameter | Selection/Value | Comments |
+   | - | - | - |
+   | **Trusted entity type** | *Web identity* | Instead of default *AWS service*. |
+   | **Identity provider** | Commercial:<br>`sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/`<br><br>Government:<br>`sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` | The provider you created in the previous step. |
+   | **Audience** | Commercial:<br>`api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`<br><br>Government:<br>`api://d4230588-5f84-4281-a9c7-2c15194b28f7` | The audience you defined for the identity provider in the previous step. |
+   | **Permissions to assign** | <ul><li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy`<li>Additional policies for ingesting the different types of AWS service logs | For information on these policies, see the relevant AWS S3 connector permissions policies page, in the Microsoft Sentinel GitHub repository.<ul><li>[AWS Commercial S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md)<li>[AWS Government S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPoliciesForGov.md)|
+   | **Name** | "OIDC_*MicrosoftSentinelRole*"| Choose a meaningful name that includes a reference to Microsoft Sentinel.<br><br>The name must include the exact prefix `OIDC_`, otherwise the connector will not function properly. |
+   
+1. Edit the new role's trust policy and add another condition:<br>`"sts:RoleSessionName": "MicrosoftSentinel_{WORKSPACE_ID)"`
+
+   > [!IMPORTANT]
+   > The value of the `sts:RoleSessionName` parameter must have the exact prefix `MicrosoftSentinel_`, otherwise the connector will not function properly.
+
+   The finished trust policy should look like this:
+
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Federated": "arn:aws:iam::XXXXXXXXXXXX:oidc-provider/sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/"
+         },
+         "Action": "sts:AssumeRoleWithWebIdentity",
+         "Condition": {
+           "StringEquals": {
+             "sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/:aud": "api://d4230588-5f84-4281-a9c7-2c15194b28f7",
+             "sts:RoleSessionName": "MicrosoftSentinel_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+           }
+         }
+       }
+     ]
+   }
+   ```
+
+   - `XXXXXXXXXXXX` is your AWS Account ID.
+   - `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` is your Microsoft Sentinel workspace ID.
+
+   Update (save) the policy when you're done editing.
+
+### Configure an AWS service to export logs to an S3 bucket
+
+See Amazon Web Services documentation (linked below) for the instructions for sending each type of log to your S3 bucket:
+
+- [Publish a VPC flow log to an S3 bucket](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html).
+
+    > [!NOTE]
+    > If you choose to customize the log's format, you must include the *start* attribute, as it maps to the *TimeGenerated* field in the Log Analytics workspace. Otherwise, the *TimeGenerated* field will be populated with the event's *ingested time*, which doesn't accurately describe the log event.
+
+- [Export your GuardDuty findings to an S3 bucket](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html).
+
+    > [!NOTE]
+    >
+    > - In AWS, findings are exported by default every 6 hours. Adjust the export frequency for updated Active findings based on your environment requirements. To expedite the process, you can modify the default setting to export findings every 15 minutes. See [Setting the frequency for exporting updated active findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html#guardduty_exportfindings-frequency).
+    >
+    > - The *TimeGenerated* field is populated with the finding's *Update at* value.
+
+- AWS CloudTrail trails are stored in S3 buckets by default.
+    - [Create a trail for a single account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html).
+    - [Create a trail spanning multiple accounts across an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html).
+
+- [Export your CloudWatch log data to an S3 bucket](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3Export.html).
+
+## AWS connectors
+
+Microsoft Sentinel provides these AWS connectors:
 
 - [Amazon Web Services Web Application Firewall (WAF) connector](connect-aws-s3-waf.md): Ingests AWS WAF logs, collected in AWS S3 buckets, to Microsoft Sentinel.
 - [Amazon Web Services service log connector](connect-aws.md): Ingests AWS service logs, collected in AWS S3 buckets, to Microsoft Sentinel.
