@@ -37,7 +37,7 @@ You can enable a managed identity on an event subscription after it's created. O
 
 :::image type="content" source="./media/managed-service-identity/event-subscription-additional-features.png" alt-text="Screenshot that shows how to enable a system-assigned identity on an existing event subscription.":::
 
-If you had enabled user-assigned identities for the topic, you'll see user-assigned identity option enabled in the drop-down list for **Manged Identity Type**. If you select **User Assigned** for **Managed Identity Type**, you can then select the user-assigned identity that you want to use to deliver events. 
+If you had enabled user-assigned identities for the topic, you'll see user-assigned identity option enabled in the drop-down list for **Managed Identity Type**. If you select **User Assigned** for **Managed Identity Type**, you can then select the user-assigned identity that you want to use to deliver events. 
 
 :::image type="content" source="./media/managed-service-identity/event-subscription-user-identity.png" alt-text="Screenshot that shows how to enable a user-assigned identity on an event subscription.":::
 

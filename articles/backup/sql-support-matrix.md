@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: reference
-ms.date: 03/07/2025
+ms.date: 05/29/2025
 ms.custom: references_regions 
 ms.service: azure-backup
 author: jyothisuri
@@ -58,6 +58,7 @@ Azure Backup supports a consistent data transfer rate of 350 MBps for full and d
 - The underlying VM (containing the SQL Server instance, which hosts the database) is configured with the required network throughput. If the maximum throughput of the VM is less than 200 MBps, Azure Backup can’t transfer data at the optimum speed.<br>Also, the disk that contains the database files must have enough throughput provisioned. [Learn more](/azure/virtual-machines/disks-performance) about disk throughput and performance in Azure VMs. 
 - Processes, which are running in the VM, are not consuming the VM bandwidth. 
 - The backup schedules are spread across a subset of databases. Multiple backups running concurrently on a VM shares the network consumption rate between the backups. [Learn more](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-) about how to control the number of concurrent backups.
+- The maximum supported throughput for log backups is **50 Mbps**, based on average log churn observed in most environments. If you consistently experience high log churn and encounter reduced backup performance, contact Microsoft Support for further assistance.
 
 >[!NOTE]
 >- The higher throughput is automatically throttled when the following conditions are met:

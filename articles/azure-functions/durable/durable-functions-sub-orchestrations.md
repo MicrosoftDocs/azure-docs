@@ -13,10 +13,10 @@ In addition to calling activity functions, orchestrator functions can call other
 
 An orchestrator function can call another orchestrator function using the *"call-sub-orchestrator"* API. The [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) article has more information on automatic retry.
 
-Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function. 
+Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value and throw an exception as the parent orchestrator function anticipates them.
 
 > [!NOTE]
-> Sub-orchestrations are not yet supported in PowerShell.
+> Sub-orchestrations aren't yet supported in PowerShell.
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
@@ -151,7 +151,7 @@ public void deviceProvisioningOrchestration(
 
 This orchestrator function can be used as-is for one-off device provisioning or it can be part of a larger orchestration. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the *"call-sub-orchestrator"* API.
 
-Here is an example that shows how to run multiple orchestrator functions in parallel.
+The following example shows how to run multiple orchestrator functions at the same time:
 
 # [C# (InProc)](#tab/csharp-inproc)
 

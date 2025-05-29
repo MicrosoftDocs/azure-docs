@@ -54,7 +54,7 @@ The following roles are required to use Azure Logic Apps to create and run playb
 > [!IMPORTANT]
 > Playbook templates are currently in PREVIEW. See the **[Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)** for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Playbook templates are prebuilt, tested, and ready-to-use workflows that aren't useable as playbooks themselves, but are ready for you to customize to meet your needs. We also recommend that you use playbook templates as a reference of best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
+Playbook templates are prebuilt, tested, and ready-to-use workflows that aren't usable as playbooks themselves, but are ready for you to customize to meet your needs. We also recommend that you use playbook templates as a reference of best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
 
 Access playbook templates from the following sources:
 

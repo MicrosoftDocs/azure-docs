@@ -44,7 +44,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
     If your **PSVersion** value is less than 5.1.\*, you'll need to upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
-    PowerShell 6+ can be used with any supported system, and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
+    PowerShell 6+ can be used with any supported system and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -72,7 +72,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
     If your **PSVersion** value is less than 5.1.\*, you'll need to upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
-    PowerShell 6+ can be used with any supported system, and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
+    PowerShell 6+ can be used with any supported system and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
 
 7. If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
 
@@ -145,7 +145,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
     If your **PSVersion** value is less than 5.1.\*, you'll need to upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
-    PowerShell 6+ can be used with any supported system, and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
+    PowerShell 6+ can be used with any supported system and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
 
 ---
 

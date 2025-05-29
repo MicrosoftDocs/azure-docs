@@ -239,7 +239,7 @@ The following summarizes the best practices found in [Securing privileged access
 **Best practice**: Identify and categorize accounts that are in highly privileged roles.   
 **Detail**: After turning on Microsoft Entra Privileged Identity Management, view the users who are in the global administrator, privileged role administrator, and other highly privileged roles. Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
 
-* Individually assigned to administrative users, and can be used for non-administrative purposes (for example, personal email)
+* Individually assigned to administrative users and can be used for non-administrative purposes (for example, personal email)
 * Individually assigned to administrative users and designated for administrative purposes only
 * Shared across multiple users
 * For emergency access scenarios

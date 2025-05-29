@@ -159,6 +159,9 @@ The policy template consists of a trigger (which decides what triggers the backu
       ]
 ```
 
+>[!Important]
+>The backup schedule follows the ISO 8601 duration format. However, the repeating interval prefix `R` is not supported, as backups are configured to run indefinitely. Any value specified with `R` will be ignored.
+
 Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every 4, 6, 8 or 12 hours. The backups are scheduled based on the **Time** interval selected.
 
 For example, if you select **Every 4 hours**, then the backups are taken at approximately in the interval of every 4 hours so the backups are distributed equally across the day. If a once-a-day backup is sufficient, choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups are taken.

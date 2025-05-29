@@ -21,7 +21,7 @@ The following table summarizes the differences between Gen 1 and Gen 2 private c
 
 | Feature               | Azure VMware Solution Gen 1 private clouds    | Azure VMware Solution Gen 2 private clouds       |
 |-----------------------|-----------------------------------------------|--------------------------------------------------|
-| Supported SKU type    | <ul><li>AV36, AV36P, AV52, AV48</li><li>AV64 (with seed cluster of at least three AV36, AV36P, AV48, or AV52 nodes)</li></ul>| <ul><li>Minimum 3-host AV64 cluste</li></ul>r|
+| Supported SKU type    | <ul><li>AV36, AV36P, AV52, AV48</li><li>AV64 (with seed cluster of at least three AV36, AV36P, AV48, or AV52 nodes)</li></ul>| <ul><li>Minimum 3-host AV64 cluster</li></ul>|
 | Network Attach Model  | <ul><li>ExpressRoute</li></ul>                | <ul><li>Virtual Network</li></ul>                |
 
 ## Benefits

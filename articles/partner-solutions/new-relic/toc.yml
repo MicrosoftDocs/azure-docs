@@ -14,10 +14,12 @@ items:
   items:
   - name: Manage
     href: manage.md
-  - name: Fix common errors
-    href: troubleshoot.md
-  - name: Get support
-    href: support.md
+  - name: Troubleshoot
+    items:
+    - name: Get support
+      href: https://support.newrelic.com/
+    - name: Fix common errors
+      href: troubleshoot.md
 - name: Reference
   items:
   - name: REST API

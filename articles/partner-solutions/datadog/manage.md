@@ -87,7 +87,7 @@ To monitor multiple subscriptions:
 
 Once the subscription is added, the status changes to *Active*.  
 
-### Remove subscriptions from a Datadog resource
+### Remove subscriptions
 
 To unlink subscriptions from a Datadog resource:
 
@@ -120,29 +120,31 @@ You can install Datadog agents on virtual machines, App Service extensions, Azur
 > [!IMPORTANT]
 > If a default key isn't selected, your Datadog agent installation fails. See [API keys](#api-keys).
 
-### Virtual machines
+#### [Virtual machines](#tab/virtual-machines)
 
 To monitor resources for virtual machines, select **Datadog organization configurations > Virtual machine agent** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
-### App Service
+#### [App Service](#tab/app-service)
 
 To monitor resources for App Service, select **Datadog organization configurations > App Service extension** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
-### Azure Kubernetes Services
+#### [Azure Kubernetes Services](#tab/azure-kubernetes-services)
 
 To monitor resources Azure Kubernetes Services, select **Datadog organization configurations > Azure Kubernetes Services** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
-### Azure Arc Machines
+#### [Azure Arc Machines](#tab/azure-arc-machines)
 
 To monitor resources for Azure Arc Machines, select **Datadog organization configurations > Azure Arc Machines** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
+
+---
 
 ## Reconfigure single sign-on
 
@@ -166,6 +168,14 @@ To stop sending logs and metrics from Azure to Datadog:
 ## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
+
+## Get support
+
+Contact [Datadog](https://www.datadoghq.com/support) for customer support. 
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** > **New support request** from the Resource pane. 
 
 ## Related content
 
