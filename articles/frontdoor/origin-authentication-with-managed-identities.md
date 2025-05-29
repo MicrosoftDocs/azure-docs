@@ -67,10 +67,10 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 
 > [!Note]
 > The association will only work if
-> 1) the origin group does not contain any origins with private link enabled.
-> 2) the health probe protocol is set to 'HTTPS' under origin group settings.
-> 3) the forwarding protocol is set to 'HTTPS Only' under route settings.
-> 4) the forwarding protocol is set to 'HTTPS Only' in case you are using a 'Route configuration override' action in rulesets.
+> * the origin group does not contain any origins with private link enabled.
+> * the health probe protocol is set to 'HTTPS' under origin group settings.
+> * the forwarding protocol is set to 'HTTPS Only' under route settings.
+> * the forwarding protocol is set to 'HTTPS Only' in case you are using a 'Route configuration override' action in rulesets.
 
 1.	Navigate to your existing Azure Front Door profile and open origin groups.
 2.	Select an existing origin group which has origins already configured.
