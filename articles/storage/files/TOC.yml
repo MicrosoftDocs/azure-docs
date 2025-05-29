@@ -17,18 +17,8 @@
   items:
   - name: Well-architected considerations
     href: /azure/well-architected/service-guides/azure-files?toc=/azure/storage/files/toc.json&bc=/azure/storage/files/breadcrumb/toc.json
-- name: Tutorials
-  items:
-  - name: Create a Windows SMB file share
-    href: storage-files-quick-create-use-windows.md
-  - name: Create a Linux NFS file share
-    href: storage-files-quick-create-use-linux.md
-  - name: Extend Windows file servers with Azure File Sync
-    href: ../file-sync/file-sync-extend-servers.md?toc=/azure/storage/files/toc.json
 - name: Create file shares
   items:
-  - name: Quickstart
-    href: storage-how-to-use-files-portal.md
   - name: Create an SMB file share
     href: storage-how-to-create-file-share.md
   - name: Create an NFS file share

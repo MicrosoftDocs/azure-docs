@@ -4,13 +4,13 @@ description: Learn how to use SMB Azure file shares for virtual desktop workload
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/29/2025
+ms.date: 05/30/2025
 ms.author: kendownie
 ---
 
 # Azure Files guidance for virtual desktop workloads
 
-Azure Files is the recommended file storage solution for a virtual desktop environment. Azure Files is ideal for [Azure Virtual Desktop](/azure/virtual-desktop/overview) (AVD) because it provides fully managed, scalable file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) for dynamic application delivery. It reduces infrastructure overhead, ensures high availability, supports enterprise-grade security, and delivers consistent performance for a smooth user experience across virtual sessions.
+Azure Files is the recommended file storage solution for a virtual desktop environment. Azure Files is ideal for [Azure Virtual Desktop](/azure/virtual-desktop/overview) (AVD) because it provides fully managed, scalable SMB file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) for dynamic application delivery. It reduces infrastructure overhead, provides high availability, supports enterprise-grade security, and delivers consistent performance for a smooth user experience across virtual desktop sessions.
 
 ## Applies to
 
