@@ -4,7 +4,7 @@ ms.author: daberry
 ms.topic: include
 ms.date: 01/29/2022
 ---
-Get the <URL> from your Kudu Environment: 
+Get the \<URL> from your Kudu Environment: 
 
 1. Open your app in the Azure portal and select **Development Tools** > **Advanced Tools**, then select **Go**.
 1. Copy the value from the address bar and append */api/zipdeploy*.
