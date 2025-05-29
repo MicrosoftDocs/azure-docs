@@ -107,7 +107,7 @@ Attribute name | Details
 **Edition** | Edition of the server, database, or web app.
 **Version** | Version of the server, database, or web app.
 **Dependencies** | Network dependencies of the server. <br><br/> Dependency analysis is automatically enabled on up to 1,000 servers per appliance, if the validation checks succeed.
-**Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support. [Learn more](vmware/tutorial-discover-vmware.md#view-support-status).
+**Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support. [Learn more](tutorial-discover-vmware.md#view-support-status).
 **Discovery source** | Source of discovery of the workload (appliance or import).
 **Tags** | Tags applied to the workload. <br><br/> Currently, Azure Migrate supports custom tags only.
 
@@ -211,7 +211,7 @@ Attribute name | Details
 **DB instances** | Number of database instances running on the server.
 **Web app** | Number of web apps running on the server.
 **Issues** | Number of discovery problems reported on the server.
-**Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support. [Learn more](vmware/tutorial-discover-vmware.md#view-support-status).
+**Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support. [Learn more](tutorial-discover-vmware.md#view-support-status).
 **Tags** | Tags applied to the server. <br><br/> Currently, Azure Migrate supports custom tags.
 
 # [Optional columns](#tab/optional)

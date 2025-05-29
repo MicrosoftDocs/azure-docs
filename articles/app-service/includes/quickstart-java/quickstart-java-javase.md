@@ -205,7 +205,7 @@ With all the configuration ready in your [pom.xml](https://github.com/Azure-Samp
     Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When the deployment completes, you see the following output:
 
     ```output
-    [INFO] Successfully deployed the artifact to https://<app-name>.azurewebsites.net
+    [INFO] Successfully deployed the artifact to <URL>
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
@@ -214,23 +214,23 @@ With all the configuration ready in your [pom.xml](https://github.com/Azure-Samp
     [INFO] ------------------------------------------------------------------------
     ```
 
-    Your application is ready at `http://<appName>.azurewebsites.net/`. 
+    Your application is ready.
 
 ### [Spring Boot](#tab/springboot)
 
-Open the URL `http://<appName>.azurewebsites.net/greeting` with your local web browser (note the `/greeting` path), and you should see:
+Get the default domain for your app in the Azure portal by selecting **Overview** for your app. Append `/greeting`. You should see:
 
 :::image type="content" source="../../media/quickstart-java/springboot-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Spring Boot Hello World web app running in Azure App Service.":::
 
 ### [Quarkus](#tab/quarkus)
 
-Open the URL `http://<appName>.azurewebsites.net/hello` with your local web browser (note the `/hello` path), and you should see:
+Get the default domain for your app in the Azure portal by selecting **Overview** for your app. Append `/hello`. You should see:
 
 :::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Quarkus web app running in Azure App Service.":::
 
 ### [Embedded Tomcat](#tab/embeddedtomcat)
 
-Open the URLl with your local web browser, and you should see:
+Open the URL with your local web browser, and you should see:
 
 :::image type="content" source="../../media/quickstart-java/embedded-tomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat web app running in Azure App Service.":::
 

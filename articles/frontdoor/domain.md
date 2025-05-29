@@ -10,6 +10,8 @@ ms.author: jodowns
 
 # Domains in Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 A *domain* represents a custom domain name that Azure Front Door uses to receive your application's traffic. Azure Front Door supports adding three types of domain names:
 
 - **Subdomains** are the most common type of custom domain name. An example subdomain is `myapplication.contoso.com`.
