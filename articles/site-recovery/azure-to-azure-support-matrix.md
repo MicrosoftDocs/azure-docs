@@ -52,7 +52,7 @@ Azure Site Recovery allows you to perform global disaster recovery. You can repl
 >
 > - If you can't see a region within a geographic cluster when you enable replication, make sure your subscription has permissions to create VMs in that region. 
 >
-> - New Zealand is only supported as a source or target region for Site Recovery Azure to Azure. However, creating recovery services vault is not supported in New Zealand.
+> - New Zealand is only supported as a source or target region for Site Recovery Azure to Azure. However, creating recovery services vault isn't supported in New Zealand.
 
 
 ## Cache storage
@@ -66,7 +66,7 @@ Premium storage | Supported | Use Premium Block Blob storage accounts to get Hig
 Region |  Same region as virtual machine  | Cache storage account should be in the same region as the virtual machine being protected.
 Subscription  | Can be different from source virtual machines | Cache storage account must be in the same subscription as the source virtual machine(s). <br> To use cache storage from the target subscription, use PowerShell.
 Azure Storage firewalls for virtual networks  | Supported | If you're using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Don't restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
-Soft delete | Not supported | Soft delete isn't supported because once it is enabled on cache storage account, it increases cost. Azure Site Recovery performs frequent creates/deletes of log files while replicating causing costs to increase.
+Soft delete | Not supported | Soft delete isn't supported because once it's enabled on cache storage account, it increases cost. Azure Site Recovery performs frequent creates/deletes of log files while replicating causing costs to increase.
 Encryption at rest (CMK) | Supported | Storage account encryption can be configured with customer managed keys (CMK)
 Managed identity | Not supported | The cached storage account must allow shared key access and Shared Access Signatures (SAS) signed by the shared key. Recent changes in Azure Policy disable key authentication due to security concerns. However, for Site Recovery, you need to enable it again.
 
@@ -84,7 +84,7 @@ As average churn on the disks increases, the number of disks that a storage acco
 >
 > When you enable replication via the virtual machine workflow for cross subscription, the portal only lists the cache storage account from the source subscription, but doesn't list any storage account created in the target subscription. To set up this scenario, use [PowerShell](azure-to-azure-powershell.md).
 >
-> Azure Site Recovery isn't supported for VMs with Premium SSD v2 disks.
+> Azure Site Recovery is now supported for VMs with Premium SSD v2 disks.
 
 ## Replicated machine operating systems
 
@@ -485,9 +485,9 @@ Authenticated Proxy | Not supported | If the VM is using an authenticated proxy 
 VPN site-to-site connection to on-premises<br/><br/>(with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site Recovery traffic isn't routed to on-premises. [Learn more](./azure-to-azure-about-networking.md)
 VNET to VNET connection    | Supported | [Learn more](./azure-to-azure-about-networking.md)
 Virtual Network Service Endpoints | Supported | If you're restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
-Accelerated networking | Supported | Accelerated networking can be enabled on the recovery VM only if it is enabled on the source VM also. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Accelerated networking | Supported | Accelerated networking can be enabled on the recovery VM only if it's enabled on the source VM also. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 Palo Alto Network Appliance | Not supported | With third-party appliances, there are often restrictions imposed by the provider inside the Virtual Machine. Azure Site Recovery needs agent, extensions, and outbound connectivity to be available. But the appliance doesn't let any outbound activity to be configured inside the Virtual Machine.
-IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are supported. However, Azure Site Recovery uses any free IPv4 address available, if there are no free IPv4 addresses in the subnet, then the configuration is not supported.
+IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are supported. However, Azure Site Recovery uses any free IPv4 address available, if there are no free IPv4 addresses in the subnet, then the configuration isn't supported.
 Private link access to Site Recovery service | Supported | [Learn more](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 Tags  | Supported | User-generated tags on NICs are replicated every 24 hours.
 
