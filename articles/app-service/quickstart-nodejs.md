@@ -199,7 +199,7 @@ az webapp up --sku F1 --name <app-name> --os-type Windows
 - The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument. 
 - If you see the error, "Could not auto-detect the runtime stack of your app," ensure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md).)
 
-The command might take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing Zip deployment. It then returns a message which includes the app's URL on Azure.
+The command might take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing Zip deployment. It then returns a message that includes the app's URL, which is the app's URL on Azure.
 
 <pre>
 The webapp '&lt;app-name>' doesn't exist
@@ -212,7 +212,7 @@ Creating zip with contents of dir /home/cephas/myExpressApp ...
 Getting scm site credentials for zip deployment
 Starting zip deployment. This operation can take a while to complete ...
 Deployment endpoint responded with status code 202
-You can launch the app at '&lt;URL>'
+You can launch the app at &lt;URL>
 {
   "URL": "&lt;URL>",
   "appserviceplan": "&lt;app-service-plan-name>",
