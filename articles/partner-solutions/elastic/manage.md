@@ -73,9 +73,9 @@ To monitor multiple subscriptions:
 
 Once the subscription is added, the status changes to *Active*.  
 
-### Remove subscriptions from a Elastic resource
+### Remove subscriptions
 
-To unlink subscriptions from a Elastic resource:
+To unlink subscriptions from an Elastic resource:
 
 1. Select **Elastic deployment configuration > Monitored Subscriptions** from the service menu. 
 
