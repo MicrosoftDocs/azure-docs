@@ -34,8 +34,8 @@ The File System connector has different versions, based on [logic app type and h
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector differs in the following ways: <br><br>- The built-in connector supports only Standard logic apps that run in an App Service Environment v3 with Windows plans only. <br><br>- The built-in version can connect directly to a file share and access Azure virtual networks by using a connection string without an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [File System built-in connector reference](/azure/logic-apps/connectors/built-in/reference/filesystem/) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Shared**. For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Shared**, and built-in connector, which appears in the connector gallery under **Built-In** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector differs in the following ways: <br><br>- The built-in connector supports only Standard logic apps that run in an App Service Environment v3 with Windows plans only. <br><br>- The built-in version can connect directly to a file share and access Azure virtual networks by using a connection string without an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [File System built-in connector reference](/azure/logic-apps/connectors/built-in/reference/filesystem/) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ The File System connector has different versions, based on [logic app type and h
 
    The following example shows the connection information for the File System managed connector trigger:
 
-   :::image type="content" source="media/file-system/file-system-connection-consumption.png" alt-text="Screenshot showing Consumption workflow designer and connection information for File System managed connector trigger.":::
+   :::image type="content" source="media/file-system/file-system-connection-consumption.png" alt-text="Screenshot showing Consumption workflow designer and connection information for File System managed connector trigger." lightbox="media/file-system/file-system-connection-consumption.png":::
 
 1. When you're done, select **Create new**.
 
@@ -115,11 +115,11 @@ The File System connector has different versions, based on [logic app type and h
 
       For this example, select the folder path on your file system server to check for a newly created file. Specify the number of files to return and how often you want to check.
 
-      :::image type="content" source="media/file-system/trigger-file-system-when-file-created-consumption.png" alt-text="Screenshot showing Consumption workflow designer and the trigger named When a file is created.":::
+      :::image type="content" source="media/file-system/trigger-file-system-when-file-created-consumption.png" alt-text="Screenshot showing Consumption workflow designer and the trigger named When a file is created." lightbox="media/file-system/trigger-file-system-when-file-created-consumption.png":::
 
    1. To test your workflow, add an Outlook action that sends you an email when a file is created on the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
-      :::image type="content" source="media/file-system/trigger-file-system-send-email-consumption.png" alt-text="Screenshot showing Consumption workflow designer, managed connector trigger named When a file is created, and action named Send an email.":::
+      :::image type="content" source="media/file-system/trigger-file-system-send-email-consumption.png" alt-text="Screenshot showing Consumption workflow designer, managed connector trigger named When a file is created, and action named Send an email." lightbox="media/file-system/trigger-file-system-send-email-consumption.png":::
 
       > [!TIP]
       >
@@ -157,7 +157,7 @@ The following steps apply only to Standard logic app workflows in an App Service
 
    The following example shows the connection information for the File System built-in connector trigger:
 
-   :::image type="content" source="media/file-system/trigger-file-system-connection-built-in-standard.png" alt-text="Screenshot showing Standard workflow designer and connection information for File System built-in connector trigger.":::
+   :::image type="content" source="media/file-system/trigger-file-system-connection-built-in-standard.png" alt-text="Screenshot showing Standard workflow designer and connection information for File System built-in connector trigger." lightbox="media/file-system/trigger-file-system-connection-built-in-standard.png":::
 
 1. When you're done, select **Create new**.
 
@@ -173,7 +173,7 @@ The following steps apply only to Standard logic app workflows in an App Service
 
    1. To test your workflow, add an Outlook action that sends you an email when a file is added to the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
-      :::image type="content" source="media/file-system/trigger-send-email-built-in-standard.png" alt-text="Screenshot showing Standard workflow designer, managed connector trigger named When a file is added, and action named Send an email.":::
+      :::image type="content" source="media/file-system/trigger-send-email-built-in-standard.png" alt-text="Screenshot showing Standard workflow designer, managed connector trigger named When a file is added, and action named Send an email." lightbox="media/file-system/trigger-send-email-built-in-standard.png":::
 
       > [!TIP]
       >
@@ -208,7 +208,7 @@ If successful, your workflow sends an email about the new file.
 
    The following example shows the connection information for the File System managed connector trigger:
 
-   :::image type="content" source="media/file-system/trigger-file-system-connection-managed-standard.png" alt-text="Screenshot showing Standard workflow designer and connection information for File System managed connector trigger.":::
+   :::image type="content" source="media/file-system/trigger-file-system-connection-managed-standard.png" alt-text="Screenshot showing Standard workflow designer and connection information for File System managed connector trigger." lightbox="media/file-system/trigger-file-system-connection-managed-standard.png":::
 
 1. When you're done, select **Create**.
 
@@ -220,11 +220,11 @@ If successful, your workflow sends an email about the new file.
 
       For this example, select the folder path on your file system server to check for a newly created file. Specify the number of files to return and how often you want to check.
 
-      :::image type="content" source="media/file-system/trigger-when-file-created-managed-standard.png" alt-text="Screenshot showing Standard workflow designer and managed connector trigger named When a file is created.":::
+      :::image type="content" source="media/file-system/trigger-when-file-created-managed-standard.png" alt-text="Screenshot showing Standard workflow designer and managed connector trigger named When a file is created." lightbox="media/file-system/trigger-when-file-created-managed-standard.png":::
 
    1. To test your workflow, add an Outlook action that sends you an email when a file is created on the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
-      :::image type="content" source="media/file-system/trigger-send-email-managed-standard.png" alt-text="Screenshot showing Standard workflow designer, managed connector trigger named When a file is created, and action named Send an email.":::
+      :::image type="content" source="media/file-system/trigger-send-email-managed-standard.png" alt-text="Screenshot showing Standard workflow designer, managed connector trigger named When a file is created, and action named Send an email." lightbox="media/file-system/trigger-send-email-managed-standard.png":::
 
       > [!TIP]
       >
@@ -271,7 +271,7 @@ The example logic app workflow starts with the [Dropbox trigger](/connectors/dro
 
    1. To test your workflow, add an Outlook action that sends you an email when the File System action creates a file. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
-      :::image type="content" source="media/file-system/trigger-file-system-send-email-consumption.png" alt-text="Screenshot showing Consumption workflow designer, managed connector Create file action, and Send an email action.":::
+      :::image type="content" source="media/file-system/trigger-file-system-send-email-consumption.png" alt-text="Screenshot showing Consumption workflow designer, managed connector Create file action, and Send an email action." lightbox="media/file-system/trigger-file-system-send-email-consumption.png":::
 
 1. When you're done, save your workflow.
 
@@ -307,11 +307,11 @@ These steps apply only to Standard logic apps in an App Service Environment v3 w
 
       When you're done, the **File Content** trigger output appears in the **File content** parameter:
 
-      :::image type="content" source="media/file-system/action-file-system-create-file-built-in-standard.png" alt-text="Screenshot showing Standard workflow designer and the File System built-in connector Create file action.":::
+      :::image type="content" source="media/file-system/action-file-system-create-file-built-in-standard.png" alt-text="Screenshot showing Standard workflow designer and the File System built-in connector Create file action." lightbox="media/file-system/action-file-system-create-file-built-in-standard.png":::
 
    1. To test your workflow, add an Outlook action that sends you an email when the File System action creates a file. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
-      :::image type="content" source="media/file-system/action-file-system-send-email-built-in-standard.png" alt-text="Screenshot showing Standard workflow designer, built-in connector Create file action, and Send an email action.":::
+      :::image type="content" source="media/file-system/action-file-system-send-email-built-in-standard.png" alt-text="Screenshot showing Standard workflow designer, built-in connector Create file action, and Send an email action." lightbox="media/file-system/action-file-system-send-email-built-in-standard.png":::
 
 1. When you're done, save your workflow.
 
@@ -343,11 +343,11 @@ If successful, your workflow creates a file on your file system server, based on
 
       When you're done, the **File Content** trigger output appears in the **File content** parameter:
 
-      :::image type="content" source="media/file-system/action-file-system-create-file-managed-standard.png" alt-text="Screenshot showing Standard workflow designer and the File System managed connector Create file action.":::
+      :::image type="content" source="media/file-system/action-file-system-create-file-managed-standard.png" alt-text="Screenshot showing Standard workflow designer and the File System managed connector Create file action." lightbox="media/file-system/action-file-system-create-file-managed-standard.png":::
 
    1. To test your workflow, add an Outlook action that sends you an email when the File System action creates a file. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
-      :::image type="content" source="media/file-system/action-file-system-send-email-managed-standard.png" alt-text="Screenshot showing Standard workflow designer, managed connector Create file action, and Send an email action.":::
+      :::image type="content" source="media/file-system/action-file-system-send-email-managed-standard.png" alt-text="Screenshot showing Standard workflow designer, managed connector Create file action, and Send an email action." lightbox="media/file-system/action-file-system-send-email-managed-standard.png":::
 
 1. When you're done, save your workflow.
 

@@ -73,7 +73,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    You can add other available parameters, such as **Time zone**.
 
-   :::image type="content" source="media/connectors-create-api-office365-outlook/calendar-settings-consumption.png" alt-text="Screenshot showing the Consumption workflow trigger parameters.":::
+   :::image type="content" source="media/connectors-create-api-office365-outlook/calendar-settings-consumption.png" alt-text="Screenshot showing the Consumption workflow trigger parameters." lightbox="media/connectors-create-api-office365-outlook/calendar-settings-consumption.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -104,7 +104,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    You can add other available parameters, such as **Time zone**.
 
-   :::image type="content" source="media/connectors-create-api-office365-outlook/calendar-settings-standard.png" alt-text="Screenshot showing the Standard workflow trigger parameters.":::
+   :::image type="content" source="media/connectors-create-api-office365-outlook/calendar-settings-standard.png" alt-text="Screenshot showing the Standard workflow trigger parameters." lightbox="media/connectors-create-api-office365-outlook/calendar-settings-standard.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -145,7 +145,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    This example selects the **Contacts** folder where the action creates the new contact and uses trigger outputs for the remaining parameter values:
 
-   :::image type="content" source="media/connectors-create-api-office365-outlook/create-contact-consumption.png" alt-text="Screenshot showing the Consumption workflow action parameters.":::
+   :::image type="content" source="media/connectors-create-api-office365-outlook/create-contact-consumption.png" alt-text="Screenshot showing the Consumption workflow action parameters." lightbox="media/connectors-create-api-office365-outlook/create-contact-consumption.png":::
 
    To add other available parameters, select the **Advanced parameters** dropdown, and choose the parameters that you want.
 
@@ -178,7 +178,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    This example selects the **Contacts** folder where the action creates the new contact and uses trigger outputs for the remaining parameter values:
 
-   :::image type="content" source="media/connectors-create-api-office365-outlook/create-contact-standard.png" alt-text="Screenshot showing the Standard workflow action parameters.":::
+   :::image type="content" source="media/connectors-create-api-office365-outlook/create-contact-standard.png" alt-text="Screenshot showing the Standard workflow action parameters." lightbox="media/connectors-create-api-office365-outlook/create-contact-standard.png":::
 
    To add other available parameters, select the **Advanced parameters** dropdown, and choose the parameters that you want.
 

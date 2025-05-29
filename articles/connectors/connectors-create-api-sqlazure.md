@@ -37,8 +37,8 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector differs in the following ways: <br><br>- The built-in connector can directly connect to a SQL database and access Azure virtual networks by using a connection string without an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Shared**. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Shared**, and built-in connector, which appears in the connector gallery under **Built-In** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector differs in the following ways: <br><br>- The built-in connector can directly connect to a SQL database and access Azure virtual networks by using a connection string without an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ### Limitations
 
@@ -119,7 +119,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Follow these [general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger) to add the [SQL Server managed trigger you want](/connectors/sql/#triggers).
 
-   This example continues with the trigger named **When an item is created**. You can find this trigger by using the search field.
+   This example continues with the trigger named **When an item is created**. You can find this trigger under **SQL Server**.
 
 1. If prompted, provide the [information for your connection](#create-connection). When you're done, select **Create new**.
 
@@ -127,7 +127,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    For this example, in the trigger named **When an item is created**, provide the values for the SQL server name and database name, if you didn't previously provide them. Otherwise, from the **Table name** list, select the table that you want to use. Select the **Frequency** and **Interval** to set the schedule for the trigger to check for new items.
 
-   :::image type="content" source="media/connectors-create-api-sqlazure/when-item-created-consumption.png" alt-text="Screenshot shows Consumption workflow designer and managed action named When an item is created.":::
+   :::image type="content" source="media/connectors-create-api-sqlazure/when-item-created-consumption.png" alt-text="Screenshot shows Consumption workflow designer and managed action named When an item is created." lightbox="media/connectors-create-api-sqlazure/when-item-created-consumption.png":::
 
 1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
 
@@ -212,7 +212,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    For this example, the table name is **SalesLT.Customer**.
 
-   :::image type="content" source="media/connectors-create-api-sqlazure/specify-table-row-id-standard.png" alt-text="Screenshot shows Standard workflow designer and managed action named Get row with example table name and empty row ID.":::
+   :::image type="content" source="media/connectors-create-api-sqlazure/specify-table-row-id-standard.png" alt-text="Screenshot shows Standard workflow designer and managed action named Get row with example table name and empty row ID." lightbox="media/connectors-create-api-sqlazure/specify-table-row-id-standard.png":::
 
    This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, review the [managed connector's reference page](/connectors/sql/).
 
@@ -286,11 +286,11 @@ In the connection information box, complete the following steps:
 
    **Consumption workflows**
 
-   :::image type="content" source="media/connectors-create-api-sqlazure/azure-sql-database-information-consumption.png" alt-text="Screenshot shows SQL cloud database cloud information with sample values for Consumption.":::
+   :::image type="content" source="media/connectors-create-api-sqlazure/azure-sql-database-information-consumption.png" alt-text="Screenshot shows SQL cloud database cloud information with sample values for Consumption." lightbox="media/connectors-create-api-sqlazure/azure-sql-database-information-consumption.png":::
 
    **Standard workflows**
 
-   :::image type="content" source="media/connectors-create-api-sqlazure/azure-sql-database-information-standard.png" alt-text="Screenshot shows SQL cloud database information with sample values for Standard.":::
+   :::image type="content" source="media/connectors-create-api-sqlazure/azure-sql-database-information-standard.png" alt-text="Screenshot shows SQL cloud database information with sample values for Standard." lightbox="media/connectors-create-api-sqlazure/azure-sql-database-information-standard.png":::
 
 1. Now, continue with the steps that you haven't completed yet in either [Add a SQL trigger](#add-sql-trigger) or [Add a SQL action](#add-sql-action).
 
@@ -334,11 +334,11 @@ In the connection information box, complete the following steps:
 
    **Consumption workflows**
 
-   :::image type="content" source="media/connectors-create-api-sqlazure/select-windows-authentication-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow, and SQL Server on-premises connection information with selected authentication.":::
+   :::image type="content" source="media/connectors-create-api-sqlazure/select-windows-authentication-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow, and SQL Server on-premises connection information with selected authentication." lightbox="media/connectors-create-api-sqlazure/select-windows-authentication-consumption.png":::
 
    **Standard workflows**
 
-   :::image type="content" source="media/connectors-create-api-sqlazure/select-windows-authentication-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow, and SQL Server on-premises connection information with selected authentication.":::
+   :::image type="content" source="media/connectors-create-api-sqlazure/select-windows-authentication-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow, and SQL Server on-premises connection information with selected authentication." lightbox="media/connectors-create-api-sqlazure/select-windows-authentication-standard.png":::
 
 1. When you're ready, select **Create**.
 
