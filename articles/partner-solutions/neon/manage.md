@@ -35,7 +35,7 @@ Single sign-on (SSO) is already enabled when you create your Neon resource.
 [!INCLUDE [sso](../includes/sso.md)]
 
 > [!NOTE] 
-> The first time you access this URL, depending on your Azure tenant settings, you might be asked to check your email address on the Neon portal. Once the email address is verified, you can access the Neon portal.
+> The first time you access this URL, depending on your Azure tenant settings, you might be asked to verify your email address on the Neon portal. Once the email address is verified, you can access the Neon portal.
 
 ## Projects
 
