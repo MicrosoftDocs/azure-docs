@@ -97,7 +97,7 @@ To monitor resources for virtual machines, select **Elastic deployment configura
 
 ## Connect Azure OpenAI service with Elastic
 
-To configure Azure Open AI, select **Elastic deployment configuration > Azure OpenAI configuration**. 
+To configure Azure OpenAI, select **Elastic deployment configuration > Azure OpenAI configuration**. 
 
 1. From the working pane's command bar, select **Add**. 
 
