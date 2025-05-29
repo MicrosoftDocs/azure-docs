@@ -4,7 +4,7 @@ description: Learn how to protect against common API-based vulnerabilities, as i
 author: mikebudzynski
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 10/29/2024
+ms.date: 05/30/2025
 ms.author: mibudz
 ---
 
@@ -195,7 +195,7 @@ More information about this threat: [API8:2023 Security misconfiguration](https
 - Where possible, use credential manager or managed identity to authenticate against backend services.
 - When using the [developer portal](/azure/api-management/api-management-howto-developer-portal):
     - If you choose to [self-host](/azure/api-management/developer-portal-self-host) the developer portal, ensure there's a process in place to periodically update the self-hosted portal to the latest version. Updates for the default managed version are automatic.
-    - Use [Microsoft Entra ID](/azure/api-management/api-management-howto-aad) or [Azure Active Directory B2C](/azure/api-management/api-management-howto-aad-b2c) for user sign-up and sign-in. Disable the default username and password authentication, which is less secure.
+    - Use [Microsoft Entra ID](/azure/api-management/api-management-howto-aad) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam) for user sign-up and sign-in. Disable the default username and password authentication, which is less secure.
     - Assign [user groups](/azure/api-management/api-management-howto-create-groups#-associate-a-group-with-a-product) to products, to control the visibility of APIs in the portal.
 - Use [Azure Policy](/azure/api-management/security-controls-policy) to enforce API Management resource-level configuration and role-based access control (RBAC) permissions to control resource access. Grant minimum required privileges to every user.
 - Use a [DevOps process](/azure/api-management/devops-api-development-templates) and infrastructure-as-code approach outside of a development environment to ensure consistency of API Management content and configuration changes and to minimize human errors.
