@@ -10,7 +10,7 @@ ms.date: 05/06/2025
 
 This article describes how to manage a Neon resource in the Azure portal.
 
-## Open a resource overview
+## Resource overview
 
 [!INCLUDE [manage](../includes/manage.md)]
 
@@ -23,19 +23,22 @@ The details under **Essentials** include:
 - Subscription
 - Subscription ID
 - Tags
+- Portal URL
+- Resource ID
+- Status
+- Subscribed plan
 
 To manage your resource, select the links next to the corresponding details.
 
 Below the essentials, you can go to other details about your resource by selecting the links.
 
-## Establish single sign-on
+## Access a Neon account
 
-Single sign-on (SSO) is already enabled when you create your Neon resource.
+To access your Neon account, select **Neon Console** on the working pane.
 
-[!INCLUDE [sso](../includes/sso.md)]
+:::image type="content" source="media/manage/set-password.png" alt-text="Screenshot of a Neon resource overview in the Azure portal. The Neon Console link is emphasized.":::
 
-> [!NOTE]
-> The first time you access this URL, depending on your Azure tenant settings, you might be asked to verify your email address in the Neon portal. After the email address is verified, you can access the Neon portal.
+If you don't have a Neon account for your Azure email address, you're prompted to configure your account and set a password.
 
 ## View and create projects
 
@@ -105,7 +108,7 @@ To generate a connection string:
 
     :::image type="content" source="media/manage/connect.png" alt-text="Screenshot of the options for connecting to a database, with the copy icon emphasized.":::
 
-## Delete a Neon resource
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 

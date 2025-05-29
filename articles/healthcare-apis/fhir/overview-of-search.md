@@ -137,7 +137,7 @@ FHIR specifies a set of search result parameters to help manage the information 
 | `_contained`                    | No                   | No                        | |
 | `_containedType`                | No                   | No                        | |
 | `_score`                        | No                   | No                        | |
-
+| `_not-referenced`			      | Yes                  | No                        | `_not-referenced=*:*` to search for resources that are not referenced by any other resources. For example, `/Patient?_not-referenced=*:*` is used to search for Patient resources that are not referenced by any other resources.|
 Note:
 1. By default, `_sort` arranges records in ascending order. You can also use the prefix `-` to sort in descending order. The FHIR service only allows you to sort on a single field at a time.
 1. FHIR service supports wild card searches with revinclude. Adding a "*.*" query parameter in a revinclude query directs the FHIR service to reference all the resources mapped to the source resource.

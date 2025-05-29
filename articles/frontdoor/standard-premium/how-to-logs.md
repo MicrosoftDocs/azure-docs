@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 05/21/2025
 ---
 
 # Configure Azure Front Door logs
@@ -26,19 +26,22 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
 
 1. In **Diagnostic setting**, enter a name for **Diagnostic setting name**.
 
-1. Select the **log** options for **FrontDoor Access Log**, **FrontDoor Health Probe Log**, and **FrontDoor WebApplicationFirewall Log**.
+1. Under **Logs**, select **audit**, **allLogs**, or the individual log you want. Available logs are: **FrontDoor Access Log**, **FrontDoor Health Probe Log**, and **FrontDoor WebApplicationFirewall Log**.
 
 1. Select the **Destination details**. The destination options are: 
 
-    * **Send to Log Analytics**
-      * Azure Log Analytics in Azure Monitor is best used for general real-time monitoring and analysis of Azure Front Door performance.
-      * Select the *Subscription* and *Log Analytics workspace*.
-    * **Archive to a storage account**
-      * Storage accounts are best used for scenarios when logs are stored for a longer duration and are reviewed when needed.
-      * Select the *Subscription* and the *Storage Account*. and set **Retention (days)**.
-    * **Stream to an event hub**
-      * Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, Datadog, or Sumo. 
-      * Select the *Subscription*, *Event hub namespace*, *Event hub name (optional)*, and *Event hub policy name*. 
+    - **Send to Log Analytics**
+      - Azure Log Analytics in Azure Monitor is best used for general real-time monitoring and analysis of Azure Front Door performance.
+      - Select the *Subscription* and *Log Analytics workspace*.
+    - **Archive to a storage account**
+      - Storage accounts are best used for scenarios when logs are stored for a longer duration and are reviewed when needed.
+      - Select the *Subscription* and *Storage Account*.
+    - **Stream to an event hub**
+      - Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, Datadog, or Sumo. 
+      - Select the *Subscription*, *Event hub namespace*, *Event hub name (optional)*, and *Event hub policy name*. 
+    - **Send to partner solution**
+      - Partner solutions are fully integrated solutions with Azure. For more information, see [Destinations in Azure Monitor diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings#destinations) and [Azure Monitor partner solutions](/azure/partner-solutions/partners#observability).
+      - Select the *Subscription* and *Destination*.
 
     > [!TIP]
     > Microsoft recommends using Log Analytics for real-time monitoring and analysis of Azure Front Door performance.

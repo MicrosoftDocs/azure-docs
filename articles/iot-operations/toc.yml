@@ -259,8 +259,8 @@ items:
         - name: Add OPC UA assets to your cluster
           href: end-to-end-tutorials/tutorial-add-assets.md
           displayName: tutorial, e2e, end-to-end, asset, asset endpoint, OPC UA, connector, MQTT
-        - name: Upload data to the cloud
-          href: end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md
+        - name: Upload sensor data to the cloud
+          href: end-to-end-tutorials/tutorial-upload-messages-to-cloud.md
           displayName: tutorial, e2e, end-to-end, asset, asset endpoint, OPC UA, connector, MQTT
         - name: Get insights from your data
           href: end-to-end-tutorials/tutorial-get-insights.md
