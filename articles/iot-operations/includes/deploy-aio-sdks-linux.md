@@ -17,5 +17,5 @@ ms.author: sergaz
 
 1. Follow the instructions in [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy Azure IoT Operations to your cluster.
 
-> [!NOTE]
-> You can start with test settings, and then [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) later.
+    > [!NOTE]
+    > You can start with test settings, and then [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) later.

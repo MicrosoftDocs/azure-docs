@@ -25,7 +25,7 @@ Before you begin, prepare the following prerequisites:
 
 ## Setting up
 
-Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow MQTT broker to be accessed directly from the developer environment. The following development environment setup options use [k3d](https://k3d.io/#what-is-k3d) to simplify Kubernetes cluster creation. Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
+Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow MQTT broker to be accessed directly from the developer environment. The following development environment setup options use [k3d](https://k3d.io/#what-is-k3d) to simplify Kubernetes cluster creation. GitHub Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
 
 ### [Codespaces](#tab/codespaces)
 
@@ -154,10 +154,10 @@ Azure IoT Operations will be deployed on the development cluster that you create
 
 ### [Codespaces](#tab/codespaces)
 
-1. Follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md#connect-cluster-to-azure-arc) to connect your cluster to Azure Arc, create a storage account and schema registry, and deploy Azure IoT Operations.
+Follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md#connect-cluster-to-azure-arc) to connect your cluster to Azure Arc, create a storage account and schema registry, and deploy Azure IoT Operations.
 
 > [!NOTE]
-> The Codespaces environment already has the cluster created, so you can skip the **Create cluster** step in the quickstart.
+> The Codespaces environment already has the cluster created, so you can skip the [create cluster](../get-started-end-to-end-sample/quickstart-deploy.md#create-cluster) step in the quickstart.
 
 ### [Ubuntu](#tab/ubuntu)
 
