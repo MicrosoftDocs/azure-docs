@@ -52,9 +52,11 @@ The following diagram illustrates the Nok Nok solution as an IdP for Azure AD B2
 ### Scenario 2: Passkey authentication
 1. The user selects the sign-in with Nok Nok Cloud button on the Azure AD B2C sign-in page.
 2. Azure AD B2C redirects the user to the Nok Nok sign-in app.
-3. The user authenticates with their passkey.
-4. The Nok Nok server validates the passkey assertion and sends an OIDC authentication response to Azure AD B2C.
-5. Based on the authentication result, Azure AD B2C either grants or denies access to the target application.
+3. The user requests passkey authentication
+4. The user authenticates with their passkey.
+5. The Nok Nok Cloud validates the passkey assertion
+6. The Nok Nok Cloud sends an OIDC authentication response to Azure AD B2C.
+7. Based on the authentication result, Azure AD B2C either grants or denies access to the target application.
 
 ## Get started with Nok Nok
 
@@ -124,6 +126,20 @@ For the following instructions, Nok Nok is a new OIDC IdP in the B2C identity pr
 8. Verify that you received the token after authentication.
 
 If the flow is incomplete, confirm the user is or isn't saved in the directory.
+
+## Alternate Flow
+
+The following diagram illustrates an alternate passkey sign in or sign up flow using the id_token_hint feature of Azure AD B2C. With this approach, an Azure custom policy verifies the ID Token Hint produced by Nok Nok Cloud. For more details, please refer to the article, [Define an ID token hint technical profile in an Azure Active Directory B2C custom policy](https://learn.microsoft.com/en-us/azure/active-directory-b2c/id-token-hint). Please contact Nok Nok support for help with integrated the required Azure custom policy.
+
+The following are the steps
+1. The user selects the sign-in with Nok Nok Cloud button.
+2. The Nok Nok Cloud request passkey authentication.
+3. The user authenticates with their passkey.
+4. The Nok Nok Cloud validates the passkey assertion
+5. The ID Token Hint is returned
+6. The App sends the ID Token Hint to Azure AD B2C
+7. Azure Custom Policy verifies the ID Token Hint
+8. Based on the authentication result, Azure AD B2C either grants or denies access to the target application.
 
 ## Next steps
 
