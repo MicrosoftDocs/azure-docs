@@ -84,7 +84,7 @@ As average churn on the disks increases, the number of disks that a storage acco
 >
 > When you enable replication via the virtual machine workflow for cross subscription, the portal only lists the cache storage account from the source subscription, but doesn't list any storage account created in the target subscription. To set up this scenario, use [PowerShell](azure-to-azure-powershell.md).
 >
-> Azure Site Recovery isn't supported for VMs with Premium SSD v2 disks.
+> Azure Site Recovery is now supported for VMs with Premium SSD v2 disks.
 
 ## Replicated machine operating systems
 
