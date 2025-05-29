@@ -51,10 +51,6 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
     
     1. Confirm the creation of a system managed identity for your Front Door profile by selecting **Yes** when prompted.
     
-    1. Once created and registered with Microsoft Entra ID, use the **Object (principal) ID** to grant Azure Front Door access to your origin.
-    
-        :::image type="content" source="./media/managed-identity/system-assigned-created.png" alt-text="Screenshot of the system assigned managed identity registered with Microsoft Entra ID.":::
-    
     ### User assigned
 
     To use a user-assigned managed identity, you must have one already created. For instructions on creating a new identity, see [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
