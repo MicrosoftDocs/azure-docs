@@ -105,7 +105,7 @@ To generate a connection string:
 
     :::image type="content" source="media/manage/connect.png" alt-text="Screenshot of the options for connecting to a database, with the copy icon emphasized.":::
 
-## Delete a Neon resource
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
