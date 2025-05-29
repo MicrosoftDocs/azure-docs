@@ -2,7 +2,7 @@
 title: Manage a MongoDB Atlas Resource Through the Azure portal
 description: This article describes management functions for MongoDB Atlas in the Azure portal.
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 05/29/2025
 ---
 
 # Manage a MongoDB Atlas resource
