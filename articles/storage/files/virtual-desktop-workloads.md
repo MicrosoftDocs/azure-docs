@@ -4,15 +4,13 @@ description: Learn how to use SMB Azure file shares for virtual desktop workload
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/27/2025
+ms.date: 05/29/2025
 ms.author: kendownie
 ---
 
 # Azure Files guidance for virtual desktop workloads
 
-This article provides guidance for running virtual desktop workloads on Azure Files.
-
-In most scenarios, Azure Files is the recommended file storage solution for a virtual desktop environment. Its fully managed file shares provide excellent value and minimize maintenance on your part. However, you must make sure the capacity, IOPS, and latency meet your needs. You’ll also want to pay careful attention to [virtual machine (VM) and disk sizing](/azure/well-architected/azure-virtual-desktop/storage#vm-and-disk-sizing).
+Azure Files is the recommended file storage solution for a virtual desktop environment. Azure Files is ideal for [Azure Virtual Desktop](/azure/virtual-desktop/overview) (AVD) because it provides fully managed, scalable file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) for dynamic application delivery. It reduces infrastructure overhead, ensures high availability, supports enterprise-grade security, and delivers consistent performance for a smooth user experience across virtual sessions.
 
 ## Applies to
 
@@ -22,39 +20,35 @@ In most scenarios, Azure Files is the recommended file storage solution for a vi
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-## Role of file storage in virtual desktop workloads
-
-A popular use case for Azure Files is storing user profile containers and disk images for [Azure Virtual Desktop](/azure/virtual-desktop/overview) using [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) or [App Attach](/azure/virtual-desktop/app-attach-overview), which provide roaming user profiles and enable dynamic application delivery, respectively. You can store FSLogix and App Attach containers on Azure file shares using the SMB protocol.
-
 ## Prerequisites
 
-To use Azure Files for Azure Virtual Desktop, you'll need an Azure subscription with the following Azure role-based access control (RBAC) roles assigned to the subscription as a minimum. To learn how to assign roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+To use Azure Files for Azure Virtual Desktop, you'll need a storage account that's in the same Azure region and resource group as your Azure Virtual Desktop host pool.
 
-- Contributor
-- User access administrator
+## Availability and disaster recovery
 
-You'll also need a storage account that's in the same Azure region and resource group as your Azure Virtual Desktop host pool.
+Before you select an [Azure region](/azure/reliability/regions-list) for your virtual desktop workload, you should be aware of its regional compliance and data residency requirements.
 
-## Region selection
+Another important consideration in region selection is latency. It's generally best to centralize all necessary virtual desktop resources, including user profiles, in the same Azure region and subscription as your Azure Virtual Desktop host pool. If you deploy file shares in a region that's far from your users, it can increase latency and degrade performance. It can also increase the cost of data transfer between regions.
 
-Before you select an [Azure region](/azure/reliability/regions-list) for your virtual desktop workload, you should be aware of its regional compliance and data residency requirements. Another important consideration in region selection is latency. It's generally best to centralize all necessary virtual desktop resources, including user profiles, in the same Azure region and subscription as your host pool. If you deploy file shares in a region that's far from your users, it can increase latency and degrade performance. It can also increase the cost of data transfer between regions.
-
-## Capacity, redundancy, and performance
-
-Azure Files offers both HDD (standard) and SSD (premium) file shares, as well as different billing models. Keep in mind that SSD Azure file shares don’t offer geo-redundancy or a pay-as-you-go billing model. See [Azure Files redundancy](files-redundancy.md) and [Understand Azure Files billing](understanding-billing.md).
+Azure Files offers both HDD (standard) and SSD (premium) file shares. Keep in mind that SSD Azure file shares don’t offer geo-redundancy. See [Azure Files redundancy](files-redundancy.md) for more information about the different redundancy options available for Azure Files.
 
 > [!NOTE]
 > Azure Files supports SSD file shares in a subset of Azure regions. See [Azure Files redundancy support for SSD file shares](redundancy-premium-file-shares.md) for more information.
 
+## Performance, scale, and cost
+
+Azure Files offers different billing models, including provisioned and pay-as-you-go. See [Understand Azure Files billing](understanding-billing.md).
+
 While Azure Files can support thousands of concurrent virtual desktop users from a single file share, it's critical to properly test your workloads against the size and type of file share you're using. Your requirements might vary based on number of users and profile size.
 
-The following table lists our general recommendations based on the number of concurrent users:
+The following table lists our general recommendations based on the number of concurrent users. This table is based on the assumption that the user profile has a capacity of 5 GiB and a performance of 50 IOPS during sign in and 20 IOPS during steady state.
 
 | **Number of virtual desktop users** | **Recommended file storage** |
 |------------------------------------------------|------------------------------|
-| Fewer than 200 concurrent users                | HDD file share              |
-| 200-500 concurrent users                       | SSD file share or multiple HDD shares |
-| More than 500 concurrent users                 | Multiple SSD file shares |
+| Less than 400 concurrent users                | HDD pay-as-you-go file shares              |
+| 400-1,000 concurrent users                       | HDD provisioned v2 file shares or multiple HDD pay-as-you-go file shares  |
+| 1,000-2,000 concurrent users                 | SSD or multiple HDD file shares |
+| More than 2,000 concurrent users             | Multiple SSD file shares |
 
 ## Azure Files sizing guidance for Azure Virtual Desktop
 
@@ -97,6 +91,8 @@ You can use one of the following three identity sources to authenticate users to
 - [Microsoft Entra Kerberos](/fslogix/how-to-configure-profile-container-entra-id-hybrid) (hybrid identities only): This option requires an existing AD DS deployment, which is then synced to your Microsoft Entra tenant so that Microsoft Entra ID can authenticate your hybrid identities. It's a good fit for virtual desktop workloads because it doesn't require users to have unimpeded network connectivity to domain controllers. With this option, you can store profiles that can be accessed by hybrid user identities from Microsoft Entra joined or Microsoft Entra hybrid joined session hosts.
 
 - [Microsoft Entra Domain Services](/fslogix/how-to-configure-profile-container-azure-files-active-directory): If you don't have an AD DS and need to authenticate cloud-only identities, choose this option.
+
+To configure storage permissions, see [Configure SMB storage permissions for FSLogix](/fslogix/how-to-configure-storage-permissions).
 
 ## See also
 
