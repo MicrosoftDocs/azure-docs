@@ -257,90 +257,142 @@ Use [New-AzFirewall](/powershell/module/az.network/new-azfirewall) to create Azu
 
 Use [az group create](/cli/azure/group#az_group_create) to create a resource group.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+LOCATION="southcentralus"
+
 az group create \
-	--name test-rg \
-	--location southcentralus
+	--name $RESOURCE_GROUP \
+	--location $LOCATION
 ```
 
 Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create the hub virtual network.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+VNET_HUB_NAME="vnet-hub"
+VNET_HUB_ADDRESS_PREFIX="10.0.0.0/16"
+SUBNET_1_NAME="subnet-1"
+SUBNET_1_PREFIX="10.0.0.0/24"
+
 az network vnet create \
-	--resource-group test-rg \
-	--name vnet-hub \
-	--address-prefix 10.0.0.0/16 \
-	--subnet-name subnet-1 \
-	--subnet-prefix 10.0.0.0/24
+	--resource-group $RESOURCE_GROUP \
+	--name $VNET_HUB_NAME \
+	--address-prefix $VNET_HUB_ADDRESS_PREFIX \
+	--subnet-name $SUBNET_1_NAME \
+	--subnet-prefix $SUBNET_1_PREFIX
 ```
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a subnet for Azure Bastion.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+VNET_HUB_NAME="vnet-hub"
+BASTION_SUBNET_NAME="AzureBastionSubnet"
+BASTION_SUBNET_PREFIX="10.0.1.0/26"
+
 az network vnet subnet create \
-	--resource-group test-rg \
-	--vnet-name vnet-hub \
-	--name AzureBastionSubnet \
-	--address-prefix 10.0.1.0/26
+	--resource-group $RESOURCE_GROUP \
+	--vnet-name $VNET_HUB_NAME \
+	--name $BASTION_SUBNET_NAME \
+	--address-prefix $BASTION_SUBNET_PREFIX
 ```
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a subnet for Azure Firewall.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+VNET_HUB_NAME="vnet-hub"
+FIREWALL_SUBNET_NAME="AzureFirewallSubnet"
+FIREWALL_SUBNET_PREFIX="10.0.1.64/26"
+
 az network vnet subnet create \
-	--resource-group test-rg \
-	--vnet-name vnet-hub \
-	--name AzureFirewallSubnet \
-	--address-prefix 10.0.1.64/26
+	--resource-group $RESOURCE_GROUP \
+	--vnet-name $VNET_HUB_NAME \
+	--name $FIREWALL_SUBNET_NAME \
+	--address-prefix $FIREWALL_SUBNET_PREFIX
 ```
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP for Azure Bastion.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+BASTION_PUBLIC_IP_NAME="public-ip-bastion"
+ALLOCATION_METHOD="Static"
+SKU="Standard"
+
 az network public-ip create \
-	--resource-group test-rg \
-	--name public-ip-bastion \
-	--allocation-method Static \
-	--sku Standard
+	--resource-group $RESOURCE_GROUP \
+	--name $BASTION_PUBLIC_IP_NAME \
+	--allocation-method $ALLOCATION_METHOD \
+	--sku $SKU
 ```
 
 Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create Azure Bastion.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+BASTION_NAME="bastion"
+BASTION_PUBLIC_IP_NAME="public-ip-bastion"
+VNET_HUB_NAME="vnet-hub"
+
 az network bastion create \
-	--resource-group test-rg \
-	--name bastion \
-	--public-ip-address public-ip-bastion \
-	--vnet-name vnet-hub
+	--resource-group $RESOURCE_GROUP \
+	--name $BASTION_NAME \
+	--public-ip-address $BASTION_PUBLIC_IP_NAME \
+	--vnet-name $VNET_HUB_NAME
 ```
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP for Azure Firewall.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+FIREWALL_PUBLIC_IP_NAME="public-ip-firewall"
+ALLOCATION_METHOD="Static"
+SKU="Standard"
+
 az network public-ip create \
-	--resource-group test-rg \
-	--name public-ip-firewall \
-	--allocation-method Static \
-	--sku Standard
+	--resource-group $RESOURCE_GROUP \
+	--name $FIREWALL_PUBLIC_IP_NAME \
+	--allocation-method $ALLOCATION_METHOD \
+	--sku $SKU
 ```
 
 Use [az network firewall policy create](/cli/azure/network/firewall/policy#az-network-firewall-policy-create) to create a firewall policy.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+FIREWALL_POLICY_NAME="firewall-policy"
+
 az network firewall policy create \
-	--resource-group test-rg \
-	--name firewall-policy
+	--resource-group $RESOURCE_GROUP \
+	--name $FIREWALL_POLICY_NAME
 ```
 
 Use [az network firewall create](/cli/azure/network/firewall#az-network-firewall-create) to create Azure Firewall.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+FIREWALL_NAME="firewall"
+VNET_HUB_NAME="vnet-hub"
+FIREWALL_POLICY_NAME="firewall-policy"
+FIREWALL_PUBLIC_IP_NAME="public-ip-firewall"
+
 az network firewall create \
-	--resource-group test-rg \
-	--name firewall \
-	--vnet-name vnet-hub \
-	--firewall-policy firewall-policy \
-	--public-ip public-ip-firewall
+	--resource-group $RESOURCE_GROUP \
+	--name $FIREWALL_NAME \
+	--vnet-name $VNET_HUB_NAME \
+	--firewall-policy $FIREWALL_POLICY_NAME \
+	--public-ip $FIREWALL_PUBLIC_IP_NAME
 ```
 
 ---
@@ -451,32 +503,50 @@ $hubVnet | Set-AzVirtualNetwork
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP for NAT gateway.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+NAT_PUBLIC_IP_NAME="public-ip-nat"
+ALLOCATION_METHOD="Static"
+SKU="Standard"
+
 az network public-ip create \
-	--resource-group test-rg \
-	--name public-ip-nat \
-	--allocation-method Static \
-	--sku Standard
+	--resource-group $RESOURCE_GROUP \
+	--name $NAT_PUBLIC_IP_NAME \
+	--allocation-method $ALLOCATION_METHOD \
+	--sku $SKU
 ```
 
 Use [az network nat gateway create](/cli/azure/network/nat/gateway#az-network-nat-gateway-create) to create a NAT gateway.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+NAT_GATEWAY_NAME="nat-gateway"
+NAT_PUBLIC_IP_NAME="public-ip-nat"
+IDLE_TIMEOUT="4"
+
 az network nat gateway create \
-	--resource-group test-rg \
-	--name nat-gateway \
-	--public-ip-address public-ip-nat \
-	--idle-timeout 4
+	--resource-group $RESOURCE_GROUP \
+	--name $NAT_GATEWAY_NAME \
+	--public-ip-address $NAT_PUBLIC_IP_NAME \
+	--idle-timeout $IDLE_TIMEOUT
 ```
 
 Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to associate NAT gateway with AzureFirewallSubnet.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+VNET_HUB_NAME="vnet-hub"
+FIREWALL_SUBNET_NAME="AzureFirewallSubnet"
+NAT_GATEWAY_NAME="nat-gateway"
+
 az network vnet subnet update \
-	--resource-group test-rg \
-	--vnet-name vnet-hub \
-	--name AzureFirewallSubnet \
-	--nat-gateway nat-gateway
+	--resource-group $RESOURCE_GROUP \
+	--vnet-name $VNET_HUB_NAME \
+	--name $FIREWALL_SUBNET_NAME \
+	--nat-gateway $NAT_GATEWAY_NAME
 ```
 
 ---
@@ -569,13 +639,20 @@ $spokeVnet | Set-AzVirtualNetwork
 
 Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create the spoke virtual network.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+VNET_SPOKE_NAME="vnet-spoke"
+VNET_SPOKE_ADDRESS_PREFIX="10.1.0.0/16"
+SPOKE_SUBNET_NAME="subnet-private"
+SPOKE_SUBNET_PREFIX="10.1.0.0/24"
+
 az network vnet create \
-	--resource-group test-rg \
-	--name vnet-spoke \
-	--address-prefix 10.1.0.0/16 \
-	--subnet-name subnet-private \
-	--subnet-prefix 10.1.0.0/24
+	--resource-group $RESOURCE_GROUP \
+	--name $VNET_SPOKE_NAME \
+	--address-prefix $VNET_SPOKE_ADDRESS_PREFIX \
+	--subnet-name $SPOKE_SUBNET_NAME \
+	--subnet-prefix $SPOKE_SUBNET_PREFIX
 ```
 
 ---
@@ -652,23 +729,35 @@ Add-AzVirtualNetworkPeering @peeringParams
 
 Use [az network vnet peering create](/cli/azure/network/vnet/peering#az-network-vnet-peering-create) to create peering from hub to spoke.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+VNET_HUB_NAME="vnet-hub"
+HUB_TO_SPOKE_PEERING_NAME="vnet-hub-to-vnet-spoke"
+VNET_SPOKE_NAME="vnet-spoke"
+
 az network vnet peering create \
-	--resource-group test-rg \
-	--vnet-name vnet-hub \
-	--name vnet-hub-to-vnet-spoke \
-	--remote-vnet vnet-spoke \
+	--resource-group $RESOURCE_GROUP \
+	--vnet-name $VNET_HUB_NAME \
+	--name $HUB_TO_SPOKE_PEERING_NAME \
+	--remote-vnet $VNET_SPOKE_NAME \
 	--allow-forwarded-traffic
 ```
 
 Use [az network vnet peering create](/cli/azure/network/vnet/peering#az-network-vnet-peering-create) to create peering from spoke to hub.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+VNET_SPOKE_NAME="vnet-spoke"
+SPOKE_TO_HUB_PEERING_NAME="vnet-spoke-to-vnet-hub"
+VNET_HUB_NAME="vnet-hub"
+
 az network vnet peering create \
-	--resource-group test-rg \
-	--vnet-name vnet-spoke \
-	--name vnet-spoke-to-vnet-hub \
-	--remote-vnet vnet-hub \
+	--resource-group $RESOURCE_GROUP \
+	--vnet-name $VNET_SPOKE_NAME \
+	--name $SPOKE_TO_HUB_PEERING_NAME \
+	--remote-vnet $VNET_HUB_NAME \
 	--allow-forwarded-traffic
 ```
 
@@ -835,33 +924,52 @@ $spokeVnet | Set-AzVirtualNetwork
 
 Use [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create) to create a route table.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+ROUTE_TABLE_NAME="route-table-spoke"
+LOCATION="southcentralus"
+
 az network route-table create \
-	--resource-group test-rg \
-	--name route-table-spoke \
-	--location southcentralus
+	--resource-group $RESOURCE_GROUP \
+	--name $ROUTE_TABLE_NAME \
+	--location $LOCATION
 ```
 
 Use [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) to create a route.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+ROUTE_TABLE_NAME="route-table-spoke"
+ROUTE_NAME="route-to-hub"
+ADDRESS_PREFIX="0.0.0.0/0"
+NEXT_HOP_TYPE="VirtualAppliance"
+NEXT_HOP_IP="10.0.1.68"
+
 az network route-table route create \
-	--resource-group test-rg \
-	--route-table-name route-table-spoke \
-	--name route-to-hub \
-	--address-prefix 0.0.0.0/0 \
-	--next-hop-type VirtualAppliance \
-	--next-hop-ip-address 10.0.1.68
+	--resource-group $RESOURCE_GROUP \
+	--route-table-name $ROUTE_TABLE_NAME \
+	--name $ROUTE_NAME \
+	--address-prefix $ADDRESS_PREFIX \
+	--next-hop-type $NEXT_HOP_TYPE \
+	--next-hop-ip-address $NEXT_HOP_IP
 ```
 
 Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to associate the route table with the subnet.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+VNET_SPOKE_NAME="vnet-spoke"
+SPOKE_SUBNET_NAME="subnet-private"
+ROUTE_TABLE_NAME="route-table-spoke"
+
 az network vnet subnet update \
-	--resource-group test-rg \
-	--vnet-name vnet-spoke \
-	--name subnet-private \
-	--route-table route-table-spoke
+	--resource-group $RESOURCE_GROUP \
+	--vnet-name $VNET_SPOKE_NAME \
+	--name $SPOKE_SUBNET_NAME \
+	--route-table $ROUTE_TABLE_NAME
 ```
 
 ---
@@ -958,30 +1066,50 @@ New-AzFirewallPolicyRuleCollectionGroup @newRuleCollectionGroupParams
 
 Use [az network firewall policy rule-collection-group create](/cli/azure/network/firewall/policy/rule-collection-group#create-a-rule-collection-group) to create a rule collection group.
 
-```bash
+```azurecli
+# Variables
+RULE_COLLECTION_GROUP_NAME="DefaultNetworkRuleCollectionGroup"
+FIREWALL_POLICY_NAME="firewall-policy"
+RESOURCE_GROUP="test-rg"
+PRIORITY="200"
+
 az network firewall policy rule-collection-group create \
-	--name DefaultNetworkRuleCollectionGroup \
-	--policy-name firewall-policy \
-	--resource-group test-rg \
-	--priority 200
+	--name $RULE_COLLECTION_GROUP_NAME \
+	--policy-name $FIREWALL_POLICY_NAME \
+	--resource-group $RESOURCE_GROUP \
+	--priority $PRIORITY
 ```
 
 Use [az network firewall policy rule-collection-group collection add-filter-collection](/cli/azure/network/firewall/policy/rule-collection-group/collection#add-a-filter-collection) to create a network rule collection.
 
-```bash
+```azurecli
+# Variables
+COLLECTION_NAME="spoke-to-internet"
+ACTION="Allow"
+RULE_NAME="allow-web"
+RULE_TYPE="NetworkRule"
+SOURCE_ADDRESSES="10.1.0.0/24"
+IP_PROTOCOLS="TCP"
+DESTINATION_ADDRESSES="*"
+DESTINATION_PORTS="*"
+COLLECTION_PRIORITY="100"
+FIREWALL_POLICY_NAME="firewall-policy"
+RESOURCE_GROUP="test-rg"
+RULE_COLLECTION_GROUP_NAME="DefaultNetworkRuleCollectionGroup"
+
 az network firewall policy rule-collection-group collection add-filter-collection \
-	--name "spoke-to-internet" \
-	--action Allow \
-	--rule-name "allow-web" \
-	--rule-type NetworkRule \
-	--source-addresses "10.1.0.0/24" \
-	--ip-protocols TCP \
-	--destination-addresses "*" \
-	--destination-ports "*" \
-	--collection-priority 100 \
-	--policy-name "firewall-policy" \
-	--resource-group "test-rg" \
-	--rule-collection-group-name "DefaultNetworkRuleCollectionGroup"
+	--name $COLLECTION_NAME \
+	--action $ACTION \
+	--rule-name $RULE_NAME \
+	--rule-type $RULE_TYPE \
+	--source-addresses $SOURCE_ADDRESSES \
+	--ip-protocols $IP_PROTOCOLS \
+	--destination-addresses $DESTINATION_ADDRESSES \
+	--destination-ports $DESTINATION_PORTS \
+	--collection-priority $COLLECTION_PRIORITY \
+	--policy-name $FIREWALL_POLICY_NAME \
+	--resource-group $RESOURCE_GROUP \
+	--rule-collection-group-name $RULE_COLLECTION_GROUP_NAME
 ```
 
 ---
@@ -1139,34 +1267,54 @@ New-AzVM @vmParams -GenerateSshKey
 
 Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create a network security group.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+NSG_NAME="nsg-1"
+LOCATION="southcentralus"
+
 az network nsg create \
-	--resource-group test-rg \
-	--name nsg-1 \
-	--location southcentralus
+	--resource-group $RESOURCE_GROUP \
+	--name $NSG_NAME \
+	--location $LOCATION
 ```
 
 Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create a network interface.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+NIC_NAME="vm-spoke-nic"
+VNET_SPOKE_NAME="vnet-spoke"
+SPOKE_SUBNET_NAME="subnet-private"
+NSG_NAME="nsg-1"
+
 az network nic create \
-	--resource-group test-rg \
-	--name vm-spoke-nic \
-	--vnet-name vnet-spoke \
-	--subnet subnet-private \
-	--network-security-group nsg-1
+	--resource-group $RESOURCE_GROUP \
+	--name $NIC_NAME \
+	--vnet-name $VNET_SPOKE_NAME \
+	--subnet $SPOKE_SUBNET_NAME \
+	--network-security-group $NSG_NAME
 ```
 
 Use [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+VM_NAME="vm-spoke"
+LOCATION="southcentralus"
+NIC_NAME="vm-spoke-nic"
+VM_IMAGE="Ubuntu2204"
+ADMIN_USERNAME="azureuser"
+
 az vm create \
-	--resource-group test-rg \
-	--name vm-spoke \
-	--location southcentralus \
-	--nics vm-spoke-nic \
-	--image Ubuntu2204 \
-	--admin-username azureuser \
+	--resource-group $RESOURCE_GROUP \
+	--name $VM_NAME \
+	--location $LOCATION \
+	--nics $NIC_NAME \
+	--image $VM_IMAGE \
+	--admin-username $ADMIN_USERNAME \
 	--generate-ssh-keys
 ```
 
@@ -1206,10 +1354,14 @@ $publicIpNat.IpAddress
 
 Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to obtain the public IP address of the NAT gateway.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+NAT_PUBLIC_IP_NAME="public-ip-nat"
+
 az network public-ip show \
-	--resource-group test-rg \
-	--name public-ip-nat \
+	--resource-group $RESOURCE_GROUP \
+	--name $NAT_PUBLIC_IP_NAME \
 	--query "ipAddress" \
 	--output tsv
 ```
@@ -1261,9 +1413,12 @@ Remove-AzResourceGroup @rgParams
 
 Use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group.
 
-```bash
+```azurecli
+# Variables
+RESOURCE_GROUP="test-rg"
+
 az group delete \
-	--name test-rg \
+	--name $RESOURCE_GROUP \
 	--yes \
 	--no-wait
 ```
