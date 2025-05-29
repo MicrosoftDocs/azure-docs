@@ -347,6 +347,17 @@ Then, for each file or class affected by the incident, you can jump into the sou
 
 ## Release notes
 
+### 7.6.0.6
+
+This release contains the following fixes and enhancements.
+
+- Added a default `.appcat-ignore` file to the released artifact.
+- Removed Maven prerequisites; the Maven wrapper is now used when needed.
+- Fixed the missing dependencies report in full mode.
+- Scoped analysis to AppCAT-supported targets when no targets are specified.
+- Ignored comment lines during analysis.
+- Fixed incorrect location for XML rules.
+
 ### 7.6.0.5
 
 This release contains the following fixes and enhancements.
@@ -454,6 +465,13 @@ Previously, a set of targets were enabled by default, making it difficult for ce
 GA (Generally Available) release of Azure Migrate application and code assessment.
 
 ## Known issues
+
+### 7.6.0.6
+
+- Rules issues:
+  - The `azure-system-config-01000` rules aren't being triggered.
+  - The `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
+- An error in the Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.6.0.5
 
