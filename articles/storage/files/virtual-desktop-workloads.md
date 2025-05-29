@@ -14,11 +14,18 @@ Azure Files is the recommended file storage solution for a virtual desktop envir
 
 ## Applies to
 
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
 
@@ -41,6 +48,8 @@ Azure Files offers different billing models, including provisioned and pay-as-yo
 
 While Azure Files can support thousands of concurrent virtual desktop users from a single file share, it's critical to properly test your workloads against the size and type of file share you're using. Your requirements might vary based on number of users and profile size.
 
+Virtual desktops with home directories or other workloads that are primarily interacting with many small files, directories, or handles can benefit from [metadata caching](smb-performance.md#metadata-caching-for-ssd-file-shares) on SSD file shares.
+
 The following table lists our general recommendations based on the number of concurrent users. This table is based on the assumption that the user profile has a capacity of 5 GiB and a performance of 50 IOPS during sign in and 20 IOPS during steady state.
 
 | **Number of virtual desktop users** | **Recommended file storage** |
@@ -52,7 +61,10 @@ The following table lists our general recommendations based on the number of con
 
 ## Azure Files sizing guidance for Azure Virtual Desktop
 
-In large scale Azure Virtual Desktop deployments, you might run out of handles if you're using a single Azure file share. This section describes how various types of disk images consume handles and provides sizing guidance based on the technology you're using.
+In large-scale VDI environments, tens of thousands of users may need to access the same file simultaneously, especially during application launches and session setups. In these situations, you might run out of handles, especially if you're using a single Azure file share. This section describes how various types of disk images consume handles and provides sizing guidance based on the technology you're using.
+
+> [!TIP]
+> Historically, Azure Files had a 2,000 concurrent handle limit per file and directory. If you need to scale beyond this limit, you can use SSD file shares, [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature), and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
 ### FSLogix
 

@@ -121,7 +121,9 @@ File scale targets apply to individual files stored in Azure file shares.
 | Maximum data IOPS per file | 8,000 IOPS | 1,000 IOPS | 1,000 IOPS |
 | Maximum throughput per file | 1,024 MiB / sec | 60 MiB / sec | 60 MiB / sec |
 | Maximum concurrent handles for root directory | 10,000 handles | 10,000 handles | 10,000 handles  |
-| Maximum concurrent handles per file and directory | 2,000 handles | 2,000 handles | 2,000 handles |
+| Maximum concurrent handles per file and directory | 2,000 handles\* | 2,000 handles | 2,000 handles |
+
+\* The maximum number of concurrent handles per file and directory is a soft limit for SSD SMB file shares. If you need to scale beyond this limit, you can [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature), and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
 ### Azure Files sizing guidance for Azure Virtual Desktop
 
