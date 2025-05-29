@@ -93,6 +93,8 @@ A dev box is a preconfigured workstation that you create through the self-servic
 
 As a dev box user, you have control over your own dev boxes. You can create more as you need them and delete them when you finish using them.
 
+[!INCLUDE [dev-box-get-started-links](includes/dev-box-get-started-links.md)]
+
 ## Related content
 
 - [Microsoft Dev Box architecture overview](./concept-dev-box-architecture.md)

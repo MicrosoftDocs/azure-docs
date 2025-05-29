@@ -250,6 +250,8 @@
           href: howto-enable-log-streaming.md
         - name: How to use Commit Workflow v2 in Azure Operator Nexus
           href: howto-use-commit-workflow-v2.md
+        - name: How to set administrative lock or unlock for Network fabric
+          href: howto-set-administrative-lock-or-unlock-for-network-fabric.md
     - name: Cluster
       expanded: false
       items:
