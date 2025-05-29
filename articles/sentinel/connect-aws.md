@@ -24,10 +24,18 @@ This connector is available in two versions: the legacy connector for CloudTrail
 
 # [S3 connector (new)](#tab/s3)
 
-This tab explains how to configure the AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
+This tab explains how to configure the AWS S3 connector using one of two methods: 
+
+- [Automatic setup](#automatic-setup)(Recommended) 
+- [Manual setup](#manual-setup)
 
 ## Prerequisites
 
+- You must have write permission on the Microsoft Sentinel workspace.
+- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+- Install PowerShell and the AWS CLI on your machine (for automatic setup only):
+  - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell)
+  - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) (from AWS documentation)
 - Make sure that the logs from your selected AWS service use the format accepted by Microsoft Sentinel:
 
     - **Amazon VPC**: .csv file in GZIP format with headers; delimiter: space.
@@ -35,52 +43,14 @@ This tab explains how to configure the AWS S3 connector. The process of setting 
     - **AWS CloudTrail**: .json file in a GZIP format.
     - **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.yml).
 
-- You must have write permission on the Microsoft Sentinel workspace.
-- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
-
-## Architecture overview
-
-This graphic and the following text show how the parts of this connector solution interact.
-
-:::image type="content" source="media/connect-aws/s3-connector-architecture.png" alt-text="Screenshot of A W S S 3 connector architecture.":::
-
-- AWS services are configured to send their logs to S3 (Simple Storage Service) storage buckets.
-
-- The S3 bucket sends notification messages to the SQS (Simple Queue Service) message queue whenever it receives new logs.
-
-- The Microsoft Sentinel AWS S3 connector polls the SQS queue at regular, frequent intervals. If there is a message in the queue, it will contain the path to the log files.
-
-- The connector reads the message with the path, then fetches the files from the S3 bucket.
-
-- To connect to the SQS queue and the S3 bucket, Microsoft Sentinel uses a federated web identity provider (Microsoft Entra ID) for authenticating with AWS through OpenID Connect (OIDC), and assuming an AWS IAM role. The role is configured with a permissions policy giving it access to those resources.
-
-## Connect the S3 connector
-
-- **In your AWS environment:**
-
-    - Configure your AWS service(s) to send logs to an **S3 bucket**.
-
-    - Create a **Simple Queue Service (SQS) queue** to provide notification.
-
-    - Create a **web identity provider** to authenticate users to AWS through OpenID Connect (OIDC).
-
-    - Create an **assumed role** to grant permissions to users authenticated by the OIDC web identity provider to access your AWS resources.
-
-    - Attach the appropriate **IAM permissions policies** to grant the assumed role access to the appropriate resources (S3 bucket, SQS).
-
-    We have made available, in our GitHub repository, a script that **automates the AWS side of this process**. See the instructions for [automatic setup](#automatic-setup) later in this document.
-
-- **In Microsoft Sentinel:**
-
-    - Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal. [See the instructions below](#add-the-aws-role-and-queue-information-to-the-s3-data-connector).
 
 ## Automatic setup
 
 To simplify the onboarding process, Microsoft Sentinel has provided a [PowerShell script to automate the setup](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/AWS-S3) of the AWS side of the connector - the required AWS resources, credentials, and permissions.
 
-The script takes the following actions:
+The script:
 
-- Creates an OIDC web identity provider, to authenticate Microsoft Entra ID users to AWS.
+- Creates an OIDC web identity provider, to authenticate Microsoft Entra ID users to AWS. If a web identity provider already exists, the script adds Microsoft Sentinel as an audience to the existing provider.
 
 - Creates an *IAM assumed role* with the minimal necessary permissions, to grant OIDC-authenticated users access to your logs in a given S3 bucket and SQS queue.
 
@@ -91,12 +61,6 @@ The script takes the following actions:
 - Configures any necessary IAM permissions policies and applies them to the IAM role created above.
 
 For Azure Government clouds, a specialized script creates a different OIDC web identity provider, to which it assigns the IAM assumed role.
-
-### Prerequisites for automatic setup
-
-- You must have PowerShell and the AWS CLI on your machine.
-  - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell)
-  - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) (from AWS documentation)
 
 ### Instructions
 
