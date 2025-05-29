@@ -43,7 +43,7 @@ To access your MongoDB Atlas account, select **Go to MongoDB Atlas** on the work
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 > [!IMPORTANT]
-> See [MongoDB's documentation](https://www.mongodb.com/docs/atlas/access/orgs-create-view-edit-delete/#delete-an-organization) to learn how to delete your MongoDB Atlas Organization. 
+> To learn how to delete your MongoDB Atlas Organization, see [MongoDB's documentation](https://www.mongodb.com/docs/atlas/access/orgs-create-view-edit-delete/#delete-an-organization). 
 
 ## Related content
 
