@@ -45,7 +45,7 @@ Create the application gateway using the tabs on the **Create application gatewa
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
    - Use the default selections for other settings.
 
-     ![Screenshot of create new application gateway: basics.](./media/application-gateway-create-gateway-portal/application-gateway-create-zr.png)
+     ![Screenshot of create new application gateway: basics.](./media/application-gateway-create-gateway-portal/application-gateway-create-zone-redundant.png)
 
     > [!NOTE]
     > Application Gateways are zone-redundant by default in regions that support multiple availability zones.
