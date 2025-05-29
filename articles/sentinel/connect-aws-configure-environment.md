@@ -49,8 +49,8 @@ This graphic shows how to set up your AWS environment to send log data to Azure:
 
 Microsoft Sentinel provides several AWS connectors, each designed to collect logs from different AWS services. The following table lists the available connectors and the AWS services they support:
 
-- [Amazon Web Services Web Application Firewall (WAF) connector](connect-aws-waf.md): Ingests AWS WAF logs, collected in AWS S3 buckets, to Microsoft Sentinel.
-- [Amazon Web Services service log connector](connect-aws-service-logs.md): Ingests AWS service logs, collected in AWS S3 buckets, to Microsoft Sentinel.
+- [Amazon Web Services Web Application Firewall (WAF) connector](connect-aws-s3-waf.md): Ingests AWS WAF logs, collected in AWS S3 buckets, to Microsoft Sentinel.
+- [Amazon Web Services service log connector](connect-aws.md): Ingests AWS service logs, collected in AWS S3 buckets, to Microsoft Sentinel.
  
 ---
 
