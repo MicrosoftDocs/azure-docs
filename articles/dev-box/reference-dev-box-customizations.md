@@ -45,21 +45,21 @@ name: myVSDevBox
 image: MicrosoftWindowsDesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
 ```
 
-Or a custom image from an attached Azure Compute Gallery:
+Or it can be a custom image from an attached Azure Compute Gallery instance:
 
 ```
 image: galleryname/imagename@version
 ```
-To learn how to attach an Azure Compute Gallery to your DevCenter, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md).
+To learn how to attach an Azure Compute Gallery instance to your dev center, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md).
 
 
-To get a list of images to which your Dev Center has access, use this `az cli` command:
+To get a list of images to which your dev center has access, use this `az cli` command:
 
 ```
 az devcenter admin image list --dev-center-name CustomizationsImagingHQ --resource-group TeamCustomizationsImagingRG --query "[].name"
 ```
 
-You need the Dev Center `az cli` extension:
+You need the dev center `az cli` extension:
 
 ```
 az extension add --name devcenter
@@ -92,7 +92,7 @@ tasks:
 
 ### Built-in tasks
 
-PowerShell and WinGet are available as built-in tasks. You can invoke them directly without attaching a Dev Center-level catalog that defines the implementation of these tasks.
+PowerShell and WinGet are available as built-in tasks. You can invoke them directly without attaching a catalog at the dev center level that defines the implementation of these tasks.
 
 #### WinGet built-in task
 
