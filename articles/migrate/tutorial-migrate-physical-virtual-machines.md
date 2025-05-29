@@ -409,9 +409,8 @@ Now, select machines for migration.
     - **VM size**: If you're using assessment recommendations, the VM size dropdown list shows the recommended size. Otherwise, Azure Migrate and Modernize picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the availability zone to use.
-    - **Availability Set**: Specify the availability set to use.
-
-1. **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that are not eligible for Trusted Launch are automatically configured as **standard security VMs**. 
+    - **Availability Set**: Specify the availability set to use. 
+    - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that are not eligible for Trusted Launch are automatically configured as **standard security VMs**. 
 
 1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
