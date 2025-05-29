@@ -95,8 +95,10 @@ Follow the steps in this section to create and run a Storage Mover Migration Job
     
         :::image type="content" source="media/cloud-to-cloud-migration/create-job-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Basics tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-job.png":::
     - **Source endpoint**: Select the AWS S3 bucket configured via Azure Arc.
+
         :::image type="content" source="media/cloud-to-cloud-migration/create-source-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-source.png":::
     - **Destination endpoint**: Select the Azure Blob Storage container.
+
         :::image type="content" source="media/cloud-to-cloud-migration/create-target-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Target tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-target.png":::
     - **Copy mode**: Select `Mirror source to target`.
 1. Select **Next** and review your settings.
