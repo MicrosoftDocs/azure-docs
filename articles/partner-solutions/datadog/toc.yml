@@ -22,7 +22,7 @@ items:
   - name: Troubleshoot
     items:
     - name: Get support
-      href: get-support.md
+      href: https://www.datadoghq.com/support
     - name: Fix common errors
       href: troubleshoot.md
 - name: Reference
