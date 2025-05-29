@@ -186,31 +186,6 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 ```
 ---
 
-### Register for increased file handle limits (preview)
-
-To increase the maximum number of concurrent handles per file and directory for SSD SMB file shares from 2,000 to 10,000, register for the preview feature using the Azure portal or Azure PowerShell. If you have questions, email azfilespreview@microsoft.com.
-
-# [Azure portal](#tab/portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-2. Search for and select **Preview features**.
-3. Select the **Type** filter and select **Microsoft.Storage**.
-4. Select **Azure Premium Files Increased Maximum Opened Handles Count** and then select **Register**.
-
-# [Azure PowerShell](#tab/powershell)
-
-To register your subscription using Azure PowerShell, run the following commands. Replace `<your-subscription-id>` and `<your-tenant-id>` with your own values. 
-
-```azurepowershell-interactive
-Connect-AzAccount -SubscriptionId <your-subscription-id> -TenantId <your-tenant-id> 
-Register-AzProviderFeature -FeatureName HigherHandlesCountOnSmb -ProviderNamespace Microsoft.Storage 
-```
----
-
-> [!IMPORTANT]
-> - Although listed under Preview Features, we honor GA SLAs and will soon make this the default for all accounts, removing the need for registration.
-> - Allow 2-6 hours for accounts to be onboarded once registration is complete.
-
 ### Regional availability for metadata caching
 
 Supported regions:
@@ -282,6 +257,31 @@ Metadata caching can increase available IOPS by more than 60% for metadata-heavy
 Metadata caching can increase network throughput by more than 60% for metadata-heavy workloads at scale.
 
 :::image type="content" source="media/smb-performance/metadata-caching-throughput.jpg" alt-text="Chart showing network throughput with and without metadata caching." border="false":::
+
+## Register for increased file handle limits (preview)
+
+To increase the maximum number of concurrent handles per file and directory for SSD SMB file shares from 2,000 to 10,000, register for the preview feature using the Azure portal or Azure PowerShell. If you have questions, email azfilespreview@microsoft.com.
+
+# [Azure portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
+2. Search for and select **Preview features**.
+3. Select the **Type** filter and select **Microsoft.Storage**.
+4. Select **Azure Premium Files Increased Maximum Opened Handles Count** and then select **Register**.
+
+# [Azure PowerShell](#tab/powershell)
+
+To register your subscription using Azure PowerShell, run the following commands. Replace `<your-subscription-id>` and `<your-tenant-id>` with your own values. 
+
+```azurepowershell-interactive
+Connect-AzAccount -SubscriptionId <your-subscription-id> -TenantId <your-tenant-id> 
+Register-AzProviderFeature -FeatureName HigherHandlesCountOnSmb -ProviderNamespace Microsoft.Storage 
+```
+---
+
+> [!IMPORTANT]
+> - Although listed under Preview Features, we honor GA SLAs and will soon make this the default for all accounts, removing the need for registration.
+> - Allow 2-6 hours for accounts to be onboarded once registration is complete.
 
 ## Next steps
 
