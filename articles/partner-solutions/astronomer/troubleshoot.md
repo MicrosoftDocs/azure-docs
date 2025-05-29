@@ -49,7 +49,7 @@ If the deployment fails and the Astro resource has a status of `Failed`, delete 
 
 ### Unable to use Single sign-on
 
-If SSO isn't working for the Astronomer portal, check you're using the correct Microsoft Entra email. You must also have consented to allow access for the Astronomer Software as a service (SaaS) portal.
+If SSO isn't working for the Astronomer portal, check that you're using the correct Microsoft Entra email. You must also have consented to allow access for the Astronomer Software as a service (SaaS) portal.
 
 > [!NOTE]
 > If you are seeing an Admin consent screen along with the User consent during your first-time login using the SSO Url, then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent?pivots=portal).
