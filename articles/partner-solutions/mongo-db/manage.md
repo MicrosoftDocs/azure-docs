@@ -45,6 +45,14 @@ To access your MongoDB Atlas account, select **Go to MongoDB Atlas** on the work
 > [!IMPORTANT]
 > To learn how to delete your MongoDB Atlas Organization, see [MongoDB's documentation](https://www.mongodb.com/docs/atlas/access/orgs-create-view-edit-delete/#delete-an-organization). 
 
+## Get Support
+
+Contact [MongoDB Atlas](https://www.mongodb.com/company/contact) for customer support. 
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [log a support request in the MongoDB portal](https://www.mongodb.com/company/contact). 
+
 ## Related content
 
 - [MongoDB Atlas resources and tools](tools.md)
