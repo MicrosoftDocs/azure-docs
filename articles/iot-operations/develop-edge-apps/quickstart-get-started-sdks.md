@@ -93,19 +93,6 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
     https://github.com/azure/iot-operations-sdks
     ```
 
-1. Change to the repository root directory:
-
-    ```bash
-    cd <REPOSITORY ROOT>
-    ```
-
-1. Initialize the cluster and install required dependencies using the `initialize-cluster.sh` script:
-
-    ```bash
-    sudo ./tools/deployment/initialize-cluster.sh
-    ```
-
-
 > [!TIP]
 > To reconnect to the container in VSCode, choose `F1 > Dev Containers: Attach to Running Container...` and then select the container name created previously.
 
