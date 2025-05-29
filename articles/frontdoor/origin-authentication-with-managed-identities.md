@@ -63,8 +63,6 @@ Before setting up managed identity for Azure Front Door, ensure you have an Azur
 
         :::image type="content" source="./media/managed-identity/user-assigned-configured.png" alt-text="Screenshot of the user-assigned managed identity added to the Front Door profile.":::
 
-    ---
-
 ## Associating the identity to an Origin Group
 
 > [!Note]
@@ -98,7 +96,6 @@ Before setting up managed identity for Azure Front Door, ensure you have an Azur
     :::image type="content" source="./media/managed-identity/members.png" alt-text="Screenshot of Members tab under Add role assignment.":::
 5.	The **Select managed identities** window opens. Choose the subscription where your Front Door is located and under **Managed identity** dropdown, choose **Front Door and CDN profiles**. Under the **Select** dropdown, choose the managed identity created for your Front Door. Click on the **Select** button in the bottom.
 6.	Select **Review and assign** and then select **Review and assign** once more after the validation is complete.
-
 
 ## Tips while using origin authentication
 * If you are facing errors during origin group configuration,

@@ -166,12 +166,20 @@ You can install New Relic agents on Virtual Machine, Virtual Machine Scale Set, 
 
 [!INCLUDE [change-plan](../includes/change-plan.md)]
 
-## Delete a New Relic resource
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 > [!NOTE]
 > If you have other New Relic resources linked to the New Relic account, billing for those other resources continues through Azure Marketplace.
+
+## Get support
+
+Contact [New Relic](https://support.newrelic.com/) for customer support. 
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** from the Resource pane, then choose the link to [log a support request in the New Relic portal](https://support.newrelic.com/).
 
 ## Next steps
 

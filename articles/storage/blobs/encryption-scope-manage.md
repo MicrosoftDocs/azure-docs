@@ -103,7 +103,7 @@ New-AzRoleAssignment -ObjectId $storageAccount.Identity.PrincipalId `
 
 Next, call the [New-AzStorageEncryptionScope](/powershell/module/az.storage/new-azstorageencryptionscope) command with the `-KeyvaultEncryption` parameter, and specify the key URI. Including the key version on the key URI is optional. If you omit the key version, then the encryption scope will automatically use the most recent key version. If you include the key version, then you must update the key version manually to use a different version.
 
-The format of the key URI is similar to the following examples, and can be constructed from the key vault's [VaultUri](/dotnet/api/microsoft.azure.commands.keyvault.models.pskeyvault.vaulturi) property and the key name:
+The format of the key URI is similar to the following examples and can be constructed from the key vault's [VaultUri](/dotnet/api/microsoft.azure.commands.keyvault.models.pskeyvault.vaulturi) property and the key name:
 
 ```http
 # Without the key version
@@ -206,7 +206,7 @@ az role assignment create --assignee-object-id $principalId \
 
 Next, call the [az storage account encryption-scope](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) command with the `--key-uri` parameter, and specify the key URI. Including the key version on the key URI is optional. If you omit the key version, then the encryption scope will automatically use the most recent key version. If you include the key version, then you must update the key version manually to use a different version.
 
-The format of the key URI is similar to the following examples, and can be constructed from the key vault's **vaultUri** property and the key name:
+The format of the key URI is similar to the following examples and can be constructed from the key vault's **vaultUri** property and the key name:
 
 ```http
 # Without the key version
