@@ -140,7 +140,7 @@ The following are the steps
 4. The Nok Nok Cloud validates the passkey assertion.
 5. The ID Token Hint is returned.
 6. The App posts an OIDC request with the ID Token Hint to Azure AD B2C.
-7. Azure Custom Policy verifies the ID Token Hint.
+7. Azure SD B2C Custom Policy verifies the ID Token Hint.
 8. Based on the authentication result, Azure AD B2C either grants or denies access to the target application.
 
 ## Next steps
