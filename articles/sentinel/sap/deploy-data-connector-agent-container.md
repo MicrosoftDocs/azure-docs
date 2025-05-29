@@ -342,7 +342,7 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 1. In the **Configuration** area, expand step **1. Trigger automatic deployment of required Azure resources / SOC Engineer**, and select **Deploy required Azure resources**.
 
     > [!IMPORTANT]
-    > If you don't have the **Entra ID Application Developer** role or higher, and you select **deploy required Azure resources**, an error message is displayed, for example: "Deploy required azure resources" (errors may vary). This means that the data collection rule (DCR) and data collection endpoint (DCE) were created, but you need to ensure that authorization is assigned to your Entra ID app registration.
+    > If you don't have the **Entra ID Application Developer** role or higher, and you select **deploy required Azure resources**, an error message is displayed, for example: "Deploy required azure resources" (errors may vary). This means that the data collection rule (DCR) and data collection endpoint (DCE) were created, but you need to ensure that your Entra ID app registration is authorized. Continue to set up the correct authorization.
 
 1. Do one of the following: 
     - If you have the **Entra ID Application Developer** role or higher, continue to the next step.
