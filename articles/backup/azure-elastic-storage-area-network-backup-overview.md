@@ -1,5 +1,5 @@
 ---
-title: About Azure Elastic storage area network protection (preview)
+title: About Azure Elastic storage area network backup (preview)
 description: Learn how the Azure Elastic storage area network (Azure Elastic SAN) backup works.
 ms.topic: overview
 ms.date: 05/21/2025
@@ -8,7 +8,7 @@ ms.author: jsuri
 ms.custom: engagement-fy24
 --- 
 
-# About Azure Elastic SAN  protection (preview)
+# About Azure Elastic SAN  backup (preview)
 
 [Azure Backup](backup-overview.md) allows Azure Elastic storage area network (Azure Elastic SAN) volume protection (preview) through the [Backup vault](backup-vault-overview.md) to ensure seamless backup and restoration.
 
