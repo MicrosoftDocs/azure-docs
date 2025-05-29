@@ -8,7 +8,7 @@ ms.author: jsuri
 ms.custom: engagement-fy24
 --- 
 
-# About Azure Elastic SAN  backup (preview)
+# About Azure Elastic SAN backup (preview)
 
 [Azure Backup](backup-overview.md) allows Azure Elastic storage area network (Azure Elastic SAN) volume protection (preview) through the [Backup vault](backup-vault-overview.md) to ensure seamless backup and restoration.
 
