@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/private-multi-access-edge-compute-mec/index.yml",
+      "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/traffic-analytics-schema-update.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/traffic-analytics-schema-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-nsg-grafana.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-nsg-grafana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/api-management/migrate-stv1-to-stv2-no-vnet.md",
       "redirect_url": "/previous-versions/azure/api-management/migrate-stv1-to-stv2-no-vnet",
       "redirect_document_id": false

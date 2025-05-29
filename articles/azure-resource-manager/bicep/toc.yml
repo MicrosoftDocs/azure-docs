@@ -663,6 +663,8 @@ items:
       href: diagnostics/bcp072.md
     - name: BCP073
       href: diagnostics/bcp073.md
+    - name: BCP076
+      href: diagnostics/bcp076.md
     - name: BCP077
       href: diagnostics/bcp077.md
     - name: BCP078
@@ -735,5 +737,7 @@ items:
       href: diagnostics/bcp338.md      
     - name: BCP401
       href: diagnostics/bcp401.md
+    - name: BCP414
+      href: diagnostics/bcp414.md
   - name: Azure CLI
     href: /cli/azure/resource

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -395,6 +395,9 @@ Has read access to entities in the workspace and read and write access to entiti
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/diagnostics/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/loggers/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -426,7 +429,10 @@ Has read access to entities in the workspace and read and write access to entiti
         "Microsoft.ApiManagement/service/workspaces/certificates/*",
         "Microsoft.ApiManagement/service/workspaces/diagnostics/*",
         "Microsoft.ApiManagement/service/workspaces/loggers/*",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -456,7 +462,8 @@ Has read access to entities in the workspace and read and write access to entiti
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/notifications/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
-> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -483,7 +490,8 @@ Has read access to entities in the workspace and read and write access to entiti
         "Microsoft.ApiManagement/service/workspaces/notifications/*",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/diagnosticSettings/*/read",
-        "Microsoft.insights/logs/*/read"
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -507,6 +515,9 @@ Can manage the workspace and view, but not modify its members. This role should 
 > | --- | --- |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -526,7 +537,10 @@ Can manage the workspace and view, but not modify its members. This role should 
     {
       "actions": [
         "Microsoft.ApiManagement/service/workspaces/*",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -550,6 +564,9 @@ Has read-only access to entities in the workspace. This role should be assigned 
 > | --- | --- |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/*/read |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -569,7 +586,10 @@ Has read-only access to entities in the workspace. This role should be assigned 
     {
       "actions": [
         "Microsoft.ApiManagement/service/workspaces/*/read",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
