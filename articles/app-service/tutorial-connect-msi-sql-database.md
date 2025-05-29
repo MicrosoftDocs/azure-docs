@@ -130,7 +130,7 @@ az ad group member list -g $groupid
 
 Go to the Azure portal to grant the minimum permissions your app needs.
 
-If the identity is system-assigned, its name is always the same as the name of your app. The name of a system-assigned identity for a deployment slot is `<app-name>/slots/<slot-name>`. To grant permissions for a Microsoft Entra group, use the group's display name, such as `myAzureSQLDBAccessGroup`.
+The name of a system-assigned identity is always the same as the app name. The name of a system-assigned identity for a deployment slot is `<app-name>/slots/<slot-name>`. To grant permissions for a Microsoft Entra group, use the group's display name, such as `myAzureSQLDBAccessGroup`.
    
 <!--SQLCMD IS NO LONGER SUPPORTED IN BASH CLOUD SHELL as of April 2025. Use Powershell or portal.
 1. In your Bash terminal, sign in to SQL Database by using the following SQLCMD command, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<aad-user-name>` and `<aad-password>` with your Microsoft Entra user credentials.
@@ -154,10 +154,14 @@ If the identity is system-assigned, its name is always the same as the name of y
 Here are portal steps I made up. Not sure if they work since my app doesn't work (database is blank).-->
 
 1. On your web app's page in the Azure portal, select **Identity** from the left navigation menu.
+
 1. On the **System assigned** tab, make sure **Status** is set to **On**.
+
 1. Under **Permissions**, select **Azure role assignments**.
+
 1. On the **Azure role assignments** page, select **Add role assignment (Preview)**.
-1. Use the **Add role assignment (Preview)** pane to add each of the following roles:
+
+1. Use the **Add role assignment (Preview)** pane to add each of the following roles in turn.
    - **Scope**: Select **SQL**.
    - **Subscription**: Select your subscription.
    - **Resource**: Select your SQL server.
@@ -165,6 +169,7 @@ Here are portal steps I made up. Not sure if they work since my app doesn't work
      - **SQL DB Contributor**
      - **SQL Server Contributor**
      - **Reader**
+
    After adding each role, select **Save**.
 
 > [!NOTE]
