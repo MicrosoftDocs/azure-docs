@@ -48,8 +48,8 @@ Network egress costs, also known as outbound data transfer charges, occur when r
 This cost includes:
 
 - **Source**:
-  - For Standard and Pv1 disks, incremental snapshots are charged.
-  - For Pv2 disks, one full snapshot followed by incremental snapshots is charged. 
+  - For Premium SSD disks, incremental snapshots are charged.
+  - For Standard and Premium SSD v2 disks, one full snapshot followed by incremental snapshots is charged.
 - **Target**:
   - Snapshot costs are associated with the recovery points created by Azure Site Recovery. These snapshots capture the replica storage at a point in time and are charged based on the consumed capacity. Pricing details align with Page Blob Snapshots. [Learn more](https://azure.microsoft.com/pricing/details/storage/page-blobs/#:~:text=Note%3A%20Snapshots%20are%20charged,at%20%240.12%20%2FGB%20per%20month.?msockid=3816c7206e2268e7035dd3316f7069f4).
 
