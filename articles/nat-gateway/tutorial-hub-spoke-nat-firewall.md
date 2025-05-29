@@ -151,7 +151,7 @@ Use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtu
 ```azurepowershell
 # Create default subnet
 $subnetParams = @{
-    Name = 'default'
+    Name = 'subnet-1'
     AddressPrefix = '10.0.0.0/24'
     VirtualNetwork = $hubVnet
 }
@@ -260,7 +260,7 @@ Use [az group create](/cli/azure/group#az_group_create) to create a resource gro
 ```bash
 az group create \
   --name test-rg \
-  --location "South Central US"
+  --location southcentralus
 ```
 
 Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create the hub virtual network.
@@ -270,10 +270,29 @@ az network vnet create \
   --resource-group test-rg \
   --name vnet-hub \
   --address-prefix 10.0.0.0/16 \
-  --subnet-name AzureFirewallSubnet \
-  --subnet-prefix 10.0.1.0/24
+  --subnet-name subnet-1 \
+  --subnet-prefix 10.0.0.0/24
 ```
 
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a subnet for Azure Bastion.
+
+```bash
+az network vnet subnet create \
+    --resource-group test-rg \
+    --vnet-name vnet-hub \
+    --name AzureBastionSubnet \
+    --address-prefix 10.0.1.0/26
+```
+
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a subnet for Azure Firewall.
+
+```bash
+az network vnet subnet create \
+    --resource-group test-rg \
+    --vnet-name vnet-hub \
+    --name AzureFirewallSubnet \
+    --address-prefix 10.0.1.64/26
+```
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP for Azure Bastion.
 
 ```bash
@@ -304,16 +323,6 @@ az network public-ip create \
   --sku Standard
 ```
 
-Use [az network firewall create](/cli/azure/network/firewall#az-network-firewall-create) to create Azure Firewall.
-
-```bash
-az network firewall create \
-  --resource-group test-rg \
-  --name firewall \
-  --vnet-name vnet-hub \
-  --public-ip-address public-ip-firewall
-```
-
 Use [az network firewall policy create](/cli/azure/network/firewall/policy#az-network-firewall-policy-create) to create a firewall policy.
 
 ```bash
@@ -322,13 +331,15 @@ az network firewall policy create \
   --name firewall-policy
 ```
 
-Use [az network firewall update](/cli/azure/network/firewall#az-network-firewall-update) to associate the firewall policy with the firewall.
+Use [az network firewall create](/cli/azure/network/firewall#az-network-firewall-create) to create Azure Firewall.
 
 ```bash
-az network firewall update \
-  --resource-group test-rg \
-  --name firewall \
-  --firewall-policy firewall-policy
+az network firewall create \
+    --resource-group test-rg \
+    --name firewall \
+    --vnet-name vnet-hub \
+    --firewall-policy firewall-policy \
+    --public-ip public-ip-firewall
 ```
 
 ---
@@ -384,7 +395,7 @@ Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
 # Create public IP for NAT gateway
 $publicIpNatParams = @{
     ResourceGroupName = 'test-rg'
-    Location = 'South Central US'
+    Location = 'southcentralus'
     Name = 'public-ip-nat'
     AllocationMethod = 'Static'
     Sku = 'Standard'
@@ -827,7 +838,7 @@ Use [az network route-table create](/cli/azure/network/route-table#az-network-ro
 az network route-table create \
   --resource-group test-rg \
   --name route-table-spoke \
-  --location "South Central US"
+  --location southcentralus
 ```
 
 Use [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) to create a route.
@@ -944,22 +955,32 @@ New-AzFirewallPolicyRuleCollectionGroup @newRuleCollectionGroupParams
 
 ### [CLI](#tab/cli)
 
-Use [az network firewall policy rule-collection-group collection rule add](/cli/azure/network/firewall/policy/rule-collection-group/collection#az-network-firewall-policy-rule-collection-group-collection-rule-add) to create a network rule collection.
+Use [az network firewall policy rule-collection-group create](/cli/azure/network/firewall/policy/rule-collection-group#create-a-rule-collection-group) to create a rule collection group.
 
 ```bash
-az network firewall policy rule-collection-group collection rule add \
-  --policy-name firewall-policy \
-  --resource-group test-rg \
-  --rule-collection-group-name DefaultNetworkRuleCollectionGroup \
-  --name spoke-to-internet \
-  --rule-name allow-web \
-  --rule-type NetworkRule \
-  --priority 100 \
-  --action Allow \
-  --source-addresses 10.1.0.0/24 \
-  --destination-addresses '*' \
-  --destination-ports 80 443 \
-  --protocols TCP
+az network firewall policy rule-collection-group create \
+    --name DefaultNetworkRuleCollectionGroup \
+    --policy-name firewall-policy \
+    --resource-group test-rg \
+    --priority 200
+```
+
+Use [az network firewall policy rule-collection-group collection add-filter-collection](/cli/azure/network/firewall/policy/rule-collection-group/collection#add-a-filter-collection) to create a network rule collection.
+
+```bash
+az network firewall policy rule-collection-group collection add-filter-collection \
+    --name "spoke-to-internet" \
+    --action Allow \
+    --rule-name "allow-web" \
+    --rule-type NetworkRule \
+    --source-addresses "10.1.0.0/24" \
+    --ip-protocols TCP \
+    --destination-addresses "*" \
+    --destination-ports "*" \
+    --collection-priority 100 \
+    --policy-name "firewall-policy" \
+    --resource-group "test-rg" \
+    --rule-collection-group-name "DefaultNetworkRuleCollectionGroup"
 ```
 
 ---
@@ -1121,7 +1142,7 @@ Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to cre
 az network nsg create \
   --resource-group test-rg \
   --name nsg-1 \
-  --location "South Central US"
+  --location southcentralus
 ```
 
 Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create a network interface.
@@ -1141,11 +1162,11 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine.
 az vm create \
   --resource-group test-rg \
   --name vm-spoke \
-  --location "South Central US" \
+  --location southcentralus \
   --nics vm-spoke-nic \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
-  --admin-password <password>
+  --generate-ssh-keys 
 ```
 
 ---
