@@ -53,19 +53,19 @@ You can enable session affinity when you create your container app via the Azure
 
 1. Start at the Azure portal home page, search for **Container Apps** in the top search bar.
 
-1. Select **Container Apps** in the search results and elect the **Create** button.
+1. Select **Container Apps** in the search results and select the **Create** button.
 
-1. In the **Basics** and **Container** tabs, provide all required values in each section, and then Select the **Ingress** tab.
+1. In the *Basics* and *Container* tabs, provide all required values in each section, and then select the **Ingress** tab.
 
-1. In the **Application ingress settings** section, set **Ingress** to Enabled. Once enabled, the **Session affinity** setting becomes available.
+1. In the *Application ingress settings* section, set *Ingress* to **Enabled**. Once enabled, the *Session affinity* setting becomes available.
 
-1. Select **Enabled** for the **Ingress** setting. 
+1. For *Session affinity* select **Enabled**.  
 
 :::image type="content" source="media/ingress/screenshot-session-affinity.png" alt-text="Screenshot of the session affinity setting in Create Container App page.":::
 
 You can also enable or disable session affinity after your container app is created. To enable session affinity:
 
-1. Go  to your app in the portal.
+1. Go to your app in the portal.
 1. Select **Ingress**.
 1. You can enable or disable **Session affinity** by selecting or deselecting **Enabled**.
 1. Select **Save**.
