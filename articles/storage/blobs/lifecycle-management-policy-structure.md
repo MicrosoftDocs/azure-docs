@@ -5,7 +5,7 @@ description: Learn more about the elements of a lifecycle management policy.
 author: normesta
 
 ms.author: normesta
-ms.date: 05/05/2025
+ms.date: 05/29/2025
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.custom: references_regions, engagement-fy23

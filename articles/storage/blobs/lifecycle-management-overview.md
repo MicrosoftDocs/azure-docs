@@ -5,7 +5,7 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 05/05/2025
+ms.date: 05/29/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.custom: references_regions, engagement-fy23
@@ -13,7 +13,7 @@ ms.custom: references_regions, engagement-fy23
 
 # Azure Blob Storage lifecycle management overview
 
-Azure Blob Storage empowers organizations to efficiently manage and scale their data storage needs, even as data volumes grow and usage patterns evolve. Leveraging blob lifecycle management, customers can proactively optimize costs by implementing rule-based policies that automatically transition data to cooler tiers or expire it when it is no longer needed. This seamless automation ensures that data is always stored in the most cost-effective manner, maximizing budget efficiency while maintaining easy access and robust data management. With blob lifecycle management, organizations can confidently scale their storage environments, knowing that their costs are optimized and their data is managed according to real-world usage. 
+Azure Blob Storage empowers organizations to efficiently manage and scale their data storage needs, even as data volumes grow and usage patterns evolve. By leveraging blob lifecycle management, customers can proactively optimize costs by implementing rule-based policies that automatically transition data to cooler tiers or expire it when it is no longer needed. This seamless automation ensures that data is always stored in the most cost-effective manner which maximizes budget efficiency while maintaining easy access and robust data management. With blob lifecycle management, organizations can confidently scale their storage environments, knowing that their costs are optimized and their data is managed according to real-world usage. 
  
 With the lifecycle management policy, you can: 
 
@@ -31,11 +31,11 @@ A lifecycle management policy is a collection of rules in a JSON document. To le
 
 Lifecycle management policies are supported for block blobs and append blobs in general-purpose v2, premium block blob, and Blob Storage accounts. Lifecycle management doesn't affect system containers such as the $logs or $web containers. 
 
-A *rule* is a definition of the conditions, the associated actions and filters that are to be implemented. The following table describes each element.
+A *rule* is a definition of the conditions, along with the associated actions and filters that will be used to process objects. The following table describes each rule element.
 
 | Rule element | Description |
 |---|---|
-| Conditions | Conditions are based on the following limited set of blob properties which include Creation Time, Last Modified Time and Last Accessed Time (if access time tracking is enabled). |
+| Conditions | Conditions are based on the following three blob properties: Creation Time, Last Modified Time and Last Accessed Time (if access time tracking is enabled) |
 | Actions | Actions are applied to the filtered blobs that meet the associated conditions. You must define at least one action per rule such as changing the blob tier to the cool tier or deleting blobs.  |
 | Filters | Filters limit rule actions to a subset of blobs within the storage account by using path prefixes and blob tags. If more than one filter is defined, a logical AND runs on all filters. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude. |
 
