@@ -16,6 +16,11 @@ This tutorial describes how to create backups for an AKS cluster stored in the S
 
 Azure Backup allows you to store AKS cluster backups in both **Operational Tier** and **Vault Tier**. This feature enables you to move snapshot-based AKS backups stored in Operational Tier to a Vault-standard Tier. You can use the backup policy, to define whether to store backups just in Operational Tier as snapshots or also protect them in Vault Tier along with Operational. Vaulted backups are stored offsite, which protects them from tenant compromise, malicious attacks, and ransomware threats. You can also retain the backup data for long term. Additionally, you can perform Cross Region Restore by configuring the Backup vault with storage redundancy set as global and Cross Region Restore property enabled. [Learn more](azure-kubernetes-service-backup-overview.md). 
 
+>[!Note]
+> In the Vault Tier, only one scheduled recovery point is created per day, providing a Recovery Point Objective (RPO) of 24 hours in the primary region. In the secondary region, replication of this recovery point can take up to 12 additional hours, resulting in an effective RPO of up to 36 hours.
+
+> When a backup is created in the Operational Tier and becomes eligible for Vault Tier, it may take up to four hours for the tiering process to begin.
+
 ## Consideration
 
 For backups to be available in Secondary region (Azure Paired Region), [create a Backup vault](create-manage-backup-vault.md#create-backup-vault) with **Storage Redundancy** enabled as **Globally Redundant** and Cross Region Restore enable.
