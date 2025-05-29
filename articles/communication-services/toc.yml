@@ -214,6 +214,8 @@ items:
         href: quickstarts/email/send-email-smtp/smtp-authentication.md
       - name: Send email using SMTP
         href: quickstarts/email/send-email-smtp/send-email-smtp.md
+      - name: Send email using SMTP with XOAuth2
+        href: quickstarts/email/send-email-smtp/send-email-smtp-oauth.md
     - name: Attachments
       items:
       - name: Inline attachments
