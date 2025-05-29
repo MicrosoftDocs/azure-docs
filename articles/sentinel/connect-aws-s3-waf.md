@@ -100,9 +100,10 @@ If you're not already logged in to AWS, log in now, and you are redirected to th
 
 #### Create the OIDC web identity provider
 
-Follow the instructions on the AWS Console page for creating a new stack.
+> [!IMPORTANT]
+> If you already have the OIDC web identity provider from the previous version of the AWS S3 connector, skip this step and proceed to [Create the remaining AWS resources](#create-the-remaining-aws-resources).<br>If you already have an OIDC Connect provider set up for Microsoft Defender for Cloud, add Microsoft Sentinel as an audience to your existing provider (Commercial: `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`, Government:`api://d4230588-5f84-4281-a9c7-2c15194b28f7`). Do not try to create a new OIDC provider for Microsoft Sentinel.
 
-(If you already have the OIDC web identity provider from the previous version of the AWS S3 connector, skip this step and proceed to [Create the remaining AWS resources](#create-the-remaining-aws-resources).)
+Follow the instructions on the AWS Console page for creating a new stack.
 
 1. Specify a template and upload a template file.
 

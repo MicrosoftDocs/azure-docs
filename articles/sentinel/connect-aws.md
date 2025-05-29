@@ -137,6 +137,9 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
 ### Create an Open ID Connect (OIDC) web identity provider and an AWS assumed role
 
+> [!IMPORTANT]
+> If you already have an OIDC Connect provider set up for Microsoft Defender for Cloud, add Microsoft Sentinel as an audience to your existing provider (Commercial: `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`, Government:`api://d4230588-5f84-4281-a9c7-2c15194b28f7`). Do not try to create a new OIDC provider for Microsoft Sentinel.
+
 1. In a different browser window or tab, open the AWS console.
 
 1. Create a **web identity provider**. Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html). 
