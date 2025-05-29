@@ -2,11 +2,11 @@
 title: Upgrade or view a SKU - portal
 titleSuffix: Azure Bastion
 description: Learn how to view a SKU and upgrade SKU tiers.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 03/31/2025
-ms.author: cherylmc
+ms.author: abell
 
 ---
 

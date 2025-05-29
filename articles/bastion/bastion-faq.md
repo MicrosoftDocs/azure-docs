@@ -1,11 +1,11 @@
 ---
 title: 'Azure Bastion FAQ'
 description: Learn about frequently asked questions for Azure Bastion.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: faq
 ms.date: 03/03/2025
-ms.author: cherylmc
+ms.author: abell
 ms.custom: references_regions
 ---
 

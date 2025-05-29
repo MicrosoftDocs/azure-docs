@@ -9,4 +9,4 @@ To manage your resource, follow these steps:
 
 [!INCLUDE [manage](manage.md)] manage.
 
-    The resource displays in the working pane with the *Overview* open by default.
+    The resource shows in the working pane with the *Overview* open by default.

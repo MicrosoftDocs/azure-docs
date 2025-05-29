@@ -2,8 +2,8 @@
 title: 'Quickstart: Deploy Azure Bastion to a virtual network using an ARM template'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion to a virtual network by using an Azure Resource Manager template.
-author: cherylmc
-ms.author: cherylmc
+author: abell
+ms.author: abell
 ms.service: azure-bastion
 ms.topic: quickstart 
 ms.date: 03/31/2025

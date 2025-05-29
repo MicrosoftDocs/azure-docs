@@ -30,7 +30,7 @@ Single sign-on (SSO) is already enabled when you created your Informatica Organi
 
 Once the Astro resource is deleted, all billing stops for that resource through Azure Marketplace. If you're done using your resource and would like to delete the same, follow these steps:
 
-1. From the Resource menu, select the Informatica deployment you would like to delete.
+1. From the service menu, select the Informatica deployment you would like to delete.
 
 1. On the working pane of the **Overview**, select **Delete**.
 

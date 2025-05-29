@@ -132,7 +132,7 @@ A notification is displayed on the top right, calling out the status of the depl
 ## Manage Azure Confluent Connectors (preview)
 
 1. Open your Confluent organization and select **Confluent** > **Confluent Connectors** from the left menu.
-1. Select your **Environment** and **Cluster** from the dropdown menu. The Azure portal now displays the list of Azure connectors in the respective environment and cluster. The following optional actions are available:
+1. Select your **Environment** and **Cluster** from the dropdown menu. The Azure portal now shows the list of Azure connectors in the respective environment and cluster. The following optional actions are available:
 
    * Filter connectors by **Type** (**Source** or **Sink**) and **Status** (**Running**, **Failed**, **Provisioning, or **Paused**).
    * Search for a connector by entering a name in the search bar on the right hand side.

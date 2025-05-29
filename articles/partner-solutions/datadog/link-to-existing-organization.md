@@ -31,7 +31,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. Select the **+ Create** option under **Link Azure subscription to an existing Datadog org**.
 
-The **Create** resource pane displays in the working pane with the *Basics* tab open by default.
+The **Create** resource pane shows in the working pane with the *Basics* tab open by default.
 
 ### Basics tab
 

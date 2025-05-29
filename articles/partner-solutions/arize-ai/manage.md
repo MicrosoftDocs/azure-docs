@@ -35,4 +35,4 @@ To manage your resource, select the links next to corresponding details.
 
 ## Get support
 
-Contact [Arize](https://arize.com/contact/) for customer support. You can also visit the [Slack Support Community](https://arize-ai.slack.com/ssb/redirect) for more help. 
+Contact [Arize](https://arize.com/contact/) for customer support. You can also go to the [Slack Support Community](https://arize-ai.slack.com/ssb/redirect) for more help. 

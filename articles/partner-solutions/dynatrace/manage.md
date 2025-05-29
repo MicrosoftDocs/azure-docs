@@ -39,13 +39,13 @@ Below the essentials, you can navigate to other details about your resource by s
 
 ## Reconfigure rules for metrics and logs
 
-To change the configuration rules for logs, select **Metrics and logs** in the Resource menu on the left.
+To change the configuration rules for logs, select **Metrics and logs** in the service menu on the left.
 
 For more information, see [Configure metrics and logs](dynatrace-create.md#configure-metrics-and-logs).
 
 ## View monitored resources
 
-To view the list of resources emitting logs to Dynatrace, select **Dynatrace environment config > Monitored Resources** in the Resource menu.
+To view the list of resources emitting logs to Dynatrace, select **Dynatrace environment config > Monitored Resources** in the service menu.
 
 > [!TIP]
 > You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending logs and/or metrics. 
