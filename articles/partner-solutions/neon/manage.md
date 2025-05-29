@@ -94,7 +94,7 @@ To generate a connection string, open your project or branch in the working pane
 
 1. Select **Connect to database** from the menu bar in the working pane. 
 
-1. check the default values or select new values from each dropdown.
+1. Check the default values or select new values from each dropdown.
 
 1. Select the copy icon next to the connection string.
 
