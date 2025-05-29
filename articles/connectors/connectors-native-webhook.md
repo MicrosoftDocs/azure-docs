@@ -19,11 +19,13 @@ Here are some examples of webhook-based workflows:
 * Wait for an event to arrive from [Azure Event Hubs](https://github.com/logicappsio/EventHubAPI) before triggering a workflow run.
 * Wait for an approval before continuing a workflow.
 
-This guide shows how to use the HTTP Webhook trigger and Webhook action so that your workflow can receive and respond to events at a service endpoint.
+This guide shows how to use the HTTP Webhook trigger and HTTP Webhook action so that your workflow can receive and respond to events at a service endpoint.
 
 ## How do webhooks work?
 
-A webhook trigger is event-based, which doesn't depend on checking or polling regularly for new data or events. After you add a webhook trigger to an empty workflow and then save the workflow, or after you re-enable a disabled logic app resource, the webhook trigger *subscribes* to the specified service endpoint by registering a *callback URL* with that endpoint. The trigger then waits for that service endpoint to call the URL, which fires the trigger and starts the workflow. Similar to the [Request trigger](connectors-native-reqres.md), a webhook trigger fires immediately. The webhook trigger also remains subscribed to the service endpoint unless you manually take the following actions:
+A webhook trigger is event-based, which doesn't depend on checking or polling regularly for new data or events. After you add a webhook trigger to an empty workflow and then save the workflow, or after you re-enable a disabled logic app resource, the webhook trigger *subscribes* to the specified service endpoint by registering a *callback URL* with that endpoint. The trigger then waits for that service endpoint to call the URL, which fires the trigger and starts the workflow. Similar to the [Request trigger](connectors-native-reqres.md), a webhook trigger fires immediately.
+
+The webhook trigger also remains subscribed to the service endpoint unless you manually take the following actions:
 
 * Change the trigger's parameter values.
 * Delete the trigger and then save your workflow.
@@ -43,7 +45,7 @@ For more information, see the following documentation:
 * [Webhooks and subscriptions](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Create custom APIs that support a webhook](../logic-apps/logic-apps-create-api-app.md)
 
-For information about encryption, security, and authorization for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) or [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+For information about encryption, security, and authorization for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) or [Microsoft Entra ID Open Authentication](../active-directory/develop/index.yml), see [Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Connector technical reference
 
@@ -53,7 +55,7 @@ For more information about trigger and action parameters, see [HTTP Webhook para
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The URL for an already deployed endpoint or API that supports the webhook subscribe and unsubscribe pattern for [webhook triggers in workflows](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) or [webhook actions in workflows](../logic-apps/logic-apps-create-api-app.md#webhook-actions) as appropriate
+* The URL for an already deployed endpoint or API that supports the webhook subscribe and unsubscribe pattern for [webhook triggers in workflows](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) or [webhook actions in workflows](../logic-apps/logic-apps-create-api-app.md#webhook-actions), as appropriate.
 
 * The Standard or Consumption logic app workflow where you want to wait for specific events at the target endpoint. To start with the HTTP Webhook trigger, create a logic app with a blank workflow. To use the HTTP Webhook action, start your workflow with any trigger that you want. This example uses the HTTP trigger as the first step.
 
