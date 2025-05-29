@@ -148,7 +148,6 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
 
 ---
 
-<!-- TODO: We will write the steps here instead of pointing to the quickstart -->
 ## Deploy Azure IoT Operations
 
 Azure IoT Operations will be deployed on the development cluster that you created in the previous step, and then the configuration will be altered with the `configure-aio.sh` script to provide additional off-cluster access methods to streamline development:
@@ -157,53 +156,20 @@ Azure IoT Operations will be deployed on the development cluster that you create
 
 1. Follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md#connect-cluster-to-azure-arc) to connect your cluster to Azure Arc, create a storage account and schema registry, and deploy Azure IoT Operations.
 
-[!NOTE]
+> [!NOTE]
 > The Codespaces environment already has the cluster created, so you can skip the **Create cluster** step in the quickstart.
 
 ### [Ubuntu](#tab/ubuntu)
 
-1. Create an Azure resource group. Only one Azure IoT Operations instance is supported per resource group. To create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions).
-
-   ```azurecli
-   az group create --location <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID>
-   ```
-
-1. Follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md#arc-enable-your-cluster) to arc-enable your cluster in Ubuntu. 
-
-1. Follow the instructions in [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy Azure IoT Operations to your cluster.
-
-[!NOTE]
-> You can start with test settings, and then [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) later.
+[!INCLUDE [deploy-aio-sdks-linux](../includes/deploy-aio-sdks-linux.md)]
 
 ### [Visual Studio Code Dev Containers](#tab/vscode-dev-containers)
 
-1. Create an Azure resource group. Only one Azure IoT Operations instance is supported per resource group. To create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions).
-
-   ```azurecli
-   az group create --location <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID>
-   ```
-
-1. Follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md#arc-enable-your-cluster) to arc-enable your cluster in Ubuntu. 
-
-1. Follow the instructions in [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy Azure IoT Operations to your cluster.
-
-[!NOTE]
-> You can start with test settings, and then [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) later.
+[!INCLUDE [deploy-aio-sdks-linux](../includes/deploy-aio-sdks-linux.md)]
 
 ### [Windows Subsystem for Linux (WSL)](#tab/wsl)
 
-1. Create an Azure resource group. Only one Azure IoT Operations instance is supported per resource group. To create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions).
-
-   ```azurecli
-   az group create --location <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID>
-   ```
-
-1. Follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md#arc-enable-your-cluster) to arc-enable your cluster in Ubuntu. 
-
-1. Follow the instructions in [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy Azure IoT Operations to your cluster.
-
-[!NOTE]
-> You can start with test settings, and then [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) later.
+[!INCLUDE [deploy-aio-sdks-linux](../includes/deploy-aio-sdks-linux.md)]
 
 ---
 
