@@ -58,7 +58,7 @@ After you or someone in your organization installs the solution that includes th
    For some connectors, find more specific configuration information in the **Collect data** section in the Microsoft Sentinel documentation.
 
    - [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
-   - [Windows Security Events via AMA connector for Microsoft Sentinel](/data-connectors/windows-security-events-via-ama.md)
+   - [Data connector prerequisites](data-connectors-reference.md##windows-security-events-via-ama)
   
    After you configure the data connector, it might take some time for the data to be ingested into Microsoft Sentinel. When the data connector is connected, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.  
 
