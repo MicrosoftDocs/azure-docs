@@ -606,7 +606,7 @@ sudo crm_mon -r
 
 Some databases require that the database instance installation is executed on an application server. Prepare the application server virtual machines to be able to use them in these cases.
 
-The steps bellow assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) aren't needed.
+The steps below assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) aren't needed.
 
 1. Configure operating system
 
