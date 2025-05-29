@@ -10,7 +10,10 @@ ms.date: 05/29/2025
 
 # Virtual WAN to Virtual WAN connectivity options
 
-In some enterprise environments, there might be a need to connect one Azure Virtual WAN to another. Common scenarios include mergers and acquisitions and decentralized business units requiring interconnectivity. 
+In some enterprise environments, there might be a need to connect one Azure Virtual WAN to another. Common scenarios include:
+
+- Mergers and acquisitions
+- Decentralized business units requiring interconnectivity
 
 In this article, you learn about the various connection options available to link multiple Virtual WAN environments.
 
