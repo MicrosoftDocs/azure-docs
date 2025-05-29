@@ -68,8 +68,8 @@ Projects can help you manage Dev Box resources efficiently. By assigning each de
 
 ### Assign permissions for project admins
 
-To attach a catalog to a project, you must have Project admin or Contributor permission for the project.
-To learn how to assign Project admin permission, see [Grant administrative access to Dev Box projects](how-to-project-admin.md).
+To attach a catalog to a project, you must have Project Admin or Contributor permission for the project.
+To learn how to assign Project Admin permission, see [Grant administrative access to Dev Box projects](how-to-project-admin.md).
 
 ### Enable project-level catalogs
 
@@ -102,9 +102,9 @@ You can create and test image definition files by using Visual Studio Code. In a
 1. The image definition file runs and applies the specified tasks to your test dev box. Inspect the changes and check the Visual Studio Code terminal for any errors or warnings generated during the task execution.
 1. When the image definition file runs successfully, upload it to your catalog.
 
-### System tasks and User tasks
+### System tasks and user tasks
 
-You can use both System and User tasks in your image definition file. The tasks section of the image definition file is divided into two sections: System tasks and User tasks. Both sections share the same parameters based on the task definitions in your catalog.
+You can use both system and user tasks in your image definition file. The tasks section of the image definition file is divided into the following sections. Both sections share the same parameters based on the task definitions in your catalog.
 
 - **System tasks**: These tasks run as `LocalSystem` during the provisioning stage of the dev box. They're typically used for system-level configurations, such as installing software or configuring system settings that require administrative privileges.
 - **User tasks**: These tasks run as the user after the user's first sign-in to the dev box. They're typically used for user-level configurations, such as installing user-specific applications or configuring user settings under user context. For example, users often prefer to install Python and Visual Studio Code under user context instead of systemwide. Put WinGet tasks in the `userTasks` section for better results when they don't work under tasks.
