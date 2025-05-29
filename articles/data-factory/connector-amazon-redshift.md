@@ -16,6 +16,9 @@ ms.date: 05/28/2025
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from an Amazon Redshift. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+> [!IMPORTANT]
+> The Amazon Redshift version 2.0 (Preview) provides improved native Amazon Redshift support. If you are using the Amazon Redshift version 1.0 in your solution, you are recommended to [upgrade your Amazon Redshift connector](#upgrade-the-amazon-redshift-connector) at your earliest convenience. Refer to this [section](#differences-between-amazon-redshift-connector-version-20-and-version-10) for details on the difference between version 2.0 (Preview) and version 1.0.
+
 ## Supported capabilities
 
 This Amazon Redshift connector is supported for the following capabilities:
@@ -291,7 +294,7 @@ Here are steps that help you upgrade the Amazon Redshift connector:
 
 2. The data type mapping for the Amazon Redshift linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Amazon Redshift](#data-type-mapping-for-amazon-redshift).
 
-## Differences between Amazon Redshift connector version 2.0 (Preview) and version 1.0
+## <a name="differences-between-amazon-redshift-connector-version-20-and-version-10"></a>Differences between Amazon Redshift connector version 2.0 (Preview) and version 1.0
 
 The Amazon Redshift connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (Preview) and version 1.0.
 
