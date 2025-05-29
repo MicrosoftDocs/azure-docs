@@ -4,7 +4,7 @@ description: Learn how to protect against common API-based vulnerabilities, as i
 author: mikebudzynski
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/29/2025
+ms.date: 05/30/2025
 ms.author: mibudz
 ---
 
