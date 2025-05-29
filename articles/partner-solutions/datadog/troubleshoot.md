@@ -49,7 +49,7 @@ To set up the Azure Datadog integration, you must have **Owner** access on the A
 
     1. Navigate to Azure diagnostic setting for the specific resource. 
 
-    1. check that there's a Datadog diagnostic setting.
+    1. Check that there's a Datadog diagnostic setting.
 
 - Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
