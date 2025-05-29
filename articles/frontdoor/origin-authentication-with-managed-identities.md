@@ -5,18 +5,20 @@ description: This article shows you how to set up managed identities with Azure 
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: concept-article
+ms.topic: how-to
 ms.date: 05/12/2025
 ---
 
 # Use managed identities to authenticate to origins (preview)
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Managed identities provided by Microsoft Entra ID enables your Azure Front Door Standard/Premium instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 After you enable managed identity for Azure Front Door and granting the managed identity necessary permissions to your origin, Front Door will use the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, Front Door will set the value of the token in the Authorization header using the Bearer scheme and then forward the request to the origin. Front Door caches the token until it expires. 
 
 > [!Note]
-> This feature is not currently supported for private link enabled origins within Front Door.
+> This feature is currently not supported for origins with Private Link enabled in Front Door.
 
 Azure Front Door supports two types of managed identities:
 
@@ -27,7 +29,9 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 
 ## Prerequisites
 
-Before setting up managed identity for Azure Front Door, ensure you have an Azure Front Door Standard or Premium profile. To create a new profile, see [create an Azure Front Door](create-front-door-portal.md).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* An Azure Front Door Standard or Premium profile. To create a new profile, see [create an Azure Front Door](create-front-door-portal.md).
 
 ## Enable managed identity
 
@@ -35,9 +39,9 @@ Before setting up managed identity for Azure Front Door, ensure you have an Azur
 
 1. Choose either a **System assigned** or **User assigned** managed identity.
 
-    * **[System assigned](#system-assigned)** - A managed identity tied to the Azure Front Door profile lifecycle, used to access Azure Key Vault.
+    * **[System assigned](#system-assigned)** - A managed identity tied to the Azure Front Door profile lifecycle.
     
-    * **[User assigned](#user-assigned)** - A standalone managed identity resource with its own lifecycle, used to authenticate to Azure Key Vault.
+    * **[User assigned](#user-assigned)** - A standalone managed identity resource with its own lifecycle.
 
     ### System assigned
     
@@ -47,7 +51,7 @@ Before setting up managed identity for Azure Front Door, ensure you have an Azur
     
     1. Confirm the creation of a system managed identity for your Front Door profile by selecting **Yes** when prompted.
     
-    1. Once created and registered with Microsoft Entra ID, use the **Object (principal) ID** to grant Azure Front Door access to your Azure Key Vault.
+    1. Once created and registered with Microsoft Entra ID, use the **Object (principal) ID** to grant Azure Front Door access to your origin.
     
         :::image type="content" source="./media/managed-identity/system-assigned-created.png" alt-text="Screenshot of the system assigned managed identity registered with Microsoft Entra ID.":::
     
@@ -63,7 +67,7 @@ Before setting up managed identity for Azure Front Door, ensure you have an Azur
 
         :::image type="content" source="./media/managed-identity/user-assigned-configured.png" alt-text="Screenshot of the user-assigned managed identity added to the Front Door profile.":::
 
-## Associating the identity to an Origin Group
+## Associating the identity to an origin group
 
 > [!Note]
 > The association will only work if
@@ -86,7 +90,7 @@ Before setting up managed identity for Azure Front Door, ensure you have an Azur
 1.	Navigate to the management page of your origin resource. For example, if the origin is an Azure Blob Storage, go to that Storage Account management page.
 
 > [!Note]
-> Below steps assume that your origin is an Azure Blob Storage. If you are using a different resource type as your origin, make sure that you choose an appropriate 'Job function role' during role assignment. Apart from that, the steps will remain same for all resource types.
+> The next steps assume your origin is an Azure Blob Storage. If you're using a different resource type, make sure to select the appropriate **job function role** during role assignment. Otherwise, the steps remain the same for most resource types.
 
 2. Go to the **Access Control (IAM)** section and click on **Add**. Choose **Add role assignment** from the dropdown menu.
     :::image type="content" source="./media/managed-identity/add-role-assignment-menu.png" alt-text="Screenshot of access control settings.":::
