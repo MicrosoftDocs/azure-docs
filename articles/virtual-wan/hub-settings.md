@@ -33,7 +33,13 @@ When increasing the virtual hub capacity, the virtual hub router will continue t
 
 Capacity is configured on the **Basics** tab **Virtual hub capacity** setting when you create your virtual hub.
 
-### Autoscaling
+#### Edit virtual hub capacity
+
+Adjust the virtual hub capacity when you need to support additional virtual machines and the aggregate throughput of the virtual hub router.
+
+To add additional virtual hub capacity, go to the virtual hub in the Azure portal. On the **Overview** page, select **Edit virtual hub**. Adjust the **Virtual hub capacity** using the dropdown, then **Confirm**.
+
+#### Autoscaling
 The virtual hub router supports autoscaling based on spoke VM utilization and data processed by the hub router. See [Azure Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md#metrics) for more details. As these factors change over time, the autoscaling algorithm dynamically adjusts the number of routing infrastructure units. It ensures the virtual hub router can handle the traffic load by selecting the greater value between the minimum routing infrastructure units you specify and the units required to support the current traffic load.
 
 Autoscaling can help in various scenarios where the hub router requires additional processing capabilities; autoscaling isn't instantaneous however. For improved infrastructure availability and performance, ensure that your minimum provisioned routing infrastructure units (RIUs) match the requirements of your workloads. Autoscaling won't reduce the provisioned RIUs below this minimum.
@@ -41,13 +47,6 @@ Autoscaling can help in various scenarios where the hub router requires addition
 Also consider:
 - The virtual hub router only scales on the data it processes, as clarified in [Azure Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md#category-traffic). Review how your Virtual WAN processes data to ensure that resources are provisioned correctly.
 - Autoscaling can potentially affect connectivity for Private Endpoints. Review your deployment and adhere to the best practices outlined in [Use Private Link in Virtual WAN](howto-private-link.md#routing-considerations-with-private-link-in-virtual-wan).
-
-
-#### Edit virtual hub capacity
-
-Adjust the virtual hub capacity when you need to support additional virtual machines and the aggregate throughput of the virtual hub router.
-
-To add additional virtual hub capacity, go to the virtual hub in the Azure portal. On the **Overview** page, select **Edit virtual hub**. Adjust the **Virtual hub capacity** using the dropdown, then **Confirm**.
 
 ### Routing infrastructure unit table
 
