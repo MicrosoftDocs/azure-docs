@@ -48,34 +48,48 @@ For guidance about using Azure Database for MySQL or Azure Database for PostgreS
 
 - Allow client connection from your computer to Azure, so you can debug your app. You can add the client IP address by following the steps at [Manage server-level IP firewall rules using the Azure portal](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-- Use Azure Cloud Shell or prepare your environment to use the Azure CLI.
+- Sign in to Azure Cloud Shell or prepare your environment to use the Azure CLI.
   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 <a name='1-grant-database-access-to-azure-ad-user'></a>
 ## Grant admin access to a Microsoft Entra user
 
-First, enable Microsoft Entra authentication to SQL Database by assigning a Microsoft Entra user as the admin of the server. This user might not be the same as the Microsoft account user for your Azure subscription.
+Enable Microsoft Entra authentication to SQL Database by assigning a Microsoft Entra user as the admin of the Azure SQL server. This user might not be the same as the Microsoft account user for your Azure subscription. The Microsoft Entra admin must be a user that is created, imported, synced, or invited into Microsoft Entra ID.
 
-The Microsoft Entra admin must be a user that is created, imported, synced, or invited into Microsoft Entra ID. If your Microsoft Entra tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Microsoft Entra ID](/entra/fundamentals/how-to-create-delete-users).
-
-- For more information on allowed Microsoft Entra users, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#limitations).
+- For more information on creating a Microsoft Entra user, see [Add or delete users using Microsoft Entra ID](/entra/fundamentals/how-to-create-delete-users).
+- For more information on allowed Microsoft Entra users for SQL Database, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#limitations).
 - For more information on adding an Azure SQL server admin, see [Provision a Microsoft Entra administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
 Run the following commands in the Bash environment of Azure Cloud Shell, or after signing in to Azure locally.
 
-1. Use [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) to find the `userPrincipalName` of the Microsoft Entra user, and use it to replace `<user-principal-name>` in the following code. The code saves the result of the query on `<user-principal-name>` to a variable called `azureaduser`.
+1. Use [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) with the `display-name`, `filter`, or `upn` parameter to get the object ID for the Microsoft Entra ID user. Run `az ad user list` standalone to show information for all the users in the Microsoft Entra directory.
+
+   For example, the following command lists information for a Microsoft Entra ID user with the `display-name` of Firstname Lastname.
 
    ```azurecli
-   azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query '[].id' --output tsv)
+   az ad user list --display-name "Firstname Lastname"
    ```
 
-   > [!TIP]
-   > To see the list of all user principal names in Microsoft Entra ID, run `az ad user list --query '[].userPrincipalName'`.
+   Here's example output:
 
-1. Add `$azureaduser` as an Azure SQL server admin by using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create), replacing `<server-name>` with your server name without the `.database.windows.net` suffix.
+   ```output
+    "businessPhones": [],
+    "displayName": "Firstname Lastname",
+    "givenName": null,
+    "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+    "jobTitle": null,
+    "mail": "firstname@contoso.com",
+    "mobilePhone": null,
+    "officeLocation": null,
+    "preferredLanguage": null,
+    "surname": null,
+    "userPrincipalName": "firstname@contoso.com"
+   ```
+
+1. Add the Microsoft Entra ID user `id` as an admin on the Azure SQL server by using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create). In the following command, replace `<server-name>` with your server name without the `.database.windows.net` suffix, and `<entra-id>` with the `id` value from the preceding `az ad user list` command.
 
    ```azurecli
-   az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
+   az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id <entra-id>
    ```
 
 ## Set up your development environment
