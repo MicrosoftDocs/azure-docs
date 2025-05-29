@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/23/2024
+ms.date: 05/29/2025
 ms.topic: how-to
 
 # Customer intent: As a platform engineer, I want to configure Conditional Access policies in Intune so that I can control access to dev boxes.
@@ -14,10 +14,13 @@ ms.topic: how-to
 ---
 
 # Configure Conditional Access policies for Dev Box
+This article shows how organizations use Conditional Access policies to manage access to dev boxes. 
+
+Microsoft Dev Box uses Microsoft Intune for device management, providing centralized control over device configuration, compliance policies, and app deployment to ensure secure access to corporate resources. To ensure access to resources,Dev Box automatically registers new dev boxes in Intune when you create them. 
+
+To enhance security, you can apply Conditional Access policies to control who can access Dev Boxes and from which locations.
 
 Conditional Access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the content. Conditional Access policies at their simplest are if-then statements. If a user wants to access a resource, they must complete an action. Conditional Access policies are powerful tools to help keep your organization's devices secure and your environments compliant.
-
-This article provides examples of how organizations can use Conditional Access policies to manage access to dev boxes. For Microsoft Dev Box, it's common to configure Conditional Access policies to restrict who can access the dev boxes, and from which locations they can access their dev boxes.
 
 -   **Device-based Conditional Access**:
 
