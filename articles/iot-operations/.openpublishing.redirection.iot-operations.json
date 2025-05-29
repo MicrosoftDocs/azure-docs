@@ -477,13 +477,13 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/concept-default-root-ca.md",
-            "redirect_url": "/azure/iot-operations/secure-iot-ops/concept-default-root-ca",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-certificates",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/deploy-iot-ops/concept-default-root-ca.md",
-            "redirect_url": "/azure/iot-operations/secure-iot-ops/concept-default-root-ca",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-certificates",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/get-started-end-to-end-sample/quickstart-add-assets.md",
@@ -551,7 +551,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-operations/secure-iot-ops/concept-default-root-ca.md",
+            "source_path_from_root": "/articles/iot-operations/secure-iot-ops/concept-default-root-ca.md",
             "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-certificates",
             "redirect_document_id": true
         }
