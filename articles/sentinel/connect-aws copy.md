@@ -15,7 +15,9 @@ ms.date: 05/28/2025
 
 Use Amazon Web Services (AWS) connectors to pull AWS service logs into Microsoft Sentinel. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. This is accomplished on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
 
-## AWS setup overview
+This article describes how to set up the AWS environment to send log data to Microsoft Sentinel, and how to connect Microsoft Sentinel to AWS using the S3 connector. 
+
+## AWS connector setup overview
 
 This graphic shows how to set up your AWS environment to send log data to Azure:
 
@@ -30,13 +32,19 @@ This graphic shows how to set up your AWS environment to send log data to Azure:
 
 1. Configure AWS services to send logs to the S3 bucket.
    
-1. Create an Open ID Connect (OIDC) **web identity provider** and an **assumed role** to grant your Microsoft Sentinel connector permissions to access your AWS S3 bucket and SQS resources. 
+1. Create an **assumed role** to grant your Microsoft Sentinel connector permissions to access your AWS S3 bucket and SQS resources. 
 
    Assign the appropriate **IAM permissions policies** to grant the assumed role access to the resources.
 
-1. Create a **web identity provider** to authenticate Microsoft Sentinel connectors to AWS through OpenID Connect (OIDC).
+1. Create an Open ID Connect (OIDC) **web identity provider** to authenticate Microsoft Sentinel connectors to AWS through OpenID Connect (OIDC).
 
    Microsoft Sentinel connectors use Microsoft Entra ID to authenticate with AWS through OpenID Connect (OIDC) and assume an AWS IAM role. 
+
+   > [!IMPORTANT]
+   > If you've already created an OIDC for Microsoft Defender for Cloud or another Microsoft service, use the same provider for Microsoft Sentinel. Do not create a new OIDC provider for Microsoft Sentinel.
+
+1. Configure the Microsoft Sentinel connectors you need to use the assumed role and SQS queue you created to access the S3 bucket and retrieve logs.
+
 
 ## Manual setup
 
@@ -157,8 +165,6 @@ See Amazon Web Services documentation (linked below) for the instructions for se
    :::image type="content" source="media/connect-aws/aws-add-connection.png" alt-text="Screenshot of adding an A W S role connection to the S3 connector." lightbox="media/connect-aws/aws-add-connection.png":::
 
 
-## Known issues and troubleshooting
-
 ### Known issues
 
 - Different types of logs can be stored in the same S3 bucket, but should not be stored in the same path.
@@ -166,27 +172,6 @@ See Amazon Web Services documentation (linked below) for the instructions for se
 - Each SQS queue should point to one type of message, so if you want to ingest GuardDuty findings *and* VPC flow logs, you should set up separate queues for each type.
 
 - Similarly, a single SQS queue can serve only one path in an S3 bucket, so if for any reason you are storing logs in multiple paths, each path requires its own dedicated SQS queue.
-
-### Troubleshooting
-
-Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troubleshoot.md).
-
-# [CloudTrail connector (legacy)](#tab/ct)
-
-This tab explains how to configure the AWS CloudTrail connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
-
-> [!NOTE]
-> AWS CloudTrail has [built-in limitations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in its LookupEvents API. It allows no more than two transactions per second (TPS) per account, and each query can return a maximum of 50 records. Consequently, if a single tenant constantly generates more than 100 records per second in one region, backlogs and delays in data ingestion will result.
->
-> Currently, you can only connect your AWS Commercial CloudTrail to Microsoft Sentinel and not AWS GovCloud CloudTrail.
-
-## Prerequisites
-
-- You must have write permission on the Microsoft Sentinel workspace.
-- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
-
-> [!NOTE]
-> Microsoft Sentinel collects CloudTrail management events from all regions. It is recommended that you do not stream events from one region to another.
 
 ## Connect AWS CloudTrail
 
