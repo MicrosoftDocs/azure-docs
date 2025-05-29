@@ -105,6 +105,14 @@ To generate a connection string, open your project or branch in the working pane
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
+## Get Support
+
+Contact [Neon](https://neon.tech/docs/introduction/support) for customer support. 
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [log a support request in the Neon portal](https://neon.tech/docs/introduction/support). 
+
 ## Related content
 
 [Neon Serverless Postgres developer resources and tools](tools.md)
