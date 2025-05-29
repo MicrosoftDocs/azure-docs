@@ -187,14 +187,14 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 Set up your chosen development environment and sign in to Azure. For more information about setting up your dev environment for Microsoft Entra authentication, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/Identity-readme).
 
-### Visual Studio for Windows
+# [Visual Studio Windows](#tab/windowsclient)
 
 Visual Studio for Windows is integrated with Microsoft Entra authentication.
 
 1. To enable development and debugging in Visual Studio, add your Microsoft Entra user in Visual Studio by selecting **File** > **Account Settings** from the top menu, and then select **Sign in** or **Add**.
 1. To set the Microsoft Entra user for Azure service authentication, select **Tools** > **Options** from the top menu, and then select **Azure Service Authentication** > **Account Selection**. Select the Microsoft Entra user you added and select **OK**.
 
-### Visual Studio Code
+# [Visual Studio Code](#tab/vscode)
 
 Visual Studio Code is integrated with Microsoft Entra authentication through the Azure Tools extension.
 
@@ -202,23 +202,25 @@ Visual Studio Code is integrated with Microsoft Entra authentication through the
 1. In the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), select the **Azure** logo.
 1. In the **App Service** explorer, select **Sign in to Azure** and follow the instructions.
 
-### Azure CLI or Visual Studio for macOS
+# [Azure CLI or Visual Studio macOS](#tab/macosclient)
 
-Visual Studio for Mac isn't integrated with Microsoft Entra authentication. However, the Azure Identity client library can use tokens from Azure CLI.
+Visual Studio for macOS isn't integrated with Microsoft Entra authentication. However, the Azure Identity client library can use tokens from Azure CLI.
 
 1. To enable development and debugging in Visual Studio, [install Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 1. Use your Microsoft Entra user to sign in to Azure with the command `az login --allow-no-subscriptions`.
 
-### Azure PowerShell
+# [Azure PowerShell](#tab/ps)
 
 The Azure Identity client library can use tokens from Azure PowerShell.
 
 1. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine.
 1. Use your Microsoft Entra user to sign in to Azure with the `Connect-AzAccount` cmdlet.
 
+-----
+
 ## Modify your project
 
-You can now start using Microsoft Entra authentication to develop and debug your Azure SQL database-backed web app. The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
+You can now use Microsoft Entra authentication to develop and debug your Azure SQL database-backed web app. The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
 
 - An ASP.NET app like the one in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) uses [Entity Framework](/ef/ef6/) by default.
 - An ASP.NET Core app like the one in [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md) uses [Entity Framework Core](/ef/core/) by default.
