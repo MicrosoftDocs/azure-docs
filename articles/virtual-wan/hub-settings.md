@@ -40,7 +40,7 @@ Autoscaling can help in various scenarios where the hub router requires addition
 
 Also consider:
 - The virtual hub router only scales on the data it processes, as clarified in [Azure Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md#category-traffic). Review how your Virtual WAN processes data to ensure that resources are provisioned correctly.
-- Autoscaling can potentially affect connectivity for Private Endpoints. To minimize connectivity issues, review your deployment and adhere to the best practices outlined in [Use Private Link in Virtual WAN](howto-private-link.md#routing-considerations-with-private-link-in-virtual-wan).
+- Autoscaling can potentially affect connectivity for Private Endpoints. Review your deployment and adhere to the best practices outlined in [Use Private Link in Virtual WAN](howto-private-link.md#routing-considerations-with-private-link-in-virtual-wan).
 
 
 #### Edit virtual hub capacity
