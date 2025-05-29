@@ -4,9 +4,8 @@ description: Learn about Active Directory Domain Services (AD DS) authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 05/22/2024
 ms.author: kendownie
-recommendations: false
 ---
 
 # Overview: On-premises Active Directory Domain Services authentication over SMB for Azure file shares
@@ -33,7 +32,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 
 ## Supported scenarios and restrictions
 
-- To assign share-level RBAC permissions to specific users or groups, on-premises AD DS identities must be synced to Microsoft Entra ID using Entra Connect Sync. If identities aren't synced, you must [use a default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities), which applies to all authenticated users. Password hash synchronization isn't required.
+- To assign share-level RBAC permissions to specific users or groups, on-premises AD DS identities must be synced to Microsoft Entra ID using Entra Connect Sync. If identities aren't synced, you must [use a default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities), which applies to all authenticated users. For example, a group created only in Microsoft Entra ID won't work if RBAC permissions are configured at the share level. However, if the group contains user accounts synced from on-premises, then you can use those identities. Password hash synchronization isn't required.
 - Client OS requirements: Windows 8 / Windows Server 2012 or later, or Linux VMs such as Ubuntu 18.04+ and equivalent RHEL/SLES distributions.
 - Azure file shares can be managed with Azure File Sync.
 - Kerberos authentication is available with Active Directory using [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.

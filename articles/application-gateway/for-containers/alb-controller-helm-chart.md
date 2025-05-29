@@ -2,11 +2,11 @@
 title: ALB Controller Helm Chart
 description: This article documents the latest helm chart for Application Gateway for Containers' ALB Controller.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
 ms.date: 5/2/2025
-ms.author: greglin
+ms.author: mbender
 ---
 <!-- Custom Resource Definitions (CRDs) -->
 

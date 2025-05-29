@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/private-multi-access-edge-compute-mec/index.yml",
+      "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/traffic-analytics-schema-update.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/traffic-analytics-schema-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-nsg-grafana.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-nsg-grafana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/api-management/migrate-stv1-to-stv2-no-vnet.md",
       "redirect_url": "/previous-versions/azure/api-management/migrate-stv1-to-stv2-no-vnet",
       "redirect_document_id": false
@@ -2394,6 +2419,11 @@
       "redirect_url": "/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/app-service/app-service-configure-premium-tier.md",
+      "redirect_url": "/azure/app-service/app-service-configure-premium-v4-tier",
+      "redirect_document_id": false
+    },           
     {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
@@ -6851,7 +6881,27 @@
     },
     {
       "source_path_from_root": "/articles/azure-functions/migration.md",
-      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/migrate-lambda-workloads-overview.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/discover-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/assess-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/migrate-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
       "redirect_document_id": false
     },
     {
