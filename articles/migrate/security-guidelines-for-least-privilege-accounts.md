@@ -45,3 +45,5 @@ Linux: Use a Linux sudo user account with the required permissions:
 If netstat isn't available,the user needs sudo permissions for the ss command.
 
 For more details, refer to the [dependency mapping data collection]()
+
+## Discovery of scoped VMware estate
