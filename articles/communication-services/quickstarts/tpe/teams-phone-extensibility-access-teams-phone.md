@@ -110,7 +110,7 @@ You must register your application for `TeamsExtension.ManageCalls` permission f
 
 ## Grant a Teams user access to your Azure Communication Services resource
 
-Send a request to the Microsoft Teams Phone access assignments API to give a Teams user access through Communication Services resource. For more details on how to authenticate the web request, follow this guide: [Authentication](https://learn.microsoft.com/rest/api/communication/authentication).
+Send a request to the Microsoft Teams Phone access assignments API to give a Teams user access through Communication Services resource. For more information about how to authenticate the web request, see [Authentication](/rest/api/communication/authentication).
 
 The following example shows a request for a user with identifier `e5b7f628-ea94-4fdc-b3d9-1af1fe231111`.
 

@@ -134,5 +134,5 @@ DELETE {endpoint}/access/teamsExtension/assignments/{objectId}?api-version=2025-
 
 ## Related articles
 
-- [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-overview.md)
+- [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-extensibility-overview.md)
 - [Teams Phone System extensibility quick start](./teams-phone-extensibility-quickstart.md)

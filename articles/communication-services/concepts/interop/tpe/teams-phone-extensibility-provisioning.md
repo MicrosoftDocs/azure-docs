@@ -23,10 +23,9 @@ A Teams resource account (RA) must include an association to the Contact Center 
 To provision the RA for the CCaaS service the Teams Admin uses a cmdlet to create (or change) the RA using the CCaaS AppID. For more information, see the article on GitHub [Register calling bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html).
 
 The Teams admin then assigns the Azure Communication Services Resource ID used by the CCaaS
-service to the RA. The CCaaS admin provides these IDs to the Teams admin. Once the RA is assigned the CCaaS app can retrieve the Azure Communication Services Resource IDs from MS Graph, including their Display Name and
-Phone number. The RA assignment also provides access consent for the RA.
+service to the RA. The CCaaS admin provides these IDs to the Teams admin. Once the RA is assigned the CCaaS app can retrieve the Azure Communication Services Resource IDs from MS Graph, including their Display Name and Phone number. The RA assignment also provides access consent for the RA.
 
-:::image type="content" source="./media/tpe-provisioning-call-flow.png" alt-text="Diagram shows the Provisioning flow from Resource Account through number acquisition and number assignment to finish provisioning."  lightbox="./media/tpe-provisioning-call-flow.png":::
+:::image type="content" source="./media/teams-phone-extensibility-provisioning-call-flow.png" alt-text="Diagram shows the Provisioning flow from Resource Account through number acquisition and number assignment to finish provisioning."  lightbox="./media/teams-phone-extensibility-provisioning-call-flow.png":::
 
 ## Authorization
 
