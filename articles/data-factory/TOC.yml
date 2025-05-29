@@ -376,7 +376,9 @@ items:
       - name: Connector release stages and timelines
         href: connector-release-stages-and-timelines.md
       - name: Connector upgrade FAQ
-        href: connector-deprecation-frequently-asked-questions.md           
+        href: connector-deprecation-frequently-asked-questions.md  
+      - name: Guidance for BYOD approach
+        href: guidance-for-byod-approach.md        
     - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
