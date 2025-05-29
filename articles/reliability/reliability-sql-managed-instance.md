@@ -259,6 +259,14 @@ When you configure automatic backups on your managed instance, you can specify h
 
 For more information about Azure SQL Managed Instance backup redundancy, see [Backup storage redundancy](/azure/azure-sql/managed-instance/automated-backups-overview#backup-storage-redundancy).
 
+## Reliability during service maintenance
+
+When Azure SQL Managed Instance performs maintenance on your instance, the managed instance remains fully available but can be subject to short reconfigurations. Client applications might observe brief connectivity disruptions when a maintenance event occurs. Your client applications should follow the [transient fault handling guidance](#transient-faults) to minimize the effects.
+
+Azure SQL Managed Instance enables you to specify a maintenance window that's generally used for service upgrades and other maintenance operations. Configuring a maintenance window can help you to minimize any side effects, like automatic failovers, during your business hours. You can also receive advance notification of planned maintenance.
+
+To learn more, see [Maintenance window in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/maintenance-window).
+
 ## Service-level agreement
 
 The service-level agreement (SLA) for Azure SQL Managed Instance describes the expected availability of the service. It also describes the conditions that must be met to achieve that availability expectation, including the networking configuration you must use. To understand those conditions, it's important that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
