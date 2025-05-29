@@ -34,7 +34,7 @@ The Azure Communication Services Resource Owner needs to run the following API o
 
 
 1. {YOUR-ACS-RESOURCE-ENDPOINT} in the request URI (RURI) path is the Azure Communication Services Resource fully qualified domain name (FQDN) from Azure.
-1. {YOUR-RESOURCE-ACCOUNT-GUID} parameter in the RURI, is the oid value returned by the Graph API from the previous step. Alternatively for one off manual provisioning, the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](https://learn.microsoft.com/en-us/powershell/module/teams/get-csonlineapplicationinstance?view=teams-ps) cmdlet returns the ObjectId and that ID is the YOUR-RESOURCE-ACCOUNT-GUID. 
+1. {YOUR-RESOURCE-ACCOUNT-GUID} parameter in the RURI, is the oid value returned by the Graph API from the previous step. Alternatively for one off manual provisioning, the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/get-csonlineapplicationinstance) cmdlet returns the ObjectId and that ID is the YOUR-RESOURCE-ACCOUNT-GUID. 
 1. The {TENANT-GUID} in the RURI path is the Teams Tenant GUID.
 1. The {principalType} in the body is `teamsResourceAccount` because we're consenting to a Teams Resource Account for Teams Phone Extensibility.
 
@@ -204,9 +204,9 @@ GET {endpoint}/access/teamsExtension/tenants/87d349ed-44d7-43e1-9a83-5f2406dee5b
 ## Next steps
   
 > [!div class="nextstepaction"]
-> [REST API for Teams Phone Extensibility](./teams-phone-extensiblity-rest-api.md)
+> [REST API for Teams Phone extensibility](./teams-phone-extensiblity-rest-api.md)
 
 ## Related articles
 
-- [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-overview.md)
+- [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-extensibility-overview.md)
 - [Teams Phone System extensibility quick start](./teams-phone-extensibility-quickstart.md)

@@ -70,5 +70,5 @@ End users can take advantage of their Teams Calling plans or any of the connecti
 
 ## Related articles
 
-- [Teams Phone extensibility overview](./teams-phone-overview.md)
+- [Teams Phone extensibility overview](./teams-phone-extensibility-overview.md)
 - [Teams Phone extensibility FAQ](./teams-phone-extensibility-faq.md)

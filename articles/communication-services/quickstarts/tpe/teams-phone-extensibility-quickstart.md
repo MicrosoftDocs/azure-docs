@@ -483,4 +483,5 @@ await callConnection.TransferCallToParticipantAsync(new TransferToParticipantOpt
 
 ## Related articles
 
-- [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-overview.md)
+- [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-extensibility-overview.md)
+- [REST API for Teams Phone extensibility](./teams-phone-extensiblity-rest-api.md)

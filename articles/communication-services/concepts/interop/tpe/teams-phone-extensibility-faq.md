@@ -86,5 +86,6 @@ While it's not mandatory to be certified in order to start building solutions, w
 
 ## Related articles
 
+- [Teams Phone extensibility overview](./teams-phone-extensibility-overview.md)
 - [Teams Phone System extensibility quickstart](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md)
 - [Cost and connectivity options](teams-phone-extensibility-connectivity-cost.md)

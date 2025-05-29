@@ -115,5 +115,5 @@ The following list of capabilities is supported for scenarios where at least one
 
 ## Related articles
 
-- [Teams Phone extensibility overview](./teams-phone-overview.md)
+- [Teams Phone extensibility overview](./teams-phone-extensibility-overview.md)
 - [Teams Phone extensibility FAQ](./teams-phone-extensibility-faq.md)

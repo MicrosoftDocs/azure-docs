@@ -149,5 +149,5 @@ This issue arises when the provisioning of the Resource Account is incomplete or
 
 ## Related articles
 
-- [Teams Phone extensibility overview](./teams-phone-overview.md)
+- [Teams Phone extensibility overview](./teams-phone-extensibility-overview.md)
 - [Teams Phone extensibility FAQ](./teams-phone-extensibility-faq.md)
