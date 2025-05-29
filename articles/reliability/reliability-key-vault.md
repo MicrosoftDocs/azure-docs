@@ -1,20 +1,20 @@
 ---
 title: Reliability in Azure Key Vault
 description: Find out about reliability in Azure Key Vault, including availability zones and multi-region deployments.
-author: anaharris-ms
-ms.author: anaharris
+author: msmbaldwin
+ms.author: mbaldwin
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
-ms.service: key-vault
-ms.date: 11/12/2024
+ms.service: azure-key-vault
+ms.date: 05/07/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Key Vault works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
 # Reliability in Azure Key Vault
 
-> This article describes reliability support in Azure Key Vault, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
->
-> Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs.
+This article describes reliability support in Azure Key Vault, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 Azure Key Vault is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other sensitive information. Key Vault offers a range of built-in reliability features to help ensure that your secrets remain available, including automatic region replication, data redundancy, and the ability to back up and restore your secrets.
 
@@ -40,9 +40,7 @@ Key Vault provides multiple layers of redundancy to maintain availability during
 
 ## Transient faults
 
-  [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
-
-Transient faults are temporary errors that occur in distributed systems like Azure. They can happen during network connectivity issues, service reconfiguration, or temporary service unavailability.
+[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
 Azure Key Vault is designed to handle most transient errors automatically. However, client applications should implement retry logic when interacting with Key Vault to handle any transient failures that might occur. Some best practices include:
 
@@ -54,15 +52,15 @@ If you're using Key Vault in high-throughput scenarios, consider distributing yo
 
 ## Availability zone support
 
- [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure availability zones are physically separate locations within an Azure region. Each availability zone is made up of one or more datacenters equipped with independent power, cooling, and networking infrastructure.
+Azure Key Vault automatically leverages availability zones in regions where they're available, providing high availability within a region without requiring any specific configuration from customers.
+
+The service is designed to be resilient to zone failures without any specific configuration required by customers. Key Vault automatically manages the redundancy across availability zones in regions where zones are available.
 
 ### Region support
 
-Azure Key Vault is available in all Azure regions that support availability zones. Key Vault automatically leverages the availability zone infrastructure where available, providing high availability within a region.
-
-Key Vault is designed to be resilient to zone failures without any specific configuration required by customers. The service automatically manages the redundancy across availability zones in regions where zones are available.
+Azure Key Vault is available in all Azure regions that support availability zones. Key Vault's zone-resilient architecture is automatically applied in these regions.
 
 ### Requirements
 
