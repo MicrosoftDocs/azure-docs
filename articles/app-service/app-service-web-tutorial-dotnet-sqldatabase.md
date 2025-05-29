@@ -41,7 +41,7 @@ The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) creat
 
 1. Open the extracted *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* file in Visual Studio.
 
-1. Press `F5` to run the app and open it in your default browser.
+1. Press **F5** to run the app and open it in your default browser.
 
    > [!NOTE] 
    > If necessary, [install any missing NuGet packages](/nuget/consume-packages/install-use-packages-visual-studio).
@@ -142,16 +142,20 @@ Before you can create a database, you need a [logical SQL server](/azure/azure-s
 
 ### Connect the database
 
-The app uses a database context to connect with the database. The database context in this sample is a connection string named `MyDbConnection`.
-
-The connection string is set in the *Web.config* file and referenced in the *Models/MyDatabaseContext.cs* file. The Azure app uses the connection string name to connect to the Azure SQL database.
+The app uses a database context to connect with the database. The database context in this sample is a connection string named `MyDbConnection`. The connection string is set in the *Web.config* file and referenced in the *Models/MyDatabaseContext.cs* file. The Azure app uses the connection string name to connect to the Azure SQL database.
 
 1. When the database resources are created, select **Next**.
+
+   ![Screenshot of the screen with messagea about configuring managed identity for the connection to work.](./media/app-service-web-tutorial-dotnet-sqldatabase/connect-warning.png)
 
 1. Under **Connection string name**, enter the name of the connection string referenced in *Models/MyDatabaseContext.cs*, in this case *MyDbConnection*.
 
    > [!NOTE]
    > If you see **Local user secrets files** instead, make sure you used the **Publish** page, not the **Connected Services** page, to configure SQL Database.
+
+   Your app is connected to Azure SQL Database using Managed Identity for Azure services, a secure method of connecting your app to your Azure resources that doesn't use secrets or passwords.
+
+   Note the message that you need to set the appropriate permissions on the SQL user corresponding with this managed identity for the connection to work. For more information, see [Grant permissions to managed identity](tutorial-connect-msi-sql-database.md#grant-permissions-to-managed-identity).
 
 1. Select **Additional settings**, make sure **Azure App Settings** is selected, and select **Finish**.
 
