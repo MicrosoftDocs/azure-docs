@@ -216,7 +216,7 @@ Once the vault and policy creation are complete, you need to perform the followi
    az k8s-extension create --name azure-aks-backup --extension-type microsoft.dataprotection.kubernetes --scope cluster --cluster-type managedClusters --cluster-name $akscluster --resource-group $aksclusterresourcegroup --release-train stable --configuration-settings blobContainer=$blobcontainer storageAccount=$storageaccount storageAccountResourceGroup=$storageaccountresourcegroup storageAccountSubscriptionId=$subscriptionId
    ```
 
-  In case the AKS cluster is within a virtual network, then you will have to create a private endpoint, connecting thw storage account with the virtual network in which the AKS cluster resides.
+  In case the AKS cluster is within a virtual network, then you will have to create a private endpoint, connecting the storage account with the virtual network in which the AKS cluster resides.
 
   ```azurecli
   #Fetch the Subnet ID using the name of the virtual network and subnet in which cluster resides 
