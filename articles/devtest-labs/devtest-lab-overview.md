@@ -5,7 +5,13 @@ ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/29/2025
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:05/29/2025
+  - ai-gen-description
+# customer intent: As a business decision-maker, I want to understand how Azure DevTest Labs can help my team quickly create and manage development and testing environments, so that I can evaluate its value for our workflows.
 ---
 
 # What is Azure DevTest Labs?
