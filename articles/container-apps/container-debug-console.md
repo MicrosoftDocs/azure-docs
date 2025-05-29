@@ -126,7 +126,7 @@ az containerapp debug `
 
 ---
 
-## Built-in tools in Debug Console
+## Built-in tools in the debug console
 
 The following diagnostic tools are preinstalled to the debug console to help you troubleshoot issues:
 
@@ -153,7 +153,7 @@ tdnf install -y msopenjdk-17
 
 ---
 
-## Scenario - Accessing container's file system via Debug Console
+## Accessing a container's file system in the debug console
 
 By default, the debug console runs as the root user. You can access your container's file system through the `/proc/1/cwd/` directory. If your container doesn't run as the root user, run the following command before accessing the `/proc/1/cwd/` directory, or you'll get a permission denied error.
 
