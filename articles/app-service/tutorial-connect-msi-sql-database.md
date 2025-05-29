@@ -54,7 +54,7 @@ For guidance about using Azure Database for MySQL or Azure Database for PostgreS
 <a name='1-grant-database-access-to-azure-ad-user'></a>
 ## Grant admin access to a Microsoft Entra user
 
-Enable Microsoft Entra authentication to SQL Database by assigning a Microsoft Entra user as the admin of the Azure SQL server. This user might not be the same as the Microsoft account user for your Azure subscription. The Microsoft Entra admin must be a user that is created, imported, synced, or invited into Microsoft Entra ID.
+Enable Microsoft Entra authentication to the Azure SQL database by assigning a Microsoft Entra user as the admin of the Azure SQL server. The Microsoft Entra admin must be a user that is created, imported, synced, or invited into Microsoft Entra ID. This user might not be the same as the Microsoft account user for your Azure subscription.
 
 - For more information on creating a Microsoft Entra user, see [Add or delete users using Microsoft Entra ID](/entra/fundamentals/how-to-create-delete-users).
 - For more information on allowed Microsoft Entra users for SQL Database, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#limitations).
@@ -91,6 +91,92 @@ Run the following commands in the Bash environment of Azure Cloud Shell, or afte
    ```azurecli
    az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id <entra-id>
    ```
+
+## Use managed identity connectivity
+
+The following steps configure your app to connect to Azure SQL Database with a system-assigned managed identity. To use a user-assigned identity, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
+
+### Enable managed identity for the app
+
+To enable a managed identity for your Azure app, use the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command, replacing `<app-name>` with your app name.
+
+```azurecli
+az webapp identity assign --resource-group myResourceGroup --name <app-name>
+```
+
+Here's an example of the output:
+
+```output
+{
+  "additionalProperties": {},
+  "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+  "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+  "type": "SystemAssigned"
+}
+```
+
+To enable managed identity for a [deployment slot](deploy-staging-slots.md), add `--slot <slot-name>` and use the name of the slot in `<slot-name>`.
+
+You can also add the identity to a [Microsoft Entra group](/azure/active-directory/fundamentals/active-directory-manage-groups), then grant SQL Database access to the Microsoft Entra group instead of to the identity. The following commands add the example managed identity to a new group called `myAzureSQLDBAccessGroup`.
+
+```azurecli
+$groupid=(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
+$msiobjectid=(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
+az ad group member add --group $groupid --member-id $msiobjectid
+az ad group member list -g $groupid
+```
+
+### Grant permissions to the managed identity
+
+Go to the Azure portal to grant the minimum permissions your app needs.
+
+If the identity is system-assigned, its name is always the same as the name of your app. The name of a system-assigned identity for a deployment slot is `<app-name>/slots/<slot-name>`. To grant permissions for a Microsoft Entra group, use the group's display name, such as `myAzureSQLDBAccessGroup`.
+   
+<!--SQLCMD IS NO LONGER SUPPORTED IN BASH CLOUD SHELL as of April 2025. Use Powershell or portal.
+1. In your Bash terminal, sign in to SQL Database by using the following SQLCMD command, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<aad-user-name>` and `<aad-password>` with your Microsoft Entra user credentials.
+
+   ```bash
+   sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P <aad-password> -G -l 30
+   ```
+
+1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs, replacing `<identity-name>` with the name of the managed identity in Microsoft Entra ID.
+
+   ```sql
+   CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER With OBJECT_ID='xxx';
+   ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
+   ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
+   ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
+   GO
+   ```
+
+1. Enter `EXIT` to return to the Bash prompt.
+
+Here are portal steps I made up. Not sure if they work since my app doesn't work (database is blank).-->
+
+1. On your web app's page in the Azure portal, select **Identity** from the left navigation menu.
+1. On the **System assigned** tab, make sure **Status** is set to **On**.
+1. Under **Permissions**, select **Azure role assignments**.
+1. On the **Azure role assignments** page, select **Add role assignment (Preview)**.
+1. Use the **Add role assignment (Preview)** pane to add each of the following roles:
+   - **Scope**: Select **SQL**.
+   - **Subscription**: Select your subscription.
+   - **Resource**: Select your SQL server.
+   - **Role**: Select each of the following roles:
+     - **SQL DB Contributor**
+     - **SQL Server Contributor**
+     - **Reader**
+   After adding each role, select **Save**.
+
+> [!NOTE]
+> The backend managed identity services [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you try to modify your SQL Database permissions after first getting a token with your app, you don't get a new token with updated permissions until the cached token expires.
+
+### Modify the connection string
+
+The same changes you made in *Web.config* or *appsettings.json* work with the managed identity. You can remove the existing connection string that Visual Studio created when it deployed your app the first time. To delete the connection string, run the following command, replacing `<app-name>` with the name of your app.
+
+```azurecli
+az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names MyDbConnection
+```
 
 ## Set up your development environment
 
@@ -201,102 +287,6 @@ You can now start using Microsoft Entra authentication to develop and debug your
 
 ---
 
-## Use managed identity connectivity
-
-Next, configure your App Service app to connect to SQL Database with a system-assigned managed identity.
-
-> [!NOTE]
-> To use a user-assigned identity, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
-
-### Enable managed identity for the app
-
-To enable a managed identity for your Azure app, use the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command, replacing `<app-name>` with your app name.
-
-```azurecli
-az webapp identity assign --resource-group myResourceGroup --name <app-name>
-```
-
-Here's an example of the output:
-
-```output
-{
-  "additionalProperties": {},
-  "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
-  "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
-  "type": "SystemAssigned"
-}
-```
-
-> [!NOTE]
-> - To enable managed identity for a [deployment slot](deploy-staging-slots.md), add `--slot <slot-name>` and use the name of the slot in `<slot-name>`.
-> 
-> - You can also add the identity to a [Microsoft Entra group](/azure/active-directory/fundamentals/active-directory-manage-groups), then grant SQL Database access to the Microsoft Entra group instead of to the identity. The following commands add the example managed identity from the previous step to a new group called `myAzureSQLDBAccessGroup`.
->   
->   ```azurecli
->   $groupid=(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
->   $msiobjectid=(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
->   az ad group member add --group $groupid --member-id $msiobjectid
->   az ad group member list -g $groupid
->   ```
-
-### Grant permissions to the managed identity
-
-If the identity is system-assigned, the name is always the same as the name of your App Service app. The name of a system-assigned identity for a [deployment slot](deploy-staging-slots.md) is `<app-name>/slots/<slot-name>`. To grant permissions for a Microsoft Entra group, use the group's display name, such as `myAzureSQLDBAccessGroup`.
-   
-<!--SQLCMD IS NO LONGER SUPPORTED IN BASH CLOUD SHELL as of April 2025. Use Powershell or portal.
-1. In your Bash terminal, sign in to SQL Database by using the following SQLCMD command, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<aad-user-name>` and `<aad-password>` with your Microsoft Entra user credentials.
-
-   ```bash
-   sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P <aad-password> -G -l 30
-   ```
-
-1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs, replacing `<identity-name>` with the name of the managed identity in Microsoft Entra ID.
-
-   ```sql
-   CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER With OBJECT_ID='xxx';
-   ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
-   ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
-   ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
-   GO
-   ```
-
-1. Enter `EXIT` to return to the Bash prompt.
-
-Here are portal steps I made up. Not sure if they work since my app doesn't work (database is blank).-->
-
-#### Set the admin for the server
-
-1. In the Azure portal, go to the page for the Azure SQL server. Select the **Microsoft Entra admin** tile.
-1. On the **Microsoft Entra ID** page, select **Set admin**.
-1. Select the admin user and then select **Select**.
-1. Select **Save**.
-
-#### Grant the minimum permissions your app needs
-
-1. In the portal, go to your web app's page and select **Identity**.
-1. On the **System assigned** tab, make sure **Status** is set to **On**.
-1. Under **Permissions**, select **Azure role assignments**.
-1. On the **Azure role assignments** page, select **Add role assignment (Preview)**.
-1. Use the **Add role assignment (Preview)** pane to add each of the following roles:
-   - **Scope**: Select **SQL**.
-   - **Subscription**: Select your subscription.
-   - **Resource**: Select your SQL Server.
-   - **Role**: Select each of the following roles:
-     - **SQL DB Contributor**
-     - **SQL Server Contributor**
-     - **Reader**
-   After adding each role, select **Save**.
-
-> [!NOTE]
-> The backend managed identity services also [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you try to modify your SQL Database permissions after trying to get a token with your app, you don't get a new token with updated permissions until the cached token expires.
-
-### Modify the connection string
-
-The same changes you made in *Web.config* or *appsettings.json* work with the managed identity. You can remove the existing connection string that Visual Studio created when it deployed your app the first time. To delete the connection string, run the following command, replacing `<app-name>` with the name of your app.
-
-```azurecli
-az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names MyDbConnection
-```
 
 ## Publish your changes
 
