@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 04/16/2025
+ms.date: 05/27/2025
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
@@ -349,10 +349,6 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 * *Volume Backup Bytes*   
 
     The total bytes backed up for this volume.
-
-* *Volume Backup Last Transferred Bytes*   
-
-    The total bytes transferred for the last backup or restore operation.  
 
 * *Volume Backup Operation Last Transferred Bytes*   
 
