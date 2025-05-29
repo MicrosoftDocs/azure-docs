@@ -36,14 +36,14 @@ This graphic shows how to set up your AWS environment to send log data to Azure:
 
    Assign the appropriate **IAM permissions policies** to grant the assumed role access to the resources.
 
-1. Create an Open ID Connect (OIDC) **web identity provider** to authenticate Microsoft Sentinel connectors to AWS through OpenID Connect (OIDC).
+1. Create an Open ID Connect (OIDC) **web identity provider** and add Microsoft Sentinel as a registed application (by adding it as an audience).
 
    Microsoft Sentinel connectors use Microsoft Entra ID to authenticate with AWS through OpenID Connect (OIDC) and assume an AWS IAM role. 
 
    > [!IMPORTANT]
-   > If you've already created an OIDC for Microsoft Defender for Cloud or another Microsoft service, use the same provider for Microsoft Sentinel. Do not create a new OIDC provider for Microsoft Sentinel.
+   > If you already have an OIDC Connect provider set up for Microsoft Defender for Cloud, add Microsoft Sentinel as an audience to your existing provider. Do not create a new OIDC provider for Microsoft Sentinel.
 
-1. Configure the Microsoft Sentinel connectors you need to use the assumed role and SQS queue you created to access the S3 bucket and retrieve logs.
+1. Configure your connectors to use the assumed role and SQS queue you created to access the S3 bucket and retrieve logs.
 
 ## Find the AWS connector you need
 
