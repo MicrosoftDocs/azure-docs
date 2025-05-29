@@ -39,7 +39,7 @@ The virtual hub router supports autoscaling based on spoke VM utilization and da
 Autoscaling can help in various scenarios where the hub router requires additional processing capabilities; autoscaling isn't instantaneous however. For improved infrastructure availability and performance, ensure that your minimum provisioned routing infrastructure units (RIUs) match the requirements of your workloads. Autoscaling won't reduce the provisioned RIUs below this minimum.
 
 Also consider:
-- The virtual hub router only scales on the data it processes, as clarified in [Azure Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md#category-traffic). Review your Virtual WAN processes data to ensure that resources are provisioned correctly.
+- The virtual hub router only scales on the data it processes, as clarified in [Azure Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md#category-traffic). Review how your Virtual WAN processes data to ensure that resources are provisioned correctly.
 - Autoscaling can potentially affect connectivity for Private Endpoints. To minimize connectivity issues, review your deployment and adhere to the best practices outlined in [Use Private Link in Virtual WAN](howto-private-link.md#routing-considerations-with-private-link-in-virtual-wan).
 
 
