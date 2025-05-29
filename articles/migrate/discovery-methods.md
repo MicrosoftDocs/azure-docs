@@ -58,3 +58,9 @@ Ensure that software inventory is enabled before initiating workload discovery. 
 - Discovery of SQL Server instances and databases. 
 - Discovery of ASP.NET web apps. 
 - Discovery of MySQL database instances. 
+
+
+## Next steps
+
+- Learn more about [Appliance requirements](migrate-appliance.md).  
+- Learn more about creating a [business case using import](tutorial-discover-import.md).
