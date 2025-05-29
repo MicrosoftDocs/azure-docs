@@ -2,8 +2,9 @@
 
 title: Azure AD B2C desktop app authentication documentation
 summary: >
-  [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
   Learn how to sign in users and access web APIs in your desktop application using our how-to guides.
+  
+  [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 metadata:
   author: kengaderdus
