@@ -34,6 +34,8 @@ az extension add -n containerapp
 az extension update --name containerapp
 ```
 
+---
+
 > [!NOTE]
 > This feature is compatible with applications running on Java 8 or newer versions.
 
@@ -71,7 +73,7 @@ Use the following command to adjust log levels for a specific logger:
 ```azurecli
 az containerapp java logger set \
   --logger-name "org.springframework.boot" \
-  --logger-level "info"
+  --logger-level "info" \
   --resource-group <RESOURCE_GROUP> \
   --name <CONTAINER_APP_NAME>
 ```
@@ -114,4 +116,4 @@ For example, if you set log level to `INFO`, your app prints logs with level `FA
 ## Related content
 
 > [!div class="nextstepaction"]
-> [Log steaming](./log-streaming.md)
+> [Log streaming](./log-streaming.md)
