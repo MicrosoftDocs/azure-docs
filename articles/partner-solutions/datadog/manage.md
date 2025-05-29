@@ -177,7 +177,3 @@ You can also request support in the Azure portal from the [resource overview](#r
 
 Select **Support + Troubleshooting** > **New support request** from the service menu. 
 
-## Related content
-
-- [Troubleshooting Datadog solutions](troubleshoot.md)
-
