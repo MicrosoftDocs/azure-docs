@@ -40,7 +40,7 @@ To enable passkey authentication for your users, enable Nok Nok as an identity p
 
 The following diagram illustrates the Nok Nok solution as an IdP for Azure AD B2C by using OpenID Connect (OIDC) for passkey authentication.
 
-![Diagram of Nok Nok as IdP for Azure AD B2C using OpenID Connect (OIDC) for passkey authentication.](./media/partner-nok-nok/nok-nok-architecture-diagram.png)
+![Diagram for passkey authentication with Nok Nok as an IdP.](./media/partner-nok-nok/nok-nok-architecture-diagram.png)
 
 ### Scenario 1: Passkey registration
 1. The user navigates to the Nok Nok tutorial web app using the link provided by Nok Nok.
@@ -129,7 +129,9 @@ If the flow is incomplete, confirm the user is or isn't saved in the directory.
 
 ## Alternate Flow
 
-The following diagram illustrates an alternate passkey sign in or sign up flow using the id_token_hint feature of Azure AD B2C. With this approach, an Azure custom policy verifies the ID Token Hint produced by Nok Nok Cloud. For more details, please refer to the article, [Define an ID token hint technical profile in an Azure Active Directory B2C custom policy](https://learn.microsoft.com/en-us/azure/active-directory-b2c/id-token-hint). Please contact Nok Nok support for help with integrated the required Azure custom policy.
+The following diagram illustrates an alternate passkey sign in or sign up flow using the ID Token Hint feature of Azure AD B2C. With this approach, an Azure custom policy verifies the ID Token Hint produced by the Nok Nok Cloud. For more details, please refer to the article, [Define an ID token hint technical profile in an Azure Active Directory B2C custom policy](https://learn.microsoft.com/en-us/azure/active-directory-b2c/id-token-hint). Please contact Nok Nok support for help with integrated the required Azure custom policy.
+
+![Diagram for passkey authentication using ID Token Hint from Nok Nok.](./media/partner-nok-nok/nok-nok-id-token-hint-architecture-diagram.png)
 
 The following are the steps
 1. The user selects the sign-in with Nok Nok Cloud button.
