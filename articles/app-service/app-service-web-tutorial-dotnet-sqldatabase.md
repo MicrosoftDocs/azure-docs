@@ -153,11 +153,11 @@ The app uses a database context to connect with the database. The database conte
    > [!NOTE]
    > If you see **Local user secrets files** instead, make sure you used the **Publish** page, not the **Connected Services** page, to configure SQL Database.
 
-   Your app is connected to Azure SQL Database using Managed Identity for Azure services, a secure method of connecting your app to your Azure resources that doesn't use secrets or passwords.
-
-   Note the message that you need to set the appropriate permissions on the SQL user corresponding with this managed identity for the connection to work. For more information, see [Grant permissions to managed identity](tutorial-connect-msi-sql-database.md#grant-permissions-to-managed-identity).
-
 1. Select **Additional settings**, make sure **Azure App Settings** is selected, and select **Finish**.
+
+Your app is connected to Azure SQL Database using Managed Identity for Azure services, a secure method of connecting your app to your Azure resources that doesn't use secrets or passwords.
+
+Note the message that you need to set the appropriate permissions on the SQL user corresponding with this managed identity for the connection to work. For more information, see [Grant permissions to managed identity](tutorial-connect-msi-sql-database.md#grant-permissions-to-managed-identity).
 
 ### Deploy the ASP.NET app
 
