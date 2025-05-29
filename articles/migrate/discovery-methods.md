@@ -33,5 +33,28 @@ The appliance-based discovery method involves deploying a virtual appliance that
 
 ## Guidance to choose the right appliance
 
-**VMware environments**: For VMware-based infrastructures, we recommend to deploy VMware stack of Azure Migrate appliance. This appliance also supports agentless migrations.
+**VMware environments**: For VMware-based infrastructures, we recommend to [deploy VMware stack of Azure Migrate appliance](tutorial-discover-vmware.md). This appliance also supports agentless migrations.
 
+**Hyper-V environments**: For Hyper-V environments, we recommend to [deploy Hyper-V stack of Azure Migrate appliance](tutorial-discover-vmware.md). Also, download the [Hyper-V replication provider](tutorial-migrate-hyper-v.md) to migrate Hyper-V servers.  
+
+**Physical & public Cloud servers**: To discover and assess physical servers and servers running in any public cloud, we recommend setting up a [physical stack of appliance](tutorial-discover-physical.md). For migrating of physical servers, install a secondary [replication appliance](tutorial-migrate-physical-virtual-machines.md).
+
+## Import-based discovery 
+
+Import-based discovery is a simpler and faster alternative, relying on manual upload of inventory data in a structured format.  
+
+**Key features**: 
+
+- Manual data entry via CSV file uploads. 
+- Add output inventory from CMDB tools to CSV templates. 
+- Supports VMware inventory exported from RV tools XLSX file. 
+- Build a quick business case using the servers discovered via import. 
+
+
+## Supported workloads for discovery 
+
+Ensure that software inventory is enabled before initiating workload discovery. Azure Migrate supports the following workloads: 
+
+- Discovery of SQL Server instances and databases. 
+- Discovery of ASP.NET web apps. 
+- Discovery of MySQL database instances. 
