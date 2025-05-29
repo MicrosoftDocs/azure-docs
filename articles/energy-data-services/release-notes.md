@@ -28,10 +28,10 @@ This page is updated with the details about the upcoming release approximately a
 Azure Data Manager for Energy is now available in four new regions: **South Africa North**, **Southeast Asia**, **Sweden Central**, and **UAE North**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported. The Southeast Asia region offers zone-redundant storage (ZRS) with three availability zones for enhanced disaster recovery. For more information on zonal replication, see the [documentation](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). Data stored in Southeast Asia remains within the region to meet data residency requirements. 
 
 ### 3D SEG-Y to OpenZGY Data Conversion Bug Fix
-A bug affecting the 3D SEG-Y to OpenZGY conversion process has been fixed in this release. If you converted SEG-Y datasets with a number of inlines or crosslines not divisible by 64 since January 26, 2024, you may have noticed missing or empty traces in the resulting OpenZGY files. To resolve this, please re-convert any affected datasets to ensure your OpenZGY files accurately reflect the original SEG-Y volumes.
+This release fixes a bug in the 3D SEG-Y to OpenZGY conversion process. When you convert SEG-Y datasets with many inlines or crosslines not divisible by 64 after January 26, 2024, you may notice missing or empty traces in the resulting OpenZGY files. To resolve this issue, re-convert any affected datasets to ensure your OpenZGY files accurately reflect the original SEG-Y volumes.
 
 ### User OID added to service logs for traceability and audit purpose
-In this release, a dedicated OID (Object ID) field has been added to the service logs to ensure that user IDs are correctly captured. This enhancement improves traceability and supports your auditing requirements.
+In this release, a dedicated OID (Object ID) field appears in the service logs to ensure that user IDs are correctly captured. This enhancement improves traceability and supports your auditing requirements.
 
 ## February 2025
 ### Reservoir DDMS preview 
