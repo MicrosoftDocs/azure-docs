@@ -129,7 +129,7 @@ If the flow is incomplete, confirm the user is or isn't saved in the directory.
 
 ## Alternate flow for Authentication
 
-The following diagram illustrates an alternate passkey sign in or sign up flow using the ID Token Hint feature of Azure AD B2C. With this approach, an Azure custom policy verifies the ID Token Hint produced by the Nok Nok Cloud. For more details, please refer to the article, [Define an ID token hint technical profile in an Azure Active Directory B2C custom policy](https://learn.microsoft.com/en-us/azure/active-directory-b2c/id-token-hint). Please contact Nok Nok support for help with integrated the required Azure custom policy.
+The following diagram illustrates an alternate passkey sign in or sign up flow using the ID Token Hint feature of Azure AD B2C. With this approach, an Azure custom policy verifies the ID Token Hint produced by the Nok Nok Cloud. For more details, please refer to the article, [Define an ID token hint technical profile in an Azure Active Directory B2C custom policy](./id-token-hint.md). Please contact Nok Nok support for help with integrated the required Azure custom policy.
 
 ![Diagram for passkey authentication using ID Token Hint from Nok Nok.](./media/partner-nok-nok/nok-nok-id-token-hint-architecture-diagram.png)
 
