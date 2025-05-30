@@ -3,7 +3,7 @@ title: Azure Functions Premium plan
 description: Learn about details and configuration options (virtual network, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: nzthiago
 ms.topic: concept-article
-ms.date: 04/04/2025
+ms.date: 05/01/2025
 ms.author: thalme
 ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell, build-2024
 ---
@@ -56,13 +56,13 @@ In the Premium plan, you can have your app always ready on a specified number of
 
 This app-level setting also controls your plan's minimum instances. For example, consider having three function apps in the same Premium plan. When two of your apps have always-ready instance count set to one, and the third app is set to five, the minimum number for your whole plan is five. This also reflects the minimum number of instances for which your plan is billed. The maximum number of always-ready instances we support per app is 20.
 
-# [Portal](#tab/portal)
+#### [Portal](#tab/portal)
 
 You can configure the number of always ready instances in the Azure portal by selecting your **Function App**, going to the **Platform Features** tab, and selecting the **Scale Out** options. In the function app edit window, always ready instances are specific to that app.
 
 :::image type="content" source="media/functions-premium-plan/scale-out.png" alt-text="Screenshot that shows the elastic scale settings in the portal.":::
 
-# [Azure CLI](#tab/azurecli)
+#### [Azure CLI](#tab/azurecli)
 
 You can also configure always ready instances for an app by using the Azure CLI.
 
@@ -70,7 +70,7 @@ You can also configure always ready instances for an app by using the Azure CLI.
 az functionapp update -g <RESOURCE_GROUP> -n <FUNCTION_APP_NAME> --set siteConfig.minimumElasticInstanceCount=<YOUR_ALWAYS_READY_COUNT>
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 You can also configure always ready instances for an app by using Azure PowerShell.
 
@@ -99,11 +99,11 @@ Consider this example that shows how always ready instances and prewarmed instan
 1. As load increases and your app needs more instances to handle HTTP traffic, that prewarmed instance is swapped to an active instance. HTTP load is now routed to all three instances, and a fourth instance is instantly provisioned to fill the prewarmed buffer.
 1. This sequence of scaling and prewarming continues until the maximum instance count for the app is reached or load decreases causing the platform to scale back in after a period. No instances are prewarmed or activated beyond the maximum.
 
-# [Portal](#tab/portal)
+#### [Portal](#tab/portal)
 
 You can't change the prewarmed instance count setting in the portal. You must instead use the Azure CLI or Azure PowerShell.
 
-# [Azure CLI](#tab/azurecli)
+#### [Azure CLI](#tab/azurecli)
 
 You can modify the number of prewarmed instances for an app using the Azure CLI.
 
@@ -111,7 +111,7 @@ You can modify the number of prewarmed instances for an app using the Azure CLI.
 az functionapp update -g <RESOURCE_GROUP> -n <FUNCTION_APP_NAME> --set siteConfig.preWarmedInstanceCount=<YOUR_PREWARMED_COUNT>
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 You can modify the number of prewarmed instances for an app using the Azure PowerShell.
 
@@ -275,7 +275,7 @@ The following table lists currently supported maximum scale-out values for a sin
 |Spain Central| 20 | 20 |
 |Switzerland North| 100 | 20 |
 |Switzerland West| 100 | 20 |
-|UAE North| 100 | 20 |
+|UAE North| 100 | 100 |
 |UK South| 100 | 100 |
 |UK West| 100 | 20 |
 |USGov Arizona| 20 | 20 |

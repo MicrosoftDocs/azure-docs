@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-extended-java
-ms.date: 05/10/2024
+ms.date: 05/29/2025
 ms.author: cshoe
 ms.topic: how-to
 zone_pivot_groups: container-apps-portal-or-cli
@@ -40,13 +40,13 @@ To make the collection of Java metrics available to your app, configure your con
 
 # [create](#tab/create)
 
-In the *Create* window, if you select for *Deployment source* the **Container image** option, then you have access to stack-specific features.
+In the *Create* window under the *Basics* tab, if you select for *Deployment source* the **Container image** option, then you have access to stack-specific features.
 
-Under the *Development stack-specific features* and for the *Development stack*, select **Java**.
+In the *Container* tab, under the *Development stack-specific features*, set *Development stack* to **Java**.
 
 :::image type="content" source="media/java-metrics/azure-container-apps-java-metrics-development-stack.png" alt-text="Screenshot of the Azure portal where you can select Java-specific features for your container app." lightbox="media/java-metrics/azure-container-apps-java-metrics-development-stack.png":::
 
-Once you select the Java development stack, the *Customize Java features for your app* window appears. Next to the *Java features* label, select **JVM core metrics**.
+Once you select the Java development stack, the *Customize Java features for your app* option appears. Select *Customize Java features for your app*, and then under *Java features*, enable **JVM core metrics**.
 
 # [update](#tab/update)
 

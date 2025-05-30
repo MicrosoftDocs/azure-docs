@@ -13,6 +13,8 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 # Quickstart: Create an Azure Front Door (classic) using an ARM template
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create an Azure Front Door (classic) to set up high availability for a web endpoint.

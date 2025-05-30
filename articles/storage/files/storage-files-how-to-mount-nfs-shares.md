@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 05/27/2025
 ms.author: kendownie
 ---
 
@@ -48,7 +48,7 @@ To use NFS Azure file shares, you must either [create a private endpoint](storag
 
 ### Disable secure transfer
 
-Azure Files doesn't currently support encryption-in-transit with the NFS protocol and relies instead on network-level security. Therefore, you need to disable secure transfer on your storage account.
+Follow these steps to disable secure transfer on your storage account. Alternatively, you can [enable encryption in transit (preview)](encryption-in-transit-for-nfs-shares.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and access the storage account containing the NFS share you created.
 1. Select **Configuration**.
@@ -104,6 +104,7 @@ The following mount options are recommended or required when mounting NFS Azure 
 | `wsize` | 1048576 | Recommended. Sets the maximum number of bytes to be transferred in a single NFS write operation. Specifying the maximum level of 1,048,576 bytes usually results in the best performance. |
 | `noresvport` | n/a | Recommended for kernels below 5.18. Tells the NFS client to use a nonprivileged source port when communicating with an NFS server for the mount point. Using the `noresvport` mount option helps ensure that your NFS share has uninterrupted availability after a reconnection. Using this option is recommended for achieving high availability. |
 | `actimeo` | 30-60 | Recommended. Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. Using a value lower than 30 seconds can cause performance degradation because attribute caches for files and directories expire too quickly. We recommend setting `actimeo` between 30 and 60 seconds. |
+| `nconnect` | 4 | Recommended. Nconnect increases performance by using multiple TCP connections between the client and your NFS share. We recommend configuring the mount options with the optimal setting of nconnect=4. Currently, there are no gains beyond four channels for the Azure Files implementation of nconnect. |
 
 ## Step 3: Validate connectivity
 

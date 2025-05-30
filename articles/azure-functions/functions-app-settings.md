@@ -207,11 +207,16 @@ Add `EnableProxies` to this list to re-enable proxies on version 4.x of the Func
 
 ## AzureWebJobsKubernetesSecretName 
 
-Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. This setting requires you to set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
+Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. 
 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsKubernetesSecretName|`<SECRETS_RESOURCE>`|
+
+Considerations when use a Kubernetes Secrets resource:
++ You must also set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. 
++ The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
++ [Immutable secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) aren't supported and using them results in runtime errors.
 
 To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 

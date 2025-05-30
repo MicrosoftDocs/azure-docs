@@ -1,9 +1,7 @@
 ---
 title: Azure Migrate supported geographies
 description: Provides a list of regions where Azure Migrate is supported
-author: rashi-ms
-ms.author: rajosh
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
 ---
@@ -19,7 +17,7 @@ You can create a project in many geographies in the public cloud.
 
 - Although you can only create projects in these geographies, you can assess or migrate servers for other target locations.
 - The project geography is only used to store the discovered metadata. 
-- When you create a project, you select a geography. The project and related resources are created in one of the regions in the geography. The region is allocated by the Azure Migrate service. Azure Migrate does not move or store customer data outside of the region allocated.
+- When you create a project, you select a geography. The project and related resources are created in one of the regions in the geography. The region is allocated by the Azure Migrate service. Azure Migrate doesn't move or store customer data outside of the region allocated.
 
 **Geography** | **Metadata storage location**
 --- | ---
@@ -44,7 +42,7 @@ United Kingdom | UK South or UK West
 United States | Central US or West US 2
 
 > [!NOTE]
-> For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
+> For Switzerland geography, Switzerland West is only available for REST API users and needs an approved subscription.
 
 <!--#### [Azure for US Government](#tab/gov)--->
 

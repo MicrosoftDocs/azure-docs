@@ -21,6 +21,8 @@ ms.subservice: b2c
 
 # Define a Microsoft Entra technical profile in an Azure Active Directory B2C custom policy
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 <!-- docutune:ignored "AAD-" -->

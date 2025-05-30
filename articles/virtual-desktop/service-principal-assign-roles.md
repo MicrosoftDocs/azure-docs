@@ -3,8 +3,8 @@ title: Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Des
 description: Learn how to assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals by using the Azure portal, Azure CLI, or Azure PowerShell.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 12/20/2023
 ---
 

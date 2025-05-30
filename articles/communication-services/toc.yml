@@ -18,6 +18,8 @@ items:
     href: quickstarts/create-communication-resource.md
 #  - name: Geolocation
 #    href: /rest/api/maps/geolocation
+  - name: Managed applications
+    href: concepts/managed-apps.md
   - name: SDKs and APIs
     href: concepts/sdk-options.md
   - name: Service limits
@@ -28,6 +30,8 @@ items:
     items:
     - name: Data residency and user privacy
       href: concepts/privacy.md
+    - name: Create a Network Security Perimeter (NSP)
+      href: quickstarts/network-security-perimeter.md
     - name: European Union Data Boundary
       href: concepts/european-union-data-boundary.md
     - name: Azure Government
@@ -126,6 +130,8 @@ items:
         href: tutorials/file-sharing-tutorial-interop-chat.md
       - name: Add inline image support in Teams interop chat
         href: tutorials/inline-image-tutorial-interop-chat.md
+      - name: Add Adaptive Cards in chat
+        href: quickstarts/ui-library/get-started-chat-adaptive-card.md
     - name: Connect to Teams
       items:
       - name: Add Teams meeting chat to your app
@@ -142,6 +148,8 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
+    - name: Integrate an OpenAI bot with chat
+      href: quickstarts/chat/openai-chat-bot-integration.md
     - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Chat hero sample
@@ -206,6 +214,8 @@ items:
         href: quickstarts/email/send-email-smtp/smtp-authentication.md
       - name: Send email using SMTP
         href: quickstarts/email/send-email-smtp/send-email-smtp.md
+      - name: Send email using SMTP with XOAuth2
+        href: quickstarts/email/send-email-smtp/send-email-smtp-oauth.md
     - name: Attachments
       items:
       - name: Inline attachments
@@ -984,12 +994,8 @@ items:
       href: concepts/call-automation/incoming-call-notification.md
     - name: Make an outbound call
       href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
-    - name: Control and steer calls
-      href: how-tos/call-automation/actions-for-call-control.md
     - name: Mute participants during a call
       href: how-tos/call-automation/mute-participants.md
-    - name: Pass contextual data between calls
-      href: how-tos/call-automation/custom-context.md
     - name: Ring Teams users
       href: concepts/call-automation/call-automation-teams-interop.md
   - name: Interactive voice and AI
@@ -1000,8 +1006,6 @@ items:
       href: concepts/call-automation/play-action.md
     - name: Gather user input
       href: concepts/call-automation/recognize-action.md
-    - name: Control mid call media actions
-      href: how-tos/call-automation/control-mid-call-media-actions.md
     - name: Customize voice prompts to users with play action
       href: how-tos/call-automation/play-action.md
     - name: Gather user input with recognize action
@@ -1050,10 +1054,16 @@ items:
       href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Samples and tutorials
     items:
+    - name: Control and steer calls
+      href: how-tos/call-automation/actions-for-call-control.md
+    - name: Control mid call media actions
+      href: how-tos/call-automation/control-mid-call-media-actions.md
     - name: Secure webhook endpoints
       href: how-tos/call-automation/secure-webhook-endpoint.md
     - name: Handle Call Automation events with EventProcessor
       href: how-tos/call-automation/handle-events-with-event-processor.md
+    - name: Pass contextual data between calls
+      href: how-tos/call-automation/custom-context.md
     - name: Call Automation Azure OpenAI sample
       href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
@@ -1160,6 +1170,8 @@ items:
         href: tutorials/calling-widget/calling-widget-js-tutorial.md
     - name: Enable audio conferencing
       href: how-tos/calling-sdk/audio-conferencing.md
+    - name: Manage Teams meeting lobby
+      href: how-tos/calling-sdk/lobby.md
     - name: Enable breakout rooms
       href: how-tos/calling-sdk/breakoutrooms.md
     - name: Enable Together Mode
@@ -1240,6 +1252,8 @@ items:
     items:
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
+    - name: Integrate an OpenAI bot with chat
+      href: quickstarts/chat/openai-chat-bot-integration.md
     - name: Client background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
     - name: Client noise enhancement and effects

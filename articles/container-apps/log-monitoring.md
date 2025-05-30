@@ -5,25 +5,24 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 05/02/2025
 ms.author: cshoe
 ---
 
 # Monitor logs in Azure Container Apps with Log Analytics
 
-Azure Container Apps is integrated with Azure Monitor Log Analytics to monitor and analyze your container app's logs.  When selected as your log monitoring solution, your Container Apps environment includes a Log Analytics workspace that provides a common place to store the system and application log data from all container apps running in the environment.  
+Azure Container Apps is integrated with Azure Monitor Log Analytics to monitor and analyze your container app's logs. When selected as your log monitoring solution, your Container Apps environment includes a Log Analytics workspace that provides a common place to store the system and application log data from all container apps running in the environment. 
 
 Log entries are accessible by querying Log Analytics tables through the Azure portal or a command shell using the [Azure CLI](/cli/azure/monitor/log-analytics).
 
-There are two types of logs for Container Apps.  
+Azure Container Apps provides two types of logs to help you monitor and troubleshoot: 
 
-- Console logs, which are emitted by your app.
-- System logs, which are emitted by the Container Apps service.
-
+- **Console logs**: Your application generates these logs.
+- **System logs**: The Container Apps service generates these logs.
 
 ## System Logs
 
-The Container Apps service provides system log messages at the container app level.  System logs emit the following messages:
+The Container Apps service provides system log messages at the container app level. System logs emit the following messages:
 
 | Source | Type | Message |
 |---------|------|---------|
@@ -52,10 +51,10 @@ The system log data is accessible by querying the `ContainerAppSystemLogs_CL` ta
 
 ## Console Logs
 
-Console logs originate from the `stderr` and `stdout` messages from the containers in your container app and Dapr sidecars.  You can view console logs by querying the `ContainerAppConsoleLogs_CL` table.
+Console logs originate from the `stderr` and `stdout` messages from the containers in your container app and Dapr sidecars. You can view console logs by querying the `ContainerAppConsoleLogs_CL` table.
 
 > [!TIP]
-> Instrumenting your code with well-defined log messages can help you to understand how your code is performing and to debug issues.  To learn more about best practices refer to [Design for operations](/azure/architecture/guide/design-principles/design-for-operations).
+> Instrumenting your code with well-defined log messages can help you to understand how your code is performing and to debug issues. To learn more about best practices, refer to [Design for operations](/azure/architecture/guide/design-principles/design-for-operations).
 
 The most commonly used Container Apps specific columns in ContainerAppConsoleLogs_CL include:
 
@@ -75,13 +74,13 @@ Log Analytics is a tool in the Azure portal that you can use to view and analyze
 
 ### Azure portal
 
-Start Log Analytics from **Logs** in the sidebar menu on your container app page.  You can also start Log Analytics from **Monitor>Logs**.  
+Start Log Analytics from **Logs** in the sidebar menu on your container app page. You can also start Log Analytics from **Monitor>Logs**. 
 
-You can query the logs using the tables listed in the **CustomLogs** category **Tables** tab.  The tables in this category are the `ContainerAppSystemlogs_CL` and `ContainerAppConsoleLogs_CL` tables.
+You can query the logs using the tables listed in the **CustomLogs** category **Tables** tab. The tables in this category are the `ContainerAppSystemlogs_CL` and `ContainerAppConsoleLogs_CL` tables.
 
 :::image type="content" source="media/observability/log-analytics-query-page.png" alt-text="Screenshot of the Log Analytics custom log tables.":::
 
-Below is a Kusto query that displays console log entries for the container app named *album-api*. 
+The following Kusto query displays console log entries for the container app named *album-api*. 
 
 ```kusto
 ContainerAppConsoleLogs_CL
@@ -90,7 +89,7 @@ ContainerAppConsoleLogs_CL
 | take 100
 ```
 
-Below is a Kusto query that displays system log entries for the container app named *album-api*. 
+The following Kusto query displays system log entries for the container app named *album-api*. 
 
 ```kusto
 ContainerAppSystemLogs_CL
@@ -103,9 +102,9 @@ For more information regarding Log Analytics and log queries, see the [Log Analy
 
 ### Azure CLI/PowerShell
 
-Container Apps logs can be queried using the [Azure CLI](/cli/azure/monitor/log-analytics).  
+Container Apps logs can be queried using the [Azure CLI](/cli/azure/monitor/log-analytics). 
 
-These example Azure CLI queries output a table containing log records for the container app name **album-api**.  The table columns are specified by the parameters after the `project` operator.  The `$WORKSPACE_CUSTOMER_ID` variable contains the GUID of the Log Analytics workspace.
+These example Azure CLI queries output a table containing log records for the container app name **album-api**. The parameters after the `project` operator specify the table columns. The `$WORKSPACE_CUSTOMER_ID` variable contains the GUID of the Log Analytics workspace.
 
 
 This example queries the `ContainerAppConsoleLogs_CL` table:

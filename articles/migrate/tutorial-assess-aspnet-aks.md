@@ -1,8 +1,6 @@
 ---
 title: Assess ASP.NET/Java web apps for migration to Azure Kubernetes Service
 description: Assessments of ASP.NET web apps to Azure Kubernetes Service using Azure Migrate
-author: anraghun
-ms.author: anraghun
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/05/2025
@@ -15,17 +13,17 @@ monikerRange: migrate-classic
 
 ::: zone pivot="asp-net"
 
-This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Creating an assessment for your ASP.NET web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
+This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Create an assessment for your ASP.NET web app to provide key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
 ::: zone-end
 
 ::: zone pivot="java"
 
-This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Creating an assessment for your Java web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
+This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Create an assessment for your Java web app to provide key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
 ::: zone-end
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 ::: zone pivot="asp-net"
 > [!div class="checklist"]
@@ -72,7 +70,7 @@ In this tutorial, you'll learn how to:
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-scenario.png" alt-text="Screenshot of selecting the scenario for web app assessment.":::
 
-    2. Select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
+    2. Select **Edit** to modify assessment settings. See the table to update the various assessment settings.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-settings.png" alt-text="Screenshot of changing the target settings for web app assessment.":::
 

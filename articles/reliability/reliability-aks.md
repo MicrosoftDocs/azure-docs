@@ -14,7 +14,7 @@ ms.date: 03/18/2025
 
 This article describes reliability support in [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft. This article covers ways for you to create a resilient solution that meets your needs.
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 ## Production deployment recommendations
 
@@ -167,7 +167,7 @@ If you need to deploy your Kubernetes workload to multiple Azure regions, you ha
 
 Azure Backup has an extension that you can use to back up AKS cluster resources and persistent volumes that attach to the cluster. The Backup vault communicates with the AKS cluster through the extension to perform backup and restore operations.
 
-If your AKS cluster is in a [paired region](./regions-paired.md), you can configure backups to be stored in geo-redundant storage. You can restore geo-redundant backups into the paired region.
+If your AKS cluster is in a [region that's paired](./regions-paired.md), you can configure backups to be stored in geo-redundant storage. You can restore geo-redundant backups into the paired region.
 
 For more information, see the following articles:
 

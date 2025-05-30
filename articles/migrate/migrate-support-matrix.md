@@ -3,8 +3,8 @@ title: Azure Migrate support matrix
 description: Provides a summary of support settings and limitations for the Azure Migrate service.
 author: Vikram1988
 ms.author: vibansa
-ms.topic: conceptual
-ms.date: 03/20/2025
+ms.topic: concept-article
+ms.date: 05/08/2025
 ms.custom: engagement-fy24
 ---
 

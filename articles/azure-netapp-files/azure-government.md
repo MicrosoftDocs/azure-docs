@@ -5,8 +5,8 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli, no-azure-ad-ps-ref
-ms.topic: conceptual
-ms.date: 04/17/2025
+ms.topic: concept-article
+ms.date: 05/21/2025
 ms.author: anfdocs
 ---
 
@@ -24,6 +24,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
+| Azure NetApp Files customer-managed key with managed Hardware Security Module | Generally available | No |
 | Azure NetApp Files file access logs | Public preview | No |
 
 ## Portal access

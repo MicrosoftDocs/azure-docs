@@ -10,7 +10,7 @@ ms.date: 02/12/2025
 
 Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager template (ARM template):
 
-* [developer](#deployer)
+* [deployer](#deployer)
 * [deployment](#deployment)
 * [environment](#environment)
 * [parameters](#parameters)
@@ -52,7 +52,7 @@ The following example returns the deployer object.
   "outputs": {
     "developerOutput": {
       "type": "object",
-      "value": "[developer()]"
+      "value": "[deployer()]"
     }
   }
 }

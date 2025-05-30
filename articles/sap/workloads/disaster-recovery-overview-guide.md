@@ -7,8 +7,8 @@ manager: rdeltcheva
 ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: conceptual
-ms.date: 05/08/2024
+ms.topic: concept-article
+ms.date: 04/29/2025
 ---
 
 # Disaster recovery overview and infrastructure guidelines for SAP workload
@@ -64,7 +64,7 @@ Organizations should plan and design a DR strategy for their entire IT landscape
 
 ## Infrastructure components of DR solution for SAP workload
 
-An SAP workload running on Azure uses different infrastructure components to run a business solution. To plan DR for such solution, it's essential that all infrastructure components configured in the primary region are available, and can be configured in the DR region as well. Following infrastructure components should be factored in when designing DR solution for SAP workload on Azure.
+An SAP workload running on Azure uses different infrastructure components to run a business solution. To plan DR for such solution, it's essential that all infrastructure components configured in the primary region are available and can be configured in the DR region as well. Following infrastructure components should be factored in when designing DR solution for SAP workload on Azure.
 
 - Network
 - Compute
@@ -107,7 +107,7 @@ An SAP workload running on Azure uses different infrastructure components to run
 
 - On enabling Azure Site Recovery for a VM to set up DR, the local managed disks attached to the VMs are replicated to the DR region. During replication, the VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during DR, a recovery point is used to restore the VM in the target region. But Azure Site Recovery doesn’t support all storages types that are available in Azure. For more information, see [Azure Site Recovery support matrix for storages](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
 
-- For SAP system running on Windows with Azure shared disk, you could use [Azure Site Recovery with Azure Shared Disk (preview)](https://azure.microsoft.com/updates/public-preview-dr-for-shared-disks-azure-site-recovery/). As the feature is in public preview, we don't recommend implementing the scenario for most critical SAP production workloads. For more information on supported scenarios for Azure Shared Disk, see [Support matrix for shared disks in Azure VM disaster recovery (preview)](../../site-recovery/shared-disk-support-matrix.md)
+- For SAP system running on Windows with Azure shared disk, you could use [Azure Site Recovery with Azure Shared Disk](../../site-recovery/tutorial-shared-disk.md). For more information on supported scenarios for Azure Shared Disk, see [Support matrix for shared disks in Azure VM disaster recovery](../../site-recovery/shared-disk-support-matrix.md)
 
 - In addition to Azure managed data disks attached to VMs, different Azure native storage solutions are used to run SAP application on Azure. The DR approach for each Azure storage solution might differ, as not all storage services available in Azure are supported with Azure Site Recovery. Below are the list of storage type that is typically used for SAP workload.
 
@@ -116,7 +116,7 @@ An SAP workload running on Azure uses different infrastructure components to run
   | Managed disk                    | Azure Site Recovery                                          |
   | NFS on Azure files (LRS or ZRS) | Custom script to replicate data between two sites (for example, rsync) |
   | NFS on Azure NetApp Files       | Use [Cross-region replication of Azure NetApp Files volumes](../../azure-netapp-files/cross-region-replication-introduction.md) |
-  | Azure Shared Disk (LRS or ZRS)  | [Azure Site Recovery with Azure Shared Disk (in preview)](../../site-recovery/tutorial-shared-disk.md) |
+  | Azure Shared Disk (LRS or ZRS)  | [Azure Site Recovery with Azure Shared Disk](../../site-recovery/tutorial-shared-disk.md) |
   | SMB on Azure files (LRS or ZRS) | Use [RoboCopy](../../storage/files/storage-files-migration-robocopy.md) to copy files between two sites |
   | SMB on Azure NetApp Files       | Use [Cross-region replication of Azure NetApp Files volumes](../../azure-netapp-files/cross-region-replication-introduction.md) |
 

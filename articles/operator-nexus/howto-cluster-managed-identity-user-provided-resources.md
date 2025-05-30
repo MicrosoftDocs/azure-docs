@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus Cluster Support for managed identities and user provided resources"
 description: Azure Operator Nexus Cluster support for managed identities and user provided resources.
-author: eak13
-ms.author: ekarandjeff
+author: DanCrank
+ms.author: danielcrank
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 2/5/2025
+ms.date: 5/23/2025
 ms.custom: template-how-to
 ---
 
@@ -17,7 +17,7 @@ Managed identities are used with the following user resources provided on Operat
 
 - Storage Accounts used for the output of Bare Metal run-\* commands.
 - Key Vaults used for credential rotation.
-- Log Analytics Workspaces used to capture some metrics.
+- Log Analytics Workspaces (LAW) used to capture some metrics.
 
 To learn more about managed identities in Azure, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview). Operator Nexus Clusters support multiple User Assigned Managed Identities (UAMI) or one system assigned managed identity (SAMI).
 
@@ -31,7 +31,7 @@ Once added, the Identity can only be removed via the API call at this time. For 
 - Install the latest version of the [appropriate Azure CLI extensions](./howto-install-cli-extensions.md).
 
 > [!NOTE]
-> The managed identity functionality for Log Analytics Workspace and Key Vault exists with the 2024-10-01-preview API and will be available with the 2025-02-01 GA API.
+> The managed identity functionality for Log Analytics Workspace (LAW) and Key Vault exists with the 2024-10-01-preview API and will be available with the 2025-02-01 GA API.
 
 ## Operator Nexus Clusters with User Assigned Managed Identities (UAMI)
 
@@ -40,7 +40,7 @@ It's a best practice to first define all of the user provided resources (Storage
 The impacts of not configuring these resources by deployment time for a new Cluster are as follows:
 
 - _Storage Account:_ run-\* command outputs fail to be written to the Storage Account.
-- _LAW:_ Cluster deployment fails as the LAW is required to install software extensions during deployment.
+- _LAW:_ Cluster deployment fails as the LAW (Log Analytics Workplace) is required to install software extensions during deployment.
 - _Key Vault:_ Credential rotations fail as there's a check to ensure write access to the user provided Key Vault before performing credential rotation.
 
 Updating the Cluster can be done at any time. Changing the LAW settings might cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW might need to be reinstalled.
@@ -132,7 +132,7 @@ az networkcloud cluster create --name "clusterName" -g "resourceGroupName" \
     --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
     --command-output-settings identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
-    container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container" \
+    container-url="https://myaccount.blob.core.windows.net/mycontainer" \
     --analytics-output-settings analytics-workspace-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
     identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
@@ -151,7 +151,7 @@ az networkcloud cluster create --name "clusterName" -g "resourceGroupName" \
     --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myFirstUAMI" "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mySecondUAMI" \
     --command-output-settings identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myFirstUAMI" \
-    container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container" \
+    container-url="https://myaccount.blob.core.windows.net/mycontainer" \
     --analytics-output-settings analytics-workspace-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
     identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myFirstUAMI" \
@@ -201,13 +201,13 @@ Cluster update to assign `mySecondUAMI` to the command output settings.
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
     --command-output-settings identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mySecondUAMI" \
-    container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container"
+    container-url="https://myaccount.blob.core.windows.net/mycontainer"
 ```
 
 _Example 3:_ Update a Cluster that already has a SAMI and add a UAMI. The SAMI is retained. Then assign the UAMI to the log analytics output settings (LAW).
 
 > [!CAUTION]
-> Changing the LAW settings might cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW might need to be reinstalled.
+> Changing the LAW settings will cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW might need to be reinstalled.
 
 Cluster update to add the UAMI `mUAMI`.
 
@@ -391,13 +391,13 @@ _Example 1:_ Add or update the command output settings (Storage Account) for a C
 ```azurecli-interactive
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
     --command-output-settings identity-type="SystemAssignedIdentity" \
-    container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container"
+    container-url="https://myaccount.blob.core.windows.net/mycontainer"
 ```
 
 _Example 2:_ Add or update the log analytics output settings (LAW) for a Cluster.
 
 > [!CAUTION]
-> Changing the LAW settings might cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW might need to be reinstalled.
+> Changing the LAW settings will cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW need to be reinstalled.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
@@ -418,7 +418,7 @@ _Example 4:_ This example combines all three resources using a SAMI into one upd
 ```azurecli-interactive
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
     --command-output-settings identity-type="SystemAssignedIdentity" \
-    container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container"
+    container-url="https://myaccount.blob.core.windows.net/mycontainer"
     --analytics-output-settings analytics-workspace-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
     identity-type="SystemAssignedIdentity" \
     --secret-archive-settings identity-type="SystemAssignedIdentity" \
@@ -446,9 +446,9 @@ Note, `<APIVersion>` is the API version 2024-07-01 or newer.
 
   ```azurecli
   {
-  "identity": {
+    "identity": {
         "type": "SystemAssigned"
-  }
+    }
   }
   ```
 
@@ -462,12 +462,12 @@ Note, `<APIVersion>` is the API version 2024-07-01 or newer.
 
   ```azurecli
   {
-  "identity": {
+    "identity": {
         "type": "UserAssigned",
-  	"userAssignedIdentities": {
-  		"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": {}
-  	}
-  }
+  	    "userAssignedIdentities": {
+  		    "/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": {}
+  	    }
+    }
   }
   ```
 
@@ -481,11 +481,11 @@ Note, `<APIVersion>` is the API version 2024-07-01 or newer.
 
   ```azurecli
   {
-  "identity": {
+    "identity": {
         "type": "UserAssigned",
-  	"userAssignedIdentities": {
-  		"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": null
-  	}
-  }
+  	    "userAssignedIdentities": {
+  		    "/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": null
+  	    }
+    }
   }
   ```

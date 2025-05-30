@@ -5,7 +5,7 @@ description: Use the premium performance tier with Azure Data Lake Storage
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2024
 ms.author: normesta
 ---
