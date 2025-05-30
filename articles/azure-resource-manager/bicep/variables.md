@@ -3,7 +3,7 @@ title: Variables in Bicep
 description: Describes how to define variables in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/15/2025
+ms.date: 05/30/2025
 ---
 
 # Variables in Bicep
@@ -14,7 +14,7 @@ Resource Manager resolves variables before starting the deployment operations. W
 
 ## Define variables
 
-A variable can't have the same name as a parameter, module, or resource. You can add one or more decorators for each variable. For more information, see Use [decorators](#use-decorators).
+A variable can't have the same name as a parameter, module, or resource. You can add one or more decorators for each variable. For more information, see Use [decorators](#use-decorators). 
 
 ### Untyped variables
 
@@ -79,59 +79,33 @@ The preceding example returns a value like the following output:
 
 ### Typed variables
 
-Bicep supports **typed variables**, where you explicitly declare the data type of a variable to ensure type safety and improve code clarity. The benefits of typed variables:
+Starting with [Bicep CLI version 0.36.X](https://github.com/Azure/bicep/releases/tag/v0.36.1), Bicep supports **typed variables**, where you explicitly declare the data type of a variable to ensure type safety and improve code clarity. The benefits of typed variables:
 
 - **Error detection**: The Bicep compiler validates that assigned values match the declared type, catching errors early.
 - **Code clarity**: Explicit types make it clear what kind of data a variable holds.
 - **Intellisense support**: Tools like Visual Studio Code provide better autocompletion and validation for typed variables.
 - **Refactoring safety**: Ensures that changes to variable assignments don’t inadvertently break type expectations.
 
-To define a typed variable, use the `var` keyword followed by the variable name, a colon (`:`), the type, and the assigned value:
+To define a typed variable, use the `var` keyword followed by the variable name, the type, and the assigned value:
 
 ```bicep
-@<decorator>(<argument>)
-var <variable-name>: <data-type> = <variable-value>
+var <variable-name> <data-type> = <variable-value>
 ```
 
 The following examples show how to define typed variables:
 
 ```bicep
-var resourceName: string = 'myResource'
-var instanceCount: int = 3
-var isProduction: bool = true
-var tags: object = { environment: 'dev' }
-var subnets: array = ['subnet1', 'subnet2']
+var resourceName string = 'myResource'
+var instanceCount int = 3
+var isProduction bool = true
+var tags object = { environment: 'dev' }
+var subnets array = ['subnet1', 'subnet2']
 ```
 
-Bicep supports the following types for variables:
-
-- **Primitive types**:
-  - `string`: Text values (for example, `'hello'`)
-  - `int`: Integer values (for example, `42`)
-  - `bool`: Boolean values (`true` or `false`)
-- **Complex types**:
-  - `array`: A list of values (for example, `[1, 2, 3]`)
-  - `object`: A key-value collection (for example, `{ key: 'value' }`)
-- **Union types** (Bicep 0.4 or later):
-  - Allows a variable to accept multiple types (for example, `string | int`).
-  - Example:
-
-    ```bicep
-    var flexibleId: string | int = 'resource123'
-    ```
-
-- **Literal types**:
-  - Restrict a variable to specific literal values (for example, `'small' | 'medium' | 'large'`).
-  - Example:
-
-    ```bicep
-    var size: 'small' | 'medium' | 'large' = 'medium'
-    ```
-
-For `object` types, you can define a schema to enforce a specific structure.
+For `object` types, you can define a schema to enforce a specific structure. The compiler ensures the object adheres to the defined schema.
 
 ```bicep
-var config: {
+var config {
   name: string
   count: int
   enabled: bool
@@ -142,20 +116,21 @@ var config: {
 }
 ```
 
-The compiler ensures the object adheres to the defined schema.
-
 The following example uses typed variables with decorators to enforce constraints:
 
 ```bicep
 @description('The environment to deploy to')
 @allowed(['dev', 'test', 'prod'])
-param environment: string = 'dev'
+param environment string = 'dev'
 
-var instanceCount: int = environment == 'prod' ? 5 : 2
-var resourcePrefix: string = 'app'
-var tags: object = {
+var instanceCount int = environment == 'prod' ? 5 : 2
+var resourcePrefix string = 'app'
+var tags {
+  environment: string
+  deployedBy: string 
+} = {
   environment: environment
-  deployedBy: 'bicep'
+  deployedBy: 'Bicep'
 }
 
 resource storage 'Microsoft.Storage/storageAccounts@2023-01-01' = {
@@ -173,7 +148,7 @@ In this example:
 
 - `instanceCount` is typed as `int` and uses a conditional expression.
 - `resourcePrefix` is typed as `string`.
-- `tags` is typed as `object` with a flexible structure.
+- `tags` is typed as `object` with a specific structure.
 
 ## Use iterative loops
 
