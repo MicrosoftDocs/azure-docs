@@ -31,7 +31,7 @@ Choosing the right network security solution for your Azure workloads depends on
 
 ## Azure Firewall
 
-[Azure Firewall](../../firewall/index.yml) is a cloud-native, intelligent network firewall service that offers full stateful protection with built-in high availability and unlimited cloud scalability. It provides both network and application-level security for your Azure workloads. As a managed service, Azure Firewall can be deployed in a virtual network and integrates seamlessly with other Azure services like Azure Monitor, Azure Security Center, and Microsoft Sentinel for enhanced security and monitoring.
+[Azure Firewall](../../firewall/overview.md) is a cloud-native, intelligent network firewall service that offers full stateful protection with built-in high availability and unlimited cloud scalability. It provides both network and application-level security for your Azure workloads. As a managed service, Azure Firewall can be deployed in a virtual network and integrates seamlessly with other Azure services like Azure Monitor, Azure Security Center, and Microsoft Sentinel for enhanced security and monitoring.
 
 :::image type="content" source="./media/network-security/firewall.png" alt-text="Diagram showing how Azure Firewall inspects traffic to and from the internet before routing it to its destination.":::
 
@@ -53,7 +53,7 @@ For more information, see [Azure Firewall overview](../../firewall/overview.md).
 
 ## Azure DDoS Protection
 
-[Azure DDoS Protection](../../ddos-protection/index.yml) is a service that provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network or public IP address resources, and it requires no application or resource changes. 
+[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) is a service that provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network or public IP address resources, and it requires no application or resource changes. 
 
 - **IP protection**: Azure DDoS IP Protection provides protection for your Azure resources that are assigned a public IP address. It protects against volumetric, protocol, and application layer attacks.
 
@@ -73,7 +73,7 @@ For more information, see [Azure DDoS Protection overview](../../ddos-protection
 
 ## Azure Web Application Firewall
 
-[Azure Web Application Firewall](../../web-application-firewall/index.yml) (WAF) is a web application firewall that provides centralized protection to your web applications from common exploits and vulnerabilities. WAF uses rules to monitor HTTP requests and responses, and it can block or allow traffic based on the rules you define. 
+[Azure Web Application Firewall](../../web-application-firewall/overview.md) (WAF) is a web application firewall that provides centralized protection to your web applications from common exploits and vulnerabilities. WAF uses rules to monitor HTTP requests and responses, and it can block or allow traffic based on the rules you define. 
 
 :::image type="content" source="./media/network-security/web-application-firewall.png" alt-text="Diagram illustrating Azure Web Application Firewall applied to both Azure Application Gateway and Azure Front Door, allowing valid requests and blocking web attacks.":::
 
