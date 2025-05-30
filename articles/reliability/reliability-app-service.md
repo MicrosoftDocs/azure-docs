@@ -15,7 +15,7 @@ zone_pivot_groups: app-service-sku
 
 This article describes reliability support in [Azure App Service](../app-service/overview.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs.
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. App Service integrates with Microsoft Azure to provide security, load balancing, autoscaling, and automated management for applications. To explore how App Service can bolster the reliability and resiliency of your application workload, see [App Service overview](../app-service/overview.md).
 
@@ -27,7 +27,7 @@ When you deploy App Service, you can provision multiple instances in an [App Ser
 
 - Use premium v3/v4 App Service plans.
 
-[Enable zone redundancy](#availability-zone-support), which requires you to use either Premium v2 or Premium v3 or Isolated v2 App Service plans and have a minimum of three instances of the plan. To view more information, ensure that you select the appropriate tier at the top of this page.
+- [Enable zone redundancy](#availability-zone-support), which requires you to use either Premium v2 or Premium v3 or Isolated v2 App Service plans and have a minimum of two instances of the plan. To view more information, ensure that you select the appropriate tier at the top of this page.
 
 ::: zone-end
 
@@ -85,7 +85,7 @@ For App Service plans that aren't configured as zone redundant, the underlying V
 
 ::: zone pivot="free-shared-basic"
 
-Zone-redundant App Service plans require you to use the Premium v2 or Premium v3 tier and can be deployed in [any region that supports availability zones](./regions-list.md). To view more information, ensure that you select the appropriate tier at the top of this page.
+Zone-redundant App Service plans require you to use the Premium v2, Premium v3, or Premium v4 tier and can be deployed in [any region that supports availability zones](./regions-list.md). To view more information, ensure that you select the appropriate tier at the top of this page.
 
 ::: zone-end
 
@@ -139,7 +139,7 @@ During an availability zone outage, some aspects of Azure App Service might be a
 
 ::: zone pivot="premium"
 
-When you use App Service Premium v2, Premium v3, or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances that you scale to based on your autoscale criteria.
+When you use App Service Premium v2, Premium v3, or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have two or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances that you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity of less than two, the platform enforces a minimum instance count of two. The platform charges you for those two instances.
 
@@ -157,7 +157,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 ::: zone pivot="free-shared-basic"
 
-- **Create a new App Service plan that has zone redundancy.** To deploy a new zone-redundant App Service plan, you must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans). To view more information, ensure that you select the appropriate tier at the top of this page.
+- **Create a new App Service plan with zone redundancy.** To deploy a new zone-redundant App Service plan, you must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans). To view more information, ensure that you select the appropriate tier at the top of this page.
 
 ::: zone-end
 
@@ -215,9 +215,6 @@ If you enable availability zones but specify a capacity of less than two, the pl
     ```
     > [!NOTE]
     > If you use the Azure CLI to disable the `zoneRedundant` property, you should specify the `sku.capacity` property, otherwise the value defaults to 1.
-
-    > [!NOTE]
-    > If you use the Azure CLI to disable the zoneRedundant property, you should specify the sku.capacity property. Otherwise, the value defaults to 1.
 
 ::: zone-end
 
@@ -367,7 +364,7 @@ The following section describes what to expect when App Service plans are config
 
 - **Traffic rerouting:** When a zone is unavailable, App Service detects the lost instances from that zone. It automatically attempts to find new replacement instances. Then it distributes traffic across the new instances as needed.
 
-    If autoscale is configured and determines that more instances are needed, it issues a request to App Service to add them. Autoscale behavior operates independently of App Service platform behavior, meaning that your instance count specification doesn't need to be a multiple of three. For more information, see [Scale up an app in App Service](../app-service/manage-scale-up.md) and [Autoscale overview](/azure/azure-monitor/autoscale/autoscale-overview).
+    If autoscale is configured and determines that more instances are needed, it issues a request to App Service to add them. Autoscale behavior operates independently of App Service platform behavior, meaning that your instance count specification doesn't need to be a multiple of two. For more information, see [Scale up an app in App Service](../app-service/manage-scale-up.md) and [Autoscale overview](/azure/azure-monitor/autoscale/autoscale-overview).
 
     > [!IMPORTANT]
     > There's no guarantee that requests for more instances in a zone-down scenario succeed. The backfilling of lost instances occurs on a best-effort basis. If you need guaranteed capacity when an availability zone is lost, you should create and configure your App Service plans to account for the loss of a zone. You can achieve this by [over-provisioning the capacity of your App Service plan](#capacity-planning-and-management).
