@@ -135,3 +135,4 @@ To trigger bulk migration of VMs protected using Standard policy to an Enhanced 
 
 - Learn about [Standard VM backup policy](backup-during-vm-creation.md#create-a-vm-with-backup-configuration).
 - Learn how to [back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
+- [Troubleshoot backup policy migration issue](backup-azure-vms-troubleshoot.md#migration-from-standard-to-enhanced-policy-issue).
