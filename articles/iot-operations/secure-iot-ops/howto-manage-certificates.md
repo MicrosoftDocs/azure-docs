@@ -154,7 +154,7 @@ For example, the connector for OPC UA uses the certificate management experience
 
 When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the Kubernetes cluster to be used in the *Trust list* and *Issuer list* stores for OPC UA connections:
 
-:::image type="content" source="media/howto-manage-certificates/add-new-certificate.png" alt-text="Screenshot that shows the Upload certificate and Add from Azure Key Vault options when adding a new certificate to the asset endpoints page.":::
+:::image type="content" source="media/howto-manage-certificates/add-new-certificate.png" lightbox="media/howto-manage-certificates/add-new-certificate.png" alt-text="Screenshot that shows the Upload certificate and Add from Azure Key Vault options when adding a new certificate to the asset endpoints page.":::
 
 - **Upload Certificate**: Uploads a certificate which is then added as a secret to Azure Key Vault and automatically synchronized to the cluster using Secret Store extension. 
 
@@ -174,7 +174,7 @@ When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/ov
 
 Using the list view you can manage the synchronized certificates. You can view all the synchronized certificates, and which certificate store it's synchronized to:
 
-:::image type="content" source="media/howto-manage-certificates/list-certificates.png" alt-text="Screenshot that shows the list of certificates in the asset endpoints page and how to filter by Trust List and Issuer List.":::
+:::image type="content" source="media/howto-manage-certificates/list-certificates.png" lightbox="media/howto-manage-certificates/list-certificates.png" alt-text="Screenshot that shows the list of certificates in the asset endpoints page and how to filter by Trust List and Issuer List.":::
 
 - To learn more about the *Trust list* and *Issuer list* stores, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
 

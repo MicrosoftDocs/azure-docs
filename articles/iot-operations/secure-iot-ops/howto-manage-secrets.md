@@ -37,7 +37,7 @@ Secrets are used in asset endpoints and data flow endpoints for authentication. 
 
 1. To add a new secret reference, select **Add reference** when creating a new asset endpoint:
 
-    :::image type="content" source="media/howto-manage-secrets/use-secrets.png" alt-text="Screenshot that shows the Add from Azure Key Vault and Create new options when selecting a secret in operations experience.":::
+    :::image type="content" source="media/howto-manage-secrets/use-secrets.png" lightbox="media/howto-manage-secrets/use-secrets.png" alt-text="Screenshot that shows the Add from Azure Key Vault and Create new options when selecting a secret in operations experience.":::
 
     - **Create a new secret**: creates a secret reference in the Azure Key Vault and also automatically synchronizes the secret down to the cluster using Secret Store extension. Use this option if you didn't create the secret you require for this scenario in the key vault beforehand. 
     
@@ -45,7 +45,7 @@ Secrets are used in asset endpoints and data flow endpoints for authentication. 
 
 1. When you add the username and password references to the asset endpoints or data flow endpoints, you then need to give the synchronized secret a name. The secret references are saved in the cluster with this given name as one secret sync resource. In the example from the screenshot below, the username and password references are saved to the cluster as *edp1secrets*.
 
-    :::image type="content" source="media/howto-manage-secrets/synced-secret-name.png" alt-text="Screenshot that shows the synced secret name field when username password is selected for authentication mode in operations experience.":::
+    :::image type="content" source="media/howto-manage-secrets/synced-secret-name.png" lightbox="media/howto-manage-secrets/synced-secret-name.png" alt-text="Screenshot that shows the synced secret name field when username password is selected for authentication mode in operations experience.":::
     
 ## Manage synced secrets
 
@@ -55,7 +55,7 @@ In this section, we use asset endpoints as an example, the same can be applied t
 
 1. To view the secrets list, select **Manage certificates and secrets** and then **Secrets**:
 
-    :::image type="content" source="media/howto-manage-secrets/synced-secret-list.png" alt-text="Screenshot that shows the synced secrets list in the operations experience secrets page.":::
+    :::image type="content" source="media/howto-manage-secrets/synced-secret-list.png" lightbox="media/howto-manage-secrets/synced-secret-list.png" alt-text="Screenshot that shows the synced secrets list in the operations experience secrets page.":::
 
 You can use the **Secrets** page to view synchronized secrets in your asset endpoints and data flow endpoints. Secrets page shows the list of all current synchronized secrets at the edge for the resource you're viewing. A synced secret represents one or multiple secret references, depending on the resource using it. Any operation applied to a synced secret will be applied to all secret references contained within the synced secret. 
 

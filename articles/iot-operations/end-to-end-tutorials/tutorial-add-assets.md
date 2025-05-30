@@ -108,26 +108,26 @@ To add the simulator's certificate to the connector's trust list:
 
 - Select your site. If you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previously by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
 
-    :::image type="content" source="media/tutorial-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
+    :::image type="content" source="media/tutorial-add-assets/site-list.png" lightbox="media/tutorial-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
 
 - Select the instance where you deployed Azure IoT Operations:
 
-    :::image type="content" source="media/tutorial-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations instance list.":::
+    :::image type="content" source="media/tutorial-add-assets/cluster-list.png" lightbox="media/tutorial-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations instance list.":::
 
     > [!TIP]
     > If you don't see any instances, you might not be in the right Microsoft Entra ID tenant. You can change the tenant from the top right menu in the operations experience.
 
 - Select **Asset endpoints**~ and then **Manage certificates and secrets**:
 
-    :::image type="content" source="media/tutorial-add-assets/manage-certificates.png" alt-text="Screenshot that shows how to find the manage certificates page in the operations experience.":::
+    :::image type="content" source="media/tutorial-add-assets/manage-certificates.png" lightbox="media/tutorial-add-assets/manage-certificates.png" alt-text="Screenshot that shows how to find the manage certificates page in the operations experience.":::
 
 - On the **Certificates page**, select **Trust list** and then **Add new certificate**:
 
-    :::image type="content" source="media/tutorial-add-assets/add-certificate.png" alt-text="Screenshot that shows how to add a certificate to the trust list in the operations experience.":::
+    :::image type="content" source="media/tutorial-add-assets/add-certificate.png" lightbox="media/tutorial-add-assets/add-certificate.png" alt-text="Screenshot that shows how to add a certificate to the trust list in the operations experience.":::
 
 - Select **Upload certificate** and choose the `opcplc-000000.crt` file you downloaded previously. Then select **Upload**:
 
-    :::image type="content" source="media/tutorial-add-assets/uploaded-certificate.png" alt-text="Screenshot that shows a successful certificate upload.":::
+    :::image type="content" source="media/tutorial-add-assets/uploaded-certificate.png" lightbox="media/tutorial-add-assets/uploaded-certificate.png" alt-text="Screenshot that shows a successful certificate upload.":::
 
 - Select **Apply**.
 
@@ -139,7 +139,7 @@ In this step, you use the operations experience to add an asset endpoint that en
 
 1. Select **Asset endpoints** and then **Create asset endpoint**:
 
-    :::image type="content" source="media/tutorial-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the operations experience.":::
+    :::image type="content" source="media/tutorial-add-assets/asset-endpoints.png" lightbox="media/tutorial-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the operations experience.":::
 
 1. Enter the following endpoint information:
 
@@ -174,7 +174,7 @@ You can see the `plcusername` and `plcpassword` secrets in the Azure Key Vault i
 
 After you select your instance in operations experience, you see the available list of assets on the **Assets** page. If there are no assets yet, this list is empty:
 
-:::image type="content" source="media/tutorial-add-assets/create-asset-empty.png" alt-text="Screenshot of Azure IoT Operations empty asset list.":::
+:::image type="content" source="media/tutorial-add-assets/create-asset-empty.png" lightbox="media/tutorial-add-assets/create-asset-empty.png" alt-text="Screenshot of Azure IoT Operations empty asset list.":::
 
 ### Create an asset
 
@@ -197,7 +197,7 @@ Remove the existing **Custom properties** and add the following custom propertie
 | isSpare       | true            |
 | location      | Seattle         |
 
-:::image type="content" source="media/tutorial-add-assets/create-asset-details.png" alt-text="Screenshot of Azure IoT Operations asset details page.":::
+:::image type="content" source="media/tutorial-add-assets/create-asset-details.png" lightbox="media/tutorial-add-assets/create-asset-details.png" alt-text="Screenshot of Azure IoT Operations asset details page.":::
 
 Select **Next** to go to the **Add tags** page.
 
@@ -215,7 +215,7 @@ The **Observability mode** is one of the following values: `None`, `Gauge`, `Cou
 
 You can select **Manage default settings** to change the default sampling interval and queue size for each tag.
 
-:::image type="content" source="media/tutorial-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
+:::image type="content" source="media/tutorial-add-assets/add-tag.png" lightbox="media/tutorial-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
 
 Select **Next** to go to the **Add events** page and then **Next** to go to the **Review** page.
 
@@ -223,7 +223,7 @@ Select **Next** to go to the **Add events** page and then **Next** to go to the 
 
 Review your asset and tag details and make any adjustments you need before you select **Create**:
 
-:::image type="content" source="media/tutorial-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
+:::image type="content" source="media/tutorial-add-assets/review-asset.png" lightbox="media/tutorial-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
 This configuration deploys a new asset called `thermostat` to the cluster. You can view your assets in your resource group in the Azure portal. You can also use `kubectl` to view the assets locally in your cluster:
 
@@ -235,11 +235,11 @@ kubectl get assets -n azure-iot-operations
 
 To view the asset endpoint and asset you created in the Azure portal, go to the resource group that contains your Azure IoT Operations instance. You can see the thermostat asset in the **Azure IoT Operations** resource group. If you select **Show hidden types**, you can also see the asset endpoint:
 
-:::image type="content" source="media/tutorial-add-assets/azure-portal.png" alt-text="Screenshot of Azure portal showing the Azure IoT Operations resource group including the asset and asset endpoint.":::
+:::image type="content" source="media/tutorial-add-assets/azure-portal.png" lightbox="media/tutorial-add-assets/azure-portal.png" alt-text="Screenshot of Azure portal showing the Azure IoT Operations resource group including the asset and asset endpoint.":::
 
 The portal enables you to view the asset details. Select **JSON View** for more details:
 
-:::image type="content" source="media/tutorial-add-assets/thermostat-asset.png" alt-text="Screenshot of Azure IoT Operations asset details in the Azure portal.":::
+:::image type="content" source="media/tutorial-add-assets/thermostat-asset.png" lightbox="media/tutorial-add-assets/thermostat-asset.png" alt-text="Screenshot of Azure IoT Operations asset details in the Azure portal.":::
 
 ## Verify data is flowing
 
