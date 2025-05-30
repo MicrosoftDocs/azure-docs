@@ -18,7 +18,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. Select the **here** link. You're directed to the partner portal, where you can create a support request.
 
-:::image type="content" source="media/troubleshoot/troubleshoot.png" alt-text="Screenshot of the Azure portal that shows the pane for creating a Neon support request.":::
+:::image type="content" source="./media/troubleshoot/troubleshoot.png" alt-text="Screenshot of the Azure portal that shows the pane for creating a Neon support request.":::
 
 ## Check permissions
 
