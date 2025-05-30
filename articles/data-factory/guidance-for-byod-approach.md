@@ -1,6 +1,6 @@
 ---
 title: Guidance on using the Bring Your Own Driver (BYOD) approach
-description: This article provides step-by-step guidance for migrating from outdated V1 connectors to the latest V2 connectors in scenarios where the Bring Your Own Driver (BYOD) approach is required. 
+description: This article provides step-by-step guidance for Bring Your Own Driver (BYOD) approach.
 author: KrishnakumarRukmangathan
 ms.author: krirukm
 ms.service: azure-data-factory
@@ -14,14 +14,42 @@ ms.date: 05/29/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article provides step-by-step guidance for migrating from outdated V1 connectors to the latest V2 connectors in scenarios where the **Bring Your Own Driver (BYOD)** approach is required. 
+This article provides step-by-step guidance for using connectors with Bring Your Own Driver (BYOD) approach and upgrading from outdated V1 connectors to the latest V2 connectors in scenarios where the BYOD approach is required.
 
-## Supported connectors
+## Guidance on using connectors with BYOD approach 
 
-- Vertica 
-- Netezza 
+### Steps
 
-## Migration steps 
+1. **Review Connector Requirements**  
+    Visit the Data Factory documentation for the specific connector. Under the **Pre-requisites** section, verify: 
+    
+    - The supported version of the **client driver**. 
+    - The minimum required **SHIR version** for compatibility. 
+
+1. **Install and Configure Self-Hosted Integration Runtime (SHIR)**
+
+    - Set up SHIR on a physical machine or virtual machine within your network. 
+    - Follow the official [Microsoft SHIR installation guide](create-self-hosted-integration-runtime.md) to complete setup. 
+    
+1. **Download the Required Driver Package**
+
+    Navigate to the connector's documentation or driver source to download the appropriate version of the client driver supported for the connector. 
+
+1. **Install the Driver**
+
+    Install the downloaded driver package on the machine where SHIR is running. 
+
+### Related connectors
+
+- [Informix](connector-informix.md)
+- [Microsoft Access](connector-microsoft-access.md)
+- [SAP Business Warehouse](connector-sap-business-warehouse.md)
+- [SAP HANA](connector-sap-hana.md)
+- [SAP Table](connector-sap-table.md)
+
+## Guidance on upgrading connectors with BYOD approach required
+
+### Steps
 
 1. **Review Connector Requirements**  
     Visit the Data Factory documentation for the specific V2 connector. Under the **Pre-requisites** section, verify: 
@@ -58,6 +86,10 @@ This article provides step-by-step guidance for migrating from outdated V1 conne
 1. **Validate Pipeline Functionality**
 
     Run test executions of your pipelines to confirm they function correctly with the new V2 connector and SHIR setup.
+
+### Related connectors
+
+- [Vertica (version 2.0)](connector-vertica.md)
 
 ## Related content
 
