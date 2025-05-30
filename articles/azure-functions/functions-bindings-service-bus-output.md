@@ -622,8 +622,9 @@ Access the output message by using `context.bindings.<name>` where `<name>` is t
 ::: zone pivot="programming-language-powershell"  
 Output to the Service Bus is available via the `Push-OutputBinding` cmdlet where you pass arguments that match the name designated by binding's name parameter in the *function.json* file.
 ::: zone-end   
-::: zone pivot="programming-language-python"  
-Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
+::: zone pivot="programming-language-python" 
+The output function parameter must be defined as `func.Out[str]` or `func.Out[bytes]`. Refer to the [output example](#example) for details. 
+Alternatively, you can use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
 ::: zone-end  
 For a complete example, see [the examples section](#example).
 

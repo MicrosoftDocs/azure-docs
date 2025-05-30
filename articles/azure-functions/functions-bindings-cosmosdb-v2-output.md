@@ -705,6 +705,12 @@ By default, when you write to the output parameter in your function, a document 
 > [!NOTE]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document.
 
+::: zone pivot="programming-language-python" 
+
+The output function parameter must be defined as `func.Out[func.Document]`. Refer to the [output example](#example) for details.
+
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 
 The parameter type supported by the Cosmos DB output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
