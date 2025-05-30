@@ -18,7 +18,7 @@ The Azure Functions runtime natively runs HTTP and timer triggers. The behaviors
 ::: zone pivot="programming-language-python,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
 Extension bundles allow non-.NET apps to use binding extensions without having to interact with .NET infrastructure.
 
-## Extension bundles (test)
+## Extension bundles
 
 Extension bundles add a predefined set of compatible binding extensions to your function app. Extension bundles are versioned. Each version contains a specific set of binding extensions that are verified to work together. Select a bundle version based on the extensions that you need in your app.
 

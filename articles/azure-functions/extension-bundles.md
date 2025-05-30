@@ -73,7 +73,7 @@ Major version releases of extension bundles can occur when there are breaking ch
 
 Each major version of an extension bundle is supported for a minimum of 12 months after the next major version is released. This overlap period gives you time to plan, test, and upgrade your apps before the previous version is retired. 
 
-You can view the extension bundle versions and their included extensions in the [Azure Functions Extension Bundles GitHub repo](https://github.com/Azure/azure-functions-extension-bundles/releases). Individual .NET packages can be found on [https://nuget.org](https://nuget.org). 
+You can view the extension bundle versions and their included extensions in the [Azure Functions Extension Bundles GitHub repo](https://github.com/Azure/azure-functions-extension-bundles/releases). Individual .NET packages are found on [https://nuget.org](https://nuget.org). 
 
 ### Notification phase 
 
