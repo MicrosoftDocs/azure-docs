@@ -114,7 +114,7 @@ The following diagram gives a high-level overview of the network connections whe
 
 #### TURN relay availability
 
-TURN relay is available in the following Azure regions:
+TURN relay is available in the following Azure regions with ACS TURN Relay (20.202.0.0/16):
 
 :::row:::
     :::column:::
@@ -188,8 +188,7 @@ Where users have RDP Shortpath for both managed network and public networks is a
 The following sections contain the source, destination and protocol requirements for your session hosts and client devices that must be allowed for RDP Shortpath to work.
 
 > [!NOTE]
-> For a relayed connection with TURN, the IP subnet **`20.202.0.0/16`** is shared with Azure Communication Services. However, **Azure Virtual Desktop and Windows 365 will transition to the dedicated IP range `51.5.0.0/16`**, which is exclusively reserved for these services.
-> **What to expect:** Starting **June 15**, Microsoft will begin rolling out the new TURN relay IP range **`51.5.0.0/16`** across **40 Azure regions**. This upgrade enhances **RDP Shortpath for public networks (via TURN/Relay)** connectivity, delivering faster, more reliable performance for Azure Virtual Desktop (AVD) and Windows 365 (W365) users.
+> Starting **June 15**, Microsoft will begin rolling out a new TURN relay IP range, **51.5.0.0/16**, across **40 Azure regions**. This new range is **dedicated exclusively to Azure Virtual Desktop (AVD) and Windows 365 (W365)**, marking a transition away from the previously shared **20.202.0.0/16** subnet used by Azure Communication Services. The upgrade is designed to enhance RDP Shortpath for Public Networks (via TURN/Relay), delivering **faster, more reliable connectivity** for AVD and W365 users.
 
 #### Session host virtual network
 
@@ -212,7 +211,7 @@ The following table details the source, destination and protocol requirements fo
 | TURN relay | Client network | Any | `51.5.0.0/16` | 3478 | UDP | Allow |
 
 > [!NOTE]
-> From June 15th, the traffic will progressively __redirected__ from the current Azure Communication Service(ACS) TURN Relay range (**`20.202.0.0/16`**) to a newly designated subnet (**`51.5.0.0/16`**). While this shift is designed to be seamless, it’s essential that customers __preemptively configure bypass rules__ for the new range to maintain uninterrupted service. With both IP ranges properly bypassed, end users will not experience any connectivity issues
+> From June 15th, the traffic will progressively __be redirected__ from the current Azure Communication Service (ACS) TURN Relay range (**`20.202.0.0/16`**) to a newly designated subnet (**`51.5.0.0/16`**). While this shift is designed to be seamless, it’s essential that customers **preemptively configure bypass rules** for the new range to maintain uninterrupted service. With both IP ranges properly bypassed, end users will not experience any connectivity issues
 
 ### Teredo support
 
