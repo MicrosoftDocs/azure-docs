@@ -4,8 +4,8 @@ description: Start here to learn how to monitor Azure Bastion by using Azure Mon
 ms.date: 12/02/2024
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: cherylmc
-ms.author: cherylmc
+author: abell
+ms.author: abell
 ms.service: azure-bastion
 ---
 

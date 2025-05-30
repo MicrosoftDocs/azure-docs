@@ -20,6 +20,9 @@ You’ve set up [connectors and other means of collecting activity data](connect
 
 Microsoft Sentinel and its many [solutions provided in the Content hub](sentinel-solutions.md) offer templates for the most commonly used types of analytics rules, and you’re strongly encouraged to make use of those templates, customizing them to fit your specific scenarios. But it’s possible you might need something completely different, so in that case you can create a rule from scratch, using the analytics rule wizard.
 
+> [!NOTE]
+> If you're reviewing the details of a SOC optimization recommendation in the **SOC optimization** page and followed the **Learn more** link to this page, you might be looking for the list of suggested analytics rules. In this case, scroll to the bottom of the optimization details tab and select **Go to Content hub** to find and install the recommended rules specific to that recommendation. For more information, see [SOC optimization usage flow](soc-optimization/soc-optimization-access.md#soc-optimization-usage-flow).
+
 This article describes the process of creating an analytics rule from scratch, including using the **Analytics rule wizard**. It's accompanied by screenshots and directions to access the wizard in both the Azure portal and the Defender portal.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]

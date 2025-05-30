@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 05/19/2025
+ms.date: 05/22/2025
 ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
@@ -52,7 +52,7 @@ Azure Site Recovery allows you to perform global disaster recovery. You can repl
 >
 > - If you can't see a region within a geographic cluster when you enable replication, make sure your subscription has permissions to create VMs in that region. 
 >
-> - New Zealand is only supported as a source or target region for Site Recovery Azure to Azure. However, creating recovery services vault is not supported in New Zealand.
+> - New Zealand is only supported as a source or target region for Site Recovery Azure to Azure. However, creating recovery services vault isn't supported in New Zealand.
 
 
 ## Cache storage
@@ -66,7 +66,7 @@ Premium storage | Supported | Use Premium Block Blob storage accounts to get Hig
 Region |  Same region as virtual machine  | Cache storage account should be in the same region as the virtual machine being protected.
 Subscription  | Can be different from source virtual machines | Cache storage account must be in the same subscription as the source virtual machine(s). <br> To use cache storage from the target subscription, use PowerShell.
 Azure Storage firewalls for virtual networks  | Supported | If you're using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Don't restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
-Soft delete | Not supported | Soft delete isn't supported because once it is enabled on cache storage account, it increases cost. Azure Site Recovery performs frequent creates/deletes of log files while replicating causing costs to increase.
+Soft delete | Not supported | Soft delete isn't supported because once it's enabled on cache storage account, it increases cost. Azure Site Recovery performs frequent creates/deletes of log files while replicating causing costs to increase.
 Encryption at rest (CMK) | Supported | Storage account encryption can be configured with customer managed keys (CMK)
 Managed identity | Not supported | The cached storage account must allow shared key access and Shared Access Signatures (SAS) signed by the shared key. Recent changes in Azure Policy disable key authentication due to security concerns. However, for Site Recovery, you need to enable it again.
 
@@ -83,8 +83,6 @@ As average churn on the disks increases, the number of disks that a storage acco
 > The cache limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
 >
 > When you enable replication via the virtual machine workflow for cross subscription, the portal only lists the cache storage account from the source subscription, but doesn't list any storage account created in the target subscription. To set up this scenario, use [PowerShell](azure-to-azure-powershell.md).
->
-> Azure Site Recovery isn't supported for VMs with Premium SSD v2 disks.
 
 ## Replicated machine operating systems
 
@@ -130,7 +128,7 @@ SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5, SP6  [(Supported kern
 SUSE Linux Enterprise Server 15 | 15, SP1, SP2, SP3, SP4, SP5, SP6 [(Supported kernel versions)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Upgrade of replicating machines from SP3 to SP4 isn't supported. If a replicated machine has been upgraded, you need to disable replication and re-enable replication after the upgrade.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) (running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4, 5, and 6 (UEK3, UEK4, UEK5, UEK6), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5.  <br/><br/>8.1 (running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/)). <br> Oracle Linux 9.x is supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-virtual-machines).
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) (running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4, 5, and 6 (UEK3, UEK4, UEK5, UEK6), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5).  <br/><br/>8.1 (running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/)). <br> Oracle Linux 9.x is supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-virtual-machines).
 Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-for-azure-virtual-machines).
 Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-azure-virtual-machines). 
 
@@ -430,7 +428,8 @@ Azure Storage firewalls for virtual networks  | Supported | If you want to restr
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
-Azure Shared Disks | Not supported
+Managed Shared Disk| Supported 
+Managed Premium SSD v2 Disk| Supported | Public preview with PowerShell support in East US, West US, East US2, West US2, West US3, and Central US regions. Portal is not supported.
 Ultra Disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
@@ -485,9 +484,9 @@ Authenticated Proxy | Not supported | If the VM is using an authenticated proxy 
 VPN site-to-site connection to on-premises<br/><br/>(with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site Recovery traffic isn't routed to on-premises. [Learn more](./azure-to-azure-about-networking.md)
 VNET to VNET connection    | Supported | [Learn more](./azure-to-azure-about-networking.md)
 Virtual Network Service Endpoints | Supported | If you're restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
-Accelerated networking | Supported | Accelerated networking can be enabled on the recovery VM only if it is enabled on the source VM also. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Accelerated networking | Supported | Accelerated networking can be enabled on the recovery VM only if it's enabled on the source VM also. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 Palo Alto Network Appliance | Not supported | With third-party appliances, there are often restrictions imposed by the provider inside the Virtual Machine. Azure Site Recovery needs agent, extensions, and outbound connectivity to be available. But the appliance doesn't let any outbound activity to be configured inside the Virtual Machine.
-IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are supported. However, Azure Site Recovery uses any free IPv4 address available, if there are no free IPv4 addresses in the subnet, then the configuration is not supported.
+IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are supported. However, Azure Site Recovery uses any free IPv4 address available, if there are no free IPv4 addresses in the subnet, then the configuration isn't supported.
 Private link access to Site Recovery service | Supported | [Learn more](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 Tags  | Supported | User-generated tags on NICs are replicated every 24 hours.
 
