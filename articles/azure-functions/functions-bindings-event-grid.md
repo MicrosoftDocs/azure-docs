@@ -206,7 +206,7 @@ The Event Grid trigger uses a webhook HTTP request, which can be configured usin
 
 [binding]: functions-bindings-event-grid-output.md
 [trigger]: functions-bindings-event-grid-trigger.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
 [Update your extensions]: ./functions-bindings-register.md
 

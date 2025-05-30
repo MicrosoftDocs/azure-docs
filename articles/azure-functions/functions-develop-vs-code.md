@@ -549,7 +549,7 @@ Replace `<TARGET_VERSION>` in the example with a specific version of the package
 >[!TIP]  
 >You can also use the **NuGet** commands in [the C# Dev Kit](https://code.visualstudio.com/docs/csharp/package-management#_add-a-package) to install binding extension packages.
 
-C# script uses [extension bundles](functions-bindings-register.md#extension-bundles).
+C# script uses [extension bundles](extension-bundles.md).
 
 ::: zone-end  
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"

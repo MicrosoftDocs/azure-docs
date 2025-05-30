@@ -84,4 +84,4 @@ To use this experimental bundle in your app, replace the existing `extensionBund
 [Create a tool endpoint in your remote MCP server](./functions-bindings-mcp-trigger.md) 
 
 
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md

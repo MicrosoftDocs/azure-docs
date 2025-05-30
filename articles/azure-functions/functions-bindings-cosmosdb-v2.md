@@ -284,7 +284,7 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
 - [Read an Azure Cosmos DB document (Input binding)](./functions-bindings-cosmosdb-v2-input.md)
 - [Save changes to an Azure Cosmos DB document (Output binding)](./functions-bindings-cosmosdb-v2-output.md)
 
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [Update your extensions]: ./functions-bindings-register.md
 
 [C# scripting]: ./functions-reference-csharp.md

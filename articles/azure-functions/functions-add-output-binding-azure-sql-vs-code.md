@@ -99,7 +99,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-python"  
 
-Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages. 
 
 Extension bundles usage is enabled in the host.json file at the root of the project, which appears as follows:
 

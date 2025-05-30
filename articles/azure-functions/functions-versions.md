@@ -96,7 +96,7 @@ If you receive a warning about your extension bundle version not meeting a minim
 }
 ```  
 
-To learn more about extension bundles, see [Extension bundles](functions-bindings-register.md#extension-bundles).
+To learn more about extension bundles, see [Extension bundles](extension-bundles.md).
 ::: zone-end
 
 ## Retired versions

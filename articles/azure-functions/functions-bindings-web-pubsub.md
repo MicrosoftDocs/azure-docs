@@ -84,6 +84,6 @@ For details on how to configure and use Web PubSub and Azure Functions together,
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
 [core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack

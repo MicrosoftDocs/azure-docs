@@ -110,4 +110,4 @@ The following properties, which are inherited from the [Apache Kafka C/C++ clien
 
 - [Run a function from an Apache Kafka event stream](./functions-bindings-kafka-trigger.md)
  
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
