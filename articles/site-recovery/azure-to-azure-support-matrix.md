@@ -429,7 +429,7 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Trans
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
 Managed Shared Disk| Supported 
-Managed Premium SSD v2 Disk| Supported 
+Managed Premium SSD v2 Disk| Supported | Public preview with PowerShell support in East US, West US, East US2, West US2, West US3, and Central US regions. Portal is not supported.
 Ultra Disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
