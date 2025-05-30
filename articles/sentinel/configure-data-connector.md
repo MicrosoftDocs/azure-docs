@@ -45,10 +45,8 @@ After you or someone in your organization installs the solution that includes th
 
    #### [Defender portal](#tab/defender-portal)
    :::image type="content" source="media/configure-data-connector/open-connector-page-option-defender-portal.png" alt-text="Screenshot of data connector details page in the Defender portal.":::
-
    #### [Azure portal](#tab/azure-portal)
    :::image type="content" source="media/configure-data-connector/open-connector-page-option.png" alt-text="Screenshot of data connector details page with open connector page button.":::
-
    ---
 
 1. Review the **Prerequisites** for your data connector and ensure that they're fulfilled.
