@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 07/19/2023
 ms.author: mbender 
+# Customer intent: As a network administrator, I want to configure listeners for the Azure Application Gateway, so that I can manage incoming requests effectively based on protocols, ports, and host headers for optimal traffic routing.
 ---
 
 # Application Gateway listener configuration

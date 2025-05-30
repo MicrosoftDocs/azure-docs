@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: mbender
+# Customer intent: As a cloud administrator, I want to create and configure a custom health probe for an application gateway using PowerShell in the classic deployment model, so that I can ensure the app's health checks are tailored to my specific application's needs.
 ---
 
 # Create a custom probe for Azure Application Gateway (classic) by using PowerShell

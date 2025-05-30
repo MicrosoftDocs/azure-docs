@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to configure TLS termination using Key Vault certificates with Azure PowerShell, so that I can secure my application gateway communications effectively."
 ---
 
 # Configure TLS termination with Key Vault certificates using Azure PowerShell

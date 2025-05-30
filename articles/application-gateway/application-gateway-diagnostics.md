@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/07/2025
 ms.author: mbender 
+# Customer intent: "As an IT administrator, I want to enable and configure diagnostic logging for Azure Application Gateway, so that I can monitor resource performance and troubleshoot issues effectively."
 ---
 
 # Diagnostic logs for Application Gateway

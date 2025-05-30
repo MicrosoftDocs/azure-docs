@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/15/2025
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to configure the Backend Settings for Azure Application Gateway, so that I can manage backend connections and optimize traffic routing based on various protocols and settings."
 ---
 
 # Application Gateway backend settings configuration

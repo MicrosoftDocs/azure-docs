@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 04/29/2025
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
+# Customer intent: As an IT administrator troubleshooting application performance, I want to identify and fix 502 Bad Gateway errors in the application gateway, so that I can ensure reliable access and functionality of web applications for users.
 ---
 
 # Troubleshooting bad gateway errors in Application Gateway

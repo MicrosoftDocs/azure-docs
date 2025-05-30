@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 06/17/2024
 ms.author: mbender
 
+# Customer intent: "As a network administrator, I want to monitor the performance metrics of the Application Gateway, so that I can identify latency issues and optimize the response times for better service delivery."
 ---
 # Metrics for Application Gateway
 

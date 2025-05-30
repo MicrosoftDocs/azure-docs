@@ -6,6 +6,7 @@ ms.author: mbender
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/17/2024
+# Customer intent: As a cloud administrator, I want to configure Azure Monitor alerts for Application Gateway using ARM templates, so that I can proactively identify and address potential issues before they impact my users.
 ---
 
 # Configure Azure Monitor alerts for Application Gateway

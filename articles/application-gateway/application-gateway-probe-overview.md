@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 04/09/2025
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud architect, I want to configure and manage health probes for my Azure Application Gateway, so that I can ensure only healthy backend servers receive traffic and maintain application availability.
 ---
 
 # Application Gateway health probes overview
