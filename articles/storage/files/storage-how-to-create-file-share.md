@@ -118,7 +118,7 @@ The **Blob storage** section applies only to Azure Blob storage use, even in Fil
 | Access tier | Radio button group | *Blob storage access tiers* | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage. Selecting an option has no impact on Azure Files. |
 
 > [!NOTE]
-> Since all standard SMB file shares now support up to 100 TiB capacity when using the pay-as-you-go billing model and 256 TiB when using the provisioned v2 billing model, the large file shares (LargeFileSharesState) property on storage accounts is no longer used and will be removed in the future.
+> Since all standard SMB file shares now support up to 100 TiB capacity when using the pay-as-you-go billing model and 256 TiB capacity when using the provisioned v2 billing model, the **large file shares** (LargeFileSharesState) property on storage accounts is no longer used and will be removed in the future.
 
 ### Networking
 
