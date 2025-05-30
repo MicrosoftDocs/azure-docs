@@ -11,7 +11,7 @@ metadata:
   author: mbender-ms
   ms.author: mbender
   manager: kumudD
-  ms.date: 05/13/2025
+  ms.date: 05/27/2025
   ms.custom: portfolio-consolidation-2025
 
 highlightedContent:
@@ -29,6 +29,9 @@ highlightedContent:
     - title: What's new in Azure Load Balancer
       itemType: whats-new
       url: /azure/load-balancer/whats-new
+    - title: Choose a load balancing solution in Azure
+      itemType: concept
+      url: /azure/architecture/guide/technology-choices/load-balancing-overview
 
 productDirectory:
   title: Get started
