@@ -1008,7 +1008,7 @@ sudo crm configure primitive rsc_SAPHanaController_<SID>_HDB<InstNum> ocf:suse:S
   DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false" \
   HANA_CALL_TIMEOUT="120"
 
-sudo crm configure clone msl_SAPHanaController_<SID>_HDB<InstNum> rsc_SAPHanaController_<SID>_HDB<InstNum> \
+sudo crm configure clone mst_SAPHanaController_<SID>_HDB<InstNum> rsc_SAPHanaController_<SID>_HDB<InstNum> \
   meta clone-node-max="1" interleave="true" promotable="true"
 ```
 
@@ -1047,7 +1047,7 @@ SAPHanaSR-angi adds a new resource agent SAPHanaFilesystem to monitor read/write
 ```bash
 # Replace <placeholders> with your instance number and HANA system ID
 
-sudo crm configure primitive rsc_SAPHanaFilesystem_SA5_HDB10 ocf:suse:SAPHanaFilesystem \
+sudo crm configure primitive rsc_SAPHanaFilesystem_<SID>_HDB<InstNum> ocf:suse:SAPHanaFilesystem \
   op start interval="0" timeout="10" \
   op stop interval="0" timeout="20" \
   op monitor interval="120" timeout="120" \
@@ -1126,14 +1126,14 @@ Create the cluster constraints
 ```bash
 # Colocate the IP with primary HANA node
 sudo crm configure colocation col_saphana_ip_<SID>_HDB<InstNum> 4000: g_ip_<SID>_HDB<InstNum>:Started \
-  msl_SAPHanaController_<SID>_HDB<InstNum>:Promoted  
+  mst_SAPHanaController_<SID>_HDB<InstNum>:Promoted  
   
 # Start HANA Topology before HANA  instance
 sudo crm configure order ord_SAPHana_<SID>_HDB<InstNum> Optional: cln_SAPHanaTopology_<SID>_HDB<InstNum> \
-  msl_SAPHanaController_<SID>_HDB<InstNum>
+  mst_SAPHanaController_<SID>_HDB<InstNum>
   
 # HANA resources don't run on the majority maker node
-sudo crm configure location loc_SAPHanaController_not_on_majority_maker msl_SAPHanaController_<SID>_HDB<InstNum> -inf: hana-s-mm
+sudo crm configure location loc_SAPHanaController_not_on_majority_maker mst_SAPHanaController_<SID>_HDB<InstNum> -inf: hana-s-mm
 sudo crm configure location loc_SAPHanaTopology_not_on_majority_maker cln_SAPHanaTopology_<SID>_HDB<InstNum> -inf: hana-s-mm
 ```
 
@@ -1191,6 +1191,37 @@ sudo crm configure property maintenance-mode=false
 
 7. **[1]** Verify the communication between the HANA HA hook and the cluster, showing status SOK for SID and both replication sites with status P(rimary) or S(econdary).
 
+### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+```bash
+sudo SAPHanaSR-showAttr
+Global cib-update dcid prim       sec        sid topology
+----------------------------------------------------------
+global 0.165361.0 7    HANA_S2 HANA_S1    HN1 ScaleOut
+
+Resource                        promotable
+-------------------------------------------
+msl_SAPHanaController_HN1_HDB03 true
+cln_SAPHanaTopology_HN1_HDB03
+
+Site        lpt        lss mns     opMode    srHook srMode srPoll srr
+----------------------------------------------------------------------
+HANA_S2  1748611494 4   hana-s2-db1 logreplay PRIM   sync   PRIM   P
+HANA_S1  10         4   hana-s1-db1 logreplay SOK    sync   SFAIL  S
+
+Host     clone_state roles                        score  site       srah version     vhost
+----------------------------------------------------------------------------------------------
+hana-s1-db1  DEMOTED     master1:master:worker:master 100    HANA_S1 -    2.00.074.00 hana-s1-db1
+hana-s1-db2  DEMOTED     slave:slave:worker:slave     -12200 HANA_S1 -    2.00.074.00 hana-s1-db2
+hana-s1-db3  DEMOTED     slave:slave:worker:slave     -12200 HANA_S1 -    2.00.074.00 hana-s1-db3
+hana-s2-db1  PROMOTED    master1:master:worker:master 150    HANA_S2 -    2.00.074.00 hana-s2-db1
+hana-s2-db2  DEMOTED     slave:slave:worker:slave     -10000 HANA_S2 -    2.00.074.00 hana-s2-db2
+hana-s2-db3  DEMOTED     slave:slave:worker:slave     -10000 HANA_S2 -    2.00.074.00 hana-s2-db3
+hana-mm                                                                               hana-mm
+```
+
+### [SAPHanaSR-ScaleOut](#tab/saphanasr-scaleout)
+
 ```bash
 sudo /usr/sbin/SAPHanaSR-showAttr
 # Expected result
@@ -1203,6 +1234,8 @@ sudo /usr/sbin/SAPHanaSR-showAttr
 # HANA_S1     1674815869 4   hana-s1-db1 PRIM   P
 # HANA_S2     30         4   hana-s2-db1 SWAIT  S
 ```
+
+---
 
 > [!NOTE]
 > The timeouts in the above configuration are just examples and may need to be adapted to the specific HANA setup. For instance, you may need to increase the start timeout, if it takes longer to start the SAP HANA database. 
