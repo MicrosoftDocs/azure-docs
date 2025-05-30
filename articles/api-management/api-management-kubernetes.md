@@ -89,7 +89,7 @@ To get a subscription key for accessing APIs, developers need a subscription. A 
 
 In some cases, customers that have regulatory constraints or strict security requirements might find Options 1 and 2 nonviable because of the publicly exposed endpoints. In others, the AKS cluster and the applications that consume the microservices might reside within the same virtual network, so there's no reason to expose the cluster publicly because all API traffic remains within the virtual network. In these scenarios, you can deploy API Management into the cluster virtual network. [API Management Developer, Premium, and Premium v2 (preview) tiers](https://aka.ms/apimpricing) support injection into the cluster virtual network. 
 
-There are two modes of [deploying API Management into a virtual network](./virtual-network-concepts.md): external and internal. 
+There are two modes of [deploying API Management into a virtual network](./virtual-network-concepts.md): external and internal. Currently, the external mode is only available in the classic tiers of API Management.
 
 If API consumers don't reside in the cluster virtual network, you should use the external mode. (See the following diagram.) In this mode, the API Management gateway is injected into the cluster virtual network but accessible from the public internet via an external load balancer. This architecture helps to hide the cluster completely while still allowing external clients to consume the microservices. Additionally, you can use Azure networking capabilities like Network Security Groups (NSG) to restrict network traffic.
 
