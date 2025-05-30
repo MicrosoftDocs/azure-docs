@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 02/27/2024
 ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to provision an Application Gateway for Containers using the ALB Controller, so that I can effectively manage traffic to my containerized applications.
 ---
 
 # Quickstart: Create Application Gateway for Containers managed by ALB Controller

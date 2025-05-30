@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 5/12/2025
 ms.author: mbender
+# Customer intent: As a cloud administrator, I want to configure session affinity in the application gateway for my containers, so that I can ensure user requests are consistently routed to the same server for improved data management and application performance.
 ---
 
 # Application Gateway for Containers session affinity overview

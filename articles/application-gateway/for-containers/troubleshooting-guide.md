@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: troubleshooting
 ms.date: 3/31/2025
 ms.author: mbender
+# Customer intent: As a cloud platform administrator, I want to troubleshoot issues with Application Gateway for Containers, so that I can ensure the service operates smoothly and effectively resolves any deployment or configuration problems.
 ---
 
 # Troubleshooting in Application Gateway for Containers

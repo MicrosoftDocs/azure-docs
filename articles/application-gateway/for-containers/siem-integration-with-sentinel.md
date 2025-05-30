@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 07/11/2024
 ms.author: mbender
+# Customer intent: "As a security analyst, I want to configure Application Gateway for Containers to integrate with a SIEM solution, so that I can efficiently monitor and respond to security threats using centralized log data and analytical tools."
 ---
 
 # Configure Application Gateway for Containers for SIEM integration with Azure Sentinel
