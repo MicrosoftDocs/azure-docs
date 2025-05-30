@@ -22,7 +22,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **Improved error handling for exports or imports that have missing Managed Identity**: Previously, exports or imports with missing Managed Identity would result in a 500 Unknown Server Error. We have added improved error handling for this case, and now, a more descriptive error message "Failed to get access token" will be shown. 
 
-**Support multiple pages of include results in bulk delete**: Previously , bulk deletes with _include and _revinclude could not delete more than 100 included resources. We have made a fix to lift that limit by supporting multiple pages of include results, and bulk delete will be able to delete more than 100 included resources.
+**Support multiple pages of include results in bulk delete**: Previously, bulk deletes with _include and _revinclude couldn't delete more than 100 included resources. We have made a fix to lift that limit by supporting multiple pages of include results, and bulk delete will be able to delete more than 100 included resources.
 
 **Added ID in CapabilityStatement**: Previously, when retrieving the server's CapabilityStatement from the /metadata endpoint, the returned resource did not contain an ID. We have now added a dynamic ID to the CapabilityStatement.
 
