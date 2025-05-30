@@ -30,7 +30,7 @@ The following prerequisites are required to continue.
 
 - Have permission to set up new resources in the subscription your private cloud is in.
 - Reserve a dedicated address block for your external storage.
-- Use either the [Azure portal](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal), [Azure PowerShell module](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell), or [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli) to create an Elastic SAN in the same region and availability zone as your private cloud.
+- Use either the [Azure portal](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal), [Azure PowerShell module](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell), or [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli) to create an Elastic SAN that has at least 16 TiB base size and that is in the same region and availability zone as your private cloud.
     > [!NOTE]
     > Make sure CRC protection on your volume groups is disabled since it's not currently supported for Azure VMware Solution.
 
@@ -51,6 +51,8 @@ Use multiple private endpoints to establish multiple sessions between an Elastic
    > [!NOTE]
    > Session disconnects might show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it shows the identifier of a device or filesystem, and states it entered the All Paths Down state.
 
+When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use eight iSCSI sessions that uses the maximum number of connections (128). This would prevent you from attaching an additional node for maintenance. The following recommendations help you avoid this situation:
+
 If your Elastic SAN is only connecting to a single cluster, and will only ever have 16 nodes in a cluster, use one of the following configurations:
 - AV36, AV36P, AV52 - Six iSCSI sessions over three Private Endpoints
 - AV64 - Seven iSCSI sessions over seven Private Endpoints
@@ -65,7 +67,7 @@ If you're planning on connecting an Elastic SAN datastore to multiple clusters, 
 
 Using the guidance from the previous section, create as many private endpoints for your volume groups as you need.
 
-Edit your volume group, or create a new one. Then select **Networking**, then select **+ Create a private endpoint** under **Private endpoint connections**. You don't need to configure a virtual network, since you're using private endpoint connections.
+Edit your volume group, or create a new one. Then select **Networking**, then select **+ Create a private endpoint** under **Private endpoint connections**. You don't need to configure a dedicated virtual network for your Elastic SAN, since you're using private endpoint connections to access your Elastic SAN volumes.
 
 Fill out the values in the menu that pops up, select the virtual network that has your [ExpressRoute connection configured](/azure/azure-vmware/tutorial-configure-networking#connect-expressroute-to-the-virtual-network-gateway), and the subnet that your applications are going to use to connect. When you're done, select **Add**, and **Save**.
 
@@ -98,8 +100,8 @@ Once your SDDC express route is connected with the private endpoint for your Ela
 1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **+ Connect Elastic SAN**.
 1. Select your **Subscription**, **Resource**, **Volume Group**, **Volume(s)**, and **Client cluster**.
 1. From section, "Rename datastore as per VMware requirements", under **Volume name** > **Data store name**, give names to the Elastic SAN volumes.
-      > [!NOTE]
-   > For best performance, verify that your Elastic SAN volume and private cloud are in the same Region and Availability Zone.
+   > [!NOTE]
+   > When creating virtual disks, use eager zeroed thick provisioning.
 
 ## Disconnect and delete an Elastic SAN-based datastore
 
