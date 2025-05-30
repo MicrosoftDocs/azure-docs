@@ -30,6 +30,8 @@ For example, if you have an on-premises scenario, the following architectural ov
 
 For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Local](/azure/azure-local/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks/hybrid/kubernetes-walkthrough-powershell).
 
+The hybrid deployment model combines on-premises and cloud capabilities to provide flexible integration solutions for various needs. For example, your hybrid logic app resource can efficiently adjust resources based on changing workloads. This dynamic scaling helps you manage computing costs by increasing capacity during peak demand and reducing resources when usage drops.
+
 For more information, see the following documentation:
 
 - [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
@@ -37,6 +39,7 @@ For more information, see the following documentation:
 - [Custom locations for Azure Arc-enabled Kubernetes clusters](/azure/azure-arc/platform/conceptual-custom-locations)
 - [What is Azure Container Apps?](../container-apps/overview.md)
 - [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
+- [Dynamic scaling model and architecture for Kubernetes-based Event-Driven Autoscaling (KEDA)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/scaling-mechanism-in-hybrid-deployment-model-for-azure-logic-apps-standard/4389763)
 
 This how-to guide shows how to set up the necessary on-premises resources in your infrastructure so that you can create, deploy, and host a Standard logic app workflow using the hybrid deployment model.
 
@@ -61,55 +64,9 @@ The following section describes the limitations for the hybrid deployment option
 
 - [Technical requirements for Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-overview#prerequisites), including access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
 
-<a name="billing"></a>
+## Billing
 
-## How billing works
-
-The hybrid option uses a billing model where you pay only for what you need and can scale resources for dynamic workloads without having to buy for peak usage. You're responsible for the following items:
-
-- Your Azure Arc-enabled Kubernetes infrastructure
-
-- Your SQL Server license
-
-- Billing charges for vCPU usage to support Standard logic app workloads
-
-  For more information, see the following sections:
-
-  - [vCPU usage calculation](#vcpu-usage-calculation)
-  - [Billing charge calculation](#billing-charge-calculation), based on the rate in [Logic Apps Hybrid Deployment Model pricing section](https://azure.microsoft.com/pricing/details/logic-apps/#pricing).
-
-- Billing charges for any [managed (shared) connector operations](../connectors/managed.md), such as Microsoft Teams or Microsoft Office 365, in your logic app workflows.
-
-  These operation executions follow [Standard pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing).
-
-<a name="vcpu-usage-calculation"></a>
-
-### vCPU usage calculation
-
-The vCPU usage for your Standard logic app affects your billing charges. A *vCPU* refers to the number of CPU cores, but this ratio isn't necessarily 1:1. The following formula calculates the vCPU usage for your logic app:
-
-**vCPU usage** = (**# of allocated vCPUs**) x (**# of replicas**)
-
-| Value | Description |
-|-------|-------------|
-| **# of allocated vCPUs** | By default, your logic app is allocated a default number of vCPUs. You can [change this vCPU allocation](create-standard-workflows-hybrid-deployment.md#change-vcpu-and-memory-allocation-in-the-azure-portal) anytime after you create your logic app resource. <br><br>**Note**: Any vCPUs that you allocate to your logic app come from *replica* vCPUs, so your allocation range is from 0.25 to 2 cores. For more information, see the next row. |
-| **# of replicas** | A [*replica*](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) is a new instance of a logic app resource revision or version that deploys when a workflow trigger event occurs. This number of replicas can vary due to your app's scaling needs at any given time. You can [change the minimum and maximum number of replicas](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) that each version or revision can have to meet your scaling needs. <br><br>**Note**: Each replica is limited to two vCPUs. Any vCPUs that you allocate to your logic app come from replica vCPUs, so your allocation range is 0.25 to 2 cores. |
-
-<a name="billing-charge-calculation"></a>
-
-### Billing charge calculation
-
-The following formula calculates your billing charge per hour, which is based on vCPU usage and the $USD rate per hour in the [Logic Apps Hybrid Deployment Model pricing section](https://azure.microsoft.com/pricing/details/logic-apps/#pricing) while your logic app is enabled:
-
-**Charge per hour** = (**vCPU usage**) x (**rate per hour**)
-
-For example only, the following table shows some example billing charge calculations:
-
-| # of allocated vCPUs | # of replicas | vCPU usage | $USD rate per hour | Charge per hour |
-|----------------------|---------------|------------|--------------------|-----------------|
-| 1 | 1 | (1 x 1) = 1 | $0.22 | (1 x $0.22) = **$0.22** |
-| 0.5 | 2 | (0.5 x 2) = 1 | $0.22 | (1 x $0.22) = **$0.22** |
-| 0.5 | 1 | (0.5 x 1) = 0.5 | $0.22 | (0.5 x $0.22) = **$0.11** |
+For information about how billing works, see [Standard (hybrid deployment)](logic-apps-pricing.mdstandard-hybrid-pricing).
 
 ## Create a Kubernetes cluster
 
@@ -776,6 +733,10 @@ To test the connection between your Arc-enabled Kubernetes cluster and your SMB 
      **`- mount -t cifs //{ip-address-smb-computer}/{file-share-name}/mnt/smb -o username={user-name}, password={password}`**
 
 - To confirm that artifacts correctly upload, connect to the SMB file share path, and check whether artifact files exist in the correct folder that you specify during deployment.
+
+## Optimize performance for hybrid deployments
+
+To maximize the efficiency and performance for a Standard logic app in a hybrid deployment, you need to understand how to analyze and evaluate key aspects such as CPU, memory allocation, and scaling mechanisms so you can get valuable insights around optimization. Other key elements include the underlying Kubernetes infrastructure, SQL configuration, and scaling setup, which can significantly affect workflow efficiency and overall performance. For more information, see [Hybrid deployments performance analysis and optimization recommendations](https://techcommunity.microsoft.com/blog/integrationsonazureblog/hybrid-deployment-model-for-logic-apps--performance-analysis-and-optimization-re/4401529).
 
 ## Next steps
 

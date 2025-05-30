@@ -159,9 +159,54 @@ For more information about how the Standard model works with operations that run
 
 <a name="standard-hybrid-pricing"></a>
 
-## Standard (hybrid deployment)
+## Standard - Hybrid deployment
 
-This hosting option uses a billing model where you pay only for what you need and can scale resources for dynamic workloads without having to buy for peak usage. For more information, see [How billing works for hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md#how-billing-works).
+This hosting option uses a billing model where you pay only for what you need and can scale resources for dynamic workloads without having to buy for peak usage. You're responsible for the following items:
+
+- Your Azure Arc-enabled Kubernetes infrastructure
+
+- Your SQL Server license
+
+- Billing charges for vCPU usage to support Standard logic app workloads
+
+  For more information, see the following sections:
+
+  - [vCPU usage calculation](#vcpu-usage-calculation)
+
+  - [Billing charge calculation](#billing-charge-calculation), based on the rate in [Logic Apps Hybrid Deployment Model pricing section](https://azure.microsoft.com/pricing/details/logic-apps/#pricing).
+
+- Billing charges for any [managed (shared) connector operations](../connectors/managed.md), such as Microsoft Teams or Microsoft Office 365, in your logic app workflows.
+
+  These operation executions follow [Standard pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing).
+
+<a name="vcpu-usage-calculation"></a>
+
+### vCPU usage calculation
+
+The vCPU usage for your Standard logic app affects your billing charges. A *vCPU* refers to the number of CPU cores, but this ratio isn't necessarily 1:1. The following formula calculates the vCPU usage for your logic app:
+
+**vCPU usage** = (**# of allocated vCPUs**) x (**# of replicas**)
+
+| Value | Description |
+|-------|-------------|
+| **# of allocated vCPUs** | By default, your logic app is allocated a default number of vCPUs. You can [change this vCPU allocation](create-standard-workflows-hybrid-deployment.md#change-vcpu-and-memory-allocation-in-the-azure-portal) anytime after you create your logic app resource. <br><br>**Note**: Any vCPUs that you allocate to your logic app come from *replica* vCPUs, so your allocation range is from 0.25 to 2 cores. For more information, see the next row. |
+| **# of replicas** | A [*replica*](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) is a new instance of a logic app resource revision or version that deploys when a workflow trigger event occurs. This number of replicas can vary due to your app's scaling needs at any given time. You can [change the minimum and maximum number of replicas](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) that each version or revision can have to meet your scaling needs. <br><br>**Note**: Each replica is limited to two vCPUs. Any vCPUs that you allocate to your logic app come from replica vCPUs, so your allocation range is 0.25 to 2 cores. |
+
+<a name="billing-charge-calculation"></a>
+
+### Billing charge calculation
+
+The following formula calculates your billing charge per hour, which is based on vCPU usage and the $USD rate per hour in the [Logic Apps Hybrid Deployment Model pricing section](https://azure.microsoft.com/pricing/details/logic-apps/#pricing) while your logic app is enabled:
+
+**Charge per hour** = (**vCPU usage**) x (**rate per hour**)
+
+For example only, the following table shows some example billing charge calculations:
+
+| # of allocated vCPUs | # of replicas | vCPU usage | $USD rate per hour | Charge per hour |
+|----------------------|---------------|------------|--------------------|-----------------|
+| 1 | 1 | (1 x 1) = 1 | $0.22 | (1 x $0.22) = **$0.22** |
+| 0.5 | 2 | (0.5 x 2) = 1 | $0.22 | (1 x $0.22) = **$0.22** |
+| 0.5 | 1 | (0.5 x 1) = 0.5 | $0.22 | (0.5 x $0.22) = **$0.11** |
 
 <a name="other-operation-behavior"></a>
 
