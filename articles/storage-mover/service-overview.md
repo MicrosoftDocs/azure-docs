@@ -18,7 +18,7 @@ CONTENT: final
 REVIEW Stephen/Fabian: COMPLETE
 EDIT PASS: COMPLETE
 
-Document score: 98 (808 words and 1 flase positive)
+Document score: 98 (808 words and 1 false positive)
 
 !########################################################
 -->
