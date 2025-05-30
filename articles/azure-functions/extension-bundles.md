@@ -73,9 +73,7 @@ Keep these considerations in mind when choosing to use a non-GA extension bundle
 
 Major version releases of extension bundles can occur when there are breaking changes or updates in the dependencies of the underlying binding extensions. These breaking changes, often introduced in Azure SDKs, require updates to the bundle to remain compatible.   
 
-You can view the extension bundle versions and their included extensions in the [Azure Functions Extension Bundles GitHub repo](https://github.com/Azure/azure-functions-extension-bundles/releases). Individual .NET packages are found on [https://nuget.org](https://nuget.org). 
-
-The removal of support for previously GA bundles follows these phases:
+The support cycle of a GA extension bundle follows these phases:
 
 | Phase | Description |
 | ----- | ----- |  
@@ -83,6 +81,8 @@ The removal of support for previously GA bundles follows these phases:
 | Notification| Microsoft provides advanced notice before retiring an extension bundle or binding extension version. When you receive such a notification, you should begin planning to upgrade your function apps to a latest supported extension bundle version. This upgrade ensures that your apps continue to access new features, performance improvements, and support. |
 | Deprecation phase | Occurs 12 months after the next major version of an extension bundle moves into GA. This overlap period gives you time to plan, test, and upgrade your apps before the previous version is retired. | 
 | Retirement phase | After the retirement of an extension bundle or binding extension version, function apps that use retired versions can still be created and deployed and continue to run on the platform. However, your function apps aren’t eligible for new features, security patches, and performance optimizations until you upgrade them to use a supported extension bundle version. You must upgrade your functions apps to a supported bundle version before you can receive support.|
+
+You can view the extension bundle versions and their included extensions in the [Azure Functions Extension Bundles GitHub repo](https://github.com/Azure/azure-functions-extension-bundles/releases). Individual .NET packages are found on [https://nuget.org](https://nuget.org). 
 
 ## Related articles
 
