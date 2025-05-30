@@ -39,7 +39,7 @@ With the Storage Queue in place, events must be published from the Storage Accou
 >- The file system must be the same one configured for the DICOM service
 >- The file path must be within `AHDS/<workspace-name>/dicom/<dicom-service-name>[/<partition-name>]`
 >- The file must be a DICOM file as defined in Part 10 of the DICOM standard
->- The operation cannot be performed the DICOM service itself
+>- The operation can't be performed the DICOM service itself
 
 The event subscription can be configured to filter out irrelevant data to avoid unnecessary processing and billing. Make sure to configure filter such that:
 - The *subject* must begin with `/blobServices/default/containers/<file-system-name>/blobs/AHDS/<workspace-name>/dicom/<dicom-service-name>/`
