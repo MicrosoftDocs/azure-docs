@@ -19,7 +19,8 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                                     | Version number | Release date       | Status                                        |
 |-----------------------------------------------|----------------|--------------------|-----------------------------------------------|
-| Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | Current                                       |
+| Enhanced Network checks                       | 3.3.760        | April 8, 2025      | Current                                       |
+| Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | Supported. Recommended to download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Performance and security improvements         | 3.1.593        | June 16, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Agent registration and private networking improvements | 3.0.500| April 2, 2024     | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Important security release                    | 3.0.412        | November 30, 2023  | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
@@ -49,8 +50,21 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent cannot update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
+> 
 
-## 2025 January 28
+## 2025 April 8
+
+Major refresh release notes for: 
+
+- Service version: April 8, 2025 
+- Agent version: 3.3.760 
+
+### What's new 
+
+- Network check during registration
+- Bug fix to show system configuration correctly for CPU speed 
+
+ ## 2025 January 28
 
 Major refresh release notes for:
 

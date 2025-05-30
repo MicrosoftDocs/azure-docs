@@ -2,10 +2,10 @@
 title: Elevate access to manage all Azure subscriptions and management groups
 description: Describes how to elevate access for a Global Administrator to manage all subscriptions and management groups in Microsoft Entra ID using the Azure portal or REST API.
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 03/10/2025
 ms.author: rolyon
 ms.custom: devx-track-azurecli
 ---
@@ -337,11 +337,13 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ## View users with elevated access
 
-If you have users with elevated access, banners are displayed in a couple locations of the Azure portal. This section describes how to determine if you have users that have elevated access in your tenant. This capability is being deployed in stages, so it might not be available yet in your tenant.
+If you have users with elevated access and you have the appropriate permissions, banners are displayed in a couple locations of the Azure portal. Global Administrators have permissions to read Azure role assignments from root scope and below for all Azure management groups and subscriptions within a tenant. This section describes how to determine if you have users that have elevated access in your tenant.
 
 ### Option 1
 
-1. In the Azure portal, browse to **Microsoft Entra ID** > **Manage** > **Properties**.
+1. In the Azure portal, sign in as Global Administrator.
+
+1. Browse to **Microsoft Entra ID** > **Manage** > **Properties**.
 
 1. Under **Access management for Azure resources**, look for the following banner.
 
@@ -353,7 +355,9 @@ If you have users with elevated access, banners are displayed in a couple locati
 
 ### Option 2
 
-1. In the Azure portal, browse to a subscription.
+1. In the Azure portal, sign in as Global Administrator with elevated access.
+
+1. Browse to a subscription.
 
 1. Select **Access control (IAM)**.
 
@@ -517,7 +521,7 @@ Your organization might have already configured a diagnostic setting to integrat
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-entra-id-solution.png" alt-text="Screenshot of Content hub page with Microsoft Entra ID content selected." lightbox="./media/elevate-access-global-admin/sentinel-entra-id-solution.png":::
 
-1. Use the [Microsoft Entra ID connector](../sentinel/data-connectors/microsoft-entra-id.md) to collect data from Microsoft Entra ID by following the steps at [Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md).
+1. Use the [Microsoft Entra ID connector](../sentinel/data-connectors-reference.md#microsoft-entra-id) to collect data from Microsoft Entra ID by following the steps at [Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md).
 
 1. On the **Data connectors** page, add a check mark for **Audit Logs**.
 

@@ -1,13 +1,13 @@
 ---
 title: Overview of reverse DNS in Azure - Azure DNS
 description: In this learning path, get started learning how reverse DNS works and how it can be used in Azure
-author: greg-lindsay
+author: asudbring
 manager: KumuD
 ms.service: azure-dns
 ms.topic: concept-article
 ms.custom:
-ms.date: 09/12/2024
-ms.author: greglin
+ms.date: 04/21/2025
+ms.author: allensu
 ---
 
 # Overview of reverse DNS and support in Azure
@@ -16,7 +16,7 @@ This article provides an overview of how reverse DNS works, and scenarios in whi
 
 ## What is reverse DNS?
 
-Conventional DNS records map a DNS name to an IP address, such as `www.contoso.com` resolves to 64.4.6.100. A reverse DNS does the opposite by translating an IP address back to a name. For example, a lookup of 64.4.6.100 will resolve to `www.contoso.com`.
+Conventional DNS records map a DNS name to an IP address. For example, assume that `www.contoso.com` resolves to 203.0.113.100. Reverse DNS does the opposite by translating an IP address back to a name. Using the same example, a lookup of 203.0.113.100 resolves to `www.contoso.com`.
 
 Reverse DNS records are used in various situations. For example, reverse DNS records are widely used in combating e-mail spam by verifying the sender of an e-mail message.  The receiving mail server retrieves the reverse DNS record of the sending server's IP address. Then the receiving mail server verifies if that host is authorized to send e-mail from the originating domain.
 
@@ -24,7 +24,7 @@ Reverse DNS records are used in various situations. For example, reverse DNS rec
 
 Reverse DNS records are hosted in special DNS zones, known as 'ARPA' zones.  These zones form a separate DNS hierarchy in parallel with the normal hierarchy hosting domains such as `contoso.com`.
 
-For example, the DNS record `www.contoso.com` is implemented using a DNS 'A' record with the name 'www' in the zone `contoso.com`. This A record points to the corresponding IP address, in this case 64.4.6.100.  The reverse lookup gets implemented separately, using a 'PTR' record named '100' in the zone '6.4.64.in-addr.arpa'. Notice that IP addresses in ARPA zones are reversed. This PTR record, when configured correctly will point to the name `www.contoso.com`.
+For example, the DNS record `www.contoso.com` is implemented using a DNS 'A' record with the name 'www' in the zone `contoso.com`. This A record points to the corresponding IP address, in this case 203.0.113.100.  The reverse lookup gets implemented separately, using a 'PTR' record named '100' in the zone '113.0.203.in-addr.arpa'. Notice that IP addresses in ARPA zones are reversed. This PTR record, when configured correctly will point to the name `www.contoso.com`.
 
 When an organization is assigned an IP address block, they also acquire the right to manage the corresponding ARPA zone. The ARPA zones corresponding to the IP address blocks used by Azure are hosted and managed by Microsoft. Your ISP may host the ARPA zone for you for the IP addresses you owned. They may also allow you to host the ARPA zone in a DNS service of your choice, such as Azure DNS.
 

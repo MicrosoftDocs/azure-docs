@@ -29,12 +29,12 @@ sections:
         answer: |
           Azure API Center is a stand-alone Azure service that's complementary to Azure API Management and API management services from other providers. API Center provides a unified API inventory for all APIs in the organization, including APIs that don't run in API gateways (such as those that are still in design) and those that are managed with different API management solutions.
 
-          For APIs that are managed using an API management solution, Azure API Center can store metadata such as the runtime environment and deployment details. You can also link Azure API Management services as API sources for you inventory.
+          For APIs that are managed using an API management solution, Azure API Center can store metadata such as the runtime environment and deployment details. You can also link Azure API Management services as API sources for your inventory.
 
       - question: Does Azure API Center provide a developer portal?
-        answer: Yes, you have an option to build and self-host a developer portal where developers can discover APIs in your API center and view API details. A reference implementation is available in the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository. [Learn more](enable-api-center-portal.md).
+        answer: Yes, you enable the [API Center portal](set-up-api-center-portal.md), where developers can discover and filter APIs in your API center and view API details. 
 
-          In the Azure API Center extension for Visual Studio Code, you can also provide an [API catalog](enable-platform-api-catalog-vscode-extension.md) view for app developers in your organization to discover APIs in your API center. 
+          You can also enable the API Center portal in the [Azure API Center extension for Visual Studio Code](enable-platform-api-catalog-vscode-extension.md) for app developers in your organization to discover APIs in your API center. 
       
       - question: Does Azure API Center support availability zones?
         answer: Yes. The Azure API Center service runs in a multitenant environment on availability zone-enabled components. No further configuration is required to enable availability zones for the service. 
@@ -50,7 +50,7 @@ sections:
           To upgrade your API center from the Free plan to the Standard plan, follow these steps:
 
           1. In the Azure portal, navigate to your API center.
-          2. In the left menu, select **Overview** > **Select plan**.
+          2. In the left menu, select **Overview** > **Manage plan**.
           3. Select **Standard plan**.
           4. Select **Submit**.
 
@@ -59,5 +59,6 @@ additionalContent: |
     ## Related content
 
     * [Azure API Center overview](overview.md)
-    * [Build APIs | Microsoft Developer](https://developer.microsoft.com/build-apis
+    * [Build APIs | Microsoft Developer](https://developer.microsoft.com/build-apis)
+    * [API Center flash workshop](https://azure-samples.github.io/API-Center-Workshop/)
 

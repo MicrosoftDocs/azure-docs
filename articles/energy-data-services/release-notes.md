@@ -34,7 +34,7 @@ Azure Data Manager for Energy now includes support for the Wellbore domain servi
 Azure Data Manager for Energy has implemented performance and scale enhancements to handle ingestion and conversion of seismic datasets with higher number of vertical samples. Additionally, for consuming these datasets via seismic streaming applications, Azure Data Manager for Energy now supports up to 4x higher throughput, allowing a proportional increase in the number of consumers using SDMS APIs.
 
 ### Create legal tags for restricted COO (Country of Origin)
-OSDU&reg; defines `residencyRisk` for data originating from certain countries in the default configuration [DefaultCountryCode.json](https://community.opengroup.org/osdu/platform/security-and-compliance/legal/-/blob/master/legal-core/src/main/resources/DefaultCountryCode.json?ref_type=heads). This configuration can now be edited in an OSDU&reg; compliant manner to allow the creation of legal tags and the ingestion of data from such countries on Azure Data Manager for Energy. These configurations apply at a partition level. See [How to enable legal tag creation for OSDU&reg; restricted COO (Country of Origin) data?](how-to-enable-legal-tags-restricted-country-of-origin.md) for more details.
+OSDU&reg; defines `residencyRisk` for data originating from certain countries/regions in the default configuration [DefaultCountryCode.json](https://community.opengroup.org/osdu/platform/security-and-compliance/legal/-/blob/master/legal-core/src/main/resources/DefaultCountryCode.json?ref_type=heads). This configuration can now be edited in an OSDU&reg; compliant manner to allow the creation of legal tags and the ingestion of data from such countries/regions on Azure Data Manager for Energy. These configurations apply at a partition level. See [How to enable legal tag creation for OSDU&reg; restricted COO (Country of Origin) data?](how-to-enable-legal-tags-restricted-country-of-origin.md) for more details.
 
 ## November 2024
 ### SOC 2 and ISO certification
@@ -42,6 +42,9 @@ Azure Data Manager for Energy is now SOC 2 and ISO compliant, reinforcing our co
 
 ### Support for EDS Naturalization DAG (Preview)
 Support for the `eds_naturalization` DAG is now available as a preview feature with the Azure Data Manager for Energy M23 release.
+
+### Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM
+You can now use keys stored in Azure Key Vault Managed HSM to encrypt data stored at rest in Azure Data Manager for Energy. See [Data security and encryption in Azure Data Manager for Energy](how-to-manage-data-security-and-encryption.md).
 
 ## August 2024
 

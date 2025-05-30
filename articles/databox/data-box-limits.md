@@ -5,10 +5,12 @@ services: databox
 author: stevenmatthew
 
 ms.service: azure-databox
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/25/2022
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 ---
+
 # Azure Data Box limits
 
 Consider these limits as you deploy and operate your Microsoft Azure Data Box. The following table describes these limits for the Data Box.
@@ -19,10 +21,19 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
 
 ## Data Box limits
 
+:::zone pivot="dbx-ng"
+- Data Box 120 can store a maximum of 500 million files and Data Box 525 can store a maximum of 1 billion files for both import and export.
+- Data Box supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud. 
+- Data Box usage capacity might be less than stated 120 TiB /525 TiB because of ReFS metadata space consumption. 
+- Data Box supports a maximum of 100 client connections at a time on a Network File System (NFS) share.
+:::zone-end
+
+:::zone pivot="dbx"
 - Data Box can store a maximum of 500 million files for both import and export.
 - Data Box supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud. 
 - Data Box usage capacity might be less than 80 TiB because of ReFS metadata space consumption.
 - Data Box supports a maximum of 10 client connections at a time on a Network File System (NFS) share.
+:::zone-end
 
 ## Azure storage limits
 
@@ -47,7 +58,7 @@ Data Box caveats for an export order include:
 - Maximum filename size is 1,024 characters. Filenames that exceed this length aren't exported. 
 - Duplicate prefixes in the *xml* file (uploaded during order creation) are exported. Duplicate prefixes aren't ignored.
 - Page blobs and container names are case-sensitive. If the casing is mismatched, the blob and/or container won't be found.
-- Data Box currently does not support the scenario where the customer's data is actively changing during export
+- Data Box currently does not support a scenario in which the customer's data is actively changing during export.
  
 
 ## Azure storage account size limits

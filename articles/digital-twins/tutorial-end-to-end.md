@@ -3,7 +3,7 @@ title: 'Tutorial: Connect an end-to-end solution'
 titleSuffix: Azure Digital Twins
 description: Follow this tutorial to learn how to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 02/20/2025
 ms.topic: tutorial
 ms.service: azure-digital-twins
@@ -26,13 +26,13 @@ In this tutorial, you will...
 > * Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated device data from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
 > * Propagate changes through the twin graph by processing digital twin notifications with Azure Functions, endpoints, and routes
 
-[!INCLUDE [Sample prerequisites for Azure Digital Twins tutorial](../../includes/digital-twins-tutorial-sample-prereqs.md)]
+[!INCLUDE [Sample prerequisites for Azure Digital Twins tutorial](includes/digital-twins-tutorial-sample-prereqs.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
-[!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
+[!INCLUDE [CLI setup for Azure Digital Twins](includes/digital-twins-cli.md)]
 
-[!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
+[!INCLUDE [Azure Digital Twins tutorial: configure the sample project](includes/digital-twins-tutorial-sample-configure.md)]
 
 ## Get started with the building scenario
 
@@ -351,7 +351,7 @@ Here are the actions you perform to set up this data flow:
 1. [Set up a route](#create-the-route) within Azure Digital Twins that sends twin property change events to the endpoint
 1. [Set up an Azure function](#connect-the-azure-function) that listens on the Event Grid topic at the endpoint, receives the twin property change events that are sent there, and updates other twins in the graph accordingly
 
-[!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
+[!INCLUDE [digital-twins-twin-to-twin-resources.md](includes/digital-twins-twin-to-twin-resources.md)]
 
 ### Connect the Azure function
 
@@ -405,7 +405,7 @@ Here's a review of the scenario that you built in this tutorial.
 
 After completing this tutorial, you can choose which resources you want to remove, depending on what you want to do next.
 
-[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
+[!INCLUDE [digital-twins-cleanup-basic.md](includes/digital-twins-cleanup-basic.md)]
 
 * If you want to continue using the Azure Digital Twins instance you set up in this article, but clear out some or all of its models, twins, and relationships, you can use the [az dt](/cli/azure/dt) CLI commands to delete the elements you want to remove.
 

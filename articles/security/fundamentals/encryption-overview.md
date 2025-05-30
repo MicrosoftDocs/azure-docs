@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 04/26/2024
+ms.date: 04/23/2025
 ms.author: mbaldwin
 ---
 # Azure encryption overview

@@ -1,9 +1,9 @@
 ---
 title: Discover your Microsoft cloud footprint FAQ
 description: This article helps to answer frequently asked questions that customers have about their Microsoft cloud footprint.
-author: bandersmsft
-ms.author: banders
-ms.date: 01/08/2025
+author: KennyDay
+ms.author: nicholak
+ms.date: 03/26/2025
 ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management

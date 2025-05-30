@@ -1,13 +1,14 @@
 ---
 title: What is centrally managed Azure Hybrid Benefit for SQL Server?
 description: Azure Hybrid Benefit an Azure discount that lets you allocate your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure.
-author: bandersmsft
-ms.author: banders
-ms.date: 11/21/2024
+author: pri-mittal
+ms.author: primittal
+ms.date: 04/07/2025
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
-ms.reviewer: chrisrin
+ms.reviewer: primittal
+ms.custom: cpx
 ---
 
 # What is centrally managed Azure Hybrid Benefit for SQL Server?

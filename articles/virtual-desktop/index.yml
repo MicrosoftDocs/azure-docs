@@ -7,9 +7,9 @@ metadata:
   title: Azure Virtual Desktop documentation
   description: Azure Virtual Desktop securely delivers virtual desktops and applications remotely and provides users with the only multi-session Windows 11 and Windows 10 experience.
   ms.topic: landing-page
-  author: dknappettmsft
-  ms.author: daknappe
-  ms.date: 01/17/2025
+  author: ErikjeMS
+  ms.author: avdcontent
+  ms.date: 01/22/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -45,28 +45,22 @@ landingContent:
             url: deploy-azure-virtual-desktop.md
           - text: Add session hosts to a host pool
             url: add-session-hosts-host-pool.md
-          - text: Publish applications
-            url: manage-app-groups.md
+          - text: Publish applications with RemoteApp
+            url: publish-applications-stream-remoteapp.md
 
   # Card
   - title: Connect to Azure Virtual Desktop
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Connect to Azure Virtual Desktop
+            url: connect-azure-virtual-desktop.md
       - linkListType: overview
         links:
-          - text: Azure Virtual Desktop for users
-            url: ./users/index.yml
-          - text: Windows App
-            url: ./users/remote-desktop-clients-overview.md
-          - text: Remote Desktop clients
-            url: ./users/remote-desktop-clients-overview.md
-      - linkListType: get-started
-        links:
-          - text: Get started with Windows App to connect to devices and apps
-            url: /windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop
-      - linkListType: get-started
-        links:
-          - text: Connect from the Remote Desktop client
-            url: ./users/connect-remote-desktop-client.md
+          - text: Windows App overview
+            url: /windows-app/overview
+          - text: Remote Desktop client overview
+            url: /previous-versions/remote-desktop-client/overview
 
   # Card
   - title: More information

@@ -154,7 +154,7 @@ Before you make a pull request to the Microsoft Sentinel GitHub repo, follow the
 
 Here are **Readme.md** file references:
 
-- [Custom connector Readme.md file](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/playbooks/CustomConnector/MinemeldCustomConnector)
-- [Playbook Readme.md file](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/playbooks/Minemeldplaybooks/Minemeld-CreateIndicator)
+- [Custom connector Readme.md file](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/Playbooks/CustomConnector/MinemeldCustomConnector)
+- [Playbook Readme.md file](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Minemeld/Playbooks/MinemeldPlaybooks/Minemeld-CreateIndicator)
 
 :::image type="content" source="media/sentinel-playbook-creation/playbook-folder-structure.png" alt-text="Screenshot of the playbook folder structure in GitHub."  Lightbox="media/sentinel-playbook-creation/playbook-folder-structure.png" :::

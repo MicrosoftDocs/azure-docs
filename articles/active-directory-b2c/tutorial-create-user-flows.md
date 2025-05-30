@@ -15,6 +15,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Tutorial: Create user flows and custom policies in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -58,7 +59,7 @@ The sign-up and sign-in user flow handles both experiences with a single configu
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
-1. Under **Policies**, select **User flows**, and then select **New user flow**.
+1. <a name="new_user_flow"></a>Under **Policies**, select **User flows**, and then select **New user flow**.
 
     ![Screenshot of the User flows page from the Azure portal with New user flow button highlighted.](./media/tutorial-create-user-flows/sign-up-sign-in-user-flow.png)
 
@@ -210,10 +211,10 @@ Next, specify that the application should be treated as a public client:
 1. In the left menu, under **Manage**, select **Authentication**.
 1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. 
 1. Select **Save**.
-1. Ensure that **"isFallbackPublicClient": true** is set in the application manifest:
-    1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
+1. Ensure that **"isFallbackPublicClient": true** is set in the Microsoft Graph App Manifest(New):
+    1. In the left menu, under **Manage**, select **Manifest** to open Microsoft Graph App Manifest(New)
     1. Switch from the **Microsoft Graph App Manifest (New)** tab to the **AAD Graph App Manifest (Deprecating Soon)** tab.
-    1. Find **allowPublicClient** key and ensure its value is set to **true**.
+    1. Find **isFallbackPublicClient** key and ensure its value is set to **true**.
 
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:

@@ -1,11 +1,11 @@
 ---
 title: Host reverse DNS lookup zones in Azure DNS
 description: Learn how to use Azure DNS to host the reverse DNS lookup zones for your IP ranges
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 02/21/2025
-ms.author: greglin
+ms.date: 04/21/2025
+ms.author: allensu
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -14,11 +14,9 @@ ms.devlang: azurecli
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-This article explains how to host reverse DNS lookup zones for your assigned IP ranges with Azure DNS. The IP ranges represented by the reverse lookup zones must be assigned to your organization, typically by your ISP.
+This article explains how to host reverse DNS lookup zones for your assigned IP ranges with Azure DNS. The IP ranges represented by the reverse lookup zones must be assigned to your organization, typically by your ISP. The scenario described in this article is not for IP addresses assigned by Microsoft. To configure reverse DNS for Microsoft-assigned IP address ranges, see [Configure reverse DNS for services hosted in Azure](dns-reverse-dns-for-azure-services.md).
 
-To configure reverse DNS for an Azure-owned IP address assigned to your Azure service, see [Configure reverse DNS for services hosted in Azure](dns-reverse-dns-for-azure-services.md).
-
-Before reading this article, you should familiarize yourself with the [overview of reverse DNS](dns-reverse-dns-overview.md) and it's supported in Azure.
+Before reading this article, you should familiarize yourself with the [overview of reverse DNS](dns-reverse-dns-overview.md) and it's support in Azure.
 
 In this article, you learn how to create your first reverse lookup DNS zone and record by using the Azure portal, Azure PowerShell, Azure classic CLI, and Azure CLI.
 
@@ -33,7 +31,7 @@ In this article, you learn how to create your first reverse lookup DNS zone and 
     | --- | --- |
     | **Subscription** | Select your subscription.|
     | **Resource group** | Select or create a new resource group. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
-    | **Name** | Enter a name for the DNS zone. Use the instructions for [IPv4](#ipv4) to name your zone.  |
+    | **Name** | Enter a name for the DNS zone. The name of the zone is specified differently for IPv4 and IPv6 prefixes. Use the instructions for [IPv4](#ipv4) or [IPv6](#ipv6) to name your zone.  |
     | **Location** | Select the location for the resource group. The location is already be selected if you're using a previously created resource group. |
 
 5. Select **Review + create**, and then select **Create** once validation has passed.
@@ -75,7 +73,39 @@ az network dns zone create -g mydnsresourcegroup -n 2.0.192.in-addr.arpa
 
 ### IPv6
 
-Azure Public DNS doesn't currently support IPv6 reverse DNS zones or records.
+The name of an IPv6 reverse lookup zone should be in the following form:
+`<IPv6 network prefix in reverse order>.ip6.arpa`.  For examples, see [Overview of reverse DNS](dns-reverse-dns-overview.md#ipv6) for IPv6.
+
+
+The following example shows how to create an IPv6 reverse DNS lookup zone named `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` in Azure DNS via the Azure portal:
+
+:::image type="content" source="./media/dns-reverse-dns-hosting/ipv6-arpa-zone.png" alt-text="Screenshot of create IPv6 arpa DNS zone.":::
+
+The following examples show how to complete this task using Azure PowerShell and Azure CLI.
+
+#### PowerShell
+
+```powershell
+New-AzDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName mydnsresourcegroup
+```
+
+#### Azure classic CLI
+
+```azurecli
+azure network dns zone create mydnsresourcegroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+```
+
+#### Azure CLI
+
+```azurecli
+az network dns zone create -g mydnsresourcegroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+```
+
+## Delegate a reverse DNS lookup zone
+
+Once the reverse DNS lookup zone gets created, you then need to make sure the zone gets delegated from the parent zone. DNS delegation enables the DNS name resolution process to find the name servers that host your reverse DNS lookup zone. Those name servers can then answer DNS reverse queries for the IP addresses in your address range.
+
+For forward lookup zones, the process of delegating a DNS zone is described in [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md). Delegation for reverse lookup zones works the same way. The only difference is that you need to configure the name servers with the ISP. The ISP manages your IP range, that's why they need to update the name servers instead of domain name registrar.
 
 ## Create a DNS PTR record
 
@@ -120,7 +150,47 @@ az network dns record-set ptr add-record -g mydnsresourcegroup -z 2.0.192.in-add
 
 ### IPv6
 
-Azure Public DNS doesn't currently support IPv6 reverse DNS zones or records.
+The following example explains the process of creating new PTR record for IPv6. To learn more about record types or how to modify existing records, see [Manage DNS records and record sets](dns-operations-recordsets-portal.md).
+
+1. At the top of the reverse DNS zone **Overview** page, select **Record sets** and then select **+Add**.
+
+   ![A screenshot of how to add an IPv6 reverse DNS record to a DNS zone.](./media/dns-reverse-dns-hosting/create-record-set-ipv6.png)
+
+1. The name of the record set for a PTR record is the rest of the IPv6 address in reverse order. It must not include any zero compression.
+
+    In this example, the first 64 bits of the IPv6 gets populated as part of the zone name (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). That's why only the last 64 bits are supplied in the **Name** box. The last 64 bits of the IP address gets entered in reverse order, with a period as the delimiter between each hexadecimal number. Name your record set **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** if you have a resource whose IP address is 2001:0db8:abdc:0000:f524:10bc:1af9:405e.
+
+    :::image type="content" source="./media/dns-reverse-dns-hosting/create-ipv6-ptr.png" alt-text="Screenshot of create IPv6 pointer record.":::
+
+1. For *Type*, select **PTR**.
+
+1. For *DOMAIN NAME*, enter the FQDN of the resource that uses the IP.
+
+1. Select **OK** to create the DNS record.
+
+The following examples show how to complete this task by using PowerShell or Azure CLI.
+
+#### PowerShell
+
+```azurepowershell-interactive
+New-AzDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName mydnsresourcegroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc2.contoso.com")
+```
+
+#### Azure classic CLI
+
+```azurecli
+azure network dns record-set add-record mydnsresourcegroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com
+```
+
+#### Azure CLI
+
+```azurecli-interactive
+az network dns record-set ptr add-record -g mydnsresourcegroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
+```
+
+## View records
+
+To view the records that you created, browse to your DNS zone in the Azure portal. In the lower part of the **DNS zone** pane, you can see the records for the DNS zone. You should see the default NS and SOA records, plus any new records that you've created. The NS and SOA records are created in every zone.
 
 ### IPv4
 
@@ -150,7 +220,29 @@ az network dns record-set list -g mydnsresourcegroup -z 2.0.192.in-addr.arpa
 
 ### IPv6
 
-Azure Public DNS doesn't currently support IPv6 reverse DNS zones or records.
+The **DNS zone** page shows the IPv6 PTR record:
+
+:::image type="content" source="./media/dns-reverse-dns-hosting/view-ipv6-ptr-record.png" alt-text="Screenshot of IPv6 pointer record on overview page." lightbox="./media/dns-reverse-dns-hosting/view-ipv6-ptr-record.png":::
+
+The following examples show how to view the records by using PowerShell or Azure CLI.
+
+#### PowerShell
+
+```powershell
+Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName mydnsresourcegroup
+```
+
+#### Azure classic CLI
+
+```azurecli
+azure network dns record-set list mydnsresourcegroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+```
+
+#### Azure CLI
+
+```azurecli
+az network dns record-set list -g mydnsresourcegroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+```
 
 ## FAQ
 
@@ -166,7 +258,7 @@ Hosting the reverse DNS lookup zone for your ISP-assigned IP block in Azure DNS 
 
 ### Can I host reverse DNS lookup zones for both IPv4 and IPv6 addresses in Azure DNS?
 
-Only IPv4 reverse zones are supported. This article explains how to create IPv4 reverse DNS lookup zones in Azure DNS. IPv6 reverse lookup zones aren't currently supported.
+Yes. This article explains how to create both IPv4 and IPv6 reverse DNS lookup zones in Azure DNS.
 
 ### Can I import an existing reverse DNS lookup zone?
 

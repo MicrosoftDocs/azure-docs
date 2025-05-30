@@ -10,9 +10,9 @@ ms.subservice: dynatrace
 
 # QuickStart: Start a free trial
 
-A 30-day free trial of Azure Native Dynatrace Service is available on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview). You can sign up using the trial plan published by Dynatrace. During the trial period, you can create a Dynatrace resource on Azure and use integrated services such as log forwarding, metrics integration, and agent based monitoring. Before the free trial expires, you can seamlessly upgrade to a paid public plan or a private offer customized for your organization.
+A 30-day free trial of Azure Native Dynatrace Service is available on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview). You can sign up using the trial plan published by Dynatrace. During the trial period, you can create a Dynatrace resource on Azure and use integrated services like log forwarding, metrics integration, and agent based monitoring. Before the free trial expires, you can seamlessly upgrade to a paid public plan or a private offer customized for your organization.
 
-Before you proceed, please make sure that your subscription is marketplace purchase enabled. For more information, visit [Purchase validation checks](/marketplace/purchase-validation-checks).
+Before you proceed, please make sure that your subscription is marketplace purchase enabled. For more information, go to [Purchase validation checks](/marketplace/purchase-validation-checks).
 
 ## Subscribe to a free trial  
 
@@ -30,7 +30,7 @@ Upon expiration of the free trial, your services will be shut down and no logs o
 
 ## Dynatrace links
 
-For more help using Azure Native Dynatrace Service, visit the [Dynatrace](https://dt-url.net/azurenativedynatraceservice) documentation.
+For more help using Azure Native Dynatrace Service, go to the [Dynatrace](https://dt-url.net/azurenativedynatraceservice) documentation.
 
 ## Next steps
 

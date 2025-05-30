@@ -3,7 +3,7 @@ title: "Pricing example: Run SSIS packages on Azure-SSIS integration runtime"
 description: This article shows how to estimate pricing for Azure Data Factory to run SSIS packages with the Azure-SSIS integration runtime.
 author: jianleishen
 ms.author: jianleishen
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 05/15/2024

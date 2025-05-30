@@ -2,13 +2,13 @@
 title: Buy an Azure savings plan
 titleSuffix: Microsoft Cost Management
 description: This article provides you with information to help you buy an Azure savings plan.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # Buy an Azure savings plan
@@ -46,6 +46,7 @@ After you buy a savings plan, you can [change the savings plan scope](manage-sav
         - The potential savings percentage compared to on-demand costs for the commitment.
         - The percentage of the selected scopes compute usage that is covered by the new savings plan. It includes the commitment amount plus any other previously purchased savings plan or reservation.
     - **Billing frequency**: **All upfront** or **Monthly**. The total cost of the savings plan is the same regardless of the selected frequency.
+    - **Auto-renew**: **On** or **Off**. The savings plan will automatically renew at the end of its term if it is **On**. By default, this option is set to **Off**.
 
 ### Purchase with the Savings Plan Order Alias - Create API
 

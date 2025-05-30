@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub device-to-cloud options
 description: This article provides guidance on when to use device-to-cloud messages, reported properties, or file upload for cloud-to-device communications. 
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 12/27/2022
+ms.date: 05/22/2025
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -32,9 +32,9 @@ Here's a detailed comparison of the various device-to-cloud communication option
 | Frequency | High. For more information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). | Medium. For more information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). | Low. For more information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). |
 | Protocol | Available on all protocols. | Available using MQTT or AMQP. | Available when using any protocol, but requires HTTPS on the device. |
 
-An application may need to send information both as a telemetry time series or alert and make it available in the device twin. In this scenario, you can choose one of the following options:
+An application might need to send information both as a telemetry time series or alert and make it available in the device twin. In this scenario, you can choose one of the following options:
 
 * The device app sends a device-to-cloud message and reports a property change.
 * The solution back end can store the information in the device twin's tags when it receives the message.
 
-Since device-to-cloud messages enable a much higher throughput than device twin updates, it's sometimes desirable to avoid updating the device twin for every device-to-cloud message.
+Since device-to-cloud messages enable higher throughput than device twin updates, it's sometimes desirable to avoid updating the device twin for every device-to-cloud message.

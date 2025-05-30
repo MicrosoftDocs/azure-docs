@@ -2,8 +2,8 @@
 title: Get started with Azure IoT Hub device twins (Python)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Python to create device and backend service application code for device twins.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: include

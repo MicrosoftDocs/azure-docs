@@ -1,7 +1,7 @@
 ---
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 11/13/2024
+ms.date: 03/05/2025
 ms.topic: include
 ms.service: dev-box
 ---
@@ -10,15 +10,19 @@ ms.service: dev-box
 
    :::image type="content" source="../media/developer-portal-landing-page/developer-portal-landing-page-sign-in.png" alt-text="Screenshot of the developer portal landing page with sign-in highlighted.":::
 
+2. The first time you visit the developer portal, you're welcomed with a short tour. Select **Continue** to learn about the developer portal, or select **Skip** to go straight to the portal.
+
+   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-welcome-tour.png" alt-text="Screenshot of the welcome tour in the developer portal.":::
+
 #### [No existing dev boxes](#tab/no-existing-dev-boxes)
 
-2. If you don't have any dev boxes, you see this screen. Select **New dev box**.
+3. If you don't have any dev boxes, you see this screen. Select **New dev box**.
 
    :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-dev-box.png" alt-text="Screenshot of the developer portal with new dev box highlighted." lightbox="../media/developer-portal-landing-page/developer-portal-new-dev-box.png":::
 
 #### [Existing dev boxes](#tab/existing-dev-boxes)
 
-2. Select **New** > **New dev box**.
+3. If you have existing dev boxes, you see this screen. Select **New** > **New dev box**.
  
    :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-menu.png" alt-text="Screenshot of the developer portal with the New menu and Dev box option highlighted." lightbox="../media/developer-portal-landing-page/developer-portal-new-menu.png":::
  

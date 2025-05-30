@@ -4,6 +4,9 @@ description: Apache Hive is a data warehouse system for Apache Hadoop. You can q
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/09/2024
 ---
 

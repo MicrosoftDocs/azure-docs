@@ -1,13 +1,13 @@
 ---
 title: Get started with your Microsoft Partner Agreement billing account - Azure CSP
 description: Understand your Microsoft Partner Agreement billing account (CSP)
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 11/14/2024
-ms.author: banders
+ms.date: 04/28/2025
+ms.author: jkinma
 # customer intent: As a Partner billing administrator, I want manage and use my Microsoft Partner Agreement to manage my customer's billing accounts.
 ---
 

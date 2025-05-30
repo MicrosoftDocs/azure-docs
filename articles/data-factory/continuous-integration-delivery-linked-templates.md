@@ -4,7 +4,7 @@ description: Learn how to use linked Resource Manager templates with continuous 
 ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 01/29/2025
 ---

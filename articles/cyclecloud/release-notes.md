@@ -14,7 +14,7 @@ The current release is 8.7.1.
 
 CycleCloud 8.7 is the seventh GA release of the CycleCloud 8.x platform and continues to add expanded scheduler support and security improvements.
 
-|  |  |
+| Note | Image |
 | --- | --- |
 |[**CycleCloud can use Managed Identity for more secure access to Azure Storage**](./how-to/managed-identities.md)<br/> CycleCloud now supports replacing Shared Access Key access to Azure Storage with Identity-based access for both the CycleCloud orchestrator and CycleCloud Locker access for cluster nodes. |  |
 | [**OpenPBS is supported by azpbs agent**](~/articles/cyclecloud/openpbs.md)<br/> Introducing `azpbs` a configuration-based agent for managing heterogeneous OpenPBS cluster including on-prem/cloud hybrid. `azpbs` is a more general and precise matching framework for job and VM resources. | ![Open PBS Logo](./images/release-notes/openpbs-logo.png) |

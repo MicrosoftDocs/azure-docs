@@ -63,13 +63,21 @@
     - name: Jobs
       href: jobs.md
     - name: Dynamic sessions
-      href: sessions.md
+      items:
+      - name: Overview
+        href: sessions.md
+      - name: Usage
+        href: sessions-usage.md
+      - name: Session pools
+        href: session-pool.md
     - name: Microservices
       href: microservices.md
     - name: Planned maintenance
       href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
       href: https://youtu.be/OxmVds31qL8
+    - name: Communicate between multiple apps
+      href: connect-apps.md
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -89,7 +97,7 @@
             - name: Overview
               href: services.md
               displayName: Connecting to services overview
-        - name: Connect multiple apps
+        - name: Communicate between multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
           items:
@@ -127,6 +135,12 @@
           href: storage-mounts.md
         - name: Create an Azure Files storage mount
           href: storage-mounts-azure-files.md
+    - name: Use Azure Functions
+      items:
+        - name: Overview
+          href: functions-overview.md
+        - name: Create a Functions app
+          href: functions-usage.md
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
@@ -155,6 +169,8 @@
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Workflow
+      href: workflows-overview.md
     - name: Troubleshooting
       items:
         - name: Overview
@@ -173,6 +189,8 @@
             href: troubleshoot-storage-mount-failures.md
           - name: Target port
             href: troubleshoot-target-port-settings.md
+          - name: Container start
+            href: troubleshoot-container-start-failures.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: Observability
@@ -180,6 +198,14 @@
     - name: Overview
       href: observability.md
       displayName: Observability overview
+    - name: Troubleshoot and resolve issues with an agent
+      items:
+        - name: Overview
+          href: ../app-service/sre-agent-overview.md
+        - name: Use an SRE agent
+          href: ../app-service/sre-agent-usage.md
+        - name: Fix app issues with an SRE agent
+          href: sre-agent-troubleshoot.md
     - name: Application logging
       href: logging.md
     - name: Real time data
@@ -207,6 +233,8 @@
       displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Domains & certificates
   items:
   - name: Overview
@@ -276,10 +304,14 @@
   items:
     - name: Serverless GPUs
       href: gpu-serverless-overview.md
+    - name: GPU types
+      href: gpu-types.md
     - name: Tutorials
       items:
       - name: Generate images with serverless GPUs
         href: gpu-image-generation.md
+      - name: Deploy an NVIDIA Llama3 NIM
+        href: serverless-gpu-nim.md
 - name: Microservices
   items:
     - name: Developing with Dapr
@@ -293,7 +325,7 @@
           href: microservices-dapr.md
         - name: Deploy using ARM or Bicep
           href: microservices-dapr-azure-resource-manager.md
-        - name: Enable Dapr on an existing container app
+        - name: Configure Dapr on an existing container app
           href: enable-dapr.md
         - name: Deploy using the Dapr extension for Azure Functions
           href: dapr-functions-extension.md
@@ -332,7 +364,9 @@
         - name: Overview
           href: ingress-overview.md
           displayName: Ingress overview
-        - name: Configure ingress
+        - name: Environment-level configuration
+          href: ingress-environment-configuration.md
+        - name: Application-level configuration
           href: ingress-how-to.md
         - name: Configure IP restrictions
           href: ip-restrictions.md
@@ -354,6 +388,12 @@
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
+        - name: Rule based routing
+          items:
+          - name: Use rule-based routing
+            href: rule-based-routing.md
+          - name: Configure a custom domain
+            href: rule-based-routing-custom-domain.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
         - name: Use a private endpoint
@@ -378,27 +418,11 @@
       - name: Overview
         href: java-overview.md
         displayName: java
+      - name: Introduction to containers
+        href: java-containers-intro.md
+        displayName: java
       - name: Turn on Java features
         href: java-feature-switch.md
-        displayName: java
-      - name: Launch your first Java app
-        href: java-get-started.md
-      - name: Artificial Intelligence
-        items:
-        - name: PetClinic AI
-          items: 
-          - name: Overview
-            href: java-petclinic-ai-overview.md
-            displayName: java
-          - name: Deploy the PetClinic AI sample
-            href: java-petclinic-ai-tutorial.md
-            displayName: java
-        displayName: java
-      - name: Launch your first Java microservice apps with managed Java components
-        href: java-microservice-get-started.md
-        displayName: java
-      - name: Get started using IntelliJ
-        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
         displayName: java
       - name: Automatic memory fitting (preview)
         href: java-memory-fit.md
@@ -406,45 +430,77 @@
       - name: Build environment variables (preview)
         href: java-build-environment-variables.md
         displayName: java
-      - name: Metrics
-        href: java-metrics.md
-        displayName: java
-      - name: Scale with Java metrics
-        href: java-metrics-scale-with-keda.md
-        displayName: java
-      - name: Connect to Eureka Server for Spring
-        href: java-eureka-server.md
-        displayName: java
-      - name: Connect to Admin for Spring
-        href: java-admin.md
-        displayName: java
-      - name: Connect to Config Server for Spring
-        href: java-config-server.md
-        displayName: java
-      - name: Connect to Gateway for Spring
-        href: java-gateway-for-spring.md
-        displayName: java
-      - name: Set dynamic logger level
-        href: java-dynamic-log-level.md
-        displayName: java
-      - name: Tutorials
+      - name: Launch your first Java app
         items:
-          - name: Integrate Eureka Server with Admin for Spring
-            href: java-admin-eureka-integration.md
+        - name: Dockerfile
+          href: java-get-started-dockerfile.md
+          displayName: java
+        - name: Github repository
+          href: java-get-started-github-repository.md
+          displayName: java
+        - name: IntelliJ
+          href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+          displayName: java
+        - name: Artifacts (preview)
+          href: java-get-started.md
+          displayName: java
+      - name: Artificial intelligence
+        items:
+        - name: PetClinic AI
+          items:
+          - name: Overview
+            href: java-petclinic-ai-overview.md
             displayName: java
-          - name: Query managed component logs
-            href: java-component-logs.md
+          - name: Deploy the PetClinic AI sample
+            href: java-petclinic-ai-tutorial.md
             displayName: java
-          - name: Configure Application Performance Management (APM) Java agent with init-container
-            href: java-application-performance-management-config.md
-          - name: Create a highly available Eureka server component cluster
-            href: java-eureka-server-highly-available.md
-            displayName: java
-          - name: Build a Java metrics dashboard with Azure Managed Grafana
-            href: java-metrics-with-grafana.md
-            displayName: java
+      - name: Java components
+        items:
+        - name: Launch your first Java microservice apps with managed Java components
+          href: java-microservice-get-started.md
+          displayName: java
+        - name: Connect to Eureka Server for Spring
+          href: java-eureka-server.md
+          displayName: java
+        - name: Integrate Eureka Server with Admin for Spring
+          href: java-admin-eureka-integration.md
+          displayName: java
+        - name: Create a highly available Eureka server component cluster
+          href: java-eureka-server-highly-available.md
+          displayName: java
+        - name: Connect to Admin for Spring
+          href: java-admin.md
+          displayName: java
+        - name: Connect to Config Server for Spring
+          href: java-config-server.md
+          displayName: java
+        - name: Connect to Gateway for Spring
+          href: java-gateway-for-spring.md
+          displayName: java
+      - name: Monitoring
+        items:
+        - name: Java metrics
+          href: java-metrics.md
+          displayName: java
+        - name: Query managed component logs
+          href: java-component-logs.md
+          displayName: java
+        - name: Configure application performance management (APM) Java agent with init-container
+          href: java-application-performance-management-config.md
+          displayName: java
+        - name: Scale with Java metrics
+          href: java-metrics-scale-with-keda.md
+          displayName: java
+        - name: Build a Java metrics dashboard with Azure Managed Grafana
+          href: java-metrics-with-grafana.md
+          displayName: java
+      - name: Diagnostic
+        items:
+        - name: Set dynamic logger level
+          href: java-dynamic-log-level.md
+          displayName: java
     - name: JavaScript
-      items: 
+      items:
       - name: Overview
         href: javascript-overview.md
         displayName: javascript, typescript, node.js
@@ -454,12 +510,16 @@
       href: billing.md
     - name: Quotas
       href: quotas.md
+    - name: Make quota requests
+      href: quota-requests.md
 - name: Product updates
   items:
     - name: What's new
       href: whats-new.md
 - name: API docs & reference
   items:
+    - name: Azure Container Apps extension release notes
+      href: container-apps-extension-release-notes.md
     - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI

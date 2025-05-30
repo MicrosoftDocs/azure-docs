@@ -2,13 +2,13 @@
 title: Understand Cost Management data
 titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data included in Cost Management. It also explains how frequently data is processed, collected, shown, and closed.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 02/10/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
 ---
 
 # Understand Cost Management data
@@ -148,7 +148,7 @@ The following examples illustrate how billing periods could end:
 
 Usage charges can continue to accrue and can change until the fifth day of the month after your current billing period ends, as Azure completes processing all data. If the usage file isn't ready, you see a message on the Invoices page in the Azure portal stating `Your usage and charges file is not ready`. After the usage file is available, you can download it.
 
-When cost and usage data becomes available in Cost Management, it gets retained for at least seven years. Only the last 13 months are available from the Azure portal under Cost Management portal under [Exports](tutorial-export-acm-data.md). It's also available in the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api). To retrieve historical data that is older than 13 months, use the [Exports REST API](/rest/api/cost-management/exports).
+When cost and usage data becomes available in Cost Management, it gets retained for at least seven years. Only the last 13 months are available from the Azure portal under Cost Management portal under [Exports](tutorial-improved-exports.md). It's also available in the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api). To retrieve historical data that is older than 13 months, use the [Exports REST API](/rest/api/cost-management/exports).
 
 ### Rerated data
 

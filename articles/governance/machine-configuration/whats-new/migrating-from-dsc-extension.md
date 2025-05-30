@@ -20,6 +20,35 @@ New features in machine configuration:
 Before you begin, it's a good idea to read the conceptual overview information at the page
 [Azure Policy's machine configuration][01].
 
+### Check if you are using the desired state configuration extension
+
+To verify if you’re using the desired state configuration extension on virtual machines,
+in the Azure Portal open “Virtual machines”, select the name of each virtual machine, then
+“Settings” in the table of contents, and finally “Extensions + Applications”.
+There you will see a list of extensions assigned.
+
+The following query will return a list of virtual machines in Azure with the
+DSC extension (for Windows) attached.
+
+```Kusto
+resources
+| where type == 'microsoft.compute/virtualmachines'
+| extend
+    JoinID = toupper(id),
+    OSName = tostring(properties.osProfile.computerName),
+    OSType = tostring(properties.storageProfile.osDisk.osType)
+| join kind=inner(
+    resources
+    | where type == 'microsoft.compute/virtualmachines/extensions'
+    | extend 
+        VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
+        ExtensionName = tolower(name)
+    | where ExtensionName == 'microsoft.powershell.dsc'
+) on $left.JoinID == $right.VMId
+| project OSName, OSType, ExtensionName, ['id']
+| order by tolower(OSName) asc
+```
+
 ## Major differences
 
 Machine configuration uses DSC version 2. DSC Extension uses
@@ -50,8 +79,8 @@ reboots are allowed can be set in properties of the extension. As part of the sh
 Configuration, you will want to manage reboots using Azure Resource Manager.
 
 The zip file artifact used by DSC Extension is not compatible with Azure machine configuration.
-Plan to use the machine configuration authoring tools to repackage the configuration
-and required PowerShell modules and republish to Azure Storage.
+Plan to use the machine configuration [PowerShell cmdlets][03]
+to repackage the configuration and required PowerShell modules and republish to Azure Storage.
 
 ## Understand migration
 
@@ -61,9 +90,9 @@ new solution for new machines.
 The expected steps for migration are:
 
 1. Download and expand the `.zip` package used for the DSC extension.
-1. Examine the Managed Object Format (MOF) file and resources to understand the scenario.
-1. Make any required changes to the configuration or resources.
-1. Use the machine configuration authoring module to create, test, and publish a new package.
+1. Examine the DSC configuration file to understand the scenario.
+1. Make any required changes to the configuration.
+1. Use the machine configuration PowerShell cmdlets to create, test, and publish a new package.
 1. Use machine configuration for future deployments rather than DSC extension.
 
 #### Consider decomposing complex configuration files

@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 02/26/2025
+ms.date: 03/13/2025
 ms.topic: overview
 ms.service: azure-automation
 ---
@@ -11,7 +11,7 @@ ms.service: azure-automation
 # Overview of change tracking and inventory using Azure Monitoring Agent
 
 > [!Important]
-> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will work on limited support till **01 February 2025**. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md)
+> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will not be supported any further. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md)
 > - We recommend that you use Change Tracking with Azure Monitoring Agent with the Change tracking extension version 2.20.0.0 (or above) to access the GA version of this service.
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
@@ -28,12 +28,14 @@ Azure Change Tracking & Inventory service enhances the auditing and governance f
 1. **Change Tracking**
 
     a. Monitors changes, including modifications to files, registry keys, software installations, and Windows services or Linux daemons.</br>
-    b. Provides detailed logs of what and when the changes were made, who made them, enabling you to quickly detect configuration drifts or unauthorized changes.
+    b. Provides detailed logs of what and when the changes were made, enabling you to quickly detect configuration drifts or unauthorized changes. </br>
+    Change Tracking metadata will get ingested into the ConfigurationChange table in the connected LA workspace. [Learn more](/azure/azure-monitor/reference/tables/configurationchange)
     
 1. **Inventory**
 
     a. Collects and maintains an updated list of installed software, operating system details, and other server configurations in linked LA workspace </br>
-    b. Helps create an overview of system assets, which is useful for compliance, audits, and proactive maintenance.
+    b. Helps create an overview of system assets, which is useful for compliance, audits, and proactive maintenance.</br>
+    Inventory metadata will get ingested into the ConfigurationData table in the connected LA workspace. [Learn more](/azure/azure-monitor/reference/tables/configurationdata)
 
 ## Support matrix
 
@@ -196,6 +198,7 @@ The default collection frequency for Windows services is 30 minutes. To configur
 Change Tracking and Inventory using Azure Monitoring Agent doesn't support or has the following limitations:
 
 - Recursion for Windows registry tracking
+- Currently, only the HKEY_LOCAL_MACHINE is supported. You will encounter this limitation whenever you manually add the registry key.
 - Network file systems
 - Different installation methods
 - ***.exe** files stored on Windows

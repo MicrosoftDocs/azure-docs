@@ -3,7 +3,7 @@ title: "Pricing example: Copy data from AWS S3 to Azure Blob storage hourly"
 description: This article shows how to estimate pricing for Azure Data Factory to copy data from AWS S3 to Azure Blob storage every hour for 30 days.
 author: jianleishen
 ms.author: jianleishen
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 05/15/2024
