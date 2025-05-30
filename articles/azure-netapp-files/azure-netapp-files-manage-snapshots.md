@@ -1,5 +1,5 @@
 ---
-title: Create an on-demand snapshot using Azure NetApp Files | Microsoft Docs
+title: Create an on-demand snapshot using Azure NetApp Files
 description: Describes how to create on-demand snapshots with Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/25/2024
 ms.author: anfdocs
 ---
-# Create an on-demand snapshot for a volume
+# Create an on-demand snapshot for a volume using Azure NetApp Files
 
 Azure NetApp Files supports creating on-demand [snapshots](snapshots-introduction.md) and using snapshot policies to schedule automatic snapshot creation. You can also restore a [snapshot to a new volume](snapshots-restore-new-volume.md), [restore a single file by using a client](snapshots-restore-file-client.md), or [revert an existing volume by using a snapshot](snapshots-revert-volume.md). This article explains how to create an on-demand snapshot for a volume. 
 

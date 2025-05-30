@@ -34,7 +34,7 @@ Set up a dedicated resource group for your Azure Migrate project. This helps in 
 
 Follow these networking best practices.
 
-- **Limit outbound connectivity** - Azure Migrate appliance requires outbound connectivity on selective network endpoints. If you have configured firewall or Proxy Server on-premises, restrict the outbound connection on the appliance by allowlisting only the [required URLs](https://github.com/MicrosoftDocs/azure-docs-pr/pull/293190).  
+- **Limit outbound connectivity** - Azure Migrate appliance requires outbound connectivity on selective network endpoints. If you have configured firewall or Proxy Server on-premises, restrict the outbound connection on the appliance by allowlisting only the [required URLs](https://aka.ms/Migrateapplianceurls).  
 
 - **Use Azure Private Link** - Implement Azure Private Link to discover, assess, and migrate servers over a private network. This ensures that traffic remains within the Azure backbone network and doesn’t traverse the public internet. [Learn more](how-to-use-azure-migrate-with-private-endpoints.md) 
 

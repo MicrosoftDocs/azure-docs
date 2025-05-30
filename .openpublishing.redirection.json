@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/private-multi-access-edge-compute-mec/index.yml",
+      "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/shared-disks-common-questions.md",
+      "redirect_url": "/azure/site-recovery/azure-to-azure-common-questions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/network-watcher/traffic-analytics-schema-update.md",
       "redirect_url": "/previous-versions/azure/network-watcher/traffic-analytics-schema-update",
       "redirect_document_id": false
@@ -492,6 +502,11 @@
     {
       "source_path": "articles/security/fundamentals/tls-certificate-changes.md",
       "redirect_url": "/azure/security/fundamentals/azure-CA-details",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/recover-from-identity-compromise.md",
+      "redirect_url": "/azure/security/fundamentals/ransomware-detect-respond#road-to-recovery",
       "redirect_document_id": false
     },
     {

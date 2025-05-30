@@ -18,5 +18,7 @@ items:
   items:
   - name: Manage a resource
     href: manage.md
-  - name: troubleshoot
+  - name: Get support
+    href: https://www.mongodb.com/company/contact
+  - name: Troubleshoot
     href: troubleshoot.md
