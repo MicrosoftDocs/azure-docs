@@ -95,9 +95,9 @@ The API Center portal view helps enterprise developers discover API details and 
 
 ## Use language model tools 
 
-In the pre-release version of the Azure API Center extension, developers with access to the API Center portal view can add API Center language model tools to use in GitHub Copilot's agent mode. [Learn more about using tools in agent mode](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). 
+In the pre-release version of the Azure API Center extension, developers with access to the API Center portal view can add API Center language model tools to use in GitHub Copilot's agent mode. [Learn more about using tools in agent mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_agent-mode-tools). 
 
-The API Center tools can be used in agent mode to help search for APIs and API versions, API definitions and specifications, API authentication information and credentials, deployments, and more using natural language prompts.
+The API Center tools can be used in agent mode to help search for APIs and API versions, API definitions and specifications, deployments, and more using natural language prompts.
 
 To add and use API Center language mode tools in GitHub Copilot's agent mode:
 
