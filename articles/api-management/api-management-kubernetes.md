@@ -87,7 +87,7 @@ To get a subscription key for accessing APIs, developers need a subscription. A 
 
 ### Option 3: Deploy API Management inside the cluster virtual network
 
-In some cases, customers that have regulatory constraints or strict security requirements might find Options 1 and 2 nonviable because of the publicly exposed endpoints. In others, the AKS cluster and the applications that consume the microservices might reside within the same virtual network, so there's no reason to expose the cluster publicly because all API traffic remains within the virtual network. In these scenarios, you can deploy API Management into the cluster virtual network. [API Management Developer, Premium, Standard v2, and Premium v2 (preview) tiers](https://aka.ms/apimpricing) support virtual network deployment. 
+In some cases, customers that have regulatory constraints or strict security requirements might find Options 1 and 2 nonviable because of the publicly exposed endpoints. In others, the AKS cluster and the applications that consume the microservices might reside within the same virtual network, so there's no reason to expose the cluster publicly because all API traffic remains within the virtual network. In these scenarios, you can deploy API Management into the cluster virtual network. [API Management Developer, Premium, and Premium v2 (preview) tiers](https://aka.ms/apimpricing) support injection into the cluster virtual network. 
 
 There are two modes of [deploying API Management into a virtual network](./virtual-network-concepts.md): external and internal. 
 
