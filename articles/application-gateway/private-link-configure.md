@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/06/2022
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to configure Application Gateway Private Link so that I can securely connect workloads over a private network without exposing them to the public internet.
 ---
 
 # Configure Azure Application Gateway Private Link

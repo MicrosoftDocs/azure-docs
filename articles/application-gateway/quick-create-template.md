@@ -9,6 +9,7 @@ ms.date: 05/30/2024
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+# Customer intent: As a solutions architect, I want to create an Azure Application Gateway using a Resource Manager template, so that I can efficiently direct web traffic to backend virtual machines and ensure optimal performance of my web applications.
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - ARM template

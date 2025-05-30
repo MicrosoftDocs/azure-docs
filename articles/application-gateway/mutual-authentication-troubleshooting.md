@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 02/18/2022
 ms.author: mbender
+# Customer intent: As an application administrator, I want to troubleshoot mutual authentication issues on the Application Gateway, so that I can ensure secure communication and resolve errors efficiently.
 ---
 
 # Troubleshooting mutual authentication errors in Application Gateway

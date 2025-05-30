@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.custom: references_regions
 ms.date: 01/19/2024
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to understand the pricing structure for Azure Application Gateway and Web Application Firewall SKUs, so that I can accurately plan and manage costs for my cloud infrastructure.
 ---
 
 # Understanding Pricing for Azure Application Gateway and Web Application Firewall

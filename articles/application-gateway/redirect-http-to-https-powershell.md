@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud engineer, I want to configure an application gateway to redirect HTTP traffic to HTTPS using PowerShell, so that I can enhance the security of my web applications and ensure secure communication for users."
 ---
 
 # Create an application gateway with HTTP to HTTPS redirection using Azure PowerShell

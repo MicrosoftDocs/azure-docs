@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/15/2025
 ms.author: jaysoni
+# Customer intent: "As a cloud architect, I want to configure Server-sent events on Azure Application Gateway, so that I can enable real-time streaming of event data between backend servers and clients efficiently."
 ---
 
 # Using Server-sent events with Application Gateway (Preview)

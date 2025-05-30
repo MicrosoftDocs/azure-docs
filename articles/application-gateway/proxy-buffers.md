@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 09/25/2024
 ms.author: mbender
 #Customer intent: As a user, I want to know how can I disable/enable proxy buffers.
+# Customer intent: As a system administrator, I want to configure request and response buffering settings on my application gateway, so that I can optimize performance based on client interaction and backend processing capabilities.
 ---
 
 # Configure Request and Response Proxy Buffers

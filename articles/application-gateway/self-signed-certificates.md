@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 01/17/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to generate a self-signed certificate using a custom root CA for my Application Gateway, so that I can securely establish TLS connections with backend servers in a development environment without incurring costs for commercial certificates.
 ---
 
 # Generate an Azure Application Gateway self-signed certificate with a custom root CA

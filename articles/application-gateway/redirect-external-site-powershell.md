@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud architect, I want to configure an application gateway for external web traffic redirection using PowerShell, so that I can efficiently manage and route traffic to external sites from my Azure environment.
 ---
 
 # Create an application gateway with external redirection using Azure PowerShell

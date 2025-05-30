@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 4/4/2025
 ms.author: mbender
+# Customer intent: "As a Kubernetes administrator, I want to deploy the Application Gateway Ingress Controller with a new Application Gateway, so that I can manage ingress traffic efficiently for my applications running on Azure Kubernetes Service."
 ---
 
 # Install AGIC by using a new Application Gateway deployment

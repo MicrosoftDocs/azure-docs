@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 10/22/2024
 ms.author: mbender
+# Customer intent: "As a network administrator, I want to configure URL rewriting in an application gateway, so that I can manage and optimize how requests are processed and routed within my application infrastructure."
 ---
 
 # Rewrite a URL with Azure Application Gateway - Azure portal
