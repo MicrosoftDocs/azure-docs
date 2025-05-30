@@ -27,10 +27,14 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Migrate compute from Amazon Web Services (AWS) to Microsoft Azure
+          - text: Migrate compute from AWS to Azure
             url:  migrate-compute-from-aws.md
           - text: Migrate databases from AWS to Azure
             url:  migrate-databases-from-aws.md
+          - text: Migrate networking from AWS to Azure
+            url:  migrate-networking-from-aws.md
+          - text: Migrate security from AWS to Azure
+            url:  migrate-security-from-aws.md
           - text: Migrate storage from AWS to Azure
             url:  migrate-storage-from-aws.md
 

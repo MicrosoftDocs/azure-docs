@@ -4,7 +4,7 @@ description: This article explains about the concept of Immutable vault for Azur
 ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions, engagement-fy24, ignite-2024
-ms.date: 12/09/2024
+ms.date: 05/29/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -15,7 +15,9 @@ Immutable vault can help you protect your backup data by blocking any operations
 
 ## Supported scenarios for WORM storage
 
+- Immutability feature in enabled and locked state is generally available in all Azure regions for Recovery Services vaults.
 - Use of WORM storage for immutable vaults in locked state is currently in GA for Recovery Services Vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central.
+- For regions without WORM storage, Azure Backup automatically migrates all locked immutable backups to WORM-enabled storage.
 - Use of WORM storage for immutable vaults in locked state is applicable for the following workloads: Azure Virtual machines, SQL in Azure VM, SAP HANA in Azure VM, Azure Backup Server, Azure Backup Agent, DPM.
 
 ## Before you start
