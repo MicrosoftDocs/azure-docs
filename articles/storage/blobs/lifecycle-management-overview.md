@@ -77,8 +77,6 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 - The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
 
-- Blobs can automatically tier up from cool to hot only once in 30 days. This safeguard is put into place to protect against multiple early deletion penalties charged to the account.
-
 - Lifecycle management doesn't affect system containers such as the $logs or $web containers.
 
 ## Frequently asked questions (FAQ)
