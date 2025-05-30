@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/01/2024
 ms.author: mbender
+# Customer intent: As a network engineer, I want to understand how an application gateway processes and routes requests, so that I can effectively configure and optimize it for load balancing and security in my network architecture.
 ---
 
 # How an application gateway works
