@@ -152,7 +152,7 @@ To use Azure Pipelines as the build provider, select the **Azure Pipelines** opt
 The GitHub Actions build provider doesn't work with basic authentication if basic authentication is disabled. Try using GitHub Actions with the user-assigned identity option instead. For more information, see [Deploy without basic authentication](configure-basic-auth-disable.md#deploy-without-basic-authentication).
 
 ### What does the user-assigned identity option do in GitHub Actions?
-<a name="=what-does-the user-assigned-identity-option-do-for-github-actions"></a>
+<a name="what-does-the user-assigned-identity-option-do-for-github-actions"></a>
 
 When you select **User-assigned identity** for **GitHub** source, App Service configures all the necessary resources in Azure and GitHub. App Service enables the recommended Microsoft OpenID Connect authentication with GitHub Actions.
 
