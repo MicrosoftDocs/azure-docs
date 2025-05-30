@@ -110,12 +110,8 @@ landingContent:
             url: azure-openai-api-from-specification.md
           - text: Import OpenAI-compatible LLM API
             url: openai-compatible-llm-api.md
-          - text: Authenticate and authorize to Azure OpenAI
-            url: api-management-authenticate-authorize-azure-openai.md
           - text: Expose REST API as MCP server
             url: export-rest-mcp-server.md
-          - text: Import API from Azure OpenAI service
-            url: azure-openai-api-from-specification.md
       - linkListType: concept
         links:
           - text: Premium v2 tier (preview)
