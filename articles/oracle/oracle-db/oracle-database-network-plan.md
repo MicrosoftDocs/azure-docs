@@ -28,6 +28,7 @@ Advanced network features enhance the virtual networking experience, offering im
 * US West  
 * UK South 
 * UK West
+* Germany West Central 
 
 > [!NOTE]
 > Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
