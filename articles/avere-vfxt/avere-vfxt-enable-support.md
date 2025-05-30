@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
+# Customer intent: "As an IT administrator, I want to enable automatic support data uploads for Avere vFXT clusters, so that I can improve the quality of customer service provided by support staff."
 ---
 
 # Enable support uploads

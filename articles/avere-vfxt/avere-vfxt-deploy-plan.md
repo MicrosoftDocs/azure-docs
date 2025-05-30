@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: concept-article
 ms.date: 01/21/2020
 ms.author: rohogue
+# Customer intent: "As a cloud architect, I want to plan an Avere vFXT for Azure cluster and its network infrastructure, so that I can ensure optimal performance and resource management for my data-intensive applications."
 ---
 
 # Plan your Avere vFXT system

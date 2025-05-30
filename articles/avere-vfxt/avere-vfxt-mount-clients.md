@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
+# Customer intent: As an IT administrator, I want to connect client machines to the vFXT cluster and load-balance client traffic, so that I can ensure efficient data management and optimized performance across the cluster nodes.
 ---
 
 # Mount the Avere vFXT cluster
