@@ -27,14 +27,14 @@ You define an extension bundle reference in the *host.json* project file by addi
 
 ## Supported extension bundles
 
-This table lists the default `Microsoft.Azure.Functions.ExtensionBundle` bundles that are currently GA.
+This table lists the default `Microsoft.Azure.Functions.ExtensionBundle` bundles that are currently GA and any known end-of-support dates.
 
-| Bundle version | Version in host.json | Included extensions |
-| --- | --- | --- |
-| 4.x | `[4.0.0, 5.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/main/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
-| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v3/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
-| 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v2/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
-| 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
+| Bundle version | Version in host.json | Included extensions | End-of-support date |
+| --- | --- | --- | --- |
+| 4.x | `[4.0.0, 5.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/main/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. | Not yet determined  |
+| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v3/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. | 05/30/2026 |
+| 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v2/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. | 05/30/2026 |
+| 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. | 05/30/2026 |
 
 The default extension bundles are defined using version ranges, and this table links to the extension definitions for the bundle. For more information, see [Support policy](#support-policy). 
 
@@ -82,17 +82,6 @@ Microsoft provides advance notice before retiring an extension bundle or binding
 ### Retirement phase 
 
 After the retirement of an extension bundle or binding extension version, function apps that use retired versions can still be created and deployed and continue to run on the platform. However, your function apps aren’t eligible for new features, security patches, and performance optimizations until you upgrade them to use a supported extension bundle version. You must upgrade your functions apps to a supported bundle version before you can receive support.  
-
-### Bundle version support state 
-
-This table shows the major versions of GA bundles and their current lifecycle state: 
-
-| Bundle Version | State      | End of Support Date |
-|----------------|------------|---------------------|
-| 4.x            | Supported  | Not yet determined  |
-| 3.x            | Deprecated | 05/30/2026          |
-| 2.x            | Deprecated | 05/30/2026          |
-| 1.x            | Deprecated | 05/30/2026          |
 
 ## Related articles
 
