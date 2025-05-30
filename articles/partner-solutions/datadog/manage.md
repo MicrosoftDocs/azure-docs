@@ -175,9 +175,5 @@ Contact [Datadog](https://www.datadoghq.com/support) for customer support.
 
 You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
-Select **Support + Troubleshooting** > **New support request** from the Resource pane. 
-
-## Related content
-
-- [Troubleshooting Datadog solutions](troubleshoot.md)
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [log a support request in the Datadog portal](https://www.datadoghq.com/support). 
 
