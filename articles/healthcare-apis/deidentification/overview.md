@@ -30,7 +30,7 @@ The de-identification service in Azure Health Data Services enables healthcare o
 
 The de-identification service unlocks the power of your data by automating three operations: 
 
-- **TAG** identifies and Tags PHI in your clinical text, specifying the entity types (i.e. Patient Name, Doctor Name, Age, etc) 
+- **TAG** identifies and Tags PHI in your clinical text, specifying the entity types (i.e. Patient Name, Doctor Name, Age, etc.) 
 - **REDACT** replaces the identified PHI in your clinical text with the entity types
 - **SURROGATE** replaces the identified PHI in your clinical text with realistic pseudonyms (names of people, organizations, hospitals) and randomizes number based PHI (dates and alphanumeric entities such as ID Numbers and more)
 
@@ -89,12 +89,16 @@ The following service limits are applicable:
 
 ## Pricing
 
-Pricing is based on the amount of data de-identified by our service: 
-You are charged $0.05 per MB, for any of the three operations we offer, whether you are using the asynchronous or synchornous endpoint. You have also have a monthly allotment of 50 MB that enables you to try the product for free.
+The de-identification service pricing is dependent on the amount of data de-identified by our service. 
+You are charged per MB, for any of the three operations we offer, whether you are using the asynchronous or synchronous endpoint. 
 
-This price is also displayed on our Pricing Tool page, where you can estimate the cost based on your use case: [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+The cost per MB de-identified is displayed in the row "Unstructured De-identification" in the table "Transformation Operations" in the [Azure Pricing Page](https://azure.microsoft.com/en-us/pricing/details/health-data-services/?msockid=2982a916bc2461731022bd6cbdbd6053#pricing)
+ 
+You have also have a monthly allotment of 50 MB that enables you to try the product for free.
 
-When you choose to store documents in Azure Blob Storage, you are charged based on Azure Storage pricing.
+The [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) helps you estimate the cost based on your use case. 
+
+When you choose to store documents in Azure Blob Storage, you are charged based on Azure Storage pricing. 
 
 ## Responsible use of AI
 
