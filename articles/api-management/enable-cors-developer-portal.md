@@ -42,10 +42,6 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 
 ![Screenshot that shows where to check status of your CORS policy in the developer portal.](media/enable-cors-developer-portal/cors-azure-portal.png)
 
-> [!TIP]
-> When configuring a [custom domain](configure-custom-domain.md) for the developer portal, you can enable a CORS setting for the custom developer portal domain name. This setting is added to the CORS policy configuration for the default developer portal domain name, if you already enabled it.
-
-
 ### Enable CORS policy manually
 
 1. Select the **Manually apply it on the global level** link to see the generated policy code.
@@ -60,6 +56,12 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 > The browser automatically issues an `OPTIONS` HTTP request, which doesn't contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the `OPTIONS` call with a Product, so it can't apply the CORS policy.
 >
 > As a workaround, you can pass the subscription key in a query parameter.
+
+### CORS configuration for custom domain name
+
+If you configure a [custom domain](configure-custom-domain.md) for the developer portal, ensure that you enable CORS for the custom developer portal domain name . 
+
+You can enable a CORS setting for the custom developer portal domain name at the same time that you configure the custom domain. If you previously enabled CORS for the default domain name, the custom domain name is added as a CORS origin in the CORS policy. You can edit this setting at any time.
 
 ## CORS proxy option
 
