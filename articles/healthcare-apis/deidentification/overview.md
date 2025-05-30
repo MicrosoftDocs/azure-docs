@@ -92,7 +92,7 @@ The following service limits are applicable:
 The de-identification service pricing is dependent on the amount of data de-identified by our service. 
 You are charged per MB, for any of the three operations we offer, whether you are using the asynchronous or synchronous endpoint. 
 
-The cost per MB de-identified is displayed in the row "Unstructured De-identification" in the table "Transformation Operations" in the [Azure Pricing Page](https://azure.microsoft.com/en-us/pricing/details/health-data-services/?msockid=2982a916bc2461731022bd6cbdbd6053#pricing)
+The cost per MB de-identified is displayed in the row "Unstructured De-identification" in the table "Transformation Operations" in the [Azure Pricing Page](https://azure.microsoft.com/pricing/details/health-data-services/?msockid=2982a916bc2461731022bd6cbdbd6053#pricing)
  
 You have also have a monthly allotment of 50 MB that enables you to try the product for free.
 
