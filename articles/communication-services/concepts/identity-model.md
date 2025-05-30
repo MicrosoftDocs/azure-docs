@@ -121,6 +121,7 @@ Make sure to include only those scopes in the token that your client application
 
 Azure App Service or Azure Functions are two alternatives for operating the identity management service. These services scale easily and have built-in features to [authenticate](../../app-service/overview-authentication-authorization.md) users. They're integrated with [OpenID](../../app-service/configure-authentication-provider-openid-connect.md) and third-party identity providers like [Facebook](../../app-service/configure-authentication-provider-facebook.md).
 
+
 ## Microsoft Entra ID: Integrating with Entra ID
 [!INCLUDE [Public Preview Disclaimer](../includes/public-preview-include.md)]
 
@@ -152,6 +153,17 @@ The API permissions for the Azure Communication Services Clients application are
 Azure Communication Services access tokens are issued with the same expiration as the Microsoft Entra ID user access token.
 
 ### Client-server architecture for the Microsoft Entra ID
+With Microsoft Entra ID integration, you can simplify your architecture by directly using Entra ID for authentication and authorization. The following steps outline the process:
+
+:::image type="content" source="./media/entra-client-server-architecture.png" alt-text="Diagram that shows the Microsoft Entra ID integration architecture." border="false":::
+
+1. A user starts the client application.
+2. The client application authenticates the user via Microsoft Entra ID. The client application obtains an Entra ID user access token with API permissions for the Azure Communication Services Clients application.
+3. The client application exchanges the Entra ID user access token for an Azure Communication Services access token using one of the following methods:
+   1. Using the Azure Communication Services Common SDKs: The client initializes the [CommunicationTokenCredential](./credentials-best-practices.md#communication-token-credential) with Entra ID token credential options, which automatically handles the background exchange of the Entra ID user access token for an Azure Communication Services access token. The application then uses this credential to access Azure Communication Services APIs.
+   1. Custom implementation: The client application calls the [Exchange Entra ID token for Azure Communication Services access token](/rest/api/communication/identity/entra-id-token) API to exchange the Entra ID user access token for an Azure Communication Services access token. The resulting Azure Communication Services access token is then used to access the APIs.
+
+This architecture eliminates the need for a separate identity management service, as Microsoft Entra ID handles user authentication and authorization directly.
 
 ### Limitations
 The Microsoft Entra ID integration is currently in public preview and has the following limitations:
