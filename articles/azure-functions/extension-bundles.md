@@ -27,16 +27,18 @@ You define an extension bundle reference in the *host.json* project file by addi
 
 ## Supported extension bundles
 
-This table lists the default `Microsoft.Azure.Functions.ExtensionBundle` bundles that are currently GA and any known end-of-support dates.
+This table lists all `Microsoft.Azure.Functions.ExtensionBundle` bundle versions and the current [support status](#support-policy).
 
-| Bundle version | Version in host.json | Included extensions | End-of-support date |
+| Bundle version | Version in host.json | Support state | End-of-support date |
 | --- | --- | --- | --- |
-| 4.x | `[4.0.0, 5.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/main/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. | Not yet determined  |
-| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v3/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. | 05/30/2026 |
-| 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v2/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. | 05/30/2026 |
-| 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. | 05/30/2026 |
+| [4.x](https://github.com/Azure/azure-functions-extension-bundles/blob/main/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) | `[4.0.0, 5.0.0)` | Active | Not yet determined  |
+| [3.x](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v3/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) | `[3.3.0, 4.0.0)` | Deprecated | 05/30/2026 |
+| [2.x](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v2/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) | `[2.*, 3.0.0)` | Deprecated | 05/30/2026 |
+| [1.x](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) | `[1.*, 2.0.0)` | Deprecated | 05/30/2026 |
 
-The default extension bundles are defined using version ranges, and this table links to the extension definitions for the bundle. For more information, see [Support policy](#support-policy). 
+The default extension bundles are defined using version ranges. Select the **Bundle version** to see the _extensions.json_ definition file used to generate the current major extension bundle version. 
+
+For more information, see [Support policy](#support-policy). 
 
 ## Extension bundles considerations
 
@@ -69,19 +71,18 @@ Keep these considerations in mind when choosing to use a non-GA extension bundle
 
 ## Support policy 
 
-Major version releases of extension bundles can occur when there are breaking changes or updates in the dependencies of the underlying binding extensions. These breaking changes, often introduced in Azure SDKs, require updates to the bundle to remain compatible.  
-
-Each major version of an extension bundle is supported for a minimum of 12 months after the next major version is released. This overlap period gives you time to plan, test, and upgrade your apps before the previous version is retired. 
+Major version releases of extension bundles can occur when there are breaking changes or updates in the dependencies of the underlying binding extensions. These breaking changes, often introduced in Azure SDKs, require updates to the bundle to remain compatible.   
 
 You can view the extension bundle versions and their included extensions in the [Azure Functions Extension Bundles GitHub repo](https://github.com/Azure/azure-functions-extension-bundles/releases). Individual .NET packages are found on [https://nuget.org](https://nuget.org). 
 
-### Notification phase 
+The removal of support for previously GA bundles follows these phases:
 
-Microsoft provides advance notice before retiring an extension bundle or binding extension version. When you receive such a notification, you should begin planning to upgrade your function apps to a latest supported extension bundle version. This upgrade ensures that your apps continue to access new features, performance improvements, and support. 
-
-### Retirement phase 
-
-After the retirement of an extension bundle or binding extension version, function apps that use retired versions can still be created and deployed and continue to run on the platform. However, your function apps aren’t eligible for new features, security patches, and performance optimizations until you upgrade them to use a supported extension bundle version. You must upgrade your functions apps to a supported bundle version before you can receive support.  
+| Phase | Description |
+| ----- | ----- |  
+| Active | This is the latest GA extension bundle version, and it is the recommended version for your function apps. Bundle versions remain active for at least 12 months after being declared GA. |
+| Notification| Microsoft provides advanced notice before retiring an extension bundle or binding extension version. When you receive such a notification, you should begin planning to upgrade your function apps to a latest supported extension bundle version. This upgrade ensures that your apps continue to access new features, performance improvements, and support. |
+| Deprecation phase | Occurs 12 months after the next major version of an extension bundle moves into GA. This overlap period gives you time to plan, test, and upgrade your apps before the previous version is retired. | 
+| Retirement phase | After the retirement of an extension bundle or binding extension version, function apps that use retired versions can still be created and deployed and continue to run on the platform. However, your function apps aren’t eligible for new features, security patches, and performance optimizations until you upgrade them to use a supported extension bundle version. You must upgrade your functions apps to a supported bundle version before you can receive support.|
 
 ## Related articles
 
