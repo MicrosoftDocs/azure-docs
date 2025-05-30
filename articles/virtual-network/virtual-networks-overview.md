@@ -18,6 +18,9 @@ A virtual network is similar to a traditional network that you'd operate in your
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=6b5b138e-8406-406e-8b34-40bdadf9fc6d]
 
+> [!NOTE]
+> Azure Virtual Network is one of the services that make up the Network Foundations category in Azure. Other services in this category include [Azure DNS](../dns/dns-overview.md) and [Azure Private Link](../private-link/private-link-overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Foundations](../networking/foundations/network-foundations-overview.md).
+
 ## Why use an Azure virtual network?
 
 Key scenarios that you can accomplish with a virtual network include:
