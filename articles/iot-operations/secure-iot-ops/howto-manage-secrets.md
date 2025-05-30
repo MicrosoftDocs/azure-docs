@@ -31,7 +31,7 @@ Secrets management for Azure IoT Operations uses Secret Store extension to sync 
 
 Once the [set up secrets management](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-secrets-management) steps are completed, you can start adding secrets to Azure Key Vault, and sync them to the Kubernetes cluster to be used in **Asset Endpoints** or **Data flow Endpoints** using the [operations experience](https://iotoperations.azure.com) web UI.
 
-Secrets are used in asset endpoints and data flow endpoints for authentication. In this section, we use asset endpoints as an example, the same can be applied to data flow endpoints. You have the option to directly create the secret in Azure Key Vault and have it automatically synchronized down to the cluster, or use an existing secret reference from the key vault:
+Secrets are used in asset endpoints and data flow endpoints for authentication. This section uses asset endpoints as an example. The same process can be applied to data flow endpoints. You have the option to directly create the secret in Azure Key Vault and have it automatically synchronized down to the cluster, or use an existing secret reference from the key vault:
 
 1. Go to the **Asset endpoints** page in the [operations experience](https://iotoperations.azure.com) web UI.
 
@@ -49,7 +49,7 @@ Secrets are used in asset endpoints and data flow endpoints for authentication. 
     
 ## Manage synced secrets
 
-In this section, we use asset endpoints as an example, the same can be applied to data flow endpoints:
+This section uses asset endpoints as an example. The same process can be applied to data flow endpoints:
 
 1. Go to the **Asset endpoints** page in the [operations experience](https://iotoperations.azure.com) web UI.
 

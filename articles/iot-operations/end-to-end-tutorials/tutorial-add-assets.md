@@ -80,7 +80,7 @@ Before the OPC PLC simulator can send data to the connector for OPC UA, you need
 
 ### Add the connector's certificate to the simulator's trust list
 
-Each OPC UA server has it's own mechanism for managing the trust list. To add the connector's certificate to the simulator's trust list, run the following commands:
+Each OPC UA server has its own mechanism for managing the trust list. To add the connector's certificate to the simulator's trust list, run the following commands:
 
 ```bash
 cert=$(kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d)
@@ -96,7 +96,7 @@ kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{""data"": $
 
 ### Add the simulator's certificate to the connector's trust list
 
-Every OPC UA server type has it's own mechanism for managing its application instance certificate. To download the simulator's certificate to a file called `opcplc-000000.crt`, run the following command:
+Every OPC UA server type has its own mechanism for managing its application instance certificate. To download the simulator's certificate to a file called `opcplc-000000.crt`, run the following command:
 
 ```console
 kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d > opcplc-000000.crt
@@ -104,38 +104,38 @@ kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o j
 
 To add the simulator's certificate to the connector's trust list:
 
-- Go to the [operations experience](https://iotoperations.azure.com) web UI and sign in with your Microsoft Entra ID credentials.
+1. Go to the [operations experience](https://iotoperations.azure.com) web UI and sign in with your Microsoft Entra ID credentials.
 
-- Select your site. If you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previously by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+1. Select your site. If you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previously by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
 
     :::image type="content" source="media/tutorial-add-assets/site-list.png" lightbox="media/tutorial-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
 
-- Select the instance where you deployed Azure IoT Operations:
+1. Select the instance where you deployed Azure IoT Operations:
 
     :::image type="content" source="media/tutorial-add-assets/cluster-list.png" lightbox="media/tutorial-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations instance list.":::
 
     > [!TIP]
     > If you don't see any instances, you might not be in the right Microsoft Entra ID tenant. You can change the tenant from the top right menu in the operations experience.
 
-- Select **Asset endpoints**~ and then **Manage certificates and secrets**:
+1. Select **Asset endpoints** and then **Manage certificates and secrets**:
 
     :::image type="content" source="media/tutorial-add-assets/manage-certificates.png" lightbox="media/tutorial-add-assets/manage-certificates.png" alt-text="Screenshot that shows how to find the manage certificates page in the operations experience.":::
 
-- On the **Certificates page**, select **Trust list** and then **Add new certificate**:
+1. On the **Certificates page**, select **Trust list** and then **Add new certificate**:
 
     :::image type="content" source="media/tutorial-add-assets/add-certificate.png" lightbox="media/tutorial-add-assets/add-certificate.png" alt-text="Screenshot that shows how to add a certificate to the trust list in the operations experience.":::
 
-- Select **Upload certificate** and choose the `opcplc-000000.crt` file you downloaded previously. Then select **Upload**:
+1. Select **Upload certificate** and choose the `opcplc-000000.crt` file you downloaded previously. Then select **Upload**:
 
     :::image type="content" source="media/tutorial-add-assets/uploaded-certificate.png" lightbox="media/tutorial-add-assets/uploaded-certificate.png" alt-text="Screenshot that shows a successful certificate upload.":::
 
-- Select **Apply**.
+1. Select **Apply**.
 
 The simulator's application instance certificate is now in the connector for OPC UA's trust list.
 
 ## Add an asset endpoint
 
-In this step, you use the operations experience to add an asset endpoint that enables you to connect to the OPC PLC simulator.To add an asset endpoint:
+In this step, you use the operations experience to add an asset endpoint that enables you to connect to the OPC PLC simulator. To add an asset endpoint:
 
 1. Select **Asset endpoints** and then **Create asset endpoint**:
 
