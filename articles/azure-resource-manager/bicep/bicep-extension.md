@@ -8,7 +8,7 @@ ms.date: 05/14/2025
 
 # Use Bicep extensions
 
-Bicep was initially created to enhance the authoring experience compared to Azure Resource Manager JSON templates, simplifying the deployment and management of Azure resources. Bicep extensions build on this foundation, enabling Bicep templates to reference resources beyond the scope of Azure Resource Manager. This article describes how to use Bicep extensions.
+Bicep was initially created to enhance the authoring experience compared to Azure Resource Manager JSON templates, simplifying the deployment and management of Azure resources. Bicep extensions build on this foundation, enabling Bicep files to reference resources beyond the scope of Azure Resource Manager. This article describes how to use Bicep extensions.
 
 The syntax for importing Bicep extensions is:
 

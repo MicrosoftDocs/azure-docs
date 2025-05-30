@@ -3,7 +3,7 @@ title: Confidential containers with Intel SGX enclaves on Azure
 description: Learn about unmodified container support with confidential containers on Intel SGX through OSS and partner solutions
 services: container-service
 author: angarg05
-ms.topic: article
+ms.topic: concept-article
 ms.date: 7/15/2022
 ms.author: ananyagarg
 ms.service: azure-virtual-machines

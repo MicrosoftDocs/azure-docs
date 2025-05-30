@@ -21,6 +21,7 @@ The following list contains the regions Elastic SAN is currently available in, a
 - France Central - LRS & ZRS
 - Germany West Central - LRS
 - India Central - LRS
+- India South- LRS 
 - Japan East - LRS
 - Korea Central - LRS
 - North Europe - LRS & ZRS
@@ -41,6 +42,7 @@ Elastic SAN is also available in the following regions, but without Availability
 - Japan West - LRS
 - North Central US - LRS
 - Australia Central - LRS
+- Australia Southeast - LRS
 - Southeast Brazil - LRS
 - Korea South - LRS
 - UAE Central - LRS

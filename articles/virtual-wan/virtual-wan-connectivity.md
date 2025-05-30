@@ -1,16 +1,21 @@
 ---
-title: Virtual WAN to Virtual WAN connectivity
+title: Virtual WAN to Virtual WAN Connectivity
 description: Learn about the different available options for connecting your Azure Virtual WAN to another Virtual WAN.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-virtual-wan
-ms.topic: how-to
-ms.date: 05/08/2025
+ms.topic: concept-article
+ms.date: 05/29/2025
 ---
 
 # Virtual WAN to Virtual WAN connectivity options
 
-In this article, you learn about the various connection options available to connect multiple Virtual WAN environments.
+In some enterprise environments, there might be a need to connect one Azure Virtual WAN to another. Common scenarios include:
+
+- Mergers and acquisitions
+- Decentralized business units requiring interconnectivity
+
+In this article, you learn about the various connection options available to link multiple Virtual WAN environments.
 
 ## IPsec tunnels using virtual network gateways
 
@@ -44,7 +49,7 @@ This option is ideal if you want to connect two Virtual WANs using SD-WAN NVAs. 
 
 This option is similar to the previous one, except you place the SD-WAN NVA in a spoke virtual network that is peered to the virtual hub, rather than deploying it in the virtual hub. This setup allows you to configure BGP peering between the SD-WAN NVA and the virtual hub route server.
 
-This approach is suitable for scenarios where SD-WAN NVAs can't be deployed into Virtual WAN hubs but still support BGP. As in the second option, you must replace ASNs 65520 and 65515 with those used by your SD-WAN to avoid BGP loop prevention.
+This approach is suitable for scenarios where SD-WAN NVAs can't be deployed into Virtual WAN hubs but still support BGP. As in the second option, you must replace ASNs 65520 and 65515 with the ones used by your SD-WAN to avoid BGP loop prevention.
 
 :::image type="content" source="./media/virtual-wan-connectivity/vwan-connectivity-using-spoke-sdwan.png" alt-text="Diagram shows Virtual WAN connectivity using SD-WAN devices in spoke virtual networks." lightbox="./media/virtual-wan-connectivity/vwan-connectivity-using-spoke-sdwan.png":::
 

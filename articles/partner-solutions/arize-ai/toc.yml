@@ -16,3 +16,5 @@ items:
   items:
   - name: Manage a resource
     href: manage.md
+  - name: Get support
+    href: https://arize.com/contact/
