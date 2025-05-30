@@ -6,6 +6,8 @@
       href: expressroute-introduction.md
     - name: Well-Architected for ExpressRoute
       href: /azure/well-architected/service-guides/azure-expressroute
+    - text: What is hybrid connectivity?
+      url: ../networking/hybrid-connectivity/hybrid-connectivity.md
     - name: Before you start using ExpressRoute
       items:
       - name: Prerequisites

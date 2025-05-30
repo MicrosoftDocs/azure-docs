@@ -9,6 +9,8 @@
     href: whats-new.md
   - name: VPN Gateway FAQ
     href: vpn-gateway-vpn-faq.md
+  - name: What is hybrid connectivity?
+    href: ../networking/hybrid-connectivity/hybrid-connectivity.md?toc=/azure/vpn-gateway/toc.json
   - name: Quickstarts & Tutorials
     expanded: true
     items:
