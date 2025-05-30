@@ -65,7 +65,7 @@ The existing power state and drain mode of session hosts is honored. You can per
 
 ## Virtual machines and management tools
 
-The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and the [generation of virtual machine](/azure/virtual-machines/generation-2), and can be from:
+The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and the [generation of virtual machine](/azure/virtual-machines/generation-2), and it can be from:
 
 - Azure Marketplace.
 
