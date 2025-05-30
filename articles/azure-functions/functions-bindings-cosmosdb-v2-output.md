@@ -102,7 +102,7 @@ namespace CosmosDBSamplesV2
 
 ### Queue trigger, write one doc (v4 extension)
 
-Apps using [Azure Cosmos DB extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4) or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+Apps using [Azure Cosmos DB extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4) or higher have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -206,7 +206,7 @@ public String cosmosDbQueryById(
 
 #### HTTP trigger, save one document to database via return value
 
-The following example shows a Java function whose signature is annotated with `@CosmosDBOutput` and has return value of type `String`. The JSON document returned by the function will be automatically written to the corresponding Azure Cosmos DB collection.
+The following example shows a Java function whose signature is annotated with `@CosmosDBOutput` and has return value of type `String`. The JSON document returned by the function is automatically written to the corresponding Azure Cosmos DB collection.
 
 ```java
     @FunctionName("WriteOneDoc")
@@ -338,7 +338,7 @@ The following example shows a Java function that writes multiple documents to Az
     }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Azure Cosmos DB.  The annotation parameter type should be `OutputBinding<T>`, where `T` is either a native Java type or a POJO.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that is written to Azure Cosmos DB. The annotation parameter type should be `OutputBinding<T>`, where `T` is either a native Java type or a POJO.
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
@@ -467,7 +467,7 @@ Here's the JavaScript code:
     };
 ```
 
-For bulk insert form the objects first and then run the stringify function. Here's the JavaScript code:
+For bulk insert form the objects first and then, run the stringify function. Here's the JavaScript code:
 
 ```javascript
     module.exports = async function (context) {
