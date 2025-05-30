@@ -61,11 +61,11 @@ This configuration automatically restarts the session after a defined idle time 
 }
 ```
 
-- Explanation:
+Explanation:
 
-  - `maximumRoutes`: The limit for the BGP session is 5,000 routes.
-  - `threshold`: A warning is triggered when the prefix count reaches 80% (4,000 routes).
-  - `idleTimeExpiry`: If the session is shut down, it restarts automatically after 100 seconds of idle time.
+- `maximumRoutes`: The limit for the BGP session is 5,000 routes.
+- `threshold`: A warning is triggered when the prefix count reaches 80% (4,000 routes).
+- `idleTimeExpiry`: If the session is shut down, it restarts automatically after 100 seconds of idle time.
 
 ##### Example 2: BGP prefix limit without automatic restart
 
@@ -80,11 +80,11 @@ This configuration shuts down the session when the maximum prefix limit is reach
 }
 ```
 
-- Explanation:
+Explanation:
 
-  - `maximumRoutes`: The limit for the BGP session is 5,000 routes.
-  - `threshold`: A warning is triggered when the prefix count reaches 80% (4,000 routes).
-  - No automatic restart. Manual intervention is required to restart the session.
+- `maximumRoutes`: The limit for the BGP session is 5,000 routes.
+- `threshold`: A warning is triggered when the prefix count reaches 80% (4,000 routes).
+- No automatic restart. Manual intervention is required to restart the session.
 
 ##### Example 3: Hard-limit drop BGP sessions
 
@@ -98,10 +98,10 @@ This configuration drops extra routes if the prefix limit is exceeded without ma
 }
 ```
 
-- Explanation:
+Explanation:
 
-  - `maximumRoutes`: The limit for the BGP session is 5,000 routes.
-  - After the limit is reached, the CE device drops any extra prefixes received from the BGP peer.
+- `maximumRoutes`: The limit for the BGP session is 5,000 routes.
+- After the limit is reached, the CE device drops any extra prefixes received from the BGP peer.
 
 ##### Example 4: Hard-limit warning only
 
@@ -117,11 +117,11 @@ This configuration generates a warning after the prefix count reaches a certain 
 }
 ```
 
-- Explanation:
+Explanation:
 
-  - `maximumRoutes`: The limit for the BGP session is 8,000 routes.
-  - `threshold`: A warning is generated when the prefix count reaches 75% (6,000 routes).
-  - The session isn't shut down. This configuration is used to generate only a warning without taking any session-terminating action.
+- `maximumRoutes`: The limit for the BGP session is 8,000 routes.
+- `threshold`: A warning is generated when the prefix count reaches 75% (6,000 routes).
+- The session isn't shut down. This configuration is used to generate only a warning without taking any session-terminating action.
 
 #### Step 3: Apply configuration by using the Azure CLI
 
