@@ -8,12 +8,11 @@ metadata:
   title: Azure documentation
   description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
   ms.service: azure
-  ms.custom:
-    - ignite-2023
+  ms.custom: ignite-2023
   ms.topic: hub-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 12/04/2024
+  ms.date: 05/29/2025
   featureFlags:
   - clicktale
 highlightedContent:
@@ -40,15 +39,6 @@ productDirectory:
   title: Browse Azure products
   items:
     # Card
-    - title: Azure AI services
-      summary: Build cutting-edge, market-ready, responsible applications for your organization with AI
-      imageSrc: ./media/index/ai-services.svg
-      azureCategories:
-        - featured
-        - ai-machine-learning
-        - mobile
-      url: /azure/ai-services/
-    # Card
     - title: Azure OpenAI Service
       summary: Apply advanced coding and language models to various use cases
       imageSrc: ./media/index/azure-openai.svg
@@ -60,7 +50,9 @@ productDirectory:
       summary: Build market-ready applications for your organization with AI
       imageSrc: ./media/index/ai-studio.svg
       azureCategories:
+        - featured
         - ai-machine-learning
+        - mobile
       url: /azure/ai-studio/
     # Card
     - title: Speech
