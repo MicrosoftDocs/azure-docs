@@ -19,9 +19,6 @@ ms.topic: how-to
 
 # Configure hibernation in Microsoft Dev Box
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
-
 Hibernation in Microsoft Dev Box helps you manage cloud development environments efficiently while reducing costs. By enabling hibernation, you can preserve the state of open applications and windows, saving virtual machine (VM) costs without disrupting workflows. This article explains how to configure hibernation at the dev box image and definition levels, automate hibernation schedules, and address compatibility considerations.
 
 With the introduction of Dev Box Hibernation, you can enable this capability on new dev boxes and hibernate and resume them. This feature provides a convenient way to manage your dev boxes while maintaining your work environment.
