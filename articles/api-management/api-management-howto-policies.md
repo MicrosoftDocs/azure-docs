@@ -148,7 +148,7 @@ In the preceding example policy definition:
 * The [`find-and-replace` policy](find-and-replace-policy.md) runs after any policies at a broader scope. 
 
 >[!NOTE]
-> If you remove the `base` element at the API scope, only policies configured at the API scope will be applied. Neither product nor global scope policies will be applied.
+> If you remove the `base` element at the API scope, only policies configured at the API scope will be applied. Policies configured at product and broader scopes won't be applied.
 
 ### Use policy expressions to modify requests
 
