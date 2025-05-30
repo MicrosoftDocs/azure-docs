@@ -48,7 +48,7 @@ Keep these considerations in mind when working with extension bundles:
 
 ## Preview extension bundles
 
-Prerelease versions of specific binding extensions are made maintained in a preview extension bundle. This preview extension bundle, which has an ID of `Microsoft.Azure.Functions.ExtensionBundle.Preview`, allow you to take advantage of new extension behaviors before they're declared as GA. 
+Prerelease versions of specific binding extensions are made maintained in a preview extension bundle. The preview extension bundle (`Microsoft.Azure.Functions.ExtensionBundle.Preview`) allows you to take advantage of preview extensions and new behaviors in existing extensions before they're declared as GA. 
 
 Keep these considerations in mind when choosing to use a non-GA extension bundle:
 
