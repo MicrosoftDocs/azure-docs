@@ -47,7 +47,7 @@ In .NET isolated, the alternative [storage providers](./durable-functions-storag
 
 ## Extension Bundles users
 
-Users of [Extension Bundles](../functions-bindings-register.md#extension-bundles) (the recommended Azure Functions extension management mechanism for non-.NET users) simply need to install their language runtime's Durable Functions SDK. The SDKs for each first-party language are listed in the table below:
+Users of [Extension Bundles](../extension-bundles.md) (the recommended Azure Functions extension management mechanism for non-.NET users) simply need to install their language runtime's Durable Functions SDK. The SDKs for each first-party language are listed in the table below:
 
 * Node (JavaScript / TypeScript): The [durable-functions](https://www.npmjs.com/package/durable-functions) npm package.
 * Python: The [azure-functions-durable](https://pypi.org/project/azure-functions-durable/) PyPI package.
