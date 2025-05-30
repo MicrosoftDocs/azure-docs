@@ -74,7 +74,7 @@ App Service Build Service is the default build provider for Azure Repos. To use 
 
 1. If you keep App Service Build Service as the build provider, select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy continuously.
 
-   If your DevOps organization isn't listed, make sure it's linked to your Azure subscription. For more information, see [Create an Azure service connection](/azure/devops/pipelines/library/connect-to-azure).
+   If your DevOps organization isn't listed, make sure to link it to your Azure subscription. For more information, see [Create an Azure service connection](/azure/devops/pipelines/library/connect-to-azure).
 
 1. Select **Save**.
 
@@ -140,20 +140,19 @@ To use Azure Pipelines as the build provider, select the **Azure Pipelines** opt
 
 -----
 
-[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
-
 ## Frequently asked questions
 
-* [Does the GitHub Actions build provider work if basic authentication is disabled?](#does-the-github-actions-build-provider-work-if-basic-authentication-is-disabled)
+* [How does the GitHub Actions build provider work if basic authentication is disabled?](#how-does-the-github-actions-build-provider-work-if-basic-authentication-is-disabled)
 * [What does the user-assigned identity option do in GitHub Actions?](#what-does-the-user-assigned-identity-option-do-in-github-actions)
 * [Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
 * [Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
 
-### Does the GitHub Actions build provider work if basic authentication is disabled?
+### How does the GitHub Actions build provider work if basic authentication is disabled?
 
-The GitHub Actions build provider doesn't work with basic authentication if basic authentication is disabled. Try using GitHub Actions with the user-assigned identity option. For more information, see [Deploy without basic authentication](configure-basic-auth-disable.md#deploy-without-basic-authentication).
+The GitHub Actions build provider doesn't work with basic authentication if basic authentication is disabled. Try using GitHub Actions with the user-assigned identity option instead. For more information, see [Deploy without basic authentication](configure-basic-auth-disable.md#deploy-without-basic-authentication).
 
 ### What does the user-assigned identity option do in GitHub Actions?
+<a name="=what-does-the user-assigned-identity-option-do-for-github-actions"></a>
 
 When you select **User-assigned identity** for **GitHub** source, App Service configures all the necessary resources in Azure and GitHub. App Service enables the recommended Microsoft OpenID Connect authentication with GitHub Actions.
 
@@ -181,6 +180,8 @@ For more information on using alternative steps, see [Deploy to App Service usin
 ### Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?
 
 The message indicates that the selected user-assigned managed identity doesn't have the required role to enable OpenID Connect between the GitHub repository and the App Service app. The identity must have **Owner**, **Contributor**, or **Websites Contributor** role on the app. The least privileged role that the identity needs is **Websites Contributor**.
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## Related content
 
