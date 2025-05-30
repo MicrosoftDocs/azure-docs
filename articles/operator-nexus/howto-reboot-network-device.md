@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Reboot a network device
 
-This article explains how to reboot a network device in Azure Operator Nexus Network Fabric. It introduces two reboot modes that users can use to restart their devices without requiring zero touch provisioning (ZTP).
+This article explains how to reboot a network device in Azure Operator Nexus Network Fabric. It introduces two reboot modes that users can use to restart their devices without requiring zero-touch provisioning (ZTP).
 
 A new `POST` action was added to the device resource. Users can trigger a reboot and monitor its success or failure by using the configuration state property.
 
