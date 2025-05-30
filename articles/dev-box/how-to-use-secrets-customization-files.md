@@ -17,9 +17,6 @@ ms.date: 05/10/2025
 
 # Use Azure Key Vault secrets in customization files
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
-
 You can use secrets from your Azure key vault in your YAML customizations to clone private repositories, or with any task you author that requires an access token. For example, in a team customization file, you can use a personal access token (PAT) stored in a key vault to access a private repository.
 
 ## Use key vault secrets in customization files

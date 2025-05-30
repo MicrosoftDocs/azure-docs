@@ -13,7 +13,7 @@ You can get support for your Palo Alto deployment through a **New Support reques
 
 ## Getting support  
 
-1. To contact support about a Cloud NGFW by Palo Alto Networks resource, select your Cloud NGFW by Palo Alto Networks resource in the Resource menu.
+1. To contact support about a Cloud NGFW by Palo Alto Networks resource, select your Cloud NGFW by Palo Alto Networks resource in the service menu.
 
 1. Select the **New Support request**, then **Raise a support ticket**.
 

@@ -7,7 +7,7 @@ ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 05/15/2025
 ms.author: patricka
 ---
 
@@ -32,11 +32,11 @@ The steps in this article walk through a process called manual provisioning, whe
 This article covers using X.509 certificates as your authentication method. If you want to use symmetric keys, see [Create and provision an IoT Edge device on Linux using symmetric keys](how-to-provision-single-device-linux-symmetric.md).
 
 > [!NOTE]
-> If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub device provisioning service:
+> If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub Device Provisioning Service:
 >
-> * [Create and provision IoT Edge devices at scale using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
-> * [Create and provision IoT Edge devices at scale with a TPM](how-to-provision-devices-at-scale-linux-tpm.md)
-> * [Create and provision IoT Edge devices at scale using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
+> * [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
+> * [Create and provision IoT Edge devices at scale with a TPM on Linux](how-to-provision-devices-at-scale-linux-tpm.md)
+> * [Create and provision IoT Edge devices at scale on Linux using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ Now that the container engine and the IoT Edge runtime are installed on your dev
 
 # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-1. Create the configuration file for your device based on a template file that's provided as part of the IoT Edge installation.
+1. Create the configuration file for your device based on a template file provided as part of the IoT Edge installation.
 
     ```bash
     sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
@@ -94,7 +94,7 @@ Now that the container engine and the IoT Edge runtime are installed on your dev
 
 Update the following fields:
 
-* **iothub_hostname**: Hostname of the IoT Hub the device connects to. For example, `{IoT hub name}.azure-devices.net`.
+* **iothub_hostname**: Hostname of the IoT hub the device connects to. For example, `{IoT hub name}.azure-devices.net`.
 * **device_id**: The ID that you provided when you registered the device.
 * **identity_cert**: URI to an identity certificate on the device, for example: `file:///path/identity_certificate.pem`. Or, dynamically issue the certificate using EST or a local certificate authority.
 * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/identity_key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the 
@@ -140,7 +140,7 @@ After entering the provisioning information in the configuration file, apply you
 
     Update the following fields:
 
-    * **iothub_hostname**: Hostname of the IoT Hub where the device connects. For example, `example.azure-devices.net`.
+    * **iothub_hostname**: Hostname of the IoT hub where the device connects. For example, `example.azure-devices.net`.
     * **device_id**: The ID that you provided when you registered the device.
     * **identity_cert**: URI to an identity certificate on the device, for example: `file:///var/snap/azure-iot-identity/current/shared/identity_certificate.pem`.
     * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///var/snap/azure-iot-identity/current/shared/identity_key.pem`.
@@ -163,7 +163,7 @@ After entering the provisioning information in the configuration file, apply you
 
 To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
 
-1. Select **Devices** from the IoT Hub menu.
+1. Select **Devices**, under **Device management**, from the resource menu.
 
 1. Select your device to open its page.
 
@@ -203,7 +203,7 @@ Use the `check` tool to verify configuration and connection status of the device
 sudo iotedge check
 ```
 
-You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red). For troubleshooting common errors, see [Solutions to common issues for Azure IoT Edge](troubleshoot-common-errors.md).
+You can expect a range of responses that might include **OK** (green), **Warning** (yellow), or **Error** (red). For troubleshooting common errors, see [Solutions to common issues for Azure IoT Edge](troubleshoot-common-errors.md).
 
 :::image type="content" source="media/how-to-provision-single-device-linux-x509/config-checks.png" alt-text="Screenshot of sample responses from the check command." lightbox="media/how-to-provision-single-device-linux-x509/config-checks.png":::
 
@@ -211,7 +211,7 @@ You can expect a range of responses that may include **OK** (green), **Warning**
 >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
 
 >[!NOTE]
->On a newly provisioned device, you may see an error related to IoT Edge Hub:
+>On a newly provisioned device, you might see an error related to IoT Edge Hub:
 >
 >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
 >
@@ -219,7 +219,7 @@ You can expect a range of responses that may include **OK** (green), **Warning**
 >
 >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
-View all the modules running on your IoT Edge device. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
+View all the modules running on your IoT Edge device. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any other modules that you deploy to your device.
 
    ```bash
    sudo iotedge list
@@ -229,12 +229,12 @@ When you create a new IoT Edge device, it displays the status code `417 -- The d
 
 ## Offline or specific version installation (optional)
 
-The steps in this section are for scenarios not covered by the standard installation steps. This may include:
+The steps in this section are for scenarios not covered by the standard installation steps. These scenarios might include:
 
 * Install IoT Edge while offline
 * Install a release candidate version
 
-Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
+Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their subversions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
 If you're using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
@@ -248,7 +248,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
 
    1. Find the **aziot-identity-service** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
 
-   2. Use the copied link in the following command to install that version of the identity service:
+   2. To install that version of the identity service, use the copied link in the following command:
 
       # [Ubuntu / Debian](#tab/ubuntu+debian)
       ```bash

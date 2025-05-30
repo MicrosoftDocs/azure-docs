@@ -13,8 +13,6 @@ ms.custom: template-concept
 
 # Microsoft Dev Box deployment guide
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
 In this article, you learn about the process, configuration options, and considerations for planning and implementing a Microsoft Dev Box deployment.
 
 The deployment of Microsoft Dev Box requires the [involvement of different roles](#organizational-roles-and-responsibilities) within your organization. Each role has particular responsibilities and requirements. Before you start the implementation of Microsoft Dev Box, it's important to [collect all requirements](#define-your-requirements-for-microsoft-dev-box) from the different roles, as they influence the configuration settings for the different components in Microsoft Dev Box. Once you have outlined your requirements, you can then go through the [deployment steps to roll out Dev Box](#deploy-microsoft-dev-box) in your organization.

@@ -13,7 +13,6 @@ ms.date: 03/05/2025
 
 # Microsoft Dev Box roadmap
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
 
 This roadmap presents a set of planned feature releases that underscores Microsoft's commitment to deliver the most secure and productive developer experience from the cloud. This feature list offers a glimpse into our plans for the next six months, highlighting key features we're developing. It's not exhaustive but shows major investments. Some features might release as previews and evolve based on your feedback before becoming generally available. We always listen to your input, so the timing, design, and delivery of some features might change.
 

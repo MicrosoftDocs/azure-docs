@@ -15,7 +15,7 @@ You can get support for your Astro  deployment through a **New Support request**
 
 ## Getting support
 
-1. To contact support about an Astro resource, select the resource in the Resource menu.
+1. To contact support about an Astro resource, select the resource in the service menu.
 
 1. Select the **Support + troubleshooting** in Help menu on the left of the Overview page.
 

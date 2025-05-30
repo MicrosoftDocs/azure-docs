@@ -4,8 +4,8 @@ description: Supported software versions that are used for Azure VMware Solution
 ms.topic: include
 ms.service: azure-vmware
 ms.date: 4/2/2025
-author: suzizuber
-ms.author: v-suzuber
+author: ju-shim
+ms.author: jushiman
 ms.custom: engagement-fy23
 ---
 

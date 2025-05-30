@@ -14,8 +14,6 @@ ms.date: 02/05/2025
 
 # Configure imaging for Dev Box team customizations
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
 Using a customization file simplifies the creation of dev boxes for your team. With dev box customizations, you can create a shared team customization by creating a file called an *image definition*. Creating a reusable image from this image definition optimizes customizations and saves time during dev box creation. In this article, you learn how to configure a pool to use an image definition and build reusable images for your development teams.
 
 To configure imaging for Microsoft Dev Box team customizations, enable project-level catalogs and configure catalog sync settings for the project. Then, attach a catalog that contains a definition file to your project, configure a dev box pool to use an image definition, and verify that the customizations apply to a new dev box. When the customizations apply correctly, you can choose to build a reusable image, which makes the creation of new dev boxes quicker.

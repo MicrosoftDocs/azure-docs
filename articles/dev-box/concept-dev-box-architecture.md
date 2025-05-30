@@ -14,9 +14,6 @@ ms.custom: template-concept
 
 # Microsoft Dev Box architecture overview
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
-
 In this article, you learn about the architecture and key concepts for Microsoft Dev Box. Microsoft Dev Box gives developers self-service access to preconfigured, and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, and manage security and network settings to access resources securely.
 
 Microsoft Dev Box builds on the same foundations as [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Both services are complementary and share certain architectural components, such as a dev center or project.
