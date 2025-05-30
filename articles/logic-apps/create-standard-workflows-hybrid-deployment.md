@@ -6,18 +6,13 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/07/2025
+ms.date: 06/02/2025
 # Customer intent: As a developer, I want to create a Standard logic app workflow that can run on customer-managed infrastructure, which can include on-premises systems, private clouds, and public clouds.
 ---
 
-# Create Standard logic app workflows for hybrid deployment on your own infrastructure (Preview)
+# Create Standard logic app workflows for hybrid deployment on your own infrastructure
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
->
-> This capability is in preview, incurs charges for usage, and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For scenarios where you need to use, control, and manage your own infrastructure, you can create Standard logic app workflows using the hybrid deployment model in Azure Logic Apps. This model provides capabilities for you to build and host integration solutions for partially connected environments that require local processing, storage, and network access. Your infrastructure can include on-premises systems, private clouds, and public clouds. With the hybrid model, your Standard logic app workflow is powered by the Azure Logic Apps runtime, which is hosted on premises as part of an Azure Container Apps extension.
 
@@ -27,20 +22,14 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 ## Limitations
 
-- Hybrid deployment for Standard logic apps is available and supported only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#limitations).
+The following section describes the limitations for the hybrid deployment option:
 
-- Managed identity authentication for managed API connectors currently isn't available in this preview release.
-
-  Azure Arc-enabled Kubernetes clusters currently don't support managed identity authentication for managed API connections. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections).
-
-- Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account associated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the following app setting and provide your storage account connection string:
-
-  ```json
-  "Values": {
-    "name": "AzureWebJobsStorage",
-    "value": "{storage-account-connection-string}"
-  }
-  ```
+| Limitation | Description |
+|------------|-------------|
+| Supported Azure regions | Hybrid deployment is currently available and supported only in the following Azure regions: <br><br>- Central US <br>- East Asia <br>- East US <br>- North Central US <br>- Southeast Asia <br>- Sweden Central <br>- UK South <br>- West Europe <br>- West US <br> |
+| Data logging with a disconnected runtime | In partially connected mode, the Azure Logic Apps runtime can stay disconnected up to 24 hours and still retain data logs. However, any logging data past this duration might be lost. |
+| Unsupported capabilities in single-tenant Azure Logic Apps (Standard) and related Azure services | - Deployment slots <br><br>- Azure Logic Apps Business Rules Engine <br><br>- Azure Business process tracking <br><br>- Managed identity authentication for connector operations. Azure Arc-enabled Kubernetes clusters currently don't support managed identity authentication for managed API connections. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections). |
+| Function-based triggers | Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account associated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the app setting named **AzureWebJobsStorage** and provide your storage account connection string:<br><br>`"Values": {` <br>    `"name": "AzureWebJobsStorage",` <br>    `"value": "{storage-account-connection-string}"` <br>`}` |
 
 ## Prerequisites
 
