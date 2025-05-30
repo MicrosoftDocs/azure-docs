@@ -37,7 +37,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **Stability improvements**: Introduced merge throttling to manage code execution waits, improving system stability under high concurrency conditions.
 
-**Custom error container for $import**: Added ability for users to specify the name of the container where errors encountered during $import are logged. If not specified, the default container is used. More information [here](/articles/healthcare-apis/fhir/import-data.md).
+**Custom error container for $import**: Added ability for users to specify the name of the container where errors encountered during $import are logged. If not specified, the default container is used. More information [here](/fhir/import-data.md).
 
 **Search for not referenced resources**: Added functionality to search for resources that aren't referenced by other resources. 
 
