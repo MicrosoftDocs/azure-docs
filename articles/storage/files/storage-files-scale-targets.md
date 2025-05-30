@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure Files
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 03/11/2025
+ms.date: 05/30/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -100,17 +100,18 @@ Azure file share scale targets apply at the file share level.
 | Maximum storage size | 100 TiB | 256 TiB | 100 TiB |
 | Maximum number of files | Unlimited | Unlimited | Unlimited |
 | Maximum IOPS (Data) | 102,400 IOPS (dependent on provisioning) | 50,000 IOPS (dependent on provisioning) | 20,000 IOPS |
-| Maximum IOPS (Metadata<sup>1</sup>) | Up to 35,000 IOPS | Up to 12,000 IOPS | Up to 12,000 IOPS |
+| Maximum IOPS (Metadata<sup>1</sup>) | Up to 35,000 IOPS<sup>2</sup> | Up to 12,000 IOPS | Up to 12,000 IOPS |
 | Maximum throughput | 10,340 MiB / sec (dependent on provisioning) | 5,120 MiB / sec (dependent on provisioning) | Up to storage account limits |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots | 200 snapshots |
-| Maximum filename length<sup>2</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters | 2,048 characters |
+| Maximum filename length<sup>3</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters | 2,048 characters |
 | Maximum length of individual pathname component (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters | 255 characters |
 | Hard link limit (NFS only) | 178 | N/A | N/A |
 | Maximum number of SMB Multichannel channels | 4 | N/A | N/A |
 | Maximum number of stored access policies per file share | 5 | 5 | 5 |
 
 <sup>1</sup> Metadata IOPS (open/close/delete). See [Monitor Metadata IOPS](analyze-files-metrics.md#monitor-utilization-by-metadata-iops) for guidance.<br>
-<sup>2</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
+<sup>2</sup> Scaling to 35,000 IOPS for SSD file shares requires [registering for the metadata caching feature](smb-performance.md#register-for-the-metadata-caching-feature).<br>
+<sup>3</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
 
 ### File scale targets
 File scale targets apply to individual files stored in Azure file shares.
