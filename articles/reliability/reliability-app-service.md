@@ -8,7 +8,7 @@ ms.custom: subject-reliability
 ms.service: learn
 ms.date: 05/07/2025
 zone_pivot_groups: app-service-sku
-#Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure App Service works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
+#Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure App Service works from a reliability perspective and plan resiliency strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
 # Reliability in Azure App Service
@@ -399,7 +399,7 @@ The following resources are related to this approach:
 
 - [Reference architecture: Highly available multi-region web application](/azure/architecture/web-apps/guides/enterprise-app-patterns/reliable-web-app/dotnet/guidance)
 
-- [Multi-region App Service apps for disaster recovery](/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service)
+- [Approaches to consider](/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service?tabs=paired-regions#approaches-to-consider)
 
 - [Tutorial: Create a highly available multi-region app in App Service](/azure/app-service/tutorial-multi-region-app)
 
