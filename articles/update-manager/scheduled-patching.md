@@ -292,7 +292,7 @@ For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the fo
 
 > [!NOTE]
 > - Azure Update Manager doesn't stop installing the new updates if it's approaching the end of the maintenance window.
-> - Azure Update Manger doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed . 
+> - Azure Update Manager doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed . 
 > - If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
 
 

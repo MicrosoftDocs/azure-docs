@@ -104,7 +104,7 @@ Use ERSPAN encapsulation when there's a need to extend monitored traffic across 
 
 ### ERSPAN architecture
 
-ERSPAN sessions include a source session and a destination session configured on different switches. Between the source and destination switches, traffic is encapsulated in GRE, and can be routed over layer 3 networks.
+ERSPAN sessions include a source session and a destination session configured on different switches. Between the source and destination switches, traffic is encapsulated in GRE and can be routed over layer 3 networks.
 
 For example:
 
