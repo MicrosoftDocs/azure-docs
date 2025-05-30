@@ -1,4 +1,4 @@
----
+fy23---
 title: Azure Blob Storage lifecycle management policy structure
 titleSuffix: Azure Blob Storage
 description: Learn more about the elements of a lifecycle management policy.
@@ -74,7 +74,7 @@ If you apply the **prefixMatch** filter, then each rule can define up to 10 case
 
 This filter will match all blobs in `sample-container` where the names begin with `blob1`. If you don't define a prefix match, then, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals.
 
-#### Blob index match filer
+#### Blob index match filter
 
 If you apply the **blobIndexMatch** filter, then each rule can define up to 10 blob index tag conditions. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/`, then the **blobIndexMatch** filter is `{"name": "Project","op": "==","value": "Contoso"}`. If you don't define a value for the **blobIndexMatch** filter, then the rule applies to all blobs within the storage account.
 
@@ -86,8 +86,8 @@ You must define at least one action for each rule. Actions are applied to the fi
 |---|---|
 | **TierToCool** | Set a blob to the cool access tier.<br><br>Not supported with append blobs, page blobs, or with blobs in a premium block blob storage account.|
 | **TierToCold** | Set a blob to the cold access tier.<br><br>Not supported with append blobs, page blobs, or with blobs in a premium block blob storage account.| 
-| **TierToArchive**  | Set a blob to the archive access tier.<br><br>Not supported with append blobs, page blobs, or with blobs in a premium block blob storage account. Also not supported with blobs that use an encryption scope or with blobs in accounts that are configured for Zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS)|
-| **enableAutoTierToHotFromCool** | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed.<br>This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition.<br><br>Not supported with previous versions or snapshots. | 
+| **TierToArchive**  | Set a blob to the archive access tier.<br>Rehydrating objects does not the object's last modified or last access time properties. As a result, this action can move objects back to the archive tier because the the last modified time or last access time continues to be beyond the threshold set for the rule. To avoid this scenario, add the `daysAfterLastTierChangeGreaterThan` condition to this action.<br>This action is not supported with append blobs, page blobs, or with blobs in a premium block blob storage account. Also not supported with blobs that use an encryption scope or with blobs in accounts that are configured for Zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS).|
+| **enableAutoTierToHotFromCool** | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed.<br>This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition. This action has no effect on blobs that were set to the cool tier prior to enabling this action in a rule. If an object was already set to the cool tier before the rule was enabled, and that object is accessed, it remains in the cool tier and is not automatically moved to the hot tier.<br><br>Not supported with previous versions or snapshots. | 
 | **Delete** | Deletes a blob.<br><br>Not supported with page blobs or blobs in an immutable container.|
 
 If you define more than one action on the same blob, then lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
@@ -102,7 +102,7 @@ A lifecycle management policy will not delete the current version of a blob unti
 
 ### Action run conditions
 
-All run conditions are based on age. If the number of days that have transpired exceeds the number specified for the condition, then the associated action can execute. 
+All run conditions are time-based. If the number of days that have transpired exceeds the number specified for the condition, then the associated action can execute. Policy conditions are assessed on each object only once during a policy run. In some cases, an object might meet the condition after it was already assessed by a run. Such objects are processed in subsequent runs.
 
 Current versions use the last modified time or last access time, previous versions use the version creation time, and blob snapshots use the snapshot creation time to track age. 
 
