@@ -6,18 +6,13 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/13/2025
+ms.date: 06/02/2025
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
-# Set up your own infrastructure for Standard logic apps using hybrid deployment (Preview)
+# Set up your own infrastructure for Standard logic apps using hybrid deployment
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
->
-> This capability is in preview, incurs charges for usage, and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Sometimes you have to set up and manage your own infrastructure to meet specific needs for regulatory compliance, data privacy, or network restrictions. Azure Logic Apps offers a *hybrid deployment model* so that you can deploy and host Standard logic app workflows in on-premises, private cloud, or public cloud scenarios. This model gives you the capabilities to host integration solutions in partially connected environments when you need to use local processing, data storage, and network access. With the hybrid option, you have the freedom and flexibility to choose the best environment for your workflows.
 
@@ -45,6 +40,27 @@ For more information, see the following documentation:
 
 This how-to guide shows how to set up the necessary on-premises resources in your infrastructure so that you can create, deploy, and host a Standard logic app workflow using the hybrid deployment model.
 
+## Limitations
+
+The following section describes the limitations for the hybrid deployment option:
+
+| Limitation | Description |
+|------------|-------------|
+| Data logging with a disconnected runtime | In partially connected mode, the Azure Logic Apps runtime can stay disconnected up to 24 hours and still retain data logs. However, any logging data past this duration might be lost. |
+| Supported Azure regions | Hybrid deployment is currently available and supported only in the following Azure regions: <br><br>- Central US <br>- East Asia <br>- East US <br>- North Central US <br>- Southeast Asia <br>- Sweden Central <br>- UK South <br>- West Europe <br>- West US <br> |
+| Supported Azure Arc-enabled Kubernetes clusters | - Azure Arc-enabled Kubernetes clusters <br>- Azure Arc-enabled Kubernetes clusters on Azure Local (formerly Azure Stack HCI) <br>- Azure Arc-enabled Kubernetes clusters on Windows Server |
+| Unsupported capabilities in single-tenant Azure Logic Apps (Standard) and related Azure services | - Managed identity authentication for connector operations <br>- Deployment slots <br>- Azure Logic Apps Business Rules Engine <br>- Azure Business process tracking |
+
+## Prerequisites
+
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Basic understanding about [core AKS concepts](/azure/aks/concepts-clusters-workloads)
+
+- [Technical requirements for working with Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli#before-you-begin)
+
+- [Technical requirements for Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-overview#prerequisites), including access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
+
 <a name="billing"></a>
 
 ## How billing works
@@ -60,7 +76,7 @@ The hybrid option uses a billing model where you pay only for what you need and 
   For more information, see the following sections:
 
   - [vCPU usage calculation](#vcpu-usage-calculation)
-  - [Billing charge calculation](#billing-charge-calculation)
+  - [Billing charge calculation](#billing-charge-calculation), based on the rate in [Logic Apps Hybrid Deployment Model pricing section](https://azure.microsoft.com/pricing/details/logic-apps/#pricing).
 
 - Billing charges for any [managed (shared) connector operations](../connectors/managed.md), such as Microsoft Teams or Microsoft Office 365, in your logic app workflows.
 
@@ -83,35 +99,17 @@ The vCPU usage for your Standard logic app affects your billing charges. A *vCPU
 
 ### Billing charge calculation
 
-The following formula calculates your billing charge per hour, which is based on vCPU usage and at the rate of $0.18 USD per hour while your logic app is enabled:
+The following formula calculates your billing charge per hour, which is based on vCPU usage and the $USD rate per hour in the [Logic Apps Hybrid Deployment Model pricing section](https://azure.microsoft.com/pricing/details/logic-apps/#pricing) while your logic app is enabled:
 
 **Charge per hour** = (**vCPU usage**) x (**rate per hour**)
 
-For example, the following table shows some example billing charge calculations:
+For example only, the following table shows some example billing charge calculations:
 
 | # of allocated vCPUs | # of replicas | vCPU usage | $USD rate per hour | Charge per hour |
 |----------------------|---------------|------------|--------------------|-----------------|
-| 1 | 1 | (1 x 1) = 1 | $0.18 | (1 x $0.18) = **$0.18** |
-| 0.5 | 2 | (0.5 x 2) = 1 | $0.18 | (1 x $0.18) = **$0.18** |
-| 0.5 | 1 | (0.5 x 1) = 0.5 | $0.18 | (0.5 x $0.18) = **$0.09** |
-
-## Limitations
-
-- Hybrid deployment is currently available and supported only for the following Azure Arc-enabled Kubernetes clusters:
-
-  - Azure Arc-enabled Kubernetes clusters
-  - Azure Arc-enabled Kubernetes clusters on Azure Local (formerly Azure Stack HCI)
-  - Azure Arc-enabled Kubernetes clusters on Windows Server
-
-## Prerequisites
-
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-- Basic understanding about [core AKS concepts](/azure/aks/concepts-clusters-workloads)
-
-- [Technical requirements for working with Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli#before-you-begin)
-
-- [Technical requirements for Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-overview#prerequisites), including access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
+| 1 | 1 | (1 x 1) = 1 | $0.22 | (1 x $0.22) = **$0.22** |
+| 0.5 | 2 | (0.5 x 2) = 1 | $0.22 | (1 x $0.22) = **$0.22** |
+| 0.5 | 1 | (0.5 x 1) = 0.5 | $0.22 | (0.5 x $0.22) = **$0.11** |
 
 ## Create a Kubernetes cluster
 
