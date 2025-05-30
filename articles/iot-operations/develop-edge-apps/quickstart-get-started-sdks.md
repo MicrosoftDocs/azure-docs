@@ -25,7 +25,10 @@ Before you begin, prepare the following prerequisites:
 
 ## Setting up
 
-Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow MQTT broker to be accessed directly from the developer environment. The following development environment setup options use [k3d](https://k3d.io/#what-is-k3d) to simplify Kubernetes cluster creation. GitHub Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
+Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow MQTT broker to be accessed directly from the developer environment. The following development environment setup options use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster. GitHub Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
+
+> [!IMPORTANT]
+> The following development environment setup options, use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster, and deploys Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment). If you want to use [secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), we recommend you follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to create a K3s cluster on Ubuntu and [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy with secure settings. Then proceed to [configure Azure IoT Operations for deployment](#configure-azure-iot-operations-for-deployment).
 
 ### [Codespaces](#tab/codespaces)
 
@@ -36,7 +39,8 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure/iot-operations-sdks?quickstart=1&editor=vscode)
 
-1. Once the codespace is created, you will have a container with the developer tools and a local k3s cluster pre-installed.
+1. Once the codespace is created, you will have a container with the developer tools and a local k3s cluster running in k3d pre-installed.
+
 
 ### [Ubuntu](#tab/ubuntu)
 
@@ -61,6 +65,19 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
     ```bash
     sudo ./tools/deployment/initialize-cluster.sh
     ```
+
+    This script does the following:
+
+    1. Installs prerequisites including:
+        1. Install k3d
+        1. Install Step CLI
+        1. Helm
+        1. AZ CLI
+        1. Step
+    1. **DELETE** the existing default k3d cluster
+    1. Deploy a new k3d cluster
+    1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
+    1. Create a local registry
 
 ### [Visual Studio Code Dev Containers](#tab/vscode-dev-containers)
 
@@ -133,11 +150,24 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
     sudo ./tools/deployment/initialize-cluster.sh
     ```
 
+    This script does the following:
+
+    1. Installs prerequisites including:
+        1. Install k3d
+        1. Install Step CLI
+        1. Helm
+        1. AZ CLI
+        1. Step
+    1. **DELETE** the existing default k3d cluster
+    1. Deploy a new k3d cluster
+    1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
+    1. Create a local registry
+
 ---
 
 ## Deploy Azure IoT Operations
 
-Azure IoT Operations will be deployed on the development cluster that you created in the previous step, and then the configuration will be altered with the `configure-aio.sh` script to provide additional off-cluster access methods to streamline development:
+Azure IoT Operations will be deployed on the development cluster that you created in the previous step.
 
 ### [Codespaces](#tab/codespaces)
 
@@ -152,6 +182,8 @@ Follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codes
 
 ### [Visual Studio Code Dev Containers](#tab/vscode-dev-containers)
 
+Open a new bash terminal in the VS Code Dev Container and do the following steps:
+
 [!INCLUDE [deploy-aio-sdks-linux](../includes/deploy-aio-sdks-linux.md)]
 
 ### [Windows Subsystem for Linux (WSL)](#tab/wsl)
@@ -159,6 +191,10 @@ Follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codes
 [!INCLUDE [deploy-aio-sdks-linux](../includes/deploy-aio-sdks-linux.md)]
 
 ---
+
+## Configure Azure IoT Operations for development
+
+After Azure IoT Operations is deployed, you need to configure it for development. This includes setting up the MQTT broker and authentication methods, as well as ensuring that the necessary environment variables are set for your development environment:
 
 1. Check that Azure IoT Operations is successfully installed and **resolve any errors before continuing**:
 
@@ -188,6 +224,13 @@ Follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codes
     ```bash
     ./tools/deployment/configure-aio.sh
     ```
+
+    This script does the following:
+
+    1. Setup certificate services, if missing
+    1. Create root and intermediate CAs for x509 authentication
+    1. Create the trust bundle ConfigMap for the Broker to authentication x509 clients
+    1. Configure a `BrokerListener` and `BrokerAuthentication` resources for SAT and x509 auth
 
 ## Shell configuration
 
