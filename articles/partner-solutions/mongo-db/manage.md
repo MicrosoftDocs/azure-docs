@@ -43,7 +43,7 @@ To access your MongoDB Atlas account, select **Go to MongoDB Atlas** on the work
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 > [!IMPORTANT]
-> To learn how to delete your MongoDB Atlas Organization, see [MongoDB's documentation](https://www.mongodb.com/docs/atlas/access/orgs-create-view-edit-delete/#delete-an-organization). 
+> Following these steps deletes your MongoDB Atlas Azure resource, but doesn't delete the organization in Atlas. To learn how to delete your MongoDB Atlas Organization, see [MongoDB's documentation](https://www.mongodb.com/docs/atlas/access/orgs-create-view-edit-delete/#delete-an-organization). 
 
 ## Get Support
 
