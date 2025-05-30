@@ -6,6 +6,7 @@ ms.service: azure-automanage
 ms.topic: reference
 ms.date: 11/17/2022
 ms.author: andrsmith
+# Customer intent: "As a software developer, I want to integrate the Automanage SDKs into my application, so that I can automate the management and configuration of cloud resources efficiently before the upcoming deprecations."
 ---
 
 # Automanage SDK overview

@@ -4,6 +4,7 @@ description: Common Automanage onboarding errors and how to troubleshoot them
 ms.service: azure-automanage
 ms.topic: concept-article
 ms.date: 12/10/2021
+# Customer intent: As an IT administrator, I want to troubleshoot Automanage onboarding errors, so that I can successfully deploy machines onto the service without failures.
 ---
 
 # Troubleshoot common Automanage onboarding errors

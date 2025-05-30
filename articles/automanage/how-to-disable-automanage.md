@@ -6,6 +6,7 @@ ms.service: azure-automanage
 ms.topic: how-to
 ms.date: 09/07/2022
 ms.author: memccror
+# Customer intent: As an IT administrator managing virtual machines, I want to disable Azure Automanage on specific VMs, so that I can implement customized configurations for sensitive workloads beyond Azure's default best practices.
 ---
 
 # Disabling Automanage for VMs
