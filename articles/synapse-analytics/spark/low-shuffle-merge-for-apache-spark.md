@@ -29,8 +29,8 @@ It's available on Synapse Pools for Apache Spark versions 3.2 and 3.3.
 
 |Version| Availability | Default |
 |--|--|--|
-| Delta 1.2 / [Spark 3.2](./apache-spark-32-runtime.md) | Yes | false |
-| Delta 2.2 / [Spark 3.3](./apache-spark-33-runtime.md) | Yes | true |
+| Delta 2.4 / [Spark 3.4](./apache-spark-34-runtime.md) | Yes | true |
+| Delta 3.2 / [Spark 3.5](./apache-spark-35-runtime.md) | Yes | true |
 
 ## Benefits of Low Shuffle Merge
 
