@@ -3,9 +3,9 @@ title: Migrate MSIX packages from MSIX app attach to app attach - Azure Virtual 
 description: Learn how to migrate MSIX packages from MSIX app attach to app attach in Azure Virtual Desktop using a PowerShell script.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 02/28/2024
+author: dougeby
+ms.author: avdcontent
+ms.date: 04/23/2025
 ---
 
 # Migrate MSIX packages from MSIX app attach to app attach
@@ -29,7 +29,7 @@ The migration script can perform the following actions:
 
 To use the migration script, you need:
 
-- A host pool configured as a validation environment, with at least one MSIX package added with MSIX app attach.
+- A host pool, with at least one MSIX package added with MSIX app attach.
 
 - An Azure account with the [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) Azure role-based access control (RBAC) role assigned on the host pool.
 

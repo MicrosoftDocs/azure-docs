@@ -27,6 +27,28 @@ in the Azure Portal open “Virtual machines”, select the name of each virtual
 “Settings” in the table of contents, and finally “Extensions + Applications”.
 There you will see a list of extensions assigned.
 
+The following query will return a list of virtual machines in Azure with the
+DSC extension (for Windows) attached.
+
+```Kusto
+resources
+| where type == 'microsoft.compute/virtualmachines'
+| extend
+    JoinID = toupper(id),
+    OSName = tostring(properties.osProfile.computerName),
+    OSType = tostring(properties.storageProfile.osDisk.osType)
+| join kind=inner(
+    resources
+    | where type == 'microsoft.compute/virtualmachines/extensions'
+    | extend 
+        VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
+        ExtensionName = tolower(name)
+    | where ExtensionName == 'microsoft.powershell.dsc'
+) on $left.JoinID == $right.VMId
+| project OSName, OSType, ExtensionName, ['id']
+| order by tolower(OSName) asc
+```
+
 ## Major differences
 
 Machine configuration uses DSC version 2. DSC Extension uses
@@ -68,7 +90,7 @@ new solution for new machines.
 The expected steps for migration are:
 
 1. Download and expand the `.zip` package used for the DSC extension.
-1. Examine the DSC configuraiton file to understand the scenario.
+1. Examine the DSC configuration file to understand the scenario.
 1. Make any required changes to the configuration.
 1. Use the machine configuration PowerShell cmdlets to create, test, and publish a new package.
 1. Use machine configuration for future deployments rather than DSC extension.

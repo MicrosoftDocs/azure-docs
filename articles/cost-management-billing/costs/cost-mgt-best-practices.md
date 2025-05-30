@@ -176,7 +176,7 @@ For more information, see [cost analysis](quick-acm-cost-analysis.md).
 
 Do you need to import your billing data into an external system, like a dashboard or financial system? Set up automated exports to Azure Storage and avoid manually downloading files every month. You can then easily set up automatic integrations with other systems to keep your billing data in sync.
 
-For more information about exporting billing data, see [Create and manage exported data](tutorial-export-acm-data.md).
+For more information about exporting billing data, see [Create and manage exported data](tutorial-improved-exports.md).
 
 ### Create budgets
 
@@ -222,9 +222,9 @@ For more information, see [What are Azure Reservations?](../reservations/save-co
 
 #### Use Azure Hybrid Benefit
 
-If you already have Windows Server or SQL Server licenses in your on-premises deployments, you can use the Azure Hybrid Benefit program to save in Azure. With the Windows Server benefit, each license covers the cost of the OS (up to two virtual machines), and you only pay for base compute costs. You can use existing SQL Server licenses to save up to 55 percent on vCore-based SQL Database options. Options include SQL Server in Azure Virtual Machines and SQL Server Integration Services.
+If you already have Windows Server or SQL Server licenses in your on-premises deployments, you can use the Azure Hybrid Benefit program to save in Azure. With this Azure offer, each license covers the cost of the OS (up to two virtual machines). SQL Server licensees can save up to 55 percent on vCore-based SQL Database options. Options include SQL Server in Azure Virtual Machines and SQL Server Integration Services. 
 
-For more information, see [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/).
+For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 ### Other resources
 

@@ -1,20 +1,17 @@
 ---
-title: Azure Operator Nexus storage for Kubernetes
+title: Azure Operator Nexus persistent storage for Kubernetes
 description: Get an overview of available storage classes for Kubernetes on Azure Operator Nexus.
 author: pjw711
 ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 01/06/2025
+ms.date: 05/22/2025
 ms.custom: template-concept
 ---
 
-# Azure Operator Nexus storage for Kubernetes
+# Azure Operator Nexus persistent storage for Kubernetes
 
-Each Azure Operator Nexus provides two types of persistent storage to Nexus Kubernetes cluster tenant workloads: *nexus-volume* and *nexus-shared*. Operators select the type of storage they need by creating Persistent Volume Claims (PVCs) using the *nexus-volume* or *nexus-shared* storage class. All data stored in persistent volumes is stored on a storage appliance deployed on-premises as part of the Azure Operator Nexus instance.
-
-> [!IMPORTANT]
-> Azure Operator Nexus doesn't support ephemeral volumes. Nexus recommends that the persistent volume storage mechanisms described in this document are used for all Nexus Kubernetes cluster workload volumes as these mechanisms provide the highest levels of performance and availability. All storage in Azure Operator Nexus is provided by the storage appliance. There's no support for storage provided by baremetal machine disks.
+Each Azure Operator Nexus provides two types of persistent storage to Nexus Kubernetes cluster tenant workloads: *nexus-volume* and *nexus-shared*. Operators select the type of storage they need by creating Persistent Volume Claims (PVCs) using the *nexus-volume* or *nexus-shared* storage class. All data stored in persistent volumes is stored on a storage appliance deployed on-premises as part of the Azure Operator Nexus instance. Azure Operator Nexus requires one storage appliance and supports up to two storage appliances per Azure Operator Nexus instance.
 
 ## Kubernetes storage classes
 
@@ -44,6 +41,8 @@ status:
     storage: 107Mi
   phase: Bound
 ```
+
+Some Azure Operator Nexus deployments may have two storage appliances installed. Persistent volume claims (PVCs) using the *nexus-volume* storage class can place the associated persistent volumes onto a specific storage appliance by using the *storageApplianceName* annotation. More information is available in [this document](./concepts-storage-multiple-appliances.md).
 
 ### StorageClass: nexus-shared
 
@@ -311,3 +310,7 @@ PVCs created using the nexus-volume and nexus-shared have minimum and maximum cl
 - Nexus-shared volumes are logically thin-provisioned on the backing NFS server. This NFS server has a fixed capacity of 1 TiB.
   - A nexus-shared PVC can be provisioned despite requesting more than 1 TiB of storage, however, only 1 TiB can be consumed.
   - It's possible to provision a set of PVCs where the sum of capacity requests is greater than 1 TiB. However, the consumption limit of 1 TiB applies; the set of associated PVs can't consume more than 1 TiB of storage.
+
+## Limitations
+
+- Azure Operator Nexus does not support [CSI ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes).

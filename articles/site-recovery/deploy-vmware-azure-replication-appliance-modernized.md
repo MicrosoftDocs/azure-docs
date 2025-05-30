@@ -158,6 +158,9 @@ If there are any organizational restrictions, you can manually set up the Site R
 
       By default, an authentication code is generated as highlighted below, in the **Appliance configuration manager** page. Use this code in the authentication tab.
 
+     >[!NOTE]
+     >  During Azure Site Recovery modernized appliance deployment, you must use the device code flow for authentication during registration.
+
   - Enter your Microsoft Azure credentials to complete registration.
 
       After successful registration, you can close the tab and move to appliance configuration manager to continue the setup.

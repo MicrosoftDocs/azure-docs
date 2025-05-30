@@ -2,7 +2,7 @@
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 ms.topic: overview
-ms.date: 09/11/2024
+ms.date: 04/23/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -69,8 +69,12 @@ For all other versions, fix permissions with the following steps:
   5. In **Server Roles**, make sure the **sysadmin** role is selected. Select **OK**. The required permissions should now exist.
 
       ![Make sure the sysadmin server role is selected](./media/backup-azure-sql-database/sysadmin-server-role.png)
+  
+     If the SQL Server instance is part of an **Always-On Availability Group (AG)**, ensure that the **NT AUTHORITY\SYSTEM** account has the **VIEW SERVER STATE** permission enabled.
 
-  6. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
+     :::image type="content" source="./media/backup-azure-sql-database/view-server-state-permission.png" alt-text="Screenshot shows how to check permission on an SQL server instance selected for backup." lightbox="./media/backup-azure-sql-database/view-server-state-permission.png":::
+
+6. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
 
       ![Verify the server has appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
 
@@ -207,3 +211,11 @@ To configure simultaneous backups, follow these steps:
 * [Learn about](backup-sql-server-database-azure-vms.md) backing up SQL Server databases.
 * [Learn about](restore-sql-database-azure-vm.md) restoring backed up SQL Server databases.
 * [Learn about](manage-monitor-sql-database-backup.md) managing backed up SQL Server databases.
+
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
+

@@ -2,7 +2,7 @@
 title: Use the Azure Batch client library for JavaScript
 description: Learn the basic concepts of Azure Batch and build a simple solution using JavaScript.
 ms.topic: how-to
-ms.date: 05/16/2023
+ms.date: 04/02/2025
 ms.devlang: javascript
 ms.custom: devx-track-js, linux-related-content
 ---

@@ -2,11 +2,11 @@
 title: Create an ingress controller by using a new Application Gateway deployment
 description: This article provides information on how to deploy the Application Gateway Ingress Controller by using a new Application Gateway deployment.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 10/15/2024
-ms.author: greglin
+ms.date: 4/4/2025
+ms.author: mbender
 ---
 
 # Install AGIC by using a new Application Gateway deployment
@@ -288,7 +288,7 @@ If you use [Cloud Shell](https://shell.azure.com/), you don't need to install He
 1. Install the AGIC package:
 
     ```bash
-    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.8.0 -f helm-config.yaml
+    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.8.1 -f helm-config.yaml
     ```
 
 ## Install a sample app

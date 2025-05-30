@@ -1,7 +1,7 @@
 ---
 title: Azure VMware Solution assessment calculations in Azure Migrate | Microsoft Docs
 description: Provides an overview of Azure VMware Solution assessment calculations in the Azure Migrate service.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 12/06/2024
 ms.custom: engagement-fy25

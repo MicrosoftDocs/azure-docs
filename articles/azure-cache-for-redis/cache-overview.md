@@ -6,6 +6,8 @@ description: Learn about Azure Cache for Redis to enable cache-aside, content ca
 
 ms.topic: overview
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # What is Azure Cache for Redis?
@@ -22,9 +24,9 @@ Azure Cache for Redis improves application performance by supporting common appl
 
 | Pattern      | Description                                        |
 | ------------ | -------------------------------------------------- |
-| [Data cache](cache-web-app-cache-aside-leaderboard.md) | Databases are often too large to load directly into a cache. It's common to use the [cache-aside](/azure/architecture/patterns/cache-aside) pattern to load data into the cache only as needed. When the system makes changes to the data, the system can also update the cache, which is then distributed to other clients. Additionally, the system can set an expiration on data, or use an eviction policy to trigger data updates into the cache.|
-| [Content cache](cache-aspnet-output-cache-provider.md) | Many web pages are generated from templates that use static content such as headers, footers, banners. These static items shouldn't change often. Using an in-memory cache provides quick access to static content compared to backend datastores. This pattern reduces processing time and server load, allowing web servers to be more responsive. It can allow you to reduce the number of servers needed to handle loads. Azure Cache for Redis provides the Redis Output Cache Provider to support this pattern with ASP.NET.|
-| [Session store](cache-aspnet-session-state-provider.md) | This pattern is commonly used with shopping carts and other user history data that a web application might associate with user cookies. Storing too much in a cookie can have a negative effect on performance as the cookie size grows and is passed and validated with every request. A typical solution uses the cookie as a key to query the data in a database. When you use an in-memory cache, like Azure Cache for Redis, to associate information with a user is faster than interacting with a full relational database. |
+| [Data cache](../redis/web-app-cache-aside-leaderboard.md) | Databases are often too large to load directly into a cache. It's common to use the [cache-aside](/azure/architecture/patterns/cache-aside) pattern to load data into the cache only as needed. When the system makes changes to the data, the system can also update the cache, which is then distributed to other clients. Additionally, the system can set an expiration on data, or use an eviction policy to trigger data updates into the cache.|
+| [Content cache](../redis/aspnet-output-cache-provider.md) | Many web pages are generated from templates that use static content such as headers, footers, banners. These static items shouldn't change often. Using an in-memory cache provides quick access to static content compared to backend datastores. This pattern reduces processing time and server load, allowing web servers to be more responsive. It can allow you to reduce the number of servers needed to handle loads. Azure Cache for Redis provides the Redis Output Cache Provider to support this pattern with ASP.NET.|
+| [Session store](../redis/aspnet-session-state-provider.md) | This pattern is commonly used with shopping carts and other user history data that a web application might associate with user cookies. Storing too much in a cookie can have a negative effect on performance as the cookie size grows and is passed and validated with every request. A typical solution uses the cookie as a key to query the data in a database. When you use an in-memory cache, like Azure Cache for Redis, to associate information with a user is faster than interacting with a full relational database. |
 | Job and message queuing | Applications often add tasks to a queue when the operations associated with the request take time to execute. Longer running operations are queued to be processed in sequence, often by another server. This method of deferring work is called task queuing. Azure Cache for Redis provides a distributed queue to enable this pattern in your application.|
 | Distributed transactions | Applications sometimes require a series of commands against a backend data-store to execute as a single atomic operation. All commands must succeed, or all must be rolled back to the initial state. Azure Cache for Redis supports executing a batch of commands as a single [transaction](https://redis.io/topics/transactions). |
 
@@ -59,7 +61,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Zone redundancy](cache-how-to-zone-redundancy.md) |No|Available|Available|Available|Available|
 | [Geo-replication](cache-how-to-geo-replication.md) |No|No|Yes (Passive) |Yes (Active) |Yes (Active) |
 | [Connection audit logs](cache-monitor-diagnostic-settings.md) |No|No|Yes (Poll-based)|Yes (Event-based)|Yes (Event-based)|
-| [Redis Modules](cache-redis-modules.md) |No|No|No|Yes|Preview|
+| [Redis Modules](../redis/redis-modules.md) |No|No|No|Yes|Preview|
 | [Import/Export](cache-how-to-import-export-data.md) |No|No|Yes|Yes|Yes|
 | [Reboot](cache-administration.md#reboot) |Yes|Yes|Yes|No|No|
 | [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates) |Yes|Yes|Yes|No|No|
@@ -97,7 +99,7 @@ The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis fro
 > [!IMPORTANT]
 > Azure Cache for Redis Enterprise requires standard network Load Balancers that are charged separately from cache instances themselves. Currently, these charges are absorbed by Azure Cache for Redis and not passed on to customers. This may change in the future. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 >
-> If an Enterprise cache is configured for multiple Availability Zones, data transfer charges are absorbed by Azure cache for Redis and not passed to customers. This may change in the future, where data transfer would be billed at the [standard network bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/)
+> If an Enterprise cache is configured for multiple Availability Zones, data transfer charges are absorbed by Azure Cache for Redis and not passed to customers. This may change in the future, where data transfer would be billed at the [standard network bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/)
 >
 > In addition, data persistence adds Managed Disks. The use of these resources is free during the public preview of Enterprise data persistence. This might change when the feature becomes generally available.
 
@@ -108,10 +110,9 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 ## Related content
 
 - [Create an open-source Redis cache](quickstart-create-redis.md)
-- [Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md)
-- [Use Azure Cache for Redis in an ASP.NET web app](cache-web-app-howto.md)
-- [Use Azure Cache for Redis in .NET Core](cache-dotnet-core-quickstart.md)
-- [Use Azure Cache for Redis in .NET Framework](cache-dotnet-how-to-use-azure-redis-cache.md)
-- [Use Azure Cache for Redis in Node.js](cache-nodejs-get-started.md)
-- [Use Azure Cache for Redis in Java](cache-java-get-started.md)
-- [Use Azure Cache for Redis in Python](cache-python-get-started.md)
+- [Use Azure Cache for Redis in an ASP.NET web app](../redis/web-app-cache-howto.md)
+- [Use Azure Cache for Redis in .NET Core](../redis/dotnet-core-quickstart.md)
+- [Use Azure Cache for Redis in .NET Framework](../redis/dotnet-how-to-use-azure-redis-cache.md)
+- [Use Azure Cache for Redis in Node.js](../redis/nodejs-get-started.md)
+- [Use Azure Cache for Redis in Java](../redis/java-get-started.md)
+- [Use Azure Cache for Redis in Python](../redis/python-get-started.md)

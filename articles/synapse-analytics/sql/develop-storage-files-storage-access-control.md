@@ -3,7 +3,7 @@ title: Control storage account access for serverless SQL pool
 description: Describes how serverless SQL pool accesses Azure Storage and how you can control storage access for serverless SQL pool in Azure Synapse Analytics.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: SQLStijn-MSFT, wiassaf
+ms.reviewer: SQLStijn-MSFT
 ms.date: 01/22/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql

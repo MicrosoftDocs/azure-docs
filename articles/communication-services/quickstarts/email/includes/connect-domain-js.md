@@ -50,7 +50,7 @@ Format the linked domain resource ID as follows:
 /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Communication/emailServices/<email-service-name>/domains/<domain-name>
 ```
 
-If you're using an Azure Managed Domain, the `domain-name` is "AzureManagedDomain". The `email-service-name` should be the same email service that you used to provision the domain.
+If you're using an Azure Managed Domain, the `domain-name` is "`AzureManagedDomain`. The `email-service-name` should be the same email service that you used to provision the domain.
 
 Once these values are populated, run the sample code.
 

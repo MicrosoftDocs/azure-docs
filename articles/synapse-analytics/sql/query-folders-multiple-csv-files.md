@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 01/17/2025
 ms.author: stefanazaric
-ms.reviewer: whhender
 ---
 
 # Query folders and multiple files  

@@ -157,7 +157,7 @@ Before you start, make sure that you have these items:
          "When_a_feed_item_is_published": {
             "recurrence": {
                "frequency": "Minute",
-               "interval": 1
+               "interval": 30
             },
             "splitOn": "@triggerBody()?['value']",
             "type": "ApiConnection",
@@ -170,7 +170,8 @@ Before you start, make sure that you have these items:
                "method": "get",
                "path": "/OnNewFeed",
                "queries": {
-                  "feedUrl": "http://feeds.reuters.com/reuters/topNews"
+                  "feedUrl": "@{encodeURIComponent('https://feeds.content.dowjones.io/public/rss/RSSMarketsMain')}",
+                  "sinceProperty": "PublishDate"
                }
             }
          }

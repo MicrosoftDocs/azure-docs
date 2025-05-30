@@ -22,7 +22,7 @@ npm install -g azure-streamanalytics-cicd
 
 ## Build project with Bicep
 ```powershell
-# Generate Bicep template
+# Generate Bicep file
 azure-streamanalytics-cicd build --v2 --project <projectFullPath> [--outputPath <outputPath>] --type Bicep
 
 # Example: 
@@ -30,7 +30,7 @@ azure-streamanalytics-cicd build --v2 --project ./asaproj.json --outputPath ./De
 ```
 
 The **build** command does a keyword syntax check and generates Bicep files. If the project is built successfully, you see two files created under the output folder:
-* **Bicep template file**: [ProjectName].JobTemplate.bicep
+* **Bicep file**: [ProjectName].JobTemplate.bicep
 * **Bicep parameter file**: [ProjectName].JobTemplate.bicep.parameters.json
 
 The default values for **parameters.json** file come from your project settings. If you want to deploy to another environment, replace the values accordingly.

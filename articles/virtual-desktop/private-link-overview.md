@@ -1,10 +1,10 @@
 ---
 title:  Azure Private Link with Azure Virtual Desktop - Azure
 description: Learn about using Private Link with Azure Virtual Desktop to privately connect to your remote resources.
-author: dknappettmsft
+author: dougeby
 ms.topic: conceptual
 ms.date: 12/08/2023
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Azure Private Link with Azure Virtual Desktop

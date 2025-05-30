@@ -5,7 +5,7 @@ author: matternst7258
 ms.author: matthewernst
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 11/11/2024
+ms.date: 05/21/2025
 ms.custom: template-concept
 ---
 
@@ -34,7 +34,7 @@ Patch runtime release is produced monthly in between the minor releases. These r
 
 Starting a runtime upgrade is defined under [Upgrading cluster runtime via Azure CLI](./howto-cluster-runtime-upgrade.md).
 
-The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. The spare control plane server is the first server to upgrade. The last control plane server deprovisions and transitions to `Available` state. These servers are updated serially and proceed only when each completes. The remaining management servers are upgraded into four different groups and completed one group at a time. 
+The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. The spare control plane server is the first server to upgrade. The last control plane server deprovisions and transitions to `Available` state. These servers are updated serially and proceed only when each completes. The remaining management servers are segregated into two groups. The runtime upgrade will now leverage two management groups, instead of a single group. Each group is upgraded in two stages and sequentially with 50% success threshold in each group. Introducing this capability allows for components running on the management servers to ensure resiliency during the runtime upgrade by applying affinity rules. For this release, each CSN will leverage this functionality by placing one instance in each management group. No customer interaction with this functionality. There may be additional labels seen on management nodes to identify the groups.
 
 > [!Note]
 > Customers may observe the spare server with a different runtime version. This is expected.
@@ -63,9 +63,9 @@ Details on how to run an upgrade with rack pause are located [here](./howto-clus
 
 During a runtime upgrade, impacted Nexus Kubernetes Cluster nodes are cordoned and drained before the servers are upgraded. Cordoning the Kubernetes Cluster node prevents new pods from being scheduled on it. Draining the Kubernetes Cluster node allows pods that are running tenant workloads a chance to shift to another available Kubernetes Cluster node, which helps to reduce the disruption on services. The draining mechanism's effectiveness is contingent on the available capacity within the Nexus Kubernetes Cluster. If the Kubernetes Cluster is nearing full capacity and lacks space for the pods to relocate, they transition into a Pending state following the draining process.
 
-Once the cordon and drain process of the tenant cluster node is completed, the upgrade of the server proceeds. Each tenant cluster node is allowed up to 10 minutes for the draining process to complete, after which the server upgrade begins. This process guarantees the server upgrade makes progress. Servers are upgraded one rack at a time, and upgrades are performed in parallel within the same rack. The server upgrade doesn't wait for tenant resources to come online before continuing with the runtime upgrade of servers in the rack being upgraded. The benefit of this is that the maximum overall wait time for a rack upgrade is kept at 10 minutes regardless of how many nodes are available. This maximum wait time is specific to the cordon and drain procedure and isn't applied to the overall upgrade procedure. Upon completion of each server upgrade, the Nexus Kubernetes cluster node starts, rejoins the cluster, and is uncordoned, allowing pods to be scheduled on the node once again.
+Once the cordon and drain process of the tenant cluster node is completed, the upgrade of the server proceeds. Each tenant cluster node is allowed up to 20 minutes for the draining process to complete, after which the server upgrade begins. This process guarantees the server upgrade makes progress. Servers are upgraded one rack at a time, and upgrades are performed in parallel within the same rack. The server upgrade doesn't wait for tenant resources to come online before continuing with the runtime upgrade of servers in the rack being upgraded. The benefit of this is that the maximum overall wait time for a rack upgrade is kept at 20 minutes regardless of how many nodes are available. This maximum wait time is specific to the cordon and drain procedure and isn't applied to the overall upgrade procedure. Upon completion of each server upgrade, the Nexus Kubernetes cluster node starts, rejoins the cluster, and is uncordoned, allowing pods to be scheduled on the node once again.
 
-It's important to note that the Nexus Kubernetes cluster node won't be shut down after the cordon and drain process. The server is rebooted with the new image as soon as all the Nexus Kubernetes cluster nodes are cordoned and drained, after 10 minutes if the drain process isn't completed. Additionally, the cordon and drain isn't initiated for power-off or restart actions of the server; it exclusively activates only during a runtime upgrade.
+It's important to note that the Nexus Kubernetes cluster node won't be shut down after the cordon and drain process. The server is rebooted with the new image as soon as all the Nexus Kubernetes cluster nodes are cordoned and drained, after 20 minutes if the drain process isn't completed. Additionally, the cordon and drain isn't initiated for power-off or restart actions of the server; it exclusively activates only during a runtime upgrade.
 
 It's important to note that following the runtime upgrade, there could be instance where a Nexus Kubernetes Cluster node remains cordoned. For such scenario, you locate uncordon nodes by executing the following command.
 

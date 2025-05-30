@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Azure Active Directory B2C with Bluink eID-Me for identity verification
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 ## Before you begin
 
 Azure Active Directory B2C (Azure AD B2C) has two methods to define users interaction with applications: predefined user flows, or configurable custom policies. 

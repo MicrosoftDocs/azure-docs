@@ -16,7 +16,7 @@ This overview introduces the key concepts around managing and controlling assets
 
 ### [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the asset management and control components of an edge-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the asset management and control components of an edge-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-management/iot-edge-management-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting asset management areas." border="false" lightbox="media/iot-overview-device-management/iot-edge-management-architecture.svg":::
@@ -55,7 +55,7 @@ For more information, see [What is asset management in Azure IoT Operations](../
 
 ### [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the device management and control components of a cloud-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the device management and control components of a cloud-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-management/iot-cloud-management-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting device management areas." border="false" lightbox="media/iot-overview-device-management/iot-cloud-management-architecture.svg":::
@@ -199,7 +199,7 @@ If you need to migrate a device from IoT Central to IoT Hub, you can use the Dev
 
 Azure IoT Operations includes an enterprise grade, standards compliant MQTT broker. The broker enables bidirectional communication between the edge and the cloud, and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
-Use the MQTT broker to implement command and control solutions that enable you to send commands to your assets either from the cloud or from other edge-based components. Connectors, such as the ONVIF connector, can use MQTT topics to listen for and respond to commands. For example, you can publish a message to a topic in the MQTT broker that's an instruction to a camera to pan left by 20 degrees. The camera can use another topic to publish a message that acknowledges the operation is complete. The [Azure IoT Operations SDKs](https://github.com/Azure/iot-operations-sdks) includes samples that show how to implement these types of command and control scenarios.
+Use the MQTT broker to implement command and control solutions that enable you to send commands to your assets either from the cloud or from other edge-based components. Connectors, such as the ONVIF connector, can use MQTT topics to listen for and respond to commands. For example, you can publish a message to a topic in the MQTT broker that's an instruction to a camera to pan left by 20 degrees. The camera can use another topic to publish a message that acknowledges the operation is complete. The [Azure IoT Operations SDKs (preview)](https://github.com/Azure/iot-operations-sdks) includes samples that show how to implement these types of command and control scenarios.
 
 For more information, see [Azure IoT Operations built-in local MQTT broker](../iot-operations/manage-mqtt-broker/overview-broker.md).
 
@@ -234,4 +234,4 @@ To learn more, see:
 
 - [IoT asset and device development](iot-overview-device-development.md)
 - [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md)
-- [What Azure technologies and services can you use to create IoT solutions?](iot-services-and-technologies.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

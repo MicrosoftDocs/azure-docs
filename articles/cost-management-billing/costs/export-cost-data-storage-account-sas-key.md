@@ -86,5 +86,5 @@ The following are common issues that might happen when you configure or use SAS 
 
 ## Next steps
 
-- For more information about exporting Cost Management data, see [Create and export data](tutorial-export-acm-data.md).
+- For more information about exporting Cost Management data, see [Create and export data](tutorial-improved-exports.md).
 - For information about exporting large amounts of usage data, see [Retrieve large datasets with exports](ingest-azure-usage-at-scale.md).

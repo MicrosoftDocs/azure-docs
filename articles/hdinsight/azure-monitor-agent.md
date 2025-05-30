@@ -76,6 +76,8 @@ The following sections describe how customers can use the new Azure Monitor Agen
 >
 > You are expected to use the same Azure region for log analytics workspace, and HDInsight cluster for smoother migration.  
 >
+> If your workspace is in a different subscription, you must need to use PowerShell to enable Azure monitoring.
+> 
 > For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).  
 
 ### Approach 1: Enable Azure monitor agent using Portal 
