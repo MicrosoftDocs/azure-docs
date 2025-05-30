@@ -5,7 +5,7 @@ ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: how-to
-ms.date: 04/29/2025
+ms.date: 05/30/2025
 ms.author: ankitadutta 
 ms.custom: devx-track-azurepowershell
 ---
@@ -429,6 +429,9 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
 # Data disk
 $datadiskId1 = $vm.StorageProfile.DataDisks[0].ManagedDisk.Id
 $RecoveryReplicaDiskAccountType = $vm.StorageProfile.DataDisks[0].ManagedDisk.StorageAccountType
+if ($RecoveryReplicaDiskAccountType -in @("PremiumV2_LRS", "Ultra_LRS")) {
+    $RecoveryReplicaDiskAccountType = "Premium_LRS"
+}
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].ManagedDisk.StorageAccountType
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id `

@@ -3,7 +3,7 @@ title: Common questions about Azure virtual machine disaster recovery with Azure
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.date: 05/28/2025
+ms.date: 05/30/2025
 ms.topic: faq
 ms.service: azure-site-recovery
 
@@ -137,7 +137,7 @@ The Azure portal displays *logical Zones*. In the datacenter, actual physical zo
 
 In case the source and target zones are the same, you can't view zone for target configuration while enabling zonal replication.
 
-### Premium SSD v2 disks
+### Premium SSD v2 disks (preview)
 
 #### What disk sector size is supported when I protect VMs with Premium SSD v2 disks?
 
