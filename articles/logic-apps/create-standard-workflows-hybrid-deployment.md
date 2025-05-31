@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/02/2025
+ms.date: 06/09/2025
 # Customer intent: As a developer, I want to create a Standard logic app workflow that can run on customer-managed infrastructure, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -38,7 +38,7 @@ The following section describes the limitations for the hybrid deployment option
 - The following on-premises resources, which must all exist within the same network for the required connectivity:
 
   - An Azure Kubernetes Service cluster that is connected to Azure Arc
-  - A SQL database to locally store workflow run history, inputs, and outputs for processing
+  - An SQL database to locally store workflow run history, inputs, and outputs for processing
   - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
   To meet these requirements, [set up these on-premises resources to support hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).

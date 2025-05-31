@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/02/2025
+ms.date: 06/09/2025
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -23,7 +23,7 @@ Standard logic app workflows with the hybrid deployment option are powered by an
 For example, if you have an on-premises scenario, the following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
 
 - Azure Arc-enabled Azure Kubernetes Service (AKS) clusters
-- A SQL database to locally store workflow run history, inputs, and outputs for processing
+- An SQL database to locally store workflow run history, inputs, and outputs for processing
 - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
 :::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
@@ -627,7 +627,7 @@ For more information, such as global parameters, see [**az containerapp arc setu
 
 ## Create SQL Server storage provider
 
-Standard logic app workflows in the hybrid deployment model use a SQL database as the storage provider for the data used by workflows and the Azure Logic Apps runtime, for example, workflow run history, inputs, outputs, and so on. 
+Standard logic app workflows in the hybrid deployment model use an SQL database as the storage provider for the data used by workflows and the Azure Logic Apps runtime, for example, workflow run history, inputs, outputs, and so on. 
 
 Your SQL database requires inbound and outbound connectivity with your Kubernetes cluster, so these resources must exist in the same network.
 
