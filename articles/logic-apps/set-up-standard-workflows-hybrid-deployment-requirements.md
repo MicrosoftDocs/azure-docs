@@ -66,7 +66,7 @@ The following section describes the limitations for the hybrid deployment option
 
 ## Billing
 
-For information about how billing works, see [Standard (hybrid deployment)](logic-apps-pricing.mdstandard-hybrid-pricing).
+For information about how billing works, see [Standard (hybrid deployment)](logic-apps-pricing.md#standard-hybrid-pricing).
 
 ## Create a Kubernetes cluster
 
