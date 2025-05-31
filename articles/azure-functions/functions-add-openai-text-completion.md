@@ -134,7 +134,7 @@ Use these steps to grant access in your new Azure OpenAI resource to these ident
         --role "Cognitive Services OpenAI User" --scope $openaiId
     ```
 
-     The [`az ad signed-in-user show`](/cli/azure/ad/signed-in-user?view=azure-cli-latest#az-ad-signed-in-user-show) command is used to obtain your Azure account ID. You reuse `$openaiId` from the previous step, which is the fully-qualified ID of the Azure OpenAI resource .   
+    The [`az ad signed-in-user show`](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show) command is used to obtain your Azure account ID. This code reuses `$openaiId` from the previous step, which is the fully-qualified ID of the Azure OpenAI resource .   
 
 ---
 
@@ -360,7 +360,7 @@ You can add these settings in one of these ways:
 
 1. Repeat the previous step to add all of the required settings, and then select **Apply**.
 
-### [Azure CLI](#azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 The [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command adds or updates application settings in your function app.
 
@@ -405,17 +405,17 @@ You can run the `whois` function in Azure directly from Visual Studio Code:
 
 1. From the list, choose your function app in Azure. If you don't see your function app, make sure you're signed in to the correct subscription.
 
-Send a GET request to the `whois` endpoint function, with a name in the path as before. This time, you must use the URL of your function app in Azure, which looks like this URL: 
+1. Send a GET request to the `whois` endpoint function, with a name in the path as before. This time, you must use the URL of your function app in Azure, which looks like this URL: 
 
-    `http://localhost:7071/api/whois/<NAME>`
+    `http://<APP_NAME>.azurewebsites.net/api/whois/<NAME>`
 
-    Replace the `<NAME>` string with the value you want passed to the `"Who is {name}?"` prompt. The `<NAME>` must be the URL-encoded name of a public figure, like `Abraham%20Lincoln`. 
+    Replace `<APP_NAME>` with the name of your function app and `<NAME>` with the value you want passed to the `"Who is {name}?"` prompt. The `<NAME>` must be the URL-encoded name of a public figure, like `Abraham%20Lincoln`. 
 
     The response you see is the text completion response from your Azure OpenAI model.
 
 ## Clean up resources
 
-In Azure, *resources* refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group.
+In Azure, _resources_ refer to function apps, functions, storage accounts, and so forth. They're grouped into _resource groups_, and you can delete everything in a group by deleting the group.
 
 You created resources to complete these quickstarts. You could be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
 
