@@ -108,11 +108,11 @@ If you provide authorization credentials by using Microsoft Entra ID, make sure 
 azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive
 ```
 
-## Update a container with changes in another container using SAS-token
+## Update a container with changes in another container by using a SAS token
 
 The first container that appears in this command is the source. The second one is the destination.
 
-if you provide SAS-token make sure you use SAS-token corresponding to source and destination storage-account, while using **azcopy sync**
+If you provide a SAS token make sure that you use a SAS token which corresponds to source and destination storage account, while using **azcopy sync**
 
 **Syntax**
 
@@ -139,7 +139,7 @@ You can tweak your sync operation by using optional flags. Here's a few examples
 |Specify how strictly MD5 hashes should be validated when downloading.|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
 |Exclude files based on a pattern.|**--exclude-path**|
 |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
-|Specify how to copy vhd file.|**--blob-type=BlockBlob --include-pattern "*.vhd"** or **--blob-type=BlockBlob** |
+|Specify how to copy a vhd file.|**--blob-type=BlockBlob --include-pattern "*.vhd"** or **--blob-type=BlockBlob** |
                               
 
 
