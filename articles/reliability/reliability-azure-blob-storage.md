@@ -18,13 +18,13 @@ Azure Blob Storage is Microsoft's object storage solution for the cloud, designe
 Azure Blob Storage supports comprehensive redundancy options including availability zone deployment with zone-redundant storage (ZRS), multi-region protection through geo-redundant configurations, and sophisticated failover capabilities. The service automatically handles transient faults and provides configurable retry policies to maintain consistent access to your data. With built-in redundancy mechanisms that store multiple copies of your data across different fault domains, Azure Blob Storage is engineered to deliver exceptional durability and availability for mission-critical workloads.
 
 
-This article describes reliability support in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview), and covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. 
+This article describes reliability support in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview), and covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/).
 
 For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
 
 ## Production deployment recommendations
 
-For production workloads in regions that support it, we recommend using **Standard general-purpose v2** storage accounts with **Zone-redundant storage (ZRS)** redundancy configurations. ZRS provides automatic replication across multiple availability zones within a region.
+For production workloads in regions that support it, we recommend using **Standard general-purpose v2** storage accounts with **Zone-redundant storage (ZRS)** redundancy configurations. ZRS provides automatic replication across multiple availability zones within a region, while GZRS combines zone redundancy in the primary region with geo-replication to a secondary region for maximum protection.
 
 In paired regions or for applications requiring the highest level of availability and disaster recovery capabilities, choose **Read-access geo-zone-redundant storage (RA-GZRS)**, which provides read access to data in the secondary region even when the primary region is available. Consider **Premium Block Blob** storage accounts with ZRS for workloads requiring ultra-low latency and high transaction rates, though these accounts have higher storage costs.
 
@@ -32,23 +32,11 @@ Avoid **Locally redundant storage (LRS)** for production unless data can be easi
 
 ## Reliability architecture overview
 
-Azure Storage maintains multiple copies of your storage account to ensure that availability and durability targets are met, even in the face of failures. The way in which data is replicated provides differing levels of protection. Each option offers its own benefits, so the option you choose depends upon the degree of resiliency your applications require.
+Azure Blob Storage implements a multi-layered redundancy architecture that automatically replicates your data to protect against various failure scenarios. The service stores multiple copies of every piece of data you upload, distributing these copies across different fault domains to ensure availability even during hardware or infrastructure failures.
 
-- [Locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage), the lowest-cost redundancy option, automatically stores and replicates three copies of your storage account within a single datacenter. Although LRS protects your data against server rack and drive failures, it doesn't account for disasters such as fire or flooding within a datacenter. In the face of such disasters, all replicas of a storage account configured to use LRS might be lost or unrecoverable.
+The storage account serves as the management boundary for redundancy configuration, with all blob containers within the account sharing the same replication settings. Azure Blob Storage supports both synchronous replication within regions (for ZRS and LRS) and asynchronous replication across regions (for GRS and GZRS configurations). The service automatically handles load balancing across available replicas and manages failover processes without requiring customer intervention for zone-redundant deployments.
 
-  :::image type="content" source="media/blob-storage/locally-redundant-storage.png" alt-text="Diagram showing how data is replicated in availability zones with LRS" lightbox="media/blob-storage/locally-redundant-storage.png":::
-
-- [Zone-redundant storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage) retains a copy of a storage account and replicates it in each of the separate availability zones within the same region. 
-
-  :::image type="content" source="media/blob-storage/zone-redundant-storage.png" alt-text="Diagram showing how data is replicated in the primary region with ZRS" lightbox="media/blob-storage/zone-redundant-storage.png":::
-
-- [Geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage), unlike LRS and ZRS, provides support for unplanned failovers to a secondary region when there's an outage in the primary region. During the failover process, DNS entries for your storage account service endpoints are automatically updated to make the secondary region's endpoints the new primary endpoints. Once the unplanned failover is complete, clients can begin writing to the new primary endpoints.
-
-  :::image type="content" source="media/blob-storage/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated with GRS or RA-GRS" lightbox="media/blob-storage/geo-redundant-storage.png":::
-
-- [Read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS)](/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region) also provide geo-redundant storage, but offer the added benefit of read access to the secondary endpoint. These options are ideal for applications designed for high availability business-critical applications. If the primary endpoint experiences an outage, applications configured for read access to the secondary region can continue to operate. Microsoft recommends RA-GZRS for maximum availability and durability of your storage accounts.
-
-  :::image type="content" source="media/blob-storage/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with GZRS or RA-GZRS" lightbox="media/blob-storage/geo-zone-redundant-storage.png":::
+For zone-redundant configurations, Azure distributes your data across multiple availability zones within the primary region, with each zone housing independent power, cooling, and networking infrastructure. When geo-redundancy is enabled, the service asynchronously replicates data to a [paired secondary region](/azure/reliability/cross-region-replication-azure#azure-paired-regions) that is hundreds of miles away, providing protection against regional disasters. The storage service automatically manages data consistency and integrity across all replicas using built-in checksum verification and repair mechanisms.
 
 ## Transient faults
 
