@@ -79,9 +79,7 @@ Zone-redundant storage ensures that write operations are not considered complete
 
 ### Region support
 
-Zone-redundant () Azure Blob Storage can be deployed into [regions that support availability zones](./regions-list.md).
-
-However, to determine if a region supports GZRS, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1). To support GZRS, a region must support availability zones and have a paired region.
+Zone-redundant Azure Blob Storage can be deployed into any [region that supports availability zones](./regions-list.md). To determine whether a region supports GZRS, the region must support availability zones and have a paired region.
 
 ### Requirements
 
@@ -95,14 +93,8 @@ Zone redundancy is available for both Standard general-purpose v2 and Premium Bl
 
 ## Considerations
 
-Zone-redundant storage configurations provide excellent protection against single availability zone failures, but there are important considerations for implementation:
+<!-- Considerations for zone-redundant storage -->
 
-> [!NOTE]
-> Zone-redundant storage has higher storage costs compared to locally redundant storage due to the additional replication across multiple zones. However, this cost is offset by the significant improvement in availability and durability.
-
-During an availability zone outage, your Azure Blob Storage remains accessible and continues to serve requests. However, you may experience slightly increased latency as traffic is automatically redistributed to the remaining healthy zones. Applications should be designed to handle temporary increases in response times during zone failures.
-
-Zone-redundant storage synchronously replicates data across zones, which may result in slightly higher write latency compared to locally redundant storage. This latency difference is typically minimal for most workloads but should be considered for applications with extremely strict latency requirements.
 
 ### Cost
 
