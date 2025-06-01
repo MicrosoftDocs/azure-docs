@@ -1,8 +1,8 @@
 ---
 title: Database connection configuration in Azure Static Web Apps
 description: Configure your static web app to connect to a database.
-author: craigshoemaker
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 05/28/2024
@@ -98,7 +98,7 @@ The following sample configuration file shows you how to connect to an Azure SQL
 | `$schema` | The version of the [Database API builder](/azure/data-api-builder/) used by Azure Static Web Apps to interpret the configuration file. |
 | `data-source` | Configuration settings specific to the target database. The `database-type` property accepts `mssql`, `postgresql`, `cosmosdb_nosql`, or `mysql`.<br><br>The connection string is overwritten upon deployment when a database is connected to your Static Web Apps resource. During local development, the connection string defined in the configuration file is what is used to connect to the database.  |
 | `runtime` | Section that defines the exposed endpoints. The `rest` and `graphql` properties control the URL fragment used to access the respective API protocol. The `host` configuration section defines settings specific to your development environment. Make sure the `origins` array include your localhost address and port. The host.mode is overwritten to `production` when a database is connected to your Static Web Apps resource. |
-| `entities` | Section that maps URL path to database entities and tables. The same [role-based authentication rules](configuration.md#authentication) used to secure paths also secure database entities, and can be used to define permissions for each entity. The entities object also specifies the relationships between entities. |
+| `entities` | Section that maps URL path to database entities and tables. The same [role-based authentication rules](configuration.md#authentication) used to secure paths also secure database entities and can be used to define permissions for each entity. The entities object also specifies the relationships between entities. |
 
 ### Generate configuration file
 

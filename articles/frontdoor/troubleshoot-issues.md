@@ -1,12 +1,11 @@
 ---
 title: Troubleshoot Azure Front Door common issues
 description: In this article, you learn how to troubleshoot some of the common problems that you might face for your Azure Front Door instance.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 08/12/2024
-ms.author: duau
 ---
 
 # Troubleshoot Azure Front Door common issues
@@ -61,17 +60,17 @@ The cause of this issue can be one of three things:
 
 The cause of this problem can be one of three things:
 
-* The backend pool is an IP address.
-* The backend server returns a certificate that doesn't match the fully qualified domain name (FQDN) of the Azure Front Door backend pool.
-* The backend pool is an Azure Web Apps server.
+* The backend is an IP address.
+* The backend server returns a certificate that doesn't match the fully qualified domain name (FQDN) of the Azure Front Door backend.
+* The backend is an Azure Web Apps server.
 
 ### Troubleshooting steps
 
-* The backend pool is an IP address.
+* The backend is an IP address.
 
    `EnforceCertificateNameCheck` must be disabled.
     
-    Azure Front Door has a switch called `EnforceCertificateNameCheck`. By default, this setting is enabled. When enabled, Azure Front Door checks that the backend pool host name FQDN matches the backend server certificate's certificate name or one of the entries in the subject alternative names extension.
+    Azure Front Door has a switch called `EnforceCertificateNameCheck`. By default, this setting is enabled. When enabled, Azure Front Door checks that the backend host name FQDN matches the backend server certificate's certificate name or one of the entries in the subject alternative names extension.
 
     - How to disable `EnforceCertificateNameCheck` from the Azure portal:
     
@@ -83,12 +82,12 @@ The cause of this problem can be one of three things:
 
       :::image type="content" source="./media/troubleshoot-issues/validation-checkbox.png" alt-text="Screenshot of the certificate subject name validation checkbox.":::
 
-* The backend server returns a certificate that doesn't match the FQDN of the Azure Front Door backend pool. To resolve this issue, you have two options:
+* The backend server returns a certificate that doesn't match the FQDN of the Azure Front Door backend. To resolve this issue, you have two options:
 
     - The returned certificate must match the FQDN.
     - `EnforceCertificateNameCheck` must be disabled.
   
-* The backend pool is an Azure Web Apps server:
+* The backend is an Azure Web Apps server:
 
     - Check if the Azure web app is configured with IP-based SSL instead of being SNI (server name indication) based. If the web app is configured as IP based, it should be changed to SNI.
     - If the backend is unhealthy because of a certificate failure, a 503 error message is returned. You can verify the health of the backends on ports 80 and 443. If only 443 is unhealthy, it's likely an issue with SSL. Because the backend is configured to use the FQDN, we know it's sending SNI.

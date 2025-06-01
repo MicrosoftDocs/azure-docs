@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/20/2024
+ms.date: 04/17/2024
 ms.author: anfdocs
 ---
 # Configure AD DS LDAP over TLS for Azure NetApp Files
@@ -50,7 +50,7 @@ If you do not have a root CA certificate, you need to generate one and export it
 
 If you uploaded an invalid certificate, and you have existing AD configurations, SMB volumes, or Kerberos volumes, an error similar to the following occurs:
 
-`Error updating Active Directory settings The LDAP client configuration "ldapUserMappingConfig" for Vservers is an invalid configuration.`
+`Unable to validate the LDAP client configuration from LDAP server, please check connectivity or LDAP settings under AD connection.`
 
 To resolve the error condition, upload a valid root CA certificate to your NetApp account as required by the Windows Active Directory LDAP server for LDAP authentication.
 

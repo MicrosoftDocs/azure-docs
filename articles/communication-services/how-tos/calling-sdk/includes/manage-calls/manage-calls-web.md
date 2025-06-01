@@ -116,7 +116,7 @@ The Azure Communication Calling SDK raises a cameraStartFailed: true call diagno
 ## Hold and resume call
 
 > [!NOTE]
-> At any given moment of time, there should be only 1 active call (in `Connected` state, with active media). All other calls should be put on hold by a user, or programatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
+> At any given moment of time, there should be only 1 active call (in `Connected` state, with active media). All other calls should be put on hold by a user, or programmatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
 
 To hold or resume the call, you can use the `hold` and `resume` asynchronous APIs:
 
@@ -265,9 +265,13 @@ const state = remoteParticipant.state;
 > [!NOTE]
 > To use this API please use Azure Communication Services Calling Web SDK version 1.26.1 or higher. 
 
-To mute all other participants or mute a specific participant who are connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
+To mute all other participants or mute a specific participant who is connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
 
- *Note: The scenarios to mute PSTN (phone number) participants or 1:1 call participants are not supported.* 
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+Muting a PSTN endpoint using the calling WebJS SDK is currently in public preview and is available in build 1.34.1 [1.34.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1341-beta2-2025-03-20) and later versions.
+
+> [!NOTE]
+> Muting others on a 1:1 call is not supported.
 
 ```js
 //mute all participants except yourself
@@ -375,4 +379,21 @@ Check is screen sharing is on. It returns `Boolean`.
 
 ```js
 const isScreenSharingOn = call.isScreenSharingOn;
+```
+
+## Hang up
+
+There are two ways how you can hang up the call. You can leave the call and keep other participants in the call or terminate the call for all participants. If you want to leave the call, then just use
+
+```js
+call.hangUp();
+```
+
+You can also end the call for all participants if you provide  `HangUpOptions`.
+
+> [!NOTE]
+> This API is not available in rooms.
+
+```js
+call.hangUp( forEveryone: true);
 ```

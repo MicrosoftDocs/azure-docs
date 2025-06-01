@@ -16,7 +16,8 @@ Azure [Event Hubs Capture][capture-overview] enables you to automatically delive
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- If you are new to Azure Event Hubs, read through [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
+- If you're new to Azure Event Hubs, read through [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
+- Learn about Event Hubs capture by reading the [Event Hubs Capture overview][capture-overview].
 
 > [!IMPORTANT]
 > Event Hubs only supports **Premium** Storage account with **Block Blob** support. 
@@ -44,7 +45,7 @@ See one of the following sections based on the type of storage you want to use t
 
 
 > [!IMPORTANT]
-> Azure Data Lake Storage Gen1 is retired, so don't use it for capturing event data. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you are using Azure Data Lake Storage Gen1, migrate to Azure Data Lake Storage Gen2. For more information, see [Azure Data Lake Storage migration guidelines and patterns](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md).
+> Azure Data Lake Storage Gen1 is retired, so don't use it for capturing event data. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you're using Azure Data Lake Storage Gen1, migrate to Azure Data Lake Storage Gen2. For more information, see [Azure Data Lake Storage migration guidelines and patterns](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md).
 
 ## Capture data to Azure Storage
 
@@ -110,9 +111,10 @@ You can configure Capture on existing event hubs that are in Event Hubs namespac
     - [Capture data to Azure Data Lake Storage Gen 2](#capture-data-to-azure-data-lake-storage-gen-2)    
     
 ## Related content
+You can use a system-assigned or a user-assigned managed identity when capturing event data. First, you enable a managed identity for a namespace, grant the identity an appropriate role on the target storage for capturing events, and then configure the event hub to capture events using the managed identity. For more information, see the following articles:
 
-- Learn more about Event Hubs capture by reading the [Event Hubs Capture overview][capture-overview].
-- You can also configure Event Hubs Capture using Azure Resource Manager templates. For more information, see [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
-- [Learn how to create an Azure Event Grid subscription with an Event Hubs namespace as its source](store-captured-data-data-warehouse.md)
+- [Enable managed identity for a namespace](enable-managed-identity.md).
+- [Use a managed identity to capture events](event-hubs-capture-managed-identity.md)
+
 
 [capture-overview]: event-hubs-capture-overview.md

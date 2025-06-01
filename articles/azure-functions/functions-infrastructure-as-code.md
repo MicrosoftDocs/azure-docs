@@ -20,7 +20,7 @@ This article shows you how to automate the creation of resources and deployment 
 
 The template code required depends on the desired hosting options for your function app. This article supports the following hosting options:
 
-| Hosting option | Deployment type | To learn more, see... |
+| Hosting option | Deployment type | Sample template |
 | ----- | ----- | ----- |
 | [Azure Functions Consumption plan](functions-infrastructure-as-code.md?pivots=consumption-plan) | Code-only | [Consumption plan](./consumption-plan.md) |
 | [Azure Functions Flex Consumption plan](functions-infrastructure-as-code.md?pivots=consumption-plan) | Code-only | [Flex Consumption plan](./flex-consumption-plan.md) |
@@ -1959,6 +1959,8 @@ Keep these considerations in mind when working with site and application setting
 + You should always define your application settings as a `siteConfig/appSettings` collection of the `Microsoft.Web/sites` resource being created, as is done in the examples in this article. This definition guarantees the settings your function app needs to run are available on initial startup.
 
 + When adding or updating application settings using templates, make sure that you include all existing settings with the update. You must do this because the underlying update REST API calls replace the entire `/config/appsettings` resource. If you remove the existing settings, your function app won't run. To programmatically update individual application settings, you can instead use the Azure CLI, Azure PowerShell, or the Azure portal to make these changes. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+
++ When possible, you should use managed identity-based connections to other Azure services, including the `AzureWebJobsStorage` connection. For more information, see [Configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
 ::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 ## Slot deployments
 

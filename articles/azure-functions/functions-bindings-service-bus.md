@@ -67,7 +67,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 This version allows you to bind to types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](./dotnet-isolated-process-guide.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [.NET Aspire integration](./dotnet-aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 5.x.
 
@@ -217,6 +217,25 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 
 :::zone-end
 
+::: zone pivot="programming-language-python"
+
+## SDK Binding Types
+
+SDK Types for Azure Service Bus are in Preview. Follow the [Python SDK Bindings for Service Bus Sample](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-servicebus/samples/README.md) to get started with SDK Types for Service Bus in Python. 
+> [!IMPORTANT]  
+> Using SDK type bindings requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#sdk-type-bindings).
+
+---
+| Binding            | Parameter types             | Samples                                                                                                                                                                                            |
+|--------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ServiceBus trigger | [ServiceBusReceivedMessage] | [`ServiceBusReceivedMessage`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-servicebus/samples/servicebus_samples_single/function_app.py) |
+
+---
+
+[ServiceBusReceivedMessage]: /python/api/azure-servicebus/azure.servicebus.servicebusreceivedmessage?view=azure-python
+
+:::zone-end
+
 <a name="host-json"></a>  
 
 ## host.json settings
@@ -330,7 +349,7 @@ For a reference of host.json in Functions 1.x, see [host.json reference for Azur
 - [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
 - [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
 
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [Update your extensions]: ./functions-bindings-register.md
 

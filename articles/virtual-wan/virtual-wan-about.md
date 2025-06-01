@@ -5,7 +5,7 @@ author: cherylmc
 
 ms.service: azure-virtual-wan
 ms.topic: overview
-ms.date: 01/09/2024
+ms.date: 03/26/2025
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -127,13 +127,13 @@ Global VNet Peering provides a mechanism to connect two VNets in different regio
 
 ## <a name="route"></a>Route tables
 
-Route tables now have features for association and propagation. A pre-existing route table is a route table that doesn't have these features. If you have pre-existing routes in hub routing and would like to use the new capabilities, consider the following:
+Route tables now have features for association and propagation. A preexisting route table is a route table that doesn't have these features. If you have preexisting routes in hub routing and would like to use the new capabilities, consider the following:
 
-* **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
-If you have pre-existing routes in the Routing section for the hub in the Azure portal, you'll need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal). It's best to perform the delete step for all hubs in a virtual WAN.
+* **Standard Virtual WAN Customers with preexisting routes in virtual hub**:
+If you have preexisting routes in the Routing section for the hub in the Azure portal, you'll need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal). It's best to perform the delete step for all hubs in a virtual WAN.
 
-* **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
-If you have pre-existing routes in Routing section for the hub in the Azure portal, you'll need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md). It's best to perform the delete step for all hubs in a virtual WAN.
+* **Basic Virtual WAN Customers with preexisting routes in virtual hub**:
+If you have preexisting routes in Routing section for the hub in the Azure portal, you'll need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md). It's best to perform the delete step for all hubs in a virtual WAN.
 
 ## <a name="faq"></a>FAQ
 

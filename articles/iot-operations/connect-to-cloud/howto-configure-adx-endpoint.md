@@ -1,22 +1,22 @@
 ---
-title: Configure dataflow endpoints for Azure Data Explorer
-description: Learn how to configure dataflow endpoints for Azure Data Explorer in Azure IoT Operations.
+title: Configure data flow endpoints for Azure Data Explorer
+description: Learn how to configure data flow endpoints for Azure Data Explorer in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 04/03/2025
 ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Explorer in Azure IoT Operations so that I can send data to Azure Data Explorer.
+#CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Azure Data Explorer in Azure IoT Operations so that I can send data to Azure Data Explorer.
 ---
 
-# Configure dataflow endpoints for Azure Data Explorer
+# Configure data flow endpoints for Azure Data Explorer
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-To send data to Azure Data Explorer in Azure IoT Operations, you can configure a dataflow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
+To send data to Azure Data Explorer in Azure IoT Operations, you can configure a data flow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ To send data to Azure Data Explorer in Azure IoT Operations, you can configure a
 
 ## Assign permission to managed identity
 
-To configure a dataflow endpoint for Azure Data Explorer, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
+To configure a data flow endpoint for Azure Data Explorer, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
 
 After the Azure Data Explorer database is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to write to the database.
 
@@ -61,22 +61,22 @@ If using system-assigned managed identity, in Azure portal, go to your Azure IoT
 1. Search for the name of your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) or the system-assigned managed identity. For example, *azure-iot-operations-xxxx7*.
 1. Then, select **Select**.
 
-## Create dataflow endpoint for Azure Data Explorer
+## Create data flow endpoint for Azure Data Explorer
 
 <!-- TODO: use the data ingest URI for host? -->
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-1. In the operations experience, select the **Dataflow endpoints** tab.
-1. Under **Create new dataflow endpoint**, select **Azure Data Explorer** > **New**.
+1. In the operations experience, select the **Data flow endpoints** tab.
+1. Under **Create new data flow endpoint**, select **Azure Data Explorer** > **New**.
 
-    :::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Data Explorer dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Data Explorer data flow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
     | Setting               | Description                                                                                       |
     | --------------------- | ------------------------------------------------------------------------------------------------- |
-    | Name                  | The name of the dataflow endpoint.                                                        |
+    | Name                  | The name of the data flow endpoint.                                                        |
     | Host                  | The hostname of the Azure Data Explorer endpoint in the format `<cluster>.<region>.kusto.windows.net`. |
     | Authentication method | The method used for authentication. Choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
     | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
@@ -162,7 +162,7 @@ The following authentication methods are available for Azure Data Explorer endpo
 
 ### System-assigned managed identity
 
-Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the Azure Data Explorer database:
+Before you configure the data flow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the Azure Data Explorer database:
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
@@ -170,11 +170,11 @@ Before you configure the dataflow endpoint, assign a role to the Azure IoT Opera
 1. Search for the name of your system-assigned managed identity. For example, *azure-iot-operations-xxxx7*.
 1. Select **Select**.
 
-Then, configure the dataflow endpoint with system-assigned managed identity settings.
+Then, configure the data flow endpoint with system-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
 # [Bicep](#tab/bicep)
 
@@ -201,7 +201,7 @@ dataExplorerSettings:
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
@@ -234,17 +234,17 @@ dataExplorerSettings:
 
 To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the Azure Data Explorer database:
+Before you configure the data flow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the Azure Data Explorer database:
 
 1. In Azure portal, go to Azure Data Explorer database (not cluster), under **Overview** select **Permissions** > **Add** and then select an appropriate role.
 1. Search for the name of your user-assigned managed identity.
 1. Select **Select**.
 
-Then, configure the dataflow endpoint with user-assigned managed identity settings.
+Then, configure the data flow endpoint with user-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
@@ -294,9 +294,9 @@ Use the `batching` settings to configure the maximum number of messages and the 
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-In the operations experience, select the **Advanced** tab for the dataflow endpoint.
+In the operations experience, select the **Advanced** tab for the data flow endpoint.
 
 :::image type="content" source="media/howto-configure-adx-endpoint/adx-advanced.png" alt-text="Screenshot using operations experience to set Azure Data Explorer advanced settings.":::
 
@@ -324,4 +324,4 @@ dataExplorerSettings:
 
 ## Next steps
 
-To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).
+To learn more about data flows, see [Create a data flow](howto-create-dataflow.md).

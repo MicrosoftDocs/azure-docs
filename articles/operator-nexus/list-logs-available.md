@@ -35,6 +35,9 @@ Logs emitted by Nexus Resources provide insight in the detailed operations of Ne
 | Storage Appliance audits | Audit Logs from Storage Appliance |
 | Storage Appliance alerts | Alert logs from Storage Appliance |
 
+>[!NOTE]
+> Storage appliance audit and alert logs are specific to a single storage appliance. Nexus instances with multiple storage appliances have different tables for each storage appliance. System logs have a single table for all storage appliances in the Nexus instance.
+
 ## Cluster Manager
 
 | Log categories      | Description |

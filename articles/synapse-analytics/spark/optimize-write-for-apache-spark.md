@@ -7,7 +7,6 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 08/03/2022
 ms.author: dacoelho 
-ms.reviewer: whhender
 ---
 
 # The need for optimize write on Apache Spark
@@ -138,7 +137,7 @@ val table = DeltaTable.replace()
 
 ## How to get & change the current max file size configuration for Optimize Write
 
-To get the current config value, use the bellow commands. The default is 128 MB.
+To get the current config value, use the below commands. The default is 128 MB.
 
  1. Scala and PySpark
 

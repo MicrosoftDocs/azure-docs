@@ -5,8 +5,8 @@ description: Learn about options to secure access to the API Management develope
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
-ms.date: 09/12/2023
+ms.topic: concept-article
+ms.date: 05/21/2025
 ms.author: danlep
 ---
 
@@ -21,12 +21,14 @@ API Management has a fully customizable, standalone, managed [developer portal](
 
 ## Authentication options
 
-* **External users** - The preferred option when the developer portal is consumed externally is to enable business-to-consumer access control through Azure Active Directory B2C (Azure AD B2C). 
-    * Azure AD B2C provides the option of using Azure AD B2C native accounts: users sign up to Azure AD B2C and use that identity to access the developer portal. 
-    * Azure AD B2C is also useful if you want users to access the developer portal using existing social media or federated organizational accounts.  
-    * Azure AD B2C provides many features to improve the end user sign-up and sign-in experience, including conditional access and MFA. 
+* **External users** - The preferred option when the developer portal is consumed externally is to enable business-to-consumer access control through Azure Active Directory B2C (Azure AD B2C) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam). 
+    * Both Azure AD B2C and Microsoft Entra External ID provides the option of using native accounts: users sign up and use that identity to access the developer portal. 
+    * Both services are also useful if you want users to access the developer portal using existing social media or federated organizational accounts.  
+    * Both services provide many features to improve the end user sign-up and sign-in experience, including conditional access and MFA. 
     
     For steps to enable Azure AD B2C authentication in the developer portal, see [How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management](api-management-howto-aad-b2c.md).
+
+    [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 
 * **Internal users** - The preferred option when the developer portal is consumed internally is to leverage your corporate Microsoft Entra ID. Microsoft Entra ID provides a seamless single sign-on (SSO) experience for corporate users who need to access and discover APIs through the developer portal. 
@@ -35,6 +37,9 @@ API Management has a fully customizable, standalone, managed [developer portal](
     
 
 * **Basic authentication** - A default option is to use the built-in developer portal [username and password](developer-portal-basic-authentication.md) provider, which allows developers to register directly in API Management and sign in using API Management user accounts. User sign up through this option is protected by a CAPTCHA service. 
+
+    > [!CAUTION]
+    > While you can use basic authentication to secure users' access to the developer portal, we recommend configuring a more secure authentication method such as [Microsoft Entra ID](api-management-howto-aad.md) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam).
 
 
 ## Developer portal test console
@@ -111,6 +116,6 @@ Key configurations:
 Go a step further by delegating [user registration or product subscription](api-management-howto-setup-delegation.md) and extend the process with your own logic. 
 
 
-## Next steps
+## Related content
 * Learn more about [authentication and authorization](../active-directory/develop/authentication-vs-authorization.md) in the Microsoft identity platform.
 * Learn how to [mitigate OWASP API security threats](mitigate-owasp-api-threats.md) using API Management.

@@ -1,23 +1,23 @@
 ---
-title: Enable authentication in a web API by using Azure Active Directory B2C
-description:  This article discusses how to use Azure Active Directory B2C to protect a web API.
+title: Enable authentication in a web API by using Azure AD B2C
+description:  Learn how to use Azure AD B2C to protect a web API. Enable authentication to authorize access to API endpoints with valid access tokens.
 
 author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: "b2c-support"
 
 
 #Customer intent: As a developer building a web API, I want to enable authentication using Azure AD B2C, so that I can authorize access to my API endpoints and ensure that only users with valid access tokens can call them.
-
 ---
 
 # Enable authentication in your own web API by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 To authorize access to a web API, you can serve only requests that include a valid access token that Azure Active Directory B2C (Azure AD B2C) issues. This article shows you how to enable Azure AD B2C authorization to your web API. After you complete the steps in this article, only users who obtain a valid access token will be authorized to call your web API endpoints.  
 
@@ -30,7 +30,7 @@ Before you begin, read one of the following articles, which discuss how to confi
 
 ## Overview
 
-Token-based authentication ensures that requests to a web API includes a valid access token. 
+Token-based authentication ensures that requests to a web API include a valid access token. 
 
 The app completes the following steps:
 
@@ -65,7 +65,7 @@ The application registrations and the application architecture are described in 
 
 ## Prepare your development environment  
 
-In the next sections, you create a new web API project. Select your programming language, ASP.NET Core or Node.js. Make sure you have a computer that's running either of the following software: 
+In the next sections, you create a new web API project. Select your programming language, ASP.NET Core, or Node.js. Make sure you have a computer that's running either of the following software: 
 
 # [ASP.NET Core](#tab/csharpclient)
 
@@ -130,7 +130,7 @@ npm install passport-azure-ad
 npm install morgan
 ```
  
-The [morgan package](https://www.npmjs.com/package/morgan) is an HTTP request logger middleware for Node.js.
+The [Morgan package](https://www.npmjs.com/package/morgan) is an HTTP request logger middleware for Node.js.
 
 ---
 
@@ -532,7 +532,7 @@ Open a browser and go to `http://localhost:6000/public`. In the browser window, 
 
 ## Step 8: Call the web API from your app
 
-Try to call the protected web API endpoint without an access token. Open a browser and go to `http://localhost:6000/hello`. The API will return an unauthorized HTTP error message, confirming that web API is protected with a bearer token.
+Try to call the protected web API endpoint without an access token. Open a browser and go to `http://localhost:6000/hello`. The API returns an unauthorized HTTP error message, confirming that web API is protected with a bearer token.
 
 Continue to configure your app to call the web API. For guidance, see the [Prerequisites](#prerequisites) section.
 
@@ -540,9 +540,9 @@ Watch this video to learn about some best practices when you integrate Azure AD 
 
 >[!Video https://www.youtube.com/embed/wuUu71RcsIo]
 
-## Next steps
+## Related content
 
-Get the complete example on GitHub:
+Get the complete example in GitHub:
 
 # [ASP.NET Core](#tab/csharpclient)
 * Get the web API by using the [Microsoft identity library](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C/TodoListService).

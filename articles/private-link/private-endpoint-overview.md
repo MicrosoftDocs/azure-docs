@@ -6,7 +6,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 11/05/2024
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: references_regions, ignite-2024
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
@@ -57,7 +57,7 @@ As you're creating private endpoints, consider the following:
  
 - Multiple private endpoints can be created with the same private-link resource. For a single network using a common DNS server configuration, the recommended practice is to use a single private endpoint for a specified private-link resource. Use this practice to avoid duplicate entries or conflicts in DNS resolution. 
  
-- Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+- Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits).
 
 - The subscription that contains the private link resource must be registered with the Microsoft network resource provider. The subscription that contains the private endpoint must also be registered with the Microsoft network resource provider. For more information, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
  
@@ -80,7 +80,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
 | Azure Cache for Redis | Microsoft.Cache/Redis | redisCache |
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
-| Azure Container Apps | Microsoft.App/ManagedEnvironments | managedEnvironment |
+| Azure Container Apps | Microsoft.App/ManagedEnvironments | managedEnvironments |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
 | Azure Cosmos DB for MongoDB vCore | Microsoft.DocumentDb/mongoClusters | mongoCluster |
@@ -121,6 +121,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Storage | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)<BR> Dfs (dfs, dfs_secondary) |
 | Azure Synapse | Microsoft.Synapse/privateLinkHubs | web |
 | Azure Synapse Analytics | Microsoft.Synapse/workspaces | Sql, SqlOnDemand, Dev |
+| Azure AI Video Indexer | Microsoft.VideoIndexer/accounts | account |
 | Azure Virtual Desktop - host pools | Microsoft.DesktopVirtualization/hostpools | connection |
 | Azure Virtual Desktop - workspaces | Microsoft.DesktopVirtualization/workspaces | feed<br />global |
 | Device Update for IoT Hub | Microsoft.DeviceUpdate/accounts | DeviceUpdate |

@@ -2,9 +2,9 @@
 title: Overview of Billing
 titleSuffix: Microsoft Cost Management
 description: You use Billing features to manage billing accounts, invoices, and purchased products. You also use the features to monitor and control Azure spending and to optimize Azure resource use.
-author: bandersmsft
-ms.author: banders
-ms.reviewer: micfaln
+author: shasulin
+ms.author: shasulin
+ms.reviewer: shasulin
 ms.date: 01/22/2025
 ms.topic: overview
 ms.service: cost-management-billing
@@ -43,13 +43,10 @@ After discounts are applied, cost details then flow into Cost Management, where:
 
 - The [anomaly detection](./understand/analyze-unexpected-charges.md) model identifies anomalies daily based on normalized usage (not rated usage).
 - The cost allocation engine applies tag inheritance and [splits shared costs](./costs/allocate-costs.md).
-- AWS cost and usage reports are pulled based on any [connectors for AWS](./costs/aws-integration-manage.md) you may have configured.  
-    > [!NOTE]
-    > The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](./costs/retire-aws-connector.md).
 - Azure Advisor cost recommendations are pulled in to enable cost savings insights for subscriptions and resource groups.
 - Cost alerts are sent out for [budgets](./costs/tutorial-acm-create-budgets.md), [anomalies](./understand/analyze-unexpected-charges.md#create-an-anomaly-alert), [scheduled alerts](./costs/save-share-views.md#subscribe-to-scheduled-alerts), and more based on the configured settings.
 
-Lastly, cost details are made available from [cost analysis](./costs/quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](./costs/tutorial-export-acm-data.md).
+Lastly, cost details are made available from [cost analysis](./costs/quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](./costs/tutorial-improved-exports.md).
 
 ## How Cost Management and Billing relate
 
@@ -87,16 +84,13 @@ Management for classic Cloud Solution Provider (CSP) and classic sponsorship sub
 
 ## Report on and analyze costs
 
-Cost Management and Billing include several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
+Cost Management and Billing include several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud costs.
 
 - [**Cost analysis**](./costs/quick-acm-cost-analysis.md) is a tool for ad-hoc cost exploration. Get quick answers with lightweight insights and analytics.
 **Power BI** is an advanced solution to build more extensive dashboards and complex reports or combine costs with other data. Power BI is available for billing accounts and billing profiles.
 - [**Exports and the Cost Details API**](./automate/usage-details-best-practices.md) enable you to integrate cost details into external systems or business processes.
 - The **Credits** page shows your available credit or prepaid commitment balance. They aren't included in cost analysis.
 - The **Invoices** page provides a list of all previously invoiced charges and their payment status for your billing account.
-- **Connectors for AWS** enable you to ingest your AWS cost details into Azure to facilitate managing Azure and AWS costs together. After configured, the connector also enables other capabilities, like budget and scheduled alerts.  
-    > [!NOTE]
-    > The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](./costs/retire-aws-connector.md).
 
 For more information, see [Get started with Cost Management and Billing reporting](./costs/reporting-get-started.md).
 

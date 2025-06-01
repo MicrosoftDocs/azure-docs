@@ -4,7 +4,7 @@ description: Azure Files supports identity-based authentication over SMB (Server
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 01/23/2025
+ms.date: 01/24/2025
 ms.author: kendownie
 ---
 
@@ -18,6 +18,20 @@ For security reasons, using identity-based authentication to access file shares 
 
 > [!IMPORTANT]
 > Never share your storage account keys. Use identity-based authentication instead.
+
+## Applies to
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## How it works
 
@@ -69,7 +83,7 @@ Once you've chosen an identity source, you must enable it on your storage accoun
 
 ### AD DS
 
-For AD DS authentication, you must domain-join your client machines or VMs. You can host your AD domain controllers on Azure VMs or on-premises. Either way, your domain-joined clients must have unimpeded network connectivity to the domain controller, so they must be within the corporate network or virtual network (VNET) of your domain service.
+For AD DS authentication, you can host your AD domain controllers on Azure VMs or on-premises. Either way, your clients must have unimpeded network connectivity to the domain controller, so they must be within the corporate network or virtual network (VNET) of your domain service. We recommend domain-joining your client machines or VMs so that users don't have to provide explicit credentials each time they access the share.
 
 The following diagram depicts on-premises AD DS authentication to Azure file shares over SMB. The on-premises AD DS must be synced to Microsoft Entra ID using Microsoft Entra Connect Sync or Microsoft Entra Connect cloud sync. Only [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md) that exist in both on-premises AD DS and Microsoft Entra ID can be authenticated and authorized for Azure file share access. This is because the share-level permission is configured against the identity represented in Microsoft Entra ID, whereas the directory/file-level permission is enforced with that in AD DS. Make sure that you configure the permissions correctly against the same hybrid user.
 
@@ -108,35 +122,6 @@ The following diagram represents the workflow for Microsoft Entra Domain Service
 
 To enable Microsoft Entra Domain Services authentication, see [Enable Microsoft Entra Domain Services authentication on Azure Files](storage-files-identity-auth-domain-services-enable.md).
 
-## Authorization and access control
-
-Regardless of which identity source you choose, once you enable it, you'll need to configure authorization. Azure Files enforces authorization on user access at both the share level and the directory/file levels.
-
-You can assign share-level permissions to Microsoft Entra users or groups that are managed through Azure RBAC. With Azure RBAC, the credentials you use for file access should be available or synced to Microsoft Entra ID. You can assign Azure built-in roles like **Storage File Data SMB Share Reader** to users or groups in Microsoft Entra ID to grant access to a file share.
-
-At the directory/file level, Azure Files supports preserving, inheriting, and enforcing [Windows ACLs](/windows/win32/secauthz/access-control-lists). You can choose to keep Windows ACLs when copying data over SMB between your existing file share and your Azure file shares. Whether you plan to enforce authorization or not, you can use Azure file shares to back up ACLs along with your data.
-
-### Configure share-level permissions
-
-Once you've enabled an identity source on your storage account, you must do one of the following to access the file share:
-
-- Set a default share-level permission that applies to all authenticated users and groups
-- Assign built-in Azure RBAC roles to users and groups, or 
-- Configure custom roles for Microsoft Entra identities and assign access rights to file shares in your storage account.
-
-The assigned share-level permission allows the granted identity to get access to the share only, nothing else, not even the root directory. You still need to separately configure directory and file-level permissions.
-
-> [!NOTE]
-> You can't assign share-level permissions to computer accounts (machine accounts) using Azure RBAC, because computer accounts can't be synced to an identity in Microsoft Entra ID. If you want to allow a computer account to access Azure file shares using identity-based authentication, [use a default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities) or consider using a service logon account instead.
-
-### Configure directory or file-level permissions
-
-Azure file shares enforce standard Windows ACLs at both the directory and file level, including the root directory. Configuration of directory or file-level permissions is supported over both SMB and REST. Mount the target file share from your VM and configure permissions using Windows File Explorer, Windows [icacls](/windows-server/administration/windows-commands/icacls), or the [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl) command.
-
-### Preserve directory and file ACLs when importing data to Azure Files
-
-Azure Files supports preserving directory or file-level ACLs when copying data to Azure file shares. You can copy ACLs on a directory or file to Azure file shares using either Azure File Sync or common file movement toolsets. For example, you can use [robocopy](/windows-server/administration/windows-commands/robocopy) with the `/copy:s` flag to copy data as well as ACLs to an Azure file share. ACLs are preserved by default, so you don't need to enable identity-based authentication on your storage account to preserve ACLs.
-
 ## Glossary
 
 It's helpful to understand some key terms relating to identity-based authentication for Azure file shares:
@@ -161,16 +146,10 @@ It's helpful to understand some key terms relating to identity-based authenticat
 
     AD DS is commonly adopted by enterprises in on-premises environments or on cloud-hosted VMs, and AD DS credentials are used for access control. For more information, see [Active Directory Domain Services Overview](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
--   **Azure role-based access control (Azure RBAC)**
-
-    Azure RBAC enables fine-grained access management for Azure. Using Azure RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
-
 -   **Hybrid identities**
 
     [Hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md) are identities in AD DS that are synced to Microsoft Entra ID using either the on-premises [Microsoft Entra Connect Sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that can be installed from the Microsoft Entra Admin Center.
 
 ## Next step
 
-For more information, see:
-
-- [Identity-based authentication FAQ for Azure Files](storage-files-faq.md#identity-based-authentication)
+- [Overview of Azure Files authorization and access control](storage-files-authorization-overview.md)

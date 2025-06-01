@@ -63,7 +63,7 @@ Communication Services offers the following types of logs that you can enable:
 | -------- | ---------------|
 | `TimeGenerated` | The time stamp (UTC) of when the log was generated. |
 | `OperationName` | The operation associated with the log record. |
-| `CorrelationID` | The identifier to identify a call and correlate events for a unique call.  |
+| `CorrelationID` | An identifier used to correlate events for a call. This identifier may change for the duration of the call depending on events like participants joining or leaving the call. For a fully stable call identifier, please consider using `CallConnectionId`. |
 | `OperationVersion` | The `api-version` version associated with the operation, if the `operationName` operation was performed through an API. If no API corresponds to this operation, the version represents the version of the operation, in case the properties associated with the operation change in the future. |
 | `Category` | The log category of the event. The category is the granularity at which you can enable or disable logs on a resource. The properties that appear within the `properties` blob of an event are the same within a log category and resource type. |
 | `ResultType` | The status of the operation. |
@@ -112,7 +112,7 @@ Here's an example of a Call Automation operational log:
 | `resourceId` | The ID of the resource that emitted the event. |
 | `durationMs` | The duration of the operation in milliseconds. |
 | `callerIpAddress` | |
-| `correlationId` | The Skype chain ID.   |
+| `correlationId` | Identify correlated requests made by using Call Automation. |
 | `operationName` | The name of the operation that this event represents.|
 | `operationVersion` | |
 | `resultType` | The status of the event. Typical values include `Completed`, `Canceled`, and `Failed`.|

@@ -4,7 +4,10 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 01/14/2025
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date: 05/28/2025
 ---
 
 # Azure HDInsight release notes
@@ -20,14 +23,14 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 ## Release Information
 
-### Release date: Oct 22, 2024
+### Release date: May 28, 2025
 
 > [!NOTE]
 > This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider).
 
 Azure HDInsight periodically releases maintenance updates for delivering bug fixes, performance enhancements, and security patches ensuring you stay up to date with these updates guarantees optimal performance and reliability.
 
-This release note applies to 
+This release note applies to
 
 :::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.1 version.
 
@@ -35,8 +38,7 @@ This release note applies to
 
 :::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version. 
 
-
-HDInsight release will be available to all regions over several days. This release note is applicable for image number **2409240625**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2501080039**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -51,30 +53,22 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
-## Updated
+## Issues fixed
 
-* MSI based authentication support available for Azure blob storage.
+* Authentication issue for SQL databases when managed identity is used.
 
-  * Azure HDInsight now supports OAuth-based authentication for accessing Azure Blob storage by leveraging Azure Active Directory (AAD) and managed identities (MSI). With this enhancement, HDInsight uses user-assigned managed identities to access Azure blob storage. For more information, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
+## Updates
 
+* Active PIN requests for creating HDInsight clusters with predetermined image versions stand revoked/cancelled as of 26 May 2025. Customers can only create clusters using the updated (compliant) images of each HDInsight version. This measure is intended to improve cluster security and prevent potential issues with clusters and gateway nodes. 
 
-* HDInsight service transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
+## Reminder
 
-  > [!NOTE]
-  > This change is available in all regions. Recreate your cluster to consume this change. For any assistance, contact [support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+* HDInsight service has transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
 
   > [!IMPORTANT]
-  > When using your own Virtual Network (custom VNet) during cluster creation, be advised that the cluster creation won't succeed once this change is enabled. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
+  > By default, creation of any new HDInsight cluster happens with Standard Load Balancers. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
   > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
-
-* [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
-   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
-   * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
-
-* Retirement Notifications for [HDInsight 4.0](https://azure.microsoft.com/updates/azure-hdinsight-40-will-be-retired-on-31-march-2025-migrate-your-hdinsight-clusters-to-51) and  [HDInsight 5.0](https://azure.microsoft.com/updates/hdinsight5retire/).
- 
 If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
 You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight).

@@ -6,6 +6,10 @@ ms.topic: include
 ms.date: 11/17/2022
 ---
 
+## Sample code
+
+You can find the sample code for many of the IoT Plug and Play constructs described in this article in the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples) GitHub repository.
+
 ## Model ID announcement
 
 To announce the model ID, the device must include it in the connection information:

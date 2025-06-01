@@ -2,15 +2,16 @@
 title: Azure Virtual Desktop on Azure Local
 description: Learn about using Azure Virtual Desktop on Azure Local, enabling you to deploy session hosts where you need them.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 09/17/2024
+author: dougeby
+ms.author: avdcontent
+ms.date: 05/20/2025
 ---
 
 # Azure Virtual Desktop on Azure Local
 
 > [!IMPORTANT]
->- Azure Virtual Desktop on Azure Local for Azure Government and Azure operated by 21Vianet (Azure in China) is currently in preview with HCI version 22H2. Portal provisioning isn't available.
+>- Azure Virtual Desktop on Azure Local for Azure Government is currently in preview with HCI version 23H2 (and newer). Portal provisioning isn't available.
+>
 >- See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 Using Azure Virtual Desktop on Azure Local, you can deploy session hosts for Azure Virtual Desktop where you need them. If you already have an existing on-premises virtual desktop infrastructure (VDI) deployment, Azure Virtual Desktop on Azure Local can improve your experience. If you're already using Azure Virtual Desktop with your session hosts in Azure, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
@@ -45,6 +46,7 @@ Once your instance is ready, you can use the following 64-bit operating system i
 - Windows 11 Enterprise
 - Windows 10 Enterprise multi-session
 - Windows 10 Enterprise
+- Windows Server 2025
 - Windows Server 2022
 - Windows Server 2019
 
@@ -70,6 +72,22 @@ To run Azure Virtual Desktop on Azure Local, you need to make sure you're licens
 
 There are different classifications of data for Azure Virtual Desktop, such as customer input, customer data, diagnostic data, and service-generated data. With Azure Local, you can choose to store user data on-premises when you deploy session host virtual machines (VMs) and associated services such as file servers. However, some customer data, diagnostic data, and service-generated data is still stored in Azure. For more information on how Azure Virtual Desktop stores different kinds of data, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
+### FSLogix profile containers storage
+
+To store FSLogix profile containers, you need to provide an SMB share. We recommend you create a VM-based file share cluster using Storage Spaces Direct on top of your Azure Local instance.
+	
+Here are the high-level steps you need to perform:
+	
+1. Deploy virtual machines on Azure Local. For more information, see [Manage VMs with Windows Admin Center on Azure Local](/azure/azure-local/manage/vm).
+	
+1. For storage redundancy and high availability, use [Storage Spaces Direct in guest virtual machine clusters](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm). For more information, see [Deploy Storage Spaces Direct on Windows Server](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct).
+	
+1. Configure storage permissions. For more information, see [Configure SMB Storage permissions](/fslogix/how-to-configure-storage-permissions).
+	
+1. Configure FSLogix [profile containers](/fslogix/tutorial-configure-profile-containers). 
+
+For large Azure Virtual Desktop deployments that have high resource requirements, we recommend that the profile container storage is located external to Azure Local and on any separate SMB file share on the same network as your session hosts. This allows you to independently scale storage and compute resources for your profile management based on your usage needs independently of your Azure Local instance.  
+
 ## Limitations
 
 Azure Virtual Desktop on Azure Local has the following limitations:
@@ -79,6 +97,8 @@ Azure Virtual Desktop on Azure Local has the following limitations:
 - Azure Local supports many types of hardware and on-premises networking capabilities, so performance and user density might vary compared to session hosts running on Azure. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should use them for initial performance estimates and monitor after deployment.
 
 - You can only join session hosts on Azure Local to an Active Directory Domain Services (AD DS) domain. This includes using [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join), where you can benefit from some of the functionality provided by Microsoft Entra ID.
+
+- Azure Virtual Desktop for Azure Local requires a connection to the Azure Virtual Desktop service hosted in Azure for brokering connections and connecting users.
 
 ## Next step
 

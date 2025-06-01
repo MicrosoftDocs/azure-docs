@@ -15,6 +15,9 @@ The following article describes how to configure Destination NAT for Next-Genera
 > [!Important]
 > Destination NAT (DNAT) for Virtual WAN integrated Network Virtual Appliances is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+> [!Important]
+> This document applies to Integrated Network Virtual Appliances deployed in the Virtual WAN hub and does **not** apply to software-as-a-service (SaaS) solutions. See [third-party integrations](third-party-integrations.md) for more information on the differences between Integrated Network Virtual Appliances and SaaS solutions. Reference your SaaS provider's documentation for information related to infrastructure operations available for SaaS solutions. 
+
 ## Background
 
 Network Virtual Appliances (NVAs) with Next-Generation Firewall capabilities that are integrated with Virtual WAN allow customers to protect and inspect traffic between private networks connected to Virtual WAN. 
@@ -65,12 +68,7 @@ The following section describes known issues, limitations, and considerations as
 
 ### Known Issues
 
-The following table describes known issues related to the internet inbound/DNAT feature.
-
-|Issue | Description| Mitigation|
-|--|--|--|
-| DNAT traffic isn't forwarded to the NVA after associating an additional IP address.| After associating additional IP address(es) to an NVA that already has active inbound security rules, DNAT traffic isn't forwarded properly to the NVA due to a code defect. | Use partner orchestration/management software to modify (create or delete existing) configured inbound-security rules to restore connectivity. |
-|Inbound security rule configuration scalability| Inbound security rule configuration might fail when a large number (approximately 100)  rules are configured.| No mitigation, reach out to Azure Support for fix timelines.|
+There are currently no known issues related to the destination NAT (DNAT) capability for NVAs deployed in the Virtual WAN hub.
 
 ### Limitations
 
@@ -86,7 +84,7 @@ The following table describes known issues related to the internet inbound/DNAT 
 
 ### Considerations
 
-* Inbound Traffic is automatically load-balanced across all healthy instances of the Network Virtual Appliance.
+* Inbound traffic is automatically load-balanced across all healthy instances of the Network Virtual Appliance. Virtual WAN uses five-tuple hashing algorithm to distribute flows for backend NVA instances. For certain use cases such as File Transfer Protocol (FTP) where a single application session might have   multiple five-tuple flows (e.g. FTP control and data plane packets on different ports), Virtual WAN does not guarantee that all flows in that session are distributed to the same NVA instance.
 * In most cases, NVAs must perform source-NAT to the Firewall private IP in addition to  destination-NAT to ensure flow symmetry. Certain NVA types might not require source-NAT. Contact your NVA provider for best practices around source-NAT.
 * Timeout for idle flows is automatically set to 4 minutes.
 * You can assign individual IP address resources generated from an IP address prefix to the NVA as internet inbound IPs. Assign each IP address from the prefix individually.

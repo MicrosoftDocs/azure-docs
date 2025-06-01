@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---
@@ -80,7 +80,7 @@ OriginalUrl.
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

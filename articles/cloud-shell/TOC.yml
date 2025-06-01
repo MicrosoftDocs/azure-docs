@@ -7,7 +7,7 @@ items:
         href: features.md
       - name: Release notes
         href: release-notes.md
-  - name: Get started with Cloud Shell
+  - name: Get started with Azure Cloud Shell
     items:
       - name: Get started (Classic)
         href: get-started/classic.md
@@ -17,7 +17,7 @@ items:
         href: get-started/new-storage.md
       - name: Get started with existing storage account (New UI)
         href: get-started/existing-storage.md
-  - name: How to use Cloud Shell
+  - name: How to use Azure Cloud Shell
     items:
       - name: Use the window (Classic UI)
         href: using-the-shell-window.md
@@ -31,7 +31,7 @@ items:
         href: cloud-shell-predictive-intellisense.md
       - name: FAQ & Troubleshooting
         href: faq-troubleshooting.md
-  - name: Deploy Cloud Shell in a virtual network
+  - name: Deploy Azure Cloud Shell in a virtual network
     items:
       - name: Overview
         href: vnet/overview.md
@@ -41,16 +41,18 @@ items:
         href: vnet/how-to-use-private-endpoint-storage.md
       - name: Troubleshoot Azure Cloud Shell in a virtual network
         href: vnet/troubleshooting.md
+  - name: Security
+    items:
+      - name: Allow multiple users to use a single storage account and file share
+        href: security/how-to-support-multiple-users.md
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
   - name: Pricing
     items:
-      - name: Cloud Shell pricing
+      - name: Azure Cloud Shell pricing
         href: pricing.md
       - name: Pricing calculator
         href: https://azure.microsoft.com/pricing/calculator/
-  - name: Security
-    items:
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
   - name: Reference
     items:
       - name: Azure CLI

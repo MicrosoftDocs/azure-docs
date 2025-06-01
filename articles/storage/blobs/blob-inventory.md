@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.date: 03/28/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.custom: references_regions
 ---
@@ -106,7 +106,7 @@ The global **Blob inventory enabled** flag takes precedence over the *enabled* p
 | format | string | Determines the output of the inventory file. Valid values are `csv` (For CSV format) and `parquet` (For Apache Parquet format).| Yes |
 | objectType | string | Denotes whether this is an inventory rule for blobs or containers. Valid values are `blob` and `container`. |Yes |
 | schedule | string | Schedule on which to run this rule. Valid values are `daily` and `weekly`. | Yes |
-| schemaFields | Json array | List of Schema fields to be part of inventory. | Yes |
+| schemaFields | JSON array | List of Schema fields to be part of inventory. | Yes |
 
 ### Rule filters
 

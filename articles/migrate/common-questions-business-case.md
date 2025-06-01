@@ -1,10 +1,7 @@
 ---
 title: Questions about Business case in Azure Migrate
 description: Get answers to common questions about Business case in Azure Migrate.
-author: rashijoshi
-ms.author: rajosh
-ms.manager: ronai
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 11/08/2024
 ms.custom: references_regions, engagement-fy23

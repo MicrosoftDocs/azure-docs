@@ -1,33 +1,19 @@
 items:
 - name: Azure Native Qumulo Scalable File Service documentation 
   href: index.yml
-- name: Overview
-  items:
-  - name: What is Azure Native Qumulo Scalable File Service?
-    href: qumulo-overview.md
-  - name: What is ANQ for disaster recovery?
-    href: qumulo-disaster-recovery.md
-  - name: What is ANQ for video editing?
-    href: qumulo-video-editing.md
-  - name: What is Azure Native Qumulo for PACS VNA?
-    href: qumulo-vendor-neutral-archive.md
-  - name: What is Azure Native Qumulo for virtual desktops?
-    href: qumulo-virtual-desktop.md
-- name: Quickstart
+- name: What is Azure Native Qumulo Scalable File Service?
+  href: overview.md
+- name: FAQ
+  href: faq.yml
+- name: Get started
   expanded: true
   items:
-  - name: Create an Azure Native Qumulo Scalable File Service resource
-    href: qumulo-create.md
+  - name: Create a Qumulo resource
+    href: create.md
 - name: How to
   items:
-  - name: Manage Azure Native Qumulo Scalable File Service
-    href: qumulo-how-to-manage.md
-  - name: Troubleshoot Azure Native Qumulo Scalable File Service
-    href: qumulo-troubleshoot.md
-  - name: Setting up Azure Native Qumulo Scalable File Service
-    href: qumulo-how-to-setup-features.md
-
-
+  - name: Manage resources
+    href: manage.md
 - name: SDKs and command-lines
   items:
   - name: Python
@@ -42,5 +28,3 @@ items:
     href: /cli/azure/service-page/qumulo
   - name: Azure PowerShell
     href: /powershell/module/az.qumulo
-  - name: Qumulo Developer tools 
-    href: qumulo-how-to-setup-features.md#developer-tools 

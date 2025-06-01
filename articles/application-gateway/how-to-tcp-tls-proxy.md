@@ -3,11 +3,11 @@ title: Configure Azure Application Gateway TCP/TLS proxy (Preview)
 titleSuffix: Azure Application Gateway
 description: This article provides information on how to configure Application Gateway's layer 4 proxy service for non-HTTP workloads.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 02/26/2024
-ms.author: greglin
+ms.date: 05/12/2025
+ms.author: mbender
 ---
 
 # Configure Azure Application Gateway TCP/TLS proxy (Preview)
@@ -40,13 +40,7 @@ Use the following steps to enroll into the public preview for Application Gatewa
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the search box, enter _subscriptions_ and select **Subscriptions**.
-
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Screenshot of Azure portal search.":::
-
 3. Select the link for your subscription's name.
-
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Screenshot selecting the Azure subscription.":::
-
 4. From the left menu, under **Settings** select **Preview features**.
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Screenshot of the Azure preview features menu.":::
@@ -57,7 +51,7 @@ Use the following steps to enroll into the public preview for Application Gatewa
 
 6. From **Preview features** type into the filter box **AllowApplicationGatewayTlsProxy**, select the feature, and then select **Register**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Screenshot of Azure portal filter preview features.":::
+   ![A screenshot of registering for the preview.](media/how-to-tcp-tls-proxy/preview.png)
 
 ## Create a SQL server
 
@@ -177,7 +171,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     - Configured the SQL server to accept SQL authentication
     - Created an admin account on the SQL server
 
-2. On a client device with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) installed, connect to the public IP address of the Azure virtual machine.
+2. On a client device with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) installed, connect to the public IP address of the Azure Application Gateway frontend.
 
     <br><img src="./media/how-to-tcp-tls-proxy/sql-connect.png" alt="Screenshot displaying the connection to a SQL server." width="60%">
 

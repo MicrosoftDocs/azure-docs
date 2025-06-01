@@ -1,11 +1,11 @@
 ---
 title: Rewrite HTTP headers and URL with Azure Application Gateway
 description: This article provides an overview of rewriting HTTP headers and URL in Azure Application Gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 10/22/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Rewrite HTTP headers and URL with Application Gateway
@@ -256,7 +256,7 @@ For a URL redirect, Application Gateway sends a redirect response to the client 
 - Rewrites aren't supported when the application gateway is configured to redirect the requests or to show a custom error page.
 - Request header names can contain alphanumeric characters and hyphens. Headers names containing other characters will be discarded when a request is sent to the backend target.
 - Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27).
-- Connection and upgrade headers cannot be rewritten
+- X-Original-Host, Connection, and upgrade headers cannot be rewritten
 - Rewrites aren't supported for 4xx and 5xx responses generated directly from Application Gateway
 
 ## Next steps

@@ -182,7 +182,7 @@ NVAs (Network Virtual Appliances) in Virtual WAN are typically deployed through 
 
 |Resource | Required Azure permissions due to resource references |
 |---|---|
-| networkVirtualAppliances  | Microsoft.Network/virtualHubs/read  |
+| networkVirtualAppliances  | Microsoft.Network/virtualHubs/read   <br? Microsoft.Network/publicIPAddresses/join|
 | networkVirtualAppliances/networkVirtualApplianceConnections  | Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/virtualHubs/hubRouteTables/read | 
 
 

@@ -3,7 +3,7 @@ title: Reliability in Azure Virtual Machine Scale Sets
 description: Learn about reliability in Azure Virtual Machine Scale Sets. 
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-virtual-machine-scale-sets
 ms.date: 10/31/2024
@@ -32,7 +32,7 @@ Virtual Machine Scale Sets supports both zonal and zone-redundant deployments wi
 
 ### Prerequisites
 
-1. To use availability zones, your scale set must be created in a [supported Azure region](./availability-zones-region-support.md).
+1. To use availability zones, your scale set must be created in a [supported Azure region](./regions-list.md).
 
 1. All VMs - even single instance VMs - should be deployed into a scale set using [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. 
 
@@ -237,7 +237,7 @@ When you deploy a scale set into one or more availability zones, you have the fo
 
 - **Static fixed spreading (platformFaultDomainCount = 5)**. With static fixed spreading, the scale set spreads your VMs exactly across five fault domains per zone. If the scale set can't find five distinct fault domains per zone to satisfy the allocation request, the request fails.
 
-- **Spreading aligned with managed disks fault domains (platformFaultDomainCount = 2 or 3)** You can consider aligning the number of scale set fault domains with the number of managed disks fault domains. This alignment can help prevent loss of quorum if an entire managed disks fault domain goes down. The fault domain count can be set to less than or equal to the number of managed disks fault domains available in each of the regions. To learn about the number of Managed Disks fault domains by region, see [insert doc here](link here).
+- **Spreading aligned with managed disks fault domains (platformFaultDomainCount = 2 or 3)** You can consider aligning the number of scale set fault domains with the number of managed disks fault domains. This alignment can help prevent loss of quorum if an entire managed disks fault domain goes down. The fault domain count can be set to less than or equal to the number of managed disks fault domains available in each of the regions. To learn more, see [Best practices for achieving high availability with Azure virtual machines and managed disks](/azure/virtual-machines/disks-high-availability).
 
 #### Zone balancing
 

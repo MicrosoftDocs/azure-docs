@@ -2,11 +2,11 @@
 title: Azure permissions for Compute - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Compute category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -25,6 +25,9 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/register/action | Register microsoft.app resource provider for the subscription |
 > | microsoft.app/unregister/action | Unregister microsoft.app resource provider for the subscription |
 > | microsoft.app/getcustomdomainverificationid/action | Get Subscription Verification Id used for verifying custom domains |
+> | Microsoft.App/agents/read | Read SRE Agent properties |
+> | Microsoft.App/agents/write | Create or Update a SRE Agent |
+> | Microsoft.App/agents/delete | Delete a SRE Agent |
 > | microsoft.app/builders/write | Create or update a Builder |
 > | microsoft.app/builders/read | Get a Builder |
 > | microsoft.app/builders/delete | Delete a Builder |
@@ -67,6 +70,7 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/containerapps/builds/delete | Delete a Container App's Build |
 > | microsoft.app/containerapps/detectors/read | Get detector of a container app |
 > | microsoft.app/containerapps/labelhistory/read | Get a Container App's label history |
+> | microsoft.app/containerapps/labelhistory/delete | Delete a Container App's label history for a given label |
 > | microsoft.app/containerapps/patches/read | Get a ContainerApp's Patch |
 > | microsoft.app/containerapps/patches/delete | Delete a ContainerApp's Patch |
 > | microsoft.app/containerapps/patches/skip/action | Skip a ContainerApp's Patch |
@@ -123,12 +127,12 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/locations/sourcecontroloperationresults/read | Get Container App Source Control Long Running Operation Result |
 > | microsoft.app/locations/sourcecontroloperationstatuses/read | Get a Container App Source Control Long Running Operation Status |
 > | microsoft.app/locations/usages/read | Get Quota Usages in a Region |
+> | microsoft.app/managedenvironments/checknameavailability/action | Check reource name availability for a Managed Environment |
 > | microsoft.app/managedenvironments/join/action | Allows to create a Container App in a Managed Environment |
 > | microsoft.app/managedenvironments/read | Get a Managed Environment |
 > | microsoft.app/managedenvironments/write | Create or update a Managed Environment |
 > | microsoft.app/managedenvironments/delete | Delete a Managed Environment |
 > | microsoft.app/managedenvironments/getauthtoken/action | Get Auth Token for Managed Environment Dev APIs to get log stream, exec or port forward from a container |
-> | microsoft.app/managedenvironments/checknameavailability/action | Check reource name availability for a Managed Environment |
 > | microsoft.app/managedenvironments/certificates/write | Create or update a Managed Environment Certificate |
 > | microsoft.app/managedenvironments/certificates/read | Get a Managed Environment's Certificate |
 > | microsoft.app/managedenvironments/certificates/delete | Delete a Managed Environment's Certificate |
@@ -178,11 +182,14 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/sessionpools/sessions/generatesessions/action | Generate sessions |
 > | microsoft.app/sessionpools/sessions/read | Get a Session |
 > | **DataAction** | **Description** |
+> | Microsoft.App/agents/threads/read | Read all the conversation threads with an SRE Agent |
+> | Microsoft.App/agents/threads/write | Create new conversation threads with an SRE Agent and reply to existing threads |
 > | microsoft.app/containerApps/logstream/action | View log stream of a container app |
 > | microsoft.app/containerApps/exec/action | Connect to console of a container app |
 > | microsoft.app/containerApps/debug/action | Connect to debug console of a container app |
 > | microsoft.app/jobs/logstream/action | View log stream of a container app job |
 > | microsoft.app/jobs/exec/action | Connect to console of a container app job |
+> | Microsoft.App/managedEnvironments/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | Microsoft.App/sessionPools/executions/action | Execute code in a session pool code interpreter session |
 > | Microsoft.App/sessionPools/files/action | Upload file to a session pool code interpreter session |
 > | Microsoft.App/sessionPools/executions/read | Get the execution result of a previous asynchronous code execution |
@@ -344,6 +351,7 @@ Azure service: [Azure Spring Apps](/azure/spring-apps/)
 > | Microsoft.AppPlatform/Spring/jobs/executions/read | Get the job execution for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/jobs/executions/cancel/action | Cancel the execution for a specific job |
 > | Microsoft.AppPlatform/Spring/jobs/executions/listEnvSecrets/action | List environment variables secret of the job execution for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/maintenance/releaseNote/action | Azure Spring Apps auto patching release note |
 > | Microsoft.AppPlatform/Spring/monitoringSettings/read | Get the monitoring setting for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/monitoringSettings/write | Create or update the monitoring setting for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/operationResults/read | Read resource operation result |
@@ -396,6 +404,10 @@ Azure service: [Azure VMware Solution](/azure/azure-vmware/introduction)
 > | Microsoft.AVS/privateClouds/write | Creates or updates a PrivateCloud resource. |
 > | Microsoft.AVS/privateClouds/read | Gets the settings for the specified PrivateCloud. |
 > | Microsoft.AVS/privateClouds/delete | Delete a specific PrivateCloud. |
+> | Microsoft.AVS/privateClouds/listAdminCredentials/action | Lists the AdminCredentials for privateClouds. |
+> | Microsoft.AVS/privateClouds/rotateVcenterPassword/action | Rotate Vcenter password for the PrivateCloud. |
+> | Microsoft.AVS/privateClouds/rotateNsxtPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
+> | Microsoft.AVS/privateClouds/rotateNsxtCloudAdminPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
 > | Microsoft.AVS/privateClouds/addOns/read | Read addOns. |
 > | Microsoft.AVS/privateClouds/addOns/write | Write addOns. |
 > | Microsoft.AVS/privateClouds/addOns/delete | Delete addOns. |
@@ -428,6 +440,11 @@ Azure service: [Azure VMware Solution](/azure/azure-vmware/introduction)
 > | Microsoft.AVS/privateClouds/hostInstances/delete | Delete a specific hostInstances. |
 > | Microsoft.AVS/privateClouds/operationresults/read | Reads privateClouds operationresults. |
 > | Microsoft.AVS/privateClouds/operationstatuses/read | Reads privateClouds operationstatuses. |
+> | Microsoft.AVS/privateClouds/scriptExecutions/read | View AVS Run Command script executions |
+> | Microsoft.AVS/privateClouds/scriptExecutions/write | Create AVS Run Command script executions |
+> | Microsoft.AVS/privateClouds/scriptExecutions/delete | Cancel/Delete AVS Run Command script executions |
+> | Microsoft.AVS/privateClouds/scriptPackages/read | View AVS Run Command packages |
+> | Microsoft.AVS/privateClouds/scriptPackages/scriptCmdlets/read | View AVS Run Command package commandlets |
 > | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/delete | Delete dhcpConfigurations. |
 > | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/write | Write dhcpConfigurations. |
 > | Microsoft.AVS/privateClouds/workloadNetworks/dhcpConfigurations/read | Read dhcpConfigurations. |
@@ -454,11 +471,19 @@ Azure service: [Azure VMware Solution](/azure/azure-vmware/introduction)
 > | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/write | Write vmGroups. |
 > | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/read | Read vmGroups. |
 > | Microsoft.AVS/privateClouds/workloadNetworks/vmGroups/operationStatuses/read | Read vmGroups operationStatuses. |
-> | **DataAction** | **Description** |
-> | Microsoft.AVS/privateClouds/listAdminCredentials/action | Lists the AdminCredentials for privateClouds. |
-> | Microsoft.AVS/privateClouds/rotateVcenterPassword/action | Rotate Vcenter password for the PrivateCloud. |
-> | Microsoft.AVS/privateClouds/rotateNsxtPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
-> | Microsoft.AVS/privateClouds/rotateNsxtCloudAdminPassword/action | Rotate Nsxt CloudAdmin password for the PrivateCloud. |
+
+## Microsoft.AzureFleet
+
+Azure service: [Azure Compute Fleet](/azure/azure-compute-fleet/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AzureFleet/register/action | Registers Subscription with Microsoft.AzureFleet resource provider |
+> | Microsoft.AzureFleet/unregister/action | Unregisters Subscription with Microsoft.AzureFleet resource provider |
+> | Microsoft.AzureFleet/fleets/read | Get properties of Azure Fleet resource |
+> | Microsoft.AzureFleet/fleets/write | Creates a new Azure Fleet resource or updates an existing one |
+> | Microsoft.AzureFleet/fleets/delete | Deletes all compute resources of Azure Fleet resource |
 
 ## Microsoft.Batch
 
@@ -519,7 +544,6 @@ Azure service: [Batch](/azure/batch/)
 > | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the Batch service |
 > | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for the Batch service |
-> | Microsoft.Batch/deployments/preflight/action | Runs Preflight validation for resources included in the request |
 > | Microsoft.Batch/locations/checkNameAvailability/action | Checks that the account name is valid and not in use. |
 > | Microsoft.Batch/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notifies the NSP updates available at the given location |
 > | Microsoft.Batch/locations/accountOperationResults/read | Gets the results of a long running Batch account operation |
@@ -785,6 +809,7 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/locations/sharedGalleries/images/read | Get the properties of a Shared Gallery Image |
 > | Microsoft.Compute/locations/sharedGalleries/images/versions/read | Get the properties of a Shared Gallery Image Version |
 > | Microsoft.Compute/locations/usages/read | Gets service limits and current usage quantities for the subscription's compute resources in a location |
+> | Microsoft.Compute/locations/vmSizeRecommendations/generate/action | Create a request for generating VMSize Recommendations |
 > | Microsoft.Compute/locations/vmSizes/read | Lists available virtual machine sizes in a location |
 > | Microsoft.Compute/locations/vsmOperations/read | Gets the status of an asynchronous operation for Virtual Machine Scale Set with the Virtual Machine Runtime Service Extension |
 > | Microsoft.Compute/operations/read | Lists operations available on Microsoft.Compute resource provider |
@@ -949,14 +974,39 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | --- | --- |
 > | Microsoft.ComputeSchedule/register/action | Register the subscription for Microsoft.ComputeSchedule |
 > | Microsoft.ComputeSchedule/unregister/action | Unregister the subscription for Microsoft.ComputeSchedule |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesCancelOperations/action | virtualMachinesCancelOperations: cancelOperations for a virtual machine |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDeallocate/action | virtualMachinesExecuteDeallocate: executeDeallocate for a virtual machine |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteHibernate/action | virtualMachinesExecuteHibernate: executeHibernate for a virtual machine |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteStart/action | virtualMachinesExecuteStart: executeStart for a virtual machine |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationStatus/action | virtualMachinesGetOperationStatus: getOperationStatus for a virtual machine |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitDeallocate/action | virtualMachinesSubmitDeallocate: submitDeallocate for a virtual machine |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitHibernate/action | virtualMachinesSubmitHibernate: submitHibernate for a virtual machine |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action | virtualMachinesSubmitStart: submitStart for a virtual machine |
+> | Microsoft.ComputeSchedule/autoActionResources/read | List AutoActionResources resources by parent |
+> | Microsoft.ComputeSchedule/autoActions/read | List AutoAction resources by subscription ID |
+> | Microsoft.ComputeSchedule/autoActions/read | List AutoAction resources by resource group |
+> | Microsoft.ComputeSchedule/autoActions/read | Get a AutoAction |
+> | Microsoft.ComputeSchedule/autoActions/write | Create a AutoAction |
+> | Microsoft.ComputeSchedule/autoActions/delete | Delete a AutoAction |
+> | Microsoft.ComputeSchedule/autoActions/write | Update a AutoAction |
+> | Microsoft.ComputeSchedule/autoActions/attachResources/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/cancelNextOccurrence/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/detachResources/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/disable/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/enable/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/listResources/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/patchResources/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/triggerManualOccurrence/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/occurrences/cancel/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/occurrences/delay/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/occurrences/listResources/action | A synchronous resource action. |
+> | Microsoft.ComputeSchedule/autoActions/occurrences/read | List OccurrenceOld resources by AutoAction |
+> | Microsoft.ComputeSchedule/autoActions/occurrences/read | Get a OccurrenceOld |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesCancelOperations/action | VirtualMachinesCancelOperations: Cancel a previously submitted (start/deallocate/hibernate) request |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDeallocate/action | VirtualMachinesExecuteDeallocate: Execute deallocate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteHibernate/action | VirtualMachinesExecuteHibernate: Execute hibernate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitHibernate/action | VirtualMachinesSubmitHibernate: Schedule hibernate operation for a batch of virtual machines at datetime in future. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationStatus/action | VirtualMachinesGetOperationStatus: Polling endpoint to read status of operations performed on virtual machines |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitDeallocate/action | VirtualMachinesSubmitDeallocate: Schedule deallocate operation for a batch of virtual machines at datetime in future. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteStart/action | VirtualMachinesExecuteStart: Execute start operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDelete/action | VirtualMachinesExecuteDelete: Execute delete operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreate/action | VirtualMachinesExecuteCreate: Execute create operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | Microsoft.ComputeSchedule/locations/OperationStatuses/read | read OperationStatuses |
+> | Microsoft.ComputeSchedule/locations/OperationStatuses/write | write OperationStatuses |
 > | Microsoft.ComputeSchedule/Operations/read | read Operations |
 
 ## microsoft.connectedvmwarevsphere
@@ -997,6 +1047,9 @@ Azure service: [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vspher
 > | Microsoft.ConnectedVMwarevSphere/vcenters/inventoryitems/Read | Read vcenter inventoryitems |
 > | Microsoft.ConnectedVMwarevSphere/vcenters/inventoryitems/Write | Writes vcenters inventoryitems |
 > | Microsoft.ConnectedVMwarevSphere/vcenters/inventoryitems/onboard/action | Project vcenters inventoryitems |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachineinstances/start/action | Start VM. |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachineinstances/restart/action | Restart VM. |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachineinstances/stop/action | Stop VM. |
 > | Microsoft.ConnectedVMwarevSphere/virtualmachineinstances/Read | Read virtualmachineinstances |
 > | Microsoft.ConnectedVMwarevSphere/virtualmachineinstances/Write | Writes virtualmachineinstances |
 > | Microsoft.ConnectedVMwarevSphere/virtualmachineinstances/Delete | Deletes virtualmachineinstances |
@@ -1044,6 +1097,7 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | Microsoft.DesktopVirtualization/appattachpackages/write | Write appattachpackages |
 > | Microsoft.DesktopVirtualization/appattachpackages/delete | Delete appattachpackages |
 > | Microsoft.DesktopVirtualization/appattachpackages/move/action | Move appattachpackages to another ResourceGroup or Subscription |
+> | Microsoft.DesktopVirtualization/appattachpackages/msixfiles/action | Expand an expandmsixfile to desired output location |
 > | Microsoft.DesktopVirtualization/appattachpackages/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting |
 > | Microsoft.DesktopVirtualization/appattachpackages/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
 > | Microsoft.DesktopVirtualization/appattachpackages/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
@@ -1071,7 +1125,7 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | Microsoft.DesktopVirtualization/hostpools/controlUpdate/action |  |
 > | Microsoft.DesktopVirtualization/hostpools/update/action | Action on update |
 > | Microsoft.DesktopVirtualization/hostpools/retrieveRegistrationToken/action | Retrieve registration token for host pool |
-> | Microsoft.DesktopVirtualization/hostpools/retrieveRegistrationToken/action | List registration tokens for host pool |
+> | Microsoft.DesktopVirtualization/hostpools/listRegistrationTokens/action | List registration tokens for host pool |
 > | Microsoft.DesktopVirtualization/hostpools/move/action | Move a hostpools to another resource group |
 > | Microsoft.DesktopVirtualization/hostpools/expandmsiximage/action | Expand an expandmsiximage to see MSIX Packages present |
 > | Microsoft.DesktopVirtualization/hostpools/doNotUseInternalAPI/action | Internal operation that is not meant to be called by customers. This will be removed in a future version. Do not use it. |
@@ -1118,6 +1172,15 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | Microsoft.DesktopVirtualization/hostpools/updateOperationResults/read | Read updateOperationResults |
 > | Microsoft.DesktopVirtualization/hostpools/usersessions/read | Read usersessions |
 > | Microsoft.DesktopVirtualization/operations/read | Read operations |
+> | Microsoft.DesktopVirtualization/repositoryFolders/read | Read repositoryFolders |
+> | Microsoft.DesktopVirtualization/repositoryFolders/write | Write repositoryFolders |
+> | Microsoft.DesktopVirtualization/repositoryFolders/delete | Delete repositoryFolders |
+> | Microsoft.DesktopVirtualization/repositoryFolders/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting |
+> | Microsoft.DesktopVirtualization/repositoryFolders/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
+> | Microsoft.DesktopVirtualization/repositoryFolders/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
+> | Microsoft.DesktopVirtualization/repositoryFolders/repositoryIntegrations/read | Read repositoryFolders/repositoryIntegrations |
+> | Microsoft.DesktopVirtualization/repositoryFolders/repositoryIntegrations/write | Write repositoryFolders/repositoryIntegrations |
+> | Microsoft.DesktopVirtualization/repositoryFolders/repositoryIntegrations/delete | Delete repositoryFolders/repositoryIntegrations |
 > | Microsoft.DesktopVirtualization/resourceTypes/read | Read resourceTypes |
 > | Microsoft.DesktopVirtualization/scalingplans/read | Read scalingplans |
 > | Microsoft.DesktopVirtualization/scalingplans/write | Write scalingplans |

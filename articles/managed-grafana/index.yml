@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Managed Grafana documentation
-summary: This Azure Managed Grafa documentation page links to resources to learn how to use Azure Managed Grafana. On this page, access quickstarts, how-to guides and tutorials to create, configure and manage Azure Managed Grafana workspaces, Grafana in Azure.
+summary: This Azure Managed Grafana documentation page links to resources to learn how to use Azure Managed Grafana. On this page, access quickstarts, how-to guides and tutorials to create, configure and manage Azure Managed Grafana workspaces, Grafana in Azure.
 
 metadata:
   title: Azure Managed Grafana documentation
@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 01/15/2024
+  ms.date: 12/15/2024
 
 landingContent:
   - title: About Azure Managed Grafana
@@ -24,9 +24,9 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create an instance in the Azure portal
+          - text: Create a workspace in the Azure portal
             url: quickstart-managed-grafana-portal.md
-          - text: Create an instance in the Azure CLI
+          - text: Create a workspace in the Azure CLI
             url: quickstart-managed-grafana-cli.md
   
   - title: Manage dashboards
@@ -35,14 +35,12 @@ landingContent:
         links:
           - text: Create a dashboard
             url: how-to-create-dashboard.md
-          - text: Manage data sources
-            url: how-to-data-source-plugins-managed-identity.md
           - text: Share a dashboard
             url: how-to-share-dashboard.md
           - text: Use reporting and image rendering
             url: how-to-use-reporting-and-image-rendering.md
-          - text: Use service accounts
-            url: how-to-service-accounts.md
+          - text: Use Grafana Team Sync
+            url: how-to-sync-teams-with-entra-groups.md
   
   - title: Manage data sources
     linkLists:
@@ -67,21 +65,21 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Share a workspace
-            url: how-to-share-grafana-workspace.md
-          - text: Set up authentication and permissions
+          - text: Configure Grafana resource authentication and permissions
             url: how-to-authentication-permissions.md
-          - text: Use Microsoft Entra groups
-            url: how-to-sync-teams-with-entra-groups.md
           - text: Modify access to Azure Monitor
             url: how-to-permissions.md
+          - text: Manage access and permissions for users and identities
+            url: how-to-manage-access-permissions-users-identities.md
           - text: Connect to a data source privately
             url: how-to-connect-to-data-source-privately.md
           - text: Set up private access
             url: how-to-set-up-private-access.md
+          - text: Use service accounts
+            url: how-to-service-accounts.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
-          - text: Grafana settings
+          - text: Configure Grafana settings
             url: grafana-settings.md
           - text: Use deterministic outbound IPs
             url: how-to-deterministic-ip.md
@@ -89,13 +87,13 @@ landingContent:
         links:
           - text: Encryption
             url: encryption.md
-          - text: Azure RBAC
-            url: concept-role-based-access-control.md
-  - title: Configure monitoring
+  - title: Monitor and alert
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Monitor an instance
+          - text: Monitor using metrics
+            url: how-to-monitor-managed-grafana-metrics.md
+          - text: Monitor using diagnostic settings
             url: how-to-monitor-managed-grafana-workspace.md
           - text: Configure SMTP settings
             url: how-to-smtp-settings.md

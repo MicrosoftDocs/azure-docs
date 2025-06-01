@@ -1,10 +1,10 @@
 ---
 title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
-author: dknappettmsft
+author: dougeby
 ms.topic: conceptual
 ms.date: 11/19/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: references_regions, docs_inherited
 ---
 # Autoscale scaling plans and example scenarios in Azure Virtual Desktop
@@ -190,7 +190,7 @@ If autoscale turned off a session host, the available host pool capacity would b
 
 Once autoscale turns off one of the session hosts without user sessions, there are four available session hosts left. The host pool maximum session limit is still five, so the available host pool capacity is 20. Since there are five user sessions, the used host pool capacity is 25%, which is still below the capacity threshold.
 
-However, if another user signs out and heads out for lunch, there are now four user sessions spread across the four session hosts in the host pool. Since the maximum session limit is still five, the available host pool capacity is 20, and the used host pool capacity is 20%. Turning off another session host would leave three session hosts and an available host pool capacity of 15, which would cause the used host pool capacity to jump up to around 27%. Even though 27% is below the capacity threshold, there are no session hosts with zero user sessions on it. Autoscale will select the session host with the least number of user sessions, put it in drain mode, and wait for all user sessions to sign out before turning it off. If at any point the used host pool capacity gets to a point where autoscale can no longer turn off the session host, it will take the session host out of drain mode.
+However, if another user signs out and heads out for lunch, there are now four user sessions spread across the four session hosts in the host pool. Since the maximum session limit is still five, the available host pool capacity is 20, and the used host pool capacity is 20%. Turning off another session host would leave three session hosts and an available host pool capacity of 15, which would cause the used host pool capacity to jump up to around 27%. Even though 27% is below the capacity threshold, there are no session hosts with zero user sessions on it.
 
 The following animation is a visual recap of what we just went over in Scenario 2.
 

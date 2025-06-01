@@ -37,7 +37,7 @@ In this article, you learn how to migrate your existing network security group f
 
 - Necessary RBAC permissions for the subscriptions of the flow logs and Log Analytics workspaces (if traffic analytics is enabled for any of the network security group flow logs). For more information, see [Network Watcher permissions](required-rbac-permissions.md).
 
-- Network security group flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-portal.md#create-a-flow-log).
+- Network security group flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-manage.md#create-a-flow-log).
 
 ## Generate migration script
 

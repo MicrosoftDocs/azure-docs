@@ -1,12 +1,9 @@
 ---
 title: Azure VM assessments in Azure Migrate 
 description: Learn about assessments in Azure Migrate 
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 09/28/2024
+ms.topic: concept-article
+ms.date: 02/06/2025
 ms.custom: engagement-fy24
 ---
 
@@ -19,7 +16,7 @@ This article provides an overview of assessments in the [Azure Migrate: Discover
 An assessment with the Discovery and assessment tool measures the readiness and estimates the effect of migrating on-premises servers to Azure.
 
 > [!NOTE]
-> In Azure Government, review the [supported target](migrate-support-matrix.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types.
+> In Azure Government, review the [supported target](supported-geographies.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types.
 
 ## Types of assessments
 
@@ -232,17 +229,25 @@ If you use performance-based sizing in an Azure VM assessment, the assessment ma
 - If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section.
 
 
-#### Calculate storage sizing
+#### Storage sizing in Azure VM Assessment
 
-For storage sizing in an Azure VM assessment, Azure Migrate tries to map each disk that is attached to the server to an Azure disk. Sizing works as follows:
+Azure Migrate maps each disk attached to a server to an Azure disk. The sizing process is as follows:
 
-1. Assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. In the case of import-based assessments, you have the option to provide the total IOPS, total throughput and total no. of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
+1. **IOPS and Throughput Calculation**
+    - The assessment calculates total IOPS and throughput by adding the read and write IOPS and throughput values of each disk.
+1. **Import-based assessments**
+    - You can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings.
+    - If this option is used, individual disk sizing is skipped and the supplied data is used directly to compute sizing and select an appropriate VM SKU.
+1. **Disk selection criteria and recommendations**
+   - If there is no disk that meets the required IOPS and throughput, the server is marked as unsuitable for Azure.
+   - If suitable disks are found, the assessment selects disks that support the specified location in the assessment settings.
+   - Among multiple eligible disks, the assessment selects the disk with the lowest cost.
+   - If the performance data for any disk is unavailable, the configured disk size is used to find a disk based on your preference.
+   > [!NOTE]
+   >- For all the new assessments if Premium disks are selected during assessment creation, we recommend using Premium managed disks for your OS disks and Premium V2 SSD (preview) for your data disks. 
+   >- If you don't see Premium V2 SSD (preview) recommendations for data disks, recalculate your assessment and check the assessment settings for Storage type. 
+   >- Currently, the Premium V2 SSD (preview) migration is applicable only for VMware environments even though, the assessments are previewed for all environments.
 
-1. Disks are selected as follows:
-    - If assessment can't find a disk with the required IOPS and throughput, it marks the server as unsuitable for Azure.
-    - If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
-    - If there are multiple eligible disks, assessment selects the disk with the lowest cost.
-    - If performance data for any disk is unavailable, the configuration disk size is used to find a Standard SSD disk in Azure.
 
 ##### Ultra disk sizing
 
@@ -313,57 +318,95 @@ Here are a few reasons why an assessment could get a low confidence rating:
     - Outbound connections on ports 443 are allowed
     - For Hyper-V servers, dynamic memory is enabled 
     
-    **Recalculate** the assessment to reflect the latest changes in confidence rating.
-
-- Some servers were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some servers were created only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low.
-
-> [!NOTE]
-> If the confidence rating of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing.
-
-## Calculate monthly costs
-
-After sizing recommendations are complete, an Azure VM assessment in Azure Migrate calculates compute and storage costs for after migration.
-
-### Compute cost
-Azure Migrate uses the recommended Azure VM size and the Azure Billing API to calculate the monthly cost for the server.
-
-The calculation takes into account the:
-- Operating system
-- Software assurance
-- Reserved instances
-- VM uptime
-- Location
-- Currency settings
-
-The assessment aggregates the cost across all servers to calculate the total monthly compute cost.
-
-### Storage cost
-The monthly storage cost for a server is calculated by aggregating the monthly cost of all disks that are attached to the server.
-
-#### Standard and Premium disk
-The cost for Standard or Premium disks is calculated based on the selected/recommended disk size. 
-
+    Three Ultra disk sizes are calculated: 
+ 
+    - One disk (Disk 1) is found that can satisfy the disk size requirement.  
+    - One disk (Disk 2) is found that can satisfy total IOPS requirement. IOPS to be provisioned = (source disk throughput) *1024/256. 
+    - One disk (Disk 3) is found that can satisfy total throughput requirement/ 
+ 
+    Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering (Azure managed disk types)](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra disk size.
+ 
+    Provisioned IOPS are calculated using the following logic:  
+ 
+    - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS are equal to source disk IOPS  
+    - Else, provisioned IOPS are calculated using IOPS to be provisioned = (source disk throughput) *1024/256  
+    - Provisioned throughput range is dependent on provisioned IOPS  
+ 
+### Network sizing 
+ 
+For an Azure VM assessment, assessment tries to find an Azure VM that supports the number and required performance of network adapters attached to the on-premises server.  
+ 
+- To get the effective network performance of the on-premises server, assessment aggregates the data transmission rate out of the server (network out) across all network adapters. It then applies the comfort factor. It uses the resulting value to find an Azure VM that can support the required network performance.  
+ 
+- Along with network performance, assessment also considers whether the Azure VM can support the required number of network adapters.  
+ 
+- If network performance data is unavailable, assessment considers only the network adapter count for VM sizing.  
+ 
+ 
+### Compute-sizing 
+ 
+After it calculates storage and network requirements, the assessment considers CPU and RAM requirements to find a suitable VM size in Azure.  
+ 
+- Azure Migrate looks at the effective utilized cores (including processor benchmark) and RAM to find a suitable Azure VM size.  
+ 
+- If no suitable size is found, the server is marked as unsuitable for Azure.  
+ 
+- If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation.  
+ 
+- If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.  
+ 
+### Monthly costs 
+ 
+After sizing recommendations are done, an Azure VM assessment in Azure Migrate calculates compute and storage costs for after migration.  
+ 
+#### Compute cost 
+ 
+Azure Migrate uses the recommended Azure VM size and the Azure Billing API to calculate the monthly cost for the server.  
+ 
+The calculation considers the following:  
+ 
+- Operating system  
+- Software assurance 
+- Reserved instances  
+- VM uptime  
+- Location  
+- Currency settings  
+ 
+The assessment aggregates the cost across all servers to calculate the total monthly compute cost.  
+ 
+#### Storage cost 
+ 
+The monthly storage cost for a server is calculated by aggregating the monthly cost of all disks that are attached to the server. 
+ 
+#### Standard and Premium disk 
+ 
+The cost for Standard or Premium disks is calculated based on the selected/recommended disk size.  
+ 
 #### Ultra disk 
-
-The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/)
-
+ 
+The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
+ 
 Cost is calculated using the following logic: 
-- Cost of disk size is calculated by multiplying provisioned disk size by hourly price of disk capacity
-- Cost of provisioned IOPS is calculated by multiplying provisioned IOPS by hourly provisioned IOPS price
-- Cost of provisioned throughput is calculated by multiplying provisioned throughput by hourly provisioned throughput price
-- The Ultra disk VM reservation fee is not added in the total cost. [Learn More](https://azure.microsoft.com/pricing/details/managed-disks/)
-
-Assessment calculates the total monthly storage costs by aggregating the storage costs of all servers. Currently, the calculation doesn't consider offers specified in the assessment settings.
-
-### Security cost
-For servers recommended for Azure VM, if they're ready to run Defender for Server, the Defender for Server cost (Plan 2) per server for that region is added. The assessment aggregates the cost across all servers to calculate the total monthly security cost.
-
-Costs are displayed in the currency specified in the assessment settings.
-
-## Next steps
-
-[Review](best-practices-assessment.md) best practices for creating assessments. 
-
-- Learn about running assessments for servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V ](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md).
-- Learn about assessing servers [imported with a CSV file](./tutorial-discover-import.md).
-- Learn about setting up [dependency visualization](concepts-dependency-visualization.md).
+ 
+- Cost of disk size is calculated by multiplying provisioned disk size by hourly price of disk capacity. 
+ 
+- Cost of provisioned IOPS is calculated by multiplying provisioned IOPS by hourly provisioned IOPS price.  
+ 
+- Cost of provisioned throughput is calculated by multiplying provisioned throughput by hourly provisioned throughput price.  
+ 
+- The Ultra disk VM reservation fee isn.t added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
+ 
+ 
+#### Security cost 
+ 
+For servers recommended for Azure VM, if they're ready to run Defender for Server, the Defender for Server cost (Plan 2) per server for that region is added. The assessment aggregates the cost across all servers to calculate the total monthly security cost.  
+ 
+Costs are displayed in the currency specified in the assessment settings.  
+ 
+  
+## Next steps 
+ 
+- Review [best practices for creating assessments](best-practices-assessment.md).  
+- Learn about running assessments for servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V ](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md). 
+- Learn about assessing servers [imported with a CSV file](./tutorial-discover-import.md). 
+- Learn about setting up [dependency visualization](concepts-dependency-visualization.md). 

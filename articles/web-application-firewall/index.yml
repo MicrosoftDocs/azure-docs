@@ -8,8 +8,8 @@ metadata:
   description: Learn about Web Application Firewall that can be deployed with Application Gateway and Front Door
   ms.service: azure-web-application-firewall
   ms.topic: landing-page
-  author: vhorne
-  ms.author: victorh
+  author: halkazwini
+  ms.author: halkazwini
   ms.date: 10/31/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

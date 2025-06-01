@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/31/2024
+ms.date: 04/17/2025
 ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity, linux-related-content
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -117,7 +117,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB. For the creation process, you specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of Java to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -556,7 +556,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -578,7 +578,7 @@ The sample application includes standard Log4j logging statements to demonstrate
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: &lt;URL>
 </pre>
 
 Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
@@ -634,7 +634,7 @@ Pricing for the created resources is as follows:
 The Java SE container in App Service already has network connectivity to Cosmos DB, but doesn't contain any migration tools or other MongoDB tools. You have a few options:
 
 - Run database migrations automatically at app start, such as with Hibernate and or Flyway.
-- In the app's [SSH session](configure-language-java-deploy-run.md#linux-troubleshooting-tools), install a migration tool like [Flyway CLI](https://documentation.red-gate.com/fd/command-line-184127404.html), then run the migration script. Remember that the installed tool won't persist after an app restart unless it's in the */home* directory.
+- In the app's [SSH session](configure-language-java-deploy-run.md#linux-troubleshooting-tools), install a migration tool like Flyway, then run the migration script. Remember that the installed tool won't persist after an app restart unless it's in the */home* directory.
 - [Integrate the Azure cloud shell](../cloud-shell/private-vnet.md) with the virtual network and run database migrations from there.
 
 #### How does local app development work with GitHub Actions?

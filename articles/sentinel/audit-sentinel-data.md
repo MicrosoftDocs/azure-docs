@@ -36,12 +36,12 @@ Use the **AzureActivity** table when auditing activity in your SOC environment w
 
 **To query the AzureActivity table**:
 
-1. Install the **Azure Activity solution for Sentinel** solution and connect the [Azure Activity](./data-connectors/azure-activity.md) data connector to start streaming audit events into a new table called `AzureActivity`.
+1. Install the **Azure Activity solution for Sentinel** solution and connect the [Azure Activity](./data-connectors-reference.md#azure-activity) data connector to start streaming audit events into a new table called `AzureActivity`.
 
 1. Query the data using Kusto Query Language (KQL), like you would any other table:
 
     - In the Azure portal, query this table in the **[Logs](hunts-custom-queries.md)** page.
-    - In Microsoft's unified security operations platform, query this table in the **Investigation & response > Hunting > [Advanced hunting](/defender-xdr/advanced-hunting-overview)** page.
+    - In the Defender portal, query this table in the **Investigation & response > Hunting > [Advanced hunting](/defender-xdr/advanced-hunting-overview)** page.
 
     The **AzureActivity** table includes data from many services, including Microsoft Sentinel. To filter in only data from Microsoft Sentinel, start your query with the following code:
 

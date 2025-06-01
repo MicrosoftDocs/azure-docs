@@ -1,21 +1,21 @@
 ---
-title: Quickstart - Add VOIP calling to a web app using Azure Communication Services
-description: In this tutorial, you learn how to use the Azure Communication Services Calling SDK for JavaScript
+title: Add VOIP calling to a web app
+description: This article describes how to add VOIP calling to a web app using the Azure Communication Services Calling SDK for JavaScript.
 author: ddematheu
 ms.author: dademath
-ms.date: 03/21/2022
+ms.date: 05/10/2025
 ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for JavaScript.
+This article describes how to start a call using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
+You can download the sample app from GitHub at [Add 1 on 1 voice calling to your application](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
 
 > [!NOTE] 
-> Outbound calling to an Azure Communication Services user can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-1ton--page). The UI Library enables developers to add a call client that is VoIP enabled into their application with only a couple lines of code.
+> Access outbound calling to an Azure Communication Services user using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/composites-callcomposite-1-n-docs--docs). The UI Library enables developers to add a call client that is VoIP enabled into their application with only a couple lines of code.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
-## Setting up
+## Set up
 
 ### Create a new Node.js application
 
@@ -61,13 +61,13 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ### Set up the app framework
 
-This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
+This article uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli`, and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
 
 ```console
 npm install copy-webpack-plugin@^11.0.0 webpack@^5.88.2 webpack-cli@^5.1.4 webpack-dev-server@^4.15.1 --save-dev
 ```
 
-Here's the html, that we need to add to the `index.html` file that we created:
+Here's the HTML you need to add to the `index.html` file:
 
 ```html
 <!DOCTYPE html>
@@ -135,14 +135,15 @@ const acceptCallButton = document.getElementById('accept-call-button');
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
-| Name                             | Description                                                                                                                                 |
-| ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                       | The `CallClient` is the main entry point to the Calling SDK.                                                                       |
-| `CallAgent`                        | The `CallAgent` is used to start and manage calls.                                                                                            |
-| `AzureCommunicationTokenCredential` | The `AzureCommunicationTokenCredential` class implements the `CommunicationTokenCredential` interface, which is used to instantiate the `CallAgent`. |
+| Name | Description |
+| ---| --- |
+| `CallClient` | The `CallClient` is the main entry point to the Calling SDK. |
+| `CallAgent` | Use the `CallAgent` to start and manage calls. |
+| `AzureCommunicationTokenCredential` | Use the `AzureCommunicationTokenCredential` class to implement the `CommunicationTokenCredential` interface, which instantiates the `CallAgent`. |
 
 ## Authenticate the client
-You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` that enables to make and receive calls.
+
+You need to input a valid user access token for your resource into the text field and click **Submit**. If you don't already have a token available, see [user access token](../../../identity/access-tokens.md). Use the `CallClient` to initialize a `CallAgent` instance with a `CommunicationTokenCredential` that enables the app to make and receive calls.
 
 Add the following code to **app.js**:
 
@@ -175,7 +176,7 @@ submitToken.addEventListener("click", async () => {
 
 ## Start a call
 
-Add an event handler to initiate a call when the `callButton` is clicked:
+Add an event handler to initiate a call when the end user clicks the `callButton`:
 
 ```javascript
 callButton.addEventListener("click", () => {
@@ -193,7 +194,7 @@ callButton.addEventListener("click", () => {
 
 ## End a call
 
-Add an event listener to end the current call when the `hangUpButton` is clicked:
+Add an event listener to end the current call when the end user clicks the `hangUpButton`:
 
 ```javascript
 hangUpButton.addEventListener("click", () => {
@@ -211,7 +212,8 @@ hangUpButton.addEventListener("click", () => {
 
 ## Accept an incoming call
 
-Add an event listener to accept an incoming call to the `acceptCallButton`
+Add an event listener to accept an incoming call to the `acceptCallButton`:
+
 ```javascript
 acceptCallButton.onclick = async () => {
   try {
@@ -226,7 +228,8 @@ acceptCallButton.onclick = async () => {
 
 ## Add the webpack local server code
 
-Create a file in the root directory of your project called **webpack.config.js** to contain the local server logic for this quickstart. Add the following code to **webpack.config.js**:
+Create a file in the root directory of your project called `webpack.config.js` to contain the local server logic for this quickstart. Add the following code to `webpack.config.js`:
+
 ```javascript
 const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
@@ -263,5 +266,6 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 
 You can make an outbound VOIP call by providing a valid user access token and user ID in the corresponding text fields and clicking the **Start Call** button.
 
-Calling `8:echo123` connects you with an echo bot, which is great for getting started and verifying your audio devices are working. Pass `{id: '8:echo123'}` to the CallAgent.startCall() API to call echo bot.
+Calling `8:echo123` connects you with an echo bot, which gets you started and verifies your audio devices are working. Pass `{id: '8:echo123'}` to the `CallAgent.startCall()` API to call echo bot.
+
 To call an Azure Communication Services communication user, pass `{communicationUserId: 'ACS_USER_ID'}` to the `CallAgent.startCall()` API.

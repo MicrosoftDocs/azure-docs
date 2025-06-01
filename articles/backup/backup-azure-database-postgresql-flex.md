@@ -1,8 +1,8 @@
 ---
-title: Back up Azure Database for PostgreSQL Flexible server with long-term retention
-description: Learn about Azure Database for PostgreSQL Flexible server backup with long-term retention.
+title: Configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal
+description: Learn about how to configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal. 
 ms.topic: how-to
-ms.date: 06/14/2024
+ms.date: 04/07/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -10,94 +10,55 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Back up Azure Database for PostgreSQL Flexible server with long-term retention (preview)
+# Configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal
 
-This article describes how to back up Azure Database for PostgreSQL Flexible Server. 
+This article describes how to configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal. 
 
 ## Prerequisites
 
-Before you configure backup for Azure Database for PostgreSQL Flexible server:
+Before you configure backup for Azure Database for PostgreSQL - Flexible Server, ensure the following prerequisites are met:
 
-- [Review the supported scenarios and known limitations](./backup-azure-database-postgresql-flex-support-matrix.md) of Azure Database for PostgreSQL Flexible server backup.
-- Ensure that you have the required [permissions for the backup operation](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup).
+[!INCLUDE [Prerequisites for backup of Azure Database for PostgreSQL - Flexible Server.](../../includes/backup-postgresql-flexible-server-prerequisites.md)]
 
-## Configure backup 
+[!INCLUDE [Configure protection for Azure Database for PostgreSQL - Flexible Server.](../../includes/configure-postgresql-flexible-server-backup.md)]
 
-To configure backup on the Azure Database for PostgreSQL Flexible Server databases using Azure Backup, follow these steps:
+### Create a backup policy
 
-1. Create a [Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
-
-1. Go to **Backup vault** > **+Backup**.
-
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/adding-backup-inline.png" alt-text="Screenshot showing the option to add a backup.":::
-
-   Alternatively, go to **Azure Business Continuity Center** and select **+Configure Protection**. 
-
-1. Select the data source type as **Azure Database for PostgreSQL flexible servers**.
-
-1. Select or [create](#create-a-backup-policy) a Backup Policy to define the backup schedule and the retention duration.
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/backup-policy.png" alt-text="Screenshot showing the option to edit a backup policy.":::
-
-1. Select **Next** then select **Add** to select the Azure Database for PostgreSQL Flexible Server that you want to back up.
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-server.png" alt-text="Screenshot showing the select server option.":::
-
-1. Choose one of the Azure Database for PostgreSQL Flexible Servers across subscriptions if they're in the same region as that of the vault. Expand the arrow to see the list of databases within a server.
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-resources.png" alt-text="Screenshot showing the select resources option.":::
-
-1. After the selection, the validation starts. The backup readiness check ensures the vault has sufficient permissions for backup operations. Resolve any access issues by granting appropriate [permissions](/azure/backup/backup-azure-database-postgresql-flex-overview) to the vault MSI and re-triggering the validation.
-1. Submit the configure backup operation and track the progress under **Backup instances**.
-     
-
-## Create a backup policy
+You can create a backup policy on the go during the backup configuration flow.
 
 To create a backup policy, follow these steps: 
 
-1. In the Backup vault you created, go to **Backup policies** and select **Add**. Alternatively, go to **Backup center** > **Backup policies** > **Add**.
+1. On the **Configure Backup** pane, select the **Backup policy** tab.
+2. On the **Backup policy** tab, select **Create new** under **Backup policy**.
+3. On the **Create Backup Policy** pane, on the **Basics** tab,  provide a name for the new policy on **Policy name**.
 
-1. Enter a name for the new policy.
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/enter-policy-name.png" alt-text="Screenshot sows how to provide the Backup policy name.":::
 
-1. Select the data source type as **Azure Database for PostgreSQL flexible servers**. 
+4. On the **Schedule + retention** tab, under **Backup schedule**, define the Backup frequency.
 
-1. Specify the Backup schedule.
+5. Under **Retention rules**, select **Add retention rule**.
 
-   Currently, only Weekly backup option is available. You can opt for specific day in the week on which backup should be initiated.
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/schedule.png" alt-text="Screenshot showing the schedule process for the new policy.":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/define-backup-schedule.png" alt-text="Screenshot shows how to define the backup schedule in the Backup policy." lightbox="./media/backup-azure-database-postgresql-flex/define-backup-schedule.png":::
 
-1. Specify **Retention** settings.
+6. On the **Add retention** pane, define the retention period, and then select **Add**.
 
-   You can add one or more retention rules. Each retention rule assumes inputs for specific backups, and data store and retention duration for those backups.
-    
-    >[!Note]
-    > Retention duration ranges from seven days to 10 years in the Backup data store.
+
+   >[!Note]
+   >The default retention period for **Weekly** backup is **10 years**. You can add retention rules for specific backups, including data store and retention duration.
+
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/add-retention-rules.png" alt-text="Screenshot shows how to define the retention for the database backups." lightbox="./media/backup-azure-database-postgresql-flex/add-retention-rules.png":::
+
+7. Once you are on the **Create Backup Policy** pane, select **Review + create**.
+
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex/complete-policy-creation.png" alt-text="Screenshot shows how to trigger the Backup policy creation." lightbox="./media/backup-azure-database-postgresql-flex/complete-policy-creation.png":::    
 
     >[!Note]
     >The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
     
 
-## Run an on-demand backup
+When the backup configuration is complete, you can [run an on-demand backup](tutorial-create-first-backup-azure-database-postgresql-flex.md#run-an-on-demand-backup) and [track the progress of the backup operation](tutorial-create-first-backup-azure-database-postgresql-flex.md#track-a-backup-job).
 
-To trigger a backup not in the schedule specified in the policy, go to **Backup instances** > **Backup Now**.
-Choose from the list of retention rules that were defined in the associated Backup policy.
-
-:::image type="content" source="./media/backup-azure-database-postgresql/navigate-to-retention-rules-inline.png" alt-text="Screenshot showing the option to navigate to the list of retention rules that were defined in the associated Backup policy." lightbox="./media/backup-azure-database-postgresql/navigate-to-retention-rules-expanded.png":::
-
-
-## Track a backup job
-
-Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. 
-
-To view the backup job status:
-
-1. Go to the **Backup instance** screen.
-
-   It shows the jobs dashboard with operation and status for the past seven days.
-
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgre-jobs-dashboard-inline.png" alt-text="Screenshot showing the Jobs dashboard." lightbox="./media/backup-azure-database-postgresql/postgre-jobs-dashboard-expanded.png":::
-
-1. To view the status of the backup job, select **View all** to see ongoing and past jobs of this backup instance.
-
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgresql-jobs-view-all-inline.png" alt-text="Screenshot showing to select the View all option." lightbox="./media/backup-azure-database-postgresql/postgresql-jobs-view-all-expanded.png":::
 
 ## Next steps
 
-[Restore Azure Database for PostgreSQL Flexible backups](./restore-azure-database-postgresql-flex.md)
+[Restore Azure Database for PostgreSQL - Flexible Server using Azure portal](./restore-azure-database-postgresql-flex.md).

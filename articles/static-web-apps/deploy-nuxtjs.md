@@ -2,11 +2,11 @@
 title: "Tutorial: Deploy Nuxt sites with universal rendering on Azure Static Web Apps"
 description: "Generate and deploy Nuxt 3 sites with universal rendering on Azure Static Web Apps."
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 09/01/2022
-ms.author: cshoe
+ms.author: wujia
 ms.custom:
 ---
 

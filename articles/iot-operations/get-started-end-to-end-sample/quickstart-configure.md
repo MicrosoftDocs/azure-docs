@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Configure your cluster"
-description: "Quickstart: Configure asset endpoints, assets, and dataflows in your cluster to process and route data from a simulated OPC PLC server to the cloud."
+description: "Quickstart: Configure asset endpoints, assets, and data flows in your cluster to process and route data from a simulated OPC PLC server to the cloud."
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
@@ -17,9 +17,9 @@ In this quickstart, you configure the following resources in your Azure IoT Oper
 
 - An *asset endpoint* that defines a connection to a simulated OPC PLC server that simulates an oven in a bakery.
 - An *asset* that represents the oven and defines the data points that the oven exposes.
-- A *dataflow* that manipulates the messages from the simulated oven.
+- A *data flow* that manipulates the messages from the simulated oven.
 
-An _asset_ is a physical device or logical entity that represents a device, a machine, a system, or a process. For example, a physical asset could be a pump, a motor, a tank, or a production line. A logical asset that you define can have properties, stream telemetry, or generate events.
+An _asset_ is a physical device or logical entity that represents a device, a machine, a system, or a process. For example, a physical asset could be a pump, a motor, a tank, or a production line. A logical asset that you define can have properties, stream messages such as sensor data, or generate events.
 
 _OPC UA servers_ are software applications that communicate with assets. _OPC UA tags_ are data points that OPC UA servers expose. OPC UA tags can provide real-time or historical data about the status, performance, quality, or condition of assets.
 
@@ -33,7 +33,7 @@ Unless otherwise noted, you can run the console commands in this quickstart in e
 
 ## What problem will we solve?
 
-The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and dataflows. Dataflows let you manipulate and route data to cloud services such as Azure Event Hubs. In this quickstart, the dataflow changes the names of some fields in payload and adds an asset ID to the messages.
+The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows. Data flows let you manipulate and route data to cloud services such as Azure Event Hubs. In this quickstart, the data flow changes the names of some fields in payload and adds an asset ID to the messages.
 
 ## Deploy the OPC PLC simulator
 
@@ -86,7 +86,7 @@ Run the following commands to download and run the Bicep file that configures yo
 
 - Adds an asset endpoint that connects to the OPC PLC simulator.
 - Adds an asset that represents the oven and defines the data points that the oven exposes.
-- Adds a dataflow that manipulates the messages from the simulated oven.
+- Adds a data flow that manipulates the messages from the simulated oven.
 - Creates an Azure Event Hubs instance to receive the data.
 
 # [Bash](#tab/bash)
@@ -121,10 +121,10 @@ The Bicep file configured the following resources:
 
 - An asset endpoint that connects to the OPC PLC simulator.
 - An asset that represents the oven and defines the data points that the oven exposes.
-- Two dataflows that process the messages from the simulated oven.
-- An Azure Event Hubs namespace that contains a destination hub for the dataflows.
+- Two data flows that process the messages from the simulated oven.
+- An Azure Event Hubs namespace that contains a destination hub for the data flows.
 
-To view the asset endpoint, asset, and dataflows, navigate to the [operations experience](https://iotoperations.azure.com) UI in your browser and sign in with your Microsoft Entra ID credentials. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+To view the asset endpoint, asset, and data flows, navigate to the [operations experience](https://iotoperations.azure.com) UI in your browser and sign in with your Microsoft Entra ID credentials. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
 
 :::image type="content" source="media/quickstart-configure/instance-list.png" alt-text="Screenshot in the operations experience showing unassigned instances.":::
 
@@ -136,19 +136,19 @@ The oven asset defines the data points that the oven exposes:
 
 :::image type="content" source="media/quickstart-configure/asset-list.png" alt-text="Screenshot in the operations experience that shows a list of assets.":::
 
-The dataflows define how the messages from the simulated oven are processed and routed to Event Hubs in the cloud:
+The data flows define how the messages from the simulated oven are processed and routed to Event Hubs in the cloud:
 
-:::image type="content" source="media/quickstart-configure/dataflows-list.png" alt-text="Screenshot in the operations experience that shows a list of dataflows.":::
+:::image type="content" source="media/quickstart-configure/dataflows-list.png" alt-text="Screenshot in the operations experience that shows a list of data flows.":::
 
-The following screenshot shows how the temperature conversion dataflow is configured:
+The following screenshot shows how the temperature conversion data flow is configured:
 
 :::image type="content" source="media/quickstart-configure/dataflow-compute.png" alt-text="Screenshot in the operations experience that shows the temperature conversion calculation.":::
 
 ## Verify data is flowing to Event Hubs
 
-To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal. You may need to wait for several minutes for the dataflow to start and for messages to flow to the event hub.
+To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal. You may need to wait for several minutes for the data flow to start and for messages to flow to the event hub.
 
-The Bicep configuration you applied previously created an Event Hubs namespace and hub that's used as a destination by the dataflow. To view the namespace and hub, navigate to the resource group in the Azure portal that contains your IoT Operations instance and then select the Event Hubs namespace.
+The Bicep configuration you applied previously created an Event Hubs namespace and hub that's used as a destination by the data flow. To view the namespace and hub, navigate to the resource group in the Azure portal that contains your IoT Operations instance and then select the Event Hubs namespace.
 
 If messages are flowing to the instance, you can see the count on incoming messages on the instance **Overview** page:
 
@@ -163,7 +163,7 @@ If messages are flowing, you can use the **Data Explorer** to view the messages:
 
 ## How did we solve the problem?
 
-In this quickstart, you used a bicep file to configure your Azure IoT Operations instance with an asset endpoint, asset, and dataflow. The configuration processes and routes data from a simulated oven. The dataflow in the configuration routes the messages to an Azure Event Hubs instance.
+In this quickstart, you used a bicep file to configure your Azure IoT Operations instance with an asset endpoint, asset, and data flow. The configuration processes and routes data from a simulated oven. The data flow in the configuration routes the messages to an Azure Event Hubs instance.
 
 ## Clean up resources
 

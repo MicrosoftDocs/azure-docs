@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 02/19/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23, devx-track-arm-template
 ms.devlang: azurecli
 ---

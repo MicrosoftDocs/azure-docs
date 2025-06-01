@@ -70,7 +70,7 @@ In this section, you will create a console application and load data from your A
 
     endpoint = os.environ.get("AZURE_APPCONFIG_ENDPOINT")
 
-    # Connect to Azure App Configuration using a connection string.
+    # Connect to Azure App Configuration using Microsoft Entra ID.
     config = load(endpoint=endpoint, credential=credential)
     credential = DefaultAzureCredential()
 
@@ -79,7 +79,7 @@ In this section, you will create a console application and load data from your A
     # Find the key "my_json" and print the value for "key" from the dictionary.
     print(config["my_json"]["key"])
 
-    # Connect to Azure App Configuration using a connection string and trimmed key prefixes.
+    # Connect to Azure App Configuration using Entra ID and trimmed key prefixes.
     trimmed = {"test."}
     config = load(endpoint=endpoint, credential=credential, trim_prefixes=trimmed)
     # From the keys with trimmed prefixes, find a key with "message" and print its value.

@@ -4,8 +4,8 @@ description: Describes guidelines that can help you design an effective network 
 services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 12/05/2024
+ms.topic: concept-article
+ms.date: 04/03/2025
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -33,6 +33,9 @@ You should understand a few considerations when you plan for Azure NetApp Files 
 
 ### Constraints
 
+>[!IMPORTANT]
+>Route limit increases for Basic network features will no longer be approved after May 30, 2025. To avoid route limit issues, you should modify your volumes to use Standard network features. 
+
 The following table describes what’s supported for each network features configuration:
 
 |      Features     |      Standard network features     |      Basic network features     |
@@ -40,15 +43,14 @@ The following table describes what’s supported for each network features confi
 |     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Same standard limits as virtual machines (VMs)](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
 |     Azure NetApp Files delegated subnets per VNet    |     1    |     1    |
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
+| [NSG support for private endpoints](../private-link/disable-private-endpoint-network-policy.md) | Yes | No | 
 |     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated subnets    |     Yes    |     No    |
-|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     Yes*    |     No    |
+|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     Yes    |     No    |
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Yes  |     No    |
 |     Azure policies (for example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
 |    Traffic routed via NVA from peered VNet | Yes    | No |
-
-\* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless Private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
 
 ### Supported network topologies
 
@@ -91,29 +93,25 @@ If you use a new VNet, you can create a subnet and delegate the subnet to Azure 
 
 If the VNet is peered with another VNet, you can't expand the VNet address space. For that reason, the new delegated subnet needs to be created within the VNet address space. If you need to extend the address space, you must delete the VNet peering before expanding the address space.
 
->[!IMPORTANT]
-> Ensure the address space size of the Azure NetApp Files VNet is larger than its delegated subnet.
->
-> For example, if the delegated subnet is /24, the VNet address space containing the subnet must be /23 or larger. Noncompliance with this guideline can lead to unexpected issues in some traffic patterns: traffic traversing a hub-and-spoke topology that reaches Azure NetApp Files via a Network Virtual Appliance does not function properly. Additionally, this configuration can result in failures when creating SMB and CIFS (Common Internet File System) volumes if they attempt to reach DNS through hub-and-spoke network topology. 
->
-> It's also recommended that the size of the delegated subnet be at least /25 for SAP workloads and /26 for other workload scenarios.
+>[!NOTE]
+> It's recommended that the size of the delegated subnet be at least /25 for SAP workloads and /26 for other workload scenarios.
 
 ### <a name="udrs-and-nsgs"></a> User-defined routes (UDRs) and network security groups (NSGs)
 
 If the subnet has a combination of volumes with the Standard and Basic network features, user-defined routes (UDRs) and network security groups (NSGs) applied on the delegated subnets will only apply to the volumes with the Standard network features.
 
 > [!NOTE]
-> Associating NSGs at the network interface level is not supported for the Azure NetApp Files network interfaces.
+> Associating NSGs at the network interface level isn't supported for the Azure NetApp Files network interfaces.
 
 Configuring UDRs on the source VM subnets with the address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
 
 > [!NOTE]
-> To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 
+> To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address doesn't forward the Azure NetApp Files traffic to the firewall. 
 
 >[!NOTE]
-> If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Azure NetApp Files standard volume from a source in the same VNet or a peered VNet, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is less specific than the delegated subnet size, it isn't be effective. 
+> If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Azure NetApp Files standard volume from a source in the same VNet or a peered VNet, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is less specific than the delegated subnet size, it isn't effective. 
 >
-> For example, if your delegated subnet is `x.x.x.x/24`, you must configured your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall. 
+> For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall. 
 
 ## Azure native environments
 
@@ -127,7 +125,7 @@ A basic scenario is to create or connect to an Azure NetApp Files volume from a 
 
 ### <a name="vnet-peering"></a> VNet peering
 
-If you have other VNets in the same region that need access to each other’s resources, the VNets can be connected using [VNet peering](../virtual-network/virtual-network-peering-overview.md) to enable secure connectivity through the Azure infrastructure. 
+If you have other VNets in the same region requiring access to each other’s resources, the VNets can be connected using [VNet peering](../virtual-network/virtual-network-peering-overview.md) to enable secure connectivity through the Azure infrastructure. 
 
 Consider VNet 2 and VNet 3 in the diagram above. If VM 1 needs to connect to VM 2 or Volume 2, or if VM 2 needs to connect to VM 1 or Volume 1, then you need to enable VNet peering between VNet 2 and VNet 3. 
 

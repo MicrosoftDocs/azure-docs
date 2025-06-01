@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: how-to
 ms.date: 06/26/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security operations engineer, I want to update the Microsoft Sentinel for SAP applications data connector agent so that I can ensure my SAP data integration is using the latest features and security updates.
 
@@ -24,7 +24,7 @@ The automatic or manual updates described in this article are relevant to the SA
 Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams. 
 
 > [!NOTE]
-> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless solution](deployment-overview.md#data-connector) (limited preview).
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Limited preview).
 >
 
 ## Prerequisites
@@ -88,9 +88,9 @@ Be sure to check for any other available updates, such as SAP change requests.
 
 ## Update your system for attack disruption
 
-Automatic attack disruption for SAP is supported with the unified security operations platform in the Microsoft Defender portal, and requires:
+Automatic attack disruption for SAP is supported in the Microsoft Defender portal with Defender XDR, and requires:
 
-- A workspace [onboarded to the unified security operations platform](../microsoft-sentinel-defender-portal.md).
+- A workspace [onboarded to the Defender portal](../microsoft-sentinel-defender-portal.md).
 
 - A Microsoft Sentinel SAP data connector agent, version 90847355 or higher. [Check your current agent version](#verify-your-current-data-connector-agent-version) and update it if you need to.
 

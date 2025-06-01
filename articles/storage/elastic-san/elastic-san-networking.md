@@ -4,7 +4,7 @@ description: Learn how to secure Azure Elastic SAN volumes through access config
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 09/25/2024
+ms.date: 01/24/2025
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -261,9 +261,6 @@ The process for enabling each type of endpoint follows:
 - [Configure an Azure Storage service endpoint](#configure-an-azure-storage-service-endpoint)
 
 ### Configure a private endpoint
-
-> [!IMPORTANT]
-> - For Elastic SANs using [locally-redundant storage (LRS)](elastic-san-planning.md#redundancy) as their redundancy option, private endpoints are supported in all regions where Elastic SAN is available. Private endpoints aren't currently supported for elastic SANs using [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy) as their redundancy option.
 
 There are two steps involved in configuring a private endpoint connection:
 

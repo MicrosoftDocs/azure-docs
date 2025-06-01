@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 07/06/2022
+ ms.date: 02/13/2025
  ms.author: cherylmc
 
 
@@ -18,15 +18,11 @@ When you generate a client certificate, it's automatically installed on the comp
 
 1. Select **Yes, export the private key**, and then click **Next**.
 
-   :::image type="content" source="./media/vpn-gateway-certificates-export-client-cert-include/yes-export.png" alt-text="Screenshot showing Yes export the private key selected." lightbox="./media/vpn-gateway-certificates-export-client-cert-include/yes-export.png":::
-
 1. On the **Export File Format** page, leave the defaults selected. Make sure that **Include all certificates in the certification path if possible** is selected. This setting additionally exports the root certificate information that is required for successful client authentication. Without it, client authentication fails because the client doesn't have the trusted root certificate. Then, click **Next**.
 
    :::image type="content" source="./media/vpn-gateway-certificates-export-client-cert-include/personal-information-exchange.png" alt-text="Screenshot for export file format page." lightbox="./media/vpn-gateway-certificates-export-client-cert-include/personal-information-exchange.png":::
 
 1. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate. Then, click **Next**.
-
-   :::image type="content" source="./media/vpn-gateway-certificates-export-client-cert-include/password.png" alt-text="Screenshot shows password entered and confirmed." lightbox="./media/vpn-gateway-certificates-export-client-cert-include/password.png":::
 
 1. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
 

@@ -6,10 +6,10 @@ summary: Azure Front Door is a modern cloud content delivery network (CDN) servi
 metadata:
   title: Azure Front Door and CDN Documentation
   description: Azure Front Door is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for your content and applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  author: halkazwini
+  ms.author: halkazwini
   ms.service: azure-frontdoor
   ms.topic: landing-page
-  author: duongau
-  ms.author: duau
   ms.date: 10/30/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

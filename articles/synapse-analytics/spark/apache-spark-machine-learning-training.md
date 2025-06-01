@@ -28,7 +28,7 @@ Every Apache Spark pool in Azure Synapse Analytics comes with a set of pre-loade
   
 - [XGBoost](https://xgboost.readthedocs.io/en/latest/) is a popular machine learning library that contains optimized algorithms for training decision trees and random forests. 
   
-- [PyTorch](https://pytorch.org/) & [Tensorflow](https://www.tensorflow.org/) are powerful Python deep learning libraries. Within an Apache Spark pool in Azure Synapse Analytics, you can use these libraries to build single-machine models by setting the number of executors on your pool to zero. Even though Apache Spark is not functional under this configuration, it is a simple and cost-effective way to create single-machine models.
+- [PyTorch](https://pytorch.org/) & [TensorFlow](https://www.tensorflow.org/) are powerful Python deep learning libraries. Within an Apache Spark pool in Azure Synapse Analytics, you can use these libraries to build single-machine models by setting the number of executors on your pool to zero. Even though Apache Spark is not functional under this configuration, it is a simple and cost-effective way to create single-machine models.
 
 You can learn more about the available libraries and related versions by viewing the published [Azure Synapse Analytics runtime](../spark/apache-spark-version-support.md).
 
@@ -36,8 +36,6 @@ You can learn more about the available libraries and related versions by viewing
 The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark). This library is designed to make data scientists more productive on Spark, increase the rate of experimentation, and leverage cutting-edge machine learning techniques, including deep learning, on large datasets. 
 
 MMLSpark provides a layer on top of SparkML's low-level APIs when building scalable ML models, such as indexing strings, coercing data into a layout expected by machine learning algorithms, and assembling feature vectors. The MMLSpark library simplifies these and other common tasks for building models in PySpark.
-
-<a name='azure-cognitive-services'></a>
 
 ## Azure AI services
 [Azure AI services](/azure/ai-services/what-are-ai-services) provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services. A Cognitive Service provides part or all of the components in a machine learning solution: data, algorithm, and trained model. These services are meant to require general knowledge about your data without needing experience with machine learning or data science. You can leverage these pre-trained Azure AI services automatically within Azure Synapse Analytics.

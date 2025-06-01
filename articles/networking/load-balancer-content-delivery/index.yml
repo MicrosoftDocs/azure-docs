@@ -12,6 +12,7 @@ metadata:
   ms.author: mbender
   manager: kumudD
   ms.date: 07/15/2024
+  ms.custom: portfolio-consolidation-2025
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -24,7 +25,7 @@ highlightedContent:
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
     - title: Azure Networking blogs
       itemType: concept
-      url: https://azure.microsoft.com/blog/topics/networking/
+      url: https://azure.microsoft.com/blog/category/networking/
     - title: Azure Networking services overview
       itemType: concept 
       url: /azure/networking/

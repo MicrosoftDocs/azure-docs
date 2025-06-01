@@ -1,5 +1,5 @@
 ---
-title: Render coverage
+title: Azure Maps Render service coverage
 titleSuffix: Microsoft Azure Maps
 description: Render coverage tables list the countries/regions that support Azure Maps road tiles.
 author: faterceros
@@ -10,7 +10,7 @@ ms.service: azure-maps
 ms.subservice: render
 ---
 
-# Azure Maps render coverage
+# Azure Maps Render service coverage
 
 The render coverage tables below list the countries/regions that support Azure Maps road tiles. Both raster and vector tiles are supported. At the lowest resolution, the entire world fits in a single tile. At the highest resolution, a single tile represents 38 square meters. You'll see more details about continents, regions, cities, and individual streets as you zoom in the map. For more information about tiles, see [Zoom levels and tile grid].
 
@@ -18,7 +18,7 @@ The render coverage tables below list the countries/regions that support Azure M
 >
 > **Azure Maps Render v1 service retirement**
 >
-> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2] API by 9/17/26.
+> The Azure Maps Render v1 service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use the [latest version] by 9/17/26.
 
 ### Legend
 
@@ -26,7 +26,7 @@ The render coverage tables below list the countries/regions that support Azure M
 |:------:|-----------------------------------------------------------|
 | ✓      | Country/region is provided with detailed data.            |
 | ◑      | Country/region is provided with simplified data.          |
-| v2     | Country/region is only supported in the Render v2 service. |
+| v2     | Country/region is only supported in the Render service in v2 & v2024-04-01 . |
 | Country/region is missing | Country/region data isn't provided.     |
 
 ## Americas
@@ -214,5 +214,5 @@ The render coverage tables below list the countries/regions that support Azure M
 > [Azure Maps routing coverage](routing-coverage.md)
 
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
-[Render v1]: /rest/api/maps/render
-[Render v2]: /rest/api/maps/render
+
+[latest version]: /rest/api/maps/render

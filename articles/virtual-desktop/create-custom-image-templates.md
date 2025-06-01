@@ -2,8 +2,8 @@
 title: Use custom image templates to create custom images - Azure Virtual Desktop
 description: Learn how to use custom image templates to create custom images when deploying session hosts in Azure Virtual Desktop.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 01/24/2024
 ---
 

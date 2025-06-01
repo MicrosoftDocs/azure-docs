@@ -1,18 +1,18 @@
 ---
-title: Manage Azure Data Box, Azure Data Box Heavy via Azure portal | Microsoft Docs 
-description: Describes how to use the Azure portal to administer your Azure Data Box and Azure Data Box Heavy.
+title: Manage Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy via Azure portal | Microsoft Docs 
+description: Describes how to use the Azure portal to administer your Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy.
 services: databox
 author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 03/06/2025
 ms.author: shaas
 ---
 
-# Use the Azure portal to administer your Azure Data Box and Azure Data Box Heavy
+# Use the Azure portal to administer your Azure Data Box Next Gen and Data Box
 
-This article applies to both Azure Data Box and Azure Data Box Heavy. This article describes some of the complex workflows and management tasks that can be performed on the Azure Data Box device. You can manage the Data Box device via the Azure portal or via the local web UI.
+This article applies to Azure Data Box 120, Azure Data Box 525, and Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy. This article describes some of the complex workflows and management tasks that can be performed on the Azure Data Box device. You can manage the Data Box device via the Azure portal or via the local web UI.
 
 This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage Data Box device, and track the status of the order as it proceeds to completion.
 
@@ -252,4 +252,4 @@ You can find out the device password by viewing your order in the Azure portal.
 
 ## Next steps
 
-- Learn how to [Troubleshoot Data Box and Data Box Heavy issues](data-box-troubleshoot.md).
+- Learn how to [Troubleshoot Data Box issues](data-box-troubleshoot.md).

@@ -1,6 +1,96 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/network-watcher/nsg-flow-logs-portal.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/nsg-flow-logs-powershell.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/nsg-flow-logs-cli.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-alert-triggered-packet-capture.md",
+            "redirect_url": "/azure/network-watcher/packet-capture-alert-triggered",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/vnet-flow-logs-portal.md",
+            "redirect_url": "/azure/network-watcher/vnet-flow-logs-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/vnet-flow-logs-cli.md",
+            "redirect_url": "/azure/network-watcher/vnet-flow-logs-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/vnet-flow-logs-powershell.md",
+            "redirect_url": "/azure/network-watcher/vnet-flow-logs-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/connection-troubleshoot-portal.md",
+            "redirect_url": "/azure/network-watcher/connection-troubleshoot-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/connection-troubleshoot-cli.md",
+            "redirect_url": "/azure/network-watcher/connection-troubleshoot-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/connection-troubleshoot-powershell.md",
+            "redirect_url": "/azure/network-watcher/connection-troubleshoot-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/quickstart-configure-network-security-group-flow-logs-from-bicep.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-bicep",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/nsg-flow-logs-azure-resource-manager.md",
+            "redirect_url": "/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-insights-troubleshooting.md",
+            "redirect_url": "/azure/network-watcher/network-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-delete-nsg-flow-log-blobs.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/packet-capture-vm-portal.md",
+            "redirect_url": "/azure/network-watcher/packet-capture-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/packet-capture-vm-powershell.md",
+            "redirect_url": "/azure/network-watcher/packet-capture-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/packet-capture-vm-cli.md",
+            "redirect_url": "/azure/network-watcher/packet-capture-manage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/network-watcher/supported-region-traffic-analytics.md",
             "redirect_url": "/azure/network-watcher/traffic-analytics",
             "redirect_document_id": false

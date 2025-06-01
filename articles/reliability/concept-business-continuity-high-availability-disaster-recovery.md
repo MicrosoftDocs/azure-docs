@@ -16,7 +16,7 @@ This article defines and describes business continuity and business continuity p
 
 *Business continuity* is the state in which a business can continue operations during failures, outages, or disasters. Business continuity requires proactive planning, preparation, and the implementation of resilient systems and processes.
 
-Planning for business continuity requires identifying, understanding, classifying, and managing risks. Based on the risks and their likelihoods, design for both *high availability* (HA) and *disaster recovery* (DR). 
+Planning for business continuity requires identifying, understanding, classifying, and managing risks. Based on understanding the risks and their likelihoods, you can design a healthy business continuity plan to achieve a high availability (HA) and disaster recovery (DR) strategy that suits your business needs.
 
 *High availability* is about designing a solution to be resilient to day-to-day issues and to meet the business needs for availability. 
 
@@ -158,7 +158,7 @@ To achieve HA requirements, a workload can include a number of design elements. 
 
 #### Azure services and tiers that support high availability
 
-Many Azure services are designed to be highly available, and can be used to build highly available workloads. Here are some examples:
+Many Azure services are designed to be highly available and can be used to build highly available workloads. Here are some examples:
 
 - [Azure Virtual Machine Scale Sets](/azure/reliability/reliability-virtual-machine-scale-sets) provide high availability for virtual machines (VMs) by automatically creating and managing VM instances and distributing those VM instances to reduce the impact of infrastructure failures.
 - [Azure App Service](/azure/reliability/reliability-app-service) provides high availability through a variety of approaches, including automatically moving workers from an unhealthy node to a healthy node, and by providing capabilities for self-healing from many common fault types.
@@ -189,7 +189,7 @@ Here are some of examples of how some Azure services provide redundancy options:
 - [Azure Storage](/azure/storage/common/storage-disaster-recovery-guidance) provides high availability by automatically replicating data at least three times. You can distribute those replicas across availability zones by enabling zone-redundant storage (ZRS), and in many regions you can also replicate your storage data across regions by using geo-redundant storage (GRS).
 - [Azure SQL Database](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy) has multiple replicas to ensure that the data remains available even if one replica fails.
 
-To learn more about redundancy, see [Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy) and [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
+To learn more about how redundancy works, see [Redundancy, replication, and backup](./concept-redundancy-replication-backup.md). To learn about how to apply redundancy in your solution, see [Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy) and [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
   
 #### Scalability and elasticity
 
@@ -295,6 +295,8 @@ Some disaster recovery plans involve provisioning a secondary deployment in anot
 It usually takes some time for a failover process to detect that the primary instance has failed and to switch to the secondary instance. Make sure that the RTO of the workload is aligned with the failover time.
 
 It's also important to consider *failback*, which is the process by which you restore operations in the primary region after it's recovered. Failback can be complex to plan and implement. For example, data in the primary region may have been written *after* failover begins. You'll need to make careful business decisions on how you handle that data.
+
+For more information, see [Failover and failback](./concept-failover-failback.md).
 
 #### Backups
 

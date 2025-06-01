@@ -210,7 +210,7 @@ Peerings                         : []
 
 ### Send the service key to your connectivity provider for provisioning
 
-*ServiceProviderProvisioningState* provides you with information about the current state of provisioning on the service-provider side. *CircuitProvisioningState* provides you with the status on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+*ServiceProviderProvisioningState* provides you with information about the current state of provisioning on the service-provider side. *CircuitProvisioningState* provides you with the status on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-partner-circuit-provisioning-states).
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 

@@ -1,16 +1,16 @@
 ---
-title: Filter and view DNS traffic - Azure DNS (Preview)
+title: Secure and view DNS traffic - Azure DNS (Preview)
 description: Learn how to filter and view Azure DNS traffic
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 01/06/2025
-ms.author: greglin
+ms.date: 02/24/2025
+ms.author: allensu
 ---
 
-# Filter and view DNS traffic (Preview)
+# Secure and view DNS traffic (Preview)
 
-This article shows you how to view and filter DNS traffic at the virtual network by with [DNS security policy](dns-security-policy.md).
+This article shows you how to view and filter DNS traffic at the virtual network with [DNS security policy](dns-security-policy.md).
 
 > [!NOTE]
 > DNS security policy is in PREVIEW.<br> 
@@ -115,6 +115,9 @@ Multiple domain lists can be dynamically added or removed from a single DNS traf
 ## Configure DNS traffic rules
 
 Now that you have a DNS domain list, configure the diagnostic settings in your security policy to use this workspace.
+
+> [!NOTE]
+> CNAME chains are examined ("chased") to determine if the traffic rules that are associated with a domain should apply. For example, a rule that applies to **malicious.contoso.com** also applies to **adatum.com** if **adatum.com** maps to **malicious.contoso.com** or if **malicious.contoso.com** appears anywhere in a CNAME chain for **adatum.com**.
 
 To configure diagnostic settings:
 

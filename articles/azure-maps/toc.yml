@@ -10,10 +10,6 @@ items:
   items:
   - name: Create a web app
     href: quick-demo-map-app.md
-  - name: Create an Android app
-    href: quick-android-map.md
-  - name: Create an iOS app
-    href: quick-ios-app.md
 - name: Tutorials
   items:
   - name: Web SDK Tutorials
@@ -26,10 +22,6 @@ items:
       href: tutorial-prioritized-routes.md
     - name: Create a store locator
       href: tutorial-create-store-locator.md
-  - name: Android SDK Tutorials
-    items:
-    - name: Load GeoJSON data into map
-      href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
     - name: EV routing using Jupyter Notebooks
@@ -46,8 +38,6 @@ items:
     href: authentication-best-practices.md
   - name: Azure Maps Event Grid integration
     href: azure-maps-event-grid-integration.md
-  - name: Choose the right pricing tier
-    href: choose-pricing-tier.md
   - name: Azure Maps geographic scope
     href: geographic-scope.md
   - name: Consent management
@@ -82,9 +72,9 @@ items:
     href: supported-map-styles.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Weather services concepts
+  - name: Weather service concepts
     href: weather-services-concepts.md
-  - name: Weather services FAQ
+  - name: Weather service FAQ
     href: weather-services-faq.yml
 - name: How-to guides
   items:
@@ -142,10 +132,18 @@ items:
       href: migrate-from-google-maps.md
     - name: Migrate a web app
       href: migrate-from-google-maps-web-app.md
-    - name: Migrate an Android app
-      href: migrate-from-google-maps-android-app.md
     - name: Migrate a web service
       href: migrate-from-google-maps-web-services.md
+  - name: Migrate from previous versions
+    items:
+    - name: Android SDK migration guide
+      href: android-sdk-migration-guide.md	  
+    - name: iOS SDK migration guide
+      href: ios-sdk-migration-guide.md 
+    - name: Migrate Azure Maps Route 1.0 APIs
+      href: migrate-route-v1-api.md
+    - name: Migrate Azure Maps Traffic 1.0 APIs
+      href: migrate-traffic-v1-api.md
   - name: Manage Maps accounts
     items:
     - name: Create account with ARM template
@@ -317,84 +315,6 @@ items:
       href: supported-browsers.md
     - name: Best practices
       href: web-sdk-best-practices.md
-  - name: Develop with the Android SDK
-    items:
-    - name: Android SDK migration guide
-      href: android-sdk-migration-guide.md
-    - name: The Android map control
-      href: how-to-use-android-map-control-library.md
-    - name: Change the style of the map
-      href: set-android-map-styles.md
-    - name: Add controls to the map
-      href: map-add-controls-android.md
-    - name: Create a data source
-      href: create-data-source-android-sdk.md
-    - name: Add a symbol layer
-      href: how-to-add-symbol-to-android-map.md
-    - name: Add a bubble layer
-      href: map-add-bubble-layer-android.md
-    - name: Display feature information
-      href: display-feature-information-android.md
-    - name: Add a line layer
-      href: android-map-add-line-layer.md
-    - name: Add a polygon layer
-      href: how-to-add-shapes-to-android-map.md
-    - name: Add a polygon extrusion layer
-      href: map-extruded-polygon-android.md
-    - name: Add heat map layer
-      href: map-add-heat-map-layer-android.md
-    - name: Add an image layer
-      href: map-add-image-layer-android.md
-    - name: Add a tile layer
-      href: how-to-add-tile-layer-android-map.md
-    - name: Show traffic data 
-      href: how-to-show-traffic-android.md
-    - name: Cluster point data
-      href: clustering-point-data-android-sdk.md
-    - name: Use data-driven expressions
-      href: data-driven-style-expressions-android-sdk.md
-    - name: Reacting to events
-      href: android-map-events.md
-  - name: Develop with the iOS SDK
-    items:
-    - name: iOS SDK migration guide
-      href: ios-sdk-migration-guide.md
-    - name: The iOS map control
-      href: how-to-use-ios-map-control-library.md
-    - name: Change the style of a map
-      href: set-map-style-ios-sdk.md
-    - name: Add controls to a map
-      href: add-controls-map-ios.md
-    - name: Create a data source
-      href: create-data-source-ios-sdk.md
-    - name: Add a symbol layer
-      href: add-symbol-layer-ios.md
-    - name: Add a bubble layer
-      href: add-bubble-layer-map-ios.md
-    - name: Display feature information
-      href: display-feature-information-ios-sdk.md
-    - name: Add a line layer
-      href: add-line-layer-map-ios.md
-    - name: Add a polygon layer
-      href: add-polygon-layer-map-ios.md
-    - name: Add a polygon extrusion layer
-      href: add-polygon-extrusion-layer-map-ios.md
-    - name: Add heat map layer
-      href: add-heat-map-layer-ios.md
-    - name: Add an image layer
-      href: add-image-layer-map-ios.md
-    - name: Add a tile layer
-      href: add-tile-layer-map-ios.md
-    - name: Show traffic data 
-      href: show-traffic-data-map-ios-sdk.md
-    - name: Clustering point data
-      href: clustering-point-data-ios-sdk.md
-    - name: Use data-driven expressions
-      href: data-driven-style-expressions-ios-sdk.md
-    - name: React to events
-      href: interact-map-ios-sdk.md  
-    - name: Use the Azure Maps indoor maps module
-      href: how-to-use-indoor-module-ios.md
   - name: Use Azure Maps in Power BI
     items: 
     - name: Convert Map and Filled map visuals

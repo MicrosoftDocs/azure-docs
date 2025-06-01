@@ -1,4 +1,4 @@
---- 
+---
 title: External storage solutions overview
 description: Learn about external storage solutions for Azure VMware Solution private cloud.
 ms.topic: how-to
@@ -7,9 +7,9 @@ ms.author: dsoderholm
 ms.service: azure-vmware
 ms.date: 12/09/2024
 ms.custom: engagement-fy23
---- 
-
-# Extend Azure VMware Solution with external storage solutions
+---
+ 
+# External storage solutions
 
 Azure VMware Solution is a Hyperconverged Infrastructure (HCI) service that offers VMware vSAN as the primary storage option. VMware vSAN provides high-performance NVMe storage for virtual machines. However, it has a limited capacity. The exact amount of storage available in vSAN depends on several factors, including the number and type of nodes in the cluster type; the RAID and FTT (Failures To Tolerate) settings; and the deduplication and compression performance of a particular workload. 
 
@@ -40,6 +40,7 @@ When you combine Azure VMware Solution with an external storage service, remembe
 |[Azure NetApp Files](./attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)|NetApp bare-metal hardware with all-flash performance|Azure native|File|NFS|[What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)|
 |[Azure Elastic SAN](./configure-azure-elastic-san.md)|Provides a familiar SAN resource hierarchy and industry-standard iSCSI block interface|Azure native|Block|iSCSI|[Introduction to Azure Elastic SAN](../storage/elastic-san/elastic-san-introduction.md)|
 |[Pure Cloud Block Store](./configure-pure-cloud-block-store.md)|Enterprise-grade performance and reliability using Pure Storage technology in Azure|Partner|Block|iSCSI|[Pure Cloud Block Store on Azure](https://support.purestorage.com/bundle/m_cbs_for_azure/page/Pure_Cloud_Block_Store/topics/concept/c_introduction_121.html)|
+|[Azure Native Pure Storage Cloud](./configure-azure-native-pure-storage-cloud.md)|Enterprise-grade performance and reliability using Pure Storage technology in Azure with Azure Native experience|Azure native experience|Block|iSCSI|[Pure Storage Cloud on Azure](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Production/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/topics/c_azure_native_pure_storage_cloud.html)|
 
 ### Azure storage solutions
 
@@ -57,10 +58,12 @@ Providing the same consistent external block storage architecture in the cloud i
 
 #### Pure Cloud Block Store
 
-[Pure Cloud Block Store](../azure-vmware/configure-pure-cloud-block-store.md) is a software-delivered service offered by Pure Storage, designed to provide a consistent storage experience for VMware workloads running in Azure. Pure Cloud Block Store runs the Purity Operating Environment on Azure virtual machines, and can be used with Azure VMware Solution to provide external block storage. You can create volumes in Pure Cloud Block Store and mount them on Azure VMware Solution hosts using iSCSI. Pure Cloud Block Store also offers data protection features such as snapshots and replication; storage efficiency using data deduplication and compression; and familiar management capabilities to administrators who are already using Pure Storage solutions.
+[Pure Cloud Block Store](../azure-vmware/configure-pure-cloud-block-store.md) is a software-delivered service offered by Pure Storage, designed to provide a consistent storage experience for VMware workloads running in Azure. Pure Cloud Block Store runs the Purity Operating Environment on Azure virtual machines and can be used with Azure VMware Solution to provide external block storage. You can create volumes in Pure Cloud Block Store and mount them on Azure VMware Solution hosts using iSCSI. Pure Cloud Block Store also offers data protection features such as snapshots and replication; storage efficiency using data deduplication and compression; and familiar management capabilities to administrators who are already using Pure Storage solutions.
 
 ## Next steps
 
 - Learn about [Azure NetApp Files](./attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
 - Learn about [Azure Elastic SAN](./configure-azure-elastic-san.md)
 - Learn about [Pure Cloud Block Store](./configure-pure-cloud-block-store.md)
+- Learn about [Azure Native Pure Storage Cloud](./configure-azure-native-pure-storage-cloud.md)
+

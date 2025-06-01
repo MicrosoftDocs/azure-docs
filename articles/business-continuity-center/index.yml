@@ -13,7 +13,7 @@ metadata:
   ms.topic: landing-page
   author: jyothisuri
   ms.author: jsuri
-  ms.date: 12/16/2024
+  ms.date: 03/25/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -42,6 +42,8 @@ landingContent:
         links:
           - text: Configure protection for data sources
             url: tutorial-configure-protection-datasource.md
+          - text: Review and modify the security level
+            url: tutorial-review-security-posture.md  
           - text: Recover deleted items
             url: tutorial-recover-deleted-item.md
           - text: Configure and view reports
@@ -62,3 +64,21 @@ landingContent:
         links:
           - text: Manage BCDR estate (preview)
             url: tutorial-manage-data-using-copilot.md
+
+  # Card (optional)
+  - title: Supported workloads
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Back up SAP ASE database
+            url: ../backup/sap-ase-database-about.md
+          - text: Protect Azure Elastic SAN via Azure Backup (preview)
+            url: ../backup/azure-elastic-storage-area-network-backup-overview.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json    
+  
+  # Card (optional)
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Well-Architecture design recommendation for monitoring/ alerting
+            url: /azure/well-architected/reliability/monitoring-alerting-strategy#azure-facilitation

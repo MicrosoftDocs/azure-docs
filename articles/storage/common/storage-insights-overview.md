@@ -2,7 +2,7 @@
 title: Monitor Azure Storage services with Azure Monitor Storage insights
 description: This article describes the Storage insights feature of Azure Monitor that provides storage admins with a quick understanding of performance and utilization issues with their Azure Storage accounts.
 recommendations: false
-ms.topic: conceptual
+ms.topic: concept-article
 author: normesta
 ms.author: normesta
 ms.date: 07/11/2021

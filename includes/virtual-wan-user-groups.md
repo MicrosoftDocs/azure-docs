@@ -38,7 +38,7 @@ The following table summarizes the available setting types and acceptable values
 |---|---|---|---|
 Microsoft Entra ID|AADGroupID|Microsoft Entra group Object ID	| {object ID value} |
 |RADIUS|AzureRADIUSGroupID|Vendor-specific Attribute Value (hexadecimal) (must begin with 6ad1bd)|6ad1bd23|
-|Certificate|AzureCertificateID|Certificate Common Name domain name (CN=user@red.com)|red|
+|Certificate|AzureCertificateID|Certificate Common Name domain name (CN=user@red.com)|red.com|
 
 <a name='azure-active-directory-authentication-openvpn-only'></a>
 
@@ -59,7 +59,7 @@ Gateways that use Certificate-based authentication use the **domain name** of us
 * domain/username
 * username@domain.com
 
-Make sure that the **domain** is the input as a group member.
+Make sure that the **domain.com** is the input as a group member.
 
 #### RADIUS server (OpenVPN and IKEv2)
 

@@ -2,12 +2,12 @@
 title: Azure built-in roles for Containers - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Containers category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -20,7 +20,7 @@ This article lists the Azure built-in roles in the Containers category.
 
 Delete repositories, tags, or manifests from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -61,7 +61,7 @@ Delete repositories, tags, or manifests from a container registry.
 
 Push trusted images to or pull trusted images from a container registry enabled for content trust.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -104,7 +104,7 @@ Push trusted images to or pull trusted images from a container registry enabled 
 
 Pull artifacts from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -145,7 +145,7 @@ Pull artifacts from a container registry.
 
 Push artifacts to or pull artifacts from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -188,7 +188,7 @@ Push artifacts to or pull artifacts from a container registry.
 
 Pull quarantined images from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -231,7 +231,7 @@ Pull quarantined images from a container registry.
 
 Push quarantined images to or pull quarantined images from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2146,6 +2146,579 @@ Allows read/write access to most objects in a namespace. This role does not allo
 }
 ```
 
+## Azure Red Hat OpenShift Cloud Controller Manager
+
+Manage and update the cloud controller manager deployed on top of OpenShift.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/read | Gets a load balancer definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/write | Creates a load balancer or updates an existing load balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/write | Creates a network interface or updates an existing network interface.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/read | Gets a network security group definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/write | Creates a network security group or updates an existing network security group |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/join/action | Joins a public IP address. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/write | Creates a public IP address or updates an existing public IP address.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPPrefixes/join/action | Joins a PublicIPPrefix. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationSecurityGroups/joinNetworkSecurityRule/action | Joins a Security Rule to Application Security Groups. Not alertable. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Manage and update the cloud controller manager deployed on top of OpenShift.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/a1f96423-95ce-4224-ab27-4e3dc72facd4",
+  "name": "a1f96423-95ce-4224-ab27-4e3dc72facd4",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Compute/virtualMachines/read",
+        "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+        "Microsoft.Network/loadBalancers/read",
+        "Microsoft.Network/loadBalancers/write",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/networkInterfaces/write",
+        "Microsoft.Network/networkSecurityGroups/read",
+        "Microsoft.Network/networkSecurityGroups/write",
+        "Microsoft.Network/publicIPAddresses/join/action",
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/publicIPAddresses/write",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/loadBalancers/inboundNatRules/join/action",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/publicIPPrefixes/join/action",
+        "Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Red Hat OpenShift Cloud Controller Manager",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Red Hat OpenShift Cluster Ingress Operator
+
+Manage and configure the OpenShift router.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/dnsZones/A/delete | Remove the record set of a given name and type 'A' from a DNS zone. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/dnsZones/A/write | Create or update a record set of type 'A' within a DNS zone. The records specified will replace the current records in the record set. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/A/delete | Remove the record set of a given name and type 'A' from a Private DNS zone. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/A/write | Create or update a record set of type 'A' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Manage and configure the OpenShift router.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0336e1d3-7a87-462b-b6db-342b63f7802c",
+  "name": "0336e1d3-7a87-462b-b6db-342b63f7802c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Network/dnsZones/A/delete",
+        "Microsoft.Network/dnsZones/A/write",
+        "Microsoft.Network/privateDnsZones/A/delete",
+        "Microsoft.Network/privateDnsZones/A/write",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/join/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Red Hat OpenShift Cluster Ingress Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Red Hat OpenShift Disk Storage Operator
+
+Install Container Storage Interface (CSI) drivers that enable your cluster to use Azure Disks. Set OpenShift cluster-wide storage defaults to ensure a default storageclass exists for clusters.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/write | Creates a new virtual machine or updates an existing virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachineScaleSets/virtualMachines/write | Updates the properties of a Virtual Machine in a VM Scale Set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachineScaleSets/virtualMachines/read | Retrieves the properties of a Virtual Machine in a VM Scale Set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachineScaleSets/read | Get the properties of a Virtual Machine Scale Set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/snapshots/write | Create a new Snapshot or update an existing one |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/snapshots/read | Get the properties of a Snapshot |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/snapshots/delete | Delete a Snapshot |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/locations/operations/read | Gets the status of an asynchronous operation |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/locations/DiskOperations/read | Gets the status of an asynchronous Disk operation |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/read | Get the properties of a Disk |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/delete | Deletes the Disk |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/beginGetAccess/action | Get the SAS URI of the Disk for blob access |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/diskEncryptionSets/read | Get the properties of a disk encryption set |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Install Container Storage Interface (CSI) drivers that enable your cluster to use Azure Disks. Set OpenShift cluster-wide storage defaults to ensure a default storageclass exists for clusters.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5b7237c5-45e1-49d6-bc18-a1f62f400748",
+  "name": "5b7237c5-45e1-49d6-bc18-a1f62f400748",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Compute/virtualMachines/write",
+        "Microsoft.Compute/virtualMachines/read",
+        "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/write",
+        "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read",
+        "Microsoft.Compute/virtualMachineScaleSets/read",
+        "Microsoft.Compute/snapshots/write",
+        "Microsoft.Compute/snapshots/read",
+        "Microsoft.Compute/snapshots/delete",
+        "Microsoft.Compute/locations/operations/read",
+        "Microsoft.Compute/locations/DiskOperations/read",
+        "Microsoft.Compute/disks/write",
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Compute/disks/delete",
+        "Microsoft.Compute/disks/beginGetAccess/action",
+        "Microsoft.Compute/diskEncryptionSets/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Red Hat OpenShift Disk Storage Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Red Hat OpenShift Federated Credential
+
+Create, update and delete federated credentials on user assigned managed identities in order to build a trust relationship between the managed identity, OpenID Connect (OIDC), and the service account.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/read | Gets an existing user assigned identity |
+> | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/federatedIdentityCredentials/write | Add or update a Federated Identity Credential |
+> | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/federatedIdentityCredentials/read | Get or list Federated Identity Credentials |
+> | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/federatedIdentityCredentials/delete | Delete a Federated Identity Credential |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, update and delete federated credentials on user assigned managed identities in order to build a trust relationship between the managed identity, OpenID Connect (OIDC), and the service account.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/ef318e2a-8334-4a05-9e4a-295a196c6a6e",
+  "name": "ef318e2a-8334-4a05-9e4a-295a196c6a6e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ManagedIdentity/userAssignedIdentities/read",
+        "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/write",
+        "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/read",
+        "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Red Hat OpenShift Federated Credential",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Red Hat OpenShift File Storage Operator
+
+Install Container Storage Interface (CSI) drivers that enable your cluster to use Azure Files. Set OpenShift cluster-wide storage defaults to ensure a default storageclass exists for clusters.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/delete | Deletes an existing storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/read | Get file service properties |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/shares/delete | Delete file share |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/shares/read | List file shares |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/shares/write | Create or update file share |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/routeTables/join/action | Joins a route table. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/natGateways/join/action | Joins a NAT Gateway |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Install Container Storage Interface (CSI) drivers that enable your cluster to use Azure Files. Set OpenShift cluster-wide storage defaults to ensure a default storageclass exists for clusters.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0d7aedc0-15fd-4a67-a412-efad370c947e",
+  "name": "0d7aedc0-15fd-4a67-a412-efad370c947e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/delete",
+        "Microsoft.Storage/storageAccounts/fileServices/read",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/delete",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/read",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/write",
+        "Microsoft.Storage/storageAccounts/listKeys/action",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Network/routeTables/join/action",
+        "Microsoft.Network/natGateways/join/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Red Hat OpenShift File Storage Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Red Hat OpenShift Image Registry Operator
+
+Enables permissions for the operator to manage a singleton instance of the OpenShift image registry. It manages all configuration of the registry, including creating storage.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/write | Returns the result of put blob container |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the blob service |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/delete | Deletes an existing storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/tags/write | Updates the tags on a resource by replacing or merging existing tags with a new set of tags, or removing existing tags. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/add/action | Returns the result of adding blob content |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/move/action | Moves the blob from one path to another |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Enables permissions for the operator to manage a singleton instance of the OpenShift image registry. It manages all configuration of the registry, including creating storage.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/8b32b316-c2f5-4ddf-b05b-83dacd2d08b5",
+  "name": "8b32b316-c2f5-4ddf-b05b-83dacd2d08b5",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+        "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Storage/storageAccounts/delete",
+        "Microsoft.Storage/storageAccounts/listKeys/action",
+        "Microsoft.Resources/tags/write"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Red Hat OpenShift Image Registry Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Red Hat OpenShift Machine API Operator
+
+Manage the lifecycle of specific-purpose custom resource definitions (CRD), controllers, and Azure RBAC objects that extend the Kubernetes API to declares the desired state of machines in a cluster.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/availabilitySets/delete | Deletes the availability set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/availabilitySets/read | Get the properties of an availability set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/availabilitySets/write | Creates a new availability set or updates an existing one |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/diskEncryptionSets/read | Get the properties of a disk encryption set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/delete | Deletes the Disk |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/galleries/images/versions/read | Gets the properties of Gallery Image Version |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/skus/read | Gets the list of Microsoft.Compute SKUs available for your Subscription |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/delete | Deletes the virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/write | Creates a new virtual machine or updates an existing virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/capacityReservationGroups/deploy/action | Deploy a new VM/VMSS using Capacity Reservation Group |
+> | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/assign/action | RBAC action for assigning an existing user assigned identity to a resource |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationSecurityGroups/read | Gets an Application Security Group ID. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/read | Gets a load balancer definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/write | Creates a load balancer or updates an existing load balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/delete | Deletes a network interface |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/join/action | Joins a Virtual Machine to a network interface. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/loadBalancers/read | Gets all the load balancers that the network interface is part of |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/write | Creates a network interface or updates an existing network interface.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/read | Gets a network security group definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/write | Creates a network security group or updates an existing network security group |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/delete | Deletes a public IP address. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/join/action | Joins a public IP address. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/write | Creates a public IP address or updates an existing public IP address.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/routeTables/read | Gets a route table definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationSecurityGroups/joinNetworkSecurityRule/action | Joins a Security Rule to Application Security Groups. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/frontendIPConfigurations/join/action | Joins a Load Balancer Frontend IP Configuration. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/inboundNATRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Manage the lifecycle of specific-purpose custom resource definitions (CRD), controllers, and Azure RBAC objects that extend the Kubernetes API to declares the desired state of machines in a cluster.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0358943c-7e01-48ba-8889-02cc51d78637",
+  "name": "0358943c-7e01-48ba-8889-02cc51d78637",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Compute/availabilitySets/delete",
+        "Microsoft.Compute/availabilitySets/read",
+        "Microsoft.Compute/availabilitySets/write",
+        "Microsoft.Compute/diskEncryptionSets/read",
+        "Microsoft.Compute/disks/delete",
+        "Microsoft.Compute/galleries/images/versions/read",
+        "Microsoft.Compute/skus/read",
+        "Microsoft.Compute/virtualMachines/delete",
+        "Microsoft.Compute/virtualMachines/read",
+        "Microsoft.Compute/virtualMachines/write",
+        "Microsoft.Compute/capacityReservationGroups/deploy/action",
+        "Microsoft.ManagedIdentity/userAssignedIdentities/assign/action",
+        "Microsoft.Network/applicationSecurityGroups/read",
+        "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+        "Microsoft.Network/loadBalancers/read",
+        "Microsoft.Network/loadBalancers/write",
+        "Microsoft.Network/networkInterfaces/delete",
+        "Microsoft.Network/networkInterfaces/join/action",
+        "Microsoft.Network/networkInterfaces/loadBalancers/read",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/networkInterfaces/write",
+        "Microsoft.Network/networkSecurityGroups/read",
+        "Microsoft.Network/networkSecurityGroups/write",
+        "Microsoft.Network/publicIPAddresses/delete",
+        "Microsoft.Network/publicIPAddresses/join/action",
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/publicIPAddresses/write",
+        "Microsoft.Network/routeTables/read",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action",
+        "Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action",
+        "Microsoft.Network/loadBalancers/inboundNATRules/join/action",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Red Hat OpenShift Machine API Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Red Hat OpenShift Network Operator
+
+Install and upgrade the networking components on an OpenShift cluster.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/write | Creates a network interface or updates an existing network interface.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Install and upgrade the networking components on an OpenShift cluster.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/be7a6435-15ae-4171-8f30-4a343eff9e8f",
+  "name": "be7a6435-15ae-4171-8f30-4a343eff9e8f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/networkInterfaces/write",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+        "Microsoft.Network/loadBalancers/backendAddressPools/read",
+        "Microsoft.Compute/virtualMachines/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Red Hat OpenShift Network Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Red Hat OpenShift Service Operator
+
+Maintain machine health, network configuration, monitoring, and other features that are specific to an OpenShift cluster's continued functionality as a managed service.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/natGateways/join/action | Joins a NAT Gateway |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/routeTables/join/action | Joins a route table. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Maintain machine health, network configuration, monitoring, and other features that are specific to an OpenShift cluster's continued functionality as a managed service.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4436bae4-7702-4c84-919b-c4069ff25ee2",
+  "name": "4436bae4-7702-4c84-919b-c4069ff25ee2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Network/natGateways/join/action",
+        "Microsoft.Network/routeTables/join/action",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Storage/storageAccounts/listKeys/action",
+        "Microsoft.Storage/storageAccounts/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Red Hat OpenShift Service Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Connected Cluster Managed Identity CheckAccess Reader
 
 Built-in role that allows a Connected Cluster managed identity to call the checkAccess API
@@ -2182,6 +2755,787 @@ Built-in role that allows a Connected Cluster managed identity to call the check
     }
   ],
   "roleName": "Connected Cluster Managed Identity CheckAccess Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Cache Rule Administrator
+
+Create, Read, Update, and Delete Cache Rules in Container Registry. This role doesn't grant permissions to manage Credential Sets.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/read | Gets the properties of the specified cache rule or lists all the cache rules for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/write | Creates or updates a cache rule for a container registry with the specified parameters |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/delete | Deletes a cache rule from a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/operationStatuses/read | Gets a cache rule async operation status |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, Read, Update, and Delete Cache Rules in Container Registry. This role doesn't grant permissions to manage Credential Sets.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/df87f177-bb12-4db1-9793-a413691eff94",
+  "name": "df87f177-bb12-4db1-9793-a413691eff94",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/cacheRules/read",
+        "Microsoft.ContainerRegistry/registries/cacheRules/write",
+        "Microsoft.ContainerRegistry/registries/cacheRules/delete",
+        "Microsoft.ContainerRegistry/registries/cacheRules/operationStatuses/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Cache Rule Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Cache Rule Reader
+
+Read the configuration of Cache Rules in Container Registry. This permission doesn't grant permission to read Credential Sets.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/read | Gets the properties of the specified cache rule or lists all the cache rules for the specified container registry |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read the configuration of Cache Rules in Container Registry. This permission doesn't grant permission to read Credential Sets.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c357b964-0002-4b64-a50d-7a28f02edc52",
+  "name": "c357b964-0002-4b64-a50d-7a28f02edc52",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/cacheRules/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Cache Rule Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Configuration Reader and Data Access Configuration Reader
+
+Provides permissions to list container registries and registry configuration properties. Provides permissions to list data access configuration such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/operationStatuses/read | Gets a registry async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/read | Gets the properties of the specified container registry or lists all the container registries under the specified resource group or subscription. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/read | Gets the properties of private endpoint connection or list all the private endpoint connections for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/operationStatuses/read | Get Private Endpoint Connection Async Operation Status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/listCredentials/action | Lists the login credentials for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/read | Gets the properties of the specified token or lists all the tokens for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/operationStatuses/read | Gets a token async operation status. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/read | Gets the properties of the specified scope map or lists all the scope maps for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/operationStatuses/read | Gets a scope map async operation status. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/read | Gets the properties of the specified webhook or lists all the webhooks for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/getCallbackConfig/action | Gets the configuration of service URI and custom headers for the webhook. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/listEvents/action | Lists recent events for the specified webhook. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/operationStatuses/read | Gets a webhook async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/read | Gets the properties of the specified replication or lists all the replications for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/operationStatuses/read | Gets a replication async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/connectedRegistries/read | Gets the properties of the specified connected registry or lists all the connected registries for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Microsoft ContainerRegistry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Microsoft ContainerRegistry |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permissions to list container registries and registry configuration properties. Provides permissions to list data access configuration such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/69b07be0-09bf-439a-b9a6-e73de851bd59",
+  "name": "69b07be0-09bf-439a-b9a6-e73de851bd59",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/read",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/read",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/listCredentials/action",
+        "Microsoft.ContainerRegistry/registries/tokens/read",
+        "Microsoft.ContainerRegistry/registries/tokens/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/read",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/webhooks/read",
+        "Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/listEvents/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/replications/read",
+        "Microsoft.ContainerRegistry/registries/replications/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/connectedRegistries/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/logDefinitions/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Configuration Reader and Data Access Configuration Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Contributor and Data Access Configuration Administrator
+
+Provides permissions to create, list, and update container registries and registry configuration properties. Provides permissions to configure data access such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/operationStatuses/read | Gets a registry async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/read | Gets the properties of the specified container registry or lists all the container registries under the specified resource group or subscription. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/write | Creates or updates a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/delete | Deletes a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/listCredentials/action | Lists the login credentials for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/regenerateCredential/action | Regenerates one of the login credentials for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/generateCredentials/action | Generate keys for a token of a specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/read | Gets the properties of the specified replication or lists all the replications for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/write | Creates or updates a replication for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/delete | Deletes a replication from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/operationStatuses/read | Gets a replication async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnectionsApproval/action | Auto Approves a Private Endpoint Connection |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/read | Gets the properties of private endpoint connection or list all the private endpoint connections for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/write | Approves/Rejects the private endpoint connection |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/delete | Deletes the private endpoint connection |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/operationStatuses/read | Get Private Endpoint Connection Async Operation Status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/read | Gets the properties of the specified token or lists all the tokens for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/write | Creates or updates a token for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/delete | Deletes a token from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/operationStatuses/read | Gets a token async operation status. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/read | Gets the properties of the specified scope map or lists all the scope maps for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/write | Creates or updates a scope map for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/delete | Deletes a scope map from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/operationStatuses/read | Gets a scope map async operation status. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Microsoft ContainerRegistry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Microsoft ContainerRegistry |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/connectedRegistries/read | Gets the properties of the specified connected registry or lists all the connected registries for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/connectedRegistries/write | Creates or updates a connected registry for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/connectedRegistries/delete | Deletes a connected registry from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/connectedRegistries/deactivate/action | Deactivates a connected registry for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/read | Gets the properties of the specified webhook or lists all the webhooks for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/write | Creates or updates a webhook for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/delete | Deletes a webhook from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/getCallbackConfig/action | Gets the configuration of service URI and custom headers for the webhook. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/ping/action | Triggers a ping event to be sent to the webhook. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/listEvents/action | Lists recent events for the specified webhook. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/operationStatuses/read | Gets a webhook async operation status |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/locations/operationResults/read | Gets an async operation result |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateLinkServiceProxies/write | Creates a new private link service proxy, or updates an existing private link service proxy. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permissions to create, list, and update container registries and registry configuration properties. Provides permissions to configure data access such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/3bc748fc-213d-45c1-8d91-9da5725539b9",
+  "name": "3bc748fc-213d-45c1-8d91-9da5725539b9",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerRegistry/registries/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/read",
+        "Microsoft.ContainerRegistry/registries/write",
+        "Microsoft.ContainerRegistry/registries/delete",
+        "Microsoft.ContainerRegistry/registries/listCredentials/action",
+        "Microsoft.ContainerRegistry/registries/regenerateCredential/action",
+        "Microsoft.ContainerRegistry/registries/generateCredentials/action",
+        "Microsoft.ContainerRegistry/registries/replications/read",
+        "Microsoft.ContainerRegistry/registries/replications/write",
+        "Microsoft.ContainerRegistry/registries/replications/delete",
+        "Microsoft.ContainerRegistry/registries/replications/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnectionsApproval/action",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/read",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/write",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/delete",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/tokens/read",
+        "Microsoft.ContainerRegistry/registries/tokens/write",
+        "Microsoft.ContainerRegistry/registries/tokens/delete",
+        "Microsoft.ContainerRegistry/registries/tokens/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/read",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/write",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/delete",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/logDefinitions/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.ContainerRegistry/registries/connectedRegistries/read",
+        "Microsoft.ContainerRegistry/registries/connectedRegistries/write",
+        "Microsoft.ContainerRegistry/registries/connectedRegistries/delete",
+        "Microsoft.ContainerRegistry/registries/connectedRegistries/deactivate/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/read",
+        "Microsoft.ContainerRegistry/registries/webhooks/write",
+        "Microsoft.ContainerRegistry/registries/webhooks/delete",
+        "Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/ping/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/listEvents/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/operationStatuses/read",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.ContainerRegistry/locations/operationResults/read",
+        "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/privateEndpoints/privateLinkServiceProxies/write"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Contributor and Data Access Configuration Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Credential Set Administrator
+
+Create, Read, Update, and Delete Credential Sets in Container Registry. This role doesn't affect the needed permissions for storing content inside Azure Key Vault. This role also doesn't grant permissions to manage Cache Rules.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/read | Gets the properties of the specified credential set or lists all the credential sets for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/write | Creates or updates a credential set for a container registry with the specified parameters |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/delete | Deletes a credential set from a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/operationStatuses/read | Gets a credential set async operation status |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, Read, Update, and Delete Credential Sets in Container Registry. This role doesn't affect the needed permissions for storing content inside Azure Key Vault. This role also doesn't grant permissions to manage Cache Rules.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f094fb07-0703-4400-ad6a-e16dd8000e14",
+  "name": "f094fb07-0703-4400-ad6a-e16dd8000e14",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/credentialSets/read",
+        "Microsoft.ContainerRegistry/registries/credentialSets/write",
+        "Microsoft.ContainerRegistry/registries/credentialSets/delete",
+        "Microsoft.ContainerRegistry/registries/credentialSets/operationStatuses/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Credential Set Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Credential Set Reader
+
+Read the configuration of Credential Sets in Container Registry. This permission doesn't allow permission to see content inside Azure Key vault only the content inside Container Registry. This permission doesn't grant permission to read Cache Rules.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/read | Gets the properties of the specified credential set or lists all the credential sets for the specified container registry |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read the configuration of Credential Sets in Container Registry. This permission doesn't allow permission to see content inside Azure Key vault only the content inside Container Registry. This permission doesn't grant permission to read Cache Rules.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/29093635-9924-4f2c-913b-650a12949526",
+  "name": "29093635-9924-4f2c-913b-650a12949526",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/credentialSets/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Credential Set Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Data Importer and Data Reader
+
+Provides the ability to import images into a registry through the registry import operation. Provides the ability to list repositories, view images and tags, get manifests, and pull images. Does not provide permissions for importing images through configuring registry transfer pipelines such as import and export pipelines. Does not provide permissions for importing through configuring Artifact Cache or Sync rules.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/importImage/action | Import Image to container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/read | Gets the properties of the specified container registry or lists all the container registries under the specified resource group or subscription. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/pull/read | Pull or Get images from a container registry. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/read | Pull or Get images from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/read | Gets the metadata of a specific repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/catalog/read | List repositories in a container registry. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides the ability to import images into a registry through the registry import operation. Provides the ability to list repositories, view images and tags, get manifests, and pull images. Does not provide permissions for importing images through configuring registry transfer pipelines such as import and export pipelines. Does not provide permissions for importing through configuring Artifact Cache or Sync rules.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/577a9874-89fd-4f24-9dbd-b5034d0ad23a",
+  "name": "577a9874-89fd-4f24-9dbd-b5034d0ad23a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/importImage/action",
+        "Microsoft.ContainerRegistry/registries/read",
+        "Microsoft.ContainerRegistry/registries/pull/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/content/read",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read",
+        "Microsoft.ContainerRegistry/registries/catalog/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Data Importer and Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Repository Catalog Lister
+
+Allows for listing all repositories in an Azure Container Registry. This role is in preview and subject to change.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/catalog/read | List repositories in a container registry. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for listing all repositories in an Azure Container Registry. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bfdb9389-c9a5-478a-bb2f-ba9ca092c3c7",
+  "name": "bfdb9389-c9a5-478a-bb2f-ba9ca092c3c7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/catalog/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Repository Catalog Lister",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Repository Contributor
+
+Allows for read, write, and delete access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/read | Gets the metadata of a specific repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/read | Pull or Get images from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/write | Updates the metadata of a repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/write | Push or Write images to a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/delete | Delete the metadata of a repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/delete | Delete artifact in a container registry. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read, write, and delete access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/2efddaa5-3f1f-4df3-97df-af3f13818f4c",
+  "name": "2efddaa5-3f1f-4df3-97df-af3f13818f4c",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read",
+        "Microsoft.ContainerRegistry/registries/repositories/content/read",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/write",
+        "Microsoft.ContainerRegistry/registries/repositories/content/write",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/delete",
+        "Microsoft.ContainerRegistry/registries/repositories/content/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Repository Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Repository Reader
+
+Allows for read access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/read | Gets the metadata of a specific repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/read | Pull or Get images from a container registry. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b93aa761-3e63-49ed-ac28-beffa264f7ac",
+  "name": "b93aa761-3e63-49ed-ac28-beffa264f7ac",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read",
+        "Microsoft.ContainerRegistry/registries/repositories/content/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Repository Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Repository Writer
+
+Allows for read and write access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/read | Gets the metadata of a specific repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/read | Pull or Get images from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/write | Updates the metadata of a repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/write | Push or Write images to a container registry. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read and write access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/2a1e307c-b015-4ebd-883e-5b7698a07328",
+  "name": "2a1e307c-b015-4ebd-883e-5b7698a07328",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read",
+        "Microsoft.ContainerRegistry/registries/repositories/content/read",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/write",
+        "Microsoft.ContainerRegistry/registries/repositories/content/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Repository Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Tasks Contributor
+
+Provides permissions to configure, read, list, trigger, or cancel Container Registry Tasks, Task Runs, Task Logs, Quick Runs, Quick Builds, and Task Agent Pools. Permissions granted for Tasks management can be used for full registry data plane permissions including reading/writing/deleting container images in registries. Permissions granted for Tasks management can also be used to run customer authored build directives and run scripts to build software artifacts.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/read | Get a agentpool for a container registry or list all agentpools. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/write | Create or Update an agentpool for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/delete | Delete an agentpool for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/listQueueStatus/action | List all queue status of an agentpool for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/operationResults/status/read | Gets an agentpool async operation result status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/operationStatuses/read | Gets an agentpool async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tasks/read | Gets a task for a container registry or list all tasks. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tasks/write | Creates or Updates a task for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tasks/delete | Deletes a task for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tasks/listDetails/action | List all details of a task for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scheduleRun/action | Schedule a run against a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/listBuildSourceUploadUrl/action | Get source upload url location for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/runs/read | Gets the properties of a run against a container registry or list runs. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/runs/write | Updates a run. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/runs/listLogSasUrl/action | Gets the log SAS URL for a run. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/runs/cancel/action | Cancel an existing run. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/taskruns/read | Get a taskrun for a container registry or list all taskruns. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/taskruns/write | Create or Update a taskrun for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/taskruns/delete | Delete a taskrun for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/taskruns/listDetails/action | List all details of a taskrun for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/taskruns/operationStatuses/read | Gets a taskrun async operation status |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/read | Gets the properties of the specified container registry or lists all the container registries under the specified resource group or subscription. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permissions to configure, read, list, trigger, or cancel Container Registry Tasks, Task Runs, Task Logs, Quick Runs, Quick Builds, and Task Agent Pools. Permissions granted for Tasks management can be used for full registry data plane permissions including reading/writing/deleting container images in registries. Permissions granted for Tasks management can also be used to run customer authored build directives and run scripts to build software artifacts.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/fb382eab-e894-4461-af04-94435c366c3f",
+  "name": "fb382eab-e894-4461-af04-94435c366c3f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/agentpools/read",
+        "Microsoft.ContainerRegistry/registries/agentpools/write",
+        "Microsoft.ContainerRegistry/registries/agentpools/delete",
+        "Microsoft.ContainerRegistry/registries/agentpools/listQueueStatus/action",
+        "Microsoft.ContainerRegistry/registries/agentpools/operationResults/status/read",
+        "Microsoft.ContainerRegistry/registries/agentpools/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/tasks/read",
+        "Microsoft.ContainerRegistry/registries/tasks/write",
+        "Microsoft.ContainerRegistry/registries/tasks/delete",
+        "Microsoft.ContainerRegistry/registries/tasks/listDetails/action",
+        "Microsoft.ContainerRegistry/registries/scheduleRun/action",
+        "Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action",
+        "Microsoft.ContainerRegistry/registries/runs/read",
+        "Microsoft.ContainerRegistry/registries/runs/write",
+        "Microsoft.ContainerRegistry/registries/runs/listLogSasUrl/action",
+        "Microsoft.ContainerRegistry/registries/runs/cancel/action",
+        "Microsoft.ContainerRegistry/registries/taskruns/read",
+        "Microsoft.ContainerRegistry/registries/taskruns/write",
+        "Microsoft.ContainerRegistry/registries/taskruns/delete",
+        "Microsoft.ContainerRegistry/registries/taskruns/listDetails/action",
+        "Microsoft.ContainerRegistry/registries/taskruns/operationStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerRegistry/registries/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Tasks Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Transfer Pipeline Contributor
+
+Provides the ability to transfer, import, and export artifacts through configuring registry transfer pipelines that involve intermediary storage accounts and key vaults. Does not provide permissions to push or pull images. Does not provide permissions to create, manage, or list storage accounts or key vaults. Does not provide permissions to perform role assignments.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/exportPipelines/read | Gets the properties of the specified export pipeline or lists all the export pipelines for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/exportPipelines/write | Creates or updates an export pipeline for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/exportPipelines/delete | Deletes an export pipeline from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/importPipelines/read | Gets the properties of the specified import pipeline or lists all the import pipelines for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/importPipelines/write | Creates or updates an import pipeline for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/importPipelines/delete | Deletes an import pipeline from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/pipelineRuns/read | Gets the properties of the specified pipeline run or lists all the pipeline runs for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/pipelineRuns/write | Creates or updates a pipeline run for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/pipelineRuns/delete | Deletes a pipeline run from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/pipelineRuns/operationStatuses/read | Gets a pipeline run async operation status. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides the ability to transfer, import, and export artifacts through configuring registry transfer pipelines that involve intermediary storage accounts and key vaults. Does not provide permissions to push or pull images. Does not provide permissions to create, manage, or list storage accounts or key vaults. Does not provide permissions to perform role assignments.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bf94e731-3a51-4a7c-8c54-a1ab9971dfc1",
+  "name": "bf94e731-3a51-4a7c-8c54-a1ab9971dfc1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/exportPipelines/read",
+        "Microsoft.ContainerRegistry/registries/exportPipelines/write",
+        "Microsoft.ContainerRegistry/registries/exportPipelines/delete",
+        "Microsoft.ContainerRegistry/registries/importPipelines/read",
+        "Microsoft.ContainerRegistry/registries/importPipelines/write",
+        "Microsoft.ContainerRegistry/registries/importPipelines/delete",
+        "Microsoft.ContainerRegistry/registries/pipelineRuns/read",
+        "Microsoft.ContainerRegistry/registries/pipelineRuns/write",
+        "Microsoft.ContainerRegistry/registries/pipelineRuns/delete",
+        "Microsoft.ContainerRegistry/registries/pipelineRuns/operationStatuses/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Transfer Pipeline Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

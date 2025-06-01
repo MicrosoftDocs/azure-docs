@@ -4,6 +4,9 @@ description: Use the Apache Spark machine learning library to create data pipeli
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/14/2024
 ---
 # Create an Apache Spark machine learning pipeline

@@ -254,7 +254,19 @@ If an error appears on a successfully registered or deployed Virtual Instance fo
 3. Navigate to the VIS resource and go to the Managed Resource Group from the Essentials section on Overview. Check if a Storage Account exists in this resource group. If it exists, then check if your virtual network allows connectivity from the SAP central services VM to this storage account. Enable connectivity if needed. If the storage account doesn't exist, then you will have to delete the VIS resource and register the system again.
 4. Check if the SAP central services VM system assigned managed identity has the ‘Storage Blob Data Owner’ access on the managed resource group of the VIS. If not, provide the necessary access. If the system assigned managed identity doesn't exist, then you will have to delete the VIS and re-register the system.
 5. Ensure sapstartsrv process for the SAP instance and SAP Hostctrl is running on the Central Services VM.
-6. If everything mentioned above is in place, then log a support ticket. 
+6. If everything mentioned above is in place, then log a support ticket.
+
+### Error - Database status showed **unavailable** on the Azure portal. 
+**Possible causes:** 
+The database list has not been passed on to the HnS script args. This results in the database status to be shown as unavailable.  
+
+This can happen in 2 scenarios: 
+- SID of Database and HANA instance is not same. This would lead to db details not being discovered in the Discovery Workflow. 
+- You have multi-db cluster which will also result in this error.
+
+**Solution:**
+
+- Ensure HANA instance and its database mapped to same SID
 
 ## Next steps
 

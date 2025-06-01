@@ -12,13 +12,13 @@ author: maud-lv
 
 # Service limits, quotas, and constraints
 
-Azure Managed Grafana delivers the native Grafana functionality in the highest possible fidelity. There are some differences between what it provides and what you can get by self-hosting Grafana. As a general rule, Azure Managed Grafana disables features and settings that might affect the security or reliability of the service and individual Grafana instances it manages.
+Azure Managed Grafana delivers the native Grafana functionality in the highest possible fidelity. There are some differences between what it provides and what you can get by self-hosting Grafana. As a general rule, Azure Managed Grafana disables features and settings that might affect the security or reliability of the service and individual Grafana workspaces it manages.
 
 ## Service limits
 
 Azure Managed Grafana has the following known limitations:
 
-* All users must have accounts in Microsoft Entra ID. Third-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
+* All users must have accounts in Microsoft Entra ID. Third-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana workspace and add other users as guests.
 
 * Installing, uninstalling and upgrading plugins from the Grafana Catalog isn't possible.
 
@@ -30,9 +30,9 @@ Azure Managed Grafana has the following known limitations:
 
 * Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
 
-* Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [open a support ticket](find-help-open-support-ticket.md#open-a-support-ticket).
+* Unified alerting is enabled by default for all workspaces created after December 2022. For workspaces created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [open a support ticket](find-help-open-support-ticket.md#open-a-support-ticket).
 
-* > Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
+* Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
 
 ## Current User authentication
 
@@ -44,14 +44,19 @@ Some Azure Managed Grafana features aren't available in Azure Government and Mic
 
 | Feature                           | Azure Government | Microsoft Azure operated by 21Vianet (Preview) |
 |-----------------------------------|:----------------:|:----------------------------------------------:|
-| Private link                      |   Not supported  |                  Not supported                 |
-| Managed private endpoint          |   Not supported  |                  Not supported                 |
+| Private link                      |     Supported    |                    Supported                   |
+| Managed private endpoint          |     Supported    |                    Supported                   |
 | Team sync with Microsoft Entra ID |      Preview     |                     Preview                    |
 | Enterprise plugins                |   Not supported  |                  Not supported                 |
+| Essential plan                    |   Not supported  |                  Not supported                 |
+| MemoryUsagePercentage metric      |   Not supported  |                  Not supported                 |
 
 ## Throttling limits and quotas
 
 The following quotas apply to the Essential (preview) and Standard plans.
+
+> [!NOTE]
+> Grafana Enterprise is an option within the Standard plan, not a separate plan within Azure. The information listed below for the Standard plan also applies to Standard workspaces with Grafana Enterprise enabled.
 
 [!INCLUDE [Azure Managed Grafana limits](../../includes/azure-managed-grafana-limits.md)]
 
@@ -62,7 +67,7 @@ Each data source also has its own limits that can be reflected in Azure Managed 
 
 ## Managed identities
 
-Each Azure Managed Grafana instance can only be assigned one managed identity, user-assigned or system-assigned, but not both.
+Each Azure Managed Grafana workspace can only be assigned one managed identity, user-assigned or system-assigned, but not both.
 
 ## Related links
 

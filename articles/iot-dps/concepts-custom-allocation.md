@@ -2,9 +2,8 @@
 title: Using custom allocation policies with Azure DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Understand how custom allocation policies enable provisioning to multiple IoT hubs with the Azure IoT Hub Device Provisioning Service (DPS)
-author: kgremban
-
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 09/09/2022
 ms.topic: concept-article
 ms.service: azure-iot-hub
@@ -34,7 +33,7 @@ The following steps describe how custom allocation polices work:
 
 1. DPS assigns the device to the IoT hub indicated in the response, and, if an initial twin is returned, sets the initial twin for the device accordingly. If a custom payload is returned by the webhook, it's passed to the device along with the assigned IoT hub and authentication details in the [registration response](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) from DPS.
 
-1. The device connects to the assigned IoT hub and downloads its initial twin state. If a custom payload is 00000000000000000000000000000000000000000000000000000000returned in the registration response, the device uses it according to its own client-side logic.  
+1. The device connects to the assigned IoT hub and downloads its initial twin state. If a custom payload is returned in the registration response, the device uses it according to its own client-side logic.  
 
 The following sections provide more detail about the custom allocation request and response, custom payloads, and policy implementation. For a complete end-to-end example of a custom allocation policy, see [Use custom allocation policies](tutorial-custom-allocation-policies.md).
 

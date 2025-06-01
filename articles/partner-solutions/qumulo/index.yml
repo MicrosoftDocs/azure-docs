@@ -13,48 +13,37 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  # Card (optional)
-  - title: About Azure Native Qumulo Scalable File Service
+
+  - title: About Azure Native Qumulo
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Native Qumulo Scalable File Service?
             url: overview.md
-          - text: What is Azure Native Qumulo for disaster recovery?
-            url: disaster-recovery.md
-          - text: What is Azure Native Qumulo for video editing?
-            url: video-editing.md
-          - text: What is Azure Native Qumulo for PACS VNA?
-            url: vendor-neutral-archive.md
-          - text: What is Azure Native Qumulo for virtual desktops?
-            url: virtual-desktop.md
-      - linkListType: quickstart
-        links:
-          - text: Create an Azure Native Qumulo Scalable File Service deployment
-            url: create.md
-          - text: Qumulo Admin Guide
-            url: https://docs.qumulo.com/administrator-guide/
-      - linkListType: video
-        links: 
-          - text: Azure Native Qumulo Scalable File Service
-            url: https://www.youtube.com/watch?v=s-5DXAuYZss 
+          - text: FAQ
+            url: faq.yml
 
 
   # Card
-  - title: Create an Azure Native Qumulo Scalable File Service instance
+  - title: Get Started with Azure Native Qumulo
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
-          - text: Manage the Azure Native Qumulo Scalable File Service by using the portal
-            url: manage.md
-          - text: Troubleshoot Azure Native Qumulo Scalable File Service
-            url: troubleshoot.md 
-          - text: Setting up Azure Native Qumulo Scalable File Service
-            url: features.md
+          - text: Get started with Azure Native Qumulo
+            url: create.md
 
-      
   #Card
-  - title: SDKs and command-lines
+  - title: Manage your Azure Native Qumulo resources
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Manage resources
+          url: manage.md
+        - text: Troubleshoot resources
+          url: troubleshoot.md 
+  
+  #Card
+  - title: Explore reference content
     linkLists:
       - linkListType: reference 
         links:
@@ -70,5 +59,3 @@ landingContent:
             url: /cli/azure/service-page/qumulo
           - text: Azure PowerShell
             url: /powershell/module/az.qumulo
-          - text: Qumulo Developer tools 
-            url: qumulo-how-to-setup-features.md#developer-tools

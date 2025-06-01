@@ -1,11 +1,10 @@
 ---
 title: ASP.NET app containerization and migration to App Service
 description: This tutorial demonstrates how to containerize ASP.NET applications and migrate them to Azure App Service.
-author: SnehaSudhirG
-ms.author: sudhirsneha
+ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/19/2024
+ms.date: 02/06/2025
 ms.custom: engagement-fy24
 ---
 # ASP.NET app containerization and migration to Azure App Service
@@ -26,7 +25,7 @@ The App Containerization tool helps you:
 - **Deploy to Azure App Service.**  The tool then generates the deployment files needed to deploy the containerized application to Azure App Service.
 
 > [!NOTE]
-> The Azure Migrate App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises computers, use the [Azure Migrate Discovery and assessment tool](tutorial-discover-vmware.md).
+> The Azure Migrate App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises computers, use the [Azure Migrate Discovery and assessment tool](./tutorial-discover-vmware.md).
 
 Not all applications will benefit from a straight shift to containers without significant rearchitecting. But some of the benefits of moving existing apps to containers without rewriting include:
 
@@ -224,8 +223,8 @@ After the container image is built, the next step is to deploy the application a
 2. If you parameterized application configurations, specify the secret store to use for the application. You can choose Azure Key Vault or App Service application settings to manage your application secrets. For more information, see [Configure connection strings](../app-service/configure-common.md#configure-connection-strings).
 
      - If you selected App Service application settings to manage your secrets,  select **Continue**.
-     - If you want to use an Azure key vault to manage your application secrets, specify the key vault that you want to use.
-         - If you don't have an Azure key vault or want to create a new key vault, you can create one by selecting **Create new Azure Key Vault**.
+     - If you want to use an Azure Key Vault to manage your application secrets, specify the key vault that you want to use.
+         - If you don't have an Azure Key Vault or want to create a new key vault, you can create one by selecting **Create new Azure Key Vault**.
          - The tool will automatically assign the necessary permissions for managing secrets via the key vault.
 
 3. If you added more folders and selected the Azure file share option for persistent storage, specify the Azure file share to be used by the App Containerization tool during deployment. The tool will copy over the application folders that you configured for Azure Files and mount them on the application container during deployment. 

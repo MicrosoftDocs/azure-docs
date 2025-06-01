@@ -3,11 +3,11 @@ title: FAQ on V1 retirement
 titleSuffix: Azure Application Gateway
 description: This article lists out commonly added questions on  retirement of Application gateway V1 SKUs and Migration
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/18/2024
-ms.author: greglin
+ms.author: mbender
 ---
 # FAQs
 On April 28,2023 we announced retirement of Application gateway V1 on 28 April 2026. This article lists  the commonly asked questions on V1 retirement and V1-V2 migration.

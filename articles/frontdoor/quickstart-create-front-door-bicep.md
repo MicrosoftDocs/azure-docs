@@ -1,17 +1,19 @@
 ---
 title: 'Quickstart: Create an Azure Front Door (classic) using Bicep'
 description: This quickstart describes how to create an Azure Front Door Service using Bicep.
-services: front-door
-author: duongau
-ms.author: duau
-ms.date: 10/04/2024
-ms.topic: quickstart
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
+ms.topic: quickstart
+ms.date: 10/04/2024
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
+
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create an Azure Front Door (classic) using Bicep
+
+**Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 

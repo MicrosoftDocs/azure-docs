@@ -7,7 +7,7 @@ ms.service: service-connector
 ms.custom:
   - build-2024
 ms.topic: overview
-ms.date: 10/15/2024
+ms.date: 04/16/2025
 ---
 
 # What is Service Connector?
@@ -41,16 +41,16 @@ Once a service connection is created, developers can validate and check the heal
 Compute services:
 
 * Azure App Service
-* Azure Functions
-* Azure Spring Apps
 * Azure Container Apps
+* Azure Functions
 * Azure Kubernetes Service (AKS)
+* Azure Spring Apps (scheduled for retirement)
 
 Target services:
 
 * Azure AI services
 * Azure App Configuration
-* Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
+* Azure Cache for Redis (Basic, Standard, Premium and Enterprise tiers)
 * Azure Cosmos DB (NoSQL, MongoDB, Gremlin, Cassandra, Table)
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
@@ -62,6 +62,9 @@ Target services:
 * Azure Storage (Blob, Queue, File and Table storage)
 * Azure Web PubSub
 * Apache Kafka on Confluent Cloud
+* MongoDB Atlas (Preview)
+* Neon Serverless Postgres (Preview)
+* SQL database in Microsoft Fabric
 
 ## How to use Service Connector?
 
@@ -75,7 +78,7 @@ What's more, Service Connector is also supported in the following client tools w
 * **Azure Powershell:** manage connections with commands in Azure PowerShell.
 * **Terraform:** create and delete connections with infrastructure as code tool (be aware of the [limitations](known-limitations.md)).
 * **Visual Studio:** manage connections of a project by integrating with [Connected Services](/visualstudio/azure/overview-connected-services) feature in Visual Studio.
-* **Intellij:** list connections of Azure compute services in [Azure Toolkit for Intellij](/azure/developer/java/toolkit-for-intellij/install-toolkit).
+* **IntelliJ:** list connections of Azure compute services in [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
 Finally, you can also use Azure SDKs and API calls to interact with Service Connector. And you're recommended to read [how to provide correct parameters](how-to-provide-correct-parameters.md) before starting if using these ways.
 

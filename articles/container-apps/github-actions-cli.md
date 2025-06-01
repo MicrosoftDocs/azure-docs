@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 11/18/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -50,7 +50,7 @@ az ad sp create-for-rbac \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az ad sp create-for-rbac `
   --name <SERVICE_PRINCIPAL_NAME> `
   --role "contributor" `
@@ -85,7 +85,7 @@ az containerapp github-action add \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp github-action add `
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" `
   --context-path "./dockerfile" `
@@ -121,7 +121,7 @@ az containerapp github-action show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp github-action show `
   --resource-group <RESOURCE_GROUP_NAME> `
   --name <CONTAINER_APP_NAME>
@@ -148,7 +148,7 @@ az containerapp github-action delete \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp github-action delete `
   --resource-group <RESOURCE_GROUP_NAME> `
   --name <CONTAINER_APP_NAME> `

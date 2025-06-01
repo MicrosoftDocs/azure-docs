@@ -78,7 +78,7 @@ items:
       href: how-to-run-a-reindex.md
     - name: Search examples
       href: search-samples.md
-    - name: Selectable search parameters (Preview)
+    - name: Selectable search parameters
       href: selectable-search-parameters.md
 - name: FHIR operations
   items: 
@@ -129,8 +129,6 @@ items:
   items: 
     - name: Access the FHIR service
       items: 
-        - name: Access using Postman
-          href: use-postman.md
         - name: Access using cURL
           href: using-curl.md
         - name: Access using REST Client

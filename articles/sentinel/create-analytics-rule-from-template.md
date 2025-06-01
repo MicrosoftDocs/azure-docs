@@ -6,8 +6,8 @@ ms.author: yelevin
 ms.topic: how-to
 ms.date: 07/02/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -16,7 +16,7 @@ ms.collection: usx-security
 ---
 # Create scheduled analytics rules from templates
 
-By far the most common type of analytics rule, **Scheduled** rules are based on [Kusto queries](/kusto/query/kusto-sentinel-overview) that are configured to run at regular intervals and examine raw data from a defined "lookback" period. These queries can perform complex statistical operations on their target data, revealing baselines and outliers in groups of events. If the number of results captured by the query passes the threshold configured in the rule, the rule produces an alert.
+By far the most common type of analytics rule, **Scheduled** rules are based on [Kusto queries](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) that are configured to run at regular intervals and examine raw data from a defined "lookback" period. These queries can perform complex statistical operations on their target data, revealing baselines and outliers in groups of events. If the number of results captured by the query passes the threshold configured in the rule, the rule produces an alert.
 
 Microsoft makes a vast array of **analytics rule templates** available to you through the many [solutions provided in the Content hub](sentinel-solutions.md), and strongly encourages you to use them to create your rules. The queries in scheduled rule templates are written by security and data science experts, either from Microsoft or from the vendor of the solution providing the template.
 
@@ -27,20 +27,6 @@ This article shows you how to create a scheduled analytics rule using a template
 ## View existing analytics rules
 
 To view the installed analytics rules in Microsoft Sentinel, go to the **Analytics** page. The **Rule templates** tab displays all the installed rule templates. To find more rule templates, go to the **Content hub** in Microsoft Sentinel to install the related product solutions or standalone content.
-
-# [Azure portal](#tab/azure-portal)
-
-1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
-
-1. On the **Analytics** screen, select the **Rule templates** tab.
-
-1. If you want to filter the list for **Scheduled** templates:
-
-    1. Select **Add filter** and choose **Rule type** from the list of filters.
-
-    1. From the resulting list, select **Scheduled**. Then select **Apply**.
-
-    :::image type="content" source="media/create-analytics-rule-from-template/view-detections.png" alt-text="Screenshot of scheduled analytics rule templates in Microsoft Azure portal." lightbox="media/create-analytics-rule-from-template/view-detections.png":::
 
 # [Defender portal](#tab/defender-portal)
 
@@ -56,19 +42,33 @@ To view the installed analytics rules in Microsoft Sentinel, go to the **Analyti
 
     :::image type="content" source="media/create-analytics-rule-from-template/view-detections-defender.png" alt-text="Screenshot of scheduled analytics rule templates in Microsoft Defender portal." lightbox="media/create-analytics-rule-from-template/view-detections-defender.png":::
 
+# [Azure portal](#tab/azure-portal)
+
+1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+
+1. On the **Analytics** screen, select the **Rule templates** tab.
+
+1. If you want to filter the list for **Scheduled** templates:
+
+    1. Select **Add filter** and choose **Rule type** from the list of filters.
+
+    1. From the resulting list, select **Scheduled**. Then select **Apply**.
+
+    :::image type="content" source="media/create-analytics-rule-from-template/view-detections.png" alt-text="Screenshot of scheduled analytics rule templates in Microsoft Azure portal." lightbox="media/create-analytics-rule-from-template/view-detections.png":::
+
 ---
 
 ## Create a rule from a template
 
 This procedure describes how to create an analytics rule from a template.
 
-# [Azure portal](#tab/azure-portal)
-
-From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
-
 # [Defender portal](#tab/defender-portal)
 
 From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+# [Azure portal](#tab/azure-portal)
+
+From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
 ---
 
@@ -82,12 +82,11 @@ From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then
 
 1. The rule creation wizard opens. All the details are autofilled.
 
-1. Cycle through the tabs of the wizard, customizing the logic and other rule settings where possible to better suit your specific needs. 
+1. Cycle through the tabs of the wizard, customizing the logic and other rule settings where possible to better suit your specific needs. For more information, see:
 
-    If you need to make any changes to the query itself, consult the following articles from the Kusto documentation for help:
-    - [Kusto Query Language in Microsoft Sentinel](/kusto/query/kusto-sentinel-overview)
+    - [Kusto Query Language in Microsoft Sentinel](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
     - [KQL quick reference guide](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true)
-    - [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true)
+    - [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
 
     When you get to the end of the rule creation wizard, Microsoft Sentinel creates the rule. The new rule appears in the **Active rules** tab.
 

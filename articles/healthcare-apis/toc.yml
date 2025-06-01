@@ -20,6 +20,8 @@ items:
       href: ./azure-api-for-fhir/overview.md
     - name: Business continuity & disaster recovery
       href: business-continuity-disaster-recovery.md
+    - name: Regional availability of services & features
+      href: services-features-regional-availability.md
     - name: Availability zones
       href: availability-zones.md
     - name: Manage network access security
@@ -33,7 +35,7 @@ items:
       href: health-data-services-get-started.md
     - name: Azure Health Data Services quickstart
       href: healthcare-apis-quickstart.md
-    - name: Deploy services programatically
+    - name: Deploy services programmatically
       href: deploy-healthcare-apis-using-bicep.md
 - name: How-tos
   expanded: true

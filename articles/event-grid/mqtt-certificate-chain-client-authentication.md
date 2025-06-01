@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom:
   - build-2023
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 01/29/2025
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
@@ -28,17 +28,21 @@ In this guide, you perform the following tasks:
 ## Generate sample client certificate and thumbprint
 If you don't already have a certificate, you can create a sample certificate using the [step CLI](https://smallstep.com/docs/step-cli/installation/).  Consider installing manually for Windows.
 
-Once you installed Step, in Windows PowerShell, run the command to create root and intermediate certificates.
+1. Once you installed Step, in Windows PowerShell, run the command to create root and intermediate certificates.
 
-```powershell
-.\step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
-```
+  ```powershell
+  .\step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
+  ```
+2. Using the CA files generated to create certificate for the client.
 
-Using the CA files generated to create certificate for the client.
+  ```powershell
+  .\step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
+  ```
+3. To view the thumbprint, run the Step command.
 
-```powershell
-.\step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
-```
+  ```powershell
+  step certificate fingerprint client1-authn-ID.pem
+  ```
 
 ## Upload the CA certificate to the namespace
 1. In Azure portal, navigate to your Event Grid namespace.

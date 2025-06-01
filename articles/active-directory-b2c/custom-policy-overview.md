@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C custom policy overview  
-description: A topic about Azure Active Directory B2C custom policies and the Identity Experience Framework.
+description: Understand Azure AD B2C custom policies and the Identity Experience Framework to configure and customize your Azure AD B2C tenant for various identity tasks.
 
 author: kengaderdus
 manager: CelesteDG
@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: overview
-ms.date: 01/11/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: "b2c-support"
@@ -19,6 +19,7 @@ ms.custom: "b2c-support"
 ---
 
 # Azure AD B2C custom policy overview
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Custom policies are configuration files that define the behavior of your Azure Active Directory B2C (Azure AD B2C) tenant. While [user flows](user-flow-overview.md) are predefined in the Azure AD B2C portal for the most common identity tasks, an identity developer can edit custom policies to complete many different tasks.
 
@@ -41,7 +42,7 @@ In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/
 
 ### Claims
 
-A claim provides temporary storage of data during an Azure AD B2C policy execution. Claims are more like variable in a programming language. It can store information about the user, such as first name, last name, or any other claim obtained from the user or other systems (claims exchanges). The [claims schema](claimsschema.md) is the place where you declare your claims. 
+A claim provides temporary storage of data during an Azure AD B2C policy execution. Claims are more like variable in a programming language. It can store information about the user, such as first name, family name, or any other claim obtained from the user or other systems (claims exchanges). The [claims schema](claimsschema.md) is the place where you declare your claims. 
 
 When the policy runs, Azure AD B2C sends and receives claims to and from internal and external parties and then sends a subset of these claims to your relying party application as part of the token. Claims are used in these ways: 
 
@@ -81,7 +82,7 @@ The following instructions describe how you can add orchestration steps to the [
 
 ### Orchestration steps
 
-The orchestration step references to a method that implements its intended purpose or functionality. This method is called a [technical profile](technicalprofiles.md). When your user journey needs branching to better represent the business logic, the orchestration step references to [sub journey](subjourneys.md). A sub journey contains its own set of orchestration steps.
+The orchestration step references to a method that implements its intended purpose or functionality. This method is called a [technical profile](technicalprofiles.md). When your user journey needs to branch to better represent the business logic, the orchestration step references to [sub journey](subjourneys.md). A sub journey contains its own set of orchestration steps.
 
 A user must reach the last orchestration step in the user journey to acquire a token. But users may not need to travel through all of the orchestration steps. Orchestration steps can be conditionally executed based on [preconditions](userjourneys.md#preconditions) defined in the orchestration step. 
 
@@ -139,7 +140,7 @@ Within an Azure AD B2C custom policy, you can integrate your own business logic 
 - To reduce duplication of technical profiles, where core functionality is shared, use [technical profile inclusion](technicalprofiles.md#include-technical-profile).
 - Avoid writing to the Microsoft Entra directory during sign-in, which may lead to throttling issues.
 - If your policy has external dependencies, such as REST APIs, makes sure they're highly available.
-- For a better user experience, make sure your custom HTML templates, are globally deployed using [online content delivery](../cdn/index.yml). Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth, and improve response speed.
+- For a better user experience, make sure your custom HTML templates are globally deployed using [online content delivery](../cdn/index.yml). Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth, and improve response speed.
 - If you want to make a change to user journey, copy the entire user journey from the base policy to the extension policy. Provide a unique user journey ID to the user journey you've copied. Then in the [relying party policy](relyingparty.md), change the [default user journey](relyingparty.md#defaultuserjourney) element to point to the new user journey.
 
 ## Troubleshooting
@@ -165,7 +166,7 @@ You get started with Azure AD B2C custom policy:
 1. After you upload the starter pack, [test your sign-up or sign-in policy](tutorial-create-user-flows.md?pivots=b2c-custom-policy#test-the-custom-policy).
 1. We recommend that you download and install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Visual Studio Code is a lightweight but powerful source code editor, which runs on your desktop and is available for Windows, macOS, and Linux. With VS Code, you can quickly navigate through and edit your Azure AD B2C custom policy XML files by installing the [Azure AD B2C extension for VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
  
-## Next steps
+## Related content
 
 After you set up and test your Azure AD B2C policy, you can start customizing your policy. Go through the following articles to learn how to:
 

@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: peiliu
+author: mayssamm
 manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 04/20/2023
+ms.date: 02/27/2025
 ms.topic: include
 ms.custom: include file
-ms.author: peiliu
+ms.author: mayssamm
 ---
 
 ## Prerequisites
@@ -245,7 +245,7 @@ List<RoomParticipant> addOrUpdateParticipants = new List<RoomParticipant>();
 RoomParticipant participant2 = new RoomParticipant(user2) { Role = ParticipantRole.Consumer };
 // Add participant3
 CommunicationUserIdentifier user3 = identityClient.CreateUser();
-RoomParticipant participant3 = new RoomParticipant(user3) { Role = ParticipantRole.Attendee };
+RoomParticipant participant3 = new RoomParticipant(user3) { Role = ParticipantRole.Collaborator };
 addOrUpdateParticipants.Add(participant2);
 addOrUpdateParticipants.Add(participant3);
 
@@ -326,7 +326,7 @@ Added or updated participants to room
 Retrieved participants from room:
 8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901, Presenter
 8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-f00d-aa4b-0cf9-9c3a0d00543e, Consumer
-8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-f00d-aaf2-0cf9-9c3a0d00543f, Attendee
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-f00d-aaf2-0cf9-9c3a0d00543f, Collaborator
 
 Removed participants from room
 

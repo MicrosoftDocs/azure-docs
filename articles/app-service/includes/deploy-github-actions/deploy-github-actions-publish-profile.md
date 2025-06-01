@@ -15,16 +15,16 @@ name: .NET Core CI
 on: [push]
 
 env:
-  AZURE_WEBAPP_NAME: my-app-name    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
+  AZURE_WEBAPP_NAME: my-app-name    # Set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # Set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '6.0.x'           # Set this to the dot net version to use
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repo
+      # Check out the repo
       - uses: actions/checkout@main
       
       # Setup .NET Core SDK
@@ -51,7 +51,7 @@ jobs:
 
 # [ASP.NET](#tab/aspnet)
 
-Build and deploy an ASP.NET MVC app that uses NuGet and `publish-profile` for authentication.
+Build and deploy an ASP.NET model-view-controller (MVC) app that uses NuGet and `publish-profile` for authentication.
 
 ```yaml
 name: Deploy ASP.NET MVC App deploy to Azure Web App
@@ -59,9 +59,9 @@ name: Deploy ASP.NET MVC App deploy to Azure Web App
 on: [push]
 
 env:
-  AZURE_WEBAPP_NAME: my-app    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  NUGET_VERSION: '5.3.x'           # set this to the dot net version to use
+  AZURE_WEBAPP_NAME: my-app    # Set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # Set this to the path to your web app project, defaults to the repository root
+  NUGET_VERSION: '5.3.x'           # Set this to the dot net version to use
 
 jobs:
   build-and-deploy:
@@ -93,7 +93,7 @@ jobs:
 
 # [Java SE](#tab/java)
 
-Build and deploy a Java Spring app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+Build and deploy a Java Spring Boot app to Azure by using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
 ```yaml
 name: Java CI with Maven
@@ -124,7 +124,6 @@ jobs:
 
 To deploy a `war` instead of a `jar`, change the `package` value.
 
-
 ```yaml
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v3
@@ -136,15 +135,15 @@ To deploy a `war` instead of a `jar`, change the `package` value.
 
 # [Tomcat](#tab/tomcat)
 
-Build and deploy a Tomcat app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+Build and deploy a Tomcat app to Azure by using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
 ```yaml
 name: Build and deploy WAR app to Azure Web App using publish profile
 
 env:
-  JAVA_VERSION: '11'                  # set this to the Java version to use
-  DISTRIBUTION: microsoft             # set this to the Java distribution
-  AZURE_WEBAPP_NAME: sampleapp        # set this to the name of your web app
+  JAVA_VERSION: '11'                  # Set this to the Java version to use
+  DISTRIBUTION: microsoft             # Set this to the Java distribution
+  AZURE_WEBAPP_NAME: sampleapp        # Set this to the name of your web app
 
 on: [push]
 
@@ -178,11 +177,11 @@ jobs:
           package: '*.war'
 ```
 
-You can find this [full example](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-publish-profile.yml) using multiple jobs for build and deploy.
+Here's a [full example](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-publish-profile.yml) that uses multiple jobs for build and deploy.
 
 # [Node.js](#tab/nodejs)
 
-Build and deploy a Node.js app to Azure using the app's publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+Build and deploy a Node.js app to Azure by using the app's publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
 ```yaml
 # File: .github/workflows/workflow.yml
@@ -191,9 +190,9 @@ name: JavaScript CI
 on: [push]
 
 env:
-  AZURE_WEBAPP_NAME: my-app-name   # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '18.x'                # set this to the node version to use
+  AZURE_WEBAPP_NAME: my-app-name   # Set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # Set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '18.x'                # Set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -223,7 +222,7 @@ jobs:
 
 # [Python](#tab/pythonn)
 
-Build and deploy a Python app to Azure using the app's publish profile. Note how the `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+Build and deploy a Python app to Azure by using the app's publish profile. Note how the `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
 ```yaml
 name: Python CI
@@ -232,8 +231,8 @@ on:
   [push]
 
 env:
-  AZURE_WEBAPP_NAME: my-web-app # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_NAME: my-web-app # Set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.' # Set this to the path to your web app project, defaults to the repository root
 
 jobs:
   build:

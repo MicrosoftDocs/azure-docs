@@ -1,11 +1,11 @@
 ---
 title: 'About Azure Bastion configuration settings'
 description: Learn about the available configuration settings for Azure Bastion.
-author: cherylmc
-ms.author: cherylmc
+author: abell
+ms.author: abell
 ms.service: azure-bastion
 ms.topic: concept-article
-ms.date: 09/17/2024
+ms.date: 03/14/2025
 ms.custom: references_regions, ignite-2024
 ---
 
@@ -19,14 +19,14 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-### Developer SKU
+### Bastion Developer
 
-[!INCLUDE [Developer SKU description](../../includes/bastion-developer-sku-description.md)]
+[!INCLUDE [Bastion Developer description](../../includes/bastion-developer-description.md)]
 
-[!INCLUDE [Developer SKU regions](../../includes/bastion-developer-sku-regions.md)]
+[!INCLUDE [Bastion Developer regions](../../includes/bastion-developer-regions.md)]
 
 > [!NOTE]
-> VNet peering isn't currently supported for the Developer SKU.
+> VNet peering isn't currently supported for Bastion Developer.
 
 ### <a name="premium"></a>Premium SKU
 
@@ -37,7 +37,7 @@ The Premium SKU is a new SKU that supports Bastion features such as [Session Rec
 | Method | SKU Value | Links |
 | --- | --- | --- |
 | Azure portal | Tier - Developer | [Quickstart](quickstart-developer-sku.md)|
-| Azure portal | Tier - Basic| [Quickstart](quickstart-host-portal.md) |
+| Azure portal | Tier - Standard| [Quickstart](quickstart-host-portal.md) |
 | Azure portal | Tier - Basic or higher | [Tutorial](tutorial-create-host-portal.md) |
 | Azure PowerShell | Tier - Basic or higher |[How-to](bastion-create-host-powershell.md) |
 | Azure CLI | Tier - Basic or higher | [How-to](create-host-cli.md) |
@@ -55,7 +55,7 @@ You can always upgrade a SKU to add more features. For more information, see [Up
 > For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work, but we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
 >
 
-When you deploy Azure Bastion using any SKU except the Developer SKU, Bastion requires a dedicated subnet named **AzureBastionSubnet**. You must create this subnet in the same virtual network that you want to deploy Azure Bastion to. The subnet must have the following configuration:
+When you deploy Azure Bastion using any SKU except the Bastion Developer offering, Bastion requires a dedicated subnet named **AzureBastionSubnet**. You must create this subnet in the same virtual network that you want to deploy Azure Bastion to. The subnet must have the following configuration:
 
 * Subnet name must be *AzureBastionSubnet*.
 * Subnet size must be /26 or larger (/25, /24 etc.).
@@ -73,7 +73,7 @@ You can configure this setting using the following methods:
 
 ## <a name="public-ip"></a>Public IP address
 
-Azure Bastion deployments, except [Developer SKU](#developer-sku) and [Private-only](#private-only), require a Public IP address. The Public IP must have the following configuration:
+Azure Bastion deployments, except [Bastion Developer](#bastion-developer) and [Private-only](#private-only), require a Public IP address. The Public IP must have the following configuration:
 
 * The Public IP address SKU must be **Standard**.
 * The Public IP address assignment/allocation method must be **Static**.

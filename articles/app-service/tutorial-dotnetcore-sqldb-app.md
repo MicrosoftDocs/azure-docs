@@ -3,7 +3,7 @@
 title: Deploy ASP.NET Core and Azure SQL Database app
 description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
 ms.topic: tutorial
-ms.date: 09/06/2024
+ms.date: 04/17/2025
 author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 ::: zone pivot="azure-portal"
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
-* A GitHub account. you can also [get one for free](https://github.com/join).
+* A GitHub account. You can also [get one for free](https://github.com/join).
 * Knowledge of ASP.NET Core development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
 ::: zone pivot="azure-developer-cli"
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
 * [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
 * Knowledge of ASP.NET Core development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
 
 ## Skip to the end
 
-You can quickly deploy the sample app in this tutorial and see it running in Azure. Just run the following commands in the [Azure Cloud Shell](https://shell.azure.com), and follow the prompt:
+If you just want to see the sample app in this tutorial running in Azure, just run the following commands in the [Azure Cloud Shell](https://shell.azure.com), and follow the prompt:
 
 ```bash
 dotnet tool install --global dotnet-ef
@@ -83,7 +83,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
     :::column span="2":::
         **Step 2:** In the GitHub fork:
         1. Select **main** > **starter-no-infra** for the starter branch. This branch contains just the sample project and no Azure-related files or configuration.
-        1. Select **Code** > **Create codespace on starter-no-infra**.
+        1. Select **Code** > **Codespaces** > **Create codespace on starter-no-infra**.
         The codespace takes a few minutes to set up.
     :::column-end:::
     :::column:::
@@ -118,7 +118,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure SQL Database, and Azure Cache. For the creation process, you'll specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the .NET version to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -176,19 +176,19 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as [.NET connection strings](configure-common.md#configure-connection-strings) and [app settings](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the connectivity variable for you already as [.NET connection strings](configure-common.md#configure-connection-strings) and [app settings](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
 
 > [!TIP]
 > To use passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead)
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page:
-        1. In the left menu, select **Settings > Environment variables > Connection strings**. 
+        **Step 1: Retrieve the existing connection string** 
+        1. In the left menu of the App Service page, select **Settings > Environment variables > Connection strings**. 
         1. Select **AZURE_SQL_CONNECTIONSTRING**.
         1. In **Add/Edit connection string**, in the **Value** field, find the *Password=* part at the end of the string.
         1. Copy the password string after *Password=* for use later.
-        This connection string lets you connect to the SQL database secured behind a private endpoint. The password is saved directly in the App Service app, which isn't the best. Likewise, the Redis cache connection string in the **App settings** tab contains a secret. You'll change this.
+        This connection string lets you connect to the SQL database secured behind a private endpoint. However, the secrets are saved directly in the App Service app, which isn't the best. Likewise, the Redis cache connection string in the **App settings** tab contains a secret. You'll change this.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-1.png":::
@@ -196,11 +196,11 @@ The creation wizard generated the connectivity string for you already as [.NET c
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** Create a key vault for secure management of secrets.
+        **Step 2:  Create a key vault for secure management of secrets**
         1. In the top search bar, type "*key vault*", then select **Marketplace** > **Key Vault**.
         1. In **Resource Group**, select **msdocs-core-sql-tutorial**.
         1. In **Key vault name**, type a name that consists of only letters and numbers.
-        1. In **Region**, set it to the sample location as the resource group.
+        1. In **Region**, set it to the same location as the resource group.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-2.png" alt-text="A screenshot showing how to create a key vault." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-2.png":::
@@ -208,16 +208,14 @@ The creation wizard generated the connectivity string for you already as [.NET c
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:**
+        **Step 3: Secure the key vault with a Private Endpoint**
         1. Select the **Networking** tab.
         1. Unselect **Enable public access**.
         1. Select **Create a private endpoint**.
-        1. In **Resource Group**, select **msdocs-core-sql-tutorial**.
-        1. In **Key vault name**, type a name that consists of only letters and numbers.
-        1. In **Region**, set it to the sample location as the resource group.
+        1. In **Resource group**, select **msdocs-core-sql-tutorial**.
         1. In the dialog, in **Location**, select the same location as your App Service app.
-        1. In **Resource Group**, select **msdocs-core-sql-tutorial**.
         1. In **Name**, type **msdocs-core-sql-XYZVvaultEndpoint**.
+        1. In **Location**, select the same location as your App Service app.
         1. In **Virtual network**, select **msdocs-core-sql-XYZVnet**.
         1. In **Subnet**, **msdocs-core-sql-XYZSubnet**.
         1. Select **OK**.
@@ -245,9 +243,9 @@ The creation wizard generated the connectivity string for you already as [.NET c
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5:** In the **Create connection** dialog for the Key Vault connection:
-        1. In **Key Vault**, select the key vault you created earlier.
-        1. Select **Review + Create**. You should see that **System assigned managed identity** is set to **Selected**.
+        **Step 5: Establish the Key Vault connection** 
+        1. In the **Create connection** dialog for the Key Vault connection, in **Key Vault**, select the key vault you created earlier.
+        1. Select **Review + Create**.
         1. When validation completes, select **Create**.
     :::column-end:::
     :::column:::
@@ -256,10 +254,9 @@ The creation wizard generated the connectivity string for you already as [.NET c
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6:** You're back in the edit dialog for **defaultConnector**.
-        1. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
+        **Step 6: Finalize the SQL Database connector settings**
+        1. You're back in the edit dialog for **defaultConnector**. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
         1. Select **Next: Networking**.
-        1. Select **Configure firewall rules to enable access to target service**. The app creation wizard already secured the SQL database with a private endpoint.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
@@ -268,8 +265,8 @@ The creation wizard generated the connectivity string for you already as [.NET c
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** In the Service Connectors page:
-        1. Select checkbox next to the Cache for Redis connector, then select **Edit**.
+        **Step 7: Configure the Redis connector to use Key Vault secrets** 
+        1. In the Service Connector page, select the checkbox next to the Cache for Redis connector, then select **Edit**.
         1. Select the **Authentication** tab.
         1. Select **Store Secret in Key Vault**.
         1. Under **Key Vault Connection**, select the key vault you created. 
@@ -283,8 +280,8 @@ The creation wizard generated the connectivity string for you already as [.NET c
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8:** To verify your changes: 
-        1. From the left menu, select **Environment variables > Connection strings** again.
+        **Step 8: Verify the Key Vault integration**
+        1. From the left menu, select **Settings > Environment variables > Connection strings** again.
         1. Next to **AZURE_SQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
         1. To verify the Redis connection string, select the **App setting** tab. Next to **AZURE_REDIS_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)` too.
     :::column-end:::
@@ -292,6 +289,13 @@ The creation wizard generated the connectivity string for you already as [.NET c
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-8.png" alt-text="A screenshot showing how to see the value of the .NET connection string in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-8.png":::
     :::column-end:::
 :::row-end:::
+
+To summarize, the process for securing your connection secrets involved:
+
+- Retrieving the connection secrets from the App Service app's environment variables.
+- Creating a key vault.
+- Creating a Key Vault connection with the system-assigned managed identity.
+- Updating the service connectors to store the secrets in the key vault.
 
 ## 4. Deploy sample code
 
@@ -412,13 +416,17 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column-end:::
 :::row-end:::
 
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
 ## 5. Generate database schema
 
-With the SQL Database protected by the virtual network, the easiest way to run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the App Service container. 
+With the SQL Database protected by the virtual network, the easiest way to run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the Linux container in App Service. 
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the App Service page, in the left menu, select **Development Tools** > **SSH**, then select **Go**.
+        **Step 1:** Back in the App Service page, in the left menu, 
+        1. Select **Development Tools** > **SSH**.
+        1. Select **Go**. (The start up takes a few minutes.)
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-1.png":::
@@ -426,7 +434,7 @@ With the SQL Database protected by the virtual network, the easiest way to run [
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the SSH terminal:
+        **Step 2:** In the SSH session:
         1. Run `cd /home/site/wwwroot`. Here are all your deployed files.
         1. Run the migration bundle that the GitHub workflow generated, with the command `./migrationsbundle -- --environment Production`. If it succeeds, App Service is connecting successfully to the SQL Database. Remember that `--environment Production` corresponds to the code changes you made in *Program.cs*.
     :::column-end:::
@@ -454,7 +462,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 :::row:::
     :::column span="2":::
         **Step 2:** Add a few tasks to the list.
-        Congratulations, you're running a secure data-driven ASP.NET Core app in Azure App Service.
+        Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure SQL Database.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the .NET Core app running in App Service." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-browse-app-2.png":::
@@ -466,13 +474,14 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 7. Stream diagnostic logs
 
-Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability.
+Azure App Service captures all console logs to help you diagnose issues with your application. The sample app includes logging code in each of its endpoints to demonstrate this capability.
 
 :::row:::
     :::column span="2":::
         **Step 1:** In the App Service page:
         1. From the left menu, select **Monitoring** > **App Service logs**.
-        1. Under **Application logging**, select **File System**, then select **Save**.
+        1. Under **Application logging**, select **File System**.
+        1. In the top menu, select **Save**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-diagnostic-logs-1.png":::
@@ -516,7 +525,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Select **Delete**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-clean-up-resources-3.png"::::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-clean-up-resources-3.png":::
     :::column-end:::
 :::row-end:::
 
@@ -659,13 +668,13 @@ With the SQL Database protected by the virtual network, the easiest way to run d
     azd up
     ```
 
-1. In the azd output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
+1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>-&lt;hash>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: &lt;URL>
     </pre>
 
-1. In the SSH terminal, run the following commands: 
+1. In the SSH session, run the following commands: 
 
     ```bash
     cd /home/site/wwwroot
@@ -674,7 +683,9 @@ With the SQL Database protected by the virtual network, the easiest way to run d
 
     If it succeeds, App Service is connecting successfully to the database. Remember that `--environment Production` corresponds to the code changes you made in *Program.cs*.
 
-In the SSH session, only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+    > [!NOTE]
+    > Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+    >
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -686,7 +697,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -708,7 +719,7 @@ The sample application includes standard logging statements to demonstrate this 
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: &lt;URL>
 </pre>
 
 Learn more about logging in .NET apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore).

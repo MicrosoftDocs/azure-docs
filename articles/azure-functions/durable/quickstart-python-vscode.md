@@ -159,7 +159,7 @@ Review the following table for an explanation of each function and its purpose i
 > [!NOTE]
 > Durable Functions also supports Python v2 programming model [blueprints](../functions-reference-python.md#blueprints). To use blueprints, register your blueprint functions by using the [azure-functions-durable](https://pypi.org/project/azure-functions-durable) `Blueprint` [class](https://github.com/Azure/azure-functions-durable-python/blob/dev/samples-v2/blueprint/durable_blueprints.py). You can register the resulting blueprint as usual. You can use our [sample](https://github.com/Azure/azure-functions-durable-python/tree/dev/samples-v2/blueprint) as an example.
 
-## Configure storage
+## Configure storage emulator
 
 You can use [Azurite](../../storage/common/storage-use-azurite.md?tabs=visual-studio-code), an emulator for Azure Storage, to test the function locally. In *local.settings.json*, set the value for `AzureWebJobsStorage` to `UseDevelopmentStorage=true` like in this example:
 

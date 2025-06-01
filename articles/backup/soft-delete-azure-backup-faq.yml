@@ -4,16 +4,16 @@ metadata:
   description: Answers to common questions about the security feature - soft delete.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 01/05/2024
+  ms.date: 01/31/2025
   author: jyothisuri
   ms.author: jsuri
 
 title: Frequently asked questions - Soft delete
-summary: This article answers common questions about soft delete.
+summary: This article answers common questions about soft delete on vaults to perform backup operations.
 
 
 sections:
-  - name: Manage soft delete
+  - name: Commonly asked questions
     questions:
       - question: |
           Do I need to enable the soft delete feature on every vault?

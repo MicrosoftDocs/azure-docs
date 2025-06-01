@@ -5,7 +5,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 02/19/2025
 # Customer intent: As a logic app workflow developer, I want to write and run my own C# scripts so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 

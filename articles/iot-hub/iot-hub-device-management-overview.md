@@ -1,18 +1,18 @@
 ---
 title: Overview of device management with Microsoft Azure IoT Hub
 description: Overview of device management in Azure IoT Hub--enterprise device lifecycle and device management patterns such as, reboot, factory reset, firmware update, configuration, device twins, queries, jobs, threat detection.
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
-ms.author: kgremban
-ms.topic: conceptual
-ms.date: 09/13/2021
+ms.author: sonialopez
+ms.topic: concept-article
+ms.date: 05/25/2025
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
 ---
 
 # Overview of device management with IoT Hub
 
-Azure IoT Hub provides the features and an extensibility model that enable device and back-end developers to build robust device management solutions. Devices range from constrained sensors and single purpose microcontrollers, to powerful gateways that route communications for groups of devices.  Also, the use cases and requirements for IoT operators vary significantly across industries.  Despite this variation, device management with IoT Hub provides the capabilities, patterns, and code libraries to cater to a diverse set of devices and end users.
+Azure IoT Hub provides the features and an extensibility model that enable device and back-end developers to build robust device management solutions. Devices range from constrained sensors and single purpose microcontrollers, to powerful gateways that route communications for groups of devices. Also, the use cases and requirements for IoT operators vary significantly across industries. Despite this variation, device management with IoT Hub provides the capabilities, patterns, and code libraries to cater to a diverse set of devices and end users.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -35,64 +35,64 @@ Within each of these five stages, there are several device operator requirements
   
     *Further reading*: 
   * [Get started with device twins](device-twins-node.md)
-  * [Understand device twins](iot-hub-devguide-device-twins.md)
-  * [How to use device twin properties](tutorial-device-twins.md)
+  * [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
+  * [Tutorial: Configure your devices from a back-end service](tutorial-device-twins.md)
   * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
 
-* **Provision**: Securely provision new devices to IoT Hub and enable operators to immediately discover device capabilities.  Use the IoT Hub identity registry to create flexible device identities and credentials, and do this operation in bulk by using a job. Build devices to report their capabilities and conditions through device properties in the device twin.
+* **Provision**: Securely provision new devices to IoT Hub and enable operators to immediately discover device capabilities. Use the IoT Hub identity registry to create flexible device identities and credentials, and do this operation in bulk by using a job. Build devices to report their capabilities and conditions through device properties in the device twin.
   
     *Further reading*: 
-    * [Manage device identities](iot-hub-devguide-identity-registry.md)
-    * [Bulk management of device identities](iot-hub-bulk-identity-mgmt.md)
-    * [How to use device twin properties](tutorial-device-twins.md)
+    * [Understand the identity registry in your IoT hub](iot-hub-devguide-identity-registry.md)
+    * [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)
+    * [Tutorial: Configure your devices from a back-end service](tutorial-device-twins.md)
     * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
     * [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)
 
 * **Configure**: Facilitate bulk configuration changes and firmware updates to devices while maintaining both health and security. Perform these device management operations in bulk by using desired properties or with direct methods and broadcast jobs.
   
     *Further reading*:
-    * [How to use device twin properties](tutorial-device-twins.md)
-    * [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md)
+    * [Tutorial: Configure your devices from a back-end service](tutorial-device-twins.md)
+    * [Automatic IoT device and module management using the Azure portal](./iot-hub-automatic-device-management.md)
     * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
 
-* **Monitor**: Monitor overall device collection health, the status of ongoing operations, and alert operators to issues that might require their attention.  Apply the device twin to allow devices to report real-time operating conditions and status of update operations. Build powerful dashboard reports that surface the most immediate issues by using device twin queries. Protect your IoT environment from threats, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
+* **Monitor**: Monitor overall device collection health, the status of ongoing operations, and alert operators to issues that might require their attention. Apply the device twin to allow devices to report real-time operating conditions and status of update operations. Build powerful dashboard reports that surface the most immediate issues by using device twin queries. Protect your IoT environment from threats, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
   
     *Further reading*: 
-    * [How to use device twin properties](tutorial-device-twins.md)
-    * [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md)
-    * [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md)
-    * [Microsoft Defender for IoT for organizations to provide comprehensive threat detection](../defender-for-iot/organizations/overview.md)
+    * [Tutorial: Configure your devices from a back-end service](tutorial-device-twins.md)
+    * [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md)
+    * [Automatic IoT device and module management using the Azure portal](./iot-hub-automatic-device-management.md)
+    * [What is Microsoft Defender for IoT?](../defender-for-iot/organizations/overview.md)
     * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
 
-* **Retire**: Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.  Use the device twin to maintain device info if the physical device is being replaced, or archived if being retired. Use the IoT Hub identity registry for securely revoking device identities and credentials.
+* **Retire**: Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime. Use the device twin to maintain device info if the physical device is being replaced, or archived if being retired. Use the IoT Hub identity registry for securely revoking device identities and credentials.
   
     *Further reading*: 
-    * [How to use device twin properties](tutorial-device-twins.md)
-    * [Manage device identities](iot-hub-devguide-identity-registry.md)
+    * [Tutorial: Configure your devices from a back-end service](tutorial-device-twins.md)
+    * [Understand the identity registry in your IoT hub](iot-hub-devguide-identity-registry.md)
 
 ## Device management patterns
 
 IoT Hub enables the following set of device management patterns. The [device management tutorials](device-management-node.md) show you in more detail how to extend these patterns to fit your exact scenario and how to design new patterns based on these core templates.
 
-* **Reboot**: The back-end app informs the device through a direct method that it has started a reboot.  The device uses the reported properties to update the reboot status of the device.
+* **Reboot**: The back-end app informs the device through a direct method that it started a reboot. The device uses the reported properties to update the reboot status of the device.
   
-    ![Device management reboot pattern graphic](./media/iot-hub-device-management-overview/reboot-pattern.png)
+    :::image type="content" source="./media/iot-hub-device-management-overview/reboot-pattern.png" alt-text="Diagram that shows the device management reboot pattern.":::
 
-* **Factory Reset**: The back-end app informs the device through a direct method that it has started a factory reset. The device uses the reported properties to update the factory reset status of the device.
+* **Factory Reset**: The back-end app informs the device through a direct method that it started a factory reset. The device uses the reported properties to update the factory reset status of the device.
   
-    ![Device management factory reset pattern graphic](./media/iot-hub-device-management-overview/facreset-pattern.png)
+    :::image type="content" source="./media/iot-hub-device-management-overview/facreset-pattern.png" alt-text="Diagram that shows the device management factory reset pattern.":::
 
 * **Configuration**: The back-end app uses the desired properties to configure software running on the device. The device uses the reported properties to update configuration status of the device.
   
-    ![Device management configuration pattern graphic](./media/iot-hub-device-management-overview/configuration-pattern.png)
+    :::image type="content" source="./media/iot-hub-device-management-overview/configuration-pattern.png" alt-text="Diagram that shows the device management configuration pattern.":::
 
 * **Reporting progress and status**: The solution back end runs device twin queries, across a set of devices, to report on the status and progress of actions running on the devices.
   
-    ![Device management reporting progress and status pattern graphic](./media/iot-hub-device-management-overview/report-progress-pattern.png)
+    :::image type="content" source="./media/iot-hub-device-management-overview/report-progress-pattern.png" alt-text="Diagram that shows the device management reporting progress and status pattern.":::
 
 ## Device Updates
 
-[Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md)  is a comprehensive platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. Device Update for IoT Hub allows customers to rapidly respond to security threats and deploy features to meet business objectives without incurring more development and maintenance costs of building custom update platforms.
+[Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md) is a comprehensive platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. Device Update for IoT Hub allows customers to rapidly respond to security threats and deploy features to meet business objectives without incurring more development and maintenance costs of building custom update platforms.
 
 Device Update for IoT Hub offers optimized update deployment and streamlined operations through integration with Azure IoT Hub. With extended reach through Azure IoT Edge, it provides a cloud-hosted solution that connects virtually any device. It supports a broad range of IoT operating systems—including Linux and Eclipse ThreadX (real-time operating system)—and is extensible via open source. Some features include:
 
@@ -108,8 +108,8 @@ Device Update for IoT Hub offers optimized update deployment and streamlined ope
 
 For more information, see [Device Update for IoT Hub](../iot-hub-device-update/index.yml).
 
-## Next Steps
+## Next steps
 
 The capabilities, patterns, and code libraries that IoT Hub provides for device management, enable you to create IoT applications that fulfill enterprise IoT operator requirements within each device lifecycle stage.
 
-To continue learning about the device management features in IoT Hub, see [Get started with device management (Node.js)](device-management-node.md).
+To continue learning about the device management features in IoT Hub, see [Get started with device management](device-management-node.md).

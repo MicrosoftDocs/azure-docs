@@ -1,95 +1,72 @@
 ---
-title: Create an Apache Airflow on Astro deployment
-description: This article describes how to use the Azure portal to create an instance of Apache Airflow on Astro - An Azure Native ISV Service.
+title: "Quickstart: Get started with Apache Airflow on Astro"
+description: Learn how to create an Astro resource in the Azure portal.
 ms.topic: quickstart
-ms.date: 02/14/2024
+ms.date: 02/07/2025
 ms.custom:
   - references_regions
   - ignite-2023
 ---
 
-# QuickStart: Get started with Apache Airflow on Astro – An Azure Native ISV Service 
+# Quickstart: Get started with Apache Airflow on Astro
 
-In this quickstart, you use the Azure portal and Marketplace to find and create an instance of Apache Airflow on Astro - An Azure Native ISV Service. Use Apache Airflow on Astro to run data pipelines that power company dashboards, AI, and ML applications.
-
-When you install Astro as an Azure Native ISV Service, you manage your Astro resource usage and billing alongside your existing Azure applications. You also get an integration with Microsoft Entra ID for your organization.
-
-For more information, see [Install Astro from the Azure Marketplace](https://docs.astronomer.io/astro/install-azure).
+In this quickstart, you create an instance of Apache Airflow on Astro.
 
 ## Prerequisites
 
-- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/). Make sure you're an _Owner_ or a _Contributor_ in the subscription.
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+- You must [subscribe to Apache Airflow on Astro](overview.md#subscribe-to-apache-airflow-on-astro).
 
-## Create a new Astro resource
+## Create an Astro resource
 
-In this section, you see how to create an instance of Apache Airflow on Astro using Azure portal.
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
-### Find the service
+### Basics tab
 
-1. Use the search in the [Azure portal](https://portal.azure.com) to find the _Apache Airflow on Astro - An Azure Native ISV Service_ application.
-2. Alternatively, go to Marketplace and search for _Apache Airflow on Astro - An Azure Native ISV Service_.
-3. Subscribe to the corresponding service.
+The *Basics* tab has three sections:
 
-    :::image type="content" source="media/astronomer-create/astronomer-marketplace.png" alt-text="Screenshot of Astro application in the Marketplace.":::
+- Project details
+- Azure resource details
+- Astro organization details
 
-### Basics
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create an Astro Organization options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
-1. Set the following values in the **Create an Astro Organization** pane.
+There are required fields (identified with a red asterisk) in each section that you need to fill out.
 
-    :::image type="content" source="media/astronomer-create/astronomer-create.png" alt-text="Screenshot of basics pane of the Astronomer create experience.":::
+1. Enter the values for each required setting under *Project details*.
 
-    | Property  | Description |
-    |---------|---------|
-    | **Subscription**  | From the drop-down, select your Azure subscription where you have Owner or Contributor access. |
-    | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](/azure/azure-resource-manager/management/overview).|
-    | **Resource Name**  | Put the name for the Astro organization you want to create. |
-    | **Region** | Select the closest region to where you would like to deploy your resource. |
-    | **Astro Organization name** | Corresponds to the name of your company, usually. |
-    | **Workspace Name** | Name of the default workspace where you would like to group your Airflow deployments. |
-    | **Pricing Plan**     | Choose the default Pay-As-You-Go option |
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from your existing subscriptions.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
 
-### Tags
+1. Enter the values for each required setting under *Azure Resource details*.
 
-You can specify custom tags for the new Astro resource in Azure by adding custom key-value pairs.
+    | Field              | Action                                    |
+    |--------------------|-------------------------------------------|
+    | Resource name      | Specify a unique name for the resource.   |
+    | Region             | Select a region to deploy your resource.  |
 
-1. Select Tags.
+1. Enter the values for each required setting under *Astro organization details*.
 
-    :::image type="content" source="media/astronomer-create/astronomer-custom-tags.png" alt-text="Screenshot showing the tags pane in the Astro create experience.":::
+    | Field             | Action                                                                                           |
+    |-------------------|--------------------------------------------------------------------------------------------------|
+    | Organization      | Choose to create a new organization, or associate your resource with an existing organization.   |
+    | Workspace Name    | Choose a name for your workspace.                                                                |
 
-    | Property | Description |
-    |----------| -------------|
-    | **Name** | Name of the tag corresponding to the Astro resource. |
-    | **Value** | Value of the tag corresponding to the Astro resource. |
+    The remaining fields update to reflect the details of the plan you selected for this new organization.
 
-### Review and create
+1. Select the **Next** button at the bottom of the page.
 
-1. Select the **Next: Review + Create** to navigate to the final step for resource creation. When you get to the **Review + Create** page, all validations are run. At this point, review all the selections made in the Basics and optionally Tags panes. You can also review the Astronomer and Azure Marketplace terms and conditions.  
+### Tags tab (optional)
 
-    :::image type="content" source="media/astronomer-create/astronomer-review-and-create.png" alt-text="Screenshot showing the Review and Create pane in the create process.":::
+[!INCLUDE [tags](../includes/tags.md)]
 
-1. After you review all the information, select **Create**. Azure now deploys the Astro resource.
+### Review + create tab
 
-   :::image type="content" source="media/astronomer-create/astronomer-deploy.png" alt-text="Screenshot showing Astronomer deployment in process.":::
-
-### Deployment completed
-
-1. Once the create process is completed, select **Go to Resource** to navigate to the specific Astro resource.
-
-    :::image type="content" source="media/astronomer-create/astronomer-deployment-complete.png" alt-text="Screenshot of a completed Astro deployment.":::
-
-1. Select **Overview** in the Resource menu to see information on the deployed resources.
-
-    :::image type="content" source="media/astronomer-create/astronomer-overview-pane.png" alt-text="Screenshot of information on the Astronomer resource overview.":::
-
-1. Now select on the **SSO Url** to redirect to the newly created Astro organization.
+[!INCLUDE [review-create](../includes/review-create.md)]
 
 ## Next steps
 
-- [Manage the Astro resource](manage.md)
-- Get started with Apache Airflow on Astro on
+[Manage an Astro resource](manage.md)
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview)

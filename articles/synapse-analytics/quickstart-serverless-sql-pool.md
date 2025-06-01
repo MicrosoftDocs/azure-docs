@@ -1,36 +1,35 @@
 ---
 title: 'Quickstart: Use serverless SQL pool'
-description: In this quickstart, you'll see and learn how easy is to query various types of files using serverless SQL pool.
+description: Learn how to use serverless SQL pool to query various types of files in Azure Storage.
 author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 02/10/2025
 ms.author: stefanazaric
-ms.reviewer: whhender
 ms.custom: mode-other
 ---
 
 # Quickstart: Use serverless SQL pool
 
-Synapse serverless SQL pool is a serverless query service that enables you to run SQL queries on files placed in Azure Storage. In this quickstart, you'll learn how to query various types of files using serverless SQL pool. Supported formats are listed in [OPENROWSET](sql/develop-openrowset.md).
+Synapse serverless SQL pool is a serverless query service that allows you to run SQL queries on files placed in Azure Storage. In this quickstart, you learn how to query various types of files using serverless SQL pool. For a list of supported formats, see [OPENROWSET](sql/develop-openrowset.md).
 
-This quickstart shows querying: CSV, Apache Parquet, and JSON files.
+This quickstart shows how to query CSV, Apache Parquet, and JSON files.
 
 ## Prerequisites
 
 Choose a SQL client to issue queries:
 
 - [Azure Synapse Studio](./get-started-create-workspace.md) is a web tool that you can use to browse files in storage and create SQL queries.
-- [Azure Data Studio](sql/get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
-- [SQL Server Management Studio](sql/get-started-ssms.md) is a client tool that enables you to run SQL queries on your On-demand database.
+- [Visual Studio Code](https://code.visualstudio.com/docs) with the [mssql extension](https://aka.ms/mssql-marketplace) is a cross-platform lightweight developer and data tool that lets you run SQL queries and notebooks on your on-demand database.
+- [SQL Server Management Studio](sql/get-started-ssms.md) is a client tool that lets you run SQL queries on your on-demand database.
 
-Parameters for this quickstart:
+This quickstart uses the following parameters:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| serverless SQL pool service endpoint address    | Used as server name                                   |
-| serverless SQL pool service endpoint region     | Used to determine what storage will we use in samples |
+| Serverless SQL pool service endpoint address    | Used as server name                                   |
+| Serverless SQL pool service endpoint region     | Used to determine what storage to use in samples |
 | Username and password for endpoint access | Used to access endpoint                               |
 | The database used to create views         | Database used as starting point in samples       |
 
@@ -38,31 +37,29 @@ Parameters for this quickstart:
 
 Before using the samples:
 
-- Create database for your views (in case you want to use views)
-- Create credentials to be used by serverless SQL pool to access files in storage
+- Create a database for your views (in case you want to use views).
+- Create credentials to be used by serverless SQL pool to access files in storage.
 
 ### Create database
 
-Create your own database for demo purposes. You'll use this database to create your views and for the sample queries in this article.
+Create your own database for demo purposes. You can use this database to create your views and for the sample queries in this article.
 
 > [!NOTE]
-> The databases are used only for view metadata, not for actual data.
->Write down database name you use for use later in the Quickstart.
+> The databases are used only for view metadata, not for actual data. Write down the database name for use later in the quickstart.
 
-Use the following query, changing `mydbname` to a name of your choice:
+Use the following T-SQL command, changing `<mydbname>` to a name of your choice:
 
 ```sql
-CREATE DATABASE mydbname
+CREATE DATABASE <mydbname>
 ```
 
 ### Create data source
 
-To run queries using serverless SQL pool, create data source that serverless SQL pool can use to access files in storage.
-Execute the following code snippet to create data source used in samples in this section:
+To run queries using serverless SQL pool, create a data source that serverless SQL pool can use to access files in storage. Execute the following code snippet to create the data source used in samples in this section. Replace `<strong-password-here>` with a strong password of your choice.
 
 ```sql
 -- create master key that will protect the credentials:
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = <enter very strong password here>
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<strong-password-here>'
 
 -- create credentials for containers in our demo storage account
 CREATE DATABASE SCOPED CREDENTIAL sqlondemand
@@ -77,9 +74,9 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
 
 ## Query CSV files
 
-The following image is a preview of the file to be queried:
+The following image shows a preview of the file to be queried:
 
-![First 10 rows of the CSV file without header, Windows style new line.](./sql/media/query-single-csv-file/population.png)
+:::image type="content" source="sql/media/query-single-csv-file/population.png" alt-text="Screenshot showing the first 10 rows of the CSV file without header, Windows style new line.":::
 
 The following query shows how to read a CSV file that doesn't contain a header row, with Windows-style new line, and comma-delimited columns:
 
@@ -102,15 +99,14 @@ WHERE
   country_name = 'Luxembourg' AND year = 2017
 ```
 
-You can specify schema at query compilation time.
-For more examples, see how to [query CSV file](sql/query-single-csv-file.md).
+You can specify schema at query compilation time. For more examples, see how to [Query CSV files](sql/query-single-csv-file.md).
 
 ## Query Parquet files
 
 The following sample shows the automatic schema inference capabilities for querying Parquet files. It returns the number of rows in September of 2017 without specifying schema.
 
 > [!NOTE]
-> You do not have to specify columns in `OPENROWSET WITH` clause when reading Parquet files. In that case, serverless SQL pool utilizes metadata in the Parquet file and binds columns by name.
+> You don't have to specify columns in `OPENROWSET WITH` clause when reading Parquet files. In that case, serverless SQL pool utilizes metadata in the Parquet file and binds columns by name.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -122,13 +118,13 @@ FROM OPENROWSET
   ) AS nyc
 ```
 
-Find more information about [querying parquet files](sql/query-parquet-files.md).
+Find more information, see [Query Parquet files using serverless SQL pool](sql/query-parquet-files.md).
 
 ## Query JSON files
 
 ### JSON sample file
 
-Files are stored in *json* container, folder *books*, and contain single book entry with following structure:
+Files are stored in a *json* container, using folder *books*, and contain a single book entry with the following structure:
 
 ```json
 {  
@@ -146,9 +142,9 @@ Files are stored in *json* container, folder *books*, and contain single book en
 }
 ```
 
-### Query JSON files
+### Sample query
 
-The following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+The following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction*:
 
 ```sql
 SELECT
@@ -167,23 +163,20 @@ FROM OPENROWSET
 WITH
   ( jsonContent varchar(8000) ) AS [r]
 WHERE
-  JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
+  JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction'
 ```
 
 > [!IMPORTANT]
-> We are reading the entire JSON file as single row/column. So, FIELDTERMINATOR, FIELDQUOTE, and ROWTERMINATOR are set to 0x0b because we do not expect to find it in the file.
+> We read the entire JSON file as a single row or column. So `FIELDTERMINATOR`, `FIELDQUOTE`, and `ROWTERMINATOR` are set to `0x0b` because we don't expect to find it in the file.
 
-## Next steps
+## Related content
 
-You're now ready to continue on with the following articles:
-
-- [Query single CSV file](sql/query-single-csv-file.md)
-- [Query folders and multiple CSV files](sql/query-folders-multiple-csv-files.md)
+- [Query CSV files](sql/query-single-csv-file.md)
+- [Query folders and multiple files](sql/query-folders-multiple-csv-files.md)
 - [Query specific files](sql/query-specific-files.md)
-- [Query Parquet files](sql/query-parquet-files.md)
-- [Query Parquet nested types](sql/query-parquet-nested-types.md)
-- [Query JSON files](sql/query-json-files.md)
-- [Creating and using views](sql/create-use-views.md)
-- [Creating and using external tables](sql/create-use-external-tables.md)
-- [Persist query result to Azure storage](sql/create-external-table-as-select.md)
-- [Query single CSV file](sql/query-single-csv-file.md)
+- [Query Parquet files using serverless SQL pool](sql/query-parquet-files.md)
+- [Query nested types in Parquet and JSON files](sql/query-parquet-nested-types.md)
+- [Query JSON files using serverless SQL pool](sql/query-json-files.md)
+- [Create and use views using serverless SQL pool](sql/create-use-views.md)
+- [Create and use native external tables](sql/create-use-external-tables.md)
+- [Store query results to storage](sql/create-external-table-as-select.md)

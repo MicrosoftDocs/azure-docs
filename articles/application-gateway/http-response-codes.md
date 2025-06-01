@@ -2,11 +2,11 @@
 title: HTTP response codes - Azure Application Gateway
 description: 'Learn how to troubleshoot Application Gateway HTTP response codes'
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
-ms.date: 07/05/2023
-ms.author: greglin
+ms.date: 05/26/2025
+ms.author: mbender
 ---
 
 # HTTP response codes in Application Gateway
@@ -36,9 +36,9 @@ HTTP 307 responses are presented when a redirection rule is specified with the *
 
 ## 4XX response codes (client error)
 
-400-499 response codes indicate an issue that is initiated from the client. These issues can range from the client initiating requests to an unmatched hostname, request timeout, unauthenticated request, malicious request, and more.
+400-499 response codes indicate an issue that is initiated from the client. These issues can range from the client initiating requests to an unmatched hostname, request time-out, unauthenticated request, malicious request, and more.
 
-Application Gateway collects metrics that capture the distribution of 4xx/5xx status codes has a logging mechanism that captures information such as the URI client IP address with the response code. Metrics and logging enable further troubleshooting.  Clients can also receive 4xx response from other proxies between the client device and Application Gateway. For example, CDN and other authentication providers. See the following articles for more information.
+Application Gateway collects metrics that capture the distribution of 4xx/5xx status codes has a logging mechanism that captures information such as the URI client IP address with the response code. Metrics and logging enable further troubleshooting.  Clients can also receive 4xx response from other proxies between the client device and Application Gateway. For example, CDN (Content Delivery Network) and other authentication providers. See the following articles for more information.
 
 [Metrics supported by Application Gateway V2 SKU](application-gateway-metrics.md#metrics-supported-by-application-gateway-v2-sku)
 [Diagnostic logs](application-gateway-diagnostics.md#diagnostic-logging)
@@ -66,13 +66,13 @@ Some common reasons for the request to be non-compliant to RFC are:
 | Invalid value in Content-Length | Content-Length: **abc**,Content-Length: **-10**|
 
 For cases when mutual authentication is configured, several scenarios can lead to an HTTP 400 response being returned the client, such as:
-- Client certificate isn't presented, but mutual authentication is enabled.
-- DN validation is enabled and the DN of the client certificate doesn't match the DN of the specified certificate chain.
+- Mutual authentication is enabled but the Client certificate wasn't presented. 
+- DN (Distinguished Name) validation is enabled and the DN of the client certificate doesn't match the DN of the specified certificate chain.
 - Client certificate chain doesn't match certificate chain configured in the defined SSL Policy.
 - Client certificate is expired.
-- OCSP Client Revocation check is enabled and the certificate is revoked.
-- OCSP Client Revocation check is enabled, but unable to be contacted.
-- OCSP Client Revocation check is enabled, but OCSP responder isn't provided in the certificate.
+- OCSP (Online Certificate Status Protocol) Client Revocation check is enabled and the certificate is revoked.
+- OCSP (Online Certificate Status Protocol) Client Revocation check is enabled, but unable to be contacted.
+- OCSP (Online Certificate Status Protocol) Client Revocation check is enabled, but OCSP responder isn't provided in the certificate.
 
 For more information about troubleshooting mutual authentication, see [Error code troubleshooting](mutual-authentication-troubleshooting.md#solution-2).
 
@@ -89,7 +89,7 @@ An HTTP 401 unauthorized response can be returned to AppGW probe request if the 
 
 #### 403 – Forbidden
 
-HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have WAF configured in Prevention mode.  If enabled WAF rulesets or custom deny WAF rules match the characteristics of an inbound request, the client is presented a 403 forbidden response.
+HTTP 403 Forbidden is presented when customers are utilizing WAF (Web Application Firewall) skus and have WAF configured in Prevention mode.  If enabled WAF rulesets or custom deny WAF rules match the characteristics of an inbound request, the client is presented a 403 forbidden response.
 
 Other reasons for clients receiving 403 responses include:
 - You're using App Service as backend and it's configured to allow access only from Application Gateway. This can return a 403 error by App Services. This typically happens due to redirects/href links that point directly to App Services instead of pointing at the Application Gateway's IP address. 
@@ -97,12 +97,9 @@ Other reasons for clients receiving 403 responses include:
 
 #### 404 – Page not found
 
-An HTTP 404 response can be returned if a request is sent to an application gateway that is:
-- Using a [v2 sku](overview-v2.md).
-- Without a hostname match defined in any [multi-site listeners](multiple-site-overview.md).
-- Not configured with a [basic listener](application-gateway-components.md#types-of-listeners).
+An HTTP 404 response is generated when a request is made to Application Gateway (V2 SKUs) with a hostname that doesn’t corresponds to any of the configured Multi-site listeners, and there is no Basic listener present. Learn more about [types of listeners](application-gateway-components.md#types-of-listeners).
 
-#### 408 – Request Timeout
+#### 408 – Request Time-out
 
 An HTTP 408 response can be observed when client requests to the frontend listener of application gateway don't respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when virtual appliance inspects the traffic, or the client itself becomes overwhelmed.
 
@@ -112,7 +109,7 @@ An HTTP 413 response can be observed when using [Azure Web Application Firewall 
 
 #### 499 – Client closed the connection
 
-An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed in 2 scenarios. The first scenario is when a large response is returned to the client and the client might have closed or refreshed the application before the server finished sending a large response. The second scenario is when the timeout on the client side is low and doesn't wait long enough to receive the response from server. In this case it's better to increase the timeout on the client. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
+An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed in 2 scenarios. The first scenario is when a large response is returned to the client and the client might have closed or refreshed the application before the server finished sending a large response. The second scenario is when the time-out on the client side is low and doesn't wait long enough to receive the response from server. In this case it's better to increase the time-out on the client. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
 
 
 ## 5XX response codes (server error)
@@ -126,7 +123,7 @@ Azure Application Gateway shouldn't exhibit 500 response codes. Open a support r
 #### 502 – Bad Gateway
 
 HTTP 502 errors can have several root causes, for example:
-- NSG, UDR, or custom DNS is blocking access to backend pool members.
+- NSG (Network security group), UDR (user-defined route), or custom DNS is blocking access to backend pool members.
 - Backend VMs or instances of [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) aren't responding to the default health probe.
 - Invalid or improper configuration of custom health probes.
 - Azure Application Gateway's [backend pool isn't configured or empty](application-gateway-troubleshooting-502.md#empty-backendaddresspool).
@@ -135,17 +132,28 @@ HTTP 502 errors can have several root causes, for example:
 
 For information about scenarios where 502 errors occur, and how to troubleshoot them, see [Troubleshoot Bad Gateway errors](application-gateway-troubleshooting-502.md).
 
-#### 504 – Gateway timeout
+#### 504 – Gateway time-out
 
 Azure application Gateway V2 SKU sent HTTP 504 errors if the backend response time exceeds the time-out value that is configured in the Backend Setting.
 
-IIS
+IIS (Internet Information Services web server)
 
-If your backend server is IIS, see [Default Limits for Web Sites](/iis/configuration/system.applicationhost/sites/sitedefaults/limits#configuration) to set the timeout value. Refer to the `connectionTimeout` attribute for details. Ensure the connection timeout in IIS matches or does not exceed the timeout set in the backend setting.
+If your backend server is IIS, see [Default Limits for Web Sites](/iis/configuration/system.applicationhost/sites/sitedefaults/limits#configuration) to set the time-out value. Refer to the `connectionTimeout` attribute for details. Ensure the connection time-out in IIS matches or does not exceed the timeout set in the backend setting.
 
-nginx
+Nginx
 
-If the backend server is nginx or nginx ingress controller, and if it has upstream servers, ensure the value of `nginx:proxy_read_timeout` matches or does not exceed with the timeout set in the backend setting. 
+If the backend server is Nginx or Nginx Ingress Controller, and if it has upstream servers, ensure the value of `nginx:proxy_read_timeout` matches or does not exceed with the time-out set in the backend setting.
+
+## Troubleshooting Scenarios
+
+### "ERRORINFO_INVALID_HEADER" error in Access logs
+
+**Issue**: The [Access log](monitor-application-gateway-reference.md#access-log-category) displays an "ERRORINFO_INVALID_HEADER" error for a request, despite the backend response code (serverStatus) being 200. In other cases, the backend server could return 500.
+
+**Cause**: The client sends a header containing CR LF characters.
+
+**Solution**: Replace the CR LF characters with SP (whitespace) and resend the request to Application Gateway.
+
 
 ## Next steps
 

@@ -1,8 +1,9 @@
 ---
-title: What's new in Azure Spring Apps?
+title: What's New in Azure Spring Apps?
 description: Learn about the new features and recent improvements in Azure Spring Apps.
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: hangwan
 ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.custom: devx-track-java
@@ -33,7 +34,7 @@ The following updates are now available:
     - App Accelerator: upgraded to 1.8.1.
     - Build service:
       - Go buildpack: added support for Go 1.22, deprecated Go 1.20, changed default version from Go 1.20 to Go 1.21.
-      - NodeJS buildpack: changed default version from Node.js 19 to Node.js 20.
+      - Node.js buildpack: changed default version from Node.js 19 to Node.js 20.
       - Java Native Image buildpack: deprecated Java 20, added Java 21.
       - PHP buildpack: added PHP 8.3
   - Regular upgrade to keep Azure Kubernetes Service up-to-date: upgraded to 1.29.7.

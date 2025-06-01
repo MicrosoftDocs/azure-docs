@@ -1,11 +1,11 @@
 ---
 title: Deploy Azure IoT Operations to a cluster
 description: Use the Azure portal to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 10/23/2024
+ms.date: 04/08/2025
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -22,7 +22,7 @@ In this article, we discuss Azure IoT Operations *deployments* and *instances*, 
   * Custom locations
   * Resources that you can configure in your Azure IoT Operations solution, like assets and asset endpoints.
 
-* An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations?](../overview-iot-operations.md) like MQTT broker, dataflows, and connector for OPC UA.
+* An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations?](../overview-iot-operations.md) like MQTT broker, data flows, and connector for OPC UA.
 
 When we talk about deploying Azure IoT Operations, we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
 
@@ -36,7 +36,7 @@ Cloud resources:
 
 Development resources:
 
-* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
@@ -70,6 +70,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Resource group** | Select the resource group that contains your Arc-enabled cluster. |
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
    | **Custom location name** | *Optional*: Replace the default name for the custom location. |
+   | **Connectors** | *Optional*: Select the ONVIF connector to deploy. The [ONVIF connector](../discover-manage-assets/overview-onvif-connector.md) is a preview feature that enables you to connect to ONVIF-compliant cameras.|
 
    :::image type="content" source="./media/howto-deploy-iot-operations/deploy-basics.png" alt-text="A screenshot that shows the first tab for deploying Azure IoT Operations from the portal.":::
 
@@ -81,7 +82,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | --------- | ----- |
    | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
    | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to [configure cardinality and memory profile settings](../manage-mqtt-broker/howto-configure-availability-scale.md). To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
-   | **Dataflow profile configuration** | *Optional*: Edit the default settings for dataflows. For more information, see [Configure dataflow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
+   | **Data flow profile configuration** | *Optional*: Edit the default settings for data flows. For more information, see [Configure data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
    :::image type="content" source="./media/howto-deploy-iot-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal.":::
 
@@ -98,6 +99,8 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    1. Choose a storage account from the list of hierarchical namespace-enabled accounts, or select **Create** to create one.
 
       Schema registry requires an Azure Storage account with hierarchical namespace and public network access enabled. When creating a new storage account, choose a **General purpose v2** storage account type and set **Hierarchical namespace** to **Enabled**.
+
+      For more information on configuring your storage account, see [Production deployment guidelines](concept-production-guidelines.md#schema-registry-and-storage).
 
    1. Select a container in your storage account or select **Container** to create one.
 
@@ -124,10 +127,9 @@ Use these steps if you chose the **Test settings** option on the **Dependency ma
       az login
       ```
 
-   1. Install the latest Azure IoT Operations CLI extension.
+   1. Install the latest Azure IoT Operations CLI extension if you haven't already.
 
       ```azurecli
-      az upgrade
       az extension add --upgrade --name azure-iot-ops
       ```
 
@@ -138,13 +140,17 @@ Use these steps if you chose the **Test settings** option on the **Dependency ma
    1. Prepare the cluster for Azure IoT Operations deployment. Copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
       >[!TIP]
-      >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.8.0 deployed on it, you can skip this step.
-
-      If you followed the optional prerequisite to set up your own certificate authority issuer, add the `--user-trust` flag to the `init` command.
+      >The `init` command only needs to be run once per cluster. If you followed the optional prerequisite to set up your own certificate authority issuer, follow the steps in [Bring your own issuer](../secure-iot-ops/concept-default-root-ca.md#bring-your-own-issuer).
 
       This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
    1. Deploy Azure IoT Operations. Copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command.
+   
+      * If you want to use the preview connector configuration, add the following parameter to the `create` command:
+
+        ```bash
+        --feature connectors.settings.preview=Enabled
+        ```
 
       * If you followed the optional prerequisites to prepare your cluster for observability, add the following parameters to the `create` command:
 
@@ -216,8 +222,14 @@ Use these steps if you chose the **Secure settings** option on the **Dependency 
       This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
    1. Deploy Azure IoT Operations. Copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command.
+   
+      * If you want to use the preview connector configuration, add the following parameter to the `create` command:
 
-      If you followed the optional prerequisites to prepare your cluster for observability, add the following optional parameters to the `create` command:
+        ```bash
+        --feature connectors.settings.preview=Enabled
+        ```
+
+      * If you followed the optional prerequisites to prepare your cluster for observability, add the following optional parameters to the `create` command:
 
       | Optional parameter | Value | Description |
       | --------- | ----- | ----------- |
@@ -250,7 +262,7 @@ After the deployment is complete, use [az iot ops check](/cli/azure/iot/ops#az-i
 az iot ops check
 ```
 
-The `check` command displays a warning about missing dataflows, which is normal and expected until you create a dataflow. For more information, see [Process and route data with dataflows](../connect-to-cloud/overview-dataflow.md).
+The `check` command displays a warning about missing data flows, which is normal and expected until you create a data flow. For more information, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
 
 You can check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter to the `check` command for a verbose view.
 

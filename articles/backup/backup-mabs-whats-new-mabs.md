@@ -3,7 +3,7 @@ title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.service: azure-backup
 ms.topic: release-notes
-ms.date: 09/11/2024
+ms.date: 02/28/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -65,7 +65,7 @@ The following table lists the included features in MABS V4:
 
 | Supported feature | Description |
 | --- | --- |
-| Windows Server 2022 support | You can install MABS V4 on and protect Windows Server 2022. To use MABS V4 with *WS2022*, you can either upgrade your operation system (OS) to *WS2022* before installing/upgrading to MABS V4, or you can upgrade your OS after installing/upgrading V4 on *WS2019*. <br><br> MABS V4 is a full release, and can be installed directly on Windows Server 2022, Windows Server 2019, or can be upgraded from MABS V3. Learn more [about the installation prerequisites](backup-azure-microsoft-azure-backup.md#software-package) before you upgrade to or install Backup Server V4. |
+| Windows Server 2022 support | You can install MABS V4 on and protect Windows Server 2022. To use MABS V4 with *WS2022*, you can either upgrade your operation system (OS) to *WS2022* before installing/upgrading to MABS V4, or you can upgrade your OS after installing/upgrading V4 on *WS2019*. <br><br> MABS V4 is a full release that can be installed directly on Windows Server 2022 or Windows Server 2019, or it can be upgraded from MABS V3. Learn more [about the installation prerequisites](backup-azure-microsoft-azure-backup.md#software-package) before you upgrade to or install Backup Server V4. |
 | SQL Server 2022 support | You can install MABS V4 with SQL 2022 as the MABS database. You can upgrade the SQL Server from SQL 2017 to SQL 2022, or install it fresh. You can also back up SQL 2022 workload with MABS V4. |
 | Private Endpoint Support | With MABS V4, you can use private endpoints to send your online backups to Azure Backup Recovery Services vault. [Learn more](backup-azure-private-endpoints-concept.md). |
 | Azure Stack HCI 22H2 support | MABS V4 now supports protection of workloads running in Azure Stack HCI from V1 to 22H2. [Learn more](back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md). |
@@ -94,7 +94,7 @@ This update contains the following enhancement to improve the backup time. For m
 
 Microsoft Azure Backup Server (MABS) version 3 UR2 supports the following new features/feature updates.
 
-For information about the UR2 issues fixes and the installation instructions, see the [KB article](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73).
+For information about the UR2 issues fixes and the installation instructions, see the [Release notes for Microsoft Azure Backup Server v3](backup-mabs-release-notes-v3.md).
 
 ### Support for Azure Stack HCI
 
@@ -221,7 +221,7 @@ MABS V3 can be installed with SQL 2017 as the MABS database. You can upgrade the
 
 MABS V3 can be installed on Windows Server 2019. To use MABS V3 with WS2019, you can either upgrade your OS to WS2019 before installing/upgrading to MABS V3 or you can upgrade your OS after installing/upgrading V3 on WS2016.
 
-MABS V3 is a full release, and can be installed directly on Windows Server 2016, Windows Server 2019, or can be upgraded from MABS V2. Before you upgrade to or install Backup Server V3, read about the installation prerequisites.
+MABS V3 is a full release and can be installed directly on Windows Server 2016 or Windows Server 2019, or it can be upgraded from MABS V2. Before you upgrade to or install Backup Server V3, read about the installation prerequisites.
 Find more information about the installation/upgrade steps for MABS [here](./backup-azure-microsoft-azure-backup.md#software-package).
 
 > [!NOTE]

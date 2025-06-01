@@ -1,11 +1,8 @@
 ---
 title: Build a business case or assess servers using an imported CSV file
 description: Describes how to discover on-premises servers for migration to Azure using an imported CSV file in Azure Migrate
-author: rashi-ms
-ms.author: rajosh
-ms.manager: ronai
 ms.topic: tutorial
-ms.date: 10/25/2024
+ms.date: 02/07/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy25
 
@@ -88,7 +85,7 @@ Set up a new Azure Migrate project if you don't have one.
 2. Under **Services**, select **Azure Migrate**.
 3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
    ![Boxes for project name and region](./media/tutorial-discover-import/new-project.png)  
     > [!Note]
@@ -106,7 +103,7 @@ Download the CSV template and add server information to it.
 
 ### Download the template
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover machines**, select **Import using CSV**.
 3. Select **Download** to download the CSV template. Alternatively, you can [download it directly](https://go.microsoft.com/fwlink/?linkid=2109031).
 
@@ -170,7 +167,7 @@ For example, to specify all fields for a second disk, add these columns:
 
 After adding information to the CSV template, import the CSV file.
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 1. In **Discover machines**, select **Import using CSV** 
 1. Upload the .csv file and select **Import**.
 3. The import status is shown.
@@ -201,7 +198,7 @@ Operating system names provided in the CSV must contain and match. If they don't
 
 **A-H** | **I-R** | **S-T** | **U-Z**
 --- | --- | --- | ---
-Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CoreOS Linux<br/>Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8<br/>Debian GNU/Linux 9<br/>Debian GNU/Linux 10<br/>Debian GNU/Linux 11<br/>FreeBSD | IBM OS/2<br/>macOS X 10<br/>MS-DOS<br/>Novell NetWare 5<br/>Novell NetWare 6<br/>Oracle Linux<br/>Oracle Linux 4/5<br/>Oracle Linux 6<br>Oracle Linux 7.7-CI/7.7<br>Oracle Linux 8<br>Oracle Linux 9<br>Oracle Solaris 10<br/>Oracle Solaris 11<br/>Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Enterprise Linux 8<br/>Red Hat Enterprise Linux 9<br/>Red Hat Fedora | SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7<br/> Serenity Systems eComStation<br/>Serenity Systems eComStation 1<br/>Serenity Systems eComStation 2<br/>Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9<br/><br/>SUSE Linux Enterprise 10<br/>SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 15<br/>SUSE openSUSE | Ubuntu Linux<br/>VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6<br/>Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003<br/>Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
+Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CoreOS Linux<br/>Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8<br/>FreeBSD | IBM OS/2<br/>macOS X 10<br/>MS-DOS<br/>Novell NetWare 5<br/>Novell NetWare 6<br/>Oracle Linux<br/>Oracle Linux 4/5<br/>Oracle Solaris 10<br/>Oracle Solaris 11<br/>Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Enterprise Linux 8<br/>Red Hat Enterprise Linux 9<br/>Red Hat Fedora | SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7<br/> Serenity Systems eComStation<br/>Serenity Systems eComStation 1<br/>Serenity Systems eComStation 2<br/>Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9<br/><br/>SUSE Linux Enterprise 10<br/>SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE | Ubuntu Linux<br/>VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6<br/>Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003<br/>Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
 
 ## Business case considerations
 - If you import servers by using a CSV file and build a business case:

@@ -1,11 +1,12 @@
 ---
-title: Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps
+title: Migrate Azure Spring Apps Standard Consumption and Dedicated Plan to Azure Container Apps
 description: The complete overview guide for migrating Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps, including steps, benefits, and frequently asked questions.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: overview
 ms.date: 09/30/2024
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.custom: devx-track-java, devx-track-extended-java
 #Customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring applications.
 ---
@@ -70,6 +71,27 @@ There's no downtime unless you're using Spring Cloud Config Server and Spring Cl
 ### What happens to apps that have in-flight transactions during the migration?
 
 All in-flight transactions execute without any interruptions, unless you're using Spring Cloud Config Server and Spring Cloud Service Registry, which you must manually recreate in Azure Container Apps.
+
+### How can I find migrated applications in Azure Container Apps?
+
+You can find your migrated applications by using one of the following commands:
+
+- To find the migrated applications starting with your Azure Spring Apps resource names, use the following command:
+
+  ```azurecli
+  az spring show \
+      --resource-group <Azure-Spring-Apps-service-instance-resource-group-name> \
+      --name <Azure-Spring-Apps-service-instance-name> \
+      --query "properties.infraResourceGroup"
+  ```
+
+- To find the migrated applications starting with your Azure Container Apps environment name, use the following command:
+
+  ```azurecli
+  az containerapp list --environment <Azure-Container-Apps-environment-name>
+  ```
+
+These commands list all the migrated applications of the Azure Spring Apps service instance, using the original resource names.
 
 ### Is there any change in IP address/FQDN after the migration?
 

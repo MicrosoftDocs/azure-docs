@@ -15,7 +15,9 @@ items:
     - name: Create a load test with a JMeter script
       href: how-to-create-and-run-load-test-with-JMeter-script.md
     - name: Create a load test with a Locust script
-      href: quickstart-create-run-load-test-with-locust.md      
+      href: quickstart-create-run-load-test-with-locust.md
+    - name: Create and run a load test from Visual Studio Code
+      href: quickstart-create-run-load-tests-from-visual-studio-code.md      
     - name: Automate load tests with Azure Pipelines
       displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
       href: quickstart-add-load-test-cicd.md
@@ -57,18 +59,14 @@ items:
           href: how-to-define-test-criteria.md
         - name: Parameterize load tests
           href: how-to-parameterize-load-tests.md
-        - name: Test App Service web apps
-          href: how-to-create-load-test-app-service.md
-        - name: Test Azure Functions
-          href: how-to-create-load-test-function-app.md
-        - name: Optimize Azure Functions
-          href: how-to-optimize-azure-functions.md          
         - name: Test private endpoints
           displayName: virtual network, vnet, hybrid, on-premises, onprem, private link, subnet
           href: how-to-test-private-endpoint.md
         - name: Test secure endpoints
           displayName: secured, certificate, client certificate, password, oauth, security, secure endpoint
           href: how-to-test-secured-endpoints.md
+        - name: Use multiple certificates in tests
+          href: how-to-use-multiple-certificates.md
         - name: Run tests in debug mode
           href: how-to-run-tests-in-debug-mode.md
         - name: Schedule load tests
@@ -85,6 +83,8 @@ items:
           href: how-to-compare-multiple-test-runs.md
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md
+        - name: Analyze test results using AI 
+          href: how-to-analyze-test-results-using-actionable-insights.md
         - name: Diagnose failing load tests
           href: how-to-diagnose-failing-load-test.md
         - name: Export test results
@@ -111,6 +111,18 @@ items:
           href: how-to-move-between-resource-groups-subscriptions.md
         - name: Monitor Azure Load Testing
           href: monitor-load-testing.md
+        - name: Manage usage limits
+          href: how-to-manage-usage-limits.md
+        - name: Enable notifications
+          href: how-to-create-notification-rules.md
+    - name: Test Azure services
+      items:
+        - name: Test App Service web apps
+          href: how-to-create-load-test-app-service.md
+        - name: Test Azure Functions
+          href: how-to-create-load-test-function-app.md
+        - name: Optimize Azure Functions
+          href: how-to-optimize-azure-functions.md   
 
 - name: Samples
   items:

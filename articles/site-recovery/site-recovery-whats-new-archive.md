@@ -641,7 +641,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Linux support** | Support was added for Redhat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10 and Oracle Linux 7.6, and new kernel versions for Ubuntu, Debian, and SUSE.
+**Linux support** | Support was added for Red Hat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10 and Oracle Linux 7.6, and new kernel versions for Ubuntu, Debian, and SUSE.
 
 
 ### Update rollup 31

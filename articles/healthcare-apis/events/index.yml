@@ -7,7 +7,6 @@ metadata:
   title: Azure Health Data Services events
   description: Events documentation for Azure Health Data Services
   ms.service: azure-health-data-services
-  ms.subservice: data-transformation
   ms.topic: landing-page 
 
   author: chachachachami

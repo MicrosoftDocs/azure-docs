@@ -2,11 +2,11 @@
 title: Azure Traffic Manager - FAQ
 description: This article provides answers to frequently asked questions about Traffic Manager.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 12/03/2024
-ms.author: greglin
+ms.date: 01/28/2025
+ms.author: allensu
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)
@@ -92,7 +92,7 @@ For example, if your Traffic Manager profile name is **label1**, then **label1.t
 
 ### What version of TLS is required by Traffic Manager?
 
-The Microsoft implementation of older TLS versions is not known to be vulnerable, however, TLS 1.2 and later offer improved security with features such as perfect forward secrecy and stronger cipher suites. To enhance security and provide best-in-class encryption for your data, Traffic Manger requires interactions with services to be secured using Transport Layer Security (TLS) 1.2 or later before February 28,2025. Traffic Manger support for TLS 1.0 and 1.1 will end on this date. This date might be different than the [Azure-wide TLS 1.0 and TLS 1.1 retirement date](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
+The Microsoft implementation of older TLS versions is not known to be vulnerable, however, TLS 1.2 and later offer improved security with features such as perfect forward secrecy and stronger cipher suites. To enhance security and provide best-in-class encryption for your data, Traffic Manager requires interactions with services to be secured using Transport Layer Security (TLS) 1.2 or later before February 28,2025. Traffic Manager support for TLS 1.0 and 1.1 will end on this date. This date might be different than the [Azure-wide TLS 1.0 and TLS 1.1 retirement date](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
 
 **Recommended action** 
 
@@ -340,7 +340,7 @@ Yes. Cloud Service 'staging' slots can be configured in Traffic Manager as Exter
 
 ### Does Traffic Manager support IPv6 endpoints?
 
-Traffic Manager doesn't currently provide IPv6-addressable name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints if the client's recursive DNS server supports IPv4. A client doesn't make DNS request directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. The recursive service must then be able to contact the Traffic Manager name servers using IPv4. Traffic Manager responds with the DNS name or IP address of the endpoint. 
+Yes, Traffic Manager fully supports IPv6 endpoints. Traffic Manager provides both IPv4 and IPv6-addressable name servers, allowing clients to connect seamlessly using either protocol. IPv6 clients can make DNS requests directly through IPv6-enabled recursive DNS services, and Traffic Manager can respond with the DNS name or IP address of the IPv6 endpoint, enabling full compatibility with IPv6 networks. 
 
 ### Can I use Traffic Manager with more than one Web App in the same region?
 
@@ -521,7 +521,7 @@ One of the metrics provided by Traffic Manager is the health status of endpoints
 
 Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They're also supported via the new Azure portal.
 
-### How many layers of nesting does Traffic Manger support?
+### How many layers of nesting does Traffic Manager support?
 
 You can nest profiles up to 10 levels deep. 'Loops' aren't permitted.
 

@@ -52,7 +52,6 @@ OT network sensors can detect the following protocols when identifying assets an
 |**Toshiba**     |Toshiba Computer Link         |
 |**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> FA-M3<br> Vnet/IP      |
 
-
 [!INCLUDE [active-monitoring-protocols](includes/active-monitoring-protocols.md)]
 
 ## Supported protocols for Enterprise IoT device discovery

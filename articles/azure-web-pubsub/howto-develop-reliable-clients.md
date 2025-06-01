@@ -28,7 +28,7 @@ The following tutorial walks you through the important part of implementing the 
 
 To use reliable subprotocols, you must set the subprotocol when constructing WebSocket connections. In JavaScript, you can use the following code:
 
-- Use Json reliable subprotocol:
+- Use JSON reliable subprotocol:
 
   ```js
   var pubsub = new WebSocket(

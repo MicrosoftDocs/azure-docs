@@ -1,70 +1,86 @@
 ---
-title: Add an artifact to a VM
-description: Learn how to add an artifact to a virtual machine in a lab in Azure DevTest Labs.
+title: Add artifacts to VMs
+description: Learn how to add or configure artifacts on lab virtual machines (VM) in Azure DevTest Labs by using the Azure portal or Azure PowerShell.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/30/2023
+ms.date: 03/26/2025
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
+
+#customer intent: As a lab user, I want to add artifacts to my VMs so I can use them to run scripts or commands, install tools or applications, or take other actions on my VMs.
 ---
 
 # Add artifacts to DevTest Labs VMs
 
-This article describes how to add *artifacts* to Azure DevTest Labs virtual machines (VMs). Artifacts specify actions to take to provision a VM, such as running Windows PowerShell scripts, running Bash commands, or installing software. You can use parameters to customize the artifacts for your own needs.
+This article describes how to add *artifacts* to Azure DevTest Labs virtual machines (VMs) by using the Azure portal or Azure PowerShell. Artifacts are tools, actions, or software you can add to lab VMs. For example, artifacts can run Windows PowerShell scripts or Bash commands, install tools or applications, or take other actions like joining a domain.
 
-DevTest Labs artifacts can come from the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from private Git repositories. To create your own custom artifacts and store them in a repository, see [Create custom artifacts](devtest-lab-artifact-author.md). To add your artifact repository to a lab so lab users can access the custom artifacts, see [Add an artifact repository to your lab](add-artifact-repository.md).
+DevTest Labs artifacts can come from the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from private Git repositories. Lab users can [create their own custom artifacts](devtest-lab-artifact-author.md) and store them in a repository, and use parameters to customize existing artifacts for their own needs.
 
-DevTest Labs lab owners can specify mandatory artifacts to be installed on all lab VMs at creation. For more information, see [Specify mandatory artifacts for DevTest Labs VMs](devtest-lab-mandatory-artifacts.md).
+A lab administrator can [add artifact repositories to a lab](add-artifact-repository.md) so all lab users can access them. Lab administrators can also [specify mandatory artifacts to be installed on all lab VMs](devtest-lab-mandatory-artifacts.md) at creation. Lab users can't change or remove mandatory artifacts at VM creation time, but they can add and configure other available artifacts at or after VM creation time.
 
-You can't change or remove mandatory artifacts at VM creation time, but you can add any available individual artifacts. This article describes how to add available artifacts to VMs by using the Azure portal or Azure PowerShell.
+## Prerequisites
 
-## Add artifacts to VMs from the Azure portal
+# [Azure portal](#tab/portal)
 
-You can add artifacts during VM creation, or add artifacts to existing lab VMs.
+- User access to a lab in DevTest Labs.
 
-To add artifacts during VM creation:
+# [Azure PowerShell](#tab/PowerShell)
+
+- User access to a lab in DevTest Labs.
+- Azure PowerShell. You can either:
+  - [Use Azure Cloud Shell](/azure/cloud-shell/quickstart). Be sure to select the **PowerShell** environment.
+  - [Install Azure PowerShell](/powershell/azure/install-azure-powershell) to use on a physical or virtual machine. If necessary, run `Update-Module -Name Az` to update your installation.
+
+---
+
+## Add artifacts to VMs
+
+# [Azure portal](#tab/portal)
+<a name="add-artifacts-to-vms-from-the-azure-portal"></a>
+You can use the Azure portal to add artifacts during VM creation or to add artifacts to an existing lab VM.
+
+### Add artifacts during VM creation
 
 1. On the lab's home page, select **Add**.
 1. On the **Choose a base** page, select the type of VM you want.
-1. On the **Create lab resource** screen, select **Add or Remove Artifacts**.
+1. On the **Create lab resource** screen, fill out the **Basic Settings** tab according to the instructions at [Create lab VMs in Azure DevTest Labs](devtest-lab-add-vm.md).
+1. At the bottom of the **Basic Settings** tab, select **Add or Remove Artifacts**.
 1. On the **Add artifacts** page, select the arrow next to each artifact you want to add to the VM.
-1. On each **Add artifact** pane, enter any required and optional parameter values, and then select **OK**. The artifact appears under **Selected artifacts**, and the number of configured artifacts updates.
+1. On each **Add artifact** pane, enter any required and optional parameter values, and then select **OK**. The artifact appears under **Selected artifacts** on the **Add artifacts** page, and the number of configured artifacts updates.
 
-   :::image type="content" source="./media/add-artifact-vm/devtestlab-add-artifacts-blade-selected-artifacts.png" alt-text="Screenshot that shows adding artifacts on the Add artifacts pane.":::
+   :::image type="content" source="./media/add-artifact-vm/devtestlab-add-artifacts-blade-selected-artifacts.png" alt-text="Screenshot that shows adding artifacts.":::
 
-1. You can change the artifacts after adding them.
+1. By default, artifacts install in the order you add them. To rearrange the order, select the ellipsis **...** next to the artifact in the **Selected artifacts** list, and select **Move up**, **Move down**, **Move to top**, or **Move to bottom**.
 
-   - By default, artifacts install in the order you add them. To rearrange the order, select the ellipsis **...** next to the artifact in the **Selected artifacts** list, and select **Move up**, **Move down**, **Move to top**, or **Move to bottom**.
-   - To edit the artifact's parameters, select **Edit** to reopen the **Add artifact** pane.
-   - To delete the artifact from the **Selected artifacts** list, select **Delete**.
+   - To edit an artifact's parameters after you add it, select the pencil icon or select **...** next to the artifact and select **Edit** to reopen the artifact pane.
 
-1. When you're done adding and arranging artifacts, select **OK**.
-1. The **Create lab resource** screen shows the number of artifacts added. To add, edit, rearrange, or delete the artifacts before you create the VM, select **Add or Remove Artifacts** again.
+   - To delete an artifact from the **Selected artifacts** list, select **...** and then select **Delete**.
+
+1. When you're done adding, arranging, and configuring artifacts, select **OK** on the **Add artifacts** page.
+1. The **Artifacts** section of the **Create lab resource** screen shows the number of artifacts added. To add, edit, rearrange, or delete the artifacts before you create the VM, select **Add or Remove Artifacts** again.
+1. Optionally configure any **Advanced Settings** or **Tags**, and then select **Create** and **Create** again at the bottom of the screen to create the VM with added artifacts.
 
 After you create the VM, the installed artifacts appear on the VM's **Artifacts** page. To see details about each artifact's installation, select the artifact name.
 
-To install artifacts on an existing VM:
+### Add artifacts to an existing VM
 
 1. From the lab's home page, select the VM from the **My virtual machines** list.
-1. On the VM page, select **Artifacts** in the top menu bar or left navigation.
+1. On the VM page, select **Artifacts** in the top menu bar or under **Operations** in the left navigation.
 1. On the **Artifacts** page, select **Apply artifacts**.
 
-   :::image type="content" source="./media/add-artifact-vm/artifacts.png" alt-text="Screenshot that shows Artifacts pane for an existing V M.":::
+   :::image type="content" source="./media/add-artifact-vm/artifacts.png" alt-text="Screenshot that shows the Artifacts pane for an existing VM.":::
 
-1. On the **Add artifacts** page, select and configure artifacts the same as for a new VM.
+1. On the **Add artifacts** page, select and configure artifacts the same way as for a new VM.
 1. When you're done adding artifacts, select **Install**. The artifacts install on the VM immediately.
 
-## Add artifacts to VMs by using Azure PowerShell
+# [Azure PowerShell](#tab/PowerShell)
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+If necessary, sign in to your Azure account by using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet. If you have multiple Azure subscriptions, use `Set-AzContext -SubscriptionId "<SubscriptionId>"` and provide the subscription ID you want to use.
 
-The following PowerShell script applies an artifact to a VM by using the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) cmdlet.
+Run the following PowerShell script to apply an artifact to a VM by using the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) cmdlet. Provide the information the script calls for when prompted.
 
 ```powershell
-#Requires -Module Az.Resources
-
-param
-(
+param (
 [Parameter(Mandatory=$true, HelpMessage="The ID of the subscription that contains the lab")]
    [string] $SubscriptionId,
 [Parameter(Mandatory=$true, HelpMessage="The name of the lab that has the VM")]
@@ -107,15 +123,12 @@ $template = Get-AzResource -ResourceGroupName $resourceGroupName `
 if ($template -eq $null) { throw "Unable to find template $ArtifactName in lab $DevTestLabName." }
 
 # Find the VM in Azure
-$FullVMId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroupName`
-                /providers/Microsoft.DevTestLab/labs/$DevTestLabName/virtualmachines/$virtualMachineName"
+$FullVMId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DevTestLab/labs/$DevTestLabName/virtualmachines/$virtualMachineName"
 
 $virtualMachine = Get-AzResource -ResourceId $FullVMId
 
 # Generate the artifact id
-$FullArtifactId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroupName`
-                        /providers/Microsoft.DevTestLab/labs/$DevTestLabName/artifactSources/$($repository.Name)`
-                        /artifacts/$($template.Name)"
+$FullArtifactId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DevTestLab/labs/$DevTestLabName/artifactSources/$($repository.Name)/artifacts/$($template.Name)"
 
 # Handle the input parameters to pass through
 $artifactParameters = @()
@@ -153,10 +166,11 @@ if ($virtualMachine -ne $null) {
 } else {
    Write-Error "##[error]$VirtualMachine was not found in the DevTest Lab, unable to apply the artifact"
 }
-
 ```
 
-## Next steps
+---
+
+## Related content
 
 - [Specify mandatory artifacts](devtest-lab-mandatory-artifacts.md)
 - [Create custom artifacts](devtest-lab-artifact-author.md)

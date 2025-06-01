@@ -1,9 +1,9 @@
 ---
 title: Architecture - Integrate an Azure VMware Solution deployment in a hub and spoke architecture
 description: Learn about integrating an Azure VMware Solution deployment in a hub and spoke architecture on Azure.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 4/12/2024
+ms.date: 02/18/2025
 ms.custom: engagement-fy23
 ---
 
@@ -40,7 +40,7 @@ The architecture has the following main components:
 
 - **ExpressRoute Global Reach:** Enables the connectivity between on-premises and Azure VMware Solution private cloud. The connectivity between Azure VMware Solution and the Azure fabric is through ExpressRoute Global Reach only.
 
-- **S2S VPN considerations:** Connectivity to Azure VMware Solution private cloud using Azure S2S VPN is supported as long as it meets the [minimum network requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/preparing-for-hcx-installations/network-underlay-minimum-requirements.html) for VMware HCX.
+- **S2S VPN considerations:** Connectivity to Azure VMware Solution private cloud using Azure S2S VPN is supported as long as it meets the [minimum network requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations/network-underlay-minimum-requirements.html) for VMware HCX.
 
 - **Hub virtual network:** Acts as the central point of connectivity to your on-premises network and Azure VMware Solution private cloud.
 
