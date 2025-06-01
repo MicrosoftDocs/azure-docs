@@ -189,7 +189,7 @@ A section of the ARM deployment template provides a place for the administrator 
 
 ### Use the securestring objects
 
-Finally, the CCP utilizes the credential objects in the data connector section. 
+Finally, the CCF utilizes the credential objects in the data connector section. 
 
 ```json
 "auth": {
