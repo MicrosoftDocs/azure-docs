@@ -268,7 +268,7 @@ Each step in building the codeless connector is represented in the following exa
 - [Example custom table](#example-custom-table)
 - [Example data collection rule](#example-data-collection-rule)
 - [Example data connector UI definition](data-connector-ui-definitions-reference.md#example-data-connector-definition)
-- [Example data connection rules](data-connector-connection-rules-reference.md#example-ccp-data-connector)
+- [Example data connection rules](data-connector-connection-rules-reference.md#example-ccf-data-connector)
 - [Use example data with example template](#example-arm-template)
 
 To demonstrate a complex data source with ingestion to more than one table, this example features an output table schema and a DCR with multiple output streams. The DCR example puts these together along with its KQL transforms. The data connector UI definition and connection rules examples continue from this same example data source. Finally, the solution template uses all these example components to show end to end how to create the example CCF data connector.
@@ -451,7 +451,7 @@ This example is located in the [Data connector definitions reference](data-conne
 
 ### Example data connector connection rules
 
-This example is located in the [Data connectors reference](data-connector-connection-rules-reference.md#example-CCF-data-connector).
+This example is located in the [Data connectors reference](data-connector-connection-rules-reference.md#example-ccf-data-connector).
 
 ### Example ARM template
 

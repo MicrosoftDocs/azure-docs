@@ -23,7 +23,7 @@ The following table compares essential details about each method for creating cu
 
 |Method description  |Capability | Serverless    |Complexity  |
 |---------|---------|---------|---------|
-| **[Codeless Connector Framework (CCF)](#connect-with-the-codeless-connector-platform)** <br>Best for less technical audiences to create SaaS connectors using a configuration file instead of advanced development. | Supports all capabilities available with the code. | Yes | Low; simple, codeless development
+| **[Codeless Connector Framework (CCF)](#connect-with-the-codeless-connector-framework)** <br>Best for less technical audiences to create SaaS connectors using a configuration file instead of advanced development. | Supports all capabilities available with the code. | Yes | Low; simple, codeless development
 |**[Azure Monitor Agent](#connect-with-the-azure-monitor-agent)** <br>Best for collecting files from on-premises and IaaS sources   | File collection, data transformation  |   No      | Low         |
 |**[Logstash](#connect-with-logstash)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Supports all capabilities of the Azure Monitor Agent  |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
 |**[Logic Apps](#connect-with-logic-apps)** <br>High cost; avoid for high-volume data <br>Best for low-volume cloud sources  | Codeless programming allows for limited flexibility, without support for implementing algorithms.<br><br> If no available action already supports your requirements, creating a custom action may add complexity.    |    Yes         |   Low; simple, codeless development      |
