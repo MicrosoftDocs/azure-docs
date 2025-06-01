@@ -46,22 +46,23 @@ Register through the Azure portal by searching for "Encryption in transit for Az
 
 :::image type="content" source="./media/encryption-in-transit-nfs-shares/portal-registration-encryption-in-transit.png" alt-text="Diagram showing the Azure portal screen to test if EiT is applied." lightbox="./media/encryption-in-transit-nfs-shares/portal-registration-encryption-in-transit.png":::
 
-
 For more information, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
-
 
 ### [PowerShell](#tab/azure-powershell)
 
-Register through PowerShell using [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature)
+Register through PowerShell using [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature):
 
-
-   `Register-AzProviderFeature -FeatureName "AllowEncryptionInTransitNFS4" -ProviderNamespace "Microsoft.Storage"`
+```PowerShell
+Register-AzProviderFeature -FeatureName "AllowEncryptionInTransitNFS4" -ProviderNamespace "Microsoft.Storage"
+```
 
 ### [Azure CLI](#tab/azure-cli)
  
-Register through Azure CLI using [az feature register](/cli/azure/feature)
- 
-   `az feature register --name AllowEncryptionInTransitNFS4 --namespace Microsoft.Storage`
+Register through Azure CLI using [az feature register](/cli/azure/feature):
+
+```bash
+az feature register --name AllowEncryptionInTransitNFS4 --namespace Microsoft.Storage
+```
    
 ---
 
@@ -85,9 +86,11 @@ Follow these steps to encrypt data in transit:
 ### Step 1: Check AZNFS mount helper package installation
  
 To check if the AZNFS mount helper package is installed on your client, run the following command:
+
 ```bash
 systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS mounthelper is installed! \n"
 ```
+
 If the package is installed, you'll see the message `AZNFS mounthelper is installed!`. If it isn't installed, you'll need to use the appropriate command to install the AZNFS mount helper package on your client.
  
 ### [Ubuntu/Debian](#tab/Ubuntu)
