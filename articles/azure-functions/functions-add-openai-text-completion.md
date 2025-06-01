@@ -352,7 +352,7 @@ You need to also update the app settings in your function app to be able to conn
 
 You can add these settings in one of these ways:
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal-2)
 
 1. In your function app page, select **Settings** > **Environment variables** in the left pane.
 
