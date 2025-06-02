@@ -230,7 +230,7 @@ sections:
           1. Go to the storage account by entering the storage account's name in the search box at the top of the portal.
           2. Under the **Security + networking**, select **Networking**, then select **Firewalls and virtual networks**.
           3. In **Public network access**, select **Enabled from selected virtual networks and IP addresses**. Then under **Exceptions**, check the box next to **Allow Azure services on the trusted services list to access this storage account.** 
-          4. Enable flow logs by creating a flow log for your target resource using the storage account. For more information, see [Create a flow log](vnet-flow-logs-manage#create-a-flow-log).
+          4. Enable flow logs by creating a flow log for your target resource using the storage account. For more information, see [Create a flow log](vnet-flow-logs-manage.md#create-a-flow-log).
           
           You can check the storage logs after a few minutes. You should see an updated TimeStamp or a new JSON file created.
 
