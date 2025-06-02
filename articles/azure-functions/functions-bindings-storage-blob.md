@@ -293,7 +293,7 @@ This section describes the function app configuration settings available for fun
 - [Write blob storage data from a function](./functions-bindings-storage-blob-output.md)
 
 [core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [Microsoft.Azure.WebJobs.Extensions.Storage.Blobs NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs
 [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs
 [Microsoft.Azure.WebJobs.Extensions.Storage NuGet package, version 4.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/4.0.5
