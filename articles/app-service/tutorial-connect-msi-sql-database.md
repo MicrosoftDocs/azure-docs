@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. App Service also provides a [managed identity](overview-managed-identity.md) for your app, which is a turnkey solution for securing access to [Azure SQL](/azure/azure-sql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets, such as credentials in connection strings.
 
-This tutorial shows you how to add managed identity to a sample .NET app that has an Azure SQL backend. After you finish, your app can connect to to the Azure SQL database securely without the need for a user name and password.
+This tutorial shows you how to add managed identity to a sample .NET app that has an Azure SQL backend. After you finish, your app can connect to the Azure SQL database securely without the need for a user name and password.
 
 ![Architecture diagram for tutorial scenario.](media/tutorial-connect-msi-sql-database/architecture.png)
 
