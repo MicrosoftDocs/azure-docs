@@ -74,7 +74,7 @@ Because you're using a Queue storage output binding, you must have the Storage b
 
 ::: zone pivot="programming-language-python,programming-language-powershell,programming-language-java"
 
-Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
+Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages.
 
 Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
 
@@ -86,7 +86,7 @@ Now, you can add the storage output binding to your project.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
-Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
+Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages.
 
 Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
 
