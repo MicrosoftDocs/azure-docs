@@ -59,5 +59,5 @@ Follow these steps to connect an app to MongoDB Atlas:
 
 ## Related content
 
+- [Integrate MongoDB Atlas cluster into your application](how-to-integrate-mongodb-atlas.md)
 - [What is Service Connector](overview.md)
-- [Learn about Service Connector concepts](concept-service-connector-internals.md)

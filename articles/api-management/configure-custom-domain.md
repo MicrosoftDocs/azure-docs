@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/24/2024
+ms.date: 05/09/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -201,6 +201,14 @@ When you use the portal to configure the free, managed certificate for your cust
 You can also get a domain ownership identifier by calling the [Get Domain Ownership Identifier](/rest/api/apimanagement/current-ga/api-management-service/get-domain-ownership-identifier) REST API.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
+
+[!INCLUDE [api-management-standard-v2-limitation](../../includes/api-management-standard-v2-limitation.md)]
+
+## Troubleshooting: Hostname certificate rotation from Azure Key Vault failed
+
+Because of a configuration change or connectivity problem, your API Management instance might be unable to fetch a hostname certificate from Azure Key Vault after a certificate is updated or rotated there. When this happens, your API Management instance continues to use a cached certificate until it receives an updated certificate. If the cached certificate expires, runtime traffic to the gateway will be blocked. Any upstream service such as Application Gateway that uses the hostname certificate configuration could also block runtime traffic to the gateway when an expired cached certificate is used. 
+
+To mitigate this problem, confirm that the key vault exists, and the certificate is stored in the key vault. If your API Management instance is deployed in a virtual network, confirm outbound connectivity to the AzureKeyVault service tag. Check whether the managed identity used to access the key vault exists. Confirm the managed identity's permissions to access the key vault. Review [Set up a custom domain name - Key Vault](#set-a-custom-domain-name---portal), earlier in this article, for detailed configuration steps. After the configuration is restored, the hostname certificate will refresh in API Management within 4 hours. 
 
 ## Related content
 

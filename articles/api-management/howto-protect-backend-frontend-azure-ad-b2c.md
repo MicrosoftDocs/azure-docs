@@ -7,7 +7,7 @@ author: WillEastbury
 manager: alberts
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 05/20/2025
 ms.author: wieastbu
 ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 ---
@@ -15,6 +15,8 @@ ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 # Protect serverless APIs with Azure API Management and Azure AD B2C for consumption from a SPA
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This scenario shows you how to configure your Azure API Management instance to protect an API.
 We use the Azure AD B2C SPA (Auth Code + PKCE) flow to acquire a token, alongside API Management to secure an Azure Functions backend using EasyAuth.
@@ -459,7 +461,7 @@ The steps above can be adapted and edited to allow many different uses of Azure 
 ## Related content
 
 * Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
-* Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
+* Check out more [information](https://azure.microsoft.com/products/api-management) about API Management.
 * For other ways to secure your back-end service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
 * [Create an API Management service instance](get-started-create-service-instance.md).
 * [Manage your first API](import-and-publish.md).
