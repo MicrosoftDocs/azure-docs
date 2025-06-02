@@ -168,9 +168,8 @@ RA-GRS and RA-GZRS configurations enable applications to implement active-passiv
 
 ### Region support
 
-Azure Blob Storage geo-redundant configurations use Azure paired regions for secondary region replication. The secondary region is automatically determined based on the primary region selection and cannot be customized. Each Azure region is paired with a specific region within the same geography, ensuring data residency requirements are met.
 
-Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) are available in most Azure regions that support general-purpose v2 storage accounts. For the complete list of Azure paired regions and their availability for geo-redundant storage, see [Azure paired regions](/azure/reliability/regions-paired) and [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
+Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) are available in most  [Azure paired regions](./regions-paired.md) that support general-purpose v2 storage accounts.
 
 ### Requirements
 
