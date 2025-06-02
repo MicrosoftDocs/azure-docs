@@ -617,7 +617,7 @@ public void run(
         @BlobTrigger(
                 name = "content",
                 path = "images/{name}",
-                connection = "MyStorage") BlobClient blob,
+                connection = "AzureWebJobsStorage") BlobClient blob,
         @BindingName("name") String file,
         ExecutionContext ctx)
 {
@@ -631,11 +631,29 @@ public void run(
         @BlobTrigger(
                 name = "content",
                 path = "images/{name}",
-                connection = "MyStorage") BlobContainerClient container,
+                connection = "AzureWebJobsStorage") BlobContainerClient container,
         ExecutionContext ctx)
 {
     container.listBlobs()
             .forEach(b -> ctx.getLogger().info(b.getName()));
+}
+```
+
+**Note:** Only one SDK type can be used at a time at the moment.
+```java
+@FunctionName("checkAgainstInputBlob")
+public void run(
+        @BlobInput(
+                name = "inputBlob",
+                path = "inputContainer/input.txt") BlobClient inputBlob,
+        @BlobTrigger(
+                name = "content",
+                path = "images/{name}",
+                connection = "AzureWebJobsStorage"
+                dataType = "string") String triggerBlob,
+        ExecutionContext ctx)
+{
+    ctx.getLogger().info("Size = " + inputBlob.getProperties().getBlobSize());
 }
 ```
 
@@ -681,6 +699,7 @@ This is the **first** SDK-type preview. We plan to:
 
 Give it a try in a test function app and tell us how much faster your blob processing becomes!
 
+::: zone-end  
 
 ## host.json properties
 
