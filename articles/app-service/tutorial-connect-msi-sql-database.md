@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Access Azure data with managed identity'
+title: 'Tutorial: Access Azure web app data with managed identity'
 description: Learn how your app can use managed identity for secure access to Azure SQL Database and other Azure services without using passwords or secrets.
 author: cephalin
 ms.author: cephalin
@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 06/02/2025
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ---
-# Tutorial: Use a managed identity to connect to an Azure ASP.NET web app and Azure SQL back end
+# Tutorial: Use a managed identity to connect to an Azure web app and Azure SQL back end
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. App Service also provides a [managed identity](overview-managed-identity.md) for your app, which is a turnkey solution for securing access to [Azure SQL](/azure/azure-sql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets, such as credentials in connection strings.
 
