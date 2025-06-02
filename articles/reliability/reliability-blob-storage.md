@@ -213,16 +213,7 @@ During normal multi-region operations when both primary and secondary regions ar
 
 When a primary region becomes unavailable, Azure Blob Storage supports both Microsoft-managed and customer-managed failover scenarios:
 
-- **Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft initiates automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation.
-
-    | Aspect | Microsoft-managed failover |
-    |--------|---------------------------|
-    | **Detection and response** | Microsoft detects regional disasters and initiates failover when primary region is deemed permanently unavailable |
-    | **Notification** | Customers are notified through Azure Service Health and support communications |
-    | **Active requests** | In-flight requests to the primary region will fail during the transition period |
-    | **Expected data loss** | Some data loss is possible due to asynchronous replication lag (RPO varies) |
-    | **Expected downtime** | Several hours of downtime expected during failover process (RTO varies) |
-    | **Traffic rerouting** | Microsoft automatically updates DNS entries to point to the new primary region |
+- **Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft initiates automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation. It is recommended that you do not rely on Microsoft-managed failover for routine disaster recovery planning, as it is intended for extreme situations only.
 
 - **Customer-managed failover (unplanned)**: You can initiate manual failover for geo-redundant storage accounts when the primary region is unavailable but not necessarily permanently lost.
     
@@ -304,7 +295,9 @@ Azure Blob Storage provides multiple data protection mechanisms that complement 
 
 **Blob snapshots** create read-only point-in-time copies of blobs that can be used for backup and recovery scenarios. Snapshots are stored in the same storage account and follow the same redundancy and geo-replication settings as the base blob.
 
-For cross-region backup requirements, consider using **Azure Backup for Blobs**, which provides centralized backup management and can store backup data in different regions from the source data. This service provides operational and vaulted backup options with configurable retention policies and restore capabilities.
+For cross-region backup requirements, consider using **Azure Backup for Blobs**, which provides centralized backup management and can store backup data in different regions from the source data. This service provides operational and vaulted backup options with configurable retention policies and restore capabilities. For more information, see [Azure Backup for Blobs overview](/azure/backup/blob-backup-overview).
+
+When implementing backup strategies for Azure Blob Storage, consider the following best practices:
 
 ## Reliability during service maintenance
 
