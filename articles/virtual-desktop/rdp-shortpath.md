@@ -188,7 +188,7 @@ Where users have RDP Shortpath for both managed network and public networks is a
 The following sections contain the source, destination and protocol requirements for your session hosts and client devices that must be allowed for RDP Shortpath to work.
 
 > [!NOTE]
-> Starting **June 15**, Microsoft will begin rolling out a new TURN relay IP range, **51.5.0.0/16**, across **40 Azure regions**. This new range is **dedicated exclusively to Azure Virtual Desktop (AVD) and Windows 365 (W365)**, marking a transition away from the previously shared **20.202.0.0/16** subnet used by Azure Communication Services. The upgrade is designed to enhance RDP Shortpath for Public Networks (via TURN/Relay), delivering **faster, more reliable connectivity** for AVD and W365 users.
+> Starting June 15, Microsoft will begin rolling out a new TURN relay IP range, `51.5.0.0/16`, across 40 Azure regions. This new range is dedicated exclusively to Azure Virtual Desktop and Windows 365, marking a transition away from the previously shared 20.202.0.0/16 subnet used by Azure Communication Services. The upgrade is designed to enhance RDP Shortpath for Public Networks (via TURN/Relay), delivering faster, more reliable connectivity for users.
 
 #### Session host virtual network
 
