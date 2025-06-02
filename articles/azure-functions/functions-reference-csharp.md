@@ -53,7 +53,7 @@ FunctionsProject
 
 There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.csx) and binding configuration file (function.json).
 
-The binding extensions required in [version 2.x and later versions](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#extension-bundles). When you develop functions in the Azure portal, this registration is done for you.
+The binding extensions required in [version 2.x and later versions](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./extension-bundles.md). When you develop functions in the Azure portal, this registration is done for you.
 
 ## Binding to arguments
 
@@ -437,7 +437,7 @@ The way that both binding extension packages and other NuGet packages are added 
 
 ### [v2.x+](#tab/functionsv2)
 
-By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](functions-bindings-register.md#extension-bundles). 
+By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](extension-bundles.md). 
 
 If for some reason you can't use extension bundles in your project, you can also use the Azure Functions Core Tools to install extensions based on bindings defined in the function.json files in your app. When using Core Tools to register extensions, make sure to use the `--csx` option. To learn more, see [func extensions install](functions-core-tools-reference.md#func-extensions-install).
 
@@ -667,7 +667,7 @@ These instructions show you how to convert C# script functions (which run in-pro
     >[!TIP]
     >Conversion provides a good opportunity to update to the latest versions of your dependencies. Doing so may require additional code changes in a later step.
 
-1. Copy the contents of the original `host.json` file into the new project's `host.json` file, except for the `extensionBundles` section (compiled C# projects don't use [extension bundles](functions-bindings-register.md#extension-bundles) and you must explicitly add references to all extensions used by your functions). When merging host.json files, remember that the [`host.json`](./functions-host-json.md) schema is versioned, with most apps using version 2.0. The contents of the `extensions` section can differ based on specific versions of the binding extensions used by your functions. See individual extension reference articles to learn how to correctly configure the host.json for your specific versions.
+1. Copy the contents of the original `host.json` file into the new project's `host.json` file, except for the `extensionBundles` section (compiled C# projects don't use [extension bundles](extension-bundles.md) and you must explicitly add references to all extensions used by your functions). When merging host.json files, remember that the [`host.json`](./functions-host-json.md) schema is versioned, with most apps using version 2.0. The contents of the `extensions` section can differ based on specific versions of the binding extensions used by your functions. See individual extension reference articles to learn how to correctly configure the host.json for your specific versions.
 
 1. For any [shared files referenced by a `#load` directive](#reusing-csx-code), create a new `.cs` file for each of these shared references. It's simplest to create a new `.cs` file for each shared class definition. If there are static methods without a class, you need to define new classes for these methods. 
 
