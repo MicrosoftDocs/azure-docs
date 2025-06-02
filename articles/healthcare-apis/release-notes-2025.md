@@ -6,7 +6,7 @@ author: KendalBond007
 ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 5/14/2025
+ms.date: 5/30/2025
 ms.author: kesheth
 ms.custom: references_regions
 ---
@@ -37,13 +37,15 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **Stability improvements**: Introduced merge throttling to manage code execution waits, improving system stability under high concurrency conditions.
 
+
 **Custom error container for $import**: Added ability for users to specify the name of the container where errors encountered during $import are logged. If not specified, the default container is used. More information [here](./fhir/import-data.md).
+
 
 **Search for not referenced resources**: Added functionality to search for resources that aren't referenced by other resources. 
 
 **Improved search error handling**: Previously, a search query with too many parameters returns a 500 error without any error message. Now, if a search query has too many parameters, the FHIR server will return a 400 error with the error message: "The incoming request has too many parameters. Reduce the number of parameters and resend the request."
 
-**Search with _include and _revinclude enhancements**: Previously, searches with `_include` and `_revinclude` were limited to return a maximum of 100 items, truncating results over 100 items. That limit has been removed through the introduction of a "Related" link with the $includes operation, and a new search result parameter called `_includesCount` that allows customers to page through the `_include` and `_revinclude` items. The parameter `_includesCount` can be used to configure how many `_include` and _`revinclude` items are on each page. Its default value is 1000. Customers can use the "Related" link in the original search response, and the "Next" link in the response from the "Related" link to page through the `_include` and `_revinclude` items. More information [here](/articles/healthcare-apis/fhir/overview-of-search.md). 
+**Search with _include and _revinclude enhancements**: Previously, searches with `_include` and `_revinclude` were limited to return a maximum of 100 items, truncating results over 100 items. That limit has been removed through the introduction of a "Related" link with the $includes operation, and a new search result parameter called `_includesCount` that allows customers to page through the `_include` and `_revinclude` items. The parameter `_includesCount` can be used to configure how many `_include` and _`revinclude` items are on each page. Its default value is 1000. Customers can use the "Related" link in the original search response, and the "Next" link in the response from the "Related" link to page through the `_include` and `_revinclude` items. More information [here](./fhir/overview-of-search.md). 
 
 
 #### Bug fixes:
