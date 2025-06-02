@@ -16,9 +16,9 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          What are the RBAC permissions required to use traffic analytics?
+          What RBAC permissions are required to use Traffic Analytics?
         answer: |
-          See [Traffic analytics permissions](./required-rbac-permissions.md#traffic-analytics) for the full list of required permissions .
+          See [Traffic analytics permissions](./required-rbac-permissions.md#traffic-analytics) for the full list of required RBAC roles and permissions.
 
       - question: |
           Can I enable flow logs for resources that are in different regions than my workspace region?
