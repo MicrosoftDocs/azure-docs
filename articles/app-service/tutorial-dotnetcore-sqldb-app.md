@@ -163,7 +163,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. In **SKU**, select **Basic**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing database configuration in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-3.png" alt-text="A screenshot showing database configuration in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
