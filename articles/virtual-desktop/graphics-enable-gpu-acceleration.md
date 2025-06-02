@@ -30,9 +30,9 @@ There are three components to GPU acceleration in Azure Virtual Desktop that wor
 
 This article shows you which Azure VM sizes you can use as a session host with GPU acceleration, and how to enable GPU acceleration for rendering and encoding.
 
-## Supported GPU-optimized Azure VM sizes and Windows 365 Enterprise GPU SKUs
+## Supported GPU-optimized Azure VM sizes
 
-The following tables list which Azure VM sizes and Windows 365 Cloud PC SKUs are optimized for GPU acceleration and supported as session hosts in Azure Virtual Desktop:
+The following tables list which Azure VM sizes are optimized for GPU acceleration and supported as session hosts in Azure Virtual Desktop:
 
 | Azure VM size | GPU-accelerated application rendering | GPU-accelerated frame encoding | Full-screen video encoding |
 |--|--|--|--|
@@ -41,13 +41,7 @@ The following tables list which Azure VM sizes and Windows 365 Cloud PC SKUs are
 | [NVadsA10 v5-series](/azure/virtual-machines/nva10v5-series) | Supported | HEVC/H.265<br />AVC/H.264 | HEVC/H.265<br />AVC/H.264 |
 | [NCasT4_v3-series](/azure/virtual-machines/nct4-v3-series) | Supported | HEVC/H.265<br />AVC/H.264 | HEVC/H.265<br />AVC/H.264 |
 
-| Windows 365 Enterprise GPU | GPU-accelerated application rendering | GPU-accelerated frame encoding | Full-screen video encoding |
-|--|--|--|--|
-| Max | Supported | HEVC/H.265<br />AVC/H.264 | HEVC/H.265<br />AVC/H.264 |
-| Super | Supported | HEVC/H.265<br />AVC/H.264 | HEVC/H.265<br />AVC/H.264 |
-| Standard | Supported | AVC/H.264 | AVC/H.264 |
-
-The right choice of VM size or CPC SKU depends on many factors, including your particular application workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density. Smaller and fractional GPU sizes allow more fine-grained control over cost and quality.
+The right choice of VM size depends on many factors, including your particular application workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density. Smaller and fractional GPU sizes allow more fine-grained control over cost and quality.
 
 VM sizes with an NVIDIA GPU come with a GRID license that supports 25 concurrent users.
 
@@ -58,7 +52,7 @@ VM sizes with an NVIDIA GPU come with a GRID license that supports 25 concurrent
 
 Before you can enable GPU acceleration, you need:
 
-- An existing host pool with session hosts using a [supported GPU-optimized Azure VM size or Windows 365 Enterprise GPU](#supported-gpu-optimized-azure-vm-sizes-and-windows-365-enterprise-gpu-skus) for the graphics features you want to enable. Supported graphics drivers are listed in [Install supported graphics drivers in your session hosts](#install-supported-graphics-drivers-in-your-session-hosts).
+- An existing host pool with session hosts using a [supported GPU-optimized Azure VM size or Windows 365 Enterprise GPU](#supported-gpu-optimized-azure-vm-sizes) for the graphics features you want to enable. Supported graphics drivers are listed in [Install supported graphics drivers in your session hosts](#install-supported-graphics-drivers-in-your-session-hosts).
 
 - To configure Microsoft Intune, you need:
 
@@ -115,10 +109,10 @@ When installing drivers, here are some important guidelines:
 
 ## Enable GPU-accelerated application rendering, frame encoding, and full-screen video encoding
 
-By default, AVD remote sessions are rendered with the CPU and don't use available GPUs. You can enable GPU-accelerated application rendering, frame encoding, and full-screen video encoding using Microsoft Intune or Group Policy.  Windows 365 Enterpise GPU sessions are provisioned by default to use GPU-acclerated H.265/HEVC hardware encoding. 
+By default, Azure Virtual Desktop remote sessions are rendered with the CPU and don't use available GPUs. You can enable GPU-accelerated application rendering, frame encoding, and full-screen video encoding using Microsoft Intune or Group Policy.  
 
 > [!IMPORTANT]
-> If settings for GPU-accleration using both H.264/AVC and H.265/HEVC are enabled, H.265/HEVC will be prioritized for compatible remote sessions. 
+> If settings for GPU-acceleration using both H.264/AVC and H.265/HEVC are enabled, H.265/HEVC is prioritized for compatible remote sessions. 
 
 Select the relevant tab for your scenario.
 
