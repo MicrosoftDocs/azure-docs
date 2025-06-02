@@ -51,7 +51,7 @@ The `validate-status-code` policy validates the HTTP status codes in responses a
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) outbound, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

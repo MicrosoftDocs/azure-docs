@@ -3,7 +3,7 @@ title: Azure file share soft delete
 description: Learn about soft delete for Azure Files and how you can use it for data recovery and preventing accidental deletion of Azure file shares.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/21/2025
 ms.author: kendownie
 services: storage

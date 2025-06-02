@@ -7,7 +7,7 @@ manager: rdeltcheva
 ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/29/2025
 ---
 
@@ -64,7 +64,7 @@ Organizations should plan and design a DR strategy for their entire IT landscape
 
 ## Infrastructure components of DR solution for SAP workload
 
-An SAP workload running on Azure uses different infrastructure components to run a business solution. To plan DR for such solution, it's essential that all infrastructure components configured in the primary region are available, and can be configured in the DR region as well. Following infrastructure components should be factored in when designing DR solution for SAP workload on Azure.
+An SAP workload running on Azure uses different infrastructure components to run a business solution. To plan DR for such solution, it's essential that all infrastructure components configured in the primary region are available and can be configured in the DR region as well. Following infrastructure components should be factored in when designing DR solution for SAP workload on Azure.
 
 - Network
 - Compute

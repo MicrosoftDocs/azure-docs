@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/01/2025
+ms.date: 06/02/2025
 ms.author: cshoe
 ---
 
@@ -51,7 +51,7 @@ You can configure whether your container app allows public ingress or ingress on
 | External | Allows your container app to accept public requests. External environments are deployed with a virtual IP on an external, public facing IP address. |
 | Internal | Internal environments have no public endpoints and are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the existing VNet's list of private IP addresses. |
 
-### <a name="public-network-access"></a>Public network access (preview)
+### <a name="public-network-access"></a>Public network access
 
 The public network access setting determines whether your container apps environment is accessible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
 
@@ -64,7 +64,7 @@ In order to create private endpoints on your Azure Container App environment, pu
 
 Azure networking policies are supported with the public network access flag.
 
-## <a name="private-endpoint"></a>Private endpoint (preview)
+## <a name="private-endpoint"></a>Private endpoint
 
 Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
 
@@ -75,8 +75,8 @@ This feature is supported for both Consumption and Dedicated plans in workload p
 - Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](how-to-integrate-with-azure-front-door.md) for more information.
 
 #### Considerations
+
 - To use a private endpoint, you must disable [public network access](#public-network-access). By default, public network access is enabled, which means private endpoints are disabled.
-- Private endpoints only support inbound HTTP traffic. TCP traffic isn't supported.
 - To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
 - Your private endpoint's VNet can be separate from the VNet integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
@@ -87,7 +87,7 @@ In order to connect to your container apps through a private endpoint, you must 
 |--|--|--|
 | Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | privatelink.{regionName}.azurecontainerapps.io |
 
-You can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway. This feature is in preview.
+You can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway.
 
 ### Ingress configuration
 
@@ -113,8 +113,8 @@ For more information about different networking scenarios, see [Ingress in Azure
 |[Cross origin resource sharing (CORS)](cors.md) | Enable CORS for your container app, which allows requests made through the browser to a domain that doesn't match the page's origin. |
 |[Virtual networks](custom-virtual-networks.md) | Configure the VNet for your container app environment. |
 |[DNS](dns.md) | Configure DNS for your container app environment's VNet. |
-|[Private endpoint](how-to-use-private-endpoint.md) (preview) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
-|[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) (preview) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
+|[Private endpoint](how-to-use-private-endpoint.md) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
+|[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
 
 ## Outbound features
 
@@ -133,8 +133,8 @@ For more information about different networking scenarios, see [Ingress in Azure
 |[Enable User Defined Routes (UDR)](user-defined-routes.md) | Enable user defined routes (UDR). |
 |[Secure an existing VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
 |[Use Mutual Transport Layer Security (mTLS)](mtls.md) | Build an mTLS application in Azure Container Apps. |
-|[Use a private endpoint](how-to-use-private-endpoint.md) (preview) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
-|[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) (preview) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
+|[Use a private endpoint](how-to-use-private-endpoint.md) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
+|[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
 
 ### Environment security
 

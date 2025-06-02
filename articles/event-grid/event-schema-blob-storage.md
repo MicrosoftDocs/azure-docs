@@ -1256,7 +1256,7 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `api` | string | The operation that triggered the event. |
-| `clientRequestId` | string | a client-provided request ID for the storage API operation. This ID can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
+| `clientRequestId` | string | a client-provided request ID for the storage API operation. This ID can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
 | `requestId` | string | Service-generated request ID for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
 | `eTag` | string | The value that you can use to run operations conditionally. |
 | `contentType` | string | The content type specified for the blob. |

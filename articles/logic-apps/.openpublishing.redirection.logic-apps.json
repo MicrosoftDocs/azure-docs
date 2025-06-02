@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/create-workflow-with-trigger-or-action.md",
+            "redirect_url": "/azure/logic-apps/add-trigger-action-workflow",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/create-single-tenant-workflows-visual-studio-code.md",
             "redirect_url": "/azure/logic-apps/create-standard-workflows-visual-studio-code",
             "redirect_document_id": true
@@ -959,7 +964,7 @@
             "source_path_from_root": "/articles/connectors/connectors-create-api-github.md",
             "redirect_url": "/connectors/github",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path_from_root": "/articles/connectors/connectors-schema-migration.md",
             "redirect_url": "/azure/logic-apps/update-workflow-definition-language-schema",
@@ -994,6 +999,21 @@
             "source_path_from_root": "/articles/logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md",
             "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/create-unit-tests-standard-workflow-definitions-visual-studio-code.md",
+            "redirect_url": "/azure/logic-apps/testing-framework/create-unit-tests-standard-workflow-definitions-visual-studio-code",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/create-unit-tests-standard-workflow-runs-visual-studio-code.md",
+            "redirect_url": "/azure/logic-apps/testing-framework/create-unit-tests-standard-workflow-runs-visual-studio-code",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/test-logic-apps-mock-data-static-results.md",
+            "redirect_url": "/azure/logic-apps/testing-framework/test-logic-apps-mock-data-static-results",
+            "redirect_document_id": true
         }
     ]
 }

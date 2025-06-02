@@ -2,7 +2,7 @@
 title: What's new in documentation - Azure Virtual Desktop
 description: Learn about new and updated articles to the Azure Virtual Desktop documentation.
 ms.topic: release-notes
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 04/30/2025
 ---
@@ -33,7 +33,7 @@ Here are the highlights of documentation changes in March 2025:
 
 - Added a deprecation notice for MSIX app attach. MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date. For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
 
--  Updated [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md) to include steps on how to assign multiple personal desktops to a single user, which is available in preview. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user-preview).
+-  Updated [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md) to include steps on how to assign multiple personal desktops to a single user, which is available in preview. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).
 
 ## February 2025
 

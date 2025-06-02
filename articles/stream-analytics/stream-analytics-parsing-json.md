@@ -12,10 +12,6 @@ ms.date: 01/23/2025
 
 The Azure Stream Analytics service supports processing events in CSV, JSON, and Avro data formats. Both JSON and Avro data can be structured and contain some complex types such as nested objects (records) and arrays. 
 
->[!NOTE]
->AVRO files created by Event Hubs Capture use a specific format that requires you to use the *custom deserializer* feature. For more information, see [Read input in any format using .NET custom deserializers](./custom-deserializer-examples.md).
-
-
 
 ## Record data types
 Record data types are used to represent JSON and Avro arrays when corresponding formats are used in the input data streams. These examples demonstrate a sample sensor, which is reading input events in JSON format. Here's example of a single event:

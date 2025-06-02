@@ -2,7 +2,7 @@
 title: Drain session hosts for maintenance in Azure Virtual Desktop
 description: Learn how to enable drain mode to isolate session hosts for maintenance in Azure Virtual Desktop.
 ms.topic: how-to
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 02/23/2024
 ---

@@ -95,18 +95,20 @@ Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. 
 
 To operate properly, each self-hosted gateway needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
 
-| Description | Required for v1 | Required for v2 | Notes |
-|:------------|:---------------------|:---------------------|:------|
-| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net`<sup>1</sup> | Custom hostnames are also supported and can be used instead of the default hostname. |
-| Public IP address of the API Management instance | ✔️ | ✔️ | IP address of primary location is sufficient. |
-| Public IP addresses of Azure Storage [service tag](../virtual-network/service-tags-overview.md) | ✔️ | Optional<sup>2</sup> | IP addresses must correspond to primary location of API Management instance. |
-| Hostname of Azure Blob Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<blob-storage-account-name>.blob.core.windows.net`) |
-| Hostname of Azure Table Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
-| Endpoints for Azure Resource Manager | ✔️ | Optional<sup>3</sup> | Required endpoints are `management.azure.com`. |
-| Endpoints for Microsoft Entra integration | ✔️ | Optional<sup>4</sup> | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
-| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](/azure/azure-monitor/ip-addresses#outgoing-ports) |
-| Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
-| Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | This requirement depends on the external cache that is being used |
+
+| Endpoint | Required? | Notes |
+|:------------|:---------------------|:------|
+| Hostname of the configuration endpoint | `<apim-service-name>.configuration.azure-api.net`<sup>1</sup> | Custom hostnames are also supported and can be used instead of the default hostname. |
+| Public IP address of the API Management instance | ✔️ | IP address of primary location is sufficient. |
+| Public IP addresses of Azure Storage [service tag](../virtual-network/service-tags-overview.md) | Optional<sup>2</sup> | IP addresses must correspond to primary location of API Management instance. |
+| Hostname of Azure Blob Storage account | Optional<sup>2</sup> | Account associated with instance (`<blob-storage-account-name>.blob.core.windows.net`) |
+| Hostname of Azure Table Storage account | Optional<sup>2</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
+| Endpoints for Azure Resource Manager | Optional<sup>3</sup> | Required endpoints are `management.azure.com`. |
+| Endpoints for Microsoft Entra integration | Optional<sup>4</sup> | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
+| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>5</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](/azure/azure-monitor/ip-addresses#outgoing-ports) |
+| Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>5</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
+| Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>5</sup> | This requirement depends on the external cache that is being used |
+
 
 <sup>1</sup>For an API Management instance in an internal virtual network, see [Connectivity in an internal virtual network](#connectivity-in-internal-virtual-network).<br/>
 <sup>2</sup>Only required in v2 when API inspector or quotas are used in policies.<br/>
@@ -133,6 +135,10 @@ To authenticate the connection between the self-hosted gateway and the cloud-bas
 |---------|---------|
 | [Microsoft Entra authentication](self-hosted-gateway-enable-azure-ad.md)   | Configure one or more Microsoft Entra apps for access to gateway<br/><br/>Manage access separately per app<br/><br/>Configure longer expiry times for secrets in accordance with your organization's policies<br/><br/>Use standard Microsoft Entra procedures to assign or revoke user or group permissions to app and to rotate secrets<br/><br/>        |
 | Gateway access token (also called authentication key)    |  Token expires every 30 days at maximum and must be renewed in the containers<br/><br/>Backed by a gateway key that can be rotated independently (for example, to revoke access) <br/><br/>Regenerating gateway key invalidates all access tokens created with it        |
+
+> [!TIP]
+> See [Azure API Management as an Event Grid source](/azure/event-grid/event-schema-api-management) for information about Event Grid events that are generated by a self-hosted gateway when a gateway access token is near expiry or has expired. Use these events to ensure that deployed gateways are always able to authenticate with their associated API Management instance. 
+
 
 ### Connectivity failures
 
@@ -163,9 +169,6 @@ The following functionality found in the managed gateways is **not available** i
 
 ### Transport Layer Security (TLS)
 
-> [!IMPORTANT]
-> This overview is only applicable to the self-hosted gateway v1 & v2.
-
 #### Supported protocols
 
 The self-hosted gateway provides support for TLS v1.2 by default.
@@ -173,9 +176,6 @@ The self-hosted gateway provides support for TLS v1.2 by default.
 Customers using custom domains can enable TLS v1.0 and/or v1.1 [in the control plane](/rest/api/apimanagement/current-ga/gateway-hostname-configuration/create-or-update).
 
 #### Available cipher suites
-
-> [!IMPORTANT]
-> This overview is only applicable to the self-hosted gateway v2.
 
 The self-hosted gateway uses the following cipher suites for both client and server connections:
 

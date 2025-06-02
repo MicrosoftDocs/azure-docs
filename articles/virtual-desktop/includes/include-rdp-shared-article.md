@@ -1,5 +1,5 @@
 ---
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.topic: include
 ms.service: azure-virtual-desktop

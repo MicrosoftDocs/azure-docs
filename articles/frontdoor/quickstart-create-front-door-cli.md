@@ -14,6 +14,8 @@ ms.devlang: azurecli
 
 # Quickstart: Create an Azure Front Door (classic) using Azure CLI
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]

@@ -2,7 +2,7 @@
 title: Enroll in per-user access pricing for Azure Virtual Desktop
 description: Learn how to enroll your Azure subscription for per-user access pricing for Azure Virtual Desktop.
 ms.topic: how-to
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 01/08/2024
 ---

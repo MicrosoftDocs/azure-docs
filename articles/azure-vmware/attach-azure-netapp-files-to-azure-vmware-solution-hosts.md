@@ -79,6 +79,7 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 
 * AV36 
 * AV36P
+* AV48
 * AV52
 * AV64
 

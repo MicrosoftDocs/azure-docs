@@ -4,7 +4,7 @@ description: Learn about the physical and environmental specifications for Micro
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-fxt-edge-filer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/20/2019
 ---
 

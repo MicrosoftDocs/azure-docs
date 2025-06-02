@@ -1,10 +1,10 @@
 ---
-title: Service levels for Azure NetApp Files | Microsoft Docs
+title: Service levels for Azure NetApp Files
 description: Describes throughput performance for the service levels of Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: anfdocs
 ---
@@ -27,7 +27,7 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 
 * <a name="Flexible"></a>Flexible storage (preview):
 
-    The Flexible service level enables you to adjust throughput and size limits independently. This service level is designed for demanding applications such as Oracle or SAP HANA. You can also use the Flexible service level to create high-capacity volumes with (relatively) low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The first 128 MiB/s of throughput, known as the baseline, is included in the Flexible service level. The maximum throughput is 5 x 128 x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level. Cool access isn't currently supported with the Flexible service level. 
+    The Flexible service level enables you to adjust throughput and size limits independently. This service level is designed for demanding applications such as Oracle or SAP HANA. You can also use the Flexible service level to create high-capacity volumes with (relatively) low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The first 128 MiB/s of throughput, known as the baseline, is included in the Flexible service level. The maximum throughput is 5 x 128 MiB/second/TiB x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level. Cool access isn't currently supported with the Flexible service level. 
 
     >[!IMPORTANT]
     >The Flexible service level is only supported for new _manual QoS_ capacity pools.

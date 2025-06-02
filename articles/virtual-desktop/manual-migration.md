@@ -1,7 +1,7 @@
 ---
 title: Migrate manually from Azure Virtual Desktop (classic) - Azure
 description: How to migrate manually from Azure Virtual Desktop (classic) to Azure Virtual Desktop.
-author: ErikjeMS
+author: dougeby
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: avdcontent
