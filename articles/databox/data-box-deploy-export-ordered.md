@@ -227,7 +227,7 @@ Perform the following steps in the Azure portal to order a device.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-    ![Screen capture showing the resullts of adding a new shipping address on the Contact details tab of a Data Box export order.](media/data-box-deploy-export-ordered/azure-data-box-export-order-contact-details.png)
+    ![Screen capture showing the results of adding a new shipping address on the Contact details tab of a Data Box export order.](media/data-box-deploy-export-ordered/azure-data-box-export-order-contact-details.png)
 
 15. Select **Next: Review + Order>**. You must accept the terms and conditions to proceed with order creation.
 
