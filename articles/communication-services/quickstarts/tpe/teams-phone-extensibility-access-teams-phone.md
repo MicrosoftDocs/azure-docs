@@ -26,7 +26,7 @@ This article describes how to grant consent to a server to receive calls directe
 
 - A Microsoft Entra ID tenant with users that have a Teams license. For more information, see [Teams license requirements](../eligible-teams-licenses.md).
 
-- Users must be enabled for Teams. To enable a user for Teams, open the Microsoft 365 admin center > **Users** > **Active Users**. Then search for the affected user account. Click on **Edit** to change their details. Go to **License and Apps**, then select the drop down arrow from **Apps** and select **Enable Microsoft Teams**.
+- Users must be enabled for Teams. To enable a user for Teams, open the Microsoft 365 admin center > **Users** > **Active Users**. Then search for the affected user account. Click on **Edit** to change their details. Go to **License and Apps**, then select the drop-down arrow from **Apps** and select **Enable Microsoft Teams**.
 
 ## Provide server consent
 
