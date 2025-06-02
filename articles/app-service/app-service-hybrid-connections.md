@@ -349,6 +349,9 @@ In App Service, the *tcpping* command-line tool can be invoked from the Advanced
 
 If you have a command-line client for your endpoint, you can test connectivity from the app console. For example, you can test access to web server endpoints by using curl.
 
+> [!NOTE]
+> For questions and support specific to App Service Hybrid Connections and App Service Hybrid Connection Manager, contact [hcmsupport@service.microsoft.com](mailto:hcmsupport@service.microsoft.com).
+
 <!--Links-->
 [HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/
 [Azure portal]: https://portal.azure.com/
