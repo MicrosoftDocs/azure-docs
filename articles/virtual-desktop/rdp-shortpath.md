@@ -211,7 +211,7 @@ The following table details the source, destination and protocol requirements fo
 | TURN relay | Client network | Any | `51.5.0.0/16` | 3478 | UDP | Allow |
 
 > [!NOTE]
-> From June 15th, the traffic will progressively __be redirected__ from the current Azure Communication Service (ACS) TURN Relay range (**`20.202.0.0/16`**) to a newly designated subnet (**`51.5.0.0/16`**). While this shift is designed to be seamless, it’s essential that customers **preemptively configure bypass rules** for the new range to maintain uninterrupted service. With both IP ranges properly bypassed, end users will not experience any connectivity issues
+> From June 15th, the traffic will progressively be redirected from the current Azure Communication Service (ACS) TURN Relay range (`20.202.0.0/16`) to the newly designated subnet `51.5.0.0/16`. While this shift is designed to be seamless, it’s essential that customers preemptively configure bypass rules for the new range to maintain uninterrupted service. With both IP ranges properly bypassed, end users shouldn't experience any connectivity issues.
 
 ### Teredo support
 
