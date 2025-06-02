@@ -166,10 +166,14 @@ GRS and GZRS configurations asynchronously replicate data from the primary regio
 
 RA-GRS and RA-GZRS configurations enable applications to implement active-passive architectures by allowing read access to both the primary and secondary regions. This capability lets you direct read operations to the secondary region for improved performance, load balancing, or as a seamless fallback during primary region outages, enhancing overall application resilience and availability.
 
+Customer-managed (unplanned) failover enables you to fail over your entire geo-redundant storage account to the secondary region if the storage service endpoints for the primary region become unavailable. During failover, the original secondary region becomes the new primary region. All storage service endpoints are then redirected to the new primary region. After the storage service endpoint outage is resolved, you can perform another failover operation to fail back to the original primary region.
+
 ### Region support
 
 
 Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) are available in most  [Azure paired regions](./regions-paired.md) that support general-purpose v2 storage accounts.
+
+Customer-initiated 
 
 ### Requirements
 
@@ -227,51 +231,42 @@ During normal multi-region operations when both primary and secondary regions ar
 
 When a primary region becomes unavailable, Azure Blob Storage supports both Microsoft-managed and customer-managed failover scenarios:
 
-**Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft will initiate automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action.
+- **Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft initiates automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action.
 
-| Aspect | Microsoft-managed failover |
-|--------|---------------------------|
-| **Detection and response** | Microsoft detects regional disasters and initiates failover when primary region is deemed permanently unavailable |
-| **Notification** | Customers are notified through Azure Service Health and support communications |
-| **Active requests** | In-flight requests to the primary region will fail during the transition period |
-| **Expected data loss** | Some data loss is possible due to asynchronous replication lag (RPO varies) |
-| **Expected downtime** | Several hours of downtime expected during failover process (RTO varies) |
-| **Traffic rerouting** | Microsoft automatically updates DNS entries to point to the new primary region |
+    | Aspect | Microsoft-managed failover |
+    |--------|---------------------------|
+    | **Detection and response** | Microsoft detects regional disasters and initiates failover when primary region is deemed permanently unavailable |
+    | **Notification** | Customers are notified through Azure Service Health and support communications |
+    | **Active requests** | In-flight requests to the primary region will fail during the transition period |
+    | **Expected data loss** | Some data loss is possible due to asynchronous replication lag (RPO varies) |
+    | **Expected downtime** | Several hours of downtime expected during failover process (RTO varies) |
+    | **Traffic rerouting** | Microsoft automatically updates DNS entries to point to the new primary region |
 
-**Customer-managed failover**: Customers can initiate manual failover for geo-redundant storage accounts when the primary region is unavailable but not necessarily permanently lost.
+- **Customer-managed failover (unplanned)**: You can initiate manual failover for geo-redundant storage accounts when the primary region is unavailable but not necessarily permanently lost.
+    
+    | Aspect | Customer-managed failover |
+    |--------|--------------------------|
+    | **Detection and response** | Customer detects primary region issues and manually initiates failover through Azure portal, PowerShell, or CLI |
+    | **Notification** | Customer controls when to initiate failover and can monitor progress through Azure portal |
+    | **Active requests** | In-flight requests fail during failover; applications must retry to new primary endpoint |
+    | **Expected data loss** | Potential data loss due to asynchronous replication lag; recent writes may not be replicated |
+    | **Expected downtime** | Typically 15-60 minutes depending on account size and complexity |
+    | **Traffic rerouting** | Azure automatically updates storage account endpoints; applications may need DNS cache clearing |
 
-| Aspect | Customer-managed failover |
-|--------|--------------------------|
-| **Detection and response** | Customer detects primary region issues and manually initiates failover through Azure portal, PowerShell, or CLI |
-| **Notification** | Customer controls when to initiate failover and can monitor progress through Azure portal |
-| **Active requests** | In-flight requests fail during failover; applications must retry to new primary endpoint |
-| **Expected data loss** | Potential data loss due to asynchronous replication lag; recent writes may not be replicated |
-| **Expected downtime** | Typically 15-60 minutes depending on account size and complexity |
-| **Traffic rerouting** | Azure automatically updates storage account endpoints; applications may need DNS cache clearing |
+    For more information on initiating customer-managed failover, see [Initiate a storage account failover](/azure/storage/common/storage-initiate-account-failover) and [How customer-managed (unplanned) failover works](/azure/storage/common/storage-failover-customer-managed-unplanned).
 
-For detailed guidance on initiating customer-managed failover, see [Initiate a storage account failover](/azure/storage/common/storage-initiate-account-failover).
+- **Customer-managed failover (planned)**: For detailed guidance on initiating customer-managed planned failover, see [Customer-managed planned failover (preview)](/azure/storage/common/storage-failover-customer-managed-planned).
 
 ### Failback
 
-The failback process differs significantly between Microsoft-managed and customer-managed failover scenarios:
+The failback process differs significantly between Microsoft-managed and customer-managed failback scenarios:
 
-**Microsoft-managed failover failback**: After Microsoft-initiated failover, the failback process is also managed entirely by Microsoft. When the original primary region recovers, Microsoft evaluates the situation and may initiate failback to restore the original regional configuration. This process is automatic and requires no customer action, though customers are notified through Azure Service Health communications. The timeline for Microsoft-managed failback depends on the extent of the regional disaster and recovery efforts.
+- **Microsoft-managed failover failback**: After Microsoft-initiated failover, the failback process is also managed entirely by Microsoft. When the original primary region recovers, Microsoft evaluates the situation and may initiate failback to restore the original regional configuration. This process is automatic and requires no customer action, though customers are notified through Azure Service Health communications. The timeline for Microsoft-managed failback depends on the extent of the regional disaster and recovery efforts.
 
-**Customer-managed failover failback**: After customer-initiated failover, customers must manually initiate the failback process when the original primary region is available again. The failback process involves:
+- **Customer-managed failover failback**: For detailed guidance on initiating customer-managed unplanned failback, see [Customer-managed unplanned failover and failback process](/azure/storage/common/storage-failover-customer-managed-unplanned).
 
-1. **Verification**: Ensure the original primary region is fully operational and stable
-2. **Initiation**: Manually trigger failback through Azure portal, PowerShell, or Azure CLI
-3. **Data synchronization**: Azure re-establishes replication from the current primary (former secondary) back to the original primary region
-4. **Endpoint restoration**: DNS entries are updated to point back to the original primary region
-5. **Application testing**: Verify applications work correctly with the restored configuration
 
-Important considerations for customer-managed failback:
-- **Timing**: Plan failback during maintenance windows to minimize business impact
-- **Data loss risk**: Ensure all critical data written during the failover period is properly synchronized
-- **Application configuration**: Some applications may need endpoint updates or cache clearing
-- **Geo-redundancy restoration**: After failback, you must manually reconfigure geo-redundancy as the account becomes locally redundant (LRS) after failover
-
-For step-by-step failback procedures, see [Disaster recovery and storage account failover](/azure/storage/common/storage-disaster-recovery-guidance).
+- **Customer-managed failover (planned)**: For detailed guidance on initiating customer-managed planned failback, see [Customer-managed planned failover and failback process](/azure/storage/common/storage-failover-customer-managed-planned).
 
 ### Testing for region failures
 
