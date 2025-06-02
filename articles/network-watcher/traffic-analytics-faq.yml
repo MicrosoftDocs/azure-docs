@@ -16,7 +16,7 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          What RBAC permissions are required to use Traffic Analytics?
+          What RBAC permissions are required to use traffic analytics?
         answer: |
           See [Traffic analytics permissions](./required-rbac-permissions.md#traffic-analytics) for the full list of required RBAC roles and permissions.
 
