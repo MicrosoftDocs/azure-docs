@@ -81,6 +81,7 @@ The processed data is exposed to various business applications for reporting and
 
 To accelerate insights generation, Enterprise Insights includes prebuilt Power BI templates for Finance, Sales and Distribution, and Procurement domains. While these templates provide a general framework, organizations may need to customize them to align with specific metrics and goals. They serve as a valuable starting point for KPI definition and visualization, offering a blueprint for leveraging Enterprise Insights to drive advanced reporting on SAP data.
 
+<!-- this section to be added when the new article is created for this docset
 ## Related content
 
-- [Enterprise Insights Deployment Guide](deployment-guide.md): Step-by-step setup instructions.
+- [Enterprise Insights Deployment Guide](deployment-guide.md): Step-by-step setup instructions. -->
