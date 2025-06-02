@@ -10,11 +10,11 @@ ms.custom: engagement-fy23
 # 
 # 3rd Party Backup & Disaster Recovery Solutions for Azure VMware: Limitations, Compatibility, and Known Issues
 
-Azure VMware Solution (AVS) is a great place for partners to offer and run their solutions enabling customers to continue to apply their existing or new investments in disaster recovery, ransomware, and backup protection solutions. As each 3-P solution has unique requirements, AVS makes use of dynamic "run command" modules which require both Microsoft and Partner input to run effectively.  
+Azure VMware Solution (AVS) is a great place for partners to offer and run their solutions enabling customers to continue to apply their existing or new investments in disaster recovery, ransomware, and backup protection solutions. As each 3-P solution has unique requirements, Azure VMware Solution (AVS) makes use of dynamic "run command" modules which require both Microsoft and Partner input to run effectively.  
 
-The purpose of this page is to inform customers before making a vendor decision or as the platform evolves, inform customers of potential known issues stemming from vSphere upgrades, AVS, and Microsoft security enhancements or other technical, important to know issues.
+The purpose of this page is to inform customers about potential known issues stemming from vSphere upgrades, Azure VMware Solution, Microsoft security enhancements, and other important technical matters. This information is crucial for customers to consider before making a vendor decision and as the platform evolves.
 
-AVS currently offers [VMware Live Site Recovery](disaster-recovery-using-vmware-site-recovery-manager.md) and several 3P partner solutions.
+Azure VMware Solution (AVS) currently offers [VMware Live Site Recovery](disaster-recovery-using-vmware-site-recovery-manager.md) and several 3P partner solutions.
 
 You can find more information about their solutions in the following links:
 - [VMware Live Site Recovery](https://learn.microsoft.com/en-us/azure/azure-vmware/disaster-recovery-using-vmware-site-recovery-manager)
@@ -46,7 +46,7 @@ Customers aren't permitted to open Microsoft support tickets for partner product
 | **VMware Live Site Recovery** | Array-based replication and storage policy protection groups <br> VMware vVOLs Protection Groups<br> VMware SRM IP customization using SRM command-line tools <br> Shared Site Recovery (One-to-Many and Many-to-One topologies) <br> Custom VMware SRM plug-in identifier or extension ID <br> Encrypted VMs unsupported <br> Enhanced replication supported in Gen2 only |
 | **Zerto on AVS**  | Zerto supports version Zerto 10.0 U7 onwards <br> DNS and network configuration changes for Zerto Virtual Machine aren't supported after installation.<br> Azure resource group modifications aren't supported after Zerto installation.<br> SSH or web console access for ZVML Virtual machine is restricted.<br> Service account credentials aren't shared with customers<br> A minimum of four hosts per cluster is required.<br> Backup and Snapshot features are unavailable for ZVML VM. <br> Customers are advised to coordinate directly with Zerto for timelines any fixes|
 | **JetStream on AVS**| Requires a minimum of four hosts per cluster                                                                                  |
-| **Backup and Recovery Partners**|[AVS third Party BCDR](https://learn.microsoft.com/en-us/azure/azure-vmware/ecosystem-back-up-vms) has been tested with the cloudadmin role. AVS can't provide more than [Cloudadmin Privilege](https://learn.microsoft.com/en-us/azure/azure-vmware/architecture-identity#view-the-vcenter-server-privileges). For further support, Contact the respective BCDR partners directly|
+| **Backup and Recovery Partners**|[AVS third Party BCDR](https://learn.microsoft.com/en-us/azure/azure-vmware/ecosystem-back-up-vms) has been tested with the cloudadmin role. Azure VMware Solution (AVS) can't provide more than [Cloudadmin Privilege](https://learn.microsoft.com/en-us/azure/azure-vmware/architecture-identity#view-the-vcenter-server-privileges). For further support, Contact the respective BCDR partners directly|
 
 
 
