@@ -170,20 +170,15 @@ Customer-managed (unplanned) failover enables you to fail over your entire geo-r
 
 ### Region support
 
+Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) are available in most [Azure paired regions](./regions-paired.md) that support general-purpose v2 storage accounts.
 
-Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) are available in most  [Azure paired regions](./regions-paired.md) that support general-purpose v2 storage accounts.
+**Customer-initiated failover availability**: While geo-redundant storage configurations are widely available, customer-initiated failover options have specific regional limitations:
 
-Customer-initiated 
+- **Customer-managed unplanned failover**: Available for all geo-redundant storage accounts in regions that support GRS/RA-GRS and GZRS/RA-GZRS configurations.
 
-### Requirements
+- **Customer-managed planned failover (preview)**: Currently temporarily unavailable in all regions. Microsoft is incorporating user feedback into the preview feature and will release updated documentation with regional availability information once the feature is restored. For the most current status, see [Initiate a storage account failover](/azure/storage/common/storage-initiate-account-failover).
 
-Multi-region support requires:
 
-- **Standard general-purpose v2 storage account** - Premium storage account types do not support geo-redundant configurations
-- **Geo-redundant redundancy configuration** - Choose from GRS, RA-GRS, GZRS, or RA-GZRS
-- **Paired region availability** - Both the primary and secondary regions must support the selected redundancy configuration
-
-All blob types (block blobs, append blobs, and page blobs) support geo-redundant configurations. However, certain features may have limitations with geo-redundancy. For details about feature compatibility, see [Unsupported features and services](/azure/storage/common/storage-disaster-recovery-guidance#unsupported-features-and-services).
 
 ### Considerations
 
@@ -211,13 +206,7 @@ To implement multi-region support for Azure Blob Storage:
 
 - **Monitor**. To track replication status and monitor cross-region latency, see [Check the Last Sync Time property](/azure/storage/common/last-sync-time-get) and [Monitor Azure Blob Storage](/azure/storage/blobs/monitor-blob-storage).
 
-### Capacity planning and management
 
-Multi-region Azure Blob Storage automatically manages capacity in both primary and secondary regions. The service allocates sufficient resources in the secondary region to store replicated data and handle potential failover scenarios.
-
-During a regional failover, the secondary region becomes the new primary and must handle all read and write operations. Consider the capacity and performance characteristics of the secondary region when designing your architecture, especially for write-heavy workloads that may experience performance changes after failover.
-
-Implement data lifecycle policies to manage storage costs across both regions, as data stored in the secondary region contributes to overall storage costs. For guidance on optimizing multi-region storage costs, see [Optimize costs with lifecycle management](/azure/storage/blobs/lifecycle-management-overview).
 
 ### Normal operations
 
@@ -231,7 +220,7 @@ During normal multi-region operations when both primary and secondary regions ar
 
 When a primary region becomes unavailable, Azure Blob Storage supports both Microsoft-managed and customer-managed failover scenarios:
 
-- **Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft initiates automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action.
+- **Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft initiates automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation.
 
     | Aspect | Microsoft-managed failover |
     |--------|---------------------------|
@@ -261,12 +250,12 @@ When a primary region becomes unavailable, Azure Blob Storage supports both Micr
 
 The failback process differs significantly between Microsoft-managed and customer-managed failback scenarios:
 
-- **Microsoft-managed failover failback**: After Microsoft-initiated failover, the failback process is also managed entirely by Microsoft. When the original primary region recovers, Microsoft evaluates the situation and may initiate failback to restore the original regional configuration. This process is automatic and requires no customer action, though customers are notified through Azure Service Health communications. The timeline for Microsoft-managed failback depends on the extent of the regional disaster and recovery efforts.
+- **Microsoft-managed failback**: After Microsoft-initiated failover, the failback process is also managed entirely by Microsoft. When the original primary region recovers, Microsoft evaluates the situation and may initiate failback to restore the original regional configuration. This process is automatic and requires no customer action, though customers are notified through Azure Service Health communications. The timeline for Microsoft-managed failback depends on the extent of the regional disaster and recovery efforts.
 
-- **Customer-managed failover failback**: For detailed guidance on initiating customer-managed unplanned failback, see [Customer-managed unplanned failover and failback process](/azure/storage/common/storage-failover-customer-managed-unplanned).
+- **Customer-managed failback**: For detailed guidance on initiating customer-managed unplanned failback, see [Customer-managed unplanned failover and failback process](/azure/storage/common/storage-failover-customer-managed-unplanned).
 
 
-- **Customer-managed failover (planned)**: For detailed guidance on initiating customer-managed planned failback, see [Customer-managed planned failover and failback process](/azure/storage/common/storage-failover-customer-managed-planned).
+- **Customer-managed failback (planned)**: For detailed guidance on initiating customer-managed planned failback, see [Customer-managed planned failover and failback process](/azure/storage/common/storage-failover-customer-managed-planned).
 
 ### Testing for region failures
 
@@ -280,13 +269,29 @@ You can simulate regional failures to test your disaster recovery procedures:
 
 Implement automated monitoring and alerting to track the success of failover tests and ensure your disaster recovery procedures remain effective as your application evolves.
 
+>[!NOTE]
+>Testing for region failures should be performed in a controlled environment and during scheduled maintenance windows to minimize impact on production workloads. Always ensure you have proper backups and recovery plans in place before conducting any failover tests, as data loss and downtime can occur if the failover process is not executed correctly.
+
 ### Alternative multi-region approaches
 
-If your application requires more control over multi-region deployment than the native geo-redundant options provide, consider implementing custom multi-region architectures:
+If your application requires more control over multi-region deployment than the native geo-redundant options provide, consider implementing a custom multi-region architecture:
 
 Azure Blob Storage can be deployed in multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency.
 
 When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions. Consider using Azure services like Azure Data Factory for data orchestration, Azure Traffic Manager for DNS-based load balancing, or Azure Front Door for global load balancing.
+
+**Object replication** provides an additional option for cross-region data replication that enables asynchronous copying of block blobs between storage accounts. Unlike the built-in geo-redundant storage options that use fixed paired regions, object replication allows you to replicate data between storage accounts in any Azure regions, including non-paired regions. This approach gives you full control over source and destination regions, replication policies, and the specific containers and blob prefixes to replicate.
+
+Object replication operates at the storage account level and can be configured to replicate all blobs or specific subsets based on blob prefixes and tags. The replication is asynchronous and happens in the background, with replication times typically ranging from minutes to hours depending on blob size and network conditions. You can configure multiple replication policies and even chain replication across multiple storage accounts to create sophisticated multi-region topologies.
+
+Key benefits of object replication for multi-region scenarios include:
+- **Flexible region selection**: Replicate between any Azure regions without paired region constraints
+- **Granular control**: Choose specific containers, blob prefixes, or blobs with specific tags to replicate
+- **Multiple targets**: Configure replication to multiple destination accounts across different regions
+- **Version replication**: Support for blob versioning ensures complete data protection
+- **Cost optimization**: Pay only for the storage and transactions used, with no additional replication charges
+
+For detailed implementation guidance, see [Object replication for block blobs](/azure/storage/blobs/object-replication-overview) and [Configure object replication](/azure/storage/blobs/object-replication-configure).
 
 For example approaches that illustrate multi-region architecture patterns, see:
 
