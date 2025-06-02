@@ -225,7 +225,7 @@ sections:
       - question: |
           How do I use flow logs with a storage account behind a firewall?
         answer: |
-          To use a storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
+          To use a storage account behind a firewall, you have to allow *trusted Azure services* to access your storage account:
           
           1. Go to the storage account by entering the storage account's name in the search box at the top of the portal.
           2. Under the **Security + networking**, select **Networking**, then select **Firewalls and virtual networks**.
