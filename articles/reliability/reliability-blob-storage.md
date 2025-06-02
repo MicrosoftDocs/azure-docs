@@ -170,14 +170,7 @@ Customer-managed (unplanned) failover enables you to fail over your entire geo-r
 
 ### Region support
 
-Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) are available in most [Azure paired regions](./regions-paired.md) that support general-purpose v2 storage accounts.
-
-**Customer-initiated failover availability**: While geo-redundant storage configurations are widely available, customer-initiated failover options have specific regional limitations:
-
-- **Customer-managed unplanned failover**: Available for all geo-redundant storage accounts in regions that support GRS/RA-GRS and GZRS/RA-GZRS configurations.
-
-- **Customer-managed planned failover (preview)**: Currently temporarily unavailable in all regions. Microsoft is incorporating user feedback into the preview feature and will release updated documentation with regional availability information once the feature is restored. For the most current status, see [Initiate a storage account failover](/azure/storage/common/storage-initiate-account-failover).
-
+Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS), as well as customer initiated failover and failback are available in most [Azure paired regions](./regions-paired.md) that support general-purpose v2 storage accounts.
 
 
 ### Considerations
@@ -239,7 +232,7 @@ When a primary region becomes unavailable, Azure Blob Storage supports both Micr
     | **Notification** | Customer controls when to initiate failover and can monitor progress through Azure portal |
     | **Active requests** | In-flight requests fail during failover; applications must retry to new primary endpoint |
     | **Expected data loss** | Potential data loss due to asynchronous replication lag; recent writes may not be replicated |
-    | **Expected downtime** | Typically 15-60 minutes depending on account size and complexity |
+    | **Expected downtime** | Typically 60 minutes depending on account size and complexity |
     | **Traffic rerouting** | Azure automatically updates storage account endpoints; applications may need DNS cache clearing |
 
     For more information on initiating customer-managed failover, see [Initiate a storage account failover](/azure/storage/common/storage-initiate-account-failover) and [How customer-managed (unplanned) failover works](/azure/storage/common/storage-failover-customer-managed-unplanned).
