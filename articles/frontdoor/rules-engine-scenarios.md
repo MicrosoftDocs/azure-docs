@@ -5,25 +5,33 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 05/29/2025
+ms.date: 06/03/2025
 
 ---
 
 # Azure Front Door rules engine scenarios and configurations
 
-The Azure Front Door rules engine allows users to customize processing and routing logic on AFD edge with ease by configuring pairs of match conditions and actions. 
+The Azure Front Door rules engine allows users to easily customize processing and routing logic at the Front Door edge by configuring match condition and action pairs. 
 
-You can configure various rule [actions](front-door-rules-engine-actions.md) based on the combination of the currently supported 19 match conditions from incoming requests, to 
-1.	manage cache policy dynamically
+You can define various rule [actions](front-door-rules-engine-actions.md) based on combination of 19 supported match conditions from incoming requests. These rules allow you to:
 
-1.	forward request to different origins or versions
+1.	Manage cache policy dynamically
 
-1.	modify request or response headers to hide sensitive information or passthrough important information through headers, e.g. implementing security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, X-Frame-Options, and Access-Control-Allow-Origin headers for Cross-Origin Resource Sharing (CORS) scenarios. Security-based attributes can also be defined with cookies.
+1.	Forward requests to different origins or versions
 
-1.	rewrite to new paths or redirect requests to new destinations 
+1.	Modify request or response headers to hide sensitive information or passthrough important information through headers. For example, implementing security headers to prevent browser-based vulnerabilities like:
+    - HTTP strict-transport-security (HSTS)
+    - X-XSS-protection
+    - Content-security-policy
+    - X-frame-options
+    - Access-Control-Allow-Origin headers for cross-origin resource sharing (CORS) scenarios.
+    Security-based attributes can also be defined with cookies.
 
-1.	enable complex scenarios with few rules by using regex and server variables which capture dynamic values from incoming requests or responses and further enhances the functionality and appeal of the rules engine. Customers can combine values from different server variables and static strings to support more complex scenarios with fewer rules. We are continuously adding new features to accommodate a broader range of scenarios with greater flexibility.
-This blog intends to discuss the new capabilities Azure Front Door supported recently, supported common use cases, and the configuration of the rules engine to achieve these use cases. We will also provide ARM templates to leverage these capabilities.
+1.	Rewrite URL paths or redirect requests to new destinations
+
+1.	Enable complex scenarios using regex and server variables: capture dynamic values from incoming requests or responses, and combine them with static strings or other variables.
+
+This article covers common use cases supported by the rules engine, and how to configure these rules to meet your needs. It also includes Azure Resource Manager (ARM) template examples to help automate deployment of these capabilities.
 
 ## New capabilities
 
