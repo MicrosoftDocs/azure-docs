@@ -207,7 +207,7 @@ az networkcloud cluster update --name "clusterName" --resource-group "resourceGr
 _Example 3:_ Update a Cluster that already has a SAMI and add a UAMI. The SAMI is retained. Then assign the UAMI to the log analytics output settings (LAW).
 
 > [!CAUTION]
-> Changing the LAW settings will cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW might need to be reinstalled.
+> Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions which use the LAW might need to be reinstalled.
 
 Cluster update to add the UAMI `mUAMI`.
 
@@ -397,7 +397,7 @@ az networkcloud cluster update --name "clusterName" --resource-group "resourceGr
 _Example 2:_ Add or update the log analytics output settings (LAW) for a Cluster.
 
 > [!CAUTION]
-> Changing the LAW settings will cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW need to be reinstalled.
+> Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions which use the LAW need to be reinstalled.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
@@ -489,3 +489,15 @@ Note, `<APIVersion>` is the API version 2024-07-01 or newer.
     }
   }
   ```
+
+## Field deprecations and replacements
+
+This table is a reference for the deprecated resource fields and their replacements. All fields are found on the Cluster resource except for the Cluster Manager managed identity used for the deprecated key vault method. This list also assumes that an associated managed identity is defined on the Cluster that corresponds with the resource managed identity.
+
+`identity-resource-id` is only required when using a UAMI. It shouldn't be specified if using a SAMI for the resource.
+
+| Resource                | Deprecated Fields                                                                                                                    | Replacing Fields                                                                                                                                      | Notes                                                                                                                                                                                |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Storage Account         | N/A                                                                                                                                  | `command-output-settings`: <br> &nbsp; &nbsp; `container-url` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id`            | Deprecated Fields is N/A because the Cluster Manager storage account gets created automatically today and doesn't require user input.                                                |
+| Key Vault               | `cluster-secret-archive`: <br> &nbsp; &nbsp; `use-key-vault` <br> &nbsp; &nbsp; `key-vault-id` <br> Cluster Manager managed identity | `secret-archive-settings`: <br> &nbsp; &nbsp; `valut-uri` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id`                | `vault-uri` in `secret-archive-settings` is the URI for the Key Vault being specified versus the ARM resource ID that is specified for `key-vault-id`.                               |
+| Log Analytics Workspace | `analytics-workspace-id`                                                                                                             | `analytics-output-settings`: <br> &nbsp; &nbsp; `analytics-workspace-id` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id` | The input (LAW ARM resource ID) is the same between the deprecated `analytics-workspace-id` field and the `analytics-workspace-id` within the `analytics-output-settings` construct. |
