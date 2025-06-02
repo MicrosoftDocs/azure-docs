@@ -162,7 +162,7 @@ Azure Blob Storage provides native multi-region support through geo-redundant st
 
 GRS, GZRS, RA-GRS, and RA-GZRS require [Azure paired regions](./regions-paired.md) to provide protection against regional disasters.
 
-GRS and GZRS configurations asynchronously replicate data from the primary region to a secondary region that is hundreds of miles away. The secondary region is automatically determined based on Azure paired regions, ensuring geographic separation for disaster recovery. Data in the secondary region is always replicated using locally redundant storage (LRS), providing protection against hardware failures within the secondary region.
+GRS and GZRS configurations asynchronously replicate data from the primary region to a secondary region. The secondary region is automatically determined based on Azure paired regions, ensuring geographic separation for disaster recovery. Data in the secondary region is always replicated using locally redundant storage (LRS), providing protection against hardware failures within the secondary region.
 
 RA-GRS and RA-GZRS configurations enable applications to implement active-passive architectures by allowing read access to both the primary and secondary regions. This capability lets you direct read operations to the secondary region for improved performance, load balancing, or as a seamless fallback during primary region outages, enhancing overall application resilience and availability.
 
