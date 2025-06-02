@@ -180,7 +180,7 @@ Perform the following steps in the Azure portal to order a device.
 
     On the **Create new key** screen, choose settings for the new key version, and select **Create**.
 
-    ![Screen capture showing the options for generating a new version of an exsiting Azure Key Vault key to provide a customer-managed key in the Data Box export order's Security tab.](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
+    ![Screen capture showing the options for generating a new version of an existing Azure Key Vault key to provide a customer-managed key in the Data Box export order's Security tab.](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
 
     The **Encryption type** settings on the **Security** screen show your key vault and key.
 
