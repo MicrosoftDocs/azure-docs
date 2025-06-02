@@ -213,7 +213,6 @@ During normal multi-region operations when both primary and secondary regions ar
 
 When a primary region becomes unavailable, Azure Blob Storage supports both Microsoft-managed and customer-managed failover scenarios:
 
-- **Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft initiates automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation. It is recommended that you do not rely on Microsoft-managed failover for routine disaster recovery planning, as it is intended for extreme situations only.
 
 - **Customer-managed failover (unplanned)**: You can initiate manual failover for geo-redundant storage accounts when the primary region is unavailable but not necessarily permanently lost.
     
@@ -229,6 +228,13 @@ When a primary region becomes unavailable, Azure Blob Storage supports both Micr
     For more information on initiating customer-managed failover, see [Initiate a storage account failover](/azure/storage/common/storage-initiate-account-failover) and [How customer-managed (unplanned) failover works](/azure/storage/common/storage-failover-customer-managed-unplanned).
 
 - **Customer-managed failover (planned)**: For detailed guidance on initiating customer-managed planned failover, see [Customer-managed planned failover (preview)](/azure/storage/common/storage-failover-customer-managed-planned).
+
+
+- **Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft initiates automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation. 
+
+>[!IMPORTANT]
+Use customer-managed failover options to develop, test, and implement your disaster recovery plans. Do not rely on Microsoft-managed failover, which might only be used in extreme circumstances. A Microsoft-managed failover would be initiated for an entire physical unit, such as a region or a datacenter. It can't be initiated for individual storage accounts, subscriptions, or tenants. If you need the ability to selectively failover your individual storage accounts, use [customer-managed planned failover.](/azure/storage/common/storage-disaster-recovery-guidance).
+
 
 ### Failback
 
