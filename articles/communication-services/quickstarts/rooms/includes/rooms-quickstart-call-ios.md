@@ -20,14 +20,17 @@ To implement the code needed to join participants to a rooms call, download from
 ## Set up the project
 
 ### Creating the Xcode project
+
 In Xcode, create a new iOS project and select the Single View App template. This tutorial uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the Language to Swift and the User Interface to SwiftUI.
 
 :::image type="content" source="../../voice-video-calling/media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
 
 ### Installing CocoaPods
+
 Use this guide to [install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) on your Mac. 
 
 ### Install the package and dependencies with CocoaPods
+
 1. To create a Podfile for your application, open the terminal and navigate to the project folder and run pod init.
 
 2. Add the following code to the Podfile and save:
@@ -45,8 +48,8 @@ end
 
 4. Open the `.xcworkspace` file with Xcode.
 
-
 ### Request access to the microphone and camera
+
 To access the device's microphone and camera, you need to update your app's Information Property List with `NSMicrophoneUsageDescription` and `NSCameraUsageDescription`. Set the associated value to a string to include in the dialog the system uses to request access from the user.
 
 Right-click the `Info.plist` entry of the project tree and select Open As > Source Code. Add the following lines the top level `<dict>` section, and then save the file.
@@ -59,6 +62,7 @@ Right-click the `Info.plist` entry of the project tree and select Open As > Sour
 ```
 
 ### Set up the app framework
+
 Open your project's `ContentView.swift` file. At the top file, add an import declaration to import the `AzureCommunicationCalling` library and `AVFoundation`. Use `AVFoundation` to capture audio permission from code.
 
 ```Swift

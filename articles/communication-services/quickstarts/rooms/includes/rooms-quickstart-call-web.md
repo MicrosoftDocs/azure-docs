@@ -19,7 +19,7 @@ ms.author: t-siddiquim
 To implement the code needed to join participants to a rooms call, download from GitHub the [Room Call sample app](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/calling-rooms-quickstart).
 
 
-## Prerequisites
+## Web Prerequisites
 
 - You need to have [Node.js 18](https://nodejs.org/dist/v18.18.0/). You can use the Microsoft Installer (MSI) to install it.
 
