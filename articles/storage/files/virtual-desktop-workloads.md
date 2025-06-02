@@ -10,7 +10,7 @@ ms.author: kendownie
 
 # Azure Files guidance for virtual desktop workloads
 
-Azure Files is the recommended file storage solution for a virtual desktop environment. Azure Files is ideal for [Azure Virtual Desktop](/azure/virtual-desktop/overview) (AVD) because it provides fully managed, scalable SMB file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) for dynamic application delivery. It reduces infrastructure overhead, provides high availability, supports enterprise-grade security, and delivers consistent performance for a smooth user experience across virtual desktop sessions.
+Azure Files is the recommended file storage solution for a virtual desktop environment. Azure Files is ideal for [Azure Virtual Desktop](/azure/virtual-desktop/overview) (AVD) because it provides fully managed, scalable SMB file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) to store disk images for dynamic application delivery. It reduces infrastructure overhead, provides high availability, supports enterprise-grade security, and delivers consistent performance for a smooth user experience across virtual desktop sessions.
 
 ## Applies to
 
@@ -44,7 +44,7 @@ Azure Files offers both HDD (standard) and SSD (premium) file shares. Keep in mi
 
 Azure Files offers different billing models, including provisioned and pay-as-you-go. See [Understand Azure Files billing](understanding-billing.md).
 
-While Azure Files can support thousands of concurrent virtual desktop users from a single file share, it's critical to properly test your workloads against the size and type of file share you're using. Your requirements might vary based on number of users and profile size.
+While Azure Files can support thousands of concurrent virtual desktop users from a single file share, it's critical to properly test your workloads against the size and type of file share you're using. Your requirements will vary based on number of users and profile size.
 
 Virtual desktops with home directories can benefit from [metadata caching](smb-performance.md#metadata-caching-for-ssd-file-shares) on SSD file shares.
 
@@ -107,7 +107,7 @@ If you're using [MSIX App attach or App attach](/azure/virtual-desktop/app-attac
 
 If you're using App attach with CimFS, the disk images only consume handles on the disk image files. They don't consume handles on the root directory or the directory containing the disk image. However, because a CimFS image is a combination of the .cim file and at least two other files, for every VM mounting the disk image, you need one handle each for three files in the directory. So if you have 100 VMs, you need 300 file handles.
 
-You might run out of file handles if the number of VMs per app exceeds 2,000. In this case, use an additional Azure file share.
+You might run out of file handles if the number of VMs per app exceeds 2,000. In this case, use an additional Azure file share or [enable metadata caching for SSD file shares](smb-performance.md#register-for-the-metadata-caching-feature) and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
 #### App attach with VHD/VHDX
 
@@ -117,7 +117,9 @@ In this scenario, you could hit the per file/directory limit with 2,000 mounts o
 
 In another example, 100 VMs accessing 20 apps require 2,000 root directory handles (100 x 20 = 2,000), which is well within the 10,000 limit for root directory handles. You also need a file handle and a directory/folder handle for every VM mounting the VHD(X) image, so 200 handles in this case (100 file handles + 100 directory handles), which is comfortably below the 2,000 handle limit per file/directory.
 
-If you're hitting the limits on maximum concurrent handles for the root directory or per file/directory, use an additional Azure file share.
+If you're hitting the limits on maximum concurrent handles for the root directory, use an additional Azure file share.
+
+If you're hitting the limits on maximum concurrent handles per file/directory, use an additional Azure file share or [enable metadata caching for SSD file shares](smb-performance.md#register-for-the-metadata-caching-feature) and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
 ## Authentication and authorization
 
