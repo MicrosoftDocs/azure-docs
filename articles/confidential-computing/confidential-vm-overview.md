@@ -126,6 +126,7 @@ Confidential VMs *don't support*:
 - Accelerated Networking
 - Live migration
 - Screenshots under boot diagnostics
+- [Dynamic memory](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831766(v=ws.11))
 
 
 ## Next steps
