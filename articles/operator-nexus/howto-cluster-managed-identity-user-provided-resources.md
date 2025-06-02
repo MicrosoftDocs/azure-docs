@@ -492,33 +492,59 @@ Note, `<APIVersion>` is the API version 2024-07-01 or newer.
 
 ## Field deprecations and replacements
 
-This table is a reference for the deprecated resource fields and their replacements. All fields are found on the Cluster resource except for the Cluster Manager managed identity used for the deprecated key vault method. This list also assumes that an associated managed identity is defined on the Cluster that corresponds with the resource managed identity.
+This section is a reference for the deprecated resource fields and their replacements. All fields are found on the Cluster resource except for the Cluster Manager managed identity used for the deprecated key vault method. This list also assumes that an associated managed identity is defined on the Cluster that corresponds with the managed identity for the resource.
 
 `identity-resource-id` is only required when using a UAMI. It shouldn't be specified if using a SAMI for the resource.
 
-<table>
-  <tr>
-    <th style="width: 50px;">Resource</th>
-    <th style="width: 210px;">Deprecated Fields</th>
-    <th style="width: 210px;">Replacing Fields</th>
-    <th style="width: 150px;">Notes</th>
-  </tr>
-  <tr>
-    <td>Storage Account</td>
-    <td>N/A</td>
-    <td>`command-output-settings`: <br> &nbsp; &nbsp; `container-url` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id`</td>
-    <td>Deprecated Fields is N/A because the Cluster Manager storage account gets created automatically today and doesn't require user input.</td>
-  </tr>
-  <tr>
-    <td>Key Vault</td>
-    <td>`cluster-secret-archive`: <br> &nbsp; &nbsp; `use-key-vault` <br> &nbsp; &nbsp; `key-vault-id` <br> Cluster Manager managed identity</td>
-    <td>`secret-archive-settings`: <br> &nbsp; &nbsp; `valut-uri` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id`</td>
-    <td>`vault-uri` in `secret-archive-settings` is the URI for the Key Vault being specified versus the ARM resource ID that is specified for `key-vault-id`.</td>
-  </tr>
-  <tr>
-    <td>Log Analytics Workspace</td>
-    <td>`analytics-workspace-id`</td>
-    <td>`analytics-output-settings`: <br> &nbsp; &nbsp; `analytics-workspace-id` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id`</td>
-    <td>The input (LAW ARM resource ID) is the same between the deprecated `analytics-workspace-id` field and the `analytics-workspace-id` within the `analytics-output-settings` construct.</td>
-  </tr>
-</table>
+### Storage Account
+
+_**Deprecated Fields:**_ N/A
+
+_**Replacing Fields:**_
+
+```azurecli
+command-output-settings:
+  container-url
+  identity-type
+  identity-resource-id
+```
+
+_**Notes:**_ Deprecated Fields is N/A because the Cluster Manager storage account gets created automatically today and doesn't require user input.
+
+### Key Vault
+
+_**Deprecated Fields:**_
+
+```azurecli
+cluster-secret-archive:
+  use-key-vault
+  key-vault-id
+```
+
+Cluster Manager managed identity
+
+_**Replacing Fields:**_
+
+```azurecli
+secret-archive-settings:
+  vault-uri
+  identity-type
+  identity-resource-id
+```
+
+_**Notes:**_ `vault-uri` in `secret-archive-settings` is the URI for the Key Vault being specified versus the ARM resource ID that is specified for `key-vault-id`. The same managed identity that was specified for the Cluster Manager can be used on the Cluster.
+
+### Log Analytics Workspace
+
+_**Deprecated Fields:**_ `analytics-workspace-id`
+
+_**Replacing Fields:**_
+
+```azurecli
+analytics-output-settings:
+  analytics-workspace-id
+  identity-type
+  identity-resource-id
+```
+
+_**Notes:**_ The input format (LAW ARM resource ID) is the same between the deprecated `analytics-workspace-id` field and the `analytics-workspace-id` within `analytics-output-settings`.
