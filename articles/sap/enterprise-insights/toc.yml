@@ -1,0 +1,7 @@
+items:
+  - name: Overview
+    href: enterprise-insights-overview.md
+  - name: Concepts
+    items:
+    - name: Supported scenarios
+      href: enterprise-insights-tutorial-prerequisites.md
