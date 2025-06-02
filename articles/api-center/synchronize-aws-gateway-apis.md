@@ -4,7 +4,7 @@ description: Integrate an Amazon API Gateway to Azure API Center for automatic s
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 02/10/2025
+ms.date: 06/02/2025
 ms.author: danlep 
 ms.custom: 
   - devx-track-azurecli
