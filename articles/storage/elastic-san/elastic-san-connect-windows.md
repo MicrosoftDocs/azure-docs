@@ -84,6 +84,24 @@ Verify the number of sessions your volume has with either `iscsicli SessionList`
 #### Number of sessions
 You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
 
+You can customize the number of sessions by using the optional `-NumSession parameter` when running the `connect.ps1` script. 
+
+```bash
+.\connect.ps1 ` 
+
+  -ResourceGroupName "<resource-group>" ` 
+
+  -ElasticSanName "<esan-name>" ` 
+
+  -VolumeGroupName "<volume-group>" ` 
+
+  -VolumeName "<volume1>", "<volume2>" ` 
+
+  -NumSession “<value>”
+```
+
+**Note!** The `-NumSession` parameter accepts values from 1 to 32. If the parameter isn't specified, the default of 32 is used. 
+
 ## Next steps
 
 [Configure Elastic SAN networking](elastic-san-networking.md)
