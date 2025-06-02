@@ -72,7 +72,7 @@ The following list of capabilities is supported for scenarios where at least one
 | Accessibility  | Agent can turn on Teams closed captions  | N/A | ❌  | N/A |
 | Emergency calling  | Agent can make an emergency call | PP | ✔️  | N/A |
 | | Honor Security desk policy for emergency calls  | PP | ✔️  | N/A |
-| | Provide a static registered emergency address for Teams calling plans, Operator Connect, and Direct Routing for emergency calls | PP | ✔️  | N/A |
+| | Provide a statically registered emergency address for Teams calling plans, Operator Connect, and Direct Routing for emergency calls | PP | ✔️  | N/A |
 | Roster management  | List call participants  | PP | ✔️  | ✔️  |
 | | Adding Teams user honors Teams federation & external access configuration (tenant to tenant federation)  | N/A | ❌ | ❌ |
 | Recording  | Teams convenience and compliance recording | N/A | ❌  | ❌  |
@@ -94,15 +94,16 @@ The following list of capabilities is supported for scenarios where at least one
 | | Developers can subscribe to get API and call logs under [Azure Monitor](../../analytics/logs/voice-and-video-logs.md) | PuP | ✔️  | ✔️  |
 | | Developers can get insights about their resource usage under [Azure Communication Services Insights](../../analytics/logs/voice-and-video-logs.md)  | PuP | ✔️  | ✔️  |
 | | Developers can subscribe to receive call state and roster changes events via Event Grid: [Azure Communication Services Voice and video calling events](../../../quickstarts/voice-video-calling/handle-calling-events.md) | N/A | ❌  | ❌  |
-| Teams caller ID policies  | Replace the caller ID with Replace the caller ID with this service number (Outbound PSTN call from the Teams Resource account honors its assigned Caller ID policy in the Teams Admin Center) | GA  | ✔️  | N/A |
+| Call restrictions  | Call restriction policies assigned to the Teams Resource account are honored | PP | ✔️  | ✔️  |
+
+<!-- | Teams caller ID policies  | Replace the caller ID with Replace the caller ID with this service number (Outbound PSTN call from the Teams Resource account honors its assigned Caller ID policy in the Teams Admin Center) | GA  | ✔️  | N/A |
 | | Block incoming caller ID  | GA  | ✔️  | ✔️  |
 | | Override the caller ID policy  | GA  | ✔️  | ✔️  |
 | | Calling Party Name  | GA  | ✔️  | ✔️  |
 | | Replace the caller ID with Direct Routing or Operator Connect service number  | GA  | ✔️  | ✔️  |
 | | Replace the caller ID with Teams Phone service number | GA  | ✔️  | ✔️  |
 | Dial Plan  | Outbound PSTN call from the Teams Resource account honors its assigned Dial plan policy in the Teams Admin Center  | PP | N/A  | ✔️  |
-| | Outbound emergency call from the Teams user account honors its assigned dial plan policy in the Teams Admin center | PP | ✔️  | N/A |
-| Call restrictions  | Call restriction policies assigned to the Teams Resource account are honored | PP | ✔️  | ✔️  |
+| | Outbound emergency call from the Teams user account honors its assigned dial plan policy in the Teams Admin center | PP | ✔️  | N/A | -->
 
 - \* Participants joining via phone number can't see video content. So actions involving video don't affect them but can apply when VoIP participants join.
 
