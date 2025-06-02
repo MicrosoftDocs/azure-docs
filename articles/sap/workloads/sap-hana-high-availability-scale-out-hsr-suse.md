@@ -768,7 +768,7 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 SUSE provides two different software packages for the Pacemaker resource agent to manage SAP HANA. Software packages SAPHanaSR-ScaleOut and SAPHanaSR-angi are using slightly different syntax and parameters and aren't compatible. See [SUSE release notes](https://www.suse.com/releasenotes/x86_64/SLE-SAP/15-SP6/index.html#bsc-1210005) and [documentation](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-scaleout-perfopt-15/index.html) for details and differences between SAPHanaSR-angi and SAPHanaSR-ScaleOut. This document covers both packages in separate tabs in the respective sections.
 
 > [!WARNING]
-> Don't replace the package SAPHanaSR-ScaleOut by SAPHanaSR-angi in an already configured cluster. Upgrading from SAPHanaSR to SAPHanaSR-angi requires a specific procedure.
+> Don't replace the package SAPHanaSR-ScaleOut by SAPHanaSR-angi in an already configured cluster. Upgrading from SAPHanaSR to SAPHanaSR-angi requires a specific procedure. For more details, see SUSE's blog post [How to upgrade to SAPHanaSR-angi](https://www.suse.com/c/how-to-upgrade-to-saphanasr-angi/).
 
 1. **[A]** Install the SAP HANA high availability packages:
 
