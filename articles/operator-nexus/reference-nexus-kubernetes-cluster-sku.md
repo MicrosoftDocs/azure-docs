@@ -64,6 +64,13 @@ The general purpose and performance optimized VM SKUs can be used for both worke
 | NC_E94_448_v1 | 94   | 448          | 300             | 1.7.3, 2.0  |
 | NC_E70_336_v1 | 70   | 336          | 300             | 1.7.3, 2.0  |
 
+## Storage optimized VM SKUs
+
+| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) | Compatible Compute SKUs |
+|---------------|------|--------------|-----------------|---------------------|
+| NC_L54_224_v1 | 54   | 224          | 1638            | 1.7.3, 2.0  |
+| NC_L46_224_v1 | 46   | 224          | 1638            | 1.7.3, 2.0  |
+
 ## Next steps
 
 Try these SKUs in the Azure Operator Nexus Kubernetes cluster. For more information, see [Quickstart: Deploy an Azure Operator Nexus Kubernetes cluster](./quickstarts-kubernetes-cluster-deployment-bicep.md).
