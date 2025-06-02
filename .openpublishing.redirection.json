@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.09.18.md",
+      "redirect_url": "/articles/cyclecloud/release-notes/ccws/2024-09-18",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.11.08.md",
+      "redirect_url": "/articles/cyclecloud/release-notes/ccws/2024-11-08",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.12.18.md",
+      "redirect_url": "/articles/cyclecloud/release-notes/ccws/2024-12-18",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2025.02.06.md",
+      "redirect_url": "/articles/cyclecloud/release-notes/ccws/2025-02-06",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/edgio-retirement-faq.md",
       "redirect_url": "/previous-versions/azure/cdn/edgio-retirement-faq",
       "redirect_document_id": false
