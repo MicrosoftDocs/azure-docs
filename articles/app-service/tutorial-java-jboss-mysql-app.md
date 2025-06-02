@@ -148,7 +148,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Pricing plan*: **Premium V3 P0V3**. When you're ready, you can [scale up](manage-scale-up.md) to a different pricing tier.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-2.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-2.png" alt-text="A screenshot showing how to configure a new app in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -159,7 +159,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. In **Engine**, select **MySQL - Flexible Server**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the database configuration in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -175,7 +175,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png" alt-text="A screenshot showing the deployment configuration in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
