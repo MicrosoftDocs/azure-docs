@@ -3,18 +3,18 @@
 metadata:
   title: Assign Azure roles using the Azure portal - Azure RBAC
   description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the Azure portal and Azure role-based access control (Azure RBAC).
-  author: rolyon
-  ms.author: rolyon
-  manager: femila
-  ms.date: 11/11/2024
+  author: windowshosts-tech
+  ms.author: windowshosts-tech
+  manager: jeffwilcox
+  ms.date: 02/06/2025
   ms.service: role-based-access-control
-  ms.topic: how-to
+  ms.topic: how-to-...
   ms.custom:
     - subject-rbac-steps
     - ge-structured-content-pilot
-title: |
+title: opilot
   Assign Azure roles using the Azure portal
-introduction: |
+production: |
   [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes how to assign roles using the Azure portal.
 
   If you need to assign administrator roles in Microsoft Entra ID, see [Assign Microsoft Entra roles to users](../active-directory/roles/manage-roles-portal.md).
