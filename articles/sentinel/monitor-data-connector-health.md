@@ -85,7 +85,7 @@ The *SentinelHealth* data table is currently supported only for the following da
 - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
-- Any connector based on [Codeless Connector Platform](create-codeless-connector.md)
+- Any connector based on [Codeless Connector Framework](create-codeless-connector.md)
 
 ### Understanding SentinelHealth table events
 

@@ -721,7 +721,7 @@
     href: sentinel-solution-quality-guidance.md
   - name: Partner integrations best practices
     href: partner-integrations.md
-  - name: Creating codeless data connectors (CCP)
+  - name: Creating codeless data connectors (CCF)
     href: create-codeless-connector.md
   - name: Creating analytics rules
     href: sentinel-analytic-rules-creation.md

@@ -39,7 +39,7 @@ There are no gateway downtime requirements for any of the migration options.
 
 * When you're migrating an API Management instance that's deployed in an external or internal virtual network to availability zones, you can optionally specify a new public IP address resource. In an internal virtual network, the public IP address is used only for management operations, not for API requests. [Learn more about IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md).
 
-* Migrating to availability zones or changing the configuration of availability zones triggers a public and private [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-the-ip-addresses).
+* Migrating to availability zones or changing the configuration of availability zones triggers a public and private [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-ip-addresses).
 
 * By default, API Management sets availability zones automatically to distribute your scale [units](../api-management/upgrade-and-scale.md) and adjust to changes in zone availability in the region. If you select specific zones, make sure the scale units distribute evenly across the zones. For example, if you select two specific zones, you can configure two units, four units, or another multiple of two units. 
 

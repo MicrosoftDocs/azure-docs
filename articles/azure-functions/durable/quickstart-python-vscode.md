@@ -1,13 +1,12 @@
 ---
 title: "Quickstart: Create a Python Durable Functions app"
 description: Create and publish a Python Durable Functions app in Azure Functions by using Visual Studio Code.
-author: davidmrdavid
+author: lilyjma
 ms.topic: quickstart
-ms.date: 07/24/2024
-ms.reviewer: azfuncdf, davidmrdavid
+ms.date: 05/31/2025
+ms.reviewer: azfuncdf, lilyjma
 ms.devlang: python
 ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete, devx-track-python
-zone_pivot_groups: python-mode-functions
 ---
 
 # Quickstart: Create a Python Durable Functions app
@@ -17,6 +16,9 @@ Use Durable Functions, a feature of [Azure Functions](../functions-overview.md),
 In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
 
 :::image type="content" source="./media/quickstart-python-vscode/functions-vs-code-complete.png" alt-text="Screenshot of the running Durable Functions app in Azure.":::
+
+> [!NOTE]
+> This quickstart uses the decorator-based [v2 programming model for Python](../functions-reference-python.md). This model gives a simpler file structure and is more code-centric compared to v1.
 
 ## Prerequisites
 
@@ -30,7 +32,7 @@ To complete this quickstart, you need:
 
 * An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
 
-* An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
+* An Azure subscription for deploying app to Azure. 
 
 * [Python](https://www.python.org/) version 3.7, 3.8, 3.9, or 3.10 installed.
 
@@ -46,8 +48,6 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 2. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
-::: zone pivot="python-mode-configuration"
-
 3. At the prompts, provide the following information:
 
     | Prompt | Action | Description |
@@ -57,21 +57,6 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | **Python version** | Select **Python 3.7**, **Python 3.8**, **Python 3.9**, or **Python 3.10**. | Visual Studio Code creates a virtual environment by using the version you select. |
     | **Select a template for your project's first function** | Select **Skip for now**. | |
     | **Select how you would like to open your project** | Select **Open in current window**. | Opens Visual Studio Code in the folder you selected. |
-
-::: zone-end
-
-::: zone pivot="python-mode-decorators"
-
-3. At the prompts, provide the following information:
-
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
-    | **Select a language** | Select **Python (Programming Model V2)**. | Creates a local Python Functions project by using the V2 programming model. |
-    | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
-    | **Python version** | Select **Python 3.7**, **Python 3.8**, **Python 3.9**, or **Python 3.10**. | Visual Studio Code creates a virtual environment by using the version you select. |
-    | **Select how you would like to open your project** | Select **Open in current window**. | Opens Visual Studio Code in the folder you selected. |
-
-::: zone-end
 
 Visual Studio Code installs Azure Functions Core Tools if it's required to create a project. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
@@ -118,6 +103,9 @@ Then, in the integrated terminal where the virtual environment is activated, use
 python -m pip install -r requirements.txt
 ```
 
+> [!NOTE]
+> You must install [azure-functions-durable](https://pypi.org/project/azure-functions-durable/) v1.2.4 or above.
+
 ## Create your functions
 
 The most basic Durable Functions app has three functions:
@@ -126,102 +114,7 @@ The most basic Durable Functions app has three functions:
 * **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
 * **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
 
-::: zone pivot="python-mode-configuration"
-
-### Orchestrator function
-
-You use a template to create the Durable Functions app code in your project.
-
-1. In the command palette, enter and then select **Azure Functions: Create Function**.
-
-2. At the prompts, provide the following information:
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a Durable Functions app orchestration. |
-    | **Provide a function name** | Select **HelloOrchestrator**. | A name for your durable function. |
-
-You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/\_\_init__.py* to see the orchestrator function. Each call to `context.call_activity` invokes an activity function named `Hello`.
-
-Next, you add the referenced `Hello` activity function.
-
-### Activity function
-
-1. In the command palette, enter and then select **Azure Functions: Create Function**.
-
-2. At the prompts, provide the following information:
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
-    | **Provide a function name** | Enter **Hello**. | The name of your activity function. |
-
-You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/\_\_init__.py* to see that it takes a name as input and returns a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
-
-Finally, you add an HTTP-triggered function that starts the orchestration.
-
-### Client function (HTTP starter)
-
-1. In the command palette, enter and then select **Azure Functions: Create Function**.
-
-2. At the prompts, provide the following information:
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions HTTP starter**. | Creates an HTTP starter function. |
-    | **Provide a function name** | Enter **DurableFunctionsHttpStart**. | The name of your client function |
-    | **Authorization level** | Select **Anonymous**. | For demo purposes, this value allows the function to be called without using authentication. |
-
-You added an HTTP-triggered function that starts an orchestration. Open *DurableFunctionsHttpStart/\_\_init__.py* to see that it uses `client.start_new` to start a new orchestration. Then it uses `client.create_check_status_response` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
-
-You now have a Durable Functions app that can be run locally and deployed to Azure.
-
-::: zone-end
-
-::: zone pivot="python-mode-decorators"
-
-## Requirements
-
-Version 2 of the Python programming model requires the following minimum versions:
-
-* [Azure Functions Runtime](../functions-versions.md) v4.16+
-* [Azure Functions Core Tools](../functions-run-local.md) v4.0.5095+ (if running locally)
-* [azure-functions-durable](https://pypi.org/project/azure-functions-durable/) v1.2.4+
-
-## Enable the v2 programming model
-
-The following application setting is required to run the v2 programming model:
-
-* **Name**: `AzureWebJobsFeatureFlags`
-* **Value**: `EnableWorkerIndexing`
-
-If you're running locally by using [Azure Functions Core Tools](../functions-run-local.md), add this setting to your *local.settings.json* file. If you're running in Azure, complete these steps by using a relevant tool:
-
-# [Azure CLI](#tab/azure-cli-set-indexing-flag)
-
-Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
-
-```azurecli
-az functionapp config appsettings set --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
-```
-
-# [Azure PowerShell](#tab/azure-powershell-set-indexing-flag)
-
-Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
-
-```azurepowershell
-Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobsFeatureFlags" = "EnableWorkerIndexing"}
-```
-
-# [Visual Studio Code](#tab/vs-code-set-indexing-flag)
-
-1. Make sure that you have the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.
-2. Select F1 to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Add New Setting**.
-3. Select your subscription and function app when you are prompted.
-4. For the name, enter **AzureWebJobsFeatureFlags**, and then select Enter.
-5. For the value, enter **EnableWorkerIndexing**, and then select Enter.
-
----
+## Sample code 
 
 To create a basic Durable Functions app by using these three function types, replace the contents of *function_app.py* with the following Python code:
 
@@ -232,7 +125,7 @@ import azure.durable_functions as df
 myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 # An HTTP-triggered function with a Durable Functions client binding
-@myApp.route(route="orchestrators/{functionName}")
+@myApp.route(route="orchestrators/hello_orchestrator")
 @myApp.durable_client_input(client_name="client")
 async def http_start(req: func.HttpRequest, client):
     function_name = req.route_params.get('functionName')
@@ -264,90 +157,46 @@ Review the following table for an explanation of each function and its purpose i
 | `http_start` | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a `check status` response. |
 
 > [!NOTE]
-> Durable Functions also supports Python v2 [blueprints](../functions-reference-python.md#blueprints). To use blueprints, register your blueprint functions by using the [azure-functions-durable](https://pypi.org/project/azure-functions-durable) `Blueprint` [class](https://github.com/Azure/azure-functions-durable-python/blob/dev/samples-v2/blueprint/durable_blueprints.py). You can register the resulting blueprint as usual. You can use our [sample](https://github.com/Azure/azure-functions-durable-python/tree/dev/samples-v2/blueprint) as an example.
+> Durable Functions also supports Python v2 programming model [blueprints](../functions-reference-python.md#blueprints). To use blueprints, register your blueprint functions by using the [azure-functions-durable](https://pypi.org/project/azure-functions-durable) `Blueprint` [class](https://github.com/Azure/azure-functions-durable-python/blob/dev/samples-v2/blueprint/durable_blueprints.py). You can register the resulting blueprint as usual. You can use our [sample](https://github.com/Azure/azure-functions-durable-python/tree/dev/samples-v2/blueprint) as an example.
 
-::: zone-end
+## Configure storage emulator
+
+You can use [Azurite](../../storage/common/storage-use-azurite.md?tabs=visual-studio-code), an emulator for Azure Storage, to test the function locally. In *local.settings.json*, set the value for `AzureWebJobsStorage` to `UseDevelopmentStorage=true` like in this example:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python"
+  }
+}
+```
+
+To install and start running the Azurite extension in Visual Studio Code, in the command palette, enter **Azurite: Start** and select Enter.
+
+You can use other storage options for your Durable Functions app. For more information about storage options and benefits, see [Durable Functions storage providers](durable-functions-storage-providers.md).
 
 ## Test the function locally
 
 Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. If it isn't installed, you're prompted to install these tools the first time you start a function in Visual Studio Code.
-
-::: zone pivot="python-mode-configuration"
-
-1. To test your function, set a breakpoint in the `Hello` activity function code (in *Hello/\_\_init__.py*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
-
-   > [!NOTE]
-   > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
-
-::: zone-end
-
-::: zone pivot="python-mode-decorators"
 
 1. To test your function, set a breakpoint in the `hello` activity function code. Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
 
    > [!NOTE]
    > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
 
-::: zone-end
-
-2. Durable Functions requires an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, select **Select storage account**.
-
-    :::image type="content" source="media/quickstart-python-vscode/functions-select-storage.png" alt-text="Screenshot of how to create a storage account.":::
-
-3. At the prompts, provide the following information to create a new storage account in Azure.
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select subscription** | Select the name of your subscription. | Your Azure subscription. |
-    | **Select a storage account** | Select **Create a new storage account**. |  |
-    | **Enter the name of the new storage account** | Enter a unique name. | The name of the storage account to create. |
-    | **Select a resource group** | Enter a unique name. | The name of the resource group to create. |
-    | **Select a location** | Select an Azure region. | Select a region that is close to you. |
-
-4. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
+2. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
     :::image type="content" source="media/quickstart-python-vscode/functions-f5.png" alt-text="Screenshot of Azure local output.":::
 
-::: zone pivot="python-mode-configuration"
-
-5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
-
-   Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
-
-   The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
-
-6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. You can also continue to use your HTTP test tool to issue the GET request.
-
-    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function. It looks similar to this example:
-
-    ```json
-    {
-        "name": "HelloOrchestrator",
-        "instanceId": "9a528a9e926f4b46b7d3deaa134b7e8a",
-        "runtimeStatus": "Completed",
-        "input": null,
-        "customStatus": null,
-        "output": [
-            "Hello Tokyo!",
-            "Hello Seattle!",
-            "Hello London!"
-        ],
-        "createdTime": "2020-03-18T21:54:49Z",
-        "lastUpdatedTime": "2020-03-18T21:54:54Z"
-    }
-    ```
-
-::: zone-end
-
-::: zone pivot="python-mode-decorators"
-
-5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
+3. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
 
    Replace the last segment with the name of the orchestrator function (`hello_orchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/hello_orchestrator`.
 
    The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
-6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. You can also continue to use your HTTP test tool to issue the GET request.
+4. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. You can also continue to use your HTTP test tool to issue the GET request.
 
     The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function. It looks similar to this example:
 
@@ -368,10 +217,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
     }
     ```
 
-::: zone-end
-
-
-7. To stop debugging, in Visual Studio Code, select Shift+F5.
+5. To stop debugging, in Visual Studio Code, select Shift+F5.
 
 After you verify that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -381,21 +227,9 @@ After you verify that the function runs correctly on your local computer, it's t
 
 ## Test your function in Azure
 
-::: zone pivot="python-mode-configuration"
-
-1. Copy the URL of the HTTP trigger from the output panel. The URL that calls your HTTP-triggered function must be in this format:
-
-   `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
-
-::: zone-end
-
-::: zone pivot="python-mode-decorators"
-
 1. Copy the URL of the HTTP trigger from the output panel. The URL that calls your HTTP-triggered function must be in this format:
 
    `https://<functionappname>.azurewebsites.net/api/orchestrators/hello_orchestrator`
-
-::: zone-end
 
 2. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
 

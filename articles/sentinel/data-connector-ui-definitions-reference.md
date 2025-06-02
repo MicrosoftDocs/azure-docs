@@ -1,7 +1,7 @@
 ---
-title: Data connector definitions reference for the Codeless Connector Platform
+title: Data connector definitions reference for the Codeless Connector Framework
 titleSuffix: Microsoft Sentinel
-description: This article provides a supplemental reference for creating the connectorUIConfig JSON section for the Data Connector Definitions API as part of the Codeless Connector Platform.
+description: This article provides a supplemental reference for creating the connectorUIConfig JSON section for the Data Connector Definitions API as part of the Codeless Connector Framework.
 services: sentinel
 author: austinmccollum
 ms.topic: reference
@@ -14,9 +14,9 @@ ms.author: austinmc
 
 ---
 
-# Data connector definitions reference for the Codeless Connector Platform
+# Data connector definitions reference for the Codeless Connector Framework
 
-To create a data connector with the Codeless Connector Platform (CCP), use this document as a supplement to the [Microsoft Sentinel REST API for Data Connector Definitions](/rest/api/securityinsights/data-connector-definitions) reference docs. Specifically this reference document expands on the following section:
+To create a data connector with the Codeless Connector Framework (CCF), use this document as a supplement to the [Microsoft Sentinel REST API for Data Connector Definitions](/rest/api/securityinsights/data-connector-definitions) reference docs. Specifically this reference document expands on the following section:
 
 - `connectorUiConfig` - defines the visual elements and text displayed on the data connector page in Microsoft Sentinel.
 
@@ -45,7 +45,7 @@ For more information about the latest API version, see [Data Connector Definitio
 
 ## Request body
 
-The request body for creating a CCP data connector definition with the API has the following structure:
+The request body for creating a CCF data connector definition with the API has the following structure:
 
 ```json
 {
@@ -92,7 +92,7 @@ Each of the following elements of the `connectorUiConfig` section needed to conf
 
 | Field | Required | Type | Description |
 |---|---|---|---|
-|Type | True | String | One of the two following options: `HasDataConnectors` – this value is best for API polling data connectors such as the CCP. The connector is considered connected with at least one active connection.<br><br>`isConnectedQuery` – this value is best for other types of data connectors. The connector is considered connected when the provided query returns data. | 
+|Type | True | String | One of the two following options: `HasDataConnectors` – this value is best for API polling data connectors such as the CCF. The connector is considered connected with at least one active connection.<br><br>`isConnectedQuery` – this value is best for other types of data connectors. The connector is considered connected when the provided query returns data. | 
 |Value | True when type is `isConnectedQuery` | String | A query to determine if data is received within a certain time period. For example: `CommonSecurityLog | where DeviceVendor == \"Vectra Networks\"\n| where DeviceProduct == \"X Series\"\n  | summarize LastLogReceived = max(TimeGenerated)\n | project IsConnected = LastLogReceived > ago(7d)"` |
 
 ### dataTypes
@@ -223,7 +223,7 @@ This component requires that the `OAuth2` type is present in the [`auth` propert
 ```
 #### Textbox
 
-Here are some examples of the `Textbox` type. These examples correspond to the parameters used in the example `auth` section in [Data connectors reference for the Codeless Connector Platform](data-connector-connection-rules-reference.md#authentication-configuration). For each of the 4 types, each has `label`, `placeholder`, and `name`.
+Here are some examples of the `Textbox` type. These examples correspond to the parameters used in the example `auth` section in [Data connectors reference for the Codeless Connector Framework](data-connector-connection-rules-reference.md#authentication-configuration). For each of the 4 types, each has `label`, `placeholder`, and `name`.
 
 ```json
 "instructions": [
@@ -344,14 +344,14 @@ Some **InstallAgent** types appear as a button, others appear as a link. Here ar
 
 The following example brings together some of the components defined in this article as a JSON body format to use with the Create Or Update data connector definition API.
 
-For more examples of the `connectorUiConfig` review [other CCP data connectors](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors#codeless-connector-platform-ccp-preview--native-microsoft-sentinel-polling). Even connectors using the legacy CCP have valid examples of the UI creation.
+For more examples of the `connectorUiConfig` review [other CCF data connectors](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors#codeless-connector-platform-CCF-preview--native-microsoft-sentinel-polling). Even connectors using the legacy CCF have valid examples of the UI creation.
 
 ```json
 {
     "kind": "Customizable",
     "properties": {
         "connectorUiConfig": {
-          "title": "Example CCP Data Connector",
+          "title": "Example CCF Data Connector",
           "publisher": "My Company",
           "descriptionMarkdown": "This is an example of data connector",
           "graphQueriesTableName": "ExampleConnectorAlerts_CL",
