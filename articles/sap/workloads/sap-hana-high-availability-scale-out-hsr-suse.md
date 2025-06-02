@@ -75,7 +75,7 @@ In the presented architecture, you can deploy the HANA shared file system `/hana
 For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md).
 
 > [!IMPORTANT]
-> If deploying all HANA file systems on Azure NetApp Files, for production systems, where performance is a key, we recommend to evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).  
+> If deploying all HANA file systems on Azure NetApp Files, for production systems, where performance is a key, we recommend that you evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).  
 
 > [!WARNING]
 > Deploying `/hana/data` and `/hana/log` on NFS on Azure Files isn't supported.  
@@ -118,7 +118,7 @@ In the following instructions, it's assumed that you've already created the reso
    > [!IMPORTANT]
    >
    > * Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type.
-   > * If you choose to deploy `/hana/shared` on NFS on Azure Files, we recommend to deploy on SUSE Linux Enterprise Server (SLES) 15 SP2 and later.
+   > * If you choose to deploy `/hana/shared` on NFS on Azure Files, we recommend that you deploy on SUSE Linux Enterprise Server (SLES) 15 SP2 and later.
   
 2. Create six network interfaces, one for each HANA DB virtual machine, in the `inter` virtual network subnet (in this example, **hana-s1-db1-inter**, **hana-s1-db2-inter**, **hana-s1-db3-inter**, **hana-s2-db1-inter**, **hana-s2-db2-inter**, and **hana-s2-db3-inter**).  
 
@@ -162,12 +162,12 @@ In the following instructions, it's assumed that you've already created the reso
 
 ### Configure Azure load balancer
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of HANA database.
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps to set up standard load balancer for high availability setup of HANA database.
 
 > [!NOTE]
 >
 > * For HANA scale out, select the network interface for the `client` subnet when adding the virtual machines in the backend pool.
-> * The full set of command in Azure CLI and PowerShell adds the VMs with primary Network interface in the backend pool.
+> * The full set of commands in Azure CLI and PowerShell adds the VMs with primary Network interface in the backend pool.
 
 #### [Azure portal](#tab/lb-portal)
 
@@ -175,13 +175,13 @@ During VM configuration, you have an option to create or select exiting load bal
 
 #### [Azure CLI](#tab/lb-azurecli)
 
-The full set of Azure CLI codes display the setup of the load balancer, which include two VMs in the backend pool. Depending on the number of VMs in your HANA scale-out, you could add more VMs in the backend pool.
+The full set of Azure CLI codes display the setup of the load balancer, which includes two VMs in the backend pool. Depending on the number of VMs in your HANA scale-out, you could add more VMs in the backend pool.
 
 [!INCLUDE [Configure Azure standard load balancer using Azure CLI](../../../includes/sap-load-balancer-db-azurecli.md)]
 
 #### [PowerShell](#tab/lb-powershell)
 
-The full set of PowerShell code display the setup of the load balancer, which include two VMs in the backend pool. Depending on the number of VMs in your HANA scale-out, you could add more VMs in the backend pool.
+The full set of PowerShell code display the setup of the load balancer, which includes two VMs in the backend pool. Depending on the number of VMs in your HANA scale-out, you could add more VMs in the backend pool.
 
 [!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-db-powershell.md)]
 
@@ -770,7 +770,7 @@ SUSE provides two different software packages for the Pacemaker resource agent t
 > [!WARNING]
 > Don't replace the package SAPHanaSR-ScaleOut by SAPHanaSR-angi in an already configured cluster. Upgrading from SAPHanaSR to SAPHanaSR-angi requires a specific procedure. For more details, see SUSE's blog post [How to upgrade to SAPHanaSR-angi](https://www.suse.com/c/how-to-upgrade-to-saphanasr-angi/).
 
-1. **[A]** Install the SAP HANA high availability packages:
+- **[A]** Install the SAP HANA high availability packages:
 
 ### [SAPHanaSR-angi](#tab/saphanasr-angi)
 > [!NOTE]
@@ -1064,41 +1064,41 @@ sudo crm configure location loc_SAPHanaFilesystem_not_on_majority_maker cln_SAPH
 
 Create a dummy file system cluster resource, which will monitor and report failures, in case there's a problem accessing the NFS-mounted file system `/hana/shared`. That allows the cluster to trigger failover, in case there's a problem accessing `/hana/shared`. For more information, see [Handling failed NFS share in SUSE HA cluster for HANA system replication](https://www.suse.com/support/kb/doc/?id=000019904)
 
-   1. **[1,2]** Create the directory on the NFS mounted file system /hana/shared, which will be used in the special file system monitoring resource. The directories need to be created on both sites.
+   - **[1,2]** Create the directory on the NFS mounted file system /hana/shared, which will be used in the special file system monitoring resource. The directories need to be created on both sites.
 
-      ```bash
-      mkdir -p /hana/shared/HN1/check
-      ```
+     ```bash
+     mkdir -p /hana/shared/HN1/check
+     ```
 
-   2. **[AH]** Create the directory, which will be used to mount the special file system monitoring resource. The directory needs to be created on all HANA cluster nodes.
+   - **[AH]** Create the directory, which will be used to mount the special file system monitoring resource. The directory needs to be created on all HANA cluster nodes.
 
-      ```bash
-      mkdir -p /hana/check
-      ```
+     ```bash
+     mkdir -p /hana/check
+     ```
 
-   3. **[1]** Create the file system cluster resources.
+   - **[1]** Create the file system cluster resources.
 
-      ```bash
-      # Replace <placeholders> with your instance number and HANA system ID
+     ```bash
+     # Replace <placeholders> with your instance number and HANA system ID
 
-      crm configure primitive fs_<SID>_HDB<InstNum>_fscheck Filesystem \
-        params device="/hana/shared/<SID>/check" \
-        directory="/hana/check" fstype=nfs4 \
-        options="bind,defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock" \
-        op monitor interval=120 timeout=120 on-fail=fence \
-        op_params OCF_CHECK_LEVEL=20 \
-        op start interval=0 timeout=120 op stop interval=0 timeout=120
+     crm configure primitive fs_<SID>_HDB<InstNum>_fscheck Filesystem \
+       params device="/hana/shared/<SID>/check" \
+       directory="/hana/check" fstype=nfs4 \
+       options="bind,defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock" \
+       op monitor interval=120 timeout=120 on-fail=fence \
+       op_params OCF_CHECK_LEVEL=20 \
+       op start interval=0 timeout=120 op stop interval=0 timeout=120
 
-      crm configure clone cln_fs_<SID>_HDB<InstNum>_fscheck fs_<SID>_HDB<InstNum>_fscheck \
-        meta clone-node-max=1 interleave=true
-      # Add a location constraint to not run filesystem check on majority maker VM
-      crm configure location loc_cln_fs_<SID>_HDB<InstNum>_fscheck_not_on_mm \
-        cln_fs_<SID>_HDB<InstNum>_fscheck -inf: hana-s-mm    
-      ```
+     crm configure clone cln_fs_<SID>_HDB<InstNum>_fscheck fs_<SID>_HDB<InstNum>_fscheck \
+       meta clone-node-max=1 interleave=true
+     # Add a location constraint to not run filesystem check on majority maker VM
+     crm configure location loc_cln_fs_<SID>_HDB<InstNum>_fscheck_not_on_mm \
+       cln_fs_<SID>_HDB<InstNum>_fscheck -inf: hana-s-mm    
+     ```
 
-      `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system may remain mounted, despite being inaccessible.  
+     `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system may remain mounted, despite being inaccessible.  
 
-      `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.
+     `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.
 
 ---
 

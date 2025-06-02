@@ -50,7 +50,7 @@ Requirements for additional HSR sites are different for HANA scale-up and HANA s
 > [!NOTE]
 >
 > - Requirements in this article are only valid for a Pacemaker-enabled landscape. Without Pacemaker, SAP HANA version requirements apply for the chosen replication mode.
-> - Pacemaker and the HANA cluster resource agent manage only two sites. The additional HSR sites isn't controlled by the Pacemaker cluster.
+> - Pacemaker and the HANA cluster resource agent manage only two sites. Any additional HSR sites aren't controlled by the Pacemaker cluster.
 
 - RedHat supports one or more additional system replication sites to an SAP HANA database outside the Pacemaker cluster.
 - **HANA scale-up only**: See RedHat [support policies for RHEL HA clusters](https://access.redhat.com/articles/3397471) for details on the minimum OS, SAP HANA, and cluster resource agents version.
