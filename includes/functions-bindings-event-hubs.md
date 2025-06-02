@@ -348,7 +348,7 @@ For a reference of host.json in Azure Functions 1.x, see [host.json reference fo
 
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs
-[extension bundle]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles
+[extension bundle]: ../articles/azure-functions/extension-bundles.md
 [Update your extensions]: ../articles/azure-functions/functions-bindings-register.md
 
 [Microsoft.Azure.EventHubs]: /dotnet/api/microsoft.azure.eventhubs

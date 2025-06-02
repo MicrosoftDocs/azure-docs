@@ -72,7 +72,7 @@ For more information, see [Improve performance of enumerating files and folders 
 
 Multiple personal desktop assignment allows you to assign more than one personal desktop to a single user in a single host pool. Multiple desktops are useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments.
 
-For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user-preview).
+For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).
 
 ### Added Asia-Pacific as a data location
 
