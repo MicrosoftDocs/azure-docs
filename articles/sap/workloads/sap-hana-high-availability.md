@@ -568,7 +568,7 @@ sudo crm configure primitive rsc_SAPHanaController_<HANA SID>_HDB<instance numbe
   DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false" \
   meta priority=100
 
-sudo crm configure clone mst_SAPHanaController_<HANA SID>_HDB<instance number> rsc_SAPHanaController_<HANA SID>_HDB<instance number> \
+sudo crm configure clone msl_SAPHanaController_<HANA SID>_HDB<instance number> rsc_SAPHanaController_<HANA SID>_HDB<instance number> \
   meta clone-node-max="1" interleave="true" promotable="true"
 ```
 
@@ -640,10 +640,10 @@ sudo crm configure primitive rsc_nc_<HANA SID>_HDB<instance number> azure-lb por
 sudo crm configure group g_ip_<HANA SID>_HDB<instance number> rsc_ip_<HANA SID>_HDB<instance number> rsc_nc_<HANA SID>_HDB<instance number>
 
 sudo crm configure colocation col_saphana_ip_<HANA SID>_HDB<instance number> 4000: g_ip_<HANA SID>_HDB<instance number>:Started \
-  mst_SAPHanaController_<HANA SID>_HDB<instance number>:Promoted  
+  msl_SAPHanaController_<HANA SID>_HDB<instance number>:Promoted  
 
 sudo crm configure order ord_SAPHana_<HANA SID>_HDB<instance number> Optional: cln_SAPHanaTopology_<HANA SID>_HDB<instance number> \
-  mst_SAPHanaController_<HANA SID>_HDB<instance number>
+  msl_SAPHanaController_<HANA SID>_HDB<instance number>
 
 # Clean up the HANA resources. The HANA resources might have failed because of a known issue.
 sudo crm resource cleanup rsc_SAPHanaController_<HANA SID>_HDB<instance number>
@@ -781,7 +781,7 @@ crm configure primitive rsc_secnc_<HANA SID>_HDB<instance number> azure-lb port=
 crm configure group g_secip_<HANA SID>_HDB<instance number> rsc_secip_<HANA SID>_HDB<instance number> rsc_secnc_<HANA SID>_HDB<instance number>
 
 crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000: g_secip_<HANA SID>_HDB<instance number>:Started \
- mst_SAPHanaController_<HANA SID>_HDB<instance number>:Unpromoted 
+ msl_SAPHanaController_<HANA SID>_HDB<instance number>:Unpromoted 
 
 crm configure property maintenance-mode=false
 ```
@@ -867,7 +867,7 @@ global 0.130728.2 1    SITE1 -   HN1 ScaleUp
 
 Resource                      promotable
 -----------------------------------------
-mst_SAPHanaController_HN1_HDB03      true
+msl_SAPHanaController_HN1_HDB03      true
 cln_SAPHanaTopology_HN1_HDB03
 
 Site        lpt        lss mns      opMode    srHook srMode srPoll srr
