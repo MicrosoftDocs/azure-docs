@@ -15,12 +15,12 @@ There are three components to GPU acceleration in Azure Virtual Desktop that wor
 
 - **GPU-accelerated application rendering**: Use the GPU to render graphics in a remote session.
 
-- **GPU-accelerated remote frame encoding**: The Remote Desktop Protocol encodes all graphics rendered for transmission to the local device. GPU-accelerated remote frame encoding uses the GPU to encode the the rendered graphics frames to provide higher frame rates and better user experiences, although this feature may consume more network bandiwdth and both session host and client resources.  This beenfits applications such as 3D modeling, CAD/CAM, or video playback and editing.  You can choose to encode with:
+- **GPU-accelerated remote frame encoding**: The Remote Desktop Protocol encodes all graphics rendered for transmission to the local device. GPU-accelerated remote frame encoding uses the GPU to encode the rendered graphics frames to provide higher frame rates and better user experiences, although this feature may consume more network bandwidth and both session host and client resources.  This benefits applications such as 3D modeling, CAD/CAM, or video playback and editing.  You can choose to encode with:
    - AVC/H.264
    - Hight Efficiency Video Coding (HEVC), also known as H.265.  This allows for 25-50% better data compression compared to AVC/H.264, at the same video quality or improved quality at the same bitrate.
 
 > [!NOTE]
-> - If you enable both HEVC/H.265 and AVC/H.264 hardware acceleration, but the HEVC/H.265 codec isn't available on the local device or your environment does not meet the prequisites for HEVC/H.265, AVC/H.264 is used instead.
+> - If you enable both HEVC/H.265 and AVC/H.264 hardware acceleration, but the HEVC/H.265 codec isn't available on the local device or your environment does not meet the prerequisites for HEVC/H.265, AVC/H.264 is used instead.
 >
 > - You can enable full-screen video encoding with AVC/H.264 even without GPU acceleration, but HEVC/H.265 requires a compatible GPU-enabled remote virtual machine.
 >
