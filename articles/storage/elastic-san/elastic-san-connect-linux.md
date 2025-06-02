@@ -85,6 +85,28 @@ You can verify the number of sessions using `sudo multipath -ll`
 #### Number of sessions
 You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits.
 
+You can customize the session count by following the instructions below:  
+
+The script accepts the `--num-of-sessions` argument, allowing you to define the number of sessions per volume. 
+
+```bash
+python3 connect_for_documentation.py \ 
+
+--subscription <your-subscription-id>\ 
+
+-g <resource-group>\ 
+
+-e <elastic-san-name>\ 
+
+-v <volume-group-name>\ 
+
+-n volume1 volume2 \ 
+
+-s <value>
+```
+
+**Note!** Valid values for `-n` range from 1 to 32. If not specified, the default of 32 sessions is used. 
+
 ## Next steps
 
 [Configure Elastic SAN networking](elastic-san-networking.md)
