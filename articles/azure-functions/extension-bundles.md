@@ -73,14 +73,14 @@ Keep these considerations in mind when choosing to use a non-GA extension bundle
 
 Major version releases of extension bundles can occur when there are breaking changes or updates in the dependencies of the underlying binding extensions. These breaking changes, often introduced in Azure SDKs, require updates to the bundle to remain compatible.   
 
-The support cycle of a GA extension bundle follows these phases:
+The support cycle of a GA extension bundle follows these distinct phases:
 
 | Phase | Description |
 | ----- | ----- |  
-| Active | This phase is for the latest GA extension bundle version, which is the recommended version for your function apps. Bundle versions remain active for at least 12 months after being declared GA. |
+| Active | The most recent major version of extension bundles is considered the active version and is recommended for your function apps. |
 | Notification| Microsoft provides advanced notice before retiring an extension bundle or binding extension version. When you receive such a notification, you should begin planning to upgrade your function apps to a latest supported extension bundle version. This upgrade ensures that your apps continue to access new features, performance improvements, and support. |
-| Deprecation phase | When a new major extension bundle version becomes generally available, the previous version enters a 12-month deprecation phase. This overlap period gives you time to plan, test, and upgrade your apps before the previous version is retired. | 
-| Retirement phase | After the retirement of an extension bundle or binding extension version, function apps that use retired versions can still be created and deployed and continue to run on the platform. However, your function apps aren’t eligible for new features, security patches, and performance optimizations until you upgrade them to use a supported extension bundle version. You must upgrade your functions apps to a supported bundle version before you can receive support.|
+| Deprecation | When a new major extension bundle version becomes generally available, the previous version enters a 12-month deprecation phase. This overlap period gives you time to plan, test, and upgrade your apps before the previous version is retired. | 
+| Retirement | After the retirement of an extension bundle, function apps that reference that specific version aren’t eligible for new features, security patches, and performance optimizations. Function apps that use retired versions can still be created and deployed and are permitted to run on the platform. However, you must upgrade your functions app to a supported bundle version before you can receive support.|
 
 You can view the extension bundle versions and their included extensions in the [Azure Functions Extension Bundles GitHub repo](https://github.com/Azure/azure-functions-extension-bundles/releases). Individual .NET packages are found on [https://nuget.org](https://nuget.org). 
 
