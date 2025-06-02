@@ -501,3 +501,30 @@ This table is a reference for the deprecated resource fields and their replaceme
 | Storage Account         | N/A                                                                                                                                  | `command-output-settings`: <br> &nbsp; &nbsp; `container-url` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id`            | Deprecated Fields is N/A because the Cluster Manager storage account gets created automatically today and doesn't require user input.                                                |
 | Key Vault               | `cluster-secret-archive`: <br> &nbsp; &nbsp; `use-key-vault` <br> &nbsp; &nbsp; `key-vault-id` <br> Cluster Manager managed identity | `secret-archive-settings`: <br> &nbsp; &nbsp; `valut-uri` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id`                | `vault-uri` in `secret-archive-settings` is the URI for the Key Vault being specified versus the ARM resource ID that is specified for `key-vault-id`.                               |
 | Log Analytics Workspace | `analytics-workspace-id`                                                                                                             | `analytics-output-settings`: <br> &nbsp; &nbsp; `analytics-workspace-id` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id` | The input (LAW ARM resource ID) is the same between the deprecated `analytics-workspace-id` field and the `analytics-workspace-id` within the `analytics-output-settings` construct. |
+
+<table>
+  <tr>
+    <th style="width: 50px;">Resource</th>
+    <th style="width: 210px;">Deprecated Fields</th>
+    <th style="width: 210px;">Replacing Fields</th>
+    <th style="width: 150px;">Notes</th>
+  </tr>
+  <tr>
+    <td>Storage Account</td>
+    <td>N/A</td>
+    <td>`command-output-settings`: <br> &nbsp; &nbsp; `container-url` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id`</td>
+    <td>Deprecated Fields is N/A because the Cluster Manager storage account gets created automatically today and doesn't require user input.</td>
+  </tr>
+  <tr>
+    <td>Key Vault</td>
+    <td>`cluster-secret-archive`: <br> &nbsp; &nbsp; `use-key-vault` <br> &nbsp; &nbsp; `key-vault-id` <br> Cluster Manager managed identity</td>
+    <td>`secret-archive-settings`: <br> &nbsp; &nbsp; `valut-uri` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id`</td>
+    <td>`vault-uri` in `secret-archive-settings` is the URI for the Key Vault being specified versus the ARM resource ID that is specified for `key-vault-id`.</td>
+  </tr>
+  <tr>
+    <td>Log Analytics Workspace</td>
+    <td>`analytics-workspace-id`</td>
+    <td>`analytics-output-settings`: <br> &nbsp; &nbsp; `analytics-workspace-id` <br> &nbsp; &nbsp; `identity-type` <br> &nbsp; &nbsp; `identity-resource-id`</td>
+    <td>The input (LAW ARM resource ID) is the same between the deprecated `analytics-workspace-id` field and the `analytics-workspace-id` within the `analytics-output-settings` construct.</td>
+  </tr>
+</table>
