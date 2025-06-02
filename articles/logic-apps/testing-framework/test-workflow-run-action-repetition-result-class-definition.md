@@ -19,26 +19,26 @@ The unit test flow run repetition action result. This class extends TestWorkflow
 
 ```C#
 // Create repetition result for a For each action
-var iterationItem = new [TestIterationItem](test-iteration-item-class-definition.md)
+var iterationItem = new TestIterationItem
 {
     Index = 2,
     Item = JToken.Parse(@"{""productId"": ""P123"", ""quantity"": 5}")
 };
 
-var repetitionResult = new [TestWorkflowRunActionRepetitionResult](test-workflow-run-action-repetition-result-class-definition.md)
+var repetitionResult = new TestWorkflowRunActionRepetitionResult
 {
     Name = "ProcessOrderItem",
-    Status = [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded,
+    Status = TestWorkflowStatus.Succeeded,
     Inputs = JToken.Parse(@"{""itemData"": {""productId"": ""P123"", ""quantity"": 5}}"),
     Outputs = JToken.Parse(@"{""processedItem"": {""id"": ""P123"", ""totalPrice"": 149.95}}"),
     IterationItem = iterationItem
 };
 
 // Use in parent action result
-var forEachResult = new [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md)
+var forEachResult = new TestWorkflowRunActionResult
 {
     Name = "ProcessAllItems",
-    Status = [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded,
+    Status = TestWorkflowStatus.Succeeded,
     Repetitions = new[] { repetitionResult }
 };
 

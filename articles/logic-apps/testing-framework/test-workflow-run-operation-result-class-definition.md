@@ -23,10 +23,10 @@ The unit test flow run operation result. This abstract base class represents the
 // - TestWorkflowRunActionResult (for actions)
 
 // Example of accessing common properties through derived class
-var actionResult = new [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md)
+var actionResult = new TestWorkflowRunActionResult
 {
     Name = "HttpAction",
-    Status = [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded,
+    Status = TestWorkflowStatus.Succeeded,
     Code = "200",
     Inputs = JToken.Parse(@"{""method"": ""GET"", ""uri"": ""https://api.example.com/data""}"),
     Outputs = JToken.Parse(@"{""statusCode"": 200, ""body"": {""result"": ""success""}}"),
@@ -34,12 +34,12 @@ var actionResult = new [TestWorkflowRunActionResult](test-workflow-run-action-re
 };
 
 // Example with error
-var failedAction = new [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md)
+var failedAction = new TestWorkflowRunActionResult
 {
     Name = "DatabaseAction",
-    Status = [TestWorkflowStatus](test-workflow-status-enum-definition.md).Failed,
+    Status = TestWorkflowStatus.Failed,
     Code = "500",    Inputs = JToken.Parse(@"{""query"": ""SELECT * FROM users""}"),
-    Error = new [TestErrorInfo](test-error-info-class-definition.md)(
+    Error = new TestErrorInfo(
         ErrorResponseCode.InternalServerError,
         "Database connection failed"
     )

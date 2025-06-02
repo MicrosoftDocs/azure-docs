@@ -42,9 +42,9 @@ var complexError = new TestErrorInfo(
 );
 
 // Error with additional information
-var additionalInfo = new [TestErrorResponseAdditionalInfo](test-error-response-additional-info-class-definition.md)[]
+var additionalInfo = new TestErrorResponseAdditionalInfo[]
 {
-    new [TestErrorResponseAdditionalInfo](test-error-response-additional-info-class-definition.md)
+    new TestErrorResponseAdditionalInfo
     {
         Type = "RequestId",
         Info = JToken.FromObject("req-12345")

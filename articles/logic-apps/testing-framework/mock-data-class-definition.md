@@ -19,8 +19,8 @@ Represents the generic mock data for any operation in a workflow. This internal 
 
 ```C#
 // Create a successful mock with outputs
-var successMock = new [MockData](mock-data-class-definition.md)(
-    [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded,
+var successMock = new MockData(
+    TestWorkflowStatus.Succeeded,
     JToken.Parse(@"{
         ""statusCode"": 200,
         ""responseBody"": {
@@ -31,17 +31,17 @@ var successMock = new [MockData](mock-data-class-definition.md)(
 );
 
 // Create a failed mock with error information
-var errorMock = new [MockData](mock-data-class-definition.md)(
-    [TestWorkflowStatus](test-workflow-status-enum-definition.md).Failed,
+var errorMock = new MockData(
+    TestWorkflowStatus.Failed,
     null,
-    new [TestErrorInfo](test-error-info-class-definition.md)(
+    new TestErrorInfo(
         ErrorResponseCode.ConnectionError,
         "Failed to connect to the service endpoint"
     )
 );
 
 // Create a skipped mock
-var skippedMock = new [MockData](mock-data-class-definition.md)([TestWorkflowStatus](test-workflow-status-enum-definition.md).Skipped);
+var skippedMock = new MockData(TestWorkflowStatus.Skipped);
 
 // Access mock data properties
 var status = successMock.Status;
@@ -68,7 +68,7 @@ public MockData(TestWorkflowStatus status, JToken outputs = null, TestErrorInfo 
 ```C#
 // Example: Creating a mock data object with successful status and outputs
 var outputs = JToken.Parse(@"{""result"": ""success"", ""timestamp"": ""2025-06-02T10:00:00Z""}");
-var mockData = new [MockData](mock-data-class-definition.md)([TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded, outputs);
+var mockData = new MockData(TestWorkflowStatus.Succeeded, outputs);
 ```
 
 ## Properties

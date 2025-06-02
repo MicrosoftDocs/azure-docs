@@ -36,8 +36,8 @@ var executor = new UnitTestExecutor(
 // Execute workflow with test mocks
 var testMock = new TestMockDefinition
 {
-    TriggerMock = new [TriggerMock](trigger-mock-class-definition.md) { /* trigger configuration */ },
-    ActionMocks = new List<[ActionMock](action-mock-class-definition.md)> { /* action mocks */ }
+    TriggerMock = new TriggerMock { /* trigger configuration */ },
+    ActionMocks = new List<ActionMock> { /* action mocks */ }
 };
 
 var result = await executor.RunWorkflowAsync(testMock);
@@ -95,14 +95,14 @@ Executes a workflow using the given configuration files with the specified trigg
 
 #### Returns
 
-`Task<[TestWorkflowRun](test-workflow-run-class-definition.md)>` - A task representing the asynchronous operation that returns the workflow run result.
+`Task<TestWorkflowRun>` - A task representing the asynchronous operation that returns the workflow run result.
 
 #### Example
 
 ```csharp
 var testMock = new TestMockDefinition
 {
-    TriggerMock = new [TriggerMock](trigger-mock-class-definition.md)
+    TriggerMock = new TriggerMock
     {
         Kind = "Http",
         Outputs = new
@@ -111,9 +111,9 @@ var testMock = new TestMockDefinition
             statusCode = 200
         }
     },
-    ActionMocks = new List<[ActionMock](action-mock-class-definition.md)>
+    ActionMocks = new List<ActionMock>
     {
-        new [ActionMock](action-mock-class-definition.md)
+        new ActionMock
         {
             ActionName = "Send_an_email",
             Kind = "Office365Outlook",

@@ -19,25 +19,25 @@ The unit test flow run action result. This class extends TestWorkflowRunOperatio
 
 ```C#
 // Simple action result
-var simpleAction = new [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md)
+var simpleAction = new TestWorkflowRunActionResult
 {
     Name = "SendEmail",
-    Status = [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded,
+    Status = TestWorkflowStatus.Succeeded,
     Inputs = JToken.Parse(@"{""to"": ""user@example.com"", ""subject"": ""Test""}"),
     Outputs = JToken.Parse(@"{""messageId"": ""msg-123""}")
 };
 
 // Action with child actions (e.g., Scope or Condition)
-var childAction1 = new [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md)
+var childAction1 = new TestWorkflowRunActionResult
 {
     Name = "ValidateData",
-    Status = [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded
+    Status = TestWorkflowStatus.Succeeded
 };
 
-var childAction2 = new [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md)
+var childAction2 = new TestWorkflowRunActionResult
 {
     Name = "ProcessData",
-    Status = [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded
+    Status = TestWorkflowStatus.Succeeded
 };
 
 var parentAction = new TestWorkflowRunActionResult

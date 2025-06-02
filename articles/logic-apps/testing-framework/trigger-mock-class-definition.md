@@ -19,21 +19,21 @@ This class creates a mocked instance of a trigger in a workflow. It inherits fro
 
 ```C#
 // Simple trigger mock with success status
-var successTrigger = new [TriggerMock](trigger-mock-class-definition.md)([TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded, "HttpTrigger");
+var successTrigger = new TriggerMock(TestWorkflowStatus.Succeeded, "HttpTrigger");
 
 // Trigger mock with specific outputs
-var outputTrigger = new [TriggerMock](trigger-mock-class-definition.md)(
-    [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded,
+var outputTrigger = new TriggerMock(
+    TestWorkflowStatus.Succeeded,
     "EmailTrigger",
     new MockOutput { 
         Body = JToken.Parse(@"{""subject"": ""Test Email"", ""from"": ""test@example.com""}") 
     });
 
 // Failed trigger with error information
-var failedTrigger = new [TriggerMock](trigger-mock-class-definition.md)(
-    [TestWorkflowStatus](test-workflow-status-enum-definition.md).Failed,
+var failedTrigger = new TriggerMock(
+    TestWorkflowStatus.Failed,
     "DatabaseTrigger",
-    new [TestErrorInfo](test-error-info-class-definition.md)(
+    new TestErrorInfo(
         ErrorResponseCode.ConnectionError,
         "Failed to connect to database"
     ));
@@ -77,7 +77,7 @@ public TriggerMock(TestWorkflowStatus status, string name = null, MockOutput out
 var outputs = new MockOutput { 
     Body = JToken.Parse(@"{""webhookData"": ""sample payload""}")
 };
-var triggerMock = new [TriggerMock](trigger-mock-class-definition.md)([TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded, "WebhookTrigger", outputs);
+var triggerMock = new TriggerMock(TestWorkflowStatus.Succeeded, "WebhookTrigger", outputs);
 ```
 
 ### Constructor with Error Info
@@ -96,11 +96,11 @@ public TriggerMock(TestWorkflowStatus status, string name = null, TestErrorInfo 
 
 ```C#
 // Example: Creating a trigger mock with failed status and error information
-var errorInfo = new [TestErrorInfo](test-error-info-class-definition.md)(
+var errorInfo = new TestErrorInfo(
     ErrorResponseCode.Unauthorized,
     "Authentication failed for trigger"
 );
-var triggerMock = new [TriggerMock](trigger-mock-class-definition.md)([TestWorkflowStatus](test-workflow-status-enum-definition.md).Failed, "SecureTrigger", errorInfo);
+var triggerMock = new TriggerMock(TestWorkflowStatus.Failed, "SecureTrigger", errorInfo);
 ```
 
 ### Constructor with Callback Function
@@ -113,26 +113,26 @@ public TriggerMock(Func<TestExecutionContext, TriggerMock> onGetTriggerMock, str
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|onGetTriggerMock|The callback function to get the mocked trigger|Func&lt;[TestExecutionContext](test-execution-context-class-definition.md), [TriggerMock](trigger-mock-class-definition.md)&gt;|Yes|
+|onGetTriggerMock|The callback function to get the mocked trigger|Func&lt;TestExecutionContext, TriggerMock&gt;|Yes|
 |name|The mocked trigger name|string|No|
 
 ```C#
 // Example: Creating a trigger mock with dynamic outputs based on execution context
-var triggerMock = new [TriggerMock](trigger-mock-class-definition.md)(
+var triggerMock = new TriggerMock(
     (context) => {
         var inputs = context.ActionContext.ActionInputs;
         var eventType = inputs["eventType"]?.Value<string>();
         
         // Return different mock based on event type
         if (eventType == "priority") {
-            return new [TriggerMock](trigger-mock-class-definition.md)(
-                [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded, 
+            return new TriggerMock(
+                TestWorkflowStatus.Succeeded, 
                 "EventTrigger", 
                 new MockOutput { Body = JToken.Parse(@"{""priority"": true}") }
             );
         }
         
-        return new [TriggerMock](trigger-mock-class-definition.md)([TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded, "EventTrigger");
+        return new TriggerMock(TestWorkflowStatus.Succeeded, "EventTrigger");
     }, 
     "ConditionalEventTrigger");
 ```

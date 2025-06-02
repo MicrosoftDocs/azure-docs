@@ -19,11 +19,11 @@ This class creates a mocked instance of an action in a workflow. It inherits fro
 
 ```C#
 // Simple action mock with success status
-var successAction = new [ActionMock](action-mock-class-definition.md)([TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded, "SendEmail");
+var successAction = new ActionMock(TestWorkflowStatus.Succeeded, "SendEmail");
 
 // Action mock with specific outputs
-var outputAction = new [ActionMock](action-mock-class-definition.md)(
-    [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded, 
+var outputAction = new ActionMock(
+    TestWorkflowStatus.Succeeded, 
     "HttpRequest",
     new MockOutput { 
         StatusCode = 200,
@@ -32,10 +32,10 @@ var outputAction = new [ActionMock](action-mock-class-definition.md)(
     });
 
 // Failed action with error information
-var failedAction = new [ActionMock](action-mock-class-definition.md)(
-    [TestWorkflowStatus](test-workflow-status-enum-definition.md).Failed,
+var failedAction = new ActionMock(
+    TestWorkflowStatus.Failed,
     "DatabaseWrite",
-    new [TestErrorInfo](test-error-info-class-definition.md)(
+    new TestErrorInfo(
         ErrorResponseCode.BadRequest,
         "Database connection failed"
     ));
@@ -126,14 +126,14 @@ var actionMock = new ActionMock(
         var inputs = context.ActionContext.ActionInputs;
           // Determine outputs dynamically based on context
         if (actionName == "ValidateUser" && inputs["userId"]?.Value<int>() > 0) {
-            return new [ActionMock](action-mock-class-definition.md)(
-                [TestWorkflowStatus](test-workflow-status-enum-definition.md).Succeeded,
+            return new ActionMock(
+                TestWorkflowStatus.Succeeded,
                 "ValidateUser", 
                 new MockOutput { Body = JToken.Parse(@"{""isValid"": true}") }
             );
         }
         
-        return new [ActionMock](action-mock-class-definition.md)([TestWorkflowStatus](test-workflow-status-enum-definition.md).Failed, "ValidateUser");
+        return new ActionMock(TestWorkflowStatus.Failed, "ValidateUser");
     }, 
     "ConditionalValidation");
 ```
