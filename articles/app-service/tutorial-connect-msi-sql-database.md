@@ -6,7 +6,7 @@ ms.author: cephalin
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 05/27/2025
+ms.date: 06/02/2025
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ---
 # Tutorial: Use a managed identity to connect to an Azure ASP.NET web app and Azure SQL back end
@@ -128,11 +128,13 @@ az ad group member list -g $groupid
 
 ### Grant permissions to the managed identity
 
-Go to the Azure portal to grant the minimum permissions your app needs.
+Grant the identity the minimum permissions your app needs.
 
 The name of a system-assigned identity is always the same as the app name. The name of a system-assigned identity for a deployment slot is `<app-name>/slots/<slot-name>`. To grant permissions for a Microsoft Entra group, use the group's display name, such as `myAzureSQLDBAccessGroup`.
-   
-<!--SQLCMD IS NO LONGER SUPPORTED IN BASH CLOUD SHELL as of April 2025. Use Powershell or portal.
+
+# [Azure CLI](#tab/azcli)
+
+<!--SQLCMD IS NO LONGER SUPPORTED IN BASH CLOUD SHELL as of April 2025. Use Powershell or portal.-->
 1. In your Bash terminal, sign in to SQL Database by using the following SQLCMD command, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<aad-user-name>` and `<aad-password>` with your Microsoft Entra user credentials.
 
    ```bash
@@ -151,8 +153,9 @@ The name of a system-assigned identity is always the same as the app name. The n
 
 1. Enter `EXIT` to return to the Bash prompt.
 
-Here are portal steps I made up. Not sure if they work since my app doesn't work (database is blank).-->
+# [Azure portal](#tab/portal)
 
+<!--These portal steps might or might not be correct.-->
 1. On your web app's page in the Azure portal, select **Identity** from the left navigation menu.
 
 1. On the **System assigned** tab, make sure **Status** is set to **On**.
@@ -171,6 +174,8 @@ Here are portal steps I made up. Not sure if they work since my app doesn't work
      - **Reader**
 
    After adding each role, select **Save**.
+
+-----
 
 > [!NOTE]
 > The backend managed identity services [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you try to modify your SQL Database permissions after first getting a token with your app, you don't get a new token with updated permissions until the cached token expires.
