@@ -67,6 +67,7 @@ Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | 
 Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot)
 Distributed tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP
 Health Check | WIP | WIP | WIP | WIP | WIP
+Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | WIP | WIP
 
 ## Support policy
 

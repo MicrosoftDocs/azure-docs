@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Scale targets for Elastic SAN
 
-There are three main components to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes.
+There are three main components to an Elastic SAN: the SAN itself, volume groups, and volumes.
 
 ## The Elastic SAN
 

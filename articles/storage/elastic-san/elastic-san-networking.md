@@ -11,7 +11,7 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 
 # Configure network access for Azure Elastic SAN
 
-You can control access to your Azure Elastic storage area network (SAN) volumes. Controlling access allows you to secure your data and meet the needs of your applications and enterprise environments.
+You can control access to your Elastic SAN volumes. Controlling access allows you to secure your data and meet the needs of your applications and enterprise environments.
 
 This article describes how to configure your Elastic SAN to allow access from your Azure virtual network infrastructure.
 

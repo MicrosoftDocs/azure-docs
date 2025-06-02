@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Resize an Azure Elastic SAN
 
-This article covers increasing or decreasing the size of an Elastic storage area network (SAN) and an individual volume.
+This article covers increasing or decreasing the size of an Elastic SAN and an individual volume.
 
 ## Resize your SAN
 
