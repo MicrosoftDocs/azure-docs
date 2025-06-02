@@ -2,7 +2,6 @@ items:
 - name: Azure Private 5G Core documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What is Azure Private 5G Core?
     href: private-5g-core-overview.md
@@ -10,36 +9,37 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
-    - name: '2404 - Current'
+    - name: 2404 - Current
       href: azure-private-5g-core-release-notes-2404.md
-    - name: '2403'
+    - name: "2403"
       href: azure-private-5g-core-release-notes-2403.md
-    - name: '2310'
+    - name: "2310"
       href: azure-private-5g-core-release-notes-2310.md
-    - name: '2308'
+    - name: "2308"
       href: azure-private-5g-core-release-notes-2308.md
-    - name: '2307'
-      href: azure-private-5g-core-release-notes-2307.md  
-    - name: '2306'
-      href: azure-private-5g-core-release-notes-2306.md  
-    - name: '2305'
-      href: azure-private-5g-core-release-notes-2305.md  
-    - name: '2303'
-      href: azure-private-5g-core-release-notes-2303.md  
-    - name: '2302'
+    - name: "2307"
+      href: azure-private-5g-core-release-notes-2307.md
+    - name: "2306"
+      href: azure-private-5g-core-release-notes-2306.md
+    - name: "2305"
+      href: azure-private-5g-core-release-notes-2305.md
+    - name: "2303"
+      href: azure-private-5g-core-release-notes-2303.md
+    - name: "2302"
       href: azure-private-5g-core-release-notes-2302.md
-    - name: '2301'
+    - name: "2301"
       href: azure-private-5g-core-release-notes-2301.md
-    - name: '2211'
+    - name: "2211"
       href: azure-private-5g-core-release-notes-2211.md
-    - name: '2210'
+    - name: "2210"
       href: azure-private-5g-core-release-notes-2210.md
-    - name: '2209'
+    - name: "2209"
       href: azure-private-5g-core-release-notes-2209.md
-    - name: '2208'
+    - name: "2208"
       href: azure-private-5g-core-release-notes-2208.md
   - name: Packet core and Azure Stack Edge compatibility
     href: azure-stack-edge-packet-core-compatibility.md
+  expanded: true
 - name: Quickstarts
   items:
   - name: Deploy a private mobile network and site - ARM template
@@ -64,7 +64,7 @@ items:
     href: policy-control.md
   - name: Default service and allow-all SIM policy
     href: default-service-sim-policy.md
-  - name: Radio access network insights 
+  - name: Radio access network insights
     href: ran-insights-concepts.md
   - name: Monitor Azure Private 5G Core
     items:
@@ -102,7 +102,7 @@ items:
       href: configure-routers-high-availability.md
   - name: Request support
     items:
-    - name: How to open a support request 
+    - name: How to open a support request
       href: open-support-request.md
   - name: Kubectl access
     items:
@@ -149,7 +149,7 @@ items:
     - name: Reinstall a packet core instance
       href: reinstall-packet-core.md
     - name: Create custom alerts
-      href: monitor-private-5g-core-alerts.md  
+      href: monitor-private-5g-core-alerts.md
   - name: Policy control
     items:
     - name: Collect the required information for a service
@@ -166,7 +166,7 @@ items:
       href: configure-internal-forwarding.md
   - name: Radio access network insights
     items:
-    - name: Create a RAN insights resource - Azure Portal 
+    - name: Create a RAN insights resource - Azure Portal
       href: ran-insights-create-resource.md
   - name: SIMs
     items:
@@ -202,24 +202,22 @@ items:
       href: delete-resources.md
 - name: Reference
   items:
-   - name: REST API
-     href: /rest/api/mobilenetwork
-   - name: Region code names
-     href: region-code-names.md
-   - name: Service limits and resource usage
-     href: azure-stack-edge-virtual-machine-sizing.md
-   - name: 5QI to DSCP mapping
-     href: differentiated-services-codepoint-5qi-mapping.md
-   - name: Support lifetime
-     href: support-lifetime.md
-   - name: Azure Policy definitions
-     href: azure-policy-reference.md     
+  - name: REST API
+    href: /rest/api/mobilenetwork
+  - name: Region code names
+    href: region-code-names.md
+  - name: Service limits and resource usage
+    href: azure-stack-edge-virtual-machine-sizing.md
+  - name: 5QI to DSCP mapping
+    href: differentiated-services-codepoint-5qi-mapping.md
+  - name: Support lifetime
+    href: support-lifetime.md
+  - name: Azure Policy definitions
+    href: azure-policy-reference.md
 - name: Resources
   items:
   - name: Azure Private 5G Core product page
     href: https://azure.microsoft.com/services/private-5g-core/
-  - name: Azure private MEC documentation
-    href: ../private-multi-access-edge-compute-mec/index.yml
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog

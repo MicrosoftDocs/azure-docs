@@ -210,4 +210,4 @@ To sign in to Azure from the CLI, run the following command and follow the promp
 
 ## Related content
 
-- [Create your first containerized functions](/azure/azure-functions/functions-deploy-container-apps)
+- [Azure Functions on Azure Container Apps overview](../../articles/container-apps/functions-overview.md)
