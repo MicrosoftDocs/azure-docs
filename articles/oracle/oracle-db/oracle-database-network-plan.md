@@ -19,7 +19,8 @@ There are two types of network features: default and advance.
 ### Default network features
 Default network features enable basic network connectivity for both new and existing Oracle Database@Azure deployments. These features are available across all supported Oracle Database@Azure regions and provide the foundational networking required for your deployment
 ### Advanced network features 
-Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. "These features are generally available for new deployments and available in the following regions:
+Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. These features are generally available for new deployments in the following regions:
+
 * Australia East
 * Australia Southeast 
 * Central US 
