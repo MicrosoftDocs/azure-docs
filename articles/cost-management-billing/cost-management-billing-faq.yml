@@ -50,10 +50,10 @@ sections:
           Azure finalizes or closes the current billing period up to the fifth day after a closed month. Changes might continue and change until the fifth day after a billing period ends as the billing system processes data.
       - question: How do I update my payment method?
         answer: |
-          See [Change your Azure payment method](manage/change-azure-payment-method.md).
-      - question: How do I get a copy of my tax invoice?
+          See [Change your Azure payment method](manage/change-credit-card.md).
+      - question: How do I get a copy of my tax documents?
         answer: |
-          See [Download your Azure tax invoice](understand/download-azure-invoice.md#download-your-tax-invoice).
+          See [Download your Azure tax invoice](understand/mca-download-tax-document.md).
 
   - name: Cost Management questions
     questions:
