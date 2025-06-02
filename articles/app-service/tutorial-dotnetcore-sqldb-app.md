@@ -179,7 +179,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png" alt-text="A screenshot showing deployment configuration in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-4.png" alt-text="A screenshot showing deployment configuration in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
