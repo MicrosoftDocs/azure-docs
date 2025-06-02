@@ -84,7 +84,7 @@ In addition, for HEVC/H.265 hardware acceleration you also need:
    - Microsoft HEVC codec installed. This can be obtained 1 of 3 ways:
       - The Microsoft HEVC codec is included in new installations of Windows 11 22H2 or later.
       - You can [purchase the Microsoft HEVC codec from the Microsoft Store](https://www.microsoft.com/store/productid/9NMZLZ57R3T7?ocid=pdpshare).
-      - If you are using Windows App version 2.0.500.0 or later, it can check for the presence of option 1 or 2.  If it does not detect either, then it will install a specialized version of the HEVC codec compatible only with remote sessions initiated through Windows App. Note that this method requires access to the Microsoft Store.
+      - If you are using Windows App version 2.0.503.0 or later and do not already have the Microsoft HEVC codec installed, the app will attempt to install a specialized version of the HEVC codec compatible only with remote sessions initiated through Windows App. Note that this method requires access to the Microsoft Store.
 
    - One of the following apps to connect to a remote session. Other platforms and versions aren't supported.
      - Windows App on Windows, version 2.0.379 or later.
@@ -176,14 +176,14 @@ To enable GPU-accelerated application rendering using Group Policy:
 
    1. For GPU-accelerated application rendering, double-click the policy setting **Use hardware graphics adapters for all Remote Desktop Services sessions** to open it. Select **Enabled**, then select **OK**.
 
-   1. For GPU accelerated remote frame encoding using H.264/AVC:
+   1. For GPU-accelerated remote frame encoding using H.264/AVC:
       1. Double-click the policy setting **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** to open it. Select **Enabled**, then select **OK**.
       1. Double-click the policy setting **Configure H.264/AVC hardware encoding for Remote Desktop Connections** to open it. Select **Enabled**, then select **OK**. If you're using Windows Server 2016, you see an extra drop-down menu in the setting; set **Prefer AVC Hardware Encoding** to **Always attempt**.
 
 > [!NOTE]
 > - Enabling the policy setting to Prioritize H.264 Graphics mode without checking the box to Configure hardware encoding can result in software/CPU-based H.264/AVC full-screen video encoding.
 
-1. For full-screen video encoding using HEVC/H.265 only, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**.
+1. For GPU-accelerated remote frame encoding using HEVC/H.265 only, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**.
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="A screenshot showing the Azure Virtual Desktop options in Group Policy." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
