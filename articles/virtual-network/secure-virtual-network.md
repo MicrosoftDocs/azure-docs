@@ -1,12 +1,12 @@
 ---
 title: Secure your Virtual Network deployment
 description: Learn how to secure Azure Virtual Network with best practices for network isolation, access control, monitoring, and threat protection.
-author: msmbaldwin
-ms.author: mbaldwin
+author: asudbring
+ms.author: allensu
 ms.service: virtual-network
 ms.topic: conceptual
 ms.custom: horz-security
-ms.date: 01/01/2024
+ms.date: 06/02/2025
 ai-usage: ai-assisted
 ---
 
