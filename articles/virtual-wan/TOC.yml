@@ -7,6 +7,8 @@
     href: virtual-wan-about.md
   - name: What's new?
     href: whats-new.md
+  - name: What is hybrid connectivity?
+    url: ../networking/hybrid-connectivity/hybrid-connectivity.md
   - name: Virtual WAN FAQ
     href: virtual-wan-faq.md
   - name: About Virtual WAN pricing

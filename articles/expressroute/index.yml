@@ -173,12 +173,14 @@ landingContent:
             url: expressroute-troubleshooting-expressroute-overview.md
 
   # Card
-  - title: Hybrid connectivity
+  - title: Related hybrid connectivity services
     linkLists:
       - linkListType: get-started
         links:
-          - text: Documentation
-            url: https://aka.ms/hybridconnectivitydocs
+          - text: What is hybrid connectivity?
+            url: /azure/networking/hybrid-connectivity/hybrid-connectivity
+          - text: Learn more about hybrid connectivity
+            url: /azure/networking/hybrid-connectivity/  
       - linkListType: overview
         links:
           - text: Azure VPN Gateway
