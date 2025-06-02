@@ -2,11 +2,9 @@
 title: Namespace authentication using JSON Web Tokens
 description: This article describes authentication of Azure Event Grid namespaces using JSON Web Tokens.
 ms.topic: how-to
-ms.custom:
-  - build-2024
-ms.date: 05/21/2024
-author: george-guirguis
-ms.author: geguirgu
+ms.date: 04/30/2025
+author: Connected-Seth
+ms.author: seshanmugam
 ---
 
 # OAuth 2.0 (JSON Web Token) authentication with Azure Event Grid namespaces
@@ -19,13 +17,13 @@ OAuth 2.0 (JSON Web Token) authentication allows clients to authenticate and con
 
 ## High-level steps 
 
-To use custom JWT authentication for namespaces, follow these steps: 
+To use OAuth 2.0 JWT authentication for namespaces, follow these steps: 
 
 1. Create a namespace and configure its subresources.
 1. Enable managed identity on your Event Grid namespace. 
-1. Create an Azure Key Vault account that hosts the CA certificate that includes your public keys. 
-1. Add role assignment in Azure Key Vault for the namespace’s managed identity. 
-1. Configure custom authentication settings on your Event Grid namespace 
+1. Configure OAuth 2.0 authentication settings on your Event Grid namespace by following these steps: 
+    1. Create an Azure **Key Vault** account that hosts the CA certificate that includes your public keys and  add role assignment in Key Vault for the namespace’s managed identity. 
+    1. Upload the Privacy-Enhanced Mail (PEM) file of your public key certificates to namespace. 
 1. Your clients can connect to the Event Grid namespace using the tokens provided by your identity provider. 
 
 

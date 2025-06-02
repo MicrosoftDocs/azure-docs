@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Extensions app in Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 When an Azure AD B2C directory is created, an app called **b2c-extensions-app** is automatically created inside the new directory. This app is visible in *App registrations*. It is used by the Azure AD B2C service to store information about users and custom attributes. If the app is deleted, Azure AD B2C will not function correctly and your production environment will be affected.
 

@@ -31,9 +31,9 @@ const onload = () => {
     authOptions: {
       // Use Azure Active Directory authentication.
       authType: "aad",
-      clientId: "<Your Azure Maps Client Id>",
-      aadAppId: "<Your Azure Active Directory Client Id>",
-      aadTenant: "<Your Azure Active Directory Tenant Id>"
+      clientId: "<Your Azure Maps Client ID>",
+      aadAppId: "<Your Azure Active Directory Client ID>",
+      aadTenant: "<Your Azure Active Directory Tenant ID>"
     }
   });
 
@@ -48,7 +48,7 @@ const onload = () => {
     };
 
     // Create a Route client.
-    const client = MapsRoute(credential, "<Your Azure Maps Client Id>");
+    const client = MapsRoute(credential, "<Your Azure Maps Client ID>");
 
     // Create a data source and add it to the map.
     const dataSource = new atlas.source.DataSource();
@@ -202,9 +202,9 @@ const onload = () => {
     authOptions: {
       // Use Azure Active Directory authentication.
       authType: "aad",
-      clientId: "<Your Azure Maps Client Id>",
-      aadAppId: "<Your Azure Active Directory Client Id>",
-      aadTenant: "<Your Azure Active Directory Tenant Id>"
+      clientId: "<Your Azure Maps Client ID>",
+      aadAppId: "<Your Azure Active Directory Client ID>",
+      aadTenant: "<Your Azure Active Directory Tenant ID>"
     }
   });
 
@@ -271,7 +271,7 @@ const onload = () => {
     fetch(url, {
       headers: {
         Authorization: "Bearer " + map.authentication.getToken(),
-        "x-ms-client-id": "<Your Azure Maps Client Id>"
+        "x-ms-client-id": "<Your Azure Maps Client ID>"
       }
     })
       .then((response) => response.json())

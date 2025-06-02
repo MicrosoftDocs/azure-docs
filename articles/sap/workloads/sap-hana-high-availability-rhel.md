@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 12/04/2024
+ms.date: 05/01/2025
 ms.author: radeltch
 ---
 
@@ -190,9 +190,11 @@ The steps in this section use the following prefixes:
 
    Next, create `fstab` entries for the three logical volumes by inserting the following lines in the `/etc/fstab` file:
 
+   ```bash   
    /dev/mapper/vg_hana_data_HN1-hana_data    /hana/data    xfs  defaults,nofail  0  2
    /dev/mapper/vg_hana_log_HN1-hana_log    /hana/log    xfs  defaults,nofail  0  2
    /dev/mapper/vg_hana_shared_HN1-hana_shared    /hana/shared    xfs  defaults,nofail  0  2
+   ```
 
    Finally, mount the new volumes all at once:
 
@@ -204,18 +206,18 @@ The steps in this section use the following prefixes:
 
    You can either use a DNS server or modify the `/etc/hosts` file on all nodes by creating entries for all nodes like this in `/etc/hosts`:
 
+   ```bash
    10.0.0.5 hn1-db-0
    10.0.0.6 hn1-db-1
+   ```
 
 1. **[A]** Perform RHEL for HANA configuration.
 
    Configure RHEL as described in the following notes:
-   * [2447641 - Additional packages required for installing SAP HANA SPS 12 on RHEL 7.X](https://access.redhat.com/solutions/2447641)
-   * [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
-   * [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
-   * [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
-   * [2593824 - Linux: Running SAP applications compiled with GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824)
-   * [2886607 - Linux: Running SAP applications compiled with GCC 9.x](https://launchpad.support.sap.com/#/notes/2886607)
+   * [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://me.sap.com/notes/2292690)
+   * [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782)
+   * [3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302)
+   * [3057467 - Which compat-sap-c++ package do I need for SAP on RHEL?](https://me.sap.com/notes/3057467)
 
 1. **[A]** Install SAP HANA, following [SAP's documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/2d4de94c8bf14cda8d37278647fff8ab.html).
 
@@ -241,9 +243,8 @@ The steps in this section use the following prefixes:
    Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication and client traffic to database SYSTEMDB, HN1, and NW1.
 
    ```bash
-    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp --permanent
-    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp
-
+    sudo firewall-cmd --zone=public --add-port={1128,1129,40302,40301,40307,40306,40303,40340,30340,30341,30342}/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port={1128,1129,40302,40301,40307,40306,40303,40340,30340,30341,30342}/tcp
    ```
 
 1. **[1]** Create the tenant database.
@@ -263,6 +264,9 @@ The steps in this section use the following prefixes:
    hdbsql -d HN1 -u SYSTEM -p "<passwd>" -i 03 "BACKUP DATA USING FILE ('initialbackupHN1')"
    hdbsql -d NW1 -u SYSTEM -p "<passwd>" -i 03 "BACKUP DATA USING FILE ('initialbackupNW1')"
    ```
+
+   > [!NOTE]
+   > When using Local Secure Store (LSS), SAP HANA backups are self-contained and require you to set a backup password for the encryption root keys. Refer to SAP Note [3571561](https://me.sap.com/notes/0003571561) for detailed instructions. The password must be set for SYSTEMDB and individual tenant database.
 
    Copy the system PKI files to the secondary site:
 
@@ -338,7 +342,7 @@ This important step optimizes the integration with the cluster and improves the 
    # Enable repository that contains SAP HANA resource agents
    sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
    
-   sudo dnf install -y resource-agents-sap-hana
+   sudo yum install -y resource-agents-sap-hana
    ```
 
    > [!NOTE]
@@ -425,13 +429,13 @@ For more information on the implementation of the SAP HANA hooks, see [Enabling 
 
 Create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes. Throughout these instructions, be sure to substitute your instance number, HANA system ID, IP addresses, and system names, where appropriate.
 
-   ```bash
+```bash
 sudo pcs property set maintenance-mode=true
 
 sudo pcs resource create SAPHanaTopology_HN1_03 SAPHanaTopology SID=HN1 InstanceNumber=03 \
  op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600 \
  clone clone-max=2 clone-node-max=1 interleave=true
-   ```
+```
 
 Next, create the HANA resources.
 

@@ -119,5 +119,5 @@ Functions 1.x apps automatically have a reference to the extension.
 - [Run a function from an HTTP request](./functions-bindings-http-webhook-trigger.md)
 - [Return an HTTP response from a function](./functions-bindings-http-webhook-output.md)
 
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [Update your extensions]: ./functions-bindings-register.md

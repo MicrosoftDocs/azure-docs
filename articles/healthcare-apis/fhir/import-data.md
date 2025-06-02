@@ -88,6 +88,7 @@ The following tables describe the body parameters and inputs.
 | `inputFormat`| String that represents the name of the data source format. Only FHIR NDJSON files are supported. | 1..1 | `application/fhir+ndjson` |
 | `mode`| Import mode value. | 1..1 | For an initial-mode import,  use the `InitialLoad` mode value. For incremental-mode import, use the `IncrementalLoad` mode value. If you don't provide a mode value, the `IncrementalLoad` mode value is used by default. |
 | `allowNegativeVersions`|	Allows FHIR server assigning negative versions for resource records with explicit lastUpdated value and no version specified when input doesn't fit in contiguous space of positive versions existing in the store. | 0..1 |	To enable this feature, pass true. By default it's false. |
+|`errorContainerName`|  String that represents the name of the container where errors encountered during the import process will be logged.  | 0..1 | Custom container name for error logs. The name should be between 3-63 characters and only contain lowercase letters, numbers, and hyphens. If not specified, the default container will be used. |
 | `input`| Details of the input files. | 1..* | A JSON array with the three parts described in the following table. |
 
 
@@ -112,6 +113,10 @@ The following tables describe the body parameters and inputs.
         {
             "name": "allowNegativeVersions",
             "valueBoolean": true
+        },
+        {
+            "name": "errorContainerName",
+            "valueString": "import-error-logs"
         },
         {
             "name": "input",

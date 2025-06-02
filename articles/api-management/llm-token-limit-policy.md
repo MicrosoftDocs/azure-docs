@@ -20,9 +20,6 @@ The `llm-token-limit` policy prevents large language model (LLM) API usage spike
 
 By relying on token usage metrics returned from the LLM endpoint, the policy can accurately monitor and enforce limits in real time. The policy also enables precalculation of prompt tokens by API Management, minimizing unnecessary requests to the LLM backend if the limit is already exceeded.
 
-> [!NOTE]
-> Currently, this policy is in preview.
-
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 [!INCLUDE [api-management-llm-models](../../includes/api-management-llm-models.md)]
@@ -64,7 +61,7 @@ By relying on token usage metrics returned from the LLM endpoint, the policy can
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted, workspace
 
@@ -75,6 +72,7 @@ By relying on token usage metrics returned from the LLM endpoint, the policy can
 * Certain LLM endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute.
 * For models that accept image input, image tokens are generally counted by the backend language model and included in limit and quota calculations. However, when streaming is used or `estimate-prompt-tokens` is set to `true`, the policy currently over-counts each image as a maximum count of 1200 tokens.
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
+* [!INCLUDE [api-management-token-limit-gateway-counts](../../includes/api-management-token-limit-gateway-counts.md)]
 
 ## Examples
 

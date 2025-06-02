@@ -3,8 +3,8 @@ title: Configure fixed, removable, and network drive redirection over the Remote
 description: Learn how to redirect fixed, removable, and network storage drives from a local device to a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 04/29/2024
 ---
 
@@ -299,7 +299,7 @@ On a local Windows device, you can disable drive redirection by configuring the 
 - **Value name**: `DisableDriveRedirection`
 - **Value data**: `1`
 
-For iOS/iPadOS and Android devices, you can disable drive redirection using Intune. For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For iOS/iPadOS and Android devices, you can disable drive redirection using Intune. For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ## Related content
 

@@ -1,8 +1,8 @@
 ---
 title: Ingest weather forecast data in Azure Data Manager for Agriculture
 description: Learn how to fetch weather data from various weather data providers through extensions and provider-agnostic APIs.
-author: lbethapudi
-ms.author: lbethapudi
+author: BlackRider97
+ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 02/14/2023

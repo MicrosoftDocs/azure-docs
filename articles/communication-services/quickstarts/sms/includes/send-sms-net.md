@@ -15,10 +15,10 @@ ms.author: peiliu
 
 Get started with Azure Communication Services by using the Communication Services C# SMS SDK to send SMS messages.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS).
+> See the finalized code at Azure Samples GitHub [Send an SMS message using .NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS).
 
 ## Prerequisites
 
@@ -76,11 +76,11 @@ To set up an environment for sending messages, take the steps in the following s
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for C#.
 
-| Name                                       | Description                                                                                                                                                       |
-| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SmsClient     | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages.                           |
+| Name | Description |
+| --- | --- |
+| SmsClient | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages. |
 | SmsSendOptions | This class provides options for configuring delivery reporting. If enable_delivery_report is set to True, an event is emitted when delivery is successful. |
-| SmsSendResult               | This class contains the result from the SMS service.                                          |
+| SmsSendResult | This class contains the result from the SMS service. |
 
 ## Authenticate the client
 
@@ -111,11 +111,11 @@ Console.WriteLine($"Sms id: {sendResult.MessageId}");
 
 Make these replacements in the code:
 
-- Replace `<from-phone-number>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource.
 - Replace `<to-phone-number>` with the phone number that you'd like to send a message to.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<from-phone-number>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
+> Provide phone numbers in E.164 international standard format, such as +14255550123. The value for `<from-phone-number>` can also be a short code, such as 23456 or an alphanumeric sender ID, such as CONTOSO.
 
 ## Send a 1:N SMS message with options
 
@@ -141,11 +141,11 @@ foreach (SmsSendResult result in results)
 
 Make these replacements in the code:
 
-- Replace `<from-phone-number>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource.
 - Replace `<to-phone-number-1>` and `<to-phone-number-2>` with phone numbers that you'd like to send a message to.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<from-phone-number>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
+> Provide phone numbers in E.164 international standard format, such as +14255550123. The value for `<from-phone-number>` can also be a short code, such as 23456 or an alphanumeric sender ID, such as CONTOSO.
 
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure delivery reporting. This functionality is useful when you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure delivery reporting for your SMS messages.
 
@@ -161,4 +161,4 @@ dotnet run
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS).
+Download the sample app from Azure Samples GitHub [Send an SMS message using .NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS).

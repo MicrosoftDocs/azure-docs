@@ -1,17 +1,18 @@
 ---
-title: Troubleshoot connectivity in Azure Managed Redis (preview)
+title: Troubleshoot connectivity in Azure Managed Redis
 description: Learn how to resolve connectivity problems when creating clients with Azure Managed Redis.
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
 ms.topic: conceptual
-ms.date: 11/15/2024
-ms.custom: template-concept, ignite-2024
+ms.custom:
+  - template-concept
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Connectivity troubleshooting with Azure Managed Redis (preview)
+# Connectivity troubleshooting with Azure Managed Redis
 
 In this article, we provide troubleshooting help for connecting your client application to Azure Managed Redis. Connectivity issues are divided into two types: intermittent connectivity issues and continuous connectivity issues.
 
@@ -67,11 +68,15 @@ You can confirm the number of sent packets is equal to the received packets. Con
 ### Private endpoint configuration
 
 Steps to check your private endpoint configuration:
-1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Managed Redis instance](private-link.md#create-a-private-endpoint-with-a-new-azure-managed-redis-instance).
+
+1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Managed Redis instance](private-link.md#create-a-virtual-network-with-a-subnet).
+
 1. Verify if your application is connecting to `<instancename>.<region>.redis.azure.net` on port 10000. We recommend avoiding the use of `<instancename>.<region>.privatelink.redis.cache.windows.net` in the configuration or the connection string.
+
 1. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
-1. `Public Network Access` is currently not supported for Azure Managed Redis (preview). You cannot connect to your cache private endpoint from outside the virtual network of your cache.
-  
+
+1. `Public Network Access` is currently not supported for Azure Managed Redis. You cannot connect to your cache private endpoint from outside the virtual network of your cache.
+
 ### Firewall rules
 
 If you have a firewall configured for your Azure Managed Redis, ensure that your client IP address is added to the firewall rules. You can check **Firewall** on the Resource menu under **Settings** on the Azure portal.
@@ -87,4 +92,3 @@ If you've configured any networking or security resource to use your cache's pub
 ## Related content
 
 - [Best practices for connection resilience](best-practices-connection.md)
-- [High availability for Azure Managed Redis](high-availability.md)

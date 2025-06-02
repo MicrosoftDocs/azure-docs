@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 04/03/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Azure Data Explorer in Azure IoT Operations so that I can send data to Azure Data Explorer.
@@ -65,7 +65,7 @@ If using system-assigned managed identity, in Azure portal, go to your Azure IoT
 
 <!-- TODO: use the data ingest URI for host? -->
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the operations experience, select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Azure Data Explorer** > **New**.
@@ -172,7 +172,7 @@ Before you configure the data flow endpoint, assign a role to the Azure IoT Oper
 
 Then, configure the data flow endpoint with system-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
@@ -201,7 +201,7 @@ dataExplorerSettings:
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
@@ -242,7 +242,7 @@ Before you configure the data flow endpoint, assign a role to the user-assigned 
 
 Then, configure the data flow endpoint with user-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
@@ -294,7 +294,7 @@ Use the `batching` settings to configure the maximum number of messages and the 
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience, select the **Advanced** tab for the data flow endpoint.
 

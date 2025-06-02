@@ -162,7 +162,7 @@
     },
     {
       "source_path": "articles/databox-online/azure-stack-edge-2301-release-notes.md",
-      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2301-release-notes",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2301-release-notes"
     },
     {
       "source_path": "articles/network-watcher/nsg-flow-logs-rest.md",
@@ -407,6 +407,11 @@
     {
       "source_path": "articles/security/fundamentals/tls-certificate-changes.md",
       "redirect_url": "/azure/security/fundamentals/azure-CA-details",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/recover-from-identity-compromise.md",
+      "redirect_url": "/azure/security/fundamentals/ransomware-detect-respond#road-to-recovery",
       "redirect_document_id": false
     },
     {
@@ -2328,7 +2333,12 @@
       "source_path_from_root": "/articles/app-service/manage-disaster-recovery.md",
       "redirect_url": "/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service",
       "redirect_document_id": false
-    },       
+    },
+    {
+      "source_path_from_root": "/articles/app-service/app-service-configure-premium-tier.md",
+      "redirect_url": "/azure/app-service/app-service-configure-premium-v4-tier",
+      "redirect_document_id": false
+    },           
     {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
@@ -6491,27 +6501,27 @@
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-family-2-3-4-retirement.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-family-2-3-4-retirement",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-family-2-3-4-retirement",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-family1-retirement.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-family1-retirement",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-family-1-retirement",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-msrc-releases.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-msrc-releases",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-microsoft-security-response-center-releases",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-retirement-policy.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-retirement-policy",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-retirement-policy",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/cloud-services-guestos-update-matrix.md",
-      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-update-matrix",
+      "redirect_url": "/azure/cloud-services-extended-support/cloud-services-guestos-update-matrix",
       "redirect_document_id": false
     },
     {
@@ -6760,6 +6770,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/work-with-styx-objects-and-indicators.md",
+      "redirect_url": "/azure/sentinel/work-with-styx-objects-indicators",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/files/geo-redundant-storage-for-large-file-shares.md",
       "redirect_url": "/azure/storage/files/files-redundancy",
       "redirect_document_id": false
@@ -6767,7 +6782,107 @@
     {
       "source_path": "articles/defender-for-iot/organizations/extra-deploy-enterprise-iot.md",
       "redirect_url": "/azure/defender-for-iot/organizations/eiot-defender-for-endpoint",
-           "redirect_document_id": false
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/how-to/slurm-cloud-bursting-setup.md",
+      "redirect_url": "/azure/cyclecloud/how-to/bursting/slurm-cloud-bursting-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/work-with-styx-objects-indicators.md",
+      "redirect_url": "/azure/sentinel/work-with-stix-objects-indicators",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/migration.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/migrate-lambda-workloads-overview.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/discover-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/assess-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/migrate-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-assess.md",
+      "redirect_url": "/azure/azure-functions/migration/assess-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-discover.md",
+      "redirect_url": "/azure/azure-functions/migration/discover-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-migrate.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-overview.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/storage-files-enable-soft-delete.md",
+      "redirect_url": "/azure/storage/files/storage-files-prevent-file-share-deletion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/release-notes-archive.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/release-notes-ot-monitoring-sensor-archive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-portal.md",
+      "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-powershell.md",
+      "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-cli.md",
+      "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-template.md",
+      "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-terraform.md",
+      "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-bicep.md",
+      "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/eiot-sensor.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/concept-enterprise",
+      "redirect_document_id": false
     }
   ]
 }

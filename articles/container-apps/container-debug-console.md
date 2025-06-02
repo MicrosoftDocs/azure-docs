@@ -2,14 +2,13 @@
 title: Connect to a container debug console in Azure Container Apps
 description: Connect to a container debug console in your container app.
 services: container-apps
-author: fangjian0423
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 09/18/2024
-ms.author: fangjimmy
+ms.date: 05/29/2025
+ms.author: cshoe
 ---
-
 
 # Connect to a container debug console in Azure Container Apps
 
@@ -127,7 +126,7 @@ az containerapp debug `
 
 ---
 
-## Built-in tools in Debug Console
+## Built-in tools in the debug console
 
 The following diagnostic tools are preinstalled to the debug console to help you troubleshoot issues:
 
@@ -154,15 +153,18 @@ tdnf install -y msopenjdk-17
 
 ---
 
-## Scenario - Accessing container's file system via Debug Console
+## Accessing a container's file system in the debug console
 
-By default, debug console runs as root user.
-
-You can access `/proc/1` to access container's file system if your container runs as root user. If your container doesn't run as root user, run below command to switch user before accessing `/proc/1` directory, or you'll get a permission denied error.
+By default, the debug console runs as the root user. You can access your container's file system through the `/proc/1/cwd/` directory. If your container doesn't run as the root user, run the following command before accessing the `/proc/1/cwd/` directory, or you'll get a permission denied error.
 
 ```bash
 switch-user
 ```
+
+For more information, see the following Linux man pages:
+
+- [pid_namespaces](https://www.man7.org/linux/man-pages/man7/pid_namespaces.7.html)
+- [/proc/pid/cwd](https://www.man7.org/linux/man-pages/man5/proc_pid_cwd.5.html)
 
 ---
 

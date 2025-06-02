@@ -25,97 +25,15 @@ items:
 #      - name: 6. Optimize with Azure
 #        href: ./placeholder.md
     - name: Compute
-      items:
-      - name: Migrate compute
-        href: ./migrate-compute-from-aws.md
-      - name: Azure compute services map
-        href: /azure/architecture/aws-professional/compute
-      - name: Migrate AWS Lambda to Azure Functions
-        href: /azure/azure-functions/migration/lambda-functions-migration-overview
-      - name: Elastic Kubernetes Service (EKS)
-        items:
-        - name: AKS for Amazon EKS professionals
-          href: /azure/architecture/aws-professional/eks-to-aks/
-        - name: Migrate to Azure Kubernetes Service (AKS)
-          href: /azure/aks/aks-migration
-        - name: Migrate a web app from EKS to AKS
-          href: /azure/aks/eks-web-overview
-        - name: Migrate an event-driven EKS workload to AKS
-          href: /azure/aks/eks-edw-overview
-      - name: Amazon EC2
-        items:
-        - name: Migrate to Azure Virtual Machines (Azure Migrate)
-          href: /azure/migrate/tutorial-migrate-aws-virtual-machines
-        - name: Migrate virtual machine images to Azure Managed Disks
-          href: /azure/virtual-machines/windows/on-prem-to-azure
-      - name: Migrate VMware Services to Azure
-        href: /azure/migrate/vmware/migrate-support-matrix-vmware
-    - name: Databases and data
-      items:
-      - name: Migrate databases
-        href: ./migrate-databases-from-aws.md
-      - name: Azure database services map
-        href: /azure/architecture/aws-professional/databases
-      - name: Azure data and AI services map
-        href: /azure/architecture/aws-professional/data-ai
-      - name: Amazon RDS for PostgreSQL
-        items:
-        - name: Migrate to Azure Database for PostgreSQL (offline)
-          href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
-        - name: Migrate to Azure Database for PostgreSQL (online)
-          href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online
-      - name: Amazon Aurora PostgreSQL
-        items:
-        - name: Migrate to Azure Database for PostgreSQL (offline)
-          href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
-        - name: Migrate to Azure Database for PostgreSQL (online)
-          href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
-      - name: Migrate MySQL on AWS to Azure Database for MySQL
-        href: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
-      - name: Migrate Amazon SQL Server to Azure SQL Database
-        href: /data-migration/sql-server/database/guide
-      - name: Amazon DynamoDB
-        items:
-        - name: Migrate a DynamoDB application to Azure Cosmos DB for NoSQL
-          href: /azure/cosmos-db/nosql/dynamo-to-cosmos
-        - name: Migrate DynamoDB data to Azure Cosmos DB for NoSQL
-          href: /azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db
-      - name: Migrate Amazon ElastiCache to Azure Cache for Redis
-        href: /azure/azure-cache-for-redis/cache-migration-guide
-      - name: Migrate CouchBase on AWS to Azure Cosmos DB for NoSQL
-        href: /azure/cosmos-db/nosql/couchbase-cosmos-migration
+      href: ./migrate-compute-from-aws.md
+    - name: Databases
+      href: ./migrate-databases-from-aws.md
     - name: Storage
-      items:
-      - name: Migrate storage components
-        href: ./migrate-storage-from-aws.md
-      - name: Azure storage services map
-        href: /azure/architecture/aws-professional/storage
-      - name: Amazon Simple Storage Service (S3)
-        items:
-        - name: Copy data from Amazon S3 to Azure Storage (AzCopy)
-          href: /azure/storage/common/storage-use-azcopy-s3
-        - name: Copy data from Amazon S3 to Azure Storage (Azure Data Factory)
-          href: /azure/data-factory/data-migration-guidance-s3-azure-storage
-        - name: Migrate to Azure Data Lake Storage
-          href: /azure/data-factory/solution-template-migration-s3-azure
+      href: ./migrate-storage-from-aws.md
     - name: Networking
-      items:
-      - name: Azure networking services mapping
-        href: /azure/architecture/aws-professional/networking
-      - name: Connect AWS and Azure using a BGP-enabled VPN gateway
-        href: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
-    - name: Messaging and integration
-      items:
-      - name: Azure messaging services map
-        href: /azure/architecture/aws-professional/messaging
-      - name: Synchronize API Gateway APIs into Azure API Center
-        href: /azure/api-center/synchronize-aws-gateway-apis
+      href: ./migrate-networking-from-aws.md
     - name: Security
-      items:
-      - name: Azure security services map
-        href: /azure/architecture/aws-professional/security-identity
-      - name: Migrate your SIEM in AWS to Microsoft Sentinel
-        href: /azure/sentinel/migration
+      href: ./migrate-security-from-aws.md
   - name: Migrate from Google Cloud
     items:
     - name: Getting started
@@ -134,7 +52,7 @@ items:
 #        href: ./placeholder.md
 #      - name: 6. Optimize with Azure
 #        href: ./placeholder.md
-    - name: Databases and data
+    - name: Databases
       items:
       - name: Migrate databases
         href: ./migrate-databases-from-google-cloud.md

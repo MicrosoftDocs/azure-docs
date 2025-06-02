@@ -6,7 +6,7 @@ ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus, devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/25/2025
+ms.date: 05/21/2025
 # ms.custom: template-include
 ---
 
@@ -160,7 +160,8 @@ az networkcloud cluster update-version --cluster-name "<CLUSTER>" \
 ```
 
 The runtime upgrade is a long process. The upgrade first upgrades the management nodes and then sequentially Rack-by-Rack for the worker nodes.
-The upgrade is considered to be finished when 80% of worker nodes per rack and 100% of management nodes are successfully upgraded.
+The management servers are segregated into two groups. The runtime upgrade will now leverage two management groups, instead of a single group. Introducing this capability allows for components running on the management servers to ensure resiliency during the runtime upgrade by applying affinity rules. For this release, each CSN will leverage this functionality by placing one instance in each management group. No customer interaction with this functionality. There may be additional labels seen on management nodes to identify the groups.
+The upgrade is considered to be finished when 80% of worker nodes per rack and 50% of management nodes in each group are successfully upgraded.
 Workloads might be impacted while the worker nodes in a rack are in the process of being upgraded, however workloads in all other racks aren't impacted. Consideration of workload placement in light of this implementation design is encouraged.
 
 Upgrading all the nodes takes multiple hours, depending upon how many racks exist for the Cluster.

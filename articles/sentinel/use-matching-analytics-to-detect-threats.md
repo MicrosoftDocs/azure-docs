@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.date: 01/28/2025
 ms.author: austinmc
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -38,12 +38,12 @@ You must install one or more of the supported data connectors to produce high-fi
 
   |Solution |Data connector  |
   |---------|---------|
-  |[Common Event Format solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-commoneventformat?tab=Overview) | [Common Event Format connector for Microsoft Sentinel](data-connectors/common-event-format-cef.md)|
-  |[Windows Server DNS](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-dns?tab=Overview)  |[DNS connector for Microsoft Sentinel](data-connectors/dns.md) |
-  |[Syslog solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-syslog?tab=Overview)  |[Syslog connector for Microsoft Sentinel](data-connectors/syslog.md)  |
-  |[Microsoft 365 solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-office365?tab=Overview) | [Office 365 connector for Microsoft Sentinel](data-connectors/office-365.md)    |
-  |[Azure Activity solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivity?tab=Overview)    |  [Azure Activity connector for Microsoft Sentinel](data-connectors/azure-activity.md)   |
-  |[Windows Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-windowsfirewall?tab=Overview)  | [Windows Firewall Events via AMA connector](data-connectors/windows-firewall-events-via-ama.md)  |
+  |[Common Event Format solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-commoneventformat?tab=Overview) | [Common Event Format connector for Microsoft Sentinel](data-connectors-reference.md#syslog-and-common-event-format-cef-connectors)
+  |[Windows Server DNS](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-dns?tab=Overview)  |[DNS connector for Microsoft Sentinel](connect-dns-ama.md) |
+  |[Syslog solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-syslog?tab=Overview)  |[Syslog connector for Microsoft Sentinel](cef-syslog-ama-overview.md)  |
+  |[Microsoft 365 solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-office365?tab=Overview) | [Office 365 connector for Microsoft Sentinel](data-connectors-reference.md#microsoft-365-formerly-office-365)    |
+  |[Azure Activity solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivity?tab=Overview)    |  [Azure Activity connector for Microsoft Sentinel](data-connectors-reference.md#azure-activity)   |
+  |[Windows Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-windowsfirewall?tab=Overview)  | [Windows Firewall Events via AMA connector](data-connectors-reference.md#windows-firewall-events-via-ama)  |
 
 ## Configure the matching analytics rule
 

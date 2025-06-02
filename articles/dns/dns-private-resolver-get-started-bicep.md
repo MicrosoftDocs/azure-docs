@@ -3,8 +3,8 @@ title: 'Quickstart: Create an Azure DNS Private Resolver - Bicep'
 titleSuffix: Azure DNS Private resolver
 description: Learn how to create Azure DNS Private Resolver. This article is a step-by-step quickstart to create and manage your first Azure DNS Private Resolver using Bicep.
 services: dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.date: 02/28/2024
 ms.topic: quickstart
 ms.service: azure-dns

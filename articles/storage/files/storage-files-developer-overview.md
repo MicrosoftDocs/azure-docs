@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to develop applications and services that use Azure Files to store data.
 author: pauljewellmsft
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: pauljewell
 ---
@@ -33,13 +33,13 @@ Azure Files offers several ways for developers to access data and manage resourc
 
 | Approach | How it works | When to use |
 | --- | --- | --- |
-| [Standard file I/O libraries](#standard-file-io-libraries) | Uses OS-level API calls through Azure file shares mounted using the industry standard Server Message Block (SMB) and Network File System (NFS) protocols. When you mount a file share using SMB/NFS, you can use file I/O libraries for a programming language or framework, such as `System.IO` for .NET, `os` and `io` for Python, `java.io` for Java, or `fs` for JavaScript (Node.js). | You have line-of-business apps with existing code that uses standard file I/O, and you don't want to rewrite code for the app to work with an Azure file share. |
+| [Standard file I/O libraries](#standard-file-io-libraries) | Uses OS-level API calls through Azure file shares mounted using the industry standard Server Message Block (SMB) and Network File System (NFS) protocols. When you mount a file share using SMB/NFS, you can use file I/O libraries for a programming language or framework, such as `System.IO` for .NET, `os` and `io` for Python, `java.io` and `java.nio` for Java, or `fs` for JavaScript (Node.js). | You have line-of-business apps with existing code that uses standard file I/O, and you don't want to rewrite code for the app to work with an Azure file share. |
 | [FileREST API](#filerest-api)| Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides client libraries that build on the FileREST API, allowing you interact with FileREST API operations through familiar programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through native protocols. |
 | [Storage resource provider REST API](#storage-resource-provider-rest-api) | Uses Azure Resource Manager (ARM) to manage storage accounts and file shares. Calls REST API endpoints for various resource management operations. | Your app or service needs to perform resource management tasks, such as creating, deleting, or updating storage accounts or file shares. |
 
 ### Standard file I/O libraries
 
-File I/O libraries are the most common way to access and work with Azure Files resources. When you mount a file share using SMB or NFS, your operating system redirects API requests for the local file system. This approach allows you to use standard file I/O libraries for your preferred programming language or framework, such as `System.IO` for .NET, `os` and `io` for Python, `java.io` for Java, or `fs` for JavaScript (Node.js).
+File I/O libraries are the most common way to access and work with Azure Files resources. When you mount a file share using SMB or NFS, your operating system redirects API requests for the local file system. This approach allows you to use standard file I/O libraries for your preferred programming language or framework, such as `System.IO` for .NET, `os` and `io` for Python, `java.io` and `java.nio` for Java, or `fs` for JavaScript (Node.js).
 
 Consider using file I/O libraries when your app requires:
 

@@ -1104,7 +1104,12 @@
             "source_path_from_root": "/articles/data-factory/lab-data-flow-data-share.md",
             "redirect_url": "/azure/data-factory/data-factory-tutorials",
             "redirect_document_id": false
-          }           
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/connector-deprecation-plan.md",
+            "redirect_url": "/azure/data-factory/connector-release-stages-and-timelines",
+            "redirect_document_id": false
+          }             
     ]
 }                    
 

@@ -5,7 +5,7 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/26/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
@@ -190,7 +190,7 @@ All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. See 
 
 The Azure Storage client libraries provide methods for encrypting data from the client library before sending it across the wire and decrypting the response. Data encrypted via client-side encryption is also encrypted at rest by Azure Storage. For more information about client-side encryption, see [Client-side encryption with .NET for Azure Storage](storage-client-side-encryption.md).
 
-Azure NetApp Files data traffic is inherently secure by design, as it doesn't provide a public endpoint and data traffic stays within customer-owned VNet. Data-in-flight isn't encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. See [Security FAQs for Azure NetApp Files](../../azure-netapp-files/faq-security.md#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted).
+Azure NetApp Files data traffic is inherently secure by design, as it doesn't provide a public endpoint and data traffic stays within customer-owned VNet. Data-in-flight isn't encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. See [Security FAQs for Azure NetApp Files](../../azure-netapp-files/faq-security.md#can-the-network-traffic-between-the-azure-virtual-machine-vm-and-the-storage-be-encrypted).
 
 ## Redundancy
 

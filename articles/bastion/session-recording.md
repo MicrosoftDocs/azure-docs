@@ -2,11 +2,11 @@
 title: 'Record Bastion sessions'
 titleSuffix: Azure Bastion
 description: Learn how to configure and record Bastion sessions.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 01/21/2025
-ms.author: cherylmc
+ms.author: abell
 
 ---
 
@@ -94,6 +94,7 @@ The following steps help you configure the required settings directly on the **G
 1. For **Start and expiry date/time**, use the following recommendations:
    * Set **Start time** to be at least 15 minutes before the present time.
    * Set **Expiry time** to be long into the future.
+1. Under **Allowed IP addresses**, please select the IP address or the IP range to accept requests from. For more information, click [here](/rest/api/storageservices/create-account-sas#specify-an-ip-address-or-ip-range)
 1. Under **Allowed Protocols**, select **HTTPS** only.
 1. Click **Generate SAS token and URL**. You'll see the Blob SAS token and Blob SAS URL generated at the bottom of the page.
 1. Copy the **Blob SAS URL**.
