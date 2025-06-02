@@ -255,8 +255,39 @@ Specific limits include:
 - Ingest volume: 100 TB  
 - Spark jobs & Notebook execution: 200 vcore‑hours  
 - ADX queries: 200 vcore‑hours  
-- Graph queries: 400 vcore‑hours  
+ - Graph queries: 400 vcore‑hours 
  
+## Troubleshooting 
+
+The following table lists common errors you may encounter when working with notebooks in the Microsoft Sentinel extension for Visual Studio Code, along with their root causes and suggested actions to resolve them.
+
+| Component | Error Message | Root Cause | Suggested Action |
+|-------|---------------|------------|------------------|
+| Spark compute | Spark compute session timeout | Spark session has been idle for too long and auto-terminated | Restart the session and rerun the cell |
+|  Spark compute  | LIVY_JOB_TIMED_OUT: Livy session has failed. Session state: Dead. Error code: LIVY_JOB_TIMED_OUT. Job failed during run time with state=[dead]. Source: Unknown. | Session timed out or user stopped the session | Run the cell again. |
+| Spark compute | Spark compute pool not available | Compute pool is not started or is being used by other users or jobs | Start the pool if stopped |
+| Spark compute | Spark pools are not displayed | User does not have the required roles to run interactive notebook or schedule job | Check if you have required role for interactive notebook or notebook job |
+| Spark compute | Driver memory exceeded or executor failure | Job ran out of drive memory, or one or more executors failed | View job run logs or optimize your query |
+| VS Code Runtime | Kernel not connected | VS Code lost connection to the compute kernel | Reconnect or restart the kernel via the VS Code UI |
+| VS Code Runtime | Module not found | Missing import (e.g., Microsoft Sentinel Library library) | Run the setup/init cell again |
+| VS Code Runtime | Invalid syntax | Python or PySpark syntax error | Review code syntax; check for missing colons, parentheses, or quotes |
+| VS Code Runtime | Unbound variable | Variable used before assignment | Ensure all required setup cells have been run in order |
+| Interactive notebook | The specified source table does not exist. | One or more source tables do not exist in the given workspaces or were recently deleted from your workspace. | Verify if source tables exist in the workspace. |
+| Interactive notebook | The workspace or database name provided in the query is invalid or inaccessible. | The referenced database does not exist | Confirm the database name is correct |
+|   | Gateway 401 error | Gateway has a 1 hour timeout that was reached |   |
+| Library | Table not found | Incorrect table name or database name used | Verify table name used is correct |
+| Library | Access denied | User doesn’t have permission to read/write/delete the specified table | Verify user has the role required |
+| Library | Schema mismatch on write | save_as_table() is writing data that doesn’t match the existing schema | Check the dataframe schema and align it with the destination table. |
+| Library | Missing suffix _SPRK for writing table to lake | save_as_table() is writing data to a table that requires _SPRK | Add _SPRK as suffix for writing to custom table in Lake |
+| Library | Missing suffix _SPRK_CL for writing table to analytics tier | save_as_table() is writing data to a table that requires _SPRK_CL | Add _SPRK as suffix for writing to custom table in analytics tier |
+| Library | Invalid write | Attempted to write to system table, this action is not permitted. | Specify a custom table to write to |
+| Library | Invalid notebook | Incorrect arguments passed to a library method (e.g., missing ‘mode’ in save_as_table) | Validate parameter names and values. Refer to method documentation or use auto-complete in VS Code |
+| Job | Job quota exceeded | The notebook is corrupted or contains unsupported syntax for scheduled execution | Open the notebook and validate that all cells run sequentially without manual input. |
+| Job | Job quota exceeded | User or workspace has hit the limit for concurrent or scheduled jobs | Reduce the number of active jobs, or wait for some to finish. |
+| Job | Expired credentials | The user’s token or session used for scheduling is no longer valid | Re-authenticate before scheduling the job. |
+
+
+
 ## Related content  
  
 - [Create and run Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)  
