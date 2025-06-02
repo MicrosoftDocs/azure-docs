@@ -128,7 +128,11 @@ Deploy the template:
 6. Under `Community Name`, enter the community name you would like to use (for example cm-template-test).
 7. Select `Review + Create` and then `Create`.
 
-### enclave template
+> [!NOTE]
+> 
+> The community property "dnsServers" will not have any impact on the community resource deployed and can be ignored.
+
+### Enclave template
 What gets deployed:
 - One  [Enclave](./what-enclave.md)
 
