@@ -33,87 +33,81 @@ You can define various rule [actions](front-door-rules-engine-actions.md) based 
 
 This article covers common use cases supported by the rules engine, and how to configure these rules to meet your needs. It also includes Azure Resource Manager (ARM) template examples to help automate deployment of these capabilities.
 
-## New capabilities
-
-The AFD rules engine has been widely adopted, and we have received constructive feedback. Since May 2024, we have been improving its capabilities and have implemented several updates listed below. These enhancements allow capturing values from incoming requests and using the captured value dynamically to construct a new destination or value in the rules engine action, offering more flexibility with fewer rules for enriched scenarios.
-
-1.	Capture URL path segments in server variable
-1.	Transform URL to lower case
-1.	Capture request header as server variable
-1.	Capture response header as server variable
-1.	Capture request query string as server variable 
-
-## Common rules engine scenarios 
-
-Here are the common scenarios customers leverage AFD rules engine to achieve. However, rules engine is not limited to the following scenarios, you can explore various scenarios and feel free to reach out to us if you have any questions about how to support your scenario. We will continue and are adding more capabilities to support your scenarios.
-
 ### Scenario 1: Redirect using query string, URL path segments, or incoming hostname captures
 
-Managing redirects is important for SEO, user experience, and the proper functioning of a website. The Azure Front Door rules engine and server variables enables efficient management of batch redirects based on various parameters.
+Managing redirects is critical for search engine optimization (SEO), user experience, and the proper functioning of a website. Azure Front Door's rules engine and server variables allow you to efficiently manage batch redirects based on various parameters.
 
-- To redirect requests using query fields of the incoming URL, you can capture the value of the query string’s key of interest in the format {http_req_arg_<key>}. E.g. extract the value of “cdpb” query key from an incoming URL : https://example.mydomain.com/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount and use it to configure “Destination host” in to redirect to outgoing URL : https://teststorageaccount.blob.core.windows.net/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount. This can be achieved by using {http_req_arg_cdpb}. This helps reduce the number of rules needed where you don’t need to create one rule for each cdpb value.
-Example in portal
+- **Redirect based on query string parameters:** You can redirect requests using query fields of the incoming URL by capturing the value of a specific query string key in the format `{http_req_arg_<key>}`.
+    For example, extract the value of `cdpb` query key from an incoming URL: `https://example.mydomain.com/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount` and use it to configure the “destination host” into outgoing URL: `https://teststorageaccount.blob.core.windows.net/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount`.
+    
+    This approach enables dynamic redirects without having to create a separate rule for each `cdpb` value, significantly reducing the number of rules required.
 
-```json
-{
-    "type": "Microsoft.Cdn/profiles/rulesets/rules",
-    "apiVersion": "2025-04-15",
-    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectQueryStringCapture')]",
-    "dependsOn": [
-        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
-        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
-    ],
-    "properties": {
-        "order": 100,
-        "conditions": [],
-        "actions": [
-            {
-                "name": "UrlRedirect",
-                "parameters": {
-                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
-                    "redirectType": "PermanentRedirect",
-                    "destinationProtocol": "MatchRequest",
-                    "customHostname": "{http_req_arg_cdpb}.blob.core.windows.net"
-                }
-            }
+    :::image type="content" source="./media/rules-engine-scenarios/redirect-query-string.png" alt-text="Screenshot that shows how to use query string to redirect URL." lightbox="./media/rules-engine-scenarios/redirect-query-string.png":::
+
+    ```json
+    {
+        "type": "Microsoft.Cdn/profiles/rulesets/rules",
+        "apiVersion": "2025-04-15",
+        "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectQueryStringCapture')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+            "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
         ],
-        "matchProcessingBehavior": "Continue"
-    }
-}
-```
-
-- To redirect requests to different origins based on URL path segment when the length of the URL path segment is fixed, you can capture the URL segments using {variable:offset:length}. Read more about server variable format in Server variables - Azure Front Door | Microsoft Learn.
-For example, the tenant ID is embedded in the URL segment with a fixed length of 6 strings or numbers, e.g. `https://api.contoso.com/{tenantId}/xyz`. You would like to be able to extract {tenantId} from the URL and decide the correct redirect to use in the format of tenantId.backend.com/xyz. This helps reduce the number of rules needed where you don’t need to create one rule for each tenant ID. 
-
-
-```json
-{
-    "type": "Microsoft.Cdn/profiles/rulesets/rules",
-    "apiVersion": "2025-04-15",
-    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectURLSegmentCapture')]",
-    "dependsOn": [
-        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
-        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
-    ],
-    "properties": {
-        "order": 101,
-        "conditions": [],
-        "actions": [
-            {
-                "name": "UrlRedirect",
-                "parameters": {
-                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
-                    "redirectType": "PermanentRedirect",
-                    "destinationProtocol": "MatchRequest",
-                    "customPath": "/xyz",
-                    "customHostname": "{url_path:0:6}.backend.com"
+        "properties": {
+            "order": 100,
+            "conditions": [],
+            "actions": [
+                {
+                    "name": "UrlRedirect",
+                    "parameters": {
+                        "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                        "redirectType": "PermanentRedirect",
+                        "destinationProtocol": "MatchRequest",
+                        "customHostname": "{http_req_arg_cdpb}.blob.core.windows.net"
+                    }
                 }
-            }
-        ],
-        "matchProcessingBehavior": "Continue"
+            ],
+            "matchProcessingBehavior": "Continue"
+        }
     }
-}
-```
+    ```
+
+- **Redirect based on fixed-length URL path segments:** You can redirect requests to different origins based on fixed-length URL path segment by capturing the URL segments using `{variable:offset:length}`. For more information about server variable format, see [Server variables](/azure/frontdoor/rule-set-server-variables#server-variable-format).
+
+    For example, consider a scenario where the tenant ID is embedded in the URL segment and is always 6 characters long, such as: `https://api.contoso.com/{tenantId}/xyz`. To extract `{tenantId}` from the URL and decide the correct redirect to use in the format of `tenantId.backend.com/xyz`.
+
+    This approach eliminates the need to create a separate rule for each tenant ID, allowing you to handle dynamic routing with fewer rules.
+
+    :::image type="content" source="./media/rules-engine-scenarios/redirect-url-path-segment.png" alt-text="Screenshot that shows how to use fixed-length path segment to redirect URL." lightbox="./media/rules-engine-scenarios/redirect-url-path-segment.png":::
+
+    ```json
+    {
+        "type": "Microsoft.Cdn/profiles/rulesets/rules",
+        "apiVersion": "2025-04-15",
+        "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectURLSegmentCapture')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+            "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
+        ],
+        "properties": {
+            "order": 101,
+            "conditions": [],
+            "actions": [
+                {
+                    "name": "UrlRedirect",
+                    "parameters": {
+                        "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                        "redirectType": "PermanentRedirect",
+                        "destinationProtocol": "MatchRequest",
+                        "customPath": "/xyz",
+                        "customHostname": "{url_path:0:6}.backend.com"
+                    }
+                }
+            ],
+            "matchProcessingBehavior": "Continue"
+        }
+    }
+    ```
 
 - To redirect requests to different origins based on URL path segment with dynamic lengths, you can extract the URL segment using {url_path:seg#}, more details about the format in Server variables - Azure Front Door | Microsoft Learn. The tenant ID or location is embedded in the URL segment, e.g. `https://api.contoso.com/{tenantId}/xyz`. You would like to be able to extract {tenantId} from the URL and decide the correct redirect to use in the format of tenantId.backend.com/xyz with server variable {url_path:seg0}.backend.com in the redirect destination host.  This helps reduce the number of rules needed where you don’t need to create one rule for each tenant ID. This is currently supported by ARM templates and command line tools. 
 
