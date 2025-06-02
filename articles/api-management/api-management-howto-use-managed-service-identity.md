@@ -133,6 +133,8 @@ The following configurations are required if you want to use API Management to a
 
 ## Supported scenarios that use system-assigned identity
 
+Following are some common scenarios for using a system-assigned managed identity in Azure API Management.
+
 ### Obtain a custom TLS/SSL certificate for the API Management instance from Key Vault
 
 You can use the system-assigned identity of an API Management instance to retrieve custom TLS/SSL certificates that are stored in Key Vault. You can then assign these certificates to custom domains in the API Management instance. Take these considerations into account:
@@ -444,6 +446,8 @@ The `principalId` property is a unique identifier for the identity that's used f
 > An API Management instance can have both system-assigned and user-assigned identities. In that scenario, the `type` property would be `SystemAssigned,UserAssigned`.
 
 ## Supported scenarios that use user-assigned managed identities
+
+Following are some common scenarios for using a user-assigned managed identity in Azure API Management.
 
 ### Obtain a custom TLS/SSL certificate for the API Management instance from Key Vault
 
