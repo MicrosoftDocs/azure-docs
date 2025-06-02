@@ -318,3 +318,7 @@ it is not guaranteed that this will be exactly one-full and one-half NUMA cells.
 This means that an `NC_G24_112_v1` may or may not be able to schedule on a machine
 running an `NC_E70_336_v1` depending on how the `NC_E70_336_v1` VM is scheduled
 across the NUMA-cells.
+
+## Storage-optimized VM SKUs
+
+`NC_L46_224_v1` and `NC_L54_224_v1` are SKUs designed to enhance local storage utilization and scalability. Previously, each NAKS VM node was limited to 300 GB of local storage, leaving over 3 TB of disk space per node unused. With these SKUs, NAKS nodes can access up to 1.6 TB of local disk space on the compute node.
