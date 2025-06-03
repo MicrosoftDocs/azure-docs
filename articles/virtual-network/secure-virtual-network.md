@@ -16,14 +16,6 @@ Azure Virtual Network is the fundamental building block for your private network
 
 This article provides guidance on how to best secure your Azure Virtual Network deployment.
 
-## Virtual Network architecture
-
-- **Isolate and control network traffic**: Segment, isolate, and control network traffic across both ingress and egress flows. Apply defense in depth principles by using localized network controls at all available network boundaries across both east-west and north-south traffic. To minimize network visibility, segment your network and start with least-privilege network controls. For more information, see [Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation)
-
-- **Filter traffic**:  Ensure that traffic that enters a boundary is expected, allowed, and safe. For more information, see [Recommendations for networking and connectivity](/azure/well-architected/security/networking).
-
-- **Apply firewalls at the edge**: Internet edge traffic is north-south traffic and includes ingress and egress. To detect or block threats, an edge strategy must mitigate as many attacks as possible to and from the internet.
-
 ## Network security
 
 Network security for Virtual Networks focuses on controlling traffic flow, implementing network segmentation, and protecting against external threats. Proper network security controls help isolate workloads, prevent lateral movement, and defend against distributed denial-of-service attacks.
@@ -50,6 +42,12 @@ Network security for Virtual Networks focuses on controlling traffic flow, imple
 
 - **Set subnets to private**: For subnets that don't require public internet access, configure them as private subnets. Use Azure Firewall or NAT Gateway for controlled outbound access if needed. For more information, see [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
 
+- **Use Application Security Groups for granular control**: Implement Application Security Groups to group virtual machines logically and define network security policies based on application structure. This enables more intuitive security rule management and reduces complexity. For more information, see [Application Security Groups](/azure/virtual-network/network-security-groups-overview#application-security-groups).
+
+- **Apply Adaptive Network Hardening recommendations**: Use Microsoft Defender for Cloud's Adaptive Network Hardening to receive machine learning-based recommendations for tightening NSG rules based on actual traffic patterns and threat intelligence. For more information, see [Adaptive Network Hardening](/azure/defender-for-cloud/adaptive-network-hardening).
+
+- **Design with defense-in-depth principles**: Implement multiple layers of network security controls to create redundant protection. Use segmentation strategies that isolate critical workloads and apply different security measures at each network boundary to contain potential breaches.
+
 ## Identity management
 
 Identity management for Virtual Networks involves controlling access to network resources and ensuring that only authorized users and services can modify network configurations. Proper identity controls prevent unauthorized network changes and maintain network security posture.
@@ -59,6 +57,12 @@ Identity management for Virtual Networks involves controlling access to network 
 - **Enable Microsoft Entra ID integration**: Use Microsoft Entra ID as the centralized identity provider for managing access to network resources and related Azure services. Microsoft Entra ID integration ensures consistent authentication and authorization across your network infrastructure.
 
 - **Implement conditional access for network administrators**: Configure conditional access policies to require multifactor authentication and restrict access to network management operations based on user location, device compliance, and risk level. For more information, see [Conditional Access](/azure/active-directory/conditional-access/overview).
+
+- **Use managed identities for Azure resources**: Enable managed identities for Azure resources that need to access other Azure services, eliminating the need to store credentials in your virtual network configurations. This provides secure, credential-free authentication. For more information, see [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
+
+- **Implement single sign-on (SSO)**: Use SSO with Microsoft Entra ID rather than configuring individual standalone credentials per service. This reduces the attack surface by minimizing the need for multiple passwords. For more information, see [Single sign-on to applications](/azure/active-directory/manage-apps/what-is-single-sign-on).
+
+- **Regularly review and reconcile user access**: Perform regular access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Ensure only active users have continued access to network management functions. For more information, see [Azure Identity Access Reviews](/azure/active-directory/governance/access-reviews-overview).
 
 ## Privileged access
 
@@ -70,6 +74,12 @@ Privileged access management for Virtual Networks focuses on securing administra
 
 - **Monitor privileged network activities**: Enable logging and monitoring for all privileged network operations including NSG changes, route table modifications, and firewall rule updates. Use Azure Activity Log and Azure Monitor to track administrative actions. For more information, see [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
+- **Use Privileged Access Workstations for administration**: Deploy Privileged Access Workstations (PAWs) with multifactor authentication configured for network administrators to perform administrative tasks. PAWs provide a hardened, secure environment for managing critical network infrastructure. For more information, see [Privileged Access Workstations](/security/compass/overview).
+
+- **Maintain inventory of administrative accounts**: Use Microsoft Entra ID built-in administrator roles that can be explicitly assigned and are queryable. Regularly audit accounts that are members of administrative groups to ensure proper access control.
+
+- **Use dedicated administrative accounts**: Create standard operating procedures around the use of dedicated administrative accounts. Use Microsoft Defender for Cloud's Identity and Access Management to monitor the number of administrative accounts.
+
 ## Data protection
 
 Data protection for Virtual Networks involves securing data in transit across your network infrastructure and ensuring that network communications are encrypted and protected from interception or tampering.
@@ -79,6 +89,10 @@ Data protection for Virtual Networks involves securing data in transit across yo
 - **Use private endpoints for Azure services**: Deploy private endpoints to access Azure PaaS services over private IP addresses within your virtual network, eliminating exposure to the public internet and reducing data exfiltration risks. For more information, see [Private endpoints](/azure/private-link/private-endpoint-overview).
 
 - **Implement network access controls for sensitive data**: Use NSGs and Azure Firewall to restrict access to subnets and resources containing sensitive data. Apply defense-in-depth principles with multiple layers of network security controls.
+
+- **Enable MACsec for Azure ExpressRoute**: For ExpressRoute connections, enable MACsec (Media Access Control Security) to provide Layer 2 encryption between your on-premises network and Azure, ensuring confidentiality and integrity of data in transit. For more information, see [MACsec for ExpressRoute](/azure/expressroute/expressroute-howto-macsec).
+
+- **Classify data based on sensitivity**: Assign confidentiality levels to data flowing through your virtual networks and implement appropriate network security controls based on these classifications. Use this classification to influence network design and security prioritization.
 
 ## Logging and threat detection
 
@@ -94,6 +108,14 @@ Comprehensive logging and threat detection for Virtual Networks enables security
 
 - **Enable DNS logging**: Configure DNS query logging for Azure DNS or custom DNS servers to detect DNS-based attacks and data exfiltration attempts. Monitor for suspicious domain queries and DNS tunneling activities.
 
+- **Set appropriate log retention periods**: Configure log retention in Azure Monitor Log Analytics according to your organization's compliance regulations. Use Azure Storage accounts for long-term archival storage of security logs. For more information, see [Log retention in Azure Monitor](/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period).
+
+- **Monitor and analyze logs for anomalous behavior**: Regularly review logs for anomalous behavior and security events. Use Azure Monitor's Log Analytics Workspace to query and perform analytics on security data.
+
+- **Enable diagnostic logging for network resources**: Turn on diagnostic logging for virtual networks, load balancers, and other network components to capture configuration changes and access patterns for security analysis.
+
+- **Implement User and Entity Behavior Analytics (UEBA)**: Use UEBA tools to collect user behavior from monitoring data and analyze it to detect anomalous user access patterns that might indicate security threats.
+
 ## Asset management
 
 Asset management for Virtual Networks involves maintaining an inventory of network resources, implementing governance policies, and ensuring compliance with security standards. Effective asset management helps maintain security posture and enables rapid response to security incidents.
@@ -106,6 +128,28 @@ Asset management for Virtual Networks involves maintaining an inventory of netwo
 
 - **Implement configuration management**: Use Azure Resource Manager templates or Bicep to define and deploy network configurations consistently. Store templates in version control and implement change management processes for network modifications.
 
+- **Use Azure Blueprints for standardized deployments**: Simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control assignments, and policies, in a single blueprint definition. For more information, see [Azure Blueprints](/azure/governance/blueprints/create-blueprint-portal).
+
+- **Document traffic configuration rules**: Use tags and the description field in NSG rules to specify business need, duration, and other information for security rules. This documentation aids in security audits and rule management.
+
+- **Maintain approved resource inventories**: Create and maintain inventories of approved Azure resources and approved configurations for your networking environment. Regularly audit deployments to ensure compliance with approved baselines.
+
+- **Restrict resource types with Azure Policy**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using built-in policy definitions such as "Not allowed resource types" and "Allowed resource types".
+
+## Security testing
+
+Security testing for Virtual Networks ensures that implemented security controls are functioning correctly and can detect and prevent potential threats. Regular testing validates the effectiveness of your network security posture.
+
+- **Conduct regular penetration testing**: Perform periodic penetration testing conducted by experts external to the workload team who attempt to ethically hack the network infrastructure. These tests validate security defenses by simulating real-world attacks.
+
+- **Implement vulnerability scanning**: Run routine and integrated vulnerability scanning to detect exploits in network infrastructure, virtual machines, and network appliances. Integrate scanners into deployment pipelines to automatically detect vulnerabilities.
+
+- **Test incident response procedures**: Conduct exercises to test your network security incident response capabilities on a regular basis. Identify weak points and gaps in your network security response procedures and revise plans as needed.
+
+- **Validate network segmentation**: Regularly test network segmentation controls to ensure that compromised resources in one segment cannot access resources in other segments. Verify that isolation boundaries are functioning as designed.
+
+- **Test backup and recovery procedures**: Regularly test your ability to recreate virtual network configurations from exported templates or documentation to ensure recovery procedures work correctly and meet recovery time objectives.
+
 ## Backup and recovery
 
 Backup and recovery for Virtual Networks focuses on preserving network configurations and ensuring rapid restoration of network connectivity if there's accidental deletion or configuration errors. While virtual networks themselves don't require traditional backups, configuration preservation is critical.
@@ -117,3 +161,25 @@ Backup and recovery for Virtual Networks focuses on preserving network configura
 - **Test configuration restoration procedures**: Regularly test your ability to recreate virtual network configurations from exported templates or documentation to ensure recovery procedures work correctly and meet recovery time objectives.
 
 - **Use Azure Backup for connected resources**: While virtual networks don't require backup, ensure that virtual machines and other resources connected to your networks are properly backed up with Azure Backup to maintain complete recovery capabilities. For more information, see [Azure Backup](/azure/backup/).
+
+- **Backup customer-managed keys**: If using customer-managed keys for encryption within your virtual network environment, ensure these keys are backed up in Azure Key Vault with appropriate retention and recovery procedures. For more information, see [Key Vault backup](/azure/key-vault/general/backup).
+
+- **Validate backup restoration procedures**: Periodically perform deployment of Azure Resource Manager templates to an isolated subscription and test restoration of backed up customer-managed keys to ensure recovery procedures work correctly.
+
+- **Protect backup configurations**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions and Azure Resource Manager templates. Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion.
+
+## Incident response
+
+Incident response for Virtual Networks involves establishing procedures to detect, respond to, and recover from security incidents affecting your network infrastructure. Proper incident response capabilities help minimize the impact of security breaches and ensure rapid restoration of services.
+
+- **Create an incident response guide**: Build out an incident response guide for your organization that defines all roles of personnel and phases of incident handling from detection to post-incident review. Include specific procedures for network security incidents.
+
+- **Implement incident scoring and prioritization**: Establish procedures to prioritize security incidents based on severity and impact. Use Microsoft Defender for Cloud alerts to help prioritize which network security incidents should be investigated first.
+
+- **Configure security incident contact details**: Set up security incident contact information that will be used by Microsoft to contact you if the Microsoft Security Response Center discovers that your data has been accessed by an unlawful or unauthorized party. For more information, see [Microsoft Defender for Cloud Security Contact](/azure/defender-for-cloud/configure-email-notifications).
+
+- **Incorporate security alerts into incident response**: Export Microsoft Defender for Cloud alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Use the data connector to stream alerts to Microsoft Sentinel for centralized incident management.
+
+- **Test security response procedures**: Conduct exercises to test your systems' incident response capabilities on a regular basis. Identify weak points and gaps in your network security response procedures and revise plans as needed.
+
+- **Automate incident response**: Use the Workflow Automation feature in Microsoft Defender for Cloud to automatically trigger responses via Logic Apps on security alerts and recommendations to protect your Azure network resources.
