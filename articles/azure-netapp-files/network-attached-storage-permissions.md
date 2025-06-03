@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 11/13/2023
 ms.author: anfdocs
+# Customer intent: "As a storage administrator, I want to understand NAS share permissions in Azure NetApp Files, so that I can effectively manage access controls and enhance the security of our NAS data."
 ---
 
 # Understand NAS share permissions in Azure NetApp Files
