@@ -119,15 +119,14 @@ Pricing depends on your confidential VM size. For more information, see the [Pri
 
 Confidential VMs *don't support*:
 
-- Azure Backup
-- Azure Site Recovery
-- Limited Azure Compute Gallery support
-- Shared disks
-- Accelerated Networking
-- Live migration
-- Screenshots under boot diagnostics
-- [Dynamic memory](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831766(v=ws.11))
-
+- [Azure Backup](https://learn.microsoft.com/en-us/azure/backup/backup-overview)
+- [Azure Site Recovery](https://azure.microsoft.com/en-us/products/site-recovery/)
+- Limited [Azure Compute Gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery) support
+- [Shared disks](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-shared)
+- [Accelerated Networking](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview)
+- [Live migration](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/manage/live-migration-overview)
+- [Screenshots under boot diagnostics](https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics#boot-diagnostics-view)
+- [Dynamic memory](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11))
 
 ## Next steps
 
