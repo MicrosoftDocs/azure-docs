@@ -106,7 +106,7 @@ Create your Standard logic app for hybrid deployment by following these steps:
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-If you want deploy with SMB file share, confirm that the following conditions are met before you create your Standard logic app for hybrid deployment in Visual Studio Code:
+If you want to deploy with SMB file share, confirm that the following conditions are met before you create your Standard logic app for hybrid deployment in Visual Studio Code:
 
 - Your SMB file share server is accessible.
 - Port 445 is open on the computer where you run Visual Studio Code.
