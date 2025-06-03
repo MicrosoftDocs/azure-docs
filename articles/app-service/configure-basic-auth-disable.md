@@ -11,7 +11,7 @@ keywords: azure app service, security, deployment, FTP, MsDeploy
 
 # Disable basic authentication in Azure App Service deployments
 
-This article discusses disabling *basic authentication* for deploying code to Azure App Service apps. The article explains several ways to disable basic authentication, fallback deployment methods if any, and how to monitor basic authentication attempts.
+This article discusses disabling basic username and password authentication for deploying code to Azure App Service apps. The article explains several ways to disable basic authentication, fallback deployment methods if any, and how to monitor basic authentication attempts.
 
 App Service provides basic authentication for FTP and web deployment clients to connect using username and password deployment credentials. The basic authentication APIs are good for browsing your site's file system, uploading drivers and utilities, and deploying with MSBuild. For more information, see [Configure deployment credentials for Azure App Service](deploy-configure-credentials.md).
 
