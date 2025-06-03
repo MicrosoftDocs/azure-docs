@@ -156,7 +156,6 @@ Event Grid requires the following claims: `iss`, `sub`, `aud`, `exp`, 
 | `iss` | Issuer. Value in JWT must match issuer in the Event Grid namespace configuration for custom JWT authentication. |
 | `sub` | Subject. Value is used as authentication identity name. |
 | `aud` | Audience. Value is an array of strings. Value must contain standard Event Grid namespace hostname and/or custom domain for that Event Grid namespace (if configured). Audience can contain other strings, but we require at least one of these strings to be a standard Event Grid namespace hostname or custom domain for this namespace. |
-
 | `exp` | Expiration. Unix time when JWT expires. |
 | `nbf` | Not before. Unit time when JWT becomes valid. |
 
