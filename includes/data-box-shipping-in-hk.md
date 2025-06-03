@@ -21,8 +21,8 @@ Take the following steps if returning the device in Hong Kong Special Administra
     Body:
     We have confirmed the pickup details with Quantium Solutions.
 
-       * Requestor name:
-       * Requestor contact number:
+       * Requester name:
+       * Requester contact number:
        * Pickup Date:  
        * Pickup time:
     ```
