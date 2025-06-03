@@ -78,7 +78,7 @@ Data protection for Virtual Networks involves securing data in transit across yo
 
 - **Enable encryption in transit**: Ensure all network traffic uses encryption protocols such as TLS 1.2 or higher, IPsec for VPN connections, and encrypted protocols for application communications. Azure provides encryption by default for traffic between Azure datacenters. For more information, see [Encryption in transit](/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit).
 
-- **Use private endpoints for Azure services**: Deploy private endpoints to access Azure PaaS services over private IP addresses within your virtual network, eliminating exposure to the public internet and reducing data exfiltration risks. For more information, see [Private endpoints](/azure/private-link/private-endpoint-overview).
+- **Enable Azure Virtual Network encryption**: Use Azure Virtual Network encryption to encrypt data in transit between virtual machines within the same virtual network. This provides an additional layer of security for sensitive data. For more information, see [Azure Virtual Network encryption](/azure/virtual-network/virtual-network-encryption-overview).
 
 - **Implement network access controls for sensitive data**: Use NSGs and Azure Firewall to restrict access to subnets and resources containing sensitive data. Apply defense-in-depth principles with multiple layers of network security controls.
 
