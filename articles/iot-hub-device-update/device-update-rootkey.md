@@ -21,7 +21,7 @@ Before learning about the Device Update root key rotation process, learn about r
 
 The Device Update for IoT Hub team was previously planning to rotate ADU.200702.R, the root key currently being used for validating signing keys associated with update manifests, on August 26, 2025. The rotation of that key would have meant that the Device Update service would stop signing imported content with a key that chains up to ADU.200702.R. Then, the service would have started signing using a key that chains up to ADU.200703.R.
 
-Based on feedback from our customers on the impact of the rotation, the Device Update for IoT Hub team is postponing the August 2025 rotation. This will give customers more time to be ready for the rotation. Once a new date is available for this rotation event, it will be announced at least one year in advance.
+Based on feedback from our customers on the impact of this change, the Device Update for IoT Hub team is postponing the August 2025 rotation. This will give customers more time to be ready for the rotation. Once a new date is available for this rotation event, it will be announced at least one year in advance.
 
 ## How to validate if your devices are ready for a future rotation or revocation
 
