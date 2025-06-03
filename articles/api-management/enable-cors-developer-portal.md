@@ -57,7 +57,7 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 >
 > As a workaround, you can pass the subscription key in a query parameter.
 
-### CORS configuration for custom domain name
+## CORS configuration for custom domain name
 
 If you configure a [custom domain](configure-custom-domain.md) for the developer portal and want visitors to use the test console on API reference pages, ensure that you enable CORS for the custom developer portal domain name.
 
