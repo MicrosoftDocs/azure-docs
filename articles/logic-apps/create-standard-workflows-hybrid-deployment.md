@@ -163,7 +163,7 @@ To use zip deployment, follow these steps:
 
 1. To use zip deployment with an existing Standard logic app resource in the Azure portal, you must manually add the app registration as an app setting in your Standard logic app resource.
 
-   For more information, see [Add app registration values to your Standard logic app](/azure/logic-apps/create-standard-workflows-hybrid-deployment&tabs=azure-portal#add-app-registration-values-to-your-standard-logic-app).
+   For more information, see [Add app registration values to your Standard logic app](/azure/logic-apps/create-standard-workflows-hybrid-deployment#add-app-registration-values-to-your-standard-logic-app&tabs=azure-portal).
 
 If you have concerns about creating an app registration, you can still use SMB file share deployment option.
 
