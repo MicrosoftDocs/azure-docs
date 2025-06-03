@@ -5,6 +5,8 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 05/18/2025
+ms.custom:
+  - build-2025
 ---
 
 # Troubleshoot an App Service app using Azure SRE Agent (preview)

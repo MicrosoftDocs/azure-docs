@@ -3,7 +3,9 @@ title: Upgrade Basic Public IP Address to Standard SKU in Azure
 description: Upgrade basic public IP addresses to standard SKU in Azure. Learn migration steps, compare SKUs, and prepare for the September 30 2025 retirement.
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: overview
 author: mbender-ms
 ms.author: mbender
