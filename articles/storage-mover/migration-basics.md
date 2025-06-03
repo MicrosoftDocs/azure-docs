@@ -6,6 +6,8 @@ ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
 ms.date: 08/07/2023
+ms.custom:
+  - build-2025
 ---
 
 <!-- 

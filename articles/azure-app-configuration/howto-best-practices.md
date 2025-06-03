@@ -7,6 +7,8 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 03/10/2025
 ms.author: zhenlwa
+ms.custom:
+  - build-2025
 ---
 
 # Azure App Configuration best practices

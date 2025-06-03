@@ -9,6 +9,8 @@ ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 01/22/2025
 #Customer intent: I want to learn about the configuration provider libraries of different languages, specifically to track their feature development status.
+ms.custom:
+  - build-2025
 ---
 
 # Configuration Provider Overview

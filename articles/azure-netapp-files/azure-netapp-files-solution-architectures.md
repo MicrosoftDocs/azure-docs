@@ -4,7 +4,9 @@ description: Provides references to best practices for solution architectures us
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: linux-related-content
+ms.custom:
+  - linux-related-content
+  - build-2025
 ms.topic: concept-article
 ms.date: 05/19/2025
 ms.author: anfdocs

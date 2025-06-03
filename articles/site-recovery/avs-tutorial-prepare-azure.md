@@ -2,12 +2,11 @@
 title: Prepare Azure Site Recovery resources for disaster recovery of Azure VMware Solution VMs
 description: Learn how to prepare Azure resources for disaster recovery of Azure VMware Solution machines by using Azure Site Recovery.
 services: site-recovery
-author: ankitaduttaMSFT
-manager: rochakm
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 02/19/2024
-ms.author: ankitadutta
+ms.author: jsuri
 ms.custom: MVC, engagement-fy23
 
 ---

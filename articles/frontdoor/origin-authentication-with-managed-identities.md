@@ -7,6 +7,8 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 05/12/2025
+ms.custom:
+  - build-2025
 ---
 
 # Use managed identities to authenticate to origins (preview)

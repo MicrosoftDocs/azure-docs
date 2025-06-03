@@ -2,7 +2,10 @@
 title: Bicep Kubernetes extension
 description: Learn how to Bicep Kubernetes extension to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
-ms.custom: devx-track-bicep, devx-track-dotnet
+ms.custom:
+  - devx-track-bicep
+  - devx-track-dotnet
+  - build-2025
 ms.date: 04/28/2025
 ---
 

@@ -5,7 +5,10 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
 ms.service: azure
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - build-2025
 ms.topic: overview
 ms.date: 01/15/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.

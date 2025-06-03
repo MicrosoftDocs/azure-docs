@@ -3,7 +3,7 @@ title: "Quickstart: Create a serverless Apache Spark pool using the Azure portal
 description: Create a serverless Apache Spark pool using the Azure portal by following the steps in this guide.
 author: ms-arali
 ms.author: arali
-ms.reviewer:  eskot
+ms.reviewer:  arali
 ms.date: 03/11/2024
 ms.service: azure-synapse-analytics
 ms.subservice: spark
@@ -42,9 +42,6 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 
 ## Create new Apache Spark pool
-
-> [!IMPORTANT]
-> Azure Synapse Runtime for Apache Spark 2.4 has been deprecated and officially not supported since September 2023. Given [Spark 3.1](/azure/synapse-analytics/spark/apache-spark-3-runtime) and [Spark 3.2](/azure/synapse-analytics/spark/apache-spark-32-runtime) are also End of Support announced, [we recommend customers migrate to Spark 3.3](/azure/synapse-analytics/spark/apache-spark-33-runtime).
 
 1. In the Synapse workspace where you want to create the Apache Spark pool, select **New Apache Spark pool**. 
    :::image type="content" source="media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png" alt-text="Screenshot from the Azure portal of a Synapse workspace with a red box around the command to create a new Apache Spark pool." lightbox="media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png":::

@@ -4,8 +4,8 @@ description: Overview of the architecture used when you set up disaster recovery
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 05/30/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Azure to Azure disaster recovery architecture

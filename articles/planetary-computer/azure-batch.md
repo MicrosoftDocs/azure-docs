@@ -7,6 +7,8 @@ ms.service: azure
 ms.date: 04/24/2025
 ms.author: emiliod
 #customer intent: I want to use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch to process geospatial data.
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch
