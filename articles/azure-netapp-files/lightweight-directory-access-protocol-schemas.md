@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 02/18/2025
 ms.author: anfdocs
+# Customer intent: "As an IT administrator, I want to understand LDAP schemas in Azure NetApp Files, so that I can effectively configure and optimize LDAP queries for user identity verification and access management."
 ---
 
 # Understand LDAP schemas in Azure NetApp Files
