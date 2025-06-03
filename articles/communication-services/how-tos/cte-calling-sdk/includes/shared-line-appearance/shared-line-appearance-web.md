@@ -4,6 +4,8 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 02/04/2025
 ms.author: charithg
+ms.custom:
+  - build-2025
 ---
 
 > [!NOTE]

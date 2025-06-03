@@ -4,7 +4,9 @@ description: Understand how to develop functions by using PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.devlang: powershell
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - build-2025
 ms.date: 05/08/2025
 # Customer intent: As a PowerShell developer, I want to understand Azure Functions so that I can leverage the full power of the platform.
 ---
