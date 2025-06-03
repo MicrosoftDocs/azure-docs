@@ -73,7 +73,7 @@ var executor = new UnitTestExecutor(
 
 ### WorkflowSettings
 
-Gets or sets the workflow definition settings.
+The workflow definition settings.
 
 | Property | Type | Description | Required |
 |----------|------|-------------|----------|
@@ -136,7 +136,6 @@ var result = await executor.RunWorkflowAsync(
 ## Related Content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
-- [MockData Class Definition](mock-data-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
 - [TestActionExecutionContext Class Definition](test-action-execution-context-class-definition.md)
 - [TestExecutionContext Class Definition](test-execution-context-class-definition.md)
@@ -147,6 +146,5 @@ var result = await executor.RunWorkflowAsync(
 - [TestWorkflowOutputParameter Class Definition](test-workflow-output-parameter-class-definition.md)
 - [TestWorkflowRunActionRepetitionResult Class Definition](test-workflow-run-action-repetition-result-class-definition.md)
 - [TestWorkflowRunActionResult Class Definition](test-workflow-run-action-result-class-definition.md)
-- [TestWorkflowRunOperationResult Class Definition](test-workflow-run-operation-result-class-definition.md)
 - [TestWorkflowRunTriggerResult Class Definition](test-workflow-run-trigger-result-class-definition.md)
 - [TestWorkflowStatus Enum Definition](test-workflow-status-enum-definition.md)

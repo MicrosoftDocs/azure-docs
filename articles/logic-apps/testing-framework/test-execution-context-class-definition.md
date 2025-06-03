@@ -15,6 +15,26 @@ ms.date: 06/02/2025
 
 The execution context for a unit test. This class provides the execution context for Logic Apps workflow testing and helps maintain state during test execution, especially useful when creating dynamic mocks that respond differently based on the current workflow state.
 
+## Usage
+
+```C#
+var actionMock = new CallExternalSystemsActionMock(name: "Call_External_Systems", onGetActionMock: (testExecutionContext) =>
+{
+    return new CallExternalSystemsActionMock(
+        status: TestWorkflowStatus.Succeeded,
+        outputs: new CallExternalSystemsActionOutput {
+            Body = new JObject
+            {
+                { "name", testExecutionContext.ActionContext.ActionName },
+                { "inputs", testExecutionContext.ActionContext.ActionInputs },
+                { "scope", testExecutionContext.ActionContext.ParentActionName },
+                { "iteration", testExecutionContext.ActionContext.CurrentIterationInput.Index }
+            }
+        }
+    );
+});
+```
+
 ## Properties
 
 |Name|Description|Type|Required|
@@ -24,7 +44,6 @@ The execution context for a unit test. This class provides the execution context
 ## Related Content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
-- [MockData Class Definition](mock-data-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
 - [TestActionExecutionContext Class Definition](test-action-execution-context-class-definition.md)
 - [TestErrorInfo Class Definition](test-error-info-class-definition.md)
@@ -34,7 +53,6 @@ The execution context for a unit test. This class provides the execution context
 - [TestWorkflowRun Class Definition](test-workflow-run-class-definition.md)
 - [TestWorkflowRunActionRepetitionResult Class Definition](test-workflow-run-action-repetition-result-class-definition.md)
 - [TestWorkflowRunActionResult Class Definition](test-workflow-run-action-result-class-definition.md)
-- [TestWorkflowRunOperationResult Class Definition](test-workflow-run-operation-result-class-definition.md)
 - [TestWorkflowRunTriggerResult Class Definition](test-workflow-run-trigger-result-class-definition.md)
 - [TestWorkflowStatus Enum Definition](test-workflow-status-enum-definition.md)
 - [UnitTestExecutor Class Definition](unit-test-executor-class-definition.md)

@@ -13,82 +13,36 @@ ms.date: 06/02/2025
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-The unit test flow run trigger result. This class extends TestWorkflowRunOperationResult to represent the execution result of a trigger within a workflow during testing, providing specific functionality for trigger operations.
+The unit test flow run trigger result. This class represents the execution result of a trigger within a workflow during testing, providing specific functionality for trigger operations.
 
 ## Usage
 
 ```C#
-// HTTP trigger result
-var httpTriggerResult = new TestWorkflowRunTriggerResult
-{
-    Name = "HttpTrigger",
-    Status = TestWorkflowStatus.Succeeded,
-    Code = "200",
-    Inputs = JToken.Parse(@"{""method"": ""POST"", ""headers"": {""Content-Type"": ""application/json""}}"),
-    Outputs = JToken.Parse(@"{""body"": {""orderId"": 12345}, ""statusCode"": 200}")
-};
+// Check trigger status and code
+Assert.AreEqual(expected: "200", actual: testFlowRun.Trigger.Code);
+Assert.AreEqual(expected: TestWorkflowStatus.Succeeded, actual: testFlowRun.Trigger.Status);
 
-// Timer trigger result
-var timerTriggerResult = new TestWorkflowRunTriggerResult
-{
-    Name = "RecurrenceTrigger",
-    Status = TestWorkflowStatus.Succeeded,
-    Outputs = JToken.Parse(@"{""triggerTime"": ""2025-06-02T10:00:00Z""}")
-};
+// Check trigger output value
+Assert.AreEqual(expected: "Test", actual: testFlowRun.Trigger.Outputs["outputParam"].Value<string>());
 
-// Failed trigger result
-var failedTriggerResult = new TestWorkflowRunTriggerResult
-{
-    Name = "DatabaseTrigger",
-    Status = TestWorkflowStatus.Failed,
-    Error = new TestErrorInfo(
-        ErrorResponseCode.ConnectionError,
-        "Failed to connect to database"
-    )
-};
-
-// Access trigger execution details
-var triggerName = httpTriggerResult.Name;
-var triggerStatus = httpTriggerResult.Status;
-var triggerOutputs = httpTriggerResult.Outputs;
+// Check trigger error
+Assert.IsNull(testFlowRun.Trigger.Error);
 ```
 
-## Methods
-
-### ToTestWorkflowRunTriggerResult
-
-Creates a new instance of the TestWorkflowRunTriggerResult class from trigger data.
-
-```C#
-internal static TestWorkflowRunTriggerResult ToTestWorkflowRunTriggerResult(string triggerName, JToken triggerData)
-```
+## Properties
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|triggerName|The trigger name|string|Yes|
-|triggerData|The trigger data|JToken|Yes|
-
-```C#
-// Example: Creating TestWorkflowRunTriggerResult from trigger data
-var triggerData = JToken.Parse(@"{
-    ""status"": ""Succeeded"",
-    ""code"": ""200"",
-    ""inputs"": {""method"": ""POST""},
-    ""outputs"": {""body"": ""trigger data""}
-}");
-
-var triggerResult = TestWorkflowRunTriggerResult.ToTestWorkflowRunTriggerResult(
-    "HttpTrigger", 
-    triggerData
-);
-```
-
-*Note: This class inherits additional properties from TestWorkflowRunOperationResult including Name, Inputs, Outputs, Code, Status, and Error.*
+|Name|The trigger name|string|Yes|
+|Inputs|The trigger execution inputs|JToken|No|
+|Outputs|The trigger execution outputs|JToken|No|
+|Code|The trigger status code|string|No|
+|Status|The trigger status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)?|Yes|
+|Error|The trigger error|[TestErrorInfo](test-error-info-class-definition.md)|No|
 
 ## Related Content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
-- [MockData Class Definition](mock-data-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
 - [TestActionExecutionContext Class Definition](test-action-execution-context-class-definition.md)
 - [TestExecutionContext Class Definition](test-execution-context-class-definition.md)
@@ -99,6 +53,5 @@ var triggerResult = TestWorkflowRunTriggerResult.ToTestWorkflowRunTriggerResult(
 - [TestWorkflowOutputParameter Class Definition](test-workflow-output-parameter-class-definition.md)
 - [TestWorkflowRunActionRepetitionResult Class Definition](test-workflow-run-action-repetition-result-class-definition.md)
 - [TestWorkflowRunActionResult Class Definition](test-workflow-run-action-result-class-definition.md)
-- [TestWorkflowRunOperationResult Class Definition](test-workflow-run-operation-result-class-definition.md)
 - [TestWorkflowStatus Enum Definition](test-workflow-status-enum-definition.md)
 - [UnitTestExecutor Class Definition](unit-test-executor-class-definition.md)

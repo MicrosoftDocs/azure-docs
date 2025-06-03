@@ -575,8 +575,6 @@ items:
         href: testing-framework/automated-test-sdk.md
       - name: ActionMock Class Definition
         href: testing-framework/action-mock-class-definition.md
-      - name: MockData Class Definition
-        href: testing-framework/mock-data-class-definition.md
       - name: TestActionExecutionContext Class Definition
         href: testing-framework/test-action-execution-context-class-definition.md
       - name: TestErrorInfo Class Definition
@@ -595,8 +593,6 @@ items:
         href: testing-framework/test-workflow-run-action-result-class-definition.md
       - name: TestWorkflowRun Class Definition
         href: testing-framework/test-workflow-run-class-definition.md
-      - name: TestWorkflowRunOperationResult Class Definition
-        href: testing-framework/test-workflow-run-operation-result-class-definition.md
       - name: TestWorkflowRunTriggerResult Class Definition
         href: testing-framework/test-workflow-run-trigger-result-class-definition.md
       - name: TestWorkflowStatus Enum Definition

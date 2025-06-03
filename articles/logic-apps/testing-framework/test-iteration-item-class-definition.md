@@ -19,14 +19,13 @@ The iteration item for unit test execution context. This class represents an ite
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|Index|Gets or sets the index of the iteration item|int|No|
-|Item|Gets or sets the iteration item|JToken|No|
-|Parent|Gets or sets the parent iteration item|TestIterationItem|No|
+|Index|The index of the iteration item|int|No|
+|Item|The iteration item|JToken|No|
+|Parent|The parent iteration item|TestIterationItem|No|
 
 ## Related Content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
-- [MockData Class Definition](mock-data-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
 - [TestActionExecutionContext Class Definition](test-action-execution-context-class-definition.md)
 - [TestExecutionContext Class Definition](test-execution-context-class-definition.md)
@@ -36,7 +35,6 @@ The iteration item for unit test execution context. This class represents an ite
 - [TestWorkflowRun Class Definition](test-workflow-run-class-definition.md)
 - [TestWorkflowRunActionRepetitionResult Class Definition](test-workflow-run-action-repetition-result-class-definition.md)
 - [TestWorkflowRunActionResult Class Definition](test-workflow-run-action-result-class-definition.md)
-- [TestWorkflowRunOperationResult Class Definition](test-workflow-run-operation-result-class-definition.md)
 - [TestWorkflowRunTriggerResult Class Definition](test-workflow-run-trigger-result-class-definition.md)
 - [TestWorkflowStatus Enum Definition](test-workflow-status-enum-definition.md)
 - [UnitTestExecutor Class Definition](unit-test-executor-class-definition.md)

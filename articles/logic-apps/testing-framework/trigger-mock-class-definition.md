@@ -137,21 +137,40 @@ var triggerMock = new TriggerMock(
     "ConditionalEventTrigger");
 ```
 
+### JSON Constructor
+
+Creates a mocked instance for TriggerMock from JSON.
+
+```C#
+public TriggerMock(TestWorkflowStatus status, string name = null, JToken outputs = null, TestErrorInfo error = null)
+```
+
+|Name|Description|Type|Required|
+|---|---|---|---|
+|status|The mocked trigger result status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|Yes|
+|name|The mocked trigger name|string|No|
+|outputs|The mocked outputs|MockOutput|No|
+|error|The mocked error|[TestErrorInfo](test-error-info-class-definition.md)|No|
+
+```C#
+// Example: Creating an action mock from JSON
+var actionFromJson = JsonConvert.DeserializeObject<TriggerMock>(File.ReadAllText(mockDataPath));
+```
+
 ## Properties
 
 This class inherits the following properties from its base class `OperationMock`:
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|Name|Gets or sets the name of the mocked operation|string|No|
-|Status|Gets or sets the operation status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)?|No|
-|Outputs|Gets or sets a value that represents static output in JSON format|JToken|No|
-|Error|Gets or sets the operation error|[TestErrorInfo](test-error-info-class-definition.md)|No|
+|Name|The name of the mocked operation|string|No|
+|Status|The operation status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)?|No|
+|Outputs|The static output in JSON format|JToken|No|
+|Error|The operation error|[TestErrorInfo](test-error-info-class-definition.md)|No|
 
 ## Related Content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
-- [MockData Class Definition](mock-data-class-definition.md)
 - [TestActionExecutionContext Class Definition](test-action-execution-context-class-definition.md)
 - [TestErrorInfo Class Definition](test-error-info-class-definition.md)
 - [TestErrorResponseAdditionalInfo Class Definition](test-error-response-additional-info-class-definition.md)
@@ -161,7 +180,6 @@ This class inherits the following properties from its base class `OperationMock`
 - [TestWorkflowRun Class Definition](test-workflow-run-class-definition.md)
 - [TestWorkflowRunActionRepetitionResult Class Definition](test-workflow-run-action-repetition-result-class-definition.md)
 - [TestWorkflowRunActionResult Class Definition](test-workflow-run-action-result-class-definition.md)
-- [TestWorkflowRunOperationResult Class Definition](test-workflow-run-operation-result-class-definition.md)
 - [TestWorkflowRunTriggerResult Class Definition](test-workflow-run-trigger-result-class-definition.md)
 - [TestWorkflowStatus Enum Definition](test-workflow-status-enum-definition.md)
 - [UnitTestExecutor Class Definition](unit-test-executor-class-definition.md)

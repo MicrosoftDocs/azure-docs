@@ -18,48 +18,41 @@ The unit test flow run repetition action result. This class extends TestWorkflow
 ## Usage
 
 ```C#
-// Create repetition result for a For each action
-var iterationItem = new TestIterationItem
-{
-    Index = 2,
-    Item = JToken.Parse(@"{""productId"": ""P123"", ""quantity"": 5}")
-};
+var callExternalSystemsAction = testFlowRun.Actions["Call_External_Systems"];
 
-var repetitionResult = new TestWorkflowRunActionRepetitionResult
+for (int i=0; i<callExternalSystemsAction.Repetitions.Length; i++)
 {
-    Name = "ProcessOrderItem",
-    Status = TestWorkflowStatus.Succeeded,
-    Inputs = JToken.Parse(@"{""itemData"": {""productId"": ""P123"", ""quantity"": 5}}"),
-    Outputs = JToken.Parse(@"{""processedItem"": {""id"": ""P123"", ""totalPrice"": 149.95}}"),
-    IterationItem = iterationItem
-};
+    var currActionRepetition = callExternalSystemsAction.Repetitions[i];
 
-// Use in parent action result
-var forEachResult = new TestWorkflowRunActionResult
-{
-    Name = "ProcessAllItems",
-    Status = TestWorkflowStatus.Succeeded,
-    Repetitions = new[] { repetitionResult }
-};
+    // Check action repetition status and code
+    Assert.AreEqual(expected: "200", actual: currActionRepetition.Code);
+    Assert.AreEqual(expected: TestWorkflowStatus.Succeeded, actual: currActionRepetition.Status);
 
-// Access iteration details
-var currentIndex = repetitionResult.IterationItem.Index;
-var currentItem = repetitionResult.IterationItem.Item;
-var productId = currentItem["productId"]?.Value<string>();
+    // Check action repetition output value
+    Assert.AreEqual(expected: "Test", actual: currActionRepetition.Outputs["outputParam"].Value<string>());
+
+    // Check action repetition error
+    Assert.IsNull(currActionRepetition.Error);
+}
 ```
 
 ## Properties
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|IterationItem|Gets or sets the iteration item|[TestIterationItem](test-iteration-item-class-definition.md)|No|
-
-*Note: This class inherits additional properties from [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md) including Name, Inputs, Outputs, Code, Status, Error, ChildActions, and Repetitions.*
+|Name|The action name|string|Yes|
+|Inputs|The action execution inputs|JToken|No|
+|Outputs|The action execution outputs|JToken|No|
+|Code|The action status code|string|No|
+|Status|The action status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)?|Yes|
+|Error|The action error|[TestErrorInfo](test-error-info-class-definition.md)|No|
+|ChildActions|The nested action results|Dictionary&lt;string, [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md)&gt;|No|
+|Repetitions|The repetition action results|[TestWorkflowRunActionRepetitionResult](test-workflow-run-action-repetition-result-class-definition.md)[]|No|
+|IterationItem|The iteration item|[TestIterationItem](test-iteration-item-class-definition.md)|No|
 
 ## Related Content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
-- [MockData Class Definition](mock-data-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
 - [TestActionExecutionContext Class Definition](test-action-execution-context-class-definition.md)
 - [TestExecutionContext Class Definition](test-execution-context-class-definition.md)
@@ -69,7 +62,6 @@ var productId = currentItem["productId"]?.Value<string>();
 - [TestErrorResponseAdditionalInfo Class Definition](test-error-response-additional-info-class-definition.md)
 - [TestWorkflowOutputParameter Class Definition](test-workflow-output-parameter-class-definition.md)
 - [TestWorkflowRunActionResult Class Definition](test-workflow-run-action-result-class-definition.md)
-- [TestWorkflowRunOperationResult Class Definition](test-workflow-run-operation-result-class-definition.md)
 - [TestWorkflowRunTriggerResult Class Definition](test-workflow-run-trigger-result-class-definition.md)
 - [TestWorkflowStatus Enum Definition](test-workflow-status-enum-definition.md)
 - [UnitTestExecutor Class Definition](unit-test-executor-class-definition.md)
