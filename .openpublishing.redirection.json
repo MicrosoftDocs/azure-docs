@@ -6978,6 +6978,106 @@
       "source_path": "articles/defender-for-iot/organizations/eiot-sensor.md",
       "redirect_url": "/azure/defender-for-iot/organizations/concept-enterprise",
       "redirect_document_id": false
-    }
+    },
+    {
+    "source_path": "articles/sentinel/data-connectors/1password.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#1password-serverless",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/abnormalsecurity.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#abnormalsecurity-using-azure-function",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/aishield.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#aishield",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/alicloud.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#alicloud-using-azure-functions",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/amazon-web-services.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#amazon-web-services",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/amazon-web-services-s3.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#amazon-web-services-s3",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/argos-cloud-security.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#argos-cloud-security",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/armis-alerts-activities.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#armis-alerts-activities-using-azure-functions",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/armis-devices.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#armis-devices-using-azure-functions",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/armorblox.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#armorblox-using-azure-function",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/atlassian-beacon-alerts.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#atlassian-beacon-alerts",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/atlassian-confluence-audit.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#atlassian-confluence-audit-via-codeless-connector-platform",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/atlassian-jira-audit.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#atlassian-jira-audit-using-azure-functions",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/auth0-access-management.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#auth0-access-management-using-azure-functions",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/automated-logic-webctrl.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#automated-logic-webctrl",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/azure-activity.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#azure-activity",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/azure-batch-account.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#azure-batch-account",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/azure-cloudngfw-by-palo-alto-networks.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#azure-cloudngfw-by-palo-alto-networks",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/azure-cognitive-search.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#azure-cognitive-search",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/sentinel/data-connectors/azure-ddos-protection.md",
+    "redirect_url": "/azure/sentinel/data-connectors-reference#azure-ddos-protection",
+    "redirect_document_id": false
+  }
   ]
 }
