@@ -5,7 +5,8 @@ author: madsd
 ms.topic: how-to
 ms.date: 10/17/2023
 ms.author: madsd
-
+ms.custom:
+  - build-2025
 ---
 # Configure gateway-required virtual network integration
 

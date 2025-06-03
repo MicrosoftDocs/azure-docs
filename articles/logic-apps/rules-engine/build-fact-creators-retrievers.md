@@ -10,6 +10,8 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to understand how to build fact creators and retrievers so that I can test my rules and rulesets in Microsoft Rules Composer and use those rulesets with my Azure Logic Apps Rules Engine project.
+ms.custom:
+  - build-2025
 ---
 
 # Build fact creators and retrievers to use with rules and rulesets
