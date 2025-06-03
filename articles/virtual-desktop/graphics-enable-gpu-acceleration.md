@@ -30,12 +30,12 @@ This article shows you which Azure VM sizes you can use as a session host with G
 
 ## Supported GPU-optimized Azure VM sizes
 
-The following tables list which Azure VM sizes are optimized for GPU acceleration and supported as session hosts in Azure Virtual Desktop:
+The following table lists which Azure VM sizes are optimized for GPU acceleration and supported as session hosts in Azure Virtual Desktop:
 
 | Azure VM size | GPU-accelerated application rendering | GPU-accelerated remote frame encoding |
 |--|--|--|
 | [NVv3-series](/azure/virtual-machines/nvv3-series) | Supported | HEVC/H.265<br />AVC/H.264 |
-| [NVv4-series](/azure/virtual-machines/nvv4-series) | Supported | AVC/H.264 | AVC/H.264 |
+| [NVv4-series](/azure/virtual-machines/nvv4-series) | Supported | AVC/H.264 |
 | [NVadsA10 v5-series](/azure/virtual-machines/nva10v5-series) | Supported | HEVC/H.265<br />AVC/H.264 |
 | [NCasT4_v3-series](/azure/virtual-machines/nct4-v3-series) | Supported | HEVC/H.265<br />AVC/H.264 |
 
@@ -84,10 +84,10 @@ In addition, for HEVC/H.265 hardware acceleration you also need:
    - Microsoft HEVC codec installed. This can be obtained 1 of 3 ways:
       - The Microsoft HEVC codec is included in new installations of Windows 11 22H2 or later.
       - You can [purchase the Microsoft HEVC codec from the Microsoft Store](https://www.microsoft.com/store/productid/9NMZLZ57R3T7?ocid=pdpshare).
-      - If you are using Windows App version 2.0.503.0 or later and do not already have the Microsoft HEVC codec installed, the app will attempt to install a specialized version of the HEVC codec compatible only with remote sessions initiated through Windows App. Note that this method requires access to the Microsoft Store.
+      - If you are using Windows App version 2.0.503.0 or later and don't already have the Microsoft HEVC codec installed, the app attempts to install a specialized version of the HEVC codec compatible only with remote sessions initiated through Windows App. Note that this method requires access to the Microsoft Store.
 
    - One of the following apps to connect to a remote session. Other platforms and versions aren't supported.
-     - Windows App on Windows, version 2.0.379 or later.
+     - Windows App on Windows, version 2.0.503.0 or later.
      - Remote Desktop app on Windows, version 1.2.6081 or later.
 
 ## Install supported graphics drivers in your session hosts
@@ -133,8 +133,9 @@ To enable GPU-accelerated application rendering using Intune:
    1. For GPU-accelerated remote frame encoding using H.264/AVC:
       1.  Check the box for **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections**.
       1.  Check the box for **Configure H.264/AVC hardware encoding for Remote Desktop connections**.
-> [!NOTE]
-> - Checking the box to Prioritize H.264 Graphics mode without checking the box to Configure hardware encoding can result in software/CPU-based H.264/AVC full-screen video encoding.
+
+   > [!NOTE]
+   > Checking the box to **Prioritize H.264 Graphics mode** without checking the box to **Configure hardware encoding** can result in software/CPU-based H.264/AVC full-screen video encoding.
 
 1. For GPU-accelerated remote frame encoding using H.265/HEVC, browse to **Administrative templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop** in the settings picker.
 
@@ -180,8 +181,8 @@ To enable GPU-accelerated application rendering using Group Policy:
       1. Double-click the policy setting **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** to open it. Select **Enabled**, then select **OK**.
       1. Double-click the policy setting **Configure H.264/AVC hardware encoding for Remote Desktop Connections** to open it. Select **Enabled**, then select **OK**. If you're using Windows Server 2016, you see an extra drop-down menu in the setting; set **Prefer AVC Hardware Encoding** to **Always attempt**.
 
-> [!NOTE]
-> - Enabling the policy setting to Prioritize H.264 Graphics mode without checking the box to Configure hardware encoding can result in software/CPU-based H.264/AVC full-screen video encoding.
+   > [!NOTE]
+   > Enabling the policy setting to **Prioritize H.264 Graphics mode** without checking the box to **Configure hardware encoding** can result in software/CPU-based H.264/AVC full-screen video encoding.
 
 1. For GPU-accelerated remote frame encoding using HEVC/H.265 only, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**.
 
@@ -230,8 +231,7 @@ To verify that a remote session is using GPU acceleration, GPU-accelerated appli
 
    1. If your session is in full-screen mode, select the signal strength icon in the RDP connection bar at the top of your session window. If your session is in windowed mode, right-click on the top of the window and select **Connection Information** from the context menu.
   
-   1. Select **"See details"** to expand the window with additional information.
-      - If you see **Codecs Used: HEVC** under **Graphics details**, then GPU-accelerated frame encoding with HEVC/H.265 and full-screen video encoding is in use.   
+   1. Select **"See details"** to expand the window with additional information. If you see **Codecs Used: HEVC** under **Graphics details**, then GPU-accelerated frame encoding with HEVC/H.265 and full-screen video encoding is in use.   
 
 1. You can use Event Viewer to verify GPU acceleration with either AVC/H.264 or HEVC/H.265. To do so, open **Event Viewer** from the Start menu, or run `eventvwr.msc` from the command line.
 
