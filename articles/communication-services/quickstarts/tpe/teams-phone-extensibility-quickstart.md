@@ -474,6 +474,29 @@ await callConnection.TransferCallToParticipantAsync(new TransferToParticipantOpt
 ...
 ```
 
+### CCaaS developer: How to start recording session with StartRecordingOptions
+
+For Teams Phone extensibility, you need to use the CallConnectionId received during initiation of the call, when starting the recording session.
+
+- Use RecordingContent to pass the recording content type. Use AUDIO.
+- Use RecordingChannel to pass the recording channel type. Use MIXED or UNMIXED.
+- Use RecordingFormat to pass the format of the recording. Use WAV.
+
+```csharp
+CallAutomationClient callAutomationClient = new CallAutomationClient("<ACSConnectionString>");
+ 
+StartRecordingOptions recordingOptions = new StartRecordingOptions("<callConnectionId>")
+{
+    RecordingContent = RecordingContent.Audio,
+    RecordingChannel = RecordingChannel.Unmixed,
+    RecordingFormat = RecordingFormat.Wav,
+    RecordingStateCallbackUri = new Uri("<CallbackUri>");
+};
+Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
+.StartAsync(recordingOptions);
+```
+
+
 ## Alpha SDKs
 
 - [Call Automation C# SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/overview/1.4.0-alpha.20250129.2)
