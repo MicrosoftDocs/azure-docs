@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 05/21/2025
 ms.author: phjensen
 ms.custom: kr2b-contr-experiment
+# Customer intent: "As a system administrator using Azure Application Consistent Snapshot tool, I want to troubleshoot command execution issues, so that I can ensure successful operations and maintain reliable backups of my applications."
 ---
 
 # Troubleshoot the Azure Application Consistent Snapshot (AzAcSnap) tool

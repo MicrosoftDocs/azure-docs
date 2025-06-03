@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: overview
 ms.date: 03/25/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud architect, I want to understand the storage hierarchy of Azure NetApp Files, so that I can effectively set up and manage capacity pools and volumes to meet our storage needs."
 ---
 # Storage hierarchy of Azure NetApp Files
 

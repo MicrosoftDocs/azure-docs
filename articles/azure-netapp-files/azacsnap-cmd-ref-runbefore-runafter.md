@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: reference
 ms.date: 02/20/2025
 ms.author: phjensen
+# Customer intent: "As a cloud administrator, I want to use the runbefore and runafter capabilities of the Application Consistent Snapshot tool, so that I can automate command execution for backup and restoration processes with Azure NetApp Files."
 ---
 
 # RunBefore and RunAfter using Azure Application Consistent Snapshot tool

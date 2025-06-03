@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 10/17/2024
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to understand how to manage quota and throughput for Azure NetApp Files, so that I can optimize storage performance based on my workload requirements.
 ---
 # General performance considerations for Azure NetApp Files
 

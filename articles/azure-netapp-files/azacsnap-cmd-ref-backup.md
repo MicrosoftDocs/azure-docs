@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: reference
 ms.date: 07/02/2024
 ms.author: phjensen
+# Customer intent: "As a cloud administrator, I want to execute the backup command using the Azure Application Consistent Snapshot tool, so that I can create consistent backups of data and other volumes in Azure NetApp Files efficiently."
 ---
 
 # Back up using Azure Application Consistent Snapshot tool

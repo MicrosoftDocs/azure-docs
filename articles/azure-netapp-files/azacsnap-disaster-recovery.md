@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: phjensen
+# Customer intent: "As a database administrator, I want to perform disaster recovery using storage snapshots with Azure NetApp Files, so that I can ensure data integrity and minimize downtime in case of a failure."
 ---
 
 # Disaster recovery using Azure Application Consistent Snapshot tool

@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: troubleshooting
 ms.date: 08/15/2024
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to troubleshoot Azure NetApp Files Resource Provider errors, so that I can resolve issues effectively and ensure optimal performance of my cloud storage resources."
 ---
 # Troubleshoot Azure NetApp Files Resource Provider errors 
 

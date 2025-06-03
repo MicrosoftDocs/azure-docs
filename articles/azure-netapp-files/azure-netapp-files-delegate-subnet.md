@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 11/27/2024
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to delegate a subnet to Azure NetApp Files during volume creation, so that I can ensure optimal network configuration and resource allocation for my storage needs.
 ---
 # Delegate a subnet to Azure NetApp Files 
 

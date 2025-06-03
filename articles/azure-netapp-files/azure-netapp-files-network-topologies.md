@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 04/03/2025
 ms.author: ramakk
 ms.custom: references_regions
+# Customer intent: "As a network architect, I want to design a network architecture for Azure NetApp Files, so that I can ensure effective connectivity and optimal performance for my workloads in both cloud-native and hybrid environments."
 ---
 # Guidelines for Azure NetApp Files network planning
 
