@@ -143,14 +143,17 @@ To use Azure Pipelines as the build provider, select the **Azure Pipelines** opt
 ## Frequently asked questions
 
 - [How does the GitHub Actions build provider work if basic authentication is disabled?](#how-does-the-github-actions-build-provider-work-if-basic-authentication-is-disabled)
+- [What can happen to my app during deployment?](#what-can-happen-to-my-app-during-deployment)
 - [What does the user-assigned identity option do in GitHub Actions?](#what-does-the-user-assigned-identity-option-do-in-github-actions)
-- [What happened to my app during deployment?](#what-happened-to-my-app-during-deployment)
 - [Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
 - [Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
 
 ### How does the GitHub Actions build provider work if basic authentication is disabled?
 
 The GitHub Actions build provider doesn't work with basic authentication if basic authentication is disabled. Try using GitHub Actions with the user-assigned identity option instead. For more information, see [Deploy without basic authentication](configure-basic-auth-disable.md#deploy-without-basic-authentication).
+
+<a name="what-can-happen-to-my-app-during-deployment"></a>
+[!INCLUDE [What can happen to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ### What does the user-assigned identity option do in GitHub Actions?
 <a name="what-does-the-user-assigned-identity-option-do-for-github-actions"></a>
@@ -181,9 +184,6 @@ For more information on using alternative steps, see [Deploy to App Service usin
 ### Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?
 
 The message indicates that the selected user-assigned managed identity doesn't have the required role to enable OpenID Connect between the GitHub repository and the App Service app. The identity must have **Owner**, **Contributor**, or **Websites Contributor** role on the app. The least privileged role that the identity needs is **Websites Contributor**.
-
-<a name="what-happened-to-my-app-during-deployment"></a>
-[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## Related content
 
