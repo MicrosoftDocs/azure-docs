@@ -134,7 +134,7 @@ After importing the API, you can test it using the test console in the Azure por
 
     ```json
     {
-        "model": "gpt-4o",
+        "model": "gemini-2.0-flash",
         "messages": [
             {
                 "role": "system",
