@@ -45,15 +45,15 @@ For other deployment methods that use basic authentication, such as Visual Studi
 
 ### [Azure CLI](#tab/cli)
 
-Run the following Azure CLI commands, replacing the placeholders with your resource group name and app name.
+Run the following Azure CLI commands in the Bash environment of Azure Cloud Shell by selecting **Open Cloud Shell** at the upper right of the code block.
 
-To disable FTP basic authentication access, run the following command. You must have owner-level access to the app.
+To disable FTP basic authentication access, run the following command, replacing the placeholders with your app's resource group and name. You must have owner-level access to the app.
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<app-name> --set properties.allow=false
 ```
 
-To disable basic authentication access for the Web Deploy port and Git deploy `https://\<app-name>.scm.azurewebsites.net`, run the following command.
+To disable basic authentication access for the Web Deploy port and Git deploy `https://\<app-name>.scm.azurewebsites.net`, run the following command. Replace the placeholders with your app's resource group and name.
 
 ```azurecli-interactive
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<app-name> --set properties.allow=false
@@ -78,7 +78,7 @@ The following table shows how various deployment methods behave when basic authe
 | [Local Git](deploy-local-git.md) | Doesn't work. |
 | Azure CLI| In Azure CLI 2.48.1 or higher, the following commands fall back to Microsoft Entra authentication:<br/>[`az webapp up`](/cli/azure/webapp#az-webapp-up).<br/>[`az webapp deploy`](/cli/azure/webapp#az-webapp-deploy).<br/>[`az webapp log deployment show`](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-show).<br/>[`az webapp log deployment list`](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-list).<br/>[`az webapp log download`](/cli/azure/webapp/log#az-webapp-log-download).<br/>[`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail).<br/>[`az webapp browse`](/cli/azure/webapp#az-webapp-browse).<br/>[`az webapp create-remote-connection`](/cli/azure/webapp#az-webapp-create-remote-connection).<br/>[`az webapp ssh`](/cli/azure/webapp#az-webapp-ssh).<br/>[`az functionapp deploy`](/cli/azure/functionapp#az-functionapp-deploy).<br/>[`az functionapp log deployment list`](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-list).<br/>[`az functionapp log deployment show`](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-show).<br/>[`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip).|
 | [Maven plugin](https://github.com/microsoft/azure-maven-plugins) or [Gradle plugin](https://github.com/microsoft/azure-gradle-plugins) | Works. |
-| [GitHub Actions](deploy-continuous-deployment.md?tabs=github) | Existing GitHub Actions workflows that use basic authentication can't authenticate. In the portal **Deployment Center**, disconnect the existing GitHub configuration and create a new GitHub Actions configuration that uses user-assigned identity. <br/> If the existing GitHub Actions deployment is [manually configured](deploy-github-actions.md), try using a service principal or OpenID Connect instead. <br/> For new GitHub Actions workflows, use the **User-assigned identity** option. |
+| [GitHub Actions](deploy-continuous-deployment.md?tabs=github) | Existing GitHub Actions workflows that use basic authentication don't work. Disconnect the existing GitHub configuration and create a new GitHub Actions configuration that uses user-assigned identity. <br/> If the existing GitHub Actions deployment is [manually configured](deploy-github-actions.md), try using a service principal or OpenID Connect instead. <br/> For new GitHub Actions workflows, use the **User-assigned identity** option. |
 | [GitHub with the App Service build service](deploy-continuous-deployment.md?tabs=github) | Doesn't work. |
 | Deployment from the portal [creation wizard](https://portal.azure.com/#create/Microsoft.WebSite) | If you select a **Continuous deployment** source when **Basic authentication** is set to **Disable**, GitHub Actions is configured with the **user-assigned identity** option (OpenID Connect). |
 | [Bitbucket](deploy-continuous-deployment.md?tabs=bitbucket) | Doesn't work. |
@@ -89,7 +89,7 @@ The following table shows how various deployment methods behave when basic authe
 
 ### Visual Studio basic authentication disabled warning
 
-Visual Studio requires basic authentication to deploy to Azure App Service. If you disable basic authentication, the warning reminds you that your app configuration changed and you can no longer deploy to it. Either you disabled basic authentication on the app yourself, or your organization policy disabled basic authentication for App Service apps.
+Visual Studio requires basic authentication to deploy to Azure App Service. If you disable basic authentication, a Visual Studio warning reminds you that your app configuration changed and you can no longer deploy to your app. Either you disabled basic authentication on the app yourself, or your organization policy disabled basic authentication for App Service apps.
 
 ## Create a custom role to prevent enabling basic authentication
 
@@ -104,12 +104,11 @@ To prevent lower-privileged users from enabling basic authentication for any app
 1. Search and select **Microsoft Web Apps**.
 1. Search for and expand **microsoft.web/sites/basicPublishingCredentialsPolicies**.
 1. Select the box for **Write**, and then select **Add**. This step adds the operation to **NotActions** for the role.
-
-   :::image type="content" source="media/configure-basic-auth-disable/custom-role-no-basic-auth.png" alt-text="Screenshot that shows excluding Write for basicPublishingCredentialsPolicies.":::
-
+1. Select **Exclude permissions** again.
+1. Search for and expand **microsoft.web/sites/slots/basicPublishingCredentialsPolicies**, select the **Write** box, and then select **Add**.
 1. Your **Permissions** tab should look like the following screenshot. Select **Review + create**, and then select **Create**.
 
-   :::image type="content" source="media/configure-basic-auth-disable/create-role.png" alt-text="Screenshot that shows the creation of a custom role with all basic authentication permissions excluded.":::
+   :::image type="content" source="media/configure-basic-auth-disable/custom-role-no-basic-auth.png" alt-text="Screenshot that shows excluding Write for basicPublishingCredentialsPolicies.":::
 
 You can now assign this role to your organization's users. For more information, see [Create or update Azure custom roles by using the Azure portal](/azure/role-based-access-control/custom-roles-portal#step-2-choose-how-to-start).
 
@@ -123,10 +122,8 @@ az role definition create --role-definition '{
     "IsCustom": true,
     "Description": "Prevents users from enabling basic authentication for all App Service apps or slots.",
     "NotActions": [
-        "Microsoft.Web/sites/basicPublishingCredentialsPolicies/ftp/Write",
-        "Microsoft.Web/sites/basicPublishingCredentialsPolicies/scm/Write",
-        "Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/ftp/Write",
-        "Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/scm/Write"
+        "Microsoft.Web/sites/basicPublishingCredentialsPolicies/Write"
+        "Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/Write"
     ],
     "AssignableScopes": ["/subscriptions/<subscription-guid>"]
 }'
