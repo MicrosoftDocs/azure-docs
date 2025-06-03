@@ -4,8 +4,7 @@ description: Describes dead-letter queues in Azure Service Bus. Service Bus queu
 ms.topic: concept-article
 ms.date: 05/15/2025
 ms.custom:
-  - "fasttrack-edit
-  - devx-track-csharp"
+  - "fasttrack-edit, devx-track-csharp"
   - build-2025
 #customer intent: As an architect or a developer, I want to understand how dead-lettering of messages work in Azure Service Bus.
 ---
