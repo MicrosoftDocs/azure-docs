@@ -351,9 +351,8 @@ Then, for each file or class affected by the incident, you can jump into the sou
 
 This release contains the following fixes and enhancements.
 
-- Added a default `.appcat-ignore` file to the released artifact.
-- Removed Maven prerequisites; the Maven wrapper is now used when needed.
-- Fixed the missing dependencies report in full mode.
+- A default `.appcat-ignore` file now is included in the release package to by default exclude some folders or paths that needn't to be analyzed.
+- Fixed the issue of missing dependencies in the report when using 'full' mode (specified by '--mode').
 - Scoped analysis to AppCAT-supported targets when no targets are specified.
 - Ignored comment lines during analysis.
 - Fixed incorrect location for XML rules.
