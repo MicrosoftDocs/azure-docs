@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 08/13/2024
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to manage backup policies for Azure NetApp Files so that I can ensure proper backup coverage and control over retention for my volumes.
 ---
 # Manage backup policies for Azure NetApp Files 
 
