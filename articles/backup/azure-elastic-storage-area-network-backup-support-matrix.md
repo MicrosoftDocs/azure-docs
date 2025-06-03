@@ -2,7 +2,7 @@
 title: Support matrix for Azure Elastic SAN Backup (preview)
 description: Learn about the  regional availability, supported scenarios, and limitations for backups of Azure Elastic SAN (preview).
 ms.topic: reference
-ms.date: 05/21/2025
+ms.date: 06/03/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -15,7 +15,7 @@ This article summarizes the regional availability, supported scenarios, and limi
 
 ## Supported regions
 
-Backups of Azure Elastic SAN are available in the following regions: Australia East, North Europe, East US 2.
+Backups are available in all Azure Public regions that Azure Elastic SAN supports. [Learn more](../storage/elastic-san/elastic-san-create.md#limitations).
 
 ## Supported and unsupported scenarios for Azure Elastic SAN protection (preview)
 
