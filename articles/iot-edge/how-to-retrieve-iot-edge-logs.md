@@ -200,9 +200,7 @@ A successful request to upload logs returns a **"status": 200** followed by a pa
 | message | string | Message if there's an error, or an empty string otherwise. |
 | correlationId | string   | ID to check the status of the upload request. |
 
-For example:
-
-The following invocation uploads the last 100 log lines from all modules in compressed JSON format:
+For example, the following invocation uploads the last 100 log lines from all modules in compressed JSON format:
 
 ```azurecli
 az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -318,8 +316,6 @@ A successful upload logs request returns a **"status": 200** and a payload with 
 | status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, or `Unknown`. |
 | message | string | Message if error, empty string otherwise. |
 | correlationId | string   | ID to query to status of the upload request. |
-
-For example:
 
 In the following example, replace the placeholder text *`<hub name>`* and *`<device id>`* with your own values.
 
