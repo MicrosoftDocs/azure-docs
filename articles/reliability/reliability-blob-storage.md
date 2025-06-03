@@ -15,22 +15,27 @@ ms.update-cycle: 180-days
 
 Azure Blob Storage is Microsoft's object storage solution for the cloud, designed to store massive amounts of unstructured data such as text, binary data, documents, media files, and application backups. As a foundational Azure storage service, Blob Storage provides multiple reliability features to ensure your data remains available and durable in the face of both planned and unplanned events.
 
+<!-- Anastasia: We don't have this kind of summary in other guides (although maybe we should?) - I'll leave this with you to decide. If we do keep it, I'd like to make some adjustments but can do that later. -->
 Azure Blob Storage supports comprehensive redundancy options including availability zone deployment with zone-redundant storage (ZRS), multi-region protection through geo-redundant configurations, and sophisticated failover capabilities. The service automatically handles transient faults and provides configurable retry policies to maintain consistent access to your data. With built-in redundancy mechanisms that store multiple copies of your data across different fault domains, Azure Blob Storage is engineered to deliver exceptional durability and availability for mission-critical workloads.
 
-
-This article describes reliability support in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview), and covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. 
-
-For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
+This article describes reliability support in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview), and covers both regional resiliency with availability zones and cross-region resiliency through geo-redundant storage. 
 
 ## Production deployment recommendations
 
-For production workloads in regions that support it, we recommend using **Standard general-purpose v2** storage accounts with **Zone-redundant storage (ZRS)** redundancy configurations. ZRS provides automatic replication across multiple availability zones within a region.
+<!-- Anastasia - should we link to the WAF service guide here instead of us providing our own recommendation list? https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-blob-storage -->
 
-In paired regions or for applications requiring the highest level of availability and disaster recovery capabilities, choose **Read-access geo-zone-redundant storage (RA-GZRS)**, which provides read access to data in the secondary region even when the primary region is available. Consider **Premium Block Blob** storage accounts with ZRS for workloads requiring ultra-low latency and high transaction rates, though these accounts have higher storage costs.
+For production workloads in regions that support it, we recommend that you:
 
-Avoid **Locally redundant storage (LRS)** for production unless data can be easily reconstructed or when regulatory requirements restrict replication to a single region. Enable **soft delete** for both blobs and containers, implement **versioning** for critical data, and configure **lifecycle management policies** to optimize costs while maintaining data protection.
+- Use **Standard general-purpose v2** storage accounts.
+- Use **Zone-redundant storage (ZRS)** redundancy configurations. ZRS provides automatic replication across multiple availability zones within a region.
+
+If you have reliability requirements that can't be met with zone redundancy, consider replicating your data to another region by using geo-redundant storage or object replication.
 
 ## Reliability architecture overview
+
+<!-- Anastasia: Question for you - should we be talking about ZRS and GRS in that much detail here?
+
+I wonder if we should keep the LRS explanation, but then just say something like "later in this document you'll also learn how to keep these copies in different physical availablity zones and regions" but not get into the details until the AZ/multi-region section. -->
 
 Azure Storage maintains multiple copies of your storage account to ensure that availability and durability targets are met, even in the face of failures. The way in which data is replicated provides differing levels of protection. Each option offers its own benefits, so the option you choose depends upon the degree of resiliency your applications require.
 
@@ -54,18 +59,11 @@ Azure Storage maintains multiple copies of your storage account to ensure that a
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-Azure Blob Storage handles transient faults through automatic retry mechanisms built into the storage service infrastructure. The service implements exponential backoff retry policies for operations that encounter temporary failures such as network timeouts, throttling responses, or temporary service unavailability.
-
 To effectively manage transient faults when using Azure Blob Storage, implement the following recommendations:
 
 - **Use the Azure Storage client libraries** which include built-in retry policies with exponential backoff and jitter. The .NET, Java, Python, and JavaScript SDKs automatically handle retries for transient failures. For detailed retry configuration options, see [Azure Storage retry policy guidance](/azure/storage/blobs/storage-retry-policy).
 
 - **Configure appropriate timeout values** for your blob operations based on blob size and network conditions. Larger blobs require longer timeouts, while smaller operations can use shorter values to detect failures quickly.
-
-- **Implement circuit breaker patterns** in your application code to temporarily stop making requests when the storage service is experiencing sustained issues. For comprehensive guidance on implementing circuit breakers, see [Circuit breaker pattern](/azure/well-architected/reliability/handle-transient-faults#circuit-breaker-pattern).
-
-- **Design for geo-redundancy** by configuring read access to the secondary region (RA-GRS or RA-GZRS) and building your application to gracefully fallback to reading from secondary endpoints during primary region outages. For implementation details, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
-
 
 ## Availability zone support
 
@@ -73,90 +71,57 @@ To effectively manage transient faults when using Azure Blob Storage, implement 
 
 Azure Blob Storage provides robust availability zone support through zone-redundant storage configurations that automatically distribute your data across multiple availability zones within a region. When you configure a storage account for zone-redundant storage (ZRS), Azure synchronously replicates your blob data across multiple availability zones, ensuring that your data remains accessible even if one zone experiences an outage.
 
-Azure Blob Storage supports **zone-redundant deployments only** - it cannot be pinned to a specific availability zone. This zone-redundant approach provides superior resilience compared to zonal deployments because your data is automatically protected against single zone failures without requiring you to manage multiple storage accounts or implement custom replication logic. The service automatically distributes data across multiple availability zones in the region and handles load balancing between zones transparently.
-
-Zone-redundant storage ensures that write operations are not considered complete until data has been successfully committed to storage clusters in multiple availability zones. This synchronous replication approach guarantees data consistency across zones while maintaining high performance for most workloads. The service automatically handles zone failover scenarios by redirecting traffic to healthy zones without requiring customer intervention or application changes.
-
 ### Region support
 
-Zone-redundant Azure Blob Storage can be deployed into any [region that supports availability zones](./regions-list.md). To determine whether a region supports GZRS, the region must support availability zones and have a paired region.
+Zone-redundant blob storage accounts can be deployed into any [region that supports availability zones](./regions-list.md).
 
 ### Requirements
 
-Zone-redundant storage is supported across all Azure Blob Storage tiers and access levels. You can enable zone redundancy with any of the following redundancy configurations:
-
-- Zone-redundant storage (ZRS) for protection within a single region
-- Geo-zone-redundant storage (GZRS) for zone redundancy plus geo-replication
-- Read-access geo-zone-redundant storage (RA-GZRS) for zone redundancy, geo-replication, and read access to the secondary region
-
-Zone redundancy is available for both Standard general-purpose v2 and Premium Block Blob storage account types. All blob types (block blobs, append blobs, and page blobs) support zone-redundant configurations.
-
-## Considerations
-
-<!-- Considerations for zone-redundant storage -->
-
+Zone redundancy is available for both Standard general-purpose v2 and Premium Block Blob storage account types. All blob types (block blobs, append blobs, and page blobs) support zone-redundant configurations, but the type of storage account you use determines which capabilities are available. For more information, see [Supported storage account types](/azure/storage/common/storage-redundancy#supported-storage-account-types).
 
 ### Cost
 
-When you enable zone-redundant storage, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead. Zone-redundant storage typically costs approximately 25% more than locally redundant storage for the same amount of data. For geo-zone-redundant configurations, costs are higher due to cross-region replication. For detailed pricing information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+When you enable zone-redundant storage, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead. For detailed pricing information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### Configure availability zone support
 
-For comprehensive guidance on configuring zone-redundant storage for Azure Blob Storage:
+- **Create a blob storage account with zone redundancy:** To create a new storage account with zone-redundant storage, see [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, GZRS, or RA-GZRS as the redundancy option during account creation.
 
-- **Create**. To create a new storage account with zone-redundant storage, see [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, GZRS, or RA-GZRS as the redundancy option during account creation.
-
-- **Migrate**. To convert an existing storage account to zone-redundant storage, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration) for detailed migration options and requirements.
-
-- **Monitor**. To monitor the health and performance of zone-redundant storage accounts, see [Monitor Azure Blob Storage](/azure/storage/blobs/monitor-blob-storage) for guidance on setting up monitoring and alerts.
-
-### Capacity planning and management
-
-Zone-redundant Azure Blob Storage automatically distributes load across availability zones and doesn't require specific capacity planning for zone failures. The service maintains sufficient capacity in each zone to handle normal operations, and during a zone outage, the remaining zones automatically absorb the additional load.
-
-However, consider implementing [lifecycle management policies](/azure/storage/blobs/lifecycle-management-overview) to automatically transition data between access tiers based on usage patterns, which can help optimize both performance and costs. 
+- **Migration**. To convert an existing storage account to zone-redundant storage, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration) for detailed migration options and requirements.
 
 ### Normal operations
 
-During normal operations with zone-redundant Azure Blob Storage configured across multiple availability zones:
+This section describes what to expect when blob storage accounts are configured for zone redundancy and all availability zones are operational.
 
-**Traffic routing between zones**: Azure Blob Storage uses an active/active approach where client requests are automatically distributed across storage clusters in multiple availability zones. The service uses intelligent load balancing to optimize performance while maintaining data consistency. Traffic distribution is transparent to applications and requires no client-side configuration.
+**Traffic routing between zones**: Azure Blob Storage uses an active/active approach where client requests are automatically distributed across storage clusters in multiple availability zones. The service uses intelligent load balancing to optimize performance while maintaining data consistency. Traffic distribution is transparent to applications and requires no client-side configuration. <!-- TODO check with PG. As far as I know, ZRS is active-passive. -->
 
-**Data replication between zones**: All write operations to zone-redundant storage are replicated synchronously across multiple availability zones. When you upload or modify blob data, the operation isn't considered complete until the data has been successfully written to storage clusters in multiple zones. This synchronous replication ensures strong consistency and zero data loss during zone failures, though it may result in slightly higher write latency compared to locally redundant storage.
+**Data replication between zones**: All write operations to zone-redundant storage are replicated synchronously across all availability zones within the region. When you upload or modify blob data, the operation isn't considered complete until the data has been successfully written to storage clusters in all of the availability zones. This synchronous replication ensures strong consistency and zero data loss during zone failures, though it may result in slightly higher write latency compared to locally redundant storage. <!-- TODO check with PG about latency -->
 
 ### Zone-down experience
 
-When an availability zone becomes unavailable, Azure Blob Storage continues operating with minimal impact:
+This section describes what to expect when a blob storage account is configured for zone redundancy and there's an availability zone outage:
 
-| Aspect | Details |
-|--------|---------|
-| **Detection and response** | Microsoft automatically detects zone failures and initiates failover processes. No customer action is required for zone-redundant storage accounts. |
-| **Notification** | You can configure alerts for availability and latency metrics in Azure Monitor to help detect potential issues with your storage account. |
-| **Active requests** | In-flight requests may experience temporary failures or increased latency during the initial failover period. Applications should [implement retry logic](#transient-faults) to handle these temporary interruptions. |
-| **Expected data loss** | No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete. |
-| **Expected downtime** | Minimal downtime (typically seconds to minutes) may occur during automatic failover as traffic is redirected to healthy zones. |
-| **Traffic rerouting** | Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required. |
+- **Detection and response:** Microsoft automatically detects zone failures and initiates failover processes. No customer action is required for zone-redundant storage accounts.
+
+<!-- Need to confirm with PG, but as far as I know there's no way for a customer to find out when a zone failure/failover occurs, so we omit the 'Notification' item. -->
+
+- **Active requests:** In-flight requests mght be dropped during the failover and should be retried. Applications should [implement retry logic](#transient-faults) to handle these temporary interruptions.
+
+- **Expected data loss:**  No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete.
+
+- **Expected downtime:** Minimal downtime (typically seconds to minutes) may occur during automatic failover as traffic is redirected to healthy zones. <!-- TODO check with PG about this. Their doc says "If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing. These updates could affect your application if you access data before the updates are complete." We should confirm if they have an estimate on how long there might be impact. -->
+
+- **Traffic rerouting.** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
 
 ### Failback
 
-When the failed availability zone recovers, Azure Blob Storage automatically restores normal operations across multiple zones:
-
-**Microsoft-managed failover failback**: Azure automatically detects when the previously failed zone is healthy and begins redistributing traffic across all available zones. The service restores data to the recovered zone as needed and resumes normal load balancing. No customer action is required, and the process is transparent to applications.
-
-The failback process typically completes within minutes to hours depending on the amount of data that needs to be synchronized to the recovered zone. During failback, you may experience slightly elevated latency as the service rebalances load across all zones.
+When the failed availability zone recovers, Azure Blob Storage automatically restores normal operations across all of the availability zones.
 
 ### Testing for zone failures
 
-You can test your application's resilience to zone failures using Azure Chaos Studio and other chaos engineering approaches:
-
-- Implement automated testing scenarios that validate your application's ability to handle increased latency and temporary failures
-- Monitor your application's behavior during simulated failures to ensure retry logic and error handling work correctly
-- Test your application's response to storage service degradation scenarios
-
-For detailed guidance on setting up chaos engineering experiments, see [Azure Chaos Studio documentation](/azure/chaos-studio/) and regularly test your disaster recovery procedures to ensure readiness for unexpected zone outages.
+Azure Blob Storage manages replication, traffic routing, failover, and failback for zone-redundant storage. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
 
 ## Multi-region support
-
 
 Azure Blob Storage provides native multi-region support through geo-redundant storage configurations that automatically replicate your data to a secondary region. The service supports both geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS), as well as read-access configurations (RA-GRS and RA-GZRS) that allow applications to read data from the secondary region even when the primary region is available.
 
@@ -168,126 +133,124 @@ RA-GRS and RA-GZRS configurations enable applications to implement active-passiv
 
 Customer-managed (unplanned) failover enables you to fail over your entire geo-redundant storage account to the secondary region if the storage service endpoints for the primary region become unavailable. During failover, the original secondary region becomes the new primary region. All storage service endpoints are then redirected to the new primary region. After the storage service endpoint outage is resolved, you can perform another failover operation to fail back to the original primary region.
 
+Azure Blob Storage supports three types of failover that are intended for different situations:
+
+- **Customer-managed unplanned failover:** Enables you to initiate recovery if there's a region-wide storage failure in your primary region.
+
+- **Customer-managed planned failover:** Enables you to initiate recovery if another part of your solution has a failure in your primary region, and you need to switch your whole solution over to a secondary region.
+
+- **Microsoft-managed failover:** In exceptional situations, Microsoft might initiate failover for all GRS storage accounts in a region. However, Microsoft-managed failover is a last resort and is expected to only be performed after an extended period of outage. You shouldn't rely on Microsoft-managed failover.
+
 ### Region support
 
-Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS), as well as customer initiated failover and failback are available in most [Azure paired regions](./regions-paired.md) that support general-purpose v2 storage accounts.
-
+Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS), as well as customer initiated failover and failback are available in all [Azure paired regions](./regions-paired.md) that support general-purpose v2 storage accounts.
 
 ### Considerations
 
+<!-- Anastasia - I suggest that this section is where we introduce the flavours of geo-redundancy (GRS, RA-GRS, GZRS, RA-GZRS). -->
+
 When implementing multi-region Azure Blob Storage, consider the following important factors:
 
-**Asynchronous replication latency**: Data replication to the secondary region is asynchronous, which means there's a lag between when data is written to the primary region and when it becomes available in the secondary region. This lag can result in potential data loss (measured as Recovery Point Objective or RPO) if a primary region failure occurs before recent data is replicated.
+**Asynchronous replication latency**: Data replication to the secondary region is asynchronous, which means there's a lag between when data is written to the primary region and when it becomes available in the secondary region. This lag can result in potential data loss (measured as Recovery Point Objective or RPO) if a primary region failure occurs before recent data is replicated. The replication lag is expected to be less than 15 minutes, but this is an estimate and not guaranteed.
 
 **Secondary region access**: With standard GRS and GZRS configurations, the secondary region is not accessible for reads until a failover occurs. Only RA-GRS and RA-GZRS configurations provide read access to the secondary region during normal operations.
 
-**Feature limitations**: Some Azure Blob Storage features are not supported or have limitations when using geo-redundant storage. These include certain blob types, access tiers, and management operations. Review [feature compatibility documentation](/azure/storage/common/storage-disaster-recovery-guidance#unsupported-features-and-services) before implementing geo-redundancy.
+**Feature limitations**: Some Azure Blob Storage features are not supported or have limitations when using geo-redundant storage or when using customer-managed failover. These include certain blob types, access tiers, and management operations. Review [feature compatibility documentation](/azure/storage/common/storage-disaster-recovery-guidance#unsupported-features-and-services) before implementing geo-redundancy.
 
 ### Cost
 
-Multi-region Azure Blob Storage configurations incur additional costs for cross-region replication and storage in the secondary region. Geo-redundant storage typically costs approximately 50% more than zone-redundant storage within a single region due to the additional storage overhead and bandwidth costs for replication.
-
-Read-access configurations (RA-GRS and RA-GZRS) may incur additional egress charges when reading data from the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates. For detailed pricing information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Multi-region Azure Blob Storage configurations incur additional costs for cross-region replication and storage in the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates. For detailed pricing information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### Configure multi-region support
 
-To implement multi-region support for Azure Blob Storage:
+- **Create a new storage account plan with geo-redundancy.** To create a storage account with geo-redundant configuration, see [Create a storage account](/azure/storage/common/storage-account-create) and select GRS, RA-GRS, GZRS, or RA-GZRS during account creation.
 
-- **Create**. To create a storage account with geo-redundant configuration, see [Create a storage account](/azure/storage/common/storage-account-create) and select GRS, RA-GRS, GZRS, or RA-GZRS during account creation.
-
-- **Convert**. To convert an existing storage account to geo-redundant storage, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration) for step-by-step conversion procedures.
-
-- **Monitor**. To track replication status and monitor cross-region latency, see [Check the Last Sync Time property](/azure/storage/common/last-sync-time-get) and [Monitor Azure Blob Storage](/azure/storage/blobs/monitor-blob-storage).
-
-
+- **Migration.** To convert an existing storage account to geo-redundant storage, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration) for step-by-step conversion procedures.
 
 ### Normal operations
 
-During normal multi-region operations when both primary and secondary regions are available:
+This section describes what to expect when a storage account is configured for geo-redundancy and all regions are operational.
 
-**Traffic routing between regions**: Azure Blob Storage uses an active/passive approach where all write operations and most read operations are directed to the primary region. For RA-GRS and RA-GZRS configurations, applications can optionally read from the secondary region by accessing the secondary endpoint, but this requires explicit application configuration and is not automatic.
+- **Traffic routing between regions**: Azure Blob Storage uses an active/passive approach where all write operations and most read operations are directed to the primary region. For RA-GRS and RA-GZRS configurations, applications can optionally read from the secondary region by accessing the secondary endpoint, but this requires explicit application configuration and is not automatic.
 
-**Data replication between regions**: Write operations are first committed to the primary region using the configured redundancy type (LRS for GRS/RA-GRS, or ZRS for GZRS/RA-GZRS). After successful completion in the primary region, data is asynchronously replicated to the secondary region where it's stored using locally redundant storage (LRS). The asynchronous nature of cross-region replication means there's typically a lag time between when data is written to primary and when it's available in the secondary region.
+- **Data replication between regions**: Write operations are first committed to the primary region using the configured redundancy type (LRS for GRS/RA-GRS, or ZRS for GZRS/RA-GZRS). After successful completion in the primary region, data is asynchronously replicated to the secondary region where it's stored using locally redundant storage (LRS).
+	
+   The asynchronous nature of cross-region replication means there's typically a lag time between when data is written to primary and when it's available in the secondary region. You can monitor the replication time through the [Last Sync Time property](/azure/storage/common/last-sync-time-get).
 
 ### Region-down experience
 
-When a primary region becomes unavailable, Azure Blob Storage supports both Microsoft-managed and customer-managed failover scenarios:
+This section describes what to expect when a storage account is configured for geo-redundancy and there's an outage in the primary region.
 
+- **Customer-managed failover (unplanned)**: You can initiate manual failover for geo-redundant storage accounts when storage in the primary region is unavailable. However, this approach can result in data loss, and your storage account will lose its geo-replication pairing.
 
-- **Customer-managed failover (unplanned)**: You can initiate manual failover for geo-redundant storage accounts when the primary region is unavailable but not necessarily permanently lost.
+    - **Detection and response:** In the unlikely event that your storage account is unavailable in your primary region, you can consider initiating a customer-managed unplanned failover. To make this decision, consider the following factors:
+      
+      <!-- TODO Check with PG about whether there are specific signals to watch for in montoring or Resource Health -->
+
+      - Whether Microsoft has advised you to perform failover to another region.
+
+      It's important to be aware that an unplanned failover [can result in data loss](/azure/storage/common/storage-disaster-recovery-guidance#anticipate-data-loss-and-inconsistencies), so you need to weigh up whether the risk of data loss is justified by the restoration of service.
     
-    | Aspect | Customer-managed failover |
-    |--------|--------------------------|
-    | **Detection and response** | Customer detects primary region issues and manually initiates failover through Azure portal, PowerShell, or CLI |
-    | **Notification** | Customer controls when to initiate failover and can monitor progress through Azure portal |
-    | **Active requests** | In-flight requests fail during failover; applications must retry to new primary endpoint |
-    | **Expected data loss** | Potential data loss due to asynchronous replication lag; recent writes may not be replicated |
-    | **Expected downtime** | Typically 60 minutes depending on account size and complexity |
-    | **Traffic rerouting** | Azure automatically updates storage account endpoints; applications may need DNS cache clearing |
+    - **Active requests:** In-flight requests fail during failover; applications must retry to new primary endpoint. <!-- TODO check this. I think that during the failover process the storage account beomes temporarily unavailable for writes. -->
+
+    - **Expected data loss:** During an unplanned failover, it's likely that you will have some data loss. This is because of the asynchronous replication lag, which means that recent writes may not be replicated.
+    
+      You can check the [Last Sync time](TODO) to understand how much data could be lost during an unplanned failover. Typically the data loss is expected to be less than 15 minutes.
+
+    - **Expected downtime:** Typically within 60 minutes depending on account size and complexity.
+
+    - **Traffic rerouting:** Azure automatically updates storage account endpoints. Applications may need DNS cache clearing.
 
     For more information on initiating customer-managed failover, see [Initiate a storage account failover](/azure/storage/common/storage-initiate-account-failover) and [How customer-managed (unplanned) failover works](/azure/storage/common/storage-failover-customer-managed-unplanned).
 
-- **Customer-managed failover (planned)**: For detailed guidance on initiating customer-managed planned failover, see [Customer-managed planned failover (preview)](/azure/storage/common/storage-failover-customer-managed-planned).
+- **Customer-managed failover (planned)**: TODO
 
+  - **Detection and response:** You're responsible for deciding to fail over. You'd typically do so if you need to fail over between regions even though your storage account is healthy. For example, a major outage of another component that you can't recover from in the primary region.
 
-- **Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft initiates automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation. 
+  - **Active requests:** The storage account beomes temporarily unavailable for writes.
 
->[!IMPORTANT]
->Use customer-managed failover options to develop, test, and implement your disaster recovery plans. Do not rely on Microsoft-managed failover, which might only be used in extreme circumstances. A Microsoft-managed failover would be initiated for an entire physical unit, such as a region or a datacenter. It can't be initiated for individual storage accounts, subscriptions, or tenants. If you need the ability to selectively failover your individual storage accounts, use [customer-managed planned failover.](/azure/storage/common/storage-disaster-recovery-guidance).
+  - **Expected data loss:** No data loss is expected because the failover process waits for all data to be synchronised.
 
+  - **Expected downtime:** Up to 60 minutes, which includes the time that the account is locked for writes to enable synchronisation to complete.
+
+  - **Traffic rerouting:** Azure automatically updates storage account endpoints; applications may need DNS cache clearing.
+
+- **Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft initiates automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation.
+
+  > [!IMPORTANT]
+  > Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not rely on Microsoft-managed failover**, which might only be used in extreme circumstances. A Microsoft-managed failover would likely be initiated for an entire region. It can't be initiated for individual storage accounts, subscriptions, or customers. Failover might occur at different times for different Azure services. We recommend you use customer-managed failover.
 
 ### Failback
 
-The failback process differs significantly between Microsoft-managed and customer-managed failback scenarios:
+The failback process differs significantly between Microsoft-managed and customer-managed failover scenarios:
 
-- **Microsoft-managed failback**: After Microsoft-initiated failover, the failback process is also managed entirely by Microsoft. When the original primary region recovers, Microsoft evaluates the situation and may initiate failback to restore the original regional configuration. This process is automatic and requires no customer action, though customers are notified through Azure Service Health communications. The timeline for Microsoft-managed failback depends on the extent of the regional disaster and recovery efforts.
+- **Customer-managed failover (unplanned)**: After an unplanned failover, the storage account is configured with locally redundant storage (LRS). In order to fail back, you need to re-establish the GRS relationship and wait for the data to be replicated.
 
-- **Customer-managed failback**: For detailed guidance on initiating customer-managed unplanned failback, see [Customer-managed unplanned failover and failback process](/azure/storage/common/storage-failover-customer-managed-unplanned).
+- **Customer-managed failover (planned)**: After a planned failover, the storage account remains geo-replicated (GRS). You can initiate another failover in order to fail back to the original primary region, and the same failover considerations apply.
 
-
-- **Customer-managed failback (planned)**: For detailed guidance on initiating customer-managed planned failback, see [Customer-managed planned failover and failback process](/azure/storage/common/storage-failover-customer-managed-planned).
+- **Microsoft-managed failover**: If Microsoft initiates a failover, it's likely that a significant disaster has occurred in the primary region, and the primary region might not be recoverable. Any timelines or recovery plans depends on the extent of the regional disaster and recovery efforts. You should monitor Azure Service Health communications for details.
 
 ### Testing for region failures
 
 You can simulate regional failures to test your disaster recovery procedures:
 
-- **Chaos Studio**: Use Azure Chaos Studio to inject region-level faults and test your application's failover behavior. Configure experiments that simulate primary region unavailability and measure your application's response.
+- **Planned failover testing**: For geo-redundant storage accounts, you can perform planned failover operations during maintenance windows to test the complete failover and failback process. Although planned failover doesn't require data loss it does involve downtime during both failover and failback.
 
-- **Planned failover testing**: For geo-redundant storage accounts, you can perform planned failover operations during maintenance windows to test the complete failover and failback process without data loss.
-
-- **Secondary endpoint testing**: For RA-GRS and RA-GZRS configurations, regularly test read operations against the secondary endpoint to ensure your application can successfully access backup data.
-
-Implement automated monitoring and alerting to track the success of failover tests and ensure your disaster recovery procedures remain effective as your application evolves.
-
->[!NOTE]
->Testing for region failures should be performed in a controlled environment and during scheduled maintenance windows to minimize impact on production workloads. Always ensure you have proper backups and recovery plans in place before conducting any failover tests, as data loss and downtime can occur if the failover process is not executed correctly.
+- **Secondary endpoint testing**: For RA-GRS and RA-GZRS configurations, regularly test read operations against the secondary endpoint to ensure your application can successfully read data from the secondary region.
 
 ### Alternative multi-region approaches
 
-If your application requires more control over multi-region deployment than the native geo-redundant options provide, consider implementing a custom multi-region architecture:
+If your application requires geo-replication across nonpaired regions, or you need more control over multi-region deployment than the native geo-redundant options provide, consider implementing a custom multi-region architecture.
 
-Azure Blob Storage can be deployed in multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency.
-
-When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions. Consider using Azure services like Azure Data Factory for data orchestration, Azure Traffic Manager for DNS-based load balancing, or Azure Front Door for global load balancing.
+Azure Blob Storage can be deployed in multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
 
 **Object replication** provides an additional option for cross-region data replication that enables asynchronous copying of block blobs between storage accounts. Unlike the built-in geo-redundant storage options that use fixed paired regions, object replication allows you to replicate data between storage accounts in any Azure regions, including non-paired regions. This approach gives you full control over source and destination regions, replication policies, and the specific containers and blob prefixes to replicate.
 
-Object replication operates at the storage account level and can be configured to replicate all blobs or specific subsets based on blob prefixes and tags. The replication is asynchronous and happens in the background, with replication times typically ranging from minutes to hours depending on blob size and network conditions. You can configure multiple replication policies and even chain replication across multiple storage accounts to create sophisticated multi-region topologies.
+Object replication can be configured to replicate all blobs within a container, or specific subsets based on blob prefixes and tags. The replication is asynchronous and happens in the background. You can configure multiple replication policies and even chain replication across multiple storage accounts to create sophisticated multi-region topologies.
 
-Key benefits of object replication for multi-region scenarios include:
-- **Flexible region selection**: Replicate between any Azure regions without paired region constraints
-- **Granular control**: Choose specific containers, blob prefixes, or blobs with specific tags to replicate
-- **Multiple targets**: Configure replication to multiple destination accounts across different regions
-- **Version replication**: Support for blob versioning ensures complete data protection
-- **Cost optimization**: Pay only for the storage and transactions used, with no additional replication charges
+Object replication isn't compatible with all storage accounts. For example, object replication doesn't work with storage accounts that use hierarchical namespaces (also called Azure Data Lake Gen2 accounts).
 
 For detailed implementation guidance, see [Object replication for block blobs](/azure/storage/blobs/object-replication-overview) and [Configure object replication](/azure/storage/blobs/object-replication-configure).
-
-For example approaches that illustrate multi-region architecture patterns, see:
-
-- [Geo-distributed data using Azure Traffic Manager](/azure/architecture/web-apps/app-service/architectures/multi-region)
-- [Multi-region load balancing with Traffic Manager and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)
-- [Globally distributed applications using Azure Front Door](/azure/architecture/guide/networking/global-web-applications/overview)
 
 ## Backups
 
@@ -317,13 +280,7 @@ Microsoft provides advance notification of planned maintenance that may impact s
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Azure Blob Storage describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLA for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
-
-Azure Blob Storage SLAs vary based on the redundancy configuration and account type you choose. Zone-redundant storage configurations typically provide higher availability guarantees than locally redundant storage due to their resilience against zone-level failures. Geo-redundant configurations may have different SLA terms for read and write operations, especially for read-access configurations that allow reading from the secondary region.
-
-To meet SLA requirements, ensure your storage account is configured with the appropriate redundancy level for your availability needs, implement proper retry logic in your applications to handle transient failures, and monitor storage account health using Azure Monitor metrics and alerts. Applications must also handle HTTP error codes appropriately and avoid patterns that could impact service availability, such as excessive request rates that trigger throttling.
-
-The SLA coverage includes the availability of storage service endpoints but doesn't cover data durability, which is addressed separately through redundancy configurations. Review the specific SLA terms for your chosen redundancy configuration to understand the availability commitments and your responsibilities for maintaining optimal service performance.
+The service-level agreement (SLA) for Azure Blob Storage describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. The availability SLA you'll be eligible for depends on the storage tier and the replication type you use. For more information, see [SLA for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
 
 ### Related content
 
