@@ -224,7 +224,9 @@ Each Hybrid Connection Manager can support multiple Hybrid Connections. Multiple
 
 ### Manually add a Hybrid Connection
 
-To enable someone outside your subscription to host a Hybrid Connection Manager instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties in the [Azure portal]. 
+To enable someone outside your subscription to host a Hybrid Connection Manager instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties of your App Service in the [Azure portal]. The gateway connection string is in the format `Endpoint=sb://[NAMESPACE].servicebus.windows.net/;SharedAccessKeyName=defaultListener;SharedAccessKey=[KEY];EntityPath=[HYBRID-CONNECTION-NAME]`.
+
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-connection-string.png" alt-text="Screenshot of the Hybrid Connection gateway connection string in the Azure portal.":::
 
 To use that string in the Hybrid Connection Manager GUI, select **+ New** and **Use Connection String** and paste in the gateway connection string.
 
