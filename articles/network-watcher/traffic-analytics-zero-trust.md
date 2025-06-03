@@ -1,5 +1,4 @@
 ---
-# For valid values of ms.service, ms.prod, and ms.topic, see https://learn.microsoft.com/en-us/help/platform/metadata-taxonomies
 
 title: Apply Zero Trust Principles to Segment Azure Network through Traffic Analytics
 description: Learn how to use Azure Traffic Analytics to apply Zero Trust principles, segment networks, and detect security risks in your Azure environment.
