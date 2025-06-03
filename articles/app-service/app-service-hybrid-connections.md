@@ -6,7 +6,9 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 05/06/2025
 ms.author: madsd
-ms.custom: "UpdateFrequency3, fasttrack-edit"
+ms.custom:
+  - "UpdateFrequency3, fasttrack-edit"
+  - build-2025
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
 ---
 
@@ -224,7 +226,9 @@ Each Hybrid Connection Manager can support multiple Hybrid Connections. Multiple
 
 ### Manually add a Hybrid Connection
 
-To enable someone outside your subscription to host a Hybrid Connection Manager instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties in the [Azure portal]. 
+To enable someone outside your subscription to host a Hybrid Connection Manager instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties of your App Service in the [Azure portal]. The gateway connection string is in the format `Endpoint=sb://[NAMESPACE].servicebus.windows.net/;SharedAccessKeyName=defaultListener;SharedAccessKey=[KEY];EntityPath=[HYBRID-CONNECTION-NAME]`.
+
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-connection-string.png" alt-text="Screenshot of the Hybrid Connection gateway connection string in the Azure portal.":::
 
 To use that string in the Hybrid Connection Manager GUI, select **+ New** and **Use Connection String** and paste in the gateway connection string.
 
@@ -348,6 +352,9 @@ If your status says **Connected** but your app can't reach your endpoint then:
 In App Service, the *tcpping* command-line tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it doesn't tell you if you have access to a Hybrid Connection endpoint. When you use the tool in the console against a Hybrid Connection endpoint, you're only confirming that it uses a host:port combination.
 
 If you have a command-line client for your endpoint, you can test connectivity from the app console. For example, you can test access to web server endpoints by using curl.
+
+> [!NOTE]
+> For questions and support specific to App Service Hybrid Connections and App Service Hybrid Connection Manager, contact [hcmsupport@service.microsoft.com](mailto:hcmsupport@service.microsoft.com).
 
 <!--Links-->
 [HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/

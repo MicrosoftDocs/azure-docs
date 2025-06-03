@@ -6,7 +6,9 @@ author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 05/13/2025
 ms.topic: overview
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Supported regions for Azure Update Manager

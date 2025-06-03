@@ -4,32 +4,31 @@ description: include file
 services: azure-communication-services
 author: mrayyan
 manager: alexokun
-
 ms.service: azure-communication-services
-ms.date: 07/20/2023
+ms.date: 06/02/2025
 ms.topic: include
 ms.custom: include file
 ms.author: t-siddiquim
 ---
 
-
 > [!NOTE] 
-> Rooms can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/concepts-rooms--docs). The UI Library enables developers to add a call client that is Rooms enabled into their application with only a couple lines of code.
+> You can access rooms using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/concepts-rooms--docs). The UI Library enables developers to add a call client that is Rooms enabled into their application with only a couple lines of code.
+
+## Implement the sample app
+
+To implement the code needed to join participants to a rooms call, download from GitHub the [Room Call sample app](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/calling-rooms-quickstart).
 
 
-## Join a room call
+## Web Prerequisites
 
-To follow along with this quickstart, you can download the Room Call quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/calling-rooms-quickstart).
+- You need to have [Node.js 18](https://nodejs.org/dist/v18.18.0/). You can use the Microsoft Installer (MSI) to install it.
 
-
-## Pre-requisites
-- You need to have [Node.js 18](https://nodejs.org/dist/v18.18.0/). You can use the msi installer to install it.
-
-## Setting up
+## Set up the project
 
 ### Create a new Node.js application
 
 Open your terminal or command window create a new directory for your app, and navigate to it.
+
 ```console
 mkdir calling-rooms-quickstart && cd calling-rooms-quickstart
 ```
@@ -43,6 +42,7 @@ npm init -y
 ### Install the package
 
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
+
 > [!IMPORTANT]
 > This quickstart uses the Azure Communication Services Calling SDK version `1.14.1`. The ability to join a room call and display the roles of call participants is available in the Calling JavaScript SDK for web browsers [version 1.13.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.1) and above.
 
@@ -53,7 +53,7 @@ npm install @azure/communication-calling@1.14.1 --save
 
 ### Set up the app framework
 
-This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
+This article uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli`, and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
 
 ```console
 npm install copy-webpack-plugin@^11.0.0 webpack@^5.88.2 webpack-cli@^5.1.4 webpack-dev-server@^4.15.1 --save-dev
@@ -61,7 +61,7 @@ npm install copy-webpack-plugin@^11.0.0 webpack@^5.88.2 webpack-cli@^5.1.4 webpa
 
 Here's the code:
 
-Create an `index.html` file in the root directory of your project. We use this file to configure a basic layout that allows the user to join a rooms call.
+Create an `index.html` file in the root directory of your project. Use this file to configure a basic layout that enables the user to join a rooms call.
 
 ```html
 <!-- index.html-->
@@ -101,7 +101,7 @@ Create an `index.html` file in the root directory of your project. We use this f
 </html>
 ```
 
-Create a file in the root directory of your project called `index.js` to contain the application logic for this quickstart. Add the following code to index.js:
+Create a file in the root directory of your project called `index.js` for the application logic. Add the following code to `index.js`:
 
 ```JavaScript
 // Make sure to install the necessary dependencies
@@ -152,7 +152,6 @@ initializeCallAgentButton.onclick = async () => {
         console.error(error);
     }
 }
-
 
 startCallButton.onclick = async () => {
     try {
@@ -397,6 +396,7 @@ hangUpCallButton.addEventListener("click", async () => {
 ## Add the webpack local server code
 
 Create a file in the root directory of your project called **webpack.config.js** to contain the local server logic for this quickstart. Add the following code to **webpack.config.js**:
+
 ```javascript
 const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
@@ -434,17 +434,15 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 1. Open your browser navigate to http://localhost:8080/.
 2. On the first input field, enter a valid user access token.
 3. Click on the "Initialize Call Agent" and enter your Room ID. 
-4. Click "Join Room Call"
+4. Click **Join Room Call**.
 
-You have now successfully joined a Rooms call!
-
-
+You successfully joined a Rooms call!
 
 ## Understanding joining a Room call
 
-All the code that you have added in your QuickStart app allowed you to successfully start and join a room call. Here is more information about what more methods/handlers you can access for Rooms to extend functionality in your application.
+All the code that you added to the sample app enabled you to successfully start and join a room call. Here's more information about what more methods/handlers you can access for Rooms to extend functionality in your application.
 
-To display the role of the local or remote call participants, subscribe to the handler below.
+To display the role of the local or remote call participants, subscribe to the handler as follows.
 
 ```js
 // Subscribe to changes for your role in a call
@@ -462,5 +460,4 @@ To display the role of the local or remote call participants, subscribe to the h
  }
 ```
 
-
-You can learn more about roles of room call participants in the [rooms concept documentation](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).
+For more information about roles of room call participants, see [Rooms API for structured meetings](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).

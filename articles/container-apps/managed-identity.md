@@ -4,7 +4,9 @@ description: Using managed identities in Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: how-to
 ms.date: 10/25/2023
 ms.author: cshoe

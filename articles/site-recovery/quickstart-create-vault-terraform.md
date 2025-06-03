@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 02/4/2025
 ms.custom: devx-track-terraform
 ms.service: azure-site-recovery
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+author: jyothisuri
+ms.author: jsuri
 #customer intent: As a Terraform user, I want to learn how to create a resource group, Azure Recovery Services vault, and a backup policy to share files in Azure.
 content_well_notification: 
   - AI-contribution

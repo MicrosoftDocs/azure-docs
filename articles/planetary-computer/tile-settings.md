@@ -6,6 +6,8 @@ ms.author: marclichtman
 ms.service: azure
 ms.topic: concept-article
 ms.date: 04/09/2025
+ms.custom:
+  - build-2025
 ---
 
 # Tile settings in Microsoft Planetary Computer Pro

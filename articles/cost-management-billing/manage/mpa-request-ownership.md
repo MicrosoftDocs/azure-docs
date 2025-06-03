@@ -8,6 +8,8 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
 ms.author: jkinma
+ms.custom:
+  - build-2025
 ---
 
 # Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)

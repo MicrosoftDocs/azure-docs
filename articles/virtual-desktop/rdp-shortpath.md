@@ -114,7 +114,7 @@ The following diagram gives a high-level overview of the network connections whe
 
 #### TURN relay availability
 
-TURN relay is available in the following Azure regions:
+TURN relay is available in the following Azure regions with ACS TURN Relay (20.202.0.0/16):
 
 :::row:::
     :::column:::
@@ -188,9 +188,7 @@ Where users have RDP Shortpath for both managed network and public networks is a
 The following sections contain the source, destination and protocol requirements for your session hosts and client devices that must be allowed for RDP Shortpath to work.
 
 > [!NOTE]
-> For a relayed connection with TURN, the IP subnet `20.202.0.0/16` is shared with Azure Communication Services. However, Azure Virtual Desktop and Windows 365 will transition to `51.5.0.0/16`, which is dedicated exclusively to these services. We recommend you configure both ranges in your network environment now to ensure a seamless transition. 
->  
-> If you want to wait to use the dedicated subnet, please follow the steps in [Configure host pool networking settings](configure-rdp-shortpath.md#configure-host-pool-networking-settings) and set **RDP Shortpath for public network (via TURN/relay)** to **Disabled**. Alternatively you can disable UDP on the local device, but that will disable UDP for all connections. To disable UDP on the local device, follow the steps in [Check that UDP is enabled on Windows client devices](configure-rdp-shortpath.md#check-that-udp-is-enabled-on-windows-client-devices), but set **Turn Off UDP On Client** to **Enabled**. If you block the IP range `20.202.0.0/16` on your network and are using VPN applications, it might cause disconnection issues.
+> Starting June 15, Microsoft will begin rolling out a new TURN relay IP range, `51.5.0.0/16`, across 40 Azure regions. This new range is dedicated exclusively to Azure Virtual Desktop and Windows 365, marking a transition away from the previously shared 20.202.0.0/16 subnet used by Azure Communication Services. The upgrade is designed to enhance RDP Shortpath for Public Networks (via TURN/Relay), delivering faster, more reliable connectivity for users.
 
 #### Session host virtual network
 
@@ -199,8 +197,8 @@ The following table details the source, destination and protocol requirements fo
 | Name | Source | Source Port | Destination | Destination Port | Protocol | Action |
 |---|---|:---:|---|:---:|:---:|:---:|
 | STUN direct connection | VM subnet | Any | Any | 1024-65535<br />(*default 49152-65535*) | UDP | Allow |
-| STUN infrastructure/TURN | VM subnet | Any | `20.202.0.0/16` | 3478 | UDP | Allow |
-| TURN relay | VM subnet | Any | `51.5.0.0/16` | 3478 | UDP | Allow |
+| STUN/TURN relay| VM subnet | Any | `20.202.0.0/16` | 3478 | UDP | Allow |
+| STUN/TURN Relay | VM subnet | Any | `51.5.0.0/16` | 3478 | UDP | Allow |
 
 #### Client network
 
@@ -209,8 +207,11 @@ The following table details the source, destination and protocol requirements fo
 | Name | Source | Source Port | Destination | Destination Port | Protocol | Action |
 |---|---|:---:|---|:---:|:---:|:---:|
 | STUN direct connection | Client network | Any | Public IP addresses assigned to NAT Gateway or Azure Firewall (provided by the STUN endpoint) | 1024-65535<br />(*default 49152-65535*) | UDP | Allow |
-| STUN infrastructure/TURN relay | Client network | Any | `20.202.0.0/16` | 3478 | UDP | Allow |
-| TURN relay | Client network | Any | `51.5.0.0/16` | 3478 | UDP | Allow |
+| STUN/TURN relay | Client network | Any | `20.202.0.0/16` | 3478 | UDP | Allow |
+| STUN/TURN relay | Client network | Any | `51.5.0.0/16` | 3478 | UDP | Allow |
+
+> [!NOTE]
+> From June 15th, the traffic will progressively be redirected from the current Azure Communication Service (ACS) TURN Relay range (`20.202.0.0/16`) to the newly designated subnet `51.5.0.0/16`. While this shift is designed to be seamless, it’s essential that customers preemptively configure bypass rules for the new range to maintain uninterrupted service. With both IP ranges properly bypassed, end users shouldn't experience any connectivity issues.
 
 ### Teredo support
 

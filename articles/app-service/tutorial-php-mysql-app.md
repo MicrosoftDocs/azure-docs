@@ -7,7 +7,12 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 04/17/2025
-ms.custom: mvc, cli-validate, devdivchpfy22, AppServiceConnectivity
+ms.custom:
+  - mvc
+  - cli-validate
+  - devdivchpfy22
+  - AppServiceConnectivity
+  - build-2025
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -365,7 +370,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 5:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like `Configure Azure database and cache connectons`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
+        1. In the textbox, type a commit message like `Configure Azure database and cache connections`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::

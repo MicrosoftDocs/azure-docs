@@ -2,7 +2,9 @@
 title: Parameters in Bicep files
 description: Learn how to define and use parameters in a Bicep file.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 ms.date: 05/09/2025
 ---
 
