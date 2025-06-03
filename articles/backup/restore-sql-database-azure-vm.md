@@ -2,7 +2,7 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: how-to
-ms.date: 04/24/2025
+ms.date: 06/03/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -306,5 +306,4 @@ By default, CSR is enabled on the Recovery Services vault. To update the Recover
 
 - [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
 - [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
-- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
-
+- Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).

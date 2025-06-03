@@ -4,7 +4,7 @@ description: Ready your Azure IoT Edge solution for production. Learn how to set
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/07/2024
+ms.date: 06/03/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -15,33 +15,33 @@ ms.custom:  [amqp, mqtt]
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
+When you're ready to take your IoT Edge solution from development to production, make sure it's configured for ongoing performance.
 
-The information provided in this article isn't all equal. To help you prioritize, each section starts with lists that divide the work into two sections: **important** to complete before going to production, or **helpful** for you to know.
+Not all information in this article is equally important. To help you prioritize, each section starts with lists that divide the work into two groups: **important** to complete before going to production, or **helpful** to know.
 
 ## Device configuration
 
-IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual machine running on a server. You may have access to the device either physically or through a virtual connection, or it may be isolated for extended periods of time. Either way, you want to make sure that it's configured to work appropriately.
+IoT Edge devices can be anything from a Raspberry Pi to a laptop or a virtual machine running on a server. You can access the device physically or through a virtual connection, or it can be isolated for extended periods. Either way, make sure it's configured to work appropriately.
 
 * **Important**
   * Install production certificates
   * Have a device management plan
-  * Use Moby as the container engine. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
+  * Use Moby as the container engine. If you're using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
 
 * **Helpful**
   * Choose upstream protocol
 
 ### Install production certificates
 
-Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own Edge CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
+Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the configuration file. For development and testing, the IoT Edge runtime creates temporary certificates if no certificates are declared in the configuration file. But these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, provide your own Edge CA certificate, either from a self-signed certificate authority or one purchased from a commercial certificate authority.
 
 To understand the role of the Edge CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
+For more information about installing certificates on an IoT Edge device and referencing them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
 
 ### Have a device management plan
 
-Before you put any device in production you should know how you're going to manage future updates. For an IoT Edge device, the list of components to update may include:
+Before you put any device in production, consider how you'll manage future updates. For an IoT Edge device, the list of components to update can include:
 
 * Device firmware
 * Operating system libraries
@@ -49,17 +49,17 @@ Before you put any device in production you should know how you're going to mana
 * IoT Edge
 * CA certificates
 
-[Device Update for IoT Hub](../iot-hub-device-update/index.yml) is a service that enables you to deploy over-the-air updates (OTA) for your IoT Edge devices. 
+[Device Update for IoT Hub](../iot-hub-device-update/index.yml) is a service that lets you deploy over-the-air updates (OTA) for your IoT Edge devices.
 
-Alternative methods for updating IoT Edge require physical or SSH access to the IoT Edge device. For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). To update multiple devices, consider adding the update steps to a script or use an automation tool like Ansible.
+Other ways to update IoT Edge require physical or SSH access to the IoT Edge device. For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). To update multiple devices, consider adding the update steps to a script or use an automation tool like Ansible.
 
 ### Container engine
 
-A container engine is a prerequisite for any IoT Edge device. The moby-engine is supported in production. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios. Other container engines, like Docker, do work with IoT Edge and it's ok to use these engines for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine. 
+A container engine is required for any IoT Edge device. The moby-engine is supported in production. If you're using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios. Other container engines, like Docker, work with IoT Edge and it's okay to use these engines for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine.
 
 ### Choose upstream protocol
 
-You can configure the protocol (which determines the port used) for upstream communication to IoT Hub for both the IoT Edge agent and the IoT Edge hub. The default protocol is AMQP, but you may want to change that depending on your network setup.
+You can configure the protocol (which determines the port used) for upstream communication to IoT Hub for both the IoT Edge agent and the IoT Edge hub. The default protocol is AMQP, but you might want to change that depending on your network setup.
 
 The two runtime modules both have an **UpstreamProtocol** environment variable. The valid values for the variable are:
 
@@ -68,9 +68,9 @@ The two runtime modules both have an **UpstreamProtocol** environment variable. 
 * MQTTWS
 * AMQPWS
 
-Configure the UpstreamProtocol variable for the IoT Edge agent in the config file on the device itself. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you may need to configure the IoT Edge agent to use AMQP over WebSocket (AMQPWS) to establish the initial connection to IoT Hub.
+Configure the UpstreamProtocol variable for the IoT Edge agent in the config file on the device itself. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you might need to configure the IoT Edge agent to use AMQP over WebSocket (AMQPWS) to establish the initial connection to IoT Hub.
 
-Once your IoT Edge device connects, be sure to continue configuring the UpstreamProtocol variable for both runtime modules in future deployments. An example of this process is provided in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
+After your IoT Edge device connects, continue configuring the UpstreamProtocol variable for both runtime modules in future deployments. For example, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
 ## Deployment
 
@@ -367,8 +367,8 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 Specify the DNS server for your environment in the container engine settings. The DNS server setting applies to all container modules started by the engine.
 
-1. In the `/etc/docker` directory on your device, edit the `daemon.json` file. Create the file if it doesn't exists. 
-1. Add the **dns** key and set the DNS server address to a publicly accessible DNS service. If your edge device can't access a public DNS server, use an accessible DNS server address in your network. For example:
+1. In the `/etc/docker` directory on your device, edit the `daemon.json` file. Create the file if it doesn't exist.
+1. Add the **dns** key and set the DNS server address to a publicly accessible DNS service. If your edge device can't access a public DNS server, use a DNS server address that's accessible in your network. For example:
 
     ```json
     {
@@ -385,9 +385,9 @@ Specify the DNS server for your environment in the container engine settings. Th
 
 ### Set up logs and diagnostics
 
-On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs.
+On Linux, the IoT Edge daemon uses journals as the default logging driver. Use the command-line tool `journalctl` to query the daemon logs.
 
-Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemon's logs can be individually queried with `journalctl`, the `iotedge system` commands provide a convenient way to query the combined logs.
+Starting with version 1.2, IoT Edge relies on multiple daemons. While you can query each daemon's logs individually with `journalctl`, use the `iotedge system` commands to query the combined logs.
 
 * Consolidated `iotedge` command:
 
@@ -401,15 +401,15 @@ Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemo
   journalctl -u aziot-edge -u aziot-identityd -u aziot-keyd -u aziot-certd -u aziot-tpmd
   ```
 
-When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own.
+When you test an IoT Edge deployment, you usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you might not have that option. Consider how you'll gather information about your devices in production. One option is to use a logging module that collects information from other modules and sends it to the cloud. For example, use [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or design your own.
 
 ### Set up default logging driver
 
-By default, the Moby container engine does not set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. Configure your container engine to use the [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as your logging mechanism. `Local` logging driver offers a default log size limit, performs log-rotation by default, and uses a more efficient file format, which helps to prevent disk space exhaustion. You may also choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limits based on your need.
+By default, the Moby container engine doesn't set container log size limits. Over time, this can cause the device to fill up with logs and run out of disk space. Set your container engine to use the [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as your logging mechanism. The `local` logging driver offers a default log size limit, performs log rotation by default, and uses a more efficient file format, which helps prevent disk space exhaustion. You can also use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limits based on your needs.
 
 #### Option: Configure the default logging driver for all container modules
 
-You can configure your container engine to use a specific logging driver by setting the value of `log driver` to the name of the log driver in the `daemon.json`. The following example sets the default logging driver to the `local` log driver (recommended).
+Set your container engine to use a specific logging driver by setting the value of `log driver` to the name of the log driver in the `daemon.json` file. The following example sets the default logging driver to the `local` log driver (recommended).
 
 ```JSON
 {
@@ -428,15 +428,15 @@ You can also configure your `log-opts` keys to use appropriate values in the `da
 }
 ```
 
-Add (or append) this information to a file named `daemon.json` and place it in the following location:
+Add or append this information to a file named `daemon.json` and place it in the following location:
 
 * `/etc/docker/`
 
-The container engine must be restarted for the changes to take effect.
+Restart the container engine for the changes to take effect.
 
 #### Option: Adjust log settings for each container module
 
-You can do so in the **createOptions** of each module. For example:
+Set these options in the **createOptions** of each module. For example:
 
 ```yml
 "createOptions": {
@@ -472,7 +472,7 @@ You can do so in the **createOptions** of each module. For example:
 
 ### Consider tests and CI/CD pipelines
 
-For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
+For the most efficient IoT Edge deployment, integrate your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
 ## Security considerations
 
@@ -482,19 +482,19 @@ For the most efficient IoT Edge deployment scenario, consider integrating your p
 
 ### Manage access to your container registry
 
-Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. Use a private container registry to manage container images.
+Before you deploy modules to production IoT Edge devices, make sure you control access to your container registry so outsiders can't access or change your container images. Use a private container registry to manage container images.
 
-In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario.
+In the tutorials and other documentation, we tell you to use the same container registry credentials on your IoT Edge device as on your development machine. These instructions help you set up testing and development environments more easily and aren't for production use.
 
-For a more secured access to your registry, you have a choice of [authentication options](/azure/container-registry/container-registry-authentication). A popular and recommended authentication is to use an Active Directory service principal that's well suited for applications or services to pull container images in an automated or otherwise unattended (headless) manner, as IoT Edge devices do. Another option is to use repository-scoped tokens, which allow you to create long or short-live identities that exist only in the Azure Container Registry they were created in and scope access to the repository level.
+For more secure access to your registry, choose from several [authentication options](/azure/container-registry/container-registry-authentication). Using an Active Directory service principal is a popular and recommended method for apps or services to pull container images automatically and unattended, like IoT Edge devices do. You can also use repository-scoped tokens, which let you create long or short-lived identities that exist only in the Azure Container Registry where you create them and scope access to the repository level.
 
-To create a service principal, run the two scripts as described in [create a service principal](/azure/container-registry/container-registry-auth-service-principal#create-a-service-principal). These scripts do the following tasks:
+To create a service principal, run the two scripts described in [create a service principal](/azure/container-registry/container-registry-auth-service-principal#create-a-service-principal). These scripts do the following:
 
-* The first script creates the service principal. It outputs the Service principal ID and the Service principal password. Store these values securely in your records.
+* The first script creates the service principal. It shows the service principal ID and the service principal password. Store these values securely in your records.
 
-* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** user role for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](/azure/container-registry/container-registry-roles).
+* The second script creates role assignments to grant to the service principal. Run it subsequently  if needed. Use the **acrPull** user role for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](/azure/container-registry/container-registry-roles).
 
-To authenticate using a service principal, provide the service principal ID and password that you obtained from the first script. Specify these credentials in the deployment manifest.
+To authenticate using a service principal, provide the service principal ID and password credentials from the first script in the deployment manifest.
 
 * For the username or client ID, specify the service principal ID.
 
@@ -502,24 +502,24 @@ To authenticate using a service principal, provide the service principal ID and 
 
 To create repository-scoped tokens, follow [create a repository-scoped token](/azure/container-registry/container-registry-repository-scoped-permissions).
 
-To authenticate using repository-scoped tokens, provide the token name and password that you obtained after creating your repository-scoped token. Specify these credentials in the deployment manifest.
+To authenticate using repository-scoped tokens, provide the token name and password credentials you get after creating your repository-scoped token in the deployment manifest.
 
 * For the username, specify the token's username.
 
 * For the password, specify one of the token's passwords.
 
 > [!NOTE]
-> After implementing an enhanced security authentication, disable the **Admin user** setting so that the default username/password access is no longer available. In your container registry in the Azure portal, from the left pane menu under **Settings**, select **Access Keys**.
+> After implementing an enhanced security authentication, disable the **Admin user** setting so the default username and password access isn't available. You can find the setting for your container registry in the Azure portal, under **Settings**, select **Access Keys**.
 
 ### Limit container access to host resources
 
-To balance shared host resources across modules, we recommend putting limits on resource consumption per module. These limits ensure that one module can't consume too much memory or CPU usage and prevent other processes from running on the device. The IoT Edge platform does not limit resources for modules by default, since knowing how much resource a given module needs to run optimally requires testing.
+To balance shared host resources across modules, set limits on resource use for each module. These limits make sure one module can't use too much memory or CPU and prevent other processes from running on the device. By default, the IoT Edge platform doesn't limit resources for modules because you need to test to know how much resource a module needs to run well.
 
-Docker provides some constraints that you can use to limit resources like memory and CPU usage. For more information, see [Runtime options with memory, CPUs, and GPUs](https://docs.docker.com/config/containers/resource_constraints/).
+Docker lets you limit resources like memory and CPU usage. For more information, see [Runtime options with memory, CPUs, and GPUs](https://docs.docker.com/config/containers/resource_constraints/).
 
-These constraints can be applied to individual modules by using create options in deployment manifests. For more information, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
+You can apply these constraints to individual modules by using create options in deployment manifests. For more information, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
 ## Next steps
 
 * Learn more about [IoT Edge automatic deployment](module-deployment-monitoring.md).
-* See how IoT Edge supports [Continuous integration and continuous deployment](how-to-continuous-integration-continuous-deployment.md).
+* See how IoT Edge supports [continuous integration and continuous deployment](how-to-continuous-integration-continuous-deployment.md).
