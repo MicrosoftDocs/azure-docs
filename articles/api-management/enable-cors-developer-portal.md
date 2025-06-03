@@ -61,7 +61,7 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 
 If you configure a [custom domain](configure-custom-domain.md) for the developer portal and want visitors to use the test console on API reference pages, ensure that you enable CORS for the custom developer portal domain name.
 
-You can enable a setting to add a CORS origin in the CORS policy for the custom developer portal domain name at the same time that you configure the custom domain. If you previously enabled CORS for the default domain name, both origins appear in the CORS policy. You can edit this setting at any time.
+You can enable a setting to add a CORS origin for your custom developer portal domain when configuring the custom domain. If CORS was already enabled for the default domain, both origins will be included. You can change the CORS settings anytime.
 
 ## CORS proxy option
 
