@@ -32,12 +32,6 @@ API Management supports two types of language model APIs for this scenario. Choo
 
     API Management configures wildcard operations for common HTTP verbs. Clients can append paths to the wildcard operations, and API Management passes requests to the backend.  
 
-When you import the API, API Management automatically configures:
-
-* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the LLM endpoint.
-* (optionally) Access to the LLM backend using an access key you provide. The key is protected as a secret [named value](api-management-howto-properties.md) in API Management.
-* (optionally) Policies to help you monitor and manage the API.
-
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
@@ -104,7 +98,7 @@ You can import OpenAI-compatible models from Google Gemini such as `gemini-2.0-f
 To import an OpenAI-compatible Gemini model:
 
 1. Create an API key for the Gemini API at [Google AI Studio](https://aistudio.google.com/apikey) and store it in a safe location.
-1. Note the following base URL from the [Gemini OpenAI compatiblity documentation](https://ai.google.dev/gemini-api/docs/openai).
+1. Note the following base URL from the [Gemini OpenAI compatibility documentation](https://ai.google.dev/gemini-api/docs/openai).
 
     `https://generativelanguage.googleapis.com/v1beta/openai`
 
