@@ -6,6 +6,8 @@ ms.topic: how-to
 ms.service: azure
 ms.date: 04/24/2025
 ms.author: prasadkomma
+ms.custom:
+  - build-2025
 ---
 
 # Assign a user-assigned managed identity to a Microsoft Planetary Computer Pro GeoCatalog via the CLI

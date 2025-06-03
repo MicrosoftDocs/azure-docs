@@ -7,6 +7,8 @@ ms.service: azure-container-apps
 ms.topic:  conceptual
 ms.date: 05/02/2025
 ms.author: cshoe
+ms.custom:
+  - build-2025
 ---
 
 # Networking in Azure Container Apps environment

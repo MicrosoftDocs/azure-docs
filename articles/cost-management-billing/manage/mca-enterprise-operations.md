@@ -8,6 +8,8 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/22/2025
 ms.author: jkinma
+ms.custom:
+  - build-2025
 ---
 
 # Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement

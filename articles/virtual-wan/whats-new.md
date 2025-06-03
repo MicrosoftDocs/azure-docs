@@ -6,6 +6,8 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/27/2025
 ms.author: cherylmc
+ms.custom:
+  - build-2025
 ---
 
 # What's new in Azure Virtual WAN?
