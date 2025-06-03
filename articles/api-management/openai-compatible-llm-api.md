@@ -7,7 +7,7 @@ ms.author: danlep
 ms.topic: how-to
 ms.date: 05/15/2025
 ms.collection: ce-skilling-ai-copilot
-ms.custom: template-how-to, build-2024
+ms.custom: template-how-to
 ---
 
 # Import an OpenAI-compatible language model API 
@@ -36,7 +36,7 @@ When you import the API, API Management automatically configures:
 
 * A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the LLM endpoint.
 * (optionally) Access to the LLM backend using an access key you provide. The key is protected as a secret [named value](api-management-howto-properties.md) in API Management.
-* (optionally) Policies to help you monitor and manage the Azure OpenAI API.
+* (optionally) Policies to help you monitor and manage the API.
 
 ## Prerequisites
 
