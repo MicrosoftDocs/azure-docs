@@ -3,11 +3,10 @@
 title: Prepare the VMware VM replication target in Azure Site Recovery 
 description: This article describes how to prepare your target Azure environment for VMware VM replication to Azure.
 services: site-recovery
-author: ankitaduttaMSFT
-manager: gaggupta
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.author: ankitadutta
+ms.author: jsuri
 ms.date: 05/27/2021
 
 ---
