@@ -1,13 +1,13 @@
 ---
 title: Save costs with Microsoft Azure AI Foundry Provisioned Throughput Reservations
 description: Save costs with Microsoft Azure AI Foundry Provisioned Throughput Reservations by committing to a reservation for your provisioned throughput units.
-author: pri-mittal
-ms.reviewer: primittal, benshy, liuyizhu
+author: pri-mittal, liuyizhu
+ms.reviewer: benshy, primittal, liuyizhu
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
 ms.date: 06/02/2025
-ms.author: primittal
+ms.author: primittal, liuyizhu
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure AI Foundry Provisioned Throughput Reservations and buy one.
 ---
 
