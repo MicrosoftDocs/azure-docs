@@ -13,7 +13,7 @@ ms.date: 06/02/2025
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-This class creates a mocked instance of a trigger in a workflow. It inherits from `OperationMock` and provides multiple ways to create trigger mocks for testing Logic Apps workflows with static outputs, error conditions, or dynamic behavior based on execution context.
+This class creates a mocked instance of a trigger in a workflow. It provides multiple ways to create trigger mocks for testing Logic Apps workflows with static outputs, error conditions, or dynamic behavior based on execution context.
 
 ## Usage
 
@@ -153,13 +153,11 @@ public TriggerMock(TestWorkflowStatus status, string name = null, JToken outputs
 |error|The mocked error|[TestErrorInfo](test-error-info-class-definition.md)|No|
 
 ```C#
-// Example: Creating an action mock from JSON
-var actionFromJson = JsonConvert.DeserializeObject<TriggerMock>(File.ReadAllText(mockDataPath));
+// Example: Creating a trigger mock from JSON
+var triggerFromJson = JsonConvert.DeserializeObject<TriggerMock>(File.ReadAllText(mockDataPath));
 ```
 
 ## Properties
-
-This class inherits the following properties from its base class `OperationMock`:
 
 |Name|Description|Type|Required|
 |---|---|---|---|

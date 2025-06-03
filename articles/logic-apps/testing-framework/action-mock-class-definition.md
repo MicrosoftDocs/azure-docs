@@ -13,7 +13,7 @@ ms.date: 06/02/2025
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-This class creates a mocked instance of an action in a workflow. It inherits from `OperationMock` and provides multiple ways to create action mocks for testing Logic Apps workflows with static outputs, error conditions, or dynamic behavior based on execution context.
+This class creates a mocked instance of an action in a workflow. It provides multiple ways to create action mocks for testing Logic Apps workflows with static outputs, error conditions, or dynamic behavior based on execution context.
 
 ## Usage
 
