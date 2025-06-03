@@ -7,6 +7,8 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/15/2025
 ms.author: mbender
+ms.custom:
+  - build-2025
 ---
 
 # Managing your Application Gateway with TLS 1.0 and 1.1 retirement

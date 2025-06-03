@@ -6,6 +6,8 @@ ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 05/08/2025
 ms.author: cherylmc
+ms.custom:
+  - build-2025
 ---
 
 # What's new in Azure VPN Gateway?
