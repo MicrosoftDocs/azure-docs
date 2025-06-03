@@ -8,6 +8,8 @@ ms.workload: storage
 ms.topic: concept-article
 ms.date: 04/23/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 # Understand Azure NetApp Files application volume group for Oracle 
 
