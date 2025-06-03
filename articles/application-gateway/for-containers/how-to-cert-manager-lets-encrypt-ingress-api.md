@@ -177,7 +177,7 @@ spec:
   tls:
   - hosts:
     - backend-v1.contoso.com
-    # - backend-v2.contoso.com # You can uncomment this and the host line to add an aditional subject alternate name (SAN) to the certificate
+    # - backend-v2.contoso.com # You can uncomment this and the host line to add an additional subject alternate name (SAN) to the certificate
     secretName: tls-backend
   rules:
     - host: backend-v1.contoso.com
@@ -233,7 +233,7 @@ spec:
   tls:
   - hosts:
     - backend-v1.contoso.com
-    # - backend-v2.contoso.com # You can uncomment this and the host line to add an aditional subject alternate name (SAN) to the certificate
+    # - backend-v2.contoso.com # You can uncomment this and the host line to add an additional subject alternate name (SAN) to the certificate
     secretName: tls-backend
   rules:
     - host: backend-v1.contoso.com

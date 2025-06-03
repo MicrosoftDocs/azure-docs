@@ -12,7 +12,8 @@ ms.collection: usx-security
 
 
 #Customer intent: As a SOC analyst, I want to use recommended, pre-configured playbooks for incident response and automation so that I can streamline threat detection, investigation, and remediation processes.
-
+ms.custom:
+  - build-2025
 ---
 
 # Recommended playbook use cases, templates, and examples

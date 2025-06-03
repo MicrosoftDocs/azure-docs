@@ -8,6 +8,7 @@ metadata:
   description: LambdaTest - HyperExecute integrates with Azure to combine the benefits of LambdaTest - HyperExecute with the Azure cloud.
   ms.topic: landing-page
   ms.date: 04/15/2025
+  ms.custom: build-2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:

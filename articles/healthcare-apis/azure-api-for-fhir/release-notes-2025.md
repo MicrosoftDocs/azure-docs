@@ -7,7 +7,9 @@ ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 5/30/2025
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ms.author: kesheth
 ---
 
