@@ -7,14 +7,13 @@ ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ---
 
-# 
-# 3rd Party Backup & Disaster Recovery Solutions for Azure VMware: Limitations, Compatibility, and Known Issues
+# Third party Backup & Disaster Recovery Solutions for Azure VMware: Limitations, Compatibility, and Known Issues
 
-Azure VMware Solution (AVS) is a great place for partners to offer and run their solutions enabling customers to continue to apply their existing or new investments in disaster recovery, ransomware, and backup protection solutions. As each 3-P solution has unique requirements, Azure VMware Solution (AVS) makes use of dynamic "run command" modules which require both Microsoft and Partner input to run effectively.  
+One of the most important aspects of any Azure VMware Solution deployment is disaster recovery. You can create disaster recovery plans between different Azure VMware Solution regions or between Azure and an on-premises vSphere environment. Azure VMware Solution makes use of dynamic "run command" modules which require both Microsoft and Partner input to run effectively.  
 
-The purpose of this page is to inform customers about potential known issues stemming from vSphere upgrades, Azure VMware Solution, Microsoft security enhancements, and other important technical matters. This information is crucial for customers to consider before making a vendor decision and as the platform evolves.
+In this article, you'll discover critical known issues related to vSphere upgrades, Azure VMware Solution, Microsoft security enhancements, and other key technical considerations. This information is essential for you to evaluate before selecting a vendor and as the platform continues to evolve.
 
-Azure VMware Solution (AVS) currently offers [VMware Live Site Recovery](disaster-recovery-using-vmware-site-recovery-manager.md) and several 3P partner solutions.
+Azure VMware Solution currently offers [VMware Live Site Recovery](disaster-recovery-using-vmware-site-recovery-manager.md) and several 3P partner solutions.
 
 You can find more information about their solutions in the following links:
 - [VMware Live Site Recovery](https://learn.microsoft.com/en-us/azure/azure-vmware/disaster-recovery-using-vmware-site-recovery-manager)
@@ -22,8 +21,8 @@ You can find more information about their solutions in the following links:
 - [JetStream](https://www.jetstreamsoft.com/2020/09/28/disaster-recovery-for-avs/)
 
 > [!IMPORTANT]
-> **Please review the Support Guidance for DR products**
-> For any issues related to third party Backup & Disaster Recovery (DR) solutions, customers must directly contact the respective partner’s support team. Microsoft doesn't provide direct support for partner products. If advanced troubleshooting is required, the partner’s support team will engages Microsoft as necessary. Customers shouldn't submit support requests to Microsoft for issues related to partner solutions.
+> You **must** contact your partner's technical team directly. Microsoft does **not** provide direct support for partner products. Do not create support tickets with Microsoft.
+
 
 ## Compatibility Overview
 
@@ -39,7 +38,7 @@ Note: The preview designation indicates that the product is in preview mode due 
 Customers aren't permitted to open Microsoft support tickets for partner product-related issues, including error messages or run commands
 
 
-## Disaster Recovery Limitations, Unsupported, and Known Issues
+## Disaster recovery limitations, unsupported, and Known Issues
 
 | Solution            | Limitations / Unsupported Features                                                                                          |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -51,6 +50,4 @@ Customers aren't permitted to open Microsoft support tickets for partner product
 
 
 
-Last Updated: May 2025
-This article is updated monthly to provide the most current information.. For exact timelines and further details, Visit the Partner onboarding sites. Partners are responsible for updating their respective products.*
-
+**Last Updated: May 2025** – Updated monthly with the latest information. Visit Partner onboarding sites for timelines and details. Partners keep their products up to date.
