@@ -16,6 +16,14 @@ Azure Virtual Network is the fundamental building block for your private network
 
 This article provides guidance on how to best secure your Azure Virtual Network deployment.
 
+## Virtual Network architecture
+
+- **Isolate and control network traffic**: Segment, isolate, and control network traffic across both ingress and egress flows. Apply defense in depth principles by using localized network controls at all available network boundaries across both east-west and north-south traffic. To minimize network visibility, segment your network and start with least-privilege network controls. 
+
+- **Filter traffic**:  Ensure that traffic that enters a boundary is expected, allowed, and safe.
+
+- **Apply firewalls at the edge**: Internet edge traffic is north-south traffic and includes ingress and egress. To detect or block threats, an edge strategy must mitigate as many attacks as possible to and from the internet.
+
 ## Network security
 
 Network security for Virtual Networks focuses on controlling traffic flow, implementing network segmentation, and protecting against external threats. Proper network security controls help isolate workloads, prevent lateral movement, and defend against distributed denial-of-service attacks.
