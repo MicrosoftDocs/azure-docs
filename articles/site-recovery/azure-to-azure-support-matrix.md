@@ -135,7 +135,7 @@ Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-
 > [!NOTE]
 > For Linux versions, Azure Site Recovery doesn't support custom OS kernels. Only the stock kernels that are part of the distribution minor version release/update are supported.
 
-##### Linux Kernel Support Timelines
+##### Linux Kernel support timelines
 
 To support newly released Linux kernels, Azure Site Recovery (ASR) provides hotfix patches of mobility agent on top of the latest mobility agent version. These hotfixes are released on a **best-effort basis within 30 days** of the kernel release and apply only to **Azure-to-Azure disaster recovery scenarios**.
 
@@ -144,7 +144,7 @@ To support newly released Linux kernels, Azure Site Recovery (ASR) provides hotf
 
 Only those scenarios mentioned in the *Scenarios covered by 30-Days best effort support* are applicable for the best effort basis of 30 days. Any other scenario, even if it is not mentioned in the *Scenarios **not** covered by 30-Days best effort support* column, is not applicable for this best effort support.
 
-###### Scope of 30-Day Kernel Support on best-effort
+###### Scope of 30-Day Kernel support on best effort
 
  **Distribution** | **Scenarios covered by 30-Days best effort support** | **Scenarios not covered by 30-Days best effort support** 
  --- | --- | --- 
