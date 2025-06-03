@@ -140,7 +140,7 @@ The number of IP addresses that are consumed by a single NVA deployment is calcu
 **Internal Interface**
 
 * For NVA deployments that are **not** compatible for [Internet Inbound](how-to-network-virtual-appliance-inbound.md), **1 IP address** is assigned to the Internal Load Balancer. **2 IP addresses** are consumed if the NVA deployments is compatible  for [Internet-Inbound](how-to-network-virtual-appliance-inbound.md). Reference [Internet-Inbound](how-to-network-virtual-appliance-inbound.md) for documentation on how to verify your NVA's compatability status.
-* One IP address is consumed per NVA instance. This IP address is assigned to each NVAs internal NIC. You may add [additional IP configurations](how-to-network-virtual-appliance-add-ip-configurations.md) to the internal NIC. One additional IP configuration results in one additional IP addresses consumed per NVA instance. 
+* One IP address is consumed per NVA instance. This IP address is assigned to each NVAs internal NIC. You may add [additional IP configurations](how-to-network-virtual-appliance-add-ip-configurations.md) to the internal NIC. One additional IP configuration results in one additional private IP address consumed per NVA instance. 
 
 **Example**: 
 
