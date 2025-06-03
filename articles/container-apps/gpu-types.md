@@ -12,7 +12,7 @@ ai-usage: ai-generated
 
 # Comparing GPU types in Azure Container Apps
 
-Azure Container Apps supports serverless GPU acceleration (preview), enabling compute-intensive machine learning, and AI workloads in containerized environments. This capability allows you to use GPU hardware without managing the underlying infrastructure, following the serverless model that defines Container Apps.
+Azure Container Apps supports serverless GPU acceleration, enabling compute-intensive machine learning, and AI workloads in containerized environments. This capability allows you to use GPU hardware without managing the underlying infrastructure, following the serverless model that defines Container Apps.
 
 This article compares the Nvidia T4 and A100 GPU options available in Azure Container Apps. Understanding the technical differences between these GPU types is important as you optimize your containerized applications for performance, cost-efficiency, and workload requirements.
 
