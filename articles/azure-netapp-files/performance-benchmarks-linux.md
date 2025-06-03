@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 01/27/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud architect evaluating storage options, I want to analyze performance benchmarks of Azure NetApp Files for Linux, so that I can determine its suitability for high IOPS and throughput workloads in my organization's applications."
 ---
 # Azure NetApp Files regular volume performance benchmarks for Linux
 

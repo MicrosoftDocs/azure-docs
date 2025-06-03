@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: troubleshooting
 ms.date: 02/06/2025
 ms.author: anfdocs
+# Customer intent: As an IT administrator managing user access, I want to validate LDAP group memberships for users on Azure NetApp Files, so that I can troubleshoot and resolve permission errors effectively.
 ---
 
 # Troubleshoot user access on LDAP volumes in Azure NetApp Files

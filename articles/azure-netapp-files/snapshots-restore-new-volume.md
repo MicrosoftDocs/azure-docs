@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 02/19/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to restore a volume from a snapshot so that I can recover data to a specific point in time and maintain system integrity."
 ---
 
 # Restore a snapshot to a new volume using Azure NetApp Files

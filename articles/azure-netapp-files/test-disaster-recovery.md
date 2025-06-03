@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 09/26/2023
 ms.author: anfdocs
+# Customer intent: As a disaster recovery coordinator, I want to test the disaster recovery configuration using cross-region replication, so that I can ensure our systems meet the required recovery objectives and maintain operational readiness without impacting current operations.
 ---  
 
 # Test disaster recovery using cross-region replication for Azure NetApp Files

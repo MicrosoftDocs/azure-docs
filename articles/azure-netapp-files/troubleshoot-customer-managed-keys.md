@@ -8,6 +8,7 @@ ms.custom:
 ms.topic: troubleshooting
 ms.date: 04/18/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to troubleshoot errors when configuring customer-managed keys for Azure NetApp Files encryption, so that I can ensure secure volume management and compliance with our security policies."
 ---
 # Troubleshoot customer-managed keys for Azure NetApp Files volume encryption
 

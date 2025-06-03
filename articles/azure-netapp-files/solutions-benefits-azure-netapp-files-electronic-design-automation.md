@@ -8,6 +8,7 @@ ms.workload: storage
 ms.topic: concept-article
 ms.date: 10/18/2024
 ms.author: anfdocs
+# Customer intent: As an EDA engineer, I want to utilize Azure NetApp Files for scalable storage solutions, so that I can improve workload performance and reduce time to market for semiconductor designs.
 ---
 # Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)
 

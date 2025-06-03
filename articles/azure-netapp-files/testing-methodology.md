@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 10/31/2024
 ms.author: anfdocs
+# Customer intent: As a storage architect, I want to understand the performance testing methodology using Flexible I/O Tester on Azure NetApp Files, so that I can accurately benchmark the storage system's capabilities under various workload scenarios.
 ---
 
 # Understand performance testing methodology in Azure NetApp Files
