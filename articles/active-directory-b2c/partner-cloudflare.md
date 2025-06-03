@@ -7,7 +7,7 @@ manager: martinco
 ms.reviewer: kengaderdus
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/03/2025
 ms.author: gasinh
 ms.subservice: b2c
 
@@ -57,6 +57,9 @@ On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-
 The settings appear in the following image.
 
    ![Screenshot of proxied status.](./media/partner-cloudflare/select-proxied.png)
+
+> [!IMPORTANT]
+> If you are using Azure Front Door-managed certificates, Azure Front Door will no longer automatically renew the managed certificate and requires manual domain revalidation. See [renew Azure Front Door-managed certificates](../frontdoor/domain.md#renew-azure-front-door-managed-certificates).
 
 ### Configure the Web Application Firewall
 
