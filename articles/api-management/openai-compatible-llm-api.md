@@ -133,7 +133,20 @@ After importing the API, you can test it using the test console in the Azure por
 1. In the **Request body** section, enter the following JSON to specify the model and an example prompt. In this example, the OpenAI-compatible `gemini-2.0-flash` model is used.
 
     ```json
-    {"model":"gpt-4o","messages":[{"role":"system","content":"You are a helpful assistant"},{"role":"user","content":"How are you?"}],"max_tokens":50}
+    {
+        "model": "gpt-4o",
+        "messages": [
+            {
+                "role": "system",
+                "content": "You are a helpful assistant"
+            },
+            {
+                "role": "user",
+                "content": "How are you?"
+            }
+        ],
+        "max_tokens": 50
+    }
     ```
     
     When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
