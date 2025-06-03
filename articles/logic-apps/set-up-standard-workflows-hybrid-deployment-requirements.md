@@ -52,7 +52,7 @@ The following section describes the limitations for the hybrid deployment option
 | Data logging with a disconnected runtime | In partially connected mode, the Azure Logic Apps runtime can stay disconnected up to 24 hours and still retain data logs. However, any logging data past this duration might be lost. |
 | Supported Azure regions | Hybrid deployment is currently available and supported only in the following Azure regions: <br><br>- Central US <br>- East Asia <br>- East US <br>- North Central US <br>- Southeast Asia <br>- Sweden Central <br>- UK South <br>- West Europe <br>- West US <br> |
 | Supported Azure Arc-enabled Kubernetes clusters | - Azure Arc-enabled Kubernetes clusters <br>- Azure Arc-enabled Kubernetes clusters on Azure Local (formerly Azure Stack HCI) <br>- Azure Arc-enabled Kubernetes clusters on Windows Server |
-| Unsupported capabilities in single-tenant Azure Logic Apps (Standard) and related Azure services | - Managed identity authentication for connector operations. For more information, see [Limitations for creating hybrid deployment workflows](create-standard-workflows-hybrid-deployment.md#limitations). <br>- Deployment slots <br>- Azure Logic Apps Business Rules Engine <br>- Azure Business process tracking |
+| Unsupported capabilities available in single-tenant Azure Logic Apps (Standard) and related Azure services | - Deployment slots <br><br>- Azure Business process tracking <br><br>- Resource health under **Support + troubleshooting** in Azure portal <br><br>- Managed identity authentication for connector operations. For more information, see [Limitations for creating hybrid deployment workflows](create-standard-workflows-hybrid-deployment.md#limitations). |
 
 ## Prerequisites
 
