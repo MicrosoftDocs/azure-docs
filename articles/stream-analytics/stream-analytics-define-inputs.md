@@ -6,6 +6,8 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 12/17/2024
+ms.custom:
+  - build-2025
 ---
 # Stream data as input into Stream Analytics
 

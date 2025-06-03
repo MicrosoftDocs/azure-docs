@@ -6,6 +6,8 @@ ms.author: bagol
 ms.topic: concept-article
 ms.date: 05/22/2025
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
+ms.custom:
+  - build-2025
 ---
 
 # What's new in Microsoft Sentinel

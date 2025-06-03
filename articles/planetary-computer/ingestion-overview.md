@@ -6,7 +6,9 @@ ms.author: prasadkomma
 ms.service: azure
 ms.topic: concept-article
 ms.date: 05/08/2025
-#customer intent: As a geospatial data producer, I want to understand the the concept of a GeoCatalog ingestion source so that I can ingest petabytes of geospatial assets into my GeoCatalog resource. 
+#customer intent: As a geospatial data producer, I want to understand the the concept of a GeoCatalog ingestion source so that I can ingest petabytes of geospatial assets into my GeoCatalog resource.
+ms.custom:
+  - build-2025
 ---
 
 # Ingest data into Microsoft Planetary Computer Pro
