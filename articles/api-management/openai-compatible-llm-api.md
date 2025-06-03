@@ -24,13 +24,19 @@ Learn more about managing AI APIs in API Management:
 
 API Management supports two types of language model APIs for this scenario. Choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
 
-* **OpenAI-compatible** - Language model endpoints that are compatible with OpenAI's API. Examples include certain models exposed by inference providers such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index).
+* **OpenAI-compatible** - Language model endpoints that are compatible with OpenAI's API. Examples include certain models exposed by inference providers such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index) and [Google Gemini API](https://ai.google.dev/gemini-api/docs).
 
     API Management configures an OpenAI-compatible chat completions endpoint. 
 
 * **Passthrough** - Other language model endpoints that aren't compatible with OpenAI's API. Examples include models deployed in [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) or other providers.
 
     API Management configures wildcard operations for common HTTP verbs. Clients can append paths to the wildcard operations, and API Management passes requests to the backend.  
+
+When you import the API, API Management automatically configures:
+
+* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the LLM endpoint.
+* (optionally) Access to the LLM backend using an access key you provide. The key is protected as a secret [named value](api-management-howto-properties.md) in API Management.
+* (optionally) Policies to help you monitor and manage the Azure OpenAI API.
 
 ## Prerequisites
 
@@ -70,6 +76,8 @@ To import a language model API to API Management:
 1. Select **Review**.
 1. After settings are validated, select **Create**. 
 
+API Management creates the API, and configures operations for the LLM endpoints. By default, the API requires an API Management subscription.
+
 ## Test the LLM API
 
 To ensure that your LLM API is working as expected, test it in the API Management test console. 
@@ -83,6 +91,50 @@ To ensure that your LLM API is working as expected, test it in the API Managemen
 1. Select **Send**.
 
     When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
+
+## Example: Google Gemini
+
+You can import OpenAI-compatible models from Google Gemini such as `gemini-2.0-flash`. Azure API Management can manage an OpenAI-compatible chat completion endpoint for these models. 
+
+To import an OpenAI-compatible Gemini model:
+
+1. Create an API key for the Gemini API at [Google AI Studio](https://aistudio.google.com/apikey) and store it in a safe location.
+1. Note the following base URL from the [Gemini OpenAI compatiblity documentation](https://ai.google.dev/gemini-api/docs/openai).
+
+    `https://generativelanguage.googleapis.com/v1beta/openai`
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
+1. Under **Define a new API**, select **Language Model API**.
+1. On the **Configure API** tab:
+    1. Enter a **Display name** and optional **Description** for the API.
+    1. In **URL**, enter the following base URL that you copied previously: `https://generativelanguage.googleapis.com/v1beta/openai`
+
+1. In **Path**, append a path that your API Management instance uses to access the Gemini API endpoints.
+1. In **Type**, select **Create OpenAI API**.
+1. In **Access key**, enter the following:
+    1. **Header name**: *Authorization*.
+    1. **Header value (key)**: `Bearer` followed by the API key for the Gemini API that you created previously.
+1. On the remaining tabs, optionally configure policies to manage token consumption, semantic caching, and AI content safety.
+1. Select **Create**.
+
+### Test Gemini model
+
+After importing the API, you can test it using the test console in the Azure portal. Choose an OpenAI-compatible model and endpoint for the test
+
+1. Select the API you created in the previous step.
+1. Select the **Test** tab.
+1. Select the `POST  Creates a model response for the given chat conversation` operation, which is a `POST` request to the `/chat/completions` endpoint.
+1. In the **Request body** section, enter the following JSON to specify the model and an example prompt. In this example, the OpenAI-compatible `gemini-2.0-flash` model is used.
+
+    ```json
+    {"model":"gpt-4o","messages":[{"role":"system","content":"You are a helpful assistant"},{"role":"user","content":"How are you?"}],"max_tokens":50}
+    ```
+    
+    When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
+
+    :::image type="content" source="media/openai-compatible-llm-api/gemini-test-small.png" lightbox="media/openai-compatible-llm-api/gemini-test.png" alt-text="Screenshot of testing a Gemini LLM API in the portal.":::
+
 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
