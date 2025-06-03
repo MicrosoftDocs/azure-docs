@@ -7,6 +7,8 @@ ms.service: azure
 ms.topic: how-to
 ms.date: 05/08/2025
 
+ms.custom:
+  - build-2025
 # customer intent: As a GeoCatalog user, I want to configure and authenticate ArcGIS pro to operate with Microsoft Planetary Computer Pro so that I can view imagery stored in my GeoCatalog within the ArcGIS Pro tool.
 ---
 

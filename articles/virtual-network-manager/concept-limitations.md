@@ -7,6 +7,8 @@ ms.service: azure-virtual-network-manager
 ms.topic: concept-article
 ms.date: 11/06/2024
 #CustomerIntent: As a network admin, I want understand the limitations in Azure Virtual Network Manager so that I can properly deploy it my environment.
+ms.custom:
+  - build-2025
 ---
 
 # Limitations with Azure Virtual Network Manager
