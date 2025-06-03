@@ -8,6 +8,8 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 03/07/2025
 # Customer intent: As a developer, I want to create a Standard logic app workflow that can run on customer-managed infrastructure, which can include on-premises systems, private clouds, and public clouds.
+ms.custom:
+  - build-2025
 ---
 
 # Create Standard logic app workflows for hybrid deployment on your own infrastructure (Preview)
