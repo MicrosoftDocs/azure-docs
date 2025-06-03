@@ -5,7 +5,8 @@ author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
 ms.date: 10/29/2024
-
+ms.custom:
+  - build-2025
 ---
 # Quickstart: Create a LambdaTest-HyperExecute resource 
 

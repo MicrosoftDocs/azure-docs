@@ -3,7 +3,9 @@ title: Deliver events using private link service
 description: This article describes how to work around push delivery's limitation to deliver events using private link service.
 ms.topic: how-to
 ms.date: 12/16/2024
-# Customer intent: I would like to know if delivering events using private link service is supported in the Push model. 
+# Customer intent: I would like to know if delivering events using private link service is supported in the Push model.
+ms.custom:
+  - build-2025
 ---
 
 # Deliver events securely over a private link

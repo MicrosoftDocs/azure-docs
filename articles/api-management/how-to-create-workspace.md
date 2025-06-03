@@ -7,6 +7,7 @@ ms.service: azure-api-management
 ms.author: danlep
 ms.date: 06/03/2025
 ms.custom:
+  - build-2025
 ---
 
 # Create and manage a workspace in Azure API Management

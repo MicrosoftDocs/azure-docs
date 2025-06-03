@@ -4,7 +4,12 @@ description: Learn how to create a Java application to send and receive events i
 ms.topic: quickstart
 ms.date: 05/14/2025
 ms.devlang: java
-ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - mode-api
+  - passwordless-java
+  - devx-track-extended-java
+  - build-2025
 ---
 
 # Quickstart: Send events to or receive events from Azure Event Hubs
