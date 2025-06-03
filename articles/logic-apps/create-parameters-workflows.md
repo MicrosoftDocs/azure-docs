@@ -6,6 +6,8 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/06/2024
+ms.custom:
+  - build-2025
 ---
 
 # Create cross-environment parameters for workflow inputs in Azure Logic Apps

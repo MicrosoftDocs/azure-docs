@@ -6,7 +6,9 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - build-2025
 ms.topic: concept-article
 ms.date: 02/20/2025
 ms.author: anfdocs

@@ -7,7 +7,9 @@ ms.service: azure
 ms.topic: how-to
 ms.date: 05/08/2025
 
-#customer intent: Help customers understand how ingestion sources work and how to add them ahead of an ingestion. 
+#customer intent: Help customers understand how ingestion sources work and how to add them ahead of an ingestion.
+ms.custom:
+  - build-2025
 ---
 
 # Configure an ingestion Source for Microsoft Planetary Computer Pro using managed identity

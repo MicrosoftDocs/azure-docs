@@ -8,6 +8,8 @@ ms.topic: quickstart
 ms.date: 04/09/2025
 
 #customer intent: As a user of geospatial data, I want to ingest STAC items so that I can efficiently query and access my geospatial data.
+ms.custom:
+  - build-2025
 ---
   
 # Quickstart: Ingest a Single STAC Item into a Collection in a Microsoft Planetary Computer Pro GeoCatalog

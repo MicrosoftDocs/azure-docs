@@ -11,6 +11,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:05/11/2025
+  - build-2025
 ---
 
 # Restore your dev box from a snapshot

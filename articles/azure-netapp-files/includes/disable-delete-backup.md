@@ -4,7 +4,9 @@ ms.service: azure-netapp-files
 ms.topic: include
 ms.date: 02/13/2025
 ms.author: anfdocs
-ms.custom: include file
+ms.custom:
+  - include file
+  - build-2025
 
 # backup-configure-policy-based.md
 # backup-configure-manual.md

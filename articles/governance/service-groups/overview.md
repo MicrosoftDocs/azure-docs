@@ -6,6 +6,8 @@ ms.author: rithorn
 ms.service: azure-policy
 ms.topic: overview
 ms.date: 05/19/2025
+ms.custom:
+  - build-2025
 ---
 
 # What are Azure Service Groups?

@@ -7,7 +7,9 @@ ms.service: azure-virtual-network-manager
 ms.topic: faq
 ms.date: 11/25/2024
 ms.author: mbender
-ms.custom: reference_regions
+ms.custom:
+  - reference_regions
+  - build-2025
 ---
 
 # Azure Virtual Network Manager FAQ

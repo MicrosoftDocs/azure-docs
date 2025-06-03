@@ -8,6 +8,8 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 03/13/2025
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
+ms.custom:
+  - build-2025
 ---
 
 # Set up your own infrastructure for Standard logic apps using hybrid deployment (Preview)

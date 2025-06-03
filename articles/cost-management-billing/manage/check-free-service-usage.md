@@ -8,6 +8,8 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 05/21/2025
 ms.author: macyso
+ms.custom:
+  - build-2025
 ---
 
 # Check usage of free services included with your Azure free account

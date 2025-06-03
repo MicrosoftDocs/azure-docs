@@ -7,8 +7,9 @@ ms.service: azure
 ms.topic: whats-new #Don't change.
 ms.date: 04/25/2025
 
-#customer intent: As a user of Microsoft Planetary Computer Pro, I want to know what the new features of the release. 
-
+#customer intent: As a user of Microsoft Planetary Computer Pro, I want to know what the new features of the release.
+ms.custom:
+  - build-2025
 ---
 
 # What's new in Microsoft Planetary Computer Pro

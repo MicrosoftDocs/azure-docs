@@ -5,6 +5,8 @@ author: craigshoemaker
 ms.topic: how-to
 ms.date: 05/16/2025
 ms.author: cshoe
+ms.custom:
+  - build-2025
 ---
 
 # Create and use an Azure SRE Agent

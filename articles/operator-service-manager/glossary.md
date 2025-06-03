@@ -9,6 +9,8 @@ ms.service: azure-operator-service-manager
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+ms.custom:
+  - build-2025
 ---
 
 # Glossary: Azure Operator Service Manager

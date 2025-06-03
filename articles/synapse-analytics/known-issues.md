@@ -9,6 +9,8 @@ ms.date: 01/30/2025
 ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: troubleshooting-known-issue
+ms.custom:
+  - build-2025
 ---
 
 # Azure Synapse Analytics known issues

@@ -5,7 +5,9 @@ description: This article explains how to migrate from Standard/HighPerf/UltraPe
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.custom: ignite-2023
+ms.custom:
+  - ignite-2023
+  - build-2025
 ms.topic: concept-article
 ms.date: 05/19/2025
 ms.author: duau

@@ -5,7 +5,9 @@ author: seligj95
 ms.author: jordanselig
 ms.date: 05/28/2025
 ms.topic: article
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - build-2025
 ms.collection: ce-skilling-ai-copilot
 ---
 

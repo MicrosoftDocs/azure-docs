@@ -5,8 +5,8 @@ ms.service: azure-site-recovery
 ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 12/14/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Physical server to Azure disaster recovery architecture – Modernized 

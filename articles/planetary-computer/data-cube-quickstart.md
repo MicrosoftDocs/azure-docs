@@ -6,7 +6,9 @@ ms.author: brentharris
 ms.service: azure
 ms.topic: quickstart
 ms.date: 4/24/2025
-#customer intent: help customers understand the nuances of ingesting and rendering data cube assets in Microsoft Planetary Computer Pro. 
+#customer intent: help customers understand the nuances of ingesting and rendering data cube assets in Microsoft Planetary Computer Pro.
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Get started with data cubes in Microsoft Planetary Computer Pro

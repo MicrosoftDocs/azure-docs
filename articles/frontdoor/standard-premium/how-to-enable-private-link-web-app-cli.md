@@ -7,7 +7,9 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/18/2024
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Connect Azure Front Door Premium to an App Service origin with Private Link using Azure CLI

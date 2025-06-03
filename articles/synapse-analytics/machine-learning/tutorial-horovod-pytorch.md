@@ -21,12 +21,7 @@ Within Azure Synapse Analytics, users can quickly get started with Horovod using
 - Create a GPU-enabled Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a GPU-enabled Apache Spark pool in Azure Synapse](../spark/apache-spark-gpu-concept.md). For this tutorial, we suggest using the GPU-Large cluster size with 3 nodes.
 
 > [!NOTE]
-> The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
-
-> [!CAUTION]
-> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
-> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
-> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
+> The Preview for Azure Synapse GPU-enabled pools is deprecated.
 
 ## Configure the Apache Spark session
 
@@ -51,7 +46,7 @@ In the example, you can see how the Spark configurations can be passed with the 
 }
 ```
 
-For this tutorial, we will use the following configurations:
+For this tutorial, we'll use the following configurations:
 
 ```python
 
@@ -102,7 +97,7 @@ from azure.synapse.ml.horovodutils import AdlsStore
 
 ## Connect to alternative storage account
 
-We need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you are using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. In addition, you need to modify the following properties: ```remote_url```, ```account_name```, and ```linked_service_name```.
+We need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you're using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. In addition, you need to modify the following properties: ```remote_url```, ```account_name```, and ```linked_service_name```.
 
 ```python
 num_proc = 3  # equal to numExecutors
@@ -132,7 +127,7 @@ print(adls_store_path)
 
 ## Prepare dataset
 
-Next, we will prepare the dataset for training. In this tutorial, we will use the MNIST dataset from [Azure Open Datasets](/azure/open-datasets/dataset-mnist?tabs=azureml-opendatasets).
+Next, we'll prepare the dataset for training. In this tutorial, we'll use the MNIST dataset from [Azure Open Datasets](/azure/open-datasets/dataset-mnist?tabs=azureml-opendatasets).
 
 ```python
 # Initialize SparkSession
@@ -153,7 +148,7 @@ mnist_df.head()
 
 ## Process data with Apache Spark
 
-Now, we will create an Apache Spark dataframe. This dataframe will be used with the ```HorovodEstimator``` for training.
+Now, we'll create an Apache Spark dataframe. This dataframe will be used with the ```HorovodEstimator``` for training.
 
 ```python
 # Create Spark DataFrame for training
@@ -172,7 +167,7 @@ train_df.count()
 
 ## Define DNN model
 
-Once we are finished processing our dataset, we can now define our PyTorch model. The same code could also be used to train a single-node PyTorch model.
+Once we're finished processing our dataset, we can now define our PyTorch model. The same code could also be used to train a single-node PyTorch model.
 
 ```python
 # Define the PyTorch model without any Horovod-specific parameters

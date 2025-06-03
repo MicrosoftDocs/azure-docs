@@ -4,6 +4,8 @@ ms.service: resource-graph
 ms.topic: include
 ms.date: 05/30/2023
 ms.author: rolyon
+ms.custom:
+  - build-2025
 ---
 
 ```kusto

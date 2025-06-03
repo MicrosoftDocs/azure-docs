@@ -7,6 +7,8 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 05/27/2025
+ms.custom:
+  - build-2025
 ---
 
 # Connector upgrade FAQ

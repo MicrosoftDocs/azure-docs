@@ -7,6 +7,8 @@ ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 05/01/2025
 ms.author: cshoe
+ms.custom:
+  - build-2025
 ---
 
 # Azure Container Apps extension release notes

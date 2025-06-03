@@ -6,7 +6,9 @@ ms.author: tanyamarton
 ms.service: azure
 ms.topic: quickstart
 ms.date: 04/29/2025
-#customer intent: help customers get a sas token for a collection. 
+#customer intent: help customers get a sas token for a collection.
+ms.custom:
+  - build-2025
 ---
 # Quickstart: Request a STAC collection SAS token
 

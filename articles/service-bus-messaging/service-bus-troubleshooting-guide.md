@@ -3,6 +3,8 @@ title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus.
 ms.topic: article
 ms.date: 05/15/2025
+ms.custom:
+  - build-2025
 ---
 
 # Troubleshooting guide for Azure Service Bus

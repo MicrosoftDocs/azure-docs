@@ -3,7 +3,9 @@ title: Deliver events using managed identities
 description: This article describes how to securely deliver events using managed identities with Azure Event Grid. 
 ms.topic: how-to
 ms.date: 04/29/2025
-# Customer intent: I would like to know how to deliver using securely using managed identities with Azure Event Grid. 
+# Customer intent: I would like to know how to deliver using securely using managed identities with Azure Event Grid.
+ms.custom:
+  - build-2025
 ---
 
 # Deliver events securely using managed identities

@@ -7,7 +7,9 @@ ms.author: mukeshdua
 ms.service: azure-operator-nexus
 ms.topic: reference
 ms.date: 05/14/2025
-ms.custom: template-reference
+ms.custom:
+  - template-reference
+  - build-2025
 ---
 
 # BareMetal Machine roles

@@ -2,7 +2,9 @@
 title: Architecture - Storage
 description: Learn about storage capacity, storage policies, fault tolerance, and storage integration in Azure VMware Solution private clouds.
 ms.topic: concept-article
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - build-2025
 ms.service: azure-vmware
 ms.date: 5/15/2025
 ---

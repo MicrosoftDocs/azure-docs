@@ -4,8 +4,8 @@ description: Summarizes support for Azure VMs disaster recovery to a secondary r
 ms.topic: concept-article
 ms.date: 05/22/2025
 ms.service: azure-site-recovery
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy23, references_regions, linux-related-content
 ---
 
@@ -429,7 +429,7 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Trans
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
 Managed Shared Disk| Supported 
-Managed Premium SSD v2 Disk| Supported | Public preview with PowerShell support in East US, West US, East US2, West US2, West US3, and Central US regions. Portal is not supported.
+Managed Premium SSD v2 Disk| Supported | Public Preview with PowerShell support in all public regions except Australia East and West Central US. Portal is not supported.
 Ultra Disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported

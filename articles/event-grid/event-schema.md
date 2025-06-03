@@ -3,6 +3,8 @@ title: Azure Event Grid event schema
 description: Describes the properties and schema for the proprietary, nonextensible, yet fully functional Event Grid format. 
 ms.topic: reference
 ms.date: 09/25/2024
+ms.custom:
+  - build-2025
 ---
 
 # Azure Event Grid event schema

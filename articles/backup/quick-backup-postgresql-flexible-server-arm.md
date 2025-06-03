@@ -4,6 +4,7 @@ description: Learn how to configure backup for Azure Database for Azure PostgreS
 ms.devlang: azurecli
 ms.custom:
   - ignite-2024
+  - build-2025
 ms.topic: quickstart
 ms.date: 05/15/2025
 ms.service: azure-backup

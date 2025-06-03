@@ -4,7 +4,9 @@ description: Learn how to restore Azure Database for PostgreSQL by using Azure P
 ms.topic: how-to
 ms.date: 05/20/2025
 ms.service: azure-backup
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 author: jyothisuri
 ms.author: jsuri
 ---

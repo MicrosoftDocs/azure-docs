@@ -7,6 +7,8 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 04/22/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 # Add volumes for an SAP HANA system as a secondary database in HSR
 

@@ -8,6 +8,8 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 05/19/2025
 # As an integration solution developer, I want to build an integration workflow by adding a trigger or an action operation in Azure Logic Apps.
+ms.custom:
+  - build-2025
 ---
 
 # Add a trigger or action to build a workflow in Azure Logic Apps

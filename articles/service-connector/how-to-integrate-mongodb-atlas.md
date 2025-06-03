@@ -5,7 +5,9 @@ author: qianwens
 ms.author: qianwens
 ms.service: service-connector
 ms.topic: how-to
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - build-2025
 ms.date: 05/08/2025
 ---
 

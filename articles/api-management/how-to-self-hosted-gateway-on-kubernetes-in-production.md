@@ -7,6 +7,8 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.author: tomkerkhove
 ms.date: 01/17/2023
+ms.custom:
+  - build-2025
 ---
 
 # Guidance for running self-hosted gateway on Kubernetes in production

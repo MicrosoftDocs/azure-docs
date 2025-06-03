@@ -6,7 +6,9 @@ ms.date: 04/30/2025
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
-# Customer intent: I want to know how Azure Event Grid supports the MQTT protocol. 
+# Customer intent: I want to know how Azure Event Grid supports the MQTT protocol.
+ms.custom:
+  - build-2025
 ---
 
 # Overview of the MQTT broker feature in Azure Event Grid

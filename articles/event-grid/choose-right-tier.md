@@ -3,6 +3,8 @@ title: Choose the right Event Grid tier for your solution
 description: Describes how to choose the right tier based on resource features and use cases.
 ms.topic: overview
 ms.date: 04/30/2025
+ms.custom:
+  - build-2025
 ---
 
 # Choose the right Event Grid tier for your solution

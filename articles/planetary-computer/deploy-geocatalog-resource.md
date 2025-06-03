@@ -6,7 +6,9 @@ ms.author: adamloverro
 ms.service: azure
 ms.topic: install-set-up-deploy #Don't change
 ms.date: 04/24/2025
-ms.custom: reference_regions
+ms.custom:
+  - reference_regions
+  - build-2025
 # customer intent: As an Azure user I want to deploy a GeoCatalog resource so that I can use a GeoCatalog to organize, query, visualize and retrieve my geospatial data assets
 ---
 

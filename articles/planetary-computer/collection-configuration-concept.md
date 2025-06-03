@@ -8,6 +8,8 @@ ms.topic: concept-article #Don't change.
 ms.date: 04/24/2025
 
 #customer intent: As a Microsoft Planetary Computer Pro user I want to understand collection configuration so I can vizualize data in the Explorer.
+ms.custom:
+  - build-2025
 ---
 
 # Collection configuration in Microsoft Planetary Computer Pro

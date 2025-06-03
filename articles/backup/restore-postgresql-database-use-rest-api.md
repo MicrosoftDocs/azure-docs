@@ -6,6 +6,8 @@ ms.date: 05/20/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+ms.custom:
+  - build-2025
 ---
 
 # Restore PostgreSQL databases by using the Data Protection REST API

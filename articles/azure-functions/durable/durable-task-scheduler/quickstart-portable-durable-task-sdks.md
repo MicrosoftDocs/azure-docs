@@ -4,6 +4,8 @@ description: Learn how to configure an existing app for the Durable Task Schedul
 ms.topic: how-to
 ms.date: 05/06/2025
 zone_pivot_groups: df-languages
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler (preview)

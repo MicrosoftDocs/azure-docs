@@ -6,6 +6,8 @@ ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 04/08/2022
 ms.author: chenyl
+ms.custom:
+  - build-2025
 ---
 # Metrics in Azure Web PubSub Service
 

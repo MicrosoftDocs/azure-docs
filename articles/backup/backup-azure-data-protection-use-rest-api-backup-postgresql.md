@@ -7,6 +7,8 @@ ms.service: azure-backup
 ms.assetid: 55fa0a81-018f-4843-bef8-609a44c97dcd
 author: jyothisuri
 ms.author: jsuri
+ms.custom:
+  - build-2025
 ---
 
 # Back up PostgreSQL databases by using the Data Protection REST API

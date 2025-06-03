@@ -7,6 +7,8 @@ ms.service: azure
 ms.topic: concept-article
 ms.date: 4/24/2025
 #customer intent: As a user of an Microsoft Planetary Computer Pro GeoCatalog, I want to understand which colormaps are supported so that I can setup the render configurations for my GeoCatalog STAC collection.
+ms.custom:
+  - build-2025
 ---
 
 # Supported colormaps in Microsoft Planetary Computer Pro

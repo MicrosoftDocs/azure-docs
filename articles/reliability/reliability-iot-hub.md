@@ -4,7 +4,10 @@ description: Find out about reliability in Azure IoT Hub, including availability
 author: kgremban
 ms.author: kgremban
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom:
+  - subject-reliability
+  - references_regions
+  - build-2025
 ms.service: azure-iot-hub
 ms.date: 05/02/2025
 

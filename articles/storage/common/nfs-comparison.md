@@ -7,6 +7,8 @@ ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 05/20/2025
 ms.author: kendownie
+ms.custom:
+  - build-2025
 ---
 
 # Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS

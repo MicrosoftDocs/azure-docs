@@ -4,7 +4,9 @@ ms.topic: include
 ms.date: 05/23/2025
 ms.author: jasongroce
 author: jasongroce
-ms.custom: generated
+ms.custom:
+  - generated
+  - build-2025
 ---
 
 |Name |Description |Policies |Version |

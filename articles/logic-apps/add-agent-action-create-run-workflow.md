@@ -9,6 +9,8 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 05/19/2025
 # Customer intent: As an integration solutions developer, I want to add an action to an agent in Azure AI Foundry so that the agent creates and runs a logic app workflow in Azure Logic Apps.
+ms.custom:
+  - build-2025
 ---
 
 # Run automation workflows from actions in agents with Azure AI Foundry and Azure Logic Apps (Preview)

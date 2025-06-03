@@ -6,6 +6,8 @@ ms.date: 05/16/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+ms.custom:
+  - build-2025
 ---
 
 # Enable backup during Azure VM creation using Azure Backup

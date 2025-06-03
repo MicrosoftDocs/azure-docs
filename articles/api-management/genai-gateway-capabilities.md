@@ -9,6 +9,8 @@ ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
 ms.date: 04/29/2025
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 # Overview of AI gateway capabilities in Azure API Management

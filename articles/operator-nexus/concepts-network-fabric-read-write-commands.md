@@ -4,7 +4,9 @@ description: Learn how to use the Nexus Fabric Read Write commands to modify dev
 author: sushantjrao
 ms.author: sushrao
 ms.service: azure-operator-nexus
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: concept-article 
 ms.date: 05/03/2024
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.

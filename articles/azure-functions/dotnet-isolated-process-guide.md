@@ -9,6 +9,7 @@ ms.custom:
   - devx-track-dotnet
   - devx-track-azurecli
   - ignite-2023
+  - build-2025
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---

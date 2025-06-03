@@ -7,6 +7,8 @@ ms.service: azure
 ms.topic: quickstart
 ms.date: 04/23/2025
 #customer intent: As a user of geospatial data, I want to configure a collection in the Planetary Computer Pro web interface so that I can visualize my data in the Explorer.
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Configure a collection with the Microsoft Planetary Computer Pro web interface

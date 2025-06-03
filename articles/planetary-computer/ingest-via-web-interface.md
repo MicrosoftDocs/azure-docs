@@ -7,6 +7,8 @@ ms.service: azure
 ms.topic: quickstart
 ms.date: 04/25/2025
 #customer intent: As a Planetary Computer Pro user, I want to ingest data into my collection using the web interface so that I can manage my geospatial assets.
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Ingest data using the Microsoft Planetary Computer Pro web interface

@@ -7,7 +7,9 @@ ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 01/15/2025
 ms.author: anaharris
-ms.custom: subject-reliability
+ms.custom:
+  - subject-reliability
+  - build-2025
 ---
 
 # Multi-region solutions in nonpaired regions

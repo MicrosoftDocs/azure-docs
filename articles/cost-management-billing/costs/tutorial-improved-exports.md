@@ -8,6 +8,8 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: jojoh
+ms.custom:
+  - build-2025
 ---
 
 # Tutorial: Create and manage Cost Management exports

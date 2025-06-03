@@ -8,7 +8,9 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/02/2024
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - build-2025
 ---
 
 # Upgrade and scale an Azure API Management instance  

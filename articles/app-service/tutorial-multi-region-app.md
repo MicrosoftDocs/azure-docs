@@ -4,7 +4,10 @@ description: Learn how to build a multi-region app on Azure App Service that can
 keywords: azure app service, web app, multiregion, multi-region, multiple regions
 author: seligj95
 ms.topic: tutorial
-ms.custom: devx-track-azurecli, devx-track-bicep
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-bicep
+  - build-2025
 ms.date: 2/8/2023
 ms.author: jordanselig
 ---

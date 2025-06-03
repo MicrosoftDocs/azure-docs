@@ -5,8 +5,8 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 05/04/2023
 ms.custom: MVC, engagement-fy23
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 # Set up disaster recovery of on-premises Hyper-V VMs to Azure
 

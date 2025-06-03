@@ -8,7 +8,8 @@ ms.topic: how-to #Don't change
 ms.date: 04/23/2025
 
 #customer intent: As a developer or administrator, I want to set up application authentication and access to Microsoft Planetary Computer Pro so that my applications can securely interact with its resources.
-
+ms.custom:
+  - build-2025
 ---
 
 # Configure application authentication for Microsoft Planetary Computer Pro

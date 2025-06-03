@@ -4,7 +4,9 @@ description: Get started with Azure Container Apps on Azure Arc-enabled Kubernet
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: conceptual
 ms.date: 05/02/2025
 ms.author: cshoe

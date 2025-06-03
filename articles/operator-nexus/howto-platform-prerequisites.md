@@ -6,7 +6,9 @@ ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/13/2023
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - build-2025
 ---
 
 # Operator Nexus platform prerequisites

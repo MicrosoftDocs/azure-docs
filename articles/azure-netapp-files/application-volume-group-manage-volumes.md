@@ -7,6 +7,8 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 05/14/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 # Manage volumes in an application volume group for SAP HANA
 

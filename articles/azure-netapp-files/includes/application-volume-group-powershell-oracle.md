@@ -7,6 +7,8 @@ ms.author: anfdocs
 
 # application-volume-group-oracle-deploy-volumes.md
 #application-volume-group-manage-volumes-oracle.md
+ms.custom:
+  - build-2025
 --- 
 
 >[!IMPORTANT]

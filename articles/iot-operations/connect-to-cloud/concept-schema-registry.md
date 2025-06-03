@@ -7,6 +7,8 @@ ms.topic: conceptual
 ms.date: 11/14/2024
 
 #CustomerIntent: As an operator, I want to understand how I can use message schemas to filter and transform messages.
+ms.custom:
+  - build-2025
 ---
 
 # Understand message schemas

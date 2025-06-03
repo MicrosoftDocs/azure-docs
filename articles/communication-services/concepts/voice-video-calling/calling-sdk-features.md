@@ -11,7 +11,9 @@ ms.date: 05/01/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - build-2025
 ---
 
 # Calling SDK overview

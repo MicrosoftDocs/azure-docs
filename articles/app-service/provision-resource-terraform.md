@@ -6,7 +6,10 @@ ms.author: msangapu
 ms.topic: quickstart
 ms.date: 04/29/2025
 ms.tool: terraform
-ms.custom: subject-terraform, devx-track-terraform
+ms.custom:
+  - subject-terraform
+  - devx-track-terraform
+  - build-2025
 ---
 
 # Quickstart: Create an App Service app by using a Terraform template

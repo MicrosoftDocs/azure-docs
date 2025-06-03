@@ -7,6 +7,8 @@ ms.service: azure
 ms.topic: concept-article
 ms.date: 04/09/2025
 #customer intent: As an Microsoft Planetary Computer Pro user, I want to understand the STAC Specification.
+ms.custom:
+  - build-2025
 ---
 
 # STAC overview for Microsoft Planetary Computer Pro

@@ -4,8 +4,8 @@ description: Learn how to enable Azure Site Recovery to use the encryption proto
 ms.topic: faq
 ms.service: azure-site-recovery
 ms.date: 12/15/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Transport Layer Security in Azure Site Recovery

@@ -6,6 +6,8 @@ ms.author: marclichtman
 ms.service: azure
 ms.topic: how-to
 ms.date: 05/08/2025
+ms.custom:
+  - build-2025
 ---
 
 # Configure render settings for visualizing data in Microsoft Planetary Computer Pro

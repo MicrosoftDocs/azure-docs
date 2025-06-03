@@ -4,6 +4,8 @@ ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/24/2025
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 If you enable collection of logs or metrics in a Log Analytics workspace, it can take a few minutes for data to appear in Azure Monitor. 

@@ -10,6 +10,8 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to learn how to test rulesets with the Microsoft Rules Composer.
+ms.custom:
+  - build-2025
 ---
 
 # Test rulesets using the Microsoft Rules Composer

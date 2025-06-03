@@ -10,6 +10,8 @@ ms.date: 04/03/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
+ms.custom:
+  - build-2025
 ---
 
 # Create data flows in Azure IoT Operations

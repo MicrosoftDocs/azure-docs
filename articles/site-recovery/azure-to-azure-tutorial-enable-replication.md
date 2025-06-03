@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.service: azure-site-recovery
 ms.date: 05/10/2024
 ms.custom: mvc
-ms.author: ankitadutta
+ms.author: jsuri
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
 ---
 # Tutorial: Set up disaster recovery for Azure VMs

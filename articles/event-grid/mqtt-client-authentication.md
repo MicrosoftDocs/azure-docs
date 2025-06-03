@@ -6,7 +6,9 @@ ms.date: 05/01/2025
 author: Connected-Seth
 ms.author: seshanmugam
 ms.subservice: mqtt
-# Customer intent: I want to learn about different types of authentication that MQTT broker in Azure Event Grid supports. 
+# Customer intent: I want to learn about different types of authentication that MQTT broker in Azure Event Grid supports.
+ms.custom:
+  - build-2025
 ---
 
 # Client authentication

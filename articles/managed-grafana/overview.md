@@ -7,6 +7,8 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: overview 
 ms.date: 04/16/2025
+ms.custom:
+  - build-2025
 --- 
 
 # What is Azure Managed Grafana?

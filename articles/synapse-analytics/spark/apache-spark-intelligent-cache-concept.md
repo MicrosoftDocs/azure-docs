@@ -92,14 +92,13 @@ You won't see the benefit of this feature if:
 
 * Your workload requires large amounts of shuffle, then disabling the Intelligent Cache will free up available space to prevent your job from failing due to insufficient storage space.  
 
-* You're using a Spark 3.1 pool, you'll need to upgrade your pool to the latest version of Spark. 
+* You're using a Spark 3.3 pool, you'll need to upgrade your pool to the latest version of Spark. 
 
 
 ## Learn more
 To learn more on Apache Spark, see the following articles:
   - [What is Apache Spark](./spark/../apache-spark-concepts.md)
   - [Apache Spark core concepts](./spark/../apache-spark-concepts.md)
-  - [Azure Synapse Runtime for Apache Spark 3.2](./spark/../apache-spark-32-runtime.md)
   - [Apache Spark pool sizes and configurations](./spark/../apache-spark-pool-configurations.md)
 
 To learn about configuring Spark session settings

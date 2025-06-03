@@ -6,7 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 02/13/2025
+ms.date: 06/03/2025
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory (ADF)
@@ -1158,6 +1158,11 @@ Note: Please check that the given database is of type 'Dedicated SQL pool (forme
 - **Message**: java.sql.SQLTransactionRollbackException. Deadlock found when trying to get lock; try restarting transaction. If the problem persists, please contact Azure Support
 - **Cause**: Transient error
 - **Recommendation**: Retry the request after a wait period.
+
+### Error code: SystemErrorSynapseSparkJobFailed (Ongoing)
+- **Message**: Job failed during run time with state=[dead]. Credentials were not provided for the WASB URI.
+- **Cause**: Data flow is unsupported in Synapse workspaces using Spark version 3.4 when DEP (Data Exfiltration Protection) is enabled by selecting "Allow outbound data traffic only to approved targets" during workspace network configuration.
+- **Recommendation**: Disable the above settings during workspace creation. For more information, see this [document](https://learn.microsoft.com/azure/synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection) 
 
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.

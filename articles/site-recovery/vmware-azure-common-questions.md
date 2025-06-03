@@ -4,8 +4,8 @@ description: Get answers to common questions about disaster recovery of on-premi
 ms.date: 07/10/2024
 ms.topic: faq
 ms.service: azure-site-recovery
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.custom: engagement-fy23
 ---
 

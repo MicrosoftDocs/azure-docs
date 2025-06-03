@@ -7,6 +7,8 @@ ms.service: azure
 ms.topic: get-started
 ms.date: 05/08/2025
 #customer intent: As a new customer, I want to learn how to use Microsoft Planetary Computer Pro to solve my geospatial data management challenges.
+ms.custom:
+  - build-2025
 ---
 
 # Get started with Microsoft Planetary Computer Pro

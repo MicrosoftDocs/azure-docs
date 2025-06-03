@@ -7,6 +7,8 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
+ms.custom:
+  - build-2025
 ---
 
 # Connect Azure Front Door Premium to a storage account origin with Private Link

@@ -7,6 +7,8 @@ ms.service: azure-file-storage
 ms.topic: release-notes
 ms.date: 05/13/2025
 ms.author: wgries
+ms.custom:
+  - build-2025
 ---
 
 # Release notes for Azure File Sync

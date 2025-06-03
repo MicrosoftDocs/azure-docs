@@ -10,6 +10,8 @@ ms.topic: conceptual
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to understand how the Azure Logic Apps Rules Engine works and ways to optimize operation.
+ms.custom:
+  - build-2025
 ---
 
 # Optimization for Azure Logic Apps Rules Engine execution

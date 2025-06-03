@@ -9,6 +9,8 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 04/22/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 # Deploy application volume group for Oracle in Azure NetApp Files
 

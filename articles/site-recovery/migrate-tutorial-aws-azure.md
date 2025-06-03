@@ -6,8 +6,8 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2019
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 # Migrate Amazon Web Services (AWS) VMs to Azure
 

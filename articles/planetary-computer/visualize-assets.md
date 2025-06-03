@@ -6,6 +6,8 @@ ms.author: tanyamarton
 ms.service: azure
 ms.topic: how-to
 ms.date: 04/09/2025
+ms.custom:
+  - build-2025
 ---
 
 # Visualize data cube assets for Microsoft Planetary Computer Pro

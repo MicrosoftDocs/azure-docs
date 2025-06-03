@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.custom:
   - build-2024
   - ignite-2024
+  - build-2025
 # Customer intent: As a cloud developer, I want to understand the overall costs of running my code in a dynamic plan in Azure Functions so that I can make better architectural and business decisions.
 ---
 

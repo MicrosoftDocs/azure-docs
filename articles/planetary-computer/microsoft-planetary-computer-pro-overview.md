@@ -8,6 +8,8 @@ ms.topic: overview
 ms.date: 04/30/2025
 
 #customer intent: As a user of geospatial data and Azure cloud services, I want to undertand what Microsoft Planetary Computer Pro is so that I can determine it is the correct service for my use case.
+ms.custom:
+  - build-2025
 ---
 
 # What is Microsoft Planetary Computer Pro?

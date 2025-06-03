@@ -6,7 +6,9 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: tutorial
 ms.date: 11/18/2024
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Tutorial: Quickly scale and protect a web application using Azure Front Door and Azure Web Application Firewall (WAF)

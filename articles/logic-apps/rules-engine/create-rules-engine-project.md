@@ -10,6 +10,8 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to learn how to create an Azure Logic Apps Rules Engine project using Visual Studio Code so that I can integrate business rules with my Standard logic app workflows.
+ms.custom:
+  - build-2025
 ---
 
 # Create an Azure Logic Apps Rules Engine project using Visual Studio Code

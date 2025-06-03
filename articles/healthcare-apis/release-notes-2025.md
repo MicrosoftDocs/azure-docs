@@ -8,7 +8,9 @@ ms.subservice: workspace
 ms.topic: reference
 ms.date: 5/30/2025
 ms.author: kesheth
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Release notes 2025: Azure Health Data Services

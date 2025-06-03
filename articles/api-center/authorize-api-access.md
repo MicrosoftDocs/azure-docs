@@ -4,7 +4,7 @@ description: Learn how to configure access to APIs in the Azure API Center inven
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 06/02/2025
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to store API authorization information in my API center and enable authorized users to test APIs in the API Center portal.
@@ -57,12 +57,12 @@ To manage the API key securely, store it in Azure Key Vault, and access the key 
 
     | **Setting**            | **Description**                                                                                                                                               |
     |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Title**              | A name for the authorization.                                                |
-    | **Description**        | Optional description for the authorization.                  |
+    | **Title**              | Enter a name for the authorization.                                                |
+    | **Description**        | Optionally, enter a description for the authorization.                  |
     | **Security scheme**    | Select **API Key**.                                                                                    |
-    |**API key location**    | How the key is presented in API requests. Available values are **Header** (request header) and **Query** (query parameter).                                                               |
-    | **API key parameter name**      | Name of the HTTP header or query parameter that contains the API key. Example: `x-api-key`                                                        |
-    | **API key Key Vault secret reference**      | Secret identifier of the API key in Azure Key Vault. Example: `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>/<version>`  |
+    |**API key location**    | Select how the key is presented in API requests. Available values are **Header** (request header) and **Query** (query parameter).                                                               |
+    | **API key parameter name**      | Enter the name of the HTTP header or query parameter that contains the API key. Example: `x-api-key`                                                        |
+    | **API key Key Vault secret reference**      | Click **Select** and select the subscription, key vault, and secret that you stored. Example: `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>`  |
 
 1. Select **Create**.
 
@@ -114,7 +114,7 @@ To manage the secret securely, store it in Azure Key Vault, and access the key v
 1. In the left menu, under **Governance**, select **Authorization (preview)** > **+ Add configuration**.
 1. In the **Add configuration** page, set the values as follows:
 
-    :::image type="content" source="media/authorize-api-access/configure-oauth.png" alt-text="Screenshot of configuring OAuth 2.0 in the portal.":::
+    :::image type="content" source="media/authorize-api-access/configure-oauth.png" lightbox="media/authorize-api-access/configure-oauth.png" alt-text="Screenshot of configuring OAuth 2.0 in the portal.":::
 
 
     > [!NOTE]
@@ -122,16 +122,16 @@ To manage the secret securely, store it in Azure Key Vault, and access the key v
 
     | **Setting**            | **Description**                                                                                                                                               |
     |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Title**              | A name for the authorization.                                                                                                 |
-    | **Description**        | Optional description for the authorization.                                                                                                                   |
+    | **Title**              | Enter a name for the authorization.                                                                                                 |
+    | **Description**        | Optionally, enter a description for the authorization.                                                                                                                   |
     | **Security scheme**    | Select **OAuth2**.                                                                  |
-    | **Client ID**          | Client ID (GUID) of the app that you created in your identity provider.                                                                                     |
-    | **Client secret**      | Secret identifier of the client secret in Azure Key Vault.<br/><br/>Example: `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>/<version>`                                                                               |
-    | **Authorization URL**  | OAuth 2.0 authorization endpoint for the identity provider.<br/><br/>Example for Microsoft Entra ID: `https://login.microsoftonline.com/<tenant>/oauth2/v2.0/authorize`                                                                                      |
-    | **Token URL**          | OAuth 2.0 token endpoint for the identity provider.<br/><br/>Example for Microsoft Entra ID: `https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token`                                                                                            |
-    | **Refresh URL**        | OAuth 2.0 token refresh endpoint for the identity provider. For most providers, same as the **Token URL**<br/><br/>Example for Microsoft Entra ID: `https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token`                                                                                                |
-    | **OAuth2 flow**        | One or both of the OAuth 2.0 flows that you want to use. Available values are **Authorization code (PKCE)** and **Client credentials**.               |
-    | **Scopes**             | One or more API scopes configured for your API, separated by spaces. If no scopes are configured, enter `.default`.                                                   |
+    | **Client ID**          | Enter the client ID (GUID) of the app that you created in your identity provider.                                                                                     |
+    | **Client secret**      | Click **Select** and select the subscription, key vault, and client secret that you stored.<br/><br/>Example: `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>`                                                                               |
+    | **Authorization URL**  | Enter the OAuth 2.0 authorization endpoint for the identity provider.<br/><br/>Example for Microsoft Entra ID: `https://login.microsoftonline.com/<tenant>/oauth2/v2.0/authorize`                                                                                      |
+    | **Token URL**          | Enter the OAuth 2.0 token endpoint for the identity provider.<br/><br/>Example for Microsoft Entra ID: `https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token`                                                                                            |
+    | **Refresh URL**        | Enter the OAuth 2.0 token refresh endpoint for the identity provider. For most providers, same as the **Token URL**<br/><br/>Example for Microsoft Entra ID: `https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token`                                                                                                |
+    | **OAuth2 flow**        | Select one or both of the OAuth 2.0 flows that you want to use. Available values are **Authorization code (PKCE)** and **Client credentials**.               |
+    | **Scopes**             | Enter one or more API scopes configured for your API, separated by spaces. If no scopes are configured, enter `.default`.                                                   |
 
 1. Select **Create** to save the configuration.
 

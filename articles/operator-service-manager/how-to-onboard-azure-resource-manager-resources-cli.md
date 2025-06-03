@@ -6,7 +6,9 @@ ms.author: peterwhiting
 ms.date: 04/09/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - build-2025
 ---
 # Add Azure Resource Manager (ARM) resources to an Azure Operator Service Manager (AOSM) Network Service Design Version (NSDV)
 
