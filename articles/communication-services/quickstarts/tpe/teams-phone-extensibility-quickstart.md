@@ -24,8 +24,9 @@ This article describes how an independent software vendor (ISV) can provision Te
 - ISV’s Customer has access to Microsoft 365 Admin Center.
 - ISV has access to change Azure Communication Services Resource settings.
 - You grant Teams Tenant access to a CCaaS service for Graph API usage.
-- ISV is using the latest alpha version of Azure Communication Services Call Automation which as of publishing this document is 1.4.0-alpha.20250129.2 or newer.
-- ISV is using the Alpha version of the Azure Communication Services Client SDK v1.3.3 or newer.
+- ISV is using the .NET ACS Call Automation SDK version 1.5.0-beta.1
+- ISV is using the JavaScript ACS Call Automation SDK version 1.5.0-beta.2
+- ISV is using the JavaScript ACS Client SDK version 1.36.1-beta.1
 - You allowlisted the ISV’s Azure subscription in Microsoft Teams.
 
 ## Quick start
