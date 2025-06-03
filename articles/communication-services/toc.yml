@@ -1197,9 +1197,9 @@ items:
     - name: Teams Phone extensibility quick start
       href: quickstarts/tpe/teams-phone-extensibility-quickstart.md
     - name: Answer Teams Phone calls from Call Automation
-      href: quickstarts/interop/tpe/teams-phone-extensibility-answer-teams-calls.md
+      href: quickstarts/tpe/teams-phone-extensibility-answer-teams-calls.md
     - name: Access Teams Phone without going through the Teams client
-      href: quickstarts/interop/tpe/teams-phone-extensibility-access-teams-phone.md
+      href: quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md
     - name: REST API for Teams Phone extensibility
       href: quickstarts/tpe/teams-phone-extensiblity-rest-api.md
 - name: Job Router
