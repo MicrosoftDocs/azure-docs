@@ -9,6 +9,7 @@ ms.date: 05/31/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: As a cloud administrator, I want to enable Continuous Availability on existing Azure NetApp Files SMB volumes, so that I can ensure uninterrupted access for users and applications.
 ---
 # Enable Continuous Availability on existing SMB volumes
 

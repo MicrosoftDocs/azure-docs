@@ -6,6 +6,7 @@ ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 09/10/2024
+# Customer intent: As an IT administrator managing Azure NetApp Files, I want to optimize performance and monitor metrics, so that I can ensure the storage system meets my workload requirements effectively.
 ---
 # Performance FAQs for Azure NetApp Files
 
