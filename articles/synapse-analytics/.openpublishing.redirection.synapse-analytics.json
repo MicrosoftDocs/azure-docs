@@ -757,12 +757,12 @@
            },
            {
              "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-3-runtime.md",
-             "redirect_url": "/articles/synapse-analytics/spark/apache-spark-35-runtime",
+             "redirect_url": "/azure/synapse-analytics/spark/apache-spark-35-runtime",
              "redirect_document_id": false
            },
            {
              "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-32-runtime.md",
-             "redirect_url": "/articles/synapse-analytics/spark/apache-spark-35-runtime",
+             "redirect_url": "/azure/synapse-analytics/spark/apache-spark-35-runtime",
              "redirect_document_id": false
            }
     ]
