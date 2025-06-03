@@ -26,8 +26,6 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **Support multiple pages of include results in bulk delete**: Previously, bulk deletes with _include and _revinclude couldn't delete more than 100 included resources. We have made a fix to lift that limit by supporting multiple pages of include results, and bulk delete will be able to delete more than 100 included resources.
 
-**Improved error handling**: Added catch and retry for Cosmos 412 when multiple workers are trying to dequeue a job
-
 #### Bug fixes:
 **Creation after deletion of search parameters fix**: Previously, creating the same search parameter that was deleted in the past could fail due to an issue in updating the cache for Search Parameter definition manager. The issue is fixed, and now, the cache is synced before validating a search parameter in an incoming request.
 
