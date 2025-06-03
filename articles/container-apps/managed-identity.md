@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/29/2025
+ms.date: 06/03/2025
 ms.author: cshoe
 ---
 
@@ -503,7 +503,7 @@ The command to remove all user-assigned identities works as follows.
 | `--user-assigned $(...)` | Run the command enclosed by the parentheses. Send the output to `--user-assigned`. |
 | `az containerapp show...` | Get information about the specified container app. |
 | `--query "identity.userAssignedIdentities...` | Get the user-assigned identities for the specified container app. |
-| `|` | The pipe operator sends the user-assigned identities to the `keys` command. |
+| `\|` | The pipe operator sends the user-assigned identities to the `keys` command. |
 | `keys(@)` | The user-assigned identities are returned as a set of key/value pairs. Each key is the ID of a user-assigned identity. This command extracts each key. |
 | `--output tsv` | Output the results in tab-separated format. |
 
