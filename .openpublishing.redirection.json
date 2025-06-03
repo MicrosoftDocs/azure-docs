@@ -7963,6 +7963,101 @@
         "source_path": "articles/sentinel/data-connectors/zoom-reports.md",
         "redirect_url": "/azure/sentinel/data-connectors-reference#zoom-reports-using-azure-functions",
         "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/api-protection.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/armis-activities.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/armis-alerts.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-adversary-intelligence.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-v2.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/common-event-format-cef-via-ama.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/hyas-protect.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/ionix-security-logs.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/lookout-cloud-security-for-microsoft-sentinel-using-azure-function.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/noname-security-for-microsoft-sentinel.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/nxlog-aix-audit.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/nxlog-bsm-macos.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/nxlog-dns-logs.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/nxlog-fim.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/nxlog-linuxaudit.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/recommended-infoblox-cloud-data-connector-via-ama.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/recommended-infoblox-soc-insight-data-connector-via-ama.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/data-connectors/subscription-based-microsoft-defender-for-cloud-legacy.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
     }
   ]
 }
