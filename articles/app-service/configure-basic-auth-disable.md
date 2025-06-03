@@ -47,7 +47,7 @@ To disable basic authentication:
 
 ### [Azure CLI](#tab/cli)
 
-Run the following Azure CLI commands in the Bash environment of Azure Cloud Shell by selecting **Open Cloud Shell** at the upper right of the code block. Copy the code, replace any placeholders, paste it into the Cloud Shell and run it.
+Run the following Azure CLI commands in the Bash environment of Azure Cloud Shell by selecting **Open Cloud Shell** at the upper right of the code block. Copy the code, replace any placeholders, paste it into the Cloud Shell, and run it.
 
 To disable FTP basic authentication access, run the following command, replacing the placeholders with your app's resource group and name. You must have owner-level access to the app.
 
@@ -177,5 +177,5 @@ The following list shows corresponding policies for slots:
 - [Authentication types by deployment method in Azure App Service](deploy-authentication-types.md)
 - [Configure continuous deployment to Azure App Service](deploy-continuous-deployment.md)
 - [Deploy to Azure App Service by using GitHub Actions](deploy-github-actions.md)
-- [FTP deployment](deploy-ftp.md)
-- [Local Git deployment](deploy-local-git.md)
+- [Deploy to Azure App Service by using Git locally](deploy-local-git.md)
+- [Deploy your app to Azure App Service using FTP/S](deploy-ftp.md)
