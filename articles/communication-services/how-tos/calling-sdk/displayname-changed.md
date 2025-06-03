@@ -1,7 +1,7 @@
 ---
 title: Display name changed
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services SDKs to subscript events that participants' display name change
+description: Use Azure Communication Services SDK to subscript events that participants' display name change
 author: fuyan
 ms.author: fuyan
 ms.service: azure-communication-services
@@ -27,7 +27,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
 
-This article describes how you can subscribe the Teams participants' display name changed events showing the old, new values and the reason of the name change.
+This article describes how you can subscribe the Teams participants' display name changed events showing the old, new values, and the reason of the name change.
 
 ## Prerequisites
 
@@ -59,9 +59,9 @@ The following table shows support for individual APIs in the Calling SDK related
 | Get notification that Teams participant display name changed    | ✔️           |    ✔️                      |
 
 
-### SDKs
+### SDK
 
-The following tables show support for the display name change in individual Azure Communication Services SDKs.
+The following tables show support for the display name change in individual Azure Communication Services SDK.
 
 | Support status | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |----------------|-----|--------|--------|--------|----------|--------|---------|

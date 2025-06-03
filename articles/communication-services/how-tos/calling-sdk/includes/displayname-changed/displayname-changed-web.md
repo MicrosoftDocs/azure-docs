@@ -17,7 +17,7 @@ const remoteParticipants = call.remoteParticipants;
 
 ### Check if remote participant has display name change
 
-Use the `hasDisplayNameChanged` property of the class `RemoteParticipant` to check if display name has changed. 
+To check if display name changed, use the `hasDisplayNameChanged` property of the class `RemoteParticipant` . 
 
 ```js
 // check if remoteParticipant has display name changed
@@ -37,7 +37,7 @@ remoteParticipant.on('displayNameChanged', (args: {newValue?: string, oldValue?:
 
 ## SDK compatibility
 
-The following table shows the minimum version of SDKs that support individual APIs.
+The following table shows the minimum version of SDK that supports individual APIs.
 
 | Operations | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows | 
 |-------------|-----|--------|-----|--------|---------|------------|---------|
