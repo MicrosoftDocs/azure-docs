@@ -16,9 +16,9 @@ page lists the **compliance domains** and **security controls** for Azure Automa
 the built-ins for a **security control** individually to help make your Azure resources compliant
 with the specific standard.
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/azure-policy-autogen-docs/includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-automation](../../includes/policy/standards/byrp/microsoft.automation.md)]
+[!INCLUDE [azure-policy-compliancecontrols-automation](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.automation.md)]
 
 ## Next steps
 

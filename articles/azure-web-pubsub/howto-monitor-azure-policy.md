@@ -21,7 +21,7 @@ The following table contains an index of Azure Policy built-in policy definition
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use the link in the Version column to view the source on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
-[!INCLUDE [azure-policy-reference-policies-web-pubsub](../../includes/policy/reference/bycat/policies-web-pubsub.md)]
+[!INCLUDE [azure-policy-reference-policies-web-pubsub](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-web-pubsub.md)]
 
 ## Assign policy definitions
 

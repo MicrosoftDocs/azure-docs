@@ -20,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure HDInsight
 
-[!INCLUDE [azure-policy-reference-rp-hdinsight](../../includes/policy/reference/byrp/microsoft.hdinsight.md)]
+[!INCLUDE [azure-policy-reference-rp-hdinsight](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.hdinsight.md)]
 
 ## Next steps
 

@@ -21,7 +21,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Cache for Redis
 
-[!INCLUDE [azure-policy-reference-rp-cache](../../includes/policy/reference/byrp/microsoft.cache.md)]
+[!INCLUDE [azure-policy-reference-rp-cache](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.cache.md)]
 
 ## Next steps
 

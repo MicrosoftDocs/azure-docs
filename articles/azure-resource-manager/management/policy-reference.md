@@ -19,7 +19,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Resource Manager
 
-[!INCLUDE [azure-policy-reference-rp-arm](../../../includes/policy/reference/byrp/microsoft.resources.md)]
+[!INCLUDE [azure-policy-reference-rp-arm](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.resources.md)]
 
 ## Next steps
 

@@ -15,75 +15,75 @@ The name on each built-in links to the initiative definition source on the
 
 ## Automanage
 
-[!INCLUDE [azure-policy-reference-policysets-automanage](../../../../includes/policy/reference/bycat/policysets-automanage.md)]
+[!INCLUDE [azure-policy-reference-policysets-automanage](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-automanage.md)]
 
 ## ChangeTrackingAndInventory
 
-[!INCLUDE [azure-policy-reference-policysets-changetrackingandinventory](../../../../includes/policy/reference/bycat/policysets-changetrackingandinventory.md)]
+[!INCLUDE [azure-policy-reference-policysets-changetrackingandinventory](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-changetrackingandinventory.md)]
 
 ## Cosmos DB
 
-[!INCLUDE [azure-policy-reference-policysets-cosmos-db](../../../../includes/policy/reference/bycat/policysets-cosmos-db.md)]
+[!INCLUDE [azure-policy-reference-policysets-cosmos-db](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-cosmos-db.md)]
 
 ## General
 
-[!INCLUDE [azure-policy-reference-policysets-general](../../../../includes/policy/reference/bycat/policysets-general.md)]
+[!INCLUDE [azure-policy-reference-policysets-general](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-general.md)]
 
 ## Guest Configuration
 
-[!INCLUDE [azure-policy-reference-policysets-guest-configuration](../../../../includes/policy/reference/bycat/policysets-guest-configuration.md)]
+[!INCLUDE [azure-policy-reference-policysets-guest-configuration](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-guest-configuration.md)]
 
 ## Kubernetes
 
-[!INCLUDE [azure-policy-reference-policysets-kubernetes](../../../../includes/policy/reference/bycat/policysets-kubernetes.md)]
+[!INCLUDE [azure-policy-reference-policysets-kubernetes](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-kubernetes.md)]
 
 ## Managed Identity
 
-[!INCLUDE [azure-policy-reference-policysets-managed-identity](../../../../includes/policy/reference/bycat/policysets-managed-identity.md)]
+[!INCLUDE [azure-policy-reference-policysets-managed-identity](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-managed-identity.md)]
 
 ## Monitoring
 
-[!INCLUDE [azure-policy-reference-policysets-monitoring](../../../../includes/policy/reference/bycat/policysets-monitoring.md)]
+[!INCLUDE [azure-policy-reference-policysets-monitoring](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-monitoring.md)]
 
 ## Network
 
-[!INCLUDE [azure-policy-reference-policysets-network](../../../../includes/policy/reference/bycat/policysets-network.md)]
+[!INCLUDE [azure-policy-reference-policysets-network](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-network.md)]
 
 ## Nexus
 
-[!INCLUDE [azure-policy-reference-policysets-nexus](../../../../includes/policy/reference/bycat/policysets-nexus.md)]
+[!INCLUDE [azure-policy-reference-policysets-nexus](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-nexus.md)]
 
 ## Regulatory Compliance
 
-[!INCLUDE [azure-policy-reference-policysets-regulatory-compliance](../../../../includes/policy/reference/bycat/policysets-regulatory-compliance.md)]
+[!INCLUDE [azure-policy-reference-policysets-regulatory-compliance](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-regulatory-compliance.md)]
 
 ## Resilience
 
-[!INCLUDE [azure-policy-reference-policysets-resilience](../../../../includes/policy/reference/bycat/policysets-resilience.md)]
+[!INCLUDE [azure-policy-reference-policysets-resilience](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-resilience.md)]
 
 ## SDN
 
-[!INCLUDE [azure-policy-reference-policysets-sdn](../../../../includes/policy/reference/bycat/policysets-sdn.md)]
+[!INCLUDE [azure-policy-reference-policysets-sdn](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-sdn.md)]
 
 ## Security Center
 
-[!INCLUDE [azure-policy-reference-policysets-security-center](../../../../includes/policy/reference/bycat/policysets-security-center.md)]
+[!INCLUDE [azure-policy-reference-policysets-security-center](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-security-center.md)]
 
 ## SQL
 
-[!INCLUDE [azure-policy-reference-policysets-sql](../../../../includes/policy/reference/bycat/policysets-sql.md)]
+[!INCLUDE [azure-policy-reference-policysets-sql](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-sql.md)]
 
 ## Synapse
 
-[!INCLUDE [azure-policy-reference-policysets-synapse](../../../../includes/policy/reference/bycat/policysets-synapse.md)]
+[!INCLUDE [azure-policy-reference-policysets-synapse](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-synapse.md)]
 
 ## Trusted Launch
 
-[!INCLUDE [azure-policy-reference-policysets-trusted-launch](../../../../includes/policy/reference/bycat/policysets-trusted-launch.md)]
+[!INCLUDE [azure-policy-reference-policysets-trusted-launch](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-trusted-launch.md)]
 
 ## VirtualEnclaves
 
-[!INCLUDE [azure-policy-reference-policysets-virtualenclaves](../../../../includes/policy/reference/bycat/policysets-virtualenclaves.md)]
+[!INCLUDE [azure-policy-reference-policysets-virtualenclaves](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policysets-virtualenclaves.md)]
 
 ## Next steps
 

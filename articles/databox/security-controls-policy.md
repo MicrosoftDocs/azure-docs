@@ -17,9 +17,9 @@ page lists the **compliance domains** and **security controls** for Azure Data B
 assign the built-ins for a **security control** individually to help make your Azure resources
 compliant with the specific standard.
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/azure-policy-autogen-docs/includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-databox](../../includes/policy/standards/byrp/microsoft.databox.md)]
+[!INCLUDE [azure-policy-compliancecontrols-databox](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.databox.md)]
 
 ## Next steps
 

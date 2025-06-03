@@ -18,9 +18,9 @@ page lists the **compliance domains** and **security controls** for Azure Cache 
 assign the built-ins for a **security control** individually to help make your Azure resources
 compliant with the specific standard.
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/azure-policy-autogen-docs/includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-cache](../../includes/policy/standards/byrp/microsoft.cache.md)]
+[!INCLUDE [azure-policy-compliancecontrols-cache](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.cache.md)]
 
 ## Next steps
 

@@ -20,9 +20,9 @@ page lists the **compliance domains** and **security controls** for Azure role-b
 (Azure RBAC). You can assign the built-ins for a **security control** individually to help make your
 Azure resources compliant with the specific standard.
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/azure-policy-autogen-docs/includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-rbac](../../includes/policy/standards/byrp/microsoft.authorization.md)]
+[!INCLUDE [azure-policy-compliancecontrols-rbac](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.authorization.md)]
 
 ## Next steps
 
