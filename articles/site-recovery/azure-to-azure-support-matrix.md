@@ -140,7 +140,7 @@ Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-
 To support newly released Linux kernels, Azure Site Recovery (ASR) provides hotfix patches of mobility agent on top of the latest mobility agent version. These hotfixes are released on a **best-effort basis within 30 days** of the kernel release and apply only to **Azure-to-Azure disaster recovery scenarios**.
 
 >[!Note]
->This is not a service-level agreement (SLA). The 30-days support window on **a best-effort basis** applies only to specific scenarios as outlined below.
+>This is not a service-level agreement (SLA). The 30-days support window on **a best effort basis** applies only to specific scenarios as outlined the following table.
 
 Only those scenarios mentioned in the *Scenarios covered by 30-Days best effort support* are applicable for the best effort basis of 30 days. Any other scenario, even if it is not mentioned in the *Scenarios **not** covered by 30-Days best effort support* column, is not applicable for this best effort support.
 
