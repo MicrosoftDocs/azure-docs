@@ -15,7 +15,7 @@ ms.custom:  [amqp, mqtt]
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-When you're ready to take your IoT Edge solution from development to production, make sure it's c for ongoing performance.
+When you're ready to take your IoT Edge solution from development to production, make sure it's configured for ongoing performance.
 
 Not all information in this article is equally important. To help you prioritize, each section starts with lists that divide the work into two groups: **important** to complete before going to production, or **helpful** to know.
 
