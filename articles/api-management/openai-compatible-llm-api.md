@@ -46,6 +46,11 @@ When you import the API, API Management automatically configures:
 
 ## Import language model API using the portal
 
+When you import the LLM API in the portal, API Management automatically configures:
+
+* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the LLM endpoint.
+* (optionally) Access to the LLM backend using an access key you provide. The key is protected as a secret [named value](api-management-howto-properties.md) in API Management.
+* (optionally) Policies to help you monitor and manage the API.
 
 To import a language model API to API Management:
 
@@ -120,7 +125,7 @@ To import an OpenAI-compatible Gemini model:
 
 ### Test Gemini model
 
-After importing the API, you can test it using the test console in the Azure portal. Choose an OpenAI-compatible model and endpoint for the test
+After importing the API, you can test it using the test console in the Azure portal. Choose an OpenAI-compatible model and endpoint for the test.
 
 1. Select the API you created in the previous step.
 1. Select the **Test** tab.
@@ -133,7 +138,7 @@ After importing the API, you can test it using the test console in the Azure por
     
     When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
 
-    :::image type="content" source="media/openai-compatible-llm-api/gemini-test-small.png" lightbox="media/openai-compatible-llm-api/gemini-test.png" alt-text="Screenshot of testing a Gemini LLM API in the portal.":::
+    :::image type="content" source="media/openai-compatible-llm-api/gemini-test.png" alt-text="Screenshot of testing a Gemini LLM API in the portal.":::
 
 
 
