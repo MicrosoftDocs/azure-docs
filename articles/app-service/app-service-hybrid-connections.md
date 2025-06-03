@@ -6,7 +6,9 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 05/06/2025
 ms.author: madsd
-ms.custom: "UpdateFrequency3, fasttrack-edit"
+ms.custom:
+  - "UpdateFrequency3, fasttrack-edit"
+  - build-2025
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
 ---
 
