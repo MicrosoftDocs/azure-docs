@@ -495,6 +495,9 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions("<callConnect
 Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
 .StartAsync(recordingOptions);
 ```
+> [!NOTE]
+> Recording started with connection Id is started async (204 response code) and recording state change is updated via call back event (Microsoft.Communication.RecordingStateChanged) received on RecordingStateCallbackUri.
+Additionally any failures to start recording is reported via a new callback event (Microsoft.Communication.StartRecordingFailed) received on RecordingStateCallbackUri.
 
 
 ## Alpha SDKs
