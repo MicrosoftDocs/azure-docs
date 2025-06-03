@@ -7,6 +7,8 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/15/2025
 ms.author: mbender
+ms.custom:
+  - build-2025
 ---
 
 # Application Gateway backend settings configuration

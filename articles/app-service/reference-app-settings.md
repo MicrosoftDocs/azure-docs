@@ -5,6 +5,8 @@ ms.topic: conceptual
 ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
+ms.custom:
+  - build-2025
 ---
 
 # Environment variables and app settings in Azure App Service

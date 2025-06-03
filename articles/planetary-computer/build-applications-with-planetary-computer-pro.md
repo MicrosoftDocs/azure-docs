@@ -8,7 +8,8 @@ ms.topic: concept-article #Don't change.
 ms.date: 04/29/2025
 
 #customer intent: As a developer, I want to understand how to build applications that integrate with Microsoft Planetary Computer Pro so that I can create solutions leveraging geospatial data at scale.
-
+ms.custom:
+  - build-2025
 ---
 
 # Building applications with Microsoft Planetary Computer Pro

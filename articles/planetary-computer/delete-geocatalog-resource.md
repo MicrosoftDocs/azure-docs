@@ -6,6 +6,8 @@ ms.topic: how-to
 ms.service: azure
 ms.date: 04/14/2025
 ms.author: adamloverro
+ms.custom:
+  - build-2025
 # customer intent: As a GeoCatalog user I want to delete a GeoCatalog resource so that I can remove this resource from my Azure Subscription.
 ---
 
