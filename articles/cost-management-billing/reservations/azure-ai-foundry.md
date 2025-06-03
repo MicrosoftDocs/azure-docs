@@ -124,7 +124,7 @@ The application of the Azure AI Foundry Provisioned Throughput reservation is ba
 The reservation price assumes a 24x7 deployment of the reserved PTUs. In periods with fewer deployed PTUs than reserved PTUs, all deployed PTUs get covered by the reservation, but the excess reserved PTUs aren't used. These excess reserved PTUs are lost and don't carry over to other periods.
 
 >[!NOTE]
->The application of the Azure AI Foundry Provisioned Throughput reservation works on models available in Azure AI Foundry Models (e.g. Azure OpenAI Service, DeepSeek, etc.) For the list of the Azure AI Foundry Models, please refer to [Azure AI Foundry Models pricing page](https://azure.microsoft.com/en-us/pricing/details/phi-3/#pricing). 
+>The application of the Azure AI Foundry Provisioned Throughput reservation works on models available in Azure AI Foundry Models (e.g. Azure OpenAI Service, DeepSeek, etc.) For the list of the Azure AI Foundry Models, please refer to [Azure AI Foundry Models pricing page](https://azure.microsoft.com/pricing/details/phi-3/#pricing). 
 
 ### Discount examples
 
