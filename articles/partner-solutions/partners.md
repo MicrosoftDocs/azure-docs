@@ -5,6 +5,7 @@ description: Explore Azure Native Integrations partner solutions for observabili
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2025
 ms.date: 04/21/2025
 ---
 
@@ -20,6 +21,7 @@ Subscribe to any Azure Native Integration through [Microsoft Azure Marketplace](
 |--------------------------------------------------|------------|
 |[Arize AI](arize-ai/overview.md)|A unified AI observability and evaluation platform for tracing, monitoring, and troubleshooting AI applications and agents|
 |[LambdaTest - HyperExecute](lambda-test/overview.md)|An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.|
+
 
 ## Observability
 
@@ -37,6 +39,7 @@ Subscribe to any Azure Native Integration through [Microsoft Azure Marketplace](
 | [Astro](astronomer/astronomer-overview.md)                  | Deploy a fully managed and seamless Apache Airflow on Astro on Azure.                                                                   | 
 |[Confluent](apache-kafka-confluent-cloud/overview.md)        | Deploy a fully managed, cloud-native Apache Kafka service.                                                                              |
 | [Informatica](informatica/informatica-overview.md)| A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance, and privacy and master data management.| 
+|  [Mongo DB Atlas (preview)](mongo-db/overview.md) | A fully managed document database with native vector search support for AI applications. |
 | [Neon Serverless Postgres](neon/overview.md)                |A serverless Postgres solution that leverages the principles of serverless computing to provide scalable and flexible database services. |
 | [Pure Storage Cloud (preview)](pure-storage/overview.md) |Pure Storage Cloud provides secure, efficient, and reliable block storage as a native managed service (STaaS). |
 |[Qumulo](qumulo/qumulo-overview.md)                          |  Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.                                                                                                                                                                         | 

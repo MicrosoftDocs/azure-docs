@@ -4,8 +4,8 @@ description: This article provides an overview of different types of failback an
 ms.service: azure-site-recovery
 ms.topic: overview
 ms.date: 08/07/2019
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 
 ---
 

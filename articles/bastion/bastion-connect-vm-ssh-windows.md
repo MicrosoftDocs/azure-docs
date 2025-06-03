@@ -2,11 +2,11 @@
 title: 'Connect to a Windows VM using SSH'
 titleSuffix: Azure Bastion
 description: Learn how to use Azure Bastion to connect to Windows VM using SSH.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 02/10/2025
-ms.author: cherylmc
+ms.author: abell
 ---
 
 # Create an SSH connection to a Windows VM using Azure Bastion

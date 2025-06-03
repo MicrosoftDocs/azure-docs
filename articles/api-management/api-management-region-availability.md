@@ -6,9 +6,11 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/29/2025
+ms.date: 05/28/2025
 ms.author: danlep
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Azure API Management - Availability of v2 tiers and workspace gateways
@@ -32,7 +34,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Central India  | ✅ | ✅ | |  |
 | East Asia | ✅ | ✅ | | ✅ |
 | East US  | ✅ | ✅ |  |  |
-| East US 2 | ✅ | ✅ | ✅ | ✅ |
+| East US 2 | ✅ | ✅ |  | ✅ |
 | France Central  | ✅ | ✅ | | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ | ✅ |
 | Japan East | ✅ | ✅ | | ✅ |
@@ -47,11 +49,9 @@ Information in the following table is updated regularly. Capacity availability i
 | Switzerland North | ✅ |✅ |  | |
 | UK South | ✅  | ✅ | ✅ | ✅ |
 | UK West | ✅  | ✅ | | |
-| West Europe  | ✅ | ✅ | | ✅<sup>1</sup> |
+| West Europe  | ✅ | ✅ | | ✅ |
 | West US | ✅ | ✅ |  | ✅ |
 | West US 2 | ✅ | ✅ |  | |
-
-<sup>1</sup> Request access to this region by emailing `apimworkspacesext@microsoft.com` 
 
 ## Related content
 

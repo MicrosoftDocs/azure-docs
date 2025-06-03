@@ -1981,11 +1981,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service/tutorial-java-quarkus-postgresql-app.md",
-      "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service/containers/tutorial-java-spring-cosmosdb.md",
       "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
       "redirect_document_id": false
@@ -2853,6 +2848,16 @@
     {
       "source_path_from_root": "/articles/app-service/environment/how-to-migrate.md",
       "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/tutorial-sidecar-local-small-language-model.md",
+      "redirect_url": "/azure/app-service/tutorial-ai-slm-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/deploy-intelligent-apps.md",
+      "redirect_url": "/azure/app-service/overview-ai-integration",
       "redirect_document_id": false
     }
   ]

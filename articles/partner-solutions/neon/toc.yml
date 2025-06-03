@@ -3,19 +3,21 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Neon Serverless Postgres
+  - name: What is Neon Serverless Postgres?
     href: overview.md
-  - name: Neon Postgres resources and developer tools
+  - name: Resources and developer tools
     href: tools.md
 - name: Quickstart
   expanded: true
   items:
-  - name: Create 
+  - name: Create a resource 
     href: create.md
 - name: How to
   items:
-  - name: Manage 
+  - name: Manage a resource
     href: manage.md
+  - name: Get support
+    href: https://neon.tech/docs/introduction/support
   - name: Troubleshoot 
     href: troubleshoot.md
   - name: Connect to compute services

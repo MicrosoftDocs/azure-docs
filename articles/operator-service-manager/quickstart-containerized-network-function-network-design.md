@@ -6,6 +6,8 @@ ms.author: sherryg
 ms.date: 09/07/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Design a Containerized Network Function (CNF) Network Service Design with Nginx
@@ -114,10 +116,10 @@ These files are created:
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | nsdDefinition/config-group-schema.json | Defines the schema for the deployment parameters required to create a Site Network Service (SNS) from this NSDV.           |
 | nsdDefinition/nginx-nsd-mappings.json  | Maps the parameters for the NSDV to the values required for the NF ARM template.                                           |
-| nsdDefinition/deploy.bicep             | Bicep template for creating the NSDV itself.                                                                               |
-| artifacts                              | Contains a bicep template for the NF ARM template, as well as a list of artifacts to be included in the artifact manifest. |
-| artifactManifest/deploy.bicep          | Bicep template for creating the artifact manifest.                                                                         |
-| base/deploy.bicep                      | Bicep template for creating the publisher, network service design group, and artifact store resources                      |
+| nsdDefinition/deploy.bicep             | Bicep file for creating the NSDV itself.                                                                               |
+| artifacts                              | Contains a Bicep file for the NF ARM template, as well as a list of artifacts to be included in the artifact manifest. |
+| artifactManifest/deploy.bicep          | Bicep file for creating the artifact manifest.                                                                         |
+| base/deploy.bicep                      | Bicep file for creating the publisher, network service design group, and artifact store resources                      |
 
 ## Publish the Network Service Design Version (NSDV)
 

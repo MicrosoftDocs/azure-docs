@@ -5,8 +5,8 @@ ms.topic: overview
 ms.service: azure-site-recovery
 ms.date: 04/01/2025
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # About Site Recovery

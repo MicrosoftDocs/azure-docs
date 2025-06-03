@@ -1,11 +1,11 @@
 ---
 title: Modify destination settings when moving Azure VMs between regions with Azure Resource Mover
 description: Learn how to modify destination settings when moving Azure VMs between regions with Azure Resource Mover.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.date: 12/27/2024
-ms.author: ankitadutta
+ms.author: jsuri
 ms.custom: engagement-fy23, UpdateFrequency2
 #Customer intent: As an Azure admin,  I want to modify destination settings when moving resources to another region using Azure Resource Mover.
 
