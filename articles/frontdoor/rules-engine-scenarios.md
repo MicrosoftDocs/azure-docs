@@ -38,6 +38,7 @@ This article covers common use cases supported by the rules engine, and how to c
 Managing redirects is critical for search engine optimization (SEO), user experience, and the proper functioning of a website. Azure Front Door's rules engine and server variables allow you to efficiently manage batch redirects based on various parameters.
 
 - **Redirect based on query string parameters:** You can redirect requests using query fields of the incoming URL by capturing the value of a specific query string key in the format `{http_req_arg_<key>}`.
+    
     For example, extract the value of `cdpb` query key from an incoming URL: `https://example.mydomain.com/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount` and use it to configure the “destination host” into outgoing URL: `https://teststorageaccount.blob.core.windows.net/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount`.
     
     This approach enables dynamic redirects without having to create a separate rule for each `cdpb` value, significantly reducing the number of rules required.
@@ -109,7 +110,12 @@ Managing redirects is critical for search engine optimization (SEO), user experi
     }
     ```
 
-- To redirect requests to different origins based on URL path segment with dynamic lengths, you can extract the URL segment using {url_path:seg#}, more details about the format in Server variables - Azure Front Door | Microsoft Learn. The tenant ID or location is embedded in the URL segment, e.g. `https://api.contoso.com/{tenantId}/xyz`. You would like to be able to extract {tenantId} from the URL and decide the correct redirect to use in the format of tenantId.backend.com/xyz with server variable {url_path:seg0}.backend.com in the redirect destination host.  This helps reduce the number of rules needed where you don’t need to create one rule for each tenant ID. This is currently supported by ARM templates and command line tools. 
+- **Redirect based on dynamic-length URL path segments:** When the URL path segment has a dynamic length, you can extract it using the `{url_path:seg#}`. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
+
+   For example, if a tenant ID or location is embedded in the URL segment, such as: `https://api.contoso.com/{tenantId}/xyz`, you can extract `{tenantId}` from the URL and decide the correct redirect to use in the format of `tenantId.backend.com/xyz` with server variable `{url_path:seg0}.backend.com` in the redirect destination host.
+
+    This method avoids creating separate rules for each tenant ID, enabling more efficient configuration. In addition to ARM templates, you can also use  Azure CLI or PowerShell in this approach.
+ helps reduce the number of rules needed where you don’t need to create one rule for each tenant ID. This is currently supported by ARM templates and command line tools. 
 
 
 ```json
