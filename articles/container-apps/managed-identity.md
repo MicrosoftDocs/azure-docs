@@ -4,9 +4,11 @@ description: Using managed identities in Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 06/03/2025
 ms.author: cshoe
 ---
 
@@ -108,7 +110,7 @@ Adding the system-assigned type tells Azure to create and manage the identity fo
 
 # [Bicep](#tab/bicep)
 
-A Bicep template can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your Bicep template.
+A Bicep file can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your Bicep file.
 
 ```bicep
 identity: {
@@ -116,7 +118,7 @@ identity: {
 }
 ```
 
-Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete Bicep template example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
+Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete Bicep file example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
 
 ---
 
@@ -203,7 +205,7 @@ For a complete YAML template example, see [ARM API Specification](azure-resource
 
 # [Bicep](#tab/bicep)
 
-To add one or more user-assigned identities, add an `identity` section to your Bicep template. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
+To add one or more user-assigned identities, add an `identity` section to your Bicep file. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
 
 Specify each user-assigned identity by adding an item to the `userAssignedIdentities` object with the identity's resource identifier as the key. Use an empty object as the value.
 
@@ -217,7 +219,7 @@ identity: {
 }
 ```
 
-For a complete Bicep template example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
+For a complete Bicep file example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
 
 > [!NOTE]
 > An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
@@ -487,8 +489,27 @@ To remove all user-assigned identities:
 
 ```azurecli
 az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> \
-    --user-assigned <IDENTITY1_RESOURCE_ID> <IDENTITY2_RESOURCE_ID>
+    --user-assigned $(az containerapp show \
+    --name <APP_NAME> \
+    --resource-group <GROUP_NAME> \
+    --query "identity.userAssignedIdentities | keys(@)" \
+    --output tsv)
 ```
+
+Replace the `<PLACEHOLDERS>` with your values.
+
+The command to remove all user-assigned identities works as follows.
+
+| Command or argument | Description |
+|---|---|
+| `--user-assigned $(...)` | Run the command enclosed by the parentheses. Send the output to `--user-assigned`. |
+| `az containerapp show...` | Get information about the specified container app. |
+| `--query "identity.userAssignedIdentities...` | Get the user-assigned identities for the specified container app. |
+| `\|` | The pipe operator sends the user-assigned identities to the `keys` command. |
+| `keys(@)` | The user-assigned identities are returned as a set of key/value pairs. Each key is the ID of a user-assigned identity. This command extracts each key. |
+| `--output tsv` | Output the results in tab-separated format. |
+
+For more information see [How to query Azure CLI command output using a JMESPath query](/cli/azure/use-azure-cli-successfully-query).
 
 # [ARM template](#tab/arm)
 
@@ -511,7 +532,7 @@ identity:
 
 # [Bicep](#tab/bicep)
 
-To remove all identities, set the `type` of the container app's identity to `None` in the Bicep template:
+To remove all identities, set the `type` of the container app's identity to `None` in the Bicep file:
 
 ```bicep
 identity: {

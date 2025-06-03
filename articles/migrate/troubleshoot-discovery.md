@@ -78,6 +78,16 @@ The software inventory discovery runs once every 24 hours. This process might ta
 1. Select **Refresh services**.
 Wait for the refresh operation to finish. You should now see up-to-date information.
 
+## Database discovery blocked due to software inventory halt
+ 
+This error occurs when Linux or Windows guest credentials required to retrieve configuration data that is expired or invalid. Configuration data is crucial for identifying the current state and detecting newly deployed database instances on the systems.
+ 
+### Remediation
+Ensure that the Linux or Windows guest credentials provided on the appliance are correct. Verify the credentials by attempting to connect to the server.
+If the credentials are outdated or invalid, edit the credentials directly within the appliance.
+After updating the credentials, refresh all services running on the appliance through the portal to ensure proper functionality.
+
+
 ## Unable to export software inventory data
 
 You get this error when you don't have Contributor privileges.

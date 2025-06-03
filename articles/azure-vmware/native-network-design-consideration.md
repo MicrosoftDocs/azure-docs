@@ -4,6 +4,8 @@ description: Learn about Azure VMware Solution Generation 2 private cloud design
 ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 4/21/2025
+ms.custom:
+  - build-2025
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Generation 2 private cloud design considerations so that I can make informed decisions about my Azure VMware Solution deployment.
 ---
 
@@ -29,6 +31,8 @@ The following functionality is limited during this time. These limitations will 
 - Public IP down to the VMware NSX Microsoft Edge for configuring internet will not be supported.
 - Support for **AzCLI**, **PowerShell**, and **.NET SDK** are not available during Public Preview.
 - **Run commands** interacting with customer segments aren't supported, including Zerto, JetStream, and other 3rd-party integrations.
+
+- **Network Security Groups** associated with the private cloud host virtual network must be created in the same resource group as the private cloud and its virtual network.
 
 ## Unsupported integrations during Public Preview
 

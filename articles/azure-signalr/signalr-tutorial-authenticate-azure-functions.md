@@ -104,7 +104,7 @@ func init --worker-runtime node --language javascript --name my-app --model V3
   
 ---
 
-By default, the generated project includes a _host.json_ file that contains the extension bundles that include the SignalR extension. For more information about extension bundles, see [Register Azure Functions binding extensions](../azure-functions/functions-bindings-register.md#extension-bundles).
+By default, the generated project includes a _host.json_ file that contains the extension bundles that include the SignalR extension. For more information, see [Azure Functions extension bundles](../azure-functions/extension-bundles.md).
 
 ### Configure application settings
 

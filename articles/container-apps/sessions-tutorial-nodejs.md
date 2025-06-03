@@ -7,6 +7,8 @@ ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 02/19/2025
 ms.author: iasthana
+ms.custom:
+  - build-2025
 ---
 
 # Tutorial: Run JavaScript code in a code interpreter session in Azure Container Apps (preview)
@@ -19,9 +21,6 @@ In this tutorial you:
 > * Create a new code interpreter session
 > * Set the appropriate security context for your session pool
 > * Pass in JavaScript code for the container app to run
-
-> [!NOTE]
-> The JavaScript code interpreter feature in Azure Container Apps dynamic sessions is currently in preview. For more information, see [preview limitations](./sessions.md#region-availability).
 
 ## Prerequisites
 

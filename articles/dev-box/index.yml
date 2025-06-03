@@ -10,6 +10,7 @@ metadata:
   ms.custom:
     - build-2024
     - ignite-2024
+    - build-2025
   ms.topic: landing-page
   ms.author: rosemalcolm
   author: RoseHJM
@@ -86,10 +87,12 @@ landingContent:
         links:
           - text: What are Team Customizations
             url: concept-what-are-team-customizations.md
-          - text: Write an individual customization file
-            url: how-to-write-individual-customization-file.md
+          - text: Write an image definition file
+            url: how-to-write-image-definition-file.md
           - text: Use secrets in customization files
             url: how-to-use-secrets-customization-files.md
+          - text: Use GitHub Copilot to generate an image definition file
+            url: how-to-use-copilot-generate-image-definition-file.md
           - text: Configure imaging for Customizations
             url: how-to-configure-customization-imaging.md
           - text: Create customization tasks
@@ -106,6 +109,8 @@ landingContent:
             url: how-to-troubleshoot-remote-desktop-connectivity.md   
           - text: Resolve connectivity issues
             url: how-to-resolve-dev-box-connectivity-issues.md
+          - text: 'Reference: imagedefinition.yaml and task.yaml files'
+            url: reference-dev-box-customizations.md
           - text: Get support for Microsoft Dev Box
             url: how-to-get-help.md
         - linkListType: reference

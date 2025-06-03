@@ -1,10 +1,10 @@
 ---
 title: Migrate apps from Azure Functions version 3.x to 4.x
-description: This article shows you how to migrate your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
+description: Learn how to migrate your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-azurecli, ignite-2023, linux-related-content, devx-track-ts
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 05/08/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -15,7 +15,7 @@ Azure Functions version 4.x is highly backwards compatible to version 3.x. Most 
 > [!IMPORTANT]
 > As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of extended support. For more information, see [Retired versions](functions-versions.md#retired-versions).
 
-This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project migration instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
+This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project migration instructions are language dependent, make sure to choose your development language from the selector at the top of the article.
 
 ## Identify function apps to migrate
 
@@ -34,7 +34,7 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 > [!TIP]
 > **We recommend updating to .NET 8 on the isolated worker model.** .NET 8 is the fully released version with the longest support window from .NET.
 >
-> Although you can choose to instead use the in-process model, this is not recommended if it can be avoided. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
+> Although you can choose to instead use the in-process model, we don't recommend this approach if you can avoid it. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you're moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
 This guide doesn't present specific examples for .NET 9. If you need to target that version, you can adapt the .NET 8 examples for the isolated worker model.
 
@@ -68,7 +68,7 @@ Upgrading instructions are language dependent. If you don't see your language, c
 Choose the tab that matches your target version of .NET and the desired process model (in-process or isolated worker process).
 
 > [!TIP]
-> If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
+> If you're moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
 
 ### Project file
 
@@ -116,7 +116,7 @@ Use one of the following procedures to update this XML file to run in Functions 
 
 ### Package and namespace changes
 
-Based on the model you are migrating to, you might need to update or change the packages your application references. When you adopt the target packages, you then need to update the namespace of using statements and some types you reference. You can see the effect of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) later in this article.
+Based on the model you're migrating to, you might need to update or change the packages your application references. When you adopt the target packages, you then need to update the namespace of using statements and some types you reference. You can see the effect of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) later in this article.
 
 # [.NET 8](#tab/net8)
 
@@ -154,7 +154,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-This example includes [ASP.NET Core integration] to improve performance and provide a familiar programming model when your app uses HTTP triggers. If you do not intend to use HTTP triggers, you can replace the call to `ConfigureFunctionsWebApplication` with a call to `ConfigureFunctionsWorkerDefaults`. If you do so, you can remove the reference to `Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore` from your project file. However, for the best performance, even for functions with other trigger types, you should keep the `FrameworkReference` to ASP.NET Core.
+This example includes [ASP.NET Core integration] to improve performance and provide a familiar programming model when your app uses HTTP triggers. If you don't intend to use HTTP triggers, you can replace the call to `ConfigureFunctionsWebApplication` with a call to `ConfigureFunctionsWorkerDefaults`. If you do so, you can remove the reference to `Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore` from your project file. However, for the best performance, even for functions with other trigger types, you should keep the `FrameworkReference` to ASP.NET Core.
 
 [!INCLUDE [functions-dotnet-migrate-isolated-program-cs](../../includes/functions-dotnet-migrate-isolated-program-cs.md)]
 
@@ -189,7 +189,7 @@ namespace Company.FunctionApp
 
 # [.NET 8 (in-process model)](#tab/net8-in-proc)
 
-A `Program.cs` file isn't required when you are using the in-process model.
+A `Program.cs` file isn't required when you're using the in-process model.
 
 ---
 
@@ -236,12 +236,12 @@ When you migrate to version 4.x, make sure that your local.settings.json file ha
 
 # [.NET 8 (isolated)](#tab/net8)
 
-No changes are required to your `host.json` file. However, if your Application Insights configuration in this file from your in-process model project, you might want to make additional changes in your `Program.cs` file. The `host.json` file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
+No changes are required to your `host.json` file. However, if your Application Insights configuration in this file from your in-process model project, you might want to make other changes in your `Program.cs` file. The `host.json` file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
 
 
 # [.NET Framework 4.8](#tab/netframework48)
 
-No changes are required to your `host.json` file. However, if your Application Insights configuration in this file from your in-process model project, you might want to make additional changes in your `Program.cs` file. The `host.json` file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
+No changes are required to your `host.json` file. However, if your Application Insights configuration in this file from your in-process model project, you might want to make other changes in your `Program.cs` file. The `host.json` file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
 
 
 # [.NET 8 (in-process model)](#tab/net8-in-proc)
@@ -296,19 +296,19 @@ There might also be class name differences in bindings. For more information, se
 
 # [.NET 8 (isolated)](#tab/net8)
 
-This section highlights other code changes to consider as you work through the migration. These changes are not needed by all applications, but you should evaluate if any are relevant to your scenarios. Make sure to check [Breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x) for additional changes you might need to make to your project.
+This section highlights other code changes to consider as you work through the migration. These changes aren't needed by all applications, but you should evaluate if any are relevant to your scenarios. Make sure to check [Breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x) for other changes you might need to make to your project.
 
 [!INCLUDE [functions-dotnet-migrate-isolated-other-code-changes](../../includes/functions-dotnet-migrate-isolated-other-code-changes.md)]
 
 # [.NET Framework 4.8](#tab/netframework48)
 
-This section highlights other code changes to consider as you work through the migration. These changes are not needed by all applications, but you should evaluate if any are relevant to your scenarios. Make sure to check [Breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x) for additional changes you might need to make to your project.
+This section highlights other code changes to consider as you work through the migration. These changes aren't needed by all applications, but you should evaluate if any are relevant to your scenarios. Make sure to check [Breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x) for other changes you might need to make to your project.
 
 [!INCLUDE [functions-dotnet-migrate-isolated-other-code-changes](../../includes/functions-dotnet-migrate-isolated-other-code-changes.md)]
 
 # [.NET 8 (in-process model)](#tab/net8-in-proc)
 
-Make sure to check [Breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x) for additional changes you might need to make to your project.
+Make sure to check [Breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x) for other changes you might need to make to your project.
 
 ---
 
@@ -400,7 +400,7 @@ To update your project to Azure Functions 4.x:
 
 1. Update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to version 4.x. 
 
-1. Update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. For more information, see [breaking changes](#breaking-changes-between-3x-and-4x).
+1. Update your app's [Azure Functions extensions bundle](extension-bundles.md) to 2.x or above. For more information, see [breaking changes](#breaking-changes-between-3x-and-4x).
 
 ::: zone-end  
 
@@ -474,7 +474,7 @@ If you don't see your programming language, go select it from the [top of the pa
 
 - Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You should instead use [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 
-- Azure Functions 4.x now enforces [minimum version requirements for extensions](functions-versions.md#minimum-extension-versions). Update to the latest version of affected extensions. For non-.NET languages, [update](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
+- Azure Functions 4.x now enforces [minimum version requirements for extensions](functions-versions.md#minimum-extension-versions). Update to the latest version of affected extensions. For non-.NET languages, [update](./extension-bundles.md) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
 - Default and maximum timeouts are now enforced in 4.x for function apps running on Linux in a Consumption plan. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 

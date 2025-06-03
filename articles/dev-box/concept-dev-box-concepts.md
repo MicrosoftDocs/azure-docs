@@ -13,9 +13,6 @@ ms.custom: template-concept
 
 # Key concepts for Microsoft Dev Box
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
-
 This article describes the key concepts and components of Microsoft Dev Box to help you set up the service successfully.
 
 Microsoft Dev Box gives developers self-service access to preconfigured and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, manage security, and network settings to access resources securely. Different components play a part in the configuration of Microsoft Dev Box.
@@ -92,6 +89,8 @@ A dev box pool is a collection of dev boxes that you manage together and to whic
 A dev box is a preconfigured workstation that you create through the self-service developer portal. A new dev box has all the tools, binaries, and configuration required for a dev box user to be productive immediately. You can create and manage multiple dev boxes to work on multiple workstreams.
 
 As a dev box user, you have control over your own dev boxes. You can create more as you need them and delete them when you finish using them.
+
+[!INCLUDE [dev-box-get-started-links](includes/dev-box-get-started-links.md)]
 
 ## Related content
 

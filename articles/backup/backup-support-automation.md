@@ -6,7 +6,9 @@ ms.topic: reference
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - build-2025
 ---
 
 # Support matrix for automation in Azure Backup
@@ -19,7 +21,7 @@ You  can automate most backup related tasks using programmatic methods in Azure 
 
 | **Category** | **Operation** | **PowerShell** | **CLI** | **REST API** | **Azure Policy** | **ARM Template** | **Bicep** | **Terraform** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Backup | Create backup policy and configure backup | Supported <br><br> [See the examples](./backup-azure-vms-automation.md#back-up-azure-vms). | Supported <br><br> [See the examples](./quick-backup-vm-cli.md#enable-backup-for-an-azure-vm) | Supported  <br><br>  [See the examples](./backup-azure-arm-userestapi-backupazurevms.md). | Supported  <br><br> [See the examples](./backup-azure-auto-enable-backup.md). | Supported  <br><br> [See the examples](./backup-rm-template-samples.md). | Supported <br><br> [See the examples](./quick-backup-vm-bicep-template.md). | Supported <br><br> [See the examples](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/backup_protected_vm). | 
+| Backup | Create backup policy and configure backup | Supported <br><br> [See the examples](./backup-azure-vms-automation.md#back-up-azure-vms). | Supported <br><br> [See the examples](./quick-backup-vm-cli.md#enable-backup-for-an-azure-vm) | Supported  <br><br>  [See the examples](./backup-azure-arm-userestapi-backupazurevms.md). | Supported  <br><br> [See the examples](./backup-azure-auto-enable-backup.md). | Supported  <br><br> [See the examples](./backup-rm-template-samples.md). | Supported <br><br> [See the examples](./quick-backup-vm-bicep-file.md). | Supported <br><br> [See the examples](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/backup_protected_vm). | 
 | Backup | Selective disk backup | Supported  <br><br> [See the examples](./selective-disk-backup-restore.md#using-powershell) | Supported  <br><br> [See the examples](./selective-disk-backup-restore.md#using-azure-cli). | Supported  <br><br> [See the examples](./backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup). | N/A | N/A | N/A | Currently not supported. | 
 | Backup | Run on-demand backup | Supported   <br><br> [See the examples](./quick-backup-vm-powershell.md#start-a-backup-job). | Supported -  <br><br> [See the examples](./quick-backup-vm-cli.md#start-a-backup-job). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-backupazurevms.md#trigger-an-on-demand-backup-for-a-protected-azure-vm). | N/A | N/A | N/A | N/A | 
 | Restore | Restore disks to primary region | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#restore-an-azure-vm). | Supported  <br><br> [See the examples](./tutorial-restore-disk.md#restore-a-vm-disk). | Supported  <br><br> [See the examples](./backup-azure-arm-userestapi-restoreazurevms.md). | N/A | N/A | N/A | N/A |

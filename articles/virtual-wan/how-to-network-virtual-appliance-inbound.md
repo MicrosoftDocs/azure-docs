@@ -15,6 +15,9 @@ The following article describes how to configure Destination NAT for Next-Genera
 > [!Important]
 > Destination NAT (DNAT) for Virtual WAN integrated Network Virtual Appliances is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+> [!Important]
+> This document applies to Integrated Network Virtual Appliances deployed in the Virtual WAN hub and does **not** apply to software-as-a-service (SaaS) solutions. See [third-party integrations](third-party-integrations.md) for more information on the differences between Integrated Network Virtual Appliances and SaaS solutions. Reference your SaaS provider's documentation for information related to infrastructure operations available for SaaS solutions. 
+
 ## Background
 
 Network Virtual Appliances (NVAs) with Next-Generation Firewall capabilities that are integrated with Virtual WAN allow customers to protect and inspect traffic between private networks connected to Virtual WAN. 

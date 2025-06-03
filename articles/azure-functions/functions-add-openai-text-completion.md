@@ -8,7 +8,9 @@ ms.author: dbandaru
 ms.collection: 
   - ce-skilling-ai-copilot
 zone_pivot_groups: programming-languages-set-functions
-#customer intent: As an Azure developer, I want learn how to integrate Azure OpenAI capabilities in my function code to leverage AI benefits in my cloud-based code executions. 
+#customer intent: As an Azure developer, I want learn how to integrate Azure OpenAI capabilities in my function code to leverage AI benefits in my cloud-based code executions.
+ms.custom:
+  - build-2025
 ---
 
 # Tutorial: Add Azure OpenAI text completion hints to your functions in Visual Studio Code
@@ -164,7 +166,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
     ```csharp
     [Function(nameof(WhoIs))]
     public IActionResult WhoIs([HttpTrigger(AuthorizationLevel.Function, Route = "whois/{name}")] HttpRequest req,
-    [TextCompletionInput("Who is {name}?", Model = "%CHAT_MODEL_DEPLOYMENT_NAME%")] TextCompletionResponse response)
+    [TextCompletionInput("Who is {name}?", ChatModel = "%CHAT_MODEL_DEPLOYMENT_NAME%")] TextCompletionResponse response)
     {
         if(!String.IsNullOrEmpty(response.Content))
         {

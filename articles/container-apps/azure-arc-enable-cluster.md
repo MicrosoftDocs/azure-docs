@@ -4,13 +4,15 @@ description: 'Tutorial: learn how to set up Azure Container Apps in your Azure A
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: tutorial
-ms.date: 02/03/2025
+ms.date: 05/19/2025
 ms.author: cshoe
 ---
 
-# Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes (Preview)
+# Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes
 
 With [Azure Arc-enabled Kubernetes clusters](/azure/azure-arc/kubernetes/overview), you can create a [Container Apps enabled custom location](azure-arc-create-container-app.md) in your on-premises or cloud Kubernetes cluster to deploy your Azure Container Apps applications as you would any other region.
 
@@ -23,10 +25,6 @@ This tutorial will show you how to enable Azure Container Apps on your Arc-enabl
 > * Create a custom location.
 > * Create the Azure Container Apps connected environment.
 
-> [!NOTE]
-> During the preview, Azure Container Apps on Arc are not supported in production configurations. This article provides an example configuration for evaluation purposes only.
->
-> This tutorial uses [Azure Kubernetes Service (AKS)](/azure/aks/) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you may not want to enable Azure Arc on an AKS cluster as it is already managed in Azure.
 
 ## Prerequisites
 
@@ -34,7 +32,6 @@ This tutorial will show you how to enable Azure Container Apps on your Arc-enabl
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
-- Review the [requirements and limitations](azure-arc-overview.md) of the public preview. Of particular importance are the cluster requirements.
 
 ## Setup
 
@@ -253,7 +250,7 @@ A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) pr
 ## Install the Container Apps extension
 
 > [!IMPORTANT]
-> If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy or a custom load balancer](/azure/aks/hybrid/configure-load-balancer) before attempting to install the extension.
+> If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy or a custom load balancer](/azure/aks/aksarc/configure-load-balancer) before attempting to install the extension. You could also use `az containerapp arc setup-core-dns --distro AksAzureLocal` to set up coredns for local contexts.
 
 1. Set the following environment variables to the desired name of the [Container Apps extension](azure-arc-create-container-app.md), the cluster namespace in which resources should be provisioned, and the name for the Azure Container Apps connected environment. Choose a unique name for `<connected-environment-name>`.  The connected environment name will be part of the domain name for app you'll create in the Azure Container Apps connected environment.
 
@@ -293,7 +290,6 @@ A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) pr
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${NAMESPACE}" \
         --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" \
-        --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${AKS_CLUSTER_GROUP_NAME}" \
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" \
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${LOG_ANALYTICS_KEY_ENC}"
@@ -315,7 +311,6 @@ A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) pr
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" `
         --configuration-settings "appsNamespace=${NAMESPACE}" `
         --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" `
-        --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${AKS_CLUSTER_GROUP_NAME}" `
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" `
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" `
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${LOG_ANALYTICS_KEY_ENC}"
@@ -337,7 +332,6 @@ A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) pr
     | `logProcessor.appLogs.destination` | Optional. Destination for application logs. Accepts `log-analytics` or `none`, choosing none disables platform logs. |
     | `logProcessor.appLogs.logAnalyticsConfig.customerId` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace ID. This parameter should be configured as a protected setting. |
     | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace shared key. This parameter should be configured as a protected setting. |
-    | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | The name of the resource group in which the Azure Kubernetes Service cluster resides. Valid and required only when the underlying cluster is Azure Kubernetes Service. |
 
 1. Save the `id` property of the Container Apps extension for later.
 

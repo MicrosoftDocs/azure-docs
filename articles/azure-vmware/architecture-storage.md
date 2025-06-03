@@ -2,9 +2,11 @@
 title: Architecture - Storage
 description: Learn about storage capacity, storage policies, fault tolerance, and storage integration in Azure VMware Solution private clouds.
 ms.topic: concept-article
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - build-2025
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 5/15/2025
 ---
 
 # Azure VMware Solution storage concepts
@@ -41,6 +43,20 @@ In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft g
 
 >[!TIP]
 >If you're unsure if the cluster will grow to four or more, then deploy using the default policy.  If you're sure your cluster will grow, then instead of expanding the cluster after your initial deployment, we recommend deploying the extra hosts during deployment. As the VMs are deployed to the cluster, change the disk's storage policy in the VM settings to either RAID-5 FTT-1 or RAID-6 FTT-2. In reference to [SLA for Azure VMware Solution](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/), note that more than 6 hosts should be configured in the cluster to use an FTT-2 policy (RAID-1, or RAID-6). Also note that the storage policy is not automatically updated based on cluster size. Similarly, changing the default does not automatically update the running VM policies.  
+
+## vSAN Disk Stripes Per Object
+
+Commonly referred to as stripe width, this setting defines the minimum number of capacity devices across which each replica of a storage object is distributed. Striping can improve performance for I/O-intensive virtual machines by spreading the virtual machine's data across more drives, enhancing overall performance. 
+
+>[!TIP]
+>The recommendation is to keep the vSAN Disk Stripes Per Object setting at its default level. However, if you encounter performance issues with I/O intensive virtual machines, you might consider increasing the number of vSAN Disk Stripes Per Object within a storage policy to potentially improve performance.
+
+## Deduplication and Compression 
+
+vSAN datastores use deduplication and compression by default. Deduplication and compression work together to reduce the amount of space consumed within a datastore. vSAN applies deduplication first, followed by compression, as data moves from the cache tier to the capacity tier.
+
+>[!TIP]
+>With I/O-intensive virtual machines, disabling deduplication on the vSAN datastore may improve overall virtual machine performance by up to 2x. 
 
 ## Data-at-rest encryption
 

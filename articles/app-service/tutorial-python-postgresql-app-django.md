@@ -120,7 +120,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for PostgreSQL, and Azure Cache. For the creation process, you specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of Python to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -381,7 +381,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 5:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like `Configure Azure database and cache connectons`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
+        1. In the textbox, type a commit message like `Configure Azure database and cache connections`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
@@ -667,7 +667,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: &lt;URL>
     </pre>
 
 1. In the SSH session, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
@@ -688,7 +688,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few restaurants to the list.
@@ -707,10 +707,10 @@ The sample application includes `print()` statements to demonstrate this capabil
 
 :::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="13-16" highlight="2":::
 
-In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
+In the AZD output, find the link to stream App Service logs and navigate to it in the browser.
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: &lt;URL>
 </pre>
 
 Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).

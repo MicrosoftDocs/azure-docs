@@ -8,10 +8,14 @@ ms.workload: storage
 ms.topic: how-to
 ms.date: 05/06/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 # Manage volumes in an application volume group for Oracle
 
 You can manage a volume from its volume group. You can resize, delete, or change throughput for the volume. 
+
+[!INCLUDE [CLI & PowerShell call-out](includes/application-volume-group-powershell-oracle.md)]
 
 ## Steps
 
@@ -33,7 +37,7 @@ You can manage a volume from its volume group. You can resize, delete, or change
         > Changing the protocol type involves reconfiguration at the Linux host. When using dNFS, it's not recommended to mix volumes using NFSv3 and NFSv4.1.  
 
         > [!NOTE] 
-        > Using Azure NetApp Files built-in automated snapshots doesn't create database consistent backups. Instead, use data protection software such as [SnapCenter](https://docs.netapp.com/us-en/snapcenter/protect-azure/protect-applications-azure-netapp-files.html), [AzAcSnap](azacsnap-introduction.md), or other [validated partner solutions](../storage/solution-integration/validated-partners/backup-archive-disaster-recovery/partner-overview.md) that supports snapshot-based data protection for Oracle. 
+        > Using Azure NetApp Files built-in automated snapshots doesn't create database consistent backups. Instead, use data protection software such as [AzAcSnap](azacsnap-introduction.md), [SnapCenter](https://docs.netapp.com/us-en/snapcenter/protect-azure/protect-applications-azure-netapp-files.html), or other [validated partner solutions](../storage/solution-integration/validated-partners/backup-archive-disaster-recovery/partner-overview.md) that support snapshot-based data protection for Oracle. 
 
     * **Change Throughput**   
         You can adapt the throughput of the volume.

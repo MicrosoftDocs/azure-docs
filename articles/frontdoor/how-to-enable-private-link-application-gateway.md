@@ -13,6 +13,8 @@ zone_pivot_groups: front-door-dev-exp-portal-ps-cli
 
 # Connect Azure Front Door Premium to an Azure Application Gateway with Private Link
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 This article guides you through the steps to configure an Azure Front Door Premium to connect privately to your Azure Application Gateway using Azure Private Link.
 
 ::: zone pivot="front-door-portal"

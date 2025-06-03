@@ -11,7 +11,12 @@ ms.author: wellee
 
 # How to restart a Network Virtual Appliance in an Azure Virtual WAN hub
 
-The following article shows you how to restart Network Virtual Appliances (NVAs) deployed in the Virtual WAN hub. This article doesn't apply to NVAs deployed as Virtual Machines or Virtual Machine Scale Sets in a Virtual Network connected to Virtual WAN hubs. This article also doesn't apply to SaaS solutions deployed in the Virtual WAN hub.
+The following article shows you how to restart Network Virtual Appliances (NVAs) deployed in the Virtual WAN hub. 
+
+> [!Important]
+> This document applies to Integrated Network Virtual Appliances deployed in the Virtual WAN hub and does **not** apply to software-as-a-service (SaaS) solutions. See [third-party integrations](third-party-integrations.md) for more information on the differences between Integrated Network Virtual Appliances and SaaS solutions. Reference your SaaS provider's documentation for information related to infrastructure operations available for SaaS solutions.
+
+
 
 ## Prerequisites
 

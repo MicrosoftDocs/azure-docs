@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 04/17/2025
+ms.date: 06/02/2025
 ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -116,7 +116,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL. For the creation process, you specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of Java to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -141,21 +141,46 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         **Step 2:** In the **Create Web App** page, fill out the form as follows.
         1. *Name*: **msdocs-jboss-mysql**. A resource group named **msdocs-jboss-mysql_group** will be generated for you.
         1. *Runtime stack*: **Java 17**.
-        1. *Java web server stack*: **Red Hat JBoss EAP 8**. If you configured your Red Hat subscription with Azure already, select **Red Hat JBoss EAP 8 BYO License**.
+        1. *Java web server stack*: **Red Hat JBoss EAP 8**.
+        1. *Operating system*: **Linux**.
         1. *Region*: Any Azure region near you.
         1. *Linux Plan*: **Create new** and use the name **msdocs-jboss-mysql**.
         1. *Pricing plan*: **Premium V3 P0V3**. When you're ready, you can [scale up](manage-scale-up.md) to a different pricing tier.
-        1. *Deploy with your app*: Select **Database**. Azure Database for MySQL - Flexible Server is selected for you by default. It's a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
-        1. Select **Review + create**.
-        1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-2.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-2.png" alt-text="A screenshot showing how to configure a new app in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        **Step 3:**
+        1. Select the **Database** tab.
+        1. Select **Create a Database**.
+        1. In **Engine**, select **MySQL - Flexible Server**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the database configuration in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:**
+        1. Select the **Deployment** tab.
+        1. Enable **Continuous deployment**.
+        1. In **Organization**, select your GitHub alias.
+        1. In **Repository**, select **msdocs-jboss-mysql-sample-app**.
+        1. In **Branch**, select **starter-no-infra**.
+        1. Make sure **Basic authentication** is disabled.
+        1. Select **Review + create**.
+        1. After validation completes, select **Create**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png" alt-text="A screenshot showing the deployment configuration in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
         - **Resource group**: The container for all the created resources.
         - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
         - **App Service**: Represents your app and runs in the App Service plan.
@@ -165,7 +190,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Private endpoints**: Access endpoints for the database server in the virtual network.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png":::
     :::column-end:::
 :::row-end:::
 
@@ -288,40 +313,16 @@ Like the JBoss convention, if you want to deploy to the root context of JBoss, n
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the App Service page, in the left menu, select **Deployment > Deployment Center**. 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-1.png" alt-text="A screenshot showing how to open the deployment center in App Service." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** In the Deployment Center page:
-        1. In **Source**, select **GitHub**. By default, **GitHub Actions** is selected as the build provider.        
-        1. Sign in to your GitHub account and follow the prompt to authorize Azure.
-        1. In **Organization**, select your account.
-        1. In **Repository**, select **msdocs-jboss-mysql-sample-app**.
-        1. In **Branch**, select **starter-no-infra**. This is the same branch that you worked in with your sample app, without any Azure-related files or configuration.
-        1. For **Authentication type**, select **User-assigned identity**.
-        1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
-        By default, the deployment center [creates a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity) for the workflow to authenticate using Microsoft Entra (OIDC authentication). For alternative authentication options, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`. 
+        **Step 1:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`. 
         This pulls the newly committed workflow file into your codespace. You can modify it according to your needs at *.github/workflows/starter-no-infra_msdocs-jboss-mysql.yml*.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-3.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-1.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4 (Option 1: with GitHub Copilot):**  
+        **Step 2 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by clicking the **Chat** view, then clicking **+**.
         1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `java:jboss/MySQLDS` data source and how it's configured. 
         1. Say, "*The data source in JBoss in Azure uses the JNDI name java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the class. 
@@ -333,43 +334,45 @@ Like the JBoss convention, if you want to deploy to the root context of JBoss, n
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4 (Option 2: without GitHub Copilot):**  
+        **Step 2 (Option 2: without GitHub Copilot):**  
         1. Open *src/main/resources/META-INF/persistence.xml* in the explorer. When the application starts, it loads the database settings in this file.
         1. Change the value of `<jta-data-source>` from `java:jboss/MySQLDS` to `java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS`, which is the data source you found with JBoss CLI earlier in the SSH shell.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing a GitHub codespace and the ContextListener.java file opened." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-4.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing a GitHub codespace and the ContextListener.java file opened." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5:**
+        **Step 3:**
         1. Select the **Source Control** extension.
         1. In the textbox, type a commit message like `Configure Azure JNDI name`.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-5.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6:**
-        Back in the Deployment Center page in the Azure portal:
+        **Step 4:**
+        Back in the App Service management page in the Azure portal:
+        1. From the left menu, select **Deployment** > **Deployment Center**.
+
         1. Select **Logs**. A new deployment run is already started from your committed changes.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-6.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-6.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 5 minutes.
+        **Step 5:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 5 minutes.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-7.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-7.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-5.png":::
     :::column-end:::
 :::row-end:::
 
@@ -407,7 +410,7 @@ Azure App Service captures all messages output to the console to help you diagno
 
 :::row:::
     :::column span="2":::
-        In the App Service page, from the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
+        In the App Service page, from the left menu, select **Monitoring** > **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-stream-diagnostic-logs-1.png":::
@@ -537,7 +540,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>-&lt;hash>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: &lt;URL>
     </pre>
 
 1. In the SSH terminal, run `$JBOSS_HOME/bin/jboss-cli.sh --connect`.
@@ -608,7 +611,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -630,7 +633,7 @@ The sample application includes standard Log4j logging statements to demonstrate
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: &lt;URL>
 </pre>
 
 Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
@@ -664,7 +667,7 @@ If you see the error: `The subscription '701ea799-fb46-4407-bb67-9cbcf289f1c7' i
 
 Depending on your subscription and the region you select, you might see the deployment status for Azure Database for MySQL Flexible Server to be `Conflict`, with the following message in Operation details:
 
-`InternalServerError: An unexpected error occured while processing the request.`
+`InternalServerError: An unexpected error occurred while processing the request.`
 
 This error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment.
 
@@ -709,7 +712,7 @@ Pricing for the created resources is as follows:
 
 #### How do I connect to the MySQL server behind the virtual network with other tools?
 
-In this tutorial, the App Service app is already has network connectivity to the MySQL server and can authenticate with Microsoft Entra by using its system-assigned managed identity. You can connect to MySQL directly from within the app container by running the following commands in the SSH session (get your `<server>`, `<user>`, and `<database>` values from the `AZURE_MYSQL_CONNECTIONSTRING` app setting):
+In this tutorial, the App Service app already has network connectivity to the MySQL server and can authenticate with Microsoft Entra by using its system-assigned managed identity. You can connect to MySQL directly from within the app container by running the following commands in the SSH session (get your `<server>`, `<user>`, and `<database>` values from the `AZURE_MYSQL_CONNECTIONSTRING` app setting):
 
 ```bash
 apt-get update

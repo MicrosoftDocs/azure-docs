@@ -6,6 +6,8 @@ ms.topic: how-to
 ms.date: 08/26/2024
 ms.author: msangapu
 author: msangapu-msft
+ms.custom:
+  - build-2025
 ---
 # Scale up an app in Azure App Service
 
@@ -40,7 +42,7 @@ For information about the pricing and features of individual App Service plans, 
 ## Scale up your pricing tier
 
 > [!NOTE]
-> To scale up to Premium V3 tier, see [Configure Premium V3 tier for App Service](app-service-configure-premium-tier.md).
+> To scale up to Premium V4 tier, see [Configure Premium V4 tier for App Service](app-service-configure-premium-v4-tier.md).
 
 1. In your browser, open the [Azure portal](https://portal.azure.com).
 
@@ -50,7 +52,7 @@ For information about the pricing and features of individual App Service plans, 
 
 1. Select one of the pricing tiers and select **Select**.
 
-    :::image type="content" source="media/manage-scale-up/explore-pricing-plans.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V3 plan selected.":::
+    :::image type="content" source="media/manage-scale-up/explore-pricing-plans.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V4 plan selected.":::
 
     When the operation is complete, you see a notification pop-up with a green success check mark.
 

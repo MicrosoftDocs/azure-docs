@@ -4,7 +4,11 @@ description: This quickstart shows you how to use Bicep to deploy an Azure Sprin
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.custom: devx-track-java, mode-other, devx-track-bicep
+ms.custom:
+  - devx-track-java
+  - mode-other
+  - devx-track-bicep
+  - build-2025
 ms.author: karler
 ms.date: 08/28/2024
 ---
@@ -15,7 +19,7 @@ ms.date: 08/28/2024
 
 **This article applies to:** ❎ Basic ✅ Standard ✅ Enterprise
 
-This quickstart describes how to use a Bicep template to deploy an Azure Spring Apps cluster into an existing virtual network.
+This quickstart describes how to use a Bicep file to deploy an Azure Spring Apps cluster into an existing virtual network.
 
 Azure Spring Apps makes it easy to deploy Spring applications to Azure without any code changes. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
@@ -80,7 +84,7 @@ Next, open a Bash window and run the following Azure CLI command, replacing the 
           springCloudServiceCidrs=<value>
   ```
 
-  This command uses the Bicep template to create an Azure Spring Apps instance in an existing virtual network. The command also creates a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
+  This command uses the Bicep file to create an Azure Spring Apps instance in an existing virtual network. The command also creates a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
 
 ## Review deployed resources
 
