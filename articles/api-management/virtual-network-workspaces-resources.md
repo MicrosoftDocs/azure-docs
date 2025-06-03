@@ -22,9 +22,7 @@ For background about networking options in API Management, see [Use a virtual ne
 
 [!INCLUDE [api-management-virtual-network-workspaces-alert](../../includes/api-management-virtual-network-workspaces-alert.md)]
 
-## Network prerequisites
-
-### Network location
+## Network location
 
 The virtual network must be in the same region and Azure subscription as the API Management instance.
 
@@ -66,7 +64,7 @@ For virtual network injection, the subnet needs to be delegated to the **Microso
 ---
 
 
-### Network security group (NSG) rules
+## Network security group (NSG) rules
 
 A network security group (NSG) must be attached to the subnet to explicitly allow certain inbound or outbound connectivity. Configure the following rules in the NSG. Set the priority of these rules higher than that of the default rules.
 
@@ -84,6 +82,7 @@ Configure other NSG rules to meet your organization's network access requirement
 | Direction | Source  | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | 
 |-------|--------------|----------|---------|------------|-----------|-----|--------|
 | Inbound | AzureLoadBalancer | * | Workspace gateway subnet range  | 80 | TCP | Allow | Allow internal health ping traffic |
+| Inbound | Internet | * | Workspace gateway subnet range  | 80,443 | TCP | Allow | Allow inbound traffic |
 | Outbound | VirtualNetwork | * | Storage | 443 | TCP | Allow | Dependency on Azure Storage |
 
 ---
