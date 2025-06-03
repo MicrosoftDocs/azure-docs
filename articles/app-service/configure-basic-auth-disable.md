@@ -4,14 +4,14 @@ description: Learn about disabling basic authentication for increased security a
 author: cephalin
 ms.author: cephalin
 ms.topic: how-to
-ms.date: 06/02/2025
+ms.date: 06/03/2025
 keywords: azure app service, security, deployment, FTP, MsDeploy
 
 ---
 
 # Disable basic authentication in Azure App Service deployments
 
-This article discusses how to disable basic username and password authentication for deploying code to Azure App Service apps. The article explains several ways to disable basic authentication, fallback deployment methods if any, and how to monitor basic authentication attempts.
+This article discusses how to disable basic username and password authentication for deploying code to Azure App Service apps. The article explains several ways to disable basic authentication, fallback deployment methods if any, and how to monitor basic authentication access attempts.
 
 App Service provides basic authentication for FTP and web deployment clients to connect using username and password deployment credentials. The basic authentication APIs are good for browsing your site's file system, uploading drivers and utilities, and deploying with MSBuild. For more information, see [Configure deployment credentials for Azure App Service](deploy-configure-credentials.md).
 
@@ -21,7 +21,7 @@ Microsoft Entra also lets you deploy from other Azure services by using managed 
 
 ## Prerequisites
 
-- To disable using basic authentication for FTP access to an app, you must have owner-level access to the app.
+- To disable basic authentication for FTP access to an app, you must have owner-level access to the app.
 - To create and assign a role to prevent lower-privileged users from enabling basic authentication, you must have **Owner** or **User Access Administrator** permissions in the subscription.
 
 ## Disable basic authentication
@@ -32,6 +32,8 @@ For other deployment methods that use basic authentication, such as Visual Studi
 
 >[!NOTE]
 >SCM basic authentication is required for enabling FTP basic authentication.
+
+To disable basic authentication:
 
 ### [Azure portal](#tab/portal)
 
@@ -45,7 +47,7 @@ For other deployment methods that use basic authentication, such as Visual Studi
 
 ### [Azure CLI](#tab/cli)
 
-Run the following Azure CLI commands in the Bash environment of Azure Cloud Shell by selecting **Open Cloud Shell** at the upper right of the code block.
+Run the following Azure CLI commands in the Bash environment of Azure Cloud Shell by selecting **Open Cloud Shell** at the upper right of the code block. Copy the code, replace any placeholders, paste it into the Cloud Shell and run it.
 
 To disable FTP basic authentication access, run the following command, replacing the placeholders with your app's resource group and name. You must have owner-level access to the app.
 
@@ -53,7 +55,7 @@ To disable FTP basic authentication access, run the following command, replacing
 az resource update --resource-group <group-name> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<app-name> --set properties.allow=false
 ```
 
-To disable basic authentication access for the Web Deploy port and Git deploy `https://\<app-name>.scm.azurewebsites.net`, run the following command. Replace the placeholders with your app's resource group and name.
+To disable basic authentication access for the Web Deploy port and Git deploy with `https://<app-name>.scm.azurewebsites.net`, run the following command. Replace the placeholders with your app's resource group and name.
 
 ```azurecli-interactive
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<app-name> --set properties.allow=false
@@ -89,7 +91,7 @@ The following table shows how various deployment methods behave when basic authe
 
 ### Visual Studio basic authentication disabled warning
 
-Visual Studio requires basic authentication to deploy to Azure App Service. If you disable basic authentication, a Visual Studio warning reminds you that your app configuration changed and you can no longer deploy to your app. Either you disabled basic authentication on the app yourself, or your organization policy disabled basic authentication for App Service apps.
+Visual Studio requires basic authentication to deploy to Azure App Service. If a Visual Studio warning states that your app configuration changed and you can no longer deploy to your app, either you disabled basic authentication on the app or your organization policy disabled basic authentication for App Service apps.
 
 ## Create a custom role to prevent enabling basic authentication
 
@@ -106,7 +108,7 @@ To prevent lower-privileged users from enabling basic authentication for any app
 1. Select the box for **Write**, and then select **Add**. This step adds the operation to **NotActions** for the role.
 1. Select **Exclude permissions** again.
 1. Search for and expand **microsoft.web/sites/slots/basicPublishingCredentialsPolicies**, select the **Write** box, and then select **Add**.
-1. Your **Permissions** tab should look like the following screenshot. Select **Review + create**, and then select **Create**.
+1. Your **Permissions** tab should now look like the following screenshot. Select **Review + create**, and then select **Create**.
 
    :::image type="content" source="media/configure-basic-auth-disable/custom-role-no-basic-auth.png" alt-text="Screenshot that shows excluding Write for basicPublishingCredentialsPolicies.":::
 
@@ -122,7 +124,7 @@ az role definition create --role-definition '{
     "IsCustom": true,
     "Description": "Prevents users from enabling basic authentication for all App Service apps or slots.",
     "NotActions": [
-        "Microsoft.Web/sites/basicPublishingCredentialsPolicies/Write"
+        "Microsoft.Web/sites/basicPublishingCredentialsPolicies/Write",
         "Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/Write"
     ],
     "AssignableScopes": ["/subscriptions/<subscription-guid>"]
