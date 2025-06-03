@@ -5,7 +5,7 @@ author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: tutorial
 ms.date: 12/27/2024
-author: jsuri
+ms.author: jsuri
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region using Azure Resource Mover.
 ---

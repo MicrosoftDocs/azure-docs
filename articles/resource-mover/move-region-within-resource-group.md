@@ -5,7 +5,7 @@ author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.date: 12/27/2024
-author: jsuri
+ms.author: jsuri
 
 #Customer intent: As an Azure admin,  I want to relocate Azure resources to a different Azure region with Azure Resource Mover
 

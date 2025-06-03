@@ -5,7 +5,7 @@ author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.date: 12/27/2024
-author: jsuri
+ms.author: jsuri
 ms.custom:
 #Customer intent: As an Azure admin,  I want remove resources I've added to a move collection.
 ---

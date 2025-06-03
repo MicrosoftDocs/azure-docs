@@ -5,7 +5,7 @@ author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.date: 12/27/2024
-author: jsuri
+ms.author: jsuri
 ms.custom: engagement-fy23
 ---
 

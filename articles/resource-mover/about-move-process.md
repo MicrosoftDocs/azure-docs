@@ -5,7 +5,7 @@ author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: overview
 ms.date: 12/27/2024
-author: jsuri
+ms.author: jsuri
 ms.custom: UpdateFrequency.5
 #Customer intent: As an Azure admin, I want to understand how Azure Resource Mover works.
 ---

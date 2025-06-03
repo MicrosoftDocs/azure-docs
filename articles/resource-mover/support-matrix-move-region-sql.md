@@ -5,7 +5,7 @@ author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: concept-article
 ms.date: 12/27/2024
-author: jsuri
+ms.author: jsuri
 ms.custom: UpdateFrequency.5
 ---
 # Support for moving Azure SQL resources between Azure regions
