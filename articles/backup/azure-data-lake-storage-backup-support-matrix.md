@@ -3,7 +3,10 @@ title: Support matrix for Azure Data Lake Storage Vaulted Backup (preview)
 description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
 ms.topic: reference
 ms.date: 05/21/2025
-ms.custom: references_regions, engagement-fy24
+ms.custom:
+  - references_regions
+  - engagement-fy24
+  - build-2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri

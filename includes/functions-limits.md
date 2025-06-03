@@ -3,6 +3,7 @@ author: ggailey777
 ms.service: azure-functions
 ms.custom:
   - build-2024
+  - build-2025
 ms.topic: include
 ms.date: 03/06/2025
 ms.author: glenga

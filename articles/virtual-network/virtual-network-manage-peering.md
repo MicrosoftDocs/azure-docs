@@ -6,7 +6,12 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Create, Change, or Delete Azure Virtual Network Peering

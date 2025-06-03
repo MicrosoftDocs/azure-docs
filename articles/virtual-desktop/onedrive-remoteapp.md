@@ -5,6 +5,8 @@ ms.topic: how-to
 author: dougeby
 ms.author: avdcontent
 ms.date: 11/26/2024
+ms.custom:
+  - build-2025
 ---
 
 # Launch Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop 

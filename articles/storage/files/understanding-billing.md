@@ -6,7 +6,9 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 05/27/2025
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Understand Azure Files billing models
