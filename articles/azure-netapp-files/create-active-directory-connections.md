@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/09/2025
 ms.author: anfdocs
+# Customer intent: As an Azure NetApp Files administrator, I want to create and manage Active Directory connections, so that I can enable proper authentication and access control for my SMB and NFS volumes.
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
 

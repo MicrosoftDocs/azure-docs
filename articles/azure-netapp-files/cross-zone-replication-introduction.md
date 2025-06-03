@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 08/29/2024
 ms.author: anfdocs
 ms.custom: references_regions
+# Customer intent: As a cloud architect, I want to implement cross-zone replication for Azure NetApp Files volumes so that I can enhance data resiliency and ensure critical applications remain operational during zone-wide outages or disasters.
 ---
 
 # Understand cross-zone replication of Azure NetApp Files

@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 04/17/2024
 ms.author: anfdocs
+# Customer intent: “As a system administrator, I want to configure LDAP over TLS for Azure NetApp Files so that I can secure communication between the volumes and the Active Directory server.”
 ---
 # Configure AD DS LDAP over TLS for Azure NetApp Files
 
