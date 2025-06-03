@@ -4,7 +4,7 @@ description: Learn about the impact of maxfiles on Azure NetApp Files quotas and
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/16/2025
 ms.author: anfdocs
 ---

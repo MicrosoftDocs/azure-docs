@@ -6,12 +6,19 @@ ms.author: sonialopez
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 03/07/2025
+ms.date: 05/07/2025
 ---
 
 # Troubleshoot Azure IoT Operations
 
 This article contains troubleshooting tips for Azure IoT Operations.
+
+The troubleshooting guidance helps you diagnose and resolve issues you might encounter when deploying, configuring, or running Azure IoT Operations by:
+
+- Collecting diagnostic information from the Azure IoT Operations service and the Azure IoT Operations components running on your cluster.
+- Providing solutions to common issues such as insufficient security permissions, missing secrets, or incorrect configuration settings.
+
+For information about known issues and temporary workarounds, see [Known issues: Azure IoT Operations](known-issues.md).
 
 ## Troubleshoot Azure IoT Operations deployment
 
@@ -31,7 +38,7 @@ If you see the following error message, you either didn't enable the required Az
 Message: Microsoft.ExtendedLocation resource provider does not have the required permissions to create a namespace on the cluster.
 ```
 
-To resolve, follow [this guidance](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster) for enabling the custom locations feature with the correct OID.
+To resolve the issue, follow [this guidance](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster) to enable the custom locations feature with the correct OID.
 
 ### You see a MissingResourceVersionOnHost error message
 
@@ -62,7 +69,7 @@ To resolve the issue, either elevate principal permissions, or don't deploy reso
 
 ### Deployment of MQTT broker fails
 
-A deployment can fail if the cluster doesn't have sufficient resources for the specified MQTT broker cardinality and memory profile. To resolve this situation, adjust the replica count, workers, sharding, and memory profile settings to appropriate values for your cluster.
+A deployment might fail if the cluster doesn't have sufficient resources for the specified MQTT broker cardinality and memory profile. To resolve this situation, adjust the replica count, workers, sharding, and memory profile settings to appropriate values for your cluster.
 
 > [!WARNING]
 > Setting the replica count to one can result in data loss in node failure scenarios.
@@ -78,7 +85,7 @@ Currently, you can't use the `az iot ops` command to enable resource sync rules 
 
 To create the device registry rule:
 
-1. Create a file called *rsr_device_registry.json* with the following content. Replace the `<placeholder>` values with your own values:
+1. Create a file called *rsr_device_registry.json* with the following content. Replace the `<placeholder>` values with your values:
 
     ```json
     {
@@ -95,7 +102,7 @@ To create the device registry rule:
     }
     ```
 
-1. Run the following command to create the device registry resource sync rule. Replace the `<placeholder>` values with your own values:
+1. Run the following command to create the device registry resource sync rule. Replace the `<placeholder>` values with your values:
 
     ```azcli
     az rest --url /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.ExtendedLocation/customLocations/<custom location name>/resourceSyncRules/<rule name>?api-version=2021-08-31-preview --method PUT --body "@rsr_device_registry.json"
@@ -128,7 +135,7 @@ To create the instance rule:
 
 ## Troubleshoot Azure Key Vault secret management
 
-If you see the following error message related to secret management, you need to update your Azure Key Vault contents:
+If you see the following error message related to secret management, update your Azure Key Vault contents:
 
 ```output
 rpc error: code = Unknown desc = failed to mount objects, error: failed to get objectType:secret,
@@ -138,7 +145,7 @@ If you recently deleted this secret you may be able to recover it using the corr
 For help resolving this issue, please see https://go.microsoft.com/fwlink/?linkid=2125182" }
 ```
 
-This error occurs when Azure IoT Operations tries to synchronize a secret from Azure Key Vault that doesn't exist. To resolve this issue, you need to add the secret in Azure Key Vault before you create resources such as a secret provider class.
+This error occurs when Azure IoT Operations tries to synchronize a secret from Azure Key Vault that doesn't exist. To resolve this issue, add the secret in Azure Key Vault before you create resources such as a secret provider class.
 
 ## Troubleshoot OPC UA server connections
 
@@ -322,3 +329,9 @@ If you receive one of the following error messages:
 - Code: PermissionDenied
 
 Verify your Microsoft Entra ID account meets the requirements in the [prerequisites](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites) section for operations experience access.
+
+## Troubleshoot data flows
+
+### You see a "Global error: AllBrokersDown" error message
+
+If you see a `Global error: AllBrokersDown` error message in the data flow logs this means that the data flow hasn't processed any messages for about four or five minutes. Check that the data flow source is correctly configured and sending messages. For example, check that you're using the correct topic name from the MQTT broker.

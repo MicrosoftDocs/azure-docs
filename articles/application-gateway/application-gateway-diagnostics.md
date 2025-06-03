@@ -3,11 +3,11 @@ title: Diagnostic logs
 titleSuffix: Azure Application Gateway
 description: Learn how to enable and manage logs for Azure Application Gateway.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 06/17/2024
-ms.author: greglin 
+ms.date: 05/07/2025
+ms.author: mbender 
 ---
 
 # Diagnostic logs for Application Gateway
@@ -81,7 +81,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
    For Application Gateway, three logs are available:
 
    * Access log
-   * Performance log
+   * Performance log (available only for the v1 SKU)
    * Firewall log
 
 1. To start collecting data, select **Turn on diagnostics**.

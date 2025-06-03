@@ -6,6 +6,8 @@ ms.date: 10/31/2024
 author: matternst7258
 ms.author: matthewernst
 ms.service: azure-operator-nexus
+ms.custom:
+  - build-2025
 ---
 
 # Azure Operator Nexus SKUs
@@ -46,8 +48,8 @@ The following table outlines the various configurations of Operator Nexus Networ
 | 1.7.3   | Multi Rack Near-Edge Compute    | VNearEdge3_Compute_DellR750_15C3M       | 400G Fabric support up to eight Compute Racks where each rack can support 15 Dell750 computes, one Dell750 high-iops controller, and two Dell650 controllers |
 | 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge4_Aggregator_x70r4             | Aggregation Rack with Pure x70r4.                                                                                                                                 |
 | 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge4_Aggregator_x70r3             | Aggregation Rack with Pure x70r3.                                                                                                                                 |
-| 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge4_Aggregator_x20r4             | Aggregation Rack with Pure x70r4.                                                                                                                                 |
-| 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge4_Aggregator_x20r3             | Aggregation Rack with Pure x70r3.                                                                                                                                 |
+| 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge4_Aggregator_x20r4             | Aggregation Rack with Pure x20r4.                                                                                                                                 |
+| 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge4_Aggregator_x20r3             | Aggregation Rack with Pure x20r3.                                                                                                                                 |
 | 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge5_Aggregator_PureCommon             | Aggregation Rack with single Pure. Supports both r3 and r4 controllers |
 | 2.0.0   | Multi Rack Near-Edge Aggregator | VNearEdge5_Aggregator_2PureCommon             | Aggregation Rack with dual Pure. Both Pures must have r4 controllers |
 | 2.0.0   | Multi Rack Near-Edge Compute    | VNearEdge4_Compute_DellR760_4C2M        | 400G Fabric support up to eight Compute Racks where each rack can support four compute servers.                                                                   |

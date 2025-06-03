@@ -1,18 +1,24 @@
 ---
-title: Best practices using client libraries with Azure Managed Redis (preview)
+title: Best practices using client libraries with Azure Managed Redis
 description: Learn about client libraries for Azure Managed Redis.
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
 ms.topic: conceptual
-ms.date: 02/06/2025
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-extended-java, ignite-2024
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-liberty
+  - devx-track-javaee-liberty-aks
+  - devx-track-extended-java
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Azure Managed Redis (preview) Client libraries
+# Azure Managed Redis Client libraries
 
-Azure Managed Redis (preview) is based on the popular in-memory data store, Redis. Redis clients for many programming languages can access Azure Managed Redis. Each client library has its own API that makes calls to Redis server using Redis commands, but the client libraries are built to talk to any Redis server.
+Azure Managed Redis is based on the popular in-memory data store, Redis. Redis clients for many programming languages can access Azure Managed Redis. Each client library has its own API that makes calls to Redis server using Redis commands, but the client libraries are built to talk to any Redis server.
 
 Each client library maintains its own reference documentation. The libraries also provide links to get support through the client library developer community. The Azure Managed Redis team doesn't own the development, or the support for any client libraries.
 

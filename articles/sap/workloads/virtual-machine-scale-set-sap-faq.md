@@ -6,7 +6,7 @@ manager: rdeltcheva
 ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2025
 ---
 

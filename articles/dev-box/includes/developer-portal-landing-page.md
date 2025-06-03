@@ -10,18 +10,9 @@ ms.service: dev-box
 
    :::image type="content" source="../media/developer-portal-landing-page/developer-portal-landing-page-sign-in.png" alt-text="Screenshot of the developer portal landing page with sign-in highlighted.":::
 
-2. The first time you visit the developer portal, you're welcomed with a short tour. Select **Continue** to learn about the developer portal.
+2. The first time you visit the developer portal, you're welcomed with a short tour. Select **Continue** to learn about the developer portal, or select **Skip** to go straight to the portal.
 
    :::image type="content" source="../media/developer-portal-landing-page/developer-portal-welcome-tour.png" alt-text="Screenshot of the welcome tour in the developer portal.":::
-
-   Follow the tips to learn about the developer portal.
-
-   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-welcome-tip-1.png" alt-text="Screenshot of the developer portal showing the first welcome tour tip.":::
-
-   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-welcome-tip-2.png" alt-text="Screenshot of the developer portal showing the second welcome tour tip.":::
-
-   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-welcome-tip-3.png" alt-text="Screenshot of the developer portal showing the third welcome tour tip.":::
-   
 
 #### [No existing dev boxes](#tab/no-existing-dev-boxes)
 

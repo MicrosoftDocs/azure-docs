@@ -7,6 +7,8 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 03/10/2025
 ms.author: zhenlwa
+ms.custom:
+  - build-2025
 ---
 
 # Azure App Configuration best practices
@@ -53,11 +55,11 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 Azure App Configuration supports dynamic configuration refresh without requiring an application restart. The [App Configuration providers](./configuration-provider-overview.md) can monitor configuration changes using two approaches:
 
-#### Monitoring all selected keys
+### Monitoring all selected keys
 
 In this approach, the provider monitors all selected keys. If a change is detected in any of the selected key-values, the entire configuration is reloaded. This approach ensures immediate updates without requiring additional key modifications.
 
-Here's an example using .NET:
+#### [.NET](#tab/dotnet)
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
@@ -73,11 +75,42 @@ configBuilder.AddAzureAppConfiguration(options =>
 });
 ```
 
-#### Monitoring a sentinel key
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const appConfig = await load(endpoint, credential, {
+    selectors: [{ keyFilter: "TestApp:*" }],
+    refreshOptions: {
+        enabled: true
+    }
+});
+```
+
+#### [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: TestApp*
+    refresh:
+      enabled: true
+```
+
+---
+
+### Monitoring a sentinel key
 
 Alternatively, you can monitor an individual key, often referred to as the *sentinel key*. This approach is useful when updating multiple key-values. By updating the sentinel key only after all other configuration changes are completed, you ensure your application reloads configuration just once, maintaining consistency.
 
-Here's an example using .NET:
+#### [.NET](#tab/dotnet)
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
@@ -92,6 +125,41 @@ configBuilder.AddAzureAppConfiguration(options =>
            });
 });
 ```
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const appConfig = await load(endpoint, credential, {
+    selectors: [{ keyFilter: "TestApp:*" }],
+    refreshOptions: {
+        enabled: true,
+        watchedSettings: [{ key: "SentinelKey" }]
+    }
+});
+```
+
+#### [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: TestApp*
+    refresh:
+      enabled: true
+      monitoring:
+        keyValues:
+          - key: SentinelKey
+```
+
+---
 
 Both approaches are available through App Configuration providers across supported languages and platforms.
 
@@ -173,7 +241,7 @@ To address these concerns, we recommend that you use a proxy service between you
 
 ## Multitenant applications in App Configuration
 
-A multitenant application is built on an architecture where a shared instance of your application serves multiple customers or tenants. For example, you may have an email service that offers your users separate accounts and customized experiences. Your application usually manages different configurations for each tenant. Here are some architectural considerations for [using App Configuration in a multitenant application](/azure/architecture/guide/multitenant/service/app-configuration).
+A multitenant application is built on an architecture where a shared instance of your application serves multiple customers or tenants. For example, you may have an email service that offers your users separate accounts and customized experiences. Your application usually manages different configurations for each tenant. Here are some architectural considerations for [using App Configuration in a multitenant application](/azure/architecture/guide/multitenant/service/app-configuration). You can also reference the [example code for multitenant application setup](https://github.com/Azure/AppConfiguration/blob/main/examples/DotNetCore/MultiTenantApplicationSetup/README.md).
 
 ## Configuration as Code
 

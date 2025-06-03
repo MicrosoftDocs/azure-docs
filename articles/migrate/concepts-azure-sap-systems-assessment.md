@@ -4,7 +4,7 @@ description: Learn about discovery and assessment support for SAP inventory and 
 author: SnehaSudhirG
 ms.author: sudhirsneha 
 ms.manager: jsuri
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 08/07/2024
 ms.custom: engagement-fy25

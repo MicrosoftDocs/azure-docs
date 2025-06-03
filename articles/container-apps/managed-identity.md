@@ -4,7 +4,9 @@ description: Using managed identities in Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: how-to
 ms.date: 10/25/2023
 ms.author: cshoe
@@ -108,7 +110,7 @@ Adding the system-assigned type tells Azure to create and manage the identity fo
 
 # [Bicep](#tab/bicep)
 
-A Bicep template can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your Bicep template.
+A Bicep file can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your Bicep file.
 
 ```bicep
 identity: {
@@ -116,7 +118,7 @@ identity: {
 }
 ```
 
-Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete Bicep template example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
+Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete Bicep file example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
 
 ---
 
@@ -203,7 +205,7 @@ For a complete YAML template example, see [ARM API Specification](azure-resource
 
 # [Bicep](#tab/bicep)
 
-To add one or more user-assigned identities, add an `identity` section to your Bicep template. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
+To add one or more user-assigned identities, add an `identity` section to your Bicep file. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
 
 Specify each user-assigned identity by adding an item to the `userAssignedIdentities` object with the identity's resource identifier as the key. Use an empty object as the value.
 
@@ -217,7 +219,7 @@ identity: {
 }
 ```
 
-For a complete Bicep template example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
+For a complete Bicep file example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
 
 > [!NOTE]
 > An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
@@ -511,7 +513,7 @@ identity:
 
 # [Bicep](#tab/bicep)
 
-To remove all identities, set the `type` of the container app's identity to `None` in the Bicep template:
+To remove all identities, set the `type` of the container app's identity to `None` in the Bicep file:
 
 ```bicep
 identity: {

@@ -7,7 +7,12 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 04/17/2025
-ms.custom: mvc, cli-validate, devdivchpfy22, AppServiceConnectivity
+ms.custom:
+  - mvc
+  - cli-validate
+  - devdivchpfy22
+  - AppServiceConnectivity
+  - build-2025
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -79,7 +84,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for MySQL, and Azure Cache for Redis. For the creation process, you specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of PHP to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -365,7 +370,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 5:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like `Configure Azure database and cache connectons`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
+        1. In the textbox, type a commit message like `Configure Azure database and cache connections`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
@@ -659,7 +664,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 ## 4. Configure Laravel settings in web app
 
-1. From the explorer, open *infra/resources.bicep*. This is the Bicep template file that defines the created Azure resources.
+1. From the explorer, open *infra/resources.bicep*. This is the Bicep file that defines the created Azure resources.
 
 1. Find the part that defines the app settings (lines 510-514) and uncomment them. These app settings are:
     
@@ -697,7 +702,7 @@ With the MySQL database protected by the virtual network, the easiest way to run
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>-&lt;hash>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: &lt;URL>
     </pre>
 
 1. In the SSH session, run database migrations from the */home/site/wwwroot* directory:
@@ -723,7 +728,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -745,7 +750,7 @@ The sample app outputs console log messages in each of its endpoints to demonstr
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: &lt;URL>
 </pre>
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).

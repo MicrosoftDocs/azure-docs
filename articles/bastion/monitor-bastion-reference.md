@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 12/02/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: cherylmc
-ms.author: cherylmc
+author: abell
+ms.author: abell
 ms.service: azure-bastion
 ---
 # Azure Bastion monitoring data reference

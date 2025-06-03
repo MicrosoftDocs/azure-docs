@@ -68,15 +68,13 @@ During your cloud journey, there are many tools available to help you understand
 
 - The [Total Cost of Ownership (TCO) calculator](https://azure.microsoft.com/pricing/tco/calculator/) should be your first stop if you’re curious about how much it would cost to move your existing on-premises infrastructure to the cloud.
 - [Azure Migrate](https://azure.microsoft.com/products/azure-migrate/) is a free tool that helps you analyze your on-premises workloads and plan your cloud migration.
-- The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)  helps you estimate the cost of creating new or expanding existing deployments. In this tool, you're able to explore various configurations of many different Azure services as you identify which SKUs and how much usage keeps you within your desired price range. For more information, see the pricing details for each of the services you use.
-- The [Virtual Machine Selector Tool](https://azure.microsoft.com/pricing/vm-selector/) is your one-stop-shop for finding the best VMs for your intended solution.
-- The [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator) helps you estimate the savings of using your existing Windows Server and SQL Server licenses on Azure.
+- The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) is a free cost management tool that allows users to understand and estimate costs of Azure Services and products. It serves as the only unauthenticated experience that allows you to configure and budget the expected cost of deploying solutions in Azure. For customers that want to view their negotiated estimate prices, there is an authenticated version. The Azure pricing calculator allows organizations to plan and forecast cloud expenses, evaluate different configurations and pricing models, and make informed decisions about service selection and deployment options.
 
 ## Report on and analyze costs
 
 Cost Management and Billing include several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud costs.
 
-- [**Cost analysis**](quick-acm-cost-analysis.md) is a tool for ad-hoc cost exploration. Get quick answers with lightweight insights and analytics.
+- **[Cost analysis](quick-acm-cost-analysis.md)** is a tool for ad-hoc cost exploration. Get quick answers with lightweight insights and analytics.
 **Power BI** is an advanced solution to build more extensive dashboards and complex reports or combine costs with other data. Power BI is available for billing accounts and billing profiles.
 - [**Exports and the Cost Details API**](../automate/usage-details-best-practices.md) enable you to integrate cost details into external systems or business processes.
 
@@ -110,7 +108,8 @@ Cost Management and Billing offer many different types of emails and alerts to k
 
 - [**Budget alerts**](tutorial-acm-create-budgets.md) notify recipients when cost exceeds a predefined cost or forecast amount. Budgets can be visualized in cost analysis and are available on every scope supported by Cost Management. Subscription and resource group budgets can also be configured to notify an action group to take automated actions to reduce or even stop further charges.
 - [**Anomaly alerts**](../understand/analyze-unexpected-charges.md) notify recipients when an unexpected change in daily usage has been detected. It can be a spike or a dip. Anomaly detection is only available for subscriptions and can be viewed within Cost analysis smart views. Anomaly alerts can be configured from the cost alerts page.
-- [**Scheduled alerts**](save-share-views.md#subscribe-to-scheduled-alerts) notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Views are configured in cost analysis, but recipients don't require access to cost in order to view the email, chart, or linked CSV.
+- **[Scheduled alerts](save-share-views.md#subscribe-to-scheduled-alerts)** notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Views are configured in cost analysis, but recipients don't require access to cost to view the email, chart, or linked CSV.
+
 - **EA commitment balance alerts** are automatically sent to any notification contacts configured on the EA billing account when the balance is 90% or 100% used.
 - **Invoice alerts** can be configured for MCA billing profiles and Microsoft Online Services Program (MOSP) subscriptions. For details, see [View and download your Azure invoice](../understand/download-azure-invoice.md).
 

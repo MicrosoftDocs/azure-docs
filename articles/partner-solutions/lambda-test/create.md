@@ -1,15 +1,16 @@
 ---
-title: "Quickstart: Create a LambdaTest-HyperExecute resource (preview)"
-description: Learn how to create a resource for LambdaTest (preview) using the Azure portal.
+title: "Quickstart: Create a LambdaTest-HyperExecute resource"
+description: Learn how to create a resource for LambdaTest using the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
 ms.date: 10/29/2024
-
+ms.custom:
+  - build-2025
 ---
-# Quickstart: Create a LambdaTest-HyperExecute resource (preview)
+# Quickstart: Create a LambdaTest-HyperExecute resource 
 
-This quickstart shows you how to create a LambdaTest - HyperExecute (preview) resource using the Azure portal.
+This quickstart shows you how to create a LambdaTest - HyperExecute resource using the Azure portal.
 
 ## Prerequisites
 

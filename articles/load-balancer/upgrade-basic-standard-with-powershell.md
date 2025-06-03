@@ -8,13 +8,19 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 12/06/2024
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - build-2025
 ---
 
 # Upgrade a basic load balancer with PowerShell
 
 >[!Important]
->On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. 
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date.
+
+>[!NOTE]
+> [Azure Kubernetes Services (AKS) clusters](/azure/aks/load-balancer-standard#moving-from-a-basic-sku-load-balancer-to-standard-sku) with Basic Load Balancers are not supported with this migration script. Review other [Unsupported Scenarios](#unsupported-scenarios) prior to using this script. 
 
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
@@ -58,6 +64,7 @@ The PowerShell module performs the following functions:
 - Basic Load Balancers for [Azure Kubernetes Services (AKS) clusters](/azure/aks/load-balancer-standard#moving-from-a-basic-sku-load-balancer-to-standard-sku)
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
+- Basic Load Balancers with backend pool members that are part of an Availability Set but not all members of the Availability Set are behind the load balancer
 - If your Basic Load Balancer has floating IP enabled on a secondary IP configuration of the network interface, update the floating IP to a primary IP before running the migration script to avoid any configuration issues
 
 ## Install the 'AzureBasicLoadBalancerUpgrade' module

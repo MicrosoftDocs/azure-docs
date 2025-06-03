@@ -3,7 +3,7 @@ title: Configure fixed, removable, and network drive redirection over the Remote
 description: Learn how to redirect fixed, removable, and network storage drives from a local device to a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 04/29/2024
 ---

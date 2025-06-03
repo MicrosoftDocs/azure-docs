@@ -3,7 +3,7 @@ title: Cost estimation of assessments in Azure Migrate
 description: Learn about cost estimation in assessments in Azure Migrate  
 author: ankitsurkar06
 ms.service: azure-migrate 
-ms.topic: conceptual 
+ms.topic: concept-article 
 ms.date: 04/17/2025
 ms.custom: engagement-fy24
 monikerRange: migrate

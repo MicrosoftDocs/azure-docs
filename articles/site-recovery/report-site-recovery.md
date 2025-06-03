@@ -2,10 +2,10 @@
 title: Configure Azure Site Recovery reports
 description: This article describes how to configure reports for Azure Site Recovery.
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/30/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # (Preview) Configure Azure Site Recovery reports

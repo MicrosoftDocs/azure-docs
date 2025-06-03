@@ -2,11 +2,11 @@
 title: Protect Azure Container Apps with Application Gateway and Web Application Firewall (WAF)
 description: Learn how to protect Azure Container Apps with Application Gateway Web Application Firewall (WAF)
 services: container-apps
-author: cachai2
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 03/26/2025
-ms.author: cachai
+ms.date: 04/28/2025
+ms.author: cshoe
 ---
 
 # Protect Azure Container Apps with Web Application Firewall on Application Gateway
@@ -177,7 +177,7 @@ Perform the following steps:
     | Public IP address | Select **Add new**. Enter **my-frontend** for the name of your frontend and select **OK** |
 
    > [!NOTE]
-   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP. You can have both a public and a private frontend IP configuration, but a private-only frontend IP configuration with no public IP is currently not supported in the v2 SKU. To learn more, [read here](../virtual-network/ip-services/configure-public-ip-application-gateway.md).
+   > For the Application Gateway v2 SKU, there must be a public frontend IP. For more information, see [Public and private IP address support](/azure/application-gateway/configuration-frontend-ip#public-and-private-ip-address-support) and [Manage a public IP address with an Azure Application Gateway](../virtual-network/ip-services/configure-public-ip-application-gateway.md).
 
 1. Select **Next: Backends**.
 

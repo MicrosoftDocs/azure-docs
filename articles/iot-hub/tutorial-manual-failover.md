@@ -8,7 +8,9 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 11/17/2022
 ms.author: sonialopez
-ms.custom: [mvc, mqtt]
+ms.custom:
+  - [mvc,mqtt]
+  - build-2025
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
 ---
 
@@ -26,7 +28,7 @@ In this tutorial, you perform the following tasks:
 > * Perform a failback to return the IoT hub's operations to the primary location. 
 > * Confirm the hub is running correctly in the right location.
 
-For more information about manual failover and Microsoft-initiated failover with IoT Hub, see [Cross region disaster recovery](iot-hub-ha-dr.md#cross-region-dr).
+For more information about manual failover and Microsoft-initiated failover with IoT Hub, see [Reliability in Azure IoT Hub](../reliability/reliability-iot-hub.md).
 
 ## Prerequisites
 
