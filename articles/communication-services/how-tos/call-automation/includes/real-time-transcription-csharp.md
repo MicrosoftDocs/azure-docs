@@ -31,7 +31,9 @@ var transcriptionOptions = new TranscriptionOptions(
     transportUri: new Uri(""),
     locale: "en-US", 
     startTranscription: false,
-    transcriptionTransport: TranscriptionTransport.Websocket
+    transcriptionTransport: TranscriptionTransport.Websocket,
+    //Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    SpeechRecognitionModelEndpointId = "YourCustomSpeechRecognitionModelEndpointId"
 );
 
 var connectCallOptions = new ConnectCallOptions(new RoomCallLocator("roomId"), callbackUri)
