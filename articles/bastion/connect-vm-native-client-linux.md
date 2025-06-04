@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.date: 01/28/2025
 ms.author: abell
+# Customer intent: As a Linux user, I want to connect to a VM using Azure Bastion with a native client, so that I can securely access and manage my virtual machines without exposing them to the public internet.
 ---
 
 # Connect to a VM using Bastion and a Linux native client

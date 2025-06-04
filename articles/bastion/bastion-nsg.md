@@ -6,6 +6,7 @@ ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: abell
+# Customer intent: "As a network administrator, I want to configure network security groups for Azure Bastion, so that I can manage secure ingress and egress traffic to virtual machines while maintaining compliance and security practices."
 ---
 # Working with NSG access and Azure Bastion
 
