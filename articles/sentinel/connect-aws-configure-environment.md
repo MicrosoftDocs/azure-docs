@@ -46,7 +46,9 @@ This diagram shows how to set up your AWS environment to send logs to Azure:
 
    1. Configure your connectors to use the assumed role and SQS queue you created to access the S3 bucket and retrieve logs.
 
-## Create an S3 bucket and SQS queue
+### Manual setup
+
+#### Create an S3 bucket and SQS queue
 
 1. Create an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, CloudTrail, or CloudWatch.
 
@@ -60,7 +62,7 @@ This diagram shows how to set up your AWS environment to send logs to Azure:
 
    See the [instructions to publish notifications to your SQS queue](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html) in the AWS documentation.
 
-### Configure AWS services to export logs to an S3 bucket
+#### Configure AWS services to export logs to an S3 bucket
 
 See Amazon Web Services documentation (linked below) for the instructions for sending each type of log to your S3 bucket:
 
@@ -84,7 +86,7 @@ See Amazon Web Services documentation (linked below) for the instructions for se
 - [Export your CloudWatch log data to an S3 bucket](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3Export.html).
 
 
-### Create an Open ID Connect (OIDC) web identity provider
+#### Create an Open ID Connect (OIDC) web identity provider
 
 > [!IMPORTANT]
 > If you already have an OIDC Connect provider set up for Microsoft Defender for Cloud, add Microsoft Sentinel as an audience to your existing provider (Commercial: `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`, Government:`api://d4230588-5f84-4281-a9c7-2c15194b28f7`). Do not try to create a new OIDC provider for Microsoft Sentinel.
