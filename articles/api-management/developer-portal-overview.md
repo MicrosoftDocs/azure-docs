@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/28/2025
+ms.date: 06/04/2025
 ms.author: danlep 
 ---
 
@@ -64,9 +64,9 @@ If you're accessing the portal for the first time, the portal includes placehold
 For a step-by-step walkthrough of customizing and publishing the developer portal, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
 
 > [!IMPORTANT]
-> * Access to the developer portal by API publishers and consumers requires network connectivity to both the developer portal's endpoint (default: `https://<apim-instance-name>.portal.azure-api.net`) and the API Management instance's management endpoint (default: `https://<apim-instance-name>.management.azure-api.net`).
+> * Access to the developer portal by API publishers and consumers requires network connectivity to the developer portal's endpoint (default: `https://<apim-instance-name>.portal.azure-api.net`).
 > * Publishing the developer portal requires additional connectivity to blob storage managed by API Management in the West US region. 
-> * If the API Management instance is deployed in a VNet, ensure that the hostnames of the developer portal and management endpoint resolve properly and that you enable connectivity to required dependencies for the developer portal. [Learn more](virtual-network-reference.md).
+> * If the API Management instance is deployed in a VNet, ensure that the hostname of the developer portal resolves properly and that you enable connectivity to required dependencies for the developer portal. [Learn more](virtual-network-reference.md).
 
 ### Visual editor
 
