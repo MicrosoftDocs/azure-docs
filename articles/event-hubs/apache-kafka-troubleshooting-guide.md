@@ -17,8 +17,6 @@ If the traffic is excessive, the service has the following behavior:
 - If produce request's delay exceeds request time-out(*request.timeout.ms*), Event Hubs returns **Policy Violation** error code.
 - If fetch request's delay exceeds request time out, Event Hubs logs the request as throttled and responds with empty set of records and no error code.
 
-[Dedicated clusters](event-hubs-dedicated-overview.md) don't have throttling mechanisms. You're free to consume all of your cluster resources.
-
 ## No records received
 You might see consumers not getting any records and constantly rebalancing. In this scenario, consumers don't get any records and constantly rebalance. There's no exception or error when it happens, but the Kafka logs will show that the consumers are stuck trying to rejoin the group and assign partitions. There are a few possible causes:
 
