@@ -6,6 +6,7 @@ ms.date: 03/25/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator, I want to configure Azure Backup Server to back up an Exchange server, so that I can ensure data protection and facilitate recovery in case of data loss."
 ---
 # Back up an Exchange server to Azure with Azure Backup Server
 

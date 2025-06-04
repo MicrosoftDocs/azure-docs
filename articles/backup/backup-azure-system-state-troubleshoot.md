@@ -6,6 +6,7 @@ ms.topic: troubleshooting
 ms.date: 04/30/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a system administrator, I want to troubleshoot System State Backup issues on on-premises Windows servers, so that I can ensure effective data protection and recovery capabilities for my infrastructure."
 ---
 
 # Troubleshoot System State Backup

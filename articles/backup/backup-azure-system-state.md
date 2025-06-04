@@ -7,6 +7,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24
+# Customer intent: As a system administrator, I want to back up the Windows Server system state to cloud storage, so that I can ensure data recovery and maintain business continuity in case of system failures.
 ---
 
 # Back up Windows system state to Azure using Azure Backup

@@ -7,6 +7,7 @@ ms.date: 03/13/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24, ignite-2024
+# Customer intent: As a backup administrator, I want to enable and manage immutability for my backup vaults, so that I can protect backup data from loss or unauthorized changes and ensure compliance with data integrity requirements.
 ---
 
 # Manage Azure Backup Immutable vault operations

@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator troubleshooting slow backup performance, I want to identify potential bottlenecks and resolve them effectively, so that I can ensure efficient and timely data backups using the Azure Backup service.
 ---
 # Troubleshoot slow backup of files and folders in Azure Backup
 

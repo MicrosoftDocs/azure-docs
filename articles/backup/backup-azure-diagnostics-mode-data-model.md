@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a data analyst, I want to utilize the Azure Monitor Log Analytics data model for Azure Backup, so that I can create custom queries and alerts based on diagnostic events to enhance data management and reporting capabilities.
 ---
 
 # Data Model for Legacy diagnostic events

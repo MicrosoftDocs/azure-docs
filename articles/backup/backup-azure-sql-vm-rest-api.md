@@ -6,6 +6,7 @@ ms.date: 06/03/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to back up SQL Server databases in Azure VMs using a REST API, so that I can automate and manage the backup process efficiently through my infrastructure."
 ---
 
 # Back up SQL server databases in Azure VMs using Azure Backup via REST API

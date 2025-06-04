@@ -5,6 +5,7 @@ ms.topic: overview
 ms.date: 09/11/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT admin managing Azure VMs, I want to implement effective backup strategies using Azure Backup, so that I can ensure data protection and quick recovery for my virtual machines while minimizing downtime and costs."
 ---
 
 # An overview of Azure VM backup

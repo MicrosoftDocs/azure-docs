@@ -8,6 +8,7 @@ ms.reviewer: geg
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As a backup administrator, I want to troubleshoot Azure Blob backup and restore issues, so that I can ensure seamless data protection and recovery for our cloud-based storage solutions.
 ---
 
 # Troubleshoot Azure Blob backup

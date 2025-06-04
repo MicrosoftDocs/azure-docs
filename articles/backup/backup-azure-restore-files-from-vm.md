@@ -7,6 +7,7 @@ ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to recover specific files and folders from an Azure virtual machine backup, so that I can restore important data without needing to restore the entire virtual machine.
 ---
 # Recover files from Azure virtual machine backup
 

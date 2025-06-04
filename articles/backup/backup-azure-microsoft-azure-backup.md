@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator, I want to set up Azure Backup Server to back up application workloads, so that I can ensure data protection and recovery for my organization's critical systems."
 ---
 
 # Install and upgrade Azure Backup Server

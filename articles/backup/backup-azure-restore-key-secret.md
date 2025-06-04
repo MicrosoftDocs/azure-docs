@@ -6,6 +6,7 @@ ms.custom: devx-track-azurepowershell
 ms.date: 09/04/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a system administrator managing encrypted virtual machines, I want to restore keys and secrets to Azure Key Vault, so that I can successfully recover and create encrypted VMs from backup without losing data integrity and security.
 ---
 # Restore Key Vault key and secret for encrypted VMs using Azure Backup
 
