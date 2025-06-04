@@ -77,7 +77,7 @@ Using custom DNS servers on application gateway virtual network will need you to
 ### Gateways with Private IP address only (networkIsolationEnabled: True)
 The private application gateway deployment is designed to separate the customer’s data plane and management plane traffic. Therefore, having default Azure DNS or custom DNS servers has no effect on the critical management endpoints name resolutions. However, when using custom DNS servers, you must take care of name resolutions required for any data path operations.
 
-:::image source="media/application-gateway-dns-resolution/custom-dns.png" alt-text="A diagram showing DNS resolution for private-only gateway.":::
+:::image source="media/application-gateway-dns-resolution/private-only.png" alt-text="A diagram showing DNS resolution for private-only gateway.":::
 
 Flows:
 * The DNS queries for "contoso.com" reaches the custom DNS servers through customer traffic plane.
