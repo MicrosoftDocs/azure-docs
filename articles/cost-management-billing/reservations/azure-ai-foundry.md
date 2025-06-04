@@ -62,7 +62,7 @@ To buy an Azure AI Foundry Provisioned Throughput reservation, follow these step
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations** and then select **Azure AI Foundry Provisioned Throughput**  
-    :::image type="content" source="./media/azure-openai/purchase-azureai.png" border="true" alt-text="Screenshot showing the Purchase reservations page." lightbox="./media/azure-openai/purchase-azureai.png" :::
+    :::image type="content" source="./media/azure-openai/purchase-azure-ai.png" border="true" alt-text="Screenshot showing the Purchase reservations page." lightbox="./media/azure-openai/purchase-azure-ai.png" :::
 3. Select a subscription. Use the Subscription list to choose the subscription that gets used to pay for the reservation. The payment method of the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or pay-as-you-go (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
     - For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
     - For a pay-as-you-go subscription, the charges are billed to the credit card or invoice payment method on the subscription.
