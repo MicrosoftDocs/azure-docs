@@ -66,7 +66,7 @@ The process of enabling and configuring the connector consists of the following 
 To simplify the onboarding process, the **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable templates for you to use with the AWS CloudFormation service. The CloudFormation service uses these templates to automatically create resource stacks in AWS. These stacks include the resources themselves as described in this article, as well as credentials, permissions, and policies.
 
 > [!NOTE]
-> We strongly recommend using the automatic setup process. For special cases, see the [manual setup instructions](connect-aws-configure-environment#manual-setup).
+> We strongly recommend using the automatic setup process. For special cases, see the [manual setup instructions](connect-aws-configure-environment.md#manual-setup).
 
 ### Prepare the template files
 
