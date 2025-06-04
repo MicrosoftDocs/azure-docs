@@ -359,7 +359,7 @@ Use the **URL redirect** action to redirect clients to a new URL. Clients are se
 
 | Property | Supported values |
 |----------|------------------|
-| Redirect type | The response type to return to the requester. <ul><li>In the Azure portal: Found (302), Moved (301), Temporary Redirect (307), Permanent Redirect (308).</li><li>In ARM templates: `Found`, `Moved`, `TemporaryRedirect`, `PermanentRedirect`</li></ul> |
+| Redirect type | The response type to return to the requestor. <ul><li>In the Azure portal: Found (302), Moved (301), Temporary Redirect (307), Permanent Redirect (308).</li><li>In ARM templates: `Found`, `Moved`, `TemporaryRedirect`, `PermanentRedirect`</li></ul> |
 | Redirect protocol | <ul><li>In the Azure portal: `Match Request`, `HTTP`, `HTTPS`</li><li>In ARM templates: `MatchRequest`, `Http`, `Https`</li></ul> |
 | Destination host | The host name you want the request to be redirected to. Leave blank to preserve the incoming host. |
 | Destination path | The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path. |
@@ -457,6 +457,21 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 ```
 
 ---
+
+::: zone-end
+# Action Precedence in Azure Front Door Rules Engine
+When configuring **multiple actions** of the **same type** within a **single rule** in the Azure Front Door Rules Engine, only the **last matching action of each type** is applied during request processing.
+## Key Behavior
+* If **multiple** URL rewrite actions are defined and their conditions evaluate to **true**, only the **last** rewrite action in the rule will be executed.
+* The same applies to URL redirect and route configuration override actions—only the last matching action of each type is honored.
+>[!NOTE]
+>**URL redirect** and **route configuration** override are treated as the same action type for precedence purposes. If both are defined and their conditions match, only the one that appears **last** in the ruleset will be applied.
+## Example
+If a ruleset includes:
+1. A URL rewrite action that rewrites `/old-path` to `/new-path`
+2. Another URL rewrite action that rewrites `/old-path` to `/alternate-path`
+   
+And if **both** conditions match, the second rewrite (`/alternate-path`) will be the one applied.
 
 ::: zone-end
 
