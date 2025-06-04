@@ -6,6 +6,7 @@ ms.custom: devx-track-azurepowershell
 ms.date: 12/03/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to configure backup for my on-premises Windows server using a PowerShell script, so that I can automate the backup process and ensure data protection efficiently."
 ---
 
 # PowerShell Script to configure Backup for on-premises Windows server

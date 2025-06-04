@@ -5,6 +5,7 @@ ms.topic: sample
 ms.date: 03/27/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to create or modify the system state backup policy using a script, so that I can ensure the server protected by the MARS agent has an up-to-date and efficient backup schedule."
 ---
 
 #  PowerShell Script to create a new or modify the current system state backup policy

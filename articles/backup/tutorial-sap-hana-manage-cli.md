@@ -6,6 +6,7 @@ ms.date: 10/20/2024
 ms.custom: devx-track-azurecli
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to manage my backed-up SAP HANA databases using command-line interface commands, so that I can efficiently monitor, change policies, and control backup jobs without relying on a graphical interface.
 ---
 
 # Tutorial: Manage SAP HANA databases in an Azure VM using Azure CLI

@@ -8,6 +8,7 @@ ms.custom:
   - ignite-2023
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a Kubernetes administrator, I want to configure item-level backup for my AKS cluster, so that I can ensure application-consistent backups and protect specific components within the cluster.
 ---
 
 # Tutorial: Configure item-level backup for an Azure Kubernetes Service cluster

@@ -6,6 +6,7 @@ ms.date: 02/17/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to back up Azure Database for PostgreSQL to a Backup vault, so that I can ensure data safety and facilitate recovery in case of failures."
 ---
 # Back up Azure Database for PostgreSQL server
 

@@ -6,6 +6,7 @@ ms.date: 09/30/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to troubleshoot backup errors for SAP HANA instances, so that I can ensure successful backups and optimal performance of my database workloads."
 ---
 
 # Troubleshoot SAP HANA snapshot backup jobs on Azure Backup

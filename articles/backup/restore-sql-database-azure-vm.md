@@ -6,6 +6,7 @@ ms.date: 06/03/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to restore SQL Server databases on Azure VMs using Azure Backup, so that I can ensure data recovery and maintain business continuity after data loss or corruption events.
 ---
 # Restore SQL Server databases on Azure VMs
 

@@ -5,6 +5,7 @@ ms.topic: sample
 ms.date: 05/20/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to create or modify a file and folder backup policy using a script, so that I can automate the backup scheduling and retention settings on my server efficiently."
 ---
 
 # PowerShell Script to create a new or modify the current file and folder backup policy

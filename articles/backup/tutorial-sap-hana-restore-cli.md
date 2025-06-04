@@ -7,6 +7,7 @@ ms.custom: devx-track-azurecli,engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an SAP administrator, I want to restore SAP HANA databases on Azure VMs using CLI commands, so that I can ensure data recovery from backup in a streamlined and efficient manner.
 ---
 
 # Tutorial: Restore SAP HANA databases in an Azure VM using Azure CLI

@@ -6,6 +6,7 @@ ms.date: 06/03/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to restore SQL Server databases in Azure VMs using the REST API, so that I can efficiently manage backup and recovery operations without using the portal."
 ---
 
 # Restore SQL Server databases in Azure VMs with REST API
