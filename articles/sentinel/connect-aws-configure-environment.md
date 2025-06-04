@@ -13,9 +13,9 @@ ms.date: 05/28/2025
 
 # Set up your Amazon Web Services environment to collect AWS logs to Microsoft Sentinel
 
-Amazon Web Services (AWS) connectors simplify the process of collecting logs from Amazon S3 (Simple Storage Service) and ingesting them into Microsoft Sentinel. The connectors provide tools for configuring your AWS environment to collect the logs correctly for ingestion into Microsoft Sentinel.
+Amazon Web Services (AWS) connectors simplify the process of collecting logs from Amazon S3 (Simple Storage Service) and ingesting them into Microsoft Sentinel. The connectors provide tools for configuring your AWS environment correctly for Microsoft Sentinel log collection.
 
-This article outlines the AWS environment setup that AWS connectors use to send logs to Microsoft Sentinel and links to step-by-step instructions for each supported connector.
+This article outlines the AWS environment setup required to send logs to Microsoft Sentinel and links to step-by-step instructions for each supported connector.
 
 ## AWS environment setup overview
 

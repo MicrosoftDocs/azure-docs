@@ -103,7 +103,7 @@ To run the script to set up the connector, use the following steps:
 
 Microsoft recommends using the automatic setup script to deploy this connector. If for whatever reason you do not want to take advantage of this convenience, follow the steps below to set up the connector manually.
 
-1. Set up your AWS environment as described in [Set up your Amazon Web Services environment to collect AWS logs to Microsoft Sentinel](connect-aws-overview.md).  
+1. Set up your AWS environment as described in [Set up your Amazon Web Services environment to collect AWS logs to Microsoft Sentinel](connect-aws-configure-environment.md#manual-setup).  
 
 1. In the AWS console: 
 
