@@ -53,8 +53,8 @@ This formula scales dedicated nodes, but can be modified to apply to scale Spot 
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
-pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
-pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(TimeInterval_Minute * 15);
+pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(TimeInterval_Minute * 15));
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
