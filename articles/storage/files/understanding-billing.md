@@ -13,7 +13,7 @@ ms.custom:
 
 # Understand Azure Files billing models
 
-Azure Files supports two different media tiers of storage, SSD and HDD, which allow you to tailor your file shares to the performance and price requirements of your scenario:
+Azure Files supports two different media tiers of storage, SSD and HDD. This allows you to tailor your file shares to the performance and price requirements of your scenario:
 
 - **SSD (premium)**: file shares hosted on solid-state drives (SSDs) provide consistent high performance and low latency, within single-digit milliseconds for most IO operations.
 - **HDD (standard)**: file shares hosted on hard disk drives (HDDs) provide cost-effective storage for general purpose use.
