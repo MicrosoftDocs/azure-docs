@@ -24,10 +24,10 @@ For more information about threat intelligence in Microsoft Sentinel, see [Threa
 > Microsoft Sentinel will ingest all threat intelligence into the new `ThreatIntelIndicators` and `ThreatIntelObjects` tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
 > **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables.
 > We've made some important updates that may explain an increase in data ingestion.
-> 1. Data is now being republished to Log Analytics every week instead of every 12 days. This will cause spikes in traffic at the beginning of every week. This data is identifiable in the `ThreatIntelIndicators` and `ThreatIntelObjects` tables by filtering `SouceSystem=="LogARepublisher"`. 
-> 2. The new tables now supports more rows, including the entire data object used in advanced hunting scenarios.
+> 1. Data is now republished to Log Analytics every **7 days** instead of every **12 days**. This change will result in traffic spikes at the beginning of each week. This data is identifiable in the `ThreatIntelIndicators` and `ThreatIntelObjects` tables by filtering `SouceSystem=="LogARepublisher"`. 
+> 1. The new tables now support additional columns, including the full data object used in advanced hunting scenarios. To exclude specific columns, please refer to the [Transform away columns sent to Log Analytics](#transform-away-columns-sent-to-log-analytics)[Transform away columns sent to Log Analytics](#transform-away-columns-sent-to-log-analytics) section.
 > For more details on the updated schema and how it may affect your usage, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelindicators) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
-
+> 
 ## Identify threat actors associated with specific threat indicators
 
 This query is an example of how to correlate threat indicators, such as IP addresses, with threat actors:
@@ -142,6 +142,17 @@ ThreatIntelIndicators
         Revoked = Data.revoked,
         SpecVersion = Data.spec_version
 | project-reorder TimeGenerated, WorkspaceId, AzureTenantId, ThreatType, ObservableKey, ObservableValue, Confidence, Name, Description, LastUpdateMethod, SourceSystem, Created, Modified, ValidFrom, ValidUntil, IsDeleted, Tags, AdditionalFields, CreatedByRef, Extensions, ExternalReferences, GranularMarkings, IndicatorId, KillChainPhases, Labels, Lang, ObjectMarkingRefs, Pattern, PatternType, PatternVersion, Revoked, SpecVersion, NetworkIP, NetworkDestinationIP, NetworkSourceIP, DomainName, EmailAddress, FileHashType, FileHashValue, Url, x509Certificate, x509Issuer, x509CertificateNumber, Data
+```
+
+## Transform away columns sent to Log Analytics.
+
+[Transformations in Azure Monitor](/azure/azure-monitor/data-collection/data-collection-transformations) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They're implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](/azure/azure-monitor/data-collection/data-collection-rule-overview).
+
+This example shows how to remove the Pattern column from the `ThreatIntelIndicators` table.
+
+```
+source
+| project-away Pattern
 ```
 
 ## Related content
