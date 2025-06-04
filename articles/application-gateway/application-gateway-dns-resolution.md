@@ -49,7 +49,7 @@ The Azure-provided DNS comes as a default setting with all virtual networks in A
 
 Flows: 
 * In this diagram, we can see the Application Gateway instance talks to Azure-provided DNS (168.63.129.16) for name resolution of the backend servers FQDN "server1.contoso.com" and "server2.contoso.com," as shown with blue line.
-* Similarly, the instance reaches out 168.63.129.16 for the name resolution of private link-enabled Key Vault resource, as shown in orange line. To allow an application gateway to DNS resolve the key vault endpoint to its private IP, it's important to link the Private DNS zone to that application gateway’s virtual network.
+* Similarly, the instance queries 168.63.129.16 for the DNS resolution of the private link-enabled Key Vault resource, as indicated by the orange line. To enable an application gateway to resolve the Key Vault endpoint to its private IP address, it is essential to link the Private DNS zone with the virtual network of that application gateway.
 * After performing successful DNS resolutions for these FQDNs, the instance can communicate with the Key Vault and backend server endpoints.
 
 Considerations:
