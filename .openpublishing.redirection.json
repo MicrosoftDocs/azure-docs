@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/site-recovery/shared-disks-common-questions.md",
+      "redirect_url": "/azure/site-recovery/azure-to-azure-common-questions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/network-watcher/traffic-analytics-schema-update.md",
       "redirect_url": "/previous-versions/azure/network-watcher/traffic-analytics-schema-update",
       "redirect_document_id": false
@@ -497,6 +502,11 @@
     {
       "source_path": "articles/security/fundamentals/tls-certificate-changes.md",
       "redirect_url": "/azure/security/fundamentals/azure-CA-details",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/recover-from-identity-compromise.md",
+      "redirect_url": "/azure/security/fundamentals/ransomware-detect-respond#road-to-recovery",
       "redirect_document_id": false
     },
     {
@@ -6967,6 +6977,26 @@
     {
       "source_path": "articles/defender-for-iot/organizations/eiot-sensor.md",
       "redirect_url": "/azure/defender-for-iot/organizations/concept-enterprise",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.09.18.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2024-09-18",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.11.08.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2024-11-08",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.12.18.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2024-12-18",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2025.02.06.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2025-02-06",
       "redirect_document_id": false
     }
   ]

@@ -237,7 +237,7 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 [storage-4.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/4.0.5
 [table-api-package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Tables/
 
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 
 [Update your extensions]: ./functions-bindings-register.md
 
