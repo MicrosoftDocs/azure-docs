@@ -83,6 +83,8 @@ Adding multiple prefixes to the GatewaySubnet is currently in Public Preview and
 
 Monitoring for the new gateway is the same as for the old gateway. The new gateway is a separate resource with its own metrics. During migration, you can also observe traffic patterns using the migration tool.
 
+After migration, if you had existing monitoring, alerting, customer-defined maintenance windows, or diagnostic settings configured, you'll need to reconfigure these on the newly created gateway.
+
 ### Will migration cause downtime?
 
 Migration may cause a few minutes of downtime. Plan to perform the migration during a maintenance window to minimize impact.
