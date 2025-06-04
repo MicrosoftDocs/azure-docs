@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: "As a database administrator, I want to back up SQL Server databases to Azure using a defined backup policy, so that I can ensure data protection and facilitate efficient recovery processes for my organization's SQL Server workloads."
 ---
 
 # Back up SQL Server to Azure as a DPM workload

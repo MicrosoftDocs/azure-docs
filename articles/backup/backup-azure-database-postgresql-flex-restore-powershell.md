@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to restore an Azure Database for PostgreSQL - Flexible Server using PowerShell, so that I can recover data from backup while adhering to necessary permissions and configurations.
 ---
 
 # Restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell

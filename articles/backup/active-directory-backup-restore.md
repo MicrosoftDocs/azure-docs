@@ -6,6 +6,7 @@ ms.date: 09/09/2024
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator, I want to back up and restore Active Directory domain controllers, so that I can ensure data integrity and availability during corruption or disaster scenarios."
 ---
 
 # Back up and restore Active Directory domain controllers

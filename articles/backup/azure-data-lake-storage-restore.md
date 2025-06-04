@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 04/16/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to restore vaulted backups for Azure Data Lake Storage using the Azure portal, so that I can effectively recover lost or corrupted data while ensuring compliance with storage management practices."
 ---
 
 # Restore Azure Data Lake Storage using Azure portal (preview)

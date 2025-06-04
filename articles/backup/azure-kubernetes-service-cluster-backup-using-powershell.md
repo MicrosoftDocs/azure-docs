@@ -11,6 +11,7 @@ ms.custom:
   - ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to back up Azure Kubernetes Service clusters using PowerShell, so that I can ensure data protection and recoverability for my containerized applications."
 ---
 
 # Back up Azure Kubernetes Service using PowerShell 

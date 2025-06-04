@@ -7,6 +7,7 @@ ms.date: 02/09/2025
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to restore Azure Virtual Machines using REST API, so that I can manage backup recoveries efficiently and minimize downtime in case of data loss or system failures.
 ---
 
 # Restore Azure Virtual machines using REST API

@@ -10,6 +10,7 @@ ms.custom:
   - ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a Kubernetes administrator, I want to configure and execute backups for Azure Kubernetes Service (AKS) using Azure CLI, so that I can ensure data protection and recoverability for my applications running in AKS."
 ---
 
 # Back up Azure Kubernetes Service using Azure CLI 

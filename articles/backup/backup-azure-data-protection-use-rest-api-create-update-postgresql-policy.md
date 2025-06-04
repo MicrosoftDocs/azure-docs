@@ -6,6 +6,7 @@ ms.date: 04/10/2025
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to create and manage backup policies for PostgreSQL databases using a REST API, so that I can automate backup scheduling, retention, and archiving for efficient data protection."
 ---
 
 # Create backup policies for PostgreSQL databases by using the Data Protection REST API

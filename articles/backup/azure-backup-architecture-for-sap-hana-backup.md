@@ -6,6 +6,7 @@ ms.date: 10/14/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator managing SAP HANA databases on Azure VMs, I want to implement Azure Backup for SAP HANA, so that I can ensure consistent and efficient backup and recovery of my databases with minimal infrastructure management."
 ---
 # Azure Backup architecture for SAP HANA backup
 

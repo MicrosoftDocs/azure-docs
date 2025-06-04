@@ -8,6 +8,7 @@ ms.custom:
   - ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to troubleshoot backup issues in Azure Database for PostgreSQL - Flexible server, so that I can ensure successful backups and maintain data integrity within my organization.
 ---
 
 # Troubleshoot Azure Database for PostgreSQL - Flexible server backup

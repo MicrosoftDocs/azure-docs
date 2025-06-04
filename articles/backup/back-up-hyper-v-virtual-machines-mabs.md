@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a systems administrator managing Hyper-V environments, I want to efficiently back up and restore virtual machines using a backup server, so that I can ensure data integrity and availability for critical workloads."
 ---
 
 # Back up Hyper-V virtual machines with Azure Backup Server

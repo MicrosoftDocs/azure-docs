@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell, ignite-2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to back up Azure Database for PostgreSQL - Flexible Server using PowerShell, so that I can ensure data protection and recovery in case of data loss or corruption.
 ---
 
 # Back up Azure Database for PostgreSQL - Flexible Server using Azure PowerShell
