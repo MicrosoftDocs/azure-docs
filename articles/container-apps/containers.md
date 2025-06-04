@@ -5,8 +5,10 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 09/19/2024
+ms.date: 05/15/2025
 ms.author: cshoe
+ms.custom:
+  - build-2025
 ---
 
 # Containers in Azure Container Apps
@@ -33,7 +35,7 @@ Jobs features include:
 
 ## Configuration
 
-Most container apps have a single container. In advanced scenarios, an app may also have sidecar and init containers. In a container app definition, the main app and its sidecar containers are listed in the `containers` array in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section, and init containers are listed in the `initContainers` array. The following excerpt shows the available configuration options when setting up an app's containers.
+Most container apps have a single container. In advanced scenarios, an app can also have sidecar and init containers. In a container app definition, the main app and its sidecar containers are listed in the `containers` array in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section, and init containers are listed in the `initContainers` array. The following excerpt shows the available configuration options when setting up an app's containers.
 
 ```json
 {
@@ -134,7 +136,7 @@ Most container apps have a single container. In advanced scenarios, an app may a
 | `name` | Friendly name of the container. | Used for reporting and identification. |
 | `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
-| `env` | An array of name/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
+| `env` | An array of name/value pairs that define environment variables. | Use `secretRef` instead of the `value` field when referencing a secret. |
 | `resources.cpu` | The number of CPUs allocated to the container. | See [vCPU and memory allocation requirements](#allocations) |
 | `resources.memory` | The amount of RAM allocated to the container. | See [vCPU and memory allocation requirements](#allocations) |
 | `volumeMounts` | An array of volume mount definitions. | You can define a temporary or permanent storage volumes for your container. For more information about storage volumes, see [Use storage mounts in Azure Container Apps](storage-mounts.md).|
@@ -203,7 +205,7 @@ Init containers are defined in the `initContainers` array of the container app t
 
 You can deploy images hosted on private registries by providing credentials in the Container Apps configuration.
 
-To use a container registry, you define the registry in the `registries` array in the [`properties.configuration`](azure-resource-manager-api-spec.md) section of the container app resource template.  The `passwordSecretRef` field identifies the name of the secret in the `secrets` array name where you defined the password.
+To use a container registry, you define the registry in the `registries` array in the [`properties.configuration`](azure-resource-manager-api-spec.md) section of the container app resource template. The `passwordSecretRef` field identifies the name of the secret in the `secrets` array name where you defined the password.
 
 ```json
 {
@@ -243,7 +245,7 @@ The following example shows how to configure Azure Container Registry credential
 ```
 
 > [!NOTE]
-> Docker Hub [limits](https://docs.docker.com/docker-hub/download-rate-limit/) the number of Docker image downloads. When the limit is reached, containers in your app will fail to start. Use a registry with sufficient limits, such as [Azure Container Registry](/azure/container-registry/container-registry-intro) to avoid this problem.
+> Docker Hub [limits](https://docs.docker.com/docker-hub/download-rate-limit/) the number of Docker image downloads. When the limit is reached, containers in your app fail to start. Use a registry with sufficient limits, such as [Azure Container Registry](/azure/container-registry/container-registry-intro) to avoid this problem.
 
 ### Managed identity with Azure Container Registry
 
@@ -287,7 +289,7 @@ Azure Container Apps has the following limitations:
 - **Operating system**: Linux-based (`linux/amd64`) container images are required.
 
 - **Maximum image size**:
-    - Consumption workload profile supports container images totaling up to 8GB for each app or job replica.
+    - Consumption workload profile supports container images totaling up to 8 GB for each app or job replica.
     - Dedicated workload profiles support larger container images. Because a Dedicated workload profile can run multiple apps or jobs, multiple container images share the available disk space. The actual supported image size varies based on resources consumed by other apps and jobs.
 
 ## Next steps

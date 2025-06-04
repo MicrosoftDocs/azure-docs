@@ -6,7 +6,9 @@ ms.author: peterwhiting
 ms.date: 04/09/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - build-2025
 ---
 # Add Azure Resource Manager (ARM) resources to an Azure Operator Service Manager (AOSM) Network Service Design Version (NSDV)
 
@@ -18,7 +20,7 @@ Onboarding is a multi-step process. Once you meet the prerequisites, you'll use 
 
 1. Modify an existing NSDV input file for a previously onboarded CNF.
 1. Fill the input file with the information required to build the AOSM resource definitions.
-1. Generate BICEP files that define a Network Service Design Group and Version (NSDV) based on the input file and your ARM template.
+1. Generate Bicep files that define a Network Service Design Group and Version (NSDV) based on the input file and your ARM template.
 1. Publish the NSDV and upload the ARM Template to an Artifact Store (AOSM-managed Azure Container Registry (ACR)).
 
 This how-to guide uses Azure Key Vault (AKV) as an example of an Azure Resource, however, any Azure resource can be onboarded by following the same steps. This article uses a CNF as the example NF; the process is identical for a Virtualized Network Function (VNF) apart from minor differences in the NSDV input file.
@@ -41,7 +43,7 @@ This how-to guide uses Azure Key Vault (AKV) as an example of an Azure Resource,
 - Any parameters you want to expose to the operator who will deploy your NSDV must be defined as parameters in the ARM template.
 
 > [!NOTE]
-> The Az CLI AOSM Extension does not support onboarding Azure resources defined in a BICEP template. However, you can use the `bicep build` command to convert your BICEP files to ARM templates. See [the bicep CLI documentation](/azure/azure-resource-manager/bicep/bicep-cli) for detailed information and instructions.
+> The Az CLI AOSM Extension does not support onboarding Azure resources defined in a Bicep file. However, you can use the `bicep build` command to convert your BICEP files to ARM templates. See [the bicep CLI documentation](/azure/azure-resource-manager/bicep/bicep-cli) for detailed information and instructions.
 
 ### Helm and Docker engine
 
@@ -142,7 +144,7 @@ az extension add --name aosm
     > [!NOTE]
     > The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.
 
-1. Execute the following command to build the Network Service Design Group and Version BICEP templates.
+1. Execute the following command to build the Network Service Design Group and Version Bicep files.
 
 ```azurecli
 az aosm nsd build --config-file <nsd-output-filename.jsonc>

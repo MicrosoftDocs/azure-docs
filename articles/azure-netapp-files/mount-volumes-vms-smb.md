@@ -1,11 +1,13 @@
 ---
-title: Mount SMB volumes for Windows VMs | Microsoft Docs
+title: Mount SMB volumes for Windows VMs
 description: Learn how to mount SMB volumes for Windows virtual machines.
 author: b-ahibbard
 ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/29/2022
+ms.date: 03/29/2025
+ms.custom:
+  - build-2025
 ---
 # Mount SMB volumes for Windows virtual machines
 

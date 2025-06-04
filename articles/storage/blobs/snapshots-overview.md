@@ -8,6 +8,8 @@ ms.service: azure-blob-storage
 ms.topic: article
 ms.date: 12/29/2021
 ms.author: normesta
+ms.custom:
+  - build-2025
 ---
 
 # Blob snapshots
@@ -18,9 +20,6 @@ A snapshot is a read-only version of a blob that's taken at a point in time.
 > Blob versioning offers a superior way to maintain previous versions of a blob. For more information, see [Blob versioning](versioning-overview.md).
 
 ## About blob snapshots
-
-> [!IMPORTANT]
-> The Snapshots Preview for accounts that have the hierarchical namespace feature enabled is no longer accepting new customers. We encourage you to consider alternative mechanisms. (Examples: [Soft delete for blobs](/azure/storage/blobs/soft-delete-blob-overview), [AzCopy](/azure/storage/common/storage-use-azcopy-v10?tabs=dnf), [Vaulted Backup [Preview]](/azure/backup/azure-data-lake-storage-backup-overview))
 
 A snapshot of a blob is identical to its base blob, except that the blob URI has a **DateTime** value appended to the blob URI to indicate the time at which the snapshot was taken. For example, if a page blob URI is `http://storagesample.core.blob.windows.net/mydrives/myvhd`, the snapshot URI is similar to `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
@@ -139,6 +138,10 @@ The following table describes the billing behavior for a blob that is soft-delet
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
+> [!IMPORTANT]
+> The Snapshots Preview for accounts that have the hierarchical namespace feature enabled is no longer accepting new customers. We encourage you to consider alternative mechanisms. (Examples: [Soft delete for blobs](/azure/storage/blobs/soft-delete-blob-overview), [AzCopy](/azure/storage/common/storage-use-azcopy-v10?tabs=dnf), [Vaulted Backup [Preview]](/azure/backup/azure-data-lake-storage-backup-overview))
+> 
+> 
 ## Next steps
 
 - [Blob versioning](versioning-overview.md)

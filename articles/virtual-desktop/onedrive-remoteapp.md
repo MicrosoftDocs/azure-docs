@@ -5,6 +5,8 @@ ms.topic: how-to
 author: dougeby
 ms.author: avdcontent
 ms.date: 11/26/2024
+ms.custom:
+  - build-2025
 ---
 
 # Launch Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop 
@@ -90,7 +92,7 @@ To configure OneDrive to launch with a RemoteApp in Azure Virtual Desktop, you n
 
 To test OneDrive with a RemoteApp, follow these steps:
 
-1. Use a supported version of Windows App or the Remote Desktop client to connect to a RemoteApp from the host pool withe the session hosts you configured.
+1. Use a supported version of Windows App or the Remote Desktop client to connect to a RemoteApp from the host pool with the session hosts you configured.
 
 1. Check that the OneDrive icon can be seen on the task bar of your local Windows device. Hover over the icon to show the tooltip and ensure it includes the word **Remote**, which differentiates it from a local instance of OneDrive.
 

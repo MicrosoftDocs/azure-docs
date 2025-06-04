@@ -3,7 +3,15 @@ title: Create and manage function apps in a Flex Consumption plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
 ms.date: 12/29/2024
 ms.topic: how-to
-ms.custom: build-2024, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts, ignite-2024
+ms.custom:
+  - build-2024
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+  - ignite-2024
+  - build-2025
 zone_pivot_groups: programming-languages-set-functions
 #customer intent: As an Azure developer, I want learn how to create and manage function apps in the Flex Consumption plan so that I can take advantage of the beneficial features of this plan.
 ---
@@ -532,10 +540,10 @@ At any point, you can change the instance memory size setting used by your app.
 
 ### [Azure CLI](#tab/azure-cli)
 
-This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the instance memory size setting to 4,096 MB: 
+This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the instance memory size setting to 512 MB: 
 
 ```azurecli
-az functionapp scale config set --resource-group <resourceGroup> --name <APP_NAME> --instance-memory 4096
+az functionapp scale config set --resource-group <resourceGroup> --name <APP_NAME> --instance-memory 512
 ```
 
 ### [Azure portal](#tab/azure-portal)

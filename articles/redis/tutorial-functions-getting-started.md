@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Get started with Azure Functions triggers and bindings in Azure Redis'
+title: "Tutorial: Get started with Azure Functions triggers and bindings in Azure Redis"
 description: In this tutorial, you learn how to use Azure Functions with Azure Cache for Redis or Azure Managed Redis.
-
+ms.date: 04/12/2024
 ms.topic: tutorial
 ms.custom:
   - ignite-2024
-ms.date: 04/12/2024
+  - build-2025
 appliesto:
   - ✅ Azure Cache for Redis
-
-#CustomerIntent: As a developer, I want a introductory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.
+  - ✅ Azure Managed Redis
+# CustomerIntent: As a developer, I want a introductory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.
 ---
 
 # Tutorial: Get started with Azure Functions triggers and bindings in Azure Redis
 
-This tutorial shows how to implement basic triggers with Azure Functions and either Azure Managed Redis (preview) or Azure Cache for Redis. It guides you through using Visual Studio Code (VS Code) to write and deploy an Azure function in C#.
+This tutorial shows how to implement basic triggers with Azure Functions and either Azure Managed Redis or Azure Cache for Redis. It guides you through using Visual Studio Code (VS Code) to write and deploy an Azure function in C#.
 
 In this tutorial, you learn how to:
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Visual Studio Code](https://code.visualstudio.com/).
 
-## [Set up an Azure Managed Redis (preview) instance](#tab/AMR)
+## [Set up an Azure Managed Redis instance](#tab/AMR)
 
 Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. This tutorial uses a _Balanced B1_ instance, which is a good starting point. Make sure to select this instance when using the [quickstart guide](quickstart-create-managed-redis.md) to get started.
 

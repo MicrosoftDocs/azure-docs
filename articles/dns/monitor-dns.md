@@ -4,8 +4,8 @@ description: Learn how to monitor Azure DNS using Azure Monitor, including data 
 ms.date: 01/06/2025
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.service: azure-dns
 ---
 

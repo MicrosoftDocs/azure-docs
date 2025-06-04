@@ -5,10 +5,11 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/01/2025
+ms.date: 05/20/2025
 ms.author: danlep
 ms.custom:
   - build-2024
+  - build-2025
 ---
 
 # Backends in API Management
@@ -148,7 +149,7 @@ The circuit breaker in this example resets after 1 hour. If a `Retry-After` head
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template for a backend resource with a circuit breaker:
+Include a snippet similar to the following in your Bicep file for a backend resource with a circuit breaker:
 
 ```bicep
 resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-preview' = {
@@ -239,16 +240,63 @@ Use a backend pool for scenarios such as the following:
 
 API Management supports the following load balancing options for backend pools:
 
-* **Round-robin**: By default, requests are distributed evenly across the backends in the pool.
-* **Weighted**: Weights are assigned to the backends in the pool, and requests are distributed across the backends based on the relative weight assigned to each backend. Use this option for scenarios such as conducting a blue-green deployment.
-* **Priority-based**: Backends are organized in priority groups, and requests are sent to the backends in order of the priority groups. Within a priority group, requests are distributed either evenly across the backends, or (if assigned) according to the relative weight assigned to each backend.
-    
+| Load balancing option      | Description |
+|------------------|-------------|
+| **Round-robin**  | Requests are distributed evenly across the backends in the pool by default. |
+| **Weighted**     | Weights are assigned to the backends in the pool, and requests are distributed based on the relative weight of each backend. Useful for scenarios such as blue-green deployments. |
+| **Priority-based** | Backends are organized into priority groups. Requests are sent to higher priority groups first; within a group, requests are distributed evenly or according to assigned weights. |    
+
 > [!NOTE]
 > Backends in lower priority groups will only be used when all backends in higher priority groups are unavailable because circuit breaker rules are tripped.
 
+### Session awareness
+
+With any of the preceding load balancing options, optionally enable **session awareness** (session affinity) to ensure that all requests from a specific user during a session are directed to the same backend in the pool. API Management sets a session ID cookie to maintain session state. This option is useful, for example, in scenarios with backends such as AI chat assistants or other conversational agents to route requests from the same session to the same endpoint.
+
+> [!NOTE]
+> Session awareness in load-balanced pools is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
+
+#### Manage cookies for session awareness
+
+When using session awareness, the client must handle cookies appropriately. The client needs to store the `Set-Cookie` header value and send it with subsequent requests to maintain session state.
+
+You can use API Management policies to help set cookies for session awareness. For example, for the case of the Assistants API (a feature of [Azure OpenAI in Azure AI Foundry Models](/azure/ai-services/openai/concepts/models)), the client needs to keep the session ID, extract the thread ID from the body, and keep the pair and send the right cookie for each call. Moreover, the client needs to know when to send a cookie or when not to send a cookie header. These requirements can be handled appropriately by defining the following example policies:
+
+
+```xml
+<policies>
+  <inbound>
+    <base />
+    <set-backend-service backend-id="APIMBackend" />
+  </inbound>
+  <backend>
+    <base />
+  </backend>
+  <outbound>
+    <base />
+    <set-variable name="gwSetCookie" value="@{
+      var payload = context.Response.Body.As<JObject>();
+      var threadId = payload["id"];
+      var gwSetCookieHeaderValue = context.Request.Headers.GetValueOrDefault("SetCookie", string.Empty);
+      if(!string.IsNullOrEmpty(gwSetCookieHeaderValue))
+      {
+        gwSetCookieHeaderValue = gwSetCookieHeaderValue + $";Path=/threads/{threadId};";
+      }
+      return gwSetCookieHeaderValue;
+    }" />
+    <set-header name="Set-Cookie" exists-action="override">
+      <value>Cookie=gwSetCookieHeaderValue</value>
+    </set-header>
+  </outbound>
+  <on-error>
+    <base />
+  </on-error>
+</policies>
+```
+
 ### Example
 
-Use the portal, API Management [REST API](/rest/api/apimanagement/backend), or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a backend pool. Example backends in the pool are named *backend-1* and *backend-2*. Both backends are in the highest priority group; within the group, *backend-1* has a greater weight than *backend-2* .
+Use the portal, API Management [REST API](/rest/api/apimanagement/backend), or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a backend pool. Example backends in the pool are named *backend-1* and *backend-2*. Both backends are in the highest priority group; within the group, *backend-1* has a greater weight than *backend-2*.
 
 
 #### [Portal](#tab/portal)
@@ -266,7 +314,9 @@ Use the portal, API Management [REST API](/rest/api/apimanagement/backend), or a
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template for a load-balanced pool. Set the `type` property of the backend entity to `Pool` and specify the backends in the pool:
+Include a snippet similar to the following in your Bicep file for a load-balanced pool. Set the `type` property of the backend entity to `Pool` and specify the backends in the pool.
+
+This example includes an optional `sessionAffinity` pool configuration for session awareness. It sets a cookie so that requests from a user session are routed to a specific backend in the pool. 
 
 ```bicep
 resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-preview' = {
@@ -286,14 +336,23 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-previ
           priority: 1
           weight: 1
         }
-      ]
+      ],
+      "sessionAffinity": { 
+        "sessionId": { 
+          "source": "Cookie", 
+          "name": "SessionId" 
+        } 
+      } 
     }
   }
 }
 ```
 #### [ARM](#tab/arm)
 
-Include a JSON snippet similar to the following in your ARM template for a load-balanced pool. Set the `type` property of the backend resource to `Pool` and specify the backends in the pool: 
+Include a JSON snippet similar to the following in your ARM template for a load-balanced pool. Set the `type` property of the backend resource to `Pool` and specify the backends in the pool.
+
+This example includes an optional `sessionAffinity` pool configuration for session awareness. It sets a cookie so that requests from a user session are routed to a specific backend in the pool. 
+
 
 ```json
 {
@@ -315,7 +374,13 @@ Include a JSON snippet similar to the following in your ARM template for a load-
           "priority": "1",
           "weight": "1"    
         }
-      ]
+      ],
+        "sessionAffinity": { 
+        "sessionId": { 
+          "source": "Cookie", 
+          "name": "SessionId" 
+        } 
+      } 
     }
   }
 }

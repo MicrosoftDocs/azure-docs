@@ -2,12 +2,14 @@
 title: How to create an Azure support request for an Enterprise Agreement issue
 description: Enterprise Agreement customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: troubleshooting
-ms.date: 01/22/2025
-ms.author: sahilkhurana
-author: bandersmsft
-ms.reviewer: sahilkhurana
+ms.date: 05/21/2025
+ms.author: macyso
+author: KennyDay
+ms.reviewer: macyso
 ms.service: cost-management-billing
 ms.subservice: billing
+ms.custom:
+  - build-2025
 ---
 
 # Create an Azure support request for an Enterprise Agreement issue

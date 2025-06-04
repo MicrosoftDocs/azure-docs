@@ -2,12 +2,12 @@
 title: Country/Region hierarchy used by geographic routing - Azure Traffic Manager
 description: This article lists Country/Region hierarchy used by Azure Traffic Manager Geographic routing type.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 manager: kumud
 ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 08/08/2024
-ms.author: greglin
+ms.author: allensu
 ---
 
 # Country/Region hierarchy used by Azure Traffic Manager for geographic traffic routing method

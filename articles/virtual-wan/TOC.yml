@@ -32,7 +32,7 @@
         href: quickstart-any-to-any-template.md
       - name: Route to shared services VNets
         href: quickstart-route-shared-services-vnet-template.md
-    - name: BICEP templates
+    - name: Bicep files
       items:
       - name: Deploy Virtual WAN with routing intent and routing policies
         href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent

@@ -4,15 +4,24 @@ ms.service: azure-app-service
 ms.topic: include
 ms.date: 05/07/2025
 ms.author: cephalin
+ms.custom:
+  - build-2025
 ---
 
 ## Frequently asked questions
+
+- [How does pricing tier affect the performance of the SLM sidecar?](#how-does-pricing-tier-affect-the-performance-of-the-slm-sidecar)
+- [How to use my own SLM sidecar?](#how-to-use-my-own-slm-sidecar)
+
+---
 
 ### How does pricing tier affect the performance of the SLM sidecar?
 
 Since AI models consume considerable resources, choose the pricing tier that gives you sufficient vCPUs and memory to run your specific model. For this reason, the built-in AI sidecar extensions only appear when the app is in a suitable pricing tier. If you build your own SLM sidecar container, you should also use a CPU-optimized model, since the App Service pricing tiers are CPU-only tiers.
 
 For example, the [Phi-3 mini model with a 4K context length from Hugging Face](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx) is designed to run with limited resources and provides strong math and logical reasoning for many common scenarios. It also comes with a CPU-optimized version. In App Service, we tested the model on all premium tiers and found it to perform well in the [P2mv3](https://azure.microsoft.com/pricing/details/app-service/linux/) tier or higher. If your requirements allow, you can run it on a lower tier.
+
+---
 
 ### How to use my own SLM sidecar?
 
