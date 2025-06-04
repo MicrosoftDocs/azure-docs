@@ -608,21 +608,40 @@ For more information, see [Preserve the original HTTP host name between a revers
 
 ### Scenario 10: If-elseif-else rules
 
-The current rule engine in Azure Front Door does not natively support traditional conditional logic with "if-elseif-else" structures. Instead, all rules are independently evaluated as "if condition1 then action1," "if condition2 then action2," and so forth. This implies that if multiple conditions (e.g., condition1 and condition2) are simultaneously met, multiple corresponding actions (action1 and action2) will be executed.
-However, it is possible to emulate an "if-elseif-else" that resembles the following:
--	If condition1 is satisfied, execute action1.
--	Else if condition2 is satisfied (but condition1 is not), execute action2.
--	Else, execute a default action.
-If multiple conditions (condition1, condition2, ..., conditionN) are satisfied simultaneously, only the first matching action is executed, effectively simulating traditional conditional branching. If none of the conditions are met, the default action will execute.
-To configure this, create a new ruleset call it “IfElseifElseRuleset” and create rules as normal, the only change would be to check the Stop evaluating remaining rules box after each rule as shown below – 
+The Azure Front Door rules engine doesn't natively support traditional conditional logic with "if-elseif-else" structures. By default, all rules are independently evaluated as "if condition1 then action1," "if condition2 then action2," and so forth. When multiple conditions are met simultaneously, multiple corresponding actions are executed.
 
-Note: Due to limitations of current ruleset implementation, this if-elseif-else paradigm will only work if the ruleset is attached as the final ruleset for that route as shown below.
-Here is the Rule set configuration in Azure portal.
+However, you can emulate "if-elseif-else" logic by using the **Stop evaluating remaining rules** feature to create conditional branching that resembles:
+
+- If condition1 is satisfied, execute action1 and stop
+- Else if condition2 is satisfied (but condition1 is not), execute action2 and stop  
+- Else if condition3 is satisfied (but condition1 and condition2 are not), execute action3 and stop
+- Else, execute a default action
+
+**How it works:** When multiple conditions would normally be satisfied simultaneously, only the first matching rule executes because rule evaluation stops after the first match. This effectively simulates traditional conditional branching.
+
+**Configuration steps:**
+
+1. Create a new ruleset (for example, "IfElseifElseRuleset")
+2. Create rules in priority order, with the most specific conditions first
+3. For each rule, check the **Stop evaluating remaining rules** option
+
+:::image type="content" source="./media/rules-engine-scenarios/if-elseif-else-rules.png" alt-text="Screenshot that shows how to configure if-elseif-else rules." lightbox="./media/rules-engine-scenarios/if-elseif-else-rules.png":::
+
+> [!IMPORTANT]
+> This if-elseif-else paradigm only works if the ruleset is attached as the **final** ruleset for that route.
+
+:::image type="content" source="./media/rules-engine-scenarios/if-elseif-else-rules-final.png" alt-text="Screenshot that shows how to place if-elseif-else rules as the final ruleset for the route." lightbox="./media/rules-engine-scenarios/if-elseif-else-rules-final.png":::
 
 ### Scenario 11: Removing query strings from incoming URLs using URL redirects
 
-To remove query strings from incoming URLs, implement a 3xx URL redirect to guide users back to the AFD endpoint with the query strings removed. Please note, users will notice the change of the request URL with this operation.
-Here is the configuration in rules engine in portal to strip the whole query string. If you need to strip part of it, you can adjust the offset/length as desired: Server variables - Azure Front Door | Microsoft Learn
+You can remove query strings from incoming URLs by implementing a 3xx URL redirect that guides users back to the Azure Front Door endpoint with the query strings removed.
+
+ [!NOTE]
+> Users will notice the change of the request URL with this operation.
+
+The following example demonstrates how to remove the entire query string from incoming URLs. If you need to strip part of it, you can adjust the offset/length as desired. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
+
+:::image type="content" source="./media/rules-engine-scenarios/remove-query-strings.png" alt-text="Screenshot that shows how to remove query strings from incoming URLs using URL 3xx redirects." lightbox="./media/rules-engine-scenarios/remove-query-strings.png":::
 
 ```json
 {
