@@ -291,11 +291,13 @@ For example, you can replace the response header `X-Azure-Backend-ID` with a bra
 
 ### Scenario 4: A/B testing (experimentation)
 
-Split incoming traffic based on client port into two origin groups, sending some to origin with experimental experiences. This method is useful for A/B testing, rolling deployments, or load balancing without complex backend logic.
-The follow example routes clients with port ending 1,3,5,7,9 to “experiment-origin-group” else it proceeds to the default origin group for that route per route settings. The regex in this example is just an example, you can explore and test regex for your own needs using public sites like regex101.
+Splitting incoming traffic based on client port into two origin groups can be is useful in A/B testing, rolling deployments, or load balancing without complex backend logic.
+
+For example, you can split incoming traffic based on the client port number. A rule can match client ports that end in 1, 3, 5, 7, or 9 and forward those requests to an *experiment-origin-group*. All other traffic continues to the default origin group per route settings. The previous regex is just an example, You can explore and test your own expressions using tools like [regex101](https://regex101.com/).
 
 
-Note: Since client ports are random, this approach achieves a nearly 50/50 traffic split. The presence of any proxies or load balancers between clients and AFD may affect the assumption that the client port seen by AFD is always randomized, due to connection re-use, rewriting of source ports etc. Use logs or metrics to find out what the actual behavior looks like.
+> [!NOTE]
+> Since client ports are random, this method typically results in an approximate 50/50 traffic split. However, the presence of any proxies or load balancers between clients and the Front Door might affect this assumption due to factors like connection reuse or source port rewriting. Use logs or metrics to validate the actual behavior in your environment.
 
 ```json
 {
