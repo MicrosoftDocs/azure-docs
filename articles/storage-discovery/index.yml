@@ -1,0 +1,74 @@
+### YamlMime:Hub
+
+### STATUS: DRAFT
+title: Azure Storage Discovery documentation
+summary: Azure Storage Discovery is...
+brand: azure
+
+metadata:
+  title: Azure Storage Discovery documentation
+  description: Azure Storage Discovery is ..... 
+  ms.service: azure-storage-discovery
+  ms.topic: hub-page
+  author: fauhse
+  ms.author: fauhse
+  ms.date: 06/15/2025
+
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Azure Storage Mover?
+      itemType: concept
+      url: overview.md
+    - title: What is Azure Storage Mover?
+      itemType: concept
+      url: overview.md
+ 
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 3 sections
+  sections:
+    - title: Deploy
+      items:
+        # Card
+        - title: Overview
+          links:
+          - url: overview.md
+            text: Planning for a storage mover deployment
+          - url: overview.md#my-custom-anchor-to-subheading
+            text: Deploying a Storage Discovery resource
+        # Card
+        - title: Agent
+          links:
+          - url: https://aka.ms/StorageMover/agent
+            text: Download the latest migration agent image
+          - url: overview.md
+            text: Deploy a Storage Mover agent VM
+          - url: overview.md
+            text: Register an agent VM
+        # Card
+        - title: Authentication & Authorization
+          links:
+          - url: overview.md#authentication-and-authorization
+            text: Overview
+          - url: overview.md#just-in-time-authorization
+            text: Just-in-time agent authorization
+          - url: overview.md#permissions
+            text: Required admin permissions (RBAC)
+    - title: Manage
+      items:
+        # Card
+        - title: Structure a migration
+          links:
+          - url: overview.md
+            text: Cloud migration basics
+          - url: overview.md
+            text: Manage a project
+        # Card
+        - title: Discovery costs
+          links:
+          - url: overview.md
+            text: Understanding cost components
