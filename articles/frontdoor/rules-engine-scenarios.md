@@ -351,6 +351,9 @@ In some scenarios, you might need to add new segments or remove some segments wh
 
 For example, if you want to redirect `https://domain.com/seg0/seg1/seg2/seg3` to `https://example.com/seg0/insert/seg2/seg3`. In this scenario, you replace URL path’s `{seg1}` with `/insert/` while preserving the rest of the URL path. Azure Front Door achieves the desired redirect by combining values extracted from server variables (URL segments) and combining static string segment `/insert/`. You can use `Int32.Max (2147483647)` for URL segment’s length field to keep all segments from *seg2* to *segn*. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
 
+> [!NOTE]
+> Similar configuration can be done for URL rewrite action by inputting source pattern as `/` and destination as `/{url_path:seg0}/insert/{url_path:seg2:2147483647}` as shown for redirect action in the following portal example.
+
 :::image type="content" source="./media/rules-engine-scenarios/redirect-url-path-modification.png" alt-text="Screenshot that shows how to redirect with URL path modification while preserving part of the URL path." lightbox="./media/rules-engine-scenarios/redirect-url-path-modification.png":::
 
 ```json
