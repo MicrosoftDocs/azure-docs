@@ -7,6 +7,7 @@ ms.topic: reference
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator using MABS or DPM, I want to understand the backup support limitations and configurations, so that I can effectively manage and safeguard my on-premises and Azure workloads.
 ---
 
 # Support matrix for backup with Microsoft Azure Backup Server or System Center DPM

@@ -6,6 +6,7 @@ ms.date: 04/23/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to back up Azure Managed Disks from the Azure portal, so that I can ensure data protection and recovery for critical workloads in my cloud environment."
 ---
 
 # Back up Azure Managed Disks

@@ -7,6 +7,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24
+# Customer intent: "As a database administrator, I want to configure backup policies for SQL Server databases on Azure Stack, so that I can ensure data protection and facilitate seamless recovery from Azure when needed."
 ---
 
 # Back up SQL Server on Azure Stack using Azure Backup

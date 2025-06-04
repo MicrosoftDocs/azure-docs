@@ -6,6 +6,7 @@ ms.date: 10/25/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to troubleshoot errors during Backup vault management, so that I can ensure successful vault operations and maintain data protection without unnecessary delays.
 ---
 
 # Troubleshoot Backup vault management operations on Azure Backup

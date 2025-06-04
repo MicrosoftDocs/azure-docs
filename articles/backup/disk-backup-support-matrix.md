@@ -7,6 +7,7 @@ ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to understand the support matrix for Azure Disk Backup so that I can plan my backup and recovery strategy effectively within the service limitations and requirements."
 ---
 
 # Azure Disk Backup support matrix

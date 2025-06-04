@@ -6,6 +6,7 @@ ms.service: azure-backup
 ms.date: 04/30/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a system administrator, I want to install Azure Backup Server on Azure Stack Hub, so that I can effectively protect and manage backup workloads from a single console."
 ---
 # Install Azure Backup Server on Azure Stack Hub
 

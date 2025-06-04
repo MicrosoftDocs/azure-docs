@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to troubleshoot SQL Server database backup issues on Azure VMs, so that I can ensure successful backups and data recovery for my organization's databases."
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup

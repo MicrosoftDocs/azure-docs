@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As a backup administrator, I want to configure and view Azure Backup reports using Log Analytics and Azure workbooks, so that I can effectively monitor backup activities, optimize storage use, and ensure compliance with backup policies over time.
 ---
 # Configure Azure Backup reports
 

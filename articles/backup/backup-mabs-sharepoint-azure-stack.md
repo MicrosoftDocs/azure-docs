@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to back up and restore a SharePoint farm using Azure Backup Server, so that I can ensure data protection and recovery for my organization's SharePoint content."
 ---
 
 # Back up a SharePoint farm on Azure Stack using Microsoft Azure Backup Server

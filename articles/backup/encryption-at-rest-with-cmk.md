@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a backup administrator, I want to configure encryption for my Recovery Services vault using customer-managed keys, so that I can maintain full control over the encryption keys and enhance the security of my backup data."
 ---
 
 # Encrypt backup data by using customer-managed keys
