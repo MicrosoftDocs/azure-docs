@@ -295,7 +295,7 @@ Bind binary inputs or outputs to `byte[]`, by setting the `dataType` field in yo
 
 If you expect null values, use `Optional<T>`.
 
-### SDK types (preview)
+### <a name="sdk-types"></a>SDK types (preview)
 
 You can currently use these native SDK types in your bindings:
 
@@ -315,6 +315,8 @@ When you use these native SDK types, your functions can use client types to acce
 
 #### Examples
 
+Blob trigger that uses `BlobClient` to access properties of the blob.
+
 ```java
 @FunctionName("processBlob")
 public void run(
@@ -328,6 +330,8 @@ public void run(
     ctx.getLogger().info("Size = " + blob.getProperties().getBlobSize());
 }
 ```
+
+Blob trigger that uses `BlobContainerClient` to access info about blobs in the container.
 
 ```java
 @FunctionName("containerOps")
@@ -343,6 +347,7 @@ public void run(
 }
 ```
 
+Blob input binding that uses `BlobClient` to get information about the blob that triggered the execution. 
 
 ```java
 @FunctionName("checkAgainstInputBlob")
@@ -364,7 +369,7 @@ public void run(
 #### Considerations
 
 + The `dataType` setting on `@BlobTrigger` is ignored when binding to an SDK type.
-+ Currently, only one SDK type can be used at a time in a given function definition. If your function has both a Blog trigger or Input binding and a Blob output binding, one binding can use an SDK type (such as `BlobClient`) and the others must use a native type or POJO.
++ Currently, only one SDK type can be used at a time in a given function definition. When a function has both a Blog trigger or input binding and a Blob output binding, one binding can use an SDK type (such as `BlobClient`) and the others must use a native type or POJO.
 + You can use managed identities with SDK types.
 
 #### Troubleshooting

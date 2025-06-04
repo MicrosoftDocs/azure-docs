@@ -84,7 +84,56 @@ public void run(
 }
 ```
 
-This example 
+This [SDK types example](./functions-reference-java.md#sdk-types) uses `BlobClient` to access properties of the blob.
+
+```java
+@FunctionName("processBlob")
+public void run(
+        @BlobTrigger(
+                name = "content",
+                path = "images/{name}",
+                connection = "AzureWebJobsStorage") BlobClient blob,
+        @BindingName("name") String file,
+        ExecutionContext ctx)
+{
+    ctx.getLogger().info("Size = " + blob.getProperties().getBlobSize());
+}
+```
+
+This [SDK types example](./functions-reference-java.md#sdk-types) uses `BlobContainerClient` to access info about blobs in the container that triggered the function.
+
+```java
+@FunctionName("containerOps")
+public void run(
+        @BlobTrigger(
+                name = "content",
+                path = "images/{name}",
+                connection = "AzureWebJobsStorage") BlobContainerClient container,
+        ExecutionContext ctx)
+{
+    container.listBlobs()
+            .forEach(b -> ctx.getLogger().info(b.getName()));
+}
+```
+
+This [SDK types example](./functions-reference-java.md#sdk-types) uses `BlobClient` to get information from the input binding about the blob that triggered the execution. 
+
+```java
+@FunctionName("checkAgainstInputBlob")
+public void run(
+        @BlobInput(
+                name = "inputBlob",
+                path = "inputContainer/input.txt") BlobClient inputBlob,
+        @BlobTrigger(
+                name = "content",
+                path = "images/{name}",
+                connection = "AzureWebJobsStorage",
+                dataType = "string") String triggerBlob,
+        ExecutionContext ctx)
+{
+    ctx.getLogger().info("Size = " + inputBlob.getProperties().getBlobSize());
+}
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
