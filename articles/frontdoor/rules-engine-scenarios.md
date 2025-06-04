@@ -112,85 +112,87 @@ Managing redirects is critical for search engine optimization (SEO), user experi
 
 - **Redirect based on dynamic-length URL path segments:** When the URL path segment has a dynamic length, you can extract it using the `{url_path:seg#}`. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
 
-   For example, if a tenant ID or location is embedded in the URL segment, such as: `https://api.contoso.com/{tenantId}/xyz`, you can extract `{tenantId}` from the URL and decide the correct redirect to use in the format of `tenantId.backend.com/xyz` with server variable `{url_path:seg0}.backend.com` in the redirect destination host.
+   For example, if a tenant ID or location is embedded in the URL segment, such as: `https://api.contoso.com/{tenantId}/xyz`, you can extract `{tenantId}` from the URL and decide the correct redirect in the format of `tenantId.backend.com/xyz` with server variable `{url_path:seg0}.backend.com` in the redirect destination host.
 
-    This method avoids creating separate rules for each tenant ID, enabling more efficient configuration. In addition to ARM templates, you can also use  Azure CLI or PowerShell in this approach.
- helps reduce the number of rules needed where you don’t need to create one rule for each tenant ID. This is currently supported by ARM templates and command line tools. 
+    This method avoids creating separate rules for each tenant ID, enabling more efficient configuration.
 
-
-```json
-{
-    "type": "Microsoft.Cdn/profiles/rulesets/rules",
-    "apiVersion": "2025-04-15",
-    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectURLSegmentCapture')]",
-    "dependsOn": [
-        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
-        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
-    ],
-    "properties": {
-        "order": 101,
-        "conditions": [],
-        "actions": [
-            {
-                "name": "UrlRedirect",
-                "parameters": {
-                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
-                    "redirectType": "PermanentRedirect",
-                    "destinationProtocol": "MatchRequest",
-                    "customPath": "/xyz",
-                    "customHostname": "{url_path:seg0}.backend.com"
-                }
-            }
+    ```json
+    {
+        "type": "Microsoft.Cdn/profiles/rulesets/rules",
+        "apiVersion": "2025-04-15",
+        "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectURLSegmentCapture')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+            "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
         ],
-        "matchProcessingBehavior": "Continue"
+        "properties": {
+            "order": 101,
+            "conditions": [],
+            "actions": [
+                {
+                    "name": "UrlRedirect",
+                    "parameters": {
+                        "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                        "redirectType": "PermanentRedirect",
+                        "destinationProtocol": "MatchRequest",
+                        "customPath": "/xyz",
+                        "customHostname": "{url_path:seg0}.backend.com"
+                    }
+                }
+            ],
+            "matchProcessingBehavior": "Continue"
+        }
     }
-}
-```
+    ```
 
-- To redirect requests to different origins using part of the incoming hostnames,  you can capture part of the incoming hostname https://[tenantName].poc.contoso.com/GB and redirect to s1.example.com/Buyer/Main?realm=[tenantName]&examplename=example1, using the {hostname:0:-16} to capture the offset and length in server variable.  You can learn more about the server variable formats in Server variables - Azure Front Door | Microsoft Learn.
+- **Redirect based on part of the incoming hostname:** You can redirect requests to different origins by extracting part of the incoming hostname.
 
-```json
-{
-    "type": "Microsoft.Cdn/profiles/rulesets/rules",
-    "apiVersion": "2025-04-15",
-    "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectHostnameCapture')]",
-    "dependsOn": [
-        "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
-        "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
-    ],
-    "properties": {
-        "order": 102,
-        "conditions": [
-            {
-                "name": "HostName",
-                "parameters": {
-                    "typeName": "DeliveryRuleHostNameConditionParameters",
-                    "operator": "EndsWith",
-                    "negateCondition": false,
-                    "matchValues": [
-                        "poc.contoso.com"
-                    ],
-                    "transforms": []
-                }
-            }
+    For example, you can capture `tenantName` from `https://[tenantName].poc.contoso.com/GB` to redirect the request to `s1.example.com/Buyer/Main?realm=[tenantName]&examplename=example1` using the offset and length in server variable in the format of `{hostname:0:-16}`. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format)
+
+    :::image type="content" source="./media/rules-engine-scenarios/redirect-incoming-hostname.png" alt-text="Screenshot that shows how to use incoming hostname to redirect URL." lightbox="./media/rules-engine-scenarios/redirect-incoming-hostname.png":::
+
+    ```json
+    {
+        "type": "Microsoft.Cdn/profiles/rulesets/rules",
+        "apiVersion": "2025-04-15",
+        "name": "[concat(parameters('profiles_rulesengineblog_name'), '/RulesBlogScenarios/RedirectHostnameCapture')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Cdn/profiles/rulesets', parameters('profiles_rulesengineblog_name'), 'RulesBlogScenarios')]",
+            "[resourceId('Microsoft.Cdn/profiles', parameters('profiles_rulesengineblog_name'))]"
         ],
-        "actions": [
-            {
-                "name": "UrlRedirect",
-                "parameters": {
-                    "typeName": "DeliveryRuleUrlRedirectActionParameters",
-                    "redirectType": "PermanentRedirect",
-                    "destinationProtocol": "MatchRequest",
-                    "customQueryString": "realm={hostname:0:-16}&examplename=example1",
-                    "customPath": "/Buyer/Main",
-                    "customHostname": "s1.example.com"
+        "properties": {
+            "order": 102,
+            "conditions": [
+                {
+                    "name": "HostName",
+                    "parameters": {
+                        "typeName": "DeliveryRuleHostNameConditionParameters",
+                        "operator": "EndsWith",
+                        "negateCondition": false,
+                        "matchValues": [
+                            "poc.contoso.com"
+                        ],
+                        "transforms": []
+                    }
                 }
-            }
-        ],
-        "matchProcessingBehavior": "Continue"
+            ],
+            "actions": [
+                {
+                    "name": "UrlRedirect",
+                    "parameters": {
+                        "typeName": "DeliveryRuleUrlRedirectActionParameters",
+                        "redirectType": "PermanentRedirect",
+                        "destinationProtocol": "MatchRequest",
+                        "customQueryString": "realm={hostname:0:-16}&examplename=example1",
+                        "customPath": "/Buyer/Main",
+                        "customHostname": "s1.example.com"
+                    }
+                }
+            ],
+            "matchProcessingBehavior": "Continue"
+        }
     }
-}
-```
+    ```
 
 ### Scenario 2: Populate or modify a response header based on a request header value
 
