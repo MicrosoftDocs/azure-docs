@@ -180,11 +180,9 @@ Strive to use stateless clusters that minimize the need for backup. Store data i
 
 ## Reliability during service maintenance
 
-AKS performs maintenance on your cluster, including updates to the cluster and node images.  To ensure that sufficient capacity is available even during upgrades, you should configure your pods to use pod disruption budgets.
+AKS performs maintenance on your cluster, including updates to the cluster and node images. To ensure that Kubernetes maintains the minimum number of pod instances required to serve your production traffic even during upgrades, you should configure your pods to use pod disruption budgets.
 
-To reduce service disruptions during critical time periods, AKS provides controls so that you can specify planned maintenance times. 
-
-To learn more, see [Use planned maintenance to schedule and control upgrades for your Azure Kubernetes Service cluster](/azure/aks/planned-maintenance).
+To reduce service disruptions during critical time periods, AKS provides controls so that you can specify planned maintenance times. To learn more, see [Use planned maintenance to schedule and control upgrades for your Azure Kubernetes Service cluster](/azure/aks/planned-maintenance).
 
 ## Service-level agreement
 
