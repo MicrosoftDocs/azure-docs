@@ -38,7 +38,7 @@ additionalContent:
           links:
           - url: overview.md
             text: Planning for a storage mover deployment
-          - url: overview.md#my-custom-anchor-to-subheading
+          - url: overview.md
             text: Deploying a Storage Discovery resource
         # Card
         - title: Agent
@@ -54,7 +54,7 @@ additionalContent:
           links:
           - url: overview.md#authentication-and-authorization
             text: Overview
-          - url: overview.md#just-in-time-authorization
+          - url: overview.md
             text: Just-in-time agent authorization
           - url: overview.md#permissions
             text: Required admin permissions (RBAC)

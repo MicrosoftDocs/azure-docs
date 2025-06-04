@@ -32,7 +32,7 @@ Content.
 Content.
 Consider include - we likely need this in other articles.
 
-## more content headlines
+## Permissions
 
 Content.
 
