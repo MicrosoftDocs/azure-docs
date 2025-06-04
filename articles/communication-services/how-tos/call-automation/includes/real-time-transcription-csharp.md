@@ -57,6 +57,8 @@ StartTranscriptionOptions options = new StartTranscriptionOptions()
 {
     OperationContext = "startMediaStreamingContext",
     //Locale = "en-US",
+    //Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    SpeechRecognitionModelEndpointId = "YourCustomSpeechRecognitionModelEndpointId"
 };
 
 await callMedia.StartTranscriptionAsync(options);
@@ -227,7 +229,14 @@ namespace WebServerApi
 For situations where your application allows users to select their preferred language you may also want to capture the transcription in that language. To do this, Call Automation SDK allows you to update the transcription locale.
 
 ```csharp
-await callMedia.UpdateTranscriptionAsync("en-US-NancyNeural");
+UpdateTranscriptionOptions updateTranscriptionOptions = new UpdateTranscriptionOptions(locale)
+{
+OperationContext = "UpdateTranscriptionContext",
+//Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+SpeechRecognitionModelEndpointId = "YourCustomSpeechRecognitionModelEndpointId"
+};
+
+await client.GetCallConnection(callConnectionId).GetCallMedia().UpdateTranscriptionAsync(updateTranscriptionOptions);
 ```
 
 ## Stop Transcription
