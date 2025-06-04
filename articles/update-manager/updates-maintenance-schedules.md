@@ -4,8 +4,8 @@ description: This article describes the updates and maintenance options availabl
 ms.service: azure-update-manager
 ms.date: 10/28/2024
 ms.topic: overview
-author: snehasudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # Update options and orchestration in Azure Update Manager

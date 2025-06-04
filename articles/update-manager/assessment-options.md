@@ -4,8 +4,8 @@ description: The article describes the assessment options available in Update Ma
 ms.service: azure-update-manager
 ms.date: 12/06/2024
 ms.topic: overview
-author: snehasudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # Assessment options in Update Manager

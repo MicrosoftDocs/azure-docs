@@ -8,6 +8,7 @@ ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
 ms.date: 8/15/2024
 ms.service: azure-baremetal-infrastructure
+# Customer intent: As an IT administrator, I want to sign up for and configure Nutanix Cloud Clusters on Azure, so that I can efficiently manage my cloud infrastructure while ensuring connectivity and compliance with my organization’s requirements.
 ---
 
 # Getting started with Nutanix Cloud Clusters on Azure

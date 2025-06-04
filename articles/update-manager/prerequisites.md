@@ -3,8 +3,8 @@ title: Prerequisites for Azure Update Manager
 description: This article explains the prerequisites for Azure Update Manager, VM extensions and network planning.
 ms.service: azure-update-manager
 ms.custom: linux-related-content
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 09/24/2024
 ms.topic: overview
 ---

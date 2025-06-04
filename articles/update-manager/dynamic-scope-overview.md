@@ -4,8 +4,8 @@ description: This article provides information about Dynamic Scoping, its purpos
 ms.service: azure-update-manager
 ms.date: 09/06/2024
 ms.topic: overview
-author: SnehaSudhir 
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # About Dynamic Scoping

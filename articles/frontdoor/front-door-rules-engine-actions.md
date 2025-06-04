@@ -359,7 +359,7 @@ Use the **URL redirect** action to redirect clients to a new URL. Clients are se
 
 | Property | Supported values |
 |----------|------------------|
-| Redirect type | The response type to return to the requestor. <ul><li>In the Azure portal: Found (302), Moved (301), Temporary Redirect (307), Permanent Redirect (308).</li><li>In ARM templates: `Found`, `Moved`, `TemporaryRedirect`, `PermanentRedirect`</li></ul> |
+| Redirect type | The response type to return to the requester. <ul><li>In the Azure portal: Found (302), Moved (301), Temporary Redirect (307), Permanent Redirect (308).</li><li>In ARM templates: `Found`, `Moved`, `TemporaryRedirect`, `PermanentRedirect`</li></ul> |
 | Redirect protocol | <ul><li>In the Azure portal: `Match Request`, `HTTP`, `HTTPS`</li><li>In ARM templates: `MatchRequest`, `Http`, `Https`</li></ul> |
 | Destination host | The host name you want the request to be redirected to. Leave blank to preserve the incoming host. |
 | Destination path | The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path. |

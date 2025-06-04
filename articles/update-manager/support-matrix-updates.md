@@ -2,8 +2,8 @@
 title: Azure Update Manager support matrix for updates
 description: This article provides a summary of support for updates, one time updates, periodic assessments and scheduled patching.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 03/18/2025
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates

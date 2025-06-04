@@ -6,8 +6,8 @@ ms.custom:
   - ignite-2024
 ms.topic: faq
 ms.date: 04/16/2025
-author: snehasudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 #Customer intent: As an implementer, I want answers to various questions.
 ---
 

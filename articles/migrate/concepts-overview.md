@@ -1,7 +1,7 @@
 --- 
 title: Overview assessment 
 description: Learn about types of assessments in Azure Migrate. 
-author: SnehaSudhir  
+author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-migrate 
 ms.topic: concept-article 

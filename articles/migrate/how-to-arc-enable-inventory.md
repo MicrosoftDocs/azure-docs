@@ -1,8 +1,8 @@
 ---
 title: Arc enable discovered inventory in Azure Migrate
 description: Describes how to enable arc in Azure Migrate
-author: SnehaSudhirG
-ms.author: anjalimishra
+author: habibaum
+ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/14/2024
