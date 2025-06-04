@@ -1359,6 +1359,10 @@ items:
     - name: Advanced topics
       href: sap-change-data-capture-advanced-topics.md
       displayName: SAP, change data capture, CDC
+- name: Security
+  items:
+  - name: Secure your Azure Data Factory
+    href: secure-your-azure-data-factory.md
 - name: Workflow Orchestration Manager
   items:
   - name: Tutorials
