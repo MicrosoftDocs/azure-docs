@@ -41,7 +41,7 @@ The subnet must be delegated as follows to enable the desired inbound and outbou
 
 For information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
-#### [Virtual netowork integration](#tab/external)
+#### [Virtual network integration](#tab/external)
 
 
 For virtual network integration, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
