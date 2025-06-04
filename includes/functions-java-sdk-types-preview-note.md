@@ -7,4 +7,4 @@ ms.author: glenga
 ---
 
 >[!NOTE]  
->Support for binding to SDK types is currently in preview and limited to the Azure Blob Storage SDK. For more information, see [SDK types](functions-reference-java.md#sdk-types) in the Java reference article.  
+>Support for binding to SDK types is currently in preview and limited to the Azure Blob Storage SDK. For more information, see [SDK types](../articles/azure-functions/functions-reference-java.md#sdk-types) in the Java reference article.  
