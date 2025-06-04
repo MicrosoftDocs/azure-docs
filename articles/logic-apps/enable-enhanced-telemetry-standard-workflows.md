@@ -109,7 +109,7 @@ This guide shows how to turn on enhanced telemetry collection in Application Ins
 
 ## Set up OpenTelemetry through Visual Studio Code
 
-You can configure your Standard logic app so that the Azure Logic Apps (Standard) runtime emits telemetry in [OpenTelemetry format](https://opentelemetry.io/). However, before you set up OpenTelemetry, consider the following limitations in the current release:
+For partially connected and on-premises scenarios, you can configure your Standard logic app project so that the Azure Logic Apps (Standard) runtime emits telemetry in [OpenTelemetry format](https://opentelemetry.io/). However, before you set up OpenTelemetry, consider the following limitations in the current release:
 
 - Only the following triggers currently support OpenTelemetry outputs: HTTP, Service Bus, and Event Hubs
 
