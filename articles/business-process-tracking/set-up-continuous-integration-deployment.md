@@ -8,9 +8,14 @@ ms.date: 06/09/2025
 # Customer intent: As an integration developer, I want to set up continuous integration and continuous delivery for business processes without having to rebuild and map business stages to workflows across different environments, such as development, test, and production.
 ---
 
-# Set up continuous integration and delivery for business processes in different environments
+# Set up continuous integration and delivery for business processes in different environments (Preview)
 
-To deploy a business process across various environments, such as development, test, and production, without having to remap business stages to workflow operations and rebuild logic app projects, you can set up continuous integration (CI) and continuous deployment (CD)
+> [!NOTE]
+>
+> This capability is in preview and is subject to the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+To deploy a business process across various environments, such as development, test, and production, without having to remap business stages to workflow operations and rebuild logic app projects, you can set up continuous integration (CI) and continuous deployment (CD) for your business processes and Standard logic app workflows.
 
 This guide shows how to set up a CI/CD pipeline by using the Azure Logic Apps Standard Tasks for Azure DevOps.
 
@@ -204,3 +209,4 @@ After the CD pipeline completes, you have the content from your Standard logic a
 
 ## Related content
 
+- [Deploy a business process and tracking profile to Azure](deploy-business-process.md)
