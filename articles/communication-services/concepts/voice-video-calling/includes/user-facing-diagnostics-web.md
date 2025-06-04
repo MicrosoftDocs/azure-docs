@@ -2,15 +2,24 @@
 title: Azure Communication Services User Facing Diagnostics (Web)
 titleSuffix: An Azure Communication Services concept document
 description: Provides usage samples of the User Facing Diagnostics feature for Web.
-author: lucianopa-msft
-ms.author: lucianopa
+author: sloanster
+ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 04/06/2023
+ms.date: 06/04/2025
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
+
+## Local vs Remote User Facing Diagnostics
+User Facing Diagnostics (UFD) are enabled to expose user-impacting events programmatically on a user's device. With an ACS, there are two methods for consuming and generating UFDs: local UFDs and remote UFDs. Local UFDs are generated on the local user's phone or browser. Remote UFDs are events occurring in a remote participant's environment, which allow a user to consume and view those events from a distance.
+User Facing Diagnostics (UFD) allows you to see when local or remote participants are experiencing issues that affect audio-video call quality. UFD provides real-time diagnostics on network conditions, device functionality, and media performance, helping developers identify problems such as poor connectivity, muted microphones, or low bandwidth. While UFD does not automatically fix these issues, it allows applications to offer proactive feedback to users, suggesting solutions like checking their internet connection or adjusting device settings. Based on this data, users can either correct the issue themselves (e.g., turn off video when the network is weak) or display the information through the User Interface.
+There are some minor differences between mote remote UFD's and local UFD's. Those differences are:
+•	The calling SDK does not expose the speakingWhileIsMuted remote UFD due to privacy concerns.
+•	The calling SDK will only expose and stream UFD (User Feedback Data) to a maximum of 20 participants on the call. When the number of participants exceeds 20, we limit and cease transmission of remote UFD to prevent overloading the network with these events.
+•	The calling SDK will filter so you will only see 3 remote UFD events per minute coming from a unique client.
+•	From the client SDK perspective, you need to enable the functionality for the local UFDs to be sent remotely.
 
 ## Diagnostic values
 The following user-facing diagnostics are available:
@@ -66,7 +75,7 @@ User-facing diagnostics is an extended feature of the core `Call` API and allows
 const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
 ```
 
-## User Facing Diagnostic events
+## Local User Facing Diagnostic events
 
 - Subscribe to the `diagnosticChanged` event to monitor when any user-facing diagnostic changes.
 
@@ -102,6 +111,49 @@ const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEvent
 
 userFacingDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener);
 userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
+
+
+## Using Remote User Facing Diagnostics
+```js
+/***************
+ * Interfaces **
+ ***************/
+export declare type RemoteDiagnostic = {
+    // Remote participant's Id
+    readonly participantId: string;
+    // This is the MRI of the remote participant.
+    readonly rawId: string;
+    // Remote partcipant Object
+    readonly remoteParticipant?: RemoteParticipant;
+    // Name of the diagnostic
+    readonly diagnostic: NetworkDiagnosticType | MediaDiagnosticType | ServerDiagnosticType;
+    // Value of the diagnostic
+    readonly value: DiagnosticQuality | DiagnosticFlag;
+    // Value type of the diagnostic, "DiagnosticFlag" or "DiagnosticQuality"
+    readonly valueType: DiagnosticValueType;
+};
+export declare interface RemoteParticipantDiagnosticsData {
+    diagnostics: RemoteDiagnostic[];
+}
+
+
+/*****************
+ * Sample usage **
+ *****************/
+const remoteUfdsFeature = call.feature(Features.UserFacingDiagnostics).remote;
+
+// Listen for remote client UFDs. These are UFDs raised from remote participants.
+const remoteDiagnosticChangedListener = (diagnosticInfo: RemoteParticipantDiagnosticsData) => {
+        for (const diagnostic of diagnosticInfo.diagnostics) {
+            console.error(`Remote participant diagnostic: ${diagnostic.diagnostic} = ${diagnostic.value}`);
+        } 
+}
+remoteUfdsFeature.on('diagnosticChanged', remoteDiagnosticChangedListener);
+
+// Start sending local UFDs to remote clients. Must call this API so that local UFDs can start sending out and remote clients can receive them.
+remoteUfdsFeature.startSendingDiagnostics();
+// Stop sending local UFDs to remote clients.
+remoteUfdsFeature.stopSendingDiagnostics();
 ```
 
 ## Get the latest User Facing Diagnostics
