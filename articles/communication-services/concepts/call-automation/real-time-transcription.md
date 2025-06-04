@@ -40,6 +40,11 @@ Using the transcript generated throughout the call, you can leverage other AI to
 ## Billing
 See the [Azure Communication Services pricing page](https://azure.microsoft.com/pricing/details/communication-services/?msockid=3b3359f3828f6cfe30994a9483c76d50) for information on how real-time transcription is billed.  Prices can be found in the calling category under audio streaming -> unmixed audio insights streaming.
 
+## Known limitations
+- Updating transcription with a new operationContext also fails to reflect the updated context.
+  - When you create or answer a call with operationContext: "ABC" and enable transcription, you will receive the TranscriptionStarted event with operationContext: "ABC".
+  - If you call the UpdateTranscription API with a new operationContext: "XYZ", you would expect the TranscriptionUpdated event to include operationContext: "XYZ". However, due to a known issue, the TranscriptionUpdated event will still return operationContext: "ABC".
+
 ## Next Steps
 - Check out our how-to guide to learn [how-to use our Real-time Transcription](../../how-tos/call-automation/real-time-transcription-tutorial.md) to users.
 - Learn about [usage and operational logs](../analytics/logs/call-automation-logs.md) published by call automation.
