@@ -541,11 +541,28 @@ Instead of creating individual rules for each possible client ID, you can use a 
 
 ### Scenario 9: Modify origin redirects using response header captures
 
-This allows for making actions fields dynamic, by using response header values as server variables.
-For example, it’s common for the origin servers like Azure App service to issue redirect URLs that reference its own domain name like contoso.azurewebsites.net. If those URLs reach the client unmodified, the next request will bypass AFD which is not intended and can disrupt the user's navigation experience.
-The workaround is to capture the origin’s Location header and rewrite just the host portion so it always reflects the host that the client originally used.
-If frontend client host header to AFD is contoso.com and the origin is contoso.azurewebsites.net, then if the origin issues an absolute redirect URL like this Location: https://contoso.azurewebsites.net/login/, then the location header modification back to contoso.com will be as follows - https://{hostname}{http_resp_header_location:33}, where {hostname} is contoso.com and {http_resp_header_location:33} captures location header from offset 33, i.e. /login/ to give the final location header as Location: https://contoso.com/login/
-More details about the problem is explained here preserve the original HTTP hostname between a reverse proxy and it’s back-end web applications
+You can make action fields dynamic by using response header values as server variables. This is particularly useful when origin servers issue redirects that reference their own domain names.
+
+**The Problem:** Origin servers like Azure App Service commonly issue redirect URLs that reference their own domain name (for example, `contoso.azurewebsites.net`). If these URLs reach the client unmodified, the next request bypasses Azure Front Door, which disrupts the user's navigation experience.
+
+**The Solution:** Capture the origin's `Location` header and rewrite just the host portion so it always reflects the hostname that the client originally used.
+
+For example, if the frontend client's host header to Azure Front Door is `contoso.com` and the origin is `contoso.azurewebsites.net`, when the origin issues an absolute redirect URL like Location: `https://contoso.azurewebsites.net/login/`, you can modify the location header back to use the original hostname Location: `https://contoso.com/login/`
+
+This is achieved using the server variable format: `https://{hostname}{http_resp_header_location:33}`, where:
+- `{hostname}` represents the original client hostname (`contoso.com`)
+- `{http_resp_header_location:33}` captures the Location header content starting from offset 33 (the `/login/` part)
+
+For more information, see [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation).
+
+:::image type="content" source="./media/rules-engine-scenarios/modify-origin-redirects.png" alt-text="Screenshot that shows how to modify origin redirects using response header captures." lightbox="./media/rules-engine-scenarios/modify-origin-redirects.png":::
+
+> [!NOTE]
+> - This rule can be used when rule condition is based on request parameters or when invoked unconditionally.
+> 
+> - For consistent offset calculation, all origin servers in the origin group should have domain names of the same length, for example, all 33 characters like `https://contoso.azurewebsites.net`. Ideally, there should be just one origin server, but multiple origins are acceptable if their names have identical lengths.
+> 
+> - You can apply the same server variable capture technique to extract and reuse request query string parameters in different rule actions.
 
 ```json
 {
