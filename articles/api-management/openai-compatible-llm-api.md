@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 06/04/2025
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to
 ---
@@ -26,7 +26,7 @@ API Management supports two types of language model APIs for this scenario. Choo
 
 * **OpenAI-compatible** - Language model endpoints that are compatible with OpenAI's API. Examples include certain models exposed by inference providers such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index) and [Google Gemini API](https://ai.google.dev/gemini-api/docs).
 
-    API Management configures an OpenAI-compatible chat completions endpoint. 
+    For an OpenAI-compatible LLM, API Management configures a chat completions endpoint. 
 
 * **Passthrough** - Other language model endpoints that aren't compatible with OpenAI's API. Examples include models deployed in [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) or other providers.
 
@@ -93,7 +93,7 @@ To ensure that your LLM API is working as expected, test it in the API Managemen
 
 ## Example: Google Gemini
 
-You can import OpenAI-compatible models from Google Gemini such as `gemini-2.0-flash`. Azure API Management can manage an OpenAI-compatible chat completion endpoint for these models. 
+You can import an OpenAI-compatible Google Gemini API to access models such as `gemini-2.0-flash`. For these models, Azure API Management can manage an OpenAI-compatible chat completions endpoint. 
 
 To import an OpenAI-compatible Gemini model:
 
@@ -109,7 +109,7 @@ To import an OpenAI-compatible Gemini model:
     1. Enter a **Display name** and optional **Description** for the API.
     1. In **URL**, enter the following base URL that you copied previously: `https://generativelanguage.googleapis.com/v1beta/openai`
 
-1. In **Path**, append a path that your API Management instance uses to access the Gemini API endpoints.
+1. In **Path**, append a path that your API Management instance uses to route requests to the Gemini API endpoints.
 1. In **Type**, select **Create OpenAI API**.
 1. In **Access key**, enter the following:
     1. **Header name**: *Authorization*.
@@ -119,12 +119,12 @@ To import an OpenAI-compatible Gemini model:
 
 ### Test Gemini model
 
-After importing the API, you can test it using the test console in the Azure portal. Choose an OpenAI-compatible model and endpoint for the test.
+After importing the API, you can test the chat completions endpoint for the API.
 
 1. Select the API you created in the previous step.
 1. Select the **Test** tab.
 1. Select the `POST  Creates a model response for the given chat conversation` operation, which is a `POST` request to the `/chat/completions` endpoint.
-1. In the **Request body** section, enter the following JSON to specify the model and an example prompt. In this example, the OpenAI-compatible `gemini-2.0-flash` model is used.
+1. In the **Request body** section, enter the following JSON to specify the model and an example prompt. In this example, the `gemini-2.0-flash` model is used.
 
     ```json
     {
