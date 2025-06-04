@@ -19,7 +19,8 @@ const transcriptionOptions = {
     transportUrl: "",
     transportType: "websocket",
     locale: "en-US",
-    startTranscription: false
+    startTranscription: false,
+    speechRecognitionModelEndpointId: "YOUR_CUSTOM_SPEECH_RECOGNITION_MODEL_ID"
 };
 
 const options = {
@@ -41,7 +42,8 @@ const transcriptionOptions = {
     transportUri: "",
     locale: "en-US",
     transcriptionTransport: "websocket",
-    startTranscription: false
+    startTranscription: false,
+    speechRecognitionModelEndpointId: "YOUR_CUSTOM_SPEECH_RECOGNITION_MODEL_ID"
 };
 
 const callIntelligenceOptions = {
@@ -178,7 +180,16 @@ console.log('WebSocket server running on port 8081');
 For situations where your application allows users to select their preferred language, you may also want to capture the transcription in that language. To do this task, the Call Automation SDK allows you to update the transcription locale.
 
 ```javascript
-await callMedia.updateTranscription("en-US-NancyNeural");
+async function updateTranscriptionAsync() {
+  const options: UpdateTranscriptionOptions = {
+operationContext: "updateTranscriptionContext",
+speechRecognitionModelEndpointId: "YOUR_CUSTOM_SPEECH_RECOGNITION_MODEL_ID"
+  };
+  await acsClient
+.getCallConnection(callConnectionId)
+.getCallMedia()
+.updateTranscription("en-au", options);
+}
 ```
 
 ## Stop Transcription
