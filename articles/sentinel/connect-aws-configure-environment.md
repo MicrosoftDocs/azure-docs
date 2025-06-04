@@ -30,9 +30,6 @@ This diagram shows how to set up your AWS environment to send logs to Azure:
    - Poll the SQS queue, at frequent intervals, for messages, which contain the paths to new log files.
    - Fetch the files from the S3 bucket based on the path specified in the SQS notifications.
 
-1. **Configure AWS services to send logs to the S3 bucket**.
-  
-
 1. **Create an Open ID Connect (OIDC) web identity provider** and add Microsoft Sentinel as a registed application (by adding it as an audience).
 
    Microsoft Sentinel connectors use Microsoft Entra ID to authenticate with AWS through OpenID Connect (OIDC) and assume an AWS IAM role. 
@@ -45,6 +42,8 @@ This diagram shows how to set up your AWS environment to send logs to Azure:
    1. Assign the appropriate **IAM permissions policies** to grant the assumed role access to the resources.
 
    1. Configure your connectors to use the assumed role and SQS queue you created to access the S3 bucket and retrieve logs.
+
+1. **Configure AWS services to send logs to the S3 bucket**.
 
 ### Manual setup
 
@@ -61,30 +60,6 @@ This diagram shows how to set up your AWS environment to send logs to Azure:
 1. Configure your S3 bucket to send notification messages to your SQS queue. 
 
    See the [instructions to publish notifications to your SQS queue](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html) in the AWS documentation.
-
-#### Configure AWS services to export logs to an S3 bucket
-
-See Amazon Web Services documentation (linked below) for the instructions for sending each type of log to your S3 bucket:
-
-- [Publish a VPC flow log to an S3 bucket](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html).
-
-    > [!NOTE]
-    > If you choose to customize the log's format, you must include the *start* attribute, as it maps to the *TimeGenerated* field in the Log Analytics workspace. Otherwise, the *TimeGenerated* field will be populated with the event's *ingested time*, which doesn't accurately describe the log event.
-
-- [Export your GuardDuty findings to an S3 bucket](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html).
-
-    > [!NOTE]
-    >
-    > - In AWS, findings are exported by default every 6 hours. Adjust the export frequency for updated Active findings based on your environment requirements. To expedite the process, you can modify the default setting to export findings every 15 minutes. See [Setting the frequency for exporting updated active findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html#guardduty_exportfindings-frequency).
-    >
-    > - The *TimeGenerated* field is populated with the finding's *Update at* value.
-
-- AWS CloudTrail trails are stored in S3 buckets by default.
-    - [Create a trail for a single account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html).
-    - [Create a trail spanning multiple accounts across an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html).
-
-- [Export your CloudWatch log data to an S3 bucket](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3Export.html).
-
 
 #### Create an Open ID Connect (OIDC) web identity provider
 
@@ -146,8 +121,30 @@ Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect 
 
    Update (save) the policy when you're done editing.
 
+#### Configure AWS services to export logs to an S3 bucket
 
-## AWS connectors
+See Amazon Web Services documentation (linked below) for the instructions for sending each type of log to your S3 bucket:
+
+- [Publish a VPC flow log to an S3 bucket](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html).
+
+    > [!NOTE]
+    > If you choose to customize the log's format, you must include the *start* attribute, as it maps to the *TimeGenerated* field in the Log Analytics workspace. Otherwise, the *TimeGenerated* field will be populated with the event's *ingested time*, which doesn't accurately describe the log event.
+
+- [Export your GuardDuty findings to an S3 bucket](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html).
+
+    > [!NOTE]
+    >
+    > - In AWS, findings are exported by default every 6 hours. Adjust the export frequency for updated Active findings based on your environment requirements. To expedite the process, you can modify the default setting to export findings every 15 minutes. See [Setting the frequency for exporting updated active findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html#guardduty_exportfindings-frequency).
+    >
+    > - The *TimeGenerated* field is populated with the finding's *Update at* value.
+
+- AWS CloudTrail trails are stored in S3 buckets by default.
+    - [Create a trail for a single account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html).
+    - [Create a trail spanning multiple accounts across an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html).
+
+- [Export your CloudWatch log data to an S3 bucket](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3Export.html).
+
+## Deploy AWS connectors
 
 Microsoft Sentinel provides these AWS connectors:
 
