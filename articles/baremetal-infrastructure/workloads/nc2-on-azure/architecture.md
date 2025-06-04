@@ -8,6 +8,7 @@ ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
 ms.date: 04/23/2025
 ms.service: azure-baremetal-infrastructure
+# Customer intent: "As a cloud architect, I want to understand the architecture of BareMetal Infrastructure for NC2 on Azure, so that I can design scalable and efficient private cloud solutions integrated with existing services."
 ---
 
 # Nutanix Cloud Clusters (NC2) on Azure architectural concepts
