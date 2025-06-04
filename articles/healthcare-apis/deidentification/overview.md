@@ -63,7 +63,7 @@ Integrating Azure’s de-identification service into your environment is fast, f
 
 - **API-First Design:** Whether you need real-time de-identification or asynchronous batch processing from Azure Blob Storage, our REST API and SDKs provide easy integration points to fit your system.
 
-- **Quick Setup:** Deploy the service in minutes using Azure Portal, ARM templates, Bicep, or CLI. You can be up and running quickly without complex configuration.
+- **Quick Setup:** Deploy the service in minutes using Azure portal, ARM templates, Bicep, or CLI. You can be up and running quickly without complex configuration.
 
 - **Secure Access:** Enable private endpoints using Azure Private Link to keep data traffic off the public internet.
 
@@ -94,7 +94,7 @@ You are charged per MB, for any of the three operations we offer, whether you ar
 
 The cost per MB de-identified is displayed in the row "Unstructured De-identification" in the table "Transformation Operations" in the [Azure Pricing Page](https://azure.microsoft.com/pricing/details/health-data-services/?msockid=2982a916bc2461731022bd6cbdbd6053#pricing)
  
-You have also have a monthly allotment of 50 MB that enables you to try the product for free.
+You also have a monthly allotment of 50 MB that enables you to try the product for free.
 
 The [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) helps you estimate the cost based on your use case. 
 
