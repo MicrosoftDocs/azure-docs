@@ -47,22 +47,7 @@ You can also search analytics or basic log data stored in [long-term retention](
 
 ### Limitations of a search job
 
-Before you start a search job, be aware of the following limitations:
-
-- Optimized to query one table at a time.
-- Search date range is up to seven years.
-- Supports long running searches up to a 24-hour time-out.
-- Results are limited to one million records in the record set.
-- Concurrent execution per user is limited to five search jobs per workspace.
-- Limited to 100 search results tables per workspace.
-- Limited to 100 search job executions per day per workspace.
-
-Search jobs aren't currently supported for the following workspaces:
-
-- Customer-managed key enabled workspaces
-- Workspaces in the China East 2 region
-
-To learn more, see [Search job in Azure Monitor](/azure/azure-monitor/logs/search-jobs) in the Azure Monitor documentation.
+See [Search job limitations](/azure/azure-monitor/logs/search-jobs#limitations) in the Azure Monitor documentation.
 
 ## Restore historical data from archived logs
 
