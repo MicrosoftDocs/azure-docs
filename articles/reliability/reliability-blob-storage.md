@@ -26,8 +26,8 @@ This article describes reliability support in [Azure Blob Storage](/azure/storag
 
 For production workloads in regions that support it, we recommend that you:
 
-- Use **Standard general-purpose v2** storage accounts.
-- Use **Zone-redundant storage (ZRS)**. ZRS provides automatic replication across multiple availability zones within a region.
+- Use **Standard general-purpose v2** storage accounts. <!-- TODO PG to confirm this -->
+- Use **Zone-redundant storage (ZRS)**. ZRS provides automatic replication across all of the availability zones within a region.
 
 If you have reliability requirements that can't be met with zone redundancy, consider replicating your data to another region by using geo-redundant storage or object replication.
 
@@ -103,13 +103,13 @@ This section describes what to expect when a blob storage account is configured 
 
 - **Detection and response:** Microsoft automatically detects zone failures and initiates failover processes. No customer action is required for zone-redundant storage accounts.
 
-<!-- Need to confirm with PG, but as far as I know there's no way for a customer to find out when a zone failure/failover occurs, so we omit the 'Notification' item. -->
+<!-- TODO: Need to confirm with PG, but as far as I know there's no way for a customer to find out when a zone failure/failover occurs, so we omit the 'Notification' item. -->
 
 - **Active requests:** In-flight requests might be dropped during the failover and should be retried. Applications should [implement retry logic](#transient-faults) to handle these temporary interruptions.
 
 - **Expected data loss:**  No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete.
 
-- **Expected downtime:** Minimal downtime (typically seconds to minutes) may occur during automatic failover as traffic is redirected to healthy zones. <!-- TODO check with PG about this. Their doc says "If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing. These updates could affect your application if you access data before the updates are complete." We should confirm if they have an estimate on how long there might be impact. -->
+- **Expected downtime:** A small amount of downtime (typically seconds to minutes) may occur during automatic failover as traffic is redirected to healthy zones. <!-- TODO check with PG about this. Their doc says "If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing. These updates could affect your application if you access data before the updates are complete." We should confirm if they have an estimate on how long there might be impact. -->
 
 - **Traffic rerouting.** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
 
@@ -195,9 +195,9 @@ This section describes what to expect when a storage account is configured for g
 
     - **Expected data loss:** During an unplanned failover, it's likely that you will have some data loss. This is because of the asynchronous replication lag, which means that recent writes may not be replicated. You can check the [Last Sync time](/azure/storage/common/last-sync-time-get) to understand how much data could be lost during an unplanned failover. Typically the data loss is expected to be less than 15 minutes, but that's not guaranteed.
 
-    - **Expected downtime:** Typically within 60 minutes depending on account size and complexity.
+    - **Expected downtime:** Failover typically completes within 60 minutes, depending on the account size and complexity. <!-- TODO need to confirm -->
 
-    - **Traffic rerouting:** Azure automatically updates storage account endpoints. Applications may need DNS cache clearing.
+    - **Traffic rerouting:** As the failover completes, Azure automatically updates the storage account endpoints so that applications don't need to be reconfigured. If your application keeps DNS entries cached, it might be necessary to clear the cache to ensure that the application sends traffic to the new primary. 
 
     - **Post-failover configuration:** After an unplanned failover completes, your storage account in the destination region uses the LRS tier. If you need to geo-replicate it again, you need to re-enable GRS and wait for the data to be replicated to the new secondary region.
 
@@ -205,19 +205,19 @@ This section describes what to expect when a storage account is configured for g
 
 - **Customer-managed failover (planned)**: A planned failover is intended to be used when storage remains operational in the primary region, but you need to fail over your whole solution to a secondary region for another reason.
 
-  - **Detection and response:** You're responsible for deciding to fail over. You'd typically do so if you need to fail over between regions even though your storage account is healthy. For example, a major outage of another component that you can't recover from in the primary region.
+    - **Detection and response:** You're responsible for deciding to fail over. You'd typically do so if you need to fail over between regions even though your storage account is healthy. For example, a major outage of another component that you can't recover from in the primary region.
 
-  - **Active requests:** The storage account becomes temporarily unavailable for writes. <!-- TODO verify -->
+    - **Active requests:** The storage account becomes temporarily unavailable for writes. <!-- TODO verify -->
 
-  - **Expected data loss:** No data loss is expected because the failover process waits for all data to be synchronized.
+    - **Expected data loss:** No data loss is expected because the failover process waits for all data to be synchronized.
 
-  - **Expected downtime:** Up to 60 minutes, which includes the time that the account is locked for writes to enable synchronisation to complete.
+    - **Expected downtime:** Failover typically completes within 60 minutes, depending on the account size and complexity. During some of this period, the storage account becomes temporarily unavailable for write operations, to allow synchronization to complete. However, the account remains available for read operations. <!-- TODO need to confirm -->
 
-  - **Traffic rerouting:** Azure automatically updates storage account endpoints; applications may need DNS cache clearing.
+    - **Traffic rerouting:** As the failover completes, Azure automatically updates the storage account endpoints so that applications don't need to be reconfigured. If your application keeps DNS entries cached, it might be necessary to clear the cache to ensure that the application sends traffic to the new primary. 
 
-  - **Post-failover configuration:** After a planned failover completes, your storage account in the destination region continues to be geo-replicated and remains on the GRS tier.
+    - **Post-failover configuration:** After a planned failover completes, your storage account in the destination region continues to be geo-replicated and remains on the GRS tier.
 
-  For more information on initiating customer-managed failover, see [How customer-managed (planned) failover works](/azure/storage/common/storage-failover-customer-managed-planned) and [Initiate a storage account failover](/azure/storage/common/storage-initiate-account-failover).
+    For more information on initiating customer-managed failover, see [How customer-managed (planned) failover works](/azure/storage/common/storage-failover-customer-managed-planned) and [Initiate a storage account failover](/azure/storage/common/storage-initiate-account-failover).
 
 - **Microsoft-managed failover**: In the rare case of a major disaster, where Microsoft determines the primary region is permanently unrecoverable, Microsoft might initiate automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation.
 
@@ -284,7 +284,7 @@ Microsoft provides advance notification of planned maintenance that may impact s
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Azure Blob Storage describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. The availability SLA you'll be eligible for depends on the storage tier and the replication type you use. For more information, see [SLA for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
+The service-level agreement (SLA) for Azure Blob Storage describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. The availability SLA you'll be eligible for depends on the storage tier and the replication type you use. For more information, review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ### Related content
 
