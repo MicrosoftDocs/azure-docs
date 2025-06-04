@@ -104,7 +104,7 @@ There are three error messages associated with this error code. Check the cause 
     | requested     | OFF      | ON       | ON        | ON       |
     | required      | Connection fails | ON | ON | ON |
 
-1. Check the server-side configurations, including SQLNET.ENCRYPTION_TYPES_SERVER and SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER. Update linked service additional properties `encryptionTypesClient` and `cryptoChecksumTypesClient` on the client side to ensure that a common algorithm can be found between them. You can set `encryptionTypesClient` to `(AES128, AES192, AES256, 3DES112, 3DES168)` and `cryptoChecksumTypesClient` to `(SHA1, SHA256, SHA384, SHA512)` to include all supported client-side algorithms.
+1. Check the server-side configurations, including SQLNET.ENCRYPTION_TYPES_SERVER and SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER. Update the linked service additional properties `encryptionTypesClient` and `cryptoChecksumTypesClient` on the client side to ensure that a common algorithm can be found between them. You can set `encryptionTypesClient` to `(AES128, AES192, AES256, 3DES112, 3DES168)` and `cryptoChecksumTypesClient` to `(SHA1, SHA256, SHA384, SHA512)` to include all supported client-side algorithms.
 
 
 ## Decimal precision too large error
