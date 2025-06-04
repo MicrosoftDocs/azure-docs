@@ -18,9 +18,9 @@ What gets deployed:
 - One  [Community](./what-community.md)
 - Four  [Enclaves](./what-enclave.md)
 - Four  [workloads](./what-workload.md)
-- Three  [Community Endpoints](./what-community-endpoint.md)
+- Five  [Community Endpoints](./what-community-endpoint.md)
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
-- Nine  [enclave connections](./what-enclave-connection.md)
+- 18  [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ ![Diagram showing Secure Azure Computing Architecture within Azure Virtual Enclaves.](./media/reference-architecture-secure-azure-computing-architecture.png) ](./media/reference-architecture-secure-azure-computing-architecture.png#lightbox)
@@ -46,8 +46,8 @@ What gets deployed:
 - Four  [Enclaves](./what-enclave.md)
 - Four  [workloads](./what-workload.md)
 - Five  [Community Endpoints](./what-community-endpoint.md)
-- One  [Enclave Endpoint](./what-enclave-endpoint.md)
-- Nine  [enclave connections](./what-enclave-connection.md)
+- Two  [Enclave Endpoint](./what-enclave-endpoint.md)
+- 15  [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ ![Diagram showing a Trusted Research Environment using Azure Virtual Enclaves resources.](./media/reference-architecture-trusted-research-environment.png) ](./media/reference-architecture-trusted-research-environment.png#lightbox)
