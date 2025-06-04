@@ -205,7 +205,9 @@ Setting up this connector has two steps:
    > [!IMPORTANT]
    > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
 
-# Send formatted CloudWatch events to S3 using a lambda function
+---
+
+## Send formatted CloudWatch events to S3 using a lambda function
 
 If your CloudWatch logs aren't in the format accepted by Microsoft Sentinel - .csv file in a GZIP format without a header - use a lambda function ([view the source code](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLambdaFunction.py)) within AWS to send CloudWatch events to an S3 bucket in the accepted format.
 
@@ -242,7 +244,6 @@ To deploy the lambda function:
 
 1. Select **Test** to see how the event appears in the S3 bucket.
 
----
 
 ## Next steps
 
