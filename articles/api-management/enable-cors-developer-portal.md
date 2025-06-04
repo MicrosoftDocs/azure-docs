@@ -6,18 +6,19 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 12/22/2023
+ms.date: 05/30/2025
 ms.author: danlep
 ---
 
 # Enable CORS for interactive console in the API Management developer portal 
+
+[!INCLUDE [premium-dev-standard-basic-premiumv2-standarv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
+
 Cross-origin resource sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. 
 
 To let visitors to the API Management [developer portal](developer-portal-overview.md) use the interactive test console in the API reference pages, enable a [CORS policy](cors-policy.md) for APIs in your API Management instance. If the developer portal's domain name isn't an allowed origin for cross-domain API requests, test console users will see a CORS error.  
 
 For certain scenarios, you can configure the developer portal as a CORS proxy instead of enabling a CORS policy for APIs.
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Prerequisites 
 
@@ -41,7 +42,6 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 
 ![Screenshot that shows where to check status of your CORS policy in the developer portal.](media/enable-cors-developer-portal/cors-azure-portal.png)
 
-
 ### Enable CORS policy manually
 
 1. Select the **Manually apply it on the global level** link to see the generated policy code.
@@ -56,6 +56,12 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 > The browser automatically issues an `OPTIONS` HTTP request, which doesn't contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the `OPTIONS` call with a Product, so it can't apply the CORS policy.
 >
 > As a workaround, you can pass the subscription key in a query parameter.
+
+## CORS configuration for custom domain name
+
+If you configure a [custom domain](configure-custom-domain.md) for the developer portal and want visitors to use the test console on API reference pages, ensure that you enable CORS for the custom developer portal domain name.
+
+When configuring the custom domain, you can enable a setting to add an origin for your custom developer portal domain in the CORS policy. If CORS was already enabled for the default domain, both origins will be included in the CORS policy. You can change the CORS policy settings anytime.
 
 ## CORS proxy option
 

@@ -7,6 +7,7 @@ ms.date: 03/21/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
 ms.custom:
+  - build-2025
 ---
 # Use Helm option parameters to prevent deletion on install failure
 

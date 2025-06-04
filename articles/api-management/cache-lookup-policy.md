@@ -8,6 +8,8 @@ ms.service: azure-api-management
 ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 # Get from cache

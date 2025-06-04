@@ -7,6 +7,8 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 05/19/2025
 ms.author: rolyon
+ms.custom:
+  - build-2025
 ---
 
 # Create or update Azure custom roles using the Azure portal

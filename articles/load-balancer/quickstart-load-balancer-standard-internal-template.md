@@ -7,7 +7,13 @@ ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.author: mbender
 ms.date: 05/08/2024
-ms.custom: subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - template-quickstart
+  - engagement-fy23
+  - devx-track-arm-template
+  - build-2025
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using an ARM template
