@@ -3,6 +3,7 @@ title: Azure Batch task schedule fail event
 description: Reference for Batch task schedule fail event. This event is emitted when a task failed to be scheduled and will retry later.
 ms.topic: reference
 ms.date: 09/20/2020
+# Customer intent: As a cloud application developer, I want to understand the details of the task schedule fail event, so that I can diagnose scheduling issues and optimize resource allocation for my batch processing tasks.
 ---
 
 # Task schedule fail event

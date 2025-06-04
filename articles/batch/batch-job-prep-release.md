@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 04/11/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a cloud solutions architect, I want to implement job preparation and release tasks for my Batch jobs, so that I can efficiently manage data transfer and cleanup operations on compute nodes, optimizing resource usage and ensuring compliance with data retention policies.
 ---
 # Job preparation and release tasks on Batch compute nodes
 

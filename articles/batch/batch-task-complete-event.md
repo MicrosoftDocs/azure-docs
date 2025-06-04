@@ -3,6 +3,7 @@ title: Azure Batch task complete event
 description: Reference for Batch task complete event. This event is emitted once a task is completed, regardless of the exit code.
 ms.topic: reference
 ms.date: 10/08/2020
+# Customer intent: "As a cloud developer, I want to receive task completion events, so that I can monitor task durations, retry counts, and execution details for better performance analysis and troubleshooting."
 ---
 
 # Task complete event

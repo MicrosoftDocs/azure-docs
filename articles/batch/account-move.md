@@ -4,6 +4,7 @@ description: Learn how to move an Azure Batch account to a different region usin
 ms.topic: how-to
 ms.date: 04/25/2025
 ms.custom: subject-moving-resources, devx-track-arm-template
+# Customer intent: As a cloud administrator, I want to move an Azure Batch account to a different region using an ARM template, so that I can ensure better resource alignment and disaster recovery readiness for my workloads.
 ---
 
 # Move an Azure Batch account to another region

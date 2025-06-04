@@ -6,6 +6,7 @@ ms.service: azure-batch
 ms.custom: linux-related-content
 ms.date: 02/07/2025
 ms.topic: how-to
+# Customer intent: As a rendering engineer, I want to explore efficient storage and data movement options for rendering asset and output files, so that I can optimize performance and manage file accessibility in my rendering workflows.
 ---
 
 # Storage and data movement options for rendering asset and output files

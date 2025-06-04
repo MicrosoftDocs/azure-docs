@@ -3,6 +3,7 @@ title: Azure Batch pool delete complete event
 description: Reference for Batch pool delete complete event. This event is emitted when a pool delete operation has completed.
 ms.topic: reference
 ms.date: 12/28/2020
+# Customer intent: "As a cloud administrator, I want to receive notifications for completed pool delete operations, so that I can track and manage resource cleanup effectively."
 ---
 
 # Pool delete complete event

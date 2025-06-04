@@ -3,6 +3,7 @@ title: Check for job and task errors
 description: Learn how to check for and handle errors that occur after Azure Batch jobs and tasks are submitted.
 ms.topic: how-to
 ms.date: 04/25/2025
+# Customer intent: "As a cloud engineer, I want to check for errors in Azure Batch jobs and tasks, so that I can effectively troubleshoot issues and ensure successful job completion."
 ---
 
 # Azure Batch job and task errors
