@@ -1,7 +1,7 @@
 ---
 title: Introduction to Azure Storage Discovery | Microsoft Docs
 description: An overview of Azure Storage Discovery, <<NEEDS TO BE FILLED IN>>.
-author: fauhse
+author: fauhse (githubID)
 
 ms.service: azure-storage-discovery
 ms.topic: overview
