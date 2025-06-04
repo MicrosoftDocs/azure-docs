@@ -1,7 +1,7 @@
 ---
 title: Apache Spark version support
 description: Supported versions of Spark, Scala, Python
-author: ms-arali
+author: arali
 ms.author: arali
 ms.reviewer: arali
 ms.date: 03/08/2024
@@ -28,8 +28,8 @@ The following table lists the runtime name, Apache Spark version, and release da
 
 | Runtime name | Release date | Release stage                | End of Support announcement date | End of Support effective date |
 | --- | --- |------------------------------| --- | --- |
-| [Azure Synapse Runtime for Apache Spark 3.5](./apache-spark-35-runtime.md) | N/A | Public Preview | N/A | N/A|
-| [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | GA | Q3 2025| Q1 2026|
+| [Azure Synapse Runtime for Apache Spark 3.5](./apache-spark-35-runtime.md) | May 27, 2025 | Public Preview | N/A | N/A|
+| [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | EOSA | April 30, 2025| Q1 2026|
 | [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 |**deprecated and soon to be disabled**|July 12, 2024| March 31, 2025 
 
 ## Runtime release stages
@@ -73,10 +73,10 @@ The patch policy differs based on the [runtime lifecycle stage](./runtime-for-ap
 
 ## Migration between Apache Spark versions - support
 
-This guide provides a structured approach for users looking to upgrade their Azure Synapse Runtime for Apache Spark workloads from versions 2.4, 3.1, 3.2, or 3.3 to [the latest GA version, such as 3.4](./apache-spark-34-runtime.md). Upgrading to the most recent version enables users to benefit from performance enhancements, new features, and improved security measures. It's important to note that transitioning to a higher version may require adjustments to your existing Spark code due to incompatibilities or deprecated features.
+This guide provides a structured approach for users looking to upgrade their Azure Synapse Runtime for Apache Spark workloads to [the latest GA version, such as 3.4](./apache-spark-34-runtime.md). Upgrading to the most recent version enables users to benefit from performance enhancements, new features, and improved security measures. It's important to note that transitioning to a higher version may require adjustments to your existing Spark code due to incompatibilities or deprecated features.
 
 ### Step 1: Evaluate and plan
-- **Assess Compatibility:** Start with reviewing Apache Spark migration guides to identify any potential incompatibilities, deprecated features, and new APIs between your current Spark version (2.4, 3.1, 3.2, or 3.3) and the target version (for example, 3.4).
+- **Assess Compatibility:** Start with reviewing Apache Spark migration guides to identify any potential incompatibilities, deprecated features, and new APIs between your current Spark version and the target version (for example, 3.4).
 - **Analyze Codebase:** Carefully examine your Spark code to identify the use of deprecated or modified APIs. Pay particular attention to SQL queries and User Defined Functions (UDFs), which may be affected by the upgrade.
 
 ### Step 2: Create a new Spark pool for testing
@@ -88,15 +88,15 @@ This guide provides a structured approach for users looking to upgrade their Azu
 - **Test in Development Environment:** Test your updated code within a development environment in Azure Synapse, not locally. This step is essential for identifying and fixing any issues before moving to production.
 - **Deploy and Monitor:** After thorough testing and validation in the development environment, deploy your application to the new Spark 3.4 pool. It's critical to monitor the application for any unexpected behaviors. Utilize the monitoring tools available in Azure Synapse to keep track of your Spark applications' performance.
 
-**Question:** What steps should be taken in migrating from 2.4 to 3.X?
+**Question:** What steps should be taken migrating to 3.X?
 
 **Answer:** Refer to the [Apache Spark migration guide](https://spark.apache.org/docs/latest/sql-migration-guide.html).
 
 **Question:** I got an error when I tried to upgrade Spark pool runtime using PowerShell cmdlet when they have attached libraries.
 
 **Answer:**  Don't use PowerShell cmdlet if you have custom libraries installed in your Synapse workspace. Instead follow these steps:
-1. Recreate Spark Pool 3.3 from the ground up.
-1. Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3.
+1. Recreate your Spark Pool from the ground up.
+1. Downgrade the current Spark Pool, remove any packages attached, and then upgrade again to [the latest GA version, such as 3.4](./apache-spark-34-runtime.md)
 
 **Question:** Why can't I upgrade to 3.4 without recreating a new Spark pool?
 
