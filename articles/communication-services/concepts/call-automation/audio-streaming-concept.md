@@ -12,8 +12,6 @@ ms.custom: public_prview
 
 # Audio streaming overview - audio subscription
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 Azure Communication Services provides bidirectional audio streaming capabilities, offering developers powerful tools to capture, analyze, and process audio content during active calls. This development paves the way for new possibilities in real-time communication for developers and businesses alike. 
 
 By integrating bidirectional audio streaming with services like Azure OpenAI and other real-time voice APIs, businesses can achieve seamless, low-latency communication. This significantly enhances the development and deployment of conversational AI solutions, allowing for more engaging and efficient interactions. 
