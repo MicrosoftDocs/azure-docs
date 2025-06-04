@@ -25,7 +25,7 @@ The Amazon Web Services (AWS) service log connector is available in two versions
 
 This tab explains how to configure the AWS S3 connector using one of two methods: 
 
-- [Automatic setup](#automatic-setup)(Recommended) 
+- [Automatic setup](#automatic-setup) (Recommended) 
 - [Manual setup](#manual-setup)
 
 ## Prerequisites
@@ -101,7 +101,7 @@ To run the script to set up the connector, use the following steps:
 
 ## Manual setup
 
-Microsoft recommends using the automatic setup script to deploy this connector. If for whatever reason you do not want to take advantage of this convenience, follow the steps below to set up the connector manually.
+We recommend using the automatic setup script to deploy this connector. If for whatever reason you do not want to take advantage of this convenience, follow the steps below to set up the connector manually.
 
 1. Set up your AWS environment as described in [Set up your Amazon Web Services environment to collect AWS logs to Microsoft Sentinel](connect-aws-configure-environment.md#manual-setup).  
 
@@ -218,29 +218,29 @@ To deploy the lambda function:
 1. In the AWS Management Console, select the lambda service.
 1. Select **Create function**.
 
-  :::image type="content" source="media/cloudwatch-lambda-function/lambda-basic-information.png" alt-text="Screenshot of the AWS Management Console Basic information screen." lightbox="media/cloudwatch-lambda-function/lambda-basic-information.png":::
+   :::image type="content" source="media/cloudwatch-lambda-function/lambda-basic-information.png" alt-text="Screenshot of the AWS Management Console Basic information screen." lightbox="media/cloudwatch-lambda-function/lambda-basic-information.png":::
 
 1. Type a name for the function and select **Python 3.9** as the runtime and **x86_64** as the architecture.
 1. Select **Create function**.
 1. Under **Choose a layer**, select a layer and select **Add**.
 
-  :::image type="content" source="media/cloudwatch-lambda-function/lambda-add-layer.png" alt-text="Screenshot of the AWS Management Console Add layer screen." lightbox="media/cloudwatch-lambda-function/lambda-add-layer.png":::
+   :::image type="content" source="media/cloudwatch-lambda-function/lambda-add-layer.png" alt-text="Screenshot of the AWS Management Console Add layer screen." lightbox="media/cloudwatch-lambda-function/lambda-add-layer.png":::
 
 1. Select **Permissions**, and under **Execution role**, select **Role name**.
 1. Under **Permissions policies**, select **Add permissions** > **Attach policies**.
 
-  :::image type="content" source="media/cloudwatch-lambda-function/lambda-permissions.png" alt-text="Screenshot of the AWS Management Console Permissions tab." lightbox="media/cloudwatch-lambda-function/lambda-permissions.png":::
+   :::image type="content" source="media/cloudwatch-lambda-function/lambda-permissions.png" alt-text="Screenshot of the AWS Management Console Permissions tab." lightbox="media/cloudwatch-lambda-function/lambda-permissions.png":::
 
 1. Search for the *AmazonS3FullAccess* and *CloudWatchLogsReadOnlyAccess* policies and attach them.
 
-  :::image type="content" source="media/cloudwatch-lambda-function/lambda-other-permissions-policies.png" alt-text="Screenshot of the AWS Management Console Add permissions policies screen." lightbox="media/cloudwatch-lambda-function/lambda-other-permissions-policies.png":::
+   :::image type="content" source="media/cloudwatch-lambda-function/lambda-other-permissions-policies.png" alt-text="Screenshot of the AWS Management Console Add permissions policies screen." lightbox="media/cloudwatch-lambda-function/lambda-other-permissions-policies.png":::
 
 1. Return to the function, select **Code**, and paste the code link under **Code source**.
 1. The default values for the parameters are set using environment variables. If necessary, you can manually adjust these values directly in the code.
 1. Select **Deploy**, and then select **Test**.
 1. Create an event by filling in the required fields.
 
-  :::image type="content" source="media/cloudwatch-lambda-function/lambda-configure-test-event.png" alt-text="Screenshot of the AWS Management Configure test event screen." lightbox="media/cloudwatch-lambda-function/lambda-configure-test-event.png":::
+   :::image type="content" source="media/cloudwatch-lambda-function/lambda-configure-test-event.png" alt-text="Screenshot of the AWS Management Configure test event screen." lightbox="media/cloudwatch-lambda-function/lambda-configure-test-event.png":::
 
 1. Select **Test** to see how the event appears in the S3 bucket.
 
