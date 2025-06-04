@@ -44,12 +44,11 @@ var complexInfo = new TestErrorResponseAdditionalInfo
 };
 
 // Use in error context
-var additionalInfoArray = new[] { requestIdInfo, timestampInfo };
 var error = new TestErrorInfo(
     ErrorResponseCode.BadRequest,
     "Validation failed",
     null,
-    additionalInfoArray
+    new[] { requestIdInfo, timestampInfo }
 );
 ```
 
@@ -57,34 +56,12 @@ var error = new TestErrorInfo(
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|Type|Gets or sets the type|string|No|
-|Info|Gets or sets the information|JToken|No|
-
-## Methods
-
-### ToExtendedErrorInfoAdditionalInfo
-
-Converts the TestErrorResponseAdditionalInfo to ErrorResponseAdditionalInfo.
-
-```C#
-internal ErrorResponseAdditionalInfo ToExtendedErrorInfoAdditionalInfo()
-```
-
-```C#
-// Example: Converting TestErrorResponseAdditionalInfo to ErrorResponseAdditionalInfo
-var testAdditionalInfo = new TestErrorResponseAdditionalInfo
-{
-    Type = "CorrelationId",
-    Info = JToken.FromObject("corr-xyz789")
-};
-
-var errorAdditionalInfo = testAdditionalInfo.ToExtendedErrorInfoAdditionalInfo();
-```
+|Type|The error additional info type|string|No|
+|Info|The additional information|JToken|No|
 
 ## Related Content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
-- [MockData Class Definition](mock-data-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
 - [TestActionExecutionContext Class Definition](test-action-execution-context-class-definition.md)
 - [TestExecutionContext Class Definition](test-execution-context-class-definition.md)
@@ -94,7 +71,6 @@ var errorAdditionalInfo = testAdditionalInfo.ToExtendedErrorInfoAdditionalInfo()
 - [TestWorkflowOutputParameter Class Definition](test-workflow-output-parameter-class-definition.md)
 - [TestWorkflowRunActionRepetitionResult Class Definition](test-workflow-run-action-repetition-result-class-definition.md)
 - [TestWorkflowRunActionResult Class Definition](test-workflow-run-action-result-class-definition.md)
-- [TestWorkflowRunOperationResult Class Definition](test-workflow-run-operation-result-class-definition.md)
 - [TestWorkflowRunTriggerResult Class Definition](test-workflow-run-trigger-result-class-definition.md)
 - [TestWorkflowStatus Enum Definition](test-workflow-status-enum-definition.md)
 - [UnitTestExecutor Class Definition](unit-test-executor-class-definition.md)

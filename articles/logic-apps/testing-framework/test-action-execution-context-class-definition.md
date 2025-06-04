@@ -19,15 +19,14 @@ The execution context for a unit test action. This class stores information abou
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|ActionName|Gets or sets the current action name|string|Yes|
-|ActionInputs|Gets or sets the current action inputs|JToken|No|
-|ParentActionName|Gets or sets the current parent action name|string|No|
-|CurrentIterationInput|Gets or sets the current iteration input|[TestIterationItem](test-iteration-item-class-definition.md)|No|
+|ActionName|The current action name|string|Yes|
+|ActionInputs|The current action inputs|JToken|No|
+|ParentActionName|The current parent action name|string|No|
+|CurrentIterationInput|The current iteration input|[TestIterationItem](test-iteration-item-class-definition.md)|No|
 
 ## Related Content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
-- [MockData Class Definition](mock-data-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
 - [TestErrorInfo Class Definition](test-error-info-class-definition.md)
 - [TestErrorResponseAdditionalInfo Class Definition](test-error-response-additional-info-class-definition.md)
@@ -37,7 +36,6 @@ The execution context for a unit test action. This class stores information abou
 - [TestWorkflowRun Class Definition](test-workflow-run-class-definition.md)
 - [TestWorkflowRunActionRepetitionResult Class Definition](test-workflow-run-action-repetition-result-class-definition.md)
 - [TestWorkflowRunActionResult Class Definition](test-workflow-run-action-result-class-definition.md)
-- [TestWorkflowRunOperationResult Class Definition](test-workflow-run-operation-result-class-definition.md)
 - [TestWorkflowRunTriggerResult Class Definition](test-workflow-run-trigger-result-class-definition.md)
 - [TestWorkflowStatus Enum Definition](test-workflow-status-enum-definition.md)
 - [UnitTestExecutor Class Definition](unit-test-executor-class-definition.md)

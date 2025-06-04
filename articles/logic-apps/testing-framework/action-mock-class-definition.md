@@ -13,7 +13,7 @@ ms.date: 06/02/2025
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-This class creates a mocked instance of an action in a workflow. It inherits from `OperationMock` and provides multiple ways to create action mocks for testing Logic Apps workflows with static outputs, error conditions, or dynamic behavior based on execution context.
+This class creates a mocked instance of an action in a workflow. It provides multiple ways to create action mocks for testing Logic Apps workflows with static outputs, error conditions, or dynamic behavior based on execution context.
 
 ## Usage
 
@@ -138,6 +138,26 @@ var actionMock = new ActionMock(
     "ConditionalValidation");
 ```
 
+### JSON Constructor
+
+Creates a mocked instance for ActionMock from JSON.
+
+```C#
+internal ActionMock(TestWorkflowStatus status, string name = null, JToken outputs = null, TestErrorInfo error = null)
+```
+
+|Name|Description|Type|Required|
+|---|---|---|---|
+|status|The mocked action result status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|Yes|
+|name|The mocked action name|string|No|
+|outputs|The mocked outputs|MockOutput|No|
+|error|The mocked error|[TestErrorInfo](test-error-info-class-definition.md)|No|
+
+```C#
+// Example: Creating an action mock from JSON
+var actionFromJson = JsonConvert.DeserializeObject<ActionMock>(File.ReadAllText(mockDataPath));
+```
+
 ## Properties
 
 This class inherits the following properties from its base class `OperationMock`:
@@ -151,7 +171,6 @@ This class inherits the following properties from its base class `OperationMock`
 
 ## Related Content
 
-- [MockData](mock-data-class-definition.md)
 - [TestActionExecutionContext](test-action-execution-context-class-definition.md)
 - [TestErrorInfo](test-error-info-class-definition.md)
 - [TestErrorResponseAdditionalInfo](test-error-response-additional-info-class-definition.md)
@@ -161,7 +180,6 @@ This class inherits the following properties from its base class `OperationMock`
 - [TestWorkflowRun](test-workflow-run-class-definition.md)
 - [TestWorkflowRunActionRepetitionResult](test-workflow-run-action-repetition-result-class-definition.md)
 - [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md)
-- [TestWorkflowRunOperationResult](test-workflow-run-operation-result-class-definition.md)
 - [TestWorkflowRunTriggerResult](test-workflow-run-trigger-result-class-definition.md)
 - [TestWorkflowStatus](test-workflow-status-enum-definition.md)
 - [TriggerMock](trigger-mock-class-definition.md)

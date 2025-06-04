@@ -15,38 +15,6 @@ ms.date: 06/02/2025
 
 The status of a unit test flow. This enumeration represents the various execution states that a workflow, action, or trigger can have during testing scenarios.
 
-## Usage
-
-```C#
-// Using status in action mocks
-var successAction = new ActionMock(TestWorkflowStatus.Succeeded, "SendEmail");
-var failedAction = new ActionMock(TestWorkflowStatus.Failed, "DatabaseQuery");
-var skippedAction = new ActionMock(TestWorkflowStatus.Skipped, "ConditionalAction");
-
-// Using status in workflow run results
-var workflowRun = new TestWorkflowRun
-{
-    Status = TestWorkflowStatus.Succeeded,
-    StartTime = DateTime.UtcNow.AddMinutes(-5),
-    EndTime = DateTime.UtcNow
-};
-
-// Checking status in test assertions
-if (workflowRun.Status == TestWorkflowStatus.Succeeded)
-{
-    // Test passed
-}
-else if (workflowRun.Status == TestWorkflowStatus.Failed)
-{
-    // Handle failure case
-    var errorMessage = workflowRun.Error?.Message;
-}
-
-// Using status in trigger mocks
-var timedOutTrigger = new TriggerMock(TestWorkflowStatus.TimedOut, "ScheduleTrigger");
-var cancelledTrigger = new TriggerMock(TestWorkflowStatus.Cancelled, "ManualTrigger");
-```
-
 ## Values
 
 |Name|Description|
@@ -59,10 +27,12 @@ var cancelledTrigger = new TriggerMock(TestWorkflowStatus.Cancelled, "ManualTrig
 |Terminated|The flow status is Terminated|
 |NotSpecified|The flow status is not specified|
 
+> [!Note]
+> Mocks can only be created using the Succeeded and Failed status values. The other values are used by the engine to represent the final state of action after execution.
+
 ## Related Content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
-- [MockData Class Definition](mock-data-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
 - [TestActionExecutionContext Class Definition](test-action-execution-context-class-definition.md)
 - [TestExecutionContext Class Definition](test-execution-context-class-definition.md)
@@ -73,6 +43,5 @@ var cancelledTrigger = new TriggerMock(TestWorkflowStatus.Cancelled, "ManualTrig
 - [TestWorkflowOutputParameter Class Definition](test-workflow-output-parameter-class-definition.md)
 - [TestWorkflowRunActionRepetitionResult Class Definition](test-workflow-run-action-repetition-result-class-definition.md)
 - [TestWorkflowRunActionResult Class Definition](test-workflow-run-action-result-class-definition.md)
-- [TestWorkflowRunOperationResult Class Definition](test-workflow-run-operation-result-class-definition.md)
 - [TestWorkflowRunTriggerResult Class Definition](test-workflow-run-trigger-result-class-definition.md)
 - [UnitTestExecutor Class Definition](unit-test-executor-class-definition.md)

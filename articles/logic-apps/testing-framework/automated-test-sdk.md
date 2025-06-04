@@ -30,7 +30,6 @@ The SDK consists of several key components that work together to provide a compl
 | [UnitTestExecutor](unit-test-executor-class-definition.md) | Main entry point for executing unit tests for Azure Logic Apps workflows | Class |
 | [ActionMock](action-mock-class-definition.md) | Represents a mock action for workflow testing | Class |
 | [TriggerMock](trigger-mock-class-definition.md) | Represents a mock trigger for workflow testing | Class |
-| [MockData](mock-data-class-definition.md) | Contains mock data for testing workflows | Class |
 | [TestActionExecutionContext](test-action-execution-context-class-definition.md) | Represents the execution context for a specific action in a test workflow | Class |
 | [TestExecutionContext](test-execution-context-class-definition.md) | Represents the execution context for a test workflow | Class |
 | [TestIterationItem](test-iteration-item-class-definition.md) | Represents an iteration item in a test workflow execution | Class |
@@ -40,7 +39,6 @@ The SDK consists of several key components that work together to provide a compl
 | [TestWorkflowOutputParameter](test-workflow-output-parameter-class-definition.md) | Represents an output parameter from a workflow test execution | Class |
 | [TestWorkflowRunActionRepetitionResult](test-workflow-run-action-repetition-result-class-definition.md) | Represents the result of an action repetition in a workflow test run | Class |
 | [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md) | Represents the result of an action execution in a workflow test run | Class |
-| [TestWorkflowRunOperationResult](test-workflow-run-operation-result-class-definition.md) | Represents the result of an operation in a workflow test run | Class |
 | [TestWorkflowRunTriggerResult](test-workflow-run-trigger-result-class-definition.md) | Represents the result of a trigger execution in a workflow test run | Class |
 | [TestWorkflowStatus](test-workflow-status-enum-definition.md) | Defines the possible status values for a test workflow execution | Enum |
 
