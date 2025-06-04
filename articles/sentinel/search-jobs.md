@@ -17,9 +17,9 @@ ms.collection: usx-security
 
 # Search for specific events across large datasets in Microsoft Sentinel
 
-Use a search job when you start an investigation to scan through up to a year of data for specific events. You can a run search job on any table, including tables with the Analytics, Basic, and Auxiliary log plans. The search job sends its results to a new Analytics table in the same workspace as the source data. This article explains how to run a search job in Microsoft Sentinel and how to work with the search job results.
+Use a search job when you start an investigation to scan through up to a year of data in a table for specific events. You can a run search job on any table, including tables with the Analytics, Basic, and Auxiliary log plans. The search job sends its results to a new Analytics table in the same workspace as the source data. This article explains how to run a search job in Microsoft Sentinel and how to work with the search job results.
 
-- Search jobs across certain data sets might incur extra charges. For more information, see [Microsoft Sentinel pricing page](billing.md).
+Search jobs across certain data sets might incur extra charges. For more information, see [Microsoft Sentinel pricing page](billing.md).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -49,7 +49,7 @@ Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft De
 
    :::image type="content" source="media/search-jobs/search-job-advanced-kql-ellipsis.png" alt-text="Screenshot of KQL editor with revised search with ellipsis highlighted for Search job mode." lightbox="media/search-jobs/search-job-advanced-kql-ellipsis.png":::
 
-1. Specify the search job date range using the **Time range** selector. Don't include a time range in your KQL query as it is ignored.
+1. Specify the search job date range using the **Time range** selector. If your query also specifies a time range, Microsoft Sentinel runs the search job on the union of the time ranges.
 
 1. Resolve any KQL issues indicated by a squiggly red line in the editor.
 
