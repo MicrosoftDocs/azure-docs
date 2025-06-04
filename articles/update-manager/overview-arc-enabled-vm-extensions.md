@@ -4,8 +4,8 @@ description: Learn about Azure Arc-enabled VM extensions, including their latest
 ms.service: azure-update-manager
 ms.date: 03/28/2025
 ms.topic: overview
-author: SnehaSudhir 
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # Release notes for Azure Arc-enabled VM extensions
