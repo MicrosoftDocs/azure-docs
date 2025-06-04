@@ -4,14 +4,12 @@ description: Learn how to configure continuous integration and continuous deploy
 author: cephalin
 ms.author: cephalin
 ms.topic: how-to
-ms.date: 06/02/2025
+ms.date: 06/04/2025
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 
 ---
 
 # Configure continuous deployment to Azure App Service
-
-<!--[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]-->
 
 This article explains how you can configure continuous deployment (CD) to [Azure App Service](overview.md) by pulling in updates from [GitHub](https://help.github.com/articles/create-a-repo), [Bitbucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html), [Azure Repos](/azure/devops/repos/), or other repositories.
 
@@ -145,7 +143,7 @@ To use Azure Pipelines as the build provider, select the **Azure Pipelines** opt
 - [How does the GitHub Actions build provider work if basic authentication is disabled?](#how-does-the-github-actions-build-provider-work-if-basic-authentication-is-disabled)
 - [What can happen to my app during deployment?](#what-can-happen-to-my-app-during-deployment)
 - [What does the user-assigned identity option do in GitHub Actions?](#what-does-the-user-assigned-identity-option-do-in-github-actions)
-- [Why do I see the error "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials"?](#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials")
+- [Why do I see the error "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials"?](#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials)
 - [Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
 
 ### How does the GitHub Actions build provider work if basic authentication is disabled?

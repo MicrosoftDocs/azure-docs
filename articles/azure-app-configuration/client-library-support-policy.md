@@ -6,6 +6,8 @@ ms.author: jimmyca
 ms.date: 05/13/2025
 ms.topic: reference
 ms.service: azure-app-configuration
+ms.custom:
+  - build-2025
 ---
 # Support policy for Azure App Configuration client libraries
 

@@ -8,7 +8,9 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/28/2025
 ms.author: danlep
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Azure API Management - Availability of v2 tiers and workspace gateways

@@ -6,6 +6,8 @@ ms.author: sherryg
 ms.date: 09/07/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Publish Nginx container as Containerized Network Function (CNF)

@@ -4,7 +4,9 @@ description: In this article, learn how to troubleshoot the installation and reg
 ms.topic: troubleshooting
 ms.date: 05/19/2025
 ms.service: azure-backup
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - build-2025
 author: jyothisuri
 ms.author: jsuri
 ---

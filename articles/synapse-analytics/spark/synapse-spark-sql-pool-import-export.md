@@ -964,6 +964,6 @@ By default, a write response is printed to the cell output. On failure, the curr
 
 ## Related content
 
-* [Runtime library versions](../../synapse-analytics/spark/apache-spark-3-runtime.md)
+* [Runtime library versions](../../synapse-analytics/spark/apache-spark-34-runtime.md)
 * [Azure Storage](../../storage/blobs/data-lake-storage-introduction.md)
 * [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

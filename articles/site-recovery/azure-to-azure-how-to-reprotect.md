@@ -2,11 +2,11 @@
 title: Reprotect Azure virtual machines to the primary region with Azure Site Recovery
 description: Describes how to reprotect Azure virtual machines after failover, the secondary to primary region, using Azure Site Recovery.
 services: site-recovery
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 03/17/2025
-ms.author: ankitadutta
+ms.author: jsuri
 ---
 
 # Reprotect failed over Azure virtual machines to the primary region

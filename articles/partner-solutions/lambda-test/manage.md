@@ -4,6 +4,8 @@ description: This article describes management functions for LambdaTest - HyperE
 
 ms.topic: how-to
 ms.date: 04/14/2025
+ms.custom:
+  - build-2025
 ---
 
 # Manage a LambdaTest - HyperExecute resource
