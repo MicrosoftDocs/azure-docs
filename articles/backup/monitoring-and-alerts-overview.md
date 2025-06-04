@@ -6,6 +6,7 @@ ms.date: 05/29/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to implement monitoring and reporting solutions for Azure Backup, so that I can ensure the reliability and health of backup jobs, quickly respond to incidents, and analyze historical data for audits and compliance.
 ---
 
 # Monitoring and Reporting solutions for Azure Backup

@@ -8,6 +8,7 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to deploy an ARM template to back up my Azure virtual machines, so that I can ensure data protection and recovery capabilities are in place for my applications.
 ---
 
 #  Back up a virtual machine in Azure with an ARM template

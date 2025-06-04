@@ -9,6 +9,7 @@ ms.date: 05/22/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a DevOps engineer, I want to configure vaulted backup for Azure Files using the command line, so that I can automate backup processes and ensure data protection against ransomware and other threats."
 ---
 
 #  Quickstart: Configure vaulted backup for Azure Files using Azure CLI

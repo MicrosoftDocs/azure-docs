@@ -7,6 +7,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24
+# Customer intent: As a backup administrator, I want to use Azure Data Box for offline data seeding with the MARS Agent, so that I can efficiently transfer large initial backup data to the Recovery Services vault without consuming network bandwidth.
 ---
 
 # Azure Backup offline backup by using Azure Data Box

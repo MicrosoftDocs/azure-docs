@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 09/11/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to monitor my organization's backup operations in a centralized dashboard, so that I can ensure all machines are protected and quickly address any issues that arise across multiple subscriptions and tenants.
 ---
 
 # Monitor your backups with Backup Explorer

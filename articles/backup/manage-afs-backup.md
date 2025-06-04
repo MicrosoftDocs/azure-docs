@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 
+# Customer intent: As an IT administrator, I want to manage and monitor Azure Files backups using the portal and reporting tools, so that I can ensure data protection and recovery for my organization's file shares.
 ---
 
 # Manage Azure Files backups using Azure portal

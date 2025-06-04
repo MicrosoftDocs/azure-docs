@@ -7,6 +7,7 @@ ms.date: 01/30/2025
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to back up my Azure virtual machines using PowerShell, so that I can ensure the protection and recoverability of critical data and applications.
 ---
 
 # Back up a virtual machine in Azure with PowerShell

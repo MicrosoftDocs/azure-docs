@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 03/27/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to efficiently manage recovery points for virtual machines, so that I can ensure reliable backup, optimize storage costs, and meet retention policies while maintaining effective data recovery capabilities.
 ---
 
 # Manage recovery points
