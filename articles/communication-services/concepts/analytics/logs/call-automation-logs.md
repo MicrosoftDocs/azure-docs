@@ -86,7 +86,6 @@ Communication Services offers the following types of logs that you can enable:
 Here's an example of a Call Automation operational log:
 
 ```json
-[
 {
 "TimeGenerated [UTC]": "5/25/2023, 5:43:25.746 PM",
 "Level": "Informational",
@@ -133,7 +132,6 @@ Here's an example of a Call Automation operational log:
 Here's an example of a Call Automation media summary log:
 
 ```json
-[
 {
 "TimeGenerated [UTC]": "5/24/2023, 7:57:40.480 PM",
 "Level": "Informational",
@@ -168,7 +166,6 @@ Here's an example of a Call Automation media summary log:
 Here's an example of a Call Automation Media Streaming features usage information Logs:
 
 ```json
-[
 {
 "TimeGenerated [UTC]": "5/24/2023, 7:57:40.480 PM",
 "CorrelationId": "bbbb1111-cc22-3333-44dd-555555eeeeee",
