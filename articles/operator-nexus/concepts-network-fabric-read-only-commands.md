@@ -8,6 +8,8 @@ ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/15/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
+ms.custom:
+  - build-2025
 ---
 
 # Network Fabric read-only commands for troubleshooting
@@ -70,6 +72,8 @@ Azure Operator Nexus supports execution of read-only show commands on fabric dev
 
 You can use the az networkfabric device run-ro command to issue supported show commands. Below is a sample command demonstrating how to query a device for its version details:
 
+ **Scenario 1:** Response under 4000 characters (Correct JSON formatting)
+
 ```Azure CLI
 az networkfabric device run-ro \
   --resource-group "resource-group-name" \
@@ -85,19 +89,52 @@ Expected Output
 ```json
 {
   "configurationState": "Succeeded",
-  "deviceConfigurationPreview": "{\n  \"architecture\": \"x86_64\",\n  \"bootupTimestamp\": 1745356755.0055325,\n  \"configMacAddress\": \"00:00:00:00:00:00\",\n  \"hardwareRevision\": \"\",\n  \"hwMacAddress\": \"00:00:00:00:00:00\",\n  \"imageFormatVersion\": \"1.0\",\n  \"imageOptimization\": \"None\",\n  \"internalBuildId\": \"b502bfe1-xxxx-xxxx-xxxx-8b78b1fd6e29\",\n  \"internalVersion\": \"4.32.2FX-NX-xxxxxxxxx.xxxxxxxxx\",\n  \"isIntlVersion\": false,\n  \"kernelVersion\": \"5.15.176.3-3.cm2\",\n  \"memFree\": 109383608,\n  \"memTotal\": 131643632,\n  \"mfgName\": \"\",\n  \"modelName\": \"cEOSLab\",\n  \"serialNumber\": \"538C4BE142B0B5D2727B8F412EE68B1B\",\n  \"systemMacAddress\": \"28:b3:de:ad:ce:e6\",\n  \"uptime\": 85639.49509215355,\n  \"version\": \"4.32.2FX-NX-xxxxxxxxx.xxxxxxxxx (engineering build)\"\n}",
-  "outputUrl": "https://<your-storage-account>.blob.core.windows.net/<your-container>"
+  "deviceConfigurationPreview": {
+    "architecture": "x86_64",
+    "bootupTimestamp": 1742470725.3758163,
+    "configMacAddress": "00:00:00:00:00:00",
+    "hardwareRevision": "12.05",
+    "hwMacAddress": "c4:ca:xx:xx:xx:35",
+    "imageFormatVersion": "3.0",
+    "imageOptimization": "Default",
+    "internalBuildId": "2b2210fa-xxxx-xxxx-xxxx-f120aa00xxxx",
+    "internalVersion": "4.xx.1F-39879738.xxxxx",
+    "isIntlVersion": false,
+    "memFree": 3760128,
+    "memTotal": 8099732,
+    "mfgName": "vendor",
+    "modelName": "xxx-xxxxx-xx-x",
+    "serialNumber": "JPA2303P3FH",
+    "systemMacAddress": "c4:ca:xx:xx:xx:35",
+    "uptime": 3648004.37,
+    "version": "4.xx.1F"
+  },
+  "outputUrl": "https://<blob-url>/show_version.json"
+}
+```
+> [Note]
+> This output is well-formatted JSON because the total content is within the 4000-character boundary.
+
+Scenario 2: Response exceeds 4000 characters (Incorrect formatting)
+
+Truncated output
+```json
+{
+  "configurationState": "Succeeded",
+  "deviceConfigurationPreview": "{\n  \"lldpNeighbors\": {\n    \"Ethernet1/1\": {\n      \"lldpNeighborInfo\": [\n        {\n          \"chassisId\": \"c4ca.2b62.19b5\",\n          \"chassisIdType\": \"macAddress\",\n          \"lastChangeTime\": 1742470988.8675177,\n          ...
+        }\n      ]\n    },\n    ...
+  }",
+  "outputUrl": "https://<blob-url>/lldp_neighbors_detail.json"
 }
 ```
 
-deviceConfigurationPreview: Returns the parsed result of the show command.
+>[Note]
+>  The field deviceConfigurationPreview is not a JSON object, but rather a string containing escaped JSON. This happens because the actual output is larger than 4000 characters. In such cases, the formatting is lost in the CLI output.
 
-outputUrl: Contains a link to the raw output stored in your designated storage account.
 
 > [!Note] 
 > The output structure may vary depending on the specific show command issued.<br>
 > Ensure the storage account URL (provided during setup) is accessible for the platform to write the output securely.<br>
-> Output is delivered in a secure, JSON format suitable for logging and automation systems.<br>
 
  ## Command restrictions
 

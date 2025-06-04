@@ -12,6 +12,9 @@ ms.custom:
   - build-2025
 ms.devlang: csharp
 zone_pivot_groups: redis-type
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 # Customer intent: As a .NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
 

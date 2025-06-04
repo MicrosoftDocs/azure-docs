@@ -17,7 +17,7 @@ Azure VMware Solution clusters are based on a hyperconverged infrastructure. The
 | :---      | :---: | :---:     | :---:                      | :---:                                        | :---:                 |
 | AV36      | Dual Intel Xeon Gold 6140 CPUs (Skylake microarchitecture) with 18 cores/CPU @ 2.3 GHz, Total 36 physical cores (72 logical cores with hyperthreading) |  576  | 3.2 (NVMe)               | 15.20 (SSD)  | Selected regions (*) |
 | AV36P     |  Dual Intel Xeon Gold 6240 CPUs (Cascade Lake microarchitecture) with 18 cores/CPU @ 2.6 GHz / 3.9 GHz Turbo, Total 36 physical cores (72 logical cores with hyperthreading) |  768  | 1.5 (Intel Cache) | 19.20 (NVMe) | Selected regions (*) |
-| AV48      | Dual Intel Xeon Gold 6442Y CPUs (Sapphire Rapids microarchitecture) with 24 cores/CPU @ 2.6 GHz / 4.0 GHz Turbo, Total 48 physical cores (96 logical cores with hyperthreading) | 1,024  | 1.5 (Intel Cache) | 19.20 (NVMe) | Selected regions (*) |
+| AV48      | Dual Intel Xeon Gold 6442Y CPUs (Sapphire Rapids microarchitecture) with 24 cores/CPU @ 2.6 GHz / 4.0 GHz Turbo, Total 48 physical cores (96 logical cores with hyperthreading) | 1,024  | 3.2 (NVMe) | 19.20 (NVMe) | Selected regions (*) |
 | AV52      | Dual Intel Xeon Platinum 8270 CPUs (Cascade Lake microarchitecture) with 26 cores/CPU @ 2.7 GHz / 4.0 GHz Turbo, Total 52 physical cores (104 logical cores with hyperthreading) | 1,536  | 1.5 (Intel Cache) | 38.40 (NVMe) | Selected regions (*) |
 | AV64      | Dual Intel Xeon Platinum 8370C CPUs (Ice Lake microarchitecture) with 32 cores/CPU @ 2.8 GHz / 3.5 GHz Turbo, Total 64 physical cores (128 logical cores with hyperthreading) |  1,024  | 3.84 (NVMe) | 15.36 (NVMe) | Selected regions (**) |
 

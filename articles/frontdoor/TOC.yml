@@ -127,6 +127,8 @@
         href: how-to-enable-private-link-application-gateway.md
       - name: Connect to Azure API Management
         href: standard-premium/how-to-enable-private-link-apim.md
+      - name: Connect to Azure Container App
+        href: ../container-apps/how-to-integrate-with-azure-front-door.md
   - name: Caching
     items:
     - name: Caching with Azure Front Door
@@ -159,8 +161,10 @@
       href: tier-migration.md
     - name: Classic to Standard/Premium mapping
       href: tier-mapping.md
-    - name: Migrate from Front Door (classic)
+    - name: Migrate from Front Door (classic) - Portal
       href: migrate-tier.md
+    - name: Migrate from Front Door (classic) - PowerShell
+      href: migrate-tier-powershell.md
   - name: Microsoft CDN (classic) retirement FAQ
     href: ../cdn/classic-cdn-retirement-faq.md
   - name: Edgio retirement FAQ

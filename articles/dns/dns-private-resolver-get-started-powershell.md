@@ -2,8 +2,8 @@
 title: Quickstart - Create an Azure DNS Private Resolver using Azure PowerShell
 description: In this quickstart, you learn how to create and manage your first private DNS resolver using Azure PowerShell.
 services: dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.date: 04/05/2024
 ms.topic: quickstart
 ms.service: azure-dns
@@ -240,7 +240,7 @@ $targetDNS2 = New-AzDnsResolverTargetDnsServerObject -IPAddress 192.168.1.3 -Por
 $targetDNS3 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.0.0.4 -Port 53
 $targetDNS4 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.5.5.5 -Port 53
 $forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "Internal" -DomainName "internal.contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer @($targetDNS1,$targetDNS2)
-$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "AzurePrivate" -DomainName "azure.contoso.com" -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
+$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "AzurePrivate" -DomainName "azure.contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
 $forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "Wildcard" -DomainName "." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS4
 ```
 

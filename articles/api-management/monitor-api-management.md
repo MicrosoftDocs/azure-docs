@@ -2,7 +2,9 @@
 title: Monitor Azure API Management
 description: Learn how to monitor Azure API Management using Azure Monitor, including data collection, analysis, and alerting.
 ms.date: 05/14/2025
-ms.custom: horz-monitor
+ms.custom:
+  - horz-monitor
+  - build-2025
 ms.topic: how-to
 author: dlepow
 ms.author: danlep

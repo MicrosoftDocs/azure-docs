@@ -9,6 +9,8 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 05/19/2025
 # Customer intent: As a logic app workflow developer, I want to automate workflows that complete tasks with AI agents and other AI capabilities for my integration scenarios by using Azure Logic Apps.
+ms.custom:
+  - build-2025
 ---
 
 # Create workflows that use AI agents and models to complete tasks in Azure Logic Apps (Preview)
@@ -671,21 +673,23 @@ Here are some approaches to reduce your agent's chat history:
 
 - Carefully craft your system instructions and prompts to control the model's behavior.
 
-[- Lower the maximum number of tokens or messages to keep in chat history and pass into the model.]:#
-[  A workflow agent has almost the same advanced parameters as the]:#
-[Azure OpenAI built-in, service provider connector]:#
-[(/azure/logic-apps/connectors/built-in/reference/openai/), except for the **Agent History Reduction Type** advanced parameter, which exists only in the agent. This parameter controls the chat history that the agent maintains, based on the maximum number of tokens or messages.]:#
-[  To complete the following chat history management tasks, follow these steps:]:#
-[  - Switch the **Agent History Reduction Type** between tokens and messages.]:#
-[  - Change the maximum number of tokens or messages in chat history.]:#
-[  1. On the designer, select the agent's title bar to open the information pane.]:#
-[  1. On the **Parameters** tab, find the **Advanced parameters** section.]:#
-[  1. Check whether the parameter named **Agent History Reduction Type** exists. If not, open the **Advanced parameters** list, and select that parameter.]:#
-[  1. From the **Agent History Reduction Type** list, select one of the following options:]:#
-[    | Option | Description |]:#
-[    |--------|-------------|]:#
-[    | **Token count reduction** | Shows the parameter named **Maximum Token Count**. Specifies the maximum number of tokens in chat history to keep and pass into the model for the next chat interaction. The default differs based on the currently used model in Azure OpenAI Service. The default limit is **128,000**. |]:#
-[     | **Message count reduction** | Shows the parameter named **Message Count Limit**. Specifies the maximum number of messages in chat history to keep and pass into the model for the next chat interaction. No default limit exists. |]:#
+- **Experimental capability**: You have the option to try chat reduction so you can reduce the maximum number of tokens or messages to keep in chat history and pass into the model.
+
+  A workflow agent has almost the same advanced parameters as the [Azure OpenAI built-in, service provider connector](/azure/logic-apps/connectors/built-in/reference/openai/), except for the **Agent History Reduction Type** advanced parameter, which exists only in the agent. This parameter controls the chat history that the agent maintains, based on the maximum number of tokens or messages.
+
+  This capability is in active development and might not work for all scenarios. You can change the **Agent History Reduction Type** option to reduce the limit on tokens or messages. You then specify the numerical limit that you want.
+  
+  To try the capability, follow these steps:
+
+  1. On the designer, select the agent's title bar to open the information pane.
+  1. On the **Parameters** tab, find the **Advanced parameters** section.
+  1. Check whether the parameter named **Agent History Reduction Type** exists. If not, open the **Advanced parameters** list, and select that parameter.
+  1. From the **Agent History Reduction Type** list, select one of the following options:
+
+     | Option | Description |
+     |--------|-------------|
+     | **Token count reduction** | Shows the parameter named **Maximum Token Count**. Specifies the maximum number of tokens in chat history to keep and pass into the model for the next chat interaction. The default differs based on the currently used model in Azure OpenAI Service. The default limit is **128,000**. |
+     | **Message count reduction** | Shows the parameter named **Message Count Limit**. Specifies the maximum number of messages in chat history to keep and pass into the model for the next chat interaction. No default limit exists. |
 
 ### Tools
 

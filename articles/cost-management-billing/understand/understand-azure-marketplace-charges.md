@@ -2,12 +2,14 @@
 title: Understand your Azure external service charges
 description: Learn about billing of external services, formerly known as Marketplace, charges in Azure.
 author: jkinma39
+ms.author: jkinma
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/22/2024
-ms.author: jkinma
+ms.date: 05/01/2025
+ms.custom:
+  - build-2025
 ---
 
 # Understand your Azure external services charges

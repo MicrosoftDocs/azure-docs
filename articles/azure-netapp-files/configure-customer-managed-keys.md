@@ -1,12 +1,12 @@
 ---
-title: Configure customer-managed keys for Azure NetApp Files volume encryption | Microsoft Docs
+title: Configure customer-managed keys for Azure NetApp Files volume encryption
 description: Describes how to configure customer-managed keys for Azure NetApp Files volume encryption.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 04/25/2025
+ms.date: 06/04/2025
 ms.author: anfdocs
 ---
 

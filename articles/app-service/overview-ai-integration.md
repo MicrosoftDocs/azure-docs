@@ -6,7 +6,8 @@ ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: overview
 ms.date: 05/17/2025
-ms.custom: 
+ms.custom:
+  - build-2025
 ---
 
 # Integrate AI into your Azure App Service applications

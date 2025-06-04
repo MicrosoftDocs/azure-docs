@@ -10,6 +10,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/14/2025
 ms.author: robiro
+ms.custom:
+  - build-2025
 ---
 
 # Connectivity with SAP RISE

@@ -9,6 +9,8 @@ ms.subservice: azure-mqtt-broker
 ms.date: 05/15/2025
 
 #CustomerIntent: As an operator, I want to configure diagnostics so that I can monitor MQTT broker communications.
+ms.custom:
+  - build-2025
 ---
 
 # Configure MQTT broker diagnostics settings
@@ -42,7 +44,7 @@ The diagnostics probe regularly runs MQTT operations (PING, CONNECT, PUBLISH, SU
 > [!IMPORTANT]
 > The self-check diagnostics probe publishes messages to the `azedge/dmqtt/selftest` topic. Don't publish or subscribe to diagnostic probe topics that start with `azedge/dmqtt/selftest`. Publishing or subscribing to these topics can affect the probe or self-test checks and result in invalid results. Invalid results can be listed in diagnostic probe logs, metrics, or dashboards. For example, you might see the issue "Path verification failed for probe event with operation type 'Publish'" in the diagnostics-probe logs. For more information, see [Known issues](../troubleshoot/known-issues.md#mqtt-broker-issues).
 >
-> Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-broker-diagnostics.md) produces telemetry on its own topic, you can still get messages from the self-test when you subscribe to the `#` topic. This is a limitation and expected behavior.
+> Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-broker-diagnostics.md) produces diagnostics messages on its own topic, you can still get messages from the self-test when you subscribe to the `#` topic. This is a limitation and expected behavior.
 
 ## Change diagnostics settings
 

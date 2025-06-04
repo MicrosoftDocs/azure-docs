@@ -1,5 +1,5 @@
 ---
-title: Protect Access to Product APIs with Microsoft Entra Application - Azure API Management
+title: Securely Access Products and APIs - Microsoft Entra Applications - Azure API Management
 titleSuffix: Azure API Management
 description: Configure OAuth 2.0 access to product APIs in Azure API Management with Microsoft Entra ID applications.
 services: api-management
@@ -9,9 +9,10 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/19/2025
 ms.author: danlep
-ms.custom: 
+ms.custom:
+  - build-2025
 ---
-# Secure product API access with Microsoft Entra applications
+# Securely access products and APIs with Microsoft Entra applications
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -64,14 +65,14 @@ The following example uses the **Starter** product, but choose any published pro
 1. In the left menu, under **APIs**, select **Products**.
 1. Choose the product that you want to configure, such as the **Starter** product.
 1. In the left menu, under **Product**, select **Properties**.
-1. Enable the **Application based access** setting.
-1. Optionally, enable the **Requires subscription** setting. If you enable both application based access and a subscription requirement, the API Management gateway can accept either OAuth 2.0 authorization or a subscription key for access to the product's APIs.
+1. In the **Application based access** section, enable the **OAuth 2.0 token (most secure)** setting.
+1. Optionally, enable the **Subscription key** setting. If you enable both application based access and a subscription requirement, the API Management gateway can accept either an OAuth 2.0 token or a subscription key for access to the product's APIs.
 1. Select **Save**.
 
 :::image type="content" source="media/applications/enable-application-based-access.png" alt-text="Screenshot of enabling application based access in the portal.":::
 
 > [!TIP]
-> You can also enable the **Application based access** setting when creating a new product.
+> You can also enable the **OAuth 2.0 token** setting when creating a new product.
 
  Enabling application based access creates a backend enterprise application in Microsoft Entra ID to represent the product. The backend application ID is displayed in the product's **Properties** page.
 

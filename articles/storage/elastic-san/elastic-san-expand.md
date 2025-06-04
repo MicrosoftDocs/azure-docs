@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Resize an Azure Elastic SAN
 
-This article covers increasing or decreasing the size of an Elastic storage area network (SAN) and an individual volume.
+This article covers increasing or decreasing the size of an Elastic SAN and an individual volume.
 
 ## Resize your SAN
 
@@ -48,6 +48,7 @@ Running that example command would set the following policy on the SAN it's run 
   
 You can't use an autoscale policy to scale down. To reduce the size of your SAN, follow the manual process in the previous section. If you have configured an autoscaling policy, disable it before reducing the size of your SAN.
 
+For CLI, ensure you're using a version that is 1.2.0b1 or higher of the elastic-san extension. For PowerShell, ensure you're using a version that is  1.2.1 or higher of the Az.ElasticSan module.
 
 
 The following script can be run to enable an autoscale policy for an existing Elastic SAN.

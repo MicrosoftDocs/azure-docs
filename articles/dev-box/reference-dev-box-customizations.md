@@ -1,23 +1,24 @@
 ---  
-title: 'Reference: imagedefinition.yaml and task.yaml files'  
-description: Reference for customizing Dev Box environments using devbox.yaml and task.yaml files, including built-in tasks and parameters.  
+title: 'Reference: imagedefinition.yaml and task.yaml Files'
+description: Reference for customizing Dev Box environments by using devbox.yaml and task.yaml files, including built-in tasks and parameters.
 author: RoseHJM  
 ms.service: dev-box  
 ms.topic: reference  
 ms.date: 05/09/2025  
-ms.author: rosemalcolm  
-
+ms.author: rosemalcolm
+ms.custom:
+  - build-2025
 ---  
 
-# Customizations Schema Reference
+# Customizations schema reference
 
-This reference guide provides detailed information about the `imagedefinition.yaml` and `task.yaml` files used to customize Microsoft Dev Box. These YAML files enable developers to define tasks for provisioning and configuring Dev Boxes, ensuring consistency and efficiency across development environments. The guide covers the schema, required attributes, and examples for both file types, along with built-in tasks like PowerShell and Winget.
+This reference article provides detailed information about the `imagedefinition.yaml` and `task.yaml` files that are used to customize Microsoft Dev Box. Developers can use these YAML files to define tasks for provisioning and configuring dev boxes. The files help to ensure consistency and efficiency across development environments. This article covers the schema, required attributes, and examples for both file types, along with built-in tasks like PowerShell and WinGet.
 
 ## Imagedefinition.yaml files
 
-A Dev Box yaml allows you to define customization tasks that ought to run during Dev Box creation. A devbox.yaml file might live in the same repository as the primary source code being used by the dev team, or in a centralized repository of configurations.
+You can use a Dev Box YAML file to define customization tasks that ought to run during Dev Box creation. A `devbox.yaml` file might live in the same repository as the primary source that the dev team uses, or the file might be in a centralized repository of configurations.
 
-Example Image Definition yaml:
+Example image definition YAML:
 
 ```
 $schema: 1.0
@@ -31,9 +32,7 @@ tasks:
 
 ### name
 
-**Required**
-
-A friendly name for the image definition associated with this devbox.yaml. This setting controls the name of the image definition available when creating and updating pools.
+**Required:** This friendly name for the image definition is associated with this `devbox.yaml` file. This setting controls the name of the image definition that's available when you create and update pools.
 
 ```
 name: myVSDevBox
@@ -41,29 +40,27 @@ name: myVSDevBox
 
 ### image
 
-**Required**
-
-The image you would like to use as the base image for your image definition. This image can be a marketplace image:
+**Required:** The image that you want to use as the base image for your image definition can be a marketplace image:
 
 ```
 image: MicrosoftWindowsDesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
 ```
 
-Or a custom image from an attached Azure Compute Gallery:
+Or it can be a custom image from an attached Azure Compute Gallery instance:
 
 ```
 image: galleryname/imagename@version
 ```
-To learn how to attach an Azure Compute Gallery to your DevCenter, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md).
+To learn how to attach an Azure Compute Gallery instance to your dev center, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md).
 
 
-To get a list of images that your DevCenter has access to, use this az cli command:
+To get a list of images to which your dev center has access, use this `az cli` command:
 
 ```
 az devcenter admin image list --dev-center-name CustomizationsImagingHQ --resource-group TeamCustomizationsImagingRG --query "[].name"
 ```
 
-You would need the DevCenter az cli extension:
+You need the dev center `az cli` extension:
 
 ```
 az extension add --name devcenter
@@ -71,9 +68,7 @@ az extension add --name devcenter
 
 ### tasks
 
-**Required**
-
-An object collection of Dev Box customization tasks to be executed when provisioning a Dev Box. The specific inputs provided to a task vary by task.
+**Required:** This object collection is made up of Dev Box customization tasks to run when you provision a dev box. The specific inputs that are provided to a task vary by task.
 
 Example:
 
@@ -84,7 +79,7 @@ tasks:
     package: GitHub.GitHubDesktop
 ```
 
-The **timeout** parameter is supported by all tasks and is optional.
+All tasks support the `timeout` parameter, which is optional.
 
 Example:
 
@@ -98,59 +93,59 @@ tasks:
 
 ### Built-in tasks
 
-PowerShell and Winget are available as built-in tasks and can be invoked directly without attaching a DevCenter-level catalog that defines the implementation of these tasks.
+PowerShell and WinGet are available as built-in tasks. You can invoke them directly without attaching a catalog at the dev center level that defines the implementation of these tasks.
 
-#### Winget built-in task
+#### WinGet built-in task
 
-Applies a winget configuration to the Dev Box.
+This built-in task applies a WinGet configuration to the dev box.
 
 **Parameters:**
 
-- **configurationFile**  
-  - type: "string"  
-  - The path to the winget config yaml file. The file must be located in the local machine.  
-  - required: false  
+- `configurationFile`:
+  - Type: `string`
+  - The path to the WinGet config YAML file. The file must be located in the local machine.
+  - Required: `false`
 
-- **downloadUrl**  
-  - type: "string"  
-  - A publicly accessible URL where the config yaml file is stored. The file is downloaded to the path given in 'configurationFile'.  
-  - required: false  
+- `downloadUrl`:
+  - Type: `string`
+  - A publicly accessible URL where the config YAML file is stored. The file is downloaded to the path that `configurationFile` specifies.
+  - Required: `false`
 
-- **inlineConfigurationBase64**  
-  - type: "string"  
-  - A base64 encoded string of the winget config yaml file. The file is decoded to the path given in 'configurationFile' or to a temporary file if not specified.  
-  - required: false  
+- `inlineConfigurationBase64`:
+  - Type: `string`
+  - A Base64-encoded string of the WinGet config YAML file. The file is decoded to the path that `configurationFile` specifies or to a temporary file if it isn't specified.
+  - Required: `false`
 
-- **package**  
-  - type: "string"  
-  - The name of the package to install.   
-  - If a config yaml file is provided under other parameters, there's no need for the package name.  
-  - required: false  
+- `package`:
+  - Type: `string`
+  - The name of the package to install.
+  - If a config YAML file is provided under other parameters, the package name isn't needed.
+  - Required: `false`
 
-- **version**  
-  - type: "string"  
-  - The version of the package to install.  
-  - If a config yaml file is provided under other parameters, there's no need for the package version.  
-  - required: false  
+- `version`
+  - Type: `string`
+  - The version of the package to install.
+  - If a config YAML file is provided under other parameters, there's no need for the package version.
+  - Required: `false`
 
 #### PowerShell built-in task
 
-Execute a PowerShell command.
+This built-in task runs a PowerShell command.
 
 **Parameters:**
 
-- **command**  
-  - type: "string"  
-  - The command to execute.  
-  - required: true  
+- `command`:
+  - Type: `string`
+  - The command to run.
+  - Required: `true`
 
 ## task.yaml files
 
-Customization tasks are reusable units of installation code or environment configuration – written using PowerShell scripts and described using a task.yaml metadata file. These tasks are then used by devs to customize a dev box by referencing them from a devbox.yaml file.
+Customization tasks are reusable units of installation code or environment configuration. Developers use PowerShell scripts to write them and use a `task.yaml` metadata file to describe them. Developers use these tasks to customize a dev box by referencing them from a `devbox.yaml` file.
 
-By defining customization tasks, you can define a guardrailed palette of what tasks are available to your developers for use in devbox.yamls, without providing high-privilege actions such as the ability to run any PowerShell command.
+When you define customization tasks, you can identify the tasks that are available to your developers for use in `devbox.yaml` files. You can restrict high-privilege actions, such as the ability to run any PowerShell command.
 
-Example of a task definition that executes a PowerShell command in a specific working directory:
+The following example of a task definition runs a PowerShell command in a specific working directory:
 
 ```
 name: powershell
@@ -170,33 +165,34 @@ inputs:
     description: The working directory to execute the command in
 ```
 
-### Attributes:
+### Attributes
 
-#### name  
-  **Required**  
-  The unique identifier used to refer to a task from devbox.yaml. The name should be unique in the context of the catalog where the task exists.  
-  Naming must match existing Azure Resource constraints: The name must be between 3 and 63 characters and must start with an alphanumeric character and consist of only alphanumeric characters and '-', '.', or '_'. The "/" character is reserved.  
+#### name
+
+**Required:** This unique identifier is used to refer to a task from `devbox.yaml`. The name must be unique in the context of the catalog where the task exists.
+
+Naming must match existing Azure resource constraints. The name must be between 3 and 63 characters. It must start with an alphanumeric character. The name must consist of only alphanumeric characters and "-", ".", or "_". The "/" character is reserved.
 
   ```
   name: powershell
   ```
 
 #### description
-  **Optional**  
-  Description of the task.  
+
+  **Optional:** This attribute describes the task.
 
   ```
   description: This task executes a powershell command
   ```
 
-#### inputs  
-  **Required**  
-  List of parameters that this task takes as an input from a devbox.yaml and utilizes while executing the command. Each parent item represents the name of a parameter and supports these keys:  
+#### inputs
 
-  - **type** [required]: input data type for this parameter. Can be string, int.  
-  - **defaultValue** [required]: default value this parameter takes.  
-  - **required** [required]: specifies whether this parameter is optional or required.  
-  - **description** [required]: a description of what this parameter represents.  
+**Required:** This attribute lists the parameters that this task takes as an input from a `devbox.yaml` file and uses while it runs the command. Each parent item represents the name of a parameter and supports these keys:
+
+  - `type` (required): The input data type for this parameter. Can be `string` or `int`.
+  - `defaultValue` (required): The default value this parameter takes.
+  - `required` (required): The key that specifies whether this parameter is optional or required.
+  - `description` (required): A description of what this parameter represents.
 
   ```
   inputs:
@@ -208,47 +204,48 @@ inputs:
   ```
 
 #### command
-  **Required**  
-  The command to execute to fulfill this task. The provided command string would be executed in Windows PowerShell on the local machine.  
+
+  **Required:** This command is used to fulfill this task. The provided command string runs in Windows PowerShell on the local machine.
 
   ```
   command: ".\runcommand.ps1
   ```
 
-#### Referencing variables in command
-  To reference parameters in a command, you can specify the variable name in Handlebar style double braces {{parameter_name}}. The values of these variables are interpolated before your command is executed.  
+#### Reference variables in commands
+
+To reference parameters in a command, specify the variable name in double braces, for example, `{{parameter_name}}`. The values of these variables are interpolated before your command runs.
 
   ```
   command: ".\runcommand.ps1 -command {{command}} -workingDirectory {{workingDirectory}}"
   ```
 
-#### timeout  
-  **Optional**  
-  The maximum amount of time (in minutes) to wait for task execution to complete, before timing out the task. Defaults to 30 minutes.  
+#### timeout
+
+  **Optional:** This variable specifies the maximum amount of time (in minutes) to wait for task execution to complete before the task times out. The default is 30 minutes.
 
   ```
   timeout: 30
   ```
 
-#### author  
-  **Optional**  
-  Identifier of a task author – to help with audits and troubleshooting.  
+#### author
+
+**Optional:** This variable identifies the task author to help with audits and troubleshooting.
 
   ```
   author: Contoso Corporation
   ```
 
-#### documentationURL  
-  **Optional**  
-  Link to documentation for this task.  
+#### documentationURL
+
+**Optional:** This variable links to the documentation for this task.
 
   ```
   documentationURL: "https://link.to/documentation"
   ```
 
-#### licenseURL 
-  **Optional**  
-  Link to the license for this task.  
+#### licenseURL
+
+**Optional:** This variable links to the license for this task.
 
   ```
   licenseURL: "https://link.to/license"

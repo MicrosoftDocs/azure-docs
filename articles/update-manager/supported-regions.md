@@ -6,7 +6,9 @@ author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 05/13/2025
 ms.topic: overview
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Supported regions for Azure Update Manager
@@ -60,7 +62,7 @@ China | ChinaEast </br> ChinaEast3 </br>  ChinaNorth </br> ChinaNorth3 </br> Chi
 
 ## Next steps
 
-- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manger.
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manager.
 - Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
 - Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).
 - Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).

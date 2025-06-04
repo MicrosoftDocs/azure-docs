@@ -4,9 +4,11 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/1/2025
+ms.date: 05/27/2025
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Understand Azure Files billing models
@@ -31,7 +33,7 @@ This article explains how the billing models for Azure Files work to help you un
         > [!VIDEO https://www.youtube-nocookie.com/embed/dyqQkheaHYg]
     :::column-end:::
     :::column:::
-        This video covers the Azure Files billing models including pay-as-you-go, provisioned v1, and provisioned v2.
+        This video provides a comprehensive overview of the differences between various Azure Files billing models, including pay-as-you-go, provisioned v1, and provisioned v2.
    :::column-end:::
 :::row-end:::
 
@@ -40,7 +42,7 @@ This article explains how the billing models for Azure Files work to help you un
         > [!VIDEO https://www.youtube.com/embed/1sXwvHaTqfg]
     :::column-end:::
     :::column:::
-        This video focus on Azure Files provisioned v2 billing model.
+       This video dives deep into the Azure Files provisioned v2 billing model, offering setup instructions and recommendations to reduce total cost of ownership.
    :::column-end:::
 :::row-end:::
 
@@ -166,6 +168,8 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - Norway East
 - Norway West
 - Israel Central
+- Qatar Central
+- Mexico Central
 
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:

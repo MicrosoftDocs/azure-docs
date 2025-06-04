@@ -5,7 +5,9 @@ author: qianwens
 ms.author: qianwens
 ms.service: service-connector
 ms.topic: how-to
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - build-2025
 ms.date: 05/08/2025
 ---
 
@@ -53,55 +55,55 @@ Reference the connection details and sample code in the following tables, accord
 
 | Default environment variable name     | Description                       | Example value                                                                                                                           |
 | ------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | .NET MongoDB Atlas connection string | `mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | .NET MongoDB Atlas connection string | `mongodb+srv://<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0` |
 
 #### [Java](#tab/java)
 
 | Default environment variable name     | Description                       | Example value                                                                                                                                       |
 | ------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | JDBC MongoDB Atlas connection string | `jdbc:mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | JDBC MongoDB Atlas connection string | `jdbc:mongodb+srv://<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0` |
 
 #### [Python](#tab/python)
 
 | Default environment variable name     | Description                | Example value                                                                                                                                      |
 | ------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Python MongoDB Atlas connection string | `mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Python MongoDB Atlas connection string | `mongodb+srv://<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0` |
 
 #### [Django](#tab/django)
 
 | Default environment variable name     | Description                | Example value                                                                                                                                      |
 | ------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Django MongoDB Atlas connection string | `mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Django MongoDB Atlas connection string | `mongodb+srv://<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0` |
 
 #### [Go](#tab/go)
 
 | Default environment variable name   | Description                     | Example value                                                                                                                   |
 |-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Go MongoDB Atlas connection string   | `mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`  |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Go MongoDB Atlas connection string   | `mongodb+srv://<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0`  |
 
 #### [NodeJS](#tab/nodejs)
 
 | Default environment variable name   | Description                     | Example value                                                                                                                   |
 |-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | NodeJS MongoDB Atlas connection string   | `mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`  |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | NodeJS MongoDB Atlas connection string   | `mongodb+srv://<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0`  |
 
 #### [PHP](#tab/php)
 
 | Default environment variable name | Description                          | Example value                                                                                                                   |
 |-----------------------------------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | PHP native MongoDB Atlas connection string | `mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`  |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | PHP native MongoDB Atlas connection string | `mongodb+srv://<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0`  |
 
 #### [Ruby](#tab/ruby)
 
 | Default environment variable name | Description                     | Example value                                                                    |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Ruby MongoDB Atlas connection string | `mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Ruby MongoDB Atlas connection string | `mongodb+srv:/<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0` |
 
 #### [Other](#tab/none)
 
 | Default environment variable name | Description                     | Example value                                                                    |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | MongoDB Atlas connection string | `mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | MongoDB Atlas connection string | `mongodb+srv://<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0` |
 
 ---
 
