@@ -179,6 +179,8 @@
     items:
     - name: Overview
       href: traffic-analytics.md
+    - name: Apply Zero Trust principles to segment Azure network
+      href: traffic-analytics-zero-trust.md    
     - name: Usage scenarios
       href: traffic-analytics-usage-scenarios.md
     - name: Enable traffic analytics using Azure policy
