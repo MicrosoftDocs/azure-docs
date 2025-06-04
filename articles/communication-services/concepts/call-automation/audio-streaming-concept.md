@@ -57,5 +57,15 @@ Developers can use the following information about audio sent from Azure Communi
 ## Billing
 See the [Azure Communication Services pricing page](https://azure.microsoft.com/pricing/details/communication-services/?msockid=3b3359f3828f6cfe30994a9483c76d50) for information on how audio streaming is billed. Prices can be found in the calling category under audio streaming.
 
+## Known Limitations
+- Stopping media streaming using a new operationContext does not correctly reflect the updated context.
+	- When you create or answer a call with operationContext set to "ABC" and enable media streaming, you will receive the MediaStreamingStarted event with operationContext: "ABC".
+	- If you call the StopStreaming API with a different operationContext, say "XYZ", you would expect to receive the MediaStreamingStopped event with operationContext: "XYZ". However, due to a known issue, the MediaStreamingStopped event will still contain operationContext: "ABC".
+- When stopping media streaming using a new callback URI, events continue to be sent to the default callback URI used during call creation or answer.
+	- If you create or answer a call with a default callback URI "https://ABC.com" and enable media streaming, the MediaStreamingStarted event will be sent to "https://ABC.com".
+	- If you then stop streaming using the StopStreaming API and specify a new callback URI "https://XYZ.com", you would expect the MediaStreamingStopped event to be sent to "https://XYZ.com". However, due to a known issue, the event will still be sent to the original callback URI "https://ABC.com"
+
+
+
 ## Next Steps
 Check out the [audio streaming quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md) to learn more.
