@@ -44,6 +44,12 @@ Network security for Virtual Networks focuses on controlling traffic flow, imple
 
 - **Design with defense-in-depth principles**: Implement multiple layers of network security controls to create redundant protection. Use segmentation strategies that isolate critical workloads and apply different security measures at each network boundary to contain potential breaches.
 
+- **Enable Virtual Network encryption**: Use Azure Virtual Network encryption to encrypt data in transit between virtual machines within the same virtual network and between regionally and globally peered virtual networks. This provides additional protection for sensitive data communications. For more information, see [Virtual Network encryption](/azure/virtual-network/virtual-network-encryption-overview).
+
+- **Maintain updated security perimeter**: Regularly review and update security settings including NSGs, Application Security Groups, and IP address ranges. Outdated rules might not align with current network architecture or traffic patterns, potentially creating security gaps. For more information, see [Network Security Groups overview](/azure/virtual-network/network-security-groups-overview).
+
+- **Limit public IP address usage**: Minimize the number of public IP addresses by using shared public IP addresses from services like Azure Front Door or Application Gateway. When public IPs are necessary, implement proper port management and request validation. For more information, see [Public IP addresses](/azure/virtual-network/ip-services/public-ip-addresses).
+
 ## Identity management
 
 Identity management for Virtual Networks involves controlling access to network resources and ensuring that only authorized users and services can modify network configurations. Proper identity controls prevent unauthorized network changes and maintain network security posture.
@@ -57,6 +63,8 @@ Identity management for Virtual Networks involves controlling access to network 
 - **Use managed identities for Azure resources**: Enable managed identities for Azure resources that need to access other Azure services, eliminating the need to store credentials in your virtual network configurations. This provides secure, credential-free authentication. For more information, see [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
 
 - **Regularly review and reconcile user access**: Perform regular access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Ensure only active users have continued access to network management functions. For more information, see [Azure Identity Access Reviews](/azure/active-directory/governance/access-reviews-overview).
+
+- **Apply principle of least privilege for network roles**: Configure role-based access control with a no-access mindset for network-related roles. Ensure users can only modify network settings as required by their job function to minimize potential security risks. For more information, see [Azure RBAC best practices](/azure/role-based-access-control/best-practices).
 
 ## Privileged access
 
@@ -130,6 +138,10 @@ Security testing for Virtual Networks ensures that implemented security controls
 
 - **Test backup and recovery procedures**: Regularly test your ability to recreate virtual network configurations from exported templates or documentation to ensure recovery procedures work correctly and meet recovery time objectives.
 
+- **Enable Virtual Network Verifier**: Use Virtual Network Verifier in Azure Virtual Network Manager in preproduction environments to test connectivity between resources and ensure they are reachable and not blocked by policies. For more information, see [Virtual Network Verifier](/azure/virtual-network-manager/concept-virtual-network-verifier).
+
+- **Use Azure Chaos Studio for resilience testing**: Implement Azure Chaos Studio to simulate network connectivity disruptions and validate that security controls remain effective during failure scenarios. This ensures that security mechanisms continue to function properly even when the network experiences stress or partial outages. For more information, see [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview).
+
 ## Backup and recovery
 
 Backup and recovery for Virtual Networks focuses on preserving network configurations and ensuring rapid restoration of network connectivity if there's accidental deletion or configuration errors. While virtual networks themselves don't require traditional backups, configuration preservation is critical.
@@ -141,6 +153,8 @@ Backup and recovery for Virtual Networks focuses on preserving network configura
 - **Test and validate recovery procedures**: Regularly test your ability to recreate virtual network configurations from exported templates or documentation to ensure recovery procedures work correctly and meet recovery time objectives. Periodically perform deployment of Azure Resource Manager templates to an isolated subscription and test restoration of backed up customer-managed keys to ensure recovery procedures work correctly.
 
 - **Backup connected resources and customer-managed keys**: While virtual networks don't require backup, ensure that virtual machines and other resources connected to your networks are properly backed up with Azure Backup to maintain complete recovery capabilities. If using customer-managed keys for encryption within your virtual network environment, ensure these keys are backed up in Azure Key Vault with appropriate retention and recovery procedures. For more information, see [Azure Backup](/azure/backup/).
+
+- **Prepare redundant networking infrastructure**: Duplicate networking infrastructure in advance, especially for hybrid setups. Ensure that separate routes in different regions are ready to communicate with each other beforehand. Replicate and maintain consistent NSGs and Azure Firewall rules across both primary and disaster recovery sites. Avoid overlapping IP address ranges between production and disaster recovery networks to simplify network management and expedite transition during failover events.
 
 ## Incident response
 
