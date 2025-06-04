@@ -224,6 +224,14 @@ For more information, see the following resources:
 
 - [Manage revisions in Azure Container Apps](../container-apps/revisions-manage.md) 
 
+## Set up enhanced telemetry for performance monitoring
+
+You can set up enhanced telemetry collection in Application Insights for your Standard logic app resource and then view the collected data after your workflow finishes a run. This capability gives you a simpler experience to get insights about your workflows and more control over filtering events at the data source, which helps you reduce storage costs. These improvements focus on real-time performance metrics that provide insights into your system's health and behavior.
+
+With your logic app connected to Application Insights, you can view log data and other metrics in near real time through the Azure portal by using [Live Metrics Stream](/azure/azure-monitor/app/live-stream). You have visualizations to help you plot incoming requests, outgoing requests, and overall health and access to a table of trace level diagnostics. You also have the option to set up your Standard logic app resource to export log and trace data in [OpenTelemetry format](https://opentelemetry.io/). By default, this telemetry data is sent to Application Insights.
+
+For more information, see [Enable enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md).
+
 <a name="change-vcpu-memory"></a>
 
 ## Change vCPU and memory allocation in the Azure portal
@@ -460,3 +468,4 @@ For more information, see [Container Storage Interface (CSI) drivers on Azure Ku
 ## Related content
 
 - [Set up requirements for Standard logic app deployment on your own infrastructure](set-up-standard-workflows-hybrid-deployment-requirements.md)
+- [Enable enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md)
