@@ -175,12 +175,11 @@ The developer's required actions are shown in following diagram:
 1. The Contoso developer initialize any implementation of `TokenCredential` from Azure Identity SDK which is capable of obtaining a Microsoft Entra user token for the application that was created earlier by the Administrator.
 1. The Contoso developer initializes `AzureCommunicationTokenCredential` from Communication Services Common SDK with `TokenCredential` created in the step 1. The `AzureCommunicationTokenCredential` credential exchanges the incoming Microsoft Entra user token for the access token of Teams user seamlessly in the background.
 
-
 > [!NOTE]
 > The following sections describe how to create `AzureCommunicationTokenCredential`.
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript]()]
+[!INCLUDE [JavaScript](./includes/entra-id/support-entra-id-users-js.md)]
 ::: zone-end
 
 
