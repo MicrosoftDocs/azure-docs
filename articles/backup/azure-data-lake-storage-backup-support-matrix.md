@@ -18,7 +18,7 @@ This article summarizes the regional availability, supported scenarios, and limi
 
 ## Supported regions
 
-Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia, India central.
+Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia, India Central.
 
 ## Supported storage accounts
 

@@ -6978,6 +6978,26 @@
       "source_path": "articles/defender-for-iot/organizations/eiot-sensor.md",
       "redirect_url": "/azure/defender-for-iot/organizations/concept-enterprise",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.09.18.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2024-09-18",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.11.08.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2024-11-08",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.12.18.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2024-12-18",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2025.02.06.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2025-02-06",
+      "redirect_document_id": false
     }
   ]
 }
