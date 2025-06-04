@@ -41,8 +41,10 @@ Azure Virtual Enclaves includes news roles to help you manage your environments 
 ## Using Azure Virtual Enclaves
 Guides for using Azure Virtual Enclaves.
 
-### How do I prevent the creation of new Azure Virtual Enclave resource types? For example, if I am a cloud engineer and want to restrict the creation of new Communities in my Subscription, how would I do that?
+### How do I prevent the creation of new Azure Virtual Enclave resource types?
 
-Currently, Azure Virtual Enclaves recommends using the [Allowed Resource Types built-in Azure Policy](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/AllowedResourceTypes_Deny.json) or the [Not allowed resource types](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/InvalidResourceTypes_Deny.json) and defining the business logic your organization desires. 
+If you are a cloud engineer and want to restrict the creation of new Communities in your subscription you can use Azure policy to prevent deployment of specific resource types.
+
+Currently, Azure Virtual Enclaves recommends following the [Tutorial: Disallow resource types in your cloud environment](https://learn.microsoft.com/en-us/azure/governance/policy/tutorials/disallowed-resources) and defining the business logic your organization desires. The `Not allowed resource types` and `Allowed resource types` policies are linked in the tutorial.
 
 As an example, to prevent deploying Communities to a Subscription, [you would assign the Not allowed resource type policy definition](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6c112d4e-5bc7-47ae-a041-ea2d9dccd749) while including `Microsoft.Mission/communities` in the parameter list of not allowed resource types. 
