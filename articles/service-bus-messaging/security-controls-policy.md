@@ -16,7 +16,7 @@ page lists the **compliance domains** and **security controls** for Azure Servic
 can assign the built-ins for a **security control** individually to help make your Azure resources
 compliant with the specific standard.
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/azure-policy-autogen-docs/includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
 [!INCLUDE [azure-policy-compliancecontrols-servicebus](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.servicebus.md)]
 
