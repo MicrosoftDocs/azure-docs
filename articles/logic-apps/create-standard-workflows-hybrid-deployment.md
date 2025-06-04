@@ -147,7 +147,7 @@ If you want to deploy with SMB file share, confirm that the following conditions
 
 #### Deploy your logic app
 
-After you finish building your workflow, you can deploy your logic app to your Azure Container Apps connected environment.
+After you finish building your workflow, you can deploy your logic app to your on-premises Azure Container Apps connected environment.
 
 ##### Zip deployment
 
@@ -228,7 +228,7 @@ For more information, see the following resources:
 
 You can set up enhanced telemetry collection in Application Insights for your Standard logic app and then view the collected data after your workflow finishes a run. This capability gives you a simpler experience to get insights about your workflows and more control over filtering events at the data source, which helps you reduce storage costs. These improvements focus on real-time performance metrics that provide insights into your system's health and behavior.
 
-For partially connected and on-premises scenarios, you can set up your Standard logic app to emit telemetry in [OpenTelemetry format](https://opentelemetry.io/). By default, this telemetry data is sent to Application Insights. For more information, see [Enable enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md).
+For partially connected and on-premises scenarios, you can set up your Standard logic app to emit telemetry based on the [OpenTelemetry-supported](https://opentelemetry.io/) app settings that you define for the specific environment. By default, this telemetry data is sent to Application Insights. For more information, see [Enable enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md).
 
 <a name="change-vcpu-memory"></a>
 
@@ -383,6 +383,18 @@ You can store the client ID and client secret values in your logic app resource 
    | **WORKFLOWAPP_AAD_CLIENTSECRET** | <*my-client-secret*> |
 
 ## Known issues and troubleshooting
+
+The following section describes currently known issues and guidance for troubleshooting common problems.
+
+### General environment setup or portal deployment problems
+
+To help you diagnose and debug problems with your environment configuration or portal deployment failures, you can try running the **troubleshoot.ps1** PowerShell script provided for the hybrid deployment option.
+
+1. Go to the [Azure Logic Apps GitHub repository: **scripts/hybrid** folder](https://github.com/Azure/logicapps/blob/master/scripts/hybrid).
+
+1. Copy the **troubleshoot.ps1** file to a folder in the same on-premises location as your logic app deployment.
+
+1. Run the script using PowerShell.
 
 ### Arc-enabled Kubernetes clusters
 
