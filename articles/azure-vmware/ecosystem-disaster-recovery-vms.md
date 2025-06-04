@@ -7,7 +7,7 @@ ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ---
 
-# Third party Backup & Disaster Recovery Solutions for Azure VMware: Limitations, Compatibility, and Known Issues
+# Third party backup & disaster recovery solutions for Azure VMware: Limitations, compatibility, and known issues
 
 One of the most important aspects of any Azure VMware Solution deployment is disaster recovery. You can create disaster recovery plans between different Azure VMware Solution regions or between Azure and an on-premises vSphere environment. Azure VMware Solution makes use of dynamic "run command" modules which require both Microsoft and Partner input to run effectively.  
 
