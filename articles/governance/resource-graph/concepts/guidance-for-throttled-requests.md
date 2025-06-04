@@ -228,25 +228,25 @@ while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
 
 ## ARG GET/LIST API  
 
-ARG is introducing an alternative approach to the existing Azure control plane GET and List API calls that improve scalability and performance, while addressing throttling issues for Azure customers. This API is currently supported only for resources in the ‘resources’ table and ‘computeresources’ table.  
+ARG is introducing an alternative approach to the existing Azure control plane GET and List API calls that improve scalability and performance, while addressing throttling issues for Azure customers. This API is currently supported only for resources in the `resources` table and `computeresources` table.  
 
 The ARG GET/LIST API is meant to address scenarios where you need a lookup of a single resource by ID, or you’re listing resources under the same type and within a certain scope (subscription, resource group, or parent resource). 
 
-You should consider Pacific if your service falls into one (or many) of the following categories: 
+You should consider the ARG GET/LIST API if your service falls into one (or many) of the following categories: 
 
-- Your service is issuing a large volume of simple GET calls within the context of a single subscription or a single resource group and not batches of records from multiple subscriptions. 
-- Your service issues a large volume of simple GET requests, and is at risk of: 
-    - Facing throttling 
-    - Competing for throttling quota with other customers 
+- Your service is issuing a large volume of GET calls to retrieve data for a resource targeted to a single subscription or a single RG and do not require batches of records from multiple subscriptions through complex filtering or joins. 
+- Your service issues a large volume of GET requests, and is at risk of: 
+    - Facing throttling. 
+    - Competing for throttling quota with other customers. 
     - Your service may be or is prone to issuing a large burst of concurrent GET requests within a short period of time. 
-- Your service requires high availability and faster performance for GET requests for single  
+- Your service requires high availability and faster performance for GET requests for single.  
 - Resource management or enumeration of a list of resources within a certain scope. 
 
-If the resource you’re interested in, is in the ‘resources’ table or ‘computeresources’ table, *and* it falls in one of the above categories, then use the [ARG GET/LIST API](./arg-get-list-api.md)
+If the resource you’re interested in, is in the ‘resources’ table or `computeresources` table, *and* it falls in one of the above categories, then use the [ARG GET/LIST API](./arg-get-list-api.md)
 
 ## Still being throttled?
 
-If you used this article's recommendations and the Azure Resource Graph and your Azure Resource Graph GET/LIST API solution and your queries are still being throttled, contact the [Azure Resource Graph team](mailto:resourcegraphsupport@microsoft.com). The team supports Azure Resource Graph but doesn't support [Microsoft Graph throttling](/graph/throttling).
+If you used this article's recommendations, tried the Azure Resource Graph GET/LIST API solution, and your Azure Resource Graph queries are still being throttled, contact the [Azure Resource Graph team](mailto:resourcegraphsupport@microsoft.com). The team supports Azure Resource Graph but doesn't support [Microsoft Graph throttling](/graph/throttling).
 
 Provide these details when you contact the Azure Resource Graph team:
 
