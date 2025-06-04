@@ -109,27 +109,9 @@ Your Azure Communication Service has now been linked to your Azure Cognitive Ser
 
 ## Azure AI services regions supported
 
-This integration between Azure Communication Services and Azure AI services is only supported in the following regions:
-- centralus
-- northcentralus
-- southcentralus
-- westcentralus
-- eastus
-- eastus2
-- westus
-- westus2
-- westus3
-- canadacentral
-- northeurope
-- westeurope
-- uksouth
-- southafricanorth
-- centralindia
-- eastasia
-- southeastasia
-- australiaeast
-- brazilsouth
-- uaenorth
+Our integration between Azure Communication Services (ACS) and Azure AI is fully aligned with the regional availability of Azure AI Foundry. This means that ACS to Azure AI integration is supported in all regions where Azure AI Foundry is available.
+
+For the most up-to-date list of supported regions, please refer to the official Azure AI Foundry [documentation](/azure/ai-services/speech-service/regions).
 
 ## Known limitations
 
