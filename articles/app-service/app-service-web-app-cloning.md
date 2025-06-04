@@ -14,7 +14,7 @@ ms.author: msangapu
 
 This article explains how you can clone an existing App Service app to create a new app in a different region or in the same region. You can deploy multiple apps across different regions quickly and easily.
 
-App cloning is supported in **Standard**, **Premium**, **Premium V2**, and **Isolated** pricing tiers. The feature has the same limitations as the App Service Backup feature, see [Back up an app in Azure App Service](manage-backup.md).
+App cloning is supported in Standard tiers and higher, and in Isolated tiers. The feature has the same limitations as the App Service Backup feature, see [Back up an app in Azure App Service](manage-backup.md).
 
 ## Clone an existing app
 
