@@ -14,8 +14,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Add real-time transcription into your application
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 This guide helps you better understand the different ways you can use Azure Communication Services offering of real-time transcription through Call Automation SDKs.
 
 ### Prerequisites
