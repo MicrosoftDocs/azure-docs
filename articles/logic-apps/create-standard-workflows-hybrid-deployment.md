@@ -224,7 +224,7 @@ For more information, see the following resources:
 
 - [Manage revisions in Azure Container Apps](../container-apps/revisions-manage.md) 
 
-## Set up enhanced telemetry for performance monitoring
+## Set up enhanced telemetry or OpenTelemetry for performance monitoring
 
 You can set up enhanced telemetry collection in Application Insights for your Standard logic app resource and then view the collected data after your workflow finishes a run. This capability gives you a simpler experience to get insights about your workflows and more control over filtering events at the data source, which helps you reduce storage costs. These improvements focus on real-time performance metrics that provide insights into your system's health and behavior.
 
