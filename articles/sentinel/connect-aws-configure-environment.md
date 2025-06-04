@@ -13,9 +13,9 @@ ms.date: 05/28/2025
 
 # Set up your Amazon Web Services environment to collect AWS logs to Microsoft Sentinel
 
-Amazon Web Services (AWS) connectors simplify the process of collecting logs from Amazon S3 (Simple Storage Service) and ingesting them into Microsoft Sentinel. The connectors provide tools for configuring your AWS environment correctly for Microsoft Sentinel log collection.
+Amazon Web Services (AWS) connectors simplify the process of collecting logs from Amazon S3 (Simple Storage Service) and ingesting them into Microsoft Sentinel. The connectors provide tools to help you configure your AWS environment for Microsoft Sentinel log collection.
 
-This article outlines the AWS environment setup required to send logs to Microsoft Sentinel and links to step-by-step instructions for each supported connector.
+This article outlines the AWS environment setup required to send logs to Microsoft Sentinel and links to step-by-step instructions for setting up your environment and collecting AWS logs using each supported connector.
 
 ## AWS environment setup overview
 
@@ -49,7 +49,7 @@ This diagram shows how to set up your AWS environment to send logs to Azure:
 
 Although you can set up the AWS environment manually, as described below, we strongly recommend using the automated tools provided when you [deploy AWS connectors](#deploy-aws-connectors) instead.
 
-#### Create an S3 bucket and SQS queue
+#### 1. Create an S3 bucket and SQS queue
 
 1. Create an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, CloudTrail, or CloudWatch.
 
@@ -63,7 +63,7 @@ Although you can set up the AWS environment manually, as described below, we str
 
    See the [instructions to publish notifications to your SQS queue](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html) in the AWS documentation.
 
-#### Create an Open ID Connect (OIDC) web identity provider
+#### 2. Create an Open ID Connect (OIDC) web identity provider
 
 > [!IMPORTANT]
 > If you already have an OIDC Connect provider set up for Microsoft Defender for Cloud, add Microsoft Sentinel as an audience to your existing provider (Commercial: `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`, Government:`api://d4230588-5f84-4281-a9c7-2c15194b28f7`). Do not try to create a new OIDC provider for Microsoft Sentinel.
@@ -78,7 +78,7 @@ Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect 
 | **Thumbprint** | `626d44e704d1ceabe3bf0d53397464ac8080142c` | If created in the IAM console, selecting **Get thumbprint** should give you this result. |
 | **Audience** | Commercial:<br>`api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`<br><br>Government:<br>`api://d4230588-5f84-4281-a9c7-2c15194b28f7` |  |
 
-### Create an AWS assumed role
+### 3. Create an AWS assumed role
 
 1. Follow these instructions in the AWS documentation:<br>[Creating a role for web identity or OpenID Connect Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create). 
    
@@ -146,7 +146,7 @@ See Amazon Web Services documentation (linked below) for the instructions for se
 
 - [Export your CloudWatch log data to an S3 bucket](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3Export.html).
 
-## Deploy AWS connectors
+## 4. Deploy AWS connectors
 
 Microsoft Sentinel provides these AWS connectors:
 
