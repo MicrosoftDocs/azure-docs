@@ -181,13 +181,13 @@ The following steps help you with troubleshooting connectivity/certificate/timeo
     ```
 - Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here's the sample command that check whether the 5671 port is blocked. 
 
-      ```powershell
+    ```powershell
     tnc <yournamespacename>.servicebus.windows.net -port 5671
     ```
 
-      On Linux:
+   On Linux:
 
-      ```shell
+    ```shell
     telnet <yournamespacename>.servicebus.windows.net 5671
     ```
 - When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. This command tries to establish 25 different TCP connections every 1 second with the service. Then, you can check how many of them succeeded/failed and also see TCP connection latency. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
