@@ -73,7 +73,7 @@ Managing redirects is critical for search engine optimization (SEO), user experi
     }
     ```
 
-- **Redirect based on fixed-length URL path segments:** You can redirect requests to different origins based on fixed-length URL path segment by capturing the URL segments using `{variable:offset:length}`. For more information about server variable format, see [Server variables](/azure/frontdoor/rule-set-server-variables#server-variable-format).
+- **Redirect based on fixed-length URL path segments:** You can redirect requests to different origins based on fixed-length URL path segment by capturing the URL segments using `{variable:offset:length}`. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
 
     For example, consider a scenario where the tenant ID is embedded in the URL segment and is always 6 characters long, such as: `https://api.contoso.com/{tenantId}/xyz`. To extract `{tenantId}` from the URL and decide the correct redirect to use in the format of `tenantId.backend.com/xyz`.
 
@@ -147,7 +147,7 @@ Managing redirects is critical for search engine optimization (SEO), user experi
 
 - **Redirect based on part of the incoming hostname:** You can redirect requests to different origins by extracting part of the incoming hostname.
 
-    For example, you can capture `tenantName` from `https://[tenantName].poc.contoso.com/GB` to redirect the request to `s1.example.com/Buyer/Main?realm=[tenantName]&examplename=example1` using the offset and length in server variable in the format of `{hostname:0:-16}`. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format)
+    For example, you can capture `tenantName` from `https://[tenantName].poc.contoso.com/GB` to redirect the request to `s1.example.com/Buyer/Main?realm=[tenantName]&examplename=example1` using the offset and length in server variable in the format of `{hostname:0:-16}`. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
 
     :::image type="content" source="./media/rules-engine-scenarios/redirect-incoming-hostname.png" alt-text="Screenshot that shows how to use incoming hostname to redirect URL." lightbox="./media/rules-engine-scenarios/redirect-incoming-hostname.png":::
 
@@ -291,13 +291,14 @@ For example, you can replace the response header `X-Azure-Backend-ID` with a bra
 
 ### Scenario 4: A/B testing (experimentation)
 
-Splitting incoming traffic based on client port into two origin groups can be is useful in A/B testing, rolling deployments, or load balancing without complex backend logic.
+Splitting incoming traffic into two origin groups can be is useful in A/B testing, rolling deployments, or load balancing without complex backend logic.
 
 For example, you can split incoming traffic based on the client port number. A rule can match client ports that end in 1, 3, 5, 7, or 9 and forward those requests to an *experiment-origin-group*. All other traffic continues to the default origin group per route settings. The previous regex is just an example, You can explore and test your own expressions using tools like [regex101](https://regex101.com/).
 
-
 > [!NOTE]
 > Since client ports are random, this method typically results in an approximate 50/50 traffic split. However, the presence of any proxies or load balancers between clients and the Front Door might affect this assumption due to factors like connection reuse or source port rewriting. Use logs or metrics to validate the actual behavior in your environment.
+
+:::image type="content" source="./media/rules-engine-scenarios/a-b-testing.png" alt-text="Screenshot that shows how to split incoming traffic into two origin groups." lightbox="./media/rules-engine-scenarios/a-b-testing.png":::
 
 ```json
 {
@@ -346,8 +347,11 @@ For example, you can split incoming traffic based on the client port number. A r
 
 ### Scenario 5: Redirect with URL path modification and preserve capability
 
-Users need to add new segments, remove some segments and preserve the rest of the URL path.
-For example, if you want to redirect https://domain.com/seg0/seg1/seg2/seg3 to https://example.com/seg0/insert/seg2/seg3, i.e. replace URL path’s {seg1} with /insert/ and keep the rest of the URL as-is. In this scenario, AFD can achieve the desired redirect by combining values extracted from server variables (URL segments) and combining static string segment “/insert/”. The semantics used to indicate we keep from seg2…n is by indicating Int32.Max (2147483647) for URL segment’s length field. See this page for more details.
+In some scenarios, you might need to add new segments or remove some segments while preserving the rest of the URL path.
+
+For example, if you want to redirect `https://domain.com/seg0/seg1/seg2/seg3` to `https://example.com/seg0/insert/seg2/seg3`. In this scenario, you replace URL path’s `{seg1}` with `/insert/` while preserving the rest of the URL path. Azure Front Door achieves the desired redirect by combining values extracted from server variables (URL segments) and combining static string segment `/insert/`. You can use `Int32.Max (2147483647)` for URL segment’s length field to keep all segments from *seg2* to *segn*. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
+
+:::image type="content" source="./media/rules-engine-scenarios/redirect-url-path-modification.png" alt-text="Screenshot that shows how to redirect with URL path modification while preserving part of the URL path." lightbox="./media/rules-engine-scenarios/redirect-url-path-modification.png":::
 
 ```json
 {
@@ -380,7 +384,7 @@ For example, if you want to redirect https://domain.com/seg0/seg1/seg2/seg3 to h
 ### Scenario 6: Redirect by removing fixed parts of a URL path
 
 A user needs to remove fixed segments of known size from a URL like, country code (us) or locale (en-us), and preserve the rest of the URL path.
-For example, if you want to redirect https://domain.com/us/seg1/seg2/seg3/ to https://example.com/seg1/seg2/seg3/, i.e. remove country code /us/ and keep the rest of the URL path as-is. Use the {variable:offset} which includes the server variable after a specific offset, until the end of the variable. For more information see, https://learn.microsoft.com/en-us/azure/frontdoor/rule-set-server-variables#server-variable-format.
+For example, if you want to redirect https://domain.com/us/seg1/seg2/seg3/ to https://example.com/seg1/seg2/seg3/, i.e. remove country code /us/ and keep the rest of the URL path as-is. Use the {variable:offset} which includes the server variable after a specific offset, until the end of the variable. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
 
 ```json
 {
