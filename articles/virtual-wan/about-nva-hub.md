@@ -136,6 +136,14 @@ The following table describes the number of IP addresses available for NVA deplo
 
 The number of IP addresses that are consumed by a single NVA deployment is calculated separately for the internal and external interfaces. NVAs deployed in the same hub consume IP addresses from the same subnet as other NVAs and therefore all NVAs in the same hub contribute towards to hub's limit.
 
+The following table shows the number of NVA instances deployed for different scale units.
+
+|Scale Unit| Instances|
+|--|--|
+|2-20|2|
+|30-40|3|
+|60|4|
+|80|5|
 
 **Internal Interface**
 
