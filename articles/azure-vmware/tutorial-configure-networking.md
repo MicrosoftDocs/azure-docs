@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.custom: engagement-fy23
 ms.service: azure-vmware
 ms.date: 6/12/2024
+# Customer intent: "As a cloud architect, I want to configure the networking resources for my VMware private cloud in Azure, so that I can ensure seamless integration and connectivity between my on-premises and cloud environments."
 ---
 
 # Tutorial: Configure networking for your VMware private cloud in Azure

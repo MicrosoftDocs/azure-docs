@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: engagement-fy23
 ms.date: 02/26/2025
+# Customer intent: "As a cloud administrator, I want to uninstall VMware HCX from Azure VMware Solution, so that I can clean up resources and ensure proper network functionality after migration tasks are completed."
 ---
 
 

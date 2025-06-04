@@ -6,6 +6,7 @@ ms.author: michwe
 ms.service: azure-vmware
 ms.topic: how-to  
 ms.date: 05/24/2024
+# Customer intent: "As a cloud administrator, I want to understand the licensing requirements for SQL Server, Windows Server, and Linux in Azure VMware Solution, so that I can ensure compliance and optimize costs while migrating and managing virtual machines in the cloud."
 ---
 
 # License SQL Server, Windows Server, and Linux in Azure VMware Solution

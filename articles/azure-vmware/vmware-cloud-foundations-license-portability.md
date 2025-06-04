@@ -5,6 +5,7 @@ description: Bring your own portable VMware Cloud Foundations (VCF) on Azure VMw
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 9/30/2024
+# Customer intent: As a cloud administrator, I want to register and integrate my portable VMware Cloud Foundations with Azure VMware Solution, so that I can leverage my existing licenses and optimize costs while modernizing my VMware workloads in a fully managed environment.
 ---
 
 # Use Portable VMware Cloud Foundations (VCF) on Azure VMware Solution

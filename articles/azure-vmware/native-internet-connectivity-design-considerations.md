@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 4/21/2025
 ms.custom: engagement-fy25
+# Customer intent: "As a network administrator, I want to configure internet connectivity for my Azure VMware Solution Generation 2 private cloud, so that I can ensure effective communication between my cloud, on-premises resources, and external networks."
 ---
 
 # Connect to Internet

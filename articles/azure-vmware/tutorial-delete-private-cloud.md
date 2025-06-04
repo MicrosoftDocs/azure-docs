@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.service: azure-vmware
 ms.date: 12/19/2023
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to delete an Azure VMware Solution private cloud, so that I can manage resources effectively and remove unnecessary infrastructure that is no longer needed."
 ---
 
 # Tutorial: Delete an Azure VMware Solution private cloud

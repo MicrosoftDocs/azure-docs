@@ -6,6 +6,7 @@ ms.service: azure-vmware
 ms.date: 4/21/2025
 ms.custom: engagement-fy25
 #customer intent: As an IT administrator, I want to connect my on-premises environment to my Azure VMware Solution Generation 2 private cloud so that I can extend my infrastructure seamlessly.
+# Customer intent: "As an IT administrator, I want to establish a connection from my on-premises environment to my Azure VMware Solution Gen 2 private cloud using ExpressRoute or Site-to-Site VPN, so that I can ensure seamless integration and enhance the overall infrastructure connectivity."
 ---
 
 # Connect to an on-premises environment

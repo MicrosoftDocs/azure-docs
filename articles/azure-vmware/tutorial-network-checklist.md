@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.service: azure-vmware
 ms.date: 5/15/2024
 ms.custom: engagement-fy23
+# Customer intent: As a network architect, I want to understand the network requirements for Azure VMware Solution, so that I can ensure proper connectivity and compliance for deploying a VMware private cloud environment.
 ---
 
 # Networking planning checklist for Azure VMware Solution

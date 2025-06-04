@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: engagement-fy23
+# Customer intent: As a cloud administrator, I want to use Run Command in Azure VMware Solution, so that I can perform operations that typically require elevated privileges efficiently and manage my virtual environment effectively.
 ---
 
 # Run Command in Azure VMware Solution
