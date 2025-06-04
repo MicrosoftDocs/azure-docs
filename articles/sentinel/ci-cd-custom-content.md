@@ -7,7 +7,9 @@ ms.author: austinmc
 ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 12/31/2024
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - build-2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -49,13 +51,13 @@ Repository content must be stored as [Bicep files](../azure-resource-manager/bic
 Deploy Bicep file templates alongside or instead of ARM JSON templates. If you're considering infrastructure as code options, we recommend looking at Bicep. For more information, see [What is Bicep?](../azure-resource-manager/bicep/overview.md).
 
 > [!IMPORTANT]
-> In order to use Bicep templates, your repositories connection needs to be updated if your connection was created before November 1, 2024. Repositories connections must be [removed](ci-cd.md#remove-a-repository-connection) and recreated in order to update.
+> In order to use Bicep files, your repositories connection needs to be updated if your connection was created before November 1, 2024. Repositories connections must be [removed](ci-cd.md#remove-a-repository-connection) and recreated in order to update.
 
 Even if your original content is an ARM template, consider converting to Bicep to make the review and update processes less complex. Bicep is closely related to ARM because during a deployment, each Bicep file is converted to an ARM template. For more information on converting ARM templates, see [Decompiling ARM template JSON to Bicep](../azure-resource-manager/bicep/decompile.md).
 
 > [!NOTE]
 > Known Bicep limitations:
-> - Bicep templates don't support the `id` property. When decompiling ARM JSON to Bicep, make sure you don't have this property. For example, analytic rule templates exported from Microsoft Sentinel have the `id` property that needs removal.
+> - Bicep files don't support the `id` property. When decompiling ARM JSON to Bicep, make sure you don't have this property. For example, analytic rule templates exported from Microsoft Sentinel have the `id` property that needs removal.
 > - Change the ARM JSON schema to version `2019-04-01` for best results when decompiling.
 
 ### Validate your content

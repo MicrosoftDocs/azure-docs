@@ -14,6 +14,8 @@ ms.custom: mode-ui
 
 # Quickstart: Create an Azure Front Door (classic) using the Azure portal
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This quickstart guides you through setting up high availability for a web application using Azure Front Door (classic) via the Azure portal. You configure Azure Front Door to distribute traffic across two web application instances in different Azure regions. The setup uses equal weighted and same priority backends, directing traffic to the nearest available site. Azure Front Door also monitors the health of the web applications and automatically fails over to the next nearest site if the closest one is down.

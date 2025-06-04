@@ -8,7 +8,9 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/02/2024
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - build-2025
 ---
 
 # Upgrade and scale an Azure API Management instance  
@@ -43,7 +45,7 @@ You can choose between the following dedicated tiers: **Developer**, **Basic**, 
 
 * The **Developer** tier should be used to evaluate the service; it shouldn't be used for production. The **Developer** tier doesn't have SLA and you can't scale this tier (add/remove units). 
 
-* **Basic**, **Basic v2**, **Standard**, **Standard v2**, **Premium**, and **Premium v2** (limited preview) are tiers that have SLA and can be scaled. For pricing details and scale limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/#pricing).
+* **Basic**, **Basic v2**, **Standard**, **Standard v2**, **Premium**, and **Premium v2** (preview) are tiers that have SLA and can be scaled. For pricing details and scale limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/#pricing).
 
 * The **Premium** tier enables you to distribute a single Azure API Management instance across any number of desired Azure regions. When you initially create an Azure API Management service, the instance contains only one unit and resides in a single Azure region (the **primary** region).
 

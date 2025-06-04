@@ -46,7 +46,7 @@ Depending on which features your use for Azure Virtual Desktop, you have to pay 
 | Feature | Associated costs |
 |--|--|
 | [Azure Virtual Desktop Insights](insights.md) | Log data in [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). For more information, see [Estimate Azure Virtual Desktop Insights costs](insights-costs.md). |
-| [App attach](app-attach-overview.md) | Application storage, such as [Azure Files](https://azure.microsoft.com/pricing/details/storage/files/) or [Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/). |
+| [App Attach](app-attach-overview.md) | Application storage, such as [Azure Files](https://azure.microsoft.com/pricing/details/storage/files/) or [Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/). |
 | [FSLogix profile container](/fslogix/overview-what-is-fslogix) | User profile storage, such as [Azure Files](https://azure.microsoft.com/pricing/details/storage/files/) or [Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/). |
 | [Custom image templates](custom-image-templates.md) | Storage and network costs for [managed disks](https://azure.microsoft.com/pricing/details/managed-disks/) and [bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/). |
 

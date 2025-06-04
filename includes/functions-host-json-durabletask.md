@@ -6,7 +6,9 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/17/2025
 ms.author: glenga
-ms.custom: include file
+ms.custom:
+  - include file
+  - build-2025
 ---
 
 Configuration settings for [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).
@@ -129,6 +131,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |useGracefulShutdown|false|(Preview) Enable gracefully shutting down to reduce the chance of host shutdowns failing in-process function executions.|
 |maxEntityOperationBatchSize(2.6.1)|**Consumption plan**: 50 <br> **Dedicated/Premium plan**: 5000|The maximum number of entity operations that are processed as a [batch](../articles/azure-functions/durable/durable-functions-perf-and-scale.md#entity-operation-batching). If set to 1, batching is disabled, and each operation message is processed by a separate function invocation.|
 |storeInputsInOrchestrationHistory|false|When set to `true`, tells the Durable Task Framework to save activity inputs in the history table. This enables the displaying of activity function inputs when querying orchestration history.|
-|maxGrpcMessageSizeInBytes|4194304| An integer value that sets the maximum size, in bytes, of messages that the gRPC client for DurableTaskClient can receive. This applies to Durable Functions .NET Isolated and Java.|
+|maxGrpcMessageSizeInBytes|4194304|An integer value that sets the maximum size, in bytes, of messages that the gRPC client for DurableTaskClient can receive. This applies to Durable Functions .NET Isolated and Java.|
+|grpcHttpClientTimeout|100 seconds|Sets the timeout for the HTTP client used by the gRPC client in Durable Functions, which is currently supported for .NET isolated apps (.NET 6 and later versions) and for Java. |
 
 Many of these settings are for optimizing performance. For more information, see [Performance and scale](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

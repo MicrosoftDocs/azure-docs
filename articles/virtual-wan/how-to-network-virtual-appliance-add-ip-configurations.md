@@ -15,6 +15,10 @@ The following article describes how to manage IP configurations for Network Virt
 > [!Important]
 > IP configuration management for Virtual WAN integrated Network Virtual Appliances is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+
+> [!Important]
+> This document applies to Integrated Network Virtual Appliances deployed in the Virtual WAN hub and does **not** apply to software-as-a-service (SaaS) solutions. See [third-party integrations](third-party-integrations.md) for more information on the differences between Integrated Network Virtual Appliances and SaaS solutions. Reference your SaaS provider's documentation for information related to infrastructure operations available for SaaS solutions.
+
 ## Background
 
 Network Virtual Appliances (NVAs) in Azure Virtual WAN are deployed as Virtual Machine Scale Sets with Virtual Machine instances that have two or three network interfaces. Each interface on a Virtual Machine instance is automatically allocated one IP configuration that translates to a single IP address. You can increase the number of IP configurations and IP addresses assigned to each NVA network interface.
@@ -59,7 +63,7 @@ The following section describes known limitations and considerations associated 
 ### Limitations
 
 * Each NVA NIC (External or Internal) can have at most three IP-configurations. This limit is to help ensure that there are sufficient IP addresses available in the Virtual WAN hub to allocate to NVA deployments.  
-* Additonal/Auxillary NICs must have exactly one IP-configuration. You can't add additional IP addresses to Additional/Auxillary NICs.
+* Additional/Auxillary NICs must have exactly one IP-configuration. You can't add additional IP addresses to Additional/Auxillary NICs.
 * Azure Virtual WAN Hub routers initiates/accepts Border Gateway Protocol (BGP) sessions with the primary IP configuration of the internal/private NIC assigned to each NVA VM instance. Secondary IP configurations assigned to the internal/private NIC of NVA instances can't be used to establish BGP.
 * IP configurations must adhere to the following naming convention:
     * IP configurations on the private/internal NIC must have *privatenicipconfig* prefix. For example, *privatenicipconfig-1* is a valid name while *myprivateipconfig* isn't a valid name for private/internal NIC IP configurations.

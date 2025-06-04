@@ -2,11 +2,11 @@
 title: Azure Application Gateway listener configuration
 description: This article describes how to configure Azure Application Gateway listeners.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 07/19/2023
-ms.author: greglin 
+ms.author: mbender 
 ---
 
 # Application Gateway listener configuration

@@ -9,6 +9,8 @@ ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 01/22/2025
 #Customer intent: I want to learn about the feature management libraries of different languages, specifically to track their feature development status.
+ms.custom:
+  - build-2025
 ---
 
 # Feature Management Overview
@@ -49,3 +51,7 @@ Feature Flag Telemetry | [GA](./feature-management-dotnet-reference.md#telemetry
 Application Insights Integration | [GA](./feature-management-dotnet-reference.md#application-insights-telemetry) | GA | [GA](./feature-management-python-reference.md#application-insights-telemetry) | [GA](./feature-management-javascript-reference.md#application-insights-integration)
 Feature Gate | [GA](./feature-management-dotnet-reference.md#controllers-and-actions) | GA | N/A | N/A
 Feature Gated Middleware | [GA](./feature-management-dotnet-reference.md#application-building) | GA | N/A | N/A
+
+## Support policy
+
+Details on the support policy for feature management libraries can be found [here](./client-library-support-policy.md).
