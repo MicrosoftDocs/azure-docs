@@ -27,6 +27,9 @@ The status of a unit test flow. This enumeration represents the various executio
 |Terminated|The flow status is Terminated|
 |NotSpecified|The flow status is not specified|
 
+> [!Note]
+> Mocks can only be created using the Succeeded and Failed status values. The other values are used by the engine to represent the final state of action after execution.
+
 ## Related Content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
