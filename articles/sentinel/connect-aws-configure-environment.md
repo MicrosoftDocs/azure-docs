@@ -47,6 +47,8 @@ This diagram shows how to set up your AWS environment to send logs to Azure:
 
 ### Manual setup
 
+Although you can set up the AWS environment manually, as described below, we strongly recommend using the automated tools provided when you [deploy AWS connectors](#deploy-aws-connectors) instead.
+
 #### Create an S3 bucket and SQS queue
 
 1. Create an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, CloudTrail, or CloudWatch.
