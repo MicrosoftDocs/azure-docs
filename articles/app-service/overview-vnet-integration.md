@@ -12,8 +12,6 @@ ms.custom:
 ---
 # <a name="regional-virtual-network-integration"></a>Integrate your app with an Azure virtual network
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 This article describes the Azure App Service virtual network integration feature and how to set it up with apps in [App Service](./overview.md). With [Azure virtual networks](../virtual-network/virtual-networks-overview.md), you can place many of your Azure resources in a non-internet-routable network. The App Service virtual network integration feature enables your apps to access resources in or through a virtual network.
 
 >[!NOTE]

@@ -78,7 +78,7 @@ The following table lists optional FQDNs and endpoints that your session host vi
 | `wvdportalstorageblob.blob.core.usgovcloudapi.net` | TCP | 443 | Azure portal support | `AzureCloud` |
 | `169.254.169.254` | TCP | 80 | [Azure Instance Metadata service endpoint](/azure/virtual-machines/windows/instance-metadata-service) | N/A |
 | `168.63.129.16` | TCP | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
-| ctdl.windowsupdate.com|TCP| 80|Certificates|N/A|
+| `ctdl.windowsupdate.com` | TCP | 80 | Certificates | N/A |
 | `ocsp.msocsp.com` | TCP | 80 | Certificates | N/A |
 
 The following table lists optional FQDNs and endpoints that your session host virtual machines might also need to access for other services:

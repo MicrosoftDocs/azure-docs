@@ -13,8 +13,6 @@ author: msangapu-msft
 
 # Add and manage TLS/SSL certificates in Azure App Service
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [help secure custom DNS names](configure-ssl-bindings.md) in [Azure App Service](overview.md), which provides a highly scalable, self-patching web hosting service. Currently called Transport Layer Security (TLS) certificates, also previously known as Secure Socket Layer (SSL) certificates, these private or public certificates help you secure internet connections by encrypting data sent between your browser, websites that you visit, and the website server.
 
 The following table lists the options for you to add certificates in App Service:
@@ -69,7 +67,7 @@ The free App Service managed certificate is a turn-key solution for helping to s
 >
 > Free certificates are issued by DigiCert. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
 >
-> Azure fully manages the certificates on your behalf, so any aspect of the managed certificate, including the root issuer, can change at anytime. Certificate renewals change both public and private key parts.  All of these certificate changes are outside your control. Make sure to avoid hard dependencies and "pinning" practice certificates to the managed certificate or any part of the certificate hierarchy. If you need the certificate pinning behavior, add a certificate to your custom domain using any other available method in this article.
+> Azure fully manages the certificates on your behalf, so any aspect of the managed certificate, including the root issuer, can change at any time. Certificate renewals change both public and private key parts.  All of these certificate changes are outside your control. Make sure to avoid hard dependencies and "pinning" practice certificates to the managed certificate or any part of the certificate hierarchy. If you need the certificate pinning behavior, add a certificate to your custom domain using any other available method in this article.
 
 The free certificate comes with the following limitations:
 
@@ -148,7 +146,7 @@ The service principal app ID or assignee value is the ID for the App Service res
 
 | Resource provider | Service principal app ID | Key vault secret permissions | Key vault certificate permissions |
 |--|--|--|--|
-| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for public Azure cloud environment <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Government cloud environment | Get | Get |
+| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for global Azure cloud environment <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Government cloud environment | Get | Get |
 
 The service principal app ID or assignee value is the ID for the App Service resource provider. To learn how to authorize key vault permissions for the App Service resource provider using an access policy, see the [assign a Key Vault access policy documentation](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 

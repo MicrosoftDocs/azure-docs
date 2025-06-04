@@ -11,8 +11,6 @@ ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 
 # Configure continuous deployment to Azure App Service
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 You can configure continuous deployment from [GitHub](https://help.github.com/articles/create-a-repo), [Bitbucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html), and [Azure](/azure/devops/repos/git/creatingrepo) repositories by using [Azure App Service](overview.md), which pulls in the latest updates. This guide provides you with everything you need to get started.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]

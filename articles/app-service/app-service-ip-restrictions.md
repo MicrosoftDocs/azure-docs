@@ -13,8 +13,6 @@ ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ---
 # Set up Azure App Service access restrictions
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 When you set up access restrictions, you can define a priority-ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, an implicit *deny all* exists at the end of the list. For more information, see [Azure App Service access restrictions](./overview-access-restrictions.md).
 
 The access restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux custom containers, and Azure Functions apps.

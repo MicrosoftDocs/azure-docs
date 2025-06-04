@@ -12,8 +12,6 @@ ms.custom: devx-track-azurecli
 
 # Deploy files to Azure App Service
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 This article shows you how to deploy your code as a ZIP, WAR, JAR, or EAR package to [Azure App Service](overview.md). It also shows you how to deploy individual files to App Service, separate from your application package.
 
 ## Prerequisites
@@ -41,9 +39,9 @@ This ZIP package deployment uses the same Kudu service that powers continuous in
 
 ### Deploy with ZIP deploy UI in Kudu
 
-In the browser, go to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`. For the app name, see the [note at the beginning of the article](#dnl-note).
-
-Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package). Drag it to the **File Explorer** area on the web page.
+1. Open your app in the Azure portal and select **Development Tools** > **Advanced Tools**, then select **Go**.
+1. In Kudu, select **Tools** > **Zip Push Deploy**.
+1. Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package). Drag it to the file explorer area on the web page.
 
 When deployment is in progress, an icon in the top right corner shows you the progress percentage. The page also displays messages for the operation below the **File Explorer** area. When deployment finishes, the last message should say "Deployment successful."
 
@@ -65,7 +63,7 @@ This command restarts the app after deploying the ZIP package.
 
 # [Azure PowerShell](#tab/powershell)
 
-The following example uses [`Publish-AzWebapp`](/powershell/module/az.websites/publish-azwebapp) to upload the ZIP package. Replace the placeholders *\<group-name>*, *\<app-name>*, and *\<zip-package-path>*.
+The following example uses [`Publish-AzWebapp`](/powershell/module/az.websites/publish-azwebapp) to upload the ZIP package. Replace the placeholders for resource group, app name, and package path.
 
 ```azurepowershell
 Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath <zip-package-path> 
@@ -73,7 +71,7 @@ Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath 
 
 # [Kudu API](#tab/api)
 
-The following example uses the client URL (cURL) tool to deploy a ZIP package. Replace the placeholders *\<zip-package-path>* and *\<app-name>*. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
+The following example uses the client URL (cURL) tool to deploy a ZIP package. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
 
 ```bash
 # Microsoft Entra authentication
@@ -82,17 +80,17 @@ TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
 curl -X POST \
      -H "Authorization: Bearer $TOKEN" \
      -T @"<zip-package-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=zip"
+     "https://<URL>/api/publish?type=zip"
 
 # Basic authentication
 curl -X POST \
      -u '<username>:<password>' \
      -T "<zip-package-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=zip"
+     "https://<URL>/api/publish?type=zip"
 ```
 
 > [!NOTE]
-> Get the actual fully qualified domain name to use in the URL from the [note at the beginning of the article](#dnl-note).
+> Get the Kudu URL from the Azure portal: open your app and select **Development Tools** > **Advanced Tools**, then select **Go** to open the Kudu URL.
 
 # [ARM template](#tab/arm)
 
@@ -128,7 +126,7 @@ The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to depl
 
 # [Azure PowerShell](#tab/powershell)
 
-The following example uses [`Publish-AzWebapp`](/powershell/module/az.websites/publish-azwebapp) to upload the WAR file. Replace the placeholders *\<group-name>*, *\<app-name>*, and *\<package-path>*. Azure PowerShell supports only WAR and JAR files.
+The following example uses [`Publish-AzWebapp`](/powershell/module/az.websites/publish-azwebapp) to upload the WAR file. Replace the placeholders for resource group, app name, and package path. Azure PowerShell supports only WAR and JAR files.
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <package-path>
@@ -136,7 +134,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 # [Kudu API](#tab/api)
 
-The following example uses the cURL tool to deploy a WAR, JAR, or EAR file. Replace the placeholders *\<file-path>*, *\<app-name>*, and *\<package-type>* (`war`, `jar`, or `ear`). If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
+The following example uses the cURL tool to deploy a WAR, JAR, or EAR file. Replace the placeholders *\<file-path>* and *\<package-type>* (`war`, `jar`, or `ear`). If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
 
 ```bash
 # Microsoft Entra authentication
@@ -145,17 +143,17 @@ TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
 curl -X POST \
      -H "Authorization: Bearer $TOKEN" \
      -T @"<file-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=<package-type>"
+     "https://<URL>/api/publish?type=<package-type>"
 
 # Basic authentication
 curl -X POST \
      -u <username>:<password> \
      -T @"<file-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=<package-type>"
+     "https://<URL>/api/publish?type=<package-type>"
 ```
 
 > [!NOTE]
-> Get the actual fully qualified domain name to use in the URL from the [note at the beginning of the article](#dnl-note).
+> Get the Kudu URL from the Azure portal: open your app and select **Development Tools** > **Advanced Tools**, then select **Go** to open the Kudu URL.
 
 For more information, see [Kudu publish API reference](#kudu-publish-api-reference).
 
@@ -201,7 +199,7 @@ Not supported. See the Azure CLI or Kudu API tabs.
 
 ### Deploy a startup script
 
-The following example uses the cURL tool to deploy a startup file for the application. Replace the placeholders *\<startup-file-path>* and *\<app-name>*. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
+The following example uses the cURL tool to deploy a startup file for the application. Replace the placeholder *\<startup-file-path>*. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
 
 ```bash
 # Microsoft Entra authentication
@@ -210,21 +208,21 @@ TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
 curl -X POST \
      -H "Authorization: Bearer $TOKEN" \
      -T @"<startup-file-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=startup"
+     "https://<URL>/api/publish?type=startup"
 
 # Basic authentication
 curl -X POST \
      -u <username>:<password> \
      -T @"<startup-file-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=startup"
+     "https://<URL>/api/publish?type=startup"
 ```
 
 > [!NOTE]
-> Get the actual fully qualified domain name to use in the URL from the [note at the beginning of the article](#dnl-note).
+> Get the Kudu URL from the Azure portal: open your app and select **Development Tools** > **Advanced Tools**, then select **Go** to open the Kudu URL.
 
 ### Deploy a library file
 
-The following example uses the cURL tool to deploy a library file for the application. Replace the placeholders *\<lib-file-path>* and *\<app-name>*. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
+The following example uses the cURL tool to deploy a library file for the application. Replace the placeholder *\<lib-file-path>*. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
 
 ```bash
 # Microsoft Entra authentication
@@ -233,21 +231,21 @@ TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
 curl -X POST \
      -H "Authorization: Bearer $TOKEN" \
      -T @"<lib-file-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=lib&path=/home/site/deployments/tools/my-lib.jar"
+     "https://<URL>/api/publish?type=lib&path=/home/site/deployments/tools/my-lib.jar"
 
 # Basic authentication
 curl -X POST \
      -u <username>:<password> \
      -T @"<lib-file-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=lib&path=/home/site/deployments/tools/my-lib.jar"
+     "https://<URL>/api/publish?type=lib&path=/home/site/deployments/tools/my-lib.jar"
 ```
 
 > [!NOTE]
-> Get the actual fully qualified domain name to use in the URL from the [note at the beginning of the article](#dnl-note).
+> Get the Kudu URL from the Azure portal: open your app and select **Development Tools** > **Advanced Tools**, then select **Go** to open the Kudu URL.
 
 ### Deploy a static file
 
-The following example uses the cURL tool to deploy a config file for the application. Replace the placeholders *\<config-file-path>* and *\<app-name>*. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
+The following example uses the cURL tool to deploy a config file for the application. Replace the placeholder *\<config-file-path>*. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
 
 ```bash
 # Microsoft Entra authentication
@@ -256,17 +254,17 @@ TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
 curl -X POST \
      -H "Authorization: Bearer $TOKEN" \
      -T @"<config-file-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=static&path=/home/site/deployments/tools/my-config.json"
+     "https://<URL>/api/publish?type=static&path=/home/site/deployments/tools/my-config.json"
 
 # Basic authentication
 curl -X POST \
      -u <username>:<password> \
      -T @"<config-file-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=static&path=/home/site/deployments/tools/my-config.json"
+     "https://<URL>/api/publish?type=static&path=/home/site/deployments/tools/my-config.json"
 ```
 
 > [!NOTE]
-> Get the actual fully qualified domain name to use in the URL from the [note at the beginning of the article](#dnl-note).
+> Get the Kudu URL from the Azure portal: open your app and select **Development Tools** > **Advanced Tools**, then select **Go** to open the Kudu URL.
 
 # [ARM template](#tab/arm)
 
@@ -304,18 +302,18 @@ curl -X POST \
      -H "Authorization: Bearer $TOKEN" \
      -H "Content-Type: application/json" \
      -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}' \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=zip"
+     "https://<URL>/api/publish?type=zip"
 
 # Basic authentication
 curl -X POST \
      -u '<username>:<password>' \
      -H "Content-Type: application/json" \
      -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}' \
-     "https://<app-name>.scm.azurewebsites.net/api/publish?type=zip"
+     "https://<URL>/api/publish?type=zip"
 ```
 
 > [!NOTE]
-> Get the actual fully qualified domain name to use in the URL from the [note at the beginning of the article](#dnl-note).
+> Get the Kudu URL from the Azure portal: open your app and select **Development Tools** > **Advanced Tools**, then select **Go** to open the Kudu URL.
 
 # [ARM template](#tab/arm)
 

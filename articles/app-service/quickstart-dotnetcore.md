@@ -350,11 +350,7 @@ Follow these steps to create your App Service resources and publish your project
    - Replace `<os>` with either `linux` or `windows`.
    - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. To get a list of allowable regions for your Azure account, run the [az account list-locations](/cli/azure/appservice#az-appservice-list-locations) command.
 
-   The command might take a few minutes to complete. While it runs, the command provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL:
-
-   ```azurecli
-   You can launch the app at http://<app-name>.azurewebsites.net
-   ```
+   The command might take a few minutes to complete. While it runs, the command provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL.
 
 1. Open a web browser and navigate to the URL. You see the ASP.NET Core 8.0 web app displayed in the page.
 

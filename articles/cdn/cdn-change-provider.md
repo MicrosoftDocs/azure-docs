@@ -12,19 +12,13 @@ ms.date: 03/31/2025
 ROBOTS: NOINDEX
 ---
 
-# Migrate between content delivery network providers
+# Best practices while migrating between content delivery network providers
 
 [!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 Content Delivery Network services can provide resiliency and add benefits for different types of workloads. Switching between content delivery network providers is a common practice when your web delivery requirements changes or when a different service is better suited for your business needs.
 
-The purpose of this article is to share best practices when migrating from one content delivery network service to another. In this article we talk about the different Azure Content Delivery Network services, how to compare these products and best practices to consider when performing the migration.
-
-<a name='overview-of-azure-cdn-profiles'></a>
-
-## Overview of Azure Content Delivery Network profiles
-
-**Azure Front Door:** release two new tiers (Standard and Premium) on March 29, 2022, which is the next generation Azure Front Door. It combines the capabilities of Azure Front Door (classic), Microsoft content delivery network (classic), and Web Application Firewall. With features such as private link integration, enhancements to rules engine, diagnostics, and a one-stop secure application acceleration for Azure customers. For more information about Azure Front Door, see [Azure Front Door overview](../frontdoor/front-door-overview.md).
+The purpose of this article is to share best practices when migrating from one content delivery network service to another.
 
 ## Pricing comparison
 
@@ -81,14 +75,6 @@ Once you've completed your proof of concept testing, you can begin the migration
 >    - Traffic management tools such as a load balancer have the correct policies and rules for the content delivery network.
 > 3. Validate origin workloads and content delivery network caching performance.
 >     - Changing between content delivery networks can increase traffic to origin for a period of time until the new provider caches the content.
-
-## Improve migration with Azure Traffic Manager
-
-If you have multiple Azure Content Delivery Network profiles, you can improve availability and performance using Azure Traffic Manager. You can use Traffic Manager to load balance among multiple Azure Content Delivery Network endpoints for failover and geo-load balancing.
-
-In a typical failover scenario, all client requests are directed to the primary content delivery network profile. If the profile is unavailable, requests are sent to the secondary profile. Requests resume to your primary profile when it becomes available again. Using Azure Traffic Manager in this manner ensures your web application is always available.
-
-For more information, see [Failover content delivery network endpoints with Traffic Manager](cdn-traffic-manager.md).
 
 ## Next Steps
 

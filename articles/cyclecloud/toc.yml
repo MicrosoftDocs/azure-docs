@@ -86,6 +86,12 @@
     items:
     - name: Plan your CycleCloud Workspace for Slurm Deployment
       href: ./how-to/ccws/plan-your-deployment.md
+    - name: Register a Microsoft Entra ID application for Open OnDemand Authentication
+      href: ./how-to/ccws/register-entra-id-app.md
+    - name: Configure Open OnDemand with CycleCloud
+      href: ./how-to/ccws/configure-open-ondemand.md
+    - name: Add users for Open OnDemand
+      href: ./how-to/ccws/open-ondemand-add-users.md
     - name: How to deploy using the CLI
       href: ./how-to/ccws/deploy-with-cli.md
     - name: How to connect to a Login Node through Bastion
@@ -252,7 +258,7 @@
         href: /previous-versions/azure/cyclecloud/release-notes-archive
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-    - name: Current Release - 2025.02.06
+    - name: Current Release - 2025.04.24
       href: ./release-notes/ccws/release-notes.md       
   - name: Service Policy
     href: service-policy.md

@@ -1,9 +1,9 @@
 ---
-title: Common issues - Azure IoT Edge for Linux on Windows
+title: Troubleshoot Azure IoT Edge for Linux on Windows common issues
 description: Learn how to resolve common issues encountered when deploying an IoT Edge for Linux on Windows (EFLOW) solution.
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/06/2024
+ms.date: 06/03/2025
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
 services: iot-edge
@@ -13,11 +13,11 @@ ms.custom: amqp, mqtt, linux-related-content
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Use this article to help resolve common issues that can occur when deploying IoT Edge for Linux on Windows solutions. 
+Use this article to fix common issues that can happen when you deploy IoT Edge for Linux on Windows solutions. 
 
 ## Installation and Deployment
 
-The following section addresses the common errors when installing the EFLOW MSI and deploying the EFLOW virtual machine. Ensure you have an understanding of the following EFLOW concepts:
+The following section addresses the common errors when installing the EFLOW MSI and deploying the EFLOW virtual machine. Make sure you understand the following EFLOW concepts:
 - [Azure IoT Edge for Linux on Windows prerequisites](https://aka.ms/AzEFLOW-Requirements)
 - [Nested virtualization for Azure IoT Edge for Linux on Windows](./nested-virtualization.md)
 - [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md)
@@ -46,7 +46,7 @@ The following section addresses the common errors when installing the EFLOW MSI 
 
 ## Provisioning and IoT Edge runtime
 
-The following section addresses the common errors when provisioning the EFLOW virtual machine and interact with the IoT Edge runtime. Ensure you have an understanding of the following EFLOW concepts:
+This section covers common errors when setting up the EFLOW virtual machine and interacting with the IoT Edge runtime. Make sure you understand the following EFLOW concepts:
 - [What is Azure IoT Hub Device Provisioning Service?](../iot-dps/about-iot-dps.md)
 - [Understand the Azure IoT Edge runtime and its architecture](./iot-edge-runtime.md)
 - [Troubleshoot your IoT Edge device](./troubleshoot.md)
@@ -69,7 +69,7 @@ The following section addresses the common errors when provisioning the EFLOW vi
 
 ## Interaction with the VM
 
-The following section addresses the common errors when interacting with the EFLOW virtual machine, and configure the EFLOW device passthrough options. Ensure you have an understanding of the following EFLOW concepts:
+This section covers common errors when you interact with the EFLOW virtual machine and set up EFLOW device passthrough options. Make sure you understand the following EFLOW concepts:
 - [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md)
 - [GPU acceleration for Azure IoT Edge for Linux on Windows](./gpu-acceleration.md)
 
