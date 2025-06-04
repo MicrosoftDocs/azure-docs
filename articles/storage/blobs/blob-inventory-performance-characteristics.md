@@ -17,7 +17,7 @@ ms.custom: references_regions, engagement-fy23
 
 Azure Blob Inventory is an essential tool for managing and tracking the objects stored in your Azure Blob Storage account. It offers a comprehensive overview of your storage resources, enabling you to make informed decisions about data management and cost optimization. 
 
-When Blob Inventory is enabled, it periodically scans objects in your storage account using the rules that are defined in the inventory policy. The time it takes to generate an inventory report depends on several factors. These include the number of objects, the directory structure, the filters applied through rule subtypes, the customer workload on the storage account, the availability of storage resources and more. In some cases, depending on these factors, it may take multiple days to finish processing all the objects in the storage account. The performance of Inventory can also vary between scans and sometimes during the scan as well. 
+When Blob Inventory is enabled, it periodically scans objects in your storage account using the rules that are defined in the inventory policy. The time it takes to generate an inventory report depends on several factors. These factors include the number of objects, the directory structure, the filters applied through rule subtypes, the customer workload on the storage account, the availability of storage resources and more. In some cases, depending on these factors, it may take multiple days to finish processing all the objects in the storage account. The performance of Inventory can also vary between scans and sometimes during the scan as well. 
 
 
 ## Factors influencing Blob Inventory performance
@@ -47,7 +47,7 @@ By considering these factors, you can enhance the performance of your Inventory 
 Efficiently managing your Azure Blob Storage is essential for maintaining optimal performance and cost-effectiveness. Here are some best practices to enhance the performance of your Blob Inventory:
 
 ### Avoid Sparse Accounts in hierarchical namespace enabled accounts
-Sparse accounts are those that contain a large number of objects spread across many directories. These directories may or may not include deeply nested structures. Sparse accounts result in a very low file-to-directory ratio, which can cause inefficiencies in inventory report generation and even lead to failures. To mitigate this inefficiencies, ensure that your hierarchical namespace enabled storage account is well-organized and avoid having a sparse distribution of objects
+Sparse accounts are those that contain a large number of objects spread across many directories. These directories may or may not include deeply nested structures. Sparse accounts result in a very low file-to-directory ratio, which can cause inefficiencies in inventory report generation and even lead to failures. To mitigate these inefficiencies, ensure that your hierarchical namespace enabled storage account is well-organized and avoid having a sparse distribution of objects
 
 ### Use CSV for Export Format	
 When generating inventory reports, opt for csv format if your use case doesn't require fast data processing. Parquet is a columnar storage file format optimized for performance and one of the fastest formats to read for data processing. However, it may increase the time required to generate reports due to its overhead making it slower than generating a report in csv format. If you need the parquet format to post-process your report, you can utilize available open-source tools that convert CSV to Parquet format.
@@ -60,8 +60,7 @@ Instead of running inventory on the entire storage account, use prefix match to 
 - Exclude Prefix: Similar to including prefix, If you want to include a prefix, but exclude some specific subset from it, then you could use the excludePrefix filter. This approach also helps narrow the scope of your inventory report. To learn more, see the articles/storage/blobs/blob-inventory.md#rule-filters.
 
 ### Select Relevant Fields
-Customize your inventory reports by selecting only the relevant fields you need. Doing this reduces the amount of data processed and exported, leading to quicker report generation , and easier analysis. Learn more about the inventory schema fields here - 
-articles/storage/blobs/blob-inventory.md#custom-schema-fields-supported-for-blob-inventory
+Customize your inventory reports by selecting only the relevant fields you need. Doing this reduces the amount of data processed and exported, leading to quicker report generation, and easier analysis. Learn more about the inventory schema fields here - articles/storage/blobs/blob-inventory.md#custom-schema-fields-supported-for-blob-inventory
 
 ### Subtype Inclusion: Deleted Objects, Snapshots, and Versions
 While including these subtypes can provide a more comprehensive view of your storage account, it's important to assess whether they're essential for your audit and management needs. If they aren't critical, excluding them can help improve the performance and efficiency of your report generation process. To identify objects deleted in recent inventory runs, compare the blob names from the current run with those from a previous run. The difference can provide a list of recently deleted objects.
