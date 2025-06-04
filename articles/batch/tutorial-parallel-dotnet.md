@@ -5,6 +5,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/02/2025
 ms.custom: mvc, devx-track-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want to implement a parallel media transcoding process using the .NET API with Azure Batch, so that I can efficiently convert multiple media files from MP4 to MP3 format.
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the .NET API

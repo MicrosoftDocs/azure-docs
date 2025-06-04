@@ -5,6 +5,7 @@ ms.topic: sample
 ms.date: 06/24/2024
 ms.custom: devx-track-azurecli, seo-azure-cli
 keywords: windows pool, azure cli samples, azure cli code samples, azure cli script samples
+# Customer intent: As a cloud developer, I want to use Azure CLI to create and manage a Windows pool in Azure Batch, so that I can efficiently run and scale workloads using cloud-based compute resources.
 ---
 
 # CLI example: Create and manage a Windows pool in Azure Batch

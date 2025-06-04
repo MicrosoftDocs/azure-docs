@@ -6,6 +6,7 @@ ms.topic: tutorial
 ms.date: 04/02/2025
 ai-usage: ai-assisted
 ms.custom: mvc, devx-track-python
+# Customer intent: "As a data engineer, I want to create and execute an Azure Data Factory pipeline that runs a Batch workload with a Python script, so that I can process and manipulate data stored in Azure Blob Storage efficiently."
 ---
 
 # Tutorial: Run a Batch job through Data Factory with Batch Explorer, Storage Explorer, and Python
