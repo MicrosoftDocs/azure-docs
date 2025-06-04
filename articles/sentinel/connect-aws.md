@@ -244,7 +244,6 @@ To deploy the lambda function:
 
 1. Select **Test** to see how the event appears in the S3 bucket.
 
-
 ## Next steps
 
 In this document, you learned how to connect to AWS resources to ingest their logs into Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
