@@ -105,7 +105,7 @@ This section describes what to expect when a blob storage account is configured 
 
 <!-- Need to confirm with PG, but as far as I know there's no way for a customer to find out when a zone failure/failover occurs, so we omit the 'Notification' item. -->
 
-- **Active requests:** In-flight requests mght be dropped during the failover and should be retried. Applications should [implement retry logic](#transient-faults) to handle these temporary interruptions.
+- **Active requests:** In-flight requests might be dropped during the failover and should be retried. Applications should [implement retry logic](#transient-faults) to handle these temporary interruptions.
 
 - **Expected data loss:**  No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete.
 
@@ -191,7 +191,7 @@ This section describes what to expect when a storage account is configured for g
       > [!WARNING]
       > An unplanned failover [can result in data loss](/azure/storage/common/storage-disaster-recovery-guidance#anticipate-data-loss-and-inconsistencies). Before initiating a customer-managed failover, decide whether the risk of data loss is justified by the restoration of service.
     
-    - **Active requests:** Any in-flight requests during the failover process might be dropped. Applications must retry to new primary endpoint. <!-- TODO check this. I think that during the failover process the storage account beomes temporarily unavailable for writes. -->
+    - **Active requests:** Any in-flight requests during the failover process might be dropped. Applications must retry to new primary endpoint. <!-- TODO check this. I think that during the failover process the storage account becomes temporarily unavailable for writes. -->
 
     - **Expected data loss:** During an unplanned failover, it's likely that you will have some data loss. This is because of the asynchronous replication lag, which means that recent writes may not be replicated. You can check the [Last Sync time](/azure/storage/common/last-sync-time-get) to understand how much data could be lost during an unplanned failover. Typically the data loss is expected to be less than 15 minutes, but that's not guaranteed.
 
@@ -207,9 +207,9 @@ This section describes what to expect when a storage account is configured for g
 
   - **Detection and response:** You're responsible for deciding to fail over. You'd typically do so if you need to fail over between regions even though your storage account is healthy. For example, a major outage of another component that you can't recover from in the primary region.
 
-  - **Active requests:** The storage account beomes temporarily unavailable for writes.
+  - **Active requests:** The storage account becomes temporarily unavailable for writes. <!-- TODO verify -->
 
-  - **Expected data loss:** No data loss is expected because the failover process waits for all data to be synchronised.
+  - **Expected data loss:** No data loss is expected because the failover process waits for all data to be synchronized.
 
   - **Expected downtime:** Up to 60 minutes, which includes the time that the account is locked for writes to enable synchronisation to complete.
 
@@ -219,7 +219,7 @@ This section describes what to expect when a storage account is configured for g
 
   For more information on initiating customer-managed failover, see [How customer-managed (planned) failover works](/azure/storage/common/storage-failover-customer-managed-planned) and [Initiate a storage account failover](/azure/storage/common/storage-initiate-account-failover).
 
-- **Microsoft-managed failover**: In rare cases of major disasters where Microsoft determines the primary region is permanently unrecoverable, Microsoft initiates automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation.
+- **Microsoft-managed failover**: In the rare case of a major disaster, where Microsoft determines the primary region is permanently unrecoverable, Microsoft might initiate automatic failover to the secondary region. This process is managed entirely by Microsoft and requires no customer action. The amount of time that elapses before failover occurs depends on the severity of the disaster and the time required to assess the situation.
 
   > [!IMPORTANT]
   > Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not rely on Microsoft-managed failover**, which might only be used in extreme circumstances. A Microsoft-managed failover would likely be initiated for an entire region. It can't be initiated for individual storage accounts, subscriptions, or customers. Failover might occur at different times for different Azure services. We recommend you use customer-managed failover.
