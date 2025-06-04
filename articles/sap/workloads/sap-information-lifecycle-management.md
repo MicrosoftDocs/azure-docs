@@ -31,7 +31,7 @@ The steps to be followed to create a storage account are:
 
 1. Register a new application with your subscription.
 2. Create a Blob storage account.
-3. Create a new custom role or use an existing (build-In or custom) role.
+3. Create a new custom role or use an existing (built-in or custom) role.
 4. Assign the role to application to allow access to the storage account.
 
 > [!NOTE]
