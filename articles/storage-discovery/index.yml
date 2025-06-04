@@ -8,7 +8,7 @@ brand: azure
 metadata:
   title: Azure Storage Discovery documentation
   description: Azure Storage Discovery is ..... 
-  ms.service: azure-storage-discovery
+  ms.service: azure-storage-mover
   ms.topic: hub-page
   author: fauhse
   ms.author: fauhse
@@ -52,7 +52,7 @@ additionalContent:
         # Card
         - title: Authentication & Authorization
           links:
-          - url: overview.md#authentication-and-authorization
+          - url: overview.md
             text: Overview
           - url: overview.md
             text: Just-in-time agent authorization
