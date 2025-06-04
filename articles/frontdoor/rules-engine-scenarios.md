@@ -636,7 +636,7 @@ However, you can emulate "if-elseif-else" logic by using the **Stop evaluating r
 
 You can remove query strings from incoming URLs by implementing a 3xx URL redirect that guides users back to the Azure Front Door endpoint with the query strings removed.
 
- [!NOTE]
+> [!NOTE]
 > Users will notice the change of the request URL with this operation.
 
 The following example demonstrates how to remove the entire query string from incoming URLs. If you need to strip part of it, you can adjust the offset/length as desired. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
@@ -684,15 +684,24 @@ The following example demonstrates how to remove the entire query string from in
 }
 ```
 
-### Scenario 12: Append SAS token in query string to authenticate AFD to Azure Storage
+### Scenario 12: Append SAS token in query string to authenticate Azure Front Door to Azure Storage
 
-To protect the files in your storage account, you can set the access of your storage containers from public to private and use the Shared Access Signature (SAS) to grant restricted access rights to your Azure Storage resources from Azure Front Door without exposing your account key. You can also accomplish this using Managed Identity, which is currently in preview on AFD. Or you can inject a SAS token into the route of the call to storage. This can be achieved by capturing an incoming URL path and appending the SAS token to the query string in the rewrite or redirect rule. 
-Here is an example of appending SAS token on AFD.
-•	Incoming URL: https://www.contoso.com/dccp/grammars/0.1.0-59/en-US/grammars/IVR/ssn0100_CollectTIN_QA_dtmf.grxml?version=1.0_1719342835399
-•	Rewrite URL: https://www.contoso.com/grammars/0.1.0-59/en-US/grammars/IVR/ssn0100_CollectTIN_QA_dtmf.grxml?version=1.0_1719342835399&<SASTOKEN>
-In this case, the incoming URL already has query string, and you want the keep the query string while appending the SAS token, please use redirect rule as URL rewrite only acts on path. To achieve this, you can configure URL redirect using /url_path:seg1:20}?{query_string}&sp=racwl&<SASToken>. Please make proper updates to Routes to make sure the routes for /grammars/* are properly configured after redirect.
-Example in portal
-Please replace the SAS token with the proper token. In this case, the SAS token starts with sp=rl, and you want to redirect all requests to apply this rule which doesn’t contain the sp=rl.
+You can protect files in your storage account by changing the access to your storage containers from public to private and using Shared Access Signatures (SAS) to grant restricted access rights to your Azure Storage resources from Azure Front Door without exposing your account key. You can also accomplish this using Managed Identity. For more information, see [Use managed identities to authenticate to origins](/azure/frontdoor/origin-authentication-with-managed-identities).
+
+**How SAS token injection works:** Capture the incoming URL path and append the SAS token to the query string using redirect or rewrite rules. Since URL rewrite only acts on the path, use redirect rules when you need to modify query strings.
+
+For example, if you want to append a SAS token to the incoming URL: `https://www.contoso.com/dccp/grammars/0.1.0-59/en-US/grammars/IVR/ssn0100_CollectTIN_QA_dtmf.grxml?version=1.0_1719342835399`, the rewrite URL will be: `https://www.contoso.com/grammars/0.1.0-59/en-US/grammars/IVR/ssn0100_CollectTIN_QA_dtmf.grxml?version=1.0_1719342835399&<SASTOKEN>`
+
+In this example, the incoming URL already has query parameters, and you want to preserve the existing query string while appending the SAS token by configuring URL redirect using `/{url_path:seg1:20}?{query_string}&sp=racwl&<SASToken>`.
+
+The rule configuration redirects all HTTPS requests that don't already contain the SAS token (identified by the absence of `sp=rl` in the query string).
+
+:::image type="content" source="./media/rules-engine-scenarios/append-sas-token.png" alt-text="Screenshot that shows how to append SAS token in query string." lightbox="./media/rules-engine-scenarios/append-sas-token.png":::
+
+> [!IMPORTANT]
+> - Update your route configuration to ensure routes for `/grammars/*` are properly configured after the redirect
+> 
+> - Replace the SAS token with the proper token. In the example, the SAS token starts with `sp=rl`, and you want to redirect all requests to apply this rule which doesn’t contain the `sp=rl`
 
 ```json
 {
@@ -750,8 +759,11 @@ Please replace the SAS token with the proper token. In this case, the SAS token 
 
 ### Scenario 13: Add security headers with rules engine
 
-When you want to add security headers to prevent browser-based vulnerabilities, such as HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, and X-Frame-Options, you can use AFD rules engine to achieve it.
-Here is an example that shows how to add a Content-Security-Policy header to all incoming requests that match the path defined in the route associated with your rules engine configuration. In this scenario, only scripts from the trusted site https://apiphany.portal.azure-api.net are allowed to run on the application. Use script-src 'self' https://apiphany.portal.azure-api.net as the header value.
+You can use the Azure Front Door rules engine to add security headers that help prevent browser-based vulnerabilities, such as HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, and X-Frame-Options.
+
+For example, you can add a *Content-Security-Policy* header to all incoming requests that match the path defined in the route associated with your rules engine configuration. In this configuration, use `script-src 'self' https://apiphany.portal.azure-api.net`as the header value to only allow scripts from the trusted site `https://apiphany.portal.azure-api.net` to run on the application. 
+
+:::image type="content" source="./media/rules-engine-scenarios/add-security-headers.png" alt-text="Screenshot that shows how to add security headers with rules engine." lightbox="./media/rules-engine-scenarios/add-security-headers.png":::
 
 ```json
 {
@@ -780,7 +792,3 @@ Here is an example that shows how to add a Content-Security-Policy header to all
     }
 }
 ```
-
-
-
-
