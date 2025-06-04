@@ -2,7 +2,7 @@
 title: Azure Blob storage trigger for Azure Functions
 description: Learn how to use Azure Function to run your custom code based on changes in an Azure Blob storage container. 
 ms.topic: reference
-ms.date: 05/14/2024
+ms.date: 05/14/2025
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom:
@@ -68,7 +68,7 @@ For more information about the `BlobTrigger` attribute, see [Attributes](#attrib
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-This function writes a log when a blob is added or updated in the `myblob` container.
+This function uses a byte array to write a log when a blob is added or updated in the `myblob` container.
 
 ```java
 @FunctionName("blobprocessor")
@@ -83,6 +83,8 @@ public void run(
   context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
 }
 ```
+
+This example 
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
@@ -444,7 +446,8 @@ If you get an error message when trying to bind to one of the Storage SDK types,
 ::: zone-end  
 
 ::: zone pivot="programming-language-java"
-The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#example) for details.
+
+[!INCLUDE [functions-java-sdk-types-preview-note](../../includes/functions-java-sdk-types-preview-note.md)]
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 # [Model v4](#tab/nodejs-v4)
@@ -582,130 +585,6 @@ Because the blob trigger uses a queue internally, the maximum number of concurre
 ---
 
 Limits apply separately to each function that uses a blob trigger.
-
-::: zone pivot="programming-language-java"
-## Preview SDK-types for Blob Storage
-
-### What this preview delivers
-
-Until now a Blob-triggered Java function could receive only raw bytes or strings.
-The new **SDK-type binding** lets your function accept a *real* Azure Storage SDK client – either `BlobClient` or `BlobContainerClient`.
-
-* Use every Storage API (leases, tiers, snapshots, …) directly.
-* Stream data straight from Storage – no 100 MB blob-size ceiling, no extra memory copies.
-* One client instance is cached and reused across invocations for maximum throughput.
-
-### Why you might switch
-
-| Classic binding (`byte[]` / `String`)        | SDK-type binding (`BlobClient`, `BlobContainerClient`)       |
-| -------------------------------------------- | ------------------------------------------------------------ |
-| Host downloads blob, sends it to the worker. | Worker streams from Storage itself – lower latency & memory. |
-| 100 MB size limit.                           | No hard limit; streams as big as Storage allows.             |
-| Only read/write bytes.                       | Full SDK surface: metadata, ACLs, legal hold, etc.           |
-
-### What you need
-
-* Turn the feature on by setting `JAVA_ENABLE_SDK_TYPES` to `"true"` in your
-  app's settings.
-* **azure-functions-maven-plugin** (or Gradle plug-in) ≥ **1.38.0** – detects SDK-type parameters during build and adds the flag that activates the middleware.
-* Your function app must reference:
-
-  * `azure-storage-blob` (always)
-  * `azure-identity` (only if you plan to use Managed Identity)
-
-> The worker creates clients via reflection, so it relies on whatever Storage/Identity libraries you ship with the function.
-
-### Authoring – it looks just like a normal binding
-
-```java
-@FunctionName("processBlob")
-public void run(
-        @BlobTrigger(
-                name = "content",
-                path = "images/{name}",
-                connection = "AzureWebJobsStorage") BlobClient blob,
-        @BindingName("name") String file,
-        ExecutionContext ctx)
-{
-    ctx.getLogger().info("Size = " + blob.getProperties().getBlobSize());
-}
-```
-
-```java
-@FunctionName("containerOps")
-public void run(
-        @BlobTrigger(
-                name = "content",
-                path = "images/{name}",
-                connection = "AzureWebJobsStorage") BlobContainerClient container,
-        ExecutionContext ctx)
-{
-    container.listBlobs()
-            .forEach(b -> ctx.getLogger().info(b.getName()));
-}
-```
-
-**Note:** Only one SDK type can be used at a time at the moment.
-```java
-@FunctionName("checkAgainstInputBlob")
-public void run(
-        @BlobInput(
-                name = "inputBlob",
-                path = "inputContainer/input.txt") BlobClient inputBlob,
-        @BlobTrigger(
-                name = "content",
-                path = "images/{name}",
-                connection = "AzureWebJobsStorage"
-                dataType = "string") String triggerBlob,
-        ExecutionContext ctx)
-{
-    ctx.getLogger().info("Size = " + inputBlob.getProperties().getBlobSize());
-}
-```
-
-* `dataType` on **@BlobTrigger** is **ignored** when you bind to an SDK-type.
-* `connection` can be a connection string **or** an identity-based prefix – both work with SDK-types.
-
-### What happens under the hood (in one minute)
-
-1. **Build:** the Maven plug-in scans your methods. If it sees `BlobClient` or `BlobContainerClient` it writes `"supportsDeferredBinding": true` into `function.json`.
-2. **Startup:** the worker notices the flag and inserts **SdkTypeMiddleware** before your function executes.
-3. **Invocation:** for each SDK-typed parameter the middleware
-
-   * reads the binding metadata,
-   * looks in the **WorkerObjectCache**; if no entry exists it uses reflection to construct the client,
-   * injects the client into the argument list.
-
-The cache key is derived from container name + blob name (or just container, for `BlobContainerClient`) plus the connection prefix. Thus identical invocations reuse one client; distinct blobs get their own.
-
-
-### Managed Identity
-
-SDK-types honor the same identity-based connection settings you already use with classic bindings.
-Simply point `connection` to an MI prefix and add `azure-identity` to your function’s dependencies – the worker will build `DefaultAzureCredential` reflectively.
-(No additional steps are required in the worker.)
-
-### Troubleshooting
-
-| Exception                  | Meaning                                                                                                          |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `SdkAnalysisException`     | Build plug-in couldn’t create metadata (duplicate SDK-types in one signature, unsupported parameter type, etc.). |
-| `SdkRegistryException`     | Runtime doesn’t recognize the stored FQCN – probably mismatched library versions.                                |
-| `SdkHydrationException`    | Middleware failed to build the SDK client (missing env-vars, reflection error, credential failure).              |
-| `SdkTypeCreationException` | Factory couldn’t turn metadata into the final SDK-type (usually casting issues).                                 |
-
-Check the inner message for the exact cause; most issues are mis-spelled environment variables or missing dependencies.
-
-### Future work
-
-This is the **first** SDK-type preview. We plan to:
-
-* Add more Storage client types, then branch into Cosmos DB, Event Hubs, etc.
-* Promote the feature to General Availability once telemetry shows it’s solid.
-
-Give it a try in a test function app and tell us how much faster your blob processing becomes!
-
-::: zone-end  
 
 ## host.json properties
 
