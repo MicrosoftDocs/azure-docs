@@ -178,6 +178,12 @@ For most solutions, you shouldn't rely exclusively on backups. Instead, use the 
 
 Strive to use stateless clusters that minimize the need for backup. Store data in external storage systems and databases instead of within your cluster.
 
+## Reliability during service maintenance
+
+AKS performs maintenance on your cluster, including updates to the cluster and node images. To ensure that Kubernetes maintains the minimum number of pod instances required to serve your production traffic even during upgrades, you should configure your pods to use pod disruption budgets.
+
+To reduce service disruptions during critical time periods, AKS provides controls so that you can specify planned maintenance times. To learn more, see [Use planned maintenance to schedule and control upgrades for your Azure Kubernetes Service cluster](/azure/aks/planned-maintenance).
+
 ## Service-level agreement
 
 The service-level agreement (SLA) for AKS describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).

@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - build-2025
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 06/03/2025
 ms.author: cshoe
 ---
 
@@ -355,9 +355,6 @@ To get a token for a resource, make an HTTP `GET` request to the endpoint, inclu
 
 You can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property instead of the `auth` property in your scale rule. Acceptable values for the `identity` property are either the Azure resource ID of a user-assigned identity, or `system` to use a system-assigned identity.
 
-> [!NOTE]
-> Managed identity authentication in scale rules is in public preview. It's available in API version `2024-02-02-preview`.
-
 The following ARM template example shows how to use a managed identity with an Azure Queue Storage scale rule:
 
 The queue storage account uses the `accountName` property to identify the storage account, while the `identity` property specifies which managed identity to use. You do not need to use the `auth` property.
@@ -489,8 +486,27 @@ To remove all user-assigned identities:
 
 ```azurecli
 az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> \
-    --user-assigned <IDENTITY1_RESOURCE_ID> <IDENTITY2_RESOURCE_ID>
+    --user-assigned $(az containerapp show \
+    --name <APP_NAME> \
+    --resource-group <GROUP_NAME> \
+    --query "identity.userAssignedIdentities | keys(@)" \
+    --output tsv)
 ```
+
+Replace the `<PLACEHOLDERS>` with your values.
+
+The command to remove all user-assigned identities works as follows.
+
+| Command or argument | Description |
+|---|---|
+| `--user-assigned $(...)` | Run the command enclosed by the parentheses. Send the output to `--user-assigned`. |
+| `az containerapp show...` | Get information about the specified container app. |
+| `--query "identity.userAssignedIdentities...` | Get the user-assigned identities for the specified container app. |
+| `\|` | The pipe operator sends the user-assigned identities to the `keys` command. |
+| `keys(@)` | The user-assigned identities are returned as a set of key/value pairs. Each key is the ID of a user-assigned identity. This command extracts each key. |
+| `--output tsv` | Output the results in tab-separated format. |
+
+For more information see [How to query Azure CLI command output using a JMESPath query](/cli/azure/use-azure-cli-successfully-query).
 
 # [ARM template](#tab/arm)
 
