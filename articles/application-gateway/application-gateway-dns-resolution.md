@@ -63,15 +63,31 @@ In your virtual network, it is possible to designate custom DNS servers. This co
 :::image source="media/application-gateway-dns-resolution/custom-dns.png" alt-text="A diagram showing DNS resolution with custom DNS servers.":::
 
 Flows: 
-* The diagram shows that the Application Gateway instance uses Azure-provided DNS (168.63.129.16) for name resolution of the private link Key Vault endpoint "contoso.privatelink.vaultcore.azure.net". The DNS queries for Azure domain names, which includes `azure.net`, are redirected to Azure-provided DNS. Shown in orange line.
-* For DNS resolution of "server1.contoso.com", the instance honors the custom DNS setup, as shown in blue line. 
+* The diagram shows that the Application Gateway instance uses Azure-provided DNS (168.63.129.16) for name resolution of the private link Key Vault endpoint "contoso.privatelink.vaultcore.azure.net". The DNS queries for Azure domain names, which includes `azure.net`, are redirected to Azure-provided DNS (shown in orange line).
+* For DNS resolution of "server1.contoso.com", the instance honors the custom DNS setup (as shown in blue line). 
 
+Considerations:
 
+Using custom DNS servers on application gateway virtual network will need you to take the following measures to ensure there is no impact on functioning of application gateway. 
 
+* After you change the DNS servers associated with application gateway virtual network, you must restart (Stop and Start) your application gateway for these changes to take effect for the instances.
+* When using a private endpoint in application gateway virtual network, the private DNS zone must remain linked to the application gateway virtual network to allow resolution to private IP. This DNS zone must be for a subdomain as specific as possible.
+* If the custom DNS servers are in a different virtual network, ensure it is peered with the Application Gateway's virtual network and not impacted by any Network Security Group or Route Table configurations. 
 
+### Gateways with Private IP address only (networkIsolationEnabled: True)
+The private application gateway deployment is designed to separate the customer’s data plane and management plane traffic. Therefore, having default Azure DNS or custom DNS servers has no effect on the critical management endpoints name resolutions. However, when using custom DNS servers, you must take care of name resolutions required for any data path operations.
 
+:::image source="media/application-gateway-dns-resolution/custom-dns.png" alt-text="A diagram showing DNS resolution for private-only gateway.":::
 
+Flows:
+* The DNS queries for "contoso.com" reaches the custom DNS servers through customer traffic plane.
+* The DNS queries for "contoso.privatelink.vaultcore.azure.net" also reaches the custom DNS servers. However, since the DNS server is not authoritative zone for this domain name, it forwards the query recursively to Azure DNS 168.63.129.16. Such a configuration is important to allow name resolution through a private DNS zone that is linked to the virtual network.
+* The resolution of all management endpoints goes via management plane traffic that directly interacts with the Azure-provided DNS.
 
- 
+Considerations:
+
+* After you change the DNS servers associated with application gateway virtual network, you must restart (Stop and Start) your application gateway for these changes to take effect for the instances.
+* You must set forwarding rules to send all other domains resolution queries to Azure DNS 168.63.129.16. This is especially important when you’ve a private DNS zone for private endpoint resolution.
+* When using a private endpoint, the private DNS zone must remain linked to the application gateway virtual network to allow resolution to private IP. 
 
 
