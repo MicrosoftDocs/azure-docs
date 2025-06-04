@@ -21,7 +21,7 @@ transcription_options = TranscriptionOptions(
     locale="en-US",
     start_transcription=False,
     #Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
-    SpeechRecognitionModelEndpointId = "YourCustomSpeechRecognitionModelEndpointId"
+    speech_recognition_model_endpoint_id = "YourCustomSpeechRecognitionModelEndpointId"
 );
 )
 
@@ -44,7 +44,7 @@ transcription_options = TranscriptionOptions(
     locale="en-US",
     start_transcription=False,
     #Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
-    SpeechRecognitionModelEndpointId = "YourCustomSpeechRecognitionModelEndpointId"
+    speech_recognition_model_endpoint_id = "YourCustomSpeechRecognitionModelEndpointId"
 )
 
 connect_result = client.connect_call(
@@ -175,7 +175,7 @@ await call_automation_client.get_call_connection(
     operation_context="UpdateTranscriptionContext",
     locale="en-au",
     #Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
-    SpeechRecognitionModelEndpointId = "YourCustomSpeechRecognitionModelEndpointId"
+    speech_recognition_model_endpoint_id = "YourCustomSpeechRecognitionModelEndpointId"
 )
 ```
 
