@@ -72,9 +72,9 @@ What gets deployed:
 - One  [Community](./what-community.md)
 - Eight  [Enclaves](./what-enclave.md)
 - Eight  [workloads](./what-workload.md)
-- Three  [Community Endpoints](./what-community-endpoint.md)
+- Five  [Community Endpoints](./what-community-endpoint.md)
 - 11 [Enclave Endpoint](./what-enclave-endpoint.md)
-- 25 [enclave connections](./what-enclave-connection.md)
+- 39 [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ ![Diagram showing an example demo environment within Azure Virtual Enclaves.](./media/reference-architecture-demo-environment.png) ](./media/reference-architecture-demo-environment.png#lightbox)
