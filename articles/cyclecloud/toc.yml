@@ -258,7 +258,7 @@
         href: /previous-versions/azure/cyclecloud/release-notes-archive
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-    - name: Current Release - 2025.02.06
+    - name: Current Release - 2025.04.24
       href: ./release-notes/ccws/release-notes.md       
   - name: Service Policy
     href: service-policy.md
