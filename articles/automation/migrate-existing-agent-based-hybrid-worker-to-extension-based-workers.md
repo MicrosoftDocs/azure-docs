@@ -14,6 +14,8 @@ ms.topic: how-to
 ms.service: azure-automation
 ---
 
+test doc update ## text xxx
+
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers
 
 > [!Important]
