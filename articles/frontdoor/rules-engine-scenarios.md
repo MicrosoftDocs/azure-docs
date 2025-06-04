@@ -352,7 +352,7 @@ In some scenarios, you might need to add new segments or remove some segments wh
 For example, if you want to redirect `https://domain.com/seg0/seg1/seg2/seg3` to `https://example.com/seg0/insert/seg2/seg3`. In this scenario, you replace URL path’s `{seg1}` with `/insert/` while preserving the rest of the URL path. Azure Front Door achieves the desired redirect by combining values extracted from server variables (URL segments) and combining static string segment `/insert/`. You can use `Int32.Max (2147483647)` for URL segment’s length field to keep all segments from *seg2* to *segn*. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
 
 > [!NOTE]
-> Similar configuration can be done for URL rewrite action by inputting source pattern as `/` and destination as `/{url_path:seg0}/insert/{url_path:seg2:2147483647}` as shown for redirect action in the following portal example.
+> Similar configuration can be done for URL rewrite action by inputting source pattern as `/` and destination as `/{url_path:seg0}/insert/{url_path:seg2:2147483647}` for redirect action as shown in the following portal example.
 
 :::image type="content" source="./media/rules-engine-scenarios/redirect-url-path-modification.png" alt-text="Screenshot that shows how to redirect with URL path modification while preserving part of the URL path." lightbox="./media/rules-engine-scenarios/redirect-url-path-modification.png":::
 
@@ -386,8 +386,16 @@ For example, if you want to redirect `https://domain.com/seg0/seg1/seg2/seg3` to
 
 ### Scenario 6: Redirect by removing fixed parts of a URL path
 
-A user needs to remove fixed segments of known size from a URL like, country code (us) or locale (en-us), and preserve the rest of the URL path.
-For example, if you want to redirect https://domain.com/us/seg1/seg2/seg3/ to https://example.com/seg1/seg2/seg3/, i.e. remove country code /us/ and keep the rest of the URL path as-is. Use the {variable:offset} which includes the server variable after a specific offset, until the end of the variable. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
+You can remove fixed segments of known size from a URL path, such as country codes (us) or locales (en-us), while preserving the rest of the URL path.
+
+For example, if you want to redirect `https://domain.com/us/seg1/seg2/seg3/` to `https://example.com/seg1/seg2/seg3/`, you need to remove the country code `/us/` and keep the rest of the URL path unchanged. 
+
+To achieve this, use `{variable:offset} `, which includes the server variable after a specific offset, until the end of the variable. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
+
+> [!NOTE]
+> Similar configuration can be done for URL rewrite action by inputting source pattern as `/` and destination as `/“{url_path:3}` for redirect action as shown in the following portal example.
+
+:::image type="content" source="./media/rules-engine-scenarios/redirect-remove-fixed-part.png" alt-text="Screenshot that shows how to redirect by removing fixed parts of a URL path." lightbox="./media/rules-engine-scenarios/redirect-remove-fixed-part.png":::
 
 ```json
 {
@@ -431,10 +439,18 @@ For example, if you want to redirect https://domain.com/us/seg1/seg2/seg3/ to ht
 }
 ```
 
-### Scenario 7: URL Rewrite by removing one or more segments of URL path
+### Scenario 7: URL rewrite by removing one or more segments of URL path
 
-Users need to remove segments from a URL like, country code (us) or locale (en-us), and also preserve the rest of the URL path.
-For example, if you want to rewrite https://domain.com/us/seg1/seg2/seg3/ to https://origin.com/seg2/seg3/, i.e. remove country code and an additional segment /us/seg1/ and keep the rest of the URL path.
+You can remove one or more segments from a URL path, such as country codes (us) or locales (en-us), while preserving the rest of the URL path.
+
+For example, if you want to rewrite `https://domain.com/us/seg1/seg2/seg3/` to `https://origin.com/seg2/seg3/`, you need to remove both the country code and an additional segment `/us/seg1/` while keeping the rest of the URL path intact. 
+
+To achieve this, use the `{url_path:seg#:length}` server variable format to capture specific URL segments starting from a particular segment number. In this example, use `{url_path:seg2:2147483647}` to capture all segments starting from `seg2` to the end. The value `2147483647` (Int32.Max) ensures all remaining segments are included. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
+
+:::image type="content" source="./media/rules-engine-scenarios/rewrite-url-remove-segments.png" alt-text="Screenshot that shows how to use URL rewrite to remove one or more segments of URL path." lightbox="./media/rules-engine-scenarios/rewrite-url-remove-segments.png":::
+
+> [!NOTE]
+> When using server variables like `{url_path}` in the **Destination** field, the **Preserve unmatched path** setting becomes less relevant because server variables give you explicit control over which parts of the URL path to include.
 
 ```json
 {
@@ -466,9 +482,16 @@ For example, if you want to rewrite https://domain.com/us/seg1/seg2/seg3/ to htt
 
 ### Scenario 8: Use regex to reduce the number of rule conditions and avoid hitting limits
 
-Using regex in rule conditions can reduce the number of rules, which can be a blocker due to rule limits for some customers needing conditions or actions for hundreds of their clients.
-For example, if a customer wants identify their clients with an ID pattern to be allowed to access a resource behind AFD, then they will be sending a header like x-client-id: SN1234-ABCD56 which is of the format
-x-client-id: <SN + 4 digits + - + 4 uppercase letters + 2 digits>
+Using regex in rule conditions can significantly reduce the number of rules required, which helps avoid rule limits that can be a blocker for customers who need conditions or actions for hundreds of clients.
+
+For example, if a customer wants to identify their clients with a specific ID pattern to allow access to a resource behind Azure Front Door, clients send a header like `x-client-id: SN1234-ABCD56`. This header follows a specific format: `x-client-id: <SN + 4 digits + - + 4 uppercase letters + 2 digits>`.
+
+Instead of creating individual rules for each possible client ID, you can use a single regex pattern `^SN[0-9]{4}-[A-Z]{4}[0-9]{2}$` to match all valid client IDs in one rule, for example, `SN1234-ABCD56`, `SN0001-ZYXW99`, `SN2025-QWER12`, `SN9876-MNOP34`, `SN3141-TEST42`, etc. This approach allows you to handle hundreds of different client IDs with a single rule configuration.
+
+:::image type="content" source="./media/rules-engine-scenarios/regex-client-id-pattern.png" alt-text="Screenshot that shows how to use regex to match client ID patterns." lightbox="./media/rules-engine-scenarios/regex-client-id-pattern.png":::
+
+> [!NOTE]
+> You can use [regex101](https://regex101.com/) to test and validate your regex patterns before implementing them in Azure Front Door.
 
 ```json
 {
