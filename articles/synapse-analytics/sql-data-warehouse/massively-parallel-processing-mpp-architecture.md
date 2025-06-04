@@ -100,7 +100,7 @@ The diagram below shows a replicated table that is cached on the first distribut
 
 Now that you know a bit about Azure Synapse, learn how to quickly [create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md) and [load sample data](./load-data-from-azure-blob-storage-using-copy.md). If you are new to Azure, you may find the [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources. 
 
-- [Customer success stories](https://azure.microsoft.com/en-us/resources/customer-stories)
+- [Customer success stories](https://azure.microsoft.com/resources/customer-stories)
 - [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Feature requests](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
 - [Videos](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-videos)

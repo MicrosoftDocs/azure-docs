@@ -220,7 +220,7 @@ For tooling improvements, make sure you have the correct version installed speci
 
 - [Blog - Azure Synapse Analytics](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Customer Advisory Team blogs](/archive/blogs/sqlcat/)
-- [Customer success stories](https://azure.microsoft.com/en-us/resources/customer-stories)
+- [Customer success stories](https://azure.microsoft.com/resources/customer-stories)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [X](https://x.com/hashtag/SQLDW)
 - [Videos](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-videos)
