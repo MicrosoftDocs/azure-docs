@@ -36,7 +36,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 6. Select **Review + create** to create the App Service plan.
 
 > [!IMPORTANT]
-> When you create an new App Service plan in an existing resource group, certain conditions with existing apps can trigger these errors:
+> When you create a new App Service plan in an existing resource group, certain conditions with existing apps can trigger these errors:
 > - `The pricing tier is not allowed in this resource group`
 > - `<SKU_NAME> workers are not available in resource group <RESOURCE_GROUP_NAME>`
 > 

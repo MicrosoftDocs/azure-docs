@@ -422,7 +422,7 @@ To add a routing rule on a slot and transfer 15% of production traffic to it, ru
 Add-AzWebAppTrafficRouting -ResourceGroupName "<group-name>" -WebAppName "<app-name>" -RoutingRule @{ActionHostName='<URL>';ReroutePercentage='15';Name='<slot-name>'}
 ```
 
-Get the URL for that deployment slote from the **Deployment slots** page in the Azure portal.
+Get the URL for that deployment slot from the **Deployment slots** page in the Azure portal.
 
 For more information, see [Add-AzWebAppTrafficRouting](/powershell/module/az.websites/add-azwebapptrafficrouting). To update an existing rule, use [Update-AzWebAppTrafficRouting](/powershell/module/az.websites/update-azwebapptrafficrouting).
 

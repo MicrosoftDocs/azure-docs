@@ -108,7 +108,7 @@ Create two records, as described in the following table:
 
 | Record type | Host | Value | Comments |
 | - | - | - |-|
-| CNAME | `<subdomain>` (for example, `www`) | (See the value in the Azure portal in the **Overview** page for your app.) | The domain mapping itself. |
+| CNAME | `<subdomain>` (for example, `www`) | (See the value in the Azure portal **Overview** page for your app.) | The domain mapping itself. |
 | TXT | `asuid.<subdomain>` (for example, `asuid.www`) | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
@@ -119,7 +119,7 @@ For a wildcard name, like `*` in `*.contoso.com`, create two records, as describ
 
 | Record type | Host | Value | Comments |
 | - | - | - | - |
-| CNAME | `*` | (See the value in the Azure portal in the **Overview** page for your app.) | The domain mapping itself. |
+| CNAME | `*` | (See the value in the Azure portal **Overview** page for your app.) | The domain mapping itself. |
 | TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
