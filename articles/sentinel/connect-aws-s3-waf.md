@@ -89,7 +89,7 @@ To run the script to set up the AWS environment, use the following steps:
 1. Return to the tab of the portal where you have Microsoft Sentinel open. Select **Download** under *Template 1: OpenID Connect authentication deployment* to download the template that creates the OIDC web identity provider. The template is downloaded as a JSON file to your designated downloads folder.
 
     > [!NOTE]
-    > If you have the older AWS S3 connector, and therefore you already have an OIDC web identity provider, you can skip this step.
+    > If you already have an OIDC web identity provider, skip this step.
 
 1. Select **Download** under *Template 2: AWS WAF resources deployment* to download the template that creates the other AWS resources. The template is downloaded as a JSON file to your designated downloads folder.
 
