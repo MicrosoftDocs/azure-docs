@@ -5,6 +5,7 @@ ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: "references_regions, engagement-fy23"
+# Customer intent: As a cloud administrator, I want to manage user roles and permissions in Azure VMware Solution, so that I can ensure appropriate access control and security for our virtual machine workloads.
 ---
 
 # Azure VMware Solution identity concepts

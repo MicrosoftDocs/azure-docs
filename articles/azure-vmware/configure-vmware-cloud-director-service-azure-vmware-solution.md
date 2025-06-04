@@ -7,6 +7,7 @@ ms.service: azure-vmware
 ms.topic: how-to
 ms.date: 4/15/2024
 ms.custom: engagement-fy23
+# Customer intent: As a cloud administrator, I want to configure VMware Cloud Director Service in Azure VMware Solution, so that I can manage and optimize resources between my private cloud and the VMware infrastructure efficiently.
 ---
 
 # Configure VMware Cloud Director Service in Azure VMware Solution

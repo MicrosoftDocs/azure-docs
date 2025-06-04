@@ -5,6 +5,7 @@ ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
 ms.date: 5/29/2025
+# Customer intent: "As a cloud administrator, I want to access detailed information about known issues in Azure VMware Solution so that I can implement workarounds and ensure the stability of my virtual environment."
 ---
 
 # Known issues: Azure VMware Solution

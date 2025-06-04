@@ -5,6 +5,7 @@ ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a network architect, I want to understand the network design considerations for Azure VMware Solution, so that I can effectively configure connectivity and routing between on-premises and Azure environments."
 ---
 
 # Azure VMware Solution network design considerations

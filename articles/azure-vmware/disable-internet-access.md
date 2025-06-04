@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to configure the default internet route for my private cloud, so that I can effectively manage internet access for my Azure VMware Solution environment."
 ---
 
 # Set a default internet route or turn off internet access

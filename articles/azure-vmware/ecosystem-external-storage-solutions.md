@@ -7,6 +7,7 @@ ms.author: dsoderholm
 ms.service: azure-vmware
 ms.date: 12/09/2024
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to evaluate external storage solutions for Azure VMware Solution, so that I can determine the best option to meet my workloads' performance, capacity, and data protection requirements.
 ---
  
 # External storage solutions

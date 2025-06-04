@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
+# Customer intent: As a cloud administrator, I want to utilize application performance monitoring tools for Azure VMware Solution, so that I can ensure optimal performance and quickly resolve service disruptions across my hybrid cloud infrastructure.
 ---
 
 # Application performance monitoring and troubleshooting solutions for Azure VMware Solution

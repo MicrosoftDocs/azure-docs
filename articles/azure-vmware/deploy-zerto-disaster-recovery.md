@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/11/2023
 ms.custom: engagement-fy23
+# Customer intent: As an IT administrator, I want to implement Zerto disaster recovery for my on-premises VMware and Azure VMware Solution virtual machines, so that I can ensure minimal downtime and data loss during adverse situations.
 ---
 
 # Deploy Zerto disaster recovery on Azure VMware Solution

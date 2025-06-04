@@ -5,6 +5,7 @@ ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 4/4/2025
 ms.custom: engagement-fy23, references_regions
+# Customer intent: As a cloud architect, I want to understand the capabilities and architecture of private clouds and VMware clusters within Azure, so that I can effectively design and manage scalable deployments aligned with my organization's needs.
 ---
 
 # Azure VMware Solution private cloud and cluster concepts

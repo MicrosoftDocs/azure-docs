@@ -6,6 +6,7 @@ ms.service: azure-vmware
 ms.author: anfdocs
 ms.date: 12/03/2024
 ms.custom: engagement-fy24
+# Customer intent: "As a system administrator, I want to configure cloud backups for virtual machines by mounting and unmounting datastores and attaching and detaching virtual disks, so that I can manage data recovery and ensure uninterrupted service."
 ---
 
 # Configure Cloud Backup for Virtual Machines (preview)

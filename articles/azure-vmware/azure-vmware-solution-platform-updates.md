@@ -5,6 +5,7 @@ ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
 ms.date: 5/23/2025
+# Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
 # What's new in Azure VMware Solution

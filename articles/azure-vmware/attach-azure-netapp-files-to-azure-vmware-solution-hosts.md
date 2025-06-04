@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 01/29/2025
 ms.custom: "references_regions, engagement-fy23"
+# Customer intent: "As an IT administrator, I want to attach Azure NetApp Files NFS datastores to Azure VMware Solution hosts, so that I can optimize storage performance and manage virtual machine workloads effectively in a cloud environment."
 ---
 
 # Attach Azure NetApp Files datastores to Azure VMware Solution hosts

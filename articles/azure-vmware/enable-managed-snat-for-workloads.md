@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to enable Managed SNAT for Azure VMware Solution workloads, so that I can facilitate outbound internet connectivity for my private cloud environment."
 ---
 
 # Turn on Managed SNAT for Azure VMware Solution workloads
