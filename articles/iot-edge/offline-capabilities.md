@@ -9,7 +9,7 @@ ms.service: azure-iot-edge
 services: iot-edge
 ---
 
-# Extended offline capabilities for IoT Edge devices, modules, and child devices
+# Understand extended offline capabilities for IoT Edge devices, modules, and child devices
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
