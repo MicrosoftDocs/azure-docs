@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Savings Plan and Reservations frequently asked questions (FAQ)
+  title: Azure Reservations and Savings Plan frequently asked questions (FAQ)
   titleSuffix: Microsoft Cost Management
   description: Frequently asked questions and answers.
   author: pri-mittal
@@ -10,23 +10,9 @@ metadata:
   ms.topic: faq
   ms.date: 06/04/2025
   ms.author: primittal
-title: Azure Savings Plan and Reservations frequently asked questions (FAQ)
+title: Azure Reservations and Savings Plan frequently asked questions (FAQ)
 summary: |
 sections:
-  - name: Azure Savings plan questions
-    questions:
-      - question: How do I view savings plan charges?
-        answer: |
-          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Then, add a filter for **Pricing Model: Savings plan**. 
-
-          You can choose to view either the actual cost (reflecting when the purchase was charged) or the amortized cost (which spreads the cost of the Savings Plan across the resources that used it).
-          
-          To switch between these views, select the down arrow next to the Actual Cost KPI and select your desired metric from the drop-down.
-
-      - question: How do I view savings plan underutilization?
-        answer: |
-          Sign in to the Azure portal. Then select All services > **Savings plan** and note the **Utilization (%)** for a savings plan. Select a savings plan. Review the savings plan use trend over time. 
-
   - name: Azure Reservations questions
     questions:
       - question: How do I view reservation charges?
@@ -53,3 +39,17 @@ sections:
       - question: How do I get a reservation details report?
         answer: |
           Read the API documentation to [generate a reservation details report](./reservations/reservation-utilization.md).
+           - name: Azure Savings plan questions
+  - name: Azure Savings Plan questions
+    questions:
+      - question: How do I view savings plan charges?
+        answer: |
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Then, add a filter for **Pricing Model: Savings plan**. 
+
+          You can choose to view either the actual cost (reflecting when the purchase was charged) or the amortized cost (which spreads the cost of the Savings Plan across the resources that used it).
+          
+          To switch between these views, select the down arrow next to the Actual Cost KPI and select your desired metric from the drop-down.
+
+      - question: How do I view savings plan underutilization?
+        answer: |
+          Sign in to the Azure portal. Then select All services > **Savings plan** and note the **Utilization (%)** for a savings plan. Select a savings plan. Review the savings plan use trend over time. 

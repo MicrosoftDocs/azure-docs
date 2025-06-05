@@ -301,7 +301,7 @@
     href: enterprise-agreement-faq.yml
   - name: Partner FAQ
     href: partner-faq.yml
-  - name: Azure Savings Plan and Reservations FAQ
+  - name: Azure Reservations and Savings Plan FAQ
     href: ri-asp-faq.yml
   - name: Discover cloud footprint FAQ
     href: manage/discover-cloud-footprint.md
