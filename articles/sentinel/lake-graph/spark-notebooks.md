@@ -1,17 +1,16 @@
 ---  
-title: Exploring and interacting with lake data using Spark Notebooks  
+title: Exploring and interacting with lake data using Spark Notebooks (Preview)
 titleSuffix: Microsoft Security  
 description: This article describes how to explore and interact with lake data using Spark notebooks in Visual Studio Code. You will learn how to install the Microsoft Security Sentinel extension, create and run Spark notebooks, and review sample code for interacting with security data in your modern data lake.  
-author: yourname  
+author: EdB-MSFT  
 ms.topic: how-to  
-ms.date: 01/15/2025  
-ms.author: yourmsftid  
-appliesTo:  
-  - Sentinel extension in Visual Studio Code  
-ms.collection: ms-security  
----  
- 
-# Using Jupyter notebooks and the Microsoft Sentinel data lake  
+ms.date: 06/04/2025
+ms.author: edbayansh  
+
+# Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
+---
+
+# Jupyter notebooks and the Microsoft Sentinel data lake (Preview)
  
 ## Overview  
 
@@ -24,15 +23,16 @@ The Microsoft Sentinel extension with Jupyter notebooks provides a powerful envi
 - **Interactive data exploration**: Jupyter notebooks provide an interactive environment for exploring and analyzing data. You can run code snippets, visualize results, and document your findings all in one place.
 - **Integration with Python libraries**: The Microsoft Sentinel extension includes a wide range of Python libraries, enabling you to leverage existing tools and frameworks for data analysis, machine learning, and visualization.
 - **Powerful data analysis**: With the integration of Apache Spark, you can leverage the power of distributed computing to analyze large datasets efficiently. This allows you to perform complex transformations and aggregations on your security data.  
+-	**Low-and-slow attacks**: Powerful way to analyze large scale, complex, interconnected data related to security events, alerts, and incidents, enabling detection of sophisticated threats and patterns, such as lateral movement or low-and-slow attacks, evading traditional rule-based systems. 
+-	**AI and ML intergration**: Integrate with AI and machine learning to enhance anomaly detection, threat prediction, and behavioral analysis, empowering security teams to build agents to automate their investigations. 
+-	**Scalability**: Notebooks provide the scalability to process vast amounts of data cost efficiently and enable deep batch processing for uncovering trends, patterns, and anomalies. 
 - **Visualization capabilities**: Jupyter notebooks support various visualization libraries, enabling you to create charts, graphs, and other visual representations of your data. This helps you gain insights and communicate findings effectively.
 - **Collaboration and sharing**: Jupyter notebooks can be easily shared with colleagues, allowing for collaboration on data analysis projects. You can export notebooks in various formats, including HTML and PDF, for easy sharing and presentation.
 - **Documentation and reproducibility**: Jupyter notebooks allow you to document your code, analysis, and findings in a single file. This makes it easier to reproduce results and share your work with others.  
 
 
-
-
-
 This article shows you how to explore and interact with lake data using Jupyter notebooks in Visual Studio Code. The Microsoft Sentinel extension for Visual Studio Code (VSCode) provides a powerful environment for exploring and analyzing the lake data using Jupyter notebooks and Python. The extension allows you to run interactive queries, visualize data, and gain insights from your security data stored in the data lake with the flexibility and power of Python libraries. 
+
 > [!NOTE]  
 > The Microsoft Sentinel extension is currently in Public Preview. Some functionality and performance limits may change as new releases are made available.  
  
@@ -42,31 +42,20 @@ If you have not already onboaded to the Microsoft Sentinel data lake, see [Onboa
 
 ## Permissions and Roles
 
-You can query data in the data lake based on your roles and permissions.
+Querying the data lake based on your Entra Id roles and permissions. For more information see [Permissions and roles for Microsoft Sentinel data lake](./sentinel-lake-permissions.md).
  
-To run interactive notebook queries, you need one of the following roles:
+## Prerequisites
 
-+	Global reader 
-+	Security reader
-+	Security operator 
-+	Security administrator
-+	Global administrator
+Before you can use the Microsoft Sentinel extension for Visual Studio Code, you must have the following prerequisites in place:
++ Visual Studio Code   
++ Microsoft Sentinel extension for Visual Studio Code 
 
-To schedule a job, you need one of the following roles:
-
-+	Security operator 
-+	Security administrator
-+	Global administrator
-
-
-## Install Visual Studio Code  
+### Install Visual Studio Code  
   
 - Visual Studio Code for Desktop. Download and install VS Code for [Mac](https://code.visualstudio.com/docs/?dv=osx), [Linux](https://code.visualstudio.com/docs/?dv=linux), or [Windows](https://code.visualstudio.com/docs/?dv=win).
 
-
-
  
-##  Microsoft Sentinel extension for Visual Studio Code  
+###  Microsoft Sentinel extension for Visual Studio Code  
  
 The Sentinel extension for Visual Studio Code (VSCode) is installed from the extensions marketplace in VS Code. To install the extension, follow these steps:
 
@@ -77,16 +66,9 @@ The Sentinel extension for Visual Studio Code (VSCode) is installed from the ext
   :::image type="content" source="./media/spark-notebooks/install-Sentinel-extension.png" lightbox="./media/spark-notebooks/install-sentinel-extension.png" alt-text="A screenshot showing the extension market place.":::  
 
  
-## Activate and sign in to the Sentinel extension
- 
-1. In Visual Studio Code, select the shield icon in the left navigation to activate the Sentinel extension.  
-1. Select **Accounts & Tenants**, then select **Sign in to Microsoft Security**.  
-1. Authenticate using your Sentinel credentials.
-
- 
 ## Explore lake-tier tables
- 
-After signing in, start exploring your lake data and create Spark notebooks to analyze the data.  
+
+After installing the Microsoft Sentinel extension, you can start exploring lake-tier tables and creating Spark notebooks to analyze the data. The extension provides a user-friendly interface to interact with the data lake and run Spark jobs. 
  
 1. Under **Accounts & Tenants**, select the tenant associated with your account.
 1. Select the **Raw Tables** dropdown to view lake tier tables.  
@@ -106,13 +88,14 @@ After signing in, start exploring your lake data and create Spark notebooks to a
 
 
 1. In the new notebook, paste the following your code into the first cell.
->>>>>>from access_module.data_loader import SecurityLakeDataLoader # contains the functions to load and save data from Security Lake
+
   ```python  
-  from access_module.data_loader import SecurityLakeDataLoader  
-  data_loader = SecurityLakeDataLoader(spark)  
- 
+  from sentinel_lake.providers import MicrosoftSentinelProvider
+  # the sentinel_lake.providers librabry contains the functions to load and save data from Security Lake
+  data_provider = MicrosoftSentinelProvider(spark)
+  
   table_name = "microsoft.entra.id.group"  
-  df = data_loader.load_table(table_name)  
+  df = data_provider.load_table(table_name)  
   df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100, truncate=False)  
  ```  
 
@@ -131,36 +114,27 @@ After signing in, start exploring your lake data and create Spark notebooks to a
   :::image type="content" source="./media/spark-notebooks/run-notebook.png" alt-text="{alt-text}":::
 
 > [!NOTE]
-> Selecting the kernel starts the Spark session and runs the code in the notebook. After selecting the pool, it can take 3-5 mins for the session to start. Subsequent runs will be faster as the session is already active.
+> Selecting the kernel starts the Spark session and runs the code in the notebook. After selecting the pool, it can take 3-5 mins for the session to start. Subsequent runs a faster as the session is already active.
+
+For sample notebooks that demonstrate how to interact with the Microsoft Sentinel data lake, see [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md).
 
 
 ## Microsoft Sentinel Provider class 
 
 To connect to the Microsoft Sentinel data lake,  use the `SentinelLakeProvider` class.
-This class is part of the `access_module.data_loader` module and provides methods to interact with the data lake. To use this class, you need to import it and create an instance of the class using the `spark` session.
+This class is part of the `access_module.data_loader` module and provides methods to interact with the data lake. To use this class, import it and create an instance of the class using a `spark` session.
 
 ```python
-from access_module.data_loader import SentinelLakeProvider
-lake_provider = SentinelLakeProvider(spark)    
+from sentinel_lake.providers import MicrosoftSentinelProvider
+data_provider = MicrosoftSentinelProvider(spark)
 ```
 
-The `SentinelLakeProvider` class provides methods to interact with the data lake, including listing databases, reading tables, and saving data. Below is a summary of the available methods:
-
-| Method | Arguments | Type | Return | Example |
-|--------|-----------|------|--------|---------|
-| `list_databases` <p>List all available databases / Sentinel workspaces | none | None | list[str] | `SentinelLakeProvider.list_databases()` |
-| `list_tables` <p>List all tables in a given database | `database`<br><br>`id` (optional) | str<br><br> str | list[str] | 1. List lake tables:<br>`SentinelLakeProvider.list_tables("workspace1")`<br><br>2. If your workspace names are not unique, use the table GUID:<br>`SentinelLakeProvider.list_tables("workspace1", id="ab1111112222ab333333")` |
-| `read_table` <p>Load a DataFrame from a table in Lake | `table_name`<br><br>`database`<br><br>`id` (optional) | str<br><br> str<br><br>str | DataFrame | 1. Native tables, custom tables:<br>`SentinelLakeProvider.read_table("user", "default")`<br><br>2. Aux tables:<br>`SentinelLakeProvider.read_table("SignInLogs", "workspace1")`<br><br>3.  If your workspace names are not unique, use the table GUID:<br>`SentinelLakeProvider.read_table("SignInLogs", "workspace1", id="ab1111112222ab333333")` |
-| `save_as_table` <p>Write a DataFrame as a managed table | `DataFrame`<br><br>`table_name`<br><br>`database: `<br><br>`id` (optional)<br><br>`WriteOptions {mode: Append, Overwrite}` (optional) | DataFrame<br><br>str<br><br>str<br><br>str<br><br>dict| str (runId) | 1. Create new custom table:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_SPRK", "msgworkspace1")`<br><br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1")`<br><br>2. Append/Overwrite to existing custom table:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1", mode="Append")`<br><br>3. If your workspace names are not unique, use GUID:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1", id="ab1111112222ab333333", mode="Append")` |
-| `delete_table` <p>Deletes the table from the schema | `table_name`<br><br>`database`<br><br>`id` (optional) | str<br><br>str<br><br>str| dict | 1. Delete a custom table:<br>`SentinelLakeProvider.delete_table("customtable_SPRK", "msgworkspace")`<br><br>2.  If your workspace names are not unique, use the table  GUID:<br>`SentinelLakeProvider.delete_table("SignInLogs", "workspace1", id="ab1111112222ab333333")` |
-| `get_status` <p>Check status of a save/write to table | `run_id`<br><br>`plan: lake/analytics` | str<br><br>str | dict (run_id, status, message_col) | 1. Get write status for lake table:<br>`SentinelLakeProvider.get_status("123456", plan="lake")`<br><br>2. Get write status for analytics table:<br>`SentinelLakeProvider.get_status("123456", plan="analytics")` |
-| `get_metadata` <p>Retrieve metadata about a table | `table_name`, `schema` | str<br><br> str | dict | |
-
+For more information on the available methods, see [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md).
 
  
 ### Selecting the appropriate runtime pool 
  
-You have three runtime pools available to run your Spark notebooks in the Microsoft Sentinel extension. Each pool is designed for different workloads and performance requirements. The choice of runtime pool affects the performance, cost, and execution time of your Spark jobs.  
+There are three runtime pools available to run your Jupyter notebooks in the Microsoft Sentinel extension. Each pool is designed for different workloads and performance requirements. The choice of runtime pool affects the performance, cost, and execution time of your Spark jobs.  
  
 | Runtime Pool | Recommended Use Cases |Characteristics |
 |--------------|-----------------------|----------------|
@@ -169,7 +143,7 @@ You have three runtime pools available to run your Spark notebooks in the Micros
 | **Microsoft Sentinel Large**  | - Deep learning and ML workloads<br>- Extensive data shuffling, large joins, or real-time processing<br>- Critical execution time | - High memory and compute power<br>- Minimal delays<br>- Best for large, complex, or time-sensitive workloads   |
 
 > [!NOTE]
-> For the first time, kernel options may take about 30 seconds to load.  
+> When first accessed, kernel options may take about 30 seconds to load.  
 > After selecting a runtime pool, it can take 3–5 minutes for the session to start.  
  
 ## Viewing Logs and Job Results  
@@ -182,81 +156,60 @@ You have three runtime pools available to run your Spark notebooks in the Micros
 
 
 
- 
-## Sample Notebook Code Examples  
- 
-Below are some sample code snippets that demonstrate how to interact with lake data using Spark notebooks.  
- 
-### Access Lake Tier Entra ID Group Table  
+## Jobs and Scheduling
 
-The following code sample demonstrates how to access the Entra ID `Group` table in the Microsoft Sentinel data lake. It retrieves various fields such as displayName, groupTypes, mail, mailNickname, description, and tenantId. 
+You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. This allows you to automate data processing tasks and ensure that your analyses are always up-to-date.
 
-```python  
-from sentinel_lake.providers import MicrosoftSentinelProvider
-data_provider = MicrosoftSentinelProvider(spark)
- 
-table_name = "microsoft.entra.id.group"  
-df = data_provider.read_table(table_name)  
-df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100, truncate=False)   
-```  
-The following screenshot shows a sample of the output of the code above, displaying the Entra ID group information in a dataframe format.
+To schedule a job you must save your notebook as a file.
+1. Select **File** > **Save As** and save the notebook with a `.ipynb` extension.
+1. Open the folder where you saved the notebook file using **File** > **Open folder**.
 
-:::image type="content" source="media/spark-notebooks/sample-1-output.png" alt-text="A screenshot showing sample output for the first code example.":::
+1. In the **Explorer** pane, right-click the notebook file and select **Microsoft Sentinel**, then select **Create schedule Job**.
 
-### Access Entra ID SignInLogs for a Specific User  
-The following code sample demonstrates how to access the Entra ID `SignInLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
+    :::image type="content" source="./media/spark-notebooks/create-job.png" lightbox="./media/spark-notebooks/create-job.png" alt-text="A screenshot showing how to create a new job in VSCode."  :::
 
-```python  
-from sentinel_lake.providers import MicrosoftSentinelProvider
-data_provider = MicrosoftSentinelProvider(spark)
- 
-table_name = "microsoft.entra.id.SignInLogs"  
-df = data_provider.read_table(table_name)  
-df.select("UserDisplayName", "UserPrincipalName", "UserId", "CorrelationId", "UserType", 
- "ResourceTenantId", "RiskLevel", "ResourceProvider", "IPAddress", "AppId", "AADTenantId")\
-    .filter(df.UserPrincipalName == "benploni@contoso.com")\
-    .show(100, truncate=False) 
-```  
- 
-### Examine SignIn Locations  
+1. On the **Job configuration** page, in the **Job details** section enter a **name** and **description** for the job.
+1. To run a job manually without a schedule select **Off** under **Scheduled Run** in the **Schedule Configuration** section.    
+     
+    1. Select **Publish job** to save the job configuration and publish the job.
+    
+1. To sepeficy a schedule for the job, select **On** under **Scheduled Run** in the **Schedule Configuration** section.  
+    1. Select a **Repeat** frequency for the job. You can choose from **By the minute**, **By the hour**, or **By the day**.
 
-The following code sample demonstrates how to extract and display sign-in locations from the Entra ID SignInLogs table. It uses the `from_json` function to parse the JSON structure of the `LocationDetails` field, allowing you to access specific location attributes such as city, state, and country or region.
+    1. Select a **Start and end time** for the job to run.
+    1. Select a **Time zone** for the start and end times.
+    1. Select **Publish job** to save the job configuration and publish the job.
 
-```python  
-from sentinel_lake.providers import MicrosoftSentinelProvider
-from pyspark.sql.functions import from_json, col  
-from pyspark.sql.types import StructType, StructField, StringType  
+    :::image type="content" source="./media/spark-notebooks/job-configuration.png" lightbox="./media/spark-notebooks/job-configuration.png" alt-text="A screenshot showing the job cvonfiguration page."  :::
+
+1. Select the Microsoft Sentinel shield icon in the left toolbar to view the job in the **Jobs** section.
+
+1. Select the job then select **Run now** to run a job immediately. If your job is a scheduled job, it will run at the specified time and frequency. 
+1. View the job status in the **Runs** tab.
+
+  :::image type="content" source="./media/spark-notebooks/job-runs.png" lightbox="./media/spark-notebooks/job-runs.png" alt-text="A screenshot showing the job runs page."  :::
+
+
+## Limitations 
  
-data_provider = MicrosoftSentinelProvider(spark)  
-table_name = "microsoft.entra.id.signinlogs"  
-df = data_provider.read_table(table_name)  
- 
-location_schema = StructType([  
-  StructField("city", StringType(), True),  
-  StructField("state", StringType(), True),  
-  StructField("countryOrRegion", StringType(), True)  
-])  
- 
-# Extract location details from JSON  
-df = df.withColumn("LocationDetails", from_json(col("LocationDetails"), location_schema))  
-df = df.select("UserPrincipalName", "CreatedDateTime", "IPAddress", 
- "LocationDetails.city", "LocationDetails.state", "LocationDetails.countryOrRegion")  
- 
-sign_in_locations_df = df.orderBy("CreatedDateTime", ascending=False)  
-sign_in_locations_df.show(100, truncate=False) 
-```  
- 
-## Usage Limits  
- 
-Microsoft Sentinel Graph leverages ingest, storage, and compute resources to deliver core data lake capabilities, build graph experiences, and power agentic AI scenarios. During this preview, these resources may be limited and some operations may cease once limits are reached. Most limits are applied within a rolling 30‑day window. If you hit these limits, please contact your Microsoft representative to discuss options.  
- 
-Specific limits include:  
- 
-- Ingest volume: 100 TB  
-- Spark jobs & Notebook execution: 200 vcore‑hours  
-- ADX queries: 200 vcore‑hours  
- - Graph queries: 400 vcore‑hours 
- 
++ Spark session takes about 5-6 minutes to start. You can view the status of the session at the bottom of your VS Code Notebook.
++ Only [Azure Synapse libraries](https://github.com/microsoft/synapse-spark-runtime/blob/main/Synapse/spark3.4/Official-Spark3.4-Rel-2025-04-16.0-rc.1.md) and the Microsoft Sentinel Provider library for abstracted functions are supported for querying lake. Pip installs or custom libraries aren't supported.
+
+
+| Feature | Limitation | value |
+|---------|-------------|-------|
+|Interactive queries| Spark session inactivity timeout| 20 minutes|
+|Interactive queries| interactive query timeout | 2 hours |
+|Interactive queries| Gateway web socket timeout | 2 hours |
+|Interactive queries| Maxmimum rows displayed| 10,000 rows |
+|Jobs  | Job timeout| X hours <<<<<<>>>>>> |
+| Compute resources| vCores are allocated per customer account|  1000|
+| Compute resources| Maximum vCores allocated to interactive sessions | 760 vCores |
+| Compute resources| Maximum vCores allocated to kobs | 240 vCores|
+| Compute resources| Max concurrent users in interactive sessions| 10 users|
+| Compute resources| Max concurrent running jobs| 3 jobs. The fouth and subsequent jobs will be queued.|
+
+
 ## Troubleshooting 
 
 The following table lists common errors you may encounter when working with notebooks in the Microsoft Sentinel extension for Visual Studio Code, along with their root causes and suggested actions to resolve them.
@@ -287,11 +240,3 @@ The following table lists common errors you may encounter when working with note
 | Job | Expired credentials | The user’s token or session used for scheduling is no longer valid | Re-authenticate before scheduling the job. |
 
 
-
-## Related content  
- 
-- [Create and run Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)  
-- [Introduction to Apache Spark](https://spark.apache.org/docs/latest/)  
-- [Getting started with the Microsoft Security Sentinel extension](#)  
- 
-Feel free to explore these resources to enhance your development experience with lake data and Spark notebooks.  
