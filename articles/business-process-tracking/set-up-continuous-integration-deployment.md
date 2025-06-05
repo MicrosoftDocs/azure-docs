@@ -18,7 +18,7 @@ This guide shows how to set up a CI/CD pipeline by using the Azure Logic Apps St
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Visual Studio Code and the required prerequisites.
+- Visual Studio Code installed with the Azure Logic Apps (Standard) extension and the required prerequisites.
 
   For more information, see [Create Standard logic app workflows with Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code.md#prerequisites).
 
@@ -26,15 +26,17 @@ This guide shows how to set up a CI/CD pipeline by using the Azure Logic Apps St
 
 - An Azure DevOps Services Git repository where you store your source code and artifacts.
 
-  If you don't have a repository, follow the steps in [Set up a Git repository](/devops/develop/git/set-up-a-git-repository).
+  To create and run pipelines in Azure DevOps, you need the capability to run pipelines on Microsoft-hosted agents. To use Microsoft-hosted agents, your Azure DevOps organization must have access to Microsoft-hosted parallel jobs.
 
-  After you create your repository, follow these steps to initialize your repository, so you can push your local changes to Azure DevOps:
+  If you don't have a repository, follow the steps in [Create a new Git repo in your project](/azure/devops/repos/git/create-new-repo). To create repository, you need a GitHub account or Microsoft account, an Azure DevOps organization, and an Azure DevOps project where you're an administrator.
 
-  1. Clone your repository. Find and save the clone URL.
+  After you create the repository, clone the repository to your computer and initialize the repository, so that you can push local changes to Azure DevOps:
 
-     For more information, see [Clone an existing Git repo](/azure/devops/repos/git/clone).
+  1. Follow the steps in [Clone the repo to your computer](/azure/devops/repos/git/create-new-repo#clone-the-repo-to-your-computer), for example:
 
-  1. In Visual Studio Code, open your Standard logic app project.
+     :::image type="content" source="media/set-up-continuous-integration-deployment/clone-repo.png" alt-text="Screenshot shows Azure DevOps, Files page, and selected Clone button." lightbox="media/set-up-continuous-integration-deployment/clone-repo.png":::
+
+  1. After you get the clone URL, go to Visual Studio Code, and open your Standard logic app project.
 
   1. From the **Terminal** menu, select **New Terminal**.
 
@@ -66,23 +68,24 @@ Now, generate deployment scripts for your logic app project. This approach lets 
 
 1. If your logic app project isn't currently visible, in Visual Studio Code, on the Activity Bar, select **Explorer**.
 
-1. In the **Explorer** window, open the shortcut menu for the project folder, and select **Generate Deployment Scripts**.
+1. In the **Explorer** window, open the shortcut menu for the project folder, and select **Generate deployment scripts**.
 
-1. Follow the prompts to provide the following deployment information for your logic app:
+1. Follow the prompts to provide the following deployment information as required for your logic app:
 
    | Parameter | Description |
    |-----------|-------------|
+   | **Resource group** | Select or create a new Azure resource group. |
+   | **Logic app name** | Provide a unique name for your logic app resource. |
+   | **Storage account name** | The name for the Azure storage account to use with your logic app. |
+   | **App Service plan name** | The name to assign to the App Service plan. |
    | **Subscription** | The Azure subscription. |
-   | **Resource Group** | The Azure resource group. |
    | **Location** | The Azure region. |
-   | **Logic App Name** | The name for your logic app resource. |
-   | **Storage Account Name** | The name for the Azure storage account to use with your logic app. |
 
-   The deployment process creates the infrastructure (CI) and application (CD) pipelines and parameters files in a deployment folder, for example:
+   The deployment script generation process creates a **deployment** folder that contains files for your infrastructure (CI) and application (CD) pipelines along with parameters files, for example:
 
-   <**SCREENSHOT**>
+   :::image type="content" source="media/set-up-continuous-integration-deployment/deployment-scripts.png" alt-text="Screenshot shows Visual Studio code and generated deployment script files." lightbox="media/set-up-continuous-integration-deployment/deployment-scripts.png":::
 
-1. After the generated deployment scripts appear in your project, synchronize these updates to Azure DevOps by running the following Git commands from the command prompt:
+1. Commit these updates Azure DevOps by running the following Git commands from the command prompt:
 
    `git add -A`<br>
    `git commit -m "<your-commit-comment>"`<br>
@@ -92,13 +95,25 @@ Now, generate deployment scripts for your logic app project. This approach lets 
 
 Now, create a pipeline in your repository for your logic app infrastructure. For the general steps, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline), but use the following custom steps:
 
-1. Select **Existing Azure Pipeline YAML File**.
+1. In your Azure DevOps project, go to **Pipelines**. Select **Create pipeline**, or **New pipeline** if pipelines exist, for example:
 
-1. Select the appropriate branch.
+   :::image type="content" source="media/set-up-continuous-integration-deployment/pipelines.png" alt-text="Screenshot shows Visual Studio code and generated deployment script files." lightbox="media/set-up-continuous-integration-deployment/pipelines.png":::
 
-   Earlier, you pushed local changes to Azure DevOps. Now, you can select the infrastructure pipeline that is created in Visual Studio Code.
+1. On the **Select** tab, select the repo type and the repo to use.
 
-1. To find the pipeline, go to the following location:
+   This example selects **Azure DevOps**.
+
+1. On the **Inventory** tab, select **Non-production** > **Configure pipeline**.
+
+1. On the **Configure** tab, select **Existing Azure Pipeline YAML file**.
+
+1. For **Branch**, select the appropriate branch.
+
+   This example selects the **main** branch.
+
+   Earlier, you pushed changes with generated deployment script files to Azure DevOps. Now, you can select the infrastructure pipeline file that you created in Visual Studio Code.
+
+1. For **Path**, browse to and select the **infrastucture-pipeline.yaml** file at the following location:
 
    **/pipelines/infrastructure-pipeline.yaml**
 
@@ -108,43 +123,50 @@ Now, create a pipeline in your repository for your logic app infrastructure. For
 
 ## Create a continuous integration (CI) pipeline
 
-Create a pipeline in your repository for continuous integration. For the general steps, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline), but use the following custom steps:
+Create a pipeline in your repo for continuous integration.
 
-1. Select **Existing Azure Pipeline YAML File**.
+1. Follow the steps from the previous section until you specify the path for the CI pipeline.
 
-1. Select **CI-pipeline.yml**.
+1. For **Path**, browse to and select the **CI-pipeline.yaml** file at the following location:
 
-1. Provide the name for the pipeline, but the pipeline folder is optional.
+   **/pipelines/CI-pipeline.yaml**
+
+1. Select **Continue** > **Review**. Provide the name for the pipeline, but the pipeline folder is optional.
+
+1. To complete this task, select **Save**.
 
 ## Create a continuous deployment (CD) pipeline
 
-In Azure DevOps, create another Pipeline in your repository. For additional information, please refer to Azure DevOps documentation. When creating a Pipeline, use the following configuration: 
+Create a pipeline in your repo for continuous deployment.
 
-1. Select **Existing Azure Pipeline YAML File**.
+1. Follow the steps from the previous section until you specify the path for the CD pipeline.
 
-1. Select **CD-pipeline.yml**.
+1. For **Path**, browse to and select the **CD-pipeline.yaml** file at the following location:
 
-1. Provide the name for the pipeline, but the pipeline folder is optional.
+   **/pipelines/CD-pipeline.yaml**
+
+1. Select **Continue** > **Review**. Provide the name for the pipeline, but the pipeline folder is optional.
+
+1. To complete this task, select **Save**.
 
 ## Create a service connection
 
-A service connection is an authenticated connection between Azure Pipelines and external or remote services that you use to complete tasks. In this scenario, the service connection lets your CI/CD process create and manage resources in Azure. These steps create a Microsoft Entra ID app registration that you use as an authentication credential.
+A service connection is an authenticated connection between your pipelines and external or remote services that you use to complete tasks. In this scenario, the service connection lets your CI/CD pipelines create and manage resources in Azure. These steps create a Microsoft Entra ID app registration that you use as an authentication credential. For more information, see [Create Azure Resource Manager service connection that uses workload identity federation](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation).
 
-1. Follow the steps in [Create Azure Resource Manager service connection that uses workload identity federation](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation).
+1. In your Azure DevOps project, go to **Project settings** > **Pipelines** > **Service connections**.
 
-1. Make sure that you select **Azure Resource Manager** as the service connection type, and then select **Next**.
+1. Select **Create service connection**. On the **New service connection** pane, select **Azure Resource Manager** as the service connection type, and then select **Next**.
 
-1. Provide the following information:
+1. On the **New Azure service connection** pane, provide the following information:
 
-   | Parameter | Description |
-   |-----------|-------------|
-   | **Identity type** | Select **App registration (automatic)**. | 
-   | **Credential** | Select **Workload identity federation (Recommended)**. |
-   | **Scope** | Select **Subscription**. |
+   | Parameter | Value or description |
+   |-----------|----------------------|
+   | **Identity type** | **App registration (automatic)**. | 
+   | **Credential** | **Workload identity federation (Recommended)**. |
+   | **Scope level** | **Subscription**. |
    | **Subscription** | Your Azure subscription. |
    | **Resource group** | The Azure resource group. |
    | **Service Connection Name** | The name for the service connection. |
-   | **Service Management Reference** (optional) | Context information. |
 
 1. When you're done, select **Save**.
 
@@ -152,7 +174,7 @@ A service connection is an authenticated connection between Azure Pipelines and 
 
 ## Find the Microsoft Entra ID application registration
 
-Confirm that your Microsoft Entra ID application has the necessary role and permissions for your scenario and get the object ID for later use.
+Confirm that your Microsoft Entra ID application has the necessary role and permissions for your scenario and get the object ID for later use. For more information about app registrations, see [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app).
 
 1. In the Azure portal search box, enter the name for the Microsoft Entra ID application.
 
