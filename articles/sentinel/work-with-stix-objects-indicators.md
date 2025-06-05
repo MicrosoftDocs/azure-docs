@@ -25,9 +25,9 @@ For more information about threat intelligence in Microsoft Sentinel, see [Threa
 > **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables.
 > We've made some important updates that may explain an increase in data ingestion.
 > 1. Data is now republished to Log Analytics every **7 days** instead of every **12 days**. This change will result in traffic spikes at the beginning of each week. This data is identifiable in the `ThreatIntelIndicators` and `ThreatIntelObjects` tables by filtering `SouceSystem=="LogARepublisher"`. 
-> 2. The new tables now support additional columns, including the full data object used in advanced hunting scenarios. To exclude specific columns, please refer to the [Transform away columns sent to Log Analytics](#transform-away-columns-sent-to-log-analytics)[Transform away columns sent to Log Analytics](#transform-away-columns-sent-to-log-analytics) section.
+> 2. The new tables now support additional columns, including the full data object used in advanced hunting scenarios. To exclude specific columns, please refer to the [Transform away columns sent to Log Analytics](#transform-away-columns-sent-to-log-analytics) section. To exclude specific rows, please refer to [Transform away rows sent to Log Analytics](#transform-away-rows-sent-to-log-analytics).
 > For more details on the updated schema and how it may affect your usage, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelindicators) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
-> 
+
 ## Identify threat actors associated with specific threat indicators
 
 This query is an example of how to correlate threat indicators, such as IP addresses, with threat actors:
@@ -144,15 +144,25 @@ ThreatIntelIndicators
 | project-reorder TimeGenerated, WorkspaceId, AzureTenantId, ThreatType, ObservableKey, ObservableValue, Confidence, Name, Description, LastUpdateMethod, SourceSystem, Created, Modified, ValidFrom, ValidUntil, IsDeleted, Tags, AdditionalFields, CreatedByRef, Extensions, ExternalReferences, GranularMarkings, IndicatorId, KillChainPhases, Labels, Lang, ObjectMarkingRefs, Pattern, PatternType, PatternVersion, Revoked, SpecVersion, NetworkIP, NetworkDestinationIP, NetworkSourceIP, DomainName, EmailAddress, FileHashType, FileHashValue, Url, x509Certificate, x509Issuer, x509CertificateNumber, Data
 ```
 
-## Transform away columns sent to Log Analytics.
+## Transform away values sent to Log Analytics
 
 [Transformations in Azure Monitor](/azure/azure-monitor/data-collection/data-collection-transformations) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They're implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](/azure/azure-monitor/data-collection/data-collection-rule-overview).
 
-This example shows how to remove the Pattern column from the `ThreatIntelIndicators` table.
+### Transform away columns sent to Log Analytics
+`ThreatIntelIndicators` and `ThreatIntelObjects` contains a `Data` column that holds a copy of the entire STIX object. If this column is not useful for your scenario, it is possible to filter it out before ingestion using DCRs, as shown below:
 
 ```
 source
-| project-away Pattern
+| project-away Data
+```
+
+### Transform away rows sent to Log Analytics
+`ThreatIntelIndicators` always receives at least one row per unexpired indicator. However, in some cases, we are unable to parse the STIX pattern into a key/value pair. In such instances, the indicator is sent to Log Analytics with only the unparsed pattern, allowing users to write custom analytics if desired. If these rows are not useful, it is possible to filter them out before ingestion using DCRs, as shown below:
+
+```
+source
+| where (ObservableKey != "" and isnotempty(ObservableKey)) 
+    or (ObservableValue != "" and isnotempty(ObservableValue))
 ```
 
 ## Related content
