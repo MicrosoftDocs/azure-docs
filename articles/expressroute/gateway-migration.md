@@ -40,7 +40,9 @@ The guided gateway migration experience supports the following scenarios:
 - Migrating from a non-Az-enabled SKU with a Basic IP to a non-Az-enabled SKU with a Standard IP.
 - Migrating from a non-Az-enabled SKU with a Basic IP to an Az-enabled SKU with a Standard IP.
 
- Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).  
+ If you have a ExpressRoute gateway deployed in the same virtual network as a VPN Gateway, you can use the ExpressRoute Gateway migration tool. There is no expected impact to VPN Gateway traffic during this process.
+ 
+Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).  
 Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
 For enhanced reliability and high availability, we recommend migrating to an Az-enabled SKU.
