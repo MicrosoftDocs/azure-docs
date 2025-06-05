@@ -36,19 +36,12 @@ This article shows you how to explore and interact with lake data using Jupyter 
 > [!NOTE]  
 > The Microsoft Sentinel extension is currently in Public Preview. Some functionality and performance limits may change as new releases are made available.  
  
-## Onboarding to the Microsoft Sentinel data lake
-
-If you have not already onboaded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until you have ingested a sufficient volume of data before you can create meaningful analyses using notebooks.
-
-## Permissions and Roles
-
-Querying the data lake based on your Entra Id roles and permissions. For more information see [Permissions and roles for Microsoft Sentinel data lake](./sentinel-lake-permissions.md).
- 
 ## Prerequisites
 
 Before you can use the Microsoft Sentinel extension for Visual Studio Code, you must have the following prerequisites in place:
 + Visual Studio Code   
 + Microsoft Sentinel extension for Visual Studio Code 
+
 
 ### Install Visual Studio Code  
   
@@ -65,16 +58,37 @@ The Sentinel extension for Visual Studio Code (VSCode) is installed from the ext
 
   :::image type="content" source="./media/spark-notebooks/install-Sentinel-extension.png" lightbox="./media/spark-notebooks/install-sentinel-extension.png" alt-text="A screenshot showing the extension market place.":::  
 
+### Onboarding to the Microsoft Sentinel data lake
+
+If you have not already onboaded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until you have ingested a sufficient volume of data before you can create meaningful analyses using notebooks.
+
+### Permissions and Roles
+
+Querying the data lake based on your Entra Id roles and permissions. For more information see [Permissions and roles for Microsoft Sentinel data lake](./sentinel-lake-permissions.md).
+ 
  
 ## Explore lake-tier tables
 
-After installing the Microsoft Sentinel extension, you can start exploring lake-tier tables and creating Spark notebooks to analyze the data. The extension provides a user-friendly interface to interact with the data lake and run Spark jobs. 
- 
-1. Under **Accounts & Tenants**, select the tenant associated with your account.
-1. Select the **Raw Tables** dropdown to view lake tier tables.  
-1. To explore a table’s metadata, select a table name.  
+After installing the Microsoft Sentinel extension, you can start exploring lake-tier tables and creating Jupyter notebooks to analyze the data.
 
-:::image type="content" source="./media/spark-notebooks/show-raw-tables.png" lightbox="./media/spark-notebooks/show-raw-tables.png" alt-text="A screenshot showing a list of raw tables and one table's metadata."::: 
+### Sign in to the Microsoft Sentinel extension
+ 
+1. Select the Microsoft Sentinel shield icon in the left toolbar.
+1. A dialog appears with the following text **The extension "Microsoft Sentinel" wants to sign in using Microsoft**. Select **Allow**.
+
+:::image type="content" source="./media/spark-notebooks/sign-in.png" lightbox="./media/spark-notebooks/sign-in.png" alt-text="A screenshot showing the sign in dialog."::: 
+
+1. Select your account name to complete the login.
+ 
+:::image type="content" source="./media/spark-notebooks/select-account.png" lightbox="./media/spark-notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
+
+### View lake tables and jobs
+
+Once you have signed in, the Microsoft Sentinel extension displays a list of **Lake tables** and **Jobs** in the left pane. Select a table to see the column definitions.
+
+For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
+
+:::image type="content" source="./media/spark-notebooks/tables-and-jobs.png" lightbox="./media/spark-notebooks/tables-and-jobs.png" alt-text="A screenshot showing the list of tables, jobs and the selected table's metadata."::: 
 
 ## Create a new notebook
  
@@ -84,37 +98,36 @@ After installing the Microsoft Sentinel extension, you can start exploring lake-
   :::image type="content" source="./media/spark-notebooks/create-new-notebook.png" lightbox="./media/spark-notebooks/create-new-notebook.png" alt-text="A screenshot showing how to create a new notebook from the search bar.":::
 
   1. Select File > New File, then select **Jupyter Notebook** from the dropdown.  
-  :::image type="content" source="./media/spark-notebooks/create-new-notebook.png" lightbox="./media/spark-notebooks/create-new-notebook.png"alt-text="A screenshot showing how to create a new notebook form the file menu.":::
+  :::image type="content" source="./media/spark-notebooks/new-file-notebook.png" lightbox="./media/spark-notebooks/new-file-notebook.png"alt-text="A screenshot showing how to create a new notebook form the file menu.":::
 
 
-1. In the new notebook, paste the following your code into the first cell.
+1. In the new notebook, paste the following code into the first cell.
 
-  ```python  
-  from sentinel_lake.providers import MicrosoftSentinelProvider
-  # the sentinel_lake.providers librabry contains the functions to load and save data from Security Lake
-  data_provider = MicrosoftSentinelProvider(spark)
-  
-  table_name = "microsoft.entra.id.group"  
-  df = data_provider.load_table(table_name)  
-  df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100, truncate=False)  
- ```  
+   ```python  
+   from sentinel_lake.providers import MicrosoftSentinelProvider
+   data_provider = MicrosoftSentinelProvider(spark)
 
-1. Select **Select Kernel** at the top right of the notebook.  
-  :::image type="content" source="./media/spark-notebooks/select-kernel.png" alt-text="{alt-text}":::
- 
-1. Select **MSG Runtime** from the list.
-
-
-  :::image type="content" source="./media/spark-notebooks/select-msg-runtime.png" alt-text="{alt-text}":::  
-
-1. Select **Microsoft Sentinel Medium** to run the notebook in the medium sized runtime pool. For more information on the different runtimes, see [Selecting the appropriate MSG runtime](#selecting-the-appropriate-msg-runtime).
-  :::image type="content" source="./media/spark-notebooks/select-kernel-size.png" alt-text="{alt-text}":::  
+   table_name = "microsoft.entra.id.group"  
+   df = data_provider.read_table(table_name)  
+   df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100,   truncate=False)  
+   ```  
 
 1. Select the **Run** triagle button to execute the code in the notebook. The results are displayed in the output pane below the code cell.  
-  :::image type="content" source="./media/spark-notebooks/run-notebook.png" alt-text="{alt-text}":::
+  :::image type="content" source="./media/spark-notebooks/run-notebook.png" lightbox="./media/spark-notebooks/run-notebook.png" alt-text="A screenshot showing how to run a notebook cell.":::
+
+1. Select **MSG Runtime** from the list for a list of runtime pools.
+  :::image type="content" source="./media/spark-notebooks/select-msg-runtime.png" lightbox="./media/spark-notebooks/select-msg-runtime.png" alt-text="A screenshot showing the runtime picker.":::  
+
+1. Select **Microsoft Sentinel Medium** to run the notebook in the medium sized runtime pool. For more information on the different runtimes, see [Selecting the appropriate MSG runtime](#selecting-the-appropriate-runtime-pool).
+  :::image type="content" source="./media/spark-notebooks/select-kernel-size.png" lightbox="./media/spark-notebooks/select-kernel-size.png" alt-text="Ascreenshot showing the runpool size picker.":::  
+
 
 > [!NOTE]
 > Selecting the kernel starts the Spark session and runs the code in the notebook. After selecting the pool, it can take 3-5 mins for the session to start. Subsequent runs a faster as the session is already active.
+
+When the session is started, the code in the notebook runs and the results are displayed in the output pane below the code cell, for example:
+    :::image type="content" source="media/spark-notebooks/results.png" lightbox="media/spark-notebooks/results.png alt-text="A screenshot showing the results from running a notebook cell.":::
+
 
 For sample notebooks that demonstrate how to interact with the Microsoft Sentinel data lake, see [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md).
 
@@ -138,22 +151,24 @@ There are three runtime pools available to run your Jupyter notebooks in the Mic
  
 | Runtime Pool | Recommended Use Cases |Characteristics |
 |--------------|-----------------------|----------------|
-| **Microsoft Sentinel Small**  | - Development, testing, and lightweight exploratory analysis<br>- Small workloads with simple transformations<br>- Cost efficiency prioritized | - Suitable for small workloads<br>- Simple transformations<br>- Lower cost, longer execution time               |
-| **Microsoft Sentinel Medium** | - ETL jobs with joins, aggregations, and ML model training<br>- Moderate workloads with complex transformations | - Improved performance over Small<br>- Handles parallelism and moderate memory-intensive operations             |
-| **Microsoft Sentinel Large**  | - Deep learning and ML workloads<br>- Extensive data shuffling, large joins, or real-time processing<br>- Critical execution time | - High memory and compute power<br>- Minimal delays<br>- Best for large, complex, or time-sensitive workloads   |
+| **Microsoft Sentinel Small**  | Development, testing, and lightweight exploratory analysis <br>Small workloads with simple transformations <br>Cost efficiency prioritized | Suitable for small workloads <br> Simple transformations <br>Lower cost, longer execution time               |
+| **Microsoft Sentinel Medium** | ETL jobs with joins, aggregations, and ML model training <br>Moderate workloads with complex transformations | Improved performance over Small <br>Handles parallelism and moderate memory-intensive operations             |
+| **Microsoft Sentinel Large**  |  Deep learning and ML workloads<br> Extensive data shuffling, large joins, or real-time processing<br> Critical execution time | High memory and compute power <br>Minimal delays <br> Best for large, complex, or time-sensitive workloads   |
 
 > [!NOTE]
 > When first accessed, kernel options may take about 30 seconds to load.  
 > After selecting a runtime pool, it can take 3–5 minutes for the session to start.  
  
-## Viewing Logs and Job Results  
+## Viewing Logs 
  
-- Logs can be viewed in the **Output** pane of Visual Studio Code.  
-- In the **Output** pane, select **Fabric Data Engineering – Remote** from the drop down.  
-- Select **Debug** to include detailed log entries.  
-- The results of your Spark job executions appear in the notebook output.  
-  Note: After the first execution, subsequent runs may execute faster depending on input datasets and query conditions.  
+Logs can be viewed in the **Output** pane of Visual Studio Code.  
 
+1. In the **Output** pane, select **Microsoft Sentinel** from the drop down.  
+1. Select **Debug** to include detailed log entries.  
+
+:::image type="content" source="media/spark-notebooks/output-pane.png" lightbox="media/spark-notebooks/output-pane.png" alt-text="A screenshot showing the output pane.":::
+
+   
 
 
 ## Jobs and Scheduling
