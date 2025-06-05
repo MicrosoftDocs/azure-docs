@@ -124,7 +124,8 @@ In the **Availability zones** box, leave the **Automatic** setting (recommended)
 
 ## Related content
 
-* [Reliability in API Management](../reliability/reliability-api-management.md)
-* [Design review checklist for reliability](/azure/architecture/framework/resiliency/app-design)
+- [Reliability in API Management](../reliability/reliability-api-management.md)
+- [Architecture best practices for API Management](/azure/well-architected/service-guides/azure-api-management)
+- [Design review checklist for reliability](/azure/architecture/framework/resiliency/app-design)
 - [Azure services with availability zones](../reliability/availability-zones-service-support.md)
 - [Azure regions with availability zones](../reliability/regions-list.md)
