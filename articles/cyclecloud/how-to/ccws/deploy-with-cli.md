@@ -10,7 +10,7 @@ ms.author: padmalathas
 
 Prerequisites: Users need to install the Azure CLI and Git and then sign into or set their Azure subscription.
 > [!IMPORTANT]
-> The following command has to be run from a Linux shell with Azure CLI installed and logged in to the Azure account used for the deployment. Azure Cloud Shell isn't supported for this scenario.
+> Execute the following command from a Linux shell where Azure CLI is installed and authenticated with the Azure account designated for deployment. Please note that Azure Cloud Shell isn't supported for this scenario.
 
 - Clone the Azure CycleCloud Workspace for Slurm on the latest stable release
 
