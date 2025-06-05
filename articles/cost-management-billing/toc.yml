@@ -302,7 +302,7 @@
   - name: Partner FAQ
     href: partner-faq.yml
   - name: Azure Reservations and Savings Plan FAQ
-    href: ri-asp-faq.yml
+    href: reservations-savings-plan-faq.yml
   - name: Discover cloud footprint FAQ
     href: manage/discover-cloud-footprint.md
 - name: Samples

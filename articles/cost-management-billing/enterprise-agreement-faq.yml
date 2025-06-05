@@ -10,7 +10,7 @@ metadata:
   ms.topic: faq
   ms.date: 06/05/2025
   ms.author: racheg
-title: Enterprise Agreement (EA)  frequently asked questions (FAQ)
+title: Enterprise Agreement (EA) frequently asked questions (FAQ)
 summary: |
 sections:
   - name: Azure Enterprise Agreement (EA) questions
@@ -110,9 +110,9 @@ sections:
           Direct enterprise customers can view usage and spending at different department levels in the Azure portal. Navigate to the **Department** menu to view charges.
       - question: Can I set a spending quota and get alerts as I approach my limit?
         answer: |
-          You can set a spending quota at department level and the system automatically notifies you as your spending limits meet 50%, 75%, 90%, and 100% of the quota you define.
-          
-          To define your spending quota, select a department and then select the edit icon. After you edit the spending limit details, select **Save**.
+          Spending limits are no longer supported in the Azure portal experience. Instead, we recommend using [Budgets](costs/tutorial-acm-create-budgets.md), which offer more flexibility and visibility.
+
+          You can create a budget at the department level to track your spending. Alerts can be configured to notify you when your spending reaches 50%, 75%, 90%, or 100% of the budgeted amount.
       - question: I used resource groups to implement Azure RBAC and track usage. How can I view the associated usage details?
         answer: |
           If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file.
@@ -123,7 +123,11 @@ sections:
           > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you can't apply a tag to that resource. You must redeploy these resources through the Resource Manager to support tagging. All other resources support tagging.
       - question: Can I perform analyses using Power BI?
         answer: |
-          Yes, you can use the [Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) to create powerful, customized visualizations and reports that help you better understand your Azure spend. If you are on an Enterprise Agreement (EA), you can also utilize the [Cost Management template app](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md). The Cost Management template app comes with premade reports to assist you with monitor costs, service usage trends, and identifying cost optimization options to reduce your expenditures.               Power BI reporting is available for Azure EA direct, partner, and indirect customers who are able to view billing information.
+          Yes, you can analyze your Azure cost data using Power BI. Our recommended approach is to first create an export in Cost Management and then uses the exported cost report to build a Power BI report tailored to your needs.
+
+          You can also use the [Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) to create customized visualizations and insights. If you're on an Enterprise Agreement (EA), the [Cost Management template app](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md) is also available, offering prebuilt reports to help monitor costs, analyze service usage trends, and identify optimization opportunities.
+
+          Power BI reporting is supported for Azure EA direct, partner, and indirect customers with access to billing information.
 
       - question: Can I associate my existing Azure account to Azure EA enrollment?
         answer: |
@@ -177,16 +181,13 @@ sections:
       - question: Why don't my resource tags show on my reports?
         answer: |
           Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) article.
-      - question: Why does my resource rate change every day?
-        answer: |
-          The resource rate shown in the detailed usage report is a calculated value. It represents the average monthly rate that was charged for the service. The resource rate is calculated from the average of your monthly commitment and your monthly overage charges for a unit of service. The portion of usage charged against your commitment and overage rates change to the day the month closes. Thus, the listed resource rate also changes during the month. The resource rate locks on the fifth day following the end of the month.
       - question: What changed with Azure Marketplace services and Azure EA Prepayment?
         answer: |
           As of March 1, 2018, some third-party reseller services consume Azure EA Prepayment. Except for Azure reserved VM instances (RIs), services were previously billed outside Azure EA Prepayment and were invoiced separately.
           
           We expanded the use of Azure Prepayment to include some of the third-party published Azure Marketplace services that are purchased most frequently. Azure EA Prepayment for these services in Azure Marketplace helps simplify your purchase and payment management.
 
-          The change was made because customers wanted other ways to use the upfront Azure Prepayment. This change was frequently requested by customers, and it impacted a large portion of Azure Marketplace customers.
+          The change was made because customers wanted other ways to use the upfront Azure Prepayment. Customers frequently requested this change, and it impacted a large portion of Azure Marketplace customers.
       - question: How do I benefit from Azure prepayment for Azure Marketplace purchases with my EA agreement?
         answer: |
           You get a simpler billing experience and are better able to spend your Azure EA Prepayment. Because the services are included in your Azure Prepayment, your Azure EA Prepayment becomes more valuable.
