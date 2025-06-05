@@ -100,24 +100,34 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateways:
 
 The ErGwScale virtual network gateway SKU enables you to achieve 40-Gbps connectivity to VMs and private endpoints in the virtual network.This SKU allows you to set a minimum and maximum scale unit for the virtual network gateway infrastructure, which autoscales based on the active bandwidth or flow count. You can also set a fixed scale unit to maintain a constant connectivity at a desired bandwidth value. ErGwScale will be zone-redundant by default in Azure Regions that support availability zones. 
 
-ErGwScale is available in preview in the following regions:
+ErGwScale is available in most regions except the following regions:
 
-* Australia East
-* Brazil South
-* Canada Central
-* East US
-* East Asia
-* France Central
+* Asia South East
+* Belgium Central
+* Chile Central
+* Europe North
+* Europe West
 * Germany West Central
 * India Central
-* Italy North
-* North Europe
-* Norway East
+* India West
+* Israel North West
+* Japan East
+* Malaysia West
+* Qatar Central
+* Spain Central
 * Sweden Central
-* UAE North
+* Switzerland North
+* Taiwan North West
 * UK South
-* West US 2
-* West US 3
+* US Central
+* US East 2
+* US North
+* US South
+* US South 2
+* US South East 3
+* US West
+* US West 2
+* Us West 3
 
 ### Autoscaling vs. fixed scale unit
 
