@@ -84,17 +84,14 @@ const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
 
 ## Local User Facing Diagnostic events
 
-- Subscribe to the `diagnosticChanged` event to monitor when any user-facing diagnostic changes.
+
+Each diagnostic has the following data:
+- Diagnostic is the type of diagnostic. For example a UFD of NetworkSendQuality, DeviceSpeakWhileMuted, etc...
+- value is DiagnosticQuality or DiagnosticFlag:
+- DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
+- DiagnosticFlag = true | false.
 
 ```js
-/**
- *  Each diagnostic has the following data:
- * - diagnostic is the type of diagnostic, for example NetworkSendQuality, DeviceSpeakWhileMuted, and so on.
- * - value is DiagnosticQuality or DiagnosticFlag:
- *     - DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
- *     - DiagnosticFlag = true | false.
- * - valueType = 'DiagnosticQuality' | 'DiagnosticFlag'
- */
 const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEventArgs | MediaDiagnosticChangedEventArgs) => {
     console.log(`Diagnostic changed: ` +
         `Diagnostic: ${diagnosticInfo.diagnostic}` +
@@ -116,52 +113,46 @@ const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEvent
     }
 };
 
+
+// Subscribe to the `diagnosticChanged` event to monitor when any local user-facing diagnostic changes.
+
 userFacingDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener);
 userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
-## Using Remote User Facing Diagnostics
+## Accessing Remote User Facing Diagnostic events
+RemoteParticipantDiagnosticsData has the folloiwng data
+- diagnostic contains array of diagnostics e.g. ServerConnection.
+- value is DiagnosticQuality or DiagnosticFlag:
+- DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
+- DiagnosticFlag = true | false.
+- valueType of the array = 'DiagnosticQuality' | 'DiagnosticFlag'
 
 ```js
-/***************
- * Interfaces **
- ***************/
-export declare type RemoteDiagnostic = {
-    // Remote participant's Id
-    readonly participantId: string;
-    // This is the MRI of the remote participant.
-    readonly rawId: string;
-    // Remote partcipant Object
-    readonly remoteParticipant?: RemoteParticipant;
-    // Name of the diagnostic
-    readonly diagnostic: NetworkDiagnosticType | MediaDiagnosticType | ServerDiagnosticType;
-    // Value of the diagnostic
-    readonly value: DiagnosticQuality | DiagnosticFlag;
-    // Value type of the diagnostic, "DiagnosticFlag" or "DiagnosticQuality"
-    readonly valueType: DiagnosticValueType;
-};
-export declare interface RemoteParticipantDiagnosticsData {
-    diagnostics: RemoteDiagnostic[];
-}
-
-
-/*****************
- * Sample usage **
- *****************/
-const remoteUfdsFeature = call.feature(Features.UserFacingDiagnostics).remote;
-
-// Listen for remote client UFDs. These are UFDs raised from remote participants.
 const remoteDiagnosticChangedListener = (diagnosticInfo: RemoteParticipantDiagnosticsData) => {
-        for (const diagnostic of diagnosticInfo.diagnostics) {
-            console.error(`Remote participant diagnostic: ${diagnostic.diagnostic} = ${diagnostic.value}`);
-        } 
-}
-remoteUfdsFeature.on('diagnosticChanged', remoteDiagnosticChangedListener);
+    for (const diagnostic of diagnosticInfo.diagnostics) {
+        if (diagnostic.valueType === 'DiagnosticQuality') {
+            if (diagnostic.value === SDK.DiagnosticQuality.Bad) {
+                console.error(`${diagnostic.diagnostic} is bad quality`);
+
+            } else if (diagnostic.value === SDK.DiagnosticQuality.Poor) {
+                console.error(`${diagnostic.diagnostic} is poor quality`);
+            }
+
+        } else if (diagnostic.valueType === 'DiagnosticFlag') {
+            console.error(`${diagnostic.diagnostic} diagnostic flag raised`);
+        }
+    }
+};
+
+// Subscribe to the `diagnosticChanged` event to monitor when any local user-facing diagnostic changes.
+userFacingDiagnostics.remote.on('diagnosticChanged', remoteDiagnosticChangedListener);
 
 // Start sending local UFDs to remote clients. Must call this API so that local UFDs can start sending out and remote clients can receive them.
 remoteUfdsFeature.startSendingDiagnostics();
 // Stop sending local UFDs to remote clients.
 remoteUfdsFeature.stopSendingDiagnostics();
+
 
 
 ## Raise the latest User Facing Diagnostics fired off
@@ -202,4 +193,4 @@ console.log(
   `microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, ` +
     `value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`
 );
-```
+
