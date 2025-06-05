@@ -130,10 +130,11 @@ These steps will need to be completed on all virtual networks that need to commu
 
     * From one Az-enabled SKU to another Az-enabled SKU
 
-      :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/az-sku-upgrade.png" alt-text="Screenshot that shows where to upgrade Gateway SKU for Non-Az Gateways.":::
+      :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/az-sku-upgrade.png" alt-text="Screenshot that shows where to upgrade Gateway SKU for Az Gateways.":::
 
     
 For all other downgrade scenarios, you need to delete and re-create the gateway, which incurs downtime.
+
 ## Clean up resources
 
 If you no longer need the ExpressRoute gateway, locate the gateway in the virtual network resource group and select **Delete**. Ensure the gateway doesn't have any connections to a circuit.
