@@ -89,7 +89,7 @@ const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
 ```js
 /**
  *  Each diagnostic has the following data:
- * - diagnostic is the type of diagnostic, for example NetworkSendQuality, DeviceSpeakWhileMuted, etc...
+ * - diagnostic is the type of diagnostic, for example NetworkSendQuality, DeviceSpeakWhileMuted, and so on.
  * - value is DiagnosticQuality or DiagnosticFlag:
  *     - DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
  *     - DiagnosticFlag = true | false.
