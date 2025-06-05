@@ -12,6 +12,7 @@ metadata:
   ms.custom:
     - ignite-2023
     - build-2024
+    - build-2025
   ms.date: 01/06/2025
   
 highlightedContent:
@@ -27,7 +28,7 @@ highlightedContent:
 productDirectory:
   title: Available Services
   items:
-    - title: Arize AI (preview)
+    - title: Arize AI
       imageSrc: ./media/index/arize-ai.svg
       links: 
       - url: ./arize-ai/overview.md
@@ -62,7 +63,7 @@ productDirectory:
       links:
         - url: ./informatica/informatica-overview.md
           text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy, and master data management.
-    - title: LambdaTest - HyperExecute (preview)
+    - title: LambdaTest - HyperExecute
       imageSrc: ./media/index/lambda-test.svg
       links: 
         - url: ./lambda-test/overview.md

@@ -6,7 +6,10 @@ ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/28/2024
-ms.custom: template-how-to-pattern, devx-track-bicep
+ms.custom:
+  - template-how-to-pattern
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Create dual-stack Azure Operator Nexus Kubernetes cluster
@@ -43,9 +46,9 @@ To configure dual-stack networking in your Operator Nexus Kubernetes cluster, yo
 * The `serviceCidrs` parameter takes a list of CIDR notation IP ranges to assign service IPs from. Example, `["10.96.0.0/16", "fd12:3456:789a:1::/108"]`.
 * The IPv6 subnet assigned to `serviceCidrs` can be no larger than a `/108`.
 
-## Bicep template parameters for dual-stack configuration
+## Bicep file parameters for dual-stack configuration
 
-The following JSON snippet shows the parameters required for creating dual-stack cluster in the [QuickStart Bicep template](./quickstarts-kubernetes-cluster-deployment-bicep.md).
+The following JSON snippet shows the parameters required for creating dual-stack cluster in the [QuickStart Bicep file](./quickstarts-kubernetes-cluster-deployment-bicep.md).
 
 ```json
     "podCidrs": {
@@ -58,7 +61,7 @@ The following JSON snippet shows the parameters required for creating dual-stack
 
 To create a dual-stack cluster, you need to update the `kubernetes-deploy-parameters.json` file that you created during the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md). Include the Pod and Service CIDR configuration in this file according to your desired settings, and change the cluster name to ensure that a new cluster is created with the updated configuration.
 
-After updating the Pod and Service CIDR configuration to your parameter file, you can proceed with deploying the Bicep template. This action sets up your new dual-stack cluster with the specified Pod and Server CIDR configuration.
+After updating the Pod and Service CIDR configuration to your parameter file, you can proceed with deploying the Bicep file. This action sets up your new dual-stack cluster with the specified Pod and Server CIDR configuration.
 
 By following these instructions, you can create a dual-stack Nexus Kubernetes cluster with the desired IP pool configuration and take advantage of the dual-stack in your cluster services.
 
@@ -66,10 +69,10 @@ To enable dual-stack `LoadBalancer` services in your cluster, you must ensure th
 
 ### Example parameters
 
-This parameter file is intended to be used with the [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) Bicep template for creating a dual-stack cluster. It contains the necessary configuration settings to set up the dual-stack cluster with BGP load balancer functionality. By using this parameter file with the Bicep template, you can create a dual-stack cluster with the desired BGP load balancer capabilities.
+This parameter file is intended to be used with the [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) Bicep file for creating a dual-stack cluster. It contains the necessary configuration settings to set up the dual-stack cluster with BGP load balancer functionality. By using this parameter file with the Bicep file, you can create a dual-stack cluster with the desired BGP load balancer capabilities.
 
 > [!IMPORTANT]
-> These instructions are for creating a new Operator Nexus Kubernetes cluster. Avoid applying the Bicep template to an existing cluster, as Pod and Service CIDR configurations are immutable.
+> These instructions are for creating a new Operator Nexus Kubernetes cluster. Avoid applying the Bicep file to an existing cluster, as Pod and Service CIDR configurations are immutable.
 
 ```json
 {

@@ -201,5 +201,4 @@ Learn how to:
 
 - [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
 - [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
-- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
-
+- Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).

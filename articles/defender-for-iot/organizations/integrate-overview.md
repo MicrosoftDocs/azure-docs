@@ -12,10 +12,12 @@ Integrate Microsoft Defender for IoT with partner services to view data from acr
 
 > [!IMPORTANT]
 > Defender for IoT is refreshing its security stack integrations to improve the overall robustness, scalability, and ease of maintenance of various security solutions.
-> 
+>
 > If you're integrating your security solution with cloud-based systems, we recommend that you use data connectors through [Microsoft Sentinel](concept-sentinel-integration.md). For on-premises integrations, we recommend that you either configure your OT sensor to [forward syslog events](how-to-forward-alert-information-to-partners.md)), or use [Defender for IoT APIs](references-work-with-defender-for-iot-apis.md).
-> 
+>
 > The legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), and [Splunk](#splunk) integrations are supported through October 2024 using sensor version 23.1.3, and won't be supported in upcoming major software versions. For customers using legacy integration methods, we recommend moving your integrations to the standard cloud or on-premises methods.
+>
+>Defender for IoT plans to retire the ArcSight, SPOOL, FortiSIEM, Webhook, Palo Alto and NetWitness integrations on December 1, 2025.
 
 ## Aruba ClearPass
 

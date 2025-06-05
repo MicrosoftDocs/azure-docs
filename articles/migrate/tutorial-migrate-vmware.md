@@ -73,9 +73,11 @@ Enable replication as follows:
 
     :::image type="content" source="./media/tutorial-migrate-vmware/source-settings.png" alt-text="Screenshot on source settings.":::
 
-4. In **Virtual machines**, select the machines you want to replicate. To apply VM sizing and disk type from an assessment if you've run one, in **Import migration settings from an Azure Migrate assessment?**, select **Yes**, and select the VM group and assessment name. If you aren't using assessment settings, select **No**.
+4. In **Virtual machines**, select the machines you want to replicate. If you want to use VM sizing and disk type from an assessment select **Yes** under **Import migration settings from an Azure Migrate assessment?**, and then select the VM group and assessment name. If you don't use assessment settings, select **No**. Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost. We recommend using them wherever applicable.
 
-    :::image type="content" source="./media/tutorial-migrate-vmware/select-assessment.png" alt-text="Screenshot on selecting assessment."::: 
+    :::image type="content" source="./media/tutorial-migrate-vmware/target-vm-security-type.png" alt-text="Screenshot shows the trusted virtual machines." lightbox="./media/tutorial-migrate-vmware/target-vm-security-type.png":::
+    
+    :::image type="content" source="./media/tutorial-migrate-vmware/select-assessment.png" alt-text="Screenshot on selecting assessment.":::  
 
 5. In **Virtual machines**, select VMs you want to migrate. Then select **Next: Target settings**.
 
@@ -114,12 +116,12 @@ Enable replication as follows:
     > [!NOTE]
     > If you want to select a different availability option for a set of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
-12. In **Disks**, indicate whether the VM disks should be replicated to Azure, and specify the disk type (standard SSD/HDD or Premium-managed disks) in Azure. Then select **Next**.
+12. In **Disks**, indicate whether the VM disks should be replicated to Azure, and specify the disk type (Premium v2, Ultra SSD, Standard SSD, Standard HDD, or Premium Managed disks) in Azure. Then select **Next**.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware/disks-expanded.png":::
 
     > [!NOTE]
-    > To optimize costs and enhance performance, you can now migrate to Premium managed disks for OS disks and Premium V2 SSD (preview) for data disks exclusively on VMware environment.
+    > To optimize costs and enhance performance, you can now migrate to Premium V2 SSD Disk as data disk.
 
 13. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
 
@@ -148,7 +150,6 @@ Replication occurs as follows:
 
 ## Run a test migration
 
-
 When delta replication begins, you can run a test migration for the VMs, before running a full migration to Azure. We highly recommend that you do this at least once for each machine, before you migrate it.
 
 - Running a test migration checks that migration will work as expected, without impacting the on-premises machines, which remain operational, and continue replicating.
@@ -156,7 +157,6 @@ When delta replication begins, you can run a test migration for the VMs, before 
 - You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
 
 Do a test migration as follows:
-
 
 1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
 

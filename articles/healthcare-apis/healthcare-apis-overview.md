@@ -5,7 +5,7 @@ services: healthcare-apis
 author: mmitrik
 ms.service: azure-health-data-services
 ms.topic: overview
-ms.date: 10/13/2023
+ms.date: 06/02/2025
 ms.author: mikaelw
 ---
 

@@ -6,7 +6,9 @@ ms.author: peterwhiting
 ms.date: 03/19/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 
 ---
 
@@ -14,9 +16,9 @@ ms.custom: devx-track-azurecli
 
 In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI AOSM extension to onboard a virtualized network function to AOSM. This VNF can subsequently be deployed on [Azure Operator Nexus](/azure/operator-nexus/overview). Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
 
-1. Generate BICEP files that define a Network Function Definition Group and Version (NFD).
+1. Generate Bicep files that define a Network Function Definition Group and Version (NFD).
 2. Publish the NFD and upload the VNF image to an Artifact Store (AOSM-managed Azure Container Registry (ACR)).
-3. Add your published NFD to the BICEP files that define a Network Service Design Group and Version (NSD).
+3. Add your published NFD to the Bicep files that define a Network Service Design Group and Version (NSD).
 4. Publish the NSD.
 
 ## Prerequisites
@@ -79,7 +81,7 @@ az extension add --name aosm
 
 ## Build the Network Function Definition Group and Version
 
-This section creates a folder in the working directory called `vnf-cli-output` with the BICEP templates of the AOSM resources that define your Network Function Definition Group and Version, and the Artifact Store. These resources will ultimately be included in your Network Service Design
+This section creates a folder in the working directory called `vnf-cli-output` with the Bicep files of the AOSM resources that define your Network Function Definition Group and Version, and the Artifact Store. These resources will ultimately be included in your Network Service Design
 
 1. Generate the Azure CLI AOSM extension input file for a VNF.
 
@@ -150,7 +152,7 @@ You can review the folder and files structure and make modifications if required
 
 ## Build the Network Service Design Group and Version
 
-This section creates a folder in the working directory called `nsd-cli-output`. This folder contains the BICEP templates of the AOSM resources that define a Network Service Design Group and Version. This Network Service Design is a template used in the Site Network Service resource that will deploy the Network Function you onboarded in the previous sections.
+This section creates a folder in the working directory called `nsd-cli-output`. This folder contains the Bicep files of the AOSM resources that define a Network Service Design Group and Version. This Network Service Design is a template used in the Site Network Service resource that will deploy the Network Function you onboarded in the previous sections.
 
 1. Generate the Azure CLI AOSM Extension NSD input file.
 
@@ -210,7 +212,7 @@ This section creates a folder in the working directory called `nsd-cli-output`. 
     >[!NOTE]
     > The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.
 
-1. Execute the following command to build the Network Service Design Group and Version BICEP templates.
+1. Execute the following command to build the Network Service Design Group and Version Bicep files.
 
 ```azurecli
 az aosm nsd build --config-file <nsd-output-filename.jsonc>

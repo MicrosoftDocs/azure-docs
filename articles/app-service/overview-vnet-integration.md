@@ -5,12 +5,12 @@ author: madsd
 ms.topic: conceptual
 ms.date: 03/14/2025
 ms.author: madsd
-ms.custom: UpdateFrequency3
+ms.custom:
+  - UpdateFrequency3
+  - build-2025
 
 ---
 # <a name="regional-virtual-network-integration"></a>Integrate your app with an Azure virtual network
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 This article describes the Azure App Service virtual network integration feature and how to set it up with apps in [App Service](./overview.md). With [Azure virtual networks](../virtual-network/virtual-networks-overview.md), you can place many of your Azure resources in a non-internet-routable network. The App Service virtual network integration feature enables your apps to access resources in or through a virtual network.
 
@@ -19,7 +19,7 @@ This article describes the Azure App Service virtual network integration feature
 
 App Service has two variations:
 
-* The dedicated compute pricing tiers, which include the Basic, Standard, Premium, Premium v2, and Premium v3.
+* The dedicated compute pricing tiers, which include the Basic, Standard, Premium, Premium v2, Premium v3, and Premium v4.
 * The App Service Environment, which deploys directly into your virtual network with dedicated supporting infrastructure and is using the Isolated v2 pricing tiers.
 
 The virtual network integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an [App Service Environment](./environment/overview.md), it already integrates with a virtual network and doesn't require you to configure virtual network integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](./networking-features.md).
@@ -28,7 +28,7 @@ Virtual network integration gives your app access to resources in your virtual n
 
 The virtual network integration feature:
 
-* Requires a Basic, Standard, Premium, Premium v2, Premium v3, or Elastic Premium App Service pricing tier.
+* Requires a Basic, Standard, Premium, Premium v2, Premium v3, Premium v4, or Elastic Premium App Service pricing tier.
 * Supports TCP and UDP.
 * Works with App Service apps, function apps, and Logic apps.
 
@@ -183,7 +183,7 @@ Azure uses UDP port 30,000 to do network health checks. If you block this traffi
 
 #### Private ports
 
-The App Service private ports feature uses ports 20,000 to 30,000 on both TCP and UDP to route traffic between instances through the integrated network. The mentioned port range need to be open both inbound and outbound.
+The App Service private ports feature uses ports 20,000 to 30,000 on both TCP and UDP to route traffic between instances through the integrated network. The mentioned port range needs to be open both inbound and outbound.
 
 #### On-premises traffic
 

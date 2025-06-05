@@ -3,7 +3,9 @@ title: Upgrade Basic Public IP Address to Standard SKU in Azure
 description: Upgrade basic public IP addresses to standard SKU in Azure. Learn migration steps, compare SKUs, and prepare for the September 30 2025 retirement.
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: overview
 author: mbender-ms
 ms.author: mbender
@@ -43,8 +45,9 @@ We recommend the following approach to upgrade to Standard SKU public IP address
   | Virtual Machine Scale Sets | [Replace basic SKU instance public IP addresses](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine) with new standard SKU. |
   | Load Balancer (Basic SKU) | New Load Balancer SKU required. Use the upgrade script [Upgrade Basic Load Balancer to Standard SKU](../../load-balancer/upgrade-basic-standard-with-powershell.md) to upgrade to Standard Load Balancer. |
   | VPN Gateway (using Basic IPs) | A migration path will be provided in the future. When this migration path is available, we update this decision path with migration information and send out a service health alert. For more information, see [Migrating a basic SKU FAQ](../../vpn-gateway/vpn-gateway-vpn-faq.md#migrating-a-basic-sku-public-ip-address-to-standard-sku). |
-  |  ExpressRoute Gateway (using Basic IPs) | New ExpressRoute Gateway is required. Follow the [ExpressRoute Gateway migration guidance](../../expressroute/gateway-migration.md) for upgrading from Basic to Standard SKU.  |
+  |  ExpressRoute Gateway (using Basic IPs) | ExpressRoute Gateway migration is required. Follow the [ExpressRoute Gateway migration guidance](../../expressroute/gateway-migration.md)   |
   | Application Gateway (v1 SKU) | New AppGW SKU required. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
+  | Azure Databricks (using Basic IPs) | For ephemeral workloads, Standard SKU public IP addresses are automatically deployed as virtual machines (VMs) cycle out through regular usage attrition with new VMs. For long running workloads, we recommended manually [restarting the compute resources](/azure/databricks/compute/clusters-manage#restart) which replaces existing Basic IPs with Standard IPs.  |
 
 > [!NOTE]
 > If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these aren't Public IP resources and as such can't be upgraded; a new public IP address is required. You can use the SKU property to specify that Standard IP configurations are required for each VMSS instance as shown [here](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine). 

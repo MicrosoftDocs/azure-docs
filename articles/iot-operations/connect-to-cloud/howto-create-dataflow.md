@@ -10,6 +10,8 @@ ms.date: 04/03/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
+ms.custom:
+  - build-2025
 ---
 
 # Create data flows in Azure IoT Operations
@@ -44,7 +46,7 @@ To define the source and destination, you need to configure the data flow endpoi
 > [!IMPORTANT]
 > Each data flow must have the Azure IoT Operations local MQTT broker default endpoint [as *either* the source or destination](#proper-data-flow-configuration).
 
-You can use the operations experience in Azure IoT Operations to create a data flow. The operations experience provides a visual interface to configure the data flow. You can also use Bicep to create a data flow using a Bicep template file, or use Kubernetes to create a data flow using a YAML file.
+You can use the operations experience in Azure IoT Operations to create a data flow. The operations experience provides a visual interface to configure the data flow. You can also use Bicep to create a data flow using a Bicep file, or use Kubernetes to create a data flow using a YAML file.
 
 Continue reading to learn how to configure the source, transformation, and destination.
 
@@ -203,14 +205,14 @@ If the default endpoint isn't used as the source, it must be used as the [destin
 
 # [Bicep](#tab/bicep)
 
-The message broker endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the data flow.
+The message broker endpoint is configured in the Bicep file. For example, the following endpoint is a source for the data flow.
 
 ```bicep
 sourceSettings: {
   endpointRef: 'default'
   dataSources: [
-    'thermostats/+/telemetry/temperature/#'
-    'humidifiers/+/telemetry/humidity/#'
+    'thermostats/+/sensor/temperature/#'
+    'humidifiers/+/sensor/humidity/#'
   ]
 }
 ```
@@ -225,8 +227,8 @@ For example, to configure a source using a message broker endpoint and two topic
 sourceSettings:
   endpointRef: default
   dataSources:
-    - thermostats/+/telemetry/temperature/#
-    - humidifiers/+/telemetry/humidity/#
+    - thermostats/+/sensor/temperature/#
+    - humidifiers/+/sensor/humidity/#
 ```
 
 Because `dataSources` allows you to specify MQTT or Kafka topics without modifying the endpoint configuration, you can reuse the endpoint for multiple data flows even if the topics are different. To learn more, see [Configure data sources](#configure-data-sources-mqtt-or-kafka-topics).
@@ -319,7 +321,7 @@ You can specify multiple MQTT or Kafka topics in a source without needing to mod
 
 #### MQTT topics
 
-When the source is an MQTT (Event Grid included) endpoint, you can use the MQTT topic filter to subscribe to incoming messages. The topic filter can include wildcards to subscribe to multiple topics. For example, `thermostats/+/telemetry/temperature/#` subscribes to all temperature telemetry messages from thermostats. To configure the MQTT topic filters:
+When the source is an MQTT (Event Grid included) endpoint, you can use the MQTT topic filter to subscribe to incoming messages. The topic filter can include wildcards to subscribe to multiple topics. For example, `thermostats/+/sensor/temperature/#` subscribes to all temperature sensor messages from thermostats. To configure the MQTT topic filters:
 
 # [Operations experience](#tab/portal)
 
@@ -344,13 +346,13 @@ Example with multiple MQTT topic filters with wildcards:
 sourceSettings: {
   endpointRef: 'default'
   dataSources: [
-    'thermostats/+/telemetry/temperature/#'
-    'humidifiers/+/telemetry/humidity/#'
+    'thermostats/+/sensor/temperature/#'
+    'humidifiers/+/sensor/humidity/#'
   ]
 }
 ```
 
-Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all telemetry messages under all subtopics of the `temperature` and `humidity` topics.
+Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all sensor messages under all subtopics of the `temperature` and `humidity` topics.
 
 # [Kubernetes (preview)](#tab/kubernetes)
   
@@ -369,11 +371,11 @@ Example with multiple topic filters with wildcards:
 sourceSettings:
   endpointRef: default
   dataSources:
-    - thermostats/+/telemetry/temperature/#
-    - humidifiers/+/telemetry/humidity/#
+    - thermostats/+/sensor/temperature/#
+    - humidifiers/+/sensor/humidity/#
 ```
 
-Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all telemetry messages under all subtopics of the `temperature` and `humidity` topics.
+Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all messages under all subtopics of the `temperature` and `humidity` topics.
 
 ---
 
@@ -1234,7 +1236,7 @@ Select the data flow you want to export and select **Export** from the toolbar.
 
 # [Bicep](#tab/bicep)
 
-Bicep is infrastructure as code and no export is required. Use the [Bicep template file to create a data flow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure data flows.
+Bicep is infrastructure as code and no export is required. Use the [Bicep file to create a data flow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure data flows.
 
 # [Kubernetes (preview)](#tab/kubernetes)
 

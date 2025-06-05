@@ -4,6 +4,8 @@ description: Learn how to configure an existing app for the Durable Task Schedul
 ms.topic: how-to
 ms.date: 05/06/2025
 zone_pivot_groups: df-languages
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler (preview)
@@ -74,7 +76,7 @@ The application code looks for a deployed scheduler and task hub resource. If no
 1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the .NET SDK sample directory. 
     
      ```bash
-     cd samples/portable-sdks/dotnet/FanOutFanIn
+     cd samples/durable-task-sdks/dotnet/FanOutFanIn
      ```
 
 1. Pull the Docker image for the emulator.
@@ -101,7 +103,7 @@ Since the example code automatically uses the default emulator settings, you don
 1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Python SDK sample directory. 
 
      ```bash
-     cd samples/portable-sdks/python/fan-out-fan-in
+     cd samples/durable-task-sdks/python/fan-out-fan-in
      ```
 
 1. Pull the Docker image for the emulator.
@@ -127,7 +129,7 @@ Since the example code automatically uses the default emulator settings, you don
 1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Java SDK sample directory. 
 
      ```bash
-     cd samples/portable-sdks/java/fan-out-fan-in
+     cd samples/durable-task-sdks/java/fan-out-fan-in
      ```
 
 1. Pull the Docker image for the emulator.
@@ -397,19 +399,19 @@ You can view the orchestration status and history via the [Durable Task Schedule
 
 ::: zone pivot="csharp"
 
-:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-dotnet.png" alt-text="Screenshot showing the orchestration instance's details for the .NET sample.":::
+:::image type="content" source="./media/quickstart-portable-durable-task-sdks/review-dashboard-dotnet.png" alt-text="Screenshot showing the orchestration instance's details for the .NET sample.":::
 
 ::: zone-end
 
 ::: zone pivot="python"
 
-:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-python.png" alt-text="Screenshot showing the orchestration instance's details for the Python sample.":::
+:::image type="content" source="./media/quickstart-portable-durable-task-sdks/review-dashboard-python.png" alt-text="Screenshot showing the orchestration instance's details for the Python sample.":::
 
 ::: zone-end
 
 ::: zone pivot="java"
 
-:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-java.png" alt-text="Screenshot showing the orchestration instance's details for the Java sample.":::
+:::image type="content" source="./media/quickstart-portable-durable-task-sdks/review-dashboard-java.png" alt-text="Screenshot showing the orchestration instance's details for the Java sample.":::
 
 ::: zone-end
 

@@ -6,7 +6,7 @@ ms.subservice: guest-os-patching
 author: SivaSun
 manager: timlt
 ms.service: azure-cloud-services-classic
-ms.topic: article
+ms.topic: concept-article
 ms.date: 04/07/2025
 ms.author: ssundara
 ms.custom: compute-evergreen

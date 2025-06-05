@@ -20,8 +20,8 @@
   - name: Back up a VM - ARM template
     displayName: Resource Manager
     href: quick-backup-vm-template.md
-  - name: Back up a VM - Bicep template
-    href: quick-backup-vm-bicep-template.md
+  - name: Back up a VM - Bicep file
+    href: quick-backup-vm-bicep-file.md
   - name: Back up a VM - Terraform
     href: quick-backup-vm-terraform.md
   - name: Back up Azure PostgreSQL Database
@@ -62,7 +62,7 @@
       href: quick-backup-postgresql-flexible-server-terraform.md
     - name: With Azure Resource Manager template
       href: quick-backup-postgresql-flexible-server-arm.md
-    - name: With Azure Bicep template
+    - name: With Azure Bicep file
       href: quick-backup-postgresql-flexible-server-bicep.md
   - name: Configure vaulted backup for Azure Blob
     items: 
@@ -192,6 +192,8 @@
       href: backup-azure-mysql-flexible-server-support-matrix.md
     - name: Azure files backup support matrix
       href: azure-file-share-support-matrix.md
+    - name: Azure Elastic SAN backup support matrix (preview)  
+      href: azure-elastic-storage-area-network-backup-support-matrix.md
     - name: Azure Disk Backup support matrix
       href: disk-backup-support-matrix.md
     - name: Azure Blobs backup support matrix
@@ -278,6 +280,8 @@
     href: blob-backup-overview.md
   - name: Azure Data Lake Storage backup (preview)
     href: azure-data-lake-storage-backup-overview.md  
+  - name: Azure Elastic SAN backup (preview)
+    href: azure-elastic-storage-area-network-backup-overview.md  
   - name: Azure Files backup
     href: azure-file-share-backup-overview.md
   - name: Windows backup using MARS agent
@@ -641,7 +645,9 @@
     - name: Configure backup
       href: azure-data-lake-storage-configure-backup.md
     - name: Restore
-      href: azure-data-lake-storage-restore.md        
+      href: azure-data-lake-storage-restore.md
+    - name: Manage
+      href: azure-data-lake-storage-backup-manage.md          
   - name: Azure Files backup
     items:
     - name: From the Azure portal
@@ -676,6 +682,14 @@
         href: restore-azure-file-share-rest-api.md
       - name: Manage
         href: manage-azure-file-share-rest-api.md
+  - name: Azure Elastic SAN backup (preview)
+    items:
+    - name: Configure backup
+      href: azure-elastic-storage-area-network-backup-configure.md
+    - name: Restore
+      href: azure-elastic-storage-area-network-backup-restore.md
+    - name: manage  
+      href: azure-elastic-storage-area-network-backup-manage.md          
   - name: SAP HANA database on Azure VM backup
     items:
     - name: Backup
@@ -842,6 +856,8 @@
         href: backup-azure-auto-enable-backup.md
       - name: Configure vault diagnostics settings at scale
         href: azure-policy-configure-diagnostics.md
+      - name: Audit and Enforce backup for Azure Files using Azure policy  
+        href: backup-azure-files-policy-automation.md
       - name: Audit and Enforce backup for Managed Disks using Azure policy
         href: backup-managed-disks-policy.md
       - name: Audit and Enforce backup operations for Azure Kubernetes Service clusters using Azure policy
@@ -878,7 +894,7 @@
       href: backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md
     - name: Query backup information using ARG
       href: query-backups-using-azure-resource-graph.md
-    - name: Resource Manager and Bicep templates
+    - name: Resource Manager and Bicep files
       href: backup-rm-template-samples.md
   - name: Security and Ransomware protection
     items:
@@ -957,6 +973,8 @@
       href: backup-azure-mars-troubleshoot.md
     - name: Azure Blob backup
       href: backup-azure-troubleshoot-blob-backup.md
+    - name: Azure Data Lake Storage backup (preview)
+      href: azure-data-lake-storage-backup-troubleshoot.md  
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server
@@ -1042,8 +1060,8 @@
   items:
   - name: Compliance
     href: compliance-offerings.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?searchterms=Azure+Backup
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-backup.html
   - name: Pricing calculator

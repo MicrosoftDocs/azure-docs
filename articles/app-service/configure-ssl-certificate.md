@@ -13,8 +13,6 @@ author: msangapu-msft
 
 # Add and manage TLS/SSL certificates in Azure App Service
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [help secure custom Domain Name System (DNS) names](configure-ssl-bindings.md) in [Azure App Service](overview.md). App Service provides a highly scalable, self-patching web hosting service. These certificates are currently called Transport Layer Security (TLS) certificates. They were previously known as Secure Sockets Layer (SSL) certificates. These private or public certificates help you to secure internet connections. The certificates encrypt data sent between your browser, websites that you visit, and the website server.
 
 The following table lists the options for you to add certificates in App Service:
@@ -58,11 +56,9 @@ You can add up to 1,000 private certificates per webspace.
 
 ## Create a free managed certificate
 
-The free App Service managed certificate is a turnkey solution that helps to secure your custom DNS name in App Service. App Service manages this TLS/SSL server certificate without any action from you. 
+The free App Service managed certificate is a turnkey solution that helps to secure your custom DNS name in App Service. App Service manages this TLS/SSL server certificate without any action from you.
 
-If the prerequisites that you set up stay the same, the certificate automatically renews continuously in six-month increments, 45 days before expiration. All the associated bindings are updated with the renewed certificate. You create and bind the certificate to a custom domain, and App Service does the rest.
-
-Before you create a free managed certificate, make sure that you [meet the prerequisites](#prerequisites) for your app.
+Before you create a free managed certificate, make sure that you have [meet the prerequisites](#prerequisites) for your app.
 
 DigiCert issues free certificates. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [Certification Authority Authorization (CAA) domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value `0 issue digicert.com`.
 
@@ -148,7 +144,7 @@ The service principal app ID or assignee value is the ID for the App Service res
 
 | Resource provider | Service principal app ID | Key Vault secret permissions | Key Vault certificate permissions |
 |--|--|--|--|
-| Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Get | Get |
+| Microsoft Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Get | Get |
 
 The service principal app ID or assignee value is the ID for the App Service resource provider. To learn how to authorize Key Vault permissions for the App Service resource provider by using an access policy, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 

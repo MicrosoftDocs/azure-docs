@@ -1,8 +1,8 @@
 ---
 title: Enable replication for private endpoints in Azure Site Recovery 
 description: This article describes how to configure replication for VMs with private endpoints from one Azure region to another by using Site Recovery.
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 03/13/2025

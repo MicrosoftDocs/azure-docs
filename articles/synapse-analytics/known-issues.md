@@ -9,6 +9,8 @@ ms.date: 01/30/2025
 ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: troubleshooting-known-issue
+ms.custom:
+  - build-2025
 ---
 
 # Azure Synapse Analytics known issues
@@ -118,7 +120,7 @@ Deleting a Synapse workspace fails with the error message:
 
 ### REST API PUT operations or ARM/Bicep templates to update network settings fail
 
-When using an ARM template, Bicep template, or direct REST API PUT operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation can fail.
+When using an ARM template, Bicep file, or direct REST API PUT operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation can fail.
 
 **Workaround**: The problem can be mitigated by using a REST API PATCH operation or the Azure portal UI to reverse and retry the desired configuration changes. The engineering team is aware of this behavior and working on a fix.
 

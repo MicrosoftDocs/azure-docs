@@ -6,9 +6,13 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 04/09/2025
 ms.author: danlep
-ms.custom: engagement-fy23, devx-track-arm-template, devx-track-bicep
+ms.custom:
+  - engagement-fy23
+  - devx-track-arm-template
+  - devx-track-bicep
+  - build-2025
 ---
 
 # How to integrate Azure API Management with Azure Application Insights
@@ -121,7 +125,7 @@ Use the API Management [Logger - Create or Update](/rest/api/apimanagement/curre
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template.
+Include a snippet similar to the following in your Bicep file.
 
 ```Bicep
 resource aiLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
@@ -181,7 +185,7 @@ Use the API Management [Logger - Create or Update](/rest/api/apimanagement/curre
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar the following in your Bicep template.
+Include a snippet similar the following in your Bicep file.
 
 ```Bicep
 resource aiLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
@@ -244,7 +248,7 @@ If you are configuring the logger for a workspace, use the [Workspace Logger - C
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template.
+Include a snippet similar to the following in your Bicep file.
 
 If you are configuring the logger for a workspace, create a `Microsoft.ApiManagement/service.workspace/loggers@2023-09-01-preview` resource instead.
 
