@@ -15,13 +15,13 @@ An Application Gateway is a dedicated deployment within your Virtual Network. Th
 ## Need for name resolution
 Application Gateway performs DNS resolution for the Fully Qualified Domain Names (FQDN) of
 
-1) **Customer-provided FQDNs**, such as
-* Domain name-based backend server
-* Key vault endpoint for listener certificate
-* Custom error page URL
-* Online Certificate Status Protocol (OCSP) verification URL
+* **Customer-provided FQDNs**, such as
+  * Domain name-based backend server
+  * Key vault endpoint for listener certificate
+  * Custom error page URL
+  * Online Certificate Status Protocol (OCSP) verification URL
 
-2) **Management FQDNs** that are utilized for various Azure infrastructure endpoints (control plane). These are the building blocks that form a complete Application Gateway resource. For example, communication with monitoring endpoints enable flow of Logs and Metrics. Thus, it's important for application gateways to internally communicate with other Azure services' endpoints having suffixes like `.windows.net`, `.azure.net`, etc.
+* **Management FQDNs** that are utilized for various Azure infrastructure endpoints (control plane). These are the building blocks that form a complete Application Gateway resource. For example, communication with monitoring endpoints enable flow of Logs and Metrics. Thus, it's important for application gateways to internally communicate with other Azure services' endpoints having suffixes like `.windows.net`, `.azure.net`, etc.
 
 > [!IMPORTANT]
 > The management endpoint domain names that an Application Gateway resource interacts with are listed here. Depending on the type of application gateway deployment (detailed in this article), any name resolution issue for these Azure domain names may lead to either partial or complete loss of resource functionality.
@@ -53,7 +53,7 @@ Flows:
 * After performing successful DNS resolutions for these FQDNs, the instance can communicate with the Key Vault and backend server endpoints.
 
 Considerations:
-* Don't create and link private DNS zones for top-level Azure domain names. You must create DNS zone for a subdomain as specific as possible. For example, having a private DNS zone for `privatelink.vaultcore.azure.net` for a key vault’s private endpoint works in all cases than having a zone for `vaultcore.azure.net` or `azure.net`.
+* Don't create and link private DNS zones for top-level Azure domain names. You must create DNS zone for a subdomain as specific as possible. For example, having a private DNS zone for `privatelink.vaultcore.azure.net` for a key vault’s private endpoint works better in all cases than having a zone for `vaultcore.azure.net` or `azure.net`.
 * For communication with backend servers or any service using a Private Endpoint, ensure the private link DNS zone is linked to your application gateway’s virtual network. 
 
 #### Using custom DNS servers
