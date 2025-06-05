@@ -46,14 +46,9 @@ The public IP address 168.63.129.16 is used in all regions and all national clou
 You can test communication to 168.63.129.16 by using the following tests with PowerShell.
 
 ```powershell
-$Params = @{
-  ComputerName = "168.63.129.16"
-  Port         = 80
-}
-Test-NetConnection @Params
+Test-NetConnection -ComputerName 168.63.129.16 -Port 80
 
-$Params.Port = 32526
-Test-NetConnection @Params
+Test-NetConnection -ComputerName 168.63.129.16 -Port 32526
 
 $Headers = @{
   Metadata = "true"
