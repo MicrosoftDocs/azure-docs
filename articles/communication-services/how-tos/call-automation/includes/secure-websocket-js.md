@@ -16,53 +16,87 @@ ms.author: kpunjabi
 This sample code demonstrates how to configure OIDC client to validate webhook payload using JWT
 
 ```JavaScript
-import express from "express";
+import { createServer } from "http";
+import WebSocket from "ws";
 import { JwksClient } from "jwks-rsa";
 import { verify } from "jsonwebtoken";
-
-const app = express();
+import url from "url";
+ 
 const port = 3000;
 const audience = "ACS resource ID";
 const issuer = "https://acscallautomation.communication.azure.com";
-
-app.use(express.json());
-
-app.post("/api/callback", (req, res) => {
-    const token = req?.headers?.authorization?.split(" ")[1] || "";
-
-    if (!token) {
-        res.sendStatus(401);
-
-        return;
-    }
-
-    try {
+const jwksUri = `${issuer}/calling/keys`;
+ 
+const server = createServer();
+const wss = new WebSocket.Server({ noServer: true });
+ 
+const jwksClient = new JwksClient({ jwksUri });
+ 
+function verifyToken(token: string): Promise<any> {
+    return new Promise((resolve, reject) => {
         verify(
             token,
-            (header, callback) => {
-                const client = new JwksClient({
-                    jwksUri: "https://acscallautomation.communication.azure.com/calling/keys",
-                });
-
-                client.getSigningKey(header.kid, (err, key) => {
-                    const signingKey = key?.publicKey || key?.rsaPublicKey;
-
-                    callback(err, signingKey);
+            (header, cb) => {
+                jwksClient.getSigningKey(header.kid, (err, key) => {
+                    const signingKey = key?.getPublicKey();
+                    cb(err, signingKey);
                 });
             },
-            {
-                audience,
-                issuer,
-                algorithms: ["RS256"],
-            });
-        // Your implementation on the callback event
-        res.sendStatus(200);
-    } catch (error) {
-        res.sendStatus(401);
+            { audience, issuer, algorithms: ["RS256"] },
+            (err, decoded) => (err ? reject(err) : resolve(decoded))
+        );
+    });
+}
+ 
+// Upgrade HTTP to WebSocket only if token is valid
+server.on("upgrade", async (req, socket, head) => {
+    const tokenHeader = req.headers["authorization"];
+    const token = tokenHeader?.toString().split(" ")[1];
+ 
+    if (!token) {
+        socket.write("HTTP/1.1 401 Unauthorized\r\n\r\n");
+        socket.destroy();
+        return;
+    }
+ 
+    try {
+        const decoded = await verifyToken(token);
+        (req as any).user = decoded;
+ 
+        wss.handleUpgrade(req, socket, head, (ws) => {
+            wss.emit("connection", ws, req);
+        });
+    } catch (e) {
+        console.error("WebSocket token validation failed:", e);
+        socket.write("HTTP/1.1 401 Unauthorized\r\n\r\n");
+        socket.destroy();
     }
 });
-
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+ 
+// Handle accepted WebSocket connections
+wss.on("connection", async (ws: WebSocket, req) => {
+    const user = (req as any).user;
+    console.log("Authenticated WebSocket connection from:", user);
+ 
+    await initWebsocket(ws);
+    await startConversation();
+ 
+    ws.on("message", async (packetData: ArrayBuffer) => {
+        try {
+            if (ws.readyState === WebSocket.OPEN) {
+                await processWebsocketMessageAsync(packetData);
+            }
+        } catch (err) {
+1.	            console.error("WebSocket message error:", err);
+        }
+    });
+ 
+    ws.on("close", () => {
+        console.log("WebSocket connection closed");
+    });
+});
+ 
+server.listen(port, () => {
+    console.log(`WebSocket server running on port ${port}`);
 });
 ```
