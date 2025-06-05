@@ -20,7 +20,7 @@ This guide shows how to set up infrastructure, CI, and CD pipelines by using the
 
 - Visual Studio Code installed with the Azure Logic Apps (Standard) extension and the required prerequisites.
 
-  For more information, see [Create Standard logic app workflows with Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code.md#prerequisites).
+  For more information, see [Create Standard logic app workflows with Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code#prerequisites).
 
 - A Visual Studio Code workspace with an undeployed Standard logic app project.
 
