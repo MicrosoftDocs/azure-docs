@@ -119,7 +119,7 @@ For partially connected and on-premises scenarios, you can configure your Standa
 
 To set up OpenTelemetry capability in the Azure portal, follow the steps, based on hosting option for your Standard logic workflow.
 
-#### Workflow Service Plan or App Service Environment V3
+#### Hosting option: Workflow Service Plan or App Service Environment V3
 
 For a Standard logic app that uses the hosting option for **Workflow Service Plan** or **App Service Environment V3**, follow these steps to update the **host.json** file in the root directory for your logic app resource:
 
@@ -150,22 +150,16 @@ For a Standard logic app that uses the hosting option for **Workflow Service Pla
 
    | App setting | Description |
    |-------------|-------------|
-   | **OTEL_EXPORTER_OTLP_ENDPOINT** | The online transaction processing (OTLP) exporter endpoint URL for where to send the telemetry data. |
-   | **OTEL_EXPORTER_OTLP_HEADERS** (optional) | A list of headers to apply to all outgoing data. Commonly used to pass authentication keys or tokens to your observability backend. |
+   | **OTEL_EXPORTER_OTLP_ENDPOINT** | The online transaction processing (OTLP) exporter endpoint URL for where to send the telemetry data, for example: **`https://otel.kloud....`** <br><br> For more information, see [OTEL_EXPORTER_OTLP_ENDPOINT](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_endpoint). |
+   | **OTEL_EXPORTER_OTLP_HEADERS** (optional) | A list of headers to apply to all outgoing data. Commonly used to pass authentication keys or tokens to your observability backend, for example, **`Authorization=sk_....`**. <br><br> For more information, see [OTEL_EXPORTER_OTLP_HEADERS](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_headers). |
 
 1. When you're done, select **Apply**.
 
-1. If your OpenTelemetry endpoint requires other OpenTelemetry-related settings, include these settings in the app settings too.
+1. If your OpenTelemetry endpoint requires other OpenTelemetry-related settings, include these settings in the app settings too. For more information, see [OTLP Exporter Configuration](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/).
 
-#### Hybrid deployment
+#### Hosting option: Hybrid
 
-For a Standard logic app that uses the hosting option for **Hybrid**, follow the corresponding steps to set up OpenTelemetry based on the deployment option that you chose.
-
-##### Zip deployment
-
-##### On-premises SMB file share
-
-For a Standard logic app that uses the hosting option for **Hybrid** and an on-premises SMB file share, follow these steps to update the **host.json** file:
+For a Standard logic app that uses the **Hybrid** hosting option, follow the corresponding steps to set up OpenTelemetry:
 
 1. On your on-premises SMB file share, in the root directory, find and open the **host.json** file.
 
@@ -184,20 +178,24 @@ For a Standard logic app that uses the hosting option for **Hybrid** and an on-p
 
 1. Save your edits.
 
-1. In the [Azure portal](https://portal.azure.com), find and open your Standard logic app resource.
+1. In the [Azure portal](https://portal.azure.com), find and open your Standard logic app resource with the **Hybrid** hosting option.
 
-1. On the resource navigation menu, under **Settings** > **Environment variables**, select **App settings**.
+1. On the resource navigation menu, under **Settings**, select **Containers**, and then select **Edit and deploy**.
 
-1. Add the following app settings:
+1. On the **Edit a container** pane, select **Environment variables**, and then select **Add** so you can add the following app settings:
 
-   | App setting | Description |
-   |-------------|-------------|
-   | **OTEL_EXPORTER_OTLP_ENDPOINT** | The online transaction processing (OTLP) exporter endpoint URL for where to send the telemetry data. |
-   | **OTEL_EXPORTER_OTLP_HEADERS** (optional) | A list of headers to apply to all outgoing data. Commonly used to pass authentication keys or tokens to your observability backend. |
+   | Name | Source | Value | Description |
+   |------|--------|-------|-------------|
+   | **OTEL_EXPORTER_OTLP_ENDPOINT** | **Manual** | <*OTLP-endpoint-URL*> | The online transaction processing (OTLP) exporter endpoint URL for where to send the telemetry data, for example: **`https://otel.kloud....`** <br><br> For more information, see [OTEL_EXPORTER_OTLP_ENDPOINT](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_endpoint). |
+   | **OTEL_EXPORTER_OTLP_HEADERS** (optional) | **Manual** | <*OTLP-headers*> | A list of headers to apply to all outgoing data. Commonly used to pass authentication keys or tokens to your observability backend, for example, **`Authorization=sk_....`**. <br><br> For more information, see [OTEL_EXPORTER_OTLP_HEADERS](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_headers). |
 
-1. When you're done, select **Apply**.
+   The following example shows the specified app settings added to the logic app resource:
 
-1. If your OpenTelemetry endpoint requires other OpenTelemetry-related settings, include these settings in the app settings too.
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/hybrid-app-settings.png" alt-text="Screenshot shows Azure portal, Logic App (Hybrid) resource menu with selected Settings, Containers, Edit and deploy, and pane named Environment variables." lightbox="media/enable-enhanced-telemetry-standard-workflows/hybrid-app-settings.png":::
+
+1. When you're done, select **Save**.
+
+1. If your OpenTelemetry endpoint requires other OpenTelemetry-related settings, include these settings in the app settings too. For more information, see [OTLP Exporter Configuration](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/).
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -222,18 +220,14 @@ To set up OpenTelemetry capability in Visual Studio Code, follow these steps:
 
    | App setting | Description |
    |-------------|-------------|
-   | **OTEL_EXPORTER_OTLP_ENDPOINT** | The online transaction processing (OTLP) exporter endpoint URL for where to send the telemetry data. |
-   | **OTEL_EXPORTER_OTLP_HEADERS** (optional) | A list of headers to apply to all outgoing data. Commonly used to pass authentication keys or tokens to your observability backend. |
+   | **OTEL_EXPORTER_OTLP_ENDPOINT** | The online transaction processing (OTLP) exporter endpoint URL for where to send the telemetry data, for example: **`https://otel.kloud....`** <br><br> For more information, see [OTEL_EXPORTER_OTLP_ENDPOINT](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_endpoint). |
+   | **OTEL_EXPORTER_OTLP_HEADERS** (optional) | A list of headers to apply to all outgoing data. Commonly used to pass authentication keys or tokens to your observability backend, for example, **`Authorization=sk_....`**. <br><br> For more information, see [OTEL_EXPORTER_OTLP_HEADERS](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_headers). |
 
-1. If your OpenTelemetry endpoint requires other OpenTelemetry-related settings, include these settings in the app settings too.
+1. If your OpenTelemetry endpoint requires other OpenTelemetry-related settings, include these settings in the app settings too. For more information, see [OTLP Exporter Configuration](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/).
 
 ---
 
-For more information, see the following documentation:
-
-- [Edit host and app settings for Standard logic apps](edit-app-settings-host-settings.md)
-
-- [OTLP Exporter Configuration documentation](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/)
+For more information, see [Edit host and app settings for Standard logic apps](edit-app-settings-host-settings.md).
 
 <a name="open-application-insights"></a>
 
