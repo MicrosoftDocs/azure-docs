@@ -126,11 +126,11 @@ These steps will need to be completed on all virtual networks that need to commu
     You can upgrade:
     * From one Non-Az-enabled SKU to another Non-Az-enabled SKU
 
-     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/standard-sku-upgrade.png" alt-text="Screenshot that shows where to upgrade Gateway SKU for Non-Az Gateways.":::
+        [![Screenshot that shows where to upgrade Gateway SKU for Non-Az Gateways.](./media/expressroute-howto-add-gateway-portal-resource-manager/non-az-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/non-az-upgrade.png)
 
     * From one Az-enabled SKU to another Az-enabled SKU
 
-      :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/az-sku-upgrade.png" alt-text="Screenshot that shows where to upgrade Gateway SKU for Az Gateways.":::
+        [![Screenshot that shows where to upgrade Gateway SKU for Az Gateways.](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)
 
     
 For all other downgrade scenarios, you need to delete and re-create the gateway, which incurs downtime.
