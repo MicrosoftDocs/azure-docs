@@ -93,19 +93,28 @@ This section outlines the end-to-end steps to assign Policy 1. The same instruct
 To assign Policy 1 for Azure Files backup, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Policy** > **Authoring** > **Definitions** to view all built-in policies across Azure Resources.
+
+   :::image type="content" source="./media/backup-azure-files-policy-automation/view-built-in-policies.png" alt-text="Screenshot shows how the view the built-in policies." lightbox="./media/backup-azure-files-policy-automation/view-built-in-policies.png":::
+
 1. On the **Policy Definitions** pane, filter the list for **Category** as **Backup**, **Policy type** as **Built-in**, and then select the policy named **Configure backup for Azure Files Shares without a given tag to an existing recovery services vault in the same location**.
  
-   The policy pane opens with  detailed definition.
- 
-1.	On the selected policy pane, select **Assign policy**.
- 
-1. On the **Assign policy** pane, under **Basics**, select the **more icon** Corresponding to **Scope**. 
+1.	On the selected policy pane, review the policy details, and then select **Assign policy**.
+
+   :::image type="content" source="./media/backup-azure-files-policy-automation/view-policy-details.png" alt-text="Screenshot shows the selected policy details." lightbox="./media/backup-azure-files-policy-automation/view-policy-details.png":::
+
+1. On the **Assign policy** pane, on the **Basics** tab, select the **more icon** Corresponding to **Scope**. 
+
+   :::image type="content" source="./media/backup-azure-files-policy-automation/set-policy-enforcement-scope.png" alt-text="Screenshot shows how to set the scope for the policy assignment." lightbox="./media/backup-azure-files-policy-automation/set-policy-enforcement-scope.png":::
+
 1. On the right context pane, select the subscription for the policy to be applied on. 
 
    You can also select a resource group, so that the policy is applied only for VMs in a particular resource group.
  
 1. On the **Parameters** tab, provide the **Location**, **Vault Name**, **Backup Policy Name** to which the Azure Files in the scope must be associated. 
-   You can also choose to specify a tag name and an array of tag values. A File Share which contains any of the specified values for the given tag is excluded from the scope of the policy assignment.
+
+   :::image type="content" source="./media/backup-azure-files-policy-automation/set-policy-enforcement-parameters.png" alt-text="Screenshot shows how to set the policy enforcement parameters." lightbox="./media/backup-azure-files-policy-automation/set-policy-enforcement-parameters.png":::
+
+   You can also specify a tag name and an array of tag values. A File Share which contains any of the specified values for the given tag is excluded from the scope of the policy assignment.
  
    Ensure that **Effect** is set to **`deployIfNotExists`**.
 
