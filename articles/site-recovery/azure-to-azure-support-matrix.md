@@ -433,7 +433,7 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Trans
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
 Managed Shared Disk| Supported 
-Managed Premium SSD v2 Disk| Supported | Public Preview with PowerShell support in all public regions except Australia East and West Central US. Portal is not supported.
+Managed Premium SSD v2 Disk| Supported | Public Preview with PowerShell support in all public regions except Australia East and West Central US.
 Ultra Disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported

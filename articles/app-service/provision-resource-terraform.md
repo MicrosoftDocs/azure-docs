@@ -16,7 +16,7 @@ ms.custom:
 
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud via [Terraform](/azure/developer/terraform/). When you use a free App Service tier, there's no charge to complete this quickstart.
 
-Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a Windows app by using Terraform.
+Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create an app by using Terraform.
 
 ## Prerequisites
 
@@ -33,7 +33,9 @@ Terraform allows you to define and create complete infrastructure deployments in
 
 ## Review the template
 
-This quickstart uses the following template. It deploys an App Service plan and an App Service app on Linux and a sample Node.js `Hello World` app from the [Azure Samples](https://github.com/Azure-Samples) repo.
+Choose the following Linux or Windows template to create an App Service plan and App Service app. Linux will create a sample Node.js `Hello World` app from the [Azure Samples](https://github.com/Azure-Samples) repo.  The Windows container template will create a sample ASP.NET app from the [Microsoft Container Registry](https://mcr.microsoft.com/).
+
+# [Linux](#tab/linux)
 
 ```hcl
 # Configure the Azure provider
@@ -107,6 +109,70 @@ The template defines the following four Azure resources. For further details and
   * [`azurerm_linux_web_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app)
 * [Microsoft.Web/sites/sourcecontrols](/azure/templates/microsoft.web/sites/sourcecontrols): Create an external Git deployment configuration.
   * [`azurerm_app_service_source_control`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_source_control)
+
+# [Windows Container](#tab/windows-container)
+
+```hcl
+# Configure the Azure provider
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>3.0.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+# Generate a random integer to create a globally unique name
+resource "random_integer" "ri" {
+  min = 10000
+  max = 99999
+}
+
+# Create the resource group
+resource "azurerm_resource_group" "rg" {
+  name     = "rg-${random_integer.ri.result}"
+  location = "eastus"
+}
+
+# Create the Windows App Service Plan
+resource "azurerm_service_plan" "windows_appserviceplan" {
+  name                = "windows-asp-${random_integer.ri.result}"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  os_type             = "WindowsContainer"
+  sku_name            = "P1v3"
+}
+
+# Create the Windows Web App with a container
+resource "azurerm_windows_web_app" "windows_webapp" {
+  name                  = "windows-webapp-${random_integer.ri.result}"
+  location              = azurerm_resource_group.rg.location
+  resource_group_name   = azurerm_resource_group.rg.name
+  service_plan_id       = azurerm_service_plan.windows_appserviceplan.id
+
+  site_config {
+    always_on = true
+    app_command_line = ""
+    application_stack {
+      docker_container_name = "mcr.microsoft.com/dotnet/framework/samples"
+      docker_container_tag = "aspnetapp"
+    }
+  }
+
+  app_settings = {
+    DOCKER_REGISTRY_SERVER_USERNAME     = ""
+    DOCKER_REGISTRY_SERVER_PASSWORD     = ""
+    DOCKER_REGISTRY_SERVER_URL          = "https://mcr.microsoft.com"
+    WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
+  }
+}
+
+```
 
 For more information on how to construct Terraform templates, see [Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/azure-get-started).
 
