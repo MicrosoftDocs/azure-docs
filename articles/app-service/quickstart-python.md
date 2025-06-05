@@ -21,6 +21,45 @@ To complete this quickstart, you need:
 > [!NOTE]
 > This article contains current instructions on deploying a Python web app using Azure App Service. Python on Windows is no longer supported.
 
+## Skip to the end
+
+You can quickly deploy the sample app in this tutorial using Azure Developer CLI and see it running in Azure. Just run the following commands in the [Azure Cloud Shell](https://shell.azure.com)want, and follow the prompt:
+
+### [Flask](#tab/flask)
+
+```bash
+mkdir flask-quickstart
+cd flask-quickstart
+azd init --template https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart
+azd up
+```
+
+### [Django](#tab/django)
+
+```bash
+mkdir django-quickstart
+cd django-quickstart
+azd init --template https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart
+azd up
+```
+
+### [FastAPI](#tab/fastapi)
+
+```bash
+mkdir fastapi-quickstart
+cd fastapi-quickstart
+azd init --template https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart
+azd up
+```
+
+---
+
+And, to delete the resources:
+
+```bash
+azd down
+```
+
 ## Sample application
 
 This quickstart can be completed using either Flask, Django, or FastAPI. A sample application in each framework is provided to help you follow along with this quickstart. Download or clone the sample application to your local workstation.
