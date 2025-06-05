@@ -6,7 +6,7 @@
     href: front-door-overview.md
   - name: Front Door and CDN comparison
     href: front-door-cdn-comparison.md
-  - name: Well-Architected review of Front Door
+  - name: Architecture best practices for Azure Front Door
     href: /azure/well-architected/service-guides/azure-front-door?toc=/azure/frontdoor/toc.json
   - name: Front Door best practices
     href: best-practices.md

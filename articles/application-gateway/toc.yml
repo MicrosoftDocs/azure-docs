@@ -9,6 +9,8 @@
     href: overview-v2.md
   - name: Application Gateway for Containers
     href: ./for-containers/overview.md
+  - name: Architecture best practices for Azure Application Gateway v2
+    href: /azure/well-architected/service-guides/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
   - name: What is load balancing and content delivery?
     href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md
   - name: Choose a load balancing solution
@@ -31,8 +33,6 @@
     href: application-gateway-faq.yml
 - name: Design
   items:
-  - name: Architecture best practices for Azure Application Gateway v2
-    href: /azure/architecture/framework/services/networking/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
   - name: Basics
     items:
     - name: Application Gateway features

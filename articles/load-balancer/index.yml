@@ -46,6 +46,8 @@ landingContent:
         links:
           - text: Load-balancing options
             url: /azure/architecture/guide/technology-choices/load-balancing-overview
+          - text: Architecture best practices for Azure Load Balancer
+            url: /azure/well-architected/service-guides/azure-load-balancer
           - text: Azure Load Balancer algorithm
             url: /azure/load-balancer/concepts
           - text: Gateway load balancer overview

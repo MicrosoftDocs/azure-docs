@@ -133,6 +133,8 @@ landingContent:
             url: expressroute-global-reach.md
       - linkListType: architecture
         links:
+          - text: Architecture best practices for Azure ExpressRoute
+            url: /azure/well-architected/service-guides/azure-expressroute
           - text: Extend an on-premises network using ExpressRoute
             url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
           - text: Connect an on-premises network to Azure using ExpressRoute

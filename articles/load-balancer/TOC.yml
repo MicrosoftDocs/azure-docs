@@ -10,8 +10,8 @@
     href: cross-region-overview.md
   - name: Cross-subscription load balancer overview
     href: cross-subscription-overview.md
-  - name: Load balancer best practices
-    href: load-balancer-best-practices.md
+  - name: Architecture best practices for Azure Load Balancer
+    href: /azure/well-architected/service-guides/azure-load-balancer?toc=/azure/load-balancer/toc.json
   - name: Health probes
     href: load-balancer-custom-probe-overview.md
   - name: Administrative state
@@ -41,6 +41,8 @@
     href: concepts.md
   - name: Distribution modes
     href: distribution-mode-concepts.md
+  - name: Load balancer best practices
+    href: load-balancer-best-practices.md
   - name: Public load balancer
     items:
     - name: Create a public load balancer

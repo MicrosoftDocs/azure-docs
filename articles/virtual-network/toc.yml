@@ -16,6 +16,8 @@
       href: virtual-network-service-endpoints-overview.md
     - name: Service tags
       href: service-tags-overview.md
+    - name: Architecture best practices for Azure Virtual Network
+      href: /azure/well-architected/service-guides/virtual-network
     - name: What is network foundations?
       href: /azure/networking/network-foundations-overview
 - name: Get started
@@ -50,6 +52,7 @@
       href: what-is-ip-address-168-63-129-16.md
 - name: Plan and design
   items:
+    - name:
     - name: Implement a secure hybrid network
       href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=portal
     - name: Name resolution for resources

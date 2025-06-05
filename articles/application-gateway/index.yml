@@ -28,6 +28,8 @@ landingContent:
             url: ./for-containers/overview.md
       - linkListType: concept
         links:
+          - text: Architecture best practices for Azure Application Gateway v2
+            url: /azure/well-architected/service-guides/azure-application-gateway
           - text: Frequently asked questions
             url: application-gateway-faq.yml
       - linkListType: whats-new

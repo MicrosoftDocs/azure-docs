@@ -37,6 +37,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Architecture best practices for Azure Virtual Network
+            url: /azure/well-architected/service-guides/virtual-network
           - text: Virtual network peering
             url: /azure/virtual-network/virtual-network-peering-overview
           - text: Route network traffic

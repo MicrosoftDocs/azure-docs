@@ -121,13 +121,13 @@ conceptualContent:
               
         - title: "Azure Well-Architected Framework"
           links:
-          - text: "Operational excellence and Azure Load Balancer"
+          - text: Architecture best practices for Azure Load Balancer - Azure Well-Architected Framework
             itemType: architecture
-            url: /azure/well-architected/service-guides/azure-load-balancer/operational-excellence
-          - text: "Azure Well-Architected Framework review - Azure Application Gateway v2"
+            url: /azure/well-architected/service-guides/azure-load-balancer
+          - text: Architecture best practices for Azure Application Gateway v2 - Azure Well-Architected Framework
             itemType: architecture
             url: /azure/well-architected/service-guides/azure-application-gateway
-          - text: "Azure Well-Architected Framework perspective on Azure Front Door"
+          - text: Architecture best practices for Azure Front Door - Azure Well-Architected Framework
             itemType: architecture
             url: /azure/well-architected/service-guides/azure-front-door
         - title: "Azure Architecture Center"

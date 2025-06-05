@@ -145,8 +145,8 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
-          - text: Well-Architected review of Azure Firewall
-            url: /azure/architecture/framework/services/networking/azure-firewall
+          - text: Architecture best practices for Azure Firewall
+            url: /azure/well-architected/service-guides/azure-firewall
           - text: Use Azure Firewall to help protect an AKS cluster
             url: /azure/architecture/example-scenario/aks-firewall/aks-firewall
           - text: Zero-trust network for web applications with Azure Firewall and Application Gateway
