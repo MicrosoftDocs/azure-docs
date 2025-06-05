@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/07/2024
+ms.date: 06/05/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -15,44 +15,44 @@ ms.custom:  [amqp, mqtt]
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-This article provides detailed instructions for configuring an IoT Edge device to function as a transparent gateway for other devices to communicate with IoT Hub. This article uses the term *IoT Edge gateway* to refer to an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
+This article gives detailed instructions to configure an IoT Edge device as a transparent gateway so other devices can connect to IoT Hub. In this article, *IoT Edge gateway* means an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
 
 >[!NOTE]
 >Downstream devices can't use file upload.
 
-There are three general steps to set up a successful transparent gateway connection. This article covers the first step:
+There are three main steps to set up a transparent gateway connection. This article covers the first step:
 
-1. **Configure the gateway device as a server so that downstream devices can connect to it securely. Set up the gateway to receive messages from downstream devices and route them to the proper destination.**
-2. Create a device identity for the downstream device so that it can authenticate with IoT Hub. Configure the downstream device to send messages through the gateway device. For those steps, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
+1. **Configure the gateway device as a server so downstream devices can connect securely. Set up the gateway to receive messages from downstream devices and route them to the right destination.**
+2. Create a device identity for the downstream device so it can authenticate with IoT Hub. Configure the downstream device to send messages through the gateway device. For those steps, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
 3. Connect the downstream device to the gateway device and start sending messages. For those steps, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
 
-For a device to act as a gateway, it needs to securely connect to its downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we're allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the gateway device. This identity check prevents your devices from connecting to potentially malicious gateways.
+To act as a gateway, a device needs to connect securely to its downstream devices. Azure IoT Edge lets you use public key infrastructure (PKI) to set up secure connections between devices. In this case, a downstream device connects to an IoT Edge device acting as a transparent gateway. To keep things secure, the downstream device checks the gateway device's identity. This check helps prevent devices from connecting to malicious gateways.
 
-A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](../iot-hub/index.yml) cloud service. These applications often use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself.
+A downstream device can be any application or platform with an identity created in [Azure IoT Hub](../iot-hub/index.yml). These applications often use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device can even be an application running on the IoT Edge gateway device itself.
 
-You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), a series of certificates signed with this CA, and a CA for the IoT Edge device.
+You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we use the same certificate setup as [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub. This setup uses an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), a series of certificates signed with this CA, and a CA for the IoT Edge device.
 
 >[!NOTE]
->The term *root CA certificate* used throughout these articles refers to the topmost authority public certificate of the PKI certificate chain, and not necessarily the certificate root of a syndicated certificate authority. In many cases, it is actually an intermediate CA public certificate.
+>The term *root CA certificate* used throughout these articles refers to the topmost authority public certificate of the PKI certificate chain, and not necessarily the certificate root of a syndicated certificate authority. In many cases, it's actually an intermediate CA public certificate.
 
-The following steps walk you through the process of creating the certificates and installing them in the right places on the gateway. You can use any machine to generate the certificates, and then copy them over to your IoT Edge device.
+Follow these steps to create the certificates and install them in the right places on the gateway. Use any machine to generate the certificates, then copy them to your IoT Edge device.
 
 ## Prerequisites
 
 # [IoT Edge](#tab/iotedge)
 
-A Linux or Windows device with IoT Edge installed.
+You need a Linux or Windows device with IoT Edge installed.
 
-If you don't have a device ready, you can create one in an Azure virtual machine. Follow the steps in [Deploy your first IoT Edge module to a virtual Linux device](quickstart-linux.md) to create an IoT Hub, create a virtual machine, and configure the IoT Edge runtime.
+If you don't have a device ready, create one in an Azure virtual machine. Follow the steps in [Deploy your first IoT Edge module to a virtual Linux device](quickstart-linux.md) to create an IoT Hub, create a virtual machine, and configure the IoT Edge runtime.
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
 >[!WARNING]
-> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an *external* virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
+> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, make sure to deploy EFLOW with an *external* virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
 
-A Windows device with IoT Edge for Linux on Windows installed.
+You need a Windows device with IoT Edge for Linux on Windows installed.
 
-If you don't have a device ready, you should create one before continuing with this guide. Follow the steps in [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](./how-to-provision-single-device-linux-on-windows-symmetric.md) to create an IoT Hub, create an EFLOW virtual machine, and configure the IoT Edge runtime.
+If you don't have a device ready, create one before you continue with this guide. Follow the steps in [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](./how-to-provision-single-device-linux-on-windows-symmetric.md) to create an IoT Hub, create an EFLOW virtual machine, and configure the IoT Edge runtime.
 
 ---
 
@@ -62,7 +62,7 @@ All IoT Edge gateways need an Edge CA certificate installed on them. The IoT Edg
 
 :::image type="content" source="./media/how-to-create-transparent-gateway/gateway-setup.png" alt-text="Screenshot that shows the gateway certificate setup." lightbox="./media/how-to-create-transparent-gateway/gateway-setup.png":::
 
-The root CA certificate and the Edge CA certificate (with its private key) need to be present on the IoT Edge gateway device and configured in the IoT Edge config file. Remember that in this case *root CA certificate* means the topmost certificate authority for this IoT Edge scenario. The gateway Edge CA certificate and the downstream device certificates need to roll up to the same root CA certificate.
+The root CA certificate and the Edge CA certificate (with its private key) must be on the IoT Edge gateway device and set in the IoT Edge configuration file. In this case, *root CA certificate* means the top certificate authority for this IoT Edge scenario. The gateway Edge CA certificate and the downstream device certificates must roll up to the same root CA certificate.
 
 >[!TIP]
 >The process of installing the root CA certificate and Edge CA certificate on an IoT Edge device is also explained in more detail in [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
@@ -73,24 +73,24 @@ Have the following files ready:
 * Edge CA certificate
 * Device CA private key
 
-For production scenarios, you should generate these files with your own certificate authority. For development and test scenarios, you can use demo certificates.
+For production scenarios, generate these files with your own certificate authority. For development and test scenarios, you can use demo certificates.
 
 ### Create demo certificates
 
-If you don't have your own certificate authority and want to use demo certificates, follow the instructions in [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md) to create your files. On that page, you need to take the following steps:
+If you don't have your own certificate authority and want to use demo certificates, follow the instructions in [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md) to create your files. On that page, follow these steps:
 
-1. To start, set up the scripts for generating certificates on your device.
-1. Create a root CA certificate. At the end of those instructions, you'll have a root CA certificate file `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
-1. Create Edge CA certificates. At the end of those instructions, you'll have an Edge CA certificate `<path>/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem` its private key `<path>/private/iot-edge-device-ca-<cert name>.key.pem`.
+1. Set up the scripts for generating certificates on your device.
+1. Create a root CA certificate. At the end, you have a root CA certificate file `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+1. Create Edge CA certificates. At the end, you have an Edge CA certificate `<path>/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem` and its private key `<path>/private/iot-edge-device-ca-<cert name>.key.pem`.
 
 ### Copy certificates to device
 
 # [IoT Edge](#tab/iotedge)
 
 1. Check the certificate meets [format requirements](how-to-manage-device-certificates.md#format-requirements).
-1. If you created the certificates on a different machine, copy them over to your IoT Edge device. You can use a USB drive, a service like [Azure Key Vault](/azure/key-vault/general/overview), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
-1. Move the files to the preferred directory for certificates and keys. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
-1. Create the certificates and keys directories and set permissions. You should store your certificates and keys to the preferred `/var/aziot` directory. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
+1. If you created the certificates on a different machine, copy them to your IoT Edge device. Use a USB drive, a service like [Azure Key Vault](/azure/key-vault/general/overview), or a command like [Secure file copy](https://www.ssh.com/ssh/scp/).
+1. Move the files to the preferred directory for certificates and keys: `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
+1. Create the certificates and keys directories and set permissions. Store your certificates and keys in the preferred `/var/aziot` directory: `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
 
    ```bash
    # If the certificate and keys directories don't exist, create, set ownership, and set permissions
@@ -102,7 +102,7 @@ If you don't have your own certificate authority and want to use demo certificat
    sudo chown aziotks:aziotks /var/aziot/secrets
    sudo chmod 700 /var/aziot/secrets
    ```
-1. Change the ownership and permissions of the certificates and keys.
+1. Change the ownership and permissions for the certificates and keys.
 
    ```bash
    # Give aziotcs ownership to certificates
@@ -118,13 +118,13 @@ If you don't have your own certificate authority and want to use demo certificat
 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
-Now, you need to copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine.
+Now, copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine.
 
-For more information on the following commands, see [PowerShell functions for IoT Edge](reference-iot-edge-for-linux-on-windows-functions.md).
+For more information about these commands, see [PowerShell functions for IoT Edge](reference-iot-edge-for-linux-on-windows-functions.md).
 
 1. Check the certificate meets [format requirements](how-to-manage-device-certificates.md#format-requirements).
 
-1. Copy the certificates to the EFLOW virtual machine to a directory where you have write access. For example, the `/home/iotedge-user` home directory.
+1. Copy the certificates to the EFLOW virtual machine in a directory where you have write access, such as the `/home/iotedge-user` home directory.
 
    ```powershell
    # Copy the Edge CA certificate and key
@@ -190,7 +190,7 @@ For more information on the following commands, see [PowerShell functions for Io
 
 ### Configure certificates on device
 
-1. On your IoT Edge device, open the config file: `/etc/aziot/config.toml`. If you're using IoT Edge for Linux on Windows, you'll have to connect to the EFLOW virtual machine using the `Connect-EflowVm` PowerShell cmdlet.
+1. On your IoT Edge device, open the config file: `/etc/aziot/config.toml`. If you use IoT Edge for Linux on Windows, connect to the EFLOW virtual machine using the `Connect-EflowVm` PowerShell cmdlet.
 
    >[!TIP]
    >If the config file doesn't exist on your device yet, then use `/etc/aziot/config.toml.edge.template` as a template to create one.
@@ -211,29 +211,29 @@ For more information on the following commands, see [PowerShell functions for Io
 
 ## Deploy edgeHub and route messages
 
-Downstream devices send telemetry and messages to the gateway device, where the IoT Edge hub module is responsible for routing the information to other modules or to IoT Hub. To prepare your gateway device for this function, make sure that:
+Downstream devices send telemetry and messages to the gateway device, where the IoT Edge hub module routes the information to other modules or to IoT Hub. To prepare your gateway device for this function, make sure that:
 
 * The IoT Edge hub module is deployed to the device.
 
-  When you first install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. Once you create the first deployment for a device, the second system module and the IoT Edge hub start as well. If the **edgeHub** module isn't running on your device, create a deployment for your device.
+  When you install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. When you create the first deployment for a device, the second system module and the IoT Edge hub start as well. If the **edgeHub** module isn't running on your device, create a deployment for your device.
 
 * The IoT Edge hub module has routes set up to handle incoming messages from downstream devices.
 
-  The gateway device must have a route in place to handle messages from downstream devices or else those messages will not be processed. You can send the messages to modules on the gateway device or directly to IoT Hub.
+  The gateway device needs a route to handle messages from downstream devices, or those messages aren't processed. You can send the messages to modules on the gateway device or directly to IoT Hub.
 
-To deploy the IoT Edge hub module and configure it with routes to handle incoming messages from downstream devices, follow these steps:
+To deploy the IoT Edge hub module and configure routes to handle incoming messages from downstream devices, follow these steps:
 
-1. In the Azure portal, navigate to your IoT hub.
+1. In the Azure portal, go to your IoT hub.
 
-2. Go to **Devices** under the **Device management** menu and select your IoT Edge device that you want to use as a gateway.
+2. Go to **Devices** under the **Device management** menu and select your IoT Edge device to use as a gateway.
 
 3. Select **Set Modules**.
 
-4. On the **Modules** page, you can add any modules you want to deploy to the gateway device. For the purposes of this article we're focused on configuring and deploying the edgeHub module, which doesn't need to be explicitly set on this page.
+4. On the **Modules** page, add any modules you want to deploy to the gateway device. In this article, you're focused on configuring and deploying the edgeHub module, which doesn't need to be explicitly set on this page.
 
 5. Select **Next: Routes**.
 
-6. On the **Routes** page, make sure that there is a route to handle messages coming from downstream devices. For example:
+6. On the **Routes** page, make sure there's a route to handle messages from downstream devices. For example:
 
    * A route that sends all messages, whether from a module or from a downstream device, to IoT Hub:
        * **Name**: `allMessagesToHub`
@@ -243,11 +243,11 @@ To deploy the IoT Edge hub module and configure it with routes to handle incomin
       * **Name**: `allDownstreamToHub`
       * **Value**: `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
 
-      This route works because, unlike messages from IoT Edge modules, messages from downstream devices don't have a module ID associated with them. Using the **WHERE** clause of the route allows us to filter out any messages with that system property.
+      This route works because, unlike messages from IoT Edge modules, messages from downstream devices don't have a module ID associated with them. Using the **WHERE** clause of the route lets you filter out any messages with that system property.
 
       For more information about message routing, see [Deploy modules and establish routes](./module-composition.md#declare-routes).
 
-7. Once your route or routes are created, select **Review + create**.
+7. After you create your route or routes, select **Review + create**.
 
 8. On the **Review + create** page, select **Create**.
 
@@ -275,7 +275,7 @@ For a gateway scenario to work, at least one of the IoT Edge Hub's supported pro
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT+WS <br> AMQP+WS |
 
-Finally, you must open the EFLOW virtual machine ports. You can open the three ports mentioned above using the following PowerShell cmdlets.
+Next, open the EFLOW virtual machine ports. Use the following PowerShell cmdlets to open the three ports previously mentioned.
 
    ```powershell
    # Open MQTT port
@@ -294,4 +294,4 @@ Finally, you must open the EFLOW virtual machine ports. You can open the three p
 
 ## Next steps
 
-Now that you have an IoT Edge device set up as a transparent gateway, you need to configure your downstream devices to trust the gateway and send messages to it. Continue on to [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md) for the next steps in setting up your transparent gateway scenario.
+Now that you set up an IoT Edge device as a transparent gateway, set up your downstream devices to trust the gateway and send messages to it. Continue to [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md) for the next steps in your transparent gateway scenario.
