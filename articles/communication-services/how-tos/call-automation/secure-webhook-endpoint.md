@@ -53,14 +53,26 @@ Each WebSocket connection request made by Call Automation now includes a signed 
   - More details are available in the official documentation:
 Secure webhook endpoint – Azure Communication Services
 
-### Additional Headers:
- The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability.
+ ::: zone pivot="programming-language-csharp"
+[!INCLUDE [Secure websocket with .NET](./includes/secure-websocket-csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Secure webhook endpoint with JavaScript](./includes/secure-websocket-javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Secure webhook endpoint with Python](./includes/secure-websocket-python.md)]
+::: zone-end
+
 
 ## IP Range 
+Another way you can secure your websocket connections is by allowing only Microsoft Connections from certain IP ranges.
+
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
 | Call Automation Media | 52.112.0.0/14, 52.122.0.0/15, 2603:1063::/38|	UDP: 3478, 3479, 3480, 3481|
-| Callback URLs | *.lync.com, *.teams.cloud.microsoft, *.teams.microsoft.com, teams.cloud.microsoft, teams.microsoft.com 52.112.0.0/14, 52.122.0.0/15, 2603:1027::/48, 2603:1037::/48, 2603:1047::/48, 2603:1057::/48, 2603:1063::/38, 2620:1ec:6::/48, 2620:1ec:40::/42 | TCP: 443, 80 UDP: 443 |
+| Call Automation callback URLs | *.lync.com, *.teams.cloud.microsoft, *.teams.microsoft.com, teams.cloud.microsoft, teams.microsoft.com 52.112.0.0/14, 52.122.0.0/15, 2603:1027::/48, 2603:1037::/48, 2603:1047::/48, 2603:1057::/48, 2603:1063::/38, 2620:1ec:6::/48, 2620:1ec:40::/42 | TCP: 443, 80 UDP: 443 |
 
 ## Next steps
 
