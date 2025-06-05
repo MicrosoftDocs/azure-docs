@@ -44,7 +44,7 @@ The key features of the solution include:
 
 ![Diagram of reference architecture](../enterprise-insights/media/enterprise-insights-reference-architecture.png)
 
-The reference architecture for Enterprise Insights follows these main stages:
+The reference architecture for Enterprise Insights follow these main stages:
 
 - **Data Extraction** using Azure Data Factory or third-party solutions
 - **Data Storage** in a Silver lakehouse (medallion architecture)
@@ -61,25 +61,25 @@ The reference architecture for Enterprise Insights follows these main stages:
 
 This architecture leverages Microsoft Fabric and OneLake storage to enable data transformation and analytics, ensuring SAP data can be efficiently used across the Microsoft ecosystem of products and services.
 
-The process begins with data extraction using Azure Data Factory or a set of third-party solutions. Enterprise Insights provides a structured directory of SAP pre-selected objects covering key functional areas of SAP, including Finance, Sales and Distribution, and Procurement. Extracted data is stored in a Silver lakehouse, following the medallion architecture to ensure a scalable and structured data management approach.
+The process begins with data extraction using Azure Data Factory or a set of third-party solutions. Enterprise Insights provides a structured directory of SAP pre-selected objects covering key functional areas of SAP, including finance, sales and distribution, and procurement. Extracted data is stored in a Silver lakehouse, following the medallion architecture to ensure a scalable and structured data management approach.
 
-Once ingested, data uses Spark parallel processing to create optimized star schemas for reporting. The transformation logic resolves common customer challenges such as:
-- Reconstructing profit and cost center hierarchies in Power BI
-- Unifying currency conversion processes to ensure consistent reporting based on standardized exchange rates
+Once ingested, data uses Spark parallel processing to create optimized star schemas for reporting. The transformation logic resolves common customer challenges like:
+- Reconstruct profit and cost center hierarchies in Power BI.
+- Unify currency conversion processes to ensure consistent reporting based on standardized exchange rates.
 
-Following transformation, the refined data is moved to the Gold layer, designed for analytical consumption. Each star schema consists of a transactional (fact) table surrounded by predefined dimensions and translations. Enterprise Insights enhances performance and reliability of reporting processes by introducing surrogate and foreign keys to replace business keys commonly used in SAP systems. 
+After transformation, the refined data is moved to the Gold layer which is designed for analytical consumption. Each star schema consists of a transactional (fact) table surrounded by predefined dimensions and translations. Enterprise Insights enhances performance and reliability of reporting processes by introducing surrogate and foreign keys to replace business keys commonly used in SAP systems. 
 
 Built-in role templates use organization levels such as company code and purchasing areas to enforce row-level security, which can be customized to align with an organization's structure.
 
 ### Data Consumption
 
-The processed data is exposed to various business applications for reporting and self-service analytics:
-- Users can leverage insights and create interactive dashboards through Power BI
-- Advanced predictive analysis and machine learning models using Azure ML, Fabric AI Skills, and Azure OpenAI
-- Low-code and no-code integrations through Power Platform
-- A baseline for partners to develop specialized solutions in areas such as financial planning and analysis
+The processed data is exposed to various business applications for reporting and self-service analytics which include:
+- Users can leverage insights and create interactive dashboards through Power BI.
+- Advanced predictive analysis and machine learning models using Azure ML, Fabric AI Skills, and Azure OpenAI.
+- Low-code and no-code integrations through Power Platform.
+- A baseline for partners to develop specialized solutions in areas such as financial planning and analysis.
 
-To accelerate insights generation, Enterprise Insights includes prebuilt Power BI templates for Finance, Sales and Distribution, and Procurement domains. While these templates provide a general framework, organizations may need to customize them to align with specific metrics and goals. They serve as a valuable starting point for KPI definition and visualization, offering a blueprint for leveraging Enterprise Insights to drive advanced reporting on SAP data.
+To accelerate insights generation, Enterprise Insights includes prebuilt Power BI templates for finance, sales and distribution, and procurement domains. While these templates provide a general framework, organizations might need to customize them to align with specific metrics and goals. They serve as a valuable starting point for KPI definition and visualization, offering a blueprint for leveraging Enterprise Insights to drive advanced reporting on SAP data.
 
 <!-- this section to be added when the new article is created for this docset
 ## Related content
