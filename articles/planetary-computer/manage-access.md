@@ -7,6 +7,8 @@ ms.service: azure
 ms.topic: how-to
 ms.date: 04/09/2025
 #customer intent: As a GeoCatalog user, I want to manager user access to my GeoCatalog so that I can assigned the appropriate permissions to authorized users of Microsoft Planetary Computer Pro.
+ms.custom:
+  - build-2025
 ---
 
 # Manage access for Microsoft Planetary Computer Pro

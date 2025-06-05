@@ -4,8 +4,8 @@ description: Learn about the overview, benefits, and limitations of cross-subscr
 ms.service: azure-update-manager
 ms.date: 02/04/2025
 ms.topic: concept-article
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # Cross-subscription patching in Azure Update Manager

@@ -72,15 +72,15 @@ For more information, see [Improve performance of enumerating files and folders 
 
 Multiple personal desktop assignment allows you to assign more than one personal desktop to a single user in a single host pool. Multiple desktops are useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments.
 
-For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user-preview).
+For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).
 
 ### Added Asia-Pacific as a data location
 
 We now support storing customer input data and service-generated data in the Asia-Pacific geography. For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
-### MSIX app attach deprecation
+### MSIX App Attach deprecation
 
-MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date. For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date. For more information, see [App Attach and MSIX App Attach in Azure Virtual Desktop](app-attach-overview.md).
 
 ## February 2025
 
@@ -154,13 +154,13 @@ For more information, see [Create and assign an autoscale scaling plan for Azure
 
 Microsoft Application Virtualization (App-V) for Windows delivers Win32 applications to users as virtual applications. Virtual applications are installed on centrally managed servers and delivered to users as a service in real time and on an as-needed basis. Users launch virtual applications from familiar access points and interact with them as if they were installed locally.  
 
-For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md). 
+For more information, see [App Attach and MSIX App Attach in Azure Virtual Desktop](app-attach-overview.md). 
 
-### Applications can be delivered from partner solutions with app attach is now available 
+### Applications can be delivered from partner solutions with App Attach is now available 
 
-Several partners provide application delivery solutions to Azure Virtual Desktop via integration with app attach.  
+Several partners provide application delivery solutions to Azure Virtual Desktop via integration with App Attach.  
 
-For more information, and a list of supported solutions, see [Deliver applications from partner solutions to Azure Virtual Desktop with app attach](app-attach-partner-solutions.md). 
+For more information, and a list of supported solutions, see [Deliver applications from partner solutions to Azure Virtual Desktop with App Attach](app-attach-partner-solutions.md). 
 
 ### Azure Virtual Desktop on Azure Extended Zones is now available 
 
@@ -340,11 +340,11 @@ You can granularly control how RDP Shortpath is used by configuring the networki
 
 For more information, see [Configure RDP Shortpath for Azure Virtual Desktop](configure-rdp-shortpath.md). 
 
-### Adding and managing app attach applications in Azure Virtual Desktop is now available 
+### Adding and managing App Attach applications in Azure Virtual Desktop is now available 
 
-App attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with app attach also gives you greater control over which applications your users can access in a remote session. 
+App Attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with App Attach also gives you greater control over which applications your users can access in a remote session. 
 
-For more information and instructions, see [Add and manage app attach and MSIX app attach applications](app-attach-setup.md). 
+For more information and instructions, see [Add and manage App Attach and MSIX App Attach applications](app-attach-setup.md). 
 
 ## May 2024 
 
@@ -440,11 +440,11 @@ There were no major releases or new features in January 2024.
 
 Here's what changed in December 2023:
 
-### New app attach features for Azure Virtual Desktop in preview
+### New App Attach features for Azure Virtual Desktop in preview
 
-The preview of *app attach* is now available. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host.
+The preview of *App Attach* is now available. App Attach brings many benefits over MSIX App Attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host.
 
-For more information, see [New app attach features for Azure Virtual Desktop in preview](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-app-attach-features-for-azure-virtual-desktop-in-public/ba-p/4002826) and [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+For more information, see [New App Attach features for Azure Virtual Desktop in preview](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-app-attach-features-for-azure-virtual-desktop-in-public/ba-p/4002826) and [MSIX App Attach and App Attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
 
 ### The new Microsoft Teams desktop client is now generally available to use with Azure Virtual Desktop
 
@@ -1254,9 +1254,9 @@ Here's what's new for Teams on Azure Virtual Desktop:
 - Resolved an issue that caused striations during screen sharing.
 - Resolved an issue that prevented meeting members from seeing incoming video or screen sharing.
 
-### MSIX app attach is now generally available
+### MSIX App Attach is now generally available
 
-MSIX app attach for Azure Virtual Desktop has now come out of preview and is available to all users. Learn more about MSIX app attach at [our TechCommunity announcement](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-is-now-generally-available/m-p/2270468).
+MSIX App Attach for Azure Virtual Desktop has now come out of preview and is available to all users. Learn more about MSIX App Attach at [our TechCommunity announcement](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-is-now-generally-available/m-p/2270468).
 
 ### The macOS client now supports Apple Silicon and Big Sur
 
@@ -1318,7 +1318,7 @@ Here's what changed in February 2021.
 We've improved the Azure portal experience in the following ways:
 
 - Bulk drain mode on hosts in the session host grid tab. 
-- MSIX app attach is now available for preview.
+- MSIX App Attach is now available for preview.
 - Fixed host pool overview info for dark mode.
 
 ### EU metadata storage now in preview
@@ -1382,9 +1382,9 @@ The preview for Azure Virtual Desktop Insights is now available. This new featur
 
 In the latest update, we've removed all public IP address parameter from the Azure Resource Manager template for creating and provisioning host pools. We highly recommend you avoid using public IPs for Azure Virtual Desktop to keep your deployment secure. If your deployment relied on public IPs, you need to reconfigure it to use private IPs instead, otherwise your deployment won't work properly.
 
-### MSIX app attach preview 
+### MSIX App Attach preview 
 
-MSIX app attach is another service that began its preview this month. MSIX app attach is a service that dynamically presents MSIX applications to your Azure Virtual Desktop Session host VMs. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231) for more details. 
+MSIX App Attach is another service that began its preview this month. MSIX App Attach is a service that dynamically presents MSIX applications to your Azure Virtual Desktop Session host VMs. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231) for more details. 
 
 ### Screen capture protection 
 

@@ -5,8 +5,8 @@ ms.topic: tutorial
 ms.date: 03/29/2024
 ms.custom: mvc
 ms.service: azure-site-recovery
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 #Customer intent: As an Azure admin, I want to run a production failover of Azure VMs to a secondary Azure region.
 ---
 

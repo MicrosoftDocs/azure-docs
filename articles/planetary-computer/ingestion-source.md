@@ -6,7 +6,9 @@ ms.author: prasadkomma
 ms.service: azure
 ms.topic: concept-article
 ms.date: 04/09/2025
-#customer intent: As a Microsoft Planetary Computer Pro user, I want to understand what an Ingestion Source is. 
+#customer intent: As a Microsoft Planetary Computer Pro user, I want to understand what an Ingestion Source is.
+ms.custom:
+  - build-2025
 ---
 
 # Ingestion source for Microsoft Planetary Computer Pro

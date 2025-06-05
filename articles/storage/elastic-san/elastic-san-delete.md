@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Delete an Elastic SAN
 
-Your Elastic storage area network (SAN) resources can be deleted at different resource levels. This article covers the overall deletion process, starting from disconnecting iSCSI connections to volumes, deleting the volumes themselves, deleting a volume group, and deleting an elastic SAN itself. Before you delete your elastic SAN, make sure it's not being used in any running workloads.
+Your Elastic SAN resources can be deleted at different resource levels. This article covers the overall deletion process, starting from disconnecting iSCSI connections to volumes, deleting the volumes themselves, deleting a volume group, and deleting an elastic SAN itself. Before you delete your elastic SAN, make sure it's not being used in any running workloads.
 
 ## Disconnect volumes from clients
 

@@ -7,7 +7,9 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 05/14/2025
 ms.author: normesta
-ms.custom: subject-cost-optimization
+ms.custom:
+  - subject-cost-optimization
+  - build-2025
 ---
 
 # Map each REST operation to a price
