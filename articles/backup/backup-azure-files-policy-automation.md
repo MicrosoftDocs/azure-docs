@@ -98,7 +98,7 @@ To assign Policy 1 for Azure Files backup, follow these steps:
 
 1. On the **Policy Definitions** pane, filter the list for **Category** as **Backup**, **Policy type** as **Built-in**, and then select the policy named **Configure backup for Azure Files Shares without a given tag to an existing recovery services vault in the same location**.
  
-1.	On the selected policy pane, review the policy details, and then select **Assign policy**.
+1. On the selected policy pane, review the policy details, and then select **Assign policy**.
 
    :::image type="content" source="./media/backup-azure-files-policy-automation/view-policy-details.png" alt-text="Screenshot shows the selected policy details." lightbox="./media/backup-azure-files-policy-automation/view-policy-details.png":::
 
