@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
-ms.date: 02/27/2025
+ms.date: 06/05/2025
 zone_pivot_groups: api-management-sku
 ---
 
@@ -25,8 +25,6 @@ Azure API Management helps organization to:
 - Enable API discovery and consumption by internal and external users.
 
 ## Reliability architecture overview
-
-::: zone pivot="basic,standard,developer,premium-classic,premium-v2"
 
 When you deploy an Azure API Management instance, you configure one or more *units*, also called *scale units*. A unit is a logical representation of capacity.
 
@@ -111,7 +109,7 @@ To configure availability zones for API Management, your instance must be in one
 
 - When you're enabling zone redundancy on an API Management instance that's deployed in an external or internal virtual network, you can optionally specify a new public IP address resource. In an internal virtual network, the public IP address is used only for management operations, not for API requests. [Learn more about IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md).
 
-- Enabling zone redundancy or changing the availability zone configuration triggers a public and private [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-the-ip-addresses).
+- Enabling zone redundancy or changing the availability zone configuration triggers a public and private [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-ip-addresses).
 
 ### Cost
 
