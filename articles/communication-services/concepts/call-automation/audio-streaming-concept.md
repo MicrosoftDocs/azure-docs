@@ -12,11 +12,9 @@ ms.custom: public_prview
 
 # Audio streaming overview - audio subscription
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 Azure Communication Services provides bidirectional audio streaming capabilities, offering developers powerful tools to capture, analyze, and process audio content during active calls. This development paves the way for new possibilities in real-time communication for developers and businesses alike. 
 
-By integrating bidirectional audio streaming with services like Azure OpenAI and other real-time voice APIs, businesses can achieve seamless, low-latency communication. This significantly enhances the development and deployment of conversational AI solutions, allowing for more engaging and efficient interactions. 
+By integrating bidirectional audio streaming with services like Azure OpenAI and other real-time voice APIs, businesses can achieve seamless, low-latency communication. This additional capability significantly enhances the development and deployment of conversational AI solutions, allowing for more engaging and efficient interactions. 
 
 With bidirectional streaming, businesses can now elevate their voice solutions to low-latency, human-like, interactive conversational AI agents. Our bidirectional streaming APIs enable developers to stream audio from an ongoing call on Azure Communication Services to their web servers in real-time, and stream audio back into the call. While the initial focus of these features is to help businesses create conversational AI agents, other use cases include Natural Language Processing for conversation analysis or providing real-time insights and suggestions to agents while they are in active interaction with end users. 
 
@@ -57,5 +55,15 @@ Developers can use the following information about audio sent from Azure Communi
 ## Billing
 See the [Azure Communication Services pricing page](https://azure.microsoft.com/pricing/details/communication-services/?msockid=3b3359f3828f6cfe30994a9483c76d50) for information on how audio streaming is billed. Prices can be found in the calling category under audio streaming.
 
+## Known Limitations
+- Stopping media streaming using a new operationContext doesn't correctly reflect the updated context.
+	- If you create or answer a call with operationContext set to "ABC" and enable media streaming, you receive the MediaStreamingStarted event with operationContext: "ABC."
+	- If you call the StopStreaming API with a different operationContext, say "XYZ," you would expect to receive the MediaStreamingStopped event with operationContext: "XYZ". However, due to a known issue, the MediaStreamingStopped event still contains operationContext: "ABC."
+- When stopping media streaming using a new callback URI, events continue to be sent to the default callback URI used during call creation or answer.
+	- If you create or answer a call with a default callback URI "https://ABC.com" and enable media streaming, the MediaStreamingStarted event will be sent to "https://ABC.com".
+	- If you then stop streaming using the StopStreaming API and specify a new callback URI "https://XYZ.com," you would expect the MediaStreamingStopped event to be sent to "https://XYZ.com." However, due to a known issue, the event is still sent to the original callback URI "https://ABC.com"
+
+
+
 ## Next Steps
-Check out the [audio streaming quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md) to learn more.
+To learn more check out the [audio streaming quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md).

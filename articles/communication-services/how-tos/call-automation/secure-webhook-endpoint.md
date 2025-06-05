@@ -15,7 +15,7 @@ services: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# How to secure webhook endpoint
+# How to secure webhook endpoints and websocket connections
 
 Securing the delivery of messages from end to end is crucial for ensuring the confidentiality, integrity, and trustworthiness of sensitive information transmitted between systems. Your ability and willingness to trust information received from a remote system relies on the sender providing their identity. Call Automation has two ways of communicating events that can be secured; the shared IncomingCall event sent by Azure Event Grid, and all other mid-call events sent by the Call Automation platform via webhook.
 
@@ -44,6 +44,35 @@ A common way you can improve this security is by implementing an API KEY mechani
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Secure webhook endpoint with Python](./includes/secure-webhook-endpoint-python.md)]
 ::: zone-end
+
+## Call Automation websockets events
+### Authentication Token in WebSocket Header 
+Each WebSocket connection request made by Call Automation now includes a signed JSON Web Token (JWT) in the Authentication header. This token can be validated using standard OpenID Connect (OIDC) JWT validation methods.
+  - The JWT has a lifetime of 24 hours.
+  - A new token is generated for each connection request to your WebSocket server.
+  - More details are available in the official documentation:
+Secure webhook endpoint – Azure Communication Services
+
+ ::: zone pivot="programming-language-csharp"
+[!INCLUDE [Secure websocket with .NET](./includes/secure-websocket-csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Secure webhook endpoint with JavaScript](./includes/secure-websocket-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Secure webhook endpoint with Python](./includes/secure-websocket-python.md)]
+::: zone-end
+
+
+## IP Range 
+Another way you can secure your websocket connections is by allowing only Microsoft Connections from certain IP ranges.
+
+| Category | IP ranges or FQDN | Ports | 
+| :-- | :-- | :-- |
+| Call Automation Media | 52.112.0.0/14, 52.122.0.0/15, 2603:1063::/38|	UDP: 3478, 3479, 3480, 3481|
+| Call Automation callback URLs | *.lync.com, *.teams.cloud.microsoft, *.teams.microsoft.com, teams.cloud.microsoft, teams.microsoft.com 52.112.0.0/14, 52.122.0.0/15, 2603:1027::/48, 2603:1037::/48, 2603:1047::/48, 2603:1057::/48, 2603:1063::/38, 2620:1ec:6::/48, 2620:1ec:40::/42 | TCP: 443, 80 UDP: 443 |
 
 ## Next steps
 

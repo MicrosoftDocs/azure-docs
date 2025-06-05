@@ -24,7 +24,8 @@ TranscriptionOptions transcriptionOptions = new TranscriptionOptions(
     appConfig.getWebSocketUrl(), 
     TranscriptionTransport.WEBSOCKET, 
     "en-US", 
-    false
+    false,
+    "your-endpoint-id-here" // speechRecognitionEndpointId
 ); 
 
 CreateCallOptions createCallOptions = new CreateCallOptions(callInvite, appConfig.getCallBackUri());
@@ -43,7 +44,8 @@ TranscriptionOptions transcriptionOptions = new TranscriptionOptions(
     appConfig.getWebSocketUrl(), 
     TranscriptionTransport.WEBSOCKET, 
     "en-US", 
-    false
+    false,
+    "your-endpoint-id-here" // speechRecognitionEndpointId
 );
 
 ConnectCallOptions connectCallOptions = new ConnectCallOptions(new RoomCallLocator("roomId"), appConfig.getCallBackUri())
@@ -76,6 +78,9 @@ client.getCallConnection(callConnectionId)
 //     .getCallMedia()
 //     .startTranscription();
 ```
+
+### Additional Headers:
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`.
 
 ## Receiving Transcription Stream
 When transcription starts, your websocket receives the transcription metadata payload as the first packet.
@@ -223,9 +228,14 @@ public class WebSocketServer {
 For situations where your application allows users to select their preferred language you may also want to capture the transcription in that language. To do this, Call Automation SDK allows you to update the transcription locale.
 
 ```java
+UpdateTranscriptionOptions transcriptionOptions = new UpdateTranscriptionOptions()
+    .setLocale(newLocale)
+    .setOperationContext("transcriptionContext")
+    .setSpeechRecognitionEndpointId("your-endpoint-id-here");
+
 client.getCallConnection(callConnectionId)
     .getCallMedia()
-    .updateTranscription("en-US-NancyNeural");
+    .updateTranscriptionWithResponse(transcriptionOptions, Context.NONE);
 ```
 
 ## Stop Transcription

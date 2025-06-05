@@ -39,9 +39,20 @@ We do not allow the mixing of AV36, AV36P, or AV52 SKUs within the same cluster.
 
 2. The deployment of the new cluster will begin.
 
+## Delete an existing cluster
+
+> [!CAUTION]
+> Deleting a cluster terminates all running workloads and components and is an irreversible operation. Once you delete a cluster, you cannot recover the data.
+
+1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters**.
+
+2. Select the **Cluster** you plan to delete, select **More** (...), select **Delete**.
+
+   :::image type="content" source="media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Screenshot showing how to delete a cluster to an Azure VMware Solution private cloud." lightbox="media/tutorial-scale-private-cloud/remove-cluster.png" border="true":::
+
+3. The deletion of the cluster will begin.
+
 ## Scale a cluster - Host Addition
-
-
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters**.
 
@@ -59,8 +70,6 @@ We do not allow the mixing of AV36, AV36P, or AV52 SKUs within the same cluster.
    >The hosts will be added to the cluster in parallel.
 
 ## Scale a cluster - Host Removal
-> [!CAUTION]
-> Deleting a cluster terminates all running workloads and components and is an irreversible operation. Once you delete a cluster, you cannot recover the data.
 
 > [!NOTE]
 > Scaling down a cluster successfully requires all objects (VM/vmdk/iso/etc) on a vSAN datastore to be configured with a storage policy below or equal to [RAID level requirements](configure-storage-policy.md).
