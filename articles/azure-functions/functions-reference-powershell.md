@@ -379,7 +379,7 @@ In PowerShell, there's the concept of a PowerShell profile. If you're not famili
 In PowerShell Functions, the profile script is executed once per PowerShell worker instance in the app when first deployed and after being idled ([cold start](#cold-start). When concurrency is enabled by setting the [PSWorkerInProcConcurrencyUpperBound](#concurrency) value, the profile script is run for each runspace created.
 
 When you create a function app using tools, such as Visual Studio Code and Azure Functions Core Tools, a default `profile.ps1` is created for you. The default profile is maintained
-[on the Core Tools GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/main/src/Azure.Functions.Cli/StaticResources/profile.ps1)
+[on the Core Tools GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/main/src/Cli/func/StaticResources/profile.ps1)
 and contains:
 
 - Automatic MSI authentication to Azure.
