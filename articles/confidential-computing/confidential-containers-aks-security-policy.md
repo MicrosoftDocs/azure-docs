@@ -7,6 +7,7 @@ author: mgoedtel
 ms.service: azure-container-instances
 services: container-instances
 ms.date: 11/13/2023
+# Customer intent: As a cloud security engineer, I want to implement a security policy for confidential containers on Kubernetes, so that I can ensure data protection and compliance through the management of access controls and API interactions within a secure execution environment.
 ---
 
 # Security policy for Confidential Containers on Azure Kubernetes Service

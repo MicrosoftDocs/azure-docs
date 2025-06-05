@@ -7,6 +7,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 2/2/2023
 ms.author: simranparkhe
+# Customer intent: "As a cloud engineer, I want to securely release keys from Azure Key Vault to a confidential virtual machine, so that I can ensure robust security for sensitive data handling in a compliant environment."
 ---
 
 # Secure Key Release with Confidential VMs How To Guide

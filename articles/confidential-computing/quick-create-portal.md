@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 11/1/2021
 ms.author: jushiman
 ms.custom: mode-ui, linux-related-content
+# Customer intent: "As a cloud engineer, I want to create an Intel SGX virtual machine in the Azure portal, so that I can leverage confidential computing capabilities for secure application deployment."
 ---
 
 

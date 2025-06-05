@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 9/12/2023
 ms.author: satelsan
 ms.custom: devx-track-azurecli, linux-related-content
+# Customer intent: "As a cloud architect, I want to deploy a virtual machine scale set using a hardened Linux image, so that I can ensure enhanced security while managing the limitations of removing the Azure Linux Agent."
 ---
 
 # Deploy a virtual machine scale set using a hardened Linux image

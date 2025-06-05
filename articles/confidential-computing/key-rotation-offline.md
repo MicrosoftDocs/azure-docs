@@ -7,6 +7,7 @@ ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 07/06/2022
 ms.custom: template-how-to
+# Customer intent: As a cloud security administrator, I want to rotate customer-managed keys for confidential virtual machines, so that I can maintain security best practices and ensure that compromised keys are replaced promptly.
 ---
 
 # Rotate customer-managed keys for confidential VMs

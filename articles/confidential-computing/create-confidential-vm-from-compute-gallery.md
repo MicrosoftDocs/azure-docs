@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 07/14/2022
 ms.custom: mode-arm
 ms.devlang: azurecli
+# Customer intent: As a cloud architect, I want to deploy a confidential virtual machine using a custom image from an Azure Compute Gallery, so that I can ensure sensitive workloads are protected with enhanced security features.
 ---
 
 # Quickstart: Deploy a confidential VM from an Azure Compute Gallery image using the Azure portal

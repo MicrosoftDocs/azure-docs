@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: overview
 ms.date: 11/14/2023
+# Customer intent: "As a cloud architect, I want to deploy Azure confidential VMs, so that I can ensure strong security and confidentiality for sensitive applications during cloud migrations without modifying existing code."
 ---
 
 # About Azure confidential VMs 

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 8/03/2023
 ms.author: vvenugopal
 ms.custom: devx-track-azurecli, linux-related-content
+# Customer intent: As a cloud administrator, I want to remove the Azure Linux Agent from a Linux image so that I can harden the image for confidential computing and restrict unnecessary functionalities.
 ---
 
 # Harden a Linux image to remove Azure guest agent

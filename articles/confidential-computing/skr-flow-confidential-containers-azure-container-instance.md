@@ -7,6 +7,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 3/9/2023
 ms.author: ananyagarg
+# Customer intent: As a cloud developer, I want to implement Secure Key Release from Azure Key Vault to confidential containers on Azure Container Instances, so that I can securely manage keys for my applications running in a protected environment.
 ---
 
 # Secure Key Release with Confidential containers on Azure Container Instance (ACI)
