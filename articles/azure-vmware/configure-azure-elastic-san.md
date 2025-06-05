@@ -102,6 +102,7 @@ Once your SDDC express route is connected with the private endpoint for your Ela
 1. From section, "Rename datastore as per VMware requirements", under **Volume name** > **Data store name**, give names to the Elastic SAN volumes.
    > [!NOTE]
    > When creating virtual disks, use eager zeroed thick provisioning.
+   > This means setting up virtual disks where all the space is reserved and cleaned out in advance, so they're ready for fast and secure use.
 
 ## Disconnect and delete an Elastic SAN-based datastore
 
