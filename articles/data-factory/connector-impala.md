@@ -85,11 +85,11 @@ The Impala linked service supports the following properties when apply version 2
 | version | The version that you specify. The value is `2.0`. | Yes |
 | host | The IP address or host name of the Impala server (that is, 192.168.222.160).  | Yes |
 | port | The TCP port that the Impala server uses to listen for client connections. The default value is 21050.  | No |
-| thriftTransportProtocol | The transport protocol to use in the Thrift layer. Allowed values are: **Binary**, **HTTP**. The default value is Binary. | No |
+| thriftTransportProtocol | The transport protocol to use in the Thrift layer. Allowed values are: **Binary**, **HTTP**. The default value is Binary. | Yes |
 | authenticationType | The authentication type to use. <br/>Allowed values are **Anonymous** and **UsernameAndPassword**. | Yes |
 | username | The user name used to access the Impala server. | No |
 | password | The password that corresponds to the user name when you use UsernameAndPassword. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| enableSsl | Specifies whether the connections to the server are encrypted by using TLS. The default value is **false**.  | No |
+| enableSsl | Specifies whether the connections to the server are encrypted by using TLS. The default value is true.  | No |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. Always use System Trust Store. The default value is true. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
