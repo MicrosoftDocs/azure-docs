@@ -79,7 +79,7 @@ The way that you instrument your application to use OpenTelemetry depends on you
     ### [Application Insights](#tab/app-insights)
 
     ```cmd
-    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version 1.0.0-preview1 
+    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version  1.1.0-preview6
     dotnet add package OpenTelemetry.Extensions.Hosting 
     dotnet add package Azure.Monitor.OpenTelemetry.Exporter  
     ```
@@ -87,7 +87,7 @@ The way that you instrument your application to use OpenTelemetry depends on you
     ### [OTLP Exporter](#tab/otlp-export) 
 
     ```cmd
-    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version 1.0.0-preview1 
+    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version 1.1.0-preview6
     dotnet add package OpenTelemetry.Extensions.Hosting 
     dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol   
     ```
@@ -113,15 +113,15 @@ The way that you instrument your application to use OpenTelemetry depends on you
 
     ```csharp
     services.AddOpenTelemetry()
-    .UseAzureMonitorExporter()
-    .UseFunctionsWorkerDefaults();
+    .UseFunctionsWorkerDefaults()
+    .UseAzureMonitorExporter();
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
     ```csharp
     services.AddOpenTelemetry()
-    .UseOtlpExporter()
-    .UseFunctionsWorkerDefaults();
+    .UseFunctionsWorkerDefaults()
+    .UseOtlpExporter();
     ```
     ---
 
