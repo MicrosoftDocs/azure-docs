@@ -297,10 +297,9 @@
       href: ../cdn/cdn-overview.md?toc=/azure/frontdoor/toc.json
   - name: Quickstarts
     items:
-    - name: Front Door (classic)
     - name: CDN from Microsoft (classic)
       items:
-      - name: Integrate a storage account
+      - name: Integrate a storage account - Portal
         href: ../cdn/cdn-create-a-storage-account-with-cdn.md?toc=/azure/frontdoor/toc.json
       - name: Create a profile and endpoint - Portal
         href: ../cdn/cdn-create-new-endpoint.md?toc=/azure/frontdoor/toc.json
