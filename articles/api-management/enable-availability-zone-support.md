@@ -1,20 +1,23 @@
 ---
-title: Migrate Azure API Management to availability zones
-description: Learn how to migrate your Azure API Management instances to availability zones for zone redundancy.
+title: Enable availability support on Azure API Management instances
+description: Learn how to enable availability zone support on your Azure API Management instances.
 author: shaunjacob 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/09/2025
+ms.date: 06/05/2025
 ms.author: anaharris
-ms.custom: subject-reliability
-
+ms.custom: references_regions, subject-reliability
+#Customer intent: As an engineer responsible for business continuity, I want to learn how to enable zone redundancy for my Azure API Management instances. 
 ---
 
-# Migrate Azure API Management to availability zone support
+# Enable availability zone support on Azure API Management instances
 
 The Azure API Management service supports [availability zones](../reliability/availability-zones-overview.md) in both zonal and zone-redundant configurations:
 
 * **Zonal** - the API Management gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are deployed in a single zone you select within an Azure region.
+
+    > [!NOTE] 
+    > Pinning to a single zone doesn’t increase resiliency. To improve resiliency, you need to explicitly deploy resources into multiple zones (zone-redundancy). 
 
 * **Zone-redundant** - the gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are replicated across two or more physically separated zones within an Azure region. Zone redundancy provides resiliency and high availability to a service instance.
 
@@ -24,7 +27,7 @@ This article describes three scenarios for migrating an API Management instance 
 
 ## Prerequisites
 
-* To configure availability zones for API Management, your instance must be in one of the [Azure regions that support availability zones](regions-list.md).
+* To configure availability zones for API Management, your instance must be in one of the [Azure regions that support availability zones](../reliability/regions-list.md).
 
 * If you don't have an API Management instance, create one by following the [Create a new Azure API Management instance by using the Azure portal](../api-management/get-started-create-service-instance.md) quickstart. Select the **Premium** service tier.
 
@@ -52,13 +55,15 @@ There are no gateway downtime requirements for any of the migration options.
 
 ## Existing gateway location not injected in a virtual network 
 
-To migrate an existing location of your API Management instance to availability zones when the instance is not injected in a virtual network:
+To enable zone-redundancy on an existing location of an API Management instance that's not injected in a virtual network:
+
+1. Thoroughly understand all requirements and considerations for enabling zone redundancy in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
 
 1. In the Azure portal, go to your API Management instance.
 
 1. On the **Deployment + infrastructure** menu, select **Locations**.
 
-1. In the **Location** box, select the location to be migrated. The location must support availability zones, as mentioned earlier in the [prerequisites](#prerequisites).
+1. In the **Location** box, select the location to be enabled. The location must support availability zones, as mentioned earlier in the [prerequisites](#prerequisites).
 
 1. In the **Units** box, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
@@ -66,17 +71,22 @@ To migrate an existing location of your API Management instance to availability 
 
 1. Select **Apply**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections for migrating an existing location of API Management instance that's not injected in a virtual network." source ="media/migrate-api-mgt/option-one-not-injected-in-vnet.png":::
+:::image type="content" alt-text="Screenshot that shows selections for migrating an existing location of API Management instance that's not injected in a virtual network." source ="media/enable-zone-redundancy/option-one-not-injected-in-vnet.png":::
 
 ## Existing gateway location injected in a virtual network
 
 To migrate an existing location of your API Management instance to availability zones when the instance is currently injected in a virtual network:
 
+
+1. Thoroughly understand all requirements and considerations for enabling zone redundancy in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
+
+1. Create a new subnet and optional public IP address in the location to enable to availability zones. Detailed requirements are in the [virtual networking guidance](../api-management/api-management-using-with-vnet.md?tabs=stv2#prerequisites).
+
 1. In the Azure portal, go to your API Management instance.
 
 1. On the **Deployment + infrastructure** menu, select **Locations**.
 
-1. In the **Location** box, select the location to be migrated. The location must support availability zones, as mentioned earlier in the [prerequisites](#prerequisites).
+1. In the **Location** box, select the location to be enabled. The location must support availability zones, as mentioned earlier in the [prerequisites](#prerequisites).
 
 1. In the **Units** box, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
@@ -86,11 +96,13 @@ To migrate an existing location of your API Management instance to availability 
 
 1. Select **Apply**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections to migrate existing location of API Management instance that's injected in a virtual network." source ="media/migrate-api-mgt/option-three-stv2-injected-in-vnet.png":::
+:::image type="content" alt-text="Screenshot that shows selections to enable existing location of API Management instance (stv2 platform) that's injected in a virtual network." source ="media/enable-zone-redundancy/option-three-stv2-injected-in-vnet.png":::
 
 ## New gateway location
 
-To add a new location to your API Management instance and enable availability zones in that location:
+To add a new location to your API Management instance and enable zone redundancy in that location:
+
+1. Thoroughly understand all requirements and considerations for enabling zone redundancy in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
 
 1. If your API Management instance is deployed in a virtual network in the primary location, set up a [virtual network](../api-management/api-management-using-with-vnet.md), subnet, and optional public IP address in any new location where you plan to enable availability zones.
 
@@ -108,11 +120,11 @@ In the **Availability zones** box, leave the **Automatic** setting (recommended)
 
 1. Select **Add**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections for adding a new location for an API Management instance with or without a virtual network." source ="media/migrate-api-mgt/option-four-add-new-location.png":::
+:::image type="content" alt-text="Screenshot that shows selections for adding a new location for an API Management instance with or without a virtual network." source ="media/enable-zone-redundancy/option-four-add-new-location.png":::
 
 ## Related content
 
-* [Deploy an Azure API Management instance to multiple Azure regions](../api-management/api-management-howto-deploy-multi-region.md)
+* [Reliability in API Management](../reliability/reliability-api-management.md)
 * [Design review checklist for reliability](/azure/architecture/framework/resiliency/app-design)
-- [Azure services with availability zones](availability-zones-service-support.md)
-- [Azure regions with availability zones](regions-list.md)
+- [Azure services with availability zones](../reliability/availability-zones-service-support.md)
+- [Azure regions with availability zones](../reliability/regions-list.md)

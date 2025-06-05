@@ -39,7 +39,7 @@
     - name: Migration guides by service
       items:
       - name: Azure API Management
-        href: migrate-api-mgt.md
+        href: /azure/api-management/enable-zone-redundancy?toc=/azure/reliability
       - name: Azure App Configuration
         href: migrate-app-configuration.md
       - name: Azure Application Gateway
