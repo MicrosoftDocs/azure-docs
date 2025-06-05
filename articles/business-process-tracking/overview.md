@@ -80,7 +80,7 @@ To help you organize and manage the deployed Azure resources that you use in you
 
 ## Pricing information
 
-Azure Business Process Tracking doesn't incur charges during preview. However, when you create a business process, you're required to provide information for an existing or new [Azure Data Explorer cluster, database, and table](/azure/data-explorer/create-cluster-and-database). Your business process uses this database to store transactions and the business property values that you want to record for later evaluation. Azure Data Explorer incurs charges, based on the selected pricing option. For more information, see [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
+Azure Business Process Tracking doesn't incur charges at this time. However, when you create a business process, you're required to provide information for an existing or new [Azure Data Explorer cluster, database, and table](/azure/data-explorer/create-cluster-and-database). Your business process uses this database to store transactions and the business property values that you want to record for later evaluation. Azure Data Explorer incurs charges, based on the selected pricing option. For more information, see [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
 
 ## Next step
 

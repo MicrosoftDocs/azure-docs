@@ -51,7 +51,7 @@ After you define a business process, you can then map each stage to actual Azure
 
   > [!NOTE]
   >
-  > Although Azure Business Process Tracking doesn't incur charges during preview, Azure Data 
+  > Although Azure Business Process Tracking doesn't incur charges at this time, Azure Data 
   > Explorer incurs charges, based on the selected pricing option. For more information, see 
   > [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
 
