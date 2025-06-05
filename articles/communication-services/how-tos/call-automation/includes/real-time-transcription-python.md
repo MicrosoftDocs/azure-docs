@@ -70,6 +70,9 @@ call_connection_client.start_transcription()
 # call_connection_client.start_transcription(operation_context="startTranscriptionContext")
 ```
 
+### Additional Headers:
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`.
+
 ## Receiving Transcription Stream
 When transcription starts, your websocket receives the transcription metadata payload as the first packet.
 
