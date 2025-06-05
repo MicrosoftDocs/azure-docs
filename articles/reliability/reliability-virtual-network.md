@@ -17,13 +17,13 @@ This article describes reliability support in Azure Virtual Network, covering in
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
-A virtual network is a logical representation of your network in the cloud. You can use a virtual network to define your own private IP address space and segment the network into subnets. Virtual networks serve as a trust boundary to host your compute resources such as Azure Virtual Machines and load balancers. A virtual network enables direct private IP communication between the resources that it hosts. To enable hybrid cloud scenarios and securely extend your datacenter into Azure, you can link a virtual network to an on-premises network through a VPN Gateway or Azure ExpressRoute. 
+A virtual network is a logical representation of your network in the cloud. You can use a virtual network to define your own private IP address space and segment the network into subnets. Virtual networks serve as a trust boundary to host your compute resources such as Azure Virtual Machines and load balancers. A virtual network enables direct private IP communication between the resources that it hosts. To enable hybrid cloud scenarios and securely extend your datacenter into Azure, you can link a virtual network to an on-premises network through Azure VPN Gateway or Azure ExpressRoute. 
 
 ## Production deployment recommendations
 
 As you build your virtual network in Azure, it's important to improve the reliability of your solution by keeping in mind the following universal design principles:
 
-- **Avoid overlapping address spaces.** Ensure that your virtual network address space, defined as a classless inter-domain routing block, doesn't overlap with your organization's other network ranges.
+- **Avoid overlapping address spaces.** Ensure that your virtual network address space, defined as a Classless Inter-Domain Routing block, doesn't overlap with your organization's other network ranges.
 
 - **Reserve address space for future growth.** Your subnets shouldn't cover the entire address space of the virtual network. Plan ahead and reserve some address space for the future.
 
@@ -47,7 +47,7 @@ A virtual network is one of several core networking components in Azure. When yo
 
 - Network interface cards, which provide network connectivity to Azure virtual machines (VMs)
 
-- Private endpoints, which provide private connectivity to Azure services and to resources outside of your own virtual network
+- Private endpoints, which provide private connectivity to Azure services and to resources outside of your virtual network
 
 You might also deploy *appliances*, such as ExpressRoute gateways, VPN gateways, and firewalls. Appliances provide services to support your networking requirements, such as connecting to on-premises environments or providing sophisticated controls on traffic flow.
 
@@ -76,7 +76,7 @@ You don't need to divide your virtual networks or subnets by availability zones 
 
 ### Region support
 
-Zone-redundant virtual networks can be deployed in any [region that supports availability zones](./regions-list.md).
+Zone-redundant virtual networks can be deployed into any [region that supports availability zones](./regions-list.md).
 
 ### Cost
 
@@ -112,21 +112,21 @@ You can create virtual networks in multiple regions. You can also choose to conn
 
 By creating virtual networks and other resources in multiple regions, you can be resilient to regional outages. However, you need to consider the following factors:
 
-- **Traffic routing:** If you host internet-facing services in the virtual network, you need to decide how to route incoming traffic among your regions and components. With services such as Azure Traffic Manager and Azure Front Door, you can route internet traffic based on rules you specify.
+- **Traffic routing:** If you host internet-facing services in the virtual network, you need to decide how to route incoming traffic among your regions and components. With services such as Azure Traffic Manager and Azure Front Door, you can route internet traffic based on rules that you specify.
 
-- **Failover:** If an Azure region is unavailable, you typically need to *fail over* by processing traffic in healthy regions. Traffic Manager and Azure Front Door provide failover capabilities for internet applications.      
+- **Failover:** If an Azure region is unavailable, you typically need to fail over by processing traffic in healthy regions. Traffic Manager and Azure Front Door provide failover capabilities for internet applications.      
 
 - **Management:** Each virtual network is a separate resource and needs to be configured and managed independently from other virtual networks.
 
-- **IP address space:** Determine how to allocate IP addresses when you create multiple virtual networks. You can create multiple virtual networks by using the same private IP address space in different regions. However, you can't peer, or connect, two virtual networks with the same address space to your on-premises network because it would cause routing issues. If you plan to create a multi-network design, IP address planning is an important consideration.
+- **IP address space:** Determine how to allocate IP addresses when you create multiple virtual networks. You can create multiple virtual networks by using the same private IP address space in different regions. However, you can't peer, or connect, two virtual networks with the same address space to your on-premises network because it causes routing problems. If you plan to create a multi-network design, IP address planning is an important consideration.
 
-Virtual networks don't require a lot of resources to run. You can invoke Azure APIs to create a virtual network with the same address space in a different region. However, to recreate the same environment that was present in the affected region, you must redeploy the VMs and other resources. If you have on-premises connectivity, such as in a hybrid deployment, you have to deploy a new VPN Gateway and connect to your on-premises network.
+Virtual networks don't require a lot of resources to run. You can invoke Azure APIs to create a virtual network with the same address space in a different region. However, to recreate the same environment that exists in the affected region, you must redeploy the VMs and other resources. If you have on-premises connectivity, such as in a hybrid deployment, you have to deploy a new VPN Gateway instance and connect to your on-premises network.
 
-For more information about a multi-region networking architecture for web applications, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
+For more information about a multi-region networking architecture for web applications, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Azure Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
 
 ## Backups
 
-Azure virtual networks don't store any data that requires backup. However, you can use Bicep, Azure Resource Manager templates, or Terraform to take a snapshot of the configuration of a virtual network if you need to recreate it. For more information, see [Quickstart: Create an Azure virtual network](../virtual-network/quickstart-create-virtual-network.md).
+Azure virtual networks don't store any data that requires backup. However, you can use Bicep, Azure Resource Manager templates, or Terraform to take a snapshot of the configuration of a virtual network if you need to recreate it. For more information, see [Create an Azure virtual network](../virtual-network/quickstart-create-virtual-network.md).
 
 ## Service-level agreement
 
@@ -134,4 +134,4 @@ Because of the nature of the service provided, there isn't a defined service-lev
 
 ## Related content
 
-[Availability zones](availability-zones-overview.md)
+- [Availability zones](availability-zones-overview.md)
