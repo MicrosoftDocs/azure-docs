@@ -83,7 +83,7 @@ Now, generate deployment scripts for your logic app project. This approach lets 
 
    The deployment script generation process creates a **deployment** folder that contains files for your infrastructure (CI) and application (CD) pipelines along with parameters files, for example:
 
-   :::image type="content" source="media/set-up-continuous-integration-deployment/deployment-scripts.png" alt-text="Screenshot shows Visual Studio code and generated deployment script files." lightbox="media/set-up-continuous-integration-deployment/deployment-scripts.png":::
+   :::image type="content" source="media/set-up-continuous-integration-deployment/deployment-scripts.png" alt-text="Screenshot shows Visual Studio Code and generated deployment script files." lightbox="media/set-up-continuous-integration-deployment/deployment-scripts.png":::
 
 1. Commit these updates Azure DevOps by running the following Git commands from the command prompt:
 
@@ -97,7 +97,7 @@ Now, create a pipeline in your repository for your logic app infrastructure. For
 
 1. In your Azure DevOps project, go to **Pipelines**. Select **Create pipeline**, or **New pipeline** if pipelines exist, for example:
 
-   :::image type="content" source="media/set-up-continuous-integration-deployment/pipelines.png" alt-text="Screenshot shows Visual Studio code and generated deployment script files." lightbox="media/set-up-continuous-integration-deployment/pipelines.png":::
+   :::image type="content" source="media/set-up-continuous-integration-deployment/pipelines.png" alt-text="Screenshot shows Azure DevOps project, Pipelines page, and button selected for New pipeline." lightbox="media/set-up-continuous-integration-deployment/pipelines.png":::
 
 1. On the **Select** tab, select the repo type and the repo to use.
 
