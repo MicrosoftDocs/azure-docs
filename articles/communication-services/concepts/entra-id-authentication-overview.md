@@ -32,9 +32,9 @@ Before we begin:
 - The Fabrikam Azure Communication Services resource admin needs to grant Alice permission to perform her role via *Azure Portal blade* or [Entra Id Assignment](/rest/api/communication/identity/entra-id-assignment) REST APIs.
 
 Steps:
-1. Authenticate Alice using Microsoft Entra ID: Alice is authenticated using a standard OAuth flow with *Microsoft Authentication Library (MSAL)* or *Azure Identity SDK*. If authentication is successful, the client application receives a Microsoft Entra access token, with a value of `A`. Tokens are outlined later in this article. Authentication from the developer perspective is explored in this [quickstart]().
-1. Get an access token for Alice: The Fabrikam application by using the authentication artifact with value `A` performs exchange the Microsoft Entra access token for an Azure Communication Services access token logic. After successful authorization, the Azure Communication Services access token `B` is generated for Alice within the Fabrikam application. This access token can be used for data plane actions in Azure Communication Services, like Calling. For more information on how to get `A` artifacts, see [Receive the Microsoft Entra user token and object ID via the MSAL library](../../quickstarts/manage-teams-identity.md?pivots=programming-language-csharp#step-1-receive-the-azure-ad-user-token-and-object-id-via-the-msal-library) and [Get an Application ID](../troubleshooting-info.md#get-an-application-id).
-1. Call Bob: Alice makes a call to Microsoft Entra ID user Bob, with Fabrikam's app. The call takes place via the Calling SDK with an Azure Communication Services access token. Learn more about [developing application for Microsoft Entra ID users]().
+1. Authenticate Alice using Microsoft Entra ID: Alice is authenticated using a standard OAuth flow with *Microsoft Authentication Library (MSAL)* or *Azure Identity SDK*. If authentication is successful, the client application receives a Microsoft Entra access token, with a value of `A`. Tokens are outlined later in this article. Authentication from the developer perspective is explored in this [quickstart](../quickstarts/identity/entra-id-authentication-integration.md#developer-actions).
+1. Get an access token for Alice: The Fabrikam application by using the authentication artifact with value `A` performs exchange the Microsoft Entra access token for an Azure Communication Services access token logic. After successful authorization, the Azure Communication Services access token `B` is generated for Alice within the Fabrikam application. This access token can be used for data plane actions in Azure Communication Services, like Calling. For more information on how to implement the logic, see [Obtain access tokens for Microsoft Entra ID users](../quickstarts/identity/entra-id-authentication-integration.md) and [Get an Application ID](../troubleshooting-info.md#get-an-application-id).
+1. Call Bob: Alice makes a call to Microsoft Entra ID user Bob, with Fabrikam's app. The call takes place via the Calling SDK with an Azure Communication Services access token. Learn more about [developing application for Microsoft Entra ID users](../quickstarts/identity/entra-id-authentication-integration.md#developer-actions).
 
 Artifacts:
 - Artifact `A`
@@ -61,14 +61,14 @@ Before we begin:
 - The Contoso Azure Communication Services resource admin needs to grant Alice permission to perform her role via *Azure Portal blade* or [Entra Id Assignment](/rest/api/communication/identity/entra-id-assignment) REST APIs.
 
 Steps:
-1. Authenticate Alice using the Contoso application: Alice is authenticated using a standard OAuth flow with *Microsoft Authentication Library (MSAL)* or *Azure Identity SDK*. If authentication is successful, the client application receives a Microsoft Entra access token, with a value of `A`. Tokens are outlined later in this article. Authentication from the developer perspective is explored in this [quickstart](). 
-1. Get an access token for Alice: The Contoso application by using the authentication artifact with value `A` performs exchange the Microsoft Entra access token for an Azure Communication Services access token logic. After successful authorization, the Azure Communication Services access token `B` is generated for Alice within the Contoso application. This access token can be used for data plane actions in Azure Communication Services, like Calling. For more information on how to get `A` artifacts, see [Receive the Microsoft Entra user token and object ID via the MSAL library](../../quickstarts/manage-teams-identity.md?pivots=programming-language-csharp#step-1-receive-the-azure-ad-user-token-and-object-id-via-the-msal-library) and [Get an Application ID](../troubleshooting-info.md#get-an-application-id).
-1. Call Bob: Alice makes a call to Microsoft Entra ID user Bob, with Contoso's app. The call takes place via the Calling SDK with an Azure Communication Services access token. Learn more about [developing application for Microsoft Entra ID users]().
+1. Authenticate Alice using the Contoso application: Alice is authenticated using a standard OAuth flow with *Microsoft Authentication Library (MSAL)* or *Azure Identity SDK*. If authentication is successful, the client application receives a Microsoft Entra access token, with a value of `A`. Tokens are outlined later in this article. Authentication from the developer perspective is explored in this [quickstart](../quickstarts/identity/entra-id-authentication-integration.md#developer-actions). 
+1. Get an access token for Alice: The Contoso application by using the authentication artifact with value `A` performs exchange the Microsoft Entra access token for an Azure Communication Services access token logic. After successful authorization, the Azure Communication Services access token `B` is generated for Alice within the Contoso application. This access token can be used for data plane actions in Azure Communication Services, like Calling. For more information on how to implement the logic, see [Obtain access tokens for Microsoft Entra ID users](../quickstarts/identity/entra-id-authentication-integration.md) and [Get an Application ID](../troubleshooting-info.md#get-an-application-id).
+1. Call Bob: Alice makes a call to Microsoft Entra ID user Bob, with Contoso's app. The call takes place via the Calling SDK with an Azure Communication Services access token. Learn more about [developing application for Microsoft Entra ID users](../quickstarts/identity/entra-id-authentication-integration.md).
 
 
 
 Artifacts:
-- Artifact `A1`
+- Artifact `A`
   - Type: Microsoft Entra access token
   - Audience: _`Azure Communication Services`_, control plane
   - Source: Contoso application registration's Microsoft Entra tenant
@@ -80,9 +80,9 @@ Artifacts:
 
 ## Next steps
 
-- Try this [quickstart to authenticate Microsoft Entra ID users]().
+- Try this [quickstart to authenticate Microsoft Entra ID users](../quickstarts/identity/entra-id-authentication-integration.md).
 
 The following sample app may be interesting to you:
 
-- Try the [Sample App](), which showcases a process of acquiring Azure Communication Services access tokens for Microsoft Entra ID users in mobile and desktop applications.
+- Try the [Sample App](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/entra-id-users-support-quickstart), which showcases a process of acquiring Azure Communication Services access tokens for Microsoft Entra ID users in mobile and desktop applications.
 
