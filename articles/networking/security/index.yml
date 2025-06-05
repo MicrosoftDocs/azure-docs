@@ -101,7 +101,7 @@ conceptualContent:
               itemType: tutorial
               text: Secure your virtual hub with Azure Firewall            
         # Card 3
-        - title: Zero trust for web applications
+        - title: Zero Trust for web applications
           links:
             - url: ../../web-application-firewall/overview.md
               itemType: overview
