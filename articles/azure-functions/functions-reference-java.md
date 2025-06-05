@@ -297,11 +297,11 @@ If you expect null values, use `Optional<T>`.
 
 ### <a name="sdk-types"></a>SDK types (preview)
 
-You can currently use these native SDK types in your bindings:
-
+You can currently use these Blob Storage SDK types in your bindings: `BlobClient` and `BlobContainerClient`.
+<!--- replace when more than one extension...
 + Blob Storage SDK: `BlobClient` and `BlobContainerClient`
-
-When you use these native SDK types, your functions can use client types to access streams directly from storage, which provides these benefits over POJOs or binary types:
+-->
+With SDK types support enabled, your functions can use Azure SDK client types to access blobs as streams directly from storage, which provides these benefits over POJOs or binary types:
 
 + Lower latency
 + Reduced memory requirements 
