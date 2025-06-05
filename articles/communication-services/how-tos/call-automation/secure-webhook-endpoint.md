@@ -58,7 +58,7 @@ Secure webhook endpoint – Azure Communication Services
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Secure webhook endpoint with JavaScript](./includes/secure-websocket-javascript.md)]
+[!INCLUDE [Secure webhook endpoint with JavaScript](./includes/secure-websocket-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
