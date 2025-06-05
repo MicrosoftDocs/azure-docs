@@ -95,34 +95,62 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row:::
     :::column span="2":::
         **Step 1:** In the Azure portal:
-        1. Enter "web app database" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
-        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
+        1. In the top search bar, type *app service*.
+        1. Select the item labeled **App Service** under the **Services** heading.
+        1. Select **Create** > **Web App**.
+        You can also navigate to the [creation wizard](https://portal.azure.com/#create/Microsoft.WebSite) directly.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-1.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App creation wizard." lightbox="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
-        1. *Resource Group*: Select **Create new** and use a name of **msdocs-laravel-mysql-tutorial**.
-        1. *Region*: Any Azure region near you.
-        1. *Name*: **msdocs-laravel-mysql-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
+        **Step 2:** In the **Create Web App** page, fill out the form as follows.
+        1. *Name*: **msdocs-laravel-mysql-XYZ**. A resource group named **msdocs-laravel-mysql-XYZ_group** will be generated for you.
         1. *Runtime stack*: **PHP 8.3**.
-        1. *Add Azure Cache for Redis?*: **Yes**.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. **MySQL - Flexible Server** is selected for you by default as the database engine. Azure Database for MySQL is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
+        1. *Operating system*: **Linux**.
+        1. *Region*: Any Azure region near you.
+        1. *Linux Plan*: **Create new** and use the name **msdocs-laravel-mysql-XYZ**.
+        1. *Pricing plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a different pricing tier.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-2.png" alt-text="A screenshot showing how to configure a new app in the Web App wizard." lightbox="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:**
+        1. Select the **Database** tab.
+        1. Select **Create a Database**.
+        1. In **Engine**, select **MySQL - Flexible Server**.
+        1. Select **Create an Azure Cache for Redis**.
+        1. In **Name** (under Cache), enter a name for the cache.
+        1. In **SKU**, select **Basic**.
+     :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the database configuration in the Web App wizard." lightbox="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-3.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:**
+        1. Select the **Deployment** tab.
+        1. Enable **Continuous deployment**.
+        1. In **Organization**, select your GitHub alias.
+        1. In **Repository**, select **laravel-tasks**.
+        1. In **Branch**, select **main**.
+        1. Make sure **Basic authentication** is disabled.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-2.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-4.png" alt-text="A screenshot showing the deployment configuration in the Web App wizard." lightbox="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        **Step 5:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
         - **Resource group**: The container for all the created resources.
         - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
         - **App Service**: Represents your app and runs in the App Service plan.
@@ -134,7 +162,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Private DNS zones**: Enable DNS resolution of the database server and the Redis cache in the virtual network.
     :::column-end:::    
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-3.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-5.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-5.png":::
     :::column-end:::
 :::row-end:::
 
@@ -158,7 +186,7 @@ The creation wizard generated the connectivity variables for you already as [app
     :::column span="2":::
         **Step 2:  Create a key vault for secure management of secrets**
         1. In the top search bar, type "*key vault*", then select **Marketplace** > **Key Vault**.
-        1. In **Resource Group**, select **msdocs-laravel-mysql-tutorial**.
+        1. In **Resource Group**, select **msdocs-laravel-mysql-XYZ_group**.
         1. In **Key vault name**, type a name that consists of only letters and numbers.
         1. In **Region**, set it to the same location as the resource group.
     :::column-end:::
@@ -175,8 +203,8 @@ The creation wizard generated the connectivity variables for you already as [app
         1. In **Resource Group**, select **msdocs-laravel-mysql-tutorial**.
         1. In the dialog, in **Location**, select the same location as your App Service app.
         1. In **Name**, type **msdocs-laravel-mysql-XYZVaultEndpoint**.
-        1. In **Virtual network**, select **msdocs-laravel-mysql-XYZVnet**.
-        1. In **Subnet**, **msdocs-laravel-mysql-XYZSubnet**.
+        1. In **Virtual network**, select the virtual network in the **msdocs-laravel-mysql-XYZ_group** group.
+        1. In **Subnet**, select the available compatible subnet. The Web App wizard created it for your convenience.
         1. Select **OK**.
         1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
     :::column-end:::
@@ -299,41 +327,16 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the left menu, select **Deployment** > **Deployment Center**. 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-1.png" alt-text="A screenshot showing how to open the deployment center in App Service." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** In the Deployment Center page:
-        1. In **Source**, select **GitHub**. By default, **GitHub Actions** is selected as the build provider.        
-        1. Sign in to your GitHub account and follow the prompt to authorize Azure.
-        1. In **Organization**, select your account.
-        1. In **Repository**, select **msdocs-postgresql-sample-app**.
-        1. In **Branch**, select **main**.
-        1. For **Authentication type**, select **User-assigned identity**.
-        1. In the top menu, select **Save**. 
-        App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
-        By default, the deployment center [creates a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity) for the workflow to authenticate using Microsoft Entra (OIDC authentication). For alternative authentication options, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions (Django)." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3:** Back in the GitHub codespace of your sample fork, run `git pull origin main`. 
+        **Step 1:** Back in the GitHub codespace of your sample fork, run `git pull origin main`. 
         This pulls the newly committed workflow file into your codespace.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-1.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4 (Option 1: with GitHub Copilot):**  
+        **Step 2 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
         1. Ask, "*@workspace How does the app connect to the database and redis?*" Copilot might give you some explanation about how the settings are configured in *config/database.php*. 
         1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a MySQL flexible server. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *config/database.php* file. 
@@ -348,7 +351,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4 (Option 2: without GitHub Copilot):**  
+        **Step 2 (Option 2: without GitHub Copilot):**  
         1. Open *config/database.php* in the explorer. Find the `mysql` section and make the following changes:
             1. Replace `DB_HOST` (line 49) with `AZURE_MYSQL_HOST`.
             1. Replace `DB_DATABASE` (line 51) with `AZURE_MYSQL_DBNAME`.
@@ -363,38 +366,38 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
             1. In the same section, add a line with `'scheme' => 'tls',`. This configuration tells Laravel to use encryption to connect to Redis.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing a GitHub codespace and config/database.php opened." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing a GitHub codespace and config/database.php opened." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5:**
+        **Step 3:**
         1. Select the **Source Control** extension.
         1. In the textbox, type a commit message like `Configure Azure database and cache connections`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6:**
+        **Step 4:**
         Back in the Deployment Center page in the Azure portal:
         1. Select the **Logs** tab, then select **Refresh** to see the new deployment run.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 10 minutes.
+        **Step 5:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 10 minutes.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-7.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-7.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-5.png":::
     :::column-end:::
 :::row-end:::
 
