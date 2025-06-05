@@ -13,7 +13,7 @@ ms.author: kpunjabi
 
 ## Websocket code sample
 
-This sample code demonstrates how to configure OIDC client to validate webhook payload using JWT
+This sample code demonstrates how to configure OIDC client to validate websocket payload using JWT
 
 ```JavaScript
 import { createServer } from "http";
