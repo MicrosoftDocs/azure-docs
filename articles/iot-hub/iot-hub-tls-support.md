@@ -17,7 +17,9 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 > Azure IoT Hub will end support for TLS 1.0 and 1.1 in alignment with the Azure wide service announcement for [TLS 1.0 and 1.1 retirement](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services) on **August 31, 2025**.
 >
 > It's therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#cipher-suites) in advance. It's highly recommended to use the [minimum TLS enforcement feature](#enforce-iot-hub-to-use-tls-12-and-strong-cipher-suites) as the mechanism for testing and compliance.
-> 
+
+
+> [!IMPORTANT]
 >  It’s important to distinguish between **TLS 1.2 support** and **TLS 1.2 enforcement**. TLS 1.2 is supported on all IoT Hubs, meaning that IoT Hubs can handle connections using the TLS 1.2 protocol. On the other hand, TLS 1.2 enforcement ensures that IoT Hub **only** accepts connections using TLS 1.2 or higher. When TLS 1.2 enforcement is enabled, the service also enforces the use of [strong cipher suites](#cipher-suites) as described above. Future updates will allow for the enforcement of TLS 1.2 while permitting non-recommended cipher suites. 
 > 
 > Currently, TLS 1.2 enforcement is supported only in select regions: 
@@ -83,7 +85,7 @@ A client can suggest a list of higher cipher suites to use during `ClientHello`.
 
 ## Update IoT Hub to TLS 1.2 support
 
-Once an IoT Hub is created, the `minTlsVersion` property can be updated using the Azure Portal, CLI, or SDKs. If you need to update to enforce IoT Hub to use TLS 1.2 and strong cipher suites (only allowed in selected regions) or to set TLS 1.2 support (supported in all regions), you can do so following these steps: 
+Once an IoT Hub is created, the `minTlsVersion` property can be updated using the Azure Portal, CLI, or SDKs. If you need to update to enforce IoT Hub to use TLS 1.2 and strong cipher suites (only allowed in selected regions) or to set TLS 1.2 support (supported in all regions), you can do so following these steps.
 
 To update IoT Hub to support TLS 1.2 and/or enforce strong cipher suites in Azure Portal: 
 
@@ -96,6 +98,9 @@ To update IoT Hub to support TLS 1.2 and/or enforce strong cipher suites in Azur
 1. Click on **Update**. 
 
     :::image type="content" source="media/iot-hub-tls-support/iot-hub-tls-support-2.png" alt-text="Screenshot showing how to turn on TLS 1.2 support.":::
+
+> [!NOTE]
+> You can update your IoT Hub to TLS 1.2 in ALL public regions. However, if you update an IoT Hub in one of the selected regions (East US, South Central US, West US 2, US Gov Arizona, and US Gov Virginia), it will enforce stronger cipher suites.
 
 
 ## Enforce IoT Hub to use TLS 1.2 and strong cipher suites
