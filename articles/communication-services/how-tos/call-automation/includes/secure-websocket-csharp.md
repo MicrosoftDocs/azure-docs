@@ -13,7 +13,7 @@ ms.author: kpunjabi
 
 ## Websocket code sample
 
-This sample code demonstrates how to configure OIDC client to validate websocket payload using JWT
+This sample code demonstrates how to authenticate WebSocket connection requests using JSON Web Token (JWT) tokens.
 
 ```csharp
 // 1. Load OpenID Connect metadata
@@ -36,6 +36,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
+
 // 3. Use authentication & authorization middleware
 app.UseAuthentication();
 app.UseAuthorization();
