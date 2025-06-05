@@ -174,9 +174,10 @@ The creation wizard generated the connectivity variables for you already as [app
     :::column span="2":::
         **Step 1: Retrieve the existing connection string** 
         1. In the left menu of the App Service page, select **Settings > Environment variables**. 
-        1. Select **AZURE_MYSQL_PASSWORD**. 
-        1. In **Add/Edit application setting**, in the **Value** field, copy the password string for use later.
-        The app settings you see let you connect to the MySQL database and Redis cache secured behind private endpoints. However, the secrets are saved directly in the App Service app, which isn't the best. You'll change this.
+        1. Select **Connection strings**.
+        1. Select **AZURE_MYSQL_CONNECTIONSTRING**. 
+        1. In **Add/Edit application setting**, in the **Value** field, copy the username and password for use later.
+        The connection string lets you connect to the MySQL database secured behind private endpoints. However, the secrets are saved directly in the App Service app, which isn't the best. You'll change this.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-1.png":::
@@ -214,15 +215,13 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4: Configure the MySQL connector**
+        **Step 4: Create the MySQL connector**
         1. In the top search bar, type *msdocs-laravel-mysql*, then select the App Service resource called **msdocs-laravel-mysql-XYZ**.
-        1. In the App Service page, in the left menu, select **Settings > Service Connector**. There are already two connectors, which the app creation wizard created for you.
-        1. Select checkbox next to the MySQL connector, then select **Edit**.
-        1. Select the **Authentication** tab.
-        1. In **Password**, paste the password you copied earlier.
-        1. Select **Store Secret in Key Vault**.
-        1. Under **Key Vault Connection**, select **Create new**. 
-        A **Create connection** dialog is opened on top of the edit dialog.
+        1. In the App Service page, in the left menu, select **Settings > Service Connector**.
+        1. Select **Create**.
+        1. For **Service type**, select **DB for MySQL flexible server**.
+        1. For **MySQL flexible server**, select your server (for example, **msdocs-laravel-mysql-235-server**).
+        1. For **MySQL database**, select your database (for example, **msdocs-laravel-mysql-235-database**).
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-4.png" alt-text="A screenshot showing how to edit a service connector with a key vault connection." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-4.png":::
@@ -230,21 +229,35 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5: Establish the Key Vault connection**        
+        **Step 5: Configure authentication for the MySQL connector**
+        1. Select the **Authentication** tab.
+        1. Select **Connection string**.
+        1. In **Password**, paste the password you copied earlier.
+        1. Select **Store Secret in Key Vault**.
+        1. Under **Key Vault Connection**, select **Create new**. 
+        A **Create connection** dialog is opened on top of the edit dialog.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot showing how to edit a service connector with a key vault connection." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6: Establish the Key Vault connection**        
         1. In the **Create connection** dialog for the Key Vault connection, in **Key Vault**, select the key vault you created earlier.
         1. Select **Review + Create**.
         1. When validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot showing how to configure a key vault service connector." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-6.png" alt-text="A screenshot showing how to configure a key vault service connector." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-6.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 6: Finalize the MySQL connector settings** 
-        1. You're back in the edit dialog for **defaultConnector**. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
-        1. Select **Next: Networking**.
-        1. Select **Save**. Wait until the **Update succeeded** notification appears.
+        1. You're back in the MySQL connector dialog. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
+        1. Select **Review + Create**.
+        1. Select **Create**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-6.png" alt-text="A screenshot showing the key vault connection selected in the defaultConnector." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-6.png":::
@@ -359,10 +372,10 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
             1. Replace `DB_PASSWORD` (line 53) with `AZURE_MYSQL_PASSWORD`.
             1. Replace `DB_PORT` (line 50) with `AZURE_MYSQL_PORT`.
         1. Scroll to the Redis `cache` section and make the following changes:
-            1. Replace `REDIS_HOST` (line ) with `AZURE_REDIS_HOST`.
-            1. Replace `REDIS_PASSWORD` with `AZURE_REDIS_PASSWORD`.
-            1. Replace `REDIS_PORT` with `AZURE_REDIS_PORT`.
-            1. Replace `REDIS_CACHE_DB` with `AZURE_REDIS_DATABASE`.
+            1. Replace `REDIS_HOST` (line 142) with `AZURE_REDIS_HOST`.
+            1. Replace `REDIS_PASSWORD` (line 144) with `AZURE_REDIS_PASSWORD`.
+            1. Replace `REDIS_PORT` (line 145) with `AZURE_REDIS_PORT`.
+            1. Replace `REDIS_CACHE_DB` (line 146) with `AZURE_REDIS_DATABASE`.
             1. In the same section, add a line with `'scheme' => 'tls',`. This configuration tells Laravel to use encryption to connect to Redis.
     :::column-end:::
     :::column:::
