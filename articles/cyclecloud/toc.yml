@@ -1,0 +1,268 @@
+- name: Azure CycleCloud
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure CycleCloud?
+    href: overview.md
+  - name: What is Azure CycleCloud Workspace for Slurm?
+    href: overview-ccws.md    
+- name: Quickstarts
+  items:
+  - name: Install - via Marketplace
+    href: qs-install-marketplace.md
+  - name: Deploy CycleCloud Workspace for Slurm
+    href: qs-deploy-ccws.md    
+- name: Tutorials
+  items:
+  - name: Create a Cluster
+    href: ./tutorials/tutorial.md
+- name: Concepts
+  items:
+  - name: Core
+    href: ./concepts/core.md
+  - name: Clusters & Nodes
+    href: ./concepts/clusters.md
+  - name: Scheduling
+    href: ./concepts/scheduling.md
+  - name: Clusters Operations
+    items:
+    - name: User Management
+      href: ./concepts/user-management.md
+    - name: Cost & Usage Tracking
+      href: ./concepts/usage-tracking.md
+    - name: Monitoring
+      href: ./concepts/monitoring.md
+  - name: Security
+    items:
+    - name: Security Best Practices
+      href: ./concepts/security-best-practices.md
+- name: How-To
+  items:
+  - name: CycleCloud
+    items:
+    - name: Plan Your Production Deployment
+      href: ./how-to/plan-prod-deployment.md
+    - name: Manually Install Application
+      href: ./how-to/install-manual.md
+    - name: Install CycleCloud CLI
+      href: ./how-to/install-cyclecloud-cli.md
+    - name: Run in a Container Instance
+      href: ./how-to/run-in-container.md
+    - name: Run CycleCloud using ARM Template
+      href: ./how-to/install-arm.md
+    - name: Prepare Your Azure Subscription
+      href: ./how-to/configuration.md
+    - name: Use Service Principals with CycleCloud
+      href: ./how-to/service-principals.md
+    - name: Use Managed Identities with CycleCloud
+      href: ./how-to/managed-identities.md
+    - name: Configure User Authentication
+      href: ./how-to/user-authentication.md
+    - name: Upgrade and Migrate
+      href: ./how-to/upgrade-and-migrate.md
+    - name: Plan CycleCloud 7 retirement
+      href: ./how-to/cyclecloud7-retirement-guide.md
+    - name: Backup and Restore
+      href: ./how-to/backup-and-restore.md
+    - name: Configure Proxies
+      href: ./how-to/running-behind-proxy.md
+    - name: Run in Locked Down Network
+      href: ./how-to/running-in-locked-down-network.md
+    - name: Configure Event Grid
+      href: ./how-to/event-grid.md
+    - name: Customize UI Theme
+      href: ./how-to/theming.md
+    - name: Configure SSL
+      href: ./how-to/ssl-configuration.md
+    - name: Run Multiple CycleCloud Installs
+      href: ./how-to/multiple-installs.md
+    - name: Move a Cluster to Another Resource Group
+      href: ./how-to/move-resource-group.md
+  - name: Cloud Bursting
+    items:
+    - name: Cloud Bursting Using Azure CycleCloud and Slurm
+      href: ./how-to/bursting/slurm-cloud-bursting-setup.md
+  - name: CycleCloud Workspace for Slurm
+    items:
+    - name: Plan your CycleCloud Workspace for Slurm Deployment
+      href: ./how-to/ccws/plan-your-deployment.md
+    - name: Register a Microsoft Entra ID application for Open OnDemand Authentication
+      href: ./how-to/ccws/register-entra-id-app.md
+    - name: Configure Open OnDemand with CycleCloud
+      href: ./how-to/ccws/configure-open-ondemand.md
+    - name: Add users for Open OnDemand
+      href: ./how-to/ccws/open-ondemand-add-users.md
+    - name: How to deploy using the CLI
+      href: ./how-to/ccws/deploy-with-cli.md
+    - name: How to connect to a Login Node through Bastion
+      href: ./how-to/ccws/connect-to-login-node-with-bastion.md
+    - name: How to connect to the CycleCloud Portal through Bastion
+      href: ./how-to/ccws/connect-to-portal-with-bastion.md
+  - name: Cluster Operations
+    items:
+    - name: Create a Cluster
+      href: ./how-to/create-cluster.md
+    - name: Start a Cluster
+      href: ./how-to/start-cluster.md
+    - name: Connect to a Node
+      href: ./how-to/connect-to-node.md
+    - name: Terminate a Cluster
+      href: ./how-to/terminate-cluster.md
+    - name: Prevent Node Termination
+      href: ./how-to/keep-alive.md
+    - name: Grant User Access
+      href: ./how-to/user-access.md
+    - name: Monitor Clusters
+      href: ./how-to/monitor-clusters.md
+    - name: Tag Nodes
+      href: ./how-to/tag-nodes.md
+    - name: Use Flex Scale Set Orchestration
+      href: ./how-to/flex-scalesets.md
+  - name: Customize Clusters
+    items:
+    - name: Use Cluster Templates
+      href: ./how-to/cluster-templates.md
+    - name: Add a Node Array
+      href: ./how-to/add-node-array.md
+    - name: Add a Disk
+      href: ./how-to/add-disk.md
+    - name: Mount a Disk
+      href: ./how-to/mount-disk.md
+    - name: Create Network Fileserver
+      href: ./how-to/create-fileserver.md
+    - name: Mount a Network Fileserver
+      href: ./how-to/mount-fileserver.md
+    - name: Enable Return Proxy
+      href: ./how-to/return-proxy.md
+    - name: Configure Network Security
+      href: ./how-to/network-security.md
+    - name: Use Availability Sets
+      href: ./how-to/availability-sets.md
+    - name: Use Environments
+      href: ./how-to/environments.md
+    - name: Use Projects
+      href: ./how-to/projects.md
+    - name: Use Cloud-Init
+      href: ./how-to/cloud-init.md
+    - name: Use Spot Instances
+      href: ./how-to/use-spot-instances.md
+    - name: Use Scheduled Events
+      href: ./how-to/scheduled-events.md
+    - name: Use Storage Blobs
+      href: ./how-to/storage-blobs.md
+    - name: Configure SELinux
+      href: ./how-to/selinux.md
+  - name: Node Preparation
+    items:
+    - name: Install Jetpack
+      href: ./how-to/install-jetpack.md
+    - name: Create a Custom Image
+      href: ./how-to/create-custom-image.md
+    - name: Use HB and HC VMs
+      href: ./how-to/hb-hc-best-practices.md
+    - name: Use HealthCheck
+      href: ./how-to/healthcheck.md
+  - name: Scheduling
+    items:
+    - name: Configure Autoscaling
+      href: ./how-to/configure-autoscaling.md
+    - name: Use the REST API
+      href: ./how-to/use-rest-api.md
+  - name: Troubleshoot
+    items:
+    - name: Report an Issue
+      href: ./how-to/report-issues.md
+- name: Reference
+  items:
+  - name: Cluster Template Reference
+    items:
+    - name: Cluster Template Overview
+      href: ./cluster-references/cluster-template-reference.md
+    - name: Cluster
+      href: ./cluster-references/cluster-reference.md
+    - name: Node and Nodearray
+      href: ./cluster-references/node-nodearray-reference.md
+    - name: Volume
+      href: ./cluster-references/volume-reference.md
+    - name: Network Interface
+      href: ./cluster-references/network-interface-reference.md
+    - name: Cluster-Init
+      href: ./cluster-references/cluster-init-reference.md
+    - name: Input-Endpoint
+      href: ./cluster-references/input-endpoint-reference.md
+    - name: Cluster Configuration
+      href: ./cluster-references/configuration-reference.md
+    - name: Environment
+      href: ./cluster-references/environment-reference.md
+    - name: Noderef
+      href: ./cluster-references/noderef-reference.md
+    - name: Cluster Parameters
+      href: ./cluster-references/parameter-reference.md
+    - name: Cluster Parameter Special Parsing
+      href: ./cluster-references/special-parsing.md
+  - name: REST API Reference
+    href: api.md
+  - name: Python API Reference
+    href: python-api.md
+  - name: CycleCloud CLI
+    href: cli.md
+  - name: Jetpack
+    href: jetpack.md
+  - name: Common Cookbook Reference
+    href: cookbook-reference.md
+  - name: CycleServer Configuration
+    href: cycleserver-configuration-reference.md
+  - name: Schedulers
+    items:
+    - name: OpenPBS
+      href: openpbs.md
+    - name: Grid Engine
+      href: gridengine.md
+    - name: Slurm
+      href: slurm.md
+    - name: Slurm 3.0 Scheduler Integration
+      href: slurm-3.md
+    - name: HT Condor
+      href: htcondor.md
+    - name: IBM Spectrum LSF
+      href: lsf.md
+    - name: Microsoft HPC Pack
+      href: hpcpack.md
+  - name: Log Locations
+    href: log-locations.md
+  - name: Events
+    href: events.md
+  - name: Error Messages
+    href: error-messages.md
+- name: Resources
+  items:
+  - name: Get Azure CycleCloud
+    href: https://azure.microsoft.com/features/azure-cyclecloud/
+  - name: CycleCloud Packages
+    href: packages.md
+  - name: CycleCloud Cluster Templates
+    href: download-cluster-templates.md
+  - name: CycleCloud Community GitHub
+    href: https://github.com/CycleCloudCommunity
+  - name: Azure Community Forums
+    href: https://social.msdn.microsoft.com/Forums/home?forum=azurecyclecloud
+  - name: Azure CycleCloud Feedback
+    href: https://feedback.azure.com/d365community/forum/ca60b1c2-eb24-ec11-b6e6-000d3a4f0da0
+  - name: Release Notes - CycleCloud
+    items:
+      - name: Current Release - v8.x
+        href: release-notes.md
+      - name: Previous Release - v7.x
+        href: /previous-versions/azure/cyclecloud/release-notes-previous
+      - name: Older Releases
+        href: /previous-versions/azure/cyclecloud/release-notes-archive
+  - name: Release Notes - CycleCloud Workspace for Slurm
+    items:
+    - name: Current Release - 2025.04.24
+      href: ./release-notes/ccws/release-notes.md       
+  - name: Service Policy
+    href: service-policy.md
+  - name: Data Usage Policy
+    href: data-policy.md
+  - name: Licensing Information
+    href: licensing.md

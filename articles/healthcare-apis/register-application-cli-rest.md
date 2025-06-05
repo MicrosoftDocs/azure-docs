@@ -50,7 +50,7 @@ In practice, you'll define variables, assign values to them, and set references 
 ### Define app registration name, etc.
 appregname=myappregtest1
 clientid=$(az ad app create --display-name $appregname --query appId --output tsv)
-objectid=$(az ad app show --id $clientid --query Id --output tsv)
+objectid=$(az ad app show --id $clientid --query id --output tsv)
 ```
 
 You can use `echo $<variable name>` to display the value of a specified variable.
@@ -95,7 +95,7 @@ echo $clientsecret
 
 ## Change the flag for public client applications
 
-For public client applications, change the **Allow public client flows** flag to **Yes**. For confidential client applications, skip this step.
+For public client applications that use the OAuth authorization protocol or features as described in [Public client and confidential client applications](https://learn.microsoft.com/entra/identity-platform/msal-client-applications#when-should-you-enable-a-public-client-flow-in-your-app-registration), change the **Allow public client flows** flag to **Yes**. For confidential client applications, skip this step.
 
 [![Allow public client flows](media/app-registration-public-client.png)](media/app-registration-public-client.png#lightbox)
 

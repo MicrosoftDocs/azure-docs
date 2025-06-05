@@ -4,7 +4,7 @@ description: This page provides detailed requirements for configuring and managi
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: duau
 ---

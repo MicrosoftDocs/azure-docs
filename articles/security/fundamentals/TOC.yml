@@ -36,8 +36,6 @@
         href: backup-plan-to-protect-against-ransomware.md
       - name: Ransomware protection with Azure Firewall Premium
         href: ransomware-protection-with-azure-firewall.md
-      - name: Recovering from systemic identity compromise
-        href: recover-from-identity-compromise.md
   - name: Threat protection
     href: threat-detection.md
 
@@ -145,6 +143,8 @@
     href: key-management.md
   - name: Choosing a key management solution
     href: key-management-choose.md
+  - name: Services supporting CMKs
+    href: encryption-customer-managed-keys-support.md
   - name: Double encryption
     href: double-encryption.md
   - name: Azure Certificate Authorities

@@ -3,7 +3,7 @@ title: Monitor Azure Table Storage
 description: Start here to learn how to monitor Azure Table Storage.
 ms.date: 02/13/2024
 ms.custom: horz-monitor, devx-track-csharp, devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 author: normesta
 ms.author: normesta
 ms.service: azure-table-storage
@@ -178,7 +178,7 @@ The following example shows how to list a metric definition at the account level
 
         foreach (var metricDefinition in metricDefinitions)
         {
-            // Enumrate metric definition:
+            // Enumerate metric definition:
             //    Id
             //    ResourceId
             //    Name
@@ -225,7 +225,7 @@ The following example shows how to read `UsedCapacity` data at the account level
 
         foreach (var metric in Response.Value)
         {
-            // Enumrate metric value
+            // Enumerate metric value
             //    Id
             //    Name
             //    Type
@@ -278,7 +278,7 @@ The following example shows how to read metric data on the metric supporting mul
 
         foreach (var metric in Response.Value)
         {
-            //Enumrate metric value
+            // Enumerate metric value
             //    Id
             //    Name
             //    Type

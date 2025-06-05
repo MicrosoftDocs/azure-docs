@@ -2,18 +2,12 @@
 title: Configure customer-managed keys with managed Hardware Security Module for Azure NetApp Files volume encryption 
 description: Learn how to encrypt data in Azure NetApp Files with customer-managed keys using the Hardware Security Module
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 09/05/2024
+ms.date: 05/20/2025
 ms.author: anfdocs
 ---
 # Configure customer-managed keys with managed Hardware Security Module for Azure NetApp Files volume encryption 
@@ -34,52 +28,49 @@ Azure NetApp Files volume encryption with customer-managed keys with the managed
 
 ## Supported regions
 
+* Australia Central 
+* Australia Central 2
 * Australia East
+* Australia Southeast
 * Brazil South
+* Brazil Southeast
 * Canada Central
+* Canada East
+* Central India
 * Central US
 * East Asia
 * East US
 * East US 2
 * France Central
+* Germany North 
+* Germany West Central
+* Israel Central 
+* Italy North
 * Japan East
+* Japan West
 * Korea Central
+* Korea South
 * North Central US
 * North Europe
 * Norway East
 * Norway West
+* Qatar Central
 * South Africa North
 * South Central US
+* South India
 * Southeast Asia
 * Spain Central
 * Sweden Central
 * Switzerland North
+* Switzerland West
 * UAE Central
 * UAE North
 * UK South
+* UK West
+* West Europe
 * West US
 * West US 2
 * West US 3
-
-## Register the feature
-
-This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFManagedHsmEncryption
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFManagedHsmEncryption
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Configure customer-managed keys with managed HSM for system-assigned identity
 

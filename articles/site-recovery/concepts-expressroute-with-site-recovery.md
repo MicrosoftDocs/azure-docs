@@ -1,13 +1,11 @@
 ---
 title: About using ExpressRoute with Azure Site Recovery
 description: Describes how to use Azure ExpressRoute with the Azure Site Recovery service for disaster recovery and migration.
-services: site-recovery
-author: ankitaduttaMSFT
-manager: rochakm
+author: jyothisuri
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 10/13/2019
-ms.author: ankitadutta
+ms.topic: concept-article
+ms.date: 09/18/2024
+ms.author: jsuri
 
 ---
 # Azure ExpressRoute with Azure Site Recovery
@@ -18,7 +16,7 @@ This article describes how you can use Azure ExpressRoute with Azure Site Recove
 
 ## ExpressRoute circuits
 
-An ExpressRoute circuit represents a logical connection between your on-premises infrastructure and Microsoft cloud services through a connectivity provider. You can order multiple ExpressRoute circuits. Each circuit can be in the same or different regions, and can be connected to your premises through different connectivity providers. Learn more about ExpressRoute circuits [here](../expressroute/expressroute-circuit-peerings.md).
+An ExpressRoute circuit represents a logical connection between your on-premises infrastructure and Microsoft cloud services through a connectivity provider. You can order multiple ExpressRoute circuits. Each circuit can be in the same or different regions and can be connected to your premises through different connectivity providers. Learn more about ExpressRoute circuits [here](../expressroute/expressroute-circuit-peerings.md).
 
 An ExpressRoute circuit has multiple routing domains associated with it. Learn more about and compare ExpressRoute routing domains [here](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
@@ -26,7 +24,7 @@ An ExpressRoute circuit has multiple routing domains associated with it. Learn m
 
 Azure Site Recovery enables disaster recovery and migration to Azure for on-premises [Hyper-V virtual machines](hyper-v-azure-architecture.md), [VMware virtual machines](vmware-azure-architecture.md), and [physical servers](physical-azure-architecture.md). For all on-premises to Azure scenarios, replication data is sent to and stored in an Azure Storage account. During replication, you don't pay any virtual machine charges. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines.
 
-Site Recovery replicates data to an Azure Storage account or replica Managed Disk on the target Azure region over a public endpoint. To use ExpressRoute for Site Recovery replication traffic, you can utilize [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or an existing [public peering](../expressroute/about-public-peering.md) (deprecated for new creations). Microsoft peering is the recommended routing domain for replication. Note that replication is supported over private peering only when [private ends points are enabled for the vault](hybrid-how-to-enable-replication-private-endpoints.md).
+Site Recovery replicates data to an Azure Storage account or replica Managed Disk on the target Azure region over a public endpoint. To use ExpressRoute for Site Recovery replication traffic, you can utilize [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Note that replication is supported over private peering only when [private ends points are enabled for the vault](hybrid-how-to-enable-replication-private-endpoints.md).
 
 Ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) for Configuration Server are also met. Connectivity to specific URLs is required by Configuration Server for orchestration of Site Recovery replication. ExpressRoute cannot be used for this connectivity. 
 

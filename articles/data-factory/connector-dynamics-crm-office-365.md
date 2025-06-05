@@ -6,8 +6,11 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: synapse
-ms.date: 08/02/2024
+ms.custom:
+  - synapse
+  - build-2025
+ms.date: 04/28/2024
+ai-usage: ai-assisted
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -389,7 +392,9 @@ To copy data to Dynamics, the copy activity **sink** section supports the follow
 | alternateKeyName | The alternate key name defined on your entity to do an upsert. | No. |
 | writeBatchSize | The row count of data written to Dynamics in each batch. | No. The default value is 10. |
 | ignoreNullValues | Whether to ignore null values from input data other than key fields during a write operation.<br/><br/>Valid values are **TRUE** and **FALSE**:<ul><li>**TRUE**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.</li><li>**FALSE**: Update the data in the destination object to a null value when you do an upsert or update operation. Insert a null value when you do an insert operation.</li></ul> | No. The default value is **FALSE**. |
-| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections. | No |
+| bypassBusinessLogicExecution | Bypass custom business logic to disable custom plug-ins and workflows except:<br><br>&nbsp;• Plug-ins that are part of the core Microsoft Dataverse system or part of a solution where Microsoft is the publisher.<br>&nbsp;• Workflows included in a solution where Microsoft is the publisher.<br><br>The value can be `CustomSync`, `CustomAsync`, `CustomSync,CustomAsync`. You can also manually input GUIDs (separated by commas) as the value to specify which registered plug-in steps to bypass. This allows you to bypass the specified plug-in step instead of all synchronous and asynchronous custom logic.<br><br>Note that you must have the `prvBypassCustomBusinessLogic` privilege. By default, only users with the system administrator security role have this privilege. Any Dataverse user who belongs to a Dataverse team with an owner type automatically inherits the privileges associated with the team's security roles. For more information, see this [article](/power-apps/developer/data-platform/bypass-custom-business-logic?tabs=sdk). | No |
+| bypassPowerAutomateFlows | Bypass Power Automate flows. For more information, see this [article](/power-apps/developer/data-platform/bypass-power-automate-flows?tabs=sdk). | No |
 
 >[!NOTE]
 >The default value for both the sink **writeBatchSize** and the copy activity **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** for the Dynamics sink is 10. Therefore, 100 records are concurrently submitted by default to Dynamics.
@@ -431,6 +436,10 @@ The optimal combination of **writeBatchSize** and **parallelCopies** depends on 
     }
 ]
 ```
+
+When you select an [elastic tables](/power-apps/developer/data-platform/elastic-tables#partitioning-and-horizontal-scaling) in the copy activity sink, the connector mapping supports the `partitionid` column. You can map your source data column to the sink's `partitionid` column. If not mapped, the primary key value is used as the default value for the `partitionid` column.
+
+`partitionid` can be used in Dataverse alternate keys or primary key scenarios on the write path. Each elastic table contains a system-defined `partitionid` column and has an alternate key named `KeyForNoSqlEntityWithPKPartitionId`, which combines the primary key of the table with the `partitionid` column. For more information, see this [article](/power-apps/developer/data-platform/elastic-tables).
 
 ## Retrieving data from views
 
@@ -499,6 +508,15 @@ To write data into a lookup field with multiple targets like Customer and Owner,
    - If different records map to different target entities, make sure your source data has a column that stores the corresponding target entity name.
 
 1. Map both the value and entity-reference columns from source to sink. The entity-reference column must be mapped to a virtual column with the special naming pattern `{lookup_field_name}@EntityReference`. The column doesn't actually exist in Dynamics. It's used to indicate this column is the metadata column of the given multitarget lookup field.
+
+### Setting the Owner field
+
+When setting the Owner field in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM, it is important to provide a valid reference. The valid options for the `@EntityReference` are:
+
+- `systemuser`: This refers to an individual user within the system.
+- `team`: This refers to a team of users within the organization.
+
+Ensure that the value provided corresponds to one of these options to avoid errors during data transformation.
 
 For example, assume the source has these two columns:
 

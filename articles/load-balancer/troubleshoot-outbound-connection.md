@@ -5,13 +5,13 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: troubleshooting
-ms.date: 08/24/2023
+ms.date: 09/30/2024
 ms.author: mbender
 ---
 
 # Troubleshoot Azure Load Balancer outbound connectivity issues
 
-Learn troubleshooting guidance for outbound connections in Azure Load Balancer. This includes understanding source network address translation (SNAT) and it's impact on connections, using individual public IPs on VMs, and designing applications for connection efficiency to avoid SNAT port exhaustion. Most problems with outbound connectivity that customers experience is due to SNAT port exhaustion and connection timeouts leading to dropped packets. 
+Learn troubleshooting guidance for outbound connections in Azure Load Balancer. This includes understanding source network address translation (SNAT) and its impact on connections, using individual public IPs on VMs, and designing applications for connection efficiency to avoid SNAT port exhaustion. Most problems with outbound connectivity that customers experience is due to SNAT port exhaustion and connection timeouts leading to dropped packets. 
 
 To learn more about SNAT ports, see [Source Network Address Translation for outbound connections](load-balancer-outbound-connections.md).
 
@@ -37,15 +37,15 @@ Azure NAT Gateway is a highly resilient and scalable Azure service that provides
 
 * **Port selection and reuse behavior.**
     
-    A NAT gateway selects ports at random from the available pool of ports. If there aren't available ports, SNAT ports are reused as long as there's no existing connection to the same destination public IP and port. This port selection and reuse behavior of a NAT gateway makes it less likely to experience connection timeouts. 
+    A NAT gateway selects ports at random from the available pool of ports. If there aren't available ports, SNAT ports are reused as long as there's no existing connection to the same destination public IP and port. In order for a SNAT port to be reused to connect to the same destination endpoint, NAT gateway places a [SNAT port reuse cool down timer](/azure/nat-gateway/nat-gateway-resource#port-reuse-timers) on the port after the preceding connection closes. The SNAT port reuse timer helps prevent ports from being selected too quickly for connecting to the same destination repeatedly. This reuse cool down timer is helpful in scenarios where destination endpoints have firewalls or other services configured that place a cool down timer on source ports. This port selection and reuse behavior of a NAT gateway makes it less likely to experience connection timeouts. 
 
-    To learn more about how SNAT and port usage works for NAT gateway, see [SNAT fundamentals](../virtual-network/nat-gateway/nat-gateway-resource.md#fundamentals). There are a few conditions in which you won't be able to use NAT gateway for outbound connections. For more information on NAT gateway limitations, see [NAT Gateway limitations](../virtual-network/nat-gateway/nat-gateway-resource.md#limitations).
+    To learn more about how SNAT port selection and reuse works for NAT gateway, see [SNAT with NAT Gateway](/azure/nat-gateway/nat-gateway-snat#nat-gateway-snat-port-selection-and-reuse). There are a few conditions where you can't use NAT gateway for outbound connections. For more information on NAT gateway limitations, see [NAT Gateway limitations](../virtual-network/nat-gateway/nat-gateway-resource.md#limitations).
 
     If you're unable to use a NAT gateway for outbound connectivity, refer to the other migration options described in this article.
 
 ### Configure load balancer outbound rules to maximize SNAT ports per VM
 
-If you’re using a public standard load balancer and experience SNAT exhaustion or connection failures, ensure you’re using outbound rules with manual port allocation. Otherwise, you’re likely relying on load balancer’s default port allocation. Default port allocation automatically assigns a conservative number of ports, which is based on the number of instances in your backend pool. Default port allocation isn't a recommended method for enabling outbound connections. When your backend pool scales, your connections may be impacted if ports need to be reallocated. 
+If you’re using a public standard load balancer and experience SNAT exhaustion or connection failures, ensure you’re using outbound rules with manual port allocation. Otherwise, you’re likely relying on load balancer’s default port allocation. Default port allocation automatically assigns a conservative number of ports, which is based on the number of instances in your backend pool. Default port allocation isn't a recommended method for enabling outbound connections. When your backend pool scales, your connections can be impacted if ports need to be reallocated. 
 
 To learn more about default port allocation, see [Source Network Address Translation for outbound connections](load-balancer-outbound-connections.md).
 

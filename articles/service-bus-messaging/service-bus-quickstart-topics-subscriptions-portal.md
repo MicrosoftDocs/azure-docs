@@ -3,7 +3,7 @@ title: Use the Azure portal to create Service Bus topics and subscriptions
 description: 'Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal.'
 author: spelluru
 ms.author: spelluru
-ms.date: 11/28/2023
+ms.date: 12/11/2024
 ms.topic: quickstart
 ms.custom: mode-ui
 #Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?

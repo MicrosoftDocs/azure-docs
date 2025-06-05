@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Create and manage budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
-author: bandersmsft
-ms.author: banders
-ms.date: 07/09/2024
+author: jojopm
+ms.author: jojoh
+ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojo
+ms.reviewer: jojoh
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ---
 
@@ -55,12 +55,6 @@ Budgets are supported for the following types of Azure account types and scopes:
     - Billing profile
     - Invoice section
     - Customer
-- AWS scopes
-    - External account
-    - External subscription
-
-> [!NOTE]
-> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 To view budgets, you need at least read access for your Azure account.
 
@@ -74,7 +68,9 @@ The following Azure permissions, or scopes, are supported per subscription for b
 - Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
 - Reader and Cost Management reader – Can view budgets that they have permission to.
 
-**For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md)**. For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](./assign-access-acm-data.md).
+**Single currency requirement:** For budget evaluations, our system requires that all subscriptions within the scope, like a management group, operate under a single currency. Multi-currency budget evaluations are not supported, and you may miss out on your budget alerts if this situation arises. 
+
+For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md). For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](./assign-access-acm-data.md).
 
 ## Sign in to Azure
 
@@ -92,7 +88,7 @@ After you create budgets, they show a simple view of your current spending again
 
 Select **Add**.
 
-:::image type="content" source="./media/tutorial-acm-create-budgets/budgets-cost-management.png" alt-text="Screenthost showing a list of budgets already created." lightbox="./media/tutorial-acm-create-budgets/budgets-cost-management.png" :::
+:::image type="content" source="./media/tutorial-acm-create-budgets/budgets-cost-management.png" alt-text="Screenshot showing a list of budgets already created." lightbox="./media/tutorial-acm-create-budgets/budgets-cost-management.png" :::
 
 In the **Create budget** window, make sure that the scope shown is correct. Choose any filters that you want to add. Filters allow you to create budgets on specific costs, such as resource groups in a subscription or a service like virtual machines. For more information about the common filter properties that you can use in budgets and cost analysis, see [Group and filter properties](group-filter.md#group-and-filter-properties).
 
@@ -131,15 +127,6 @@ After you create a budget, it appears in cost analysis. Viewing your budget agai
 :::image type="content" source="./media/tutorial-acm-create-budgets/cost-analysis.png" alt-text="Screenshot showing an example budget with spending shown in cost analysis." lightbox="./media/tutorial-acm-create-budgets/cost-analysis.png" :::
 
 In the preceding example, you created a budget for a subscription. You can also create a budget for a resource group. If you want to create a budget for a resource group, navigate to **Cost Management + Billing** &gt; **Subscriptions** &gt; select a subscription > **Resource groups** > select a resource group > **Budgets** > and then **Add** a budget.
-
-### Create a budget for combined Azure and AWS costs
-
-You can group your Azure and AWS costs together by assigning a management group to your connector along with its consolidated and linked accounts. Assign your Azure subscriptions to the same management group. Then create a budget for the combined costs.
-
-1. In Cost Management, select **Budgets**.
-1. Select **Add**.
-1. Select **Change scope** and then select the management group.
-1. Continue creating the budget until complete.
 
 ## Costs in budget evaluations
 
@@ -411,4 +398,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to create a recurring export for your cost management data.
 
 > [!div class="nextstepaction"]
-> [Create and manage exported data](tutorial-export-acm-data.md)
+> [Create and manage exported data](tutorial-improved-exports.md)

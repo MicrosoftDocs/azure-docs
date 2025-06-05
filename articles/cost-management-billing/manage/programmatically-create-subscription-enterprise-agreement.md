@@ -1,13 +1,13 @@
 ---
 title: Programmatically create Azure Enterprise Agreement subscriptions with the latest APIs
 description: Learn how to create Azure Enterprise Agreement subscriptions programmatically using the latest versions of REST API, Azure CLI, Azure PowerShell, and Azure Resource Manager templates.
-author: bandersmsft
+author: kendayMS
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/14/2024
-ms.reviewer: sapnakeshari
-ms.author: banders
+ms.date: 05/21/2025
+ms.reviewer: macyso
+ms.author: macyso
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 ---
 
@@ -185,7 +185,7 @@ If you have multiple user roles in addition to the Account Owner role, then you 
 Call the PUT API to create a subscription creation request/alias.
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
+PUT https://management.azure.com/providers/Microsoft.Subscription/aliases/{{guid}}?api-version=2021-10-01api-version=2021-10-01
 ```
 
 In the request body, provide as the `billingScope` the `id` from one of your `enrollmentAccounts`.
@@ -221,7 +221,7 @@ You can do a GET on the same URL to get the status of the request.
 ### Request
 
 ```json
-GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
+GET https://management.azure.com/providers/Microsoft.Subscription/aliases/{{guid}}?api-version=2021-10-01
 ```
 
 ### Response

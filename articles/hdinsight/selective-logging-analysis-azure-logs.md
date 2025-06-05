@@ -4,7 +4,11 @@ description: Learn how to use the selective logging feature with a script action
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: references-regions
-ms.date: 09/06/2024
+ms.date: 10/15/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ROBOTS: NOINDEX
 ---
 
 # Use selective logging with a script action in Azure HDInsight
@@ -37,7 +41,7 @@ Selective logging allows you to enable or disable all the tables, or enable sele
    * Interactive Query
    * Spark
 
-For instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
+For instructions on how to create a HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
 ## Enable or disable logs by using a script action for multiple tables and log types
 
@@ -152,7 +156,7 @@ For example, assume that `spark HDInsightSecurityLogs` is a table that has two l
 If you need to disable two tables and two source types, use the following syntax:
 
 - Spark: `InteractiveHiveMetastoreLog` log type in the `HDInsightHiveAndLLAPLogs` table
-- Hbase: `InteractiveHiveHSILog` log type in the `HDInsightHiveAndLLAPLogs` table
+- HBase: `InteractiveHiveHSILog` log type in the `HDInsightHiveAndLLAPLogs` table
 - Hadoop: `HDInsightHiveAndLLAPMetrics` table
 - Hadoop: `HDInsightHiveTezAppStats` table
 

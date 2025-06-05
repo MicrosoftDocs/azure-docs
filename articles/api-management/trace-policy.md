@@ -4,7 +4,7 @@ description: Reference for the trace policy available for use in Azure API Manag
 services: api-management
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---
@@ -56,7 +56,7 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

@@ -35,7 +35,7 @@ Yes, Azure VPN Gateway now supports 32-bit (4-byte) ASNs. To configure by using 
 
 ### What private ASNs can I use?
 
-The useable ranges of private ASNs are:
+The usable ranges of private ASNs are:
 
 * 64512-65514 and 65521-65534
 
@@ -86,11 +86,12 @@ Azure VPN Gateway supports up to 4,000 prefixes. The BGP session is dropped if t
 
 Yes. Keep in mind that advertising the default route forces all VNet egress traffic toward your on-premises site. It also prevents the virtual network VMs from accepting public communication from the internet directly, such as Remote Desktop Protocol (RDP) or Secure Shell (SSH) from the internet to the VMs.
 
-### Can I advertise the exact prefixes as my virtual network prefixes?
+### <a name="advertise-exact-prefixes"></a>In site-to-site tunnel setups, can I advertise the exact prefixes as my virtual network prefixes?
 
-No. Azure blocks or filters advertisement of the same prefixes as any one of your VNet address prefixes. You can, however, advertise a prefix that's a superset of what you have inside your virtual network.
+The ability to advertise exact prefixes depends on whether gateway transit is enabled or not enabled.
 
-For example, if your virtual network uses the address space 10.0.0.0/16, you can advertise 10.0.0.0/8. But you can't advertise 10.0.0.0/16 or 10.0.0.0/24.
+*	**When gateway transit is enabled:** You cannot advertise the exact prefixes as your virtual network (including peered virtual networks) prefixes. Azure blocks or filters the advertisement of any prefixes that match your virtual network address prefixes. However, you can advertise a prefix that is a superset of your virtual network's address space. For example, if your virtual network uses the address space 10.0.0.0/16, you can advertise 10.0.0.0/8, but not 10.0.0.0/16 or 10.0.0.0/24.
+*	**When gateway transit is not enabled:** The gateway does not learn peered virtual network prefixes, allowing you to advertise the exact prefixes as your peered virtual network.
 
 ### Can I use BGP with my connections between virtual networks?
 

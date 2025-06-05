@@ -2,15 +2,15 @@
 title: Azure identity & access security best practices | Microsoft Docs
 description: This article provides a set of best practices for identity management and access control using built in Azure capabilities.
 services: security
-author: terrylanfear
+author: msmbaldwin
 manager: RKarlin
 
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 08/29/2023
-ms.author: terrylan
+ms.date: 05/28/2025
+ms.author: mbaldwin
 
 ---
 # Azure Identity Management and access control security best practices
@@ -85,7 +85,7 @@ For more information, see [Implement password hash synchronization with Microsof
 
   - Microsoft Entra ID for employees
   - [Microsoft Entra B2B](../../active-directory/external-identities/index.yml) for guest users and external partners
-  - [Azure AD B2C](../../active-directory-b2c/index.yml) to control how customers sign up, sign in, and manage their profiles when they use your applications
+  - [Microsoft Entra External ID](../../active-directory/external-identities/external-identities-overview.md) to control how customers sign up, sign in, and manage their profiles when they use your applications
 
 Organizations that don’t integrate their on-premises identity with their cloud identity can have more overhead in managing accounts. This overhead increases the likelihood of mistakes and security breaches.
 
@@ -239,7 +239,7 @@ The following summarizes the best practices found in [Securing privileged access
 **Best practice**: Identify and categorize accounts that are in highly privileged roles.   
 **Detail**: After turning on Microsoft Entra Privileged Identity Management, view the users who are in the global administrator, privileged role administrator, and other highly privileged roles. Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
 
-* Individually assigned to administrative users, and can be used for non-administrative purposes (for example, personal email)
+* Individually assigned to administrative users and can be used for non-administrative purposes (for example, personal email)
 * Individually assigned to administrative users and designated for administrative purposes only
 * Shared across multiple users
 * For emergency access scenarios

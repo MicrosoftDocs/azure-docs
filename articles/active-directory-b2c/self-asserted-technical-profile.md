@@ -6,13 +6,13 @@ description: Define a self-asserted technical profile in a custom policy in Azur
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/17/2024
 
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to define a self-asserted technical profile with display, so that I can collect and validate user input.

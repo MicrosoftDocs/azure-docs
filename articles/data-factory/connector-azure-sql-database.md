@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/17/2024
+ms.date: 02/13/2025
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -154,12 +154,12 @@ To use SQL authentication, in addition to the generic properties that are descri
             "authenticationType": "SQL",
             "userName": "<user name>",
             "password": {
-                "type": "AzureKeyVaultSecret",
+                "type": "AzureKeyVaultSecret",
                 "store": {
-                    "referenceName": "<Azure Key Vault linked service name>",
-                    "type": "LinkedServiceReference"
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
                 },
-                "secretName": "<secretName>"
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {
@@ -579,9 +579,9 @@ To copy data to Azure SQL Database, the following properties are supported in th
 | sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | writeBatchSize | Number of rows to insert into the SQL table *per batch*.<br/> The allowed value is **integer** (number of rows). By default, the service dynamically determines the appropriate batch size based on the row size. | No |
-| writeBatchTimeout | The wait time for the insert, upsert and stored procedure operation to complete before it times out. <br/>Allowed values are for the timespan. An example is "00:30:00" for 30 minutes. If no value is specified, the timeout defaults to "00:30:00". | No |
+| writeBatchTimeout | The wait time for the insert, upsert and stored procedure operation to complete before it times out. <br/>Allowed values are for the timespan. An example is "00:30:00" for 30 minutes. If no value is specified, the time-out defaults to "00:30:00". | No |
 | disableMetricsCollection | The service collects metrics such as Azure SQL Database DTUs for copy performance optimization and recommendations, which introduces additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
-| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 | WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL Database. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
 | upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upsert`. | No |
 | ***Under `upsertSettings`:*** | | |
@@ -847,7 +847,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     }
     ```
 
-When writing data to into Azure SQL Database using stored procedure, the sink splits the source data into mini batches then do the insert, so the extra query in stored procedure can be executed multiple times. If you have the query for the copy activity to run before writing data into Azure SQL Database, it's not recommended to add it to the stored procedure, add it in the **Pre-copy script** box.
+When writing data to into Azure SQL Database using stored procedure, the sink splits the source data into mini batches then do the insert, so the extra query in stored procedure can be executed multiple times. If you have the query for the copy activity to run before writing data into Azure SQL Database, it's not recommended to add it to the stored procedure, add it in the **Pre-copy script** box.
 
 ## Mapping data flow properties
 
@@ -1094,7 +1094,7 @@ To upgrade the Azure SQL Database version, in **Edit linked service** page, sele
 
 The table below shows the differences between Azure SQL Database using the recommended and the legacy version.
 
-| Recommended version | Legacy version | 
+| Recommended version | Legacy version | 
 |:--- |:--- |
 | Support TLS 1.3 via `encrypt` as `strict`. | TLS 1.3 is not supported.| 
 

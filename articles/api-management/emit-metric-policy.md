@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 07/23/2024
+ms.topic: reference
+ms.date: 04/01/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -17,11 +17,17 @@ ms.custom: engagement-fy23
 
 The `emit-metric` policy sends custom metrics in the specified format to Application Insights.
 
-> [!NOTE]
-> * Custom metrics are a [preview feature](/azure/azure-monitor/essentials/metrics-custom-overview) of Azure Monitor and subject to [limitations](/azure/azure-monitor/essentials/metrics-custom-overview#design-limitations-and-considerations).
-> * For more information about the API Management data added to Application Insights, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
-
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+## Limits for custom metrics
+
+[!INCLUDE [api-management-custom-metrics-limits](../../includes/api-management-custom-metrics-limits.md)]
+
+## Prerequisites
+
+* Your API Management instance must be integrated with Application insights. For more information, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md).
+* Enable Application Insights logging for your APIs. 
+* Enable custom metrics with dimensions in Application Insights. For more information, see [Emit custom metrics](api-management-howto-app-insights.md#emit-custom-metrics).
 
 ## Policy statement
 
@@ -53,19 +59,11 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 | name      | A string or policy expression. Name of dimension.      | Yes      |  N/A            |
 | value     | A string or policy expression. Value of dimension. Can only be omitted if `name` matches one of the default dimensions. If so, value is provided as per dimension name. | No        | N/A |
 
- ### Default dimension names that may be used without value
-
-* API ID
-* Operation ID
-* Product ID
-* User ID
-* Subscription ID
-* Location
-* Gateway ID
+[!INCLUDE [api-management-emit-metric-dimensions](../../includes/api-management-emit-metric-dimensions.md)]
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
@@ -73,18 +71,14 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 
 * You can configure at most 10 custom dimensions for this policy.
 
-* Invoking the `emit-metric` policy counts toward the usage limits for custom metrics per region in a subscription. [Learn more](api-management-howto-app-insights.md#limits-for-custom-metrics)
-
 ## Example
 
-The following example sends a custom metric to count the number of API requests along with user ID, client IP, and API ID as custom dimensions.
+The following example sends a custom metric to count the number of API requests along with API ID as a default dimension.
 
 ```xml
 <policies>
   <inbound>
     <emit-metric name="Request" value="1" namespace="my-metrics"> 
-        <dimension name="User ID" /> 
-        <dimension name="Client IP" value="@(context.Request.IpAddress)" /> 
         <dimension name="API ID" /> 
     </emit-metric> 
   </inbound>

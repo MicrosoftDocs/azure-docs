@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.date: 03/28/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.custom: references_regions
 ---
@@ -106,7 +106,7 @@ The global **Blob inventory enabled** flag takes precedence over the *enabled* p
 | format | string | Determines the output of the inventory file. Valid values are `csv` (For CSV format) and `parquet` (For Apache Parquet format).| Yes |
 | objectType | string | Denotes whether this is an inventory rule for blobs or containers. Valid values are `blob` and `container`. |Yes |
 | schedule | string | Schedule on which to run this rule. Valid values are `daily` and `weekly`. | Yes |
-| schemaFields | Json array | List of Schema fields to be part of inventory. | Yes |
+| schemaFields | JSON array | List of Schema fields to be part of inventory. | Yes |
 
 ### Rule filters
 
@@ -266,9 +266,6 @@ Runs don't overlap so a run must complete before another run of the same rule ca
 
 Inventory policies are read or written in full. Partial updates aren't supported. Inventory rules are evaluated daily. Therefore, if you change the definition of a rule, but the rules of a policy have already been evaluated for that day, then your updates won't be evaluated until the following day.
 
-> [!IMPORTANT]
-> If you enable firewall rules for your storage account, inventory requests might be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
-
 ## Inventory completed event
 
 The `BlobInventoryPolicyCompleted` event is generated when the inventory run completes for a rule. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container isn't present will trigger the event. The following json shows an example `BlobInventoryPolicyCompleted` event.
@@ -400,6 +397,10 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 ## Known issues and limitations
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
+
+### Inventory report object count and data size should not be compared to billing
+
+An inventory report does not include metadata, system logs, and properties, so it shouldn't be compared to the billed object count and data size for the storage account.
 
 ### Inventory jobs take a longer time to complete in certain cases
 

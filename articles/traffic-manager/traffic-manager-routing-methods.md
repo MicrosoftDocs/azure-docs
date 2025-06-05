@@ -2,12 +2,11 @@
 title: Azure Traffic Manager - traffic routing methods
 description: This article helps you understand the different traffic routing methods used by Traffic Manager
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/08/2024
-ms.author: greglin
-ms.custom: template-concept
+ms.author: allensu
 ---
 
 # Traffic Manager routing methods

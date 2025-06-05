@@ -1,12 +1,11 @@
 ---
 title: Run the Hyper-V Deployment Planner in Azure Site Recovery 
 description: This article describes how to run the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure.
-author: ankitaduttaMSFT
-manager: rochakm
+author: jyothisuri
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/09/2019
-ms.author: ankitadutta
+ms.author: jsuri
 ---
 
 
@@ -132,7 +131,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Dire
 
 #### Profile VMs for 15 days
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  15  -User contoso\HyperVUser1
 ```
 
 #### Profile VMs for 60 minutes for a quick test of the tool
@@ -224,7 +223,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 
 #### Generate a report for the South India Azure region with Indian Rupee and a specific offer ID
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -SubscriptionID aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
 
 

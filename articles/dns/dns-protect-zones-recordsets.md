@@ -2,11 +2,11 @@
 title: Protecting DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting DNS zones and record sets in Microsoft Azure DNS.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 11/30/2023
-ms.author: greglin 
+ms.author: allensu 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -152,7 +152,7 @@ The following example shows a custom role definition for managing CNAME records 
     "NotActions": [
     ],
     "AssignableScopes": [
-        "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
     ]
 }
 ```

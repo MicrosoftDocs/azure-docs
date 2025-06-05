@@ -5,9 +5,9 @@ description: This article shows how to deploy IPv6 addresses to an existing appl
 services: virtual-network
 author: mbender-ms
 manager: kumudd
-ms.service: azure-virtual-network
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 09/30/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, template-how-to
 ROBOTS: NOINDEX
@@ -105,7 +105,7 @@ Add IPv6 address ranges to the virtual network and subnet hosting the VMs as fol
 
 ```azurepowershell-interactive
 #Add IPv6 ranges to the VNET and subnet
-#Retreive the VNET object
+#Retrieve the VNET object
 $vnet = Get-AzVirtualNetwork  -ResourceGroupName $rg.ResourceGroupName -Name "myVnet" 
 
 #Add IPv6 prefix to the VNET
@@ -147,9 +147,9 @@ $NIC_3 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets
 $NIC_3 | Set-AzNetworkInterface
 ```
 
-## View IPv6 dual stack virtual network in Azure portal
+## View IPv6 dual-stack virtual network in Azure portal
 
-You can view the IPv6 dual stack virtual network in Azure portal as follows:
+You can view the IPv6 dual-stack virtual network in Azure portal as follows:
 1. In the portal's search bar, enter **virtual networks** and 
 1. In the **Virtual Networks** window, select **myVNet**.
 1.  Select **Connected devices** under **Settings** to view the attached network interfaces. The dual stack virtual network shows the three NICs with both IPv4 and IPv6 configurations.

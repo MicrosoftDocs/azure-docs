@@ -42,7 +42,7 @@ If you do not have this role, set it up to resolve the issue.
 
 #### Check current setup
 
-[!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+[!INCLUDE [digital-twins-setup-verify-role-assignment.md](includes/digital-twins-setup-verify-role-assignment.md)]
 
 #### Fix issues 
 

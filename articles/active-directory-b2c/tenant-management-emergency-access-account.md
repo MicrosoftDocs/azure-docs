@@ -5,13 +5,13 @@ description: Learn how to manage emergency access accounts in Azure AD B2C tenan
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: tutorial
 ms.date: 09/11/2024
 ms.custom: b2c-docs-improvements
 ms.reviewer: yoelh
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to create emergency access accounts with strong authentication and exclude them from conditional access policies, so that I can prevent accidental lockouts and ensure administrative access to the organization in case of emergencies.
@@ -19,6 +19,7 @@ ms.subservice: B2C
 ---
 
 # Manage emergency access accounts in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 It's important that you prevent being accidentally locked out of your Azure Active Directory B2C (Azure AD B2C) organization because you can't sign in or activate another user's account as an administrator. You can mitigate the impact of accidental lack of administrative access by creating two or more *emergency access accounts* in your organization.
 
@@ -85,7 +86,7 @@ Use the following steps to create an emergency access account:
 
 Once you create your emergency accounts, you need to do the following: 
 
-- Make sure you [exclude at least one account from phone-based multifactor authentication](../active-directory/roles/security-emergency-access.md#exclude-at-least-one-account-from-phone-based-multi-factor-authentication)
+- Make sure at least one of your emergency access accounts shouldn't have the same multifactor authentication mechanism as your other non-emergency accounts.
 
 - If you use [Conditional Access](conditional-access-user-flow.md), at least one emergency access account needs to be excluded from all conditional access policies.
 

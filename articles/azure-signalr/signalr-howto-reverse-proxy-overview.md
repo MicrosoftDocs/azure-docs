@@ -14,10 +14,14 @@ A reverse proxy server can be used in front of Azure SignalR Service. Reverse pr
 
 A common architecture using a reverse proxy server with Azure SignalR is as below:
 
-:::image type="content" source="./media/signalr-howto-reverse-proxy-overview/architecture.png" alt-text="Diagram that shows the architecture using Azure SignalR with a reverse proxy server.":::   
+:::image type="content" source="./media/signalr-howto-reverse-proxy-overview/architecture.png" alt-text="Diagram that shows the architecture using Azure SignalR with a reverse proxy server.":::
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## General practices
 There are several general practices to follow when using a reverse proxy in front of SignalR Service.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 * Make sure to rewrite the incoming HTTP [HOST header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host) with the Azure SignalR service URL, e.g. `https://demo.service.signalr.net`. Azure SignalR is a multi-tenant service, and it relies on the `HOST` header to resolve to the correct endpoint. For example, when [configuring Application Gateway](./signalr-howto-work-with-app-gateway.md#create-an-application-gateway-instance) for Azure SignalR, select **Yes** for the option *Override with new host name*.
 
@@ -48,6 +52,8 @@ There are several general practices to follow when using a reverse proxy in fron
 
   If you have configured multiple SignalR services behind your reverse proxy, make sure `negotiate` request and `connect` request with the same `asrs_request_id` query parameter(meaning they are for the same connection) are routed to the same SignalR service instance.
   
+* For `ServerSentEvent`(SSE), make sure your reverse proxy doesn't buffer or cache response. For example, API Management lists the checkitems [here](../api-management/how-to-server-sent-events.md) when configuring API for server-sent events.
+* 
 * When reverse proxy is used, you can further secure your SignalR service by [disabling public network access](./howto-network-access-control.md) and using [private endpoints](howto-private-endpoints.md) to allow only private access from your reverse proxy to your SignalR service through VNet.
 
 ## Next steps

@@ -5,12 +5,12 @@ description: Follow this tutorial to learn how to prepare for registering your a
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: tutorial
 ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 
 
@@ -19,6 +19,8 @@ ms.custom: "b2c-support"
 ---
 
 # Tutorial: Create an Azure Active Directory B2C tenant
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Before your applications can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. 
 

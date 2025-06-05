@@ -17,7 +17,7 @@ Web PubSub is an Azure-managed service that helps developers easily build web ap
 | Action | Type |
 |---------|---------|
 | Run a function when messages come from service | [Trigger binding](#trigger-binding) |
-| Bind request to target object under Http trigger for negotiation and upstream requests | [Input binding](#input-binding)
+| Bind request to target object under HTTP trigger for negotiation and upstream requests | [Input binding](#input-binding)
 | Invoke service do actions | [Output binding](#output-binding) |
 
 [Source code](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/webpubsub/) |
@@ -26,21 +26,18 @@ Web PubSub is an Azure-managed service that helps developers easily build web ap
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 
-## Add to your Functions app
+## Add to your function app
 
-Working with the trigger and bindings requires you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
+Working with the trigger and bindings requires you reference the appropriate package. The NuGet package is used for .NET class libraries while an extension bundle is used for all other application types.
 
-| Language                                        | Add by...                                   | Remarks 
-|-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installing the [NuGet package], version prerelease | |
-| C# Script, JavaScript, Python, PowerShell       | [Explicitly install extensions], [Use extension bundles] | The [Azure Tools extension] is recommended to use with Visual Studio Code. |
-| C# Script (online-only in Azure portal)         | Adding a binding                                   | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
+| Language                                        | Add by...                                   |  
+|-------------------------------------------------|---------------------------------------------|
+| C#                                              | Install the [NuGet package], target specific version | 
+| JavaScript, Python, PowerShell, C# script (Azure portal-only)  | [Use extension bundles] (recommended), [explicitly install extensions] | 
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
-[Use extension bundles]: ../azure-functions/functions-bindings-register.md#extension-bundles
+[Use extension bundles]: ../azure-functions/extension-bundles.md
 [Explicitly install extensions]: ../azure-functions/functions-bindings-register.md#explicitly-install-extensions 
-[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
-[Update your extensions]: ../azure-functions/functions-bindings-register.md
 
 ## Key concepts
 

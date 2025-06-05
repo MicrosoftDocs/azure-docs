@@ -1,10 +1,9 @@
 ---
-author: greg-lindsay
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+author: mbender-ms
+ms.service: azure-appgw-for-containers
 ms.topic: include
 ms.date: 02/27/2024
-ms.author: greglin
+ms:author: mbender
 ---
 | Resource | Limit |
 | --- | --- |

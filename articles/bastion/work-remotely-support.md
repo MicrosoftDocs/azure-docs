@@ -5,11 +5,9 @@ services: bastion
 author: isamorris
 
 ms.service: azure-bastion
-ms.topic: conceptual
-ms.date: 06/23/2023
+ms.topic: concept-article
+ms.date: 03/31/2025
 ms.author: isamorris
-
-
 ---
 
 # Enable remote work by using Azure Bastion

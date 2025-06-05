@@ -3,9 +3,9 @@ title: Tutorial - Connect a client app to Azure IoT Central
 description: This tutorial shows you how to connect a device running either a C, C#, Java, JavaScript, or Python client app to your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/06/2023
+ms.date: 10/14/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: mqtt, device-developer, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-twenty-six
@@ -16,6 +16,8 @@ zone_pivot_groups: programming-languages-set-twenty-six
 ---
 
 # Tutorial: Create and connect a client application to your Azure IoT Central application
+
+[!INCLUDE [iot-authentication-device-connection-string](../../../includes/iot-authentication-device-connection-string.md)]
 
 This tutorial shows you how to connect a client application to your Azure IoT Central application. The application simulates the behavior of a temperature controller device. When the application connects to IoT Central, it sends the model ID of the temperature controller device model. IoT Central uses the model ID to retrieve the device model and create a device template for you. You add  views to the device template to enable an operator to interact with a device.
 

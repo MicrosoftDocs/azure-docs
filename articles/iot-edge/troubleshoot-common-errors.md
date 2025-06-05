@@ -4,17 +4,14 @@ description: Resolve common issues in Azure IoT Edge solutions. Learn how to tro
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/10/2024
+ms.date: 12/10/2024
 ms.topic: troubleshooting-general
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
 ---
 
 # Solutions to common issues for Azure IoT Edge
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
@@ -354,7 +351,7 @@ The security daemon fails to start and module containers aren't created. The `ed
 
 #### Cause
 
-For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself.
+For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself. CentOS is End of Life (EOL). For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 #### Solution
 
@@ -378,6 +375,24 @@ The message cleanup interval is controlled by the client message TTL (time to li
 If you change the TTL value for your application that is shorter than the default, also adjust the *MessageCleanupIntervalSecs* value. The *MessageCleanupIntervalSecs* value should be significantly smaller than the smallest TTL value that the client is using. For example, if the client application defines a TTL of five minutes in the message header, set the *MessageCleanupIntervalSecs* value to one minute. These settings ensure that messages are cleaned up within six (5 + 1) minutes. 
 
 To configure the *MessageCleanupIntervalSecs* value, set the environment variable in the deployment manifest for the IoT Edge hub module. For more information about setting runtime environment variables, see [Edge Agent and Edge Hub Environment Variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
+
+### IoT Edge Hub reports System.FormatException using AMQP protocol
+
+#### Symptoms
+
+When routing messages from an IoT Edge device to an IoT Hub using the AMQP protocol and you set the [`iothub-creation-time-utc` property on outgoing device messages](../iot-hub/iot-hub-devguide-messages-construct.md#application-properties-of-device-to-cloud-messages), the IoT Edge Hub reports a `System.FormatException` error. The error message is similar to the following:
+
+```log
+System.FormatException: String '2024-12-01T00:00:0.000Z' was not recognized as a valid DateTime.
+```
+
+#### Cause
+
+The `iot-hub-creation-time-utc` value doesn't meet strict format criteria. The format Edge Hub requires is a subset of ISO 8601.
+
+#### Solution
+
+This is a known issue in IoT Edge Hub for the AMQP protocol. Currently, the issue is being investigated for a fix. The MQTT protocol doesn't have this issue.
 
 ## Networking
 

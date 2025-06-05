@@ -2,12 +2,12 @@
 title: Configure Azure Application Gateway Private Link
 description: This article shows you how to configure Application Gateway Private Link.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/06/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Configure Azure Application Gateway Private Link
@@ -58,7 +58,7 @@ A private endpoint is a network interface that uses a private IP address from th
 1. Select **Create**.
 1. On the **Basics** tab, configure a resource group, name, and region for the Private Endpoint.  Select **Next**.
 1. On the **Resource** tab, select **Next**.
-1. On the **Virtual Network** tab, configure a virtual network and subnet where the private endpoint network interface should be provisioned to. Configure whether the private endpoint should have a dynamic or static IP address. Select **Next**.
+1. On the **Virtual Network** tab, configure a virtual network and subnet where the private endpoint network interface should be provisioned to. Select **Next**.
 1. On the **Tags** tab, optionally configure resource tags. Select **Next**.
 1. Select **Create**.
 

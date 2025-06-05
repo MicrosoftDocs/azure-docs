@@ -125,7 +125,7 @@ Diagnostic settings allow Event Grid users to capture and view **publish and del
 ```json
 {
     "time": "2019-11-01T00:17:13.4389048Z",
-    "resourceId": "/SUBSCRIPTIONS/SAMPLE-SUBSCTIPTION-ID /RESOURCEGROUPS/SAMPLE-RESOURCEGROUP-NAME/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/SAMPLE-TOPIC-NAME ",
+    "resourceId": "/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID /RESOURCEGROUPS/SAMPLE-RESOURCEGROUP-NAME/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/SAMPLE-TOPIC-NAME ",
     "eventSubscriptionName": "SAMPLEDESTINATION",
     "category": "DeliveryFailures",
     "operationName": "Deliver",

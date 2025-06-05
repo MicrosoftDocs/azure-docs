@@ -6,12 +6,12 @@ ms.author: vijain
 ms.custom: subject-rbac-steps, engagement-fy23
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 12/14/2022
+ms.date: 02/06/2024
 ---
 
 # Support requirements and considerations for Private endpoint connectivity
 
-The article series describes how to use Azure Migrate to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) and [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tools to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.  
+The article series describes how to use Azure Migrate to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) and [Migration and modernization](migrate-services-overview.md) tools to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.  
 
 We recommend the private endpoint connectivity method when there's an organizational requirement to access Azure Migrate and other Azure resources without traversing public networks. By using Private Link, you can use your existing ExpressRoute private peering circuits for better bandwidth or latency requirements.  
 
@@ -23,7 +23,7 @@ Review the following required permissions and the supported scenarios and tools.
 
 ### Supported geographies
 
-The functionality is now in GA in supported [public cloud](./migrate-support-matrix.md#public-cloud) and [government cloud geographies.](./migrate-support-matrix.md#azure-government)
+The functionality is now in GA in supported [public cloud](supported-geographies.md#public-cloud) and [government cloud geographies.](supported-geographies.md#azure-government)
 
 ### Required permissions
 
@@ -40,7 +40,7 @@ You must have Contributor + User Access Administrator or Owner permissions on th
 
 #### Other integrated tools
 
-Other migration tools might not be able to upload usage data to the Azure Migrate project if the public network access is disabled. The Azure Migrate project should be configured to allow traffic from all networks to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings.
+Other migration tools might not be able to upload usage data to the Azure Migrate project if the public network access is disabled. The Azure Migrate project should be configured to allow traffic from all networks to receive data from other Microsoft or external offerings.
 
 To enable public network access for the Azure Migrate project, sign in to the Azure portal, go to the **Azure Migrate Properties** page in the portal, and select **No** > **Save**.
 

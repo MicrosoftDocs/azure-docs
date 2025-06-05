@@ -2,11 +2,11 @@
 title: Azure Traffic Manager
 description: This article provides an overview of Azure Traffic Manager. Find out if it's the right choice for load-balancing user traffic for your application.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: overview
 ms.date: 08/14/2023
-ms.author: greglin
+ms.author: allensu
 ms.custom: template-overview
 #Customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
 ---
@@ -15,7 +15,7 @@ ms.custom: template-overview
 
 Azure Traffic Manager is a DNS-based traffic load balancer. This service allows you to distribute traffic to your public facing applications across the global Azure regions. Traffic Manager also provides your public endpoints with high availability and quick responsiveness.
 
-Traffic Manager uses DNS to direct client requests to the appropriate service endpoint based on a traffic-routing method. Traffic manager also provides health monitoring for every endpoint. The endpoint can be any Internet-facing service hosted inside or outside of Azure. Traffic Manager provides a range of [traffic-routing methods](traffic-manager-routing-methods.md) and [endpoint monitoring options](traffic-manager-monitoring.md) to suit different application needs and automatic failover models. Traffic Manager is [resilient](../reliability/availability-zones-service-support.md#an-icon-that-signifies-this-service-is-non-regional-non-regional-services-always-available-services) to failure, including the failure of an entire Azure region.
+Traffic Manager uses DNS to direct client requests to the appropriate service endpoint based on a traffic-routing method. Traffic manager also provides health monitoring for every endpoint. The endpoint can be any Internet-facing service hosted inside or outside of Azure. Traffic Manager provides a range of [traffic-routing methods](traffic-manager-routing-methods.md) and [endpoint monitoring options](traffic-manager-monitoring.md) to suit different application needs and automatic failover models. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. 

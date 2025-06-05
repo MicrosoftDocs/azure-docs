@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 06/05/2024
+ms.date: 02/10/2025
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: include

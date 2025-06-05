@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---
@@ -32,7 +32,7 @@ The `jsonp` policy adds JSON with padding (JSONP) support to an operation or an 
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

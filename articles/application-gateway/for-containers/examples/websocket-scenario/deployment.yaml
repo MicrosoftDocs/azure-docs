@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-infra
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websocket-backend
+  namespace: test-infra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: websocket-backend
+  template:
+    metadata:
+      labels:
+        app: websocket-backend
+    spec:
+      containers:
+        - name: websocket-backend
+          image: trafficcontrollertestimages.azurecr.io/images/websockets-test-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 10m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: websocket-backend
+  namespace: test-infra
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: http
+      protocol: TCP
+      name: http-back
+  selector:
+    app: websocket-backend

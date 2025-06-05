@@ -162,7 +162,7 @@ The following code shows the high-level JSON definition for the **Condition** ac
          "Condition": [
             "Succeeded"
          ]
-      },
+      }
    }
 },
 ```

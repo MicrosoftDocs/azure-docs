@@ -2,11 +2,11 @@
 title: Azure permissions for Networking - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Networking category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -427,6 +427,9 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/getDnsResourceReference/action | DNS alias resource dependency request |
 > | Microsoft.Network/checkFrontDoorNameAvailability/action | Checks whether a Front Door name is available |
 > | Microsoft.Network/privateDnsZonesInternal/action | Executes Private DNS Zones Internal APIs |
+> | Microsoft.Network/adminNetworkSecurityGroups/read | Gets Admin Network Security Group |
+> | Microsoft.Network/adminNetworkSecurityGroups/write | Creates or Updates Existing Admin Network Security Group |
+> | Microsoft.Network/adminNetworkSecurityGroups/delete | Deletes Admin Network Security Group |
 > | Microsoft.Network/applicationGatewayAvailableRequestHeaders/read | Get Application Gateway available Request Headers |
 > | Microsoft.Network/applicationGatewayAvailableResponseHeaders/read | Get Application Gateway available Response Header |
 > | Microsoft.Network/applicationGatewayAvailableServerVariables/read | Get Application Gateway available Server Variables |
@@ -441,6 +444,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/applicationGateways/getListenerCertificateMetadata/action | Gets an application gateway listener certificate metadata |
 > | Microsoft.Network/applicationGateways/prepareMigration/action | Prepare application gateway migration |
 > | Microsoft.Network/applicationGateways/executeMigration/action | Execute application gateway migration |
+> | Microsoft.Network/applicationGateways/v1tov2Migration/action | Application Gateway V1 to V2 Migration Operation |
 > | Microsoft.Network/applicationGateways/commitMigration/action | Commit application gateway migration |
 > | Microsoft.Network/applicationGateways/resolvePrivateLinkServiceId/action | Resolves privateLinkServiceId for application gateway private link resource |
 > | Microsoft.Network/applicationGateways/start/action | Starts an application gateway |
@@ -789,6 +793,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/locations/effectiveResourceOwnership/action | Gets Effective  Resource Ownership |
 > | Microsoft.Network/locations/setAzureNetworkManagerConfiguration/action | Sets Azure Network Manager Configuration |
 > | Microsoft.Network/locations/publishResources/action | Publish Subscrioption Resources |
+> | Microsoft.Network/locations/PutResourcePubsubData/action | Put Resource PubSub Data |
 > | Microsoft.Network/locations/getAzureNetworkManagerConfiguration/action | Gets Azure Network Manager Configuration |
 > | Microsoft.Network/locations/bareMetalTenants/action | Allocates or validates a Bare Metal Tenant |
 > | Microsoft.Network/locations/commitInternalAzureNetworkManagerConfiguration/action | Commits Internal AzureNetworkManager Configuration In ANM |
@@ -1012,12 +1017,15 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkVirtualAppliances/write | Create or update a Network Virtual Appliance |
 > | Microsoft.Network/networkVirtualAppliances/getDelegatedSubnets/action | Get Network Virtual Appliance delegated subnets |
 > | Microsoft.Network/networkVirtualAppliances/restart/action | Restart Network Virtual Appliance |
+> | Microsoft.Network/networkVirtualAppliances/getBootDiagnosticLogs/action | Get Network Virtual Appliance Boot Diagnostic Logs |
+> | Microsoft.Network/networkVirtualAppliances/reimage/action | Reimage Network Virtual Appliance |
 > | Microsoft.Network/networkVirtualAppliances/inboundSecurityRules/read | Get a InboundSecurityRule |
 > | Microsoft.Network/networkVirtualAppliances/inboundSecurityRules/write | Create or update a InboundSecurityRule |
 > | Microsoft.Network/networkVirtualAppliances/inboundSecurityRules/delete | Delete a InboundSecurityRule |
 > | Microsoft.Network/networkVirtualAppliances/networkVirtualApplianceConnections/read | Get a Network Virtual Appliance Connection |
 > | Microsoft.Network/networkVirtualAppliances/networkVirtualApplianceConnections/write | Update a Network Virtual Appliance Connection |
 > | Microsoft.Network/networkVirtualAppliances/networkVirtualApplianceConnections/delete | Delete a Network Virtual Appliance Connection |
+> | Microsoft.Network/networkVirtualApplianceSkus/read | Get available sku for Network Virtual Appliance |
 > | Microsoft.Network/networkWatchers/read | Get the network watcher definition |
 > | Microsoft.Network/networkWatchers/write | Creates a network watcher or updates an existing network watcher |
 > | Microsoft.Network/networkWatchers/delete | Deletes a network watcher |
@@ -1034,6 +1042,10 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkWatchers/connectivityCheck/action | Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint including another VM or an arbitrary remote server. |
 > | Microsoft.Network/networkWatchers/azureReachabilityReport/action | Returns the relative latency score for internet service providers from a specified location to Azure regions. |
 > | Microsoft.Network/networkWatchers/availableProvidersList/action | Returns all available internet service providers for a specified Azure region. |
+> | Microsoft.Network/networkWatchers/connectionAnalyzers/read | Get Connection Analyzer details |
+> | Microsoft.Network/networkWatchers/connectionAnalyzers/write | Creates a Connection Analyzer |
+> | Microsoft.Network/networkWatchers/connectionAnalyzers/delete | Deletes a Connection Analyzer |
+> | Microsoft.Network/networkWatchers/connectionAnalyzers/queryStatus/action | Query status and details of Connection Analyzer |
 > | Microsoft.Network/networkWatchers/connectionMonitors/start/action | Start monitoring connectivity between specified endpoints |
 > | Microsoft.Network/networkWatchers/connectionMonitors/stop/action | Stop/pause monitoring connectivity between specified endpoints |
 > | Microsoft.Network/networkWatchers/connectionMonitors/query/action | Query monitoring connectivity between specified endpoints |
@@ -1093,7 +1105,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/privateDnsZones/AAAA/read | Get the record set of type 'AAAA' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
 > | Microsoft.Network/privateDnsZones/AAAA/write | Create or update a record set of type 'AAAA' within a Private DNS zone. The records specified will replace the current records in the record set. |
 > | Microsoft.Network/privateDnsZones/AAAA/delete | Remove the record set of a given name and type 'AAAA' from a Private DNS zone. |
-> | Microsoft.Network/privateDnsZones/ALL/read | Gets Private DNS record sets across types |
+> | Microsoft.Network/privateDnsZones/ALL/read | Gets Private DNS record sets across types. For Azure portal view, please use Microsoft.Network/privateDnsZones/*/read instead. |
 > | Microsoft.Network/privateDnsZones/CNAME/read | Get the record set of type 'CNAME' within a Private DNS zone, in JSON format. |
 > | Microsoft.Network/privateDnsZones/CNAME/write | Create or update a record set of type 'CNAME' within a Private DNS zone. |
 > | Microsoft.Network/privateDnsZones/CNAME/delete | Remove the record set of a given name and type 'CNAME' from a Private DNS zone. |
@@ -1106,7 +1118,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/privateDnsZones/PTR/read | Get the record set of type 'PTR' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
 > | Microsoft.Network/privateDnsZones/PTR/write | Create or update a record set of type 'PTR' within a Private DNS zone. The records specified will replace the current records in the record set. |
 > | Microsoft.Network/privateDnsZones/PTR/delete | Remove the record set of a given name and type 'PTR' from a Private DNS zone. |
-> | Microsoft.Network/privateDnsZones/recordsets/read | Gets Private DNS record sets across types |
+> | Microsoft.Network/privateDnsZones/recordsets/read | Gets Private DNS record sets across types. For Azure portal view, please use Microsoft.Network/privateDnsZones/*/read instead. |
 > | Microsoft.Network/privateDnsZones/SOA/read | Get the record set of type 'SOA' within a Private DNS zone, in JSON format. |
 > | Microsoft.Network/privateDnsZones/SOA/write | Update a record set of type 'SOA' within a Private DNS zone. |
 > | Microsoft.Network/privateDnsZones/SRV/read | Get the record set of type 'SRV' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
@@ -1255,6 +1267,10 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | Get Vpnclient Ipsec parameters for VirtualNetworkGateway P2S client. |
 > | microsoft.network/virtualnetworkgateways/resetvpnclientsharedkey/action | Reset Vpnclient shared key for VirtualNetworkGateway P2S client. |
 > | microsoft.network/virtualnetworkgateways/reset/action | Resets a virtualNetworkGateway |
+> | microsoft.network/virtualnetworkgateways/prepareMigration/action | Prepare Migrate Virtual Network Gateway Operation |
+> | microsoft.network/virtualnetworkgateways/executeMigration/action | Execute Migrate Virtual Network Gateway Operation |
+> | microsoft.network/virtualnetworkgateways/commitMigration/action | Commit Migrate Virtual Network Gateway Operation |
+> | microsoft.network/virtualnetworkgateways/abortMigration/action | Abort Migrate Virtual Network Gateway Operation |
 > | microsoft.network/virtualnetworkgateways/getadvertisedroutes/action | Gets virtualNetworkGateway advertised routes |
 > | microsoft.network/virtualnetworkgateways/getbgppeerstatus/action | Gets virtualNetworkGateway bgp peer status |
 > | microsoft.network/virtualnetworkgateways/getlearnedroutes/action | Gets virtualnetworkgateway learned routes |
@@ -1276,6 +1292,8 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/virtualNetworks/join/action | Joins a virtual network. Not Alertable. |
 > | Microsoft.Network/virtualNetworks/BastionHosts/action | Gets Bastion Host references in a Virtual Network. |
 > | Microsoft.Network/virtualNetworks/ddosProtectionStatus/action | Gets the effective Ddos protection status for a Virtual Network resource. |
+> | Microsoft.Network/virtualNetworks/setAdminNetworkSecurityGroup/action | Sets Admin Network Security Group Reference On Virtual Network |
+> | Microsoft.Network/virtualNetworks/removeAdminNetworkSecurityGroup/action | Removes Admin Network Security Group Reference From Virtual Network |
 > | Microsoft.Network/virtualNetworks/rnmEffectiveRouteTable/action | Gets RouteTables Configured On CA Of The Vnet In Rnm Format |
 > | Microsoft.Network/virtualNetworks/rnmEffectiveNetworkSecurityGroups/action | Gets Security Groups Configured On CA Of The Vnet In Rnm Format |
 > | Microsoft.Network/virtualNetworks/listNetworkManagerEffectiveConnectivityConfigurations/action | Lists Network Manager Effective Connectivity Configurations |

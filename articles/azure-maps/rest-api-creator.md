@@ -1,16 +1,22 @@
 ---
-title: Links to the Azure Maps Creator Rest API
+title: Links to the Azure Maps Creator REST API
 titleSuffix: Microsoft Azure Maps Creator
-description: Links to the Azure Maps Creator Rest API
+description: Links to the Azure Maps Creator REST API
 author: faterceros
 ms.author: aterceros
-ms.date: 02/05/2024
+ms.date: 09/23/2024
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: creator
 ---
 
-# Creator Rest API
+# Creator REST API
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 Indoor mapping is a technology that enables the creation of digital maps of the interior of buildings. It helps visitors navigate through buildings and locate points of interest such as restrooms, conference rooms, and offices. Indoor mapping can be used to create a more convenient and enjoyable visitor experience. Visitors can spend less time searching for building directories and more time discovering new points of interest. With Azure Maps Creator, you can create indoor maps that enable customers to zoom in and out of a building to see each floor and navigate to any desired location using Creator's wayfinding service. In addition to common mapping functionality, Azure Maps Creator offers an array of useful services that enable you to implement functionality such as asset tracking, facility management, workspace optimization, hybrid work models to support a blend of in-office, remote, and on-the-go working, and much more.
 
@@ -46,7 +52,7 @@ Pre-release version of a Creator service. Preview releases contain new functiona
 | [Tileset][Tileset-preview] | 2023-03-01-preview | A collection of vector tiles that render on the map, created from an existing dataset. |
 | [Wayfinding] | 2023-03-01-preview | Wayfinding is a technology that helps people navigate through complex indoor environments such as malls, offices, stadiums, airports and office buildings. |
 
-<!--- V2 is the latest stable release of each Creator service --->
+<!--- v2 is the latest stable release of each Creator service --->
 
 [Alias]: /rest/api/maps-creator/alias
 [Conversion]: /rest/api/maps-creator/conversion

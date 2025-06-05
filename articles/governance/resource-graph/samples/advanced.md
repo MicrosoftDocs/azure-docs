@@ -5,7 +5,7 @@ ms.date: 06/15/2022
 ms.topic: sample
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.author: daphnema
-author: daphnema
+author: daphnemamsft
 ---
 # Advanced Resource Graph query samples
 

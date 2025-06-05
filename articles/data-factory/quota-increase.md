@@ -2,9 +2,10 @@
 title: Request quota increases from support
 description: How to create a support request in the Azure portal for Azure Data Factory to request quota increases or get problem resolution support.
 ms.topic: conceptual
-ms.date: 05/15/2024
-author: jonburchel
-ms.author: jburchel
+ms.date: 10/03/2024
+ms.subservice: data-movement
+author: whhender
+ms.author: whhender
 ---
 
 # Request quota increases and get support for Azure Data Factory
@@ -43,7 +44,7 @@ Use the following steps to create a new support request from the Azure portal fo
 
    :::image type="content" source="./media/quota-increase/select-quota-type.png" alt-text="Select a quota type":::
 
-1. In the **Additional Details** window, enter additional information about the specific quota limit(s) you require increased.  Refer to the [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) article for specific limits.  Select your preferred method of contact, and click **Next**.
+1. In the **Additional Details** window, enter additional information about the specific quota limit(s) you require increased.  Refer to the [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits) article for specific limits.  Select your preferred method of contact, and click **Next**.
 
    :::image type="content" source="./media/quota-increase/provide-details.png" alt-text="The &quot;Provide details&quot; section":::
 

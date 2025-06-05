@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ms.author: jianleishen
 ---
 # Copy data from an HTTP endpoint by using Azure Data Factory or Azure Synapse Analytics

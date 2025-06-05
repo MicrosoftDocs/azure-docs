@@ -5,17 +5,19 @@ description: Learn to integrate Azure AD B2C authentication with IDEMIA Mobile I
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 # Customer intent: I'm an Azure AD B2C administrator, and I want to configure IDEMIA Mobile ID integration with Azure AD B2C. I want users to authenticate using biometric authentication services and benefit from a trusted, government-issued digital ID.
 ---
 
 # Tutorial: Configure IDEMIA Mobile ID with Azure Active Directory B2C 
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 ## Before you begin
 
@@ -125,7 +127,7 @@ To define IDEMIA as a claims provider, add it to the **ClaimsProvider** element 
           <Metadata>
             <Item Key="METADATA">https://idp.XXXX.net/oxauth/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid id_basic mt_scope</Item>
             <Item Key="response_mode">form_post</Item>

@@ -3,17 +3,19 @@ title: Technical and feature overview - Azure Active Directory B2C
 description: An in-depth introduction to the features and technologies in Azure Active Directory B2C. Azure Active Directory B2C has high availability globally. 
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: overview
-ms.date: 11/08/2023
+ms.date: 01/10/2025
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer intent: As an IT admin or developer, I need to understand in more detail the technical aspects and features of Azure AD B2C and how it can help me build a customer-facing application.
 
 ---
 
 # Technical and feature overview of Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article is a companion to [About Azure Active Directory B2C](overview.md) and provides a more in-depth introduction to the service. We will discuss here the primary resources you work with in the service, its features and learn how they enable you to provide a fully custom identity experience for customers in your applications.
 
@@ -268,8 +270,6 @@ In an audit log, which is available for your Azure AD B2C tenant or for a partic
 * CRUD operations on keys stored in a B2C key container
 * CRUD operations on B2C resources (for example, policies and identity providers)
 * Validation of user credentials and token issuance
-
-:::image type="content" source="media/technical-overview/audit-log.png" alt-text="Individual user audit log shown in the Azure portal.":::
 
 For more information on audit logs, see [Accessing Azure AD B2C audit logs](view-audit-logs.md).
 

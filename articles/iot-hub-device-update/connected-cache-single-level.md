@@ -6,7 +6,8 @@ author: andyrivMSFT
 ms.author: andyriv
 ms.date: 04/14/2023
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Deploy the Microsoft Connected Cache module on a single gateway (preview)

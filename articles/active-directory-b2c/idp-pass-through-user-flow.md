@@ -6,12 +6,12 @@ description: Learn how to pass an access token for OAuth 2.0 identity providers 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 
@@ -20,6 +20,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Pass an identity provider access token to your application in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

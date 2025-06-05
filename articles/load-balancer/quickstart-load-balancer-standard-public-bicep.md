@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 10/25/2023
+ms.date: 12/06/2024
 ms.author: mbender
 ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 #Customer intent: I want to create a load balancer by using a Bicep file so that I can load balance internet traffic to VMs.
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/load-balancer-standard-create/).
 
-Load balancer and public IP SKUs must match. When you create a standard load balancer, you must also create a new standard public IP address that is configured as the frontend for the standard load balancer. If you want to create a basic load balancer, use [this template](https://azure.microsoft.com/resources/templates/2-vms-loadbalancer-natrules/). Microsoft recommends using standard SKU for production workloads.
+Load balancer and public IP SKUs must match. When you create a standard load balancer, you must also create a new standard public IP address that is configured as the frontend for the standard load balancer. Microsoft recommends using standard SKU for production workloads.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/load-balancer-standard-create/main.bicep":::
 
@@ -72,7 +72,7 @@ To find more Bicep files or ARM templates that are related to Azure Load Balance
     ---
 
     > [!NOTE]
-    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
+    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../reliability/availability-zones-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
 
     You're prompted to enter the following values:
 

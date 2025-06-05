@@ -2,11 +2,11 @@
 title: Azure permissions for General - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the General category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -99,9 +99,11 @@ Azure service: core
 > | Microsoft.Marketplace/register/action | Registers Microsoft.Marketplace resource provider in the subscription. |
 > | Microsoft.Marketplace/privateStores/action | Updates PrivateStore. |
 > | Microsoft.Marketplace/search/action | Returns a list of azure private store marketplace catalog offers and total count and facets |
+> | Microsoft.Marketplace/locations/edgeZones/products/read | Returns a list of products for specific edgezone and location |
 > | Microsoft.Marketplace/mysolutions/read | Get user solutions |
 > | Microsoft.Marketplace/mysolutions/write | Create or update user solutions |
 > | Microsoft.Marketplace/mysolutions/delete | Remove user solutions |
+> | Microsoft.Marketplace/offers/read | Returns an offer |
 > | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Returns an Agreement. |
 > | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Accepts a signed agreement. |
 > | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Returns a config. |
@@ -136,6 +138,7 @@ Azure service: core
 > | Microsoft.Marketplace/privateStores/requestApprovals/write | Create request approval |
 > | Microsoft.Marketplace/privateStores/RequestApprovals/offer/acknowledgeNotification/write | Acknowledge a notification, Admins only |
 > | Microsoft.Marketplace/privateStores/RequestApprovals/withdrawPlan/write | Withdraw a plan from offer's notifications |
+> | Microsoft.Marketplace/products/read | Returns a Product |
 
 ## Microsoft.MarketplaceOrdering
 
@@ -162,6 +165,7 @@ Azure service: [Azure Quotas](/azure/quotas/quotas-overview)
 > | Microsoft.Quota/register/action | Register the subscription with Microsoft.Quota Resource Provider |
 > | Microsoft.Quota/groupQuotas/read | Get the GroupQuota |
 > | Microsoft.Quota/groupQuotas/write | Creates the GroupQuota resource |
+> | Microsoft.Quota/groupQuotas/delete | Deletes the GroupQuota resource |
 > | Microsoft.Quota/groupQuotas/groupQuotaLimits/read | Get the current GroupQuota of the specified resource |
 > | Microsoft.Quota/groupQuotas/groupQuotaLimits/write | Creates the GroupQuota request for the specified resource |
 > | Microsoft.Quota/groupQuotas/groupQuotaRequests/read | Get the GroupQuota request status for the specific request |
@@ -170,6 +174,7 @@ Azure service: [Azure Quotas](/azure/quotas/quotas-overview)
 > | Microsoft.Quota/groupQuotas/quotaAllocations/write | Creates the GroupQuota to subscription Quota limit request for the specified resource |
 > | Microsoft.Quota/groupQuotas/subscriptions/read | Get the GroupQuota subscriptions |
 > | Microsoft.Quota/groupQuotas/subscriptions/write | Add Subscriptions to GroupQuota resource |
+> | Microsoft.Quota/groupQuotas/subscriptions/delete | Deletes Subscriptions from GroupQuota resource |
 > | Microsoft.Quota/operations/read | Get the Operations supported by Microsoft.Quota |
 > | Microsoft.Quota/quotaRequests/read | Get any service limit request for the specified resource |
 > | Microsoft.Quota/quotas/read | Get the current Service limit or quota of the specified resource |

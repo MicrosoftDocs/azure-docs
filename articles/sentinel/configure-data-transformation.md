@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 02/27/2022
+
+
+#Customer intent: As a security engineer, I want to configure ingestion-time data transformation and custom log ingestion so that I can control, filter, and enrich data before it is ingested into Microsoft Sentinel.
+
 ---
 
 # Transform or customize data at ingestion time in Microsoft Sentinel (preview)
@@ -35,9 +39,8 @@ Before you start configuring DCRs for data transformation:
 | If you are ingesting | Ingestion-time transformation is... | Use this DCR type |
 | -------------------- | ---------------------------- | ----------------- |
 | **Custom data** through <br>the [**Log Ingestion API**](/azure/azure-monitor/logs/logs-ingestion-api-overview) | <li>Required<li>Included in the DCR that defines the data model | Standard DCR |
-| **Built-in data types** <br>(Syslog, CommonSecurityLog, WindowsEvent, SecurityEvent) <br>using the legacy **Log Analytics Agent (MMA)** | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
+| **Built-in data types** <br>(Syslog, CommonSecurityLog, WindowsEvent, SecurityEvent) <br>using the Azure Monitor Agent | <li>Optional<li>If desired, added to the DCR that configures how this data is being ingested | Standard DCR |
 | **Built-in data types** <br>from most other sources | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
-
 
 
 
@@ -81,4 +84,4 @@ For more information about data transformation and DCRs, see:
 - [Data collection transformations in Azure Monitor Logs (preview)](/azure/azure-monitor/essentials/data-collection-transformations)
 - [Logs ingestion API in Azure Monitor Logs (Preview)](/azure/azure-monitor/logs/logs-ingestion-api-overview)
 - [Structure of a data collection rule in Azure Monitor (preview)](/azure/azure-monitor/essentials/data-collection-rule-structure)
-- [Configure data collection for the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-data-collection)
+- [Configure data collection for the Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-data-collection)

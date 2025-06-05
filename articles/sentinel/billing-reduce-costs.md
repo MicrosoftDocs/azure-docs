@@ -7,9 +7,13 @@ ms.custom: subject-cost-optimization
 ms.topic: conceptual
 ms.date: 07/09/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+
+
+#Customer intent: As a cloud security administrator, I want to optimize the cost of using Microsoft Sentinel so that I can manage my organization's security operations within budget constraints.
+
 ---
 
 # Reduce costs for Microsoft Sentinel
@@ -21,13 +25,13 @@ Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azu
 ## Set or change pricing tier
 To optimize for highest savings, monitor your ingestion volume to ensure you have the Commitment Tier that aligns most closely with your ingestion volume patterns. Consider increasing or decreasing your Commitment Tier to align with changing data volumes.
 
-You can increase your Commitment Tier anytime, which restarts the 31-day commitment period. However, to move back to Pay-As-You-Go or to a lower Commitment Tier, you must wait until after the 31-day commitment period finishes. Billing for Commitment Tiers is on a daily basis.
+You can increase your Commitment Tier anytime, which restarts the 31-day commitment period. However, to move back to pay-as-you-go or to a lower Commitment Tier, you must wait until after the 31-day commitment period finishes. Billing for Commitment Tiers is on a daily basis.
 
 To see your current Microsoft Sentinel pricing tier, select **Settings** in the Microsoft Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked **Current tier**.
 
 To change your pricing tier commitment, select one of the other tiers on the pricing page, and then select **Apply**. You must have **Contributor** or **Owner** for the Microsoft Sentinel workspace to change the pricing tier.
 
-:::image type="content" source="media/billing-reduce-costs/simplified-pricing-tier.png" alt-text="Screenshot of pricing page in Microsoft Sentinel settings, with Pay-As-You-Go selected as current pricing tier." lightbox="media/billing-reduce-costs/simplified-pricing-tier.png":::
+:::image type="content" source="media/billing-reduce-costs/simplified-pricing-tier.png" alt-text="Screenshot of pricing page in Microsoft Sentinel settings, with pay-as-you-go selected as current pricing tier." lightbox="media/billing-reduce-costs/simplified-pricing-tier.png":::
 
 To learn more about how to monitor your costs, see [Manage and monitor costs for Microsoft Sentinel](billing-monitor-costs.md).
 
@@ -49,20 +53,20 @@ When hunting or investigating threats in Microsoft Sentinel, you might need to a
 
 ## Select low-cost log types for high-volume, low-value data
 
-While standard analytics logs are most appropriate for continuous, real-time threat detection, two other log types&mdash;[basic logs and auxiliary logs](/azure/azure-monitor/logs/basic-logs-configure)&mdash;are more suited for ad-hoc querying and search of verbose, high-volume, low-value logs that aren't frequently needed or accessed on demand. Enable basic log data ingestion at a significantly reduced cost, or auxiliary log data ingestion (now in Preview) at an even lower cost, for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+While standard analytics logs are most appropriate for continuous, real-time threat detection, two other log types&mdash;[basic logs and auxiliary logs](log-plans.md)&mdash;are more suited for ad-hoc querying and search of [verbose, high-volume, low-value logs](basic-logs-use-cases.md) that aren't frequently needed or accessed on demand. basic log data ingestion at a significantly reduced cost, or auxiliary log data ingestion at an even lower cost, for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 - [Log retention plans in Microsoft Sentinel](log-plans.md)
 - [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md)
 
 ## Optimize Log Analytics costs with dedicated clusters
 
-If you ingest at least 500 GB into your Microsoft Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 500 GB or more. For more information, see [Simplified pricing tier for dedicated cluster](enroll-simplified-pricing-tier.md#simplified-pricing-tiers-for-dedicated-clusters).
+If you ingest at least 100 GB into your Microsoft Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 100 GB or more. For more information, see [Simplified pricing tier for dedicated cluster](enroll-simplified-pricing-tier.md#simplified-pricing-tiers-for-dedicated-clusters).
 
 You can add multiple Microsoft Sentinel workspaces to a Log Analytics dedicated cluster. There are a couple of advantages to using a Log Analytics dedicated cluster for Microsoft Sentinel:
 
 - Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](/azure/azure-monitor/logs/cross-workspace-query) for inclusion in a single cross-workspace query.
 
-- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 500-GB ingestion per day.
+- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 100-GB ingestion per day.
 
 Here are some other considerations for moving to a dedicated cluster for cost optimization:
 
@@ -84,13 +88,13 @@ Microsoft Sentinel security data might lose some of its value after a few months
 
 To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers long-term retention. Data that ages out of its interactive retention state can still be retained for up to twelve years, at a much-reduced cost, and with limitations on its usage. For more information, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure).
 
-You can reduce costs even further by enrolling tables that contain secondary security data in the **Auxiliary logs** plan (now in Preview). This plan allows you to store high-volume, low-value logs at a low price, with a lower-cost 30-day interactive retention period at the beginning to allow for summarization and basic querying. To learn more about the Auxiliary logs plan and other plans, see [Log retention plans in Microsoft Sentinel](log-plans.md). While the auxiliary logs plan remains in Preview, you also have the option of enrolling these tables in the **Basic logs** plan. Basic logs offers similar functionality to auxiliary logs, but with less of a cost savings.
+You can reduce costs even further by enrolling tables that contain secondary security data in the **Auxiliary logs** plan. This plan allows you to store high-volume, low-value logs at a low price, with a lower-cost 30-day interactive retention period at the beginning to allow for summarization and basic querying. To learn more about the Auxiliary logs plan and other plans, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
 ## Use data collection rules for your Windows Security Events
 
-The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Microsoft Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor agent, which uses data collection rules to define the data to collect from each agent.
+The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Microsoft Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor Agent, which uses data collection rules to define the data to collect from each agent.
 
-Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-data-collection).
+Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-data-collection).
 
 Besides for the predefined sets of events that you can select to ingest, such as All events, Minimal, or Common, data collection rules enable you to build custom filters and select specific events to ingest. The Azure Monitor Agent uses these rules to filter the data at the source, and then ingest only the events you selected, while leaving everything else behind. Selecting specific events to ingest can help you optimize your costs and save more.
 

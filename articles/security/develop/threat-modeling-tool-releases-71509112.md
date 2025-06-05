@@ -51,7 +51,7 @@ In the Analysis View of the tool, if the user has a high-resolution screen that 
 
 #### Workaround
 
-The user can click on the mitigation text and use the standard Windows zoom control (Crtl-Mouse Wheel Up) to increase the magnification of that section.
+The user can click on the mitigation text and use the standard Windows zoom control (Ctrl-Mouse Wheel Up) to increase the magnification of that section.
 
 ### Files in the “Recently Opened Models” section of the main window may fail to open
 
@@ -69,7 +69,7 @@ Users of OneDrive are encouraged to use Microsoft’s [OneDrive for Windows](htt
 
 ### My organization uses the 2016 version of the tool, can I use the Azure stencil set?
 
-Yes, you can! The [Azure stencil set is available on GitHub](https://github.com/Microsoft/threat-modeling-templates/), and can be loaded in the 2016 version of the tool. To create a new model with the Azure stencil set, use the “Template For New Models” dialog on the main menu screen. TMT 2016 cannot render the links found in the “Possible Mitigations” fields of the Azure stencil set, therefore you may see links displayed as HTML tags.
+Yes, you can! The [Azure stencil set is available on GitHub](https://github.com/Microsoft/threat-modeling-templates/) and can be loaded in the 2016 version of the tool. To create a new model with the Azure stencil set, use the “Template For New Models” dialog on the main menu screen. TMT 2016 cannot render the links found in the “Possible Mitigations” fields of the Azure stencil set, therefore you may see links displayed as HTML tags.
 
 ![Azure Stencil Updates in 2016 Client](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 

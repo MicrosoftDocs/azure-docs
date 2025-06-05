@@ -12,6 +12,12 @@ zone_pivot_groups: facility-ontology-schema
 
 # Facility Ontology
 
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
+
 Facility ontology defines how Azure Maps Creator internally stores facility data in a Creator dataset.  In addition to defining internal facility data structure, facility ontology is also exposed externally through the WFS API. When WFS API is used to query facility data in a dataset, the response format is defined by the ontology supplied to that dataset.
 
 ## Changes and Revisions
@@ -75,7 +81,7 @@ When importing a GeoJSON package, the `ID` and `Geometry` fields must be supplie
 
 :::image type="content" source="./media/creator-indoor-maps/geojson.png" alt-text="A screenshot showing the geometry and ID fields in a GeoJSON file.":::
 
-For more information, see [Create a dataset using a GeoJson package].
+For more information, see [Create a dataset using a GeoJSON package].
 
 ---
 
@@ -579,7 +585,7 @@ Learn more about Creator for indoor maps by reading:
 [Polygon]: /rest/api/maps-creator/wfs/get-features?tabs=HTTP#geojsonpolygon
 
 <!---------   learn.microsoft.com links     --------------->
-[Create a dataset using a GeoJson package]: how-to-dataset-geojson.md
+[Create a dataset using a GeoJSON package]: how-to-dataset-geojson.md
 [Creator for indoor maps]: creator-indoor-maps.md
 
 <!---------   External Links     --------------->

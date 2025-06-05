@@ -1,8 +1,8 @@
 ---
 title: How to set up a sensor in Azure Data Manager for Agriculture
 description: Provides step by step guidance to integrate Sensor as a customer
-author: gourdsay
-ms.author: angour
+author: BlackRider97
+ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 06/19/2023

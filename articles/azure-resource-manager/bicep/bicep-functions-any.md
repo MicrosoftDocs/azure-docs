@@ -3,7 +3,7 @@ title: Bicep functions - any
 description: Describes the any function that is available in Bicep to convert types.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 06/23/2023
+ms.date: 02/12/2025
 ---
 
 # Any function for Bicep

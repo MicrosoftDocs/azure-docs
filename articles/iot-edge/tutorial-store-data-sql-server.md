@@ -7,7 +7,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 07/08/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: "mvc, devx-track-csharp"
 #Customer intent: As an IoT developer, I want to use SQL Service to execute logic on edge devices to filter data and communications that is sent to the cloud.
 ---
@@ -161,7 +161,7 @@ You need to select which architecture you're targeting with each solution, becau
 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
-                       // Send the message to the output as the temperature value is greater than the threashold.
+                       // Send the message to the output as the temperature value is greater than the threshold.
                        using (var filteredMessage = new Message(messageBytes))
                        {
                             // Copy the properties of the original message into the new Message object.

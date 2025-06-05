@@ -5,12 +5,12 @@ description: Learn about the versions of user flows available in Azure Active Di
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to understand the differences between Recommended user flows and Standard (Legacy) user flows, so that I can choose the appropriate user flow version for my application and ensure it is maintained and updated.
@@ -18,6 +18,7 @@ ms.subservice: B2C
 ---
 
 # User flow versions in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 User flows in Azure Active Directory B2C (Azure AD B2C) help you to set up common [policies](user-flow-overview.md) that fully describe customer identity experiences. These experiences include sign-up, sign-in, password reset, or profile editing. The tables below describe the user flows that are available in Azure AD B2C.
 

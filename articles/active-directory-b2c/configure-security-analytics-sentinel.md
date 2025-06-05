@@ -6,16 +6,17 @@ description: Use Microsoft Sentinel to perform security analytics for Azure Acti
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: tutorial
 ms.date: 07/31/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 #Customer intent: As an IT professional, I want to gather logs and audit data using Microsoft Sentinel and Azure Monitor to secure applications that use Azure Active Directory B2C.
 ---
 
 # Tutorial: Configure security analytics for Azure Active Directory B2C data with Microsoft Sentinel
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Increase the security of your Azure Active Directory B2C (Azure AD B2C) environment by routing logs and audit information to Microsoft Sentinel. The scalable Microsoft Sentinel is a cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Use the solution for alert detection, threat visibility, proactive hunting, and threat response for Azure AD B2C.
 

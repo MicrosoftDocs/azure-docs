@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure SQL Database using Visual Studio Code
 description: Learn how to connect Azure Functions to Azure SQL Database by adding an output binding to your Visual Studio Code project.
-ms.date: 04/25/2024
+ms.date: 12/29/2024
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
@@ -45,6 +45,9 @@ More details on the settings for [Azure SQL bindings and trigger for Azure Funct
     |**Server admin login**|Enter `azureuser`.|
     |**Password**|Enter a password that meets the complexity requirements.|
     |**Allow Azure services and resources to access this server**|Select **Yes**.|
+
+    >[!IMPORTANT]
+    >This article currently shows how to connect to Azure SQL Database by using SQL Server authentication. For the best security, you should instead use managed identities for the Azure SQL Database connection. For more information, see the [Create an Azure SQL Database server with a user-assigned managed identity](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity-create-server).
 
 1. Once the creation has completed, navigate to the database blade in the Azure portal, and, under **Settings**, select **Connection strings**. Copy the **ADO.NET** connection string for **SQL authentication**. Paste the connection string into a temporary document for later use.
 
@@ -96,7 +99,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-python"  
 
-Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages. 
 
 Extension bundles usage is enabled in the host.json file at the root of the project, which appears as follows:
 

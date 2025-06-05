@@ -8,8 +8,6 @@ items:
       href: overview.md
     - name: Radiology Insights 
       href: ./radiology-insights/index.yml   
-    - name: OncoPhenotype
-      href: ./oncophenotype/index.yml
     - name: Trial Matcher 
       href: ./trial-matcher/index.yml    
 - name: Quickstarts

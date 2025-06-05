@@ -11,7 +11,8 @@ metadata:
   author: greg-lindsay
   ms.author: greglin
   manager: kumudD
-  ms.date: 09/10/2024
+  ms.date: 09/27/2024
+  ms.custom: portfolio-consolidation-2025
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -187,9 +188,6 @@ conceptualContent:
         # Card 4
         - title: Related services
           links:
-            - url: ../../virtual-network-manager/index.yml
-              text: Azure Virtual Network Manager (AVNM)
-              itemType: reference
             - url: ../../bastion/index.yml
               text: Azure Bastion
               itemType: reference
@@ -208,9 +206,6 @@ conceptualContent:
             - url: ../../virtual-network/virtual-network-peering-overview.md
               text: Virtual network peering
               itemType: reference
-            - url: ../../network-watcher/index.yml
-              text: Network Watcher
-              itemType: reference
 
 # additionalContent section (optional)
 # Card with summary style
@@ -219,7 +214,7 @@ additionalContent:
     - title: Networking services
       items:
         - title: Load balancing and Content Delivery
-          url: /azure/networking/load-balancer-content-delivery/
+          url: /azure/networking/load-balancer-content-delivery/?wt.mc_id=aznetportfolioconsolidation_lbcdscenariohub_content_cnl
         - title: Network security
           url: /azure/networking/security/
         - title: Hybrid connectivity

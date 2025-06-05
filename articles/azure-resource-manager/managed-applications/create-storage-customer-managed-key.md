@@ -3,6 +3,7 @@ title: Create Azure Managed Application that deploys storage account encrypted w
 description: This article describes how to create an Azure Managed Application that deploys a storage account encrypted with a customer-managed key.
 ms.author: jojok
 author: jojokoshy
+ms.reviewer: evanhi
 ms.topic: how-to
 ms.date: 06/24/2024
 ---

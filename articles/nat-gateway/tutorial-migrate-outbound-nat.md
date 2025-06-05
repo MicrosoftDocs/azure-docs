@@ -4,7 +4,7 @@ titlesuffix: Azure NAT Gateway
 description: Use this tutorial to learn how to migrate outbound access in your virtual network to an Azure NAT gateway.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 02/13/2024
 ms.custom: template-tutorial 

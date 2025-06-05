@@ -7,7 +7,7 @@ metadata:
   ms.topic: faq
   ms.date: 11/21/2023
   ms.author: danlep 
-  ms.custom: engagement-fy23,fasttrack-edit
+  ms.custom: engagement-fy23,fasttrack-edit,build-2025
 
 title: Azure API Management FAQs
 summary: |
@@ -62,7 +62,7 @@ sections:
           * The [API Management REST API](/rest/api/apimanagement/)
           * Azure client SDKs for [.NET](/dotnet/api/overview/azure/api-management), [JavaScript](/javascript/api/overview/azure/api-management), [Java](/java/api/overview/azure/api-management), and other languages
           * [Azure PowerShell](/powershell/module/az.apimanagement/) and [Azure CLI](/cli/azure/apim)
-          * [Azure Resource Manager](/azure/templates/microsoft.apimanagement/allversions) and Bicep templates. See example [quickstart templates](https://azure.microsoft.com/resources/templates/?Page=2&term=api+management).
+          * [Azure Resource Manager](/azure/templates/microsoft.apimanagement/allversions) and Bicep files. See example [quickstart templates](https://azure.microsoft.com/resources/templates/?Page=2&term=api+management).
           * [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management)
 
       - question: |
@@ -138,3 +138,6 @@ sections:
           When you clone an API, the new instance is created with a system-generated value for the name, which you can't change. To specify a name for the API, 
           manually create a new API and import the API definition. For more information, see [Import an API](api-management-howto-import-api.md).
 
+      - question: Can I integrate Azure API Management directly with Azure database solutions?  
+        answer: |
+          Yes, you can integrate Azure API Management directly with other Azure services without an intermediary. For example, Azure API Management can integrate directly with Azure Cosmos DB REST APIs for CRUD operations, eliminating the need for intermediate services like Azure Functions.

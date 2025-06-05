@@ -12,8 +12,6 @@ ms.custom: "UpdateFrequency3"
 ---
 # Manage an App Service plan in Azure
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 An [Azure App Service plan](overview-hosting-plans.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
 
 ## Create an App Service plan
@@ -38,7 +36,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 6. Select **Review + create** to create the App Service plan.
 
 > [!IMPORTANT]
-> When you create an new App Service plan in an existing resource group, certain conditions with existing apps can trigger these errors:
+> When you create a new App Service plan in an existing resource group, certain conditions with existing apps can trigger these errors:
 > - `The pricing tier is not allowed in this resource group`
 > - `<SKU_NAME> workers are not available in resource group <RESOURCE_GROUP_NAME>`
 > 
@@ -50,7 +48,9 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 ## Move an app to another App Service plan
 
-You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region and of the same OS type_. Any change in type, such as Windows to Linux or any type that's different from the originating type, isn't supported.
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region and of the same OS type_. Any change in type, such as Windows to Linux or any type that's different from the originating type, isn't supported. 
+
+Any VNET integration configured on the app must be disabled prior to changing App Service plans. 
 
 
 > [!NOTE]

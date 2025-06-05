@@ -5,7 +5,8 @@ description: This article explains how to enable Azure Key Vault as the secret b
 ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
-ms.date: 08/29/2023
+ms.date: 10/03/2024
+ms.subservice: security
 ---
 
 # Enable Azure Key Vault for Workflow Orchestration Manager

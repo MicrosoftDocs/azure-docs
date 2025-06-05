@@ -1,10 +1,12 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: backup
 ms.service: azure-backup
+ms.custom:
+  - ignite-2024
 ms.topic: include
-ms.date: 02/17/2023
+ms.date: 12/20/2024
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -17,13 +19,13 @@ To create a Recovery Services vault:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Search for **Backup center**, and then go to the **Backup center** dashboard.
+1. Search for **Business Continuity Center**, and then go to the **Business Continuity Center** dashboard.
 
-    ![Screenshot that shows where to search for and select 'Backup center'.](../includes/media/backup-create-rs-vault/backup-center-search-backup-center.png)
+    :::image type="content" source="../includes/media/backup-create-rs-vault/search-business-continuity-center.png" alt-text="Screenshot that shows where to search for and select Business Continuity Center." lightbox="../includes/media/backup-create-rs-vault/search-business-continuity-center.png":::
 
-1. On the **Overview** pane, select **Vault**.
+1. On the **Vault** pane, select **+Vault**.
 
-    ![Screenshot of the button for creating a Recovery Services vault.](./media/backup-create-rs-vault/backup-center-create-vault.png) 
+    :::image type="content" source="./media/backup-create-rs-vault/create-vault.png" alt-text="Screenshot shows how to start creating a Recovery Services vault." lightbox="./media/backup-create-rs-vault/create-vault.png"::: 
 
 1. Select **Recovery Services vault** > **Continue**.
 
@@ -39,7 +41,7 @@ To create a Recovery Services vault:
       > [!IMPORTANT]
       > If you're not sure of the location of your data source, close the window. Go to the list of your resources in the portal. If you have data sources in multiple regions, create a Recovery Services vault for each region. Create the vault in the first location before you create a vault in another location. There's no need to specify storage accounts to store the backup data. The Recovery Services vault and Azure Backup handle that automatically.
       
-    ![Screenshot that shows fields for configuring a Recovery Services vault.](./media/backup-create-rs-vault/backup-center-add-vault-details.png)
+      ![Screenshot that shows fields for configuring a Recovery Services vault.](./media/backup-create-rs-vault/backup-center-add-vault-details.png)
 
 1. After providing the values, select **Review + create**.
 

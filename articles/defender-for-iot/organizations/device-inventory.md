@@ -1,6 +1,6 @@
 ---
 title: Device inventory - Microsoft Defender for IoT
-description: Learn about the Defender for IoT device inventory features available from the Azure portal, OT sensor console, and the on-premises management console.
+description: Learn about the Defender for IoT device inventory features available from the Azure portal, and OT sensor console.
 ms.date: 02/19/2023
 ms.topic: conceptual
 ---
@@ -44,17 +44,15 @@ Defender for IoT device inventory is available in the following locations:
 
 |Location  |Description   | Extra inventory support |
 |---------|---------|---------|
-|**Azure portal**     | OT devices detected from all cloud-connected OT sensors.      |     - If you also use [Microsoft Sentinel](iot-solution.md), incidents in Microsoft Sentinel are linked to related devices in Defender for IoT. <br><br>- Use Defender for IoT [workbooks](workbooks.md) for visibility into all cloud-connected device inventory, including related alerts and vulnerabilities.    <br><br>- If you have a [legacy Enterprise IoT plan](whats-new.md#enterprise-iot-protection-now-included-in-microsoft-365-e5-and-e5-security-licenses) on your Azure subscription, the Azure portal also includes devices detected by Microsoft Defender for Endpoint agents. If you have an [Enterprise IoT sensor](eiot-sensor.md), the Azure portal also includes devices detected by the Enterprise IoT sensor.   |
+|**Azure portal**     | OT devices detected from all cloud-connected OT sensors.      |     - If you also use [Microsoft Sentinel](iot-solution.md), incidents in Microsoft Sentinel are linked to related devices in Defender for IoT. <br><br>- Use Defender for IoT [workbooks](workbooks.md) for visibility into all cloud-connected device inventory, including related alerts and vulnerabilities.   |
 | **Microsoft Defender XDR** | Enterprise IoT devices detected by Microsoft Defender for Endpoint agents | Correlate devices across Microsoft Defender XDR in purpose-built alerts, vulnerabilities, and recommendations. |
 |**OT network sensor consoles**     |   Devices detected by that OT sensor      |    - View all detected devices across a network device map<br><br>- View related events on the **Event timeline** |
-|**An on-premises management console**     |  Devices detected across all connected OT sensors          | Enhance device data by importing data manually or via script  |
 
 For more information, see:
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Defender for Endpoint device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
 - [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Manage your OT device inventory from an on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
 ## Automatically consolidated devices
 
@@ -94,7 +92,7 @@ Mark OT devices as *important* to highlight them for extra tracking. On an OT se
 
 ## Device inventory column data
 
-The following table lists the columns available in the Defender for IoT device inventory on the Azure portal and the OT sensor, a description of each column and whether and in which platform it is editible. Starred items **(*)** are also available from the OT sensor.
+The following table lists the columns available in the Defender for IoT device inventory on the Azure portal and the OT sensor, a description of each column and whether and in which platform it is editable. Starred items **(*)** are also available from the OT sensor.
 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -140,7 +138,7 @@ The following table lists the columns available in the Defender for IoT device i
 | **VLAN**  * | The device's VLAN.  |Not editable|
 |**Zone** | The device's zone.  |Not editable|
 
-The following columns are available in the OT sensors only, and aren't editible.
+The following columns are available in the OT sensors only, and aren't editable.
 
 - The device's **DHCP Address**.
 - The device's **FQDN** address and **FQDN Last Lookup Time**.
@@ -158,6 +156,5 @@ For more information, see:
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Manage your OT device inventory from an on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 - [Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols](concept-supported-protocols.md)
 - [Investigate devices on a device map](how-to-work-with-the-sensor-device-map.md)

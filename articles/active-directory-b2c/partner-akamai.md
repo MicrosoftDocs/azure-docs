@@ -5,16 +5,18 @@ description: Configure Akamai Web Application Protector with Azure AD B2C
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm an IT admin, and I want to configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access. I want to enable Azure AD B2C authentication for end users accessing private applications secured by Akamai Enterprise Application Access.
 ---
 
 # Configure Azure Active Directory B2C with Akamai Web Application Protector
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Learn to enable Akamai Web Application Protector (WAP) for Azure Active Directory B2C (Azure AD B2C) tenant using custom domains. Akamai WAP helps organization protect their web applications from malicious attacks that aim to exploit vulnerabilities such as SQL injection and Cross site scripting.
 

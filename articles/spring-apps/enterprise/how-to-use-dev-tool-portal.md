@@ -1,8 +1,9 @@
 ---
-title: Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan
+title: Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise Plan
 description: Learn how to use Tanzu Dev Tools in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: zlhe
+ms.author: karler
+ms.reviewer: zlhe
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
@@ -11,10 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article describes how to configure VMware Tanzu Dev Tools. Dev Tools includes a set of developer tools to help make the development experience easier for both the inner and outer loop. Currently, Dev Tools includes Application Live View and Application Accelerator for use with the Azure Spring Apps Enterprise plan.
 
@@ -32,7 +32,7 @@ This article describes how to configure VMware Tanzu Dev Tools. Dev Tools includ
   az extension remove --name spring-cloud
   ```
 
-- Custom roles that delegate permissions to Azure Spring Apps resources. For more information, see [How to use permissions in Azure Spring Apps](how-to-permissions.md).
+- Custom roles that delegate permissions to Azure Spring Apps resources. For more information, see [How to use permissions in Azure Spring Apps](../basic-standard/how-to-permissions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ## Configure Dev Tools Portal
 

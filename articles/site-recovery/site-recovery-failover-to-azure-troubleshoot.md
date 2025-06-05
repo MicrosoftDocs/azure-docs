@@ -1,18 +1,15 @@
 ---
 title: 'Troubleshoot failover to Azure failures | Microsoft Docs'
 description: This article describes ways to troubleshoot common errors in failing over to Azure
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.custom: linux-related-content
 services: site-recovery
 ms.topic: article
 ms.date: 09/10/2024
-ms.author: ankitadutta
+ms.author: jsuri
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 You may receive one of the following errors while doing failover of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.
 
@@ -124,12 +121,6 @@ If you're able to connect to the machine using RDP but can't open serial console
 
   ```console
   grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
-  ```
-
-* If the machine OS is CentOS 7.*, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
-
-  ```console
-  grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
   ```
 
 ## Unexpected shutdown message (Event ID 6008)

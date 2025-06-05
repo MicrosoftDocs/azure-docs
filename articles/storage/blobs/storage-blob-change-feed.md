@@ -14,7 +14,7 @@ ms.custom: engagement-fy23
 
 # Change feed support in Azure Blob Storage
 
-The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. Each change generates exactly one transaction log entry, so you won't have to manage multiple log entries for the same change. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
+The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** logs of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. Each change generates exactly one transaction log entry, so you won't have to manage multiple log entries for the same change. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
 
 To learn how to process records in the change feed, see [Process change feed in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
@@ -625,7 +625,7 @@ The following example shows a change event record in JSON format that uses event
 
 - The time represented by the segment is **approximate** with bounds of 15 minutes. So to ensure consumption of all records within a specified time, consume the consecutive previous and next hour segment.
 
-- Each segment can have a different number of `chunkFilePaths` due to internal partitioning of the log stream to manage publishing throughput. The log files in each `chunkFilePath` are guaranteed to contain mutually exclusive blobs, and can be consumed and processed in parallel without violating the ordering of modifications per blob during the iteration.
+- Each segment can have a different number of `chunkFilePaths` due to internal partitioning of the log stream to manage publishing throughput. The log files in each `chunkFilePath` are guaranteed to contain mutually exclusive blobs and can be consumed and processed in parallel without violating the ordering of modifications per blob during the iteration.
 
 - The Segments start out in `Publishing` status. Once the appending of the records to the segment is complete, it will be `Finalized`. Log files in any segment that is dated after the date of the `LastConsumable` property in the `$blobchangefeed/meta/Segments.json` file, should not be consumed by your application. Here's an example of the `LastConsumable`property in a `$blobchangefeed/meta/Segments.json` file:
 

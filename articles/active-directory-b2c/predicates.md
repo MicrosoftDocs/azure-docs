@@ -6,12 +6,12 @@ description: Prevent malformed data from being added to your Azure AD B2C tenant
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to perform validation on user input data, so that I can ensure that only properly formed data is entered into the system.
@@ -19,6 +19,7 @@ ms.subservice: B2C
 ---
 
 # Predicates and PredicateValidations
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

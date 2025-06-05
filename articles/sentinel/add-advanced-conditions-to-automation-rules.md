@@ -4,10 +4,10 @@ description: This article explains how to add complex, advanced "Or" conditions 
 ms.topic: how-to
 author: batamig
 ms.author: bagol
-ms.date: 03/14/2024
+ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -58,13 +58,13 @@ Let's create a rule that will change the severity of an incoming incident from w
 
 1. Select the trigger **When incident is created**.
 
-1. Under **Conditions**, if you see the **Incident provider** and **Analytics rule name** conditions, leave them as they are. These conditions aren't available if your workspace is onboarded to the unified security operations platform. In either case, we'll add more conditions later in this process.
+1. Under **Conditions**, if you see the **Incident provider** and **Analytics rule name** conditions, leave them as they are. These conditions aren't available if your workspace is onboarded to the Microsoft Defender portal. In either case, we'll add more conditions later in this process.
 
 1. Under **Actions**, select **Change severity** from the drop-down list.
 
 1. Select **High** from the drop-down list that appears below **Change severity**.
 
-For example, the following tabs show samples from a workspace that's onboarded to the unified security operations platform, in either the Azure or Defender portals, and a workspace that isn't:
+For example, the following tabs show samples from a workspace that's onboarded to the Defender portal, in either the Azure or Defender portals, and a workspace that isn't:
 
 ### [Onboarded workspaces](#tab/after-onboarding)
 

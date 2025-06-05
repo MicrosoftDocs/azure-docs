@@ -2,17 +2,17 @@
 title: Overview of Recovery Services vaults
 description: An overview of Recovery Services vaults.
 ms.topic: overview
-ms.date: 07/30/2024
+ms.date: 05/28/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 # Recovery Services vaults overview
 
 This article describes the features of a Recovery Services vault.
 
-A Recovery Services vault is a storage entity in Azure that houses data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and SQL Server in Azure VMs. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead. 
+A Recovery Services vault is a storage entity in Azure that houses data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and SQL Server in Azure VMs. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead. Learn about the [types of vault supported for backup and restore](/azure/backup/backup-azure-backup-faq#what-are-the-various-vaults-supported-for-backup-and-restore-).
 
 ## Key features
 
@@ -20,7 +20,9 @@ Recovery Services vaults are based on the Azure Resource Manager model of Azure,
 
 - **Enhanced capabilities to help secure backup data**: With Recovery Services vaults, Azure Backup provides security capabilities to protect cloud backups. The security features ensure you can secure your backups, and safely recover data, even if production and backup servers are compromised. [Learn more](backup-azure-security-feature.md)
 
-- **Central monitoring for your hybrid IT environment**: With Recovery Services vaults, you can monitor not only your [Azure IaaS VMs](backup-azure-manage-vms.md) but also your [on-premises assets](backup-azure-manage-windows-server.md#manage-backup-items) from a central portal. [Learn more](backup-azure-monitoring-built-in-monitor.md)
+- **Central monitoring for your hybrid IT environment**: With Recovery Services vaults, you can monitor not only your [Azure IaaS VMs](backup-azure-manage-vms.md) but also other workloads and your [on-premises (System Center Data Protection Manager) assets](backup-azure-manage-windows-server.md#manage-backup-items) from a central portal. Monitoring  your asset helps you to get a transparent view of your Azure Backup and Azure Site Recovery jobs, get notification of an undesirable event with alerts, monitor metrics and health, and track your historical data with  reports. [Learn more](backup-azure-monitoring-built-in-monitor.md).
+
+  Monitoring your asset involves getting a transparent view of your Azure Backup and Azure Site Recovery jobs, get notified of an undesirable event with alerts, monitor metrics and health, and track your historical data with reports.
 
 - **Azure role-based access control (Azure RBAC)**: Azure RBAC provides fine-grained access management control in Azure. [Azure provides various built-in roles](../role-based-access-control/built-in-roles.md), and Azure Backup has three [built-in roles to manage recovery points](backup-rbac-rs-vault.md). Recovery Services vaults are compatible with Azure RBAC, which restricts backup and restore access to the defined set of user roles. [Learn more](backup-rbac-rs-vault.md)
 
@@ -70,6 +72,7 @@ Azure Advisor provides hourly [recommendations](/azure/advisor/advisor-high-avai
 
 Use the following articles to:
 
+- Create a Recovery Services vault using [Azure portal](backup-create-recovery-services-vault.md#create-a-recovery-services-vault), [REST API](backup-azure-arm-userestapi-createorupdatevault.md)
 - [Back up an IaaS VM](backup-azure-arm-vms-prepare.md)
 - [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 - [Back up a Windows Server](backup-windows-with-mars-agent.md)

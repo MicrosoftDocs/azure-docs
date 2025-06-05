@@ -5,16 +5,18 @@ description: Tutorial to configure Azure Active Directory B2C with Hypr for true
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer integrating HYPR with Azure AD B2C. I want a tutorial to configure the Azure AD B2C policy to enable passwordless authentication using HYPR for my customer applications.
 ---
 
 # Tutorial for configuring HYPR with Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this tutorial, learn to configure Azure Active Directory B2C (Azure AD B2C) with [HYPR](https://www.hypr.com/). When Azure AD B2C is the identity provider (IdP), you can integrate HYPR with customer applications for passwordless authentication. HYPR replaces passwords with public key encryptions that help prevent fraud, phishing, and credential reuse.
 
@@ -29,7 +31,7 @@ To get started, you'll need:
 - A HYPR cloud tenant
   - Request a HYPR [custom demo](https://get.hypr.com/get-a-demo)
 - A user mobile device registered using the HYPR REST APIs, or the HYPR Device Manager in your HYPR tenant
-  - For example, see [HYPR SDK for Java Web](https://docs.hypr.com/integratinghypr/docs/sdk-java-web) 
+  - For example, see [HYPR SDK for Java Web](https://docs.hypr.com/docs/sdk/sdkJava/sdk-java-web/) 
 
 ## Scenario description
 

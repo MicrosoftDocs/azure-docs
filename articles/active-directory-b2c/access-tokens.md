@@ -5,18 +5,20 @@ description: Learn how to request an access token from Azure Active Directory B2
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C with a web application and web API, I want to understand how to request an access token, so that I can authenticate and authorize users to access my APIs securely.
 
 ---
 # Request an access token in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 An *access token* contains claims that you can use in Azure Active Directory B2C (Azure AD B2C) to identify the granted permissions to your APIs. To call a resource server, the HTTP request must include an access token. An access token is denoted as **access_token** in the responses from Azure AD B2C.
 

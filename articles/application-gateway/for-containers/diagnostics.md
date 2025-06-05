@@ -2,12 +2,11 @@
 title: Diagnostic logs for Application Gateway for Containers
 description: Learn how to enable access logs for Application Gateway for Containers
 services: application-gateway
-author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+author: mbender-ms
+ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 9/16/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Diagnostic logs for Application Gateway for Containers

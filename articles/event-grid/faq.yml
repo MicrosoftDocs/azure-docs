@@ -14,7 +14,7 @@ sections:
       - question: |
           Does Azure Event Grid support resiliency?
         answer: |
-          Yes, Azure Event Grid it's a high available service by zone-redundant support replicated in three availability zones when available to provide automatic in-region recovery of your data if a failure occurs in the region. For more information, see [availability zones in Azure Event Grid](availability-zones-disaster-recovery.md) and [Highly available services](../availability-zones/az-region.md#highly-available-services).
+          Yes, Azure Event Grid it's a high available service by zone-redundant support replicated in three availability zones when available to provide automatic in-region recovery of your data if a failure occurs in the region. For more information, see [availability zones in Azure Event Grid](availability-zones-disaster-recovery.md) and [Azure services with availability zones](../reliability/availability-zones-service-support.md).
 
       - question: |
           How does resiliency works in Azure Event Grid?
@@ -24,7 +24,7 @@ sections:
       - question: |
           Does Azure Event Grid support availability zone resiliency across all the SKUs?
         answer: |
-          Yes, Azure Event Grid has only one SKU (Basic) and supports availability zones resiliency.
+          Yes, both basic and standard tiers of Azure Event Grid support availability zones resiliency. To learn about these tiers, see [Choose the right tier](choose-right-tier.md). 
 
       - question: |
            Do I need to configure Azure Event Grid to enable resiliency?
@@ -34,7 +34,9 @@ sections:
       - question: |
           How do I recover from a failover?
         answer: |
-          If you opt in "cross-geo" in data residency configuration of the Azure Event Grid topics and domains, event subscription configuration data, also known as "metadata" will be replicated to a predefined secondary region. This allows Microsoft-initiated failover to the paired region if a failure occurs in a region. See [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) to learn more about the supported paired regions. Otherwise, if you opt in "regional", no data of any kind is replicated to another region by Microsoft. You may define your own disaster recovery plan. 
+          If you opt in "cross-geo" in data residency configuration of the Azure Event Grid topics and domains, event subscription configuration data, also known as "metadata" will be replicated to a predefined secondary region. This allows Microsoft-initiated failover to the paired region if a failure occurs in a region. See [Azure cross-region replication pairings for all geographies](../reliability/cross-region-replication-azure.md#azure-paired-regions) to learn more about the supported paired regions. Otherwise, if you opt in "regional", no data of any kind is replicated to another region by Microsoft. You may define your own disaster recovery plan. 
+
+          If you use a [non-paired region](../reliability/cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair), then regardless of the data residency configuration you select, your metadata will only be replicated within the region.
 
           Microsoft-initiated failover is exercised by Microsoft in rare situations to fail over Event Grid resources from an affected region to the corresponding geo-paired region. This process doesn't require an intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's traffic is failed over.
   - name: Data residency

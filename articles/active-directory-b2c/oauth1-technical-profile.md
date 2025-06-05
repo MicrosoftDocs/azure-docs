@@ -6,12 +6,12 @@ description: Define an OAuth 1.0 technical profile in a custom policy in Azure A
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer implementing Azure Active Directory B2C custom policies, I want to define an OAuth1 technical profile, so that I can federate with an OAuth1 based identity provider like X and allow users to sign in with their existing social or enterprise identities.
@@ -19,6 +19,8 @@ ms.subservice: B2C
 ---
 
 # Define an OAuth1 technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

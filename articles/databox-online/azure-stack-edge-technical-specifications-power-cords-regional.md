@@ -4,18 +4,15 @@ description: Learn about the technical specifications for Azure Stack Edge power
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 02/27/2024
+ms.date: 03/20/2025
 ms.author: alkohli
 ---
 
 # Azure Stack Edge power cord specifications
 
-[!INCLUDE [applies-to-gpu-and-pro-fpga-sku](../../includes/azure-stack-edge-applies-to-gpu-pro-fpga-sku.md)]
-
-[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
+[!INCLUDE [Yes for Pro GPU SKU](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
 Your Azure Stack Edge device will need a power cord that will vary depending on your Azure region.
 
@@ -23,7 +20,7 @@ Your Azure Stack Edge device will need a power cord that will vary depending on 
 
 Use the following table to find the correct cord specifications for your region:
 
-| Country    | Rated Voltage (V)| Rated Current (A)| Cord Standard |Input Connector|Output Connector| Length mm |  
+| Country/Region    | Rated Voltage (V)| Rated Current (A)| Cord Standard |Input Connector|Output Connector| Length mm |  
 |------------|---------------|------------|----|--|----|--|--|--|
 |Albania|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Algeria|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|

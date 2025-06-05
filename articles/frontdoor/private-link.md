@@ -1,16 +1,20 @@
 ---
 title: 'Secure your Origin with Private Link in Azure Front Door Premium'
 description: This page provides information about how to secure connectivity to your origin using Private Link.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/12/2024
-ms.author: duau
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2024
+  - build-2025
 ---
 
 # Secure your Origin with Private Link in Azure Front Door Premium
+
+**Applies to:** :heavy_check_mark: Front Door Premium
 
 [Azure Private Link](../private-link/private-link-overview.md) enables you to access Azure PaaS services and services hosted in Azure over a private endpoint in your virtual network. Traffic between your virtual network and the service goes over the Microsoft backbone network, eliminating exposure to the public Internet.
 
@@ -24,18 +28,51 @@ When you enable Private Link to your origin in Azure Front Door Premium, Front D
 
 > [!IMPORTANT]
 > You must approve the private endpoint connection before traffic can pass to the origin privately. You can approve private endpoint connections by using the Azure portal, Azure CLI, or Azure PowerShell. For more information, see [Manage a Private Endpoint connection](../private-link/manage-private-endpoint.md).
+> Azure Front Door doesn't allow mixing public and private origins in the same origin group.
 
 After you enable an origin for Private Link and approve the private endpoint connection, it can take a few minutes for the connection to be established. During this time, requests to the origin receives an Azure Front Door error message. The error message goes away once the connection is established.
 
 Once your request is approved, a private IP address gets assigned from the Azure Front Door managed virtual network. Traffic between your Azure Front Door and your origin communicates using the established private link over the Microsoft backbone network. Incoming traffic to your origin is now secured when arriving at your Azure Front Door.
 
-:::image type="content" source="./media/private-link/enable-private-endpoint.png" alt-text="Screenshot of enable Private Link service checkbox from origin configuration page.":::
+## Supported origins
+
+Origin support for direct private endpoint connectivity is currently limited to:
+* Blob Storage
+* App Service (Web App, Function App)
+* Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
+* Storage Static Website
+* API Management
+* Application Gateway
+* Azure Container Apps
+  
+> [!NOTE]
+> * This feature isn't supported with Azure App Service Slots and Azure Static Web App. 
+
+## Region availability
+
+Azure Front Door private link is available in the following regions:
+
+| Americas | Europe | Africa | Asia Pacific |
+|--|--|--|--|
+| Brazil South | France Central | South Africa North | Australia East |
+| Canada Central | Germany West Central | | Central India |
+| Central US | North Europe | | Japan East |
+| East US | Norway East | | Korea Central |
+| East US 2 | UK South | | East Asia |
+| South Central US | West Europe | | South East Asia |
+| West US 2 | Sweden Central | | |
+| West US 3 | | | |
+| US Gov Arizona | | | |
+| US Gov Texas | | | |
+| US Gov Virginia | | | |
+
+The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region is not supported in the list of regions AFD Private Link supports, pick the next nearest region. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the next nearest region in terms of latency.
 
 ## Association of a private endpoint with an Azure Front Door profile
 
 ### Private endpoint creation
 
-Within a single Azure Front Door profile, if two or more Private Link enabled origins are created with the same set of Private Link, resource ID and group ID, then for all such origins only one private endpoint gets created. Connections to the backend can be enabled using this private endpoint. This setup means you only have to approve the private endpoint once because only one private endpoint gets created. If you create more Private Link enabled origins using the same set of Private Link location, resource ID, and group ID, you don't need to approve anymore private endpoints.
+Within a single Azure Front Door profile, if two or more Private Link enabled origins are created with the same set of resource ID, group ID and region, then for all such origins only one private endpoint gets created. Connections to the backend can be enabled using this private endpoint. This setup means you only have to approve the private endpoint once because only one private endpoint gets created. If you create more Private Link enabled origins using the same set of Private Link location, resource ID, and group ID, you don't need to approve anymore private endpoints.
 
 #### Single private endpoint
 
@@ -88,42 +125,12 @@ If AFD-Profile-1 gets deleted, then the PE1 private endpoint across all the orig
     * If AFD-Profile-4 gets deleted, only PE7 is removed.
     * If AFD-Profile-5 gets deleted, only PE8 is removed.
 
-## Region availability
-
-Azure Front Door private link is available in the following regions:
-
-| Americas | Europe | Africa | Asia Pacific |
-|--|--|--|--|
-| Brazil South | France Central | South Africa North | Australia East |
-| Canada Central | Germany West Central | | Central India |
-| Central US | North Europe | | Japan East |
-| East US | Norway East | | Korea Central |
-| East US 2 | UK South | | East Asia |
-| South Central US | West Europe | | |
-| West US 3 | Sweden Central | | |
-| US Gov Arizona | | | |
-| US Gov Texas | | | |
-
-
-## Limitations
-
-Origin support for direct private endpoint connectivity is currently limited to:
-* Blob Storage
-* Web App
-* Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
-* Storage Static Website
-* Application Gateway (Preview only. Don't use in production environments)
-
-> [!NOTE]
-> * This feature isn't supported with Azure App Service Slots or Functions.
-> * Azure Application Gateway integration is currently not supported using the Azure portal.
-
-The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint.
-
 ## Next steps
 
 * Learn how to [connect Azure Front Door Premium to a Web App origin with Private Link](standard-premium/how-to-enable-private-link-web-app.md).
 * Learn how to [connect Azure Front Door Premium to a storage account origin with Private Link](standard-premium/how-to-enable-private-link-storage-account.md).
 * Learn how to [connect Azure Front Door Premium to an internal load balancer origin with Private Link](standard-premium/how-to-enable-private-link-internal-load-balancer.md).
 * Learn how to [connect Azure Front Door Premium to a storage static website origin with Private Link](how-to-enable-private-link-storage-static-website.md).
-
+* Learn how to [connect Azure Front Door Premium to an application gateway origin with Private Link](how-to-enable-private-link-application-gateway.md).
+* Learn how to [connect Azure Front Door Premium to an API Management origin with Private Link](standard-premium/how-to-enable-private-link-apim.md).
+* Learn how to [connect Azure Front Door Premium to an Azure Container Apps origin with Private Link](../container-apps/how-to-integrate-with-azure-front-door.md).

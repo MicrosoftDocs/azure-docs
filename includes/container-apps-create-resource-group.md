@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 04/30/2024
-ms.author: cshoe
+ms.date: 02/03/2025
+author: v1212
+ms.author: wujia
 ---
 
 ## Create an Azure resource group
@@ -18,7 +18,7 @@ az group create \
   --location "$LOCATION"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Location $Location -Name $ResourceGroupName

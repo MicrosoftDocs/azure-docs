@@ -5,7 +5,13 @@ ms.topic: reference
 ms.date: 03/02/2023
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
+ms.custom:
+  - devx-track-csharp
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - build-2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -246,7 +252,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 The example shows how to use a binding expression in the `SqlQuery` parameter. You can pass route data to the `SqlQuery` parameter as shown, but currently [you can't pass query string values](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string-c), as it will consume less [request units](/azure/cosmos-db/request-units). Point read operations (GET) are [more efficient](/azure/cosmos-db/optimize-cost-reads-writes) than queries by ID.
+> If you need to query by just the ID, it is recommended to use a lookup, like the [previous examples](#http-trigger-look-up-id-from-query-string-c), as it consumes less [request units](/azure/cosmos-db/request-units). Point read operations (GET) are [more efficient](/azure/cosmos-db/optimize-cost-reads-writes) than queries by ID.
 >
 
 ```cs
@@ -635,7 +641,7 @@ public class DocByIdFromRoute {
 The following example shows a Java function that retrieves a single document. The function is triggered by an HTTP request that uses a route parameter to specify the ID to look up. That ID is used to retrieve a document from the specified database and collection, converting the result set to a `ToDoItem[]`, since many documents may be returned, depending on the query criteria.
 
 > [!NOTE]
-> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), as it will consume less [request units](/azure/cosmos-db/request-units). Point read operations (GET) are [more efficient](/azure/cosmos-db/optimize-cost-reads-writes) than queries by ID.
+> If you need to query by just the ID, it is recommended to use a lookup, like the [previous examples](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), as it consumes less [request units](/azure/cosmos-db/request-units). Point read operations (GET) are [more efficient](/azure/cosmos-db/optimize-cost-reads-writes) than queries by ID.
 >
 
 ```java
@@ -1260,6 +1266,34 @@ This section contains the following examples that read a single document by spec
 
 The examples depend on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
+### Using SDK-Type Bindings for Cosmos DB (Preview)
+This example uses SDK types to directly access the underlying [`CosmosClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_cosmosclient/function_app.py) object provided by the Cosmos DB input binding:
+
+The function loops through all the databases and logs their IDs.
+```python
+import logging
+import azure.functions as func
+import azurefunctions.extensions.bindings.cosmosdb as cosmos
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@app.route(route="cosmos")
+@app.cosmos_db_input(arg_name="client",
+                     connection="CosmosDBConnection",
+                     database_name=None,
+                     container_name=None)
+def get_docs(req: func.HttpRequest, client: cosmos.CosmosClient):
+    databases = client.list_databases()
+    for db in databases:
+        logging.info(f"Found database with ID: {db.get('id')}")
+
+    return "ok"
+```
+
+For examples of using other SDK types, see the [`ContainerProxy`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_containerproxy/function_app.py) and [`DatabaseProxy`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_databaseproxy/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for CosmosDB Sample](https://github.com/Azure-Samples/azure-functions-cosmosdb-sdk-bindings-python).
+
+To learn more, including what other SDK type bindings are supported, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings).
+
 ### Queue trigger, look up ID from JSON
 
 The following example shows an Azure Cosmos DB input binding. The function reads a single document and updates the document's text value. 
@@ -1532,7 +1566,20 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_input`:
+Python v2 functions are defined using the `cosmos_db_input` decorator, which supports these properties, depending on the extension version:
+
+### [Extension 4.x+](#tab/extensionv4)
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name` | The variable name used in function code that represents the list of documents with changes. |
+|`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
+|`container_name`  | The name of the Azure Cosmos DB collection being monitored. |
+|`connection` | The connection string of the Azure Cosmos DB being monitored. |
+|`partition_key` | The partition key of the Azure Cosmos DB being monitored. |
+|`id` | The ID of the document to retrieve. |
+
+### [Functions 2.x+](#tab/functionsv2)
 
 | Property    | Description |
 |-------------|-----------------------------|
@@ -1542,6 +1589,8 @@ For Python v2 functions defined using a decorator, the following properties on t
 |`connection_string_setting` | The connection string of the Azure Cosmos DB being monitored. |
 |`partition_key` | The partition key of the Azure Cosmos DB being monitored. |
 |`id` | The ID of the document to retrieve. |
+
+---
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
 ::: zone-end
@@ -1667,6 +1716,15 @@ Updates to documents are not made automatically upon function exit. To update do
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 Data is made available to the function via a `DocumentList` parameter. Changes made to the document are not automatically persisted.
+Functions also support Python SDK type bindings for Azure Cosmos, which lets you work with data using these underlying SDK types:
+
++ [`ContainerProxy`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_containerproxy/function_app.py)
++ [`CosmosClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_cosmosclient/function_app.py)
++ [`DatabaseProxy`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_databaseproxy/function_app.py)
+
+> [!IMPORTANT]  
+> > Support for CosmosDB SDK types for Python is in Preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
+
 ::: zone-end  
 
 [!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]

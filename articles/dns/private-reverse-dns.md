@@ -1,11 +1,11 @@
 ---
 title: Create and manage reverse DNS zones in Azure Private DNS
 description: Learn how to use Azure Private DNS to create reverse DNS lookup zones for your private IP address ranges.
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 06/20/2024
-ms.author: greglin
+ms.author: allensu
 ---
 
 # Create and manage reverse DNS zones in Azure Private DNS
@@ -39,7 +39,7 @@ To create an IPv4 reverse DNS record in your zone, add the remaining IP address 
 * 10.1.2.5 in the 2.1.10.in-addr.arpa zone appears as:`5   IN  PTR  myvm.contoso.com.` 
 
 > [!IMPORTANT]
-> A reverse DNS zone for address space with a longer prefix takes precendence. For example, if all three zones contain entries for the IPv4 address 10.1.2.5 as shown here, only the entry in the 2.1.10.in-addr.arpa zone will be used. If the longer prefix zone (2.1.10.in-addr.arpa) exists, then all reverse DNS entries for the corresponding /24 address space must be entered in this zone.
+> A reverse DNS zone for address space with a longer prefix takes precedence. For example, if all three zones contain entries for the IPv4 address 10.1.2.5 as shown here, only the entry in the 2.1.10.in-addr.arpa zone will be used. If the longer prefix zone (2.1.10.in-addr.arpa) exists, then all reverse DNS entries for the corresponding /24 address space must be entered in this zone.
 
 ## Requirements and restrictions
 

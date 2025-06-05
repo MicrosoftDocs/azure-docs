@@ -1,6 +1,26 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/route-server/quickstart-configure-template.md",
+            "redirect_url": "/azure/route-server/quickstart-create-route-server-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/route-server/quickstart-configure-route-server-portal.md",
+            "redirect_url": "/azure/route-server/quickstart-create-route-server-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/route-server/quickstart-configure-route-server-powershell.md",
+            "redirect_url": "/azure/route-server/quickstart-create-route-server-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/route-server/quickstart-configure-route-server-cli.md",
+            "redirect_url": "/azure/route-server/quickstart-create-route-server-cli",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/route-server/hub-routing-preference-cli.md",
             "redirect_url": "/azure/route-server/configure-route-server",
             "redirect_document_id": false

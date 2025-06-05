@@ -2,10 +2,10 @@
 title: Tutorial - Migrate from Twilio Conversations Chat to Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to migrate a chat product from Twilio Conversations to Azure Communication Services.
-author: RinaRish
+author: kperla97
 services: azure-communication-services
 
-ms.author: ektrishi
+ms.author: kaperla
 ms.date: 08/28/2024
 ms.topic: how-to
 ms.service: azure-communication-services

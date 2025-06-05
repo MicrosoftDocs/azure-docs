@@ -2,13 +2,14 @@
 title: Work with Azure Large Instances in the Azure portal
 titleSuffix: Azure Large Instances
 description: Shows how to what you can do in the Azure portal with Azure Large Instances.
-ms.topic: conceptual
+ms.topic: how-to
 author: jjaygbay1
 ms.title: Work with Azure Large Instances in the Azure portal
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
 ms.custom: devx-track-azurecli
 ms.date: 06/01/2023
+# Customer intent: As a cloud infrastructure manager, I want to register and manage Azure Large Instances in the portal and through CLI, so that I can efficiently deploy, monitor, and maintain high-performance computing resources for my applications.
 ---
 
 # Work with  Azure Large Instances in the Azure portal 

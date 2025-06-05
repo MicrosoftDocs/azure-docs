@@ -3,7 +3,7 @@ metadata:
   title: Azure Relay FAQs | Microsoft Docs
   description: This article provides answers to some of the frequently asked questions about the Azure Relay service.
   ms.topic: faq
-  ms.date: 08/10/2023
+  ms.date: 12/10/2024
 title: Azure Relay FAQs
 summary: |
   This article answers some frequently asked questions (FAQs) about [Azure Relay](https://azure.microsoft.com/services/service-bus/). For general Azure pricing and support information, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
@@ -23,12 +23,12 @@ sections:
       - question: |
           What is a Relay namespace?
         answer: |
-          A [namespace](relay-create-namespace-portal.md) is a scoping container that you can use to address Relay resources within your application. You must create a namespace to use Relay. This is one of the first steps in getting started.
+          A [namespace](relay-create-namespace-portal.md) is a scoping container that you can use to address Relay resources within your application. You must create a namespace to use Relay. It's one of the first steps in getting started.
           
       - question: |
           What happened to Service Bus Relay service?
         answer: |
-          The previously named Service Bus Relay service is now called [Azure Relay](service-bus-relay-tutorial.md). You can continue to use this service as usual. The Hybrid Connections feature is an updated version of a service that's been transplanted from Azure BizTalk Services. WCF Relay and Hybrid Connections both continue to be supported.
+          The previously named Service Bus Relay service is now called [Azure Relay](service-bus-relay-tutorial.md). You can continue to use this service as usual. The Hybrid Connections feature is an updated version of a service that's been transplanted from Azure BizTalk Services. Windows Communication Foundation (WCF) Relay and Hybrid Connections both continue to be supported.
           
           ## Pricing
 
@@ -51,11 +51,11 @@ sections:
       - question: |
           How is the message meter calculated for WCF Relays?
         answer: |
-          (**This applies only to WCF relays. Messages aren't a cost for Hybrid Connections.**)
+          (**It applies only to WCF relays. Messages aren't a cost for Hybrid Connections.**)
           
           In general, billable messages for relays are calculated by using the same method that is used for brokered entities (queues, topics, and subscriptions), described previously. However, there are some notable differences.
           
-          Sending a message to Azure Relay is treated as a "full through" send to the relay listener that receives the message. It isn't treated as a send operation to the Azure Relay, followed by a delivery to the relay listener. A request-reply style service invocation (of up to 64 KB) against a relay listener results in two billable messages: one billable message for the request and one billable message for the response (assuming the response is also 64 KB or smaller). This is different than using a queue to mediate between a client and a service. If you use a queue to mediate between a client and a service, the same request-reply pattern requires a request send to the queue, followed by a dequeue/delivery from the queue to the service. This is followed by a response send to another queue, and a dequeue/delivery from that queue to the client. Using the same size assumptions throughout (up to 64 KB), the mediated queue pattern results in 4 billable messages. You'd be billed for twice the number of messages to implement the same pattern that you accomplish by using relay. Of course, there are benefits to using queues to achieve this pattern, such as durability and load leveling. These benefits might justify the additional expense.
+          Sending a message to Azure Relay is treated as a "full through" send to the relay listener that receives the message. It isn't treated as a send operation to the Azure Relay, followed by a delivery to the relay listener. A request-reply style service invocation (of up to 64 KB) against a relay listener results in two billable messages: one billable message for the request and one billable message for the response (assuming the response is also 64 KB or smaller). It's different than using a queue to mediate between a client and a service. If you use a queue to mediate between a client and a service, the same request-reply pattern requires a request send to the queue, followed by a dequeue/delivery from the queue to the service. It's followed by a response send to another queue, and a dequeue/delivery from that queue to the client. Using the same size assumptions throughout (up to 64 KB), the mediated queue pattern results in 4 billable messages. You'd be billed for twice the number of messages to implement the same pattern that you accomplish by using relay. There are benefits to using queues to achieve this pattern, such as durability and load leveling. These benefits might justify the additional expense.
           
           Relays that are opened by using the **netTCPRelay** WCF binding treat messages not as individual messages, but as a stream of data flowing through the system. When you use this binding, only the sender and listener have visibility into the framing of the individual messages sent and received. For relays that use the **netTCPRelay** binding, all data is treated as a stream for calculating billable messages. In this case, Service Bus calculates the total amount of data sent or received via each individual relay on a 5-minute basis. Then, it divides that total amount of data by 64 KB to determine the number of billable messages for that relay during that time period.
           
@@ -95,7 +95,7 @@ sections:
 
           **Azure portal**
 
-          To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
+          To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-azure-portal). 
 
           **PowerShell**
 

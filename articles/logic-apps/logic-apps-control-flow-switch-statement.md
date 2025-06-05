@@ -55,7 +55,7 @@ email to an approver. Based on whether the approver selects
 
 ## Add a switch action
 
-1. For this example, add a switch action at the end 
+1. For this example, add a switch action at the end of 
 your sample workflow. After the last step, choose **New step**.
 
    When you want to add a switch action between steps, 

@@ -3,7 +3,7 @@ title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 08/22/2023
+ms.date: 04/28/2025
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -57,7 +57,7 @@ In the `definitions` section of the template, specify the schemas used for valid
 
 ```json
 "definitions": {
-  "<definition-name": {
+  "<definition-name>": {
     "type": "<data-type-of-definition>",
     "allowedValues": [ "<array-of-allowed-values>" ],
     "minValue": <minimum-value-for-int>,
@@ -287,8 +287,8 @@ You define resources with the following structure:
         "<settings-for-the-resource>",
         "copy": [
             {
-                "name": ,
-                "count": ,
+                "name": "<name-of-copy-loop>",
+                "count": <number-of-iterations>,
                 "input": {}
             }
         ]
@@ -483,7 +483,6 @@ You can break a string into multiple lines. For example, see the `location` prop
 >
 > Multi-line strings aren't supported when you deploy the template through the Azure portal, a DevOps pipeline, or the REST API.
 
-
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
@@ -509,7 +508,7 @@ In Bicep, see [multi-line strings](../bicep/file.md#multi-line-strings).
 > [!NOTE]
 > Using any `languageVersion` that ends in `-experimental` is not recommended in production environments because experimental functionality could be changed at any time.
 
-[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
+[!INCLUDE [VS Code ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
 
 To use languageVersion 2.0, add `"languageVersion": "2.0"` to your template:
 
@@ -526,20 +525,27 @@ To use languageVersion 2.0, add `"languageVersion": "2.0"` to your template:
 }
 ```
 
-The enhancements and changes that comes with languageVersion 2.0:
+The enhancements and changes that come with languageVersion 2.0:
 
-- Use symbolic name in ARM JSON template. For more information, see [Use symbolic name](./resource-declaration.md#use-symbolic-name).
-- Use symbolic name in resource copy loops. See [Use symbolic name](./copy-resources.md#use-symbolic-name).
-- Use symbolic name in `dependsOn` arrays. See [DependsOn](./resource-dependency.md#dependson) and [Depend on resources in a loop](./resource-dependency.md#depend-on-resources-in-a-loop).
-- Use symbolic name instead of resource name in the `reference` function.  See [reference](./template-functions-resource.md#reference).
-- A references() function that returns an array of objects representing a resource collection's runtime states. See [references](./template-functions-resource.md#references).
-- Use the 'existing' resource property to declare existing resources for ARM to read rather than deploy a resource. See [Declare existing resources](./resource-declaration.md#declare-existing-resources).
-- Create user-defined types. See [Type definition](./definitions.md).
-- Additional aggregate type validation constraints to be used in [parameters](./parameters.md) and [outputs](./outputs.md).
-- The default value for the `expressionEvaluationOptions` property is `inner`. The value `outer` is blocked. See [Expression evaluation scope in nested templates](./linked-templates.md#expression-evaluation-scope-in-nested-templates).
-- The `deployment` function returns a limited subset of properties. See [deployment](./template-functions-deployment.md#deployment).
-- If Deployments resource is used in a symbolic-name deployment, use apiVersion `2020-09-01` or later.
-- In resource definition, double-escaping values within an expression is no longer needed.  See [Escape characters](./template-expressions.md#escape-characters).
+* Use symbolic name in ARM JSON template. For more information, see [Use symbolic name](./resource-declaration.md#use-symbolic-name).
+* Use symbolic name in resource copy loops. See [Use symbolic name](./copy-resources.md#use-symbolic-name).
+* Use symbolic name in `dependsOn` arrays. See [DependsOn](./resource-dependency.md#dependson) and [Depend on resources in a loop](./resource-dependency.md#depend-on-resources-in-a-loop).
+* Use symbolic name instead of resource name in the `reference` function.  See [reference](./template-functions-resource.md#reference).
+* A references() function that returns an array of objects representing a resource collection's runtime states. See [references](./template-functions-resource.md#references).
+* Use the 'existing' resource property to declare existing resources for ARM to read rather than deploy a resource. See [Declare existing resources](./resource-declaration.md#declare-existing-resources).
+* Create user-defined types. See [Type definition](./definitions.md).
+* Additional aggregate type validation constraints to be used in [parameters](./parameters.md) and [outputs](./outputs.md).
+* The default value for the `expressionEvaluationOptions` property is `inner`. The value `outer` is blocked. See [Expression evaluation scope in nested templates](./linked-templates.md#expression-evaluation-scope-in-nested-templates).
+* The `deployment` function returns a limited subset of properties. See [deployment](./template-functions-deployment.md#deployment).
+* If Deployments resource is used in a symbolic-name deployment, use apiVersion `2020-09-01` or later.
+* In resource definition, double-escaping values within an expression is no longer needed.  See [Escape characters](./template-expressions.md#escape-characters).
+
+Using any of following Bicep features automatically enables language version 2.0 code generation:
+
+* [user-defined types](../bicep/user-defined-data-types.md)
+* [user-defined functions](../bicep/user-defined-functions.md)
+* [compile-time imports](../bicep/bicep-import.md)
+* [experimental features](../bicep/bicep-config.md#enable-experimental-features)
 
 ## Next steps
 

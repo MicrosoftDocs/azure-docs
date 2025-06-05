@@ -5,7 +5,8 @@ description: This article explains how to add a Kubernetes secret to pull a cust
 ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
-ms.date: 08/30/2023
+ms.date: 10/03/2024
+ms.subservice: security
 ---
 
 # Add a Kubernetes secret to access a private container registry

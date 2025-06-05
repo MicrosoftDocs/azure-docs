@@ -24,7 +24,7 @@ For instance, `allowSchemaDrift: true,` in a source transformation tells the ser
 The DFS is automatically produced by the user interface. You can click the Script button to view and customize the script. You can also generate scripts outside of the ADF UI and then pass that into the PowerShell cmdlet. When debugging complex data flows, you may find it easier to scan the script code-behind instead of scanning the UI graph representation of your flows.
 
 Here are a few example use cases:
-- Programatically producing many data flows that are fairly similar, i.e. "stamping-out" data flows.
+- Programmatically producing many data flows that are fairly similar, i.e. "stamping-out" data flows.
 - Complex expressions that are difficult to manage in the UI or are resulting in validation issues.
 - Debugging and better understanding various errors returned during execution.
 
@@ -140,7 +140,7 @@ derive1 sink(allowSchemaDrift: true,
 
 Script snippets are shareable code of Data Flow Script that you can use to share across data flows. This video below talks about how to use script snippets and utilizing Data Flow Script to copy and paste portions of the script behind your data flow graphs:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tA9b]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a0b4b213-00d1-4cee-a817-51bf52ef50c0]
 
 
 ### Aggregated summary stats

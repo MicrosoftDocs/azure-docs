@@ -10,7 +10,7 @@ ms.date: 1/31/2024
 
 This document contains information about troubleshooting your solutions that use Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
-If you don't find an answer or can't resolve a problem, [create a request through the Azure portal](get-support.md) or contact [Confluent support](https://support.confluent.io).
+If you don't find an answer or can't fix a problem, [create a request through the Azure portal](get-support.md) or contact [Confluent support](https://support.confluent.io).
 
 ## Can't find offer in the Marketplace
 
@@ -54,13 +54,13 @@ This error could be an intermittent problem with the Azure portal. Try to deploy
 
 ## Unable to delete
 
-If you're unable to delete Confluent resources, verify you have permissions to delete the resource. You must be allowed to take Microsoft.Confluent/*/Delete actions. For information about viewing permissions, see [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.yml).
+If you're unable to delete Confluent resources, check that you have permissions to delete the resource. You must be allowed to take Microsoft.Confluent/*/Delete actions. For information about viewing permissions, see [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.yml).
 
 If you have the correct permissions but still can't delete the resource, contact [Confluent support](https://support.confluent.io). This condition might be related to Confluent's retention policy. Confluent support can delete the organization and email address for you.
 
 ## Unable to use single sign-on
 
-If SSO isn't working for the Confluent Cloud SaaS portal, verify you're using the correct Microsoft Entra ID email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. For more information, see the [single sign-on guidance](manage.md#single-sign-on).
+If SSO isn't working for the Confluent Cloud SaaS portal, check that you're using the correct Microsoft Entra ID email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. 
 
 If the problem persists, contact [Confluent support](https://support.confluent.io).
 

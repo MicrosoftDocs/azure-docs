@@ -2,8 +2,8 @@
 title: Quickstart - Create an Azure DNS Private Resolver using the Azure portal
 description: In this quickstart, you create and test a private DNS resolver in Azure DNS. This article is a step-by-step guide to create and manage your first private DNS resolver using the Azure portal.
 services: dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.date: 08/21/2024
 ms.topic: quickstart
 ms.service: azure-dns
@@ -156,7 +156,7 @@ Add or remove specific rules your DNS forwarding ruleset as desired, such as:
 - A wildcard rule to forward unmatched DNS queries to a protective DNS service.
 
 > [!IMPORTANT]
-> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
+> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the forwarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
 > **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
 ### Delete a rule from the forwarding ruleset

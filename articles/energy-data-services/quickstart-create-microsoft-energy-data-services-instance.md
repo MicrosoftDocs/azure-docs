@@ -1,9 +1,9 @@
 ---
 title: Create a Microsoft Azure Data Manager for Energy instance
 description: Quickly create an instance of the Azure Data Manager for Energy service by using the Azure portal.
-author: nitinnms
-ms.author: nitindwivedi
-ms.service: energy-data-services
+author: bharathim
+ms.author: bselvaraj
+ms.service: azure-data-manager-energy
 ms.topic: quickstart
 ms.date: 06/28/2023
 ms.custom: template-quickstart

@@ -4,7 +4,10 @@ description: Best practices to optimize Apache Phoenix performance for Azure HDI
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/04/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  01/02/2025
 ---
 
 # Apache Phoenix performance best practices
@@ -64,7 +67,7 @@ Also, if certain columns tend to be accessed together, put those columns in the 
 
 ### Column design
 
-* Keep VARCHAR columns under about 1 MB because of the I/O costs of large columns. When processing queries, HBase materializes cells in full before sending them over to the client, and the client receives them in full before handing them off to the application code.
+* Keep VARCHAR columns under about 1 MB because of the I/O costs of large columns. When you process queries, HBase materializes cells in full before sending them over to the client, and the client receives them in full before handing them off to the application code.
 * Store column values using a compact format such as protobuf, Avro, msgpack, or BSON. JSON isn't recommended, as it's larger.
 * Consider compressing data before storage to cut latency and I/O costs.
 
@@ -105,7 +108,7 @@ Secondary indexes can improve read performance by turning what would be a full t
 
 ### Use covered indexes
 
-Covered indexes are indexes that include data from the row in addition to the values that are indexed. After finding the desired index entry, there's no need to access the primary table.
+Covered indexes are indexes that include data from the row in addition to the values that are indexed. After you find the desired index entry, there's no need to access the primary table.
 
 For example, in the example contact table you could create a secondary index on just the socialSecurityNum column. This secondary index would speed up queries that filter by socialSecurityNum values, but retrieving other field values require another read against the main table.
 

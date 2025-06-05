@@ -4,7 +4,10 @@ description: Minimize downtime and reduce the risks associated with new releases
 services: container-apps
 author: ruslany
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli, devx-track-bicep
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-bicep
+  - build-2025
 ms.topic: how-to
 ms.date: 06/23/2023
 ms.author: ruslany
@@ -194,7 +197,7 @@ output fqdn string = blueGreenDeploymentApp.properties.configuration.ingress.fqd
 output latestRevisionName string = blueGreenDeploymentApp.properties.latestRevisionName
 ```
 
-Deploy the app with the Bicep template using this command:
+Deploy the app with the Bicep file using this command:
 
 ```azurecli
 export APP_NAME=<APP_NAME>
@@ -282,10 +285,10 @@ export APP_DOMAIN=$(az containerapp env show -g $RESOURCE_GROUP -n $APP_ENVIRONM
 #Test the production FQDN
 curl -s https://$APP_NAME.$APP_DOMAIN/api/env | jq | grep COMMIT
 
-#Test the blue lable FQDN
+#Test the blue label FQDN
 curl -s https://$APP_NAME---blue.$APP_DOMAIN/api/env | jq | grep COMMIT
 
-#Test the green lable FQDN
+#Test the green label FQDN
 curl -s https://$APP_NAME---green.$APP_DOMAIN/api/env | jq | grep COMMIT
 ```
 

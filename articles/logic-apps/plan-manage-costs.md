@@ -199,7 +199,7 @@ To review costs for Azure Logic Apps based on a specific scope, for example, an 
 
 ### Export cost data
 
-When you need to do more data analysis on costs, you can [export cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. For example, a finance team can analyze this data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule, and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+When you need to do more data analysis on costs, you can [export cost data](../cost-management-billing/costs/tutorial-improved-exports.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. For example, a finance team can analyze this data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule, and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Other ways to manage and reduce costs
 
@@ -214,7 +214,7 @@ To help you reduce costs on your logic aps and related resources, try these opti
 
 * If possible, use [built-in triggers and actions](../connectors/built-in.md), which cost less to run per execution than [managed connector triggers and actions](../connectors/managed.md).
 
-  For example, you might be able to reduce costs when accessing other resources by using the [HTTP action](../connectors/connectors-native-http.md) or by calling a function that you created by using the [Azure Functions service](../azure-functions/functions-overview.md) and using the [built-in Azure Functions action](../logic-apps/logic-apps-azure-functions.md). However, using Azure Functions also incurs costs, so make sure that you compare your options.
+  For example, you might be able to reduce costs when accessing other resources by using the [HTTP action](../connectors/connectors-native-http.md) or by calling a function that you created by using the [Azure Functions service](../azure-functions/functions-overview.md) and using the [built-in Azure Functions action](call-azure-functions-from-workflows.md). However, using Azure Functions also incurs costs, so make sure that you compare your options.
 
 * [Specify precise trigger conditions](logic-apps-workflow-actions-triggers.md#trigger-conditions) for running a workflow.
 

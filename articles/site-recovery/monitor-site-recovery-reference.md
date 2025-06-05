@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: reference
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.service: azure-site-recovery
 ---
 
@@ -25,7 +25,7 @@ There are no automatically collected metrics for Azure Site Recovery. All the au
 
 Note that some of the following logs apply to Azure Backup and others apply to Azure Site Recovery, as noted in the **Category display name** column.
 
-[!INCLUDE [Microsoft.RecoveryServices/Vaults](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-recoveryservices-vaults-logs-include.md)]
+[!INCLUDE [Microsoft.RecoveryServices/Vaults](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-recoveryservices-vaults-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

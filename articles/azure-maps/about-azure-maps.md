@@ -3,7 +3,7 @@ title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
 author: faterceros
 ms.author: aterceros
-ms.date: 10/21/2022
+ms.date: 03/31/2025
 ms.topic: overview
 ms.service: azure-maps
 ms.subservice: general
@@ -19,7 +19,7 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
 * Time zone and Geolocation services.
-* Geofencing service and mapping data storage, with location information hosted in Azure.
+* Geofencing service with location information hosted in Azure.
 * Location intelligence through geospatial analytics.
 
 Additionally, Azure Maps services are available through the Web SDK. These tools help developers quickly develop and scale solutions that integrate location information into Azure solutions.
@@ -40,25 +40,9 @@ The Azure Maps Web SDK lets you customize interactive maps with your own content
 
 :::image type="content" source="./media/about-azure-maps/intro_web_map_control.png" lightbox="./media/about-azure-maps/intro_web_map_control.png" alt-text="Example map of population change created by using Azure Maps Web SDK.":::
 
-### Android SDK
-
-> [!NOTE]
->
-> **Azure Maps Android SDK retirement**
->
-> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
-
-Use the Azure Maps Android SDK to create mobile mapping applications.
-
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" lightbox="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Map examples on a mobile device.":::
-
 ## Services in Azure Maps
 
 Azure Maps consists of the following services that can provide geographic context to your Azure applications.
-
-### Data registry service
-
-Data is imperative for maps. Use the Data registry service to access geospatial data, used with spatial operations or image composition, previously uploaded to your [Azure Storage].  By bringing customer data closer to the Azure Maps service, you reduce latency and increase productivity. For more information, see [Data registry] in the Azure Maps REST API documentation.
 
 ### Geolocation service
 
@@ -76,7 +60,7 @@ For more information, see [Geolocation] in the Azure Maps REST API documentation
 >
 > **Azure Maps Render v1 service retirement**
 >
-> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2] API by 9/17/26.
+> The Azure Maps Render v1 service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use the [latest version] by 9/17/26.
 
 ### Route service
 
@@ -106,12 +90,6 @@ The Search service also provides advanced features such as:
 * Search electric vehicle charging stations and Point of Interest (POI) data by brand name.
 
 For more information, see [Search] in the Azure Maps REST API documentation.
-
-### Spatial service
-
-The Spatial service quickly analyzes location information to help inform customers of ongoing events happening in time and space. It enables near real-time analysis and predictive modeling of events.
-
-The service enables customers to enhance their location intelligence with a library of common geospatial mathematical calculations. Common calculations include closest point, great circle distance, and buffers. For more information about the Spatial service and its various features, see [Spatial] in the Azure Maps REST API documentation.
 
 ### Timezone service
 
@@ -217,25 +195,19 @@ Stay up to date on Azure Maps:
 [Azure Maps blog]
 
 <!---------   learn.microsoft.com links     --------------->
-[Azure Storage]: ../storage/common/storage-introduction.md
 [Get started with Azure Maps Power BI visual]: power-bi-visual-get-started.md
 [How to use the Get Map Attribution API]: how-to-show-attribution.md
 [Quickstart: Create a web app]: quick-demo-map-app.md
-[v1]: /rest/api/maps/data?view=rest-maps-1.0&preserve-view=true
-[v2]: /rest/api/maps/data
-[How to create data registry]: how-to-create-data-registries.md
+
 <!---------   REST API Links     --------------->
-[Data registry]: /rest/api/maps/data-registry
 [Geolocation]: /rest/api/maps/geolocation
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
 [Render]: /rest/api/maps/render
-[Render v1]: /rest/api/maps/render?view=rest-maps-1.0
-[Render v2]: /rest/api/maps/render
+[latest version]: /rest/api/maps/render
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
-[Spatial]: /rest/api/maps/spatial
 [TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
 [Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic

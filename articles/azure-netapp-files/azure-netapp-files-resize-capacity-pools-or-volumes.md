@@ -1,10 +1,12 @@
 ---
-title: Resize the capacity pool or a volume for Azure NetApp Files | Microsoft Docs
+title: Resize the capacity pool or a volume for Azure NetApp Files 
 description: Learn how to change the size of a capacity pool or a volume. Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: how-to
 ms.date: 05/20/2024
 ms.author: anfdocs
@@ -23,7 +25,7 @@ For information about monitoring a volume’s capacity, see [Monitor the capacit
 * Volume resize operations are nearly instantaneous but not always immediate. There can be a short delay for the volume's updated size to appear in the portal. Verify the size from a host perspective before re-attempting the resize operation.
 
 >[!IMPORTANT]
->If you are using a capacity pool with a size of 2 TiB or smaller and have `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs enabled and want to change the capacity pool's QoS type from auto to manual, you must [perform the operation with the REST API](#resizing-the-capacity-pool-or-a-volume-using-rest-api) using the `2023-07-01` API version or later.
+>If you are using a capacity pool with a size of 2 TiB or smaller and have the `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs enabled and want to change the capacity pool's QoS type from auto to manual, you must [perform the operation with the REST API](#resizing-the-capacity-pool-or-a-volume-using-rest-api) using the `2023-07-01` API version or later.
 
 ## Resize the capacity pool using the Azure portal 
 

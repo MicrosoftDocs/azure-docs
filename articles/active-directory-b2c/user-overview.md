@@ -3,17 +3,18 @@ title: Overview of user accounts in Azure Active Directory B2C
 description: Learn about the types of user accounts that can be used in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
-ms.date: 02/13/2024
+ms.service: azure-active-directory
+ms.date: 01/05/2025
 ms.topic: concept-article
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: b2c-support
 
 #Customer intent: As a developer or IT administrator, I want to understand the different types of user accounts available Azure AD B2C, so that I can properly manage and configure user accounts for my tenant.
 ---
 
 # Overview of user accounts in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In Azure Active Directory B2C (Azure AD B2C), there are several types of accounts that can be created. These account types are shared across Microsoft Entra ID, Microsoft Entra B2B, and Azure Active Directory B2C (Azure AD B2C).
 

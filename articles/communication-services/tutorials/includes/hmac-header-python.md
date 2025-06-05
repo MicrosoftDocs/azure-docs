@@ -1,6 +1,6 @@
 ---
-title: Sign an HTTP request with Python
-description: This tutorial explains the Python version of signing an HTTP request with an HMAC signature for Azure Communication Services.
+title: Sign an HTTP Request with Python
+description: This article describes how to use Python to sign an HTTP request with an HMAC signature for Azure Communication Services.
 author: maximrytych-ms
 manager: anitharaju
 services: azure-communication-services
@@ -12,12 +12,10 @@ ms.service: azure-communication-services
 ---
 ## Prerequisites
 
-Before you get started, make sure to:
-
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. If you don't have an Azure subscription, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Download and install [Python](https://www.python.org/).
-- Download and install [Visual Studio Code](https://code.visualstudio.com/) or other IDE that supports Python.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need your **resource_endpoint_name** and **resource_endpoint_secret** for this tutorial.
+- Download and install [Visual Studio Code](https://code.visualstudio.com/) or another integrated development environment (IDE) that supports Python.
+- Create an Azure Communication Services resource. If you don't have a resource, see [Create a Communication Services resource](../../quickstarts/create-communication-resource.md). You need your `resource_endpoint_name` and `resource_endpoint_secret` parameters for this example.
 
 ## Sign an HTTP request with Python
 
@@ -35,13 +33,13 @@ The `hmac-sha256-signature` consists of:
 - Host
 - x-ms-content-sha256
 
-## Setup
+## Set up the authorization header
 
-The following steps describe how to construct the authorization header.
+Complete following steps to construct the authorization header.
 
 ### Create a new Python script
 
-Open Visual Studio Code or other IDE or editor of your choice and create a new file named `sign_hmac_tutorial.py`. Save this file to a known folder.
+Open Visual Studio Code or another IDE or editor of your choice. Create a new file named `sign_hmac_tutorial.py`. Save this file to a known folder.
 
 ## Add necessary imports
 
@@ -58,12 +56,12 @@ from urllib import request
 
 ## Prepare data for the request
 
-For this example, we'll sign a request to create a new identity by using the Communication Services Authentication API [(version `2021-03-07`)](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/communication/data-plane/Identity/stable/2021-03-07).
+For this example, you sign a request to create a new identity by using the Communication Services Authentication API [(version `2021-03-07`)](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/communication/data-plane/Identity/stable/2021-03-07).
 
 Add the following code to the `sign_hmac_tutorial.py` script.
 
-- Replace `resource_endpoint_name` with your real resource endpoint name value. This value can be found in Overview section of your Azure Communication Services resource. It's the value of "Endpoint" after "https://".
-- Replace `resource_endpoint_secret` with your real resource endpoint secret value. This value can be found in Keys section of your Azure Communication Services resource. It's the value of "Key" - either primary or secondary.
+- Replace `resource_endpoint_name` with your real resource endpoint name value. You can find this value in the **Overview** section of your Communication Services resource. It's the value of `Endpoint` after `https://`.
+- Replace `resource_endpoint_secret` with your real resource endpoint secret value. You can find this value in the **Keys** section of your Communication Services resource. It's the value of **Key**, which is either primary or secondary.
 
 ```python
 host = "resource_endpoint_name"
@@ -74,7 +72,7 @@ secret = "resource_endpoint_secret"
 # Create a uri you are going to call.
 request_uri = f"{resource_endpoint}{path_and_query}"
 
-# Endpoint identities?api-version=2021-03-07 accepts list of scopes as a body.
+# Endpoint identities?api-version=2021-03-07 accepts the list of scopes as a body.
 body = { "createTokenWithScopes": ["chat"] }
 
 serialized_body = json.dumps(body)
@@ -83,7 +81,7 @@ content = serialized_body.encode("utf-8")
 
 ## Create a content hash
 
-The content hash is a part of your HMAC signature. Use the following code to compute the content hash. You can add this method to `sign_hmac_tutorial.py` script.
+The content hash is a part of your HMAC signature. Use the following code to compute the content hash. You can add this method to the `sign_hmac_tutorial.py` script.
 
 ```python
 def compute_content_hash(content):
@@ -109,9 +107,9 @@ def compute_signature(string_to_sign, secret):
     return signature
 ```
 
-## Get current UTC timestamp according to the RFC1123 standard
+## Get a current UTC timestamp according to the RFC1123 standard
 
-Use the following code to get desired date format independent of locale settings.
+Use the following code to get the date format that you want that's independent of locale settings.
 
 ```python
 def format_date(dt):
@@ -131,20 +129,20 @@ def format_date(dt):
 
 ## Create an authorization header string
 
-We'll now construct the string that we'll add to our authorization header.
+Now you construct the string that you add to your authorization header.
 
 1. Prepare values for the headers to be signed.
-   1. Specify the current timestamp using the Coordinated Universal Time (UTC) timezone.
-   1. Get the request authority (DNS host name or IP address and the port number).
+   1. Specify the current timestamp by using the Coordinated Universal Time (UTC) timezone.
+   1. Get the request authority. Use the Domain Name System (DNS) host name or IP address and the port number.
    1. Compute a content hash.
 1. Prepare a string to sign.
 1. Compute the signature.
-1. Concatenate the string, which will be used in the authorization header.
- 
+1. Concatenate the string, which is used in the authorization header.
+
 Add the following code to the `sign_hmac_tutorial.py` script.
 
 ```python
-# Specify the 'x-ms-date' header as the current UTC timestamp according to the RFC1123 standard
+# Specify the 'x-ms-date' header as the current UTC timestamp according to the RFC1123 standard.
 utc_now = datetime.now(timezone.utc)
 date = format_date(utc_now)
 # Compute a content hash for the 'x-ms-content-sha256' header.
@@ -168,13 +166,13 @@ request_headers = {}
 # Add a date header.
 request_headers["x-ms-date"] = date
 
-# Add content hash header.
+# Add a content hash header.
 request_headers["x-ms-content-sha256"] = content_hash
 
-# Add authorization header.
+# Add an authorization header.
 request_headers["Authorization"] = authorization_header
 
-# Add content type header.
+# Add a content type header.
 request_headers["Content-Type"] = "application/json"
 ```
 

@@ -19,7 +19,8 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                                     | Version number | Release date       | Status                                        |
 |-----------------------------------------------|----------------|--------------------|-----------------------------------------------|
-| Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | Current                                       |
+| Enhanced Network checks                       | 3.3.760        | April 8, 2025      | Current                                       |
+| Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | Supported. Downloading latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent) is recommended.|
 | Performance and security improvements         | 3.1.593        | June 16, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Agent registration and private networking improvements | 3.0.500| April 2, 2024     | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Important security release                    | 3.0.412        | November 30, 2023  | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
@@ -37,7 +38,7 @@ Beginning with the general availability release of service and agent, all GA Azu
 The automatic agent update doesn't affect running migration jobs. Running jobs are allowed to complete before the update is locally applied on the agent. Any errors during the update process result in the automatic use of the previous agent version. In parallel, a new update attempt is started automatically. This behavior ensures an uninterrupted migration experience.
 
 > [!TIP]
-> Always download the latest agent version from Microsoft Download Center. [https://aka.ms/StorageMover/agent](https://aka.ms/StorageMover/agent). Redistributing previously downloaded images may no longer be supported (check the [Supported agent versions](#supported-agent-versions) table), or they need to update themselves prior to being ready for use. Speed up your deployments by always obtaining a the latest image from Microsoft Download Center.
+> Always download the latest agent version from Microsoft Download Center. [https://aka.ms/StorageMover/agent](https://aka.ms/StorageMover/agent). Redistributing previously downloaded images might no longer be supported (check the [Supported agent versions](#supported-agent-versions) table), or they might need to update themselves before for use. Speed up your deployments by always obtaining the latest image from Microsoft Download Center.
 
 #### Lifecycle and change management guarantees
 
@@ -48,7 +49,46 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 - The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Expired agent versions, might still be able to update themselves to a supported version but there are no guarantees.
 
 > [!IMPORTANT]
-> Preview versions of the Storage Mover agent cannot update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
+> Preview versions of the Storage Mover agent can't update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
+> 
+
+## 2025 May 30
+
+Refresh release notes for: 
+
+- Service version: May 30, 2025 
+- Agent version: 3.3.760 
+
+### What's new 
+
+- Support for migrations from SMB shares to Azure Blob targets
+
+## 2025 April 8
+
+Major refresh release notes for: 
+
+- Service version: April 8, 2025 
+- Agent version: 3.3.760 
+
+### What's new 
+
+- Network check during registration
+- Bug fix to show system configuration correctly for CPU speed 
+
+ ## 2025 January 28
+
+Major refresh release notes for:
+
+- Service version: January 28, 2025
+- Agent version: 3.3.708
+
+### What's new
+
+- Proxy-related improvements and bug fixes
+- Security and performance improvements and bug fixes
+- Ability to collect and diagnose SMB mount related issues
+- Ability to use included network diagnostics tools - `ping`, `nslookup`
+- Improved Unicode character handling for SMB source
 
 ## 2024 August 30
 
@@ -96,13 +136,13 @@ Refresh release notes for:
 - Service version: April 2, 2024
 - Agent version: 3.0.500
 
-## What's new
+### What's new
 
 - Improved agent registration: You can now add tags to the ARC machine that the agent creates.
-- Improved network connectivity testing: The Storage Mover agent now utilizes the Azure ARC CLI tool (azcmagent) and a curl GET command to verify the ARC and Storage Mover endpoints with the 'Test Network Connectivity' option in the agent console. 
+- Improved network connectivity testing: The Storage Mover agent now utilizes the Azure ARC CLI `azcmagent` tool and a curl GET command to verify the ARC and Storage Mover endpoints with the 'Test Network Connectivity' option in the agent console. 
 - A new option, 'Test Network Connectivity Verbosely' can help diagnose local network problems more easily.
 - Improved user experience to error conditions during agent registration and unregistration processes.
-- Storage Mover depends on Azure ARC and a Managed Identity. Extra safeguards were added that ensure seamless registration: The ARC *Hybrid Compute* resource is now created in the same region as the storage mover resource, as well as the Azure Arc Private Link Scope (if applicable).
+- Storage Mover depends on Azure ARC and a Managed Identity. Extra safeguards were added that ensure seamless registration: The ARC *Hybrid Compute* resource is now created in the same region as the storage mover resource and the Azure Arc Private Link Scope (if applicable).
 - Improved instructions during agent registration when using private networking.
 - Security improvements and bug fixes.
 
@@ -121,7 +161,7 @@ Major refresh release notes for:
 ### Limitations
 
 > [!IMPORTANT]
-> Based on the previously described [Azure Storage Mover update policy](#azure-storage-mover-update-policy), agents are automatically updated to the latest version. However, some improvements require a download and [provisioning](agent-deploy.md) of a new agent VM, using the latest agent image from [Microsoft Download Center](https://aka.ms/StorageMover/agent). This is recommended for all customers with agent deployments prior to this release date.
+> Based on the previously described [Azure Storage Mover update policy](#azure-storage-mover-update-policy), agents are automatically updated to the latest version. However, some improvements require a download and [provisioning](agent-deploy.md) of a new agent VM, using the latest agent image from [Microsoft Download Center](https://aka.ms/StorageMover/agent). This action is recommended for all customers with agent deployments earlier than this release date.
 
 ## 2023 November 6
 
@@ -143,9 +183,9 @@ Major refresh release notes for:
 ### Agent
 
 - Changes required for the previously mentioned migration paths.
-- Improved handling and logging of files that fail migration when they contain invalid characters or are in use during a migration.
-- Added support for file and folder security descriptors larger than 8 KiB. (ACLs)
-- Avoid a job error condition when the source is an empty SMB share.
+- Changes to improve handling and logging of files that fail migration when they contain invalid characters or are in use during a migration.
+- Support for file and folder security descriptors larger than 8 KiB. (ACLs)
+- Ability to avoid a job error condition when the source is an empty SMB share.
 - Improvements to agent-local network configuration like applying a static IP to the agent, or an error listing certain network configuration.
 - Security improvements.
 - The same agent version is now supported to run across Hyper-V and VMware ESXi 6.7 hypervisors.
@@ -192,7 +232,7 @@ Existing migration scenarios from the GA release remain unchanged. This release 
 
 ### Service
 
-- Fixed a corner-case issue where the *mirror* copy mode may miss changes made in the source since the job was last ran.
+- Fixed a corner-case issue where the *mirror* copy mode might miss changes made in the source since the job was last ran.
 - Fixed an issue when moving a Storage Mover resource to a different resource group. It was possible for some properties to be left behind.
 - Improved error messages.
 
@@ -216,19 +256,19 @@ Support for a migration from an NFS (v3 / v4) source share to an Azure blob cont
 
 In addition to merging content from the source to the target (public preview), the service now supports another migration option: Mirror content from source to target.
 
-- Files in the target will be deleted if they don’t exist in the source.
-- Files and folders in the target will be updated to match the source.
-- Folder renames between copies will lead to the deletion of the cloud content and reupload of anything contained in the renamed folder on the source.
+- Files in the target are deleted if they don’t exist in the source.
+- Files and folders in the target are updated to match the source.
+- Folder renames between copies lead to the deletion of the cloud content and reupload of data contained in the renamed folder on the source.
 
 ### Service
 
 The service now supports viewing copy logs and job logs in the Azure portal. An Azure Log Analytics workspace must be configured to receive the logs. This configuration is done once for a Storage Mover resource and applies to all agents and migration jobs in that Storage Mover resource. To configure an existing Storage Mover resource or learn how to create a new Storage Mover resource with this configuration, follow the steps in the article: [How to enable Azure Storage Mover copy and job logs](log-monitoring.md).
 
-It's possible to send the logs to a third party monitoring solution and even into a raw file in a storage account. However, the Storage Mover migration job blade in the Azure portal can only query a Log Analytics workspace for the logs. To get an integrated experience, be sure to select a Log Analytics workspace as a target.
+It's possible to send the logs to a non-Microsoft monitoring solution and even into a raw file in a storage account. However, the Storage Mover migration job pane in the Azure portal can only query a Log Analytics workspace for the logs. To get an integrated experience, be sure to select a Log Analytics workspace as a target.
 
 ### Agent
 
-Private link connections from the agent into Azure are supported. Data that is migrated can travel from the agent over a private link connection to the target storage account in Azure. Agent registration can also be accomplished over a private link connection. Agent control messages (jobs, logs) can only be sent over the public endpoint of the Storage Mover agent gateway. If using a firewall or proxy server to restrict public access, make sure the following URL isn't blocked: *.agentgateway.prd.azsm.azure.com. The concrete URL is determined by the Azure region of the Storage Mover resource the agent is registered with.
+Private link connections from the agent into Azure are supported. Data that is migrated can travel from the agent over a private link connection to the target storage account in Azure. Agent registration can also be accomplished over a private link connection. Agent control messages (jobs, logs) can only be sent over the public endpoint of the Storage Mover agent gateway. If using a firewall or proxy server to restrict public access, make sure the following URL isn't blocked: *.agentgateway.prd.azsm.azure.com. The Azure region in which the Storage Mover resource's registered agents exist is used to determine the concrete URL.
 
 ## 2022 September 15
 
@@ -245,9 +285,9 @@ Support for a migration from an NFS (v3 / v4) source share to an Azure blob cont
 
 Supports merging content from the source to the target:
 
-- Files will be kept in the target, even if they don’t exist in the source.
-- Files with matching names and paths will be updated to match the source.
-- Folder renames between copies may lead to duplicate content in the target.
+- Files are kept in the target, even if they don’t exist in the source.
+- Files with matching names and paths are updated to match the source.
+- Folder renames between copies might lead to duplicate content in the target.
 
 ### Service
 

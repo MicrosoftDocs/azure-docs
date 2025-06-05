@@ -1,22 +1,19 @@
 ---
-title: Quickstart - Deploy RESTful API application to Azure Spring Apps
+title: Quickstart - Deploy RESTful API Application to Azure Spring Apps
 description: Learn how to deploy RESTful API application to Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 01/17/2024
-ms.author: v-shilichen
+ms.author: karler
+ms.reviewer: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, engagement-fy23, devx-track-extended-azdevcli, devx-track-azurecli
 zone_pivot_groups: spring-apps-enterprise-or-consumption-plan-selection
 ---
 
 # Quickstart: Deploy RESTful API application to Azure Spring Apps
 
-> [!NOTE]
-> The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
-
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 This article describes how to deploy a RESTful API application protected by [Microsoft Entra ID](/entra/fundamentals/whatis) to Azure Spring Apps. The sample project is a simplified version based on the [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application) web application, which only provides the backend service and uses Microsoft Entra ID to protect the RESTful APIs.
 
@@ -240,22 +237,22 @@ Use the following steps to access the RESTful APIs of the `ToDo` app in the Swag
 ## 7. Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy an event-driven application to Azure Spring Apps](quickstart-deploy-event-driven-app.md)
+> [Quickstart: Deploy an event-driven application to Azure Spring Apps](../basic-standard/quickstart-deploy-event-driven-app.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy microservice applications to Azure Spring Apps](quickstart-deploy-microservice-apps.md)
+> [Quickstart: Deploy microservice applications to Azure Spring Apps](../basic-standard/quickstart-deploy-microservice-apps.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Structured application log for Azure Spring Apps](structured-app-log.md)
+> [Structured application log for Azure Spring Apps](../basic-standard/structured-app-log.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md)
+> [Map an existing custom domain to Azure Spring Apps](../basic-standard/how-to-custom-domain.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Use Azure Spring Apps CI/CD with GitHub Actions](how-to-github-actions.md)
+> [Use Azure Spring Apps CI/CD with GitHub Actions](../basic-standard/how-to-github-actions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Automate application deployments to Azure Spring Apps](how-to-cicd.md)
+> [Automate application deployments to Azure Spring Apps](../basic-standard/how-to-cicd.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 For more information, see the following articles:
 

@@ -2,11 +2,11 @@
 title: 'Deploy Bastion: CLI'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion using CLI
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/05/2024
-ms.author: cherylmc
+ms.author: abell
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
@@ -24,7 +24,7 @@ In this article, you create a virtual network (if you don't already have one), d
 
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure PowerShell](bastion-create-host-powershell.md)
-* [Quickstart - deploy with default settings](quickstart-host-portal.md)
+* [Quickstart - Deploy Bastion with default settings and the Standard SKU](quickstart-host-portal.md)
 
 [!INCLUDE [DNS private zone](../../includes/bastion-private-dns-zones-non-support.md)]
 

@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
 title: Microsoft Defender for IoT - OT monitoring appliance catalog
-summary: Learn about the OT monitoring appliances supported for Microsoft Defender for IoT OT sensors and on-premises management consoles, including any extra procedures required for each appliance type.
+summary: Learn about the OT monitoring appliances supported for Microsoft Defender for IoT OT sensors, including any extra procedures required for each appliance type.
 
 metadata:
   title: Microsoft Defender for IoT - OT monitoring appliance reference
-  description: Learn about the appliances available for use with Microsoft Defender for IoT OT sensors and on-premises management consoles.
+  description: Learn about the appliances available for use with Microsoft Defender for IoT OT sensors.
   ms.topic: landing-page
-  ms.author: raynew
+  ms.author: lwainstein
   ms.date: 07/24/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -24,6 +24,8 @@ landingContent:
           url: dell-poweredge-r660.md
         - text: HPE ProLiant DL360
           url: hpe-proliant-dl360.md
+        - text: HPE ProLiant DL360 Gen11
+          url: hpe-proliant-dl360-gen11.md
 
   # Card
   - title: Large enterprises
@@ -42,6 +44,8 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+          - text: Heptagon Systems YB3x
+            url: heptagon-yb3x.md
           - text: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-gen-11-nhp-2lff.md
           - text: Dell XE4 SFF
@@ -60,10 +64,6 @@ landingContent:
             url: virtual-sensor-vmware.md
           - text: OT sensor (Microsoft Hyper-V) Gen 2
             url: virtual-sensor-hyper-v.md
-          - text: On-premises management console (VMware ESXi)
-            url: virtual-management-vmware.md
-          - text: On-premises management console (Microsoft Hyper-V)
-            url: virtual-management-hyper-v.md
 
   # Card
   - title: Legacy appliances

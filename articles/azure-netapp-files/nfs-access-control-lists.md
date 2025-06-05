@@ -4,8 +4,8 @@ description: Learn about using NFSv4.x access control lists in Azure NetApp File
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 11/13/2023
+ms.topic: concept-article
+ms.date: 02/13/2025
 ms.author: anfdocs
 ---
 
@@ -136,7 +136,7 @@ A:g:GROUP@:rtncy
 A::EVERYONE@:rtncy
 ```
 
-When a "no-propogate" (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, `user2` has the `n` flag set. As a result, the subdirectory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit the ACE from `user2`.
+When a "no-propagate" (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, `user2` has the `n` flag set. As a result, the subdirectory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit the ACE from `user2`.
 
 ```bash
 #  nfs4_getfacl /mnt/acl-dir
@@ -177,7 +177,9 @@ Inherit flags are a way to more easily manage your NFSv4.x ACLs, sparing you fro
 
 Administrative flags in NFSv4.x ACLs are special flags that are used only with Audit and Alarm ACL types. These flags define either success (`S`) or failure (`F`) access attempts for actions to be performed. 
 
-Azure NetApp Files supports _setting_ administrative flags for Audit ACEs, however the ACEs do not function. In addition, Alarm ACEs aren't supported in Azure NetApp Files.
+This Audit ACL is an example of that, where `user1` is audited for failed access attempts for any permission level: `U:F:user1@contoso.com:rwatTnNcCy`.
+
+Azure NetApp Files only supports setting administrative flags for Audit ACEs, however the ACEs don't function. Alarm ACEs aren't supported in Azure NetApp Files.
 
 ## NFSv4.x user and group principals
 

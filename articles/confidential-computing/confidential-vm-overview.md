@@ -96,15 +96,16 @@ Confidential VMs support the following OS options:
 | Linux | Windows Client | Windows Server |
 |-------|----------------|--------------  |
 | **Ubuntu** | **Windows 11**| **Windows Server Datacenter** |
-| 20.04 LTS (AMD SEV-SNP Only) | 21H2, 21H2 Pro, 21H2 Enterprise, 21H2 Enterprise N, 21H2 Enterprise Multi-session | 2019 Server Core              |
+| 20.04 LTS (AMD SEV-SNP Only) | 21H2, 21H2 Pro, 21H2 Enterprise, 21H2 Enterprise N, 21H2 Enterprise Multi-session | 2019 Server Core |
 | 22.04 LTS | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session  | 2019 Datacenter  |
-| 24.04 LTS | 23H2, 23H2 Pro, 23H2 Enterprise, 23H2 Enterprise N, 23H2 Enterprise Multi-session | 2022 Server Core|
+| 24.04 LTS | 23H2, 23H2 Pro, 23H2 Enterprise, 23H2 Enterprise N, 23H2 Enterprise Multi-session | 2022 Server Core |
 | **RHEL**  | **Windows 10**  | 2022 Azure Edition|
-| 9.4 (AMD SEV-SNP Only) | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session | 2022 Azure Edition Core|
+| 9.4 | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session | 2022 Azure Edition Core|
 | | | 2022 Datacenter  |
-| **SUSE (Tech Preview)** | | |
-| [15 SP5 <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>|  |  |
-| [15 SP5 for SAP <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>    | |  |
+| **SUSE (Tech Preview)** | | 2025 Server Core |
+| [15 SP5 <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>|  | 2025 Datacenter |
+| [15 SP5 for SAP <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>    | | 2025 Azure Edition |
+||| 2025 Azure Edition Core |
 
 ### Regions
 
@@ -118,18 +119,14 @@ Pricing depends on your confidential VM size. For more information, see the [Pri
 
 Confidential VMs *don't support*:
 
-- Azure Batch
-- Azure Backup
-- Azure Site Recovery
-- Azure Dedicated Host 
-- Microsoft Azure Virtual Machine Scale Sets with Confidential OS disk encryption enabled
-- Limited Azure Compute Gallery support
-- Shared disks
-- Ultra disks
-- Accelerated Networking
-- Live migration
-- Screenshots under boot diagnostics
-
+- [Azure Backup](https://learn.microsoft.com/azure/backup/backup-overview)
+- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery/)
+- Limited [Azure Compute Gallery](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery) support
+- [Shared disks](https://learn.microsoft.com/azure/virtual-machines/disks-shared)
+- [Accelerated Networking](https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview)
+- [Live migration](https://learn.microsoft.com/windows-server/virtualization/hyper-v/manage/live-migration-overview)
+- [Screenshots under boot diagnostics](https://learn.microsoft.com/azure/virtual-machines/boot-diagnostics#boot-diagnostics-view)
+- [Dynamic memory](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11))
 
 ## Next steps
 

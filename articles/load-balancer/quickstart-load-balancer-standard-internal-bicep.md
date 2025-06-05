@@ -6,13 +6,13 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.author: mbender
-ms.date: 07/22/2024
+ms.date: 09/30/2024
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep,engagement-fy23
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using Bicep
 
-In this quickstart, you learn to use a BICEP file to create an internal; Azure load balancer. The internal load balancer distributes traffic to virtual machines in a virtual network located in the load balancer's backend pool. Along with the internal load balancer, this template creates a virtual network, network interfaces, a NAT Gateway, and an Azure Bastion instance.
+In this quickstart, you learn to use a Bicep file to create an internal Azure load balancer. The internal load balancer distributes traffic to virtual machines in a virtual network located in the load balancer's backend pool. Along with the internal load balancer, this template creates a virtual network, network interfaces, a NAT Gateway, and an Azure Bastion instance.
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer." lightbox="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png":::
 
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/internal-loadbalancer-create/main.bicep).
+The Bicep file used in this quickstart is from the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/internal-loadbalancer-create/main.bicep).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/internal-loadbalancer-create/main.bicep":::
 

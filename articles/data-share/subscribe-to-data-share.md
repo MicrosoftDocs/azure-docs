@@ -6,8 +6,9 @@ ms.author: sidontha
 ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ---
+
 # Tutorial: Accept and receive data using Azure Data Share  
 
 In this tutorial, you'll learn how to accept a data share invitation using Azure Data Share. You'll learn how to receive data being shared with you, and how to enable a regular refresh interval to ensure that you always have the most recent snapshot of the data being shared with you. 
@@ -244,7 +245,7 @@ Use these commands to configure where you want to receive data.
 
    ```azurecli
    az role assignment create --role "Contributor" \
-     --assignee-object-id 6789abcd-ef01-2345-6789-abcdef012345 
+     --assignee-object-id aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb 
      --assignee-principal-type ServicePrincipal --scope "your\storage\account\id\path"
    ```
 
@@ -332,7 +333,7 @@ Use these commands to configure where you want to receive data.
 1. Use the data set ID from the first step, then run the [New-AzDataShareDataSetMapping](/powershell/module/az.datashare/new-azdatasharedatasetmapping) command to create the dataset mapping:
 
    ```azurepowershell
-   New-AzDataShareDataSetMapping -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -Name "Fabrikam Solutions" -StorageAccountResourceId "6789abcd-ef01-2345-6789-abcdef012345"  -DataSetId "0123abcd-ef01-2345-6789-abcdef012345"  -Container "StorageContainer"
+   New-AzDataShareDataSetMapping -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -Name "Fabrikam Solutions" -StorageAccountResourceId "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"  -DataSetId "0123abcd-ef01-2345-6789-abcdef012345"  -Container "StorageContainer"
    ```
 
 1. Run the [Start-AzDataShareSubscriptionSynchronization](/powershell/module/az.datashare/start-azdatasharesubscriptionsynchronization) command to start dataset synchronization.
@@ -395,6 +396,7 @@ This step only applies to snapshot-based sharing. To view history of your snapsh
 When the resource is no longer needed, go to the Data Share Overview page, and select **Delete** to remove it.
 
 ## Next steps
+
 In this tutorial, you learned how to accept and receive an Azure Data Share. To learn more about Azure Data Share concepts, continue to Azure Data Share Terminology.
 
 > [!div class="nextstepaction"]

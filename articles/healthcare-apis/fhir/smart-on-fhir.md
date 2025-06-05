@@ -105,7 +105,7 @@ Add the reply URL to the public client application that you created previously f
 
 ### Step 3:  Get a test patient
 
-To test the FHIR service and the SMART on FHIR proxy, you need to have at least one patient in the database. If you've not used the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.
+To test the FHIR service and the SMART on FHIR proxy, you need to have at least one patient in the database. If you've not used the API yet, and you don't have data in the database, see [Access the FHIR service using REST Client](./../fhir/using-rest-client.md) to load a patient. Make a note of the ID of a specific patient.
 
 ### Step 4:  Download the SMART on FHIR app launcher
 

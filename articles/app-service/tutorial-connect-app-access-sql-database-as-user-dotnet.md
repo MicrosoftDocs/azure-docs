@@ -141,7 +141,7 @@ az webapp auth set --resource-group <group-name> --name <app-name> --body "$auth
 The commands effectively add a `loginParameters` property with extra custom scopes. Here's an explanation of the requested scopes:
 
 - `openid`, `profile`, and `email` are requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
-- `https://database.windows.net/user_impersonation` refers to Azure SQL Database. It's the scope that gives you a JWT token that includes SQL Database as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token).
+- `https://database.windows.net/user_impersonation` refers to Azure SQL Database. It's the scope that gives you a JWT that includes SQL Database as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token).
 - [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience (in case you want to [refresh tokens](#what-happens-when-access-tokens-expire)).
 
 > [!TIP]
@@ -273,7 +273,7 @@ The most common causes of this error are:
 Because App Service authentication is a feature in Azure, it's not possible for the same code to work in your local environment. Unlike the app running in Azure, your local code doesn't benefit from the authentication middleware from App Service. You have a few alternatives:
 
 - Connect to SQL Database from your local environment with [`Active Directory Interactive`](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-interactive-authentication). The authentication flow doesn't sign in the user to the app itself, but it does connect to the back-end database with the signed-in user, and allows you to test database authorization locally.
-- Manually copy the access token from `https://<app-name>.azurewebsites.net/.auth/me` into your code, in place of the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header.
+- Manually copy the access token into your code, in place of the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header.
 - If you deploy from Visual Studio, use remote debugging of your App Service app.
 
 #### What happens when access tokens expire?

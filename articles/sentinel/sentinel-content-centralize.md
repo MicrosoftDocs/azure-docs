@@ -6,7 +6,10 @@ author: austinmccollum
 ms.topic: conceptual
 ms.date: 06/22/2023
 ms.author: austinmc
-#Customer intent: As a SIEM decision maker or implementer, I want to know about changes to out-of-the-box content, and how to centralize the management, discovery, and inventory of content in Microsoft Sentinel.
+
+
+#Customer intent: As a security operations center (SOC) admin, I want to centralize and update out-of-the-box (OOTB) content in Microsoft Sentinel so that I can ensure all security tools and templates are current and centrally manage content efficiently.
+
 ---
 
 # Microsoft Sentinel out-of-the-box content centralization changes
@@ -51,7 +54,7 @@ The key to experiencing the updated behavior is to start in **Content hub**. For
 
 For more information on the new solution content behavior, see [Discover and deploy OOTB content](sentinel-solutions-deploy.md#enable-content-items-in-a-solution).
 
-If there was a particular sample query for a third party data connector you are looking for, we still publish them in our **All connectors** index. For example, here are the sample queries for the [Jamf Protect connector](data-connectors/jamf-protect.md).
+If there was a particular sample query for a third party data connector you are looking for, we still publish them in our **All connectors** index. For example, here are the sample queries for the [Jamf Protect connector](data-connectors-reference.md#jamf-protect-push-connector).
 
 ## Microsoft Sentinel GitHub changes
 

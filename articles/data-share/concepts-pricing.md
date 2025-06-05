@@ -4,8 +4,8 @@ description: Learn how Azure Data Share pricing works
 author:  sidontha
 ms.author: sidontha
 ms.service: azure-data-share
-ms.topic: conceptual
-ms.date: 12/19/2023
+ms.topic: concept-article
+ms.date: 02/12/2025
 ---
 
 # Understand Azure Data Share pricing
@@ -52,7 +52,7 @@ Snapshot Execution includes the resources required to move a dataset from the so
 
     ![Snapshot Execution](./media/concepts/concepts-pricing/pricing-snapshot-execution.png "Snapshot Execution")
 
-## Next steps
+## Related content
 
 - Get latest pricing information - [Azure Data Share pricing](https://azure.microsoft.com/pricing/details/data-share/)
 - Use Azure pricing calculator to estimate cost - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)

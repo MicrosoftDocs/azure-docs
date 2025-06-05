@@ -5,7 +5,7 @@ author: msjuergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 10/14/2024
 ms.author: juergent
 ms.reviewer: juergent
 
@@ -171,6 +171,9 @@ For Azure premium storage v1, the following caching options exist:
 * Read + Write Accelerator, which is only for Azure M-Series VMs
 
 For premium storage v1, we recommend that you use **Read caching for data files** of the SAP database and choose **No caching for the disks of log file(s)**.
+
+> [!NOTE]
+> With some of the new M(b)v3 VM types, the usage of read cached Premium SSD v1 storage could result in lower read and write IOPS rates and throughput than you would get if you don't use read cache. 
 
 For M-Series deployments, we recommend that you use Azure Write Accelerator only for the disks of your log files. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator).
 

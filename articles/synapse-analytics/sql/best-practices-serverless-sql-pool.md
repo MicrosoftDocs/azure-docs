@@ -1,13 +1,13 @@
 ---
 title: Best practices for serverless SQL pool
-description: Recommendations and best practices for working with serverless SQL pool.
+description: Recommendations and best practices for working with serverless SQL pools in Azure Synapse Analytics.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: whhender, wiassaf
-ms.date: 02/15/2023
+
+ms.date: 11/08/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: best-practice
 ---
 
 # Best practices for serverless SQL pool in Azure Synapse Analytics
@@ -23,9 +23,9 @@ Some generic guidelines are:
 - Make sure the storage and serverless SQL pool are in the same region. Storage examples include Azure Data Lake Storage and Azure Cosmos DB.
 - Try to [optimize storage layout](#prepare-files-for-querying) by using partitioning and keeping your files in the range between 100 MB and 10 GB.
 - If you're returning a large number of results, make sure you're using SQL Server Management Studio or Azure Data Studio and not Azure Synapse Studio. Azure Synapse Studio is a web tool that isn't designed for large result sets.
-- If you're filtering results by string column, try to use a `BIN2_UTF8` collation. For more information on changing collations, refer to [Collation types supported for Synapse SQL](reference-collation-types.md).
+- If you're filtering results by string column, try to use a `BIN2_UTF8` collation. For more information on changing collations, see [Collation types supported for Synapse SQL](reference-collation-types.md).
 - Consider caching the results on the client side by using Power BI import mode or Azure Analysis Services, and periodically refresh them. Serverless SQL pools can't provide an interactive experience in Power BI Direct Query mode if you're using complex queries or processing a large amount of data.
-- Maximum concurrency is not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data, so in that case consider decreasing concurrency and execute queries over a longer period of time if possible.
+- Maximum concurrency isn't limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data, so in that case consider decreasing concurrency and execute queries over a longer period of time if possible.
 
 ## Client applications and network connections
 
@@ -44,6 +44,10 @@ Here are best practices for storage and content layout in serverless SQL pool.
 To minimize latency, colocate your Azure Storage account or Azure Cosmos DB analytic storage and your serverless SQL pool endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region.
 
 For optimal performance, if you access other storage accounts with serverless SQL pool, make sure they're in the same region. If they aren't in the same region, there will be increased latency for the data's network transfer between the remote region and the endpoint's region.
+
+### Colocate your Azure Cosmos DB analytical storage and serverless SQL pool
+
+Make sure your Azure Cosmos DB analytical storage is placed in the same region as an Azure Synapse workspace. Cross-region queries might cause huge latencies. Use the region property in the connection string to explicitly specify the region where the analytical store is placed (see [Query Azure Cosmos DB by using serverless SQL pool](query-cosmos-db-analytical-store.md#overview)): `account=<database account name>;database=<database name>;region=<region name>'`
 
 ### Azure Storage throttling
 
@@ -64,10 +68,6 @@ If possible, you can prepare files for better performance:
 - It's better to have equally sized files for a single OPENROWSET path or an external table LOCATION.
 - Partition your data by storing partitions to different folders or file names. See [Use filename and filepath functions to target specific partitions](#use-filename-and-filepath-functions-to-target-specific-partitions).
 
-### Colocate your Azure Cosmos DB analytical storage and serverless SQL pool
-
-Make sure your Azure Cosmos DB analytical storage is placed in the same region as an Azure Synapse workspace. Cross-region queries might cause huge latencies. Use the region property in the connection string to explicitly specify the region where the analytical store is placed (see [Query Azure Cosmos DB by using serverless SQL pool](query-cosmos-db-analytical-store.md#overview)): `account=<database account name>;database=<database name>;region=<region name>'`
-
 ## CSV optimizations
 
 Here are best practices for using CSV files in serverless SQL pool.
@@ -78,7 +78,23 @@ You can use a performance-optimized parser when you query CSV files. For details
 
 ### Manually create statistics for CSV files
 
-Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns using sampling and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling is not supported and automatic creation of statistics will not happen with sampling percentage less than 100%. For small tables with estimated low cardinality (number of rows) automatic statistics creation will be triggered with sampling percentage of 100%. That means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0. In case statistics are not automatically created, create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
+Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns using sampling and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling isn't supported and automatic creation of statistics won't happen with sampling percentage less than 100%. For small tables with estimated low cardinality (number of rows) automatic statistics creation will be triggered with sampling percentage of 100%. That means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0. In case statistics aren't automatically created, create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
+
+## Delta Lake optimizations
+
+Here are best practices for using Delta Lake files in serverless SQL pool.
+
+### Optimize checkpoints
+
+Query performance of Delta Lake format is influenced by the number of JSON files in the _delta_log directory. To ensure optimal performance, avoid accumulating too many JSON files. Ideally, the log should contain only the latest Parquet checkpoint file with no additional JSON files. However, this setup may not be optimal for write-heavy workloads.
+
+A balanced approach is to maintain around 10 JSON files between checkpoints, which typically offers good performance for both readers and writers. Be cautious of configurations that delay checkpoint creation, as they can lead to excessive JSON file accumulation and degrade query performance.
+
+Set the following table property to ensure a checkpoint is created after every 10 JSON log files:
+
+```sql
+ALTER TABLE tableName SET TBLPROPERTIES ('delta.checkpointInterval' = '10')
+```
 
 ## Data types
 
@@ -162,7 +178,7 @@ For more information, read about the [filename](query-data-storage.md#filename-f
 > [!TIP]  
 > Always cast the results of the filepath and filename functions to appropriate data types. If you use character data types, be sure to use the appropriate length.
 
-Functions used for partition elimination, filepath and filename, aren't currently supported for external tables, other than those created automatically for each table created in Apache Spark for Azure Synapse Analytics.
+Functions used for partition elimination, filepath, and filename, aren't currently supported for external tables, other than those created automatically for each table created in Apache Spark for Azure Synapse Analytics.
 
 If your stored data isn't partitioned, consider partitioning it. That way you can use these functions to optimize queries that target those files. When you [query partitioned Apache Spark for Azure Synapse tables](develop-storage-files-spark-tables.md) from serverless SQL pool, the query automatically targets only the necessary files.
 
@@ -186,7 +202,7 @@ As CETAS generates Parquet files, statistics are automatically created when the 
 
 ## Query Azure data
 
-Serverless SQL pools enable you to query data in Azure Storage or Azure Cosmos DB by using [external tables and the OPENROWSET function](develop-storage-files-overview.md).  Make sure that you have proper [permission set up](develop-storage-files-overview.md#permissions) on your storage.
+Serverless SQL pools enable you to query data in Azure Storage or Azure Cosmos DB by using [external tables and the OPENROWSET function](develop-storage-files-overview.md). Make sure that you have proper [permission set up](develop-storage-files-overview.md#permissions) on your storage.
 
 ### Query CSV data
 

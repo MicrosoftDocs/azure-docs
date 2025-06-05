@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using ARM template"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using an Azure Resource Manager template (ARM template).
-ms.date: 03/19/2024
+ms.date: 03/04/2025
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template, devx-track-azurecli, devx-track-azurepowershell
 ---

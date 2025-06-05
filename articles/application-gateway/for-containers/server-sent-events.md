@@ -2,12 +2,11 @@
 title: Server-sent events and Application Gateway for Containers
 description: Learn how server-sent events interact with Azure Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
-ms.topic: conceptual
-ms.date: 5/9/2024
-ms.author: greglin
+author: mbender-ms
+ms.service: azure-appgw-for-containers
+ms.topic: concept-article
+ms.date: 5/8/2025
+ms.author: mbender
 ---
 
 # Server-sent events
@@ -65,3 +64,6 @@ spec:
 Server-sent events aren't supported using Ingress API.
 
 ---
+
+>[!NOTE]
+>The idle timeout for Application Gateway for Containers is currently set to 5 minutes. If your application doesn't send or receive data within this period, consider sending a keep-alive request to prevent the connection from closing. You can implement this by prefixing a message with a colon `:` to act as a comment. For example, you may send the following message as a keep alive: `: keep-alive\n\n`

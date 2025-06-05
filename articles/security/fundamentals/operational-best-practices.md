@@ -4,13 +4,13 @@ title: Security best practices for your Azure assets
 titleSuffix: Azure security
 description: This article provides a set of operational best practices for protecting your data, applications, and other assets in Azure.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 06/27/2024
-ms.author: terrylan
+ms.date: 04/23/2025
+ms.author: mbaldwin
 
 ---
 
@@ -126,7 +126,7 @@ You should continuously monitor the storage services that your application uses 
 ## Prevent, detect, and respond to threats
 [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) helps you prevent, detect, and respond to threats by providing increased visibility into (and control over) the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with various security solutions.
 
-The Free tier of Defender for Cloud offers limited security for your resources in Azure as well as Arc-enabled resources outside of Azure. The Enahanced Security Features extend these capabilities to include threat and vulnerability management, as well as regulatory compliance reporting. Defender for Cloud Plans help you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats by using analytics and intelligence, and respond quickly when under attack. You can try Defender for Cloud Standard at no cost for the first 30 days. We recommend that you [enable enhanced security features on your Azure subscriptions in Defender for Cloud](/azure/defender-for-cloud/enable-enhanced-security).
+The Free tier of Defender for Cloud offers limited security for your resources in Azure as well as Arc-enabled resources outside of Azure. The Enhanced Security Features extend these capabilities to include threat and vulnerability management, as well as regulatory compliance reporting. Defender for Cloud Plans help you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats by using analytics and intelligence, and respond quickly when under attack. You can try Defender for Cloud Standard at no cost for the first 30 days. We recommend that you [enable enhanced security features on your Azure subscriptions in Defender for Cloud](/azure/defender-for-cloud/enable-enhanced-security).
 
 Use Defender for Cloud to get a central view of the security state of all your resources in your own data centers, Azure and other clouds. At a glance, verify that the appropriate security controls are in place and configured correctly, and quickly identify any resources that need attention.
 

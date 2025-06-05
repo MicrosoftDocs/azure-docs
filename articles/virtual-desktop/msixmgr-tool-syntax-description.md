@@ -1,9 +1,9 @@
 ---
-title: MSIXMGR tool parameters - Azure Virtual Desktop
+title: MSIXMGR tool parameters - Azure Virtual Desktop 
 description: Learn about the command line parameters and syntax you can use with the MSIXMGR tool.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 03/05/2024
 ---
 
@@ -199,10 +199,10 @@ msixmgr.exe -AddPackage "C:\MSIX\myapp.msix" -quietUX
 
 ## Next steps
 
-To learn more about MSIX app attach, check out these articles:
+To learn more about App Attach, check out these articles:
 
-- [Create an MSIX image to use with app attach](app-attach-create-msix-image.md)
+- [Create an MSIX image to use with App Attach](app-attach-create-msix-image.md)
 - [What's new in the MSIXMGR tool](whats-new-msixmgr.md)
-- [App attach and MSIX app attach](app-attach-overview.md)
-- [Add and manage app attach and MSIX app attach applications](app-attach-setup.md)
-- [Test MSIX packages for app attach](app-attach-test-msix-packages.md)
+- [App in Azure Virtual Desktop](app-attach-overview.md)
+- [Add and manage App Attach applications](app-attach-setup.md)
+- [Test MSIX packages for App Attach](app-attach-test-msix-packages.md)

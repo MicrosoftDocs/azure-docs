@@ -6,7 +6,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 09/27/2023
+ms.date: 05/27/2025
 ms.author: kesheth
 ms.custom: references_regions
 ---
@@ -37,7 +37,7 @@ We support Microsoft Entra ID and third party identity provider that support Ope
 
 ### Can I use Azure AD B2C with the FHIR service?
 
-Yes. You can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR service to grant access to your applications and users. For more information, see [Use Azure Active Directory B2C to grant access to the FHIR service](../fhir/azure-ad-b2c-setup.md).
+Yes. You can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR service to grant access to your applications and users. For more information, see [Use Azure Active Directory B2C to grant access to the FHIR service](../fhir/azure-ad-b2c-setup.md). However, effective **May 1, 2025**, Azure AD B2C will no longer be available to purchase for new customers. New customers need to use [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam).
 
 ### What FHIR version do you support?
 
@@ -91,6 +91,11 @@ No. We don't have a way to change the version of an existing database. You'll ne
 
 No. You can't change the URL for the FHIR service. 
 
+### What are the limits associated with the FHIR service in Azure Health Data Services?
+
+Please refer to the "Service limits" section in 
+[Azure FHIR service limits](fhir-features-supported.md#service-limits)
+
 ## FHIR Implementations and Specifications
 
 ### What is SMART on FHIR?
@@ -137,6 +142,12 @@ No, the FHIR service doesn't currently support terminology operations.
 To perform a health check on a FHIR service, enter `{{fhirurl}}/health/check` in the GET request. You should be able to see status of FHIR service. A HTTP Status code response with 200 and OverallStatus as **Healthy** means your health check is successful.
 
 If there are errors, you may receive an error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in the response body.
+
+**What are the recommended methods for syncing data between the FHIR service and Dataverse?**
+
+Please refer to documentation for
+[Dataverse healthcare APIs](/dynamics365/industry/healthcare/dataverse-healthcare-apis-overview)
+
 
 ## Next steps
 

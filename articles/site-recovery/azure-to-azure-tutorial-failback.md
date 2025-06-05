@@ -3,10 +3,10 @@ title: Tutorial to fail back Azure VMs to a primary region during disaster recov
 description: Tutorial to learn about failing back Azure VMs to a primary region with Azure Site Recovery.
 ms.topic: tutorial
 ms.service: azure-site-recovery
-ms.date: 03/29/2024
+ms.date: 02/11/2025
 ms.custom: mvc
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 #Customer intent: As an Azure admin, I want to fail back VMs to the primary region after running a failover to a secondary region.  
 ---
 
@@ -32,6 +32,7 @@ Before you start this tutorial, you should have:
 1. [Set up replication](azure-to-azure-tutorial-enable-replication.md) for at least one Azure VM, and tried out a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) for it.
 2. [Failed over the VM](azure-to-azure-tutorial-failover-failback.md) from the primary region to a secondary region, and reprotected it so that it replicates from the secondary region to the primary. 
 3. Check that the primary region is available, and that you're able to create and access new resources in it.
+1. Source region VM must be shut down before attempting a failback since, changes are synced from failover VM disks to the source region disks during failback. If the source VM is powered on then it fails and thus fails the failback operation.
 
 ## Fail back to the primary region
 

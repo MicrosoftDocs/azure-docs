@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 02/10/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -26,7 +26,7 @@ Key characteristics of revisions include:
 
 - **Scoped changes**: While revisions remain static, [application-scope](#change-types) changes can affect all revisions, while [revision-scope](#change-types) changes create a new revision.
 
-- **Historical record**: By default, you have access to 100 inactive revisions, but you can [adjust this threshold manually](#change-inactive-revision-limit).
+- **Historical record**: By default, you have access to 100 inactive revisions, but you can [adjust this threshold manually](#change-inactive-revision-limit-preview).
 
 - **Multiple revisions**: You can run multiple revisions concurrently. This feature is especially beneficial when you need to manage different versions of your app simultaneously.
 
@@ -65,9 +65,15 @@ After a container app is successfully provisioned, a revision enters its operati
 
 Revisions can also enter an inactive state. These revisions don't possess provisioning or running states. However, Azure Container Apps maintains a list of these revisions, accommodating up to 100 inactive entries. You can activate a revision at any time.
 
-### Change inactive revision limit
+### Change inactive revision limit (preview)
 
 You can use the `--max-inactive-revisions` parameter with the `containerapp create` or `containerapp update` commands to control the number of inactive revisions tracked by Container Apps.
+
+First, make sure you have installed the Container Apps extension, with preview features enabled, for the Azure CLI:
+
+```azurecli
+az extension add --name containerapp --upgrade --allow-preview true
+```
 
 This example demonstrates how to create a new container app that tracks 50 inactive revisions:
 

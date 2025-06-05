@@ -2,13 +2,13 @@
 title: Securing PaaS applications using Azure Storage | Microsoft Docs
 description: "Learn about Azure Storage security best practices for securing your PaaS web and mobile applications."
 services: security
-author: terrylanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/23/2023
-ms.author: terrylan
+ms.date: 09/29/2024
+ms.author: mbaldwin
 
 ---
 # Best practices for securing PaaS web and mobile applications using Azure Storage

@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 08/05/2024
+ms.date: 03/25/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
@@ -33,11 +33,15 @@ The authorization mechanism must have the necessary permissions to upload a blob
 
 To upload a blob, call any of the following methods from the client object:
 
+- [Upload](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#Client.Upload)
 - [UploadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadBuffer)
 - [UploadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadFile)
 - [UploadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadStream)
 
 To perform the upload, the client library might use either [Put Blob](/rest/api/storageservices/put-blob) or a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [`Put Block List`](/rest/api/storageservices/put-block-list). This behavior depends on the overall size of the object and how the data transfer options are set.
+
+> [!NOTE]
+> The Azure Storage client libraries don't support concurrent writes to the same blob. If your app requires multiple processes writing to the same blob, you should implement a strategy for concurrency control to provide a predictable experience. To learn more about concurrency strategies, see [Manage concurrency in Blob Storage](concurrency-manage.md).
 
 ## Upload a block blob from a local file path
 
@@ -71,14 +75,24 @@ You can define client library configuration options when uploading a blob. These
 
 You can set configuration options when uploading a blob to optimize performance. The following configuration options are available for upload operations:
 
-- `BlockSize`: The size of each block when uploading a block blob. The default value is 1 MiB.
-- `Concurrency`: The maximum number of parallel connections to use during upload. The default value is 1.
+- `BlockSize`: The size of each block when uploading a block blob. The default value is 4 MB.
+- `Concurrency`: The maximum number of parallel connections to use during upload. The default value is 5.
+
+These configuration options are available when uploading using the following methods:
+
+- [UploadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadBuffer)
+- [UploadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadStream)
+- [UploadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadFile)
+
+The [Upload](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#Client.Upload) method doesn't support these options, and uploads data in a single request.
 
 For more information on transfer size limits for Blob Storage, see [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
 The following code example shows how to specify data transfer options using the [UploadFileOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#UploadFileOptions). The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 :::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload_blob.go" id="snippet_upload_blob_transfer_options":::
+
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with Go](storage-blobs-tune-upload-download-go.md).
 
 [!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 

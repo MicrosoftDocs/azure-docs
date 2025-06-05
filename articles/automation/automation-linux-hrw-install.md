@@ -4,15 +4,12 @@ description: This article tells how to install an agent-based  Hybrid Runbook Wo
 services: automation
 ms.subservice: process-automation
 ms.custom: linux-related-content
-ms.date: 09/09/2024
+ms.date: 04/07/2025
 ms.topic: how-to
 ms.service: azure-automation
 ---
 
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 [!INCLUDE [./agent-based-user-hybrid-runbook-worker-retirement.md](./includes/agent-based-user-hybrid-runbook-worker-retirement.md)]
 
@@ -76,7 +73,7 @@ The minimum requirements for a Linux system and user Hybrid Runbook Worker are:
 | **Required package** | **Description** | **Minimum version**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C Library| 2.5-12 |
-|Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported)|
+|OpenSSL| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported)|
 |Curl | cURL web client | 7.15.5|
 |Python-ctypes | Foreign function library for Python| Python 2.x or Python 3.x are required |
 |PAM | Pluggable Authentication Modules|

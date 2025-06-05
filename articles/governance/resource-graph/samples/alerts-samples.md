@@ -39,7 +39,7 @@ This query filters virtual machines that need to be monitored.
 ```kusto
 let RuleGroupTags = dynamic(['Linux']);
 Perf | where ObjectName == 'Processor' and CounterName == '% Idle Time' and (InstanceName in ('Total','total'))
-| extend CpuUtilisation = (100 - CounterValue)   
+| extend CpuUtilization = (100 - CounterValue)   
 | join kind=inner hint.remote=left (arg("").Resources
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | project _ResourceId=tolower(id), tags

@@ -4,7 +4,8 @@ description: In this tutorial, you create an Azure data factory with a pipeline 
 ms.author: yexu
 author: dearandyxu
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal
@@ -226,7 +227,7 @@ END
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**: 
+2. On the top menu, select **Create a resource** > **Analytics** > **Data Factory** :
    
    :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 

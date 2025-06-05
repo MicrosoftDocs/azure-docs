@@ -2,9 +2,9 @@
 title: Supported RDP properties
 description: Learn about the supported RDP properties you can set to customize the behavior of a remote session, such as for device redirection, display settings, session behavior, and more.
 ms.topic: reference
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 08/07/2024
+author: dougeby
+ms.author: avdcontent
+ms.date: 03/06/2025
 ---
 
 # Supported RDP properties
@@ -112,7 +112,6 @@ Here are the RDP properties that you can use to configure connections.
 - **Default value**: `0`
 - **Applies to**:
    - Azure Virtual Desktop
-   - Remote Desktop Services
    - Remote PC connections
 
 ### `full address`
@@ -554,6 +553,21 @@ Here are the RDP properties that you can use to configure display settings.
    - Azure Virtual Desktop
    - Remote Desktop Services
    - Remote PC connections
+
+### `desktopscalefactor`
+
+- **Syntax**: `desktopscalefactor:i:*value*`
+- **Description**: Specifies the scale factor of the remote session to make the content appear larger.
+- **Supported values**: 
+  - Numerical value from the following list: `100`, `125`, `150`, `175`, `200`, `250`, `300`, `400`, `500`
+- **Default value**: None. Match the local device.
+- **Applies to**:
+   - Azure Virtual Desktop
+   - Remote Desktop Services
+   - Remote PC connections
+
+> [!NOTE]
+> The `desktopscalefactor` property is being deprecated and will soon be unavailable.
 
 ### `desktopwidth`
 

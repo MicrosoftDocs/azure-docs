@@ -6,12 +6,12 @@ description: Integer claims transformation examples for the Identity Experience 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer working with Azure Active Directory B2C, I want to understand how to use integer claims transformations, so that I can manipulate numeric claims and perform comparisons in my application.
@@ -19,6 +19,8 @@ ms.subservice: B2C
 ---
 
 # Integer claims transformations
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article provides examples for using the integer claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 

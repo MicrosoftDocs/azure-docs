@@ -1,18 +1,22 @@
 ---
 title: Create a codeless connector for Microsoft Sentinel
-description: Learn how to create a codeless connector in Microsoft Sentinel using the Codeless Connector Platform (CCP).
+description: Learn how to create a codeless connector in Microsoft Sentinel using the Codeless Connector Framework (CCF).
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 09/26/2024
+
+
+#Customer intent: As a security engineer, I want to create custom data connectors for Microsoft Sentinel so that I can ingest and analyze data from various sources without writing code.
+
 ---
 # Create a codeless connector for Microsoft Sentinel
 
-The Codeless Connector Platform (CCP) provides partners, advanced users, and developers the ability to create custom connectors for ingesting data to Microsoft Sentinel.
+The Codeless Connector Framework (CCF) provides partners, advanced users, and developers the ability to create custom connectors for ingesting data to Microsoft Sentinel.
 
-Connectors created using the CCP are fully SaaS, with no requirements for service installations. They also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
+Connectors created using the CCF are fully SaaS, with no requirements for service installations. They also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
 
-**Use the following steps to create your CCP connector and connect your data source to Microsoft Sentinel**
+**Use the following steps to create your CCF connector and connect your data source to Microsoft Sentinel**
 
 > [!div class="checklist"]
 > * Build the data connector
@@ -22,9 +26,9 @@ Connectors created using the CCP are fully SaaS, with no requirements for servic
 
 This article will show you how to complete each step and provide an [example codeless connector](#example) to build along the way.
 
-## How is this CCP different from the previous version?
+## How is this CCF different from the previous version?
 
-The initial version of the CCP was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [legacy release](create-codeless-connector-legacy.md) is no longer recommended. This new version of the CCP has the following key improvements:
+The initial version of the CCF was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [legacy release](create-codeless-connector-legacy.md) is no longer recommended. This new version of the CCF has the following key improvements:
 
 1. Better support for various authentication and pagination types.
 
@@ -71,7 +75,7 @@ We recommend testing your components with an API testing tool like one of the fo
 
 ## Build the data connector
 
-There are 4 components required to build the CCP data connector.
+There are four components required to build the CCF data connector.
 
 1. [Output table definition](#output-table-definition)
 1. [Data Collection Rule (DCR)](#data-collection-rule)
@@ -100,7 +104,7 @@ Data collection rules (DCRs) define the data collection process in Azure Monitor
 
 - There is only one DCR that gets deployed per data connector.
 - A DCR must have a corresponding DCE in the same region.
-- When the CCP data connector is deployed, the DCR is created if it doesn't already exist.
+- When the CCF data connector is deployed, the DCR is created if it doesn't already exist.
 
 Reference the latest information on DCRs in these articles:
 - [Data collection rules overview](/azure/azure-monitor/essentials/data-collection-rule-overview)
@@ -119,7 +123,7 @@ Build the data connector user interface with the [**Data Connector Definition** 
 Notes: 
 1)	The `kind` property for API polling connector should always be `Customizable`.
 2)	Since this is a type of API polling connector, set the `connectivityCriteria` type to `hasDataConnectors`
-3)	The example `instructionsSteps` include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
+3)	The example `instructionSteps` include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
 
 Use an [API testing tool](#testing-apis) to call the data connector definitions API to create the data connector UI in order to validate it in the data connectors gallery.
 
@@ -127,20 +131,16 @@ To learn from an example, see the [Data connector definitions reference example 
 
 ### Data connection rules
 
-This portion defines the connection rules including:
-- polling
-- authentication
-- paging
+There are currently two kinds of data connection rules possible for defining your CCF data connector.
 
-For more information on building this section, see the [Data connector connection rules reference](data-connector-connection-rules-reference.md).
-
-To learn from an example, see the [Data connector connection rules reference example](data-connector-connection-rules-reference.md#example-ccp-data-connector).
+- `RestApiPoller` kind allows you to customize paging, authorization and expected request/response payloads for your data source. For more information, see [RestApiPoller data connector connection rules reference](data-connector-connection-rules-reference.md).
+- `GCP` kind allows you to decrease your development time by automatically configuring paging and expected response payloads for your Google Cloud Platform (GCP) data source. For more information, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md)
 
 Use an [API testing tool](#testing-apis) to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
 ## Secure confidential input
 
-Whatever authentication is used by your CCP data connector, take these steps to ensure confidential information is kept secure. The goal is to pass along credentials from the ARM template to the CCP without leaving readable confidential objects in your deployments history.
+Whatever authentication is used by your CCF data connector, take these steps to ensure confidential information is kept secure. The goal is to pass along credentials from the ARM template to the CCF without leaving readable confidential objects in your deployments history.
 
 ### Create label
 
@@ -189,7 +189,7 @@ A section of the ARM deployment template provides a place for the administrator 
 
 ### Use the securestring objects
 
-Finally, the CCP utilizes the credential objects in the data connector section. 
+Finally, the CCF utilizes the credential objects in the data connector section. 
 
 ```json
 "auth": {
@@ -216,16 +216,23 @@ Finally, the CCP utilizes the credential objects in the data connector section.
 
 ## Create the deployment template
 
-Manually package an Azure Resource Management (ARM) template using the [example template code samples](#example-arm-template) as your guide. These code samples are divided by ARM template sections for you to splice together.
+Manually package an Azure Resource Management (ARM) template using the [example template code samples](#example-arm-template) as your guide. These code samples are divided by ARM template sections which you must splice together.
 
-In addition to the example template, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connector. Review the following solutions as more examples of how to stitch the components together into an ARM template.
+If you're creating a Google Cloud Platform (GCP) CCF data connector, package the deployment template using the [example GCP CCF template](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/Templates/Connector_GCP_CCP_template.json). For information on how to fill out the GCP CCF template, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md).
 
+In addition to the example templates, published solutions available in the Microsoft Sentinel content hub use the CCF for their data connectors. Review the following solutions as more examples of how to stitch the components together into an ARM template.
+
+**`RestApiPoller`** CCF data connector examples
 - [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Ermes%20Browser%20Security/Data%20Connectors/ErmesBrowserSecurityEvents_ccp)
 - [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Palo%20Alto%20Prisma%20Cloud%20CWPP/Data%20Connectors/PaloAltoPrismaCloudCWPP_ccp)
 - [Sophos Endpoint Protection](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Sophos%20Endpoint%20Protection/Data%20Connectors/SophosEP_ccp)
 - [Workday](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Workday/Data%20Connectors/Workday_ccp)
 - [Atlassian Jira](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/AtlassianJiraAudit/Data%20Connectors/JiraAuditAPISentinelConnector_ccpv2)
 - [Okta Single Sign-On](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Okta%20Single%20Sign-On/Data%20Connectors/OktaNativePollerConnectorV2)
+
+**`GCP`** CCF data connector examples
+- [GCP audit logs](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Google%20Cloud%20Platform%20Audit%20Logs/Package/mainTemplate.json)
+- [GCP security command center](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Google%20Cloud%20Platform%20Security%20Command%20Center/Package/mainTemplate.json)
 
 ## Deploy the connector
 
@@ -239,9 +246,9 @@ Deploy your codeless connector as a custom template.
 
 ### Maintain network isolation for logging source
 
-If your logging source requires network isolation, configure an allowlist of public IP addresses used by the CCP.
+If your logging source requires network isolation, configure an allowlist of public IP addresses used by the CCF.
 
-Azure virtual networks use service tags to define network access controls. For the CCP, that service tag is [**Scuba**](/azure/virtual-network/service-tags-overview#available-service-tags).
+Azure virtual networks use service tags to define network access controls. For the CCF, that service tag is [**Scuba**](/azure/virtual-network/service-tags-overview#available-service-tags).
 
 To find the current IP range associated with the **Scuba** service tag, see [Use the Service Tag Discovery API](/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api).
 
@@ -261,10 +268,10 @@ Each step in building the codeless connector is represented in the following exa
 - [Example custom table](#example-custom-table)
 - [Example data collection rule](#example-data-collection-rule)
 - [Example data connector UI definition](data-connector-ui-definitions-reference.md#example-data-connector-definition)
-- [Example data connection rules](data-connector-connection-rules-reference.md#example-ccp-data-connector)
+- [Example data connection rules](data-connector-connection-rules-reference.md#example-ccf-data-connector)
 - [Use example data with example template](#example-arm-template)
 
-To demonstrate a complex data source with ingestion to more than one table, this example features an output table schema and a DCR with multiple output streams. The DCR example puts these together along with its KQL transforms. The data connector UI definition and connection rules examples continue from this same example data source. Finally, the solution template uses all these example components to show end to end how to create the example CCP data connector.
+To demonstrate a complex data source with ingestion to more than one table, this example features an output table schema and a DCR with multiple output streams. The DCR example puts these together along with its KQL transforms. The data connector UI definition and connection rules examples continue from this same example data source. Finally, the solution template uses all these example components to show end to end how to create the example CCF data connector.
 
 ### Example data
 
@@ -444,11 +451,11 @@ This example is located in the [Data connector definitions reference](data-conne
 
 ### Example data connector connection rules
 
-This example is located in the [Data connectors reference](data-connector-connection-rules-reference.md#example-ccp-data-connector).
+This example is located in the [Data connectors reference](data-connector-connection-rules-reference.md#example-ccf-data-connector).
 
 ### Example ARM template
 
-Build the ARM deployment template with the following structure, which includes the 4 sections of JSON components required to build the CCP data connector:
+Build the ARM deployment template with the following structure, which includes the 4 sections of JSON components required to build the CCF data connector:
 
 ```json
 {
@@ -547,7 +554,7 @@ These recommended variables help simplify the template. Use more or less as need
 ```
 #### Example ARM template - resources
 
-There are 5 ARM deployment resources in this template guide which house the 4 CCP data connector building components. 
+There are 5 ARM deployment resources in this template guide which house the 4 CCF data connector building components. 
 
 1. **contentTemplates** (a parent resource)
     - metadata
@@ -901,7 +908,7 @@ There are 5 ARM deployment resources in this template guide which house the 4 CC
 }
 ```
 
-## Next steps
+## Related content
 
 For more information, see 
 - [About Microsoft Sentinel solutions](sentinel-solutions.md).

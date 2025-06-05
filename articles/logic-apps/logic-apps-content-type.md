@@ -34,13 +34,13 @@ for example:
 ## application/json
 
 Logic Apps stores and handles any request with the *application/json* 
-content type as a JavaScript Notation (JSON) object. 
+content type as a JavaScript Object Notation (JSON) object. 
 By default, you can parse JSON content without any casting. 
 To parse a request that has a header with the "application/json" content type, 
 you can use an expression. This example returns the value `dog` from the 
 `animal-type` array without casting: 
  
-`@body('myAction')['animal-type'][0]` 
+`@body('myAction')['client']['animal-type'][0]` 
   
   ```json
   {
@@ -56,7 +56,7 @@ you can manually cast that data to JSON by using the
 [json() function](../logic-apps/workflow-definition-language-functions-reference.md#json), 
 for example: 
   
-`@json(triggerBody())['animal-type']`
+`@json(triggerBody())['client']['animal-type']`
 
 ### Create tokens for JSON properties
 
@@ -196,7 +196,7 @@ For example, if you receive an HTTP request
 where `Content-Type` set to `application/xml`, 
 such as this content:
 
-```html
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomerName>Frank</CustomerName>
 ```

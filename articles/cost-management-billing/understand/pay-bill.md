@@ -2,13 +2,13 @@
 title: Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
 description: Learn how to pay your bill in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
-author: banders
-ms.reviewer: lishepar
+author: lindseyshep
+ms.author: lishepar
+ms.reviewer: lishepar, jobailey
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/06/2024
-ms.author: banders
+ms.date: 05/01/2025
 ---
 
 # Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
@@ -43,15 +43,15 @@ Here's a table that summarizes payment methods for agreement types:
 
 ## Reserve Bank of India
 
-As of October 2021, automatic payments in India might block some credit card transactions, especially transactions that exceed 5,000 INR. Because of this situation, you might need to make payments manually in the Azure portal. This directive doesn't affect the total amount you're charged for your Azure usage.
+In October 2021, automatic payments in India might block some credit card transactions, especially transactions that exceed 5,000 INR. Because of this situation, you might need to make payments for your Microsoft Online Subscription Program (MOSP) account manually in the Azure portal. This directive doesn't affect the total amount you're charged for your Azure usage.
 
-As of June 2022, the Reserve Bank of India increased the limit of e-mandates on cards for recurring payments from 5,000 to 15,000 INR. Learn more about this directive on the [Reserve Bank of India website](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0).
+In June 2022, the Reserve Bank of India increased the limit of e-mandates on cards for recurring payments from 5,000 to 15,000 INR. Learn more about this directive on the [Reserve Bank of India website](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0).
 
-As of September 2022, Microsoft and other online merchants no longer store credit card information. To comply with this regulation, Microsoft removed all stored card details from Azure. To avoid service interruption, you need to add and verify your payment method to make a payment in the Azure portal for all invoices. Learn more about this directive on the [Reserve Bank of India website](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF).
+In September 2022, Microsoft and other online merchants no longer store credit card information. To comply with this regulation, Microsoft removed all stored card details from Azure. Learn more about this directive on the [Reserve Bank of India website](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF).
 
 ### UPI and NetBanking payment options
 
-Azure supports two alternate payment options for customers in India:
+Azure supports two alternate payment methods for India customers for MOSP accounts.
 
 - Unified Payments Interface (UPI) is a real-time payment method.
 - NetBanking gives customers access to banking services through an online platform.
@@ -116,9 +116,12 @@ Although you can generally use debit cards to pay your Azure bill, consider thes
 
 If the default payment method of your billing profile is wire transfer, follow the payment instructions on your invoice PDF file.
 
+> [!NOTE]
+> When you pay your bill by wire transfer, the payment might take up to 10 business days to get processed.
+
 Alternatively, if your invoice is under the threshold amount for your currency, you can make a one-time payment in the Azure portal with a credit or debit card by using **Pay now**. If your invoice amount exceeds the threshold, you can't pay your invoice with a credit or debit card. You'll find the threshold amount for your currency in the Azure portal after you select **Pay now**.
 
-> [!NOTE]
+>[!NOTE]
 > When multiple invoices are remitted in a single wire transfer, you must specify the invoice numbers for all of the invoices.
 
 ### Bank details used to send wire transfer payments

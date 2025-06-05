@@ -6,7 +6,7 @@ ms.author: makromer
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Plan to manage costs for Azure Data Factory
@@ -180,7 +180,7 @@ Budgets can be created with filters for specific resources or services in Azure 
 
 ## Export cost data
 
-You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do other data analysis for costs. For example, finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](../cost-management-billing/costs/tutorial-improved-exports.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do other data analysis for costs. For example, finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Related content
 

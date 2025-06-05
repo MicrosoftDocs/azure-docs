@@ -2,12 +2,11 @@
 title: Review the Azure Site Recovery Deployment Planner cost estimation report for disaster recovery of Hyper-V VMs to Azure| Microsoft Docs
 description: This article describes how to review the cost estimation report generated the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure.
 services: site-recovery
-author: ankitaduttaMSFT
-manager: rochakm
+author: jyothisuri
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 4/9/2019
-ms.author: ankitadutta
+ms.topic: concept-article
+ms.date: 09/18/2024
+ms.author: jsuri
 
 ---
 # Cost estimation report by Azure Site Recovery Deployment Planner 
