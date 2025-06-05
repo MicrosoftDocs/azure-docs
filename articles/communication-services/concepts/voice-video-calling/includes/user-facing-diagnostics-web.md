@@ -152,7 +152,7 @@ userFacingDiagnostics.remote.on('diagnosticChanged', remoteDiagnosticChangedList
 remoteUfdsFeature.startSendingDiagnostics();
 // Stop sending local UFDs to remote clients.
 remoteUfdsFeature.stopSendingDiagnostics();
-
+```
 
 
 ## Raise the latest User Facing Diagnostics fired off
@@ -193,4 +193,4 @@ console.log(
   `microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, ` +
     `value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`
 );
-
+```
