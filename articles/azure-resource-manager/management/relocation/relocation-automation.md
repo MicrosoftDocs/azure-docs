@@ -16,7 +16,7 @@ If your Azure Automation instance doesn't have any configuration and the instanc
 
 ## Prerequisites
 
-- Identify all Automation dependant resources.
+- Identify all Automation dependent resources.
 - If the system-assigned managed identity isn't being used at source, you must map user-assigned managed identity at the target.
 - If the target Azure Automation needs to be enabled for private access, associate with Virtual Network for private endpoint.
 - If the source Azure Automation is enabled with a private connection, create a private link and configure the private link with Domain Name System (DNS) at target.

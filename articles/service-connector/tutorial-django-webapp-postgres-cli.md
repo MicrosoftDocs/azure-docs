@@ -200,7 +200,7 @@ In this section, you create app host in App Service app, connect this app to the
 
 ### Create a passwordless connector to Postgres database
 
-With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure. The app code expects to find database information in an environment variable named `AZURE_POSTGRESQL_CONNECTIONSTRING` for PostgresSQL flexible server and an environment variable named `AZURE_STORAGEBLOB_RESOURCEENDPOINT` for Azure Storage account.
+With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure. The app code expects to find database information in an environment variable named `AZURE_POSTGRESQL_CONNECTIONSTRING` for PostgreSQL flexible server and an environment variable named `AZURE_STORAGEBLOB_RESOURCEENDPOINT` for Azure Storage account.
 
 The Service Connector commands configure Azure Storage and Azure Database for PostgreSQL resources to use managed identity and Azure role-based access control. The commands create app settings in the App Service that connect your web app to these resources. The output from the commands lists the service connector actions taken to enable passwordless capability.
 

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 06/03/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -22,7 +22,6 @@ The article walks through the process of configuring autoscale and suggests opti
 > [!NOTE]
 > * In service tiers that support multiple scale units, you can also [manually scale](upgrade-and-scale.md) your API Management instance.
 > * An API Management service in the **Consumption** tier scales automatically based on the traffic - without any additional configuration needed.
-> * Currently, autoscale is not supported for the [workspace gateway](workspaces-overview.md#workspace-gateway) in API Management workspaces.
 
 [!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
 
@@ -41,15 +40,15 @@ Certain limitations and consequences of scaling decisions need to be considered 
 
 + The [pricing tier](api-management-features.md) of your API Management instance determines the [maximum number of units](upgrade-and-scale.md#upgrade-and-scale) you may scale to. For example, the **Standard tier** can be scaled to 4 units. You can add any number of units to the **Premium** tier.
 + If the service is locked by another operation, the scaling request will fail and retry automatically.
-+ If your service instance is deployed in multiple regions (locations), only units in the **Primary location** can be autoscaled with Azure Monitor autoscale. Units in other locations can only be scaled manually.
-+ If your service instance is configured with [availability zones](zone-redundancy.md) in the **Primary location**, be aware of the number of zones when configuring autoscaling. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones. 
++ If your service instance is deployed in multiple regions (locations), only units in the **Primary location** can be autoscaled with Azure Monitor autoscale. Units in other locations can be scaled manually or using custom scaling tools.
++ If your service instance is configured with [availability zones](zone-redundancy.md) in the **Primary location**, we recommend leaving the default **Automatic** setting for availability zones. If you select specific zones, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones configured. 
 
 ## Enable and configure autoscale for an API Management instance
 
 Follow these steps to configure autoscale for an Azure API Management service:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
-1. In the left menu, select **Scale out (auto-scale)**, and then select **Custom autoscale**.
+1. In the left menu, select **Deployment + infrastructure** > **Scale out (auto-scale)**, and then select **Custom autoscale**.
 
     :::image type="content" source="media/api-management-howto-autoscale/01.png" alt-text="Screenshot of scale-out options in the portal.":::
 
