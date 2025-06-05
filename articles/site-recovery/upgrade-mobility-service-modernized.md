@@ -4,8 +4,8 @@ description: This article describes about automatic updates for mobility agent a
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 12/23/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 
@@ -51,7 +51,7 @@ To manually update mobility agent on multiple protected items, follow these step
    >If prerequisites to upgrade Mobility service aren't met, then the virtual machine can't be selected. See information on [how to resolve](#resolve-blocking-issues-for-agent-upgrade).
 
 
-4. After initiating the upgrade, a Site Recovery job is created in the vault for each upgrade operation, and can be tracked by navigating to **Monitoring** > **Site Recovery jobs**.
+4. After initiating the upgrade, a Site Recovery job is created in the vault for each upgrade operation and can be tracked by navigating to **Monitoring** > **Site Recovery jobs**.
 
 ### Update mobility agent for a single protected machine through portal
 
