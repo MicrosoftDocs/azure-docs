@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 04/04/2022
 ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data exported from Azure to Data Box, to an on-premises data server.
+# Customer intent: As an IT admin, I want to copy data from Azure Data Box to an on-premises server via NFS, so that I can securely transfer and manage large volumes of data for my organization's needs.
 ---
 # Tutorial: Copy data from Azure Data Box via NFS
 

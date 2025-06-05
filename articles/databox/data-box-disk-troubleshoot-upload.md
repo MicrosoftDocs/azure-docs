@@ -9,6 +9,7 @@ ms.service: azure-data-box-disk
 ms.topic: troubleshooting
 ms.date: 02/24/2022
 ms.author: shaas
+# Customer intent: As a data engineer, I want to access and analyze upload logs for Azure Data Box Disk, so that I can troubleshoot data transfer issues and ensure data integrity during uploads.
 ---
 
 # Use logs to troubleshoot upload issues in Azure Data Box Disk

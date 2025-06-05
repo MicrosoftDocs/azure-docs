@@ -8,6 +8,7 @@ ms.service: azure-data-box-heavy
 ms.topic: concept-article
 ms.date: 06/13/2023
 ms.author: shaas
+# Customer intent: As a cloud engineer, I want to understand the system and networking requirements for the Azure Data Box Heavy, so that I can ensure proper deployment and optimal performance of the device in my data migration projects.
 ---
 # Azure Data Box Heavy system requirements
 

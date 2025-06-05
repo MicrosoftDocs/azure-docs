@@ -7,6 +7,7 @@ ms.service: azure-databox
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.author: shaas
+# Customer intent: As a data administrator, I want to configure Customer Lockbox for Azure Data Box, so that I can control and approve access to my data during support requests and ensure compliance with data privacy requirements.
 ---
 
 # Use Customer Lockbox for Azure Data Box (Preview)

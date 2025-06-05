@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 01/25/2022
 ms.author: shaas
 zone_pivot_groups: data-box-sku
+# Customer intent: As a data engineer, I want to understand the limits of Azure Data Box systems and connections, so that I can effectively plan for data import and export operations without exceeding capacity or running into compatibility issues.
 ---
 
 # Azure Data Box limits

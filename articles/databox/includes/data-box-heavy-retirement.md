@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 03/05/2025
 ms.author: shaas
+# Customer intent: As a data engineer, I want to understand the transition from Azure Data Box Heavy to the next-gen data box options, so that I can effectively plan for my offline data transfer needs before the retirement date.
 ---
 
 > [!NOTE]
