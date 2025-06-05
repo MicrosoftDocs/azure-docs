@@ -90,7 +90,7 @@ The Hive linked service supports the following properties when apply version 2.0
 | host | IP address or host name of the Hive server.  | Yes |
 | port | The TCP port that the Hive server uses to listen for client connections. If you connect to Azure HDInsight, specify port as 443. | Yes |
 | serverType | The type of Hive server. <br/>Allowed value is: **HiveServer2** | No |
-| thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed value is: **Binary**, **SASL**, **HTTP** | No |
+| thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed value are: **Binary**, **SASL**, **HTTP** | No |
 | authenticationType | The authentication method used to access the Hive server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. Kerberos authentication is not supported now. | Yes |
 | username | The user name that you use to access Hive Server.  | No |
 | password | The password corresponding to the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
