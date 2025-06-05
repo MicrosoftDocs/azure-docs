@@ -30,7 +30,7 @@ Azure File Sync resources must be deprovisioned in a specific order:
 
  1. Delete Server Endpoints
  1. After you delete all the server endpoints in the sync group, delete the cloud endpoint.
- - Then delete the sync group.
+ 1. Then delete the sync group.
  - Repeat these steps for all the sync groups in the Storage Sync Service that you want to delete. After you've deleted all the sync groups in that Storage Sync Service, delete the Storage Sync Service resource.
 > [!NOTE]
 > When managed identities is enabled, you may need to wait longer to delete the Storage Sync Service. (See [Unable to delete a Storage Sync Service](./file-sync-troubleshoot-managed-identities.md#unable-to-delete-a-storage-sync-service)) 
