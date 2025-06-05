@@ -142,7 +142,7 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 1. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Workload-SN**.
 1. For **Public IP**, select **None**.
 1. Accept the other defaults and select **Next: Management**.
-1. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
+1. Under **Management** tab, select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
 1. Review the settings on the summary page, and then select **Create**.
 1. After the deployment completes, select the **Srv-Work** resource and note the private IP address for later use.
 
