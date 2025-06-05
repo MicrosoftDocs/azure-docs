@@ -113,17 +113,11 @@ Set-EflowVM -cpuCount 2 -memoryInMB 4096
 
 ## Next steps
 
-### Get Started with Samples
-Go to our [EFLOW Samples Page](https://github.com/Azure/iotedge-eflow/tree/main/samples) to find several GPU samples you can try. These samples show common manufacturing and retail scenarios like defect detection, worker safety, and inventory management. These open-source samples can be a solution template for building your own vision-based machine learning application.
+* Try GPU samples from the [EFLOW samples](https://github.com/Azure/iotedge-eflow/tree/main/samples). These samples show common manufacturing and retail scenarios like defect detection, worker safety, and inventory management. These open-source samples can be a solution template for building your own vision-based machine learning application.
 
-### Learn More from our Partners
-Several GPU vendors provide user guides on getting the most from their hardware and software with EFLOW.
+* Learn more about GPU passthrough technologies in the [DDA documentation](/windows-server/virtualization/hyper-v/plan/plan-for-gpu-acceleration-in-windows-server#discrete-device-assignment-dda) and [GPU-PV blog post](https://devblogs.microsoft.com/directx/directx-heart-linux/#gpu-virtualization).
+
+Several GPU vendors provide user guides on getting the most from their hardware and software with EFLOW:
+
 * Learn how to run Intel OpenVINO&trade; applications on EFLOW by following [Intel's guide on iGPU with Azure IoT Edge for Linux on Windows (EFLOW) & OpenVINO&trade; Toolkit](https://community.intel.com/t5/Blogs/Tech-Innovation/Artificial-Intelligence-AI/Witness-the-power-of-Intel-iGPU-with-Azure-IoT-Edge-for-Linux-on/post/1382405) and [reference implementations](https://www.intel.com/content/www/us/en/developer/articles/technical/deploy-reference-implementation-to-azure-iot-eflow.html).
-* Get started with deploying CUDA-accelerated applications on EFLOW by following [NVIDIA's EFLOW User Guide for GeForce/Quadro/RTX GPUs](https://docs.nvidia.com/cuda/eflow-users-guide/index.html). 
-
-> [!NOTE]
-> This guide doesn't cover DDA-based GPUs like NVIDIA T4 or A2. 
-
-### GPU passthrough technology
-
-Learn more about GPU passthrough technologies in the [DDA documentation](/windows-server/virtualization/hyper-v/plan/plan-for-gpu-acceleration-in-windows-server#discrete-device-assignment-dda) and [GPU-PV blog post](https://devblogs.microsoft.com/directx/directx-heart-linux/#gpu-virtualization).
+* Get started with deploying CUDA-accelerated applications on EFLOW by following [NVIDIA's EFLOW User Guide for GeForce/Quadro/RTX GPUs](https://docs.nvidia.com/cuda/eflow-users-guide/index.html). This guide doesn't cover DDA-based GPUs like NVIDIA T4 or A2.
