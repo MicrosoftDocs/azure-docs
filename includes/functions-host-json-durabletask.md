@@ -6,7 +6,9 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/17/2025
 ms.author: glenga
-ms.custom: include file
+ms.custom:
+  - include file
+  - build-2025
 ---
 
 Configuration settings for [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).

@@ -2,8 +2,8 @@
 title: Automatic Guest Patching for Azure Virtual Machines
 description: Learn how to automatically patch your Azure Virtual Machines and Scale Sets using Azure Update Manager. This article provides an overview of supported OS images, configuration steps, and best practices for maintaining security compliance through automatic guest patching.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 03/07/2025
 ms.topic: overview
 ---

@@ -6,7 +6,9 @@ ms.author: peterwhiting
 ms.date: 03/19/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 
 ---
 

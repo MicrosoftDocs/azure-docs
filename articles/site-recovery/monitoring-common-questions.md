@@ -4,8 +4,8 @@ description: Get answers to common questions about Azure Site Recovery monitorin
 ms.service: azure-site-recovery
 ms.date: 09/18/2024
 ms.topic: overview
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 # Common questions about Site Recovery monitoring
 

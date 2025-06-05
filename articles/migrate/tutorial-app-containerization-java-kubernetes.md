@@ -1,8 +1,8 @@
 ---
 title: Azure App Containerization Java; Containerization and migration of Java web applications to Azure Kubernetes.
 description: Tutorial:Containerize & migrate Java web applications to Azure Kubernetes Service.
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.custom: devx-track-java, devx-track-javaee, migration-java, subject-rbac-steps, devx-track-extended-java
 ms.topic: tutorial
 ms.service: azure-migrate

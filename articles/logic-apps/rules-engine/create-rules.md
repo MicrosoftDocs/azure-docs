@@ -10,6 +10,8 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to create rules for my Azure Logic Apps Rules Engine project using the Microsoft Rules Composer so that I can integrate business logic with my Standard logic app workflows.
+ms.custom:
+  - build-2025
 ---
 
 # Create rules using the Microsoft Rules Composer

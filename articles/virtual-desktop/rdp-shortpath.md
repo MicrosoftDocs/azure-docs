@@ -197,8 +197,8 @@ The following table details the source, destination and protocol requirements fo
 | Name | Source | Source Port | Destination | Destination Port | Protocol | Action |
 |---|---|:---:|---|:---:|:---:|:---:|
 | STUN direct connection | VM subnet | Any | Any | 1024-65535<br />(*default 49152-65535*) | UDP | Allow |
-| STUN infrastructure/TURN | VM subnet | Any | `20.202.0.0/16` | 3478 | UDP | Allow |
-| TURN relay | VM subnet | Any | `51.5.0.0/16` | 3478 | UDP | Allow |
+| STUN/TURN relay| VM subnet | Any | `20.202.0.0/16` | 3478 | UDP | Allow |
+| STUN/TURN Relay | VM subnet | Any | `51.5.0.0/16` | 3478 | UDP | Allow |
 
 #### Client network
 
@@ -207,8 +207,8 @@ The following table details the source, destination and protocol requirements fo
 | Name | Source | Source Port | Destination | Destination Port | Protocol | Action |
 |---|---|:---:|---|:---:|:---:|:---:|
 | STUN direct connection | Client network | Any | Public IP addresses assigned to NAT Gateway or Azure Firewall (provided by the STUN endpoint) | 1024-65535<br />(*default 49152-65535*) | UDP | Allow |
-| STUN infrastructure/TURN relay | Client network | Any | `20.202.0.0/16` | 3478 | UDP | Allow |
-| TURN relay | Client network | Any | `51.5.0.0/16` | 3478 | UDP | Allow |
+| STUN/TURN relay | Client network | Any | `20.202.0.0/16` | 3478 | UDP | Allow |
+| STUN/TURN relay | Client network | Any | `51.5.0.0/16` | 3478 | UDP | Allow |
 
 > [!NOTE]
 > From June 15th, the traffic will progressively be redirected from the current Azure Communication Service (ACS) TURN Relay range (`20.202.0.0/16`) to the newly designated subnet `51.5.0.0/16`. While this shift is designed to be seamless, it’s essential that customers preemptively configure bypass rules for the new range to maintain uninterrupted service. With both IP ranges properly bypassed, end users shouldn't experience any connectivity issues.

@@ -9,6 +9,8 @@ ms.topic: overview
 ms.date: 05/19/2025
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
+ms.custom:
+  - build-2025
 ---
 
 # What is Azure attribute-based access control (Azure ABAC)?
