@@ -13,39 +13,48 @@ ms.author: kpunjabi
 
 ## Websocket code sample
 
-This sample code demonstrates how to configure OIDC client to validate websocket payload using JWT. Install the following package:
+This sample demonstrates how to configure an OIDC-compliant client to validate WebSocket connection requests using JWT.
 
+Make sure to install the required package:
 `pip install cryptography`
 
 ```python
 JWKS_URL = "https://acscallautomation.communication.azure.com/calling/keys"
 ISSUER = "https://acscallautomation.communication.azure.com"
 AUDIENCE = "ACS resource ID”
-@app.websocket('/ws') async def ws(): try: auth_header = websocket.headers.get("Authorization") if not auth_header or not auth_header.startswith("Bearer "): await websocket.close(1008) # Policy violation return
-   token = auth_header.split()[1]
 
-    jwks_client = PyJWKClient(JWKS_URL)
-    signing_key = jwks_client.get_signing_key_from_jwt(token)
+@app.websocket('/ws')
+async def ws():
+    try:
+        auth_header = websocket.headers.get("Authorization")
+        if not auth_header or not auth_header.startswith("Bearer "):
+            await websocket.close(1008)  # Policy violation
+            return
 
-    decoded = jwt.decode(
-        token,
-        signing_key.key,
-        algorithms=["RS256"],
-        issuer=ISSUER,
-        audience=AUDIENCE,
-    )
+        token = auth_header.split()[1]
 
-    app.logger.info(f"Authenticated WebSocket connection with decoded JWT payload: {decoded}")
-    await websocket.send("Connection authenticated.")
+        jwks_client = PyJWKClient(JWKS_URL)
+        signing_key = jwks_client.get_signing_key_from_jwt(token)
 
-    while True:
-        data = await websocket.receive()
-        # Process incoming data
+        decoded = jwt.decode(
+            token,
+            signing_key.key,
+            algorithms=["RS256"],
+            issuer=ISSUER,
+            audience=AUDIENCE,
+        )
 
-except InvalidTokenError as e:
-    app.logger.warning(f"Invalid token: {e}")
-    await websocket.close(1008)
-except Exception as e:
-    app.logger.error(f"Uncaught exception: {e}")
-    await websocket.close(1011)  # Internal error
+        app.logger.info(f"Authenticated WebSocket connection with decoded JWT payload: {decoded}")
+        await websocket.send("Connection authenticated.")
+
+        while True:
+            data = await websocket.receive()
+            # Process incoming data
+
+    except InvalidTokenError as e:
+        app.logger.warning(f"Invalid token: {e}")
+        await websocket.close(1008)
+    except Exception as e:
+        app.logger.error(f"Uncaught exception: {e}")
+        await websocket.close(1011)  # Internal error
 ```
