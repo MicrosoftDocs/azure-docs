@@ -33,7 +33,7 @@ A downstream device can be any application or platform with an identity created 
 You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we use the same certificate setup as [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub. This setup uses an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), a series of certificates signed with this CA, and a CA for the IoT Edge device.
 
 >[!NOTE]
->The term *root CA certificate* used throughout these articles refers to the topmost authority public certificate of the PKI certificate chain, and not necessarily the certificate root of a syndicated certificate authority. In many cases, it is actually an intermediate CA public certificate.
+>The term *root CA certificate* used throughout these articles refers to the topmost authority public certificate of the PKI certificate chain, and not necessarily the certificate root of a syndicated certificate authority. In many cases, it's actually an intermediate CA public certificate.
 
 Follow these steps to create the certificates and install them in the right places on the gateway. Use any machine to generate the certificates, then copy them to your IoT Edge device.
 
@@ -258,6 +258,7 @@ Standard IoT Edge devices don't need any inbound connectivity to function, becau
 # [IoT Edge](#tab/iotedge)
 
 For a gateway scenario to work, at least one of the IoT Edge Hub's supported protocols must be open for inbound traffic from downstream devices. The supported protocols are MQTT, AMQP, HTTPS, MQTT over WebSockets, and AMQP over WebSockets.
+
 | Port | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
