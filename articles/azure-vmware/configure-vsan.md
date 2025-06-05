@@ -4,7 +4,9 @@ description:  Learn how to configure VMware vSAN.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/07/2023
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - build-2025
 
 #Customer intent: As an Azure service administrator, I want to configure VMware vSAN.
 

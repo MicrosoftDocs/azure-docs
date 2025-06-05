@@ -4,6 +4,8 @@ ms.topic: include
 ms.date: 02/21/2020
 author: v1212
 ms.author: wujia
+ms.custom:
+  - build-2025
 ---
 
 ::: zone pivot="programming-language-csharp"
@@ -348,7 +350,7 @@ For a reference of host.json in Azure Functions 1.x, see [host.json reference fo
 
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs
-[extension bundle]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles
+[extension bundle]: ../articles/azure-functions/extension-bundles.md
 [Update your extensions]: ../articles/azure-functions/functions-bindings-register.md
 
 [Microsoft.Azure.EventHubs]: /dotnet/api/microsoft.azure.eventhubs

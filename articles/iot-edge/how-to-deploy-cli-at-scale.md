@@ -11,6 +11,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:05/16/2025
+  - build-2025
 services: iot-edge
 ---
 # Deploy and monitor IoT Edge modules at scale by using the Azure CLI

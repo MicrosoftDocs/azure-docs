@@ -3,6 +3,8 @@ title: Reference linked templates and artifacts
 description: Describes how publishers can refer to linked files in their Azure Applications offer packages.
 ms.topic: how-to
 ms.date: 05/12/2025
+ms.custom:
+  - build-2025
 ---
 
 # Reference artifacts in Azure Applications offers

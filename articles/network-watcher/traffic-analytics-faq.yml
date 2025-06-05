@@ -7,7 +7,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 04/18/2025
+  ms.date: 06/03/2025
 title: Traffic analytics frequently asked questions (FAQ)
 summary: |
   This article provides answers to the most frequently asked questions about traffic analytics capability of Azure Network Watcher.  
@@ -16,25 +16,20 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          How can I check if I have the required roles?
+          What RBAC permissions are required to use traffic analytics?
         answer: |
-          To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml). If you can't see the role assignments, contact the respective subscription admin.
+          See [Traffic analytics permissions](./required-rbac-permissions.md#traffic-analytics) for the full list of required RBAC roles and permissions.
 
       - question: |
-          Can I enable flow logs for network security groups that are in different regions than my workspace region?
+          Can I enable flow logs for resources that are in different regions than my workspace region?
         answer: |
-          Yes, network security groups can be in different regions than your Log Analytics workspace region.
+          Yes, virtual networks and network security groups can be in different regions than your Log Analytics workspace region.
 
       - question: |
           Can multiple network security groups be configured within a single workspace?
         answer: |
           Yes.
 
-      - question: |
-          Are Classic network security groups supported?
-        answer: |
-          No, traffic analytics doesn't support classic network security groups.
-      
       - question: |
           Why doesn't traffic analytics display data for my traffic analytics enabled network security groups? 
         answer: |
@@ -44,7 +39,12 @@ sections:
           Can I use an existing workspace?
         answer: |
           Yes. If you select an existing workspace, make sure that it was migrated to the new query language. If you don't want to upgrade the workspace, you need to create a new one. For more information about Kusto Query Language (KQL), see [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
-          
+
+      - question: |
+          Why do some resources appear as **Unknown** in traffic analytics?
+        answer: |
+          Traffic analytics performs a resource discovery scan every 6 hours to identify new VMs, NICs, virtual networks, and subnets. When a new VM or NIC is created after the most recent discovery cycle, and flow data is collected before the next discovery, traffic analytics can't yet associate the traffic with a known resource. As a result, those resources are temporarily labeled as *unknown* in the analytics view.
+
       - question: |
           Can my Azure storage account be in one subscription and my Log Analytics workspace be in a different subscription?
         answer: |

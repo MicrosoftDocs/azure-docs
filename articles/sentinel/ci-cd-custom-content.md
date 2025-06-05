@@ -7,7 +7,9 @@ ms.author: austinmc
 ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 12/31/2024
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - build-2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

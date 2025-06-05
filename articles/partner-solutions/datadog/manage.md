@@ -38,7 +38,7 @@ Below the essentials, you can navigate to other details about your resource by s
 
 - **View Dashboards** provides insights on health and performance.
 - **View Logs** allows you to search and analyze logs using adhoc queries.
-- **View host maps** provides a complete view of all hosts (VMs, VMSS, App service plans)
+- **View host maps** provides a complete view of all hosts (Azure Virtual Machines, Azure Virtual Machine Scale Sets, Azure App service plans)
 
 A summary of resources is also displayed in the working pane. 
 
@@ -53,11 +53,11 @@ A summary of resources is also displayed in the working pane.
 
 To change the configuration rules for metrics and logs:
 
-1. Select **Datadog organization configurations > Metrics and Logs** from the Resource menu.
+1. Select **Datadog organization configurations > Metrics and Logs** from the service menu.
 
 ## View monitored resources
 
-To view the list of resources emitting logs to Datadog, select **Datadog organization configurations > Monitored Resources** in the Resource menu.
+To view the list of resources emitting logs to Datadog, select **Datadog organization configurations > Monitored Resources** in the service menu.
 
 > [!TIP]
 > You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics. 
@@ -72,7 +72,7 @@ To monitor multiple subscriptions:
 
 1. Select **Add subscriptions** from the Command bar.
 
-    The **Add Subscriptions** experience that opens and displays subscriptions you have _Owner_ role assigned to and any Datadog resource created in those subscriptions that is already linked to the same Datadog organization as the current resource.
+    The **Add Subscriptions** experience that opens and shows subscriptions you have _Owner_ role assigned to and any Datadog resource created in those subscriptions that is already linked to the same Datadog organization as the current resource.
     
     If the subscription you want to monitor has a resource already linked to the same Datadog org, delete the Datadog resources to avoid shipping duplicate data and incurring double the charges.
 
@@ -87,11 +87,11 @@ To monitor multiple subscriptions:
 
 Once the subscription is added, the status changes to *Active*.  
 
-### Remove subscriptions from a Datadog resource
+### Remove subscriptions
 
 To unlink subscriptions from a Datadog resource:
 
-1. Select **Datadog organization configurations > Monitored Subscriptions** from the Resource menu. 
+1. Select **Datadog organization configurations > Monitored Subscriptions** from the service menu. 
 
 1. Select the subscription you want to remove.
 
@@ -103,7 +103,7 @@ To view the updated list of monitored subscriptions, select **Refresh** from the
 
 To view the list of API keys for your Datadog resource:
 
-1. Select **Settings > Keys** from the Resource menu.
+1. Select **Settings > Keys** from the service menu.
 
     The Azure portal provides a read-only view of the API keys. 
 
@@ -120,29 +120,31 @@ You can install Datadog agents on virtual machines, App Service extensions, Azur
 > [!IMPORTANT]
 > If a default key isn't selected, your Datadog agent installation fails. See [API keys](#api-keys).
 
-### Virtual machines
+#### [Virtual machines](#tab/virtual-machines)
 
 To monitor resources for virtual machines, select **Datadog organization configurations > Virtual machine agent** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
-### App Service
+#### [App Service](#tab/app-service)
 
 To monitor resources for App Service, select **Datadog organization configurations > App Service extension** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
-### Azure Kubernetes Services
+#### [Azure Kubernetes Services](#tab/azure-kubernetes-services)
 
 To monitor resources Azure Kubernetes Services, select **Datadog organization configurations > Azure Kubernetes Services** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
-### Azure Arc Machines
+#### [Azure Arc Machines](#tab/azure-arc-machines)
 
 To monitor resources for Azure Arc Machines, select **Datadog organization configurations > Azure Arc Machines** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
+
+---
 
 ## Reconfigure single sign-on
 
@@ -167,7 +169,11 @@ To stop sending logs and metrics from Azure to Datadog:
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
-## Related content
+## Get support
 
-- [Troubleshooting Datadog solutions](troubleshoot.md)
+Contact [Datadog](https://www.datadoghq.com/support) for customer support. 
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [log a support request in the Datadog portal](https://www.datadoghq.com/support). 
 
