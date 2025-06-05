@@ -98,6 +98,9 @@ public void onMessage(String message, Session session) {
 
 The first packet you receive contains metadata about the stream, including audio settings such as encoding, sample rate, and other configuration details.
 
+### Additional Headers
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`. These are sent when Azure Communication Services tries to connect to your endpoint.
+
 ``` json
 {
   "kind": "AudioMetadata",
