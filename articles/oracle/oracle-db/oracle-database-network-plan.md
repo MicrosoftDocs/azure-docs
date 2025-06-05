@@ -100,7 +100,7 @@ When routing traffic to Oracle Database@Azure through a Network Virtual Applianc
 
 #### Topology-specific guidance
 **Hub-and-spoke topology**
-- Define the UDR on the gateway subnet
+- Define the UDR on the gateway subnet.
 - Use a route prefix of `x.x.x.x/27` or more specific.
 - Set the next hop to your NVA/Firewall.
 
