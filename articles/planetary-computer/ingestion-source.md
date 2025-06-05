@@ -3,7 +3,7 @@ title: Ingestion Source Configuration in Microsoft Planetary Computer Pro
 description: This article explains the concept of an ingestion source for Microsoft Planetary Computer Pro including the location, URI structure, and authentication methods.
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: concept-article
 ms.date: 04/09/2025
 #customer intent: As a Microsoft Planetary Computer Pro user, I want to understand what an Ingestion Source is.
