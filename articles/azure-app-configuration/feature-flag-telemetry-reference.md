@@ -37,7 +37,7 @@ The full schema can be found [here](https://github.com/microsoft/FeatureManageme
 
 When the Feature Management libraries and the provider libraries are used together, more properties are added to the telemetry data. This data can then be sent to locations to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor, a **custom_event** is published to Open Telemetry with the following properties whenever a telemetry enabled feature flag is evaluated:
 
-- **Feature_Name**: The name of the feature flag.
+- **FeatureName**: The name of the feature flag.
 - **Enabled**: A boolean value indicating if the feature flag is enabled.
 - **Version**: The version of this schema.
 - **Reason**: The reason the feature flag was enabled or disabled.
