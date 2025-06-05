@@ -34,14 +34,12 @@ Enable automatic audio streaming when the call is established by setting the fla
 This setting ensures that audio streaming starts automatically as soon as the call is connected.
 
 ``` C#
-var mediaStreamingOptions = new MediaStreamingOptions(
-  new Uri("wss://YOUR_WEBSOCKET_URL"),
-  MediaStreamingContent.Audio,
-  MediaStreamingAudioChannel.Mixed,
-  startMediaStreaming: true) {
-  EnableBidirectional = true,
-    AudioFormat = AudioFormat.Pcm24KMono
-}
+MediaStreamingOptions mediaStreamingOptions = new MediaStreamingOptions(MediaStreamingAudioChannel.Unmixed);
+ mediaStreamingOptions.TransportUri = new Uri(websocketUri);
+ mediaStreamingOptions.EnableBidirectional = true;
+ mediaStreamingOptions.AudioFormat = AudioFormat.Pcm24KMono;
+ mediaStreamingOptions.EnableDtmfTones = true;
+  
 var options = new AnswerCallOptions(incomingCallContext, callbackUri) {
   MediaStreamingOptions = mediaStreamingOptions,
 };
@@ -56,14 +54,12 @@ When Azure Communication Services receives the URL for your WebSocket server, it
 To start media streaming during the call, you can use the API. To do so, set the `startMediaStreaming` parameter to `false` (which is the default), and later in the call, you can use the start API to enable media streaming.
 
 ``` C#
-var mediaStreamingOptions = new MediaStreamingOptions(
-  new Uri("wss://<YOUR_WEBSOCKET_URL"),
-  MediaStreamingContent.Audio,
-  MediaStreamingAudioChannel.Mixed,
-  startMediaStreaming: false) {
-  EnableBidirectional = true,
-    AudioFormat = AudioFormat.Pcm24KMono
-}
+MediaStreamingOptions mediaStreamingOptions = new MediaStreamingOptions(MediaStreamingAudioChannel.Unmixed);
+ mediaStreamingOptions.TransportUri = new Uri(websocketUri);
+ mediaStreamingOptions.EnableBidirectional = true;
+ mediaStreamingOptions.AudioFormat = AudioFormat.Pcm24KMono;
+ mediaStreamingOptions.EnableDtmfTones = true;
+
 var options = new AnswerCallOptions(incomingCallContext, callbackUri) {
   MediaStreamingOptions = mediaStreamingOptions,
 };
@@ -72,10 +68,11 @@ AnswerCallResult answerCallResult = await client.AnswerCallAsync(options);
 
 Start media streaming via API call
 StartMediaStreamingOptions options = new StartMediaStreamingOptions() {
-  OperationContext = "startMediaStreamingContext"
+  OperationContext = "startMediaStreamingContext",
+  OperationCallbackUri = eventCallbackUri
 };
 
-await callMedia.StartMediaStreamingAsync();
+await callMedia.StartMediaStreamingAsync(options);
 ```
 
 
@@ -86,10 +83,11 @@ To stop receiving audio streams during a call, you can use the **Stop streaming 
 
 ``` C#
 StopMediaStreamingOptions options = new StopMediaStreamingOptions() {
-  OperationContext = "stopMediaStreamingContext"
+  OperationContext = "stopMediaStreamingContext",
+  OperationCallbackUri = eventCallbackUri
 };
 
-await callMedia.StopMediaStreamingAsync();
+await callMedia.StopMediaStreamingAsync(options);
 ```
 
 ## Handling audio streams in your websocket server
@@ -115,6 +113,9 @@ private async Task StartReceivingFromAcsMediaWebSocket(Websocket websocket) {
 ```
 
 The first packet you receive contains metadata about the stream, including audio settings such as encoding, sample rate, and other configuration details.
+
+### Additional Headers
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`. These are sent when Azure Communication Services tries to connect to your endpoint.
 
 ``` json
 {
