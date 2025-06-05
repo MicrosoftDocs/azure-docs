@@ -2,8 +2,8 @@
 title: Azure Update Manager support matrix for updates
 description: This article provides a summary of support for updates, one time updates, periodic assessments and scheduled patching.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 03/18/2025
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates
@@ -342,7 +342,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 ## Next steps
 
 - Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
-- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manger.
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manager.
 - Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).
 - Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).
 - Learn about [security vulnerabilities and Ubuntu Pro support](security-awareness-ubuntu-support.md).

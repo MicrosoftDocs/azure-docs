@@ -128,15 +128,16 @@ FHIR specifies a set of search result parameters to help manage the information 
 | **Search result parameters** | **FHIR service in Azure Health Data Services** | **Azure API for FHIR** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | `_elements`                     | Yes                  | Yes                       | |
-| `_count`                        | Yes                  | Yes                       | `_count` is limited to 1000 resources. If it's set higher than 1000, only 1000 are returned and a warning will be included in the bundle.                               |
-| `_include`                      | Yes                  | Yes                       | `_include` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
-| `_revinclude`                   | Yes                  | Yes                       | `_revinclude` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). There's also an incorrect status code for a bad request: [#1319](https://github.com/microsoft/fhir-server/issues/1319).                            |
+| `_count`                        | Yes                  | Yes                       | `_count` is limited to 1000 resources. If it's set higher than 1000, only 1000 are returned and a warning will be included in the bundle. |
+| `_include`                      | Yes                  | Yes                       | `_include` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). |
+| `_revinclude`                   | Yes                  | Yes                       | `_revinclude` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). There's also an incorrect status code for a bad request: [#1319](https://github.com/microsoft/fhir-server/issues/1319). |
 | `_summary`                      | Yes             | Yes                   | |
-| `_total`                        | Partial              | Partial                   | `_total=none` and `_total=accurate`                               |
-| `_sort`                         | Partial              | Partial                   | `sort=_lastUpdated` is supported on the FHIR service. For the FHIR service and the OSS SQL DB FHIR servers, sorting by strings and dateTime fields are supported. For Azure API for FHIR and OSS Azure Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date.             |
+| `_total`                        | Partial              | Partial                   | `_total=none` and `_total=accurate` |
+| `_sort`                         | Partial              | Partial                   | `sort=_lastUpdated` is supported on the FHIR service. For the FHIR service and the OSS SQL DB FHIR servers, sorting by strings and dateTime fields are supported. For Azure API for FHIR and OSS Azure Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date. |
 | `_contained`                    | No                   | No                        | |
 | `_containedType`                | No                   | No                        | |
 | `_score`                        | No                   | No                        | |
+| `_not-referenced`			      | Yes                  | No                        | `_not-referenced=*:*` to search for resources that are not referenced by any other resources. For example, `/Patient?_not-referenced=*:*` is used to search for Patient resources that are not referenced by any other resources. |
 
 Note:
 1. By default, `_sort` arranges records in ascending order. You can also use the prefix `-` to sort in descending order. The FHIR service only allows you to sort on a single field at a time.

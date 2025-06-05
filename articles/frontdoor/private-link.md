@@ -6,7 +6,10 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 08/12/2024
-ms.custom: references_regions, ignite-2024
+ms.custom:
+  - references_regions
+  - ignite-2024
+  - build-2025
 ---
 
 # Secure your Origin with Private Link in Azure Front Door Premium
@@ -35,7 +38,7 @@ Once your request is approved, a private IP address gets assigned from the Azure
 
 Origin support for direct private endpoint connectivity is currently limited to:
 * Blob Storage
-* Web App
+* App Service (Web App, Function App)
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
 * API Management
@@ -43,7 +46,7 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Azure Container Apps
   
 > [!NOTE]
-> * This feature isn't supported with Azure App Service Slots or Functions.
+> * This feature isn't supported with Azure App Service Slots and Azure Static Web App. 
 
 ## Region availability
 

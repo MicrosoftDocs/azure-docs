@@ -6,6 +6,8 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/18/2025
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 # Expose REST API in API Management as an MCP server
@@ -18,7 +20,7 @@ In API Management, you can expose a REST API managed in API Management as a remo
 Using API Management to expose remote MCP servers provides centralized control over authentication, authorization, and monitoring. It simplifies the process of exposing APIs as MCP servers while helping to mitigate common security risks and ensuring scalability.
 
 > [!NOTE]
-> This feature is currently in preview. It's being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
+> This feature is currently in preview. It's being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md). After joining the group, it can take 2 hours to access MCP server features.
 
 In this article, you learn how to:
 

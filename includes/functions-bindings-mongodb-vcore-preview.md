@@ -4,6 +4,8 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/12/2025
 ms.author: glenga
+ms.custom:
+  - build-2025
 ---
 >[!IMPORTANT]  
 >The Azure Cosmos DB for MongoDB (vCore) extension is currently in preview.  

@@ -6,7 +6,7 @@ ms.reviewer: PreetiSGit
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/08/2025
+ms.date: 05/15/2025
 ms.author: macyso
 ---
 

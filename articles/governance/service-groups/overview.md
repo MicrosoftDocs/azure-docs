@@ -6,6 +6,8 @@ ms.author: rithorn
 ms.service: azure-policy
 ms.topic: overview
 ms.date: 05/19/2025
+ms.custom:
+  - build-2025
 ---
 
 # What are Azure Service Groups?
@@ -83,6 +85,15 @@ This table shows a summary of the differences between the groups.
 **: Tags can be applied across scopes and are added to resources individually. Azure Policy has built-in policies that can help manage tags.
 
 ***: Azure tags can be used as criteria within Azure Policy to apply policies to certain resources. Azure tags are subject to limitations.
+
+### Important facts about service groups
+
+- A single tenant can support 10,000 service groups.
+- A service group tree can support up to ten levels of depth.
+  This limit doesn't include the root level or the subscription level.
+- Each service group can have many children.
+- A single service group name/ID can be up to 250 characters.
+- There are no limits of number of members of service groups, there is a limit of 2,000 relationships (including ServiceGroupMember) within a subscription
 
 ### The Root Service Group 
 

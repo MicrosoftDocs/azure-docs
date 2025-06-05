@@ -11,6 +11,8 @@ ms.date: 2/6/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
+ms.custom:
+  - build-2025
 ---
 # Microsoft Teams shared line appearance
 

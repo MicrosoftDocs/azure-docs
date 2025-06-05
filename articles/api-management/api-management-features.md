@@ -6,8 +6,10 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/12/2025
+ms.date: 05/21/2025
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 # Feature-based comparison of the Azure API Management tiers
@@ -52,7 +54,7 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Export API to Postman                                                         | Yes          | Yes       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
 | Export API to MCP server (preview)                                                        | No          | No       | Yes    | No       | Yes       | No       | Yes     | No |
 
-<sup>1</sup> Enables the use of Microsoft Entra ID (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
+<sup>1</sup> Enables the use of Microsoft Entra ID (and Azure AD B2C or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam)) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>
 <sup>3</sup> See [Gateway overview](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways) for a feature comparison of managed versus self-hosted gateways. In the Developer tier, self-hosted gateways are limited to a single gateway node. <br/>
 <sup>4</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the classic, v2, consumption, and self-hosted gateways. <br/>
