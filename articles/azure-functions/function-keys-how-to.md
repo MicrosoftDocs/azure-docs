@@ -74,6 +74,9 @@ When using Key Vault for key storage, the app settings you need depend on the ma
 | [AzureWebJobsSecretStorageKeyVaultClientSecret](functions-app-settings.md#azurewebjobssecretstoragekeyvaultclientsecret) | X | X | ✓ |
 | [AzureWebJobsSecretStorageKeyVaultTenantId](functions-app-settings.md#azurewebjobssecretstoragekeyvaulttenantid) | X | X | ✓ |
 
+> [!IMPORTANT]
+> When using Key Vault for key storage, there is no scoping of the secrets to each function app. If you configure `AzureWebJobsSecretStorageKeyVaultUri` with the same Key Vault resource for multiple function apps there can be inadvertent behavior, like apps will share the same key and keys getting overwritten. It is recommended to use different Key Vault resources for different function apps.
+
 ## Use access keys
 
 HTTP triggered functions can generally be called by using a URL in the format: `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. When the authorization level of a given function is set a value other than `anonymous`, you must also provide an access key in your request. The access key can either be provided in the URL using the `?code=` query string or in the request header (`x-functions-key`). For more information, see [Access key authorization](functions-bindings-http-webhook-trigger.md#api-key-authorization). 
