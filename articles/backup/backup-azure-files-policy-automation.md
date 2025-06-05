@@ -14,7 +14,7 @@ This article describes how Azure Backup uses built-in Azure Policy definitions t
 
 Based on the structure of your backup teams and the organization of your resources, you can choose the most suitable policy from the following options to ensure effective and consistent backup management.
 
-## Policy types for Azure Files backup
+## Azure Policy types for Azure Files backup
 
 The following table lists the various policy types that allows you to manage Azure Files instances backups automatically:
 
@@ -77,7 +77,7 @@ The evaluation workflow operates as per the following conditions:
 
 This policy validates if the protection of your Azure Files is configured with Azure Backup—a secure and cost-effective solution for safeguarding Azure workloads. It generates a report that lists both compliant and noncompliant resources.
 
-## Supported and unsupported  scenarios for Azure Files backup policies
+## Supported and unsupported  scenarios for Azure Files backup with Azure Policy
 
 The following table lists the supported and unsupported scenarios for the available policy types:
 
@@ -86,7 +86,7 @@ The following table lists the supported and unsupported scenarios for the availa
 | **Policies 1 and 2** |  Can be assigned to a single location and subscription at a time. To enable backup for Files across locations and subscriptions, multiple instances of the policy assignment need to be created, one for each combination of location and subscription. <br><br> - The specified vault and the Azure Files configured for backup can be under different resource groups. | Management group scope is currently unsupported. |
 | **Policies 3 and 4** | Can be assigned to a single subscription at a time (or a resource group within a subscription). |           |
 
-## Assign built-in policy for Azure Files backup
+## Assign built-in Azure Policy for Azure Files backup
 
 This section outlines the end-to-end steps to assign Policy 1. The same instructions apply to the other policies. After assignment, the policy automatically configures backup for any new File Share created within the defined scope.
 
