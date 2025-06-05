@@ -108,7 +108,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     :::column span="2":::
         **Step 2:** In the **Create Web App** page, fill out the form as follows.
         1. *Name*: **msdocs-laravel-mysql-XYZ**. A resource group named **msdocs-laravel-mysql-XYZ_group** will be generated for you.
-        1. *Runtime stack*: **PHP 8.3**.
+        1. *Runtime stack*: **PHP 8.4**.
         1. *Operating system*: **Linux**.
         1. *Region*: Any Azure region near you.
         1. *Linux Plan*: **Create new** and use the name **msdocs-laravel-mysql-XYZ**.
@@ -200,7 +200,7 @@ The creation wizard generated the connectivity variables for you already as [app
         1. Select the **Networking** tab.
         1. Unselect **Enable public access**.
         1. Select **Create a private endpoint**.
-        1. In **Resource Group**, select **msdocs-laravel-mysql-tutorial**.
+        1. In **Resource Group**, select **msdocs-laravel-mysql-XYZ_group**.
         1. In the dialog, in **Location**, select the same location as your App Service app.
         1. In **Name**, type **msdocs-laravel-mysql-XYZVaultEndpoint**.
         1. In **Virtual network**, select the virtual network in the **msdocs-laravel-mysql-XYZ_group** group.
