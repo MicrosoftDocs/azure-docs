@@ -29,7 +29,7 @@ To deprovision, navigate to the Storage Sync Service resource in the Azure porta
 Azure File Sync resources must be deprovisioned in a specific order:
 
  1. Delete Server Endpoints
- - After you delete all the server endpoints in the sync group, delete the cloud endpoint.
+ 1. After you delete all the server endpoints in the sync group, delete the cloud endpoint.
  - Then delete the sync group.
  - Repeat these steps for all the sync groups in the Storage Sync Service that you want to delete. After you've deleted all the sync groups in that Storage Sync Service, delete the Storage Sync Service resource.
 > [!NOTE]
