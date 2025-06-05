@@ -18,10 +18,10 @@ User Facing Diagnostics (UFD) are enabled to expose user-impacting events happen
 User Facing Diagnostics (UFD) allows you to see when local or remote participants are experiencing issues that affect audio-video call quality. UFD provides real-time diagnostics on network conditions, device functionality, and media performance, helping developers identify problems such as poor connectivity, muted microphones, or low bandwidth. While UFD does not automatically fix these issues, it allows applications to offer proactive feedback to users, suggesting solutions like checking their internet connection or adjusting device settings. Based on this data, users can either correct the issue themselves (e.g., turn off video when the network is weak) or display the information through the User Interface.
 
 There are some minor differences in using **remote UFD's** and **local UFD's**. Those differences are:
-•	The calling SDK does not expose the `speakingWhileMicrophoneIsMuted` via remote UFD's due to privacy concerns.
-•	The calling SDK will only expose and stream UFD's up to a maximum of 20 participants on the call. When the number of participants exceeds 20, we limit and cease transmission of **remote UFD's** to prevent overloading the network with these events.
-•	The calling SDK will filter so you will only see 3 **remote UFD** events per minute coming from a unique client.
-•	From the client SDK perspective, you need to enable the functionality for the local UFDs to be sent remotely.
+- The calling SDK does not expose the `speakingWhileMicrophoneIsMuted` via remote UFD's due to privacy concerns.
+- The calling SDK will only expose and stream UFD's up to a maximum of 20 participants on the call. When the number of participants exceeds 20, we limit and cease transmission of **remote UFD's** to prevent overloading the network with these events.
+- The calling SDK will filter so you will only see 3 **remote UFD** events per minute coming from a unique client.
+- From the client SDK perspective, you need to enable the functionality for the local UFDs to be sent remotely.
 
 ## Diagnostic values
 The following user-facing diagnostics are available:
