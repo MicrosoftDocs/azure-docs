@@ -135,7 +135,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         You can also navigate to the [creation wizard](https://portal.azure.com/#create/Microsoft.WebSite) directly.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App creation wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-1.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App creation wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -149,7 +149,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Pricing plan*: **Basic B1**. When you're ready, you can [scale up](manage-scale-up.md) to a different pricing tier.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-2.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -163,7 +163,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. In **SKU**, select **Basic**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-3.png" alt-text="A screenshot showing database configuration in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-3.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-3.png" alt-text="A screenshot showing database configuration in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -179,7 +179,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-4.png" alt-text="A screenshot showing deployment configuration in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-4.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-4.png" alt-text="A screenshot showing deployment configuration in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -198,7 +198,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-5.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-5.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-5.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-5.png":::
     :::column-end:::
 :::row-end:::
 
@@ -344,7 +344,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         **Step 2 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
         1. Ask, "*@workspace How does the app connect to the database and the cache?*" Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*. 
-        1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file. 
+        1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file. 
         1. Open *Program.cs* in the explorer and add the code suggestion.
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
