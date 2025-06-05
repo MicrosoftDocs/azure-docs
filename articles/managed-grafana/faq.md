@@ -7,6 +7,8 @@ ms.service: azure-managed-grafana
 ms.topic: reference
 ms.date: 04/30/2025
 ai-usage: ai-assisted
+ms.custom:
+  - build-2025
 ---
 
 # Azure Managed Grafana FAQ
@@ -54,7 +56,7 @@ Charges for active users are prorated during the first and the last calendar mon
 
 ## What's the difference between Azure Managed Grafana and Grafana in Azure Monitor?
 
-Azure Monitor includes native support for Grafana dashboards directly within the Azure portal. This built-in capability allows you to quickly access prebuilt dashboards and create custom visualizations for monitoring your Azure resources without leaving Azure Monitor. It's ideal for users who primarily rely on Azure Monitor data sources and prefer a streamlined, integrated experience within the Azure portal.
+Azure Monitor includes [native support for Grafana dashboards](/azure/azure-monitor/visualize/visualize-grafana-overview) directly within the Azure portal. This built-in capability allows you to quickly access prebuilt dashboards and create custom visualizations for monitoring your Azure resources without leaving Azure Monitor. It's ideal for users who primarily rely on Azure Monitor data sources and prefer a streamlined, integrated experience within the Azure portal.
 
 Azure Managed Grafana, on the other hand, provides a dedicated, fully managed Grafana instance with broader flexibility. Choose Azure Managed Grafana when you need advanced user management, customization, integration with a wide variety of Azure and non-Azure data sources, or when you require Grafana's full feature set, such as advanced alerting, reporting, and enterprise plugins. Azure Managed Grafana is also the recommended choice if you prefer managing dashboards and visualizations in a standalone Grafana environment, separate from the Azure portal.
 

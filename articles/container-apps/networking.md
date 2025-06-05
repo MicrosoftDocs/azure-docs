@@ -7,6 +7,8 @@ ms.service: azure-container-apps
 ms.topic:  conceptual
 ms.date: 05/02/2025
 ms.author: cshoe
+ms.custom:
+  - build-2025
 ---
 
 # Networking in Azure Container Apps environment
@@ -415,6 +417,9 @@ The static IP address of the Container Apps environment is available in the Azur
 ## Managed resources
 
 When you deploy an internal or an external environment into your own network, a new resource group is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform. Don't modify the services in this group or the resource group itself.
+
+> [!NOTE]
+> User-defined tags assigned to your Container Apps environment are replicated to all resources within the resource group, including the resource group itself.
 
 ### Workload profiles environment
 

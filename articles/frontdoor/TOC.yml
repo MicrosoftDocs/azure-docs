@@ -127,6 +127,8 @@
         href: how-to-enable-private-link-application-gateway.md
       - name: Connect to Azure API Management
         href: standard-premium/how-to-enable-private-link-apim.md
+      - name: Connect to Azure Container App
+        href: ../container-apps/how-to-integrate-with-azure-front-door.md
   - name: Caching
     items:
     - name: Caching with Azure Front Door
@@ -153,36 +155,44 @@
       href: ../static-web-apps/front-door-manual.md?toc=/azure/frontdoor/toc.json
 - name: Migration and upgrades
   items:
-  - name: Migrate to Standard or Premium tier
+  - name: Migrations
     items:
-    - name: Overview
-      href: tier-migration.md
-    - name: Classic to Standard/Premium mapping
-      href: tier-mapping.md
-    - name: Migrate from Front Door (classic)
-      href: migrate-tier.md
-  - name: Microsoft CDN (classic) retirement FAQ
-    href: ../cdn/classic-cdn-retirement-faq.md
-  - name: Edgio retirement FAQ
-    href: /previous-versions/azure/cdn/edgio-retirement-faq?toc=/azure/frontdoor/toc.json
-  - name: CDN (classic) to Azure Front Door
+    - name: Front Door (classic) to Standard/Premium
+      items:
+      - name: Classic to Standard/Premium migration
+        href: tier-migration.md
+      - name: Classic to Standard/Premium mapping
+        href: tier-mapping.md
+      - name: Migrate from Front Door (classic) - Portal
+        href: migrate-tier.md
+      - name: Migrate from Front Door (classic) - PowerShell
+        href: migrate-tier-powershell.md
+    - name: CDN (classic) to Front Door Standard/Premium
+      items:
+      - name: CDN (classic) to Front Door migration
+        href: ../cdn/tier-migration.md?toc=/azure/frontdoor/toc.json
+      - name: Migrate from Azure CDN (classic) to Azure Front Door
+        href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/toc.json
+    - name: Other CDN to Front Door Standard/Premium
+      items:
+      - name: Migrate CDN provider
+        href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
+      - name: Custom domain
+        href: migrate-cdn-to-front-door.md
+  - name: Upgrades
     items:
-    - name: Overview
-      href: ../cdn/tier-migration.md?toc=/azure/frontdoor/toc.json
-    - name: Migrate from Azure CDN (classic) to Azure Front Door
-      href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/toc.json
-  - name: Migrate CDN provider
-    href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
-  - name: Migrate any CDN to Azure Front Door
-    items:
-    - name: Custom domain
-      href: migrate-cdn-to-front-door.md
-  - name: Upgrade to Premium tier
-    items:
-    - name: Azure portal
+    - name: Upgrade from Standard to Premium tier - Portal
       href: tier-upgrade.md
-    - name: Azure PowerShell
+    - name: Upgrade from Standard to Premium tier - PowerShell
       href: tier-upgrade-powershell.md
+  - name: Retirements
+    items:
+    - name: CDN (classic) retirement FAQ
+      href: ../cdn/classic-cdn-retirement-faq.md
+    - name: Front Door (classic) retirement FAQ
+      href: classic-retirement-faq.md
+    - name: Edgio retirement FAQ
+      href: /previous-versions/azure/cdn/edgio-retirement-faq?toc=/azure/frontdoor/toc.json
 - name: Security
   items:
   - name: Security baseline
@@ -279,8 +289,6 @@
     items:
     - name: What is Azure Front Door (classic)?
       href: classic-overview.md
-    - name: Front Door (classic) retirement FAQ
-      href: classic-retirement-faq.md
     - name: What is Azure Content Delivery Network (Azure CDN)?
       href: ../cdn/cdn-overview.md?toc=/azure/frontdoor/toc.json
   - name: Quickstarts

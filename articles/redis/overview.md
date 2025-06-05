@@ -7,6 +7,8 @@ ms.topic: how-to
 ms.custom:
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # What is Azure Managed Redis?
@@ -133,23 +135,69 @@ The following table helps describe some of the features supported by tier:
 
 Azure Managed Redis is continually expanding into new regions.
 
-| Americas | Europe | Middle East | Africa | Asia Pacific |
-|---|---|---|---|---|
-|Brazil South |Germany West Central | | |East Asia |
-|West Central US | UK South  |   |   | Australia East |
-|North Central US | West Europe |   |   | Japan East |
-|West US 3 |Sweden Central | | |South East Asia |
-|East US 2 | | | |Central India |
-|South Central US | | | | |
-|West US 2 | | | | |
-|East US | | | | |
-|West US | | | | |
-|Central US | | | | |
-|Canada Central | | | | |
-
+- Americas
+  - Brazil South
+  - Brazil Southeast
+  - Canada Central
+  - Canada East
+  - Central US
+  - East US
+  - East US 2
+  - Mexico Central
+  - North Central US
+  - South Central US
+  - West Central US
+  - West US
+  - West US 2
+  - West US 3
+  
+- Europe
+  - France South
+  - Germany North
+  - Germany West Central
+  - Italy North
+  - Norway East
+  - Norway West
+  - Spain Central
+  - Sweden Central
+  - Sweden South
+  - Switzerland North
+  - Switzerland West
+  - UK South
+  - UK West
+  - West Europe
+  
+- Middle East
+  - Israel Central
+  - UAE Central
+  - UAE North
+  
+- Africa
+  - South Africa North
+  - South Africa West
+  
+- Asia Pacific
+  - East Asia
+  - Australia Central
+  - Australia Central 2
+  - Australia East
+  - Australia Southeast
+  - Central India
+  - Indonesia Central
+  - Japan East
+  - Japan West
+  - Jio India Central
+  - Jio India West
+  - Korea Central
+  - Korea South
+  - South East Asia
+  - South India
+  - Taiwan North
+  - Taiwan Northwest
+  
 To check the availability by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 
-## Migration from Azure Cache for Redis
+## Moving from Azure Cache for Redis
 
 For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis](migrate/migrate-overview.md).
 

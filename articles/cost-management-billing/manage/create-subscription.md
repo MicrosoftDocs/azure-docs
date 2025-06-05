@@ -7,8 +7,10 @@ ms.reviewer: macyso
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/22/2025
+ms.date: 05/21/2025
 ms.author: macyso
+ms.custom:
+  - build-2025
 ---
 
 # Create a Microsoft Customer Agreement subscription
@@ -75,8 +77,8 @@ To clear the filter and view all subscriptions:
 
 1. In the Azure portal, navigate to **Subscriptions**.
 2. At the top of the list, select the Subscriptions filter item.  
-3. At the top of the subscriptions filter box, select **All**. At the bottom of the subscriptions filter box, clear **Show only subscriptions selected in the global subscriptions filter**.  
-    :::image type="content" source="./media/create-subscription/subscriptions-filter-item.png" alt-text="Screenshot showing the Subscriptions filter box with options." lightbox="./media/create-subscription/subscriptions-filter-item.png" :::
+1. At the top of the subscriptions filter box, select **All**. At the bottom of the subscriptions filter box, clear **Show only subscriptions selected in the portal setting filter**.  
+![Subscription page filter by portal setting.](media/create-subscription/subscription-portal-setting.png)
 4. Select **Apply** to close the box and refresh the list of subscriptions.
 
 ## Create subscription in other tenant and view transfer requests

@@ -8,7 +8,8 @@ ms.topic: concept-article
 ms.date: 04/09/2025
 
 #customer intent: As a GeoCatalog user I want to understand what a Queryable is, and how I can configure these for my GeoCatalog collection so that I can more effectively use the Data Explorer to visualize my Geospatial Assets.
-
+ms.custom:
+  - build-2025
 ---
 
 # Queryables for Microsoft Planetary Computer Pro Data Explorer custom search filters

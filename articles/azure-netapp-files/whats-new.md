@@ -4,9 +4,11 @@ description: Provides a summary about the latest new features and enhancements o
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: linux-related-content
+ms.custom:
+  - linux-related-content
+  - build-2025
 ms.topic: overview
-ms.date: 05/09/2025
+ms.date: 05/20/2025
 ms.author: anfdocs
 ---
 
@@ -15,6 +17,12 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## May 2025
+
+* [Volume encryption with customer-managed keys with managed Hardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) is now generally available (GA)
+
+    Azure NetApp Files volume encryption choices have expanded to offer support for customer-managed keys for Azure NetApp Files volume encryption with Azure Key Vault Managed HSM. 
+    
+    This feature offers increased security from FIPS 140-2 Level 2 to FIPS 140-2 Level 3 for critical deployments. Various applications that leverage HSM security include payment processing, application-level encryption, and authentication. Industry verticals that use HSMs include financial services, public sector, IT/Telco (secure communications), and energy (securing critical infrastructure).  
 
 * [Application volume group for Oracle](configure-application-volume-oracle-api.md#replication) now supports cross-zone and cross-region replication (preview)
 

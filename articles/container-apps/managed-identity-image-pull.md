@@ -4,7 +4,11 @@ description: Set up Azure Container Apps to authenticate Azure Container Registr
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - devx-track-bicep
+  - build-2025
 ms.topic: how-to
 ms.date: 02/03/2025
 ms.author: cshoe

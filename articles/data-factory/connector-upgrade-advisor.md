@@ -6,8 +6,10 @@ ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.custom: references_regions
-ms.date: 03/31/2025
+ms.custom:
+  - references_regions
+  - build-2025
+ms.date: 05/15/2025
 ---
 
 # Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics
@@ -27,12 +29,9 @@ The Connector upgrade advisor is a comprehensive tool that helps upgrade pipelin
 - Salesforce
 - Salesforce Service Cloud
 - ServiceNow
+- Snowflake
 - PostgreSQL
 - Google BigQuery
-
-## Known limitations
-
-Currently, support for the Snowflake data source is unavailable.
 
 ## How to use
 

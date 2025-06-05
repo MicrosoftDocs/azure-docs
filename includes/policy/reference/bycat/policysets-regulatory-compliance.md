@@ -1,17 +1,19 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/14/2025
+ms.date: 05/23/2025
 ms.author: jasongroce
 author: jasongroce
-ms.custom: generated
+ms.custom:
+  - generated
+  - build-2025
 ---
 
 |Name |Description |Policies |Version |
 |---|---|---|---|
 |[\[Preview\]: Australian Government ISM PROTECTED](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRAP_Audit.json) |This initiative includes policies that address a subset of Australian Government Information Security Manual (ISM) controls. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/auism-initiative](https://aka.ms/auism-initiative). |41 |8.8.0-preview |
 |[\[Preview\]: CMMC 2.0 Level 2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_2_0_L2.json) |This initiative includes policies that address a subset of CMMC 2.0 Level 2 practices. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/cmmc2l2-initiative](https://aka.ms/cmmc2l2-initiative). |229 |2.18.0-preview |
-|[\[Preview\]: Motion Picture Association of America (MPAA)](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/Media_audit.json) |This initiative includes audit and virtual machine extension deployment policies that address a subset of Motion Picture Association of America (MPAA) security and guidelines controls. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/mpaa-init](https://aka.ms/mpaa-init). |32 |4.5.0-preview |
+|[\[Preview\]: Motion Picture Association of America (MPAA)](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/Media_audit.json) |This initiative includes audit and virtual machine extension deployment policies that address a subset of Motion Picture Association of America (MPAA) security and guidelines controls. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/mpaa-init](https://aka.ms/mpaa-init). |31 |4.6.0-preview |
 |[\[Preview\]: NIS2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/NIS2.json) |The NIS2 Directive enhances the cybersecurity and resilience of critical infrastructure and digital services across the European Union, ensuring a higher level of protection against cyber threats. |239 |1.0.0-preview |
 |[\[Preview\]: Reserve Bank of India - IT Framework for Banks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/RBI_ITF_Banks_v2016.json) |This initiative includes policies that address a subset of Reserve Bank of India IT Framework for Banks controls. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/rbiitfbanks-initiative](https://aka.ms/rbiitfbanks-initiative). |152 |1.18.0-preview |
 |[\[Preview\]: Reserve Bank of India - IT Framework for NBFC](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/RBI_ITF_NBFC_v2017.json) |This initiative includes policies that address a subset of Reserve Bank of India IT Framework for Non-Banking Financial Companies (NBFC) controls. Additional policies will be added in upcoming releases. For more information, visit [https://aka.ms/rbiitfnbfc-initiative](https://aka.ms/rbiitfnbfc-initiative). |119 |2.15.0-preview |

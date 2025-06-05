@@ -18,8 +18,9 @@ There are two types of network features: default and advance.
 
 ### Default network features
 Default network features enable basic network connectivity for both new and existing Oracle Database@Azure deployments. These features are available across all supported Oracle Database@Azure regions and provide the foundational networking required for your deployment
-### Advanced network features (preview)
-Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. These features are currently in public preview and available in the following regions: 
+### Advanced network features 
+Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. These features are generally available for new deployments in the following regions:
+
 * Australia East
 * Australia Southeast 
 * Central US 
@@ -28,19 +29,17 @@ Advanced network features enhance the virtual networking experience, offering im
 * US West  
 * UK South 
 * UK West
+* Germany West Central 
 
 > [!NOTE]
 > Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
 > Existing virtual networks with previously created Oracle Database@Azure delegated subnets will not support these features at this time. Support for existing deployments is planned for later this year. 
-
-
-### Registration required
-
-To use advanced network features, you must first register using the commands below (via AZCLI) before creating your virtual network for the Oracle Database@Azure deployment.
-
-```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" ```
-
-```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Network" ```
+> ### Registration required for delegated subnets
+>To use advanced network features, use the following commands (via AZCLI) to register before creating your virtual network for the Oracle Database@Azure deployment.
+>
+> ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" ```
+>
+> ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Network" ```
 
 > [!NOTE]
 > Registration state can be in the 'Registering' state for up to 60 minutes before changing to 'Registered'. Wait until the status is 'Registered' before continuing with the delegated subnet creation. 
@@ -81,8 +80,8 @@ The following table describes required configurations of supported network featu
 |Connectivity from an Oracle database cluster to a [private endpoint](../../private-link/private-endpoint-overview.md) in a different spoke virtual network connected to a virtual WAN|Yes| Yes|
 |NSG support on the Private link | No| Yes| 
 | Connectivity to serverless Apps like Azure functions via private endpoints | No| Yes|
-|Load balancers for Oracle database cluster traffic|No| Yes|
 |Dual stack (IPv4 and IPv6) virtual network|Only IPv4 is supported| Only IPv4 is supported|
+| Service tags support| No | Yes | 
 
 > [!NOTE]
 > When using NSGs (Network Security Groups) on the Azure side, ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. Misalignment between these policies could lead to unintended access issues or operational disruptions. 

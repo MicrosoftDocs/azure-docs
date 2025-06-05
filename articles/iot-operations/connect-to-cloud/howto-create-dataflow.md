@@ -10,6 +10,8 @@ ms.date: 04/03/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
+ms.custom:
+  - build-2025
 ---
 
 # Create data flows in Azure IoT Operations
@@ -209,8 +211,8 @@ The message broker endpoint is configured in the Bicep file. For example, the fo
 sourceSettings: {
   endpointRef: 'default'
   dataSources: [
-    'thermostats/+/telemetry/temperature/#'
-    'humidifiers/+/telemetry/humidity/#'
+    'thermostats/+/sensor/temperature/#'
+    'humidifiers/+/sensor/humidity/#'
   ]
 }
 ```
@@ -225,8 +227,8 @@ For example, to configure a source using a message broker endpoint and two topic
 sourceSettings:
   endpointRef: default
   dataSources:
-    - thermostats/+/telemetry/temperature/#
-    - humidifiers/+/telemetry/humidity/#
+    - thermostats/+/sensor/temperature/#
+    - humidifiers/+/sensor/humidity/#
 ```
 
 Because `dataSources` allows you to specify MQTT or Kafka topics without modifying the endpoint configuration, you can reuse the endpoint for multiple data flows even if the topics are different. To learn more, see [Configure data sources](#configure-data-sources-mqtt-or-kafka-topics).
@@ -319,7 +321,7 @@ You can specify multiple MQTT or Kafka topics in a source without needing to mod
 
 #### MQTT topics
 
-When the source is an MQTT (Event Grid included) endpoint, you can use the MQTT topic filter to subscribe to incoming messages. The topic filter can include wildcards to subscribe to multiple topics. For example, `thermostats/+/telemetry/temperature/#` subscribes to all temperature telemetry messages from thermostats. To configure the MQTT topic filters:
+When the source is an MQTT (Event Grid included) endpoint, you can use the MQTT topic filter to subscribe to incoming messages. The topic filter can include wildcards to subscribe to multiple topics. For example, `thermostats/+/sensor/temperature/#` subscribes to all temperature sensor messages from thermostats. To configure the MQTT topic filters:
 
 # [Operations experience](#tab/portal)
 
@@ -344,13 +346,13 @@ Example with multiple MQTT topic filters with wildcards:
 sourceSettings: {
   endpointRef: 'default'
   dataSources: [
-    'thermostats/+/telemetry/temperature/#'
-    'humidifiers/+/telemetry/humidity/#'
+    'thermostats/+/sensor/temperature/#'
+    'humidifiers/+/sensor/humidity/#'
   ]
 }
 ```
 
-Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all telemetry messages under all subtopics of the `temperature` and `humidity` topics.
+Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all sensor messages under all subtopics of the `temperature` and `humidity` topics.
 
 # [Kubernetes (preview)](#tab/kubernetes)
   
@@ -369,11 +371,11 @@ Example with multiple topic filters with wildcards:
 sourceSettings:
   endpointRef: default
   dataSources:
-    - thermostats/+/telemetry/temperature/#
-    - humidifiers/+/telemetry/humidity/#
+    - thermostats/+/sensor/temperature/#
+    - humidifiers/+/sensor/humidity/#
 ```
 
-Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all telemetry messages under all subtopics of the `temperature` and `humidity` topics.
+Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all messages under all subtopics of the `temperature` and `humidity` topics.
 
 ---
 

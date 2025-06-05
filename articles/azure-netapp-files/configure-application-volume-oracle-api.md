@@ -7,6 +7,8 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 05/12/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 # Configure application volume group for Oracle using REST API
 
@@ -63,7 +65,7 @@ The following tables describe the request body parameters and volume properties 
 | `protocolTypes` | Protocol to use | This parameter should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
 | `endpointType` | Endpoint type for a replication configuration. | The allowed value is `dst` |
 | `remoteVolumeResourceId` |  The resource ID of the remote volume | The volume ID |
-| `replication:replicationSchedule` |  The frequency of replication (daily, hourly, or every 10 minutes) | The allowed values are `daily`, `hourly`, or `_10minutely` |
+| `replicationSchedule` |  The frequency of replication (daily, hourly, or every 10 minutes) | The allowed values are `daily`, `hourly`, or `_10minutely` |
 
 ## Examples: Application volume group for Oracle API request content
 

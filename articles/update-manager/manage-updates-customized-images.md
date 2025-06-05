@@ -2,8 +2,8 @@
 title: Overview of customized images in Azure Update Manager
 description: This article describes customized image support, how to register and validate customized images for public preview, and limitations.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 08/22/2024
 ms.topic: overview
 ---
