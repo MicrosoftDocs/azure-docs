@@ -152,7 +152,7 @@ conceptualContent:
               text: Extend on-premises network to Azure with ExpressRoute
             - url: /azure/well-architected/service-guides/azure-expressroute
               itemType: architecture
-              text: ExpressRoute - Well-Architected Framework
+              text: Architecture best practices for Azure ExpressRoute - Azure Well-Architected Framework
         # Card
         - title: Virtual WAN
           links:

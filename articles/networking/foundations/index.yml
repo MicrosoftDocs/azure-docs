@@ -147,6 +147,9 @@ conceptualContent:
             - url: /azure/architecture/networking/guide/private-link-hub-spoke-network
               itemType: architecture
               text: Azure Private Link in a hub-and-spoke network
+            - url: /azure/well-architected/service-guides/virtual-network
+              itemType: architecture
+              text: Architecture best practices for Azure Virtual Network - Azure Well-Architected Framework
             - url: /azure/architecture/networking/architecture/azure-dns-private-resolver
               itemType: architecture
               text: Azure DNS Private Resolver
