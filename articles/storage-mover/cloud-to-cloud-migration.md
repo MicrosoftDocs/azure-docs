@@ -96,7 +96,7 @@ Follow the steps in this section to create and run a Storage Mover Migration Job
         :::image type="content" source="media/cloud-to-cloud-migration/create-job-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Basics tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-job.png":::
     - **Source endpoint**: Select the AWS S3 bucket configured via Azure Arc.
         > [!NOTE]
-        > Note that S3 buckets can take an hour to become available for newly created Multicloud connectors.
+        > Note that S3 buckets might take up to an hour to become visible within newly created Multicloud connectors.
 
         :::image type="content" source="media/cloud-to-cloud-migration/create-source-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-source.png":::
     - **Destination endpoint**: Select the Azure Blob Storage container.
