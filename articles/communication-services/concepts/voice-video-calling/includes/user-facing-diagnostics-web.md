@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 ## Local vs Remote User Facing Diagnostics
-User Facing Diagnostics (UFD) are enabled to expose user-impacting events happening on a users calling device via a programmatic API. With an ACS, there are two methods for consuming and generating UFDs: **local UFDs** and **remote UFDs**. **Local UFDs** are generated on the local user's phone or browser. **Remote UFDs** are events occurring in a remote participant's environment, which allows a local user to consume and view those remote user impacting events locally.
+User Facing Diagnostics (UFD) are enabled to expose user-impacting events happening on a users calling device via a programmatic API. Within Azure Communication Services, there are two methods for consuming and generating UFDs: **local UFDs** and **remote UFDs**. **Local UFDs** are generated on the local user's phone or browser. **Remote UFDs** are events occurring in a remote participant's environment, which enable a local user to consume and view those remote user impacting events locally.
 
 [!INCLUDE [Public Preview Disclaimer](../../../includes/private-preview-include.md)]
 
