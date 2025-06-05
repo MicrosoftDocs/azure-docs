@@ -6,9 +6,9 @@ metadata:
   author: pri-mittal
   ms.reviewer: primittal, onwokolo
   ms.service: cost-management-billing
-  ms.subservice: common
+  ms.subservice: reservations
   ms.topic: faq
-  ms.date: 06/02/2025
+  ms.date: 06/04/2025
   ms.author: primittal
 title: Azure Savings Plan and Reservations frequently asked questions (FAQ)
 summary: |
@@ -17,7 +17,10 @@ sections:
     questions:
       - question: How do I view savings plan charges?
         answer: |
-          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Savings plan**. Under Scope and next to the cost shown, select the down arrow symbol, and then select either **Actual cost** or **Amortized cost** metric.
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Savings plan**. 
+
+          You can then select whether you want to view actual charges (when the purchase was charged) or the amortized cost, spreading the cost of the savings plan across the resources that consumed it. This can be done by selecting the down arrow symbol next to the Actual Cost KPI and then selecting the required metric from the drop down.
+
       - question: How do I view savings plan underutilization?
         answer: |
           Sign in to the Azure portal. Then select All services > **Savings plan** and note the **Utilization (%)** for a savings plan. Select a savings plan. Review the savings plan use trend over time. 
@@ -26,7 +29,9 @@ sections:
     questions:
       - question: How do I view reservation charges?
         answer: |
-          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Reservation**. Under Scope and next to the cost shown, select the down arrow symbol, and then select either **Actual cost** or **Amortized cost** metric.
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Reservation**.
+          
+           You can then select whether you want to view actual charges (when the purchase was charged) or the amortized cost, spreading the cost of the reservation across the resources that consumed it. This can be done by selecting the down arrow symbol next to the Actual Cost KPI and then selecting the required metric from the drop down.
       - question: How do I see reservation savings?
         answer: |
           There are a couple of ways to view your savings.
@@ -34,7 +39,7 @@ sections:
           -  Use the Usage + Charges data file to manually [determine reservation savings](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings).
       - question: How do I view reservation underutilization?
         answer: |
-          Sign in to the Azure portal. Then select All services > **Reservations** and note the **Utilization (%)** for a reservation. Select a reservation. Review the reservation use trend over time. For more information, see [View reservation use in the Azure portal](reservations/manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json#view-reservation-use-in-the-azure-portal). You can also [View unused reservation costs in cost analysis](costs/cost-analysis-common-uses.md#view-unused-ri-costs-in-cost-analysis).
+          Sign in to the Azure portal. Then select All services > **Reservations** and note the **Utilization (%)** for a reservation. Select a reservation. Review the reservation usage trend over time. For more information, see [View reservation use in the Azure portal](reservations/manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json#view-reservation-use-in-the-azure-portal). You can also [View unused reservation costs in Cost Analysis](costs/cost-analysis-common-uses.md#view-unused-ri-costs-in-cost-analysis).
       - question: How can I find reservation costs to charge back?
         answer: |
           See [Charge back Azure Reservation costs](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json) for detailed information.

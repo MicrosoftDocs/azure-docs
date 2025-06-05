@@ -8,7 +8,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: faq
-  ms.date: 06/02/2025
+  ms.date: 06/05/2025
   ms.author: maminn
 title: Cost Management + Billing frequently asked questions (FAQ)
 summary: |
@@ -32,7 +32,7 @@ sections:
           Free services have limits. Most likely, you exceeded the free limits. See [Avoid charges with your Azure free account](manage/avoid-charges-free-account.md).
       - question: How do I understand my bill and reconcile charges?
         answer: |
-          If you bought your Azure subscription through the Azure website, see the [Review your individual Azure subscription bill](understand/review-individual-bill.md) tutorial. The tutorial explains how charges on your invoice relate to the services that you used.
+          If you bought your Azure subscription through the Azure website, see the [Review your individual Azure subscription bill](understand/review-individual-bill.md) tutorial. The tutorial explains how charges on your invoice relate to the services that you used. You can also leverage the Microsoft Cost Management service to review the charges on the invoice against your detailed daily usage and the various purchases completed within the billing period. See [Explore and analyze costs with cost analysis](costs/quick-acm-cost-analysis.md).
       - question: How do I quickly see my charges?
         answer: |
           See [Explore and analyze costs with cost analysis](costs/quick-acm-cost-analysis.md).
@@ -47,7 +47,7 @@ sections:
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).
       - question: When does Azure finalize or close the billing cycle of a closed month?
         answer: |
-          Azure finalizes or closes the current billing period up to the fifth day after a closed month. Changes might continue and change until the fifth day after a billing period ends as the billing system processes data.
+          Azure finalizes or closes the current billing period up to the fifth day after a closed month. Changes might continue and change until the billing system processes data andthe invoice is issued.
       - question: How do I update my payment method?
         answer: |
           See [Change your Azure payment method](manage/change-credit-card.md).
@@ -55,81 +55,81 @@ sections:
         answer: |
           See [Download your Azure tax invoice](understand/mca-download-tax-document.md).
 
-  - name: Cost Management questions
+  - name: Microsoft Cost Management questions
     questions:
       - question: How can I enable access to view costs?
         answer: |
           See [Assign access to Cost Management data](costs/assign-access-acm-data.md).
-      - question: What partner offers does Cost Management support?
+      - question: What partner offers does Microsoft Cost Management support?
         answer: |
-          Cost Management is available for partners whose customers that have an Azure Plan. Partners can enable the policy setting to allow their customers to view cost information. For more information, see [Get started with Cost Management for partners](costs/get-started-partners.md). Classic Cloud Solution Provider (CSP) isn't supported by Cost Management.
+          Cost Management is available for partners whose customers have an Azure Plan. Partners can enable the policy setting to allow their customers to view cost information. For more information, see [Get started with Cost Management for partners](costs/get-started-partners.md). Classic Cloud Solution Provider (CSP) offer isn't supported by Cost Management.
       - question: How can I see forecasted costs?
         answer: |
-          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. In the default view, the top chart has the Actual/Amortized cost and forecasted cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost.
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. In the default view, the top chart has the Actual/Amortized cost and forecasted cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost. . If you can’t see the forecast, you might need to turn it on in the view or you don’t have enough data accumulated to enable forecast to be calculated. For more information, see [Forecasting costs in Cost Analysis](costs/quick-acm-cost-analysis.md#forecasting-costs-in-cost-analysis).
       - question: How do I view a cost breakdown by Azure service?
         answer: |
           In the Azure portal, navigate **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Select **Cost by service** and then group by **Service tier**. Change the view to **Table**.
       - question: How do I see my invoice costs?
         answer: |
-          In the Azure portal, navigate to Cost analysis for the scope associated with the invoice that you're analyzing. Select the **Invoice details** view. Invoice details show you the charges as shown on your invoice.
+          In the Azure portal, navigate to Cost analysis for the scope associated with the invoice that you're analyzing. Select the **Invoice details** view. Invoice details show you the charges as shown on your invoice. For EA customers, Invoice Details view is based on the relevant calendar month. For Microsoft Customer Agreement (MCA) the view is based on the selected invoice id.
       - question: How do I view costs for a tag?
         answer: |
-          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Select **Group by** for your tag. Tags aren't available for: purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, or classic resources. Some services don't include tags in usage data. For more information, see [Tag support for Azure resources](../azure-resource-manager/management/tag-support.md).
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Select **Group by** for your tag. Tags aren't available for: tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, or classic resources. Some services don't include tags in usage data. Some purchases, such as reservations and savings plans don’t display tags in Cost Analysis. For more information, see [Tag support for Azure resources](../azure-resource-manager/management/tag-support.md).
       - question: How do I see costs for my EA enrollment?
         answer: |
-          In the Azure portal, navigate to **Cost Management + Billing** > Overview. Select the **Breakdown** link.
+          In the Azure portal, navigate to **Cost Management + Billing** > Overview. Select the **Breakdown** link in the Total Charges widget.
       - question: How do I create a budget?
         answer: |
           See the [Create and manage budgets](costs/tutorial-acm-create-budgets.md) tutorial.
       - question: How do I create a budget for a specific filter or tag?
         answer: |
-          In the Create budget window, choose the scope for the budget you want to create. Choose **Add Filter** to choose any filters or a tag that you want to add for this budget. For more information, see the [Create and manage budgets](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) tutorial.
-      - question: How do I export cost management data?
+          In the Create budget window, choose the scope for the budget you want to create. Choose **Add Filter** to select any of the required filters or a tag that you want to add for this budget. For more information, see the [Create and manage budgets](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) tutorial.
+      - question: How do I export Microsoft Cost Management data?
         answer: |
           See the [Create and manage exported data](costs/tutorial-improved-exports.md) tutorial.
-      - question: How do I export cost management data as a partner if I don't have an Azure subscription in my tenant?
+      - question: How do I export Microsoft Cost Management data as a partner if I don't have an Azure subscription in my tenant?
         answer: |
-          See the [Export cost data with an Azure storage account SAS key](costs/export-cost-data-storage-account-sas-key.md) article.
+          See the [Export cost data with an Azure storage account SAS key](costs/export-cost-data-storage-account-sas-key.md) tutorial.
       - question: As a CSP partner, is Cost Management supported on Classic CSP offer in Azure Plan?
         answer: |
-          Given the plans to transition customers on Classic CSP to Azure Plan on the [New Commerce experience](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp), Cost Management + Billing is available only for the direct partners and indirect providers of customers who are on Azure Plan. 
+          Given the plans to transition customers on Classic CSP to Azure Plan on the [Microsoft Customer Agreement experience](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp), Cost Management + Billing is available only for the direct partners and indirect providers of customers who are on Azure Plan. 
       - question: As a CSP partner, how can I enable the cost visibility policy at the subscription scope for my end customers and resellers on the Azure Plan?
         answer: |
           See [Enable Cost Management for Customer Tenant Subscriptions](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions) to enable the cost visibility policy for Azure consumed services at retail rates for Azure RBAC users of the subscription. As a direct partner or an indirect provider, you can view the costs in the customer tenant if you're a [billing administrator](/partner-center/account-settings/permissions-overview#billing-admin-role).
       - question: How can I charge back costs?
         answer: |
-          You can allocate costs in Cost Management to see the costs that you distribute to subscriptions, resource groups, or tags in cost analysis. For more information, see the [Create and manage Azure cost allocation rules](costs/allocate-costs.md) article.
+          You can allocate costs in Cost Management to see the costs that you distribute to subscriptions, resource groups, or tags in cost analysis. For more information, see the [Create and manage Azure cost allocation rules](costs/allocate-costs.md) tutorial. You can also leverage the association of charges to subscriptions, resource groups and tags, to support your chargeback process.
       - question: Can I use Power BI to view costs?
         answer: |
-          Yes, you use [Power BI Desktop to connect to Cost Management data](/power-bi/connect-data/desktop-connect-azure-cost-management) or you can use the [Cost Management Power BI App for EAs](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
-      - question: What are the supported offer types in Cost Management?
+          Yes, you use [Power BI Desktop to connect to Microsoft Cost Management data](/power-bi/connect-data/desktop-connect-azure-cost-management) or you can use the [Cost Management Power BI App for EAs](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
+      - question: What are the supported offer types in Microsoft Cost Management?
         answer: |
           See [Supported Microsoft Azure offers](./costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
-      - question: How soon can I see my cost and usage data in Cost Management?
+      - question: How soon can I see my cost and usage data in Microsoft Cost Management?
         answer: |
           See [Cost and usage data updates and retention](./costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
-      - question: Can I find all my cost related information in Cost Management?
+      - question: Can I find all my charges in Microsoft Cost Management?
         answer: |
           See [Costs included in Cost Management](costs/understand-cost-mgt-data.md#costs-included-in-cost-management).
       - question: Are allocated costs factored into budgets and forecast views?
         answer: |
-          <a name="budgets-forecast"></a>Yes. Allocated costs are factored into and supported by budgets and forecasts. Budget and forecast views show costs allocated to them, as configured by cost allocation rules.
+          <a name="budgets-forecast"></a>Yes. Allocated costs are factored into and supported by budgets and forecasts. Budget and forecast views show costs allocated to them, as configured by the cost allocation rules.
       - question: If a cost allocation rule is deleted, what happens?
         answer: |
           <a name="delete-rule"></a>When a cost allocation rule is deleted, all open and current billing month costs being allocated to the targets are removed. If the cost allocation rule existed for several months, the historical previous months of allocation data remain as originally set by the allocation rule.
       - question: Why is an enrollment admin or a billing account admin needed to create cost allocation rules?
         answer: |
-          <a name="why-admin"></a>Cost allocation rules are created at either the enrollment scope (Enterprise Agreement) or the Billing account scope (Microsoft Customer Agreement). Permissions to make changes at these scopes requires billing administrator privileges.
+          <a name="why-admin"></a>Cost allocation rules are created at either the enrollment scope (Enterprise Agreement) or the Billing account scope (Microsoft Customer Agreement). To make changes at these scopes, billing administrator privileges are required.
       - question: What can happen if cost allocation rules (sources/targets) overlap?
         answer: |
-          <a name="rule-overlap"></a>Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules apply in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date takes precedence.
-      - question: Can I view New Commerce license and consumption products besides Azure in Cost Management?
+          <a name="rule-overlap"></a>Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules apply in the order by which they were created ( so if any cost allocation rules overlap, the allocation rule with the earliest creation date takes precedence.
+      - question: Can I view New Commerce license and consumption products besides Azure in Microsoft Cost Management?
         answer: |
-          Yes. Partners with an MCA agreement can buy New Commerce license and consumption products in the Partner Center. The products are invoiced along with your Azure products and you can view the charges in Cost Management. The "Provider" dimension helps to distinguish between Azure and license-based products like Microsoft 365 and Dynamics 365.
+          Yes. Partners with an MCA agreement can buy New Commerce license and consumption products in the Partner Center. The products are invoiced along with your Azure products and you can view the charges in Microsoft Cost Management. The "Provider" dimension helps to distinguish between Azure and license-based products like Microsoft 365 and Dynamics 365.
 
-  - name: Cost Management + Billing API questions
+  - name: Microsoft Cost Management + Billing API questions
     questions:
-      - question: Where can I find API documentation for Cost Management?
+      - question: Where can I find the API documentation for Microsoft Cost Management?
         answer: |
           See the [Cost Management REST API documentation](/rest/api/cost-management/).
       - question: How do I migrate from the Enterprise Agreement APIs to the Microsoft Customer Agreement APIs?
@@ -138,31 +138,31 @@ sections:
 
   - name: Cost and usage details questions
     questions:
-      - question: How can I get my cost and usage details data?
+      - question: How can I retrieve my cost and usage details data?
         answer: |
           You can get your cost and usage details data in two main ways:
           - Use [Exports](costs/ingest-azure-usage-at-scale.md) to automatically generate and store large, recurring usage datasets in Azure Storage for analysis at scale.
           - Use the [Cost Details API](automate/get-small-usage-datasets-on-demand.md) to programmatically retrieve smaller, on-demand usage datasets.
 
-          Choose Exports for large or recurring datasets, and the API for smaller, on-demand queries.
-      - question: Where can I find information about the fields in the usage details file?
+          It is best practice to leverage the  Exports capability for large or recurring datasets, and the API for smaller, on-demand queries.
+      - question: Where can I find information about the fields in the Cost and Usage Details file?
         answer: |
-          For a detailed explanation of each field in the cost and usage details file, see [Understand cost details fields](automate/understand-usage-details-fields.md). This documentation provides definitions and guidance for interpreting the columns in your exported cost and usage data.
+          For a detailed explanation of each field in the Cost and Usage Details file, see [Understand cost details fields](automate/understand-usage-details-fields.md). This documentation provides definitions and guidance for interpreting the columns in your exported cost and usage data.
       - question: Why do I get Usage Details API timeouts?
         answer: |
            Usage Details API timeouts often occur when requesting large datasets, as the API may not be able to process and deliver the data before timing out. To avoid these issues, we recommend using [Exports](costs/ingest-azure-usage-at-scale.md) for large or recurring usage datasets, or the [Cost Details API](automate/get-small-usage-datasets-on-demand.md) for smaller, on-demand queries. For guidance on migrating from the Usage Details API, see [Migrate from the Consumption Usage Details API](automate/migrate-consumption-usage-details-api.md).cv
       - question: How do I see my recurring charges?
         answer: |
           Recurring charges are available in the cost and usage details data when viewing Actual Cost.
-      - question: Where can I see tax information in Cost details?
+      - question: Where can I see tax information in cost and usage details data?
         answer: |
-          Cost details data is all pretax. Tax related charges are only available on your invoice.
-      - question: Why is PAYGPrice zero for some of the records in my cost details file?
+          The cost and usage details data is all pretax. Tax related charges are only available on your invoice.
+      - question: Why is PayGPrice displaying as zero for some of the records in my Cost and Usage Details file?
         answer: |
-          If you’re an EA or MCA customer, `PAYGPrice` is populated only for first party Azure usage charges where `PricingModel` is `OnDemand`. `PAYGprice` isn't populated when `PricingModel = Reservations`, `Spot`, `Marketplace`, or `SavingsPlan`.
+          If you’re an EA or MCA customer, `PayGPrice` is populated only for first party Azure usage charges where `PricingModel` is `OnDemand`, `Spot`, or `SavingsPlan`. `PayGprice` isn't populated when `PricingModel` = `Reservations` or `Marketplace`.
       - question: Does Cost and usage details data have Reservation charges?
         answer: |
-          Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost) or you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get amortized costs](costs/manage-automation.md#get-amortized-cost-details).
+          Yes it does. You can see those charges when the actual charges occurred in the Actual Cost dataset or you can see the charges spread across the resources that consumed the Reservation or Savings Plan in the Amortized Cost dataset. For more information, see [Get amortized costs](costs/manage-automation.md#get-amortized-cost-details).
       - question: Am I charged for using Cost Details API or Exports?
         answer: |
-          The Cost Details API is free. Make sure to abide by the rate-limiting policies, however. For more information, see [Data latency and rate limits](costs/manage-automation.md#data-latency-and-rate-limits). The Exports feature is free to use, but you pay for the storage account that you use to store the exported data.
+          The Cost Details API is free. However, make sure to abide by the rate-limiting policies. For more information, see [Data latency and rate limits](costs/manage-automation.md#data-latency-and-rate-limits). The Exports feature is free to use, but you pay for the storage account that you use to store the exported data.

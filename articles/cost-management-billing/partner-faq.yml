@@ -8,7 +8,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: faq
-  ms.date: 06/02/2025
+  ms.date: 06/05/2025
   ms.author: shrshett
 title: Partner frequently asked questions (FAQ)
 summary: |
@@ -32,7 +32,7 @@ sections:
           Be sure to use the **Associated Partner ID** shown in your partner profile. It's usually the local account ID association with your organization.
       - question: How do I explain PAL to my customer?
         answer: |
-          PAL enables Microsoft to identify and recognize those partners who are helping customers achieve business goals and realize value in the cloud. Customers must first provide a partner access to their Power Apps resource. Once access is granted, the partner's Partner ID is associated. This association helps Microsoft understand service providers and to refine the tools and programs needed to best support customers.
+          PAL enables Microsoft to identify and recognize those partners who help customers achieve business goals and realize value in the cloud. Customers must first provide a partner access to their Power Apps resource. Once access is granted, the partner's Partner ID is associated. This association helps Microsoft understand service providers and to refine the tools and programs needed to best support customers.
       - question: What data does PAL collect?
         answer: |
           The PAL association to existing credentials provides no new customer data to Microsoft. It provides the information to Microsoft where a partner is actively involved in a customer's Power Apps environments. Microsoft can attribute usage and influence from customer environment to partner organization based on the account's permissions (Power Apps role) and scope (tenant, Resource Group, Resource) provided to the partner by customer.

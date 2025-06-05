@@ -6,16 +6,16 @@ metadata:
   author: racheg
   ms.reviewer: racheg
   ms.service: cost-management-billing
-  ms.subservice: common
+  ms.subservice: enterprise
   ms.topic: faq
-  ms.date: 06/02/2025
+  ms.date: 06/05/2025
   ms.author: racheg
 title: Enterprise Agreement (EA)  frequently asked questions (FAQ)
 summary: |
 sections:
   - name: Azure Enterprise Agreement (EA) questions
     questions:
-      - question: How do I assign SPN permissions to my Enrollment?
+      - question: How do I assign SPN permissions to my enrollment?
         answer: |
           See [Assign roles to EA SPNs](manage/assign-roles-azure-service-principals.md).
       - question: How do I add a new EA administrator to my enrollment?
