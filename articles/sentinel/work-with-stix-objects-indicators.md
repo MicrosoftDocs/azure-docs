@@ -149,17 +149,17 @@ ThreatIntelIndicators
 [Transformations in Azure Monitor](/azure/azure-monitor/data-collection/data-collection-transformations) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They're implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](/azure/azure-monitor/data-collection/data-collection-rule-overview).
 
 ### Transform away columns sent to Log Analytics
-`ThreatIntelIndicators` and `ThreatIntelObjects` contains a `Data` column that holds a copy of the entire STIX object. If this column is not useful for your scenario, it is possible to filter it out before ingestion using DCRs, as shown below:
+The `ThreatIntelIndicator` and `ThreatIntelObjects` tables include a Data column that contains the full original STIX object. If this column is not relevant to your use case, you can filter it out before ingestion using Data Collection Rules (DCRs), as shown below:
 
-```
+```Kusto
 source
 | project-away Data
 ```
 
 ### Transform away rows sent to Log Analytics
-`ThreatIntelIndicators` always receives at least one row per unexpired indicator. However, in some cases, we are unable to parse the STIX pattern into a key/value pair. In such instances, the indicator is sent to Log Analytics with only the unparsed pattern, allowing users to write custom analytics if desired. If these rows are not useful, it is possible to filter them out before ingestion using DCRs, as shown below:
+The `ThreatIntelIndicators` table always receives at least one row for each unexpired indicator. In some cases, the STIX pattern cannot be parsed into key/value pairs. When this happens, the indicator is still sent to Log Analytics, but only the raw, unparsed pattern is included—allowing users to build custom analytics if needed. If these rows are not useful for your scenario, you can filter them out before ingestion using DCRs, as shown below:
 
-```
+```Kusto
 source
 | where (ObservableKey != "" and isnotempty(ObservableKey)) 
     or (ObservableValue != "" and isnotempty(ObservableValue))
