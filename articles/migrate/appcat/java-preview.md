@@ -351,8 +351,8 @@ Then, for each file or class affected by the incident, you can jump into the sou
 
 This release contains the following fixes and enhancements.
 
-- A default `.appcat-ignore` file now is included in the release package to by default exclude some folders or paths that needn't to be analyzed.
-- Fixed the issue of missing dependencies in the report when using 'full' mode (specified by '--mode').
+- A default **.appcat-ignore** file is now included in the release package by default. This file causes the tool to exclude specified folders or paths that don't need to be analyzed.
+- Fixed the issue of missing dependencies in the report when using `full` mode (specified by using `--mode`).
 - Scoped analysis to AppCAT-supported targets when no targets are specified.
 - Ignored comment lines during analysis.
 - Fixed incorrect location for XML rules.
