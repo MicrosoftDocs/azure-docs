@@ -17,9 +17,11 @@ sections:
     questions:
       - question: How do I view savings plan charges?
         answer: |
-          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Savings plan**. 
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Then, add a filter for **Pricing Model: Savings plan**. 
 
-          You can then select whether you want to view actual charges (when the purchase was charged) or the amortized cost, spreading the cost of the savings plan across the resources that consumed it. This can be done by selecting the down arrow symbol next to the Actual Cost KPI and then selecting the required metric from the drop down.
+          You can choose to view either the actual cost (reflecting when the purchase was charged) or the amortized cost (which spreads the cost of the Savings Plan across the resources that used it).
+          
+          To switch between these views, select the down arrow next to the Actual Cost KPI and select your desired metric from the drop-down.
 
       - question: How do I view savings plan underutilization?
         answer: |
@@ -31,7 +33,9 @@ sections:
         answer: |
           In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Reservation**.
           
-           You can then select whether you want to view actual charges (when the purchase was charged) or the amortized cost, spreading the cost of the reservation across the resources that consumed it. This can be done by selecting the down arrow symbol next to the Actual Cost KPI and then selecting the required metric from the drop down.
+          You can choose to view either the actual cost (reflecting when the purchase was charged) or the amortized cost (which spreads the cost of the Reservation across the resources that used it).
+          
+          To switch between these views, select the down arrow next to the Actual Cost KPI and select your desired metric from the drop-down.
       - question: How do I see reservation savings?
         answer: |
           There are a couple of ways to view your savings.

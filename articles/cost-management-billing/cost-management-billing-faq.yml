@@ -47,7 +47,7 @@ sections:
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).
       - question: When does Azure finalize or close the billing cycle of a closed month?
         answer: |
-          Azure finalizes or closes the current billing period up to the fifth day after a closed month. Changes might continue and change until the billing system processes data andthe invoice is issued.
+          Azure finalizes or closes the current billing period up to the fifth day after a closed month. Changes might continue and change until the billing system processes data and the invoice is issued.
       - question: How do I update my payment method?
         answer: |
           See [Change your Azure payment method](manage/change-credit-card.md).
@@ -144,22 +144,22 @@ sections:
           - Use [Exports](costs/ingest-azure-usage-at-scale.md) to automatically generate and store large, recurring usage datasets in Azure Storage for analysis at scale.
           - Use the [Cost Details API](automate/get-small-usage-datasets-on-demand.md) to programmatically retrieve smaller, on-demand usage datasets.
 
-          It is best practice to leverage the  Exports capability for large or recurring datasets, and the API for smaller, on-demand queries.
+          It is best practice to leverage the Exports capability for large or recurring datasets, and the API for smaller, on-demand queries.
       - question: Where can I find information about the fields in the Cost and Usage Details file?
         answer: |
           For a detailed explanation of each field in the Cost and Usage Details file, see [Understand cost details fields](automate/understand-usage-details-fields.md). This documentation provides definitions and guidance for interpreting the columns in your exported cost and usage data.
       - question: Why do I get Usage Details API timeouts?
         answer: |
-           Usage Details API timeouts often occur when requesting large datasets, as the API may not be able to process and deliver the data before timing out. To avoid these issues, we recommend using [Exports](costs/ingest-azure-usage-at-scale.md) for large or recurring usage datasets, or the [Cost Details API](automate/get-small-usage-datasets-on-demand.md) for smaller, on-demand queries. For guidance on migrating from the Usage Details API, see [Migrate from the Consumption Usage Details API](automate/migrate-consumption-usage-details-api.md).cv
+           Usage Details API timeouts often occur when requesting large datasets, as the API may not be able to process and deliver the data before timing out. To avoid these issues, we recommend using [Exports](costs/ingest-azure-usage-at-scale.md) for large or recurring usage datasets, or the [Cost Details API](automate/get-small-usage-datasets-on-demand.md) for smaller, on-demand queries. For guidance on migrating from the Usage Details API, see [Migrate from the Consumption Usage Details API](automate/migrate-consumption-usage-details-api.md).
       - question: How do I see my recurring charges?
         answer: |
           Recurring charges are available in the cost and usage details data when viewing Actual Cost.
       - question: Where can I see tax information in cost and usage details data?
         answer: |
-          The cost and usage details data is all pretax. Tax related charges are only available on your invoice.
+          The cost and usage details data is all pre-tax. Tax-related charges are only available on your invoice.
       - question: Why is PayGPrice displaying as zero for some of the records in my Cost and Usage Details file?
         answer: |
-          If you’re an EA or MCA customer, `PayGPrice` is populated only for first party Azure usage charges where `PricingModel` is `OnDemand`, `Spot`, or `SavingsPlan`. `PayGprice` isn't populated when `PricingModel` = `Reservations` or `Marketplace`.
+          If you’re an EA or MCA customer, `PayGPrice` is populated only for first-party Azure usage charges where `PricingModel` is `OnDemand`, `Spot`, or `SavingsPlan`. `PayGprice` isn't populated when `PricingModel` is `Reservations` or `Marketplace`.
       - question: Does Cost and usage details data have Reservation charges?
         answer: |
           Yes it does. You can see those charges when the actual charges occurred in the Actual Cost dataset or you can see the charges spread across the resources that consumed the Reservation or Savings Plan in the Amortized Cost dataset. For more information, see [Get amortized costs](costs/manage-automation.md#get-amortized-cost-details).
