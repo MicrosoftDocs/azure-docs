@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/21/2024
+ms.date: 05/26/2025
 ms.author: jkinma
 ---
 
@@ -31,7 +31,7 @@ Roles on the billing account have the highest level of permissions. These roles 
 
 ## Billing profiles
 
-A billing profile is used to manage your invoice and payment methods. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges from the previous month for all subscriptions associated with the billing profile.
+A billing profile is used to manage your invoice and payment methods. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges from the previous month for all consumption-based subscriptions associated with the billing profile.
 
 When your account is updated, a billing profile is automatically created for each subscription. Subscription's charges are billed to its respective billing profile and displayed on its invoice.
 
@@ -53,7 +53,7 @@ Your new experience includes the following cost management and billing capabilit
 
 #### Invoice management
 
-**More predictable monthly billing period** - In your new account, the billing period begins from the first day of the month and ends at the last day of the month, no matter when you sign up to use Azure. An invoice will be generated at the beginning of each month, and will contain all charges from the previous month.
+**More predictable monthly billing period** - In your new account, the billing period begins from the first day of the month and ends at the last day of the month, no matter when you sign up to use Azure. An invoice will be generated at the beginning of each month, and will contain all consumption-based charges from the previous month.
 
 **Get a single monthly invoice for multiple subscriptions** - In your existing account, you get an invoice for each Azure subscription. When your account is updated, the existing behavior is maintained but you have the flexibility to consolidate the charges of your subscriptions on a single invoice. After you account is updated, follow the steps below to consolidate your charges on a single invoice:
 
@@ -105,8 +105,7 @@ We recommend the following to get prepared for your new experience:
 
 **Monthly billing period and different invoice date**
 
-In the new experience, your invoice will be generated around the ninth day of each month and it contains all charges from previous month. This date might differ from the date when your invoice is generated in the old account. If you share your invoices with others, notify them of the change in the date.
-
+In the new experience, your invoice will be generated around the ninth day of each month and it contains all charges for your consumption-based subscriptions from the previous month. This date might differ from the date when your invoice is generated in the old account. If you share your invoices with others, notify them of the change in the date.
 
 **Invoices in the first month after migration**
 

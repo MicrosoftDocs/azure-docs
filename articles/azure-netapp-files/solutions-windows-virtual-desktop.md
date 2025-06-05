@@ -4,7 +4,7 @@ description: Provides best practice guidance and sample blueprints on deploying 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/13/2024
 ms.author: anfdocs
 ---

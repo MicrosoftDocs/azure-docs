@@ -14,7 +14,7 @@ ms.date: 03/18/2025
 
 This article describes reliability support in [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft. This article covers ways for you to create a resilient solution that meets your needs.
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 ## Production deployment recommendations
 
@@ -167,7 +167,7 @@ If you need to deploy your Kubernetes workload to multiple Azure regions, you ha
 
 Azure Backup has an extension that you can use to back up AKS cluster resources and persistent volumes that attach to the cluster. The Backup vault communicates with the AKS cluster through the extension to perform backup and restore operations.
 
-If your AKS cluster is in a [paired region](./regions-paired.md), you can configure backups to be stored in geo-redundant storage. You can restore geo-redundant backups into the paired region.
+If your AKS cluster is in a [region that's paired](./regions-paired.md), you can configure backups to be stored in geo-redundant storage. You can restore geo-redundant backups into the paired region.
 
 For more information, see the following articles:
 
@@ -177,6 +177,12 @@ For more information, see the following articles:
 For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
 
 Strive to use stateless clusters that minimize the need for backup. Store data in external storage systems and databases instead of within your cluster.
+
+## Reliability during service maintenance
+
+AKS performs maintenance on your cluster, including updates to the cluster and node images. To ensure that Kubernetes maintains the minimum number of pod instances required to serve your production traffic even during upgrades, you should configure your pods to use pod disruption budgets.
+
+To reduce service disruptions during critical time periods, AKS provides controls so that you can specify planned maintenance times. To learn more, see [Use planned maintenance to schedule and control upgrades for your Azure Kubernetes Service cluster](/azure/aks/planned-maintenance).
 
 ## Service-level agreement
 

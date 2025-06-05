@@ -196,7 +196,6 @@ items:
       href: detect-malware-with-sentinel.md
   - name: Network security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-- name: Deploy
 - name: Operational excellence
   items:
   - name: Monitoring

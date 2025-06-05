@@ -3,9 +3,9 @@ title: Support requirements for Azure Site Recovery replication appliance
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: azure-site-recovery
 ms.topic: faq
-ms.date: 12/20/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 04/29/2025
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Support matrix for deploy Azure Site Recovery replication appliance - Modernized
@@ -37,7 +37,7 @@ Number of disks | 2, including the OS disk - 80 GB and a data disk - 620 GB
 
 **Component** | **Requirement**
 --- | ---
-Operating system | Windows Server 2019
+Operating system | Windows Server 2022 <br><br> **Note**: <br> - Windows Server 2019 appliances will continue to receive software updates. <br> - Upgrading OS on existing Windows server 2019 appliances to Windows Server 2022 is not supported. 
 Operating system locale | English (en-*)
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
@@ -52,6 +52,7 @@ FIPS (Federal Information Processing Standards) | Don't enable FIPS mode|
 |Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 |NIC type | VMXNET3 (if the appliance is a VMware VM)|
 |NAT | Supported |
+
 
 >[!NOTE]
 > To support communication between source machines and replication appliance using multiple subnets, you should select FQDN as the mode of connectivity during the appliance setup. This will allow source machines to use FQDN, along with a list of IP addresses, to communicate with replication appliance. 

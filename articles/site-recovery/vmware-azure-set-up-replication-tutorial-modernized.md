@@ -3,10 +3,10 @@ title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Mo
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Modernized.
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 04/03/2025
+ms.date: 04/26/2025
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
 
@@ -44,7 +44,7 @@ To create and register the Azure Site Recovery replication appliance, you need a
 
 - Contributor or Owner permissions on the Azure subscription.
 - Permissions to register Microsoft Entra apps.
-- Owner or Contributor and User Access Administrator permissions on the Azure subscription to create a Key Vault, used during agentless VMware migration.
+
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner for the required permissions.
 

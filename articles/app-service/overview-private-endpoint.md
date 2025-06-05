@@ -4,7 +4,7 @@ description: Learn how to connect privately to Azure App Service apps using a pr
 author: madsd
 ms.author: madsd
 ms.topic: overview
-ms.date: 01/31/2025
+ms.date: 04/23/2025
 ms.custom: msangapu
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 
@@ -13,8 +13,6 @@ ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ---
 
 # Use private endpoints for Azure App Service apps
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 You can use a private endpoint for your Azure App Service apps. The private endpoint allows clients located in your private network to securely access an app over Azure Private Link. The private endpoint uses an IP address from your Azure virtual network address space. Network traffic between a client on your private network and the app goes over the virtual network and Private Link on the Microsoft backbone network. This configuration eliminates exposure from the public internet.
 
@@ -57,9 +55,7 @@ You can find the client source IP in the web HTTP logs of your app. This feature
 
 ## DNS
 
-When you use private endpoint for App Service apps, the requested URL must match the name of your app, which is by default `<app-name>.azurewebsites.net`. When you use a [unique default hostname](#dnl-note), your app name has the format `<app-name>-<random-hash>.<region>.azurewebsites.net`. In the following examples, `mywebapp` could also represent the full regionalized unique hostname.
-
-By default, without a private endpoint, the public name of your web app is a canonical name to the cluster. For example, the name resolution is:
+When you use private endpoint for App Service apps, the requested URL must match the address of your app. By default, without a private endpoint, the public name of your web app is a canonical name to the cluster. For example, the name resolution is:
 
 | Name | Type | Value |
 |:-----|:-----|:------|
@@ -77,7 +73,7 @@ For example, the name resolution is:
 | `clustername.azurewebsites.windows.net` | `CNAME` | `cloudservicename.cloudapp.net` | |
 | `cloudservicename.cloudapp.net` | `A` | `192.0.2.13` | <--This public IP isn't your private endpoint. You receive a 403 error. |
 
-You must set up a private DNS server or an Azure DNS private zone. For tests, you can modify the host entry of your test machine. The DNS zone that you need to create is: `privatelink.azurewebsites.net`. Register the record for your app with an `A` record and the private endpoint IP.
+You must set up a private DNS server or an Azure DNS private zone. For tests, you can modify the host entry of your test machine. The DNS zone that you need to create is: `privatelink.azurewebsites.net`. Register the record for your app with an `A` record and the private endpoint IP. With [Azure Private DNS Zone Groups](../private-link/private-endpoint-dns-integration.md#private-dns-zone-group), the DNS records are automatically added to the Private DNS zone.
 
 For example, the name resolution is:
 
@@ -88,9 +84,15 @@ For example, the name resolution is:
 
 When you set up this DNS configuration, you can reach your app privately with the default name `mywebapp.azurewebsites.net`. You must use this name, because the default certificate is issued for `*.azurewebsites.net`.
 
-If you need to use a custom DNS name, add the custom name in your app. You must validate the custom name like any custom name, by using public DNS resolution. For more information, see [custom DNS validation](./app-service-web-tutorial-custom-domain.md).
+### Custom domain name
 
-For the Kudu console, or Kudu REST API (for deployment with Azure DevOps Services self-hosted agents, for example) you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app and the second is for the SCM (source control management) of your app.
+If you need to use a custom domain name, add the custom name in your app. You must validate the custom name like any custom name, by using public DNS resolution. For more information, see [custom DNS validation](./app-service-web-tutorial-custom-domain.md).
+
+In your custom DNS zone, you need to update the DNS record to point to the private endpoint. If your app is already configured with DNS resolution for the default host name, the preferred way is to add a `CNAME` record for the custom domain pointing to `mywebapp.azurewebsites.net`. If you only want the custom domain name to resolve to the private endpoint, you can add an `A` record with the private endpoint IP directly.
+
+### Kudu/scm endpoint
+
+For the Kudu console, or Kudu REST API (for deployment with Azure DevOps Services self-hosted agents, for example) you must create a second record pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app and the second is for the SCM (source control management) of your app. With Azure Private DNS Zone groups, the scm endpoint is automatically added.
 
 | Name | Type | Value |
 |-----|-----|-----|
@@ -131,5 +133,5 @@ For up-to-date information about limitations, see [this documentation](../privat
 - [Quickstart: Create a private endpoint by using the Azure CLI](../private-link/create-private-endpoint-cli.md)
 - [Quickstart: Create a private endpoint by using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 - [Quickstart: Create a private endpoint by using an ARM template](../private-link/create-private-endpoint-template.md)
-- [Quickstart template for connecting a front-end app to a secured back-end app with virtual network integration and a private endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection)
-- [Create two web apps connected securely with a private endpoint and virtual network integration (Terraform)](./scripts/terraform-secure-backend-frontend.md)
+- [Quickstart: Template for connecting a front-end app to a secured back-end app with virtual network integration and a private endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection)
+- [Script: Create two web apps connected securely with a private endpoint and virtual network integration (Terraform)](./scripts/terraform-secure-backend-frontend.md)

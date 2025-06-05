@@ -11,8 +11,6 @@ ms.author: msangapu
 
 # Monitor App Service instances by using Health check
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 This article describes how to use Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances and replacing instances if they remain unhealthy. It does that by pinging your web application every minute, via a path that you choose.
 
 ![Diagram that shows how Health check works.][1]
@@ -163,7 +161,7 @@ After providing your application's Health check path, you can monitor the health
 
 ## Limitations
 
-- Health check can be enabled for **Free** and **Shared** App Service plans, so you can have metrics on the site's health and set up alerts. However, because **Free** and **Shared** sites can't scale out, unhealthy instances won't be replaced. You should scale up to the **Basic** tier or higher so you can scale out to two or more instances and get the full benefit of Health check. This is recommended for production-facing applications as it increases your app's availability and performance.
+- Health check can be enabled for **Free** and **Shared** App Service plans, so you can have metrics on the site's health and set up alerts. However, because **Free** and **Shared** sites don't support scale out, unhealthy instances won't be replaced automatically. You should scale up to the **Basic** tier or higher so you can scale out to two or more instances and get the full benefit of Health check. This is recommended for production-facing applications as it increases your app's availability and performance.
 - An App Service plan can have a maximum of one unhealthy instance replaced per hour and, at most, three instances per day.
 - There's a nonconfigurable limit on the total number of instances replaced by Health check per scale unit. If this limit is reached, no unhealthy instances are replaced. This value gets reset every 12 hours.
 

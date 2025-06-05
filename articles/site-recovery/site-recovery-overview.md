@@ -5,8 +5,8 @@ ms.topic: overview
 ms.service: azure-site-recovery
 ms.date: 04/01/2025
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # About Site Recovery
@@ -65,3 +65,6 @@ Site Recovery can manage replication for:
 - Get started with [Azure VM replication between regions](azure-to-azure-quickstart.md).
 - Get started with [VMware VM replication](vmware-azure-enable-replication.md).
 - Get started with [Disaster recovery for VMs on Azure Extended Zones](disaster-recovery-for-edge-zone-vm-tutorial.md).
+- Get started with [Cloud Adoption Framework for Multiregion Business Continuity](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr). 
+- Get started with [Well-Architected Framework for VMware Solution during disasters](/azure/well-architected/azure-vmware/operations).
+- Get started with [Azure Architected Center for Azure Local stretched clusters for disaster recovery](/azure/architecture/hybrid/azure-local-dr).

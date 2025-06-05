@@ -2,12 +2,12 @@
 title: Azure built-in roles for Integration - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Integration category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -395,6 +395,9 @@ Has read access to entities in the workspace and read and write access to entiti
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/diagnostics/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/loggers/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -426,7 +429,10 @@ Has read access to entities in the workspace and read and write access to entiti
         "Microsoft.ApiManagement/service/workspaces/certificates/*",
         "Microsoft.ApiManagement/service/workspaces/diagnostics/*",
         "Microsoft.ApiManagement/service/workspaces/loggers/*",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -455,6 +461,9 @@ Has read access to entities in the workspace and read and write access to entiti
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/tags/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/notifications/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -479,7 +488,10 @@ Has read access to entities in the workspace and read and write access to entiti
         "Microsoft.ApiManagement/service/workspaces/groups/*",
         "Microsoft.ApiManagement/service/workspaces/tags/*",
         "Microsoft.ApiManagement/service/workspaces/notifications/*",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -503,6 +515,9 @@ Can manage the workspace and view, but not modify its members. This role should 
 > | --- | --- |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -522,7 +537,10 @@ Can manage the workspace and view, but not modify its members. This role should 
     {
       "actions": [
         "Microsoft.ApiManagement/service/workspaces/*",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -546,6 +564,9 @@ Has read-only access to entities in the workspace. This role should be assigned 
 > | --- | --- |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/*/read |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -565,7 +586,10 @@ Has read-only access to entities in the workspace. This role should be assigned 
     {
       "actions": [
         "Microsoft.ApiManagement/service/workspaces/*/read",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -645,7 +669,7 @@ Allows full access to App Configuration data.
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/delete |  |
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/action |  |
 > | **NotDataActions** |  |
-> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/useSasAuth/action | Use SAS authentication for the configuration store. |
+> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/useSasAuth/action |  |
 
 ```json
 {
@@ -824,6 +848,7 @@ Allows for access to Azure API Center data plane read operations.
 > | **DataActions** |  |
 > | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/*/read |  |
 > | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/workspaces/search/action | Search workspace for relevant results. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -841,7 +866,8 @@ Allows for access to Azure API Center data plane read operations.
       "notActions": [],
       "dataActions": [
         "Microsoft.ApiCenter/services/*/read",
-        "Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action"
+        "Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action",
+        "Microsoft.ApiCenter/services/workspaces/search/action"
       ],
       "notDataActions": []
     }
@@ -1090,12 +1116,13 @@ Lets you create system topics and event subscriptions on all system topics expos
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToResources/action | Permission to perform creation and event subscription creation on a Resources system topic |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToHealthResources/action | Permission to perform creation and event subscription creation on a HealthResources system topic |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToMaintenanceResources/action | Permission to perform creation and event subscription creation on a MaintenanceResources system topic |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeResources/action | Permission to perform creation and event subscription creation on a ComputeResources system topic |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeScheduleResources/action | Permission to perform creation and event subscription creation on a ComputeScheduleResources system topic |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToContainerServiceEventResources/action | Permission to perform creation and event subscription creation on a ContainerServiceEventResources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToResources/action | Permission to perform creation and event subscription creation on a resources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToHealthResources/action | Permission to perform creation and event subscription creation on a healthresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToMaintenanceResources/action | Permission to perform creation and event subscription creation on a maintenanceresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeResources/action | Permission to perform creation and event subscription creation on a computeresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeScheduleResources/action | Permission to perform creation and event subscription creation on a computescheduleresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToContainerServiceEventResources/action | Permission to perform creation and event subscription creation on a containerserviceeventresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToImpactReportingResources/action | Permission to perform creation and event subscription creation on a impactreportingresources system topic |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/eventSubscriptions/write | Create or update an eventSubscription |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/systemTopics/eventSubscriptions/write | Create or update a SystemTopic eventSubscription |
 > | **NotActions** |  |
@@ -1122,6 +1149,7 @@ Lets you create system topics and event subscriptions on all system topics expos
         "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeScheduleResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToContainerServiceEventResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToImpactReportingResources/action",
         "Microsoft.EventGrid/eventSubscriptions/write",
         "Microsoft.EventGrid/systemTopics/eventSubscriptions/write"
       ],
@@ -1319,118 +1347,6 @@ Lets you manage BizTalk services, but not access to them.
     }
   ],
   "roleName": "BizTalk Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Chamber Admin
-
-Lets you manage everything under your Modeling and Simulation Workbench chamber.
-
-[Learn more](/azure/modeling-simulation-workbench/how-to-guide-manage-users)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | Microsoft.ModSimWorkbench/*/read |  |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/* |  |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | **NotActions** |  |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/manage/action |  |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/connector/setCopyPaste/action |  |
-> | **DataActions** |  |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/upload/action |  |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/files/* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Lets you manage everything under your Modeling and Simulation Workbench chamber.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/4e9b8407-af2e-495b-ae54-bb60a55b1b5a",
-  "name": "4e9b8407-af2e-495b-ae54-bb60a55b1b5a",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.ModSimWorkbench/*/read",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/*",
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
-      ],
-      "notActions": [
-        "Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/manage/action",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/connector/setCopyPaste/action"
-      ],
-      "dataActions": [
-        "Microsoft.ModSimWorkbench/workbenches/chambers/upload/action",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/files/*"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Chamber Admin",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Chamber User
-
-Lets you view everything under your Modeling and Simulation Workbench chamber, but not make any changes.
-
-[Learn more](/azure/modeling-simulation-workbench/how-to-guide-manage-users)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/*/read |  |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/* |  |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/getUploadUri/action |  |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/getDownloadUri/action |  |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/upload/action |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Lets you view everything under your Modeling and Simulation Workbench chamber, but not make any changes.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/4447db05-44ed-4da3-ae60-6cbece780e32",
-  "name": "4447db05-44ed-4da3-ae60-6cbece780e32",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.ModSimWorkbench/workbenches/chambers/*/read",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/workloads/*",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/getUploadUri/action",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/getDownloadUri/action",
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
-      ],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.ModSimWorkbench/workbenches/chambers/upload/action"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Chamber User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1744,6 +1660,8 @@ Read all Durable Task Scheduler data.
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/orchestrations/read | Gets or list orchestrations metadata, including payloads |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
 > | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/read | Gets or list orchestrations metadata, including payloads |
 > | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
 > | **NotDataActions** |  |
@@ -1762,6 +1680,8 @@ Read all Durable Task Scheduler data.
       "actions": [],
       "notActions": [],
       "dataActions": [
+        "Microsoft.DurableTask/orchestrations/read",
+        "Microsoft.DurableTask/orchestrations/metadata/read",
         "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/read",
         "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/metadata/read"
       ],
@@ -1787,6 +1707,7 @@ Used by worker applications to interact with the Durable Task service
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/orchestrations/execute/action | Get orchestration and activity work-items and post results |
 > | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/execute/action | Get orchestration and activity work-items and post results |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -1804,6 +1725,7 @@ Used by worker applications to interact with the Durable Task service
       "actions": [],
       "notActions": [],
       "dataActions": [
+        "Microsoft.DurableTask/orchestrations/execute/action",
         "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/execute/action"
       ],
       "notDataActions": []

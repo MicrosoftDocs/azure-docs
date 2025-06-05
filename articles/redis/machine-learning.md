@@ -1,15 +1,13 @@
 ---
-title: Deploy a machine learning model to Azure Functions with Azure Cache for Redis 
-description: In this article, you deploy a model from Azure Machine Learning as a function app in Azure Functions using an Azure Cache for Redis instance. Azure Cache for Redis is performant and scalable – when paired with an Azure Machine Learning model, you gain low latency and high throughput in your application.  
-
-
-
-ms.custom: devx-track-azurecli
-ms.topic: conceptual
-ms.date: 06/09/2021
+title: Deploy a machine learning model to Azure Functions with Azure Cache for Redis
+description: In this article, you deploy a model from Azure Machine Learning as a function app in Azure Functions using an Azure Cache for Redis instance. Azure Cache for Redis is performant and scalable – when paired with an Azure Machine Learning model, you gain low latency and high throughput in your application.
+ms.date: 05/18/2025
+ms.topic: tutorial
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 appliesto:
   - ✅ Azure Cache for Redis
-
 ---
 
 # Deploy a machine learning model to Azure Functions with Azure Cache for Redis
@@ -45,8 +43,6 @@ You’ll be able to deploy a machine learning model to Azure Functions with any 
 1. Go to the Azure portal homepage or open the sidebar menu, then select **Create a resource**.
 
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
-
-    :::image type="content" source="media/private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
 
 1. On the **New Redis Cache** page, configure the settings for your new cache.
 
@@ -129,7 +125,7 @@ For more information on entry script, see [Define scoring code.](/azure/machine-
 These entities are encapsulated into an **inference configuration**. The inference configuration references the entry script and other dependencies.
 
 > [!IMPORTANT]
-> When creating an inference configuration for use with Azure Functions, you must use an [Environment](/python/api/azureml-core/azureml.core.environment%28class%29) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
+> When creating an inference configuration for use with Azure Functions, you must use an `Environment` object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -162,7 +158,7 @@ pip install azureml-contrib-functions
 
 ## Create the image
 
-To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions) or the specific package function for the trigger you want to use. The following code snippet demonstrates how to create a new package with an HTTP trigger from the model and inference configuration:
+To create the Docker image that is deployed to Azure Functions, use `azureml.contrib.functions.package` or the specific package function for the trigger you want to use. The following code snippet demonstrates how to create a new package with an HTTP trigger from the model and inference configuration:
 
 > [!NOTE]
 > The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
@@ -319,5 +315,4 @@ After a few moments, the resource group and all of its resources are deleted.
 
 * Learn more about [Azure Cache for Redis](overview.md)
 * Learn to configure your function app in the [Functions](../azure-functions/functions-create-function-linux-custom-image.md) documentation.
-* [API Reference](/python/api/azureml-contrib-functions/azureml.contrib.functions)
 * Create a [Python app that uses Azure Cache for Redis](python-get-started.md)

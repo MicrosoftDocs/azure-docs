@@ -2,19 +2,18 @@
 title: Security FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files security.
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/24/2024
-ms.custom: references_regions
+ms.date: 04/23/2025
 ---
 # Security FAQs for Azure NetApp Files
 
 This article answers frequently asked questions (FAQs) about Azure NetApp Files security.
 
-## Can the network traffic between the Azure VM and the storage be encrypted?
+## Can the network traffic between the Azure virtual machine (VM) and the storage be encrypted?
 
-Azure NetApp Files data traffic is inherently secure by design, as it doesn't provide a public endpoint, and data traffic stays within customer-owned VNet. Data-in-flight isn't encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. 
+Azure NetApp Files data traffic is inherently secure by design, as it doesn't provide a public endpoint, and data traffic stays within customer-owned virtual network (VNet). Data-in-flight isn't encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. 
 
 NFSv3 protocol doesn't provide support for encryption, so this data-in-flight can't be encrypted. However, NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details. Data traffic between SMB3 clients and Azure NetApp Files volumes can be encrypted using the AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1 connections. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for details. 
 
@@ -30,7 +29,7 @@ Azure NetApp Files cross-region and cross-zone replication uses TLS 1.2 AES-256 
 
 By default key management for Azure NetApp Files is handled by the service, using [platform-managed keys](../security/fundamentals/key-management.md). A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. When you delete a volume, Azure NetApp Files immediately deletes the volume's encryption keys.
 
-Alternatively, [customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) can be used where keys are stored in [Azure Key Vault](/azure/key-vault/general/basic-concepts). With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys. The feature is generally available (GA) in [supported regions](configure-customer-managed-keys.md#supported-regions). [Azure NetApp Files volume encryption with customer-managed keys with the managed Hardware Security Module](configure-customer-managed-keys-hardware.md) is an extension to this feature, allowing you to store your encryption keys in a more secure FIPS 140-2 Level 3 HSM instead of the FIPS 140-2 Level 1 or Level 2 service used by Azure Key Vault.
+Alternatively, [customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) can be used where keys are stored in [Azure Key Vault](/azure/key-vault/general/basic-concepts). With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys. The feature is generally available (GA). [Azure NetApp Files volume encryption with customer-managed keys with the managed Hardware Security Module](configure-customer-managed-keys-hardware.md) is an extension to this feature, allowing you to store your encryption keys in a more secure FIPS 140-2 Level 3 HSM instead of the FIPS 140-2 Level 1 or Level 2 service used by Azure Key Vault.
 
 Azure NetApp Files supports the ability to move existing volumes using platform-managed keys to customer-managed keys. Once you complete the transition, you cannot revert back to platform-managed keys. For additional information, see [Transition an Azure NetApp Files volume to customer-managed keys](configure-customer-managed-keys.md#transition).
 

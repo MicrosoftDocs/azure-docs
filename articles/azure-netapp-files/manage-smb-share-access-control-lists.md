@@ -6,7 +6,9 @@ author: b-ahibbard
 ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 01/03/2025
+ms.custom:
+  - build-2025
 ---
 # Manage SMB share ACLs in Azure NetApp Files
 

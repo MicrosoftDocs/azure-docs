@@ -3,8 +3,8 @@ title: Data redundancy in Azure Files
 description: Understand the data redundancy options available in Azure file shares and how to choose the best fit for your availability and disaster recovery requirements.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 03/27/2025
+ms.topic: concept-article
+ms.date: 05/20/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -148,12 +148,12 @@ With GRS or GZRS, the file shares won't be accessible in the secondary region un
 The following items might impact your ability to fail over to the secondary region:
 
 - Storage account failover is blocked if a system snapshot doesn't exist in the secondary region.
-- Storage account failover is blocked if the storage account contains more than 100,000 file shares. To failover the storage account, open a support request.
+- Storage account failover is blocked if the storage account contains more than 100,000 file shares. To fail over the storage account, open a support request.
 - File handles and leases aren't retained on failover, and clients must unmount and remount the file shares.
 - File share quota might change after failover. The file share quota in the secondary region will be based on the quota that was configured when the system snapshot was taken in the primary region.
 - Copy operations in progress are aborted when a failover occurs. When the failover to the secondary region completes, retry the copy operation.
 
-To failover a storage account, see [initiate an account failover](../common/storage-initiate-account-failover.md).
+To fail over a storage account, see [initiate an account failover](../common/storage-initiate-account-failover.md).
 
 ### Geo-redundancy for SSD file shares
 
@@ -193,6 +193,113 @@ The following table indicates whether your data is durable and available in a gi
 <sup>1</sup> Account failover is required to restore write availability if the primary region becomes unavailable.
 
 For pricing information for each redundancy option, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## Region supportability based on different billing models
+You can verify region supportability for various billing models using the following commands.
+# [Portal](#tab/azure-portal)
+To view region supportability based on different billing models, use Azure PowerShell or Azure CLI.
+
+# [PowerShell](#tab/azure-powershell)
+```powershell
+# Login to Azure account
+Connect-AzAccount
+
+# Track down the subscription ID in GUID format
+$subscriptionID = "your-subscription-id-number"
+
+# Get Token
+$token = Get-AzAccessToken
+
+# Invoke SRP list SKU API, and get the returned SKU list
+$result = Invoke-RestMethod -Method Get -Uri "https://management.azure.com/subscriptions/$($subscriptionID)/providers/Microsoft.Storage/skus?api-version=2024-01-01" -Headers @{"Authorization" = "Bearer $($token.Token)"}
+
+# Filter the SKU list to get the required information, customization requried here to get the best result.
+$filteredResult = $result | `
+    Select-Object -ExpandProperty value | `
+    Where-Object {
+        $_.resourceType -eq "storageAccounts" -and
+        # Filter based on your needs. FileStorage kind includes pv2, and pv1 file share, where StorageV2 kind include PayGO file shares.
+        $_.kind -in @("FileStorage", "StorageV2") -and
+        # Filter based on your needs. "Standard_" for PayGO file share, "StandardV2_" for Pv2 file share, "Premium_" for pv1 file shares.
+        # $_.name.StartsWith("StandardV2_") -and
+        # Change region based on your need to see if we currently support the region (all small cases, no space in between).
+        # $_.locations -eq "italynorth" -and
+        $_.name -notin @("Standard_RAGRS", "Standard_RAGZRS")
+    }
+
+if ($filteredResult.Count -eq 0) {
+    Write-Output "No results found."
+} else {
+    $filteredResult | `
+        Select-Object `
+            -Property `
+                @{
+                    Name = "sku";
+                    Expression = { $_.name }
+                }, `
+                kind, `
+                @{
+                    Name = "mediaTier";
+                    Expression = {
+                        if ($_.tier -eq "Premium") {
+                            "SSD"
+                        } elseif ($_.tier -eq "Standard") {
+                            "HDD"
+                        } else {
+                            "Unknown"
+                        }
+                    }
+                }, `
+                @{
+                    Name = "billingModel";
+                    Expression = {
+                        if ($_.name.StartsWith("StandardV2_") -or
+                            $_.name.StartsWith("PremiumV2_")
+                        ) {
+                            "ProvisionedV2"
+                        } elseif ($_.name.StartsWith("Premium_")) {
+                            "ProvisionedV1"
+                        } else {
+                            "PayAsYouGo"
+                        }
+                    }
+                }, `
+                @{
+                    Name = "location";
+                    Expression = { $_.locations | Select-Object -First 1 }
+                } | ft sku, kind, mediaTier, billingModel, location
+}
+```
+
+# [Azure CLI](#tab/azure-cli)
+This script uses jq command line JSON processor. To download it, visit https://jqlang.org/download/
+```bash
+# Login to Azure account
+Az login
+
+# Track down the subscription ID in GUID format and set subscription ID
+subscriptionID="your-subscription-id-number"
+
+# Get Token
+token=$(az account get-access-token --query accessToken --output tsv)
+
+# Invoke SRP list SKU API, and get the returned SKU list
+result=$(az rest --method get --uri "https://management.azure.com/subscriptions/$subscriptionID/providers/Microsoft.Storage/skus?api-version=2024-01-01" --headers "Authorization=Bearer $token")
+
+# Filter the SKU list to get the required information, customization required here to get the best result.
+filteredResult=$(echo $result | jq '.value[] | select(.resourceType == "storageAccounts" and (.kind == "FileStorage" or .kind == "StorageV2") and (.name | test("^(?!Standard_RAGRS|Standard_RAGZRS)")))' )
+
+if [ -z "$filteredResult" ]; then
+    echo "No results found."
+else
+    # Print the table header
+    printf "%-30s %-15s %-10s %-20s %-15s\n" "SKU" "Kind" "MediaTier" "BillingModel" "Location"
+    # Print the filtered results
+    echo $filteredResult | jq -r '. | "\(.name)\t\(.kind)\t\(.tier | if . == "Premium" then "SSD" elif . == "Standard" then "HDD" else "Unknown" end)\t\(.name | if test("^StandardV2_|^PremiumV2_") then "ProvisionedV2" elif test("^Premium_") then "ProvisionedV1" else "PayAsYouGo" end)\t\(.locations)"' | while IFS=$'\t' read -r sku kind mediaTier billingModel location; do
+        printf "%-30s %-15s %-10s %-20s %-15s\n" "$sku" "$kind" "$mediaTier" "$billingModel" "$location"
+    done
+fi
+```
 
 ## See also
 

@@ -2,11 +2,11 @@
 title: Azure Application Gateway infrastructure configuration
 description: This article describes how to configure the Azure Application Gateway infrastructure.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 03/07/2025
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Application Gateway infrastructure configuration

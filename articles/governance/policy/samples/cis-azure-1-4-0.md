@@ -1,9 +1,11 @@
 ---
 title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchmark 1.4.0
 description: Details of the CIS Microsoft Azure Foundations Benchmark 1.4.0 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 04/07/2025
+ms.date: 05/23/2025
 ms.topic: generated-reference
-ms.custom: generated
+ms.custom:
+  - generated
+  - build-2025
 ---
 # Details of the CIS Microsoft Azure Foundations Benchmark 1.4.0 Regulatory Compliance built-in initiative
 

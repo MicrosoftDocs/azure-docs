@@ -1,21 +1,24 @@
 ---
-title: Support matrix for Azure Data Lake Storage Gen2 Vaulted Backup (preview)
-description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage Gen2 (preview).
+title: Support matrix for Azure Data Lake Storage Vaulted Backup (preview)
+description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
 ms.topic: reference
-ms.date: 04/16/2025
-ms.custom: references_regions, engagement-fy24
+ms.date: 06/04/2025
+ms.custom:
+  - references_regions
+  - engagement-fy24
+  - build-2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Support matrix for Azure Data Lake Storage Gen2 vaulted backup (preview)
+# Support matrix for Azure Data Lake Storage vaulted backup (preview)
 
-This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage Gen2 (preview).
+This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
 
 ## Supported regions
 
-Vaulted backups of Azure Data Lake Storage Gen2 are available in the following regions: France South, India West.
+Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia, India Central.
 
 ## Supported storage accounts
 
@@ -36,15 +39,15 @@ The following table lists the protection limits:
 | Maximum number of containers in a storage account that can be protected | 100 |
 | Vault redundancy              | LRS/ZRS/GRS |
 
-### Supported and unsupported scenarios for Azure Data Lake Storage Gen2 protection (preview)
+### Supported and unsupported scenarios for Azure Data Lake Storage protection (preview)
 
-Azure Data Lake Storage Gen2 protection (preview) has the following supported and unsupported scenarios:
+Azure Data Lake Storage protection (preview) has the following supported and unsupported scenarios:
 
 - Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.
-- The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2). 
+- Object Replication fails to register changes when a storage account or container is deleted and recreated with the same name between two consecutive backups, causing recovery points to retain older blobs and versions.
+- Blobs are excluded from recovery points if you rename their parent path after creating them via async copy.
 - Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups. Only System-Assigned Managed Identity (SAMI) works, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
-- Enabling backups isn't supported for the blob container that are configured with native replication using data factory.
 - You can protect the storage account with the vault in another subscription but in the same region as storage account.
 - Archive tier for vault is currently not supported.
 
@@ -88,5 +91,5 @@ The following table lists the restore method limits:
 
 ## Next steps
 
-- [Configure vaulted backup for Azure Data Lake Storage Gen2 using Azure portal (preview)](azure-data-lake-storage-configure-backup.md).
-- [Restore Azure Data Lake Storage Gen2 using Azure portal (preview)](azure-data-lake-storage-restore.md).
+- [Configure vaulted backup for Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-configure-backup.md).
+- [Restore Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-restore.md).

@@ -2,11 +2,11 @@
 title: Azure permissions for Storage - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Storage category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -163,6 +163,8 @@ Azure service: [Azure Elastic SAN](/azure/storage/elastic-san/)
 > | Microsoft.ElasticSan/elasticSans/privateEndpoints/move/action |  |
 > | Microsoft.ElasticSan/elasticSans/privateLinkResources/read |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/read | List VolumeGroups by ElasticSan |
+> | Microsoft.ElasticSan/elasticSans/volumeGroups/preBackup/action |  |
+> | Microsoft.ElasticSan/elasticSans/volumeGroups/preRestore/action |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/delete | Delete Volume Group |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/read | Get Volume Group |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/write | Create/Update Volume Group |
@@ -200,6 +202,7 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/locations/quotaLimits/read | Reads a Quotalimit resource type. |
 > | Microsoft.NetApp/locations/regionInfo/read | Reads a regionInfo resource. |
 > | Microsoft.NetApp/locations/regionInfos/read | Reads a arm compliant regionInfos resource |
+> | Microsoft.NetApp/locations/usages/read | Reads a usage resource type |
 > | Microsoft.NetApp/netAppAccounts/read | Reads an account resource. |
 > | Microsoft.NetApp/netAppAccounts/write | Writes an account resource. |
 > | Microsoft.NetApp/netAppAccounts/delete | Deletes an account resource. |
@@ -263,6 +266,10 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/delete | Deletes a backup resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/restoreFiles/action | Restores files from a backup resource |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backupStatus/read | Get the status of the backup for a volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/buckets/read | Reads a bucket resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/buckets/write | Writes a bucket resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/buckets/delete | Deletes a bucket resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/buckets/generateCredentials/action | Restores files from a bucket resource |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/latestBackupStatus/current/read | Get the status of the backup for a volume |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/latestRestoreStatus/current/read | Get the status of the restore for a volume |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/mountTargets/read | Reads a mount target resource. |
@@ -282,6 +289,7 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/volumeQuotaRules/read | Reads a Volume quota rule resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/volumeQuotaRules/write | Writes Volume quota rule resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/volumeQuotaRules/delete | Deletes a Volume quota rule resource. |
+> | Microsoft.NetApp/netAppAccounts/quotaLimits/read | Reads a Quotalimit resource type. |
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/read | Reads a snapshot policy resource. |
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/write | Writes a snapshot policy resource. |
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/delete | Deletes a snapshot policy resource. |
@@ -303,18 +311,22 @@ Azure service: [Storage](/azure/storage/)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Storage/register/action | Registers the subscription for the storage resource provider and enables the creation of storage accounts. |
+> | Microsoft.Storage/unregister/action |  |
 > | Microsoft.Storage/register/action |  |
 > | Microsoft.Storage/checknameavailability/read | Checks that account name is valid and is not in use. |
 > | Microsoft.Storage/deletedAccounts/read |  |
 > | Microsoft.Storage/locations/deleteVirtualNetworkOrSubnets/action | Notifies Microsoft.Storage that virtual network or subnet is being deleted |
 > | Microsoft.Storage/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action |  |
 > | Microsoft.Storage/locations/previewActions/action |  |
+> | Microsoft.Storage/locations/ActionsRPOperationStatuses/write | Creates or updates an ActionsRP operation status |
+> | Microsoft.Storage/locations/ActionsRPOperationStatuses/read | Get an ActionsRP operation status |
 > | Microsoft.Storage/locations/checknameavailability/read | Checks that account name is valid and is not in use. |
 > | Microsoft.Storage/locations/usages/read | Returns the limit and the current usage count for resources in the specified subscription |
 > | Microsoft.Storage/operations/read |  |
 > | Microsoft.Storage/operations/read | Polls the status of an asynchronous operation. |
 > | Microsoft.Storage/resilienciesProgressions/read |  |
 > | Microsoft.Storage/skus/read | Lists the Skus supported by Microsoft.Storage. |
+> | Microsoft.Storage/storageAccounts/updateAutoRotateUserKeys/action |  |
 > | Microsoft.Storage/storageAccounts/updateAccountContainerHoldingPeriod/action |  |
 > | Microsoft.Storage/storageAccounts/updateInternalProperties/action |  |
 > | Microsoft.Storage/storageAccounts/consumerDataShare/action |  |
@@ -377,6 +389,7 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/fileServices/read | List file services |
 > | Microsoft.Storage/storageAccounts/fileServices/write | Put file service properties |
 > | Microsoft.Storage/storageAccounts/fileServices/read | Get file service properties |
+> | Microsoft.Storage/storageAccounts/fileServices/generateUserDelegationKey/action | Returns a user delegation key for the file service |
 > | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read | Gets the log definition for File |
@@ -425,10 +438,11 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/metricDefinitions/read | Get list of Microsoft Storage Metrics definitions. |
 > | Microsoft.Storage/storageAccounts/queueServices/read |  |
-> | Microsoft.Storage/storageAccounts/queueServices/write |  |
 > | Microsoft.Storage/storageAccounts/queueServices/read | Get Queue service properties |
+> | Microsoft.Storage/storageAccounts/queueServices/write |  |
 > | Microsoft.Storage/storageAccounts/queueServices/read | Returns queue service properties or statistics. |
 > | Microsoft.Storage/storageAccounts/queueServices/write | Returns the result of setting queue service properties |
+> | Microsoft.Storage/storageAccounts/queueServices/generateUserDelegationKey/action | Returns a user delegation key for the queue service |
 > | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/logDefinitions/read | Gets the log definition for Queue |
@@ -455,6 +469,7 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/tableServices/write |  |
 > | Microsoft.Storage/storageAccounts/tableServices/read | Get table service properties or statistics |
 > | Microsoft.Storage/storageAccounts/tableServices/write | Set table service properties |
+> | Microsoft.Storage/storageAccounts/tableServices/generateUserDelegationKey/action | Returns a user delegation key for the table service |
 > | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/logDefinitions/read | Gets the log definition for Table |
@@ -528,6 +543,9 @@ Azure service: [Azure HPC Cache](/azure/hpc-cache/), [Azure Managed Lustre](/azu
 > | Microsoft.StorageCache/amlFilesystems/delete | Deletes the amlfilesystem instance |
 > | Microsoft.StorageCache/amlFilesystems/Archive/action | Archive the data in the amlfilesystem |
 > | Microsoft.StorageCache/amlFilesystems/CancelArchive/action | Cancel archiving the amlfilesystem |
+> | Microsoft.StorageCache/amlFilesystems/autoExportJobs/read |  |
+> | Microsoft.StorageCache/amlFilesystems/autoExportJobs/write |  |
+> | Microsoft.StorageCache/amlFilesystems/autoExportJobs/delete |  |
 > | Microsoft.StorageCache/amlFilesystems/importJobs/read |  |
 > | Microsoft.StorageCache/amlFilesystems/importJobs/write |  |
 > | Microsoft.StorageCache/amlFilesystems/importJobs/delete |  |

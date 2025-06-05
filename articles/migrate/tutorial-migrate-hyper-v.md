@@ -6,8 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 11/15/2024
-ms.custom: MVC, fasttrack-edit, engagement-fy25
+ms.date: 02/07/2025
+ms.custom: MVC, fasttrack-edit, engagement-fy24
 ---
 
 # Migrate Hyper-V VMs to Azure
@@ -40,20 +40,6 @@ Before you begin this tutorial, you should:
 1. We recommend that you [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before you migrate them to Azure, but you don't have to.
 1. Go to the already created project or [create a new project](./create-manage-projects.md).
 1. Verify permissions for your Azure account. Your Azure account needs permissions to create a VM, write to an Azure managed disk, and manage failover operations for the Recovery Services vault associated with your Azure Migrate project.
-
-> [!NOTE]
-> To use Azure Hybrid Benefit for Linux, perform the following depending on your operating system type:
->
-> For **SLES**, run the following commands:
->
-> `wget --no-check-certificate https://52.188.224.179/late_instance_offline_update_azure_SLE15.tar.gz`
-> `sha1sum late_instance_offline_update_azure_SLE15.tar.gz`
-> `tar -xvf late_instance_offline_update_azure_SLE15.tar.gz`
-> `cd x86_64`
-> `zypper --no-refresh --no-remote --non-interactive in *.rpm`
->
-> For **RHEL**, set SELinux mode to `Permissive` or disabled.
-
 
 > [!NOTE]
 > If you're planning to upgrade your Windows operating system (OS), Azure Migrate and Modernize might download the Windows SetupDiag for error details in case upgrade fails. Ensure that the VM created in Azure after the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). If there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes, but the upgrade can still proceed.
@@ -163,36 +149,41 @@ After discovery is finished, you can begin the replication of Hyper-V VMs to Azu
 1. In **Replicate** > **Source settings** > **Are your machines virtualized?**, select **Yes, with Hyper-V**. Then select **Next: Virtual machines**.
 
 1. In **Virtual machines**, select the machines you want to replicate.
-    - If you ran an assessment for the VMs, you can apply VM sizing and disk type (premium/standard) recommendations from the assessment results. To do this step, in **Import migration settings from an Azure Migrate assessment?**, select **Yes**.
+    - By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost. We recommend using them wherever applicable.
+    
+    :::image type="content" source="./media/tutorial-migrate-hyper-v/trusted-vm-migrate.png" alt-text="Screenshot showing standard or trusted launch virtual machines.":::    
+
+    - If you ran an assessment for the VMs, you can apply VM sizing and disk type (Premium v2, Ultra SSD, Standard SSD, Standard HDD, or Premium Managed disks) recommendations from the assessment results. To do this step, in **Import migration settings from an Azure Migrate assessment?**, select **Yes**.
+    - You can choose to migrate the Standard SSD as a [ZRS Disk](/azure/virtual-machines/disks-deploy-zrs?tabs=portal).
     - If you didn't run an assessment, or you don't want to use the assessment settings, select **No**.
     - If you selected to use the assessment, select the VM group and assessment name.
 
-        ![Screenshot that shows the Select assessment screen.](./media/tutorial-migrate-hyper-v/select-assessment.png)
+    ![Screenshot that shows the Select assessment screen.](./media/tutorial-migrate-hyper-v/select-assessment.png)
 
 1. In **Virtual machines**, search for VMs as needed and check each VM you want to migrate. Then, select **Next: Target settings**.
 
     :::image type="content" source="./media/tutorial-migrate-hyper-v/select-vms-inline.png" alt-text="Screenshot that shows the selected VMs in the Replicate dialog." lightbox="./media/tutorial-migrate-hyper-v/select-vms-expanded.png":::
 
 1. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.
-1. 
 1. In **Replication Storage Account**, select the Azure Storage account in which replicated data will be stored in Azure.
 1. In **Virtual Network**, select the Azure virtual network/subnet to which the Azure VMs will be joined after migration.
 1. In **Availability options**, select:
     -  **Availability Zone**: Pins the migrated machine to a specific availability zone in the region. Use this option to distribute servers that form a multinode application tier across availability zones. If you select this option, you need to specify the availability zone to use for each of the selected machines on the **Compute** tab. This option is only available if the target region selected for the migration supports availability zones.
     -  **Availability Set**: Places the migrated machine in an availability set. The target resource group that was selected must have one or more availability sets to use this option.
     - **No infrastructure redundancy required**: Use this option if you don't need either of these availability configurations for the migrated machines.
-1. In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license or Enterprise Linux subscription (RHEL and SLES). If you do and they're covered with active Software Assurance of Windows Server or Enterprise Linux Subscriptions (RHEL and SLES), you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
-Then select **Next**.
+1. In **Azure Hybrid Benefit**:
+
+    - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.
+    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions and you want to apply the benefit to the machines you're migrating. Then select **Next**.
 
     :::image type="content" source="./media/tutorial-migrate-hyper-v/target-settings.png" alt-text="Screenshot that shows Target settings.":::
 
-1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must confirm with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
+1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown list contains the recommended size. Otherwise, Azure Migrate and Modernize picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
-    - **OS Type**: Select the type of OS used (Windows or Linux).
-    - **Operating System**: Select the operating system version for Linux machines to apply the correct license type.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
+    - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that are not eligible for Trusted Launch are automatically configured as **standard security VMs**. 
 
 1. In **Disks**, specify the VM disks that need to be replicated to Azure. Then select **Next**.
     - You can exclude disks from replication.
@@ -208,8 +199,6 @@ Then select **Next**.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts in **Manage** > **Replicated machines**. Settings can't be changed after replication starts.
->
-> Enable replication and migrate Hyper-v virtual machines (VMs) using Azure PowerShell. [More details](../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection).
 
 ## Provision for the first time
 
@@ -237,7 +226,7 @@ When delta replication begins, you can run a test migration for the VMs before y
 
 To do a test migration:
 
-1. In **Servers, databases, and web apps** > **Migration and modernization**, select **Replicated servers** under **Replications**.
+1. In **Migration goals**, select **Servers, databases, and web apps** > **Migration and modernization**, select **Replicated servers** under **Replications**.
 
 1. In the **Replicating machines** tab, right-click the VM to test and select **Test migrate**.
 
@@ -279,13 +268,6 @@ After you verify that the test migration works as expected, you can migrate the 
 1. Remove the on-premises VMs from your local VM inventory.
 1. Remove the on-premises VMs from local backups.
 1. Update any internal documentation to show the new location and IP address of the Azure VMs.
-
-### Linux Support updates
-
-- To receive OS updates on your end of support VM that was migrated to Azure, upgrade to the latest version by following the steps [here](https://access.redhat.com/support/policy/updates/errata/).
-- To extend support for your end of support VM that was migrated to Azure with the existing OS version, update the [license option](/azure/virtual-machines/linux/azure-hybrid-benefit-linux?tabs=ahbNewPortal%2CahbExistingPortal%2Clicenseazcli%2CslesAzcliByosConv%2Cslesazclipaygconv%2Crhelpaygconversion%2Crhelcompliance#byos-to-payg-conversions) to get extended support.
-- To receive specialized OS updates on your migrated VM, update the license option as described [here](/azure/virtual-machines/linux/azure-hybrid-benefit-linux?tabs=ahbNewPortal%2CahbExistingPortal%2Clicenseazcli%2CslesAzcliByosConv%2Cslesazclipaygconv%2Crhelpaygconversion%2Crhelcompliance#byos-to-payg-conversions). 
-
 
 ## Post-migration best practices
 

@@ -5,7 +5,7 @@ description: Soft delete for blobs protects your data so that you can more easil
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/17/2024
 ms.author: normesta
 ---
