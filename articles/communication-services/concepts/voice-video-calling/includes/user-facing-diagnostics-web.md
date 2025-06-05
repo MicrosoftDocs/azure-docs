@@ -25,7 +25,7 @@ User Facing Diagnostics (UFD) enable you to see when local or remote participant
 There are some minor differences in using **remote UFDs** and **local UFDs**. Those differences are:
 - The calling SDK doesn't expose the `speakingWhileMicrophoneIsMuted` via remote UFDs due to privacy concerns.
 - The calling SDK only exposes and stream UFDs up to a maximum of 20 participants on the call. When the number of participants exceeds 20, we limit and cease transmission of **remote UFDs** to prevent overloading the network with these events.
-- The calling SDK filters so you'll only see 3 **remote UFD** events per minute coming from a unique client.
+- The calling SDK filters so you only see three (3) **remote UFD** events per minute coming from a unique client.
 - From the client SDK perspective, you need to enable the functionality for the local UFDs to be sent remotely.
 
 ## Diagnostic values
