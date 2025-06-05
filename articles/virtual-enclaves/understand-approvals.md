@@ -90,7 +90,7 @@ Furthermore, the metadata of deleted requests remain in logs for auditing purpos
 >
 > Make sure to not enter any PII data or any personal details in Ticket ID field.
 
-### 6. Does approvals work with templates and other infrastructure as code (IaC)?
+### 6. Do approvals work with templates and other infrastructure as code (IaC)?
 Yes, approvals can be enabled during resource creation in the case of community and endpoints or updates to endpoints and connections. Child resources that depend on a resource that is pending an approval (for example, an enclave endpoint) may fail to deploy due to missing configuration information for the pending resource. In this situation, resource deployments should be orchestrated so the approver can review and complete the deployment of the pending resource before attempting to deploy the child resources. This includes breaking a deployment into multiple deployment steps or scripts that can start once a required approval is complete. 
 
 ## References

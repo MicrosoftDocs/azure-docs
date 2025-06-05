@@ -54,6 +54,8 @@
       href: list-service-catalog-templates.md
     - name: Understand approvals
       href: understand-approvals.md
+    - name: Understand resource groups
+      href: azure-virtual-enclaves-resource-groups.md
 #     - name: Understanding Enclave Networking
 #       href: networking.md
 #     - name: Designing intra-enclave network isolation

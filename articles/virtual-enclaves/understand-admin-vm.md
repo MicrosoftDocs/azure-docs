@@ -13,7 +13,7 @@ ms.date: 04/08/2025
 A Virtual Machine (VM) created to securely access enclave resources for administrative purposes and can be remotely accessed through [Azure Bastion](https://aka.ms/bastion). These VMs are meant to be temporarily lived resources for break-glass system administration of an enclave and the enclave resources
 
 ## Create an Admin VM
-Use the [Admin VM](./deploy-admin-vm-service-catalog.md) to quickly create an VM that can access and configure your enclave resources.
+Use the [Admin VM](./deploy-admin-vm-service-catalog.md) to quickly create a VM that can access and configure your enclave resources.
 
 ## Access Admin VM
 By default, AVE creates an Azure Bastion instance for community or enclave owners to access their enclaves.

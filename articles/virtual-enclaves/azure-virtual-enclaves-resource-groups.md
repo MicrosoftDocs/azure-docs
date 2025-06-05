@@ -33,6 +33,7 @@ For a deployment into two subscriptions, the Azure Virtual Enclaves resources ca
 The main difference with two subscriptions is that the Azure Virtual Enclaves resources are organized into two resource groups, one in each subscription. The other resource groups are aligned with the subscription as shown.
 
 ## Frequently asked questions
+Frequently asked questions about Azure Virtual Enclaves Approvals.
 
 ### How do I access the enclave portal page for management?
 If you wanted to manage the enclave, you would navigate to the enclave resource located in the #1 resource group. You could then perform management tasks on the enclave like enabling maintenance mode or adding an enclave endpoint. You can also navigate to this resource by searching for the enclave name in the list of all enclave resources in the portal.
