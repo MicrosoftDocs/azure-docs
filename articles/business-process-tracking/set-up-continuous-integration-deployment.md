@@ -12,7 +12,7 @@ ms.date: 06/09/2025
 
 To deploy a business process across various environments, such as development, test, and production, without having to remap business stages to workflow operations and rebuild logic app projects, you can set up continuous integration (CI) and continuous deployment (CD) for your business processes and Standard logic app workflows.
 
-This guide shows how to set up a CI/CD pipeline by using the Azure Logic Apps Standard Tasks for Azure DevOps.
+This guide shows how to set up infrastructure, CI, and CD pipelines by using the Azure Logic Apps Standard Tasks for Azure DevOps and run those pipelines.
 
 ## Prerequisites
 
@@ -161,9 +161,9 @@ A service connection is an authenticated connection between your pipelines and e
 
    | Parameter | Value or description |
    |-----------|----------------------|
-   | **Identity type** | **App registration (automatic)**. | 
-   | **Credential** | **Workload identity federation (Recommended)**. |
-   | **Scope level** | **Subscription**. |
+   | **Identity type** | **App registration (automatic)** |
+   | **Credential** | **Workload identity federation (Recommended)** |
+   | **Scope level** | **Subscription** |
    | **Subscription** | Your Azure subscription. |
    | **Resource group** | The Azure resource group. |
    | **Service Connection Name** | The name for the service connection. |
