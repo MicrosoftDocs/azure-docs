@@ -12,8 +12,10 @@ The Open OnDemand front end use Open ID Connect (OIDC) for authentication. The O
 ## Microsoft Entra ID application registration right after a successful deployment
 After the deployment is finished, it's necessary to execute the following commands from a Linux shell with Azure CLI installed to register and configure the Microsoft Entra ID application for authentication. The account logged into the CLI must have the appropriate permissions to register an application and its active subscription must be the one used for the deployment if it isn't already set.
 
+> [!IMPORTANT]
+> The following command has to be run from a Linux shell with Azure CLI installed and logged in to the Azure account used for the deployment. Azure Cloud Shell isn't supported for this command.
 > [!NOTE]
-> Make sure you have `jq` utility installed on your system.
+> Make sure you have `jq` utility installed on your system!
 
 ```bash
 resource_group=<resource_group_name>

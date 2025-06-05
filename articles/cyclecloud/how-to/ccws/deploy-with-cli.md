@@ -9,6 +9,8 @@ ms.author: padmalathas
 # How to deploy a CycleCloud Workspace for Slurm environment using the CLI
 
 Prerequisites: Users need to install the Azure CLI and Git and then sign into or set their Azure subscription.
+> [!IMPORTANT]
+> The following command has to be run from a Linux shell with Azure CLI installed and logged in to the Azure account used for the deployment. Azure Cloud Shell isn't supported for this scenario.
 
 - Clone the Azure CycleCloud Workspace for Slurm on the latest stable release
 
