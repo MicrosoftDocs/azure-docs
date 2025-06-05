@@ -13,9 +13,9 @@ author: msangapu-msft
 
 # Add and manage TLS/SSL certificates in Azure App Service
 
-You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [help secure custom Domain Name System (DNS) names](configure-ssl-bindings.md) in [Azure App Service](overview.md). App Service provides a highly scalable, self-patching web hosting service. These certificates are currently called Transport Layer Security (TLS) certificates. They were previously known as Secure Sockets Layer (SSL) certificates. These private or public certificates help you to secure internet connections. The certificates encrypt data sent between your browser, websites that you visit, and the website server.
+You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [help secure custom Domain Name System (DNS) names](configure-ssl-bindings.md) in [Azure App Service](overview.md). App Service provides a highly scalable, self-patching web hosting service. The certificates are currently called Transport Layer Security (TLS) certificates. They were previously known as Secure Sockets Layer (SSL) certificates. These private or public certificates help you to secure internet connections. The certificates encrypt data sent between your browser, websites that you visit, and the website server.
 
-The following table lists the options for you to add certificates in App Service:
+The following table lists the options for you to add certificates in App Service.
 
 |Option|Description|
 |-|-|
@@ -58,7 +58,7 @@ You can add up to 1,000 private certificates per webspace.
 
 The free App Service managed certificate is a turnkey solution that helps to secure your custom DNS name in App Service. App Service manages this TLS/SSL server certificate without any action from you.
 
-Before you create a free managed certificate, make sure that you have [meet the prerequisites](#prerequisites) for your app.
+Before you create a free managed certificate, make sure that you [meet the prerequisites](#prerequisites) for your app.
 
 DigiCert issues free certificates. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [Certification Authority Authorization (CAA) domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value `0 issue digicert.com`.
 
