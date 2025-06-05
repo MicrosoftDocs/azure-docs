@@ -4,7 +4,7 @@ description: Learn how to deploy a data-driven C# ASP.NET app to Azure App Servi
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 05/28/2025
+ms.date: 06/05/2025
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, AppServiceConnectivity
 author: cephalin
 ms.author: cephalin
@@ -31,7 +31,9 @@ In this tutorial, you:
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. You can add the workloads to an existing Visual Studio installation by selecting **Get Tools and Features** in the Visual Studio **Tools** menu.
+- Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads.
+  - You can add the workloads to an existing Visual Studio installation by selecting **Get Tools and Features** in the Visual Studio **Tools** menu.
+  - Make sure you have the latest version of Visual Studio by selecting **Help** > **Check for updates** and installing the latest version if necessary.
 
 ## Create and run the app
 
@@ -55,8 +57,6 @@ The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) creat
 ## Publish the app to Azure
 
 To publish the app to Azure, you create and configure a Publish profile that has an Azure App Service and App Service Plan to host the app. You then create an Azure SQL Server and Azure SQL database to contain the app data, and configure a database context to connect the app with the database.
-
-The database context in this sample is a connection string named `MyDbConnection`. The connection string is set in the *Web.config* file and referenced in the *Models/MyDatabaseContext.cs* file. The Azure app uses the connection string name to connect to the Azure SQL database.
 
 1. In Visual Studio **Solution Explorer**, right-click the **DotNetAppSqlDb** project and select **Publish**.
 
@@ -125,30 +125,23 @@ Before you can create a database, you need a [logical SQL server](/azure/azure-s
 
 1. Change the server name to a value you want. The server name must be unique across all servers in Azure SQL. 
 
-1. Add an administrator username and password. For password requirements, see [Password policy](/sql/relational-databases/security/password-policy).
-
-   Remember this username and password. You need them to manage the server later.
+1. Select **OK**.
 
    ![Screenshot that shows creating the server.](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
-
-   > [!IMPORTANT]
-   > Your password in the connection strings is masked in both Visual Studio and App Service, but maintaining it still adds to the attack surface of your app. App Service can use [managed service identities](overview-managed-identity.md) to eliminate this risk by removing the need to maintain secrets in your code or app configuration. For more information, see [Tutorial: Connect to SQL Database from App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md).
-
-1. Select **OK**.
 
 1. On the **Azure SQL Database** screen, keep the default generated **Database Name**. Select **Create** and wait for the database resources to be created.
 
    ![Screenshot that shows configuring the database.](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
+1. When the database resources are created, select **Next**.
+
 ### Connect the database
 
 The app uses a database context to connect with the database. The database context in this sample is a connection string named `MyDbConnection`. The connection string is set in the *Web.config* file and referenced in the *Models/MyDatabaseContext.cs* file. The Azure app uses the connection string name to connect to the Azure SQL database.
 
-1. When the database resources are created, select **Next**.
-
    ![Screenshot of the screen with messagea about configuring managed identity for the connection to work.](./media/app-service-web-tutorial-dotnet-sqldatabase/connect-warning.png)
 
-1. Under **Connection string name**, enter the name of the connection string referenced in *Models/MyDatabaseContext.cs*, in this case *MyDbConnection*.
+1. On the **Connect to Azure SQL Database** screen, under **Connection string name**, enter the name of the connection string referenced in *Models/MyDatabaseContext.cs*, in this case *MyDbConnection*.
 
    > [!NOTE]
    > If you see **Local user secrets files** instead, make sure you used the **Publish** page, not the **Connected Services** page, to configure SQL Database.
@@ -157,11 +150,73 @@ The app uses a database context to connect with the database. The database conte
 
 Your app is connected to Azure SQL Database using Managed Identity for Azure services, a secure method of connecting your app to your Azure resources that doesn't use secrets or passwords.
 
-Note the message that you need to set the appropriate permissions on the SQL user corresponding with this managed identity for the connection to work. For more information, see [Grant permissions to managed identity](tutorial-connect-msi-sql-database.md#grant-permissions-to-managed-identity).
+You now need to set the appropriate permissions on the SQL user corresponding with this managed identity for the connection to work.
+
+## Configure managed identity
+
+When the Azure SQL Database creation wizard set up the Azure SQL server with a managed identity and Entra ID Default authentication, it added your Entra ID account as the Azure SQL admin. If you're signed in to the same account in Visual Studio, you can use the same `Authentication=Active Directory Default` connection string to connect to the database in both Visual Studio and Azure.
+
+1. From the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.
+
+1. In the **Package Manager Console**, install the following packages:
+
+```powershell
+Install-Package Microsoft.Data.SqlClient
+Install-Package Microsoft.EntityFramework.SqlServer
+```
+
+1. In a PowerShell command line, run the following command to sign in to SQL Database, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<entra-id-user>` with your Microsoft Entra user name.
+
+   ```azurepowershell
+   sqlcmd -S <servername>.database.windows.net -d <dbname> -U <entra-id-user> -G -l 30
+   ```
+
+1. At the SQL prompt, run the following commands to grant the minimum permissions your app needs, replacing `<app-name>` with your app name.
+
+```sql
+CREATE USER [DotNetAppSqlDb20250604144735] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [DotNetAppSqlDb20250604144735];
+ALTER ROLE db_datawriter ADD MEMBER [DotNetAppSqlDb20250604144735];
+ALTER ROLE db_ddladmin ADD MEMBER [DotNetAppSqlDb20250604144735];
+GO
+```
+
+1. In *web.config*, remove the `entityFramework/providers/provider` section and line: `<provider invariantName="System.Data.SqlClient" .../>`
+
+1. In *Models/MyDatabaseContext.cs*, add the following class:
+
+   ```csharp
+       public class AppServiceConfiguration : MicrosoftSqlDbConfiguration
+       {
+           public AppServiceConfiguration()
+           {
+               SetProviderFactory("System.Data.SqlClient", Microsoft.Data.SqlClient.SqlClientFactory.Instance);
+               SetProviderServices("System.Data.SqlClient", MicrosoftSqlProviderServices.Instance);
+               SetExecutionStrategy("System.Data.SqlClient", () => new MicrosoftSqlAzureExecutionStrategy());
+           }
+       }
+   ```
+
+1. Add the following attribute to *MyDatabaseContext.cs*:
+
+   ```csharp
+   [DbConfigurationType(typeof(AppServiceConfiguration))]
+   ```
+
+### Allow client connection from your computer
+
+By default, the Azure server allows connections to its databases only from Azure services, such as your Azure app. The new database opened its firewall to the App Service app you created.
+
+To access the database from your local computer, such as from Visual Studio, the Azure server must open the firewall to allow access for the machine's public IP address.
+
+If prompted to add access for your local client IP address, make sure to select the option to **Allow your computer's public IP address**. This option creates a firewall rule to allow the public IP address of your local computer. The dialog box is already populated with your computer's current IP address.
+
+>[!NOTE]
+>If your internet service provider changes your public IP address, you need to reconfigure the firewall to access the Azure database again.
 
 ### Deploy the ASP.NET app
 
-1. When the connection succeeds, at the top of the **Publish** tab, select **Publish**. Your ASP.NET app deploys to Azure, and your default browser launches to the URL of the deployed app.
+1. At the top of the **Publish** tab, select **Publish**. Your ASP.NET app deploys to Azure, and your default browser launches to the URL of the deployed app.
 
 1. To test the app, add a few to-do items.
 
@@ -188,17 +243,6 @@ You can use Visual Studio **SQL Server Object Explorer** to easily explore and m
 1. Expand **Tables**, right-click the `ToDoes` table, and select **View Data** to interact with the database data.
 
 ![Screenshot that shows exploring SQL Database objects.](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
-
-### Allow client connection from your computer
-
-By default, the Azure server allows connections to its databases only from Azure services, such as your Azure app. The new database opened its firewall to the App Service app you created.
-
-To access the database from your local computer, such as from Visual Studio, the Azure server must open the firewall to allow access for the machine's public IP address.
-
-If prompted to add access for your local client IP address, make sure to select the option to **Allow your computer's public IP address**. This option creates a firewall rule to allow the public IP address of your local computer. The dialog box is already populated with your computer's current IP address.
-
->[!NOTE]
->If your internet service provider changes your public IP address, you need to reconfigure the firewall to access the Azure database again.
 
 ## Update the app with Code First Migrations
 
@@ -291,7 +335,7 @@ Make some changes in your code to see the `Done` property in action. For this tu
 
 ### Enable Code First Migrations in Azure
 
-Now that your code change works, including database migration, you can publish it to your Azure app and update your SQL Database with Code First Migrations too.
+Now that your code change works, including database migration, you can publish it to your Azure app and update your Azure SQL database with Code First Migrations too.
 
 1. In Visual Studio **Solution Explorer**, right-click your project and select **Publish**.
 
@@ -299,7 +343,7 @@ Now that your code change works, including database migration, you can publish i
 
    ![Screenshot that shows opening publish settings.](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 
-1. In the **MyDatabaseContext** dropdown, select the database connection for your Azure SQL Database.
+1. In the **MyDatabaseContext** dropdown, select the database connection for your Azure SQL database.
 
 1. Select **Execute Code First Migrations (runs on application start)**, and then select **Save**.
 
