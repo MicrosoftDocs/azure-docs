@@ -9,6 +9,7 @@ ms.service: azure-cdn
 ms.topic: tutorial
 ms.date: 03/31/2025
 ms.custom: mvc
+# Customer intent: "As a web developer, I want to configure a custom domain with HTTPS for my Azure Content Delivery Network endpoint, so that I can securely deliver my blob storage content to users."
 ---
 
 # Tutorial: Access storage blobs using an Azure Content Delivery Network custom domain over HTTPS

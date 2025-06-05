@@ -10,6 +10,7 @@ manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/31/2025
+# Customer intent: As a web application administrator, I want to configure failover with multiple content delivery network endpoints using traffic management, so that I can ensure high availability and performance for my users even during service disruptions.
 ---
 
 # Failover across multiple endpoints with Azure Traffic Manager

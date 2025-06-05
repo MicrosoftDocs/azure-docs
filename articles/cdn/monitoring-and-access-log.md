@@ -10,6 +10,7 @@ ms.date: 03/31/2025
 ms.author: yuajia 
 ms.custom: devx-track-azurepowershell
 ROBOTS: NOINDEX
+# Customer intent: "As a CDN administrator, I want to set up and configure real-time monitoring and logging for Azure CDN, so that I can effectively troubleshoot performance issues and analyze traffic patterns for better resource management."
 ---
 
 # Real-time Monitoring, metrics, and access Logs for Azure CDN
