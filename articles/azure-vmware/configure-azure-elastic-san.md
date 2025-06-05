@@ -51,7 +51,7 @@ Use multiple private endpoints to establish multiple sessions between an Elastic
    > [!NOTE]
    > Session disconnects might show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it shows the identifier of a device or filesystem, and states it entered the All Paths Down state.
 
-When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use eight iSCSI sessions that uses the maximum number of connections (128). This would prevent you from attaching an additional node for maintenance. The following recommendations help you avoid this situation:
+When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use eight iSCSI sessions that use the maximum number of connections (128). This would prevent you from attaching an additional node for maintenance. The following recommendations help you avoid this situation:
 
 If your Elastic SAN is only connecting to a single cluster, and will only ever have 16 nodes in a cluster, use one of the following configurations:
 - AV36, AV36P, AV52 - Six iSCSI sessions over three Private Endpoints
