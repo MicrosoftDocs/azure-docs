@@ -239,10 +239,10 @@ You should consider the ARG GET/LIST API if your service falls into one (or many
     - Facing throttling. 
     - Competing for throttling quota with other customers. 
     - Your service may be or is prone to issuing a large burst of concurrent GET requests within a short period of time. 
-- Your service requires high availability and faster performance for GET requests for single.  
-- Resource management or enumeration of a list of resources within a certain scope. 
+- Your service requires high availability and faster performance for GET requests, for single resource management or enumeration of a list of resources within a certain scope. 
+- You require full instanceView of VMs and VMSS VMs in Uniform as well as Flex orchestration mode. (Note: ARG GET/LIST API doesn't support VM and VMSS VM Health Status and extension running status in the instanceView. )
 
-If the resource you’re interested in, is in the ‘resources’ table or `computeresources` table, *and* it falls in one of the above categories, then use the [ARG GET/LIST API](./arg-get-list-api.md)
+If the resource you’re interested in, is in the `resources` table or `computeresources` table, *and* it falls in one of the above categories, then use the [ARG GET/LIST API](./arg-get-list-api.md)
 
 ## Still being throttled?
 

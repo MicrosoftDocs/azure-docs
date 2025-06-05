@@ -8,16 +8,20 @@ ms.custom: devx-track-csharp
 
 # Azure Resource Graph (ARG) GET/LIST API 
 
-The ARG GET/LIST API significantly reduces READ throttling by serving all incoming GET and LIST calls against the ARG platform with smart routing controls in the control plane. The API aligns with the existing request and response contracts of Azure control plane APIs while addressing throttling issues for customers. 
+The ARG GET/LIST API is designed to significantly reduce READ throttling by offloading GET and LIST requests to an alternate ARG platform. This is achieved through intelligent control plane routing, which directs requests to the alternate platform when a specific parameter is present. If the parameter is absent, requests are seamlessly routed back to the original Resource Provider, ensuring flexibility.
 
-ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, on a moving window. The API provides a response header “x-ms-user-quota-remaining" indicating remaining quota and "x-ms-user-quota-resets-after" indicating the time for a full quota reset based on which you can understand your quota consumption.  
+ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, on a moving window. This means that the default quota of 4k per minute allows you to make up to 4,000 requests per minute using these APIs. This quota is enforced per user per subscription. This means:
+- If User A is accessing Subscription X, they get up to 4,000 requests per minute.
+- If User A accesses Subscription Y, that’s a separate quota.
+- If User B accesses Subscription X, that’s also a separate quota.
+The API provides a response header “x-ms-user-quota-remaining" indicating remaining quota and "x-ms-user-quota-resets-after" indicating the time for a full quota reset based on which you can understand your quota consumption.  
 
 > [!NOTE]
 > Keep in mind that the Azure Resource Manager quota applies to these calls. Read about the [Azure Resource Manager limits](../../../azure-resource-manager/management/request-limits-and-throttling.md#azure-resource-graph-throttling), which are the new limits that ARM follows for Azure Public cloud.  
 
 ## Using the ARG GET/LIST API 
 
-To use the ARG GET/LIST API, first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, and the request will be routed to the ARG backend for response. 
+To use the [ARG GET/LIST API](guidance-for-throttled-requests.md#still-being-throttled), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which will route the request to this ARG backend for response.
 
 Contact the ARG product group by sending an email to Azure Resource Graph team sharing a brief overview of your scenario and the ARG team will reach out to you with next steps. Callers must also design appropriate retry logic and implement fallback mechanisms to ensure smooth and reliable experience. This opt-in model was deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
 
@@ -85,21 +89,6 @@ For this specific example, use the following requests to get a virtual machine w
 HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines/{vm}?api-version=2024-07-01&$expand=instanceView&useResourceGraph=true 
 ```
 
-#### ARG Query 
-
-```sql
-Resources 
-
-| where type =~ 'microsoft.compute/virtualmachines'  
-| where id = ~ '/subscriptions/{subscriptionId}<br>/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines/{vm}' 
-```
-
-#### CRP Request 
-
-```api
-HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines/{vm}?api-version=2024-07-01&$expand=instanceView 
-```
-
 ### List VMs under ResourceGroup 
 
 For this specific example, use the following requests to retrieve the list of virtual machines under the resource group. 
@@ -110,22 +99,6 @@ For this specific example, use the following requests to retrieve the list of vi
 HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines?api-version=2024-07-01&$expand=instanceView&useResourceGraph=true 
 ```
 
-#### ARG Query 
-
-```sxl
-Resources 
-
-| where resourceGroup =~ ‘{resourceGroup}’ 
-
-| where type =~ 'microsoft.compute/virtualmachines' 
-```
-
-### CRP Request 
-
-```api
-HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines?api-version=2024-07-01 
-```
-
 ### List VMSS VM (Uniform) with InstanceView 
 
 #### ARG GET/LIST Request 
@@ -133,20 +106,6 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 ```api
 HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachinescalesets/{vmss}/virtualmachines?api-version=2024-07-01&$expand=instanceView&useResourceGraph=true 
 ```
-
-#### ARG Query 
-
-```sql
-ComputeResources 
-
-| where type =~ 'microsoft.compute/virtualmachinescalesets/virtualmachines' 
-
-| where id startswith ‘/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachinescalesets/{vmss}’ 
-```
-
-### CRP Request 
-
-HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachinescalesets/{vmss}/virtualmachines?api-version=2024-07-01&$expand=instanceView 
 
 ## List VMSS VM (Flex) with InstanceView 
 
@@ -156,22 +115,6 @@ For this specific example, use the following requests to retrieve the list of VM
 
 ```api
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines?api-version=2024-07-01&$filter='virtualMachineScaleSet/id' eq '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachinescalesets/{vmss}'&$expand=instanceView&useResourceGraph=true
-```
-
-### ARG Query 
-
-```sql
-Resources 
-
-| where type =~ ‘microsoft.compute/virtualmachines’ 
-
-| where properties.virtualMachineScaleSet.id =~‘/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachinescalesets/{vmss}’ 
-```
-
-### CRP Request 
-
-```api
-HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines?api-version=2024-07-01&$expand=instanceView&$filter=’virtualMachineScaleSet/id’ eq ‘/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachinescalesets/{vmss}’ 
 ```
 
 ### List storage accounts in subscription 
@@ -184,14 +127,6 @@ For this specific example, use the following requests to retrieve the list of st
 HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.storage/storageAccounts?api-version=2024-01-01&useResourceGraph=true 
 ```
 
-#### ARG Query 
-
-```sql
-Resources 
-
-| where type =~ ‘microsoft.storage/storageAccounts’ 
-```
-
 #### SRP request 
 
 ```api
@@ -201,16 +136,22 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 ## Known Limitations  
 
 1. **VMSS VM health status** is not currently supported. If you require this data, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
-2. **Supported resources** - The ARG GET/LIST API supports all resource types as part of the `resources` and `computeresources` table.  If you require a resource type which is not part of these tables, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
-3. **Single API version support** - ARG GET/LIST today only supports a single API version for each resource type, which is generally the latest non-preview version of the type that exists in the Azure REST API spec. The ARG GET/LIST functionality returns the `apiVersion` field in the resource payload of the response which indicates the version of the resource type that was used when retrieving the resource details. Callers can apply this field to understand the API version to use, if its relevant for their scenario.  
-4. **Client support** - Azure REST API: Supported | Azure SDK: Supported [sample .NET code](#sample-sdk-code)| PowerShell: Currently not supported | Azure CLI: Currently not supported | Azure portal: Currently not supported 
-5. **Client deserialization concerns**
+2. **VM and VMSS VM extensions** - The running states of VM and VMSS VM extensions is not supported. If you require this data, you can share your scenario and propose the feature addition on our  [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
+3. **Supported resources** - The ARG GET/LIST API supports all resource types as part of the `resources` and `computeresources` table.  If you require a resource type which is not part of these tables, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
+4. **Single API version support** - ARG GET/LIST today only supports a single API version for each resource type, which is generally the latest non-preview version of the type that exists in the Azure REST API spec. The ARG GET/LIST functionality returns the `apiVersion` field in the resource payload of the response which indicates the version of the resource type that was used when retrieving the resource details. Callers can apply this field to understand the API version to use, if its relevant for their scenario.  
+5. **Client support** 
+    - Azure REST API: Supported
+    - Azure SDK: Supported [sample .NET code](#sample-sdk-code)
+    - PowerShell: Currently not supported
+    - Azure CLI: Currently not supported
+    - Azure portal: Currently not supported 
+6. **Client deserialization concerns**
     - If a client uses REST API to issue GET calls, there should generally be no concerns regarding deserialization due to API version differences. 
     - If a client uses Azure SDK to issue GET calls, due to relaxed deserialization setting across all languages, the deserialization issue shouldn't be a concern, unless there are contract breaking changes among different versions for the target resource type. 
-6. **Unprocessable resource request**
+7. **Unprocessable resource request**
     - There are rare scenarios where ARG GET/LIST isn't able to index a resource correctly, other than the existence of the resource. To not sacrifice data quality, ARG GET/LIST refuses serving GET calls for these resources and returns an error code of HTTP 422. 
     - Clients of ARG GET/LIST should treat HTTP 422 as a permanent error. Clients should retry by falling back to the resource provider (by removing `useResourceGraph=true` flag). Since the error is applicable specifically to ARG GET/LIST, fallback to resource providers should result in an E2E success. 
-7. **Supported consistency level** 
+8. **Supported consistency level** 
     - When using ARG GET or LIST, the data you receive reflects recent changes with a slight delay—typically just a few seconds—rather than real-time updates. This is known as 'bounded staleness' and ensures fast, scalable queries while still providing a consistent and up-to-date view of your Azure resources. Unlike direct calls to Resource Providers, which guarantee real-time accuracy (strong consistency), ARG is optimized for performance with predictable, near-real-time data. 
     - In resource Point Get responses, ARG GET/LIST provides a response header x-ms-arg-snapshot-timestamp that indicates the timestamp when the returned resource snapshot was indexed. The value of the header is UTC time in ISO8601 format. (An example, "x-ms-arg-snapshot-timestamp" : "2023-01-20T18:55:59.5610084Z"). 
     
@@ -244,8 +185,6 @@ ArmClient defaultClient = new ArmClient(new DefaultAzureCredential(), null, new 
 ```
 
 Then use this policy to add query parameters for every request through the client:
-
-internal class ARG GET/LISTHttpPipelinePolicy : HttpPipelineSynchronousPolicy 
 
 ```bicep
 internal class ArgGetListHttpPipelinePolicy : HttpPipelineSynchronousPolicy 
