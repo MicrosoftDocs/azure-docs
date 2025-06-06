@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/cdn-traffic-manager.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-traffic-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-terraform.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-terraform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-template.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-powershell.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-cli.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-bicep.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-bicep",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cloud-services/cloud-services-application-and-service-availability-faq.yml",
       "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-application-and-service-availability-faq",
       "redirect_document_id": false
