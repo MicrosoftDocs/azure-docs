@@ -76,7 +76,7 @@ The following user-facing diagnostics are available:
 
 ## Accessing diagnostics
 
-User-facing diagnostics is an extended feature of the core [`Call`](/javascript/api/azure-communication-services/@azure/communication-calling/call?view=azure-communication-services-js) API. You can understand more about the `UserFacingDiagnosticsFeature` interface [here](/javascript/api/azure-communication-services/@azure/communication-calling/userfacingdiagnosticsfeature?view=azure-communication-services-js).
+User-facing diagnostics is an extended feature of the core [`Call`](/javascript/api/azure-communication-services/@azure/communication-calling/call?view=azure-communication-services-js&preserve-view=true) API. You can understand more about the `UserFacingDiagnosticsFeature` interface [here](/javascript/api/azure-communication-services/@azure/communication-calling/userfacingdiagnosticsfeature?view=azure-communication-services-js&preserve-view=true).
 
 ```js
 const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
@@ -118,6 +118,15 @@ userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
 ## Accessing Remote User Facing Diagnostic events
+To send remote UFDs to all participants on a call, you must first UDF's to sent. You enable or disable this on a per client basis. Once activated, the client will begin transmitting its local UFDs remotely to all participants for their consumption and processing. Please note that when the number of participants on a call exceeds 20, the transmission of remote UFDs from the local client will cease. This measure is in place to prevent excessive consumption of network bandwidth due to UFD traffic. 
+
+```js
+// Start the local client to send its local UFD to all participants (send local UFD to remote clients).
+remoteUfdsFeature.startSendingDiagnostics();
+// Stop sending local UFDs to remote clients.
+remoteUfdsFeature.stopSendingDiagnostics();
+```
+
 RemoteParticipantDiagnosticsData has the following data
 - diagnostic contains array of diagnostics UFD that have been fired off on a remote machines. For example a UFD of `NetworkSendQuality`.
 - value is `DiagnosticQuality` or `DiagnosticFlag`:
@@ -144,15 +153,10 @@ const remoteDiagnosticChangedListener = (diagnosticInfo: RemoteParticipantDiagno
 
 // Subscribe to the `diagnosticChanged` event to monitor when any local user-facing diagnostic changes.
 userFacingDiagnostics.remote.on('diagnosticChanged', remoteDiagnosticChangedListener);
-
-// Start sending local UFDs to remote clients. Must call this API so that local UFDs can start sending out and remote clients can receive them.
-remoteUfdsFeature.startSendingDiagnostics();
-// Stop sending local UFDs to remote clients.
-remoteUfdsFeature.stopSendingDiagnostics();
 ```
 
 
-## Raise the latest User Facing Diagnostics fired off
+## Raise the latest User Facing Diagnostics event that was received:
 
 Here's sample code to generate the latest diagnostic value raised by the calling SDK. If a diagnostic is undefined, it means the UFD has not been raised.
 
