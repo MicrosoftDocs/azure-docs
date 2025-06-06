@@ -223,7 +223,7 @@ This command checks the connection over MQTTS (port 8883). If you use a differen
 
 The output of this command can be long and includes information about all the certificates in the chain. If the connection is successful, you see a line like `Verification: OK` or `Verify return code: 0 (ok)`.
 
-:::image type="content" source="./media/how-to-connect-downstream-device/verification-ok.png" alt-text="Screenshot of verifying a gateway connection.:::
+:::image type="content" source="./media/how-to-connect-downstream-device/verification-ok.png" alt-text="Screenshot of verifying a gateway connection.":::
 
 ## Troubleshoot the gateway connection
 
