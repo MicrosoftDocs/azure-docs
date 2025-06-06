@@ -35,7 +35,7 @@ This scenario deploys a virtual network with a Network Security Group (NSG) stru
 1. Select the storage account Containers page and create a new Container.
 1. Select the new Container properties. 
    
-   :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\container-properties.png" alt-text="Shows an Azure Storage Account in the Azure portal with Containers selected. There's a container with its Container properties menu selected.":::
+   :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\container-properties.png" alt-text="Screenshot shows an Azure Storage Account in the Azure portal with Containers selected. There's a container with its Container properties menu selected.":::
 
 1. Copy the URL field and keep it handy. We need it later along with the SAS token from the earlier step.
 
@@ -52,7 +52,7 @@ This scenario deploys a virtual network with a Network Security Group (NSG) stru
 1. Sign in to your Azure DevOps organization and navigate to your project.
 1. Go to **Library** under **Pipelines** in the navigation pane.
 
-   :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\vsts-libraries.png" alt-text="Shows the navigation pane in Azure DevOps Services with Pipelines selected and the Library option highlighted.":::
+   :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\vsts-libraries.png" alt-text="Screenshot shows the navigation pane in Azure DevOps Services with Pipelines selected and the Library option highlighted.":::
 
 1. Under **Variable group**, create a new group and for **Variable group name** enter `AzureKeyVaultSecrets`.
 1. Toggle **Link secrets from an Azure key vault as variables**.
