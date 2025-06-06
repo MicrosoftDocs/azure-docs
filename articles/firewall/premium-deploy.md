@@ -7,6 +7,7 @@ services: firewall
 ms.topic: how-to
 ms.date: 02/10/2025
 ms.author: duau
+# Customer intent: As a network security administrator, I want to deploy and configure a next-generation firewall in a testing environment, so that I can validate its capabilities, including TLS inspection and intrusion detection, for sensitive and regulated environments.
 ---
 
 # Deploy and configure Azure Firewall Premium

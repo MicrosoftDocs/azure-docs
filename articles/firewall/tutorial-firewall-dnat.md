@@ -9,6 +9,7 @@ ms.date: 05/07/2025
 ms.author: varunkalyana
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound internet access to resources located in a subnet.
+# Customer intent: As a network administrator, I want to deploy and configure DNAT rules on Azure Firewall so that I can effectively manage and control inbound traffic to my network resources.
 ---
 
 # Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal

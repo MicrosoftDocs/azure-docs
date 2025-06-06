@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 10/19/2023
 ms.author: duau
+# Customer intent: As a network engineer, I want to use an Azure Resource Manager template to deploy an Azure Firewall with multiple public IP addresses, so that I can effectively manage remote connections to my virtual machines.
 ---
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - ARM template

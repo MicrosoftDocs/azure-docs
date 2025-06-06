@@ -7,6 +7,7 @@ ms.topic: reference
 author: duongau
 ms.author: duau
 ms.service: azure-firewall
+# Customer intent: As a network administrator, I want to monitor metrics and logs for Azure Firewall, so that I can ensure its performance and proactively identify any issues affecting traffic management.
 ---
 # Azure Firewall monitoring data reference
 

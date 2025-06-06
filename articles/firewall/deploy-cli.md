@@ -9,6 +9,7 @@ ms.date: 10/31/2022
 ms.author: duau
 ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
+# Customer intent: As an administrator deploying network security solutions, I want to configure Azure Firewall using the command-line interface, so that I can control outbound access and manage network traffic effectively within my Azure environment.
 ---
 
 # Deploy and configure Azure Firewall using Azure CLI

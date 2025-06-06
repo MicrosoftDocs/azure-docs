@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: subject-bicepqs, mode-arm, devx-track-bicep
 ms.date: 08/25/2022
 ms.author: duau
+# Customer intent: As a cloud engineer, I want to deploy an Azure Firewall using a Bicep file, so that I can easily manage and group IP addresses within firewall rules in my network infrastructure.
 ---
 
 # Quickstart: Create an Azure Firewall and IP Groups - Bicep

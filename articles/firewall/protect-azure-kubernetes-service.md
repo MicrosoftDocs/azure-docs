@@ -8,6 +8,7 @@ services: firewall
 ms.topic: how-to
 ms.date: 09/30/2024
 ms.author: duau
+# Customer intent: As a cloud architect, I want to implement Azure Firewall for an Azure Kubernetes Service (AKS) cluster, so that I can secure outbound and inbound traffic while adhering to necessary access requirements for cluster maintenance and data protection.
 ---
 
 # Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters

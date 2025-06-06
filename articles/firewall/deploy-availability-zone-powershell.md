@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 10/31/2022
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to deploy Azure Firewall across multiple Availability Zones using PowerShell, so that I can ensure high availability and enhance the reliability of my network security infrastructure."
 ---
 
 # Deploy an Azure Firewall with Availability Zones using Azure PowerShell
