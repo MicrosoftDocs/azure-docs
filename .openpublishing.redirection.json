@@ -33,7 +33,9 @@
     {
       "source_path": "articles/frontdoor/quickstart-create-front-door-bicep.md",
       "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-bicep",
+      "redirect_document_id": false
     },
+    {
       "source_path": "articles/cloud-services/cloud-services-application-and-service-availability-faq.yml",
       "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-application-and-service-availability-faq",
       "redirect_document_id": false
