@@ -23,7 +23,7 @@ A virtual network is a logical representation of your network in the cloud. You 
 
 As you build your virtual network in Azure, it's important to improve the reliability of your solution by keeping in mind the following universal design principles:
 
-- **Avoid overlapping address spaces.** Ensure that your virtual network address space, defined as a Classless Inter-Domain Routing block, doesn't overlap with your organization's other network ranges.
+- **Avoid overlapping address spaces.** Ensure that your virtual network address space, defined as a Classless Inter-Domain Routing (CIDR) block, doesn't overlap with your organization's other network ranges.
 
 - **Reserve address space for future growth.** Your subnets shouldn't cover the entire address space of the virtual network. Plan ahead and reserve some address space for the future.
 
@@ -120,7 +120,7 @@ By creating virtual networks and other resources in multiple regions, you can be
 
 - **IP address space:** Determine how to allocate IP addresses when you create multiple virtual networks. You can create multiple virtual networks by using the same private IP address space in different regions. However, you can't peer, or connect, two virtual networks with the same address space to your on-premises network because it causes routing problems. If you plan to create a multi-network design, IP address planning is an important consideration.
 
-Virtual networks don't require a lot of resources to run. You can invoke Azure APIs to create a virtual network with the same address space in a different region. However, to recreate the same environment that exists in the affected region, you must redeploy the VMs and other resources. If you have on-premises connectivity, such as in a hybrid deployment, you have to deploy a new VPN Gateway instance and connect to your on-premises network.
+Virtual networks don't require a lot of resources to run. You can invoke Azure APIs to create a virtual network with the same address space in a different region. However, to recreate a similar environment to the one that exists in the affected region, you must redeploy the VMs and other resources. If you have on-premises connectivity, such as in a hybrid deployment, you have to deploy a new VPN Gateway instance and connect to your on-premises network.
 
 For more information about a multi-region networking architecture for web applications, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Azure Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
 
