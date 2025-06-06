@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # What is a workload?
 
-Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves. Only community and enclave owners can view the workloads and networks that have network access to their data. Workloads aren't discoverable to external networks. Enclave owners can deploy Azure resources or services into workloads. Workloads are createed within an enclave. Maintenance of customer workloads belongs to the customer, following the standard [Shared responsibility model in the cloud](../security/fundamentals/shared-responsibility.md). 
+Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves. Only community and enclave owners can view the workloads and networks that have network access to their data. Workloads aren't discoverable to external networks. Enclave owners can deploy Azure resources or services into workloads. Workloads are created within an enclave. Maintenance of customer workloads belongs to the customer, following the standard [Shared responsibility model in the cloud](../security/fundamentals/shared-responsibility.md). 
 
 Workloads also automatically inherit security posture and policies of their enclave. Workloads can also, by default, utilize community services reachable from their Enclave.
 
@@ -25,10 +25,10 @@ Workloads come with the following primary platform-managed and platform-deployed
 - [Azure Virtual Enclaves governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
 - [Enclave services and properties](./what-enclave.md)
 
-## workload resource group
-When you create a workload, you create workload resource groups that you need to organize your resources. You could separate 
+## Workload resource group
+When you create an Azure Virtual Enclaves workload, you create linked workload resource groups where you can organize your Azure resources. 
 
-For more details regarding the workload managed resource group, learn more about [Best practices of Azure Virtual Enclaves](./best-practices.md).
+For more details regarding the workload managed resource group, learn more about [Best practices of workload resource groups](./best-practices.md#workload-resource-group).
 
 ## What can I add to my workload?
 The managed resource group functions just like an Azure resource group with the managed aspects mentioned above. You can create new resources using the methods you're familiar with for your Azure resources. Additionally, you can create resources from the Portal through the service catalog: [What is the service catalog](./what-service-catalog.md)

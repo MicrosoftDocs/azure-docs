@@ -8,7 +8,7 @@
   - name: "Why use Azure Virtual Enclaves?"
     href: why-azure-virtual-enclaves.md
   - name: Azure Virtual Enclaves FAQs
-    href: virtual-enclaves-faq.md
+    href: azure-virtual-enclaves-faq.md
   - name: "What's new?"
     href: whats-new.md
   - name: Quickstarts
@@ -54,6 +54,8 @@
       href: list-service-catalog-templates.md
     - name: Understand approvals
       href: understand-approvals.md
+    - name: Understand resource groups
+      href: azure-virtual-enclaves-resource-groups.md
 #     - name: Understanding Enclave Networking
 #       href: networking.md
 #     - name: Designing intra-enclave network isolation
