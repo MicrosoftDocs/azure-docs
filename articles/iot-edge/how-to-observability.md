@@ -56,7 +56,7 @@ The next step is to define instruments to measure values of these factors. This 
 |Ratio of devices successfully delivering messages to the total number of devices|Correctness|
 |Ratio of devices delivering messages fast to the total number of devices| Throughput | 
 
-With that done, we can apply a sliding scale on each indicator and define exact threshold values that represent what it means for the client to be "satisfied". For this scenario, we select sample threshold values as laid out in the followin table with formal Service Level Objectives (SLOs):
+With that done, we can apply a sliding scale on each indicator and define exact threshold values that represent what it means for the client to be "satisfied". For this scenario, we select sample threshold values as laid out in the following table with formal Service Level Objectives (SLOs):
 
 |**Service Level Objective**|**Factor**|
 |-------------|----------|
