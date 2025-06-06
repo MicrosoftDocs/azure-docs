@@ -22,7 +22,7 @@ ms.custom: include file
 
     If you don't set a value for the cool access retrieval policy, the retrieval policy is set to Default. The following table describes each policy's data retrieval behavior:
 
-    | Setting | Behavior |
+    | Retrieval policy | Behavior |
     | - | ---- | 
     | Default | Cold data is returned to the hot tier when performing random reads. Data is served from the cool tier with sequential reads. | 
     | On-read | On both sequential and random reads, cold data  is returned to the hot tier. |
@@ -32,7 +32,7 @@ ms.custom: include file
 
     The tiering policy manages what data moves to the cool tier. You can tier all data or limit tiering to snapshots. Select one of the following policies: 
 
-    | Policy | Description |
+    | Tiering policy | Description |
     | - | - | 
     | `Auto` | This policy encompasses both data in the active file system and snapshot copy data. |
     | `SnapshotOnly` | This policy limits tiering to data in snapshots. All data blocks associated with files in the active file system remain in the hot tier. |
