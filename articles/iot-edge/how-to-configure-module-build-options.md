@@ -4,7 +4,7 @@ description: Learn how to use the module.json file to configure build and deploy
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/31/2024
+ms.date: 06/05/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -14,25 +14,22 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-The *module.json* file controls how modules are built and deployed. IoT Edge module Visual Studio
-and Visual Studio Code projects include the *module.json* file. The file contains IoT Edge module
-configuration details including the version and platform that is used when building an IoT Edge
-module.
+The *module.json* file controls how modules are built and deployed. IoT Edge module projects in Visual Studio and Visual Studio Code include the *module.json* file. This file has configuration details for the IoT Edge module, like the version and platform used when building the module.
 
 ## *module.json* settings
 
-The *module.json* file includes the following settings:
+The *module.json* file has these settings:
 
 | Setting | Description |
 |---|---|
-| image.repository | The repository of the module. |
-| image.tag.version | The version of the module. |
+| image.repository | The module repository. |
+| image.tag.version | The module version. |
 | image.tag.platforms | A list of supported platforms and their corresponding dockerfile. Each entry is a platform key and dockerfile pair `<platform key>:<dockerfile>`. |
-| image.buildOptions | The build arguments used when running `docker build`. |
-| image.contextPath | The context path used when running `docker build`. By default, it's the current folder of the *module.json* file. If your Docker build needs files not included in the current folder such as a reference to an external package or project, set the **contextPath** to the root path of all necessary files. Verify the files are copied in the dockerfile. |
-| language | The programming language of the module. |
+| image.buildOptions | Build arguments used when running `docker build`. |
+| image.contextPath | The context path used when running `docker build`. By default, it's the current folder of the *module.json* file. If your Docker build needs files not included in the current folder, like a reference to an external package or project, set **contextPath** to the root path of all necessary files. Verify the files are copied in the dockerfile. |
+| language | The module programming language. |
 
-For example, the following *module.json* file is for a C# IoT Edge module:
+For example, this *module.json* file is for a C# IoT Edge module:
 
 ```json
 {
@@ -59,10 +56,8 @@ For example, the following *module.json* file is for a C# IoT Edge module:
 }
 ```
 
-Once the module is built, the final tag of the image is combined with both version and platform as
-`<repository>:<version>-<platform key>`. For this example, the image tag for `amd64.debug` is
-`localhost:5000/csharpmod:0.0.1-amd64.debug`.
+After you build the module, the final image tag combines the version and platform as `<repository>:<version>-<platform key>`. For this example, the image tag for `amd64.debug` is `localhost:5000/csharpmod:0.0.1-amd64.debug`.
 
-## Next step
+## Next steps
 
 [Understand the requirements and tools for developing IoT Edge modules](module-development.md)

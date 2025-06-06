@@ -3,7 +3,7 @@ title: Deploying a GeoCatalog Resource in Microsoft Planetary Computer Pro
 description: Learn how to deploy a Microsoft Planetary Computer Pro GeoCatalog resource using Azure portal or Azure REST API
 author: aloverro
 ms.author: adamloverro
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: install-set-up-deploy #Don't change
 ms.date: 04/24/2025
 ms.custom:

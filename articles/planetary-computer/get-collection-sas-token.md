@@ -3,7 +3,7 @@ title: SAS token Generation in Microsoft Planetary Computer Pro
 description: See how to retrieve a sas token to access collection-level assets.
 author: tanyamarton
 ms.author: tanyamarton
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: quickstart
 ms.date: 04/29/2025
 #customer intent: help customers get a sas token for a collection.

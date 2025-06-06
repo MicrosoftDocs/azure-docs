@@ -3,7 +3,7 @@ title: Building Custom Applications with Microsoft Planetary Computer Pro
 description: "Learn the basics of how to connect Microsoft Planetary Computer Pro (Planetary Computer Pro) to applications or build your application on top of Planetary Computer Pro's API services."
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: concept-article #Don't change.
 ms.date: 04/29/2025
 

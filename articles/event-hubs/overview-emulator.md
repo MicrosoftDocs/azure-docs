@@ -81,6 +81,8 @@ Like the Event Hubs cloud service, the emulator provides the following quotas fo
 | Maximum size of an event being published to an event hub (batch/nonbatch) |1 MB |No
 | Minimum event retention time | 1 hr | No
 
+These limits are enforced by the emulator. While some values are configurable using config.json, you cannot exceed the listed maximums. Any configuration changes must be made before starting the emulator.
+
 ## Quota configuration changes
 
 By default, the emulator runs with the [config.json](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json) configuration file. You can configure the quotas associated with Event Hubs by editing this file in the following ways, based on your needs:
