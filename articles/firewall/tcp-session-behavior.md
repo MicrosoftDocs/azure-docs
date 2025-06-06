@@ -57,6 +57,9 @@ When a TCP connection is terminated due to an idle timeout, the Azure Firewall s
 
 Certain applications, such as traditional SAP GUI and SAP Remote Function Call (RFC)-based applications, are sensitive to session resets and can experience connectivity issues when sessions are terminated unexpectedly. To avoid these issues, you can implement a retry logic in your application to handle session resets gracefully. This mechanism should include logic to re-establish connections and resume operations seamlessly.
 
+> [!NOTE]
+> If you're running SAP workloads through an Azure Firewall, test your configuration and review the [SAP design documentation](/azure/sap/workloads/deployment-checklist?tabs=pilot#pilot-phase-strongly-recommended) to ensure a successful Azure deployment.
+
 ## Next steps
 
 To learn more about Azure Firewall performance, see [Azure Firewall performance](firewall-performance.md).
