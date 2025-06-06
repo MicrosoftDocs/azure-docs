@@ -33,7 +33,7 @@ Cisco2960# configure terminal
 Cisco2960(config)# monitor session 1 source interface fastehernet 0/2 - 23 rx
 Cisco2960(config)# monitor session 1 destination interface fastethernet 0/24
 Cisco2960(config)# end
-Cisco2960# show monitor 1
+Cisco2960# show monitor session 1
 Cisco2960# running-copy startup-config
 ```
 
@@ -73,6 +73,14 @@ switchport mode trunk
 ```
 
 [!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
+
+## Deploy with unidirectional gateways/data diodes
+
+You might deploy Defender for IoT with unidirectional gateways, also known as data diodes. Data diodes provide a secure way to monitor networks as they only allow data to flow in one direction. This means data can be monitored without compromising the security of the network, as data cannot be sent back in the opposite direction. Examples of data diode solutions are [Waterfall](https://waterfall-security.com), [Owl Cyber Defense](https://owlcyberdefense.com/products/data-diode-products/), or [Hirschmann](https://hirschmann.com/en/Hirschmann_Produkte/Hirschmann-News/Rail_Data_Diode/index.phtml).
+
+If unidirectional gateways are needed, we recommend deploying your data diodes on the SPAN traffic going to the sensor monitoring port. For example, use a data diode to monitor traffic from a sensitive system, such as an industrial control system, while keeping the system completely isolated from the monitoring system. 
+
+Place your OT sensors outside the electronic perimeter and have them receive traffic from the diode. In this scenario, you’ll be able to manage your Defender for IoT sensors from the cloud, keeping them automatically updated with the latest threat intelligence packages. 
 
 ## Next steps
 

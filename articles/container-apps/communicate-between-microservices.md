@@ -3,10 +3,10 @@ title: 'Tutorial: Communication between microservices in Azure Container Apps'
 description: Learn how to communicate between microservices deployed in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 05/13/2022
+ms.date: 02/18/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
@@ -32,11 +32,9 @@ In this tutorial, you learn to:
 
 ## Prerequisites
 
-In the [code to cloud quickstart](./quickstart-code-to-cloud.md), a back end web API is deployed to return a list of music albums. If you haven't deployed the album API microservice, return to [Quickstart: Deploy your code to Azure Container Apps](quickstart-code-to-cloud.md) to continue.
+In the [code to cloud quickstart](./quickstart-code-to-cloud.md), a back end web API is deployed to return a list of music albums. If you didn't deploy the album API microservice, return to [Quickstart: Deploy your code to Azure Container Apps](quickstart-code-to-cloud.md) to continue.
 
 ## Setup
-
-If you're still authenticated to Azure and still have the environment variables defined from the quickstart, you can skip the following steps and go directly to the [Prepare the GitHub repository](#prepare-the-github-repository) section.
 
 [!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
 
@@ -48,10 +46,10 @@ Sign in to the Azure CLI.
 az login
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell
-Connect-AzAccount
+```powershell
+az login
 ```
 
 ---
@@ -64,9 +62,9 @@ Connect-AzAccount
 az acr login --name $ACR_NAME
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell
+```powershell
 az acr login --name $ACRName
 ```
 
@@ -111,9 +109,9 @@ az acr login --name $ACRName
 az acr build --registry $ACR_NAME --image albumapp-ui .
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell
+```powershell
 az acr build --registry $ACRName --image albumapp-ui .
 ```
 
@@ -133,9 +131,9 @@ Output from the `az acr build` command shows the upload progress of the source c
     docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     docker build --tag "$ACRName.azurecr.io/albumapp-ui" . 
     ```
 
@@ -151,9 +149,9 @@ Output from the `az acr build` command shows the upload progress of the source c
     az acr login --name $ACR_NAME
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     az acr login --name $ACRName
     ```
 
@@ -164,14 +162,12 @@ Output from the `az acr build` command shows the upload progress of the source c
     # [Bash](#tab/bash)
 
     ```azurecli
-
      docker push "$ACR_NAME.azurecr.io/albumapp-ui" 
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
-
+    ```powershell
     docker push "$ACRName.azurecr.io/albumapp-ui"
     ```
 
@@ -208,16 +204,15 @@ Run the following command to query for the API endpoint address.
 API_BASE_URL=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query properties.configuration.ingress.fqdn -o tsv)
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell
+```powershell
 $APIBaseURL = (Get-AzContainerApp -Name $APIName -ResourceGroupName $ResourceGroup).IngressFqdn
-
 ```
 
 ---
 
-Now that you have set the `API_BASE_URL` variable with the FQDN of the album API, you can provide it as an environment variable to the frontend container app.
+Now that you set the `API_BASE_URL` variable with the FQDN of the album API, you can provide it as an environment variable to the frontend container app.
 
 ## Deploy front end application
 
@@ -233,7 +228,7 @@ az containerapp create \
   --image $ACR_NAME.azurecr.io/albumapp-ui  \
   --target-port 3000 \
   --env-vars API_BASE_URL=https://$API_BASE_URL \
-  --ingress 'external' \
+  --ingress external \
   --registry-server $ACR_NAME.azurecr.io \
   --query properties.configuration.ingress.fqdn
 ```
@@ -243,14 +238,13 @@ By adding the argument `--env-vars "API_BASE_URL=https://$API_ENDPOINT"` to `az 
 
 The output from the `az containerapp create` command shows the URL of the front end application.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-To create the container app, create template objects that you'll pass in as arguments to the `New-AzContainerApp` command.
+To create the container app, create template objects that you pass in as arguments to the `New-AzContainerApp` command.
 
 Create a template object to define your container image parameters.  The environment variable named `API_BASE_URL` is set to the API's FQDN.
 
-```azurepowershell
-
+```powershell
 $EnvVars = New-AzContainerAppEnvironmentVarObject -Name API_BASE_URL -Value https://$APIBaseURL
 
 $ContainerArgs = @{
@@ -261,15 +255,15 @@ $ContainerArgs = @{
 $ContainerObj = New-AzContainerAppTemplateObject @ContainerArgs
 ```
 
-You'll need run the following command to get your registry credentials.
+Run the following command to get your registry credentials.
 
-```azurepowershell
+```powershell
 $RegistryCredentials = Get-AzContainerRegistryCredential -Name $ACRName -ResourceGroupName $ResourceGroup
 ```
 
-Create a registry credential object to define your registry information, and a secret object to define your registry password.  The `PasswordSecretRef` in `$RegistryObj` refers to the `Name` in `$SecretObj`.  
+Create a registry credential object to define your registry information, and a secret object to define your registry password. The `PasswordSecretRef` in `$RegistryObj` refers to the `Name` in `$SecretObj`.  
 
-```azurepowershell
+```powershell
 $RegistryArgs = @{
     Server = $ACRName + '.azurecr.io'
     PasswordSecretRef = 'registrysecret'
@@ -282,13 +276,13 @@ $SecretObj = New-AzContainerAppSecretObject -Name 'registrysecret' -Value $Regis
 
 Get your environment ID.
 
-```azurepowershell
+```powershell
 $EnvId = (Get-AzContainerAppManagedEnv -EnvName $Environment -ResourceGroup $ResourceGroup).Id
 ```
 
 Create the container app.
 
-```azurepowershell
+```powershell
 $AppArgs = @{
     Name = $FrontendName
     Location = $Location
@@ -311,7 +305,7 @@ $FrontEndApp.IngressFqdn
 
 ## View website
 
-Use the container app's FQDN to view the website.  The page will resemble the following screenshot.
+Use the container app's FQDN to view the website.  The page resembles the following screenshot.
 
 :::image type="content" source="media/communicate-between-microservices/azure-container-apps-album-ui.png" alt-text="Screenshot of album list UI microservice.":::
 
@@ -329,10 +323,10 @@ If you're not going to continue to use this application, run the following comma
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell
-Remove-AzResourceGroup -Name $ResourceGroup -Force
+```powershell
+az group delete --name $RESOURCE_GROUP
 ```
 
 ---

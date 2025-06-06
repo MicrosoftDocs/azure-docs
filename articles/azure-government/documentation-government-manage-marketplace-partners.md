@@ -3,12 +3,9 @@ title: Publishing to Azure Government Marketplace
 description: This article provides guidance on publishing solutions to Azure Government Marketplace.
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: azure-government
 ms.date: 08/31/2021
 ---
 
@@ -28,13 +25,16 @@ Once a solution has been published, customers can deploy it into their own subsc
 
 ## Supported offers
 
-Currently, Azure Government Marketplace supports only the following offer types:
+Currently, Azure Government Marketplace supports the following offer types:
 
-- Virtual Machines > Bring your own license
-- Virtual Machines > Pay-as-you-go
+- Virtual Machines > Bring your own license (BYOL)
+
+- Virtual Machines > Pay-as-you-go (PAYG)
+
 - Azure Application > Solution template / Managed app
-- Azure containers > Bring your own license
-- IoT Edge modules > Bring your own license
+
+[Private plans](/partner-center/marketplace-offers/private-plans) are supported in Azure Government marketplace.
+Private offers are not supported in Azure Government marketplace.
 
 ## Publishing
 

@@ -4,7 +4,7 @@ description: 'Quickstart: This article provides a walkthrough for creating a Go 
 ms.topic: quickstart
 ms.date: 11/16/2022
 ms.devlang: golang
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-go
 ---
 
 # Quickstart: Send events to or receive events from Event Hubs using Go
@@ -13,7 +13,7 @@ Azure Event Hubs is a Big Data streaming platform and event ingestion service, c
 This quickstart describes how to write Go applications to send events to or receive events from an event hub. 
 
 > [!NOTE]
-> This quickstart is based on samples on GitHub at [https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs). The send one is based on the **example_producing_events_test.go** sample and the receive one is based on the **example_processor_test.go** sample. The code is simplified for the quickstart and all the detailed comments are removed, so look at the samples for more details and explanations. 
+> This quickstart is based on samples on GitHub at [https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs). The send events section is based on the **example_producing_events_test.go** sample and the receive one is based on the **example_processor_test.go** sample. The code is simplified for the quickstart and all the detailed comments are removed, so look at the samples for more details and explanations. 
 
 ## Prerequisites
 
@@ -55,7 +55,6 @@ import (
 )
 
 func main() {
-
 	// create an Event Hubs producer client using a connection string to the namespace and the event hub
 	producerClient, err := azeventhubs.NewProducerClientFromConnectionString("NAMESPACE CONNECTION STRING", "EVENT HUB NAME", nil)
 
@@ -73,12 +72,24 @@ func main() {
 
 	batch, err := producerClient.NewEventDataBatch(context.TODO(), newBatchOptions)
 
+	if err != nil {
+		panic(err)
+	}
+
 	for i := 0; i < len(events); i++ {
 		err = batch.AddEventData(events[i], nil)
+
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	// send the batch of events to the event hub
-	producerClient.SendEventDataBatch(context.TODO(), batch, nil)
+	err = producerClient.SendEventDataBatch(context.TODO(), batch, nil)
+
+	if err != nil {
+		panic(err)
+	}
 }
 
 func createEventsForSample() []*azeventhubs.EventData {
@@ -100,7 +111,9 @@ Don't run the application yet. You first need to run the receiver app and then t
 
 ### Create a Storage account and container
 
-State such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-account-create.md).
+State such as leases on partitions and checkpoints in the events are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-account-create.md).
+
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 
 ### Go packages
 
@@ -108,6 +121,7 @@ To receive the messages, get the Go packages for Event Hubs as shown in the foll
 
 ```bash
 go get github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs
+go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
 ```
 
 ### Code to receive events from an event hub
@@ -138,13 +152,18 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs"
 	"github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs/checkpoints"
+	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container"
 )
 
 func main() {
 
 	// create a container client using a connection string and container name
 	checkClient, err := container.NewClientFromConnectionString("AZURE STORAGE CONNECTION STRING", "CONTAINER NAME", nil)
-	
+
+	if err != nil {
+		panic(err)
+	}
+
 	// create a checkpoint store that will be used by the event hub
 	checkpointStore, err := checkpoints.NewBlobStore(checkClient, nil)
 
@@ -214,7 +233,7 @@ func processEvents(partitionClient *azeventhubs.ProcessorPartitionClient) error 
 		}
 
 		if len(events) != 0 {
-			if err := partitionClient.UpdateCheckpoint(context.TODO(), events[len(events)-1]); err != nil {
+			if err := partitionClient.UpdateCheckpoint(context.TODO(), events[len(events)-1], nil); err != nil {
 				return err
 			}
 		}
@@ -224,7 +243,6 @@ func processEvents(partitionClient *azeventhubs.ProcessorPartitionClient) error 
 func closePartitionResources(partitionClient *azeventhubs.ProcessorPartitionClient) {
 	defer partitionClient.Close(context.TODO())
 }
-
 ```
 
 ## Run receiver and sender apps
@@ -234,10 +252,10 @@ func closePartitionResources(partitionClient *azeventhubs.ProcessorPartitionClie
 1. Wait for a minute to see the following output in the receiver window.
 
     ```bash
-	Processing 2 event(s)
+    Processing 2 event(s)
     Event received with body hello
     Event received with body world
-	```
+    ```
 
 ## Next steps
 See samples on GitHub at [https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs).

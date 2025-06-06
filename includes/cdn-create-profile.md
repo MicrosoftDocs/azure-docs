@@ -1,12 +1,9 @@
 ---
-title: include file
-description: include file
-services: cdn
 author: SyntaxC4
+ms.author: cfowler
 ms.service: azure-cdn
 ms.topic: include
 ms.date: 04/06/2022
-ms.author: cfowler
 ms.custom: include file
 ---
 
@@ -35,12 +32,9 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
     | **Resource group region** | If a new resource group is created, select a location near you from the drop-down list.|
     | **Name** | Enter your profile name, for example, *cdn-profile-123*. |
     | **Region** | Leave as default. |
-    | **Pricing tier** | Select a **Standard Akamai** option from the drop-down list. (Deployment time for the Akamai tier is about one minute. The Microsoft tier takes about 10 minutes and the Verizon tiers take about 30 minutes.) |
+    | **Pricing tier** | Select an Azure CDN option from the drop-down list. (Deployment time for the Microsoft tier takes about 10 minutes and the Verizon tiers take about 30 minutes.) |
     | **Create a new CDN endpoint now** | Leave unselected. |  
    
     :::image type="content" source="./media/cdn-create-profile/cdn-new-profile.png" alt-text="Input variables in Basics tab.":::
 
-
-
 1. Select **Review + Create** then **Create** to create the profile.
-

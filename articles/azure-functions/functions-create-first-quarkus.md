@@ -1,12 +1,14 @@
 ---
 title: Deploy serverless Java apps with Quarkus on Azure Functions
 description: Learn how to develop, build, and deploy a serverless Java app by using Quarkus on Azure Functions.
-ms.author: edburns
+author: KarlErickson
+ms.author: karler
+ms.reviewer: edburns
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 01/10/2023
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-functions, devx-track-javaee-quarkus-functions
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-functions, devx-track-extended-java
 ---
 
 # Deploy serverless Java apps with Quarkus on Azure Functions
@@ -16,7 +18,7 @@ In this article, you'll develop, build, and deploy a serverless Java app to Azur
 ## Prerequisites
 
 * The [Azure CLI](/cli/azure/overview) installed on your own computer. 
-* An [Azure account](https://azure.microsoft.com/). [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* An [Azure account](https://azure.microsoft.com/). [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 * [Java JDK 17](/azure/developer/java/fundamentals/java-support-on-azure) with `JAVA_HOME` configured appropriately. This article was written with Java 17 in mind, but Azure Functions and Quarkus also support older versions of Java.
 * [Apache Maven 3.8.1+](https://maven.apache.org).
 
@@ -27,7 +29,12 @@ Use the following command to clone the sample Java project for this article. The
 
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
+cd quarkus-azure
+git checkout 2023-01-10
+cd functions-quarkus
 ```
+
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because this article does not require any commits, detached HEAD state is appropriate.
 
 Explore the sample function. Open the *functions-quarkus/src/main/java/io/quarkus/GreetingFunction.java* file. 
 
@@ -66,7 +73,6 @@ The resource group is not necessary for this part of the instructions, but it's 
 1. Invoke Quarkus dev mode:
 
     ```bash
-    cd functions-azure
     mvn -DskipTests -DresourceGroup=<yourResourceGroupName> quarkus:dev
     ```
 
@@ -299,7 +305,7 @@ Now that you've opened your Azure function in the portal, here are more features
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following command in Azure Cloud Shell or on your local terminal:
+If you don't need these resources, you can delete them by running the following command:
 
 ```azurecli
 az group delete --name <yourResourceGroupName> --yes

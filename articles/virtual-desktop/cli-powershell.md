@@ -2,10 +2,10 @@
 title: Use Azure CLI and Azure PowerShell with Azure Virtual Desktop
 description: Learn about Azure CLI and Azure PowerShell with Azure Virtual Desktop and some useful example commands you can run.
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 02/01/2023
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, docs_inherited
+author: dougeby
+ms.author: avdcontent
+ms.date: 01/08/2024
 ---
 # Use Azure CLI and Azure PowerShell with Azure Virtual Desktop
 
@@ -27,7 +27,7 @@ To learn how to install Azure CLI and Azure PowerShell across all supported plat
 
 - Azure CLI: [How to install the Azure CLI](/cli/azure/install-azure-cli)
 
-- Azure PowerShell: [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps)
+- Azure PowerShell: [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell)
 
 ## Example commands
 
@@ -136,3 +136,4 @@ Now that you know how to use Azure CLI and Azure PowerShell with Azure Virtual D
 
 - [Create an Azure Virtual Desktop host pool with PowerShell or the Azure CLI](create-host-pools-powershell.md)
 - [Manage application groups using PowerShell or the Azure CLI](manage-app-groups-powershell.md)
+- For the full PowerShell reference documentation, see [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization).

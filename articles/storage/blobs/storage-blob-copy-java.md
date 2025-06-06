@@ -6,15 +6,16 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/18/2023
-ms.service: storage
-ms.subservice: blobs
+ms.date: 08/05/2024
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
-ms.custom: devx-track-java, devguide-java
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Copy a blob with Java
+
+[!INCLUDE [storage-dev-guide-selector-copy](../../../includes/storage-dev-guides/storage-dev-guide-selector-copy.md)]
 
 This article provides an overview of copy operations using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 

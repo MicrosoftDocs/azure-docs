@@ -2,7 +2,7 @@
 title: Enable dead lettering for Azure Service Bus queues and subscriptions
 description: This article explains how to enable dead lettering for queues and subscriptions by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-python
 ms.date: 11/09/2022 
 ---
 
@@ -73,7 +73,7 @@ az servicebus topic subscription update \
 ```
 
 > [!NOTE]
-> If you specify a queue or topic by using the `--forward-dead-lettered-messages-to` parameter, Event Grid automatically forwards dead-lettered messages to that queue or topic. Here's an example: `az servicebus queue create --resource-group mysbusrg --namespace-name mysbusns --name myqueue --enable-dead-lettering-on-message-expiration true --forward-dead-lettered-messages-to myqueue2`.
+> If you specify a queue or topic by using the `--forward-dead-lettered-messages-to` parameter, Service Bus automatically forwards dead-lettered messages to that queue or topic. Here's an example: `az servicebus queue create --resource-group mysbusrg --namespace-name mysbusns --name myqueue --enable-dead-lettering-on-message-expiration true --forward-dead-lettered-messages-to myqueue2`.
 
 ## Using Azure PowerShell
 To **create a queue with dead lettering on message expiration enabled**, use the [`New-AzServiceBusQueue`](/powershell/module/az.servicebus/new-azservicebusqueue) command with `-DeadLetteringOnMessageExpiration` set to `$True`. 
@@ -273,6 +273,8 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 
-Find samples for the older .NET and Java client libraries below:
+Find samples for the older .NET and Java client libraries:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

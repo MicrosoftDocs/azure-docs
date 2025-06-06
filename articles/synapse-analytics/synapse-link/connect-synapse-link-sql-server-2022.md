@@ -1,14 +1,13 @@
 ---
 title: Create Azure Synapse Link for SQL Server 2022
 description: Learn how to create and connect a SQL Server 2022 instance to an Azure Synapse workspace by using Azure Synapse Link.
-author: SnehaGunda
-ms.service: synapse-analytics
+author: Rodrigossz
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.custom: event-tier1-build-2022, engagement-fy23
-ms.date: 11/16/2022
-ms.author: sngun
-ms.reviewer: sngun, wiassaf
+ms.custom: engagement-fy23
+ms.date: 07/30/2024
+ms.author: rosouz
 ---
 
 # Get started with Azure Synapse Link for SQL Server 2022
@@ -60,6 +59,9 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 1. In the **Name** box, enter the name of the linked service of SQL Server 2022.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-linked-service-new.png" alt-text="Screenshot that shows where to enter the server and database names to connect.":::
+   
+   > [!NOTE]
+   > Only the Linked Service in Legacy version is supported.
 
 1. When you're choosing the integration runtime, select your self-hosted integration runtime. If your Azure Synapse workspace doesn't have an available self-hosted integration runtime, create one.
 
@@ -114,7 +116,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/adls-gen2-assign-blob-data-contributor-role.png" alt-text="Screenshot that shows how to add a role assignment.":::
 
    > [!NOTE]
-   > Make sure that you've granted your Azure Synapse workspace managed identity permissions to the Azure Data Lake Storage Gen2 storage account that's used as the landing zone. For more information, see [Grant permissions to a managed identity in an Azure Synapse workspace - Azure Synapse Analytics](../security/how-to-grant-workspace-managed-identity-permissions.md#grant-the-managed-identity-permissions-to-adls-gen2-storage-account).
+   > Make sure that you've granted your Azure Synapse workspace managed identity permissions to the Azure Data Lake Storage Gen2 storage account that's used as the landing zone. For more information, see [Grant permissions to a managed identity in an Azure Synapse workspace - Azure Synapse Analytics](../security/how-to-grant-workspace-managed-identity-permissions.md#grant-the-managed-identity-permissions-to-data-lake-storage-account).
 
 1. Open the **Manage** hub in your Azure Synapse workspace, and go to **Linked services**.
 
@@ -140,7 +142,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    > [!NOTE]
    > The linked service that you create here isn't dedicated to Azure Synapse Link for SQL. It can be used by any workspace user who has the appropriate permissions. Take time to understand the scope of users who might have access to this linked service and its credentials. For more information about permissions in Azure Synapse workspaces, see [Azure Synapse workspace access control overview - Azure Synapse Analytics](../security/synapse-workspace-access-control-overview.md).
-
+   
 ## Create the Azure Synapse Link connection
 
 1. From Synapse Studio, open the **Integrate** hub.
@@ -183,13 +185,31 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-compute-settings.png" alt-text="Screenshot that shows where to enter the link connection settings.":::
 
    > [!NOTE]
-   > The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the target dedicated SQL pool confiruation.
+   > The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the target dedicated SQL pool configuration.
+   > If you can’t connect to landing zone using generated SAS token due to limitation from your storage, you can try to use delegation SAS token to connect to landing zone as well. 
 
 1. With the new Azure Synapse Link connection open, you can now update the target table name, distribution type, and structure type.
 
    > [!NOTE]
    > * Consider using *heap table* for the structure type when your data contains varchar(max), nvarchar(max), and varbinary(max).
    > * Make sure that the schema in your Azure Synapse SQL dedicated pool has already been created before you start the link connection. Azure Synapse Link for SQL will create tables automatically under your schema in the Azure Synapse SQL pool.
+
+1. In the **Action on existing target table** dropdown list, choose the option most appropriate for your scenario if the table already exists in the destination. 
+
+   - **Drop and recreate table**: The existing target table will be dropped and recreated.
+   - **Fail on non-empty table**: If target table contains data, link connection for the given table will fail.
+   - **Merge with existing data**: Data will be merged into the existing table.
+
+   > [!NOTE]
+   > If you want to merge multiple sources into the same destination by choosing "Merge with existing data", make sure the sources contain different data to avoid conflict and unexpected result.
+
+1. Specify whether to **enable transaction consistency across tables**. 
+
+   - When this option is enabled, a transaction spanning across multiple tables on the source database is always replicated to the destination database in a single transaction. This, however, will create overhead on the overall replication throughput. 
+   - When the option is disabled, each table will replicate changes in its own transaction boundary to the destination in parallel connections, thus improving overall replication throughput. 
+   
+   > [!NOTE]
+   > When you want to enable transaction consistency across tables, please also make sure the transaction isolation levels in your Synapse dedicated SQL pool is READ COMMITTED SNAPSHOT ISOLATION.
 
 1. Select **Publish all** to save the new link connection to the service.
 
@@ -257,7 +277,8 @@ To stop the Azure Synapse Link connection in Synapse Studio, do the following:
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Screenshot of the pane for stopping a link connection.":::
 
    > [!NOTE]
-   > If you restart a link connection after stopping it, it will start from a full initial load from your source database and incremental change feeds will follow.
+   > * If you restart a link connection after stopping it, it will start from a full initial load from your source database, and incremental change feeds will follow.
+   > * If you choose "**Merge with existing data**" as the action on existing target table, when you stop the link connection and restart it, the record deletions in source during that period won't be deleted in the destination. In such case, to ensure data consistency, consider to use pause/resume instead of stop/start, or to clean up the destination tables before you restart the link connection.
 
 ## Rotate the shared access signature token for the landing zone
 
@@ -275,11 +296,14 @@ A shared access signature token is required for the SQL change feed to get acces
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/landing-zone-rotate-sas-token.png" alt-text="Screenshot that shows how to get a new shared access signature token.":::
 
+   > [!NOTE]
+   > If you can’t connect to landing zone using generated SAS token due to limitation from your storage, you can try to use delegation SAS token to connect to landing zone as well. 
+
 
 ## Next steps
 
 If you're using a database other than SQL Server 2022, see:
 
-* [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
+* [Configure Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/configure-synapse-link?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
 * [Get started with Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md)

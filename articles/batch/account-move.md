@@ -2,7 +2,7 @@
 title: Move an Azure Batch account to another region
 description: Learn how to move an Azure Batch account to a different region using an Azure Resource Manager template in the Azure portal.
 ms.topic: how-to
-ms.date: 02/27/2023
+ms.date: 04/25/2025
 ms.custom: subject-moving-resources, devx-track-arm-template
 ---
 
@@ -57,16 +57,16 @@ Load and modify the template so you can create a new Batch account in the target
 
 1. In the uploaded **template.json** file, name the target Batch account by entering a new **defaultValue** for the Batch account name. This example sets the **defaultValue** of the Batch account name to `mytargetaccount` and replaces the string in **defaultValue** with the resource ID for `mytargetstorageaccount`.
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "batchAccounts_mysourceaccount_name": {
-                "defaultValue": "mytargetaccount",
-                "type": "String"
-            }
-        },
+   ```json
+   {
+       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {
+           "batchAccounts_mysourceaccount_name": {
+               "defaultValue": "mytargetaccount",
+               "type": "String"
+           }
+       },
    ```
 
 1. Next, update the **defaultValue** of the storage account with your migrated storage account's resource ID. To get this value, navigate to the storage account in the Azure portal, select **JSON View** near the top fo the screen, and then copy the value shown under **Resource ID**. This example uses the resource ID for a storage account named `mytargetstorageaccount` in the resource group `mytargetresourcegroup`.

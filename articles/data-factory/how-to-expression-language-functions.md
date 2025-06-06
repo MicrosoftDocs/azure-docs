@@ -3,18 +3,14 @@ title: How to use parameters and expressions in Azure Data Factory
 description: This How To article provides information about expressions and functions that you can use in creating data factory entities.
 author: ssabat
 ms.author: susabat
-ms.reviewer: jburchel
-ms.service: data-factory
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 02/13/2025
 ---
 
 # How to use parameters, expressions and functions in Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-functions-variables.md)
-> * [Current version](how-to-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this document, we will primarily focus on learning fundamental concepts with various examples to explore the ability to create parameterized data pipelines within Azure Data Factory. Parameterization and dynamic expressions are such notable additions to ADF because they can save a tremendous amount of time and allow for a much more flexible Extract, Transform, Load (ETL) or Extract, Load, Transform (ELT) solution, which will dramatically reduce the cost of solution maintenance and speed up the implementation of new features into existing pipelines. These gains are because parameterization minimizes the amount of hard coding and increases the number of reusable objects and processes in a solution.
@@ -80,7 +76,7 @@ Dynamic content editor automatically escapes characters in your content when you
 }
 ```
 
-Dynamic content editor converts above content to expression `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"`. The result of this expression is a JSON format string showed below.
+Dynamic content editor converts above content to expression `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"`. The result of this expression is a JSON format string shown below.
 
 ```json
 {
@@ -318,5 +314,5 @@ Please follow [Mapping data flow with parameters](./parameters-data-flow.md) for
 Please follow [Metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md) to learn more about how to use parameters to design metadata driven pipelines. This is a popular use case for parameters.
 
 
-## Next steps
+## Related content
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

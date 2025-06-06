@@ -1,8 +1,9 @@
 ---
 title: Configure IP firewall for Azure Relay namespace
 description: This article describes how to Use firewall rules to allow connections from specific IP addresses to Azure Relay namespaces. 
-ms.topic: article
-ms.date: 02/15/2023
+ms.topic: how-to
+ms.date: 12/10/2024
+# Customer intent: As an Azure Relay user, I want to know how to restrict access to an Azure Relay namespace to certain IP addresses or ranges. 
 ---
 
 # Configure IP firewall for an Azure Relay namespace
@@ -12,7 +13,7 @@ This feature is helpful in scenarios in which Azure Relay should be only accessi
 
 
 ## Enable IP firewall rules
-The IP firewall rules are applied at the namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
+The IP firewall rules are applied at the namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that doesn't match an allowed IP rule on the namespace is rejected as unauthorized. The response doesn't mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
 ### Use Azure portal
 This section shows you how to use the Azure portal to create IP firewall rules for a namespace. 
@@ -22,7 +23,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 1. To restrict access to specific networks and IP addresses, select the **Selected networks** option. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
-    3. If you want to allow Microsoft services trusted by the Azure Relay service to bypass this firewall, select **Yes** for **Allow [trusted Microsoft services](#trusted-services) to bypass this firewall?**. 
+    3. If you want to allow Microsoft services trusted by the Azure Relay service to bypass this firewall, select **Yes** for **Allow [trusted Microsoft services](#trusted-microsoft-services) to bypass this firewall?**. 
   
         :::image type="content" source="./media/ip-firewall/selected-networks-trusted-access-disabled.png" alt-text="Screenshot showing the Public access tab of the Networking page with the Firewall enabled.":::
 1. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
@@ -120,22 +121,10 @@ The template takes one parameter: **ipMask**, which is a single IPv4 address or 
 
 To deploy the template, follow the instructions for [Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
-## Trusted services
-The following services are the trusted services for Azure Relay.
-- Azure Event Grid
-- Azure IoT Hub
-- Azure Stream Analytics
-- Azure Monitor
-- Azure API Management
-- Azure Synapse
-- Azure Data Explorer
-- Azure IoT Central
-- Azure Healthcare Data Services
-- Azure Digital Twins
-- Azure Arc
 
+[!INCLUDE [trusted-services](./includes/trusted-services.md)]
 
-## Next steps
+## Related content
 To learn about other network security-related features, see [Network security](network-security.md).
 
 

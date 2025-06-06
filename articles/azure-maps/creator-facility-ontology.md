@@ -1,17 +1,22 @@
 ---
 title: Facility Ontology in Microsoft Azure Maps Creator
 description: Facility Ontology that describes the feature class definitions for Azure Maps Creator
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 02/17/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: creator
 zone_pivot_groups: facility-ontology-schema
 ---
 
 # Facility Ontology
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 Facility ontology defines how Azure Maps Creator internally stores facility data in a Creator dataset.  In addition to defining internal facility data structure, facility ontology is also exposed externally through the WFS API. When WFS API is used to query facility data in a dataset, the response format is defined by the ontology supplied to that dataset.
 
@@ -76,13 +81,13 @@ When importing a GeoJSON package, the `ID` and `Geometry` fields must be supplie
 
 :::image type="content" source="./media/creator-indoor-maps/geojson.png" alt-text="A screenshot showing the geometry and ID fields in a GeoJSON file.":::
 
-For more information, see [Create a dataset using a GeoJson package].
+For more information, see [Create a dataset using a GeoJSON package].
 
 ---
 
 :::zone-end
 
-In addition to these common fields, each feature class defines a set of properties. Each property is defined by its data type and constraints. Some feature classes have properties that are dependent on other feature classes. Dependant properties evaluate to the `ID` of another feature class.
+In addition to these common fields, each feature class defines a set of properties. Each property is defined by its data type and constraints. Some feature classes have properties that are dependent on other feature classes. Dependent properties evaluate to the `ID` of another feature class.
 
 The remaining sections in this article define the different feature classes and their properties that make up the facility ontology in Microsoft Azure Maps Creator.
 
@@ -572,15 +577,17 @@ Learn more about Creator for indoor maps by reading:
 [level.Id]: #level
 [structures]: #structure
 <!---------   REST API Links     --------------->
-[conversion service]: /rest/api/maps/v2/conversion
-[dataset]: /rest/api/maps/v20220901preview/dataset
-[GeoJSON Point geometry]: /rest/api/maps/v2/wfs/get-features#geojsonpoint
-[MultiPolygon]: /rest/api/maps/v2/wfs/get-features?tabs=HTTP#geojsonmultipolygon
-[Point]: /rest/api/maps/v2/wfs/get-features#geojsonpoint
-[Polygon]: /rest/api/maps/v2/wfs/get-features?tabs=HTTP#geojsonpolygon
+[conversion service]: /rest/api/maps-creator/conversion
+[dataset]: /rest/api/maps-creator/dataset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[GeoJSON Point geometry]: /rest/api/maps-creator/wfs/get-features#geojsonpoint
+[MultiPolygon]: /rest/api/maps-creator/wfs/get-features?tabs=HTTP#geojsonmultipolygon
+[Point]: /rest/api/maps-creator/wfs/get-features#geojsonpoint
+[Polygon]: /rest/api/maps-creator/wfs/get-features?tabs=HTTP#geojsonpolygon
+
 <!---------   learn.microsoft.com links     --------------->
-[Create a dataset using a GeoJson package]: how-to-dataset-geojson.md
+[Create a dataset using a GeoJSON package]: how-to-dataset-geojson.md
 [Creator for indoor maps]: creator-indoor-maps.md
+
 <!---------   External Links     --------------->
 [Azure Maps services]: https://aka.ms/AzureMaps
 [feature object]: https://www.rfc-editor.org/rfc/rfc7946#section-3.2

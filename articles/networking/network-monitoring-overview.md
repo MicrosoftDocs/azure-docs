@@ -2,14 +2,19 @@
 title: Network Monitoring in Azure Monitor logs
 description: Overview of network monitoring solutions, including network performance monitor, to manage networks across cloud, on-premises, and hybrid environments.
 author: asudbring
-ms.service: virtual-network
-ms.topic: article
-ms.date: 03/23/2023
+ms.service: azure-virtual-network
+ms.topic: concept-article
+ms.date: 10/30/2023
 ms.author: allensu
 ---
 # Network monitoring solutions 
 
 Azure offers a host of solutions to monitor your networking assets. Azure has solutions and utilities to monitor network connectivity, the health of ExpressRoute circuits, and analyze network traffic in the cloud.
+
+> [!IMPORTANT]
+> As of July 1, 2021, you can no longer add new tests in an existing workspace or enable a new workspace in Network Performance Monitor (NPM). You're also no longer able to add new connection monitors in Connection Monitor (Classic). You can continue to use the tests and connection monitors that you've created prior to July 1, 2021. 
+> 
+> To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor), or  [migrate from Connection Monitor (Classic)](/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic) to the new Connection Monitor in Azure Network Watcher before February 29, 2024.
 
 ## Network Performance Monitor
 
@@ -21,7 +26,7 @@ Network Performance Monitor is a suite of capabilities that is geared towards mo
 
 * Mission critical multi-tier applications/micro-services
 
-* User locations and web-based applications (HTTP/HTTPs) 
+* User locations and web-based applications (HTTP/HTTPS) 
 
 Performance Monitor, ExpressRoute Monitor, and Service Connectivity Monitor are monitoring capabilities within Network Performance Monitor and are described in the following sections.
 
@@ -38,8 +43,6 @@ Performance Monitor is part of Network Performance Monitor and is network monito
 * Determine the specific segment on the network that is responsible for degraded performance
 
 * Monitor the health of the network, without the need for SNMP
-
-:::image type="content" source="./media/network-monitoring-overview/npm-topology-map.png" alt-text="Diagram Network Performance Monitor topology map.":::
 
 For more information, view the following articles:
 
@@ -115,7 +118,7 @@ Traffic Analytics is a cloud-based solution that provides  visibility into user 
 
 Traffic Analytics equips you with information that helps you audit your organization’s network activity, secure applications and data, and optimize workload performance and stay compliant.
 
-:::image type="content" source="../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png" alt-text="Diagram of geo-map showing traffic across regions 2.":::
+:::image type="content" source="../network-watcher/media/traffic-analytics-usage-scenarios/geo-map-view-traffic-distribution-to-countries-and-continents.png" alt-text="Diagram of geo-map showing traffic across regions 2.":::
 
 Related links:
 

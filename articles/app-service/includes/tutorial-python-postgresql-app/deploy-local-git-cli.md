@@ -3,11 +3,11 @@ author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
 ms.date: 01/25/2022
-ms.service: app-service
+ms.service: azure-app-service
 ms.role: developer
 ms.devlang: python
 ms.azure.devx-azure-tooling: ['azure-portal']
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 First, you need to tell Azure what branch to use for deployment. This value is stored in the app settings for the web app with a key of `DEPLOYMENT_BRANCH`. For this example, you will be deploying code from the `main` branch.

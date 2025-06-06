@@ -1,9 +1,9 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.topic: include
-ms.date: 12/10/2021
+ms.date: 05/22/2023
 ---
 
 Managed identities are more secure because:

@@ -1,106 +1,105 @@
 ---
 title: 'Tutorial – Create & manage a VPN gateway – Azure portal'
 titleSuffix: Azure VPN Gateway
-description: In this tutorial, learn how to create and manage an Azure VPN gateway using the Azure portal.
+description: In this tutorial, learn how to create and manage an Azure VPN gateway by using the Azure portal.
 author: cherylmc
 ms.author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 04/12/2023
+ms.date: 03/10/2025
 
 ---
 
 # Tutorial: Create and manage a VPN gateway using the Azure portal
 
-This tutorial helps you create and manage an Azure VPN gateway using the Azure portal. You can also create and manage a gateway using [Azure CLI](create-routebased-vpn-gateway-cli.md) or [Azure PowerShell](create-routebased-vpn-gateway-powershell.md). If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about VPN Gateway, see [What is VPN Gateway?](vpn-gateway-about-vpngateways.md)
+This tutorial helps you create and manage a virtual network gateway (VPN gateway) using the Azure portal. The VPN gateway is one part of the connection architecture that helps you securely access resources within a virtual network using VPN Gateway.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-expand.png":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram that shows a virtual network and a VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
+
+* The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
+* You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
+* For more information about Azure VPN Gateway, see [What is Azure VPN Gateway](vpn-gateway-about-vpngateways.md)? If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a virtual network
-> * Create a VPN gateway
-> * View the gateway public IP address
-> * Resize a VPN gateway (resize SKU)
-> * Reset a VPN gateway
+> * Create a virtual network.
+> * Create an active-active mode zone-redundant VPN gateway.
+> * View the gateway public IP address.
+> * Resize a VPN gateway (resize SKU).
+> * Reset a VPN gateway.
+
+> [!NOTE]
+> [!INCLUDE [AZ SKU region support note](../../includes/vpn-gateway-az-regions-support-include.md)]
 
 ## Prerequisites
 
-An Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+You need an Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-## <a name="CreatVNet"></a>Create a virtual network
+## <a name="CreateVNet"></a>Create a virtual network
 
-Create a VNet using the following values:
+This article uses the Azure portal to create a virtual network. You can also use a different tool or method to create a virtual network. For more information or steps, see [Create a virtual network](../virtual-network/quick-create-portal.md). For this exercise, the virtual network doesn't require the configuration of additional services, such as [Azure Bastion](../bastion/bastion-overview.md) or [DDoS Protection](../ddos-protection/ddos-protection-overview.md). However, you can add these services if you want to use them.
 
-* **Resource group:** TestRG1
-* **Name:** VNet1
-* **Region:** (US) East US
-* **IPv4 address space:** 10.1.0.0/16
-* **Subnet name:** FrontEnd
-* **Subnet address space:** 10.1.0.0/24
+[!INCLUDE [Virtual network values](../../includes/vpn-gateway-virtual-network-values.md)]
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
+[!INCLUDE [Create a VNet](../../includes/vpn-gateway-virtual-network-steps.md)]
 
-## <a name="VNetGateway"></a>Create a VPN gateway
+## Create a gateway subnet
 
-In this step, you create the virtual network gateway (VPN gateway) for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+[!INCLUDE [About GatewaySubnet with links](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
-Create a virtual network gateway using the following values:
-
-* **Name:** VNet1GW
-* **Region:** East US
-* **Gateway type:** VPN
-* **VPN type:** Route-based
-* **SKU:** VpnGw2
-* **Generation:** Generation 2
-* **Virtual network:** VNet1
-* **Gateway subnet address range:** 10.1.255.0/27
-* **Public IP address:** Create new
-* **Public IP address name:** VNet1GWpip
-
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
-[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
-
-A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the Overview page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+[!INCLUDE [Create gateway subnet](../../includes/vpn-gateway-create-gateway-subnet-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="view"></a>View the public IP address
+## <a name="VNetGateway"></a>Create a VPN gateway
 
-You can view the gateway public IP address on the **Overview** page for your gateway.
+In this section, you create the virtual network gateway (VPN gateway) for your virtual network. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. Use the following steps to create a VPN gateway. Note that the VPN Gateway Basic SKU is only available in [PowerShell](create-gateway-basic-sku-powershell.md) or CLI.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot of Overview page used to view the Public IP address field." lightbox="./media/tutorial-create-gateway-portal/address.png":::
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gateway-portal.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal.md)]
 
-To see additional information about the public IP address object, select the name/IP address link next to **Public IP address**.
+You can see the deployment status on the **Overview** page for your gateway. Once the gateway is created, you can view the IP address assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+
+## <a name="view"></a>View public IP address
+
+To view public IP addresses associated to your virtual network gateway, navigate to your gateway in the portal.
+
+1. On the **Virtual network gateway** portal page, under **Settings**, open the **Properties** page.
+1. To view more information about the IP address object, click the associated IP address link.
 
 ## <a name="resize"></a>Resize a gateway SKU
 
-There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we'll resize the SKU. For more information, see [Gateway settings - resizing and changing SKUs](vpn-gateway-about-vpn-gateway-settings.md#resizechange).
+There are specific rules for resizing versus changing a gateway SKU. In this section, you resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
 
-[!INCLUDE [resize a gateway](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+1. Go to the **Configuration** page for your virtual network gateway.
+1. On the right side of the page, select the dropdown arrow to show a list of available SKUs. Notice that the list only populates SKUs that you're able to use to resize your current SKU. If you don't see the SKU you want to use, instead of resizing, you have to change to a new SKU.
+1. Select the SKU from the dropdown list and save your changes.
 
 ## <a name="reset"></a>Reset a gateway
+
+Gateway resets behave differently, depending on your gateway configuration. For more information, see [Reset a VPN gateway or a connection](reset-gateway.md).
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
 ## Clean up resources
 
 If you're not going to continue to use this application or go to the next tutorial, delete
-these resources using the following steps:
+these resources.
 
 1. Enter the name of your resource group in the **Search** box at the top of the portal and select it from the search results.
-
 1. Select **Delete resource group**.
-
 1. Enter your resource group for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
 
-Once you have a VPN gateway, you can configure connections. The articles below will help you create a few of the most common configurations:
+After you create a VPN gateway, you can configure more gateway settings and connections. The following articles help you create a few of the most common configurations:
 
 > [!div class="nextstepaction"]
-> [Site-to-Site VPN connections](./tutorial-site-to-site-portal.md)
+> [Site-to-site VPN connections](./tutorial-site-to-site-portal.md)
 
 > [!div class="nextstepaction"]
-> [Point-to-Site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Point-to-site - Certificate authentication VPN connections](point-to-site-certificate-gateway.md)
+
+> [!div class="nextstepaction"]
+> [Point-to-site - Microsoft Entra ID authentication VPN connections](point-to-site-entra-gateway.md)

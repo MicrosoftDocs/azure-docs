@@ -2,21 +2,22 @@
 title: Customize the user interface with HTML templates
 titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
-services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/09/2023
-ms.custom: project-no-code
+ms.date: 02/17/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating apps with Azure Active Directory B2C, I want to learn how to customize the default user interfaces by using my own HTML, CSS files and JavaScript, so that I can provide a branded and seamless user experience in my application.
+
 ---
 
 # Customize the user interface with HTML templates in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -33,7 +34,7 @@ Azure AD B2C runs code in your customer's browser by using [Cross-Origin Resourc
 
 ### Custom HTML page content
 
-Create an HTML page with your own branding to serve your custom page content. This page can be a static `*.html` page, or a dynamic page like .NET, Node.js, or PHP,however, Azure B2C does not support any view engines. Any server-side rendering of the dynamic page must be performed by a dedicated web application.
+Create an HTML page with your own branding to serve your custom page content. This page can be a static `*.html` page, or a dynamic page like .NET, Node.js, or PHP, however, Azure B2C doesn't support any view engines. Any server-side rendering of the dynamic page must be performed by a dedicated web application.
 
 Your custom page content can contain any HTML elements, including CSS and JavaScript, but can't include insecure elements like iframes. The only required element is a div element with `id` set to `api`, such as this one `<div id="api"></div>` within your HTML page.
 
@@ -53,14 +54,14 @@ Your custom page content can contain any HTML elements, including CSS and JavaSc
 
 Instead of creating your custom page content from scratch, you can customize Azure AD B2C's default page content.
 
-The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages.
+The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages. See [Sample templates](#sample-templates) to learn how you can download and use the sample templates.
 
 | Page | Description | Templates |
 |:-----------------------|:--------|-------------|
 | Unified sign-up or sign-in | This page handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook, Microsoft account, or local accounts. | [Classic](https://login.microsoftonline.com/static/tenant/default/unified.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/unified.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/unified.cshtml). |
 | Sign-in (only)| The sign-in page is also known as the *Identity provider selection*. It handles the user sign-in with local account, or federated identity providers. Use this page to allow sign-in without the ability to sign up. For example before user can edit their profile. | [Classic](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/idpSelector.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/idpSelector.cshtml).
 | Self-Asserted | Most interactions in Azure AD B2C where the user is expected to provide input are self-asserted. For example, a sign-up page, sign-in page, or password reset page. Use this template as a custom page content for a social account sign-up page, a local account sign-up page, a local account sign-in page, password reset, edit profile, block page and more. The self-asserted page can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. | [Classic](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/selfAsserted.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/selfAsserted.cshtml).  |
-|  Multi-factor authentication |  On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. | [Classic](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/multifactor-1.0.0.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/multifactor-1.0.0.cshtml). |
+|  Multifactor authentication |  On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. | [Classic](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/multifactor-1.0.0.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/multifactor-1.0.0.cshtml). |
 | Error | This page is displayed when an exception or an error is encountered. | [Classic](https://login.microsoftonline.com/static/tenant/default/exception.cshtml), [Ocean Blue](https://login.microsoftonline.com/static/tenant/templates/AzureBlue/exception.cshtml), and [Slate Gray](https://login.microsoftonline.com/static/tenant/templates/MSA/exception.cshtml). |
 
 
@@ -72,7 +73,7 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 ## Guidelines for using custom page content
 
 - Use an absolute URL when you include external resources like media, CSS, and JavaScript files in your HTML file.
-- Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload="true"`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
+- Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload="true"`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the unstyled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
 
   ```html
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
@@ -99,7 +100,7 @@ The following example defines the following classes:
 
 * `imprint-en` - Used when the current language is English.
 * `imprint-de` - Used when the current language is German.
-* `imprint` - Default class that is used when the current language is not English or German.
+* `imprint` - Default class that is used when the current language isn't English or German.
 
 ```css
 .imprint-en:lang(en),
@@ -111,7 +112,7 @@ The following example defines the following classes:
 }
 ```
 
-The following HTML elements will be shown or hidden according to the page language:
+The following HTML elements are shown according to the page language:
 
 ```html
 <a class="imprint imprint-en" href="Link EN">Imprint</a>
@@ -200,21 +201,19 @@ Create a custom page content with your product's brand name in the title.
 1.  Save the file as *customize-ui.html*.
 
 > [!NOTE]
-> HTML form elements will be removed due to security restrictions if you use login.microsoftonline.com. If you want to use HTML form elements in your custom HTML content, [use b2clogin.com](b2clogin.md).
+> HTML form elements are removed due to security restrictions if you use login.microsoftonline.com. If you want to use HTML form elements in your custom HTML content, [use b2clogin.com](b2clogin.md).
 
 ### 2. Create an Azure Blob storage account
 
 In this article, we use Azure Blob storage to host our content. You can choose to host your content on a web server, but you must [enable CORS on your web server](https://enable-cors.org/server.html).
 
 > [!NOTE]
-> In an Azure AD B2C tenant, you can't provision Blob storage. You must create this resource in your Azure AD tenant.
+> In an Azure AD B2C tenant, you can't provision Blob storage. You must create this resource in your Microsoft Entra tenant.
 
 To host your HTML content in Blob storage, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant, and which has a subscription: 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the Directory name list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Storage accounts**
 1. Select **+ Create**.
 1. Select a **Subscription** for your storage account.
@@ -223,17 +222,20 @@ To host your HTML content in Blob storage, use the following steps:
 1. Select the geographical **Region** for your storage account.
 1. **Performance** can remain **Standard**.
 1. **Redundancy** can remain **Geo-redundant storage (GRS)**
-1. Select **Review + create** and wait a few seconds for Azure AD to run a validation. 
+1. Select **Review + create** and wait a few seconds for Microsoft Entra ID to run a validation. 
 1. Select **Create** to create the storage account. After the deployment is completed, the storage account page opens automatically or you need to select **Go to resource**.
 
 #### 2.1 Create a container
 
 To create a public container in Blob storage, perform the following steps:
 
+1. Under **Settings** in the leftmost menu, select **Configuration**.
+1. Enable **Allow Blob anonymous access**.
+1. Select **Save**.
 1. Under **Data storage** in the left-hand menu, select **Containers**.
 1. Select **+ Container**.
 1. For **Name**, enter *root*. The name can be a name of your choosing, for example *contoso*, but we use *root* in this example for simplicity.
-1. For **Public access level**, select **Blob**.
+1. For **Public access level**, select **Blob**. By selecting the **Blob** option, you allow an anonymous public read-only access for this container.
 1. Select **Create** to create the container.
 1. Select **root** to open the new container.
 
@@ -266,7 +268,7 @@ Configure Blob storage for Cross-Origin Resource Sharing by performing the follo
 Validate that you're ready by performing the following steps:
 
 1. Repeat the configure CORS step. For **Allowed origins**, enter `https://www.test-cors.org`
-1. Navigate to [www.test-cors.org](https://www.test-cors.org/) 
+1. Navigate to [www.test-cors.org](https://cors-test.codehappy.dev/) 
 1. For the **Remote URL** box, paste the URL of your HTML file. For example, `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Select **Send Request**.
     The result should be `XHR status: 200`. 
@@ -278,9 +280,7 @@ Learn more about [how to create and manage Azure storage accounts](../storage/co
 
 ### 4. Update the user flow
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the directory name list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the left-hand menu, select **User flows**, and then select the *B2C_1_signupsignin1* user flow.
 1. Select **Page layouts**, and then under **Unified sign-up or sign-in page**, select **Yes** for **Use custom page content**.
@@ -331,13 +331,14 @@ To configure UI customization, copy the **ContentDefinition** and its child elem
 
 1. Save the extensions file.
 
+1. [Enable JavaScript](javascript-and-page-layout.md?pivots=b2c-custom-policy#enable-javascript)
+
+
 ### 5. Upload and test your updated custom policy
 
 #### 5.1 Upload the custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.
@@ -382,7 +383,7 @@ In your content definition, change the value of `LoadUri` to `https://<app_name>
 When Azure AD B2C loads the page, it makes a call to your web server endpoint:
 
 ```http
-https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f893d6d3-3b6d-480d-a330-1707bf80ebea
+https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=00001111-aaaa-2222-bbbb-3333cccc4444
 ```
 
 ### Dynamic page content URI
@@ -447,6 +448,6 @@ To use [company branding](customize-ui.md#configure-company-branding) assets in 
 <img data-tenant-branding-logo="true" alt="Company Logo" />
 ```
 
-## Next steps
+## Related content
 
 Learn how to enable [client-side JavaScript code](javascript-and-page-layout.md).

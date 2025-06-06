@@ -37,16 +37,6 @@
     href: tutorial-traffic-manager-subnet-routing.md
   - name: Alias records for Traffic Manager
     href: ../dns/tutorial-alias-tm.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
-- name: Samples
-  items:
-  - name: Azure CLI
-    items:
-    - name: Overview
-      href: cli-samples.md
-    - name: Direct traffic across regions for HA
-      href: scripts/traffic-manager-cli-websites-high-availability.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
 - name: Concepts
   items:
   - name: Routing methods
@@ -58,6 +48,8 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/traffic-manager-security-baseline?toc=/azure/traffic-manager/toc.json
+    - name: Network security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: Nested Traffic Manager profiles
     href: traffic-manager-nested-profiles.md
   - name: Endpoint types
@@ -70,7 +62,7 @@
     href: traffic-manager-traffic-view-overview.md
   - name: Metrics and alerts
     href: traffic-manager-metrics-alerts.md
-  - name: Disaster recovery using Azure DNS and Traffic Manager
+  - name: Reliability and disaster recovery
     href: ../networking/disaster-recovery-dns-traffic-manager.md
   - name: How Traffic Manager works
     href: traffic-manager-how-it-works.md
@@ -78,6 +70,10 @@
     href: traffic-manager-FAQs.md
 - name: How-to guides
   items:
+  - name: Use Azure App Gateway with Azure Traffic Manager
+    href: traffic-manager-use-with-application-gateway.md
+  - name: Use Azure App Service with Azure Traffic Manager
+    href: traffic-manager-use-azure-app-service.md
   - name: Configure performance routing in Traffic Manager
     href: traffic-manager-configure-performance-routing-method.md
   - name: Configure multivalue routing in Traffic Manager
@@ -142,9 +138,9 @@
     href: /azure/templates/microsoft.network/trafficmanagerprofiles
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Blog
+  - name: Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Azure networking blog
     href: https://azure.microsoft.com/blog/topics/networking/
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-virtual-network.html
@@ -153,7 +149,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service Limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-traffic-manager-limits
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=traffic-manager
   - name: SLA

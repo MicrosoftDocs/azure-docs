@@ -2,19 +2,21 @@
 title: Configure Azure Active Directory B2C with Deduce
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Deduce for identity verification 
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 8/22/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
+
+# Customer intent: As an Azure AD B2C administrator, I want to integrate Deduce with Azure AD B2C authentication. I want to combat identity fraud and create a trusted user experience for my organization.
 ---
 
 # Configure Azure Active Directory B2C with Deduce to combat identity fraud and create a trusted user experience
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this sample article, we provide guidance on how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Deduce](https://www.deduce.com/). Deduce is focused on stopping account takeover and registration fraud—the fastest-growing fraud on the internet. The Deduce Identity Network is powered by a coalition of over 150,000 websites and apps who share logins, registrations, and checkouts with Deduce over 1.4 billion times per day.
 
@@ -679,11 +681,7 @@ The relying party policy specifies the user journey which Azure AD B2C will exec
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-
-   a. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-   b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch** button next to it.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 
 1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
 

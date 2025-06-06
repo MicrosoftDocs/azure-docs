@@ -3,9 +3,9 @@
  description: include file
  services: iot-central
  author: dominicbetts
- ms.service: iot-central
+ ms.service: azure-iot-central
  ms.topic: include
- ms.date: 02/11/2020
+ ms.date: 06/14/2023
  ms.author: dobett
  ms.custom: include file
 ---

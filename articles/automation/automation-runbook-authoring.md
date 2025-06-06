@@ -1,11 +1,12 @@
 ---
-title: Runbook authoring using VS code in Azure Automation
+title: Runbook authoring using VS Code in Azure Automation
 description: This article provides an overview authoring runbooks in Azure Automation using the visual studio code.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/10/2023
-ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
+ms.date: 09/09/2024
+ms.topic: overview
+ms.custom:
+ms.service: azure-automation
 ---
 
 # Runbook authoring through VS Code in Azure Automation
@@ -28,7 +29,7 @@ The test matrix includes the following operating systems:
 1. **Ubuntu** 20.04 with PowerShell Core 7.2.7
 
 >[!NOTE]
->- The extension should work anywhere in VS Code and it supports [PowerShell 7.2 or higher](https://learn.microsoft.com/powershell/scripting/install/PowerShell-Support-Lifecycle?view=powershell-7.3). For Windows PowerShell, only version 5.1 is supported.
+>- The extension should work anywhere in VS Code and it supports [PowerShell 7.2 or higher](/powershell/scripting/install/PowerShell-Support-Lifecycle?view=powershell-7.3&preserve-view=true). For Windows PowerShell, only version 5.1 is supported.
 >-  PowerShell Core 6 is end-of-life and not supported.
 
 
@@ -76,4 +77,3 @@ Currently, the following features aren't supported:
 ## Next steps
 
 - For Runbook management operations and to test runbook and jobs, see [Use Azure Automation extension for Visual Studio Code](../automation/how-to/runbook-authoring-extension-for-vscode.md)
-

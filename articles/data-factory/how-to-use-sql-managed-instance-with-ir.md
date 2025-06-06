@@ -3,11 +3,11 @@ title: Use Azure SQL Managed Instance with Azure-SQL Server Integration Services
 description: Learn how to use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory. 
 author: chugugrace
 ms.author: chugu
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 10/03/2024
+ms.subservice: integration-services
 ---
+
 # Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +24,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
 ### Prerequisites
 
-1. [Enable Azure Active Directory (Azure AD) on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), when choosing Azure Active Directory authentication.
+1. [Enable Microsoft Entra ID on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), when choosing Microsoft Entra authentication.
 
 1. Choose how to connect SQL Managed Instance, over private endpoint or over public endpoint:
 
@@ -54,7 +54,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
         - when Azure-SSIS IR inside a virtual network
 
-            There is a special scenario when SQL Managed Instance is in a region that Azure-SSIS IR does not support, Azure-SSIS IR is inside a virtual network without VNet peering due to Global VNet peering limitation. In this scenario, **Azure-SSIS IR inside a virtual network** connects SQL Managed Instance **over public endpoint**. Use below Network Security Group(NSG) rules to allow traffic between SQL Managed Instance and Azure-SSIS IR:
+            There is a special scenario when SQL Managed Instance is in a region that Azure-SSIS IR doesn't support, Azure-SSIS IR is inside a virtual network without VNet peering due to Global VNet peering limitation. In this scenario, **Azure-SSIS IR inside a virtual network** connects SQL Managed Instance **over public endpoint**. Use the following Network Security Group(NSG) rules to allow traffic between SQL Managed Instance and Azure-SSIS IR:
 
             1. **Inbound requirement of SQL Managed Instance**, to allow inbound traffic from Azure-SSIS IR.
 
@@ -70,7 +70,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
 ### Configure virtual network
 
-1. **User permission**. The user who creates the Azure-SSIS IR must have the [role assignment](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) at least on Azure Data Factory resource with one of the options below:
+1. **User permission**. The user who creates the Azure-SSIS IR must have the [role assignment](../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-for-a-user-at-a-scope) at least on Azure Data Factory resource with one of the options below:
 
     - Use the built-in Network Contributor role. This role comes with the _Microsoft.Network/\*_ permission, which has a much larger scope than necessary.
     - Create a custom role that includes only the necessary _Microsoft.Network/virtualNetworks/\*/join/action_ permission. If you also want to bring your own public IP addresses for Azure-SSIS IR while joining it to an Azure Resource Manager virtual network, also include _Microsoft.Network/publicIPAddresses/*/join/action_ permission in the role.
@@ -84,15 +84,15 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
         - A network security group, with the name *\<Guid>-azurebatch-cloudservicenetworksecuritygroup
         - An Azure public IP address, with the name -azurebatch-cloudservicepublicip
 
-        Those resources will be created when your Azure-SSIS IR starts. They'll be deleted when your Azure-SSIS IR stops. To avoid blocking your Azure-SSIS IR from stopping, don't reuse these network resources in your other resources.
+        Those resources are created when your Azure-SSIS IR starts. They're deleted when your Azure-SSIS IR stops. To avoid blocking your Azure-SSIS IR from stopping, don't reuse these network resources in your other resources.
 
-    1. Make sure that you have no [resource lock](../azure-resource-manager/management/lock-resources.md) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
+    1. Make sure that you have no [resource lock](../azure-resource-manager/management/lock-resources.md) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail or it'll stop responding.
 
     1. Make sure that you don't have an Azure Policy definition that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 
-    1. Allow traffic on Network Security Group (NSG) rule, to allow traffic between SQL Managed Instance and Azure-SSIS IR, and traffic needed by Azure-SSIS IR.
+    1. Allow traffic on Network Security Group (NSG) rule to allow traffic between SQL Managed Instance and Azure-SSIS IR, and traffic needed by Azure-SSIS IR.
         1. **Inbound requirement of SQL Managed Instance**, to allow inbound traffic from Azure-SSIS IR.
 
             | Transport protocol | Source | Source port range | Destination | Destination port range | Comments |
@@ -114,7 +114,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
            | Transport protocol | Source | Source port range | Destination | Destination port range | Comments |
            |---|---|---|---|---|---|
            | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (if you join the IR to a Resource Manager virtual network) <br/><br/>10100, 20100, 30100 (if you join the IR to a classic virtual network)| The Data Factory service uses these ports to communicate with the nodes of your Azure-SSIS IR in the virtual network. <br/><br/> Whether or not you create a subnet-level NSG, Data Factory always configures an NSG at the level of the network interface cards (NICs) attached to the virtual machines that host the Azure-SSIS IR. Only inbound traffic from Data Factory IP addresses on the specified ports is allowed by that NIC-level NSG. Even if you open these ports to internet traffic at the subnet level, traffic from IP addresses that aren't Data Factory IP addresses is blocked at the NIC level. |
-           | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | (Optional) This rule is only required when Microsoft supporter asks customer to open for advanced troubleshooting, and can be closed right after troubleshooting. **CorpNetSaw** service tag permits only secure access workstations on the Microsoft corporate network to use remote desktop. And this service tag can't be selected from portal and is only available via Azure PowerShell or Azure CLI. <br/><br/> At NIC level NSG, port 3389 is open by default and we allow you to control port 3389 at subnet level NSG, meanwhile Azure-SSIS IR has disallowed port 3389 outbound by default at windows firewall rule on each IR node for protection. |
+           | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | (Optional) This rule is only required when Microsoft supporter asks customer to open for advanced troubleshooting and can be closed right after troubleshooting. **CorpNetSaw** service tag permits only secure access workstations on the Microsoft corporate network to use remote desktop. And this service tag can't be selected from portal and is only available via Azure PowerShell or Azure CLI. <br/><br/> At NIC level NSG, port 3389 is open by default, and we allow you to control port 3389 at subnet level NSG. Meanwhile, Azure-SSIS IR has prevented port 3389 outbound by default at Windows Firewall rule on each IR node for protection. |
            |||||||
 
     1. See [virtual network configuration](azure-ssis-integration-runtime-virtual-network-configuration.md) for more info:
@@ -133,11 +133,11 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png" alt-text="Screenshot shows Integration runtime setup with Create S S I S catalog selected and Catalog database server endpoint entered.":::
 
-1. Select Azure AD authentication when applies.
+1. Select Microsoft Entra authentication when applies.
 
     :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png" alt-text="catalog-public-endpoint":::
 
-    For more info about how to enable Azure AD authentication, see [Enable Azure AD on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
+    For more info about how to enable Microsoft Entra authentication, see [Enable Microsoft Entra ID on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Join Azure-SSIS IR to the virtual network when applies.
 
@@ -165,7 +165,7 @@ SSISDB logs retention policy are defined by below properties in [catalog.catalog
 
 To remove SSISDB logs that are outside the retention window set by the administrator, you can trigger the stored procedure `[internal].[cleanup_server_retention_window_exclusive]`. Optionally, you can schedule SQL Managed Instance agent job execution to trigger the stored procedure.
 
-## Next steps
+## Related content
 
 - [Execute SSIS packages by Azure SQL Managed Instance Agent job](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Set up Business continuity and disaster recovery (BCDR)](configure-bcdr-azure-ssis-integration-runtime.md)

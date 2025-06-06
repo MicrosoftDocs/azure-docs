@@ -2,14 +2,13 @@
 title: Map a custom domain to an Azure Blob Storage endpoint
 titleSuffix: Azure Storage
 description: Map a custom domain to a Blob Storage or web endpoint in an Azure storage account.
-author: jimmart-dev
+author: stevenmatthew
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/12/2021
-ms.author: jammart
+ms.date: 05/22/2025
+ms.author: shaas
 ms.reviewer: dineshm
-ms.subservice: blobs 
 ---
 
 # Map a custom domain to an Azure Blob Storage endpoint
@@ -73,6 +72,9 @@ The host name is the storage endpoint URL without the protocol identifier and th
 #### Step 2: Create a canonical name (CNAME) record with your domain provider
 
 Create a CNAME record to point to your host name. A CNAME record is a type of Domain Name System (DNS) record that maps a source domain name to a destination domain name.
+
+> [!NOTE]
+> CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure will not succeed. 
 
 1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
 
@@ -203,6 +205,9 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 Create a temporary CNAME record to point to your host name. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name.
 
+> [!NOTE]
+> CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure will not succeed.
+
 1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
 
    You might find the page in a section named **Domain Name**, **DNS**, or **Name Server Management**.
@@ -332,7 +337,7 @@ After the custom domain has been removed successfully, you will see a portal not
 
 #### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To remove a custom domain registration, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet, and then specify an empty string (`""`) for the `-CustomDomainName` argument value.
 
@@ -383,14 +388,35 @@ To remove a custom domain registration, use the [az storage account update](/cli
 ## Map a custom domain with HTTPS enabled
 
 This approach involves more steps, but it enables HTTPS access.
-
 If you don't need users to access your blob or web content by using HTTPS, then see the [Map a custom domain with only HTTP enabled](#enable-http) section of this article.
+The approach involves using [Azure Front Door (preferred)](../../frontdoor/front-door-overview.md) or [Azure CDN](../../cdn/cdn-overview.md) which are Content Delivery Network services offered by Azure.
 
-1. Enable [Azure CDN](../../cdn/cdn-overview.md) on your blob or web endpoint.
+> [!NOTE]
+> Custom domain mapping requires the use of CNAME records. CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure will not succeed.
 
-   For a Blob Storage endpoint, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
+### Using Azure Front Door
+1. Enable [Azure Front Door](../../frontdoor/front-door-overview.md) on your blob or website endpoint.
 
-   For a static website endpoint, see [Integrate a static website with Azure CDN](static-website-content-delivery-network.md).
+   For steps, see [Integrate an Azure storage account with Azure Front Door](../../frontdoor/integrate-storage-account.md).
+
+2. [Configure a custom domain on Azure Front Door](../../frontdoor/standard-premium/how-to-add-custom-domain.md).
+
+3. [Configure HTTPS on an Azure Front Door custom domain](../../frontdoor/standard-premium/how-to-configure-https-custom-domain.md).
+
+   > [!NOTE]
+   > When you update your static website, be sure to clear cached content on the AFD edge POPs by purging the AFD endpoint. For more information, see [Cache purging in Azure Front Door](../../frontdoor/standard-premium/how-to-cache-purge.md).
+
+4. (Optional) Review the following guidance:
+
+   - Learn how to use [Azure Front Door with Azure Storage blobs](../../frontdoor/scenario-storage-blobs.md).
+   - Learn how to [enable Azure Front Door Private Link with Azure Blob Storage](../../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md).
+   - Learn how to [enable Azure Front Door Private Link with Storage Static Website](../../frontdoor/how-to-enable-private-link-storage-static-website.md).
+   - [HTTP-to-HTTPS redirection with AFD](../../frontdoor/front-door-how-to-redirect-https.md).
+   - [Front Door Billing](../../frontdoor/billing.md).
+
+### Using Azure CDN
+
+1. Enable [Azure CDN](../../cdn/cdn-overview.md) on your blob or web endpoint. For step-by-step guidance, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
 2. [Map Azure CDN content to a custom domain](../../cdn/cdn-map-content-to-custom-domain.md).
 

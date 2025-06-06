@@ -2,17 +2,19 @@
 title: 'Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes'
 description: 'Tutorial: learn how to set up Azure Container Apps in your Azure Arc-enabled Kubernetes clusters.'
 services: container-apps
-author: lanceleonard
-ms.service: container-apps
-ms.custom: devx-track-azurecli
+author: craigshoemaker
+ms.service: azure-container-apps
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: tutorial
-ms.date: 3/24/2023
-ms.author: v-laleonard
+ms.date: 05/19/2025
+ms.author: cshoe
 ---
----
-# Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes (Preview)
 
-With [Azure Arc-enabled Kubernetes clusters](../azure-arc/kubernetes/overview.md), you can create a [Container Apps enabled custom location](azure-arc-create-container-app.md) in your on-premises or cloud Kubernetes cluster to deploy your Azure Container Apps applications as you would any other region.
+# Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes
+
+With [Azure Arc-enabled Kubernetes clusters](/azure/azure-arc/kubernetes/overview), you can create a [Container Apps enabled custom location](azure-arc-create-container-app.md) in your on-premises or cloud Kubernetes cluster to deploy your Azure Container Apps applications as you would any other region.
 
 This tutorial will show you how to enable Azure Container Apps on your Arc-enabled Kubernetes cluster.  In this tutorial you will:
 
@@ -23,49 +25,41 @@ This tutorial will show you how to enable Azure Container Apps on your Arc-enabl
 > * Create a custom location.
 > * Create the Azure Container Apps connected environment.
 
-> [!NOTE]
-> During the preview, Azure Container Apps on Arc are not supported in production configurations. This article provides an example configuration for evaluation purposes only.
->
-> This tutorial uses [Azure Kubernetes Service (AKS)](../aks/index.yml) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you may not want to enable Azure Arc on an AKS cluster as it is already managed in Azure. 
-
-
 
 ## Prerequisites
 
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-- Access to a public or private container registry, such as the [Azure Container Registry](../container-registry/index.yml).
+- Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
 
 ## Setup
 
 Install the following Azure CLI extensions.
 
-# [bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az extension add --name connectedk8s  --upgrade --yes
+az extension add --name connectedk8s --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
-az extension remove --name containerapp
-az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
+az extension add --name containerapp  --upgrade --yes
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell
+```powershell
 az extension add --name connectedk8s  --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
-az extension remove --name containerapp
-az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
+az extension add --name containerapp  --upgrade --yes
 ```
 
 ---
 
 Register the required namespaces.
 
-# [bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az provider register --namespace Microsoft.ExtendedLocation --wait
@@ -74,9 +68,9 @@ az provider register --namespace Microsoft.App --wait
 az provider register --namespace Microsoft.OperationalInsights --wait
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell
+```powershell
 az provider register --namespace Microsoft.ExtendedLocation --wait
 az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az provider register --namespace Microsoft.App --wait
@@ -87,33 +81,33 @@ az provider register --namespace Microsoft.OperationalInsights --wait
 
 Set environment variables based on your Kubernetes cluster deployment.
 
-# [bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 ```bash
 GROUP_NAME="my-arc-cluster-group"
 AKS_CLUSTER_GROUP_NAME="my-aks-cluster-group"
-AKS_NAME="my-aks-cluster" 
-LOCATION="eastus" 
+AKS_NAME="my-aks-cluster"
+LOCATION="eastus"
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell
+```powershell
 $GROUP_NAME="my-arc-cluster-group"
 $AKS_CLUSTER_GROUP_NAME="my-aks-cluster-group"
-$AKS_NAME="my-aks-cluster" 
-$LOCATION="eastus" 
+$AKS_NAME="my-aks-cluster"
+$LOCATION="eastus"
 ```
 
 ---
 
 ## Create a connected cluster
 
-The following steps help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
+The following steps help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
 
 1. Create a cluster in Azure Kubernetes Service.
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
     az group create --name $AKS_CLUSTER_GROUP_NAME --location $LOCATION
@@ -124,9 +118,9 @@ The following steps help you get started understanding the service, but for prod
        --generate-ssh-keys
     ```
 
-    # [PowerShell](#tab/azure-powershell)
-    
-    ```azurepowershell
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
     az group create --name $AKS_CLUSTER_GROUP_NAME --location $LOCATION
     az aks create `
        --resource-group $AKS_CLUSTER_GROUP_NAME `
@@ -141,21 +135,21 @@ The following steps help you get started understanding the service, but for prod
 
     ```azurecli
     az aks get-credentials --resource-group $AKS_CLUSTER_GROUP_NAME --name $AKS_NAME --admin
-    
+
     kubectl get ns
     ```
 
-1. Create a resource group to contain your Azure Arc resources. 
+1. Create a resource group to contain your Azure Arc resources.
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-        az group create --name $GROUP_NAME --location $LOCATION
+    az group create --name $GROUP_NAME --location $LOCATION
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     az group create --name $GROUP_NAME --location $LOCATION
     ```
 
@@ -163,19 +157,19 @@ The following steps help you get started understanding the service, but for prod
 
 1. Connect the cluster you created to Azure Arc.
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
     CLUSTER_NAME="${GROUP_NAME}-cluster" # Name of the connected cluster resource
-    
+
     az connectedk8s connect --resource-group $GROUP_NAME --name $CLUSTER_NAME
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     $CLUSTER_NAME="${GROUP_NAME}-cluster" # Name of the connected cluster resource
-    
+
     az connectedk8s connect --resource-group $GROUP_NAME --name $CLUSTER_NAME
     ```
 
@@ -189,23 +183,23 @@ The following steps help you get started understanding the service, but for prod
 
 ## Create a Log Analytics workspace
 
-A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) provides access to logs for Container Apps applications running in the Azure Arc-enabled Kubernetes cluster.  A Log Analytics workspace is optional, but recommended.
+A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) provides access to logs for Container Apps applications running in the Azure Arc-enabled Kubernetes cluster.  A Log Analytics workspace is optional, but recommended.
 
 1. Create a Log Analytics workspace.
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
     WORKSPACE_NAME="$GROUP_NAME-workspace" # Name of the Log Analytics workspace
-    
+
     az monitor log-analytics workspace create \
         --resource-group $GROUP_NAME \
         --workspace-name $WORKSPACE_NAME
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     $WORKSPACE_NAME="$GROUP_NAME-workspace"
 
     az monitor log-analytics workspace create `
@@ -217,7 +211,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
 1. Run the following commands to get the encoded workspace ID and shared key for an existing Log Analytics workspace. You need them in the next step.
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
     LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace show \
@@ -226,58 +220,61 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
         --query customerId \
         --output tsv)
     LOG_ANALYTICS_WORKSPACE_ID_ENC=$(printf %s $LOG_ANALYTICS_WORKSPACE_ID | base64 -w0) # Needed for the next step
-    lOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys \
+    LOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys \
         --resource-group $GROUP_NAME \
         --workspace-name $WORKSPACE_NAME \
         --query primarySharedKey \
         --output tsv)
-    lOG_ANALYTICS_KEY_ENC=$(printf %s $lOG_ANALYTICS_KEY | base64 -w0) # Needed for the next step
+    LOG_ANALYTICS_KEY_ENC=$(printf %s $LOG_ANALYTICS_KEY | base64 -w0) # Needed for the next step
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     $LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace show `
         --resource-group $GROUP_NAME `
         --workspace-name $WORKSPACE_NAME `
         --query customerId `
         --output tsv)
     $LOG_ANALYTICS_WORKSPACE_ID_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_WORKSPACE_ID))# Needed for the next step
-    $lOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys `
+    $LOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys `
         --resource-group $GROUP_NAME `
         --workspace-name $WORKSPACE_NAME `
         --query primarySharedKey `
         --output tsv)
-    $lOG_ANALYTICS_KEY_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($lOG_ANALYTICS_KEY))
+    $LOG_ANALYTICS_KEY_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_KEY))
     ```
 
     ---
 
 ## Install the Container Apps extension
 
+> [!IMPORTANT]
+> If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy or a custom load balancer](/azure/aks/aksarc/configure-load-balancer) before attempting to install the extension. You could also use `az containerapp arc setup-core-dns --distro AksAzureLocal` to set up coredns for local contexts.
+
 1. Set the following environment variables to the desired name of the [Container Apps extension](azure-arc-create-container-app.md), the cluster namespace in which resources should be provisioned, and the name for the Azure Container Apps connected environment. Choose a unique name for `<connected-environment-name>`.  The connected environment name will be part of the domain name for app you'll create in the Azure Container Apps connected environment.
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```bash
-    EXTENSION_NAME="appenv-ext" 
+    EXTENSION_NAME="appenv-ext"
     NAMESPACE="appplat-ns"
     CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>"
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     $EXTENSION_NAME="appenv-ext"
-    $NAMESPACE="appplat-ns" 
-    $CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>" 
+    $NAMESPACE="appplat-ns"
+    $CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>"
     ```
 
     ---
 
 1. Install the Container Apps extension to your Azure Arc-connected cluster with Log Analytics enabled. Log Analytics can't be added to the extension later.
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
     az k8s-extension create \
@@ -293,15 +290,14 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${NAMESPACE}" \
         --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" \
-        --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${AKS_CLUSTER_GROUP_NAME}" \
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" \
-        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${lOG_ANALYTICS_KEY_ENC}"
+        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${LOG_ANALYTICS_KEY_ENC}"
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     az k8s-extension create `
         --resource-group $GROUP_NAME `
         --name $EXTENSION_NAME `
@@ -315,10 +311,9 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" `
         --configuration-settings "appsNamespace=${NAMESPACE}" `
         --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" `
-        --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${AKS_CLUSTER_GROUP_NAME}" `
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" `
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" `
-        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${lOG_ANALYTICS_KEY_ENC}"
+        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${LOG_ANALYTICS_KEY_ENC}"
     ```
 
     ---
@@ -337,11 +332,10 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     | `logProcessor.appLogs.destination` | Optional. Destination for application logs. Accepts `log-analytics` or `none`, choosing none disables platform logs. |
     | `logProcessor.appLogs.logAnalyticsConfig.customerId` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace ID. This parameter should be configured as a protected setting. |
     | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace shared key. This parameter should be configured as a protected setting. |
-    | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | The name of the resource group in which the Azure Kubernetes Service cluster resides. Valid and required only when the underlying cluster is Azure Kubernetes Service. |
 
 1. Save the `id` property of the Container Apps extension for later.
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
     EXTENSION_ID=$(az k8s-extension show \
@@ -353,9 +347,9 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
         --output tsv)
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     $EXTENSION_ID=$(az k8s-extension show `
         --cluster-type connectedClusters `
         --cluster-name $CLUSTER_NAME `
@@ -383,20 +377,20 @@ To learn more about these pods and their role in the system, see [Azure Arc over
 
 ## Create a custom location
 
-The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure location that you assign to the Azure Container Apps connected environment.
+The [custom location](/azure/azure-arc/kubernetes/custom-locations) is an Azure location that you assign to the Azure Container Apps connected environment.
 
 1. Set the following environment variables to the desired name of the custom location and for the ID of the Azure Arc-connected cluster.
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
-    ```bash
+    ```azurecli
     CUSTOM_LOCATION_NAME="my-custom-location" # Name of the custom location
     CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $GROUP_NAME --name $CLUSTER_NAME --query id --output tsv)
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurepowershell
+    ```powershell
     $CUSTOM_LOCATION_NAME="my-custom-location" # Name of the custom location
     $CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $GROUP_NAME --name $CLUSTER_NAME --query id --output tsv)
     ```
@@ -405,7 +399,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
 
 1. Create the custom location:
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
     az customlocation create \
@@ -416,7 +410,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
         --cluster-extension-ids $EXTENSION_ID
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
     ```azurecli
     az customlocation create `
@@ -430,7 +424,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
     ---
 
     > [!NOTE]
-    > If you experience issues creating a custom location on your cluster, you may need to [enable the custom location feature on your cluster](../azure-arc/kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster).  This is required if logged into the CLI using a Service Principal or if you are logged in with an Azure Active Directory user with restricted permissions on the cluster resource.
+    > If you experience issues creating a custom location on your cluster, you may need to [enable the custom location feature on your cluster](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster).  This is required if logged into the CLI using a Service Principal or if you are logged in with a Microsoft Entra user with restricted permissions on the cluster resource.
     >
 
 1. Validate that the custom location is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, rerun the command after a minute.
@@ -441,7 +435,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
 
 1. Save the custom location ID for the next step.
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
     CUSTOM_LOCATION_ID=$(az customlocation show \
@@ -451,7 +445,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
         --output tsv)
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
     ```azurecli
     $CUSTOM_LOCATION_ID=$(az customlocation show `
@@ -469,7 +463,7 @@ Before you can start creating apps in the custom location, you need an [Azure Co
 
 1. Create the Container Apps connected environment:
 
-    # [bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
     az containerapp connected-env create \
@@ -479,9 +473,9 @@ Before you can start creating apps in the custom location, you need an [Azure Co
         --location $LOCATION
     ```
 
-    # [PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp connected-env create `
         --resource-group $GROUP_NAME `
         --name $CONNECTED_ENVIRONMENT_NAME `

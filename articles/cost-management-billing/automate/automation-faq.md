@@ -1,13 +1,13 @@
 ---
 title: Microsoft Cost Management automation FAQ
 description: This FAQ is a list of frequently asked questions and answers about Cost Management automation.
-author: bandersmsft
-ms.author: banders
-ms.date: 07/15/2022
+author: jojopm
+ms.author: jojoh
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Cost Management automation FAQ
@@ -20,7 +20,7 @@ Both are different names for the same dataset. Usage Details is the original nam
 
 ### Why do I get Usage Details API timeouts?
 
-Cost datasets available from the Usage Details API can often be overly large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usage-details/list) might time out before your data is provided. If you encounter timeouts or have processes that frequently need to pull a large amount of cost data, see [Retrieve large cost datasets recurringly with Exports](../costs/tutorial-export-acm-data.md).
+Cost datasets available from the Usage Details API can often be overly large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usage-details/list) might time out before your data is provided. If you encounter timeouts or have processes that frequently need to pull a large amount of cost data, see [Retrieve large cost datasets recurringly with Exports](../costs/tutorial-improved-exports.md).
 
 ### What is the difference between legacy and modern usage details?
 
@@ -60,10 +60,6 @@ These APIs provide a different view of the same data:
 
 See [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md).
 
-### When will the [Enterprise Reporting APIs](../manage/enterprise-api.md) get turned off?
-
-The Enterprise Reporting APIs are deprecated. The date that the API will be turned off is still being determined. We recommend that you migrate away from the APIs as soon as possible. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
-
 ### When will the [Consumption Usage Details API](/rest/api/consumption/usage-details/list) get turned off?
 
 The Consumption Usage Details API is deprecated. The date that the API will bet turned off is still being determined. We recommend that you migrate away from the API as soon as possible. For more information, see [Migrate from Consumption Usage Details API](migrate-consumption-usage-details-api.md).
@@ -76,6 +72,6 @@ The Marketplaces API is deprecated. The date that the API will be turned off is 
 
 The Forecasts API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Cost Management Forecast API](/rest/api/cost-management/forecast). We recommend that you migrate to it as soon as possible.
 
-## Next steps
+## Related content
 
 - Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).

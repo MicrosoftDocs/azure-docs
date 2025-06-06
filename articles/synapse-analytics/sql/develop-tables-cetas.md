@@ -2,12 +2,12 @@
 title: CREATE EXTERNAL TABLE AS SELECT (CETAS) in Synapse SQL
 description: Using CREATE EXTERNAL TABLE AS SELECT (CETAS) with Synapse SQL
 author: filippopovic
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 02/17/2023
+ms.date: 10/14/2024
 ms.author: fipopovi
-ms.reviewer: sngun, wiassaf
+
 ---
 
 # CETAS with Synapse SQL
@@ -29,7 +29,7 @@ For dedicated SQL pool, CETAS usage and syntax, check the [CREATE EXTERNAL TABLE
 
 When using serverless SQL pool, CETAS is used to create an external table and export query results to Azure Storage Blob or Azure Data Lake Storage Gen2.
 
-For complete syntax, refer to [CREATE EXTERNAL TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true). 
+For complete syntax, refer to [CREATE EXTERNAL TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-external-table-as-select-transact-sql). 
 
 ## Examples
 
@@ -147,11 +147,11 @@ CETAS can be used to store result sets with following SQL data types:
 - bit
 - money
 - smallmoney
-- uniqueidentifier
 
 > [!NOTE]
 > LOBs larger than 1MB can't be used with CETAS.
 
-## Next steps
+## Next step
 
-Try querying [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md).
+> [!div class="nextstepaction"]
+> [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md)

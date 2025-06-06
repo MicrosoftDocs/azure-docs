@@ -1,19 +1,21 @@
 ---
 title: GitHub projects for the MedTech service - Azure Health Data Services
-description: The MedTech service has a robust open-source (GitHub) library for ingesting device messages from popular wearable devices.
+description: Learn about the MedTech service open-source software library for ingesting device messages from popular wearable devices.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: reference
-ms.date: 04/20/2023
-ms.author: jasteppe
+ms.date: 04/28/2023
+ms.author: chrupa
 ---
+
 # Open-source projects
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
 
-Check out our open-source projects on GitHub that provide source code and instructions to deploy services for various uses with the MedTech service.
+Check out our open-source software (OSS) projects on GitHub, which provide source code and instructions to deploy services for various use cases with the MedTech service.
 
 > [!IMPORTANT]
 > Links to OSS projects on the GitHub website are for informational purposes only and do not constitute an endorsement or guarantee of any kind.  You should review the information and licensing terms on the OSS projects on GitHub before using it.  
@@ -22,7 +24,7 @@ Check out our open-source projects on GitHub that provide source code and instru
 
 ### FHIR integration
 
-* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any FHIR service that supports [FHIR](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
+* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any FHIR&reg; service that supports [HL7 FHIR](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491).
 
 ### Wearables integration
 
@@ -34,7 +36,7 @@ HealthKit
 
 * [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): Bring Apple&#174; HealthKit&#174; data to a FHIR service.
 
-* [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR Resources from HKObjects
+* [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR resources from HKObjects.
 
 Fit on FHIR
 
@@ -46,11 +48,6 @@ Health Data Sync
 
 ## Next steps
 
-In this article, you learned about the open-source projects for the MedTech service.
+[Choose a deployment method for the MedTech service](deploy-choose-method.md)
 
-To learn about the different deployment methods for the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

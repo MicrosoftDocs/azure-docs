@@ -12,38 +12,42 @@
     href: durable-functions-versions.md
   - name: Durable Functions for .NET isolated
     href: durable-functions-dotnet-isolated-overview.md
+  - name: Durable Functions packages
+    href: durable-functions-packages.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create durable function - C#
-    items: 
-      - name: In-process
-        href: durable-functions-create-first-csharp.md
-        displayName: get started, chaining
-      - name: Isolated worker process
-        href: durable-functions-isolated-create-first-csharp.md
-        displayName: get started, chaining
-  - name: Create durable function - JavaScript
+  - name: Create a Durable Functions app - C#
+    displayName: get started, chaining
+    href: durable-functions-isolated-create-first-csharp.md
+  - name: Create a Durable Functions app - JavaScript
     displayName: get started, chaining
     href: quickstart-js-vscode.md
-  - name: Create durable function - TypeScript
+  - name: Create a Durable Functions app - TypeScript
     displayName: get started, chaining
     href: quickstart-ts-vscode.md
-  - name: Create durable function - Python
+  - name: Create a Durable Functions app - Python
     displayName: get started, chaining
     href: quickstart-python-vscode.md
-  - name: Create durable function - PowerShell
+  - name: Create a Durable Functions app - PowerShell
     displayName: get started, chaining
     href: quickstart-powershell-vscode.md
-  - name: Create durable function - Java
+  - name: Create a Durable Functions app - Java
     displayName: get started, chaining
     href: quickstart-java.md
-  - name: Configure storage provider - Netherite
-    href: quickstart-netherite.md
-  - name: Configure storage provider - MSSQL
+  - name: Configure Durable Functions app with Durable Task Scheduler
+    displayName: get started, durable task scheduler
+    href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
+  - name: Create an app with Durable Task SDK and Durable Task Scheduler
+    displayName: get started, durable task scheduler
+    href: ./durable-task-scheduler/quickstart-portable-durable-task-sdks.md
+  - name: Host a Durable Task SDK app on Azure Container Apps
+    displayName: get started, durable task scheduler
+    href: ./durable-task-scheduler/quickstart-container-apps-durable-task-sdk.md
+  - name: Configure Durable Functions app with MSSQL
     href: quickstart-mssql.md
-  - name: Configure Durable Functions with Azure Active Directory
-    href: durable-functions-configure-durable-functions-with-credentials.md   
+  - name: Configure Durable Functions app with managed identity
+    href: durable-functions-configure-managed-identity.md   
 - name: Tutorials
   items:
   - name: Function chaining
@@ -58,10 +62,12 @@
     href: durable-functions-phone-verification.md
   - name: Publish to Event Grid
     href: durable-functions-event-publishing.md
+  - name: Hosting in Azure Container Apps 
+    href: durable-functions-mssql-container-apps-hosting.md
 - name: Samples
   items:
   - name: Code samples
-    href: /samples/browse/?products=azure-functions&term=durable
+    href: /samples/browse/?term=durable%20functions
   - name: Azure CLI
     href: ../functions-cli-samples.md
 - name: Concepts
@@ -104,33 +110,71 @@
     href: durable-functions-disaster-recovery-geo-distribution.md
   - name: Data persistence and serialization
     href: durable-functions-serialization-and-persistence.md
+- name: Durable Task Scheduler
+  items: 
+  - name: Overview
+    href: ./durable-task-scheduler/durable-task-scheduler.md
+  - name: Choosing an orchestration framework
+    href: ./durable-task-scheduler/choose-orchestration-framework.md
+  - name: Develop with Durable Task Scheduler
+    href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
+  - name: Identity
+    href: ./durable-task-scheduler/durable-task-scheduler-identity.md
+  - name: Monitoring dashboard
+    href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
+  - name: Auto-purge 
+    href: ./durable-task-scheduler/durable-task-scheduler-auto-purge.md
+  - name: Durable Functions
+    items:
+      - name: Throughput benchmark
+        href: ./durable-task-scheduler/durable-task-scheduler-work-item-throughput.md
+      - name: Durable Task Scheduler in Durable Functions
+        href: ./durable-task-scheduler/develop-with-durable-task-scheduler-functions.md
+  - name: Durable Task SDKs
+    items:
+    - name: Configure autoscale for Azure Container Apps hosting
+      href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling.md
+  - name: Billing
+    href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md
+  - name: Troubleshoot
+    href: ./durable-task-scheduler/troubleshoot-durable-task-scheduler.md
 - name: Reference
   items:
-  - name: Host.json settings
-    href: durable-functions-bindings.md#host-json
-  - name: Bindings
-    href: durable-functions-bindings.md
-  - name: HTTP API
-    href: durable-functions-http-api.md
-  - name: .NET in-process API
-    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
-  - name: .NET isolated API
-    items:
-    - name: Durable Functions bindings for .NET isolated
-      href: /dotnet/api/microsoft.azure.functions.worker.extensions.durabletask
-    - name: Durable Task core SDK for .NET isolated
-      href: /dotnet/api/microsoft.durabletask
-  - name: Node.js API
-    href: /javascript/api/durable-functions/
-  - name: Python API
-    href: /python/api/azure-functions-durable/azure.durable_functions
-  - name: Java API
-    items:
-    - name: Durable Functions bindings for Java
-      href: /java/api/com.microsoft.durabletask.azurefunctions
-    - name: Durable Task core SDK for Java
-      href: /java/api/com.microsoft.durabletask
-  - name: Azure storage provider
+  - name: Azure Functions
+    items: 
+    - name: Host.json settings
+      href: durable-functions-bindings.md#host-json
+    - name: Bindings
+      href: durable-functions-bindings.md
+    - name: HTTP API
+      href: durable-functions-http-api.md
+  - name: SDKs
+    items: 
+    - name: .NET API
+      items:
+      - name: WebJobs.Extensions.DurableTask 
+        href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
+      - name: Worker.Extensions.DurableTask 
+        href: /dotnet/api/microsoft.azure.functions.worker.extensions.durabletask
+      - name: Microsoft.DurableTask 
+        href: /dotnet/api/microsoft.durabletask
+    - name: Node.js API
+      items:
+      - name: Durable Functions
+        href: /javascript/api/durable-functions/
+    - name: Python API
+      items:
+      - name: Durable Functions
+        href: /python/api/azure-functions-durable/azure.durable_functions
+      - name: Durable Task SDK - Management APIs
+        href: /python/api/azure-mgmt-durabletask/azure.mgmt.durabletask
+    - name: Java API
+      items:
+       - name: Durable Functions
+         href: /java/api/com.microsoft.durabletask.azurefunctions
+       - name: Durable Task SDK
+         href: /java/api/com.microsoft.durabletask
+  - name: Azure storage provider for Durable Functions
     href: durable-functions-azure-storage-provider.md
 - name: How-to guides
   items:
@@ -150,6 +194,10 @@
       href: durable-functions-webjobs-sdk.md
     - name: Durable entities in .NET
       href: durable-functions-dotnet-entities.md
+    - name: Guide to the standalone DF PowerShell SDK
+      href: durable-functions-powershell-v2-sdk-migration-guide.md
+    - name: Upgrade to Node.js model v4
+      href: durable-functions-node-model-upgrade.md
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -194,8 +242,8 @@
     href: /answers/topics/azure-functions.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-functions
-  - name: Twitter
-    href: https://twitter.com/hashtag/DurableFunctions?src=hash
+  - name: X
+    href: https://x.com/hashtag/DurableFunctions?src=hash
   - name: Provide product feedback
     href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
   - name: Durable Functions GitHub repository

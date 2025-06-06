@@ -1,14 +1,14 @@
 ---
 title: Create a subscription for a partner's customer
 titleSuffix: Azure Cost Management + Billing
-description: Learn how a Microsoft Partner creates a subscription for a customer in the Azure portal. 
-author: bandersmsft
-ms.reviewer: amberb
+description: Learn how a Microsoft Partner creates a subscription for a customer in the Azure portal.
+author: PreetiSGit
+ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/29/2023
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: presharm
 ---
 
 # Create a subscription for a partner's customer
@@ -23,7 +23,7 @@ To learn more about billing accounts and identify your billing account type, see
 
 You need the following permissions to create customer subscriptions:
 
-- Global Admin and Admin Agent role in the CSP partner organization.
+- Admin agent role in the CSP partner organization.
 
 For more information, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview). The user needs to sign in to the partner tenant to create Azure subscriptions.
 
@@ -62,7 +62,7 @@ You can also create subscriptions programmatically. For more information, see [C
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [Add or change Azure subscription administrators](add-change-subscription-administrator.md)
 - [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)

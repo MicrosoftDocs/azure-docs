@@ -4,12 +4,10 @@ titleSuffix: Azure Data Factory
 description: Learn more about the change data capture resource in Azure Data Factory.
 author: n0elleli
 ms.author: noelleli
-ms.reviewer:
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom:
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 07/29/2024
 ---
 
 # Change data capture resource overview
@@ -25,7 +23,11 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 
 :::image type="content" source="media/adf-cdc/change-data-capture-resource-1.png" alt-text="Screenshot of new top-level resource in Factory Resources panel.":::
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5geIG]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=add55f05-eabf-4185-8db6-aef373d635f1]
+
+> [!NOTE]
+> The Change Data Capture resource in Azure Data Factory is currently in public preview
+
 
 ## Supported data sources
 
@@ -39,6 +41,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 * Parquet
 * SQL Server
 * XML
+* Snowflake
 
 ## Supported targets
 
@@ -50,6 +53,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 * JSON
 * ORC
 * Parquet
+* Azure Synapse Analytics
 
 ## Known limitations
 * Currently, when creating source/target mappings, each source and target is only allowed to be used once. 
@@ -58,6 +62,16 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 
 For more information on known limitations and troubleshooting assistance, please reference [this troubleshooting guide](change-data-capture-troubleshoot.md).
 
+## Azure Synapse Analytics as Target
+When using Azure Synapse Analytics as target, the **Staging Settings** is available on the main table canvas. Enabling staging is mandatory when selecting Azure Synapse Analytics as the target. This significantly enhances write performance by utilizing performant bulk loading capability such as COPY INTO command. **Staging Settings** can be configured in two ways: utilizing **Factory settings** or opting for a **Custom settings**. **Factory settings** apply at the factory level. For the first time, if these settings aren't configured, you'll be directed to the global staging setting section for configuration. Once set, all CDC top-level resources will adopt this configuration. **Custom settings** is scoped only for the CDC resource for which it is configured and overrides the **Factory settings**.
 
-## Next steps
+> [!NOTE]
+> As we utilize the COPY INTO command to transfer data from the staging location to Azure Synapse Analytics, it is advisable to ensure that all required permissions are pre-configured within Azure Synapse Analytics.
+
+
+> [!NOTE]
+> We always use the last published configuration when starting a CDC. For running CDCs, while your data is being processed, you will be billed 4 v-cores of General Purpose Data Flows.
+
+## Related content
 - [Learn how to set up a change data capture resource](how-to-change-data-capture-resource.md).
+- [Learn how to set up a change data capture resource with schema evolution](how-to-change-data-capture-resource-with-schema-evolution.md).

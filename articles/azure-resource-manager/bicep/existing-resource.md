@@ -1,23 +1,23 @@
 ---
 title: Reference existing resource in Bicep
-description: Describes how to reference a resource that already exists.
+description: Learn how to reference resources that exist.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/04/2022
+ms.date: 03/25/2025
 ---
 
-# Existing resources in Bicep
+# Reference existing resources in Bicep
 
 To reference an existing resource that isn't deployed in your current Bicep file, declare the resource with the `existing` keyword. Use the `existing` keyword when you're deploying a resource that needs to get a value from an existing resource. You access the existing resource's properties through its symbolic name.
 
-The resource isn't redeployed when referenced with the `existing` keyword.
+The resource doesn't deploy again when the `existing` keyword references it.
 
 ## Same scope
 
 The following example gets an existing storage account in the same resource group as the current deployment. Notice that you provide only the name of the existing resource. The properties are available through the symbolic name.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
   name: 'examplestorage'
 }
 
@@ -26,10 +26,10 @@ output blobEndpoint string = stg.properties.primaryEndpoints.blob
 
 ## Different scope
 
-Set the `scope` property to access a resource in a different scope. The following example references an existing storage account in a different resource group.
+Set the `scope` property to access a resource in a different scope. The following example references an existing storage account in a different resource group:
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
   name: 'examplestorage'
   scope: resourceGroup(exampleRG)
 }

@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: include
-ms.date: 05/13/2022
-ms.author: cshoe
+ms.date: 01/10/2024
+author: v1212
+ms.author: wujia
 ---
 
 Begin by signing in to the [Azure portal](https://portal.azure.com).
@@ -27,6 +27,7 @@ In the *Basics* tab, do the following actions.
     | Subscription | Select your Azure subscription. |
     | Resource group | Select **Create new** and enter **my-container-apps**. |
     | Container app name |  Enter **my-container-app**. |
+    | Deployment source | Select **Container image**. |
 
 #### Create an environment
 
@@ -39,20 +40,22 @@ Next, create an environment for your container app.
     | Region | Select **Central US**. |
 
 1. In the *Create Container Apps environment* field, select the **Create new** link.
-1. In the *Create Container Apps Environment* page on the *Basics* tab, enter the following values:
+1. In the *Create Container Apps environment* page on the *Basics* tab, enter the following values:
 
     | Setting | Value |
     |--|--|
     | Environment name | Enter **my-environment**. |
+    | Environment type | Select **Workload profiles**. |
     | Zone redundancy | Select **Disabled** |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.
+1. Select **Azure Log Analytics** as the *Logs Destination*.
 1. Select the **Create new** link in the *Log Analytics workspace* field and enter the following values.
 
     | Setting | Value |
     |--|--|
     | Name | Enter **my-container-apps-logs**. |
   
-    The *Location* field is pre-filled with *Central US* for you.
+    The *Location* field is prefilled with *Central US* for you.
 
 1. Select **OK**.

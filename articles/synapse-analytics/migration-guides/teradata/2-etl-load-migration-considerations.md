@@ -1,14 +1,12 @@
 ---
 title: "Data migration, ETL, and load for Teradata migrations"
 description: Learn how to plan your data migration from Teradata to Azure Synapse Analytics to minimize the risk and impact on users. 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-ms.devlang:
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
-ms.reviewer: wiassaf
+
 ms.date: 06/01/2022
 ---
 

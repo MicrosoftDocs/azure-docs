@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Confidential Ledger
-    tocHref: /azure/
-    topicHref: /azure/confidential-ledger/index

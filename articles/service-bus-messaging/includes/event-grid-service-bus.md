@@ -1,13 +1,10 @@
 ---
  title: include file
- description: include file
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-service-bus
  ms.topic: include
  ms.date: 12/08/2022
  ms.author: spelluru
- ms.custom: include file
 ---
 
 ## Available event types
@@ -225,7 +222,7 @@ An event has the following top-level data:
 | `eventType` | string | One of the registered event types for this event source. |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
 | `id` | string | Unique identifier for the event. |
-| `data` | object | Blob storage event data. |
+| `data` | object | Service Bus event data. |
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
@@ -240,7 +237,7 @@ An event has the following top-level data:
 | `type` | string | One of the registered event types for this event source. |
 | `time` | string | The time the event is generated based on the provider's UTC time. |
 | `id` | string | Unique identifier for the event. |
-| `data` | object | Blob storage event data. |
+| `data` | object | Service Bus event data. |
 | `specversion` | string | CloudEvents schema specification version. |
 
 ---

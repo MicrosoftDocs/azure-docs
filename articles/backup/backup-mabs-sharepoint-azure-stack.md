@@ -1,10 +1,10 @@
 ---
-title: Back up a SharePoint farm on Azure Stack
-description: Use Azure Backup Server to back up and restore your SharePoint data on Azure Stack. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
+title: Back up a SharePoint farm on Azure Stack using Microsoft Azure Backup Server
+description: Learn how to back up and restore SharePoint data using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 03/02/2023
-ms.service: backup
-ms.custom: engagement-fy23
+ms.date: 03/25/2025
+ms.service: azure-backup
+ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -34,11 +34,21 @@ Azure Backup for MABS supports the following scenarios:
 
 * MABS doesn't provide backup of SharePoint SQL Server databases that are hosted on scale-out file server (SOFS) shares.
 
+### Limitations
+
+* You can't protect SharePoint databases as a SQL Server data source. You can recover individual databases from a farm backup.
+
+* Protecting application store items isn't supported with SharePoint 2013.
+
+* MABS doesn't support protecting remote FILESTREAM. The FILESTREAM should be part of the database.
+
 ## Prerequisites
 
 Before you continue, ensure that you've met all the [prerequisites for using Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) to protect workloads. The tasks in prerequisites also include: create a backup vault, download vault credentials, install Azure Backup Agent, and register the Azure Backup Server with the vault.
 
-Additional prerequisites and limitations:
+### Additional prerequisites
+
+Before you back up a SharePoint farm, review the following additional prerequisites:
 
 * By default when you protect SharePoint, all content databases (and the SharePoint_Config and SharePoint_AdminContent* databases) are protected.
 
@@ -51,14 +61,6 @@ Additional prerequisites and limitations:
   To enable you to use MABS to perform a specific recovery of items (site collections, sites, lists, document libraries, folders, individual documents, and list items), catalog generation creates a list of the URLs contained within each content database. You can view the list of URLs in the recoverable item pane in the Recovery task area of the MABS Administrator Console.
 
 * In the SharePoint farm, if you have SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that MABS will protect.
-
-### Limitations
-
-* You can't protect SharePoint databases as a SQL Server data source. You can recover individual databases from a farm backup.
-
-* Protecting application store items isn't supported with SharePoint 2013.
-
-* MABS doesn't support protecting remote FILESTREAM. The FILESTREAM should be part of the database.
 
 ## Configure backup
 
@@ -96,11 +98,11 @@ Follow these steps:
 
 1. In **Select Group Members**, expand the server that holds the WFE role.
 
-   If there's more than one WFE server, select the one on which you installed *ConfigureSharePoint.exe*.
+   If there are more than one WFE servers, select the one on which you installed *ConfigureSharePoint.exe*.
 
    When you expand the computer running SharePoint, MABS queries VSS to see what data MABS can protect. If the SharePoint database is remote, MABS connects to it. If SharePoint data sources don't appear, check that the VSS writer is running on the computer that's running SharePoint and on any remote instance of SQL Server. Then, ensure that the MABS agent is installed both on the computer running SharePoint and on the remote instance of SQL Server. Also, ensure that SharePoint databases aren't being protected elsewhere as SQL Server databases.
 
-1. In **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term back up is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure Backup \(for short or long\-term\).
+1. In **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term backup is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure Backup \(for short or long\-term\).
 
 1. In **Select short\-term goals**, specify how you want to back up to short\-term storage on disk.   In **Retention range** you specify how long you want to keep the data on disk. In **Synchronization frequency**, you specify how often you want to run an incremental backup to disk. If you don't want to set a backup interval, you can check just before  a recovery point so that MABS will run an express full backup just before each recovery point is scheduled.
 
@@ -124,13 +126,15 @@ Follow these steps:
 
 ## Monitor operations
 
-After the protection group is created, the initial replication occurs and MABS starts backing up and synchronizing the SharePoint data. MABS monitors the initial synchronization and subsequent backups.  You can monitor the SharePoint data in a couple of ways:
+After the protection group is created, the initial replication occurs and MABS starts backing up and synchronizing the SharePoint data. MABS monitors the initial synchronization and subsequent backups.  You can monitor the SharePoint data using one of the following ways:
 
 * Using default MABS monitoring, you can set up notifications for proactive monitoring by publishing alerts and configuring notifications. You can send notifications by e-mail for critical, warning, or informational alerts, and for the status of instantiated recoveries.
 
 * If you use Operations Manager, you can centrally publish alerts.
 
 ### Set up monitoring notifications
+
+To set up monitoring notifications, follow these steps:
 
 1. In the MABS Administrator Console, select **Monitoring** > **Action** > **Options**.
 
@@ -141,6 +145,8 @@ After the protection group is created, the initial replication occurs and MABS s
 4. To test the SMTP server settings, select **Send Test E-mail**, type the e-mail address where you want MABS to send the test message, and then select **OK**. Select **Options** > **Notifications** and select the types of alerts about which recipients want to be notified. In **Recipients** type the e-mail address for each recipient to whom you want MABS to send copies of the notifications.
 
 ### Publish Operations Manager alerts
+
+To publish Operations Manager alerts, follow these steps:
 
 1. In the MABS Administrator Console, select **Monitoring** > **Action** > **Options** > **Alert Publishing** > **Publish Active Alerts**
 
@@ -252,41 +258,43 @@ To recover a SharePoint content database, follow these steps:
 
 If you have more than one front-end web server, and want to switch the server that MABS uses to protect the farm, follow the instructions:
 
-The following procedure uses the example of a server farm with two front-end Web servers, *Server1* and *Server2*. MABS uses *Server1* to protect the farm. Change the front-end Web server that MABS uses to *Server2* so that you can remove *Server1* from the farm.
+The following procedure uses the example of a server farm with two front-end Web servers, `Server1` and `Server2`. MABS uses `Server1` to protect the farm. Change the front-end Web server that MABS uses to `Server2` so that you can remove `Server1` from the farm.
 
 > [!NOTE]
 > If the front-end Web server that MABS uses to protect the farm is unavailable, use the following procedure to change the front-end Web server by starting at step 4.
 
 ### Change the front-end Web server that MABS uses to protect the farm
 
-1. Stop the SharePoint VSS Writer service on *Server1* by running the following command at a command prompt:
+To change the front-end Web server, follow these steps:
+
+1. Stop the SharePoint VSS Writer service on `Server1` by running the following command at a command prompt:
 
     ```CMD
     stsadm -o unregisterwsswriter
     ```
 
-1. On *Server1*, open the Registry Editor and navigate to the following key:
+1. On `Server1`, open the Registry Editor and navigate to the following key:
 
    **HKLM\System\CCS\Services\VSS\VssAccessControl**
 
 1. Check all values listed in the VssAccessControl subkey. If any entry has a value data of 0 and another VSS writer is running under the associated account credentials, change the value data to 1.
 
-1. Install a protection agent on *Server2*.
+1. Install a protection agent on `Server2`.
 
    > [!WARNING]
    > You can only switch Web front-end servers if both the servers are on the same domain.
 
-1. On *Server2*, at a command prompt, change the directory to `_MABS installation location_\bin\` and run **ConfigureSharepoint**. For more information about ConfigureSharePoint, see [Configure backup](#configure-backup).
+1. On `Server2`, at a command prompt, change the directory to `_MABS installation location_\bin\` and run **ConfigureSharepoint**. For more information about ConfigureSharePoint, see [Configure backup](#configure-backup).
 
 1. Select the protection group that the server farm belongs to, and then select **Modify protection group**.
 
-1. On the Modify Group Wizard, on the **Select Group Members** page, expand *Server2* and select the server farm, and then complete the wizard.
+1. On the Modify Group Wizard, on the **Select Group Members** page, expand `Server`* and select the server farm, and then complete the wizard.
 
    A consistency check will start.
 
 1. If you performed step 6, you can now remove the volume from the protection group.
 
-## Next steps
+## Related content
 
-* See the [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
-* See the [Backup SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md) article.
+* [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
+* [Backup SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md) article.

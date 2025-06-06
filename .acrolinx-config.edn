@@ -1,2 +1,2 @@
 {:allowed-branchname-matches ["main" "release-.*"]
- :allowed-filename-matches ["(?i)articles/(?:(?!active-directory/saas-apps/toc.yml|role-based-access-control/resource-provider-operations.md))" "includes/"]}
+ :allowed-filename-matches ["(?i)articles/(?:(?!active-directory/saas-apps/toc.yml|role-based-access-control/resource-provider-operations.md|.*policy/samples/|.*resource-graph/samples/))" "(?i)includes/(?:(?!policy/reference/|policy/standards/|resource-graph/samples/))"]}

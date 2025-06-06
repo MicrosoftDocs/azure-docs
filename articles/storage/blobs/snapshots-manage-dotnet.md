@@ -5,12 +5,11 @@ description: Learn how to use the .NET client library to create a read-only snap
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/27/2020
-ms.subservice: blobs
+ms.date: 08/05/2024
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Create and manage a blob snapshot with .NET
@@ -19,6 +18,16 @@ A snapshot is a read-only version of a blob that's taken at a point in time. Thi
 
 For more information about blob snapshots in Azure Storage, see [Blob snapshots](snapshots-overview.md).
 
+[!INCLUDE [storage-dev-guide-prereqs-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-dotnet.md)]
+
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-dotnet.md)]
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to work with blob snapshots. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Snapshot Blob](/rest/api/storageservices/snapshot-blob#authorization).
+
 ## Create a snapshot
 
 To create a snapshot of a block blob, use one of the following methods:
@@ -26,7 +35,7 @@ To create a snapshot of a block blob, use one of the following methods:
 - [CreateSnapshot](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshot)
 - [CreateSnapshotAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshotasync)
 
-The following code example shows how to create a snapshot. Include a reference to the [Azure.Identity](https://www.nuget.org/packages/azure.identity) library to use your Azure AD credentials to authorize requests to the service. For more information about using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
+The following code example shows how to create a snapshot. Include a reference to the [Azure.Identity](https://www.nuget.org/packages/azure.identity) library to use your Microsoft Entra credentials to authorize requests to the service. For more information about using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(

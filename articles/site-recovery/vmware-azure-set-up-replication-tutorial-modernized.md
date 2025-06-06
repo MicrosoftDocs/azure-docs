@@ -1,14 +1,17 @@
 ---
 title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Modernized
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Modernized.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 09/21/2022
+ms.date: 04/26/2025
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
+
+> [!IMPORTANT]
+> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.
 
 This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the Modernized VMware/Physical machine protection experience.
 
@@ -40,8 +43,8 @@ VMware to Azure replication includes the following procedures:
 To create and register the Azure Site Recovery replication appliance, you need an Azure account with:
 
 - Contributor or Owner permissions on the Azure subscription.
-- Permissions to register Azure Active Directory (AAD) apps.
-- Owner or Contributor and User Access Administrator permissions on the Azure subscription to create a Key Vault, used during agentless VMware migration.
+- Permissions to register Microsoft Entra apps.
+
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner for the required permissions.
 
@@ -55,13 +58,26 @@ Use the following steps to assign the required permissions:
 
 4. In **Add a role assignment**, Select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
-5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the Azure Active Directory apps.
+5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the Microsoft Entra apps.
 
 **Follow these steps to assign required permissions**:
 
-1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
+1. In Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**. In **User settings**, verify that Microsoft Entra users can register applications (set to *Yes* by default).
 
-2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Azure Active Directory App.
+2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. The tenant/global admin must assign the Application Registration role to an account to allow the registration of Microsoft Entra App.
+
+## Grant required permissions to the vault
+
+You will also need to grant the managed identity permissions to the cache storage accounts. You can create the storage account in advance and use the same for enabling replication. 
+
+Ensure that the following role permissions are present depending on the type of storage account:
+
+- Resource Manager based storage accounts (Standard Type):
+  - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- Resource Manager based storage accounts (Premium Type):
+  - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 ## Prepare an account for automatic discovery
 
@@ -114,6 +130,9 @@ Follow these steps to enable replication:
 
 5. After you select the list of VMs, select **Next** to proceed to source settings. Here, select the [replication appliance](#appliance-selection) and VM credentials. These credentials will be used to push mobility agent on the machine by Azure Site Recovery replication appliance to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
 
+   >[!TIP]
+   > In addition to automatic installation, Mobility Services agent can be installed manually or through an automated deployment method, such as Configuration Manager. [Learn more](vmware-physical-mobility-service-overview.md). 
+
    >[!NOTE]
    >For Linux OS, ensure to provide the root credentials. For Windows OS, a user account with admin privileges should be added. These credentials will be used to push Mobility Service on to the source machine during enable replication operation.
 
@@ -138,7 +157,7 @@ Follow these steps to enable replication:
       By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, the same cache storage account will be re-used.
     -  Managed disks
 
-       By default, Standard HDD managed disks are created in Azure. You can customize the type of Managed disks by Selecting **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](../virtual-machines/disks-types.md#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
+       By default, Standard HDD managed disks are created in Azure. You can customize the type of Managed disks by Selecting **Customize**. Choose the type of disk based on the business requirement. Ensure [appropriate disk type is chosen](/azure/virtual-machines/disks-types#disk-type-comparison) based on the IOPS of the source machine disks. For pricing information, see managed disk pricing document [here](https://azure.microsoft.com/pricing/details/managed-disks/).
 
        >[!NOTE]
        > If Mobility Service is installed manually before enabling replication, you can change the type of managed disk, at a disk level. Else, by default, one managed disk type can be chosen at a machine level
@@ -171,6 +190,5 @@ Follow these steps to enable replication:
 - Same replication appliance can be used both for forward and backward protection operations, if it is in a non-critical state. It should not impact the performance of the replications.
 
 ## Next steps
-After enabling replication, run a drill to make sure everything's working as expected.
-> [!div class="nextstepaction"]
-> [Run a disaster recovery drill](site-recovery-test-failover-to-azure.md)
+After enabling replication, [run a disaster recovery drill](site-recovery-test-failover-to-azure.md) to make sure everything's working as expected.
+

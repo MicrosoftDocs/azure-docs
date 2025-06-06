@@ -1,13 +1,12 @@
 ---
 title: View status of Azure Import/Export jobs | Microsoft Docs
 description: Learn how to view the status of Azure Import/Export jobs and the drives used. Understand the factors that affect how long it takes to process a job.
-author: alkohli
+author: stevenmatthew
 services: storage
 ms.service: azure-import-export
 ms.topic: how-to
 ms.date: 03/14/2022
-ms.author: alkohli
-ms.custom: contperf-fy21q3
+ms.author: shaas
 ---
 # View the status of Azure Import/Export jobs
 

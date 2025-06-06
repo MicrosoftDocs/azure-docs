@@ -1,30 +1,27 @@
 ### YamlMime:Landing
 
 title: Network Watcher documentation
-summary: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
+summary: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
 metadata:
   title: Network Watcher Documentation
-  description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
-  services: network-watcher
-  ms.service: network-watcher
-  ms.custom: ignite-2022
+  description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
+  ms.service: azure-network-watcher
   ms.topic: landing-page
-  ms.collection: collection
   author: halkazwini
   ms.author: halkazwini
-  ms.date: 02/12/2023
+  ms.date: 03/14/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
+  # Card
   - title: About Network Watcher
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Network Watcher?
-            url: network-watcher-monitoring-overview.md
+            url: network-watcher-overview.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Network Watcher
@@ -36,19 +33,19 @@ landingContent:
           - text: Monitor the Azure network
             url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%206
 
-  # Card (optional)
+  # Card
   - title: Diagnose VM traffic filter problem
     linkLists:
       - linkListType: concept
         links:
           - text: IP flow verify overview
-            url: network-watcher-ip-flow-verify-overview.md
+            url: ip-flow-verify-overview.md
       - linkListType: quickstart  
         links:
           - text: Diagnose VM traffic filter problem
             url: diagnose-vm-network-traffic-filtering-problem.md
                  
-  # Card (optional)
+  # Card
   - title: Diagnose VM routing problem
     linkLists:
       - linkListType: concept
@@ -60,47 +57,57 @@ landingContent:
           - text: Diagnose VM routing problem
             url: diagnose-vm-network-routing-problem.md
 
-  # Card (optional)
+  # Card
   - title: Diagnose VM communication issues
     linkLists:
       - linkListType: concept
         links:
           - text: Connection troubleshoot overview
-            url: network-watcher-connectivity-overview.md
+            url: connection-troubleshoot-overview.md
           - text: Connection monitor overview
             url: connection-monitor-overview.md
       - linkListType: tutorial  
         links:
-          - text: Troubleshoot connections
-            url: network-watcher-connectivity-portal.md
           - text: Monitor communication between VMs
-            url: connection-monitor.md          
-  
-  # Card (optional)
+            url: monitor-vm-communication.md          
+      - linkListType: how-to-guide  
+        links:
+          - text: Troubleshoot outbound connections
+            url: connection-troubleshoot-manage.md
+
+  # Card
   - title: Log network traffic
     linkLists:
       - linkListType: concept
         links:
-          - text: NSG flow log overview
-            url: network-watcher-nsg-flow-logging-overview.md
+          - text: Network security group flow logs overview
+            url: nsg-flow-logs-overview.md
+          - text: Virtual network flow logs overview
+            url: vnet-flow-logs-overview.md
       - linkListType: tutorial  
         links:
           - text: Log VM network traffic
-            url: network-watcher-nsg-flow-logging-portal.md           
-  
-  # Card (optional)
+            url: nsg-flow-logs-tutorial.md           
+      - linkListType: how-to-guide  
+        links:
+          - text: Manage network security group flow logs
+            url: nsg-flow-logs-manage.md
+          - text: Manage virtual network flow logs
+            url: vnet-flow-logs-manage.md
+
+  # Card
   - title: Traffic analytics
     linkLists:
       - linkListType: concept
         links:
           - text: Traffic analytics overview
             url: traffic-analytics.md
-      - linkListType: tutorial  
+      - linkListType: how-to-guide  
         links:
-          - text: Deploy and manage traffic analytics
+          - text: Manage traffic analytics using Azure Policy
             url: traffic-analytics-policy-portal.md
 
-  # Card (optional)
+  # Card
   - title: Reference
     linkLists:
       - linkListType: reference  
@@ -110,9 +117,18 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/network/watcher
           - text: REST
-            url: /rest/api/network-watcher/                                      
+            url: /rest/api/network-watcher/
 
-            
-            
-
-  
+  # Card
+  - title: Related monitoring and management services 
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Documentation
+            url: /azure/networking/monitoring-management
+      - linkListType: overview
+        links:
+          - text: Azure Virtual Network Manager overview
+            url: /azure/virtual-network-manager/overview
+          - text: Azure Monitor overview
+            url: /azure/azure-monitor/overview

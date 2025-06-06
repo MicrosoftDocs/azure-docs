@@ -1,14 +1,13 @@
 ---
 title: Request a credit for Withholding Tax on your account (India customers) - Azure
 description: Learn how to request a credit on your account for Withholding Tax you paid. This article only applies to customers in India.
-author: bandersmsft
-ms.reviewer: amberb
-tags: billing
+author: lindseyshep
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/13/2023
-ms.author: banders
+ms.date: 05/01/2025
+ms.author: jkinma
 ---
 
 # Request a credit for Withholding Tax on your account (India customers)
@@ -25,8 +24,6 @@ Your WHT request must include the following items:
 - A digitally signed TDS Certificate (Form 16A) issued by the Indian Income Tax Department (provided by the customer)
 
 Submit the WHT request by opening a ticket with Microsoft support.
-
-[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 
 ## Credit card payment
 
@@ -73,6 +70,6 @@ After your claim is approved, it’s reflected in the next billing cycle. The WH
 > - If changes are required, the approval process might take longer because of the corrections that must be made and then resubmitted.
 > - If you have questions about the WHT request process, please open a ticket with Microsoft support.
 
-## Next steps
+## Related content
 
 - See [Resolve past due balance for your Azure subscription](resolve-past-due-balance.md) if you need to pay an Azure bill.

@@ -5,12 +5,12 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to 
-ms.date: 11/08/2021
+ms.date: 09/18/2024
 ---
 
 #  Start a WebSocket connection to Azure Web PubSub
 
-Clients connect to the Azure Web PubSub service by using the standard [WebSocket](https://tools.ietf.org/html/rfc6455) protocol. You can use languages that have WebSocket client support to write a client for the service. In this article, you'll see several WebSocket client samples in different languages.
+Clients connect to the Azure Web PubSub service by using the standard [WebSocket](https://tools.ietf.org/html/rfc6455) protocol. You can use languages that have WebSocket client support to write a client for the service. In this article, you see several WebSocket client samples in different languages.
 
 ## Authorization
 

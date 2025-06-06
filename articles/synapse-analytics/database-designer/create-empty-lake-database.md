@@ -3,11 +3,11 @@ title: Create an empty lake database
 description: Learn how to create an empty lake database in Azure Synapse Analytics that can be easily added to.
 author: aamerril
 ms.author: aamerril
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to
 ---
 
 

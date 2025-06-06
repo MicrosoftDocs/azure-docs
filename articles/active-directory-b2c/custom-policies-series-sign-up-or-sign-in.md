@@ -1,23 +1,28 @@
 ---
-title: Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy
+title: Set up a sign-up and sign-in flow for a local account
 titleSuffix: Azure AD B2C
 description: Learn how to configure a sign-up and sign-in flow for a local account, using email and password, by using Azure Active Directory B2C custom policy.  
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As a developer, I want to set up a sign-up and sign-in flow for a local account using Azure Active Directory B2C custom policy, so that users can create and sign in to their accounts in my application.
+
 ---
 
 
 # Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In [Create and read a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, a user creates a new user account but doesn't sign in to it. 
 
@@ -25,15 +30,15 @@ In this article, you learn how  to write an Azure Active Directory B2C (Azure AD
 
 ## Overview
 
-Azure AD B2C uses OpenID Connect authentication protocol to verify user credentials. In Azure AD B2C, you send the user credentials alongside other information to a secure endpoint, which then determines if the credentials are valid or not. In a nutshell, when you use Azure AD B2C's implementation of OpenID Connect, you can outsource sign-up, sign in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). 
+Azure AD B2C uses OpenID Connect authentication protocol to verify user credentials. In Azure AD B2C, you send the user credentials alongside other information to a secure endpoint, which then determines if the credentials are valid or not. In a nutshell, when you use Azure AD B2C's implementation of OpenID Connect, you can outsource sign-up, sign in, and other identity management experiences in your web applications to Microsoft Entra ID. 
 
-Azure AD B2C custom policy provides a OpenID Connect technical profile, which you use to make a call to a secure Microsoft endpoint. Learn more about [OpenID Connect technical profile](openid-connect-technical-profile.md).
+Azure AD B2C custom policy provides an OpenID Connect technical profile, which you use to make a call to a secure Microsoft endpoint. Learn more about [OpenID Connect technical profile](openid-connect-technical-profile.md).
 
 ## Prerequisites
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms.  
+- [Register a web application](tutorial-register-applications.md).  
 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
@@ -177,8 +182,8 @@ In the `ContosoCustomPolicy.XML` file, locate the `SignInUser` technical profile
             <Item Key="SignUpTarget">AccountTypeInputCollectorClaimsExchange</Item>
         </Metadata>
         <DisplayClaims>
-            <OutputClaim ClaimTypeReferenceId="email" Required="true" />
-            <OutputClaim ClaimTypeReferenceId="password" Required="true" />
+            <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+            <DisplayClaim ClaimTypeReferenceId="password" Required="true" />
         </DisplayClaims>
         <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="email" />
@@ -301,13 +306,13 @@ When the custom policy runs:
 - **Orchestration Step 3** - This step runs if the user signs up (`objectId` doesn't exist), and that a user doesn't select a company `accountType`. So we've to ask the user to input an `accessCode` by invoking the *AccessCodeInputCollector* self-asserted technical profile.
 
 - **Orchestration Step 4** - This step runs if the user signs up (objectId doesn't exist), so we display the sign-up form by invoking the
-*UserInformationCollector* self-asserted technical profile. This step runs whether a user signs up or signs in. 
+*UserInformationCollector* self-asserted technical profile. 
 
-- **Orchestration Step 5** - This step reads account information from Azure AD (we invoke *AAD-UserRead* Azure AD technical profile), so it runs whether a user signs up or signs in.   
+- **Orchestration Step 5** - This step reads account information from Microsoft Entra ID (we invoke `AAD-UserRead` Microsoft Entra ID technical profile), so it runs whether a user signs up or signs in.
 
 - **Orchestration Step 6** -  This step invokes the *UserInputMessageClaimGenerator* technical profile to assemble the user’s greeting message.
 
-- **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT token at the end of the policy’s execution.
+- **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT at the end of the policy’s execution.
 
 ## Step 4 - Upload policy
 
@@ -321,7 +326,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 You can sign in by entering the **Email Address** and **Password** of an existing account. If you don't already have an account, you need to select the **Sign up now** link to create a new user account. 
 
-## Next steps
+## Related content
 
 - Learn how to [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md).
 

@@ -1,13 +1,12 @@
 ---
 title: Troubleshoot subscription access after you sign a Microsoft Customer Agreement - Azure
 description: This article helps you troubleshoot subscription access after you sign a new Microsoft Customer Agreement.
-author: bandersmsft
-tags: billing
+author: baolcsva
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: troubleshooting
-ms.date: 04/05/2023
-ms.author: banders
+ms.date: 01/07/2025
+ms.author: baolcsva
 ms.reviewer: baolcsva
 ---
 

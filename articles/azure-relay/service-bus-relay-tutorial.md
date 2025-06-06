@@ -1,16 +1,14 @@
 ---
-title: Expose an on-prem WCF REST service to clients using Azure Relay
+title: Expose on-premises WCF REST service to clients
 description: This tutorial describes how to expose an on-premises WCF REST service to an external client by using Azure WCF Relay.
 ms.topic: tutorial
-ms.custom: devx-track-dotnet
-ms.date: 06/21/2022
+ms.date: 12/11/2024
+# Customer intent: I want to know how to expose an on-premises WCF REST service to external clients using WCF Relay.
 ---
 
-# Tutorial: Expose an on-premises WCF REST service to external client by using Azure WCF Relay
+# Tutorial: Expose an on-premises Windows Communication Foundation (WCF) REST service to external client by using Azure WCF Relay
 
-This tutorial describes how to build a WCF Relay client application and service using Azure Relay. For a similar tutorial that uses [Service Bus messaging](../service-bus-messaging/service-bus-messaging-overview.md), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
-
-Working through this tutorial gives you an understanding of the steps to create a WCF Relay client and service application. Like their original WCF counterparts, a service is a construct that exposes one or more endpoints. Each endpoint exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between WCF and WCF Relay is that the endpoint is exposed in the cloud instead of locally on your computer.
+This tutorial describes how to build a WCF Relay client application and a service using Azure Relay. Like their original WCF counterparts, a service is a construct that exposes one or more endpoints. Each **endpoint** exposes one or more service operations. The endpoint of a service specifies an **address** where the service can be found, a **binding** that contains the information that a client must communicate with the service, and a **contract** that defines the functionality provided by the service to its clients. The main difference between WCF and WCF Relay is that the endpoint is exposed in the cloud instead of locally on your computer.
 
 After you work through the sequence of sections in this tutorial, you'll have a running service. You'll also have a client that can invoke the operations of the service. 
 
@@ -176,7 +174,7 @@ Creating an Azure relay requires that you first create the contract by using an 
 The configuration file is similar to a WCF configuration file. It includes the service name, endpoint, and binding. The endpoint is the location Azure Relay exposes for clients and hosts to communicate with each other. The binding is the type of protocol that is used to communicate. The main difference is that this configured service endpoint refers to a [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) binding, which isn't part of the .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) is one of the bindings defined by the service.
 
 1. In **Solution Explorer**, double-click **App.config** to open the file in the Visual Studio editor.
-1. In the `<appSettings>` element, replace the placeholders with the name of your service namespace, and the SAS key that you copied in an earlier step.
+1. In the `<appSettings>` element, replace the placeholders with the name of your Azure Relay namespace, and the SAS key that you copied in an earlier step.
 1. Within the `<system.serviceModel>` tags, add a `<services>` element. You can define multiple relay applications in a single configuration file. However, this tutorial defines only one.
 
     ```xml
@@ -436,7 +434,7 @@ The next task is to create a client application and define the service contract 
 
    1. In **Solution Explorer**, right-click the current solution (not the project), and select **Add** > **New Project**.
    1. In **Add a new project**, select **Console App (.NET Framework)** for C#, and select **Next**.
-   1. Name project *EchoClient* and select **Create**.
+   1. Specify *EchoClient* as the name of the project and select **Create**.
 
 1. In **Solution Explorer**, in the **EchoClient** project, double-click **Program.cs** to open the file in the editor, if it isn't already open.
 1. Change the namespace name from its default name of `EchoClient` to `Microsoft.ServiceBus.Samples`.
@@ -734,7 +732,7 @@ namespace Microsoft.ServiceBus.Samples
 1. Both console windows open and prompt you for the namespace name. The service must run first, so in the **EchoService** console window, enter the namespace and then select Enter.
 1. Next, the console prompts you for your SAS key. Enter the SAS key and select Enter.
 
-    Here is example output from the console window. The values here are just examples.
+    Here's example output from the console window. The values here are just examples.
 
     `Your Service Namespace: myNamespace`
 
@@ -747,7 +745,7 @@ namespace Microsoft.ServiceBus.Samples
     `Press [Enter] to exit`
 
 1. In the **EchoClient** console window, enter the same information that you entered previously for the service application. Enter the same service namespace and SAS key values for the client application.
-1. After entering these values, the client opens a channel to the service and prompts you to enter some text as seen in the following console output example.
+1. After you enter these values, the client opens a channel to the service and prompts you to enter some text as seen in the following console output example.
 
     `Enter text to echo (or [Enter] to exit):`
 
@@ -761,7 +759,7 @@ namespace Microsoft.ServiceBus.Samples
 
 1. You can continue sending text messages from the client to the service in this manner. When you're finished, select Enter in the client and service console windows to end both applications.
 
-## Next steps
+## Next step
 
 Advance to the following tutorial:
 

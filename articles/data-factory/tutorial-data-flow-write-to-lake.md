@@ -3,11 +3,9 @@ title: Best practices for writing to files to data lake with data flows
 description:  This tutorial provides best practices for writing to files to data lake with data flows
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2021
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Best practices for writing to files to data lake with data flows
@@ -36,7 +34,7 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
     a. Select **Use existing**, and select an existing resource group from the drop-down list.
     
-    b. Select **Create new**, and enter the name of a resource group.To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
+    b. Select **Create new**, and enter the name of a resource group. To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
     
 1. Under **Version**, select **V2**.
 1. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. Data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
@@ -55,13 +53,10 @@ In this step, you'll create a pipeline that contains a data flow activity.
 1. In the **General** tab for the pipeline, enter **DeltaLake** for **Name** of the pipeline.
 1. In the factory top bar, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
-    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="Data Flow Activity":::
+    :::image type="content" source="media/tutorial-data-flow/dataflow.png" alt-text="Data Flow Activity":::
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
 
-    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.":::
-1. In the **Adding Data Flow** pop-up, select **Create new Data Flow** and then name your data flow **DeltaLake**. Click Finish when done.
-
-    :::image type="content" source="media/tutorial-data-flow/activity2.png" alt-text="Screenshot that shows where you name your data flow when you create a new data flow.":::
+    :::image type="content" source="media/tutorial-data-flow/activity.png" alt-text="Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.":::
 
 ## Build transformation logic in the data flow canvas
 
@@ -120,6 +115,6 @@ The techniques listed in the above tutorials are good use cases for creating fol
 1. Pick the column that you wish to use for generating file names.
 1. To manipulate the data values, or even if need to generate synthetic values for file names, use the Derived Column transformation to create the values you wish to use in your file names.
 
-## Next steps
+## Related content
 
 Learn more about [data flow sinks](data-flow-sink.md).

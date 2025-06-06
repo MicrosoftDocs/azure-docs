@@ -1,135 +1,142 @@
 ---
-title: 'Paginate Azure Resource Graph query results using Azure PowerShell'
-description: In this quickstart, you control the volume Azure Resource Graph query output by using pagination in Azure PowerShell.
-ms.date: 11/11/2022
+title: Paginate Resource Graph query results using Azure PowerShell
+description: In this quickstart, you run an Azure Resource Graph query and paginate output using Azure PowerShell.
+ms.date: 04/24/2024
 ms.topic: quickstart
-ms.author: davidsmatlak
-author: davidsmatlak
 ms.custom: dev-track-azurepowershell, devx-track-azurepowershell
 ---
-# Quickstart: Paginate Azure Resource Graph query results using Azure PowerShell
 
-By default, Azure Resource Graph returns a maximum of 1000 records for each query. However, you can
-use the *Search-AzGraph* cmdlet's `skipToken` parameter to adjust how many records you return per
-request.
+# Quickstart: Paginate Resource Graph query results using Azure PowerShell
 
-At the end of this quickstart, you'll be able to customize the output volume returned by your Azure Resource
-Graph queries by using Azure PowerShell.
+This quickstart describes how to run an Azure Resource Graph query and paginate the output using Azure PowerShell. By default, Azure Resource Graph returns a maximum of 1,000 records for each query. You can use the `Search-AzGraph` cmdlet's `skipToken` parameter to adjust how many records are returned per request.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- [PowerShell](/powershell/scripting/install/installing-powershell).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell).
+- [Visual Studio Code](https://code.visualstudio.com/).
 
-## Add the Resource Graph module
+## Install the module
 
-To enable Azure PowerShell to query Azure Resource Graph, the **Az.ResourceGraph** module must be
-added. This module can be used with locally installed PowerShell, with
-[Azure Cloud Shell](https://shell.azure.com), or with the
-[PowerShell Docker image](https://hub.docker.com/_/microsoft-powershell).
+Install the `Az.ResourceGraph` module so that you can use Azure PowerShell to run Azure Resource Graph queries. The Azure Resource Graph module requires PowerShellGet version 2.0.1 or higher. If you installed the latest versions of PowerShell and Azure PowerShell, you already have the required version.
 
-### Base requirements
+1. Verify your PowerShellGet version:
 
-The Azure Resource Graph module requires the following software:
+    ```azurepowershell
+    Get-Module -Name PowerShellGet
+    ```
 
-- Azure PowerShell 8.x or higher. If it isn't yet installed, follow
-  [these instructions](/powershell/azure/install-az-ps).
+   If you need to update, go to [PowerShellGet](/powershell/gallery/powershellget/install-powershellget).
 
-- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
-  [these instructions](/powershell/gallery/powershellget/install-powershellget).
+1. Install the module:
 
-### Install the module
-
-The Resource Graph module for PowerShell is **Az.ResourceGraph**.
-
-1. From a PowerShell prompt, run the following command:
-
-   ```powershell
-   # Install the Resource Graph module from PowerShell Gallery
-   Install-Module -Name Az.ResourceGraph -Scope CurrentUser -Repository PSGallery -Force
+   ```azurepowershell
+   Install-Module -Name Az.ResourceGraph -Repository PSGallery -Scope CurrentUser
    ```
 
-1. Validate that the module has been imported and is at least version `0.11.0`:
+    The command installs the module in the `CurrentUser` scope. If you need to install in the `AllUsers` scope, run the installation from an administrative PowerShell session.
 
-   ```powershell
-   # Get a list of commands for the imported Az.ResourceGraph module
-   Get-Command -Module Az.ResourceGraph
+1. Verify the module was installed:
+
+   ```azurepowershell
+   Get-Command -Module Az.ResourceGraph -CommandType Cmdlet
    ```
+
+   The command displays the `Search-AzGraph` cmdlet version and loads the module into your PowerShell session.
+
+## Connect to Azure
+
+From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
+
+```azurepowershell
+Connect-AzAccount
+
+# Run these commands if you have multiple subscriptions
+Get-AzSubScription
+Set-AzContext -Subscription <subscriptionID>
+```
 
 ## Paginate Azure Resource Graph query results
 
-With the Azure PowerShell module added to your environment of choice, it's time to try out a simple
-tenant-based Resource Graph query and work with paginating the results. We'll start with an ARG
-query that returns a list of all virtual machines (VMS) across all subscriptions associated with a
-given Azure Active Directory (Azure AD) tenant.
+The examples run a tenant-based Resource Graph query to list of virtual machines and then updates the command to return results that batch five records for each request.
 
-We'll then configure the query to return five records (VMs) at a time.
+The same query is used in each example:
 
-> [!NOTE]
-> This example query is adapted from the work of Microsoft Most Valuable Professional (MVP)
-> [Oliver Mossec](https://github.com/omiossec).
+```kusto
+Resources |
+join kind=leftouter (ResourceContainers | where type=='microsoft.resources/subscriptions' |
+  project subscriptionName = name, subscriptionId)
+  on subscriptionId |
+where type =~ 'Microsoft.Compute/virtualMachines' |
+project VMResourceId = id, subscriptionName, resourceGroup, name
+```
 
-1. Run the initial Azure Resource Graph query using the `Search-AzGraph` cmdlet:
+The `Search-AzGraph` command runs a query that returns a list of all virtual machines across all subscriptions associated with a given Azure tenant:
 
-   ```powershell
-   # Login first with Connect-AzAccount if not using Cloud Shell
+```azurepowershell
+Search-AzGraph -Query "Resources | join kind=leftouter (ResourceContainers | where
+type=='microsoft.resources/subscriptions' | project subscriptionName = name, subscriptionId) on
+subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' | project VMResourceId = id,
+subscriptionName, resourceGroup, name"
+```
 
-   # Run Azure Resource Graph query Search-AzGraph -Query "Resources | join kind=leftouter
-   (ResourceContainers | where type=='microsoft.resources/subscriptions' | project subscriptionName
-   = name, subscriptionId) on subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' |
-   project VMResourceId = id, subscriptionName, resourceGroup, name"
-   ```
+The next step updates the `Search-AzGraph` command to return five records for each batch request. The command uses a `while` loop, variables, and the `skipToken` parameter.
 
-1. Update the query to implement the `skipToken` parameter and return 5 VMs in each batch:
+```azurepowershell
+$kqlQuery = "Resources | join kind=leftouter (ResourceContainers | where
+type=='microsoft.resources/subscriptions' | project subscriptionName = name, subscriptionId) on
+subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' | project VMResourceId = id,
+subscriptionName, resourceGroup, name"
 
-  ```powershell
-  $kqlQuery = "Resources | join kind=leftouter (ResourceContainers | where
-  type=='microsoft.resources/subscriptions' | project subscriptionName = name,subscriptionId) on
-  subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' | project VMResourceId = id,
-  subscriptionName, resourceGroup,name"
+$batchSize = 5
+$skipResult = 0
 
-  $batchSize = 5
-  $skipResult = 0
+[System.Collections.Generic.List[string]]$kqlResult
 
-  [System.Collections.Generic.List[string]]$kqlResult
+while ($true) {
 
-  while ($true) {
-
-    if ($skipResult -gt 0) {
-      $graphResult = Search-AzGraph -Query $kqlQuery -First $batchSize -SkipToken $graphResult.SkipToken
-    }
-    else {
-      $graphResult = Search-AzGraph -Query $kqlQuery -First $batchSize
-    }
-
-    $kqlResult += $graphResult.data
-
-    if ($graphResult.data.Count -lt $batchSize) {
-      break;
-    }
-    $skipResult += $skipResult + $batchSize
+  if ($skipResult -gt 0) {
+    $graphResult = Search-AzGraph -Query $kqlQuery -First $batchSize -SkipToken $graphResult.SkipToken
   }
-  ```
+  else {
+    $graphResult = Search-AzGraph -Query $kqlQuery -First $batchSize
+  }
+
+  $kqlResult += $graphResult.data
+
+  if ($graphResult.data.Count -lt $batchSize) {
+    break;
+  }
+  $skipResult += $skipResult + $batchSize
+}
+```
 
 ## Clean up resources
 
-If you wish to remove the Resource Graph module from your Azure PowerShell environment, you can do
-so by using the following command:
+To remove the `Az.ResourceGraph` module from your PowerShell session, run the following command:
 
-```powershell
-# Remove the Resource Graph module from the current session
+```azurepowershell
 Remove-Module -Name Az.ResourceGraph
+```
 
-# Uninstall the Resource Graph module from your computer
+To uninstall the `Az.ResourceGraph` module from your computer, run the following command:
+
+```azurepowershell
 Uninstall-Module -Name Az.ResourceGraph
+```
+
+A message might be displayed that _module Az.ResourceGraph is currently in use_. If so, you need to shut down your PowerShell session and start a new session. Then run the command to uninstall the module from your computer.
+
+To sign out of your Azure PowerShell session:
+
+```azurepowershell
+Disconnect-AzAccount
 ```
 
 ## Next steps
 
-In this quickstart, you learned how to paginate Azure Resource Graph query results by using
-Azure PowerShell. To learn more about the Resource Graph language, review any of the following
-Microsoft Learn resources.
+In this quickstart, you learned how to paginate Azure Resource Graph query results by using Azure PowerShell. To learn more, go to the following articles:
 
-- [Work with large data sets - Azure Resource Graph](concepts/work-with-data.md)
+- [Working with large Azure resource data sets](concepts/work-with-data.md)
 - [Az.ResourceGraph PowerShell module reference](/powershell/module/az.resourcegraph)
-- [What is Azure Resource Graph?](overview.md)

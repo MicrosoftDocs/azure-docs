@@ -1,90 +1,53 @@
 ---
-title: Overview
-description: Learn how Azure App Service helps you develop and host web applications
+title: Overview of Azure App Service
+description: Learn how Azure App Service helps you develop and host web applications.
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 07/21/2021
-ms.custom: UpdateFrequency3
+ms.date: 04/24/2025
+ms.custom: UpdateFrequency3, linux-related-content
+ms.author: msangapu
+author: msangapu-msft
 ---
 
 # App Service overview
 
-*Azure App Service* is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and [Linux](#app-service-on-linux)-based environments.
+Azure App Service is a platform that lets you run web applications, mobile back ends, and RESTful APIs without worrying about managing the underlying infrastructure. Think of it as a powerful web hosting service that takes care of all the heavy lifting for you, so can focus on creating great applications.
 
-App Service adds the power of Microsoft Azure to your application, such as security, load balancing, autoscaling, and automated management. Additionally, you can take advantage of its DevOps capabilities, such as continuous deployment from Azure DevOps, GitHub, Docker Hub, and other sources, package management, staging environments, custom domain, and TLS/SSL certificates.
+App Service supports a variety of web stacks: .NET, Java (in Java SE, Tomcat, and JBoss flavors), Node.js, Python, and PHP, and can run them on both Windows and Linux. Or, if your app is containerized, you can just deploy it as a custom container.
 
-With App Service, you pay for the Azure compute resources you use. The compute resources you use are determined by the *App Service plan* that you run your apps on. For more information, see [Azure App Service plans overview](overview-hosting-plans.md).
+## Why Use Azure App Service?
 
-## Why use App Service?
+Whether you're a student, a small business, a startup, or an enterprise, App Service offers a wide range of features tailored to meet your needs.
 
-Azure App Service is a fully managed platform as a service (PaaS) offering for developers. Here are some key features of App Service:
+### Students
 
-* **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, or Python. You can also run [PowerShell and other scripts or executables](webjobs-create.md) as background services.
-* **Managed production environment** - App Service automatically [patches and maintains the OS and language frameworks](overview-patch-os-runtime.md) for you. Spend time writing great apps and let Azure worry about the platform.
-* **Containerization and Docker** - Dockerize your app and host a custom Windows or Linux container in App Service. Run multi-container apps with Docker Compose. Migrate your Docker skills directly to App Service.
-* **DevOps optimization** - Set up [continuous integration and deployment](deploy-continuous-deployment.md) with Azure DevOps, GitHub, BitBucket, Docker Hub, or Azure Container Registry. Promote updates through [test and staging environments](deploy-staging-slots.md). Manage your apps in App Service by using [Azure PowerShell](/powershell/azure/) or the [cross-platform command-line interface (CLI)](/cli/azure/install-azure-cli).
-* **Global scale with high availability** - Scale [up](manage-scale-up.md) or [out](../azure-monitor/autoscale/autoscale-get-started.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
-* **Connections to SaaS platforms and on-premises data** - Choose from [many hundreds of  connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for enterprise systems (such as SAP), SaaS services (such as Salesforce), and internet services (such as Facebook). Access on-premises data using [Hybrid Connections](app-service-hybrid-connections.md) and [Azure Virtual Networks](./overview-vnet-integration.md).
-* **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/trustcenter). Authenticate users with [Azure Active Directory](configure-authentication-provider-aad.md), [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md), or [Microsoft account](configure-authentication-provider-microsoft.md). Create [IP address restrictions](app-service-ip-restrictions.md) and [manage service identities](overview-managed-identity.md). [Prevent subdomain takeovers](reference-dangling-subdomain-prevention.md).
-* **Application templates** - Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/), such as WordPress, Joomla, and Drupal.
-* **Visual Studio and Visual Studio Code integration** - Dedicated tools in Visual Studio and Visual Studio Code streamline the work of creating, deploying, and debugging.
-* **API and mobile features** - App Service provides turn-key CORS support for RESTful API scenarios, and simplifies mobile app scenarios by enabling authentication, offline data sync, push notifications, and more.
-* **Serverless code** - Run a code snippet or script on-demand without having to explicitly provision or manage infrastructure, and pay only for the compute time your code actually uses (see [Azure Functions](../azure-functions/index.yml)).
+- **Free access**: In addition to the widely-available [free tier](https://azure.microsoft.com/pricing/details/app-service/), students can take advantage of the [Azure for Students Starter](https://azure.microsoft.com/pricing/offers/ms-azr-0144p) program.
+- **IDE support**: Purpose-built deployment tools are available for Visual Studio, Visual Studio Code, IntelliJ, and Eclipse.
+- **Easy to use**: Run your apps without needing experience in infrastructure management.
+- **Learning Resources**: Plenty of tutorials and guides to help you get started.
 
-Besides App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, App Service is the best choice.  For microservice architecture, consider [Azure Spring Apps](../spring-apps/index.yml) or [Service Fabric](../service-fabric/index.yml).  If you need more control over the VMs on which your code runs, consider [Azure Virtual Machines](../virtual-machines/index.yml). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
+### Small businesses and startups
 
-## App Service on Linux
+- **Brand security**: Protect your brand and your customers quickly with an [App Service domain](manage-custom-dns-buy-domain.md) and a [free managed certificate](configure-ssl-certificate.md). Or, bring your domain and certificate to App Service.
+- **Cost-effective**: Pay only for the resources you use, and scale [up](manage-scale-up.md) or [out](/azure/azure-monitor/autoscale/autoscale-get-started) with your business.
+- **Command-line friendly**: Deploy using command line tools you already use, such as Maven, Gradle, Azure Developer CLI, Azure CLI, and Azure PowerShell.
+- **Scalability**: Automatically scale your applications based on demand.
+- **Global reach**: Deploy your apps in data centers around the world.
+- **Application templates**: Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/), such as WordPress, Joomla, and Drupal.
+- **Social sign-in support**: Turn-key social sign-in with [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [X](configure-authentication-provider-twitter.md), and [Microsoft accounts](configure-authentication-provider-microsoft.md).
 
-App Service can also host web apps natively on Linux for supported application stacks. It can also run custom Linux containers (also known as Web App for Containers).
+### Enterprises
 
-### Built-in languages and frameworks
+- **CI/CD**: [Deploy continuously](deploy-continuous-deployment.md) with GitHub Actions, Azure Pipelines, and more. Deploy predictably through [staging environments](deploy-staging-slots.md).
+- **High-density hosting savings**: Run more applications on fewer VMs with the memory-optimized [P*mv3 tiers](https://azure.microsoft.com/pricing/details/app-service/), and save up to 55% on predictable workloads with [Azure savings plans](https://azure.microsoft.com/pricing/offers/savings-plan-compute) and [reserved instances](https://azure.microsoft.com/pricing/reservations/).
+- **Full isolation**: Secure ingress and egress with [Azure Virtual Network integration](./tutorial-networking-isolate-vnet.md), or run fully isolated applications with [App Service environments](./environment/ase-multi-tenant-comparison.md), using dedicated networking and VMs.
+- **Line-of-business**: Develop business applications easily with built-in authentication, Microsoft Graph, and [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) to your line-of-business applications.
+- **Reliability**: Robust [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) and zone redundancy features help disaster-proof your application.
+- **Security and compliance**: [ISO, SOC, and PCI compliance](https://www.microsoft.com/trust-center) meet the strictest requirements of large enterprises.
 
-App Service on Linux supports a number of language specific built-in images. Just deploy your code. Supported languages include: Node.js, Java (8, 11, and 17), Tomcat, PHP, Python, .NET Core, and Ruby. Run [`az webapp list-runtimes --os linux`](/cli/azure/webapp#az-webapp-list-runtimes) to view the latest languages and supported versions. If the runtime your application requires is not supported in the built-in images, you can deploy it with a custom container.
+For information about which Azure compute services best fit your scenario, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
-Outdated runtimes are periodically removed from the Web Apps Create and Configuration blades in the Portal. These runtimes are hidden from the Portal when they are deprecated by the maintaining organization or found to have significant vulnerabilities. These options are hidden to guide customers to the latest runtimes where they will be the most successful.
+## Next Steps
 
-When an outdated runtime is hidden from the Portal, any of your existing sites using that version will continue to run. If a runtime is fully removed from the App Service platform, your Azure subscription owner(s) will receive an email notice before the removal.
-
-If you need to create another web app with an outdated runtime version that is no longer shown on the Portal see the language configuration guides for instructions on how to get the runtime version of your site. You can use the Azure CLI to create another site with the same runtime. Alternatively, you can use the **Export Template** button on the web app blade in the Portal to export an ARM template of the site. You can reuse this template to deploy a new site with the same runtime and configuration.
-
-### Limitations
-
-> [!NOTE]
-> Linux and Windows App Service plans can now share resource groups. This limitation has been lifted from the platform and existing resource groups have been updated to support this.
->
-
-* App Service on Linux is not supported on [Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) pricing tier.
-* The Azure portal shows only features that currently work for Linux apps. As features are enabled, they're activated on the portal.
-* When deployed to built-in images, your code and content are allocated a storage volume for web content, backed by Azure Storage. The disk latency of this volume is higher and more variable than the latency of the container filesystem. Apps that require heavy read-only access to content files may benefit from the custom container option, which places files in the container filesystem instead of on the content volume.
-
-## Next steps
-
-Create your first web app.
-
-> [!div class="nextstepaction"]
-> [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)
-
-> [!div class="nextstepaction"]
-> [ASP.NET (on Windows)](./quickstart-dotnetcore.md?tabs=netframework48)
-
-> [!div class="nextstepaction"]
-> [PHP (on Windows or Linux)](quickstart-php.md)
-
-> [!div class="nextstepaction"]
-> [Ruby (on Linux)](quickstart-ruby.md)
-
-> [!div class="nextstepaction"]
-> [Node.js (on Windows or Linux)](quickstart-nodejs.md)
-
-> [!div class="nextstepaction"]
-> [Java (on Windows or Linux)](quickstart-java.md)
-
-> [!div class="nextstepaction"]
-> [Python (on Linux)](quickstart-python.md)
-
-> [!div class="nextstepaction"]
-> [HTML](quickstart-html.md)
-
-> [!div class="nextstepaction"]
-> [Custom container (Windows or Linux)](tutorial-custom-container.md)
+- [Getting started with Azure App Service](getting-started.md)

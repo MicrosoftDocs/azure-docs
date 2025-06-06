@@ -3,11 +3,11 @@ title: 'Install a User VPN P2S client certificate'
 titleSuffix: Azure Virtual WAN
 description: Learn how to install client certificates for User VPN P2S certificate authentication - Windows, Mac, Linux.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 07/06/2022
+ms.date: 02/13/2025
 ms.author: cherylmc
-
 ---
 # Install client certificates for User VPN connections
 
@@ -25,8 +25,14 @@ If you want to generate a client certificate, see [Generate and export certifica
 
 ## <a name="installlinux"></a>Linux
 
-The Linux client certificate is installed on the client as part of the client configuration. Use the VPN Gateway [Client configuration - Linux](../vpn-gateway/point-to-site-vpn-client-cert-linux.md) instructions.
+The Linux client certificate is installed on the client as part of the client configuration. There are a few different methods to install certificates. You can use [strongSwan](point-to-site-vpn-client-certificate-ike-linux.md), or [OpenVPN client](point-to-site-vpn-client-certificate-openvpn-linux.md) steps.
+
+## <a name="vpn-clients"></a>Configure VPN clients
+
+To continue configuration, go back to the VPN client instructions that you were working with. You can use this table to locate the link:
+
+[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
 
 ## Next steps
 
-Continue with the [Virtual WAN User VPN](virtual-wan-point-to-site-portal.md#p2sconfig) configuration steps.
+For P2S server configuration, see [Configure User VPN settings for certificate authentication](virtual-wan-point-to-site-portal.md#p2sconfig) configuration steps.

@@ -2,21 +2,23 @@
 title: Trusona Authentication Cloud with Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn how to add Trusona Authentication Cloud as an identity provider on Azure AD B2C to enable a "tap-and-go" passwordless authentication
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 10/11/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+# Customer intent: I'm a developer integrating Azure AD B2C authentication with Trusona Authentication Cloud. I want to configure Trusona Authentication Cloud as an identity provider (IdP) in Azure AD B2C, so I can enable passwordless authentication and provide a better user experience for my web application users.
 ---
 
 # Configure Trusona Authentication Cloud with Azure Active Directory B2C
 
-In this sample tutorial, you'll learn how to integrate Azure Active Directory (Azure AD B2C) authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+In this sample tutorial, you learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/white-paper/trusona-authentication-cloud-white-paper). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
 
 Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 -	Deliver strong authentication with a better user experience
@@ -39,7 +41,7 @@ Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 To get started, you need:
 
 - A Trusona Authentication Cloud trial account. To request an account, [contact Trusona](mailto:info@trusona.com).
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ::: zone pivot="b2c-custom-policy"
@@ -50,7 +52,7 @@ To get started, you need:
 
 ## Scenario description
 
-Web Authentication standard - WebAuthn implements modern operating systems and browsers to support authentication via finger print, Windows hello, or external FIDO devices such as USB, Bluetooth and OTP.
+Web Authentication standard - WebAuthn implements modern operating systems and browsers to support authentication via finger print, Windows hello, or external FIDO devices such as USB, Bluetooth, and One Time Password (OTP).
 
 In this scenario, Trusona acts as an Identity Provider (IdP) for Azure AD B2C to enable passwordless authentication. The following components make up the solution:
 -	An Azure AD B2C combined sign-in and sign-up policy.
@@ -81,7 +83,7 @@ In this scenario, Trusona acts as an Identity Provider (IdP) for Azure AD B2C to
 
     > [!NOTE]
     >1. The Trusona portal supports self-service registration. Upon registering you will be assigned to a Trusona account with read-only rights.  Afterwards, Trusona will assign you to the correct account and elevate your rights to read-write based upon your organization’s access control policy for portal users.
-    >2. Azure Active Directory’s initial domain name is used as the client redirect host.
+    >2. Microsoft Entra ID’s initial domain name is used as the client redirect host.
 
     [![Screenshot shows Trusona Authentication Cloud portal settings.](./media/partner-trusona/trusona-auth-cloud-oidc-settings.png)](./media/partner-trusona/trusona-auth-cloud-oidc-settings.png#lightbox)
 
@@ -91,8 +93,7 @@ Before your applications can interact with Azure AD B2C, they must be registered
 To register a web application in your Azure AD B2C tenant, use our new unified app registration experience. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *jwt ms*.
@@ -101,33 +102,38 @@ To register a web application in your Azure AD B2C tenant, use our new unified a
 
    The redirect URI is the endpoint to which the authorization server, Azure AD B2C in this case sends the user to. After completing its interaction with the user, an access token or authorization code is sent upon successful authorization. In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `https://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
 
-   The following restrictions apply to redirect URIs:
+   The following restrictions apply to redirect Uniform Resource Identifiers (URI):
 
     * The reply URL must begin with the scheme `https`, unless you use a localhost redirect URL.
-    * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  don't specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+    * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  don't specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` might be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
     * The reply URL should include or exclude the trailing forward slash as your application expects it. For example, `https://contoso.com/auth-response` and `https://contoso.com/auth-response/` might be treated as nonmatching URLs in your application.
 
 1. Under **Permissions**, select the **Grant admin consent to openid and offline_access permissions** check box.
 1. Select **Register**.
 
 ### Enable ID token implicit grant
-If you register this app and configure it with `https://jwt.ms/` app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
 
-1. In the left menu, under **Manage**, select **Authentication**.
+You can enable implicit grant flow to use this app registration to [test a user flow for testing purposes](add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow#test-the-user-flow).
 
-1. Under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)** check boxes.
+1. Select the app registration you created.
+
+1. Under **Manage**, select **Authentication**.
+
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
 
 1. Select **Save**.
+
+
+> [!NOTE]
+> If you enable implicit grant to test a user flow, make sure you disable the implicit grant flow settings before you deploy your app to production.
 
 ::: zone pivot="b2c-user-flow"
 
 ## Step 3: Configure Trusona Authentication Cloud as an IdP in Azure AD B2C
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the External Identity Provider Administrator and B2C User Flow Administrator roles in your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 
@@ -156,7 +162,7 @@ If you register this app and configure it with `https://jwt.ms/` app for testing
 
 1. Select **Map this identity provider’s claims**.  
 
-1. Fill out the form to map the IdP:
+1. To map the IdP, fill out the form:
 
    | Property | Value  |
    | :--- | :--- |
@@ -212,9 +218,7 @@ Store the client secret that you previously generated in [step 1](#step-1-onboar
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 
@@ -269,19 +273,19 @@ Use the following steps to add Trusona as a claims provider:
         <Item Key="METADATA">https://authcloud.trusona.net/.well-known/openid-configuration</Item>
         <Item Key="scope">openid profile email</Item>
          <!-- Update the Client ID to the Trusona Authentication Cloud Application ID -->
-         <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+         <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
         <Item Key="response_types">code</Item>
         <Item Key="response_mode">form_post</Item>
         <Item Key="HttpBinding">POST</Item>
         <Item Key="UsePolicyInRedirectUri">false</Item>
         <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
         <!-- trying to add additional claim-->
-        <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->
-        <Item Key="11111111-1111-1111-1111-111111111111"></Item>
-        <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-        <Item Key="11111111-1111-1111-1111-111111111111"></Item>
+        <!--Insert b2c-extensions-app application ID here, for example: 00001111-aaaa-2222-bbbb-3333cccc4444-->
+        <Item Key="00001111-aaaa-2222-bbbb-3333cccc4444"></Item>
+        <!--Insert b2c-extensions-app application ObjectId here, for example: aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb-->
+        <Item Key="00001111-aaaa-2222-bbbb-3333cccc4444"></Item>
         <!-- The key allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs for each tenant. -->
-        <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/187f16e9-81ab-4516-8db7-1c8ef94ffeca,https://login.microsoftonline.com/11111111-1111-1111-1111-111111111111</Item>-->
+        <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/187f16e9-81ab-4516-8db7-1c8ef94ffeca,https://login.microsoftonline.com/00001111-aaaa-2222-bbbb-3333cccc4444</Item>-->
         <!-- The commented key specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
         <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item>
         
@@ -325,7 +329,7 @@ Use the following steps to add Trusona as a claims provider:
 
 ## Step 5: Add a user journey
 
-At this point, you've set up the IdP, but it's not yet available in any of the sign-in pages. If you've your own custom user journey continue to [Step 6](#step-6-add-the-idp-to-a-user-journey), otherwise, create a duplicate of an existing template user journey as follows:
+At this point, you set up the IdP, but it's not yet available in any of the sign-in pages. If you have your own custom user journey continue to [Step 6](#step-6-add-the-idp-to-a-user-journey), otherwise, create a duplicate of an existing template user journey as follows:
 
 1. Open the `LocalAccounts/TrustFrameworkBase.xml` file from the starter pack.
 
@@ -460,12 +464,7 @@ In the following example, for the `Trusona Authentication Cloud` user journey, t
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-
-   a. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-   b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
 
 1. Under Policies, select **Identity Experience Framework**.
@@ -498,7 +497,7 @@ For additional information, review the following articles:
 
 - [Azure AD B2C docs](solution-articles.md)
 
-- [Ask your question on Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+- [Ask your question on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 
 - [Azure AD B2C Samples](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 

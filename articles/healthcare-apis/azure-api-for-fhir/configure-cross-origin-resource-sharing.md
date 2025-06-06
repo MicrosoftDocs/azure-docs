@@ -3,20 +3,22 @@ title: Configure cross-origin resource sharing in Azure API for FHIR
 description: This article describes how to configure cross-origin resource sharing in Azure API for FHIR.
 author: expekesheth
 ms.author: kesheth
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.topic: reference
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ---
 # Configure cross-origin resource sharing in Azure API for FHIR
 
-Azure API for FHIR supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
+Azure API for FHIR&reg; supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
 
 CORS is often used in a single-page app that must call a RESTful API to a different domain.
 
 ## Configure CORS settings
 
-To configure a CORS setting in the Azure API for FHIR, specify the following settings:
+To configure a CORS setting in the Azure API for FHIR, specify the following settings.
 
 - **Origins (Access-Control-Allow-Origin)**. A list of domains allowed to make cross-origin requests to the Azure API for FHIR. Each domain (origin) must be entered in a separate line. You can enter an asterisk (*) to allow calls from any domain, but we don't recommend it because it's a security risk.
 
@@ -40,4 +42,4 @@ In this article, you learned how to configure cross-origin resource sharing in A
 >[!div class="nextstepaction"]
 >[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

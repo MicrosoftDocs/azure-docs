@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
-author: mumian
-ms.author: jgao
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 12/09/2022
+ms.date: 02/14/2025
 ---
 
 # String functions for Bicep
@@ -143,21 +141,60 @@ The output from the preceding example with the default values is:
 
 ## concat
 
-Instead of using the concat function, use string interpolation.
+`concat(arg1, arg2, arg3, ...)`
+
+Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array. To improve readability, use [string interpolation](./data-types.md#strings) instead of the `concat()` function. However, in some cases such as string replacement in [multi-line strings](../bicep/data-types.md#multi-line-strings), you may need to fall back on using the `concat()` function or the [`replace()` function](#replace).
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |string or array |The first string or array for concatenation. |
+| more arguments |No |string or array |More strings or arrays in sequential order for concatenation. |
+
+This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Strings are only concatenated with other strings.
+
+### Return value
+
+A string or array of concatenated values.
+
+### Examples
+
+The following example shows a comparison between using interpolation and using the `concat()` function. The two outputs return the same value.
 
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
+output concatOutput string = concat(prefix, 'And', uniqueString(resourceGroup().id))
+output interpolationOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
+```
+
+The outputs from the preceding example with the default value are:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| concatOutput | String | prefixAnd5yj4yjf5mbg72 |
+| interpolationOutput | String | prefixAnd5yj4yjf5mbg72 |
+
+Interpolation is not currently supported in multi-line strings. The following example shows a comparison between using interpolation and using the `concat()` function.
+
+```bicep
+var blocked = 'BLOCKED'
+
+output concatOutput string = concat('''interpolation
+is ''', blocked)
+output interpolationOutput string = '''interpolation
+is ${blocked}'''
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| concatOutput | String | prefixAnd5yj4yjf5mbg72 |
-
-Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+| concatOutput | String | interpolation\nis BLOCKED |
+| interpolationOutput | String | interpolation\nis ${blocked} |
 
 ## contains
 
@@ -176,7 +213,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-**True** if the item is found; otherwise, **False**.
+`True` if the item is found; otherwise, `False`.
 
 ### Examples
 
@@ -294,7 +331,7 @@ The output from the preceding example with the default values is:
 
 `empty(itemToTest)`
 
-Determines if an array, object, or string is empty.
+Determines if an array, object, or string is empty or null.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -302,11 +339,11 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object, or string |The value to check if it's empty. |
+| itemToTest |Yes |array, object, or string |The value to check if it's empty or null. |
 
 ### Return value
 
-Returns **True** if the value is empty; otherwise, **False**.
+Returns **True** if the value is empty or null; otherwise, **False**.
 
 ### Examples
 
@@ -316,10 +353,12 @@ The following example checks whether an array, object, and string are empty.
 param testArray array = []
 param testObject object = {}
 param testString string = ''
+param testNullString string?
 
 output arrayEmpty bool = empty(testArray)
 output objectEmpty bool = empty(testObject)
 output stringEmpty bool = empty(testString)
+output stringNull bool = empty(testNullString)
 ```
 
 The output from the preceding example with the default values is:
@@ -329,6 +368,7 @@ The output from the preceding example with the default values is:
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
+| stringNull | Bool | True |
 
 ## endsWith
 
@@ -347,7 +387,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-**True** if the last character or characters of the string match the value; otherwise, **False**.
+`True` if the last character or characters of the string match the value; otherwise, `False`.
 
 ### Examples
 
@@ -377,7 +417,7 @@ The output from the preceding example with the default values is:
 
 `first(arg1)`
 
-Returns the first character of the string, or first element of the array.
+Returns the first character of the string, or first element of the array. If an empty string is given, the function results in an empty string. In the case of an empty array, the function returns `null`.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -441,15 +481,19 @@ The following example shows how to use the format function.
 param greeting string = 'Hello'
 param name string = 'User'
 param numberToFormat int = 8175133
+param objectToFormat object = { prop: 'value' }
 
 output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting, name, numberToFormat)
+output formatObject string = format('objectToFormat: {0}', objectToFormat)
+
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| formatTest | String | Hello, User. Formatted number: 8,175,133 |
+| formatTest | String | `Hello, User. Formatted number: 8,175,133` |
+| formatObject | String | `objectToFormat: {'prop':'value'}` |
 
 ## guid
 
@@ -498,6 +542,8 @@ Unique scoped to deployment for a resource group
 ```bicep
 guid(resourceGroup().id, deployment().name)
 ```
+
+The `guid` function implements the algorithm from [RFC 4122 §4.3](https://www.ietf.org/rfc/rfc4122.txt). The original source can be found in [GuidUtility](https://github.com/LogosBible/Logos.Utility/blob/e7fc45123da090b8cf34da194a1161ed6a34d20d/src/Logos.Utility/GuidUtility.cs) with some modifications. In the `guid()` function implementation, the `namespaceId` is set to `11fb06fb-712d-4ddd-98c7-e71bbd588830`, and the `version` is set to `5`. The value is generated by converting each parameter of the `guid()` function to a string and concatenating them with `-` as delimiters.
 
 ### Return value
 
@@ -595,7 +641,7 @@ The output from the preceding example with the default values is:
 | firstOutput | String | "one,two,three" |
 | secondOutput | String | "one;two;three" |
 
-This function requires **Bicep version 0.8.2 or later**.
+This function requires [Bicep CLI version 0.8.X or higher](./install.md).
 
 <a id="json"></a>
 
@@ -791,7 +837,7 @@ param guidValue string = newGuid()
 
 var storageName = 'storage${uniqueString(guidValue)}'
 
-resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
+resource myStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageName
   location: 'West US'
   sku: {
@@ -990,7 +1036,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-**True** if the first character or characters of the string match the value; otherwise, **False**.
+`True` if the first character or characters of the string match the value; otherwise, `False`.
 
 ### Examples
 
@@ -1021,6 +1067,8 @@ The output from the preceding example with the default values is:
 `string(valueToConvert)`
 
 Converts the specified value to a string.
+Strings are returned as-is. Other types are converted to their equivalent JSON representation.
+If you need to convert a string to JSON, i.e. quote/escape it, you can use `substring(string([value]), 1, length(string([value]) - 2)`.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -1044,24 +1092,30 @@ param testObject object = {
   valueB: 'Example Text'
 }
 param testArray array = [
-  'a'
-  'b'
-  'c'
+  '\'a\''
+  '"b"'
+  '\\c\\'
 ]
 param testInt int = 5
+param testString string = 'foo " \' \\'
 
 output objectOutput string = string(testObject)
 output arrayOutput string = string(testArray)
 output intOutput string = string(testInt)
+output stringOutput string = string(testString)
+output stringEscapedOutput string = substring(string([testString]), 1, length(string([testString])) - 2)
+
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | String | `{"valueA":10,"valueB":"Example Text"}` |
+| arrayOutput | String | `["'a'","\"b\"","\\c\\"]` |
+| intOutput | String | `5` |
+| stringOutput | String | `foo " ' \` |
+| stringEscapedOutput | String | `"foo \" ' \\"` |
 
 ## substring
 
@@ -1304,7 +1358,7 @@ uniqueString(resourceGroup().id, deployment().name)
 The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name isn't unique if constructed the same way.
 
 ```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }
@@ -1340,29 +1394,29 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | baseUri |Yes |string |The base uri string. Take care to observe the behavior regarding the handling of the trailing slash ('/'), as described following this table.  |
 | relativeUri |Yes |string |The relative uri string to add to the base uri string. |
 
-* If **baseUri** ends in a trailing slash, the result is simply
-  **baseUri** followed by **relativeUri**.
+* If `baseUri` ends with a trailing slash, the result is simply `baseUri` followed by `relativeUri`. If `relativeUri` also begins with a leading slash, the trailing slash and the leading slash will be combined into one.
 
-* If **baseUri** does not end in a trailing slash one of two things
+* If `baseUri` does not end in a trailing slash one of two things
   happens.
 
-   * If **baseUri** has no slashes at all (aside from the "//" near
-     the front) the result is simply **baseUri** followed by **relativeUri**.
+   * If `baseUri` has no slashes at all (aside from the "//" near
+     the front) the result is simply `baseUri` followed by `relativeUri`.
 
-   * If **baseUri** has some slashes, but doesn't end with a slash,
-     everything from the last slash onward is removed from **baseUri**
-     and the result is **baseUri** followed by **relativeUri**.
+   * If `baseUri` has some slashes, but doesn't end with a slash,
+     everything from the last slash onward is removed from `baseUri`
+     and the result is `baseUri` followed by `relativeUri`.
 
 Here are some examples:
 
 ```
 uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
 uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/', '/myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
 
-For complete details, the **baseUri** and **relativeUri** parameters are
+For complete details, the `baseUri` and `relativeUri` parameters are
 resolved as specified in
 [RFC 3986, section 5](https://tools.ietf.org/html/rfc3986#section-5).
 

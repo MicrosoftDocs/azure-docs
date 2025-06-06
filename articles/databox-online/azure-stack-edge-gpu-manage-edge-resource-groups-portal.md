@@ -4,8 +4,7 @@ description: Learn how to manage Edge resource groups on your Azure Stack Edge P
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/02/2021
 ms.author: alkohli

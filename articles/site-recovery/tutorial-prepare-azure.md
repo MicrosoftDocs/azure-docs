@@ -1,12 +1,12 @@
 ---
 title: Prepare Azure for on-premises disaster recovery with Azure Site Recovery 
 description: Learn how to prepare Azure for disaster recovery of on-premises machines using Azure Site Recovery.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 12/22/2022
+ms.date: 12/15/2023
 ms.custom: MVC, engagement-fy23
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 # Prepare Azure for on-premises disaster recovery to Azure
 
@@ -87,7 +87,7 @@ On-premises machines are replicated to Azure managed disks. When failover occurs
     1. After deleting the pre-existing address range, select **Add an IP address space**.
     
        :::image type="Protection state" source="media/tutorial-prepare-azure/add-ip-address-space.png" alt-text="Screenshot of the adding IP.":::
-    1. In **Starting address** enter **10.0.0.**
+    1. In **Starting address** enter **10.0.0.0**
     1. Under **Address space size**, select **/24 (256 addresses)**.
     1. Select **Add**.
     
@@ -104,4 +104,4 @@ The virtual network takes a few seconds to create. After it's created, you'll se
 - For Hyper-V disaster recovery, [prepare the on-premises Hyper-V servers](hyper-v-prepare-on-premises-tutorial.md).
 - For physical server disaster recovery, [set up the configuration server and source environment](physical-azure-disaster-recovery.md)
 - [Learn about](../virtual-network/virtual-networks-overview.md) Azure networks.
-- [Learn about](../virtual-machines/managed-disks-overview.md) managed disks.
+- [Learn about](/azure/virtual-machines/managed-disks-overview) managed disks.

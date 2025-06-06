@@ -2,13 +2,15 @@
 title: Import SOAP API to Azure API Management | Microsoft Docs
 description: Learn how to import a SOAP API to Azure API Management as a WSDL specification using the Azure portal, Azure CLI, or Azure PowerShell. Then, test the API in the Azure portal.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 10/26/2022
+ms.date: 11/05/2024
 ms.author: danlep
 ---
 # Import SOAP API to API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows how to import a WSDL specification, which is a standard XML representation of a SOAP API. The article also shows how to test the API in API Management.
 
@@ -25,11 +27,11 @@ In this article, you learn how to:
 * An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 * Azure CLI
-    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 * Azure PowerShell
-    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 
  
@@ -47,7 +49,7 @@ In this article, you learn how to:
     With this selection, the API is exposed as SOAP, and API consumers have to use SOAP rules. If you want to "restify" the API, follow the steps in [Import a SOAP API and convert it to REST](restify-soap-api.md).
 
     ![Create SOAP API from WSDL specification](./media/import-soap-api/pass-through.png)
-1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**.
+1. The following API settings are filled automatically based on information from the SOAP API: **Display name**, **Name**, **Description**. Operations are filled automatically with **Display name**, **URL**, and **Description**, and receive a system-generated **Name**.
 1. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. 
 
     For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
@@ -118,14 +120,13 @@ To define a wildcard SOAP action:
 1. In the portal, select the API you created in the previous step.
 1. In the **Design** tab, select **+ Add Operation**.
 1. Enter a **Display name** for the operation.
-1. In the URL, select `POST` and enter `/soapAction={any}` in the resource. The template parameter inside the curly brackets is arbitrary and doesn't affect the execution.
+1. In the URL, select `POST` and enter `/?soapAction={any}` in the resource. The template parameter inside the curly brackets is arbitrary and doesn't affect the execution.
+
+> [!NOTE]
+> Don't use the **OpenAPI specification** editor in the **Design** tab to modify a SOAP API.
+
 
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

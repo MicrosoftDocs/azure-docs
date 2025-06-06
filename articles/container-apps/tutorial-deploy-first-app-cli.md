@@ -3,11 +3,11 @@ title: 'Tutorial: Deploy your first container app'
 description: Deploy your first application to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 03/21/2022
+ms.date: 05/05/2025
 ms.author: cshoe
-ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli, event-tier1-build-2022
+ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -18,7 +18,7 @@ The Azure Container Apps service enables you to run microservices and containeri
 In this tutorial, you create a secure Container Apps environment and deploy your first container app.
 
 > [!NOTE]
-> You can also deploy this app using the [az containerapp up](/cli/azure/containerapp#az_containerapp_up) by following the instructions in the [Quickstart: Deploy your first container app with containerapp up](get-started.md) article.  The `az containerapp up` command is a fast and convenient way to build and deploy your app to Azure Container Apps using a single command.  However, it doesn't provide the same level of customization for your container app.
+> You can also deploy this app using the [az containerapp up](/cli/azure/containerapp#az_containerapp_up) by following the instructions in the [Quickstart: Deploy your first container app with containerapp up](get-started.md) article. The `az containerapp up` command is a fast and convenient way to build and deploy your app to Azure Container Apps using a single command. However, it doesn't provide the same level of customization for your container app.
 
 
 ## Prerequisites
@@ -29,50 +29,11 @@ In this tutorial, you create a secure Container Apps environment and deploy your
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-# [Bash](#tab/bash)
+[!INCLUDE [container-apps-set-environment-variables.md](../../includes/container-apps-set-environment-variables.md)]
 
-To create the environment, run the following command:
+[!INCLUDE [container-apps-create-resource-group.md](../../includes/container-apps-create-resource-group.md)]
 
-```azurecli
-az containerapp env create \
-  --name $CONTAINERAPPS_ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
-
-```azurepowershell
-$WorkspaceArgs = @{
-    Name = 'myworkspace'
-    ResourceGroupName = $ResourceGroupName
-    Location = $Location
-    PublicNetworkAccessForIngestion = 'Enabled'
-    PublicNetworkAccessForQuery = 'Enabled'
-}
-New-AzOperationalInsightsWorkspace @WorkspaceArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
-$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
-```
-
-To create the environment, run the following command:
-
-```azurepowershell
-$EnvArgs = @{
-    EnvName = $ContainerAppsEnvironment
-    ResourceGroupName = $ResourceGroupName
-    Location = $Location
-    AppLogConfigurationDestination = 'log-analytics'
-    LogAnalyticConfigurationCustomerId = $WorkspaceId
-    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
-}
-
-New-AzContainerAppManagedEnv @EnvArgs
-```
-
----
+[!INCLUDE [container-apps-create-environment.md](../../includes/container-apps-create-environment.md)]
 
 ## Create a container app
 
@@ -85,9 +46,9 @@ az containerapp create \
   --name my-container-app \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINERAPPS_ENVIRONMENT \
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
   --target-port 80 \
-  --ingress 'external' \
+  --ingress external \
   --query properties.configuration.ingress.fqdn
 ```
 
@@ -96,12 +57,12 @@ az containerapp create \
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ImageParams = @{
     Name = 'my-container-app'
-    Image = 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
+    Image = 'mcr.microsoft.com/k8se/quickstart:latest'
 }
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 $EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).Id
@@ -133,7 +94,7 @@ By setting `IngressExternal` to `$true`, you make the container app available to
 
 The `create` command returns the fully qualified domain name for the container app. Copy this location to a web browser.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Get the fully qualified domain name for the container app.
 
@@ -154,7 +115,7 @@ Copy this location to a web browser.
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this tutorial.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they're also deleted.
 
 # [Bash](#tab/bash)
 
@@ -162,7 +123,7 @@ If you're not going to continue to use this application, run the following comma
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force

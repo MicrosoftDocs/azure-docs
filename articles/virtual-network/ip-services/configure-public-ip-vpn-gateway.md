@@ -2,13 +2,12 @@
 title: Manage a public IP address with a VPN gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with a VPN gateway and how to change the configuration.
-author: asudbring
-ms.author: allensu
-ms.service: virtual-network
+author: mbender-ms
+ms.author: mbender
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 12/16/2022
-ms.custom: template-how-to, engagement-fy23
+ms.date: 01/07/2025
 ---
 
 # Manage a public IP address with a VPN gateway
@@ -19,7 +18,7 @@ A VPN gateway is a virtual network gateway used to send encrypted traffic betwee
 
 VPN gateway supports standard and basic SKU public IP addresses depending on the SKU of the VPN gateway. Public IP prefixes aren't supported. 
 
-In this article, you'll learn how to create a VPN gateway using an existing public IP in your subscription. 
+In this article, you learn how to create a VPN gateway using an existing public IP in your subscription. 
 
 ## Prerequisites
 
@@ -29,30 +28,30 @@ In this article, you'll learn how to create a VPN gateway using an existing publ
 
 ## Create VPN gateway using existing public IP
 
-In this section, you'll create a VPN gateway. You'll select the IP address you created in the prerequisites as the public IP for the VPN gateway.
+In this section, you create a VPN gateway. You select the IP address you created in the prerequisites as the public IP for the VPN gateway.
 
 ### Create virtual network
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**.
+1. In the search box at the top of the portal, enter **Virtual network**.
 
-3. In the search results, select **Virtual networks**.
+1. In the search results, select **Virtual networks**.
 
-4. Select **+ Create**.
+1. Select **+ Create**.
 
-5. In **Create virtual network**, enter or select the following information.
+1. In **Create virtual network**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroupVPN**. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> Enter **myResourceGroupVPN**.</br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myVNet**. |
     | Region | Select **West US 2**. |
     
-6. Select the **Review + create** tab, or select the blue **Review + create** button.
+1. Select the **Review + create** tab, or select the blue **Review + create** button.
 
 7. Select **Create**.
 
@@ -64,11 +63,16 @@ In this section, you'll create a VPN gateway. You'll select the IP address you c
 
 11. Select **Subnets** in **Settings** of **myVNET**.
 
-12. Select **+ Gateway subnet**.
+12. Select **+ Subnet**.
 
-13. In **Add subnet**, change the **Subnet address range** from **/24** to **/27**.
+13. In **Add subnet**, select or enter the following information, leaving the other options as their defaults:
 
-14. Select **Save**.
+    | Setting | Value |
+    | ------- | ----- |
+    | Select Purpose | Select **Virtual Network Gateway**. |
+    | Size | Select **/27**. |
+
+14. Select **Add**.
 
 ### Create VPN gateway
 
@@ -88,10 +92,10 @@ In this section, you'll create a VPN gateway. You'll select the IP address you c
     | Name | Enter **myVPNGateway**. |
     | Region | Select **West US 2**. |
     | Gateway type | Leave the default of **VPN**. |
-    | VPN type | Leave the default of **Route-based**. |
     | SKU | Select **VpnGw1AZ**. |
+    | Generation | Leave the default of **Generation2**. |
     | Virtual network | Select **myVNet**. |
-    | Subnet | Entry will autoselect **GatewaySubnet** you created earlier |
+    | Subnet | Entry will autoselect the **GatewaySubnet** created earlier. |
     | **Public IP address** |   |
     | Public IP address | Select **Use existing**. |
     | Choose public IP address | Select **myStandardPublicIP** or your public IP address |

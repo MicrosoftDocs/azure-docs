@@ -3,11 +3,9 @@ title: General Troubleshooting
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot external control activities in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: nabhishek
-ms.service: data-factory
-ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/13/2022
+ms.date: 02/13/2025
 ms.author: abnarain
 ---
 
@@ -99,7 +97,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 <br/> 
 
-- **Message**: `User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not authorized to access cluster.`
+- **Message**: `User: 'SimpleUserContext{userId=..., name=user@company.com, orgId=...}' is not authorized to access cluster.`
 
 - **Cause**: The user who generated the access token isn't allowed to access the Databricks cluster specified in the linked service.
 
@@ -109,7 +107,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Message**: `Job is not fully initialized yet. Please retry later.`
 
-- **Cause**: The job has not initialized.
+- **Cause**: The job hasn't initialized.
 
 - **Recommendation**: Wait and try again later.
 
@@ -143,7 +141,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
    :::image type="content" source="media/data-factory-troubleshoot-guide/databricks-pipeline.png" alt-text="Screenshot of the Databricks pipeline.":::
 
-    You noticed this change on September 28, 2021 at around 9 AM IST when your pipeline relying on this output started failing. No change was made on the pipeline, and the Boolean output had been coming as expected before the failure. 
+    You noticed this change on September 28, 2021 at around 9 AM IST when your pipeline relying on this output started failing. No change was made on the pipeline, and the Boolean output data arrived as expected prior to the failure.
 
    :::image type="content" source="media/data-factory-troubleshoot-guide/old-and-new-output.png" alt-text="Screenshot of the difference in the output.":::
 
@@ -159,9 +157,9 @@ The following table applies to U-SQL.
 
 - **Message**: `The access token is from the wrong tenant.`
 
-- **Cause**: Incorrect Azure Active Directory (Azure AD) tenant.
+- **Cause**: Incorrect Microsoft Entra tenant.
 
-- **Recommendation**: Incorrect Azure Active Directory (Azure AD) tenant.
+- **Recommendation**: Incorrect Microsoft Entra tenant.
 
 <br/>
 
@@ -359,13 +357,13 @@ The following table applies to U-SQL.
 
 - **Cause**: The properties of the activity such as `pipelineParameters` are invalid for the Azure Machine Learning (ML) pipeline.
 
-- **Recommendation**: Check that the value of activity properties matches the expected payload of the published Azure ML pipeline specified in Linked Service.
+- **Recommendation**: Check that the value of activity properties matches the expected payload of the published Azure Machine Learning pipeline specified in Linked Service.
 
 ### Error code: 4124
 
 - **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: The published Azure ML pipeline endpoint doesn't exist.
+- **Cause**: The published Azure Machine Learning pipeline endpoint doesn't exist.
 
 - **Recommendation**: Verify that the published Azure Machine Learning pipeline endpoint specified in Linked Service exists in Azure Machine Learning.
 
@@ -381,7 +379,7 @@ The following table applies to U-SQL.
 
 - **Message**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
-- **Cause**: The Azure ML pipeline run failed.
+- **Cause**: The Azure Machine Learning pipeline run failed.
 
 - **Recommendation**: Check Azure Machine Learning for more error logs, then fix the ML pipeline.
 
@@ -407,7 +405,7 @@ The following table applies to U-SQL.
 
 - **Message**: `There are not enough vcores available for your spark job, details: '%errorMessage;'`
 
-- **Cause**: Insufficient vcores
+- **Cause**: Insufficient virtual cores
 
 - **Recommendation**: Try reducing the numbers of vCores requested or increasing your vCore quota. For more information, see [Apache Spark core concepts](../synapse-analytics/spark/apache-spark-concepts.md).
 
@@ -730,7 +728,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The service tried to create a batch on a Spark cluster using Livy API (livy/batch), but received an error.
 
-- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them the batch ID and job ID, which can be found in the activity run Output in the service Monitoring page. To troubleshoot further, collect the full log of the batch job.
+- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them with the batch ID and job ID, which can be found in the activity run Output in the service Monitoring page. To troubleshoot further, collect the full log of the batch job.
 
    For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
@@ -1076,7 +1074,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
-- **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
+- **Recommendation**: Use Fiddler/Netmon/Wireshark to validate the request.
 
     **Using Fiddler**
     
@@ -1124,7 +1122,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 ### Error Code: 2403
 
-- **Message**: `Get access token from MSI failed for Datafactory <DF mname>, region <region code>. Please verify resource url is valid and retry.`
+- **Message**: `Get access token from MSI failed for Datafactory <DF name>, region <region code>. Please verify resource url is valid and retry.`
 
 - **Cause**: Unable to acquire an access token from the resource URL provided.
 
@@ -1150,7 +1148,7 @@ When you observe that the activity is running much longer than your normal runs 
 
 **Error message:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s), and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896 KB as mentioned in the Azure limits documentation for [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) and [Azure Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-analytics-limits).
+**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s), and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896 KB as mentioned in the Azure limits documentation for [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits) and [Azure Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-analytics-limits).
 
 **Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
 
@@ -1183,13 +1181,13 @@ Then our pipeline will succeed. And we can see in the input box that the paramet
 
 :::image type="content" source="media/data-factory-troubleshoot-guide/input-type-array.png" alt-text="Screenshot showing input type array.":::
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
-* [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+* [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 * [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-* [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+* [X information about Data Factory](https://x.com/hashtag/DataFactory)
 * [Azure videos](https://azure.microsoft.com/resources/videos/index/)
 * [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)

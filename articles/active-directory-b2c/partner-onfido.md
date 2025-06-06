@@ -2,19 +2,21 @@
 title: Tutorial to configure Azure Active Directory B2C with Onfido
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Onfido for document ID and facial biometrics verification 
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 12/8/2022
+ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
+
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with Onfido. I need to configure the Onfido service to verify identity in the sign-up or sign-in flow. My goal is to meet Know Your Customer and identity requirements and provide a reliable onboarding experience, while reducing fraud.
 ---
 
 # Tutorial for configuring Onfido with Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with [Onfido](https://onfido.com/), a document ID and facial biometrics verification app. Use it to meet *Know Your Customer* and identity requirements. Onfido uses artificial intelligence (AI) technology that verifies identity by matching a photo ID with facial biometrics. The solution connects a digital identity to a person, provides a reliable onboarding experience, and helps reduce fraud.
 
@@ -24,7 +26,8 @@ In this tutorial, you'll enable the Onfido service to verify identity in the sig
 
 To get started, you'll need:
 
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have on, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - An Onfido trial account
@@ -77,7 +80,7 @@ For more Onfido documentation, see:
 3. Add **Allowed Origin** as `https://{your_tenant_name}.b2clogin.com`.
 
 >[!NOTE]
->You'll need the deployed service URL to configure Azure AD.
+>You'll need the deployed service URL to configure Microsoft Entra ID.
 
 #### Adding sensitive configuration settings
 
@@ -110,7 +113,7 @@ REST API settings:
 #### Upload your files
 
 1. Store the UI folder files in your blob container.
-2. [Use Azure Storage Explorer to manage Azure managed disks](../virtual-machines/disks-use-storage-explorer-managed-disks.md) and access permissions.
+2. [Use Azure Storage Explorer to manage Azure managed disks](/azure/virtual-machines/disks-use-storage-explorer-managed-disks) and access permissions.
 
 ### Configure Azure AD B2C
 
@@ -121,12 +124,12 @@ In [/samples/OnFido-Combined/Policies](https://github.com/azure-ad-b2c/partner-i
 |Placeholder|Replace with value|Example|
 |---|---|---|
 |{your_tenant_name}|Your tenant short name|"your tenant" from yourtenant.onmicrosoft.com|
-|{your_tenantID}|Your Azure AD B2C TenantID| 01234567-89ab-cdef-0123-456789abcdef|
-|{your_tenant_IdentityExperienceFramework_appid}|IdentityExperienceFramework app App ID configured in your Azure AD B2C tenant|01234567-89ab-cdef-0123-456789abcdef|
-|{your_tenant_ ProxyIdentityExperienceFramework_appid}|ProxyIdentityExperienceFramework app App ID configured in your Azure AD B2C tenant| 01234567-89ab-cdef-0123-456789abcdef|
-|{your_tenant_extensions_appid}|Your tenant storage application App ID| 01234567-89ab-cdef-0123-456789abcdef|
-|{your_tenant_extensions_app_objectid}|Your tenant storage application Object ID| 01234567-89ab-cdef-0123-456789abcdef|
-|{your_app_insights_instrumentation_key}|Your app insights instance* instrumentation key|01234567-89ab-cdef-0123-456789abcdef|
+|{your_tenantID}|Your Azure AD B2C TenantID| aaaabbbb-0000-cccc-1111-dddd2222eeee|
+|{your_tenant_IdentityExperienceFramework_appid}|IdentityExperienceFramework app App ID configured in your Azure AD B2C tenant|00001111-aaaa-2222-bbbb-3333cccc4444|
+|{your_tenant_ ProxyIdentityExperienceFramework_appid}|ProxyIdentityExperienceFramework app App ID configured in your Azure AD B2C tenant| 00001111-aaaa-2222-bbbb-3333cccc4444|
+|{your_tenant_extensions_appid}|Your tenant storage application App ID| 00001111-aaaa-2222-bbbb-3333cccc4444|
+|{your_tenant_extensions_app_objectid}|Your tenant storage application Object ID| aaaabbbb-0000-cccc-1111-dddd2222eeee|
+|{your_app_insights_instrumentation_key}|Your app insights instance* instrumentation key|00001111-aaaa-2222-bbbb-3333cccc4444|
 |{your_ui_file_base_url}|Location URL of your UI folders **ocean_blue**, **dist**, and **assets**| `https://yourstorage.blob.core.windows.net/UI/`|
 |{your_app_service_URL}|The app service URL you set up|`https://yourapp.azurewebsites.net`|
 

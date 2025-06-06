@@ -1,9 +1,6 @@
 ---
 title: "How to: Write a TokenProvider with an Azure Function"
 description: How to write a custom token provider as an Azure Function and deploy it.
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 02/05/2023
 ms.topic: article
 ms.service: azure-fluid
@@ -21,7 +18,7 @@ Each Azure Fluid Relay resource you create is assigned a **tenant ID** and its o
 
 ## Implement an Azure Function to sign tokens
 
-One option for building a secure token provider is to create HTTPS endpoint and create a TokenProvider implementation that makes authenticated HTTPS requests to that endpoint to retrieve tokens. This path enables you to store the *tenant secret key* in a secure location, such as [Azure Key Vault](../../key-vault/general/overview.md).
+One option for building a secure token provider is to create HTTPS endpoint and create a TokenProvider implementation that makes authenticated HTTPS requests to that endpoint to retrieve tokens. This path enables you to store the *tenant secret key* in a secure location, such as [Azure Key Vault](/azure/key-vault/general/overview).
 
 The complete solution has two pieces:
 

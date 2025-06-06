@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Verify and update your detected device inventory
 
-This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and describes how to review your device inventory and enhance security monitoring with fine-tuned device details.
+This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for Operational Technology (OT) monitoring with Microsoft Defender for IoT, and describes how to review your device inventory and enhance security monitoring with fine-tuned device details.
 
 :::image type="content" source="../media/deployment-paths/progress-fine-tuning-ot-monitoring.png" alt-text="Diagram of a progress bar with Fine-tune OT monitoring highlighted." border="false" lightbox="../media/deployment-paths/progress-fine-tuning-ot-monitoring.png":::
 
@@ -15,21 +15,21 @@ This article is one in a series of articles describing the [deployment path](../
 
 Before performing the procedures in this article, make sure that you have:
 
-- An OT sensor [installed](install-software-ot-sensor.md), [activated, and configured](activate-deploy-sensor.md), with device data detected.
+- An OT sensor [installed](install-software-ot-sensor.md), [configured, and activated](activate-deploy-sensor.md), with device data detected.
 
 - Access to your OT sensor as **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
 This step is performed by your deployment teams.
 
-## View your device inventory on the Azure portal
+## View the device inventory on your OT sensor
 
 1. Sign into your OT sensor and select the **Device inventory** page.
 
-1. Select **Edit Columns** to view additional information in the grid so that you can review the data detected for each device.
+1. Select **Edit Columns** to make changes to the grid layout and display more data fields for reviewing the data detected for each device.
 
-    We especially recommend reviewing data for the **Name**, **Class**, **Type**, and **Subtype**, **Authorization**, **Scanner device**, and **Programming device** columns.
+    We especially recommend reviewing data for the **Name**, **Type**, **Authorization**, **Scanner device**, and **Programming device** columns.
 
-1. Understand the devices that the OT sensor's detected, and identify any sensors where you'll need to identify device properties.
+1. Review the devices listed in the device inventory, and identify the devices whose device properties must be edited.
 
 ## Edit device properties per device
 
@@ -37,7 +37,7 @@ For each device where you need to edit device properties:
 
 1. Select the device in the grid and then select **Edit** to view the editing pane. For example:
 
-    :::image type="content" source="../media/update-device-inventory/edit-device-details.png" alt-text="Screenshot of editing device details from the OT sensor.":::
+    :::image type="content" source="../media/update-device-inventory/edit-device-details.png" alt-text="Screenshot of editing device details from the OT sensor." lightbox="../media/update-device-inventory/edit-device-details.png":::
 
 1. Edit any of the following device properties as needed:
 
@@ -54,25 +54,9 @@ For each device where you need to edit device properties:
 
 1. Select **Save** to save your changes.
 
-## Merge duplicate devices
-
-As you review the devices detected on your device inventory, note whether multiple entries have been detected for the same device on your network.
-
-For example, this might occur when you have a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
-
-Devices with the same IP and MAC addresses are automatically merged, and identified as the same device. We recommend merging any duplicate devices so that each entry in the device inventory represents only one unique device in your network.
-
-> [!IMPORTANT]
-> Device merges are irreversible. If you merge devices incorrectly, you'll have to delete the merged device and wait for the sensor to rediscover both devices.
->
-
-To merge multiple devices, select two or more authorized devices in the device inventory and then select **Merge**.
-
-The devices and all their properties are merged in the device inventory. For example, if you merge two devices with different IP addresses, each IP address appears as separate interfaces in the new device.
-
 ## Enhance device data (optional)
 
-You may want to increase device visibility and enhance device data with more details than the default data detected.
+You might want to increase device visibility and enhance device data with more details than the default data detected.
 
 - To increase device visibility to Windows-based devices, use the Defender for IoT [Windows Management Instrumentation (WMI) tool](../detect-windows-endpoints-script.md).
 

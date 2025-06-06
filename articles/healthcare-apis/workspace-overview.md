@@ -1,12 +1,12 @@
 ---
 title:  What is the workspace? - Azure Health Data Services
 description: This article describes an overview of the Azure Health Data Services workspace.
-author: msjasteppe
-ms.service: healthcare-apis
+author: EXPEkesheth
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 1/5/2023
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # What is Azure Health Data Services workspace?
@@ -21,7 +21,7 @@ One or more workspaces can be created in a resource group from the Azure portal,
  
 A workspace can't be deleted unless all child service instances within the workspace have been deleted. This feature helps prevent any accidental deletion of service instances. However, when a workspace resource group is deleted, all the workspaces and child service instances within the workspace resource group get deleted. 
 
-Workspace names can be reused in the same Azure subscription, but not in a different Azure subscription, after deletion. However, when the move operation is supported and enabled, workspaces and its child resources can be moved from one subscription to another subscription if certain requirements are met. One requirement is that the two subscriptions must be part of the same Azure Active Directory (Azure AD) tenant. Another requirement is that the Private Link configuration isn't enabled. Names for FHIR services, DICOM services, and MedTech services can be reused in the same or different subscription after deletion if there's no collision with the URLs of any existing services.
+Workspace names can be reused in the same Azure subscription, but not in a different Azure subscription, after deletion. However, when the move operation is supported and enabled, workspaces and its child resources can be moved from one subscription to another subscription if certain requirements are met. One requirement is that the two subscriptions must be part of the same Microsoft Entra tenant. Another requirement is that the Private Link configuration isn't enabled. Names for FHIR services, DICOM services, and MedTech services can be reused in the same or different subscription after deletion if there's no collision with the URLs of any existing services.
 
 ## Workspace and Azure region selection 
  
@@ -58,7 +58,7 @@ Some features are configured at the workspace level and apply to all child servi
 
 ### Application monitoring
 
-Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For information about Azure Monitor, see [Azure Monitor overview](../azure-monitor/index.yml) documentation.
+Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For information about Azure Monitor, see [Azure Monitor overview](/azure/azure-monitor/) documentation.
 
 ### Azure role-based access control
 

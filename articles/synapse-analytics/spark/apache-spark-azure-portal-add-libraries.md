@@ -2,9 +2,10 @@
 title: Manage Apache Spark packages
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
 author: shuaijunye
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
+ms.reviewer:  ms-arali
 ms.topic: how-to
-ms.date: 02/20/2023
+ms.date: 11/15/2024
 ms.author: shuaijunye
 ms.subservice: spark
 ms.custom: kr2b-contr-experiment, devx-track-azurepowershell
@@ -37,13 +38,17 @@ There are three levels of packages installed on Azure Synapse Analytics:
 
 > [!NOTE]
 >
-> - Pool-level library management can take time, depending on the size of the packages and the complexity of required dependencies. We recommend the session-level installation for experimental and quick iterative scenarios.
+> - Pool-level library management can take time, depending on the size of the packages and the complexity of required dependencies, the maximum updating time is set as 50 minutes. Your pool-level library management job will be canceled automatically if it exceeds the upper limit of 50 minutes. We recommend the session-level installation for experimental and quick iterative scenarios.
 > - The pool-level library management will produce a stable dependency for running your Notebooks and Spark job definitions. Installing the library to your Spark pool is highly recommended for the pipeline runs.
 > - Session level library management can help you with fast iteration or dealing with the frequent changes of library. However, the stability of session level installation is not promised. Also, in-line commands like %pip and %conda are disabled in pipeline run. Managing library in Notebook session is recommended during the developing phase.
 
 ## Manage workspace packages
 
-When your team develops custom applications or models, you might develop various code artifacts like *.whl*, *.jar*, or *tar.gz* files to package your code.
+When your team develops custom applications or models, you might develop various code artifacts like *.whl*, *.jar*, or *.tar.gz* files to package your code.
+
+> [!IMPORTANT]
+>
+> - *tar.gz* is only supported for R language. Please use *.whl* as Python custom package.
 
 In Azure Synapse, workspace packages can be custom or private *.whl* or *.jar* files. You can upload these packages to your workspace and later assign them to a specific serverless Apache Spark pool. After you assign these workspace packages, they're installed automatically on all Spark pool sessions.
 
@@ -71,7 +76,7 @@ To learn more about these capabilities, see [Manage Spark pool packages](./apach
 
 If you're having trouble identifying required dependencies, follow these steps:
 
-1. Run the following script to set up a local Python environment that's the same as the Azure Synapse Spark environment. The script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml), which is the list of libraries shipped in the default Python environment in Azure Synapse Spark.
+1. Run the following script to set up a local Python environment that's the same as the Azure Synapse Spark environment. This script requires a YAML file containing a list of all the libraries included in the default Python environment for Azure Synapse Spark. You can find this YAML file in the documentation for specific runtime versions, such as [Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md).
 
    ```powershell
       # One-time Azure Synapse Python setup
@@ -105,12 +110,15 @@ Session-scoped packages allow users to define package dependencies at the start 
 
 To learn more about how to manage session-scoped packages, see the following articles:
 
-- [Python session packages](./apache-spark-manage-session-packages.md#session-scoped-python-packages): At the start of a session, provide a Conda *environment.yml* file to install more Python packages from popular repositories. Or you can use %pip and %conda commands to manage libraries in the Notebook code cells.
+- [Python session packages](./apache-spark-manage-session-packages.md#session-scoped-python-packages): At the start of a session, provide a Conda *environment.yml* file to install more Python packages from popular repositories. Or you can use `%pip` and `%conda` commands to manage libraries in the Notebook code cells.
+  
+  > [!IMPORTANT]
+  >
+  > **Do not use** `%%sh` to try and install libraries with pip or conda. The behavior is **not the same** as %pip or %conda.
 
 - [Scala/Java session packages](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages): At the start of your session, provide a list of *.jar* files to install by using `%%configure`.
 
 - [R session packages](./apache-spark-manage-session-packages.md#session-scoped-r-packages-preview): Within your session, you can install packages across all nodes within your Spark pool by using `install.packages` or `devtools`.
-
 
 ## Automate the library management process through Azure PowerShell cmdlets and REST APIs
 
@@ -121,7 +129,7 @@ For more information, see the following articles:
 - [Manage your Spark pool libraries through REST APIs](apache-spark-manage-packages-outside-ui.md#manage-packages-through-rest-apis)
 - [Manage your Spark pool libraries through Azure PowerShell cmdlets](apache-spark-manage-packages-outside-ui.md#manage-packages-through-azure-powershell-cmdlets)
 
-## Next steps
+## Related content
 
 - [View the default libraries and supported Apache Spark versions](apache-spark-version-support.md)
 - [Troubleshoot library installation errors](apache-spark-troubleshoot-library-errors.md)

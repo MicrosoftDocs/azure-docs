@@ -1,18 +1,11 @@
 ---
-title: Understand Azure NetApp Files application volume group for SAP HANA | Microsoft Docs
-description: Describes the use cases and key features of Azure NetApp Files application volume group for SAP HANA.  
+title: Understand Azure NetApp Files application volume group for SAP HANA 
+description: Describes the use cases and key features of Azure NetApp Files application volume group for SAP HANA.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 02/24/2023
+ms.topic: concept-article
+ms.date: 04/22/2025
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for SAP HANA 
@@ -25,7 +18,7 @@ Application volume group for SAP HANA provides technical improvements to simplif
 
 ## Key features
 
-Application volume group for SAP HANA is supported for all regions. It provides the following key features:
+Application volume group for SAP HANA is supported for all regions where Azure NetApp Files is available. It provides the following key features:
 
 * Supporting SAP HANA configurations for both single and multiple host setups, including: 
     * Volumes for a single or primary SAP HANA database
@@ -47,11 +40,20 @@ Application volume group for SAP HANA is supported for all regions. It provides 
 
 Application volume group for SAP HANA helps you simplify the deployment process and increase the storage performance for SAP HANA workloads. Some of the new features are as follows:
 
-* Use of proximity placement group (PPG) instead of manual pinning.
-    * You will anchor the SAP HANA VMs using a PPG to guaranty lowest possible latency. This PPG will be used to enforce that the data, log, and shared volumes are created in the close proximity to the SAP HANA VMs. See [Best practices about Proximity Placement Groups](application-volume-group-considerations.md#best-practices-about-proximity-placement-groups) for detail.
+* [Availability zone volume placement](use-availability-zones.md)
+
+    Designating the same availability zone for the volumes ensures that virtual machines and Azure NetApp Files volumes reside in the same availability zone and meet the latency requirements for SAP HANA. Availability zone volume placement simplifies the deployment process, avoiding the manual AvSet pinning process and eliminating the requirement for availability sets. To learn more about the differences between availability zone volume placement and proximity placement groups, see [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md#best-practices-about-proximity-placement).
 
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.
     * This deployment method provides better performance and throughput for the SAP HANA database.
+    
+* [Standard network features](azure-netapp-files-network-topologies.md) 
+
+    Application volume group for SAP HANA now supports selecting Standard network features for all volumes in the volume group. Standard network features support enhanced security including [network security groups (NSGs)](../virtual-network/network-security-group-how-it-works.md)
+
+* [Customer-managed keys](configure-customer-managed-keys.md)
+
+    Application volumes group for SAP HANA now supports the use of customer-managed keys for increased security and compliance. With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys.
 
 ## Next steps
 

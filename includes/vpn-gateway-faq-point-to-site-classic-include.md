@@ -1,8 +1,8 @@
 ---
  title: include file
  author: cherylmc
- ms.service: vpn-gateway
- ms.date: 05/25/2022
+ ms.service: azure-vpn-gateway
+ ms.date: 09/26/2023
  ms.author: cherylmc
 ---
 This FAQ applies to P2S connections that use the classic deployment model.

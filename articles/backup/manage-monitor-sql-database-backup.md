@@ -1,16 +1,16 @@
 ---
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
-ms.topic: conceptual
-ms.date: 09/14/2022
-ms.service: backup
+ms.topic: how-to
+ms.date: 06/03/2025
+ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Manage and monitor backed up SQL Server databases
+# Manage and monitor backed up SQL Server databases using Azure portal
 
-This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. You'll learn how to monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
+This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service using Azure portal. You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [REST API](manage-azure-sql-vm-rest-api.md) to manage SQL database backups. You can monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
 If you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
 
@@ -35,7 +35,7 @@ Azure Backup raises built-in alerts via Azure Monitor for the following SQL data
 - Workload extension unhealthy
 - Deletion of backup data
 
-For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#azure-monitor-alerts-for-azure-backup).
+For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
 
 To monitor database backup alerts, follow these steps:
 
@@ -49,7 +49,7 @@ To monitor database backup alerts, follow these steps:
 
 1. To configure notifications for these alerts, you must create an alert processing rule.
 
-   Learn about [Configure notifications for alerts](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#configuring-notifications-for-alerts).
+   Learn about [Configure notifications for alerts](backup-azure-monitor-alerts-notification.md#configure-notifications-for-alerts).
 
 ## Stop protection for a SQL Server database
 
@@ -93,7 +93,7 @@ To stop protection for a database:
 >For more information about the delete data option, see the FAQ below:
 >
 >- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
->- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.yml#if-i-change-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
+>- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.yml#if-i-ve-changed-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
 >
 >
 
@@ -122,7 +122,7 @@ You can run different types of on-demand backups:
 >The retention period of this backup is determined by the type of on-demand backup you have run.
 >
 >- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
->- *On-demand copy only full* accepts any v0alue for retaintion.
+>- *On-demand copy only full* accepts any value for retention.
 >- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
 >- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 
@@ -158,10 +158,10 @@ You can fix the policy version for all the impacted items in one click:
 
 ## Unregister a SQL Server instance
 
-Before you unregister the server, [disable soft delete](./backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal), and then delete all backup items.
+Before you unregister the server, [disable soft delete](./backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete), and then delete all backup items.
 
 >[!NOTE]
->Deleting backup items with soft delete enabled will lead to 14 days retention, and you will need to wait before the items are completely removed. However, if you've deleted the backup items with soft delete enabled, you can undelete them, disable soft-delete, and then delete them again for immediate removal. [Learn more](./backup-azure-security-feature-cloud.md#permanently-deleting-soft-deleted-backup-items)
+>Deleting backup items with soft delete enabled will lead to 14 days retention, and you will need to wait before the items are completely removed. However, if you've deleted the backup items with soft delete enabled, you can undelete them, disable soft-delete, and then delete them again for immediate removal. [Learn more](./backup-azure-security-feature-cloud.md#delete-soft-deleted-backup-items-permanently)
 
 Unregister a SQL Server instance after you disable protection but before you delete the vault.
 
@@ -201,3 +201,11 @@ Different           | Same or different        | Same or different     | Same or
 ## Next steps
 
 For more information, see [Troubleshoot backups on a SQL Server database](backup-sql-server-azure-troubleshoot.md).
+
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
+

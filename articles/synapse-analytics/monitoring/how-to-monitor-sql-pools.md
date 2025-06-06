@@ -1,13 +1,12 @@
 ---
 title: How to monitor SQL pools in Synapse Studio
 description: Learn how to monitor your SQL pools by using Synapse Studio.
-services: synapse-analytics 
-author: matt1883
-ms.service: synapse-analytics
+author: gillharmeet
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
 ms.date: 11/30/2020
-ms.author: mahi
+ms.author: harmeetgill
 ms.reviewer: mahi
 ---
 

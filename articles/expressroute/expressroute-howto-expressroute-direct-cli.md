@@ -5,7 +5,7 @@ description: Learn how to use Azure CLI to configure Azure ExpressRoute Direct t
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau 
@@ -70,9 +70,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
    ```output
    [
    {
-    "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
+    "address": "Ashburn, VA",
     "availableBandwidths": [],
-    "contact": "support@equinix.com",
+    "contact": "support@contoso.com",
     "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-DC2",
     "location": null,
     "name": "Equinix-Ashburn-DC2",
@@ -81,9 +81,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
     "type": "Microsoft.Network/expressRoutePortsLocations"
    },
    {
-    "address": "1950 N. Stemmons Freeway, Suite 1039A, DA3, Dallas, TX 75207",
+    "address": "Dallas, TX",
     "availableBandwidths": [],
-    "contact": "support@equinix.com",
+    "contact": "support@contoso.com",
     "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Dallas-DA3",
     "location": null,
     "name": "Equinix-Dallas-DA3",
@@ -92,9 +92,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
     "type": "Microsoft.Network/expressRoutePortsLocations"
    },
    {
-    "address": "111 8th Avenue, New York, NY 10011",
+    "address": "New York, NY",
     "availableBandwidths": [],
-    "contact": "support@equinix.com",
+    "contact": "support@contoso.com",
     "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-New-York-NY5",
     "location": null,
     "name": "Equinix-New-York-NY5",
@@ -103,9 +103,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
     "type": "Microsoft.Network/expressRoutePortsLocations"
    },
    {
-    "address": "11 Great Oaks Blvd, SV1, San Jose, CA 95119",
+    "address": "San Jose, CA",
     "availableBandwidths": [],
-    "contact": "support@equinix.com",
+    "contact": "support@contoso.com",
     "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-San-Jose-SV1",
     "location": null,
     "name": "Equinix-San-Jose-SV1",
@@ -114,9 +114,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
     "type": "Microsoft.Network/expressRoutePortsLocations"
    },
    {
-    "address": "2001 Sixth Ave., Suite 350, SE2, Seattle, WA 98121",
+    "address": "Seattle, WA",
     "availableBandwidths": [],
-    "contact": "support@equinix.com",
+    "contact": "support@contoso.com",
     "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Seattle-SE2",
     "location": null,
     "name": "Equinix-Seattle-SE2",
@@ -136,14 +136,14 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 
    ```output
    {
-   "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
+   "address": "Ashburn, VA",
    "availableBandwidths": [
     {
       "offerName": "100 Gbps",
       "valueInGbps": 100
     }
    ],
-   "contact": "support@equinix.com",
+   "contact": "support@contoso.com",
    "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-DC2",
    "location": null,
    "name": "Equinix-Ashburn-DC2",
@@ -310,7 +310,10 @@ You can use additional circuit bandwidths on ExpressRoute Direct only to support
 
 **SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** can only be MeteredData. Unlimited is not supported on ExpressRoute Direct.
+**SkuFamily** can only be MeteredData at creation. You can change to **Unlimited** after the creation of the circuit by updating the `sku-family`.
+
+> [!NOTE]
+> Once you change to **Unlimited** data, you can't change back without needing to recreate the ExpressRoute circuit.
 
 Create a circuit on the ExpressRoute Direct resource:
 

@@ -1,16 +1,61 @@
 ---
 title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
-author: mumian
-ms.author: jgao
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 11/09/2022
+ms.date: 05/16/2025
 ---
 
 # Deployment functions for Bicep
 
 This article describes the Bicep functions for getting values related to the current deployment.
+
+## deployer
+
+`deployer()`
+
+Returns information about the principal (identity) that initiated the current deployment. The principal can be a user, service principal, or managed identity, depending on how the deployment was started.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
+### Return value
+
+This function returns an object with details about the deployment principal, including:
+
+- `objectId`: The Microsoft Entra ID object ID of the principal.
+- `tenantId`: The Microsoft Entra ID tenant ID.
+- `userPrincipalName`: The user principal name (UPN) if available. For service principals or managed identities, this property may be empty.
+
+> [!NOTE]
+> The returned values depend on the deployment context. For example, `userPrincipalName` may be empty for service principals or managed identities.
+
+```json
+{
+  "objectId": "<principal-object-id>",
+  "tenantId": "<tenant-id>",
+  "userPrincipalName": "<user@domain.com or empty>"
+}
+```
+
+### Example
+
+The following example Bicep file returns the deployer object.
+
+```bicep
+output deployer object = deployer()
+```
+
+Sample output (values differ based on your deployment):
+
+```json
+{
+  "objectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+  "userPrincipalName":"john.doe@contoso.com"
+}
+```
+
+For more information about Azure identities, see [What is an Azure Active Directory identity?](/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## deployment
 
@@ -49,7 +94,7 @@ When deploying a local Bicep file to a resource group, the function returns the 
 }
 ```
 
-When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The `location` property is not included when deploying a local Bicep file. The format is:
+When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The `location` property isn't included when deploying a local Bicep file. The format is:
 
 ```json
 {
@@ -107,7 +152,7 @@ The preceding example returns the following object:
 
 `environment()`
 
-Returns information about the Azure environment used for deployment.
+Returns information about the Azure environment used for deployment. The `environment()` function isn't aware of resource configurations. It can only return a single default DNS suffix for each resource type.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 

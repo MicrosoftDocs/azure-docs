@@ -2,25 +2,30 @@
 title: Collect and manipulate user inputs by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
 description: Learn how to collect user inputs from a user and manipulate them by using Azure Active Directory B2C custom policy  
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to collect and manipulate user inputs by writing a custom policy, so that I can customize the user interface and process the inputs as claims in a JWT.
+
 ---
 
 # Collect and manipulate user inputs by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-Azure Active Directory B2C (Azure AD B2C) custom policy custom policies allows you to collect user inputs. You can then use inbuilt methods to manipulate the user inputs.  
+Azure Active Directory B2C (Azure AD B2C) custom policies allows you to collect user inputs. You can then use inbuilt methods to manipulate the user inputs.  
 
-In this article, you'll learn how to write a custom policy that collects user inputs via a graphical user interface. You'll then access the inputs, process then, and finally return them as claims in a JWT token. To complete this task, you'll: 
+In this article, you learn how to write a custom policy that collects user inputs via a graphical user interface. You'll then access the inputs, process then, and finally return them as claims in a JWT. To complete this task, you'll: 
 
 - Declare claims. A claim provides temporary storage of data during an Azure AD B2C policy execution. It can store information about the user, such as first name, last name, or any other claim obtained from the user or other systems. You can learn more about claims in the [Azure AD B2C custom policy overview](custom-policy-overview.md#claims). 
 
@@ -38,7 +43,8 @@ In this article, you'll learn how to write a custom policy that collects user in
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms. 
+- [Register a web application](tutorial-register-applications.md).
+ 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
 - Complete the steps in [Write your first Azure AD B2C custom policy - Hello World!](custom-policies-series-hello-world.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
@@ -255,7 +261,7 @@ Replace the existing contents of the `HelloWorldJourney` User Journey with the f
     </OrchestrationSteps>
 ```
 
-According to the orchestration steps, we collect user inputs, set values for *objectId*, *displayName* and *message* claims, and finally send the Jwt token. 
+According to the orchestration steps, we collect user inputs, set values for *objectId*, *displayName* and *message* claims, and finally send the JWT. 
 
 ## Step 6 - Update relying party 
 
@@ -467,12 +473,12 @@ After you complete [step 6](#step-6---update-relying-party), the `ContosoCustomP
 ```
 If you haven't already done so, replace `yourtenant` with the subdomain part of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name).
 
-## Step 3 - Upload custom policy file
+## Step 7 - Upload custom policy file
 
 Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file). If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
 
 
-## Step 4 - Test the custom policy
+## Step 8 - Test the custom policy
 
 1. Under **Custom policies**, select **B2C_1A_CONTOSOCUSTOMPOLICY**.
 1. For **Select application** on the overview page of the custom policy, select the web application such as *webapp1* that you previously registered. Make sure that the **Select reply URL** value is set to`https://jwt.ms`.
@@ -481,7 +487,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
     :::image type="content" source="media/custom-policies-series-collect-user-input/screenshot-of-accepting-user-inputs-in-custom-policy.png" alt-text="screenshot of accepting user inputs in custom policy.":::
 
-After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. It looks similar to the following JWT token snippet: 
+After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT. It looks similar to the following JWT snippet: 
 
 ```json
     {
@@ -499,10 +505,10 @@ After the policy finishes execution, you're redirected to `https://jwt.ms`, and 
     }.[Signature]
 ``` 
 
-## Next steps 
+## Related content
 
 Next, learn:
 
-- About [types of Technical Profiles](technicalprofiles.md#types-of-technical-profiles) in Azure AD B2C's custom policies. 
+- About the [types of Technical Profiles](technicalprofiles.md#types-of-technical-profiles) in Azure AD B2C's custom policies. 
 
 - How to [Validate user inputs by using custom policy](custom-policies-series-validate-user-input.md).

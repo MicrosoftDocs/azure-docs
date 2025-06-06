@@ -1,19 +1,24 @@
 ---
 title: Enable Python web application options by using Azure Active Directory B2C
 description:  This article shows you how to enable the use of Python web application options.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.subservice: b2c
+ms.custom: b2c-support, devx-track-python
+
+
+#Customer intent: As a Python web app developer, I want to enable and customize Azure AD B2C authentication in my application, so that I can provide a secure and personalized authentication experience for my users.
+
 ---
 
 # Enable authentication options in a Python web app by using Azure AD B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes how to enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Python web application. 
 

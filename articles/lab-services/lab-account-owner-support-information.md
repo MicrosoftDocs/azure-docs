@@ -1,12 +1,14 @@
 ---
 title: Set up support information (lab account owner)
 description: Describes how a lab account owner can set support contact information. Lab creators and lab users can view and use it to get help. 
-ms.date: 04/25/2022
+ms.date: 08/28/2023
 ms.topic: how-to
 ms.custom: devdivchpfy22
 ---
 
 # Set up support information (lab account owner in Azure Lab Services)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 This article explains how you (as a lab account owner) can specify the support information. The support information can be used by the lab creators (educators) and lab users (students) to get help if they run into any technical issues while using the lab.
 
@@ -30,10 +32,3 @@ The support information includes:
     1. Select **Save** on the toolbar.
 
         :::image type="content" source="./media/lab-account-owner-support-information/lab-account-internal-support-page.png" alt-text="Screenshot of the Internal support page.":::
-
-## Next steps
-
-See the following articles:
-
-- [View contact information (lab creator)](lab-creator-support-information.md)
-- [View contact information (lab user)](lab-user-support-information.md)

@@ -5,6 +5,9 @@ description: If your outbound IP address is going to be changed, learn what to d
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: UpdateFrequency3
+ms.author: msangapu
+author: msangapu-msft
+
 ---
 
 # How to prepare for an outbound IP address change

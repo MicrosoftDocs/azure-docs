@@ -1,19 +1,16 @@
 ---
-title: Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop (preview)
+title: Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop
 description: Learn how to use Uniform Resource Identifier (URI) schemes with the Remote Desktop client to subscribe and connect to Azure Virtual Desktop
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 01/19/2023
+author: dougeby
+ms.author: avdcontent
+ms.date: 06/03/2024
 ---
 
-# Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop (preview)
+# Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop 
 
-> [!IMPORTANT]
-> The *ms-avd* Uniform Resource Identifier scheme for Azure Virtual Desktop is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You can use Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or Remote App.
+You can use Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or RemoteApp.
 
 This article details the available commands and parameters, along with some examples.
 
@@ -33,14 +30,12 @@ The following sections detail the commands and parameters you can use with each 
 
 ### ms-avd
 
-Here's the list of currently supported commands for *ms-avd* and their corresponding parameters.
+The *ms-avd* Uniform Resource Identifier scheme for Azure Virtual Desktop is now generally available. Here's the list of currently supported commands for *ms-avd* and their corresponding parameters.
 
 #### ms-avd:connect
 
 `ms-avd:connect` locates a specified Azure Virtual Desktop resource and initiates the RDP session, directly connecting a specified user to that resource.
 
-> [!IMPORTANT]
-> The ms-avd:connect command is currently in preview and shouldn't be used in production.
 
 **Command name:** connect
 
@@ -49,16 +44,17 @@ Here's the list of currently supported commands for *ms-avd* and their correspon
 | Parameter | Values | Description |
 |--|--|--|
 | workspaceid | Object ID (GUID). | Specify the object ID of a valid workspace.<br /><br />To get the object ID value using PowerShell, see [Retrieve the object ID of a host pool, workspace, application group, or application](powershell-module.md#retrieve-the-object-id-of-a-host-pool-workspace-application-group-or-application). You can also use [Desktop Virtualization REST APIs](/rest/api/desktopvirtualization). |
-| resourceid | Object ID (GUID). | Specify the object ID of a published resource contained in the workspace. The value can be for a desktop or Remote App.<br /><br />To get the object ID value using PowerShell, see [Retrieve the object ID of a host pool, workspace, application group, or application](powershell-module.md#retrieve-the-object-id-of-a-host-pool-workspace-application-group-or-application). You can also use [Desktop Virtualization REST APIs](/rest/api/desktopvirtualization). |
+| resourceid | Object ID (GUID). | Specify the object ID of a published resource contained in the workspace. The value can be for a desktop or RemoteApp.<br /><br />To get the object ID value using PowerShell, see [Retrieve the object ID of a host pool, workspace, application group, or application](powershell-module.md#retrieve-the-object-id-of-a-host-pool-workspace-application-group-or-application). You can also use [Desktop Virtualization REST APIs](/rest/api/desktopvirtualization). |
 | user | User Principal Name (UPN), for example `user@contoso.com`. | Specify a valid user with access to specified resource. |
-| env *(optional)* | **avdarm** (commercial Azure)<br />**avdgov** (Azure Government) | Specify the Azure cloud where resources are located. |
+| env *(optional)* | **avdarm** (commercial Azure)<br />**usgov** (Azure Government) | Specify the Azure cloud where resources are located. |
 | version | **0** | Specify the version of the connect URI scheme to use. |
 | launchpartnerid *(optional)*| GUID. | Specify the partner or customer-provided ID that you can use with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md) to help with troubleshooting. We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
 | peeractivityid *(optional)*| GUID. | Specify the partner or customer-provided ID that you can use with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md) to help with troubleshooting. We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
+| usemultimon | **true** or **false** | Specify whether the remote session will use one or multiple displays from the local computer. |
 
 **Example:**
 ```
-ms-avd:connect?workspaceId=1638e073-63b2-46d8-bd84-ea02ea905467&resourceid=c2f5facc-196f-46af-991e-a90f3252c185&username=user@contoso.com&version=0
+ms-avd:connect?workspaceId=1638e073-63b2-46d8-bd84-ea02ea905467&resourceid=a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1&username=user@contoso.com&version=0
 ```
 
 ### ms-rd

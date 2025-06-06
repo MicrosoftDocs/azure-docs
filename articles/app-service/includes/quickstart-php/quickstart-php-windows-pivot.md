@@ -1,3 +1,6 @@
+---
+ms.custom: linux-related-content
+---
 [!INCLUDE [php-eol-notice](../php-windows-eol-notice.md)]
 
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Windows.
@@ -8,7 +11,7 @@ You create the web app using the [Azure CLI](/cli/azure/get-started-with-azure-c
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
 > [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74)
@@ -54,11 +57,11 @@ To complete this quickstart:
     
 1. In your terminal window, press **Ctrl+C** to exit the web server.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](~/reusable-content/ce-skilling/azure/includes/app-service-web-create-resource-group.md)]
 
 [!INCLUDE [Create app service plan](../../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
@@ -75,7 +78,7 @@ To complete this quickstart:
     When the web app has been created, the Azure CLI shows output similar to the following example:
 
     <pre>
-    Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
+    Local git is configured with url of &lt;URL>
     {
       "availabilityState": "Normal",
       "clientAffinityEnabled": true,
@@ -92,14 +95,10 @@ To complete this quickstart:
     You've created an empty new web app, with git deployment enabled.
 
     > [!NOTE]
-    > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
+    > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property. Save this URL as you need it later.
     >
 
-1. Browse to your newly created web app. Replace _&lt;app-name>_ with your unique app name created in the prior step.
-
-    ```bash
-    http://<app-name>.azurewebsites.net
-    ```
+1. Browse to your newly created web app. 
 
     Here's what your new web app should look like:
 
@@ -128,17 +127,13 @@ To complete this quickstart:
   remote: Finished successfully.
   remote: Running post deployment command(s)...
   remote: Deployment successful.
-  To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+  To &lt;URL>
       cc39b1e..25f1805  main -> main
   </pre>
 
 ## Browse to the app
 
 Browse to the deployed application using your web browser.
-
-```
-http://<app-name>.azurewebsites.net
-```
 
 The PHP sample code is running in an Azure App Service web app.
 
@@ -182,4 +177,3 @@ The PHP sample code is running in an Azure App Service web app.
     The web app menu provides different options for configuring your app.
 
 [!INCLUDE [cli-samples-clean-up](../../../../includes/cli-samples-clean-up.md)]
-

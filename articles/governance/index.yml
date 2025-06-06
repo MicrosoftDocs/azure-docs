@@ -7,18 +7,18 @@ brand: azure
 metadata:
   title: Azure governance documentation
   description: Get the most advanced set of governance capabilities of any major cloud provider.
-  ms.service: governance
+  ms.service: azure-policy
   ms.topic: hub-page
-  ms.collection: collection
-  author: davidsmatlak
-  ms.author: davidsmatlak
-  ms.date: 07/13/2022
+  author: jasongroce
+  ms.author: jasongroce
+  ms.date: 03/24/2025
+  ms.custom: build-2025
 
 highlightedContent:
   items:
     - title: Governance overview
       itemType: overview
-      url: ./azure-management.md
+      url: ./management-groups/azure-management.md
     - title: Governance YouTube channel
       itemType: video
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
@@ -41,6 +41,17 @@ productDirectory:
           text: Protect your resource hierarchy
         - url: ./management-groups/index.yml
           text: See more >
+    - title: Azure Service Groups
+      imageSrc: ./media/management-groups.svg
+      links:
+        - url: ./service-groups/overview.md
+          text: Developer overview
+        - url: ./service-groups/create-service-group-rest-api.md
+          text: Create a service group using the REST API
+        - url: ./service-groups/create-service-group-member-rest-api.md
+          text: Connect resources or resource containers to service groups 
+        - url: ./service-groups/manage-service-groups.md
+          text: Manage Service Groups
     - title: Azure Policy
       imageSrc: ./media/azure-policy.svg
       links:
@@ -48,10 +59,10 @@ productDirectory:
           text: Overview
         - url: ./policy/policy-glossary.md
           text: Azure Policy glossary
-        - url: ./policy/concepts/definition-structure.md
+        - url: ./policy/concepts/definition-structure-basics.md
           text: Policy definition structure
-        - url: ./policy/concepts/effects.md
-          text: Azure Policy effects
+        - url: ./policy/concepts/effect-basics.md
+          text: Azure Policy effect
         - url: ./policy/index.yml
           text: See more >
     - title: Azure Blueprints
@@ -97,9 +108,6 @@ tools:
     - title: Azure Resource Graph
       imageSrc: ./media/azure-resource-graph.svg
       url: ./resource-graph/samples/starter.md
-    - title: Cost Management
-      imageSrc: ./media/cost-management.svg
-      url: https://github.com/Azure-Samples/Cost-Management-Samples
 
 additionalContent:
   sections:
@@ -170,9 +178,9 @@ additionalContent:
               url: /powershell/module/az.blueprint/#blueprint
             - text: Azure PowerShell
               url: https://www.powershellgallery.com/packages/Az.Blueprint
-              note: (PS Gallery Module)
+              note: (PowerShell Gallery Module)
             - text: Azure SDK for .NET
-              url: /dotnet/api/overview/azure/blueprint/management/management-blueprint
+              url: /dotnet/api/overview/azure/blueprint
             - text: REST
               url: /rest/api/blueprints/
         - title: Azure Resource Graph
@@ -182,16 +190,16 @@ additionalContent:
             - text: Azure PowerShell
               url: /powershell/module/az.resourcegraph/#resourcegraph
             - text: Azure SDK for .NET
-              url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+              url: /dotnet/api/azure.resourcemanager.resourcegraph
             - text: Azure SDK for .NET
-              url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
+              url: https://www.nuget.org/packages/Azure.ResourceManager.ResourceGraph/
               note: (NuGet)
             - text: Azure SDK for Go
               url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph
             - text: Azure SDK for Java
-              url: /java/api/overview/azure/resourcegraph/management
+              url: /java/api/com.azure.resourcemanager.resourcegraph
             - text: Azure SDK for Java
-              url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0/jar
+              url: https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-resourcegraph/1.0.0
               note: (Maven)
             - text: Azure SDK for JavaScript
               url: /javascript/api/@azure/arm-resourcegraph

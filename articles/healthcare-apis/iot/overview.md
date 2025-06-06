@@ -1,23 +1,23 @@
 ---
 title: What is the MedTech service? - Azure Health Data Services
-description: In this article, you'll learn about the MedTech service, its features, functions, integrations, and next steps.
+description: Learn about the MedTech service, its features, functions, integrations, and next steps.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: fhir
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: overview
-ms.date: 04/24/2023
-ms.author: jasteppe
+ms.date: 10/19/2023
+ms.author: chrupa
 ---
 
 # What is the MedTech service?
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
 
-This article provides an introductory overview of the MedTech service. The MedTech service is a Platform as a Service (PaaS) within the Azure Health Data Services. The MedTech service enables you to ingest device data, transform it into a unified FHIR format, and store it in an enterprise-scale, secure, and compliant cloud environment. 
+The MedTech service is a Platform as a Service (PaaS) within the Azure Health Data Services. The MedTech service enables you to ingest device data, transform it into a unified FHIR&reg; format, and store it in an enterprise-scale, secure, and compliant cloud environment. 
 
-The MedTech service was built to help customers that were dealing with the challenge of gaining relevant insights from device data coming in from multiple and diverse sources. No matter the device or structure, the MedTech service normalizes that device data into a common format, allowing the end user to then easily capture trends, run analytics, and build Artificial Intelligence (AI) models. In the enterprise healthcare setting, the MedTech service is used in the context of remote patient monitoring, virtual health, and clinical trials.
+The MedTech service is built to help customers that are dealing with the challenge of gaining relevant insights from device data coming in from multiple and diverse sources. No matter the device or structure, the MedTech service normalizes that device data into a common format, allowing the end user to then easily capture trends, run analytics, and build Artificial Intelligence (AI) models. In the enterprise healthcare setting, the MedTech service is used in the context of remote patient monitoring, virtual health, and clinical trials.
 
 The following video presents an overview of the MedTech service:
 >
@@ -61,7 +61,7 @@ Useful options could include:
 
 * Choose data terms that work best for your organization and provide consistency in device data ingestion.
 
-* Customize, edit, test, and troubleshoot MedTech service device and FHIR destination mappings with the [Mapping debugger](how-to-use-mapping-debugger.md) tool.
+* Customize, edit, test, and troubleshoot MedTech service device and FHIR destination mappings with the [Mapping debugger](how-to-use-mapping-debugger.md).
 
 ### Scalable
 
@@ -69,7 +69,7 @@ The MedTech service enables you to easily modify and extend the capabilities of 
 
 ### Integration
 
-The MedTech service may also be integrated for ingesting device data from these wearables using our [open-source projects](git-projects.md): 
+The MedTech service can also be integrated for ingesting device data from these wearables using our [open-source projects](git-projects.md): 
 
 * Fitbit&#174;
 
@@ -79,7 +79,7 @@ The MedTech service may also be integrated for ingesting device data from these 
 
 The following Microsoft solutions can use MedTech service for extra functionality:
 
-* [**Microsoft Azure IoT Hub**](../../iot-hub/iot-concepts-and-iot-hub.md) - enhances workflow and ease of use.
+* [**Azure IoT Hub**](../../iot-hub/iot-concepts-and-iot-hub.md) - enhances workflow and ease of use.
 
 * [**Azure Machine Learning Service**](concepts-machine-learning.md) - helps build, deploy, and manage models, integrate tools, and increase open-source operability.
 
@@ -89,21 +89,10 @@ The following Microsoft solutions can use MedTech service for extra functionalit
 
 ## Next steps
 
-In this article, you learned about the MedTech service and its capabilities.
+[Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-To learn about how the MedTech service processes device data, see
+[Choose a deployment method for the MedTech service](deploy-choose-method.md)
 
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-To learn about the different deployment methods for the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
-
-To learn about the MedTech service frequently asked questions (FAQs), see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

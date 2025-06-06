@@ -2,9 +2,9 @@
 title: Collect the required information for a service
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core.
-author: djrmetaswitch
-ms.author: drichards
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 01/16/2022
 ms.custom: template-how-to

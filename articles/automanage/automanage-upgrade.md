@@ -2,8 +2,7 @@
 title: Upgrade your Azure Automanage machines to the latest Automanage version
 description: Learn how to upgrade your machines to the latest Azure Automanage version
 author: mmccrory
-ms.service: automanage
-ms.workload: infrastructure
+ms.service: azure-automanage
 ms.topic: how-to
 ms.date: 9/1/2022
 ms.author: memccror
@@ -11,6 +10,12 @@ ms.author: memccror
 
 
 # Upgrade your machines to the latest Automanage version
+
+> [!CAUTION]
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. As a result, attempting to create a new configuration profile or onboarding a new subscription to the service will result in an error. Learn more [here](https://aka.ms/automanagemigration/) about how to migrate to Azure Policy before that date. 
+
+> [!CAUTION]
+> Starting February 1st 2025, Azure Automanage will begin rolling out changes to halt support and enforcement for all services dependent on the deprecated Microsoft Monitoring Agent (MMA). To continue using Change Tracking and Management, VM Insights, Update Management, and Azure Automation, [migrate to the new Azure Monitor Agent (AMA)](https://aka.ms/mma-to-ama/).
 
 Automanage machine best practices released the generally available API version. The API now supports creating custom profiles where you can pick and choose the services and settings you want to apply to your machines. This article describes the differences in the versions and how to upgrade. 
 

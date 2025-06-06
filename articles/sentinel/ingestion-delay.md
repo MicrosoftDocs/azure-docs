@@ -1,10 +1,14 @@
 ---
 title: Handle ingestion delay in Microsoft Sentinel | Microsoft Docs
 description:  Handle ingestion delay in Microsoft Sentinel scheduled analytics rules.
-author: limwainstein
+author: yelevin
 ms.topic: how-to
 ms.date: 01/09/2023
-ms.author: lwainstein
+ms.author: yelevin
+
+
+#Customer intent: As a security analyst, I want to handle data ingestion delays in scheduled analytics rules so that I can ensure accurate and timely threat detection.
+
 ---
 
 # Handle ingestion delay in scheduled analytics rules
@@ -78,6 +82,10 @@ CommonSecurityLog
 | where ingestion_time() > ago(rule_look_back)
 ```
 
+See more information on the following items used in the preceding example, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
 
 ## Calculate ingestion delay
 
@@ -98,4 +106,4 @@ For more information, see:
 - [Customize alert details in Azure Sentinel](customize-alert-details.md)
 - [Manage template versions for your scheduled analytics rules in Azure Sentinel](manage-analytics-rule-templates.md)
 - [Use the health monitoring workbook](monitor-data-connector-health.md)
-- [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md)
+- [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time)

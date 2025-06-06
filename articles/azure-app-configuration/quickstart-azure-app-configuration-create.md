@@ -1,19 +1,19 @@
 ---
 title: "Quickstart: Create an Azure App Configuration store"
-author: mcleanbyron
-ms.author: mcleans
-description: "In this quickstart, learn how to create an App Configuration store."
+author: maud-lv
+ms.author: malev
+description: "In this quickstart, you learn how to create an App Configuration store and create key-values in Azure App Configuration."
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 03/14/2023
+ms.date: 04/16/2025
 
 #Customer intent: As an Azure developer, I want to create an app configuration store to manage all my app settings in one place using Azure App Configuration.
 ---
 # Quickstart: Create an Azure App Configuration store
 
-Azure App Configuration is an Azure service designed to help you centrally manage your app settings and feature flags. In this quickstart, learn how to create an App Configuration store and add a few key-values and feature flags.
+Azure App Configuration is an Azure service designed to help you centrally manage your app settings and feature flags. In this quickstart, you learn how to create an App Configuration store and a key-value to the App Configuration store.
 
 ## Prerequisites
 
@@ -44,9 +44,6 @@ An Azure account with an active subscription. [Create one for free](https://azur
     :::image type="content" source="media/azure-app-configuration-create/azure-portal-basic-tab.png" alt-text="Screenshot of the Azure portal that shows the basic tab of the creation for with the free tier selected.":::
 
 1. Select **Review + create** to validate your settings.
-
-    :::image type="content" source="media/azure-app-configuration-create/azure-portal-review.png" alt-text="Screenshot of the Azure portal that shows the configuration settings in the Review + create tab.":::
-
 1. Select **Create**. The deployment might take a few minutes.
 1. After the deployment finishes, go to the App Configuration resource. Select **Settings** > **Access keys**. Make a note of the primary read-only key connection string. You'll use this connection string later to configure your application to communicate with the App Configuration store that you created.
 
@@ -99,31 +96,6 @@ az appconfig kv set --name <name> --key TestApp:Settings:TextAlign --value cente
 
 ---
 
-## Create a feature flag
-
-### [Portal](#tab/azure-portal)
-
-1. Select **Operations** > **Feature Manager** > **Create** and fill out the form with the following parameters:
-
-    | Setting             | Suggested value | Description                                                                             |
-    |---------------------|-----------------|-----------------------------------------------------------------------------------------|
-    | Enable feature flag | Box is checked. | Check this box to make the new feature flag active as soon as the flag has been created. |
-    | Feature flag name   | *featureA*      | The feature flag name is the unique ID of the flag, and the name that should be used when referencing the flag in code. |
-
-1. Leave all other fields with their default values and select **Apply**.    
-
-    :::image type="content" source="media/azure-app-configuration-create/azure-portal-create-feature-flag.png" alt-text="Screenshot of the Azure portal that shows the configuration settings to create a feature flag.":::
-
-### [Azure CLI](#tab/azure-cli)
-
-Add a feature flag to the App Configuration store using the [az appconfig feature set](/cli/azure/appconfig/#az-appconfig-feature-set) command. Replace the placeholder `<name>` with the name of the App Configuration store:
-
-```azurecli
-az appconfig feature set --name <name> --feature featureA
-```
-
----
-
 ## Clean up resources
 
 When no longer needed, delete the resource group. Deleting a resource group also deletes the resources in it.
@@ -150,8 +122,9 @@ az group delete --name <name>
 
 ---
 
-## Next steps
+## Next step
 
 Advance to the next article to learn how to create an ASP.NET Core app with Azure App Configuration to centralize storage and management of its application settings.
+
 > [!div class="nextstepaction"]
 > [Quickstart ASP.NET Core](quickstart-aspnet-core-app.md)

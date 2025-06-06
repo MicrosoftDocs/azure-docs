@@ -1,44 +1,43 @@
 ---
-title: Azure IoT Edge security manager/module runtime - Azure IoT Edge
-description: Manages the IoT Edge device security stance and the integrity of security services.
+title: Azure IoT Edge security manager and module runtime
+description: Understand how Azure IoT Edge security manager and module runtime enable IoT Edge device security and the integrity of security services.
 services: iot-edge
 keywords: security, secure element, enclave, TEE, IoT Edge
 author: PatAltimore
 ms.author: patricka
-ms.reviewer: eustacea
-ms.date: 05/27/2022
-ms.topic: conceptual
-ms.service: iot-edge
+ms.date: 06/03/2025
+ms.topic: concept-article
+ms.service: azure-iot-edge
 ---
 # Azure IoT Edge security manager
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-The Azure IoT Edge security manager is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware. The security manager is the focal point for security hardening and provides technology integration point to original equipment manufacturers (OEM).
+The Azure IoT Edge security manager is a well-bounded security core that protects the IoT Edge device and its components by abstracting secure silicon hardware. The security manager focuses on security hardening and gives a technology integration point to original equipment manufacturers (OEM).
 
-The security manager abstracts the secure silicon hardware on an IoT Edge device and provides an extensibility framework for additional security services.
+The security manager abstracts secure silicon hardware on an IoT Edge device and gives an extensibility framework for extra security services.
 
-The IoT Edge security manager aims to defend the integrity of the IoT Edge device and all inherent software operations. The security manager transitions trust from underlying hardware root of trust hardware (if available) to bootstrap the IoT Edge runtime and monitor ongoing operations.  The IoT Edge security manager is software working along with secure silicon hardware (where available) to help deliver the highest security assurances possible.  
+The IoT Edge security manager defends the integrity of the IoT Edge device and its software operations. The security manager transitions trust from underlying hardware root of trust hardware (if available) to bootstrap the IoT Edge runtime and monitor ongoing operations. The IoT Edge security manager works with secure silicon hardware (where available) to deliver the highest security assurances possible.
 
-Additionally, the IoT Edge security manager provides a safe framework for security service extensions through host-level modules. These services include security monitoring and updates that require agents inside the device with privileged access to some components of the device. The extensibility framework ensures that such integrations consistently uphold overall system security.
+The IoT Edge security manager also gives a safe framework for security service extensions through host-level modules. These services include security monitoring and updates that require agents inside the device with privileged access to some device components. The extensibility framework makes sure these integrations always uphold overall system security.
 
-The responsibilities of the IoT Edge security manager include, but aren't limited to:
+The IoT Edge security manager is responsible for tasks like:
 
-* Bootstrap the Azure IoT Edge device.
-* Control access to the device hardware root of trust through notary services.
-* Monitor the integrity of IoT Edge operations at runtime.
-* Provision the device identity and manage transition of trust where applicable.
-* Ensure safe operation of client agents for services including Device Update for IoT Hub and Microsoft Defender for IoT.
+* Bootstrap the Azure IoT Edge device
+* Control access to the device hardware root of trust through notary services
+* Monitor the integrity of IoT Edge operations at runtime
+* Provision the device identity and manage transition of trust where needed
+* Make sure client agents for services like Device Update for IoT Hub and Microsoft Defender for IoT run safely
 
-The IoT Edge security manager consists of three components:
+The IoT Edge security manager has three components:
 
-* The IoT Edge module runtime
-* Hardware security module (HSM) abstractions through standard implementations such as PKCS#11 and Trusted Platform Module (TPM)
-* A hardware silicon root of trust or HSM (optional, but highly recommended)
+* IoT Edge module runtime
+* Hardware security module (HSM) abstractions through standard implementations like PKCS#11 and Trusted Platform Module (TPM)
+* Hardware silicon root of trust or HSM (optional, but highly recommended)
 
 ## Changes in version 1.2 and later
 
-In versions 1.0 and 1.1 of IoT Edge, a component called the **security daemon** was responsible for the logical security operations of the security manager. In the update to version 1.2, several key responsibilities were delegated to the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/) security subsystem. Once these security-based tasks were removed from the security daemon, its name no longer made sense. To better reflect the work that this component does in version 1.2 and beyond, we renamed it to the **module runtime**.
+In versions 1.0 and 1.1 of IoT Edge, a component called the **security daemon** manages the logical security operations of the security manager. In version 1.2, several key responsibilities move to the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/) security subsystem. After these security tasks move from the security daemon, its name doesn't fit its role. To better reflect what this component does in version 1.2 and later, it's renamed to the **module runtime**.
 
 ## The IoT Edge module runtime
 
@@ -84,7 +83,7 @@ The cloud interface enables access to cloud services that complement device secu
 
 The management API is called by the IoT Edge agent when creating/starting/stopping/removing an IoT Edge module. The module runtime stores "registrations" for all active modules. These registrations map a module's identity to some properties of the module. For example, these module properties include the process identifier (pid) of the process running in the container and the hash of the docker container's contents.
 
-These properties are used by the workload API (described below) to verify that the caller is authorized for an action.
+These properties are used by the workload API to verify that the caller is authorized for an action.
 
 The management API is a privileged API, callable only from the IoT Edge agent.  Since the IoT Edge module runtime bootstraps and starts the IoT Edge agent, it verifies that the IoT Edge agent hasn't been tampered with, then it can create an implicit registration for the IoT Edge agent. The same attestation process that the workload API uses also restricts access to the management API to only the IoT Edge agent.
 
@@ -100,7 +99,7 @@ The IoT Edge module runtime uses an attestation process to guard this API. When 
 
 ### Integration and maintenance
 
-Microsoft maintains the main code base for the [IoT Edge module runtime](https://github.com/Azure/iotedge/tree/master/edgelet) and the [Azure IoT identity service](https://github.com/Azure/iot-identity-service) on GitHub.
+Microsoft maintains the main code base for the [IoT Edge module runtime](https://github.com/Azure/iotedge/tree/main/edgelet) and the [Azure IoT identity service](https://github.com/Azure/iot-identity-service) on GitHub.
 
 When you read the IoT Edge codebase, remember that the **module runtime** evolved from the **security daemon**. The codebase may still contain references to the security daemon.
 
@@ -114,22 +113,22 @@ The IoT Edge runtime tracks and reports the version of the IoT Edge module runti
 
 ## Hardware security module
 
-The IoT Edge security manager implements the Trusted Platform Module and PKCS#11 interface standards for integrating hardware security modules (HSMs). With these standards, virtually any HSM, including those with proprietary interfaces, can be integrated. We strongly recommend using HSMs for security hardening.
+The IoT Edge security manager uses the Trusted Platform Module and PKCS#11 interface standards to integrate hardware security modules (HSMs). These standards let you integrate almost any HSM, including those with proprietary interfaces. Use HSMs to strengthen security.
 
 ## Secure silicon root of trust hardware
 
-Secure silicon is necessary to anchor trust inside the IoT Edge device hardware.  Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSE), Arm TrustZone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is recommended given the threats associated with physical accessibility of IoT devices.
+Secure silicon anchors trust in IoT Edge device hardware. Secure silicon includes Trusted Platform Module (TPM), embedded Secure Element (eSE), Arm TrustZone, Intel SGX, and custom secure silicon technologies. Using secure silicon root of trust in devices is important because of the threats that come with physical access to IoT devices.
 
-The IoT Edge security manager aims to identify and isolate the components that defend the security and integrity of the Azure IoT Edge platform for custom hardening. Third parties, like device makers, should make use of custom security features available with their device hardware.  
+The IoT Edge security manager identifies and isolates the components that protect the security and integrity of the Azure IoT Edge platform for custom hardening. Device makers and other third parties can use custom security features available with their device hardware.
 
-Learn how to harden the Azure IoT security manager with the Trusted Platform Module (TPM) using software or virtual TPMs:  
+Learn how to harden the Azure IoT security manager with Trusted Platform Module (TPM) by using software or virtual TPMs:
 
 Create and provision an IoT Edge device with a virtual TPM on [Linux](how-to-provision-devices-at-scale-linux-tpm.md) or [Linux on Windows](how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
 
 ## Next steps
 
-To learn more about securing your IoT Edge devices, read the following blog posts:
+Learn more about securing your IoT Edge devices in these blog posts:
 
-* [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
+* [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/)
 * [The blueprint to securely solve the elusive zero-touch provisioning of IoT devices at scale](https://azure.microsoft.com/blog/the-blueprint-to-securely-solve-the-elusive-zerotouch-provisioning-of-iot-devices-at-scale/)
 * [Solving IoT device security at scale through standards](https://azure.microsoft.com/blog/solving-iot-device-security-at-scale-through-standards/)

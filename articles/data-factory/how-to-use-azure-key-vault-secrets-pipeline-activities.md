@@ -1,12 +1,11 @@
 ---
 title: Use Azure Key Vault secrets in pipeline activities 
-description: Learn how to fetch stored credentials from Azure key vault and use them during data factory pipeline runs. 
+description: Learn how to fetch stored credentials from Azure Key Vault and use them during data factory pipeline runs. 
 author: nabhishek
 ms.author: abnarain
-ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 02/13/2025
 ---
 
 # Use Azure Key Vault secrets in pipeline activities
@@ -47,7 +46,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
     |Property  |Value  |
     |---------|---------|
     |Secure Output     |True         |
-    |URL     |[Your secret URI value]?api-version=7.0         |
+    |URL     |[Your secret URI value]?api-version=7.5        |
     |Method     |GET         |
     |Authentication     |System Assigned Managed Identity         |
     |Resource        |https://vault.azure.net       |
@@ -55,7 +54,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
     :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png" alt-text="Web activity":::
 
     > [!IMPORTANT]
-    > You must add **?api-version=7.0** to the end of your secret URI.  
+    > You must add **?api-version=7.5** to the end of your secret URI.
 
     > [!CAUTION]
     > Set the Secure Output option to true to prevent the secret value from being logged in plain text.  Any further activities that consume this value should have their Secure Input option set to true.
@@ -64,6 +63,6 @@ This feature relies on the data factory managed identity.  Learn how it works fr
 
     :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png" alt-text="Code expression":::
 
-## Next steps
+## Related content
 
 To learn how to use Azure Key Vault to store credentials for data stores and computes, see [Store credentials in Azure Key Vault](./store-credentials-in-key-vault.md)

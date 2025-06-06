@@ -2,9 +2,9 @@
 title: Deploy application packages to compute nodes
 description: Learn how to use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
 ms.topic: how-to
-ms.date: 04/03/2023
+ms.date: 04/25/2025
 ms.devlang: csharp
-ms.custom: H1Hack27Feb2017, devx-track-csharp, contperf-fy21q1
+ms.custom: H1Hack27Feb2017, devx-track-csharp
 ---
 # Deploy applications to compute nodes with Batch application packages
 

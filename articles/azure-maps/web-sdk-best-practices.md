@@ -4,17 +4,17 @@ titleSuffix: Microsoft Azure Maps
 description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 04/13/2023
-ms.topic: conceptual
+ms.date: 06/23/2023
+ms.topic: best-practice
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Azure Maps Web SDK best practices
 
 This document focuses on best practices for the Azure Maps Web SDK, however, many of the best practices and optimizations outlined can be applied to all other Azure Maps SDKs.
 
-The Azure Maps Web SDK provides a powerful canvas for rendering large spatial data sets in many different ways. In some cases, there are multiple ways to render data the same way, but depending on the size of the data set and the desired functionality, one method may perform better than others. This article highlights best practices and tips and tricks to maximize performance and create a smooth user experience.
+The Azure Maps Web SDK provides a powerful canvas for rendering large spatial data sets in many different ways. In some cases, there are multiple ways to render data the same way, but depending on the size of the data set and the desired functionality, one method might perform better than others. This article highlights best practices and tips and tricks to maximize performance and create a smooth user experience.
 
 Generally, when looking to improve performance of the map, look for ways to reduce the number of layers and sources, and the complexity of the data sets and rendering styles being used.
 
@@ -30,7 +30,7 @@ If self-hosting the Azure Maps Web SDK via the npm module, be sure to use the ca
 
 ```json
 "dependencies": {
-  "azure-maps-control": "^2.2.6"
+  "azure-maps-control": "^3.0.0"
 }
 ```
 
@@ -43,19 +43,19 @@ When a web page is loading, one of the first things you want to do is start rend
 
 ### Watch the maps ready event
 
-Similarly, when the map initially loads often it's desired to load data on it as quickly as possible, so the user isn't looking at an empty map. Since the map loads resources asynchronously, you have to wait until the map is ready to be interacted with before trying to render your own data on it. There are two events you can wait for, a `load` event and a `ready` event. The load event will fire after the map has finished completely loading the initial map view and every map tile has loaded. The ready event fires when the minimal map resources needed to start interacting with the map. The ready event can often fire in half the time of the load event and thus allow you to start loading your data into the map sooner.
+Similarly, when the map initially loads often it's desired to load data on it as quickly as possible, so the user isn't looking at an empty map. Since the map loads resources asynchronously, you have to wait until the map is ready to be interacted with before trying to render your own data on it. There are two events you can wait for, a `load` event and a `ready` event. The load event will fire after the map finishes loading the initial map view and every map tile has loaded. If you see a "Style is not done loading" error, you should use the `load` event and wait for the style to be fully loaded.
+
+The ready event fires when the minimal map resources needed to start interacting with the map. More precisely, the `ready` event is triggered when the map is loading the style data for the first time. The ready event can often fire in half the time of the load event and thus allow you to start loading your data into the map sooner. Avoid making changes to the map's style or language at this moment, as doing so can trigger a style reload.
 
 ### Lazy load the Azure Maps Web SDK
 
 If the map isn't needed right away, lazy load the Azure Maps Web SDK until it's needed. This delays the loading of the JavaScript and CSS files used by the Azure Maps Web SDK until needed. A common scenario where this occurs is when the map is loaded in a tab or flyout panel that isn't displayed on page load.
-The following code sample shows how to delay the loading the Azure Maps Web SDK until a button is pressed.
 
-<br/>
+The [Lazy Load the Map] code sample shows how to delay the loading the Azure Maps Web SDK until a button is pressed. For the source code, see [Lazy Load the Map sample code].
 
-<iframe height="500" scrolling="no" title="Lazy load the map" src="https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/vYEeyOv'>Lazy load the map</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!------------------------------------------------------
+> [!VIDEO https://codepen.io/azuremaps/embed/vYEeyOv?height=500&theme-id=default&default-tab=js,result]
+--------------------------------------------------------->
 
 ### Add a placeholder for the map
 
@@ -69,8 +69,8 @@ Often apps want to load the map to a specific location or style. Sometimes devel
 
 The Web SDK has two data sources,
 
-* **GeoJSON source**: The `DataSource` class, manages raw location data in GeoJSON format locally. Good for small to medium data sets (upwards of hundreds of thousands of features).
-* **Vector tile source**: The `VectorTileSource` class, loads data formatted as vector tiles for the current map view, based on the maps tiling system. Ideal for large to massive data sets (millions or billions of features).
+* **GeoJSON source**: The `DataSource` class manages raw location data in GeoJSON format locally. Good for small to medium data sets (upwards of hundreds of thousands of features).
+* **Vector tile source**: The `VectorTileSource` class loads data formatted as vector tiles for the current map view, based on the maps tiling system. Ideal for large to massive data sets (millions or billions of features).
 
 ### Use tile-based solutions for large datasets
 
@@ -115,9 +115,9 @@ If your dataset contains features that aren't going to be used in your app, remo
 * Reduces the number of features that need to be looped through when rendering the data.
 * Can sometimes help simplify or remove data-driven expressions and filters, which mean less processing required at render time.
 
-When features have numerous properties or content, it's much more performant to limit what gets added to the data source to just those needed for rendering and to have a separate method or service for retrieving the other property or content when needed. For example, if you have a simple map displaying locations on a map when clicked a bunch of detailed content is displayed. If you want to use data driven styling to customize how the locations are rendered on the map, only load the properties needed into the data source. When you want to display the detailed content, use the ID of the feature to retrieve the other content separately. If the content is stored on the server, you can reduce the amount of data that needs to be downloaded when the map is initially loaded by using a service to retrieve it asynchronously.
+When features have numerous properties or content, it's much more performant to limit what gets added to the data source to just those needed for rendering and to have a separate method or service for retrieving the other property or content when needed. For example, if you have a simple map displaying locations on a map when selected a bunch of detailed content is displayed. If you want to use data driven styling to customize how the locations are rendered on the map, only load the properties needed into the data source. When you want to display the detailed content, use the ID of the feature to retrieve the other content separately. If the content is stored on the server, you can reduce the amount of data that needs to be downloaded when the map is initially loaded by using a service to retrieve it asynchronously.
 
-Additionally, reducing the number of significant digits in the coordinates of features can also significantly reduce the data size. It isn't uncommon for coordinates to contain 12 or more decimal places; however, six decimal places have an accuracy of about 0.1 meter, which is often more precise than the location the coordinate represents (six decimal places is recommended when working with small location data such as indoor building layouts). Having any more than six decimal places will likely make no difference in how the data is rendered and requires the user to download more data for no added benefit.
+Additionally, reducing the number of significant digits in the coordinates of features can also significantly reduce the data size. It isn't uncommon for coordinates to contain 12 or more decimal places; however, six decimal places have an accuracy of about 0.1 meters, which is often more precise than the location the coordinate represents (six decimal places is recommended when working with small location data such as indoor building layouts). Having any more than six decimal places will likely make no difference in how the data is rendered and requires the user to download more data for no added benefit.
 
 Here's a list of [useful tools for working with GeoJSON data].
 
@@ -147,7 +147,7 @@ It's possible to store GeoJSON objects inline inside of JavaScript, however this
 
 ## Optimize rendering layers
 
-Azure maps provides several different layers for rendering data on a map. There are many optimizations you can take advantage of to tailor these layers to your scenario the increase performances and the overall user experience.
+Azure Maps provide several different layers for rendering data on a map. There are many optimizations you can take advantage of to tailor these layers to your scenario the increase performances and the overall user experience.
 
 ### Create layers once and reuse them
 
@@ -155,22 +155,25 @@ The Azure Maps Web SDK is data driven. Data goes into data sources, which are th
 
 ### Consider bubble layer over symbol layer
 
-The bubble layer renders points as circles on the map and can easily have their radius and color styled using a data-driven expression. Since the circle is a simple shape for WebGL to draw, the rendering engine is able to render these faster than a symbol layer, which has to load and render an image. The performance difference of these two rendering layers is noticeable when rendering tens of thousands of points.
+The bubble layer renders points as circles on the map and can easily have their radius and color styled using a data-driven expression. Since the circle is a simple shape for WebGL to draw, the rendering engine is able to render it faster than a symbol layer, which has to load and render an image. The performance difference of these two rendering layers is noticeable when rendering tens of thousands of points.
 
 ### Use HTML markers and Popups sparingly
 
-Unlike most layers in the Azure Maps Web control that use WebGL for rendering, HTML Markers and Popups use traditional DOM elements for rendering. As such, the more HTML markers and Popups added a page, the more DOM elements there are. Performance can degrade after adding a few hundred HTML markers or popups. For larger data sets, consider either clustering your data or using a symbol or bubble layer. For popups, a common strategy is to create a single popup and reuse it by updating its content and position as shown in the following example:
+Unlike most layers in the Azure Maps Web control that use WebGL for rendering, HTML Markers and Popups use traditional DOM elements for rendering. As such, the more HTML markers and Popups added a page, the more DOM elements there are. Performance can degrade after adding a few hundred HTML markers or popups. For larger data sets, consider either clustering your data or using a symbol or bubble layer.
 
-<br/>
+The [Reusing Popup with Multiple Pins] code sample shows how to create a single popup and reuse it by updating its content and position. For the source code, see [Reusing Popup with Multiple Pins sample code].
 
-<iframe height='500' scrolling='no' title='Reusing Popup with Multiple Pins' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pins</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+:::image type="content" source="./media/web-sdk-best-practices/reusing-popup-with-multiple-pins.png" lightbox="./media/web-sdk-best-practices/reusing-popup-with-multiple-pins.png" alt-text="A screenshot of a map of Seattle with three blue pins, demonstrating how to Reuse Popups with Multiple Pins.":::
 
-That said, if you only have a few points to render on the map, the simplicity of HTML markers may be preferred. Additionally, HTML markers can easily be made draggable if needed.
+<!------------------------------------------------------
+> [!VIDEO //codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
+-------------------------------------------------------->
+
+That said, if you only have a few points to render on the map, the simplicity of HTML markers might be preferred. Additionally, HTML markers can easily be made draggable if needed.
 
 ### Combine layers
 
-The map is capable of rendering hundreds of layers, however, the more layers there are, the more time it takes to render a scene. One strategy to reduce the number of layers is to combine layers that have similar styles or can be styled using a [data-driven styles].
+The map is capable of rendering hundreds of layers, however, the more layers there are, the more time it takes to render a scene. One strategy to reduce the number of layers is to combine layers that have similar styles or can be styled using [data-driven styles].
 
 For example, consider a data set where all features have a `isHealthy` property that can have a value of `true` or `false`. If creating a bubble layer that renders different colored bubbles based on this property, there are several ways to do this as shown in the following list, from least performant to most performant.
 
@@ -204,23 +207,22 @@ Symbol layers have collision detection enabled by default. This collision detect
 
 Both of these options are set to `false` by default. When animating a symbol, the collision detection calculations run on each frame of the animation, which can slow down the animation and make it look less fluid. To smooth out the animation, set these options to `true`.
 
-The following code sample a simple way to animate a symbol layer.
+The [Simple Symbol Animation] code sample demonstrates a simple way to animate a symbol layer. For the source code to this sample, see [Simple Symbol Animation sample code].
 
-<br/>
+:::image type="content" source="./media/web-sdk-best-practices/simple-symbol-animation.gif" alt-text="A screenshot of a map of the world with a symbol going in a circle, demonstrating how to animate the position of a symbol on the map by updating the coordinates.":::
 
-<iframe height="500" scrolling="no" title="Symbol layer animation" src="https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/oNgGzRd'>Symbol layer animation</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<!----------------------------------------------------
+> [!VIDEO https://codepen.io/azuremaps/embed/oNgGzRd?height=500&theme-id=default&default-tab=js,result]
+------------------------------------------------------->
 
 ### Specify zoom level range
 
-If your data meets one of the following criteria, be sure to specify the min and max zoom level of the layer so that the rendering engine can skip it when outside of the zoom level range.
+If your data meets one of the following criteria, specify the min and max zoom level of the layer so that the rendering engine can skip it when outside of the zoom level range.
 
 * If the data is coming from a vector tile source, often source layers for different data types are only available through a range of zoom levels.
-* If using a tile layer that doesn't have tiles for all zoom levels 0 through 24 and you want it to only rendering at the levels it has tiles, and not try to fill in missing tiles with tiles from other zoom levels.
+* If using a tile layer that doesn't have tiles for all zoom levels 0 through 24 and you want it to only render at the levels it has tiles, and not try to fill in missing tiles with tiles from other zoom levels.
 * If you only want to render a layer at certain zoom levels.
-All layers have a `minZoom` and `maxZoom` option where the layer is rendered when between these zoom levels based on this logic `maxZoom > zoom >= minZoom`.
+All layers have a `minZoom` and `maxZoom` option where the layer is rendered when between these zoom levels based on the logic `maxZoom > zoom >= minZoom`.
 
 **Example**
 
@@ -253,22 +255,22 @@ If a layer is overlaid on the map that completely covers the base map, consider 
 
 ### Smoothly animate image or tile layers
 
-If you want to animate through a series of image or tile layers on the map. It's often faster to create a layer for each image or tile layer and to change the opacity than to update the source of a single layer on each animation frame. Hiding a layer by setting the opacity to zero and showing a new layer by setting its opacity to a value greater than zero is faster than updating the source in the layer. Alternatively, the visibility of the layers can be toggled, but be sure to set the fade duration of the layer to zero, otherwise it animates the layer when displaying it, which causes a flicker effect since the previous layer would have been hidden before the new layer is visible.
+If you want to animate through a series of image or tile layers on the map. It's often faster to create a layer for each image or tile layer and to change the opacity than to update the source of a single layer on each animation frame. Hiding a layer by setting the opacity to zero and showing a new layer by setting its opacity to a value greater than zero is faster than updating the source in the layer. Alternatively, the visibility of the layers can be toggled, but be sure to set the fade duration of the layer to zero, otherwise it animates the layer when displaying it, which causes a flicker effect since the previous layer is hidden before the new layer becomes visible.
 
 ### Tweak Symbol layer collision detection logic
 
-The symbol layer has two options that exist for both icon and text called `allowOverlap` and `ignorePlacement`. These two options specify if the icon or text of a symbol can overlap or be overlapped. When these are set to `false`, the symbol layer does calculations when rendering each point to see if it collides with any other already rendered symbol in the layer, and if it does, don't render the colliding symbol. This is good at reducing clutter on the map and reducing the number of objects rendered. By setting these options to `false`, this collision detection logic is skipped, and all symbols are rendered on the map. Tweak this option to get the best combination of performance and user experience.
+The symbol layer has two options that exist for both icon and text called `allowOverlap` and `ignorePlacement`. These two options specify if the icon or text of a symbol can overlap or be overlapped. When set to `false`, the symbol layer does calculations when rendering each point to see if it collides with any other already rendered symbol in the layer, and if it does, don't render the colliding symbol. This is good at reducing clutter on the map and reducing the number of objects rendered. By setting these options to `false`, this collision detection logic is skipped, and all symbols are rendered on the map. Adjust this option to get the best combination of performance and user experience.
 
 ### Cluster large point data sets
 
-When working with large sets of data points you may find that when rendered at certain zoom levels, many of the points overlap and are only partial visible, if at all. Clustering is process of grouping points that are close together and representing them as a single clustered point. As the user zooms in the map, clusters break apart into their individual points. This can significantly reduce the amount of data that needs to be rendered, make the map feel less cluttered, and improve performance. The `DataSource` class has options for clustering data locally. Additionally, many tools that generate vector tiles also have clustering options.
+When working with large sets of data points you might find that when rendered at certain zoom levels, many of the points overlap and are only partial visible, if at all. Clustering is process of grouping points that are close together and representing them as a single clustered point. As the user zooms in the map, clusters break apart into their individual points. This can significantly reduce the amount of data that needs to be rendered, make the map feel less cluttered, and improve performance. The `DataSource` class has options for clustering data locally. Additionally, many tools that generate vector tiles also have clustering options.
 
 Additionally, increase the size of the cluster radius to improve performance. The larger the cluster radius, the less clustered points there's to keep track of and render.
 For more information, see [Clustering point data in the Web SDK].
 
 ### Use weighted clustered heat maps
 
-The heat map layer can render tens of thousands of data points easily. For larger data sets, consider enabling clustering on the data source and using a small cluster radius and use the clusters `point_count` property as a weight for the height map. When the cluster radius is only a few pixels in size, there's little visual difference in the rendered heat map. Using a larger cluster radius improves performance more but may reduce the resolution of the rendered heat map.
+The heat map layer can render tens of thousands of data points easily. For larger data sets, consider enabling clustering on the data source and using a small cluster radius and use the clusters `point_count` property as a weight for the height map. When the cluster radius is only a few pixels in size, there's little visual difference in the rendered heat map. Using a larger cluster radius improves performance more but might reduce the resolution of the rendered heat map.
 
 ```javascript
 var layer = new atlas.layer.HeatMapLayer(source, null, {
@@ -306,7 +308,7 @@ var layer = new atlas.layer.BubbleLayer(source, null, {
 });
 ```
 
-The above code functions fine if all features in the data source have a `myColor` property, and the value of that property is a color. This may not be an issue if you have complete control of the data in the data source and know for certain all features have a valid color in a `myColor` property. That said, to make this code safe from errors, a `case` expression can be used with the `has` expression to check that the feature has the `myColor` property. If it does, the `to-color` type expression can then be used to try to convert the value of that property to a color. If the color is invalid, a fallback color can be used. The following code demonstrates how to do this and sets the fallback color to green.
+The above code functions fine if all features in the data source have a `myColor` property, and the value of that property is a color. This might not be an issue if you have complete control of the data in the data source and know for certain all features have a valid color in a `myColor` property. That said, to make this code safe from errors, a `case` expression can be used with the `has` expression to check that the feature has the `myColor` property. If it does, the `to-color` type expression can then be used to try to convert the value of that property to a color. If the color is invalid, a fallback color can be used. The following code demonstrates how to do this and sets the fallback color to green.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(source, null, {
@@ -331,7 +333,7 @@ Reduce the total number of conditional tests required when using boolean express
 
 ### Simplify expressions
 
-Expressions can be powerful and sometimes complex. The simpler an expression is, the faster it's evaluated. For example, if a simple comparison is needed, an expression like `['==', ['get', 'category'], 'restaurant']` would be better than using a match expression like `['match', ['get', 'category'], 'restaurant', true, false]`. In this case, if the property being checked is a boolean value, a `get` expression would be even simpler `['get','isRestaurant']`.
+Expressions can be powerful and sometimes complex. Less complex expressions evaluate faster. For example, if a simple comparison is needed, an expression like `['==', ['get', 'category'], 'restaurant']` would be better than using a match expression like `['match', ['get', 'category'], 'restaurant', true, false]`. In this case, if the property being checked is a boolean value, a `get` expression would be even simpler `['get','isRestaurant']`.
 
 ## Web SDK troubleshooting
 
@@ -343,7 +345,7 @@ Things to check:
 
 * Ensure that you complete your authentication options in the map. Without authentication, the map loads a blank canvas and returns a 401 error in the network tab of the browser's developer tools.
 * Ensure that you have an internet connection.
-* Check the console for errors of the browser's developer tools. Some errors may cause the map not to render. Debug your application.
+* Check the console for errors of the browser's developer tools. Some errors might cause the map not to render. Debug your application.
 * Ensure you're using a [supported browser].
 
 **All my data is showing up on the other side of the world, what's going on?**
@@ -355,24 +357,24 @@ Coordinates, also referred to as positions, in the Azure Maps SDKs aligns with t
 Things to check:
 
 * If using custom content for the marker, ensure the `anchor` and `pixelOffset` options are correct. By default, the bottom center of the content is aligned with the position on the map.
-* Ensure that the CSS file for Azure Maps has been loaded.
-* Inspect the HTML marker DOM element to see if any CSS from your app has appended itself to the marker and is affecting its position.
+* Ensure that the CSS file for Azure Maps is loaded.
+* Inspect the HTML marker DOM element to see if any CSS from your app appended itself to the marker and is affecting its position.
 
 **Why are icons or text in the symbol layer appearing in the wrong place?**
 
-Check that the `anchor` and the `offset` options are configured correctly to align with the part of your image or text that you want to have aligned with the coordinate on the map.
-If the symbol is only out of place when the map is rotated, check the `rotationAlignment` option. By default, symbols rotate with the maps viewport, appearing upright to the user. However, depending on your scenario, it may be desirable to lock the symbol to the map's orientation by setting the `rotationAlignment` option to `map`.
+Check that the `anchor` and the `offset` options are configured correctly to align with the part of your image or text that you want aligned with the coordinate on the map.
+If the symbol is only out of place when the map is rotated, check the `rotationAlignment` option. By default, symbols rotate with the maps viewport, appearing upright to the user. However, depending on your scenario, it might be desirable to lock the symbol to the map's orientation by setting the `rotationAlignment` option to `map`.
 
-If the symbol is only out of place when the map is pitched/tilted, check the `pitchAlignment` option. By default, symbols stay upright in the maps viewport when the map is pitched or tilted. However, depending on your scenario, it may be desirable to lock the symbol to the map's pitch by setting the `pitchAlignment` option to `map`.
+If the symbol is only out of place when the map is pitched/tilted, check the `pitchAlignment` option. By default, symbols stay upright in the maps viewport when the map is pitched or tilted. However, depending on your scenario, it might be desirable to lock the symbol to the map's pitch by setting the `pitchAlignment` option to `map`.
 
 **Why isn't any of my data appearing on the map?**
 
 Things to check:
 
 * Check the console in the browser's developer tools for errors.
-* Ensure that a data source has been created and added to the map, and that the data source has been connected to a rendering layer that has also been added to the map.
+* Ensure that a data source was created and added to the map, and that the data source is connected to a rendering layer previously added to the map.
 * Add break points in your code and step through it. Ensure data is added to the data source and the data source and layers are added to the map.
-* Try removing data-driven expressions from your rendering layer. It's possible that one of them may have an error in it that is causing the issue.
+* Try removing data-driven expressions from your rendering layer. It's possible that one of them might have an error in it that is causing the issue.
 
 **Can I use the Azure Maps Web SDK in a sandboxed iframe?**
 
@@ -384,7 +386,7 @@ The following are the different ways to get support for Azure Maps depending on 
 
 **How do I report a data issue or an issue with an address?**
 
-Report issues using the [Azure Maps feedback] site. Detailed instructions on reporting data issues are provided in the [Provide data feedback to Azure Maps] article.
+Report issues using the [Azure Maps feedback] site. For detailed instructions on reporting data issues, see [Provide data feedback to Azure Maps].
 
 > [!NOTE]
 > Each issue submitted generates a unique URL to track it. Resolution times vary depending on issue type and the time required to verify the change is correct. The changes will appear in the render services weekly update, while other services such as geocoding and routing are updated monthly.
@@ -434,3 +436,10 @@ Learn more about the terminology used by Azure Maps and the geospatial industry.
 [supported browser]: supported-browsers.md
 [Tippecanoe]: https://github.com/mapbox/tippecanoe
 [useful tools for working with GeoJSON data]: https://github.com/tmcw/awesome-geojson
+
+[Lazy Load the Map]: https://samples.azuremaps.com/map/lazy-load-the-map
+[Lazy Load the Map sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Lazy%20Load%20the%20Map/Lazy%20Load%20the%20Map.html
+[Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/popups/reusing-popup-with-multiple-pins
+[Reusing Popup with Multiple Pins sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Popups/Reusing%20Popup%20with%20Multiple%20Pins/Reusing%20Popup%20with%20Multiple%20Pins.html
+[Simple Symbol Animation]: https://samples.azuremaps.com/animations/simple-symbol-animation
+[Simple Symbol Animation sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Animations/Simple%20Symbol%20Animation/Simple%20Symbol%20Animation.html

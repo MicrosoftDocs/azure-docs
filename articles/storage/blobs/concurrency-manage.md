@@ -1,22 +1,21 @@
 ---
-title: Managing concurrency in Blob storage
+title: Manage concurrency in Blob Storage
 titleSuffix: Azure Storage
 description: Learn how to manage multiple writers to a blob by implementing either optimistic or pessimistic concurrency in your application. Optimistic concurrency checks the ETag value for a blob and compares it to the ETag provided. Pessimistic concurrency uses an exclusive lease to lock the blob to other writers.
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
-ms.topic: conceptual
-ms.date: 04/05/2023
+ms.service: azure-blob-storage
+ms.topic: concept-article
+ms.date: 03/25/2025
 ms.author: pauljewell
-ms.subservice: common
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Managing Concurrency in Blob storage
+# Manage concurrency in Blob Storage
 
-Modern applications often have multiple users viewing and updating data simultaneously. Application developers need to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data. There are three main data concurrency strategies that developers typically consider:
+Modern applications often have multiple users viewing and updating data simultaneously. Application developers need to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data. The Azure Storage client libraries don't support concurrent writes to the same blob, with the exception of append blobs if the write order doesn't matter. If your app requires multiple processes writing to the same blob, you should implement a strategy for concurrency control. There are three main data concurrency strategies that developers typically consider:
 
 - **Optimistic concurrency**: An application performing an update will, as part of its update, determine whether the data has changed since the application last read that data. For example, if two users viewing a wiki page make an update to that page, then the wiki platform must ensure that the second update doesn't overwrite the first update. It must also ensure that both users understand whether their update was successful. This strategy is most often used in web applications.
 

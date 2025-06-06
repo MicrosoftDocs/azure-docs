@@ -1,7 +1,7 @@
 ---
 title: Create data mining queries and reports in Defender for IoT
 description: Learn how to create granular reports about network devices.
-ms.date: 12/05/2022
+ms.date: 10/14/2024
 ms.topic: how-to
 ---
 
@@ -32,7 +32,7 @@ The following out-of-the-box reports are listed in the **Recommended** area, rea
 | **Excluded CVEs** | Lists all detected devices that have CVEs that were manually excluded from the **CVEs** report. |
 | **Active Devices (Last 24 Hours)** | Lists all detective devices that have had active traffic within the last 24 hours. |
 | **Remote Access** | Lists all detected devices that communicate through remote session protocols. |
-| **CVEs** | Lists all detected devices with known vulnerabilities, along with CVSSv2 risk scores. <br> <br> Select **Edit** to delete and exclude specific CVEs from the report. <br><br> **Tip**: Delete CVEs to exclude them from the list to have your attack vector reports to reflect your network more accurately. |
+| **CVEs** | Lists all detected devices with known vulnerabilities, along with CVSS risk scores. <br> <br> Select **Edit** to delete and exclude specific CVEs from the report. <br><br> **Tip**: Delete CVEs to exclude them from the list to have your attack vector reports to reflect your network more accurately. |
 | **Nonactive Devices (Last 7 Days)** | Lists all detected devices that haven't communicated for the past seven days. |
 
 Select a report to view today’s data. Use the :::image type="icon" source="media/how-to-generate-reports/refresh-icon.png" border="false"::: **Refresh**, :::image type="icon" source="media/how-to-generate-reports/expand-all-icon.png" border="false"::: **Expand all**, and :::image type="icon" source="media/how-to-generate-reports/collapse-all-icon.png" border="false"::: **Collapse all** options to update and change your report views.
@@ -50,7 +50,6 @@ Create your own custom data mining report if you have reporting needs not covere
     | Name | Description |
     |---------|---------|
     | **Name** / **Description** | Enter a meaningful name for your report and an optional description. |
-    | **Send to CM** | Select to send your report to the on-premises management console. |
     | **Choose category** | Select the categories to include in your report. <br><br> For example, select **Internet Domain Allowlist** under **DNS** to create a report of the allowed internet domains and their resolved IP addresses. |
     | **Order by** | Select to sort your data by category or by activity. |
     | **Filter by** | Define a filter for your report using any of the following parameters: <br><br> - **Results within the last**: Enter a number and then select **Minutes**, **Hours**, or **Days** <br> - **IP address / MAC address / Port**: Enter one or more IP addresses, MAC addresses, and ports to filter into your report. Enter a value and then select + to add it to the list.<br> - **Device group**: Select one or mode device groups to filter into your report. |
@@ -72,23 +71,7 @@ Each data mining report on an OT sensor has the following options for managing y
 | :::image type="icon" source="media/how-to-generate-reports/manage-icon.png" border="false"::: **Manage report** | Update the values of an existing custom data mining report. This option is disabled for Recommended reports. |
 | :::image type="icon" source="media/how-to-generate-reports/edit-icon.png" border="false"::: **Edit mode** | Select to remove specific results from the saved report. |
 
-For example, select **Manage report** to update the data your report includes using the same fields as when you'd originally [created the report](#create-an-ot-sensor-custom-data-mining-report):
-
-:::image type="content" source="media/how-to-generate-reports/manage-report-pane.png" alt-text="Screenshot of the manage report pane." lightbox="media/how-to-generate-reports/manage-report-pane.png":::
-
-## View data mining reports for multiple sensors
-
-Sign into an on-premises management console to view [out-of-the-box data mining reports](#view-an-ot-sensor-predefined-data-mining-report) for any connected sensor, and any custom data mining reports that were [sent to the CM](#create-an-ot-sensor-custom-data-mining-report).
-
-**To view a data mining report from an on-premises management console**:
-
-1. Sign into your on-premises management console and select **Reports** on the left.
-
-1. From the **Sensors** drop-down list, select the sensor for which you want to generate the report.
-
-1. From the **Select Report** drop-down list, select the report that you want to generate.
-
-The page lists the current report data. Select :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false"::: to export the data to a PDF file.
+For example, select **Manage report** to update the data your report includes by using the same fields.
 
 ## Next steps
 

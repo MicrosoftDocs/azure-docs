@@ -1,13 +1,12 @@
 ---
-title: Localization support with Microsoft Azure Maps
-description: See which regions Azure Maps supports with services such as maps, search, routing, weather, and traffic incidents. Learn how to set up the View parameter.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 01/05/2022
+title: Localization support in Microsoft Azure Maps
+description: Lists the regions Azure Maps supports with services such as maps, search, routing, weather, and traffic incidents, and shows how to set up the View parameter.
+author: faterceros
+ms.author: aterceros
+ms.date: 03/31/2025
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: general
 ---
 
 # Localization support in Azure Maps
@@ -32,8 +31,8 @@ Azure Maps have been localized in variety languages across its services. The fol
 | de-DE      | German                                   | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | el-GR      | Greek                                    | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | en-AU      | English (Australia)                      | ✓    |    ✓   |         |         |    ✓    |
-| en-GB      | English (Great Britain)                  | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | en-NZ      | English (New Zealand)                    | ✓    |    ✓   |         |    ✓    |    ✓    |
+| en-GB      | English (United Kingdom)                 | ✓    |    ✓   |    ✓    |    ✓    |    ✓   |
 | en-US      | English (USA)                            | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
 | es-419     | Spanish (Latin America)                  |      |    ✓   |         |          |    ✓    |
 | es-ES      | Spanish (Spain)                          | ✓    |    ✓   |    ✓    |    ✓    |    ✓    |
@@ -91,22 +90,132 @@ Azure Maps have been localized in variety languages across its services. The fol
 | zh-HanT-TW | Chinese (Traditional, Taiwan)            | ✓    |    ✓   |    ✓    |         |    ✓    |
 
 <sup>1</sup> Neutral Ground Truth (Local) - Official languages for all regions in local scripts if available<br>
-<sup>2</sup> Neutral Ground Truth (Latin) - Latin exonyms will be used if available
+<sup>2</sup> Neutral Ground Truth (Latin) - Latin exonyms are used if available
+
+## Routing services supported languages
+
+Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for the latest version of the Azure Maps [Route] service. The routing column in the following table includes routes for driving and walking.
+
+| Culture        | Language                                   | Routing | Truck Routing |
+|----------------|--------------------------------------------|:-------:|:-------------:|
+| af             | Afrikaans                                  | ✓       | ✓             |
+| am             | Amharic                                    | ✓       |               |
+| ar-sa          | Arabic (Saudi Arabia)                      | ✓       | ✓             |
+| as             | Assamese                                   | ✓       |               |
+| az-Latn        | Azerbaijani (Latin)                        | ✓       |               |
+| be             | Belarusian                                 | ✓       |               |
+| bg             | Bulgarian                                  | ✓       | ✓             |
+| bn-BD          | Bangla (Bangladesh)                        | ✓       |               |
+| bn-IN          | Bangla (India)                             | ✓       |               |
+| bs             | Bosnian (Latin)                            | ✓       |               |
+| ca             | Catalan Spanish                            | ✓       |               |
+| ca-ES-valencia | Valencian                                  | ✓       |               |
+| cs             | Czech                                      | ✓       | ✓             |
+| cy             | Welsh                                      | ✓       |               |
+| da             | Danish                                     | ✓       | ✓             |
+| de-de          | German (Germany)                           | ✓       | ✓             |
+| el             | Greek                                      | ✓       | ✓             |
+| en-GB          | English (United Kingdom)                   | ✓       | ✓             |
+| en-US          | English (United States)                    | ✓       | ✓             |
+| es-ES          | Spanish (Spain)                            | ✓       | ✓             |
+| es-MX          | Spanish (Mexico)                           | ✓       | ✓             |
+| et             | Estonian                                   | ✓       |               |
+| eu             | Basque                                     | ✓       |               |
+| fa             | Persian                                    | ✓       |               |
+| fi             | Finnish                                    | ✓       | ✓             |
+| fil-Latn       | Filipino                                   | ✓       |               |
+| fr-FR          | French (France)                            | ✓       | ✓             |
+| fr-CA          | French (Canada)                            | ✓       |               |
+| ga             | Irish                                      | ✓       |               |
+| gd-Latn        | Scottish Gaelic                            | ✓       |               |
+| gl             | Galician                                   | ✓       |               |
+| gu             | Gujarati                                   | ✓       |               |
+| ha-Latn        | Hausa (Latin)                              | ✓       |               |
+| he             | Hebrew                                     | ✓       |               |
+| hi             | Hindi                                      | ✓       |               |
+| hr             | Croatian                                   | ✓       |               |
+| hu             | Hungarian                                  | ✓       | ✓             |
+| hy             | Armenian                                   | ✓       |               |
+| id             | Indonesian                                 | ✓       | ✓             |
+| ig-Latn        | Igbo                                       | ✓       |               |
+| is             | Icelandic                                  | ✓       |               |
+| it             | Italian (Italy)                            | ✓       | ✓             |
+| ja             | Japanese                                   | ✓       |               |
+| ka             | Georgian                                   | ✓       |               |
+| kk             | Kazakh                                     | ✓       |               |
+| km             | Khmer                                      | ✓       |               |
+| kn             | Kannada                                    | ✓       |               |
+| ko             | Korean                                     | ✓       | ✓             |
+| kok            | Konkani                                    | ✓       |               |
+| ku-Arab        | Central Kurdish                            | ✓       |               |
+| ky-Cyrl        | Kyrgyz                                     | ✓       |               |
+| lb             | Luxembourgish                              | ✓       |               |
+| lt             | Lithuanian                                 | ✓       | ✓             |
+| lv             | Latvian                                    | ✓       |               |
+| mi-Latn        | Maori                                      | ✓       |               |
+| mk             | Macedonian                                 | ✓       |               |
+| ml             | Malayalam                                  | ✓       |               |
+| mn-Cyrl        | Mongolian (Cyrillic)                       | ✓       |               |
+| mr             | Marathi                                    | ✓       |               |
+| ms             | Malay (Malaysia)                           | ✓       | ✓             |
+| mt             | Maltese                                    | ✓       |               |
+| nb             | Norwegian (Bokmål)                         | ✓       | ✓             |
+| ne             | Nepali (Nepal)                             | ✓       |               |
+| nl-NL          | Dutch (Netherlands)                        | ✓       | ✓             |
+| nl-BE          | Dutch (Belgium)                            | ✓       |               |
+| nn             | Norwegian (Nynorsk)                        | ✓       |               |
+| nso            | Sesotho sa Leboa                           | ✓       |               |
+| or             | Odia                                       | ✓       |               |
+| pa             | Punjabi (Gurmukhi)                         | ✓       |               |
+| pa-Arab        | Punjabi (Arabic)                           | ✓       |               |
+| pl             | Polish                                     | ✓       | ✓             |
+| prs-Arab       | Dari                                       | ✓       |               |
+| pt-BR          | Portuguese (Brazil)                        | ✓       | ✓             |
+| pt-PT          | Portuguese (Portugal)                      | ✓       | ✓             |
+| qut-Latn       | K’iche’                                    | ✓       |               |
+| quz            | Quechua (Peru)                             | ✓       |               |
+| ro             | Romanian (Romania)                         | ✓       |               |
+| ru             | Russian                                    | ✓       | ✓             |
+| rw             | Kinyarwanda                                | ✓       |               |
+| sd-Arab        | Sindhi (Arabic)                            | ✓       |               |
+| si             | Sinhala                                    | ✓       |               |
+| sk             | Slovak                                     | ✓       | ✓             |
+| sl             | Slovenian                                  | ✓       | ✓             |
+| sq             | Albanian                                   | ✓       |               |
+| sr-Cyrl-BA     | Serbian (Cyrillic, Bosnia and Herzegovina) | ✓       |               |
+| sr-Cyrl-RS     | Serbian (Cyrillic, Serbia)                 | ✓       |               |
+| sr-Latn-RS     | Serbian (Latin, Serbia)                    | ✓       |               |
+| sv             | Swedish (Sweden)                           | ✓       | ✓             |
+| sw             | Kiswahili                                  | ✓       |               |
+| ta             | Tamil                                      | ✓       |               |
+| te             | Telugu                                     | ✓       |               |
+| tg-Cyrl        | Tajik (Cyrillic)                           | ✓       |               |
+| th             | Thai                                       | ✓       | ✓             |
+| ti             | Tigrinya                                   | ✓       |               |
+| tk-Latn        | Turkmen (Latin)                            | ✓       |               |
+| tn             | Setswana                                   | ✓       |               |
+| tr             | Turkish                                    | ✓       | ✓             |
+| tt-Cyrl        | Tatar (Cyrillic)                           | ✓       |               |
+| ug-Arab        | Uyghur                                     | ✓       |               |
+| uk             | Ukrainian                                  | ✓       |               |
+| ur             | Urdu                                       | ✓       |               |
+| uz-Latn        | Uzbek (Latin)                              | ✓       |               |
+| vi             | Vietnamese                                 | ✓       |               |
+| wo             | Wolof                                      | ✓       |               |
+| xh             | isiXhosa                                   | ✓       |               |
+| yo-Latn        | Yoruba                                     | ✓       |               |
+| zh-Hant        | Chinese (Traditional)                      | ✓       |               |
+| zh-HanT-TW     | Chinese (Traditional, Taiwan)              | ✓       | ✓             |
+| zu             | isiZulu                                    | ✓       |
+
+<!--| zh-Hans        | Chinese (Simplified)                       | ✓       |               |-->
 
 ## Azure Maps supported views
 
-> [!NOTE]
-> On August 1, 2019, Azure Maps was released in the following countries/regions:
->
-> * Argentina
-> * India
-> * Morocco
-> * Pakistan
->
-> After August 1, 2019, the **View** parameter will define the returned map content for the new regions/countries listed above. Azure Maps **View** parameter (also referred to as "user region parameter") is a two letter ISO-3166 Country Code that will show the correct maps for that country/region specifying which set of geopolitically disputed content is returned via Azure Maps services, including borders and labels displayed on the map.
-
 Make sure you set up the **View** parameter as required for the REST APIs and the SDKs, which your services are using.
-  
+
+Azure Maps **View** parameter (also referred to as "user region parameter") is a two letter ISO-3166 Country Code that shows the correct maps for that country/region specifying which set of geopolitically disputed content is returned via Azure Maps services, including borders and labels displayed on the map.
+
 ### REST APIs
   
 Ensure that you have set up the View parameter as required. View parameter specifies which set of geopolitically disputed content is returned via Azure Maps services.
@@ -131,12 +240,9 @@ Affected Azure Maps REST services:
 
 ### SDKs
 
-Ensure that you have set up the **View** parameter as required, and you have the latest version of Web SDK and Android SDK. Affected SDKs:
+Make sure the `View` parameter is configured as needed, and that you are using the latest version of the Web SDK.
 
-* Azure Maps Web SDK
-* Azure Maps Android SDK
-
-By default, the View parameter is set to **Unified**, even if you haven't defined it in the request. Determine the location of your users. Then, set the **View** parameter correctly for that location. Alternatively, you can set 'View=Auto', which will return the map data based on the IP address of the request.  The **View** parameter in Azure Maps must be used in compliance with applicable laws, including those laws about mapping of the country/region where maps, images, and other data and third-party content that you're authorized to access via Azure Maps is made available.
+The `View` parameter is set to _Unified_ By default, even if it is not explicitly defined in the request. First, determine the location of your users, then set the View parameter to that location. Alternatively, you can use 'View=Auto' to return map data based on the request's IP address. Ensure that the `View` parameter in Azure Maps is used in compliance with applicable laws, including those related to mapping in the country or region where the maps, images, and other data, as well as third-party content accessed via Azure Maps, are made available.
 
 The following table provides supported views.
 
@@ -160,3 +266,5 @@ The following table provides supported views.
 | YE      | Yemen (Arabic View)                                         |   ✓  |        |
 | Auto    | Automatically detect based on request                       |   ✓  |    ✓   |
 | Unified | Unified View (Others)                                       |   ✓  |    ✓   |
+
+[Route]:  /rest/api/maps/route

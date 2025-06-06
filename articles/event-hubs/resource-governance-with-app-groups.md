@@ -1,9 +1,9 @@
 ---
 title: Govern resources for client applications with application groups
-description: Learn how to use application groups to govern resources for client applications that connect with Event Hubs. 
+description: Learn how to use application groups to govern resources for client applications that connect with Event Hubs.
 ms.topic: how-to
 ms.date: 10/12/2022
-ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Govern resources for client applications with application groups
@@ -33,9 +33,9 @@ You can create an application group using the Azure portal by following these st
 1. On the **Add application group** page, follow these steps:
     1. Specify a **name** for the application group.
     1. Confirm that **Enabled** is selected. To have the application group in the disabled state first, clear the **Enabled** option. This flag determines whether the clients of an application group can access Event Hubs or not.
-    1. For **Security context type**, select **Namespace Shared access policy**, **event hub Shared Access Policy** or **AAD application**.Application group supports the selection of SAS key at either namespace or at entity (event hub) level. When you create the application group, you should associate with either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 
+    1. For **Security context type**, select **Namespace Shared access policy**, **event hub Shared Access Policy** or **Microsoft Entra application**.Application group supports the selection of SAS key at either namespace or at entity (event hub) level. When you create the application group, you should associate with either a shared access signatures (SAS) or Microsoft Entra application ID, which is used by client applications. 
     1. If you selected **Namespace Shared access policy**:
-        1. For **SAS key name**, select the SAS policy that can be used as a security context for this application group.You can select **Add SAS Policy** to add a new policy and then associate with the application group. 
+        1. For **SAS key name**, select the SAS policy that can be used as a security context for this application group. You can select **Add SAS Policy** to add a new policy and then associate with the application group. 
 	
               :::image type="content" source="./media/resource-governance-with-app-groups/create-application-groups-with-namespace-shared-access-key.png" alt-text="Screenshot of the Add application group page with Namespace Shared access policy option selected.":::
      1. If you selected **Event Hubs Shared access policy**:
@@ -43,18 +43,18 @@ You can create an application group using the Azure portal by following these st
     
               :::image type="content" source="./media/resource-governance-with-app-groups/create-application-groups-with-event-hub-shared-access-key.png" alt-text="Screenshot of the Add application group page with event hub Shared access policy option selected.":::
      
-      1. If you selected **AAD application**:
-          1. For **AAD Application (client) ID**, specify the Azure Active Directory (Azure AD) application or client ID. 
+      1. If you selected **Microsoft Entra application**:
+          1. For **Microsoft Entra Application (client) ID**, specify the Microsoft Entra application or client ID. 
           
-          	:::image type="content" source="./media/resource-governance-with-app-groups/add-app-group-active-directory.png" alt-text="Screenshot of the Add application group page with Azure AD option.":::
+          	:::image type="content" source="./media/resource-governance-with-app-groups/add-app-group-active-directory.png" alt-text="Screenshot of the Add application group page with Microsoft Entra option.":::
 
 ### [Supported Security Context type](#supported-security-context-type)
-Review the auto-generated **Client group ID**, which is the unique ID associated with the application group. The scope of application governance (namespace or entity level) would depend on the access level for the used Azure AD application ID. The following table  shows auto generated Client Group ID for different security Context type: 
+Review the auto-generated **Client group ID**, which is the unique ID associated with the application group. The scope of application governance (namespace or entity level) would depend on the access level for the used Microsoft Entra application ID. The following table  shows auto generated Client Group ID for different security Context type: 
     
 | Security Context type | Auto-generated client group ID|
 | ---| ---		| 
 | Namespace shared access key	| `NamespaceSASKeyName=<NamespaceLevelKeyName>` |
-| Azure AD Application		| `AADAppID=<AppID>`				|
+| Microsoft Entra Application		| `AADAppID=<AppID>`				|
 | Event Hubs shared access key 	| `EntitySASKeyName=<EntityLevelKeyName>` 	| 
 		
 > [!NOTE]
@@ -266,7 +266,7 @@ az eventhubs namespace application-group policy add --namespace-name mynamespace
 ```
 
 ### [Azure PowerShell](#tab/powershell)
-Use the [Set-AzEventHubApplicationGroup](/powershell/module/az.eventhub/set-azeventhubapplicationgroup) command with `-ThrottingPolicyConfig` set to appropriate values. 
+Use the [Set-AzEventHubApplicationGroup](/powershell/module/az.eventhub/set-azeventhubapplicationgroup) command with `-ThrottlingPolicyConfig` set to appropriate values. 
 
 **Example:**
 ```azurepowershell-interactive
@@ -328,9 +328,9 @@ The following ARM template shows how to update an existing namespace (`contosona
 
 ### Decide threshold value for throttling policies 
 
-Azure Event Hubs supports [Application Metric Logs ](monitor-event-hubs-reference.md#application-metrics-logs) functionality to observe usual throughput within your system and accordingly decide on the threshold value for application group. You can follow these steps to decide on a threshold value:
+Azure Event Hubs supports [Application Metric Logs](monitor-event-hubs-reference.md#application-metrics-logs) functionality to observe usual throughput within your system and accordingly decide on the threshold value for application group. You can follow these steps to decide on a threshold value:
 
-1. Turn on [diagnostic settings](monitor-event-hubs.md#collection-and-routing) in Event Hubs with **Application Metric logs** as selected category and choose **Log Analytics** as destination.  
+1. Turn on [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) in Event Hubs with **Application Metric logs** as selected category and choose **Log Analytics** as destination.  
 2. Create an empty application group without any throttling policy.  
 3. Continue sending messages/events to event hub at usual throughput. 
 4. Go to **Log Analytics workspace** and query for the right activity name (based on the (resource-governance-overview.md#throttling-policy---threshold-limits)) in **AzureDiagnostics** table. The following sample query is set to track threshold value for incoming messages:  
@@ -348,7 +348,7 @@ Azure Event Hubs supports [Application Metric Logs ](monitor-event-hubs-referenc
 6. Once you decide the threshold value, add a new throttling policy inside the application group. 
 
 ## Publish or consume events 
-Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. To test, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that's used to create the application group. 
+Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. To test, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Microsoft Entra application ID that's used to create the application group. 
 
 > [!NOTE]
 > When your client applications are throttled, you should experience a slowness in publishing or consuming data. 
@@ -368,7 +368,7 @@ You can use the below example query to find out all the throttled requests in ce
     | where Outcome_s =="Throttled"  
 	
   ``` 
-Due to restrictions at protocol level, throttled request logs are not generated for consumer operations within event hub ( `OutgoingMessages` or `OutgoingBytes`). when requests are throttled at consumer side, you would observe sluggish egress throughput. 
+Due to restrictions at protocol level, throttled request logs are not generated for consumer operations within event hub ( `OutgoingMessages` or `OutgoingBytes`). When requests are throttled at consumer side, you would observe sluggish egress throughput. 
 
 ## Next steps
 

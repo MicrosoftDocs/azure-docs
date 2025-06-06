@@ -1,12 +1,12 @@
 ---
-title: Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools
+title: Automate builds, tests, and deployments using CI/CD tools
 description: This article describes how to use Azure Stream Analytics CI/CD tools to auto build, test, and deploy an Azure Stream Analytics project.
-services: stream-analytics
 author: alexlzx
 ms.author: zhenxilin
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 01/23/2025
+# Customer intent: I want to know how to automate builds, tests, and deployments of Azure Stream Analytics projects using CI/CD tools. 
 ---
 
 # Automate builds, tests, and deployments of a Stream Analytics project
@@ -54,7 +54,7 @@ azure-streamanalytics-cicd build --v2 --project ./asaproj.json --outputPath ./De
 If the project is built successfully, you see two JSON files created under the output folder:
 
 * ARM template file: `[ProjectName].JobTemplate.json`
-* ARM parameter file: `[ProjectName].JobTemplate.parameters.json`
+* Azure Resource Manager parameter file: `[ProjectName].JobTemplate.parameters.json`
 
 The default values for **parameters.json** file come from your project settings. If you want to deploy to another environment, replace the values accordingly.
 
@@ -91,7 +91,7 @@ cd <path-to-the-project>
 azure-streamanalytics-cicd localrun --project ./asaproj.json"
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > JavaScript UDF only works on Windows.
 
 ## Automated test
@@ -223,7 +223,7 @@ If test cases are executed, you can find a **testResultSummary.json** file gener
 ```
 
 > [!NOTE]
-> If the query results contain float values, you might experience slight differences in the produced values leading to a probably failed test. This is based on the different .Net frameworks powering the Visual Studio or Visual Studio engine and the test processing engine. If you want to make sure that the tests run successfully, you will have to decrease the precision of your produced values or align the results to be compared manually to the generated test results.
+> If the query results contain float values, you might experience slight differences in the produced values leading to a probably failed test. This is based on the different .NET frameworks powering the Visual Studio or Visual Studio engine and the test processing engine. If you want to make sure that the tests run successfully, you'll have to decrease the precision of your produced values or align the results to be compared manually to the generated test results.
 
 
 ## Deploy to Azure
@@ -252,7 +252,7 @@ To deploy your Stream Analytics project using ARM templates, follow these steps:
 
 For more information about deploying resources with ARM templates, see [Deploy with a Resource Manager template file and Azure PowerShell](https://aka.ms/armdeploytemplate).
 
-## Next steps
+## Related content
 
 * [Continuous integration and Continuous deployment for Azure Stream Analytics](cicd-overview.md)
 * [Set up CI/CD pipeline for Stream Analytics job using Azure Pipelines](set-up-cicd-pipeline.md)

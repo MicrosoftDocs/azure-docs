@@ -4,17 +4,19 @@ description: Reference for the publish-to-dapr policy available for use in Azure
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: article
-ms.date: 12/07/2022
+ms.service: azure-api-management
+ms.topic: reference
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Send message to Pub/Sub topic
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 The `publish-to-dapr` policy instructs API Management gateway to send a message to a Dapr Publish/Subscribe topic. The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}`, replacing template parameters and adding content specified in the policy statement.
 
-The policy assumes that Dapr runtime is running in a sidecar container in the same pod as the gateway. Dapr runtime implements the Pub/Sub semantics. Learn more about [Dapr integration with API Management](api-management-dapr-policies.md).
+The policy assumes that Dapr runtime is running in a sidecar container in the same pod as the gateway. Dapr runtime implements the Pub/Sub semantics. Learn more about [Dapr integration with API Management](self-hosted-gateway-enable-dapr.md).
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -41,13 +43,13 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) self-hosted
 
 ### Usage notes
 
-Dapr support must be [enabled](api-management-dapr-policies.md#enable-dapr-support-in-the-self-hosted-gateway) in the self-hosted gateway.
+Dapr support must be [enabled](self-hosted-gateway-enable-dapr.md) in the self-hosted gateway.
 
 ## Example
 
@@ -82,6 +84,6 @@ The "backend" section is empty and the request is not forwarded to the backend.
 
 ## Related policies
 
-* [API Management Dapr integration policies](api-management-dapr-policies.md)
+* [Integration and external communication](api-management-policies.md#integration-and-external-communication)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -1,20 +1,25 @@
 ---
 title: Claim resolvers in custom policies
 titleSuffix: Azure AD B2C
-description: Learn how to use claims resolvers in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+description: Learn how to use claim resolvers in Azure AD B2C custom policies to provide context information and populate claims with dynamic values.
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 02/19/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As a developer using Azure AD B2C custom policies, I want to understand how to use claim resolvers in my technical profiles, so that I can provide context information about authorization requests and populate claims with dynamic values.
+
 ---
 
 # About claim resolvers in Azure Active Directory B2C custom policies
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Claim resolvers in Azure Active Directory B2C (Azure AD B2C) [custom policies](custom-policy-overview.md) provide context information about an authorization request, such as the policy name, request correlation ID, user interface language, and more.
 
@@ -93,7 +98,7 @@ The following table lists the claim resolvers with information about the OpenID 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |The `acr_values` query string parameter. | N/A |
-| {OIDC:ClientId} |The `client_id`  query string parameter. | 00000000-0000-0000-0000-000000000000 |
+| {OIDC:ClientId} |The `client_id`  query string parameter. | 00001111-aaaa-2222-bbbb-3333cccc4444 |
 | {OIDC:DomainHint} |The `domain_hint`  query string parameter. | facebook.com |
 | {OIDC:LoginHint} |  The `login_hint` query string parameter. | someone@contoso.com |
 | {OIDC:MaxAge} | The `max_age`. | N/A |
@@ -104,6 +109,7 @@ The following table lists the claim resolvers with information about the OpenID 
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
 | {OIDC:Scope} |The `scope`  query string parameter. | openid |
 | {OIDC:Username}| The [resource owner password credentials flow](add-ropc-policy.md) user's username.| emily@contoso.com|
+| {OIDC:IdToken} | The `id token`  query string parameter. | N/A |
 
 Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#openid-connect-relying-party-application) of the OpenID Connect claim resolvers.
 
@@ -117,6 +123,17 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {OAUTH-KV:app_session} | A query string parameter. | A3C5R |
 | {OAUTH-KV:loyalty_number} | A query string parameter. | 1234 |
 | {OAUTH-KV:any custom query string} | A query string parameter. | N/A |
+
+## SAML key-value parameters
+
+In a SAML authentication request, any parameter name that's included in the request, but isn’t specific to the protocol (such as SAMLRequest) can be mapped to a claim in the user journey. For example, the request may include a custom parameter such as `username`. This applies to both SP-Initiated and IDP-Initiated SAML requests.
+
+| Claim | Description | Example |
+| ----- | ----------------------- | --------|
+| {SAML-KV:username} | A query string or POST body parameter. | username@domain.com |
+| {SAML-KV:loyalty_number} |  A query string or POST body parameter. | 1234 |
+| {SAML-KV:any custom query string} |  A query string or POST body parameter. | N/A |
+
 
 ## SAML
 
@@ -145,7 +162,7 @@ The following table lists the [OAuth2 identity provider](oauth2-technical-profil
 | {oauth2:access_token} | The OAuth2 identity provider access token. The `access_token` attribute. | `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni...` |
 | {oauth2:token_type}   | The type of the access token. The `token_type` attribute. | Bearer  |
 | {oauth2:expires_in}   | The length of time that the access token is valid in seconds. The `expires_in` attribute. The output claim [DataType](claimsschema.md#datatype) must be `int` or `long`. | 960000 |
-| {oauth2:refresh_token} | The OAuth2 identity provider refresh token. The `refresh_token` attribute. | `eyJraWQiOiJacW9pQlp2TW5pYVc2MUY...` |
+| {oauth2:refresh_token} | The OAuth2 identity providers refresh token. The `refresh_token` attribute. | `eyJraWQiOiJacW9pQlp2TW5pYVc2MUY...` |
 
 To use the OAuth2 identity provider claim resolvers, set the output claim's `PartnerClaimType` attribute to the claim resolver.  The following example demonstrates how the get the external identity provider claims:
 
@@ -173,7 +190,7 @@ You can use claims resolvers with the following elements:
 | Item | Element | Settings |
 | ----- | ----------------------- | --------|
 |Application Insights technical profile |`InputClaim` | |
-|[Azure Active Directory](active-directory-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
+|[Microsoft Entra](active-directory-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[OAuth2](oauth2-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[OpenID Connect](openid-connect-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[Claims transformation](claims-transformation-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
@@ -296,6 +313,6 @@ In a [Relying party](relyingparty.md) policy technical profile, you may want to 
   </RelyingParty>
 ```
 
-## Next steps
+## Related content
 
 - Find more [claims resolvers samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver) on the Azure AD B2C community GitHub repo

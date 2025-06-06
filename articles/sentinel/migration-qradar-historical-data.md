@@ -1,10 +1,14 @@
 ---
 title: "Microsoft Sentinel migration: Export QRadar data to target platform | Microsoft Docs"
 description: Learn how to export your historical data from QRadar.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a security engineer, I want to export historical data from QRadar using AQL queries and the QRadar REST API so that I can migrate it to a new platform for analysis and compliance purposes.
+
 ---
 
 # Export historical data from QRadar
@@ -69,7 +73,7 @@ To execute the search query:
         ```
 
 1. Review the output. If the value in the `status` field is `COMPLETED`, continue to the next step. If the status isn't `COMPLETED`, check the value in the `progress` field, and after 5-10 minutes, run the command you ran in step 4. 
-1. Review the output and ensure that the status is `COMPELETED`. 
+1. Review the output and ensure that the status is `COMPLETED`. 
 1. Run one of these commands to download the results or returned data from the JSON file to a folder on the current system:
     - For the QRadar Console user ID method, run:
                 

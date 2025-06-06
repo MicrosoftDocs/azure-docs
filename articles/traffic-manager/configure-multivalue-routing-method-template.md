@@ -2,11 +2,11 @@
 title: Configure the Multivalue routing method - Azure Resource Manager template (ARM template)
 titlesuffix: Azure Traffic Manager
 description: Learn how to configure the Multivalue routing method with nested endpoints and the min-child feature.
-author: greg-lindsay
-ms.author: greglin
-ms.service: traffic-manager
+author: asudbring
+ms.author: allensu
+ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 04/28/2022
+ms.date: 08/08/2024
 ms.custom: template-how-to, devx-track-arm-template
 ---
 
@@ -14,11 +14,11 @@ ms.custom: template-how-to, devx-track-arm-template
 
 This article describes how to use an Azure Resource Manager template (ARM Template) to create a nested, Multivalue profile with the min-child feature.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ftraffic-manager-minchild%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ftraffic-manager-minchild%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 ## Validate the deployment
 
-1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the nested endpoints were added to the profile. For `-Name`, enter the name of the parent Traffic Manger profile you entered when deploying the template.
+1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the nested endpoints were added to the profile. For `-Name`, enter the name of the parent Traffic Manager profile you entered when deploying the template.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -ResourceGroupName myResourceGroup -Name tmprofileparent-1 | Select Endpoints

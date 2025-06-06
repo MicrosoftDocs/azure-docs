@@ -2,11 +2,11 @@
 title: 'About VM connections and features'
 titleSuffix: Azure Bastion
 description: Learn about VM connections and features when connecting using Azure Bastion.
-author: cherylmc
-ms.service: bastion
-ms.topic: conceptual
-ms.date: 04/19/2022
-ms.author: cherylmc
+author: abell
+ms.service: azure-bastion
+ms.topic: concept-article
+ms.date: 03/03/2025
+ms.author: abell
 
 ---
 
@@ -16,7 +16,7 @@ The sections in this article show you various features and settings that are ava
 
 ## <a name="connect"></a>Connect to a VM
 
-You can use a variety of different methods to connect to a target VM. Some connection types require Bastion to be configured with the Standard SKU. Use the following articles to connect.
+You can use various different methods to connect to a target VM. Some connection types require Bastion to be configured with the Standard SKU. Use the following articles to connect.
 
 [!INCLUDE [Connect articles list](../../includes/bastion-vm-connect-article-list.md)]
 
@@ -46,4 +46,4 @@ For FAQs, see [Bastion FAQ - VM connections and features](bastion-faq.md#vm).
 
 ## Next steps
 
-[Quickstart: Deploy Azure Bastion with default settings](quickstart-host-portal.md)
+[Quickstart: Deploy Azure Bastion with default settings and Standard SKU](quickstart-host-portal.md)

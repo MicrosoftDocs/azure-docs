@@ -1,16 +1,16 @@
 ---
 title: Restore Azure Managed Disks via Azure PowerShell
 description: Learn how to restore Azure Managed Disks using Azure PowerShell.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 03/26/2021
+ms.date: 04/23/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
 # Restore Azure Managed Disks using Azure PowerShell
 
-This article explains how to restore [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) from a restore point created by Azure Backup.
+This article describes how to restore [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) from a restore point created by Azure Backup. You can also [restore Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
 
 Currently, the Original-Location Recovery (OLR) option of restoring by replacing existing the source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source disk and the restored (new) disk.
 

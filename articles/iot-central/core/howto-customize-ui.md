@@ -1,11 +1,11 @@
 ---
-title: Customize the Azure IoT Central UI | Microsoft Docs
-description: How to customize the theme, text, and help links for your Azure IoT Central application
+title: Customize the Azure IoT Central UI
+description: How to customize the theme, text, and help links for your Azure IoT Central application to apply your branding to the application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/01/2022
+ms.date: 10/22/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 
@@ -37,7 +37,7 @@ On this page, you can customize the following aspects of your application:
 
 ### Application logo
 
-A PNG image, no larger than 1 MB, with a transparent background. This logo displays to the left on the IoT Central application title bar.
+A PNG image, no larger than 1 MB, with a transparent background. This logo displays on the IoT Central application title bar.
 
 If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage your application](howto-administer.md#change-application-name-and-url).
 
@@ -75,13 +75,13 @@ You can also add new entries to the help menu and remove default entries:
 
 To change text labels in the application, navigate to the **Text** section in the **Customization** page.
 
-On this page, you can customize the text of your application for all supported languages. You can change 'Device' related text to any word you prefer using the text customization file. After you upload the file, the application text automatically appears with the updated words. You can make further customizations by editing and overwriting the customization file. You can repeat the process for any language that the IoT Central UI supports.
+On this page, you can customize the text of your application for all supported languages. After you upload the custom text file, the application text automatically appears with the updated text. You can make further customizations by editing and overwriting the customization file. You can repeat the process for any language that the IoT Central UI supports.
 
 Following example shows how to change the word `Device` to `Asset` when you view the application in English:
 
 1. Select **Add application text** and select the English language in the dropdown.
 1. Download the default text file. The file contains a JSON definition of the text strings you can change.
-1. Open the file in a text editor and edit the right-hand side strings to replace the word `device` with `asset` as shown in the following example:
+1. To replace the word `device` with `asset`, open the file in a text editor and edit the value strings as shown in the following example:
 
       ```json
       {

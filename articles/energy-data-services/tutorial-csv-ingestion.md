@@ -1,92 +1,286 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview - Steps to perform a CSV parser ingestion
-description: This tutorial shows you how to perform CSV parser ingestion
+title: "Tutorial: Perform CSV parser ingestion"
+titleSuffix: Microsoft Azure Data Manager for Energy
+description: This tutorial shows you sample steps for performing CSV parser ingestion.
 author: bharathim
 ms.author: bselvaraj
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 09/19/2022
 ms.custom: template-tutorial
 
-#Customer intent: As a customer, I want to learn how to use CSV parser ingestion so that I can load CSV data into the Azure Data Manager for Energy Preview instance.
+#Customer intent: As a customer, I want to learn how to use CSV parser ingestion so that I can load CSV data into the Azure Data Manager for Energy instance.
 ---
 
-# Tutorial: Sample steps to perform a CSV parser ingestion
+# Tutorial: Perform CSV parser ingestion
 
-CSV Parser ingestion provides the capability to ingest CSV files into the Azure Data Manager for Energy Preview instance.
+Comma-separated values (CSV) parser ingestion provides the capability to ingest CSV files into an Azure Data Manager for Energy instance.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
-> [!div class="checklist"]
-> * Ingest a sample wellbore data CSV file into the Azure Data Manager for Energy Preview instance using Postman
-> * Search for storage metadata records created during the CSV Ingestion using Postman
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+> * Ingest a sample wellbore data CSV file into an Azure Data Manager for Energy instance by using `cURL`.
+> * Search for storage metadata records created during CSV ingestion by using `cURL`.
 
 ## Prerequisites
+* An Azure subscription
+* An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
+* cURL command-line tool installed on your machine
+* Generate the service principal access token to call the Seismic APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 
-### Get Azure Data Manager for Energy Preview instance details
+### Get details for the Azure Data Manager for Energy instance
 
-* Azure Data Manager for Energy Preview instance is created already. If not, follow the steps outlined in [Quickstart: Create an Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md)
-* For this tutorial, you will need the following parameters:
+* For this tutorial, you need the following parameters:
 
-  | Parameter          | Value to use             | Example                               | Where to find these values?           |
-  | ------------------ | ------------------------ |-------------------------------------- |-------------------------------------- |
-  | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  | App ID or Client_ID used when registering the application with the Microsoft Identity Platform. See [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application) |
-  | CLIENT_SECRET      | Client secrets           |  _fl******************                | Sometimes called an *application password*, a client secret is a string value your app can use in place of a certificate to identity itself. See [Add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret)|
-  | TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  | Hover over your account name in the Azure portal to get the directory or tenant ID. Alternately, search and select *Azure Active Directory > Properties > Tenant ID* in the Azure portal. |
-  | SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  | Same as App ID or Client_ID mentioned above |
-  | refresh_token      | Refresh Token value      | 0.ATcA01-XWHdJ0ES-qDevC6r...........  | Follow the [How to Generate a Refresh Token](how-to-generate-refresh-token.md) to create a refresh token and save it. This refresh token is required later to generate a user token. |
-  | DNS                | URI                      | `<instance>`.energy.Azure.com         | Overview page of Azure Data Manager for Energy Preview instance|
-  | data-partition-id  | Data Partition(s)        | `<instance>`-`<data-partition-name>`  | Overview page of Azure Data Manager for Energy Preview instance|
+| Parameter | Value to use | Example | Where to find this value |
+|----|----|----|----|
+| `DNS` | URI | `<instance>.energy.azure.com` | Find this value on the overview page of the Azure Data Manager for Energy instance. |
+| `data-partition-id` | Data partitions | `<data-partition-id>` | Find this value on the Data Partitions section within the Azure Data Manager for Energy instance. |
+| `access_token`       | Access token value       | `0.ATcA01-XWHdJ0ES-qDevC6r...........`| Follow [How to generate auth token](how-to-generate-auth-token.md) to create an access token and save it.|
 
-* Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user running this tutorial
+Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 
-### Set up and execute Postman requests
+### Set up your environment
 
-* Download and install [Postman](https://www.postman.com/) desktop app
-* Import the following files into Postman:
-  * [CSV Workflow Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflows.postman_collection.json)
-  * [CSV Workflow Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json)
+Ensure you have `cURL` installed on your system. You will use it to make API calls.
 
-  > [!NOTE]
-  >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
-  
-* Update the **CURRENT_VALUE** of the Postman environment with the information obtained in [Azure Data Manager for Energy Preview instance details](#get-azure-data-manager-for-energy-preview-instance-details)
-* The Postman collection for CSV parser ingestion contains a total of 10 requests, which have to be executed in a sequential manner.
-* Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.
-  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the postman environment." lightbox="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png":::
-* Each request can be triggered by clicking the **Send** Button.
-* On every request Postman will validate the actual API response code against the expected response code; if there's any mismatch the test section will indicate failures.
+## Ingest wellbore data by using `cURL`
 
-#### Successful Postman request
+To ingest a sample wellbore data CSV file into the Azure Data Manager for Energy instance, complete the following steps:
+Replace the placeholders (`<DNS>`, `<access_token>`, etc.) with the appropriate values.
 
-  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-success.png" alt-text="Screenshot of a successful postman call." lightbox="media/tutorial-csv-ingestion/tutorial-postman-test-success.png":::
+### 1. Create a Schema
 
-#### Failed Postman request
+Run the following `cURL` command to create a schema:
 
-  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png" alt-text="Screenshot of a failure postman call." lightbox="media/tutorial-csv-ingestion/tutorial-postman-test-failure.png":::
+```bash
+curl -X POST "https://<DNS>/api/schema-service/v1/schema" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "Content-Type: application/json" \
+     -H "data-partition-id: <data-partition-id>" \
+     -d '{
+           "schemaInfo": {
+               "schemaIdentity": {
+                   "authority": "<data-partition-id>",
+                   "source": "shapeFiletest",
+                   "entityType": "testEntity",
+                   "schemaVersionPatch": 1,
+                   "schemaVersionMinor": 0,
+                   "schemaVersionMajor": 0
+               },
+               "status": "DEVELOPMENT"
+           },
+           "schema": {
+               "$schema": "http://json-schema.org/draft-07/schema#",
+               "title": "Wellbore",
+               "type": "object",
+               "properties": {
+                   "UWI": {
+                       "type": "string",
+                       "description": "Unique Wellbore Identifier"
+                   }
+               }
+           }
+       }'
+```
 
-## Ingest a sample wellbore data CSV file into the Azure Data Manager for Energy Preview instance using Postman
-Using the given Postman collection, you could execute the following steps to ingest the wellbore data:
-  1. **Get a user token** - Generate the User token, which will be used to authenticate further API calls.
-  2. **Create a schema** - Generate a schema that adheres to the columns present in the CSV file
-  3. **Get schema details** - Get the schema created in the previous step and validate it
-  4. **Create a legal tag** - Create a legal tag that will be added to the CSV data for data compliance purpose
-  5. **Get a signed url for uploading a CSV file** - Get the signed URL path to which the CSV file will be uploaded
-  6. **Upload a CSV file** - Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) to your local machine, and select this file in Postman by clicking the **Select File** option as shown in the Screenshot below.
-    :::image type="content" source="media/tutorial-csv-ingestion/tutorial-select-csv-file.png" alt-text="Screenshot of uploading a CSV file." lightbox="media/tutorial-csv-ingestion/tutorial-select-csv-file.png":::
-  7. **Upload CSV file metadata** - Upload the file metadata information such as file location & other relevant fields
-  8. **Trigger a CSV parser ingestion workflow** - Triggers the CSV Parser ingestion workflow DAG.
-  9. **Get CSV parser ingestion workflow status** - Gets the status of CSV Parser Dag Run.
+**Sample Response:**
+```json
+{
+  "id": "schema-12345",
+  "status": "DEVELOPMENT"
+}
+```
+Save the `id` from the response for use in subsequent steps.
 
-## Search for storage metadata records created during the CSV Ingestion using Postman
-Using the given Postman collection, you could execute the following step to search for the ingested wellbore data:
+### 2. Create a Legal Tag
 
-**Search for ingested CSV records** - Search for the CSV records created earlier.
-  :::image type="content" source="media/tutorial-csv-ingestion/tutorial-search-success.png" alt-text="Screenshot of searching ingested CSV records." lightbox="media/tutorial-csv-ingestion/tutorial-search-success.png":::
+Run the following `cURL` command to create a legal tag:
 
-## Next steps
-Advance to the next tutorial to learn how to do Manifest ingestion
+```bash
+curl -X POST "https://<DNS>/api/legal/v1/legaltags" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "Content-Type: application/json" \
+     -H "data-partition-id: <data-partition-id>" \
+     -d '{
+           "name": "LegalTagName",
+           "description": "Legal Tag added for Well",
+           "properties": {
+               "contractId": "123456",
+               "countryOfOrigin": ["US", "CA"],
+               "dataType": "Third Party Data",
+               "exportClassification": "EAR99",
+               "originator": "Schlumberger",
+               "personalData": "No Personal Data",
+               "securityClassification": "Private",
+               "expirationDate": "2025-12-25"
+           }
+       }'
+```
+
+**Sample Response:**
+```json
+{
+  "name": "LegalTagName",
+  "status": "Created"
+}
+```
+
+### 3. Get a Signed URL for Uploading a CSV File
+
+Run the following `cURL` command to get a signed URL:
+
+```bash
+curl -X GET "https://<DNS>/api/file/v2/files/uploadURL" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "data-partition-id: <data-partition-id>"
+```
+
+**Sample Response:**
+```json
+{
+  "SignedURL": "https://storageaccount.blob.core.windows.net/container/file.csv?sv=...",
+  "FileSource": "file-source-12345"
+}
+```
+
+Save the `SignedURL` and `FileSource` from the response for use in the next steps.
+
+### 4. Upload a CSV File
+
+Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) sample to your local machine. Then, run the following `cURL` command to upload the file:
+
+```bash
+curl -X PUT -T "Wellbore.csv" "<SignedURL>" -H "x-ms-blob-type: BlockBlob"     
+```
+
+**Sample Response:**
+```json
+{
+  "status": "Success"
+}
+```
+
+### 5. Upload CSV File Metadata
+
+Run the following `cURL` command to upload metadata for the CSV file:
+
+```bash
+curl -X POST "https://<DNS>/api/file/v2/files/metadata" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "Content-Type: application/json" \
+     -H "data-partition-id: <data-partition-id>" \
+     -d '{
+           "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+           "acl": {
+               "viewers": ["data.default.viewers@<data-partition-id>.dataservices.energy"],
+               "owners": ["data.default.owners@<data-partition-id>.dataservices.energy"]
+           },
+           "legal": {
+               "legaltags": ["<data-partition-id>-LegalTagName"],
+               "otherRelevantDataCountries": ["US"],
+               "status": "compliant"
+           },
+           "data": {
+               "DatasetProperties": {
+                   "FileSourceInfo": {
+                       "FileSource": "<FileSource>"
+                   }
+               }
+           }
+       }'
+```
+
+**Sample Response:**
+```json
+{
+  "id": "metadata-12345",
+  "status": "Created"
+}
+```
+
+Save the `id`, which is the uploaded file's id, from the response for use in the next step.
+
+
+### 6. Trigger a CSV Parser Ingestion Workflow
+
+Run the following `cURL` command to trigger the ingestion workflow:
+
+```bash
+curl -X POST "https://<DNS>/api/workflow/v1/workflow/csv-parser/workflowRun" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "Content-Type: application/json" \
+     -H "data-partition-id: <data-partition-id>" \
+     -d '{
+           "executionContext": {
+               "id": "<uploadedFileId>",
+               "dataPartitionId": "<data-partition-id>"
+           }
+       }'
+```
+
+**Sample Response:**
+```json
+{
+  "runId": "workflow-12345",
+  "status": "Running"
+}
+```
+
+Save the `runId` from the response for use in the next step.
+
+### 7. Check the status of the workflow and wait for its completion.
+
+Run the following `cURL` command to check the status of the workflow run:
+
+```bash
+curl -X GET "https://<DNS>/api/workflow/v1/workflow/csv-parser/workflowRun/<runId>" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "Content-Type: application/json" \
+     -H "data-partition-id: <data-partition-id>"      
+```
+
+**Sample Response:**
+```json
+{
+  "runId": "workflow-12345",
+  "status": "Completed"
+}
+```
+
+Keep checking every few seconds, until the response indicates a successful completion.
+
+### 8. Search for Ingested CSV Records
+
+Run the following `cURL` command to search for ingested records:
+
+```bash
+curl -X POST "https://<DNS>/api/search/v2/query" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "Content-Type: application/json" \
+     -H "data-partition-id: <data-partition-id>" \
+     -d '{
+           "kind": "osdu:wks:dataset--File.Generic:1.0.0"
+       }'
+```
+
+**Sample Response:**
+```json
+{
+  "results": [
+    {
+      "id": "dataset-12345",
+      "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+      "status": "Available"
+    }
+  ]
+}
+```
+
+You should be able to see the records in the search results.
+
+## Next step
+
+Advance to the next tutorial:
+
 > [!div class="nextstepaction"]
-> [Tutorial: Sample steps to perform a manifest-based file ingestion](tutorial-manifest-ingestion.md)
+> [Tutorial: Perform manifest-based file ingestion](tutorial-manifest-ingestion.md)

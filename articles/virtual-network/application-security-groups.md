@@ -3,9 +3,9 @@ title: Azure application security groups overview
 titlesuffix: Azure Virtual Network
 description: Learn about the use of application security groups. 
 author: asudbring
-ms.service: virtual-network
-ms.topic: conceptual
-ms.date: 04/08/2023
+ms.service: azure-virtual-network
+ms.topic: concept-article
+ms.date: 03/31/2025
 ms.author: allensu
 ---
 
@@ -15,7 +15,7 @@ Application security groups enable you to configure network security as a natura
 
 :::image type="content" source="./media/security-groups/application-security-groups.png" alt-text="Diagram of Application security groups.":::
 
-In the previous picture, *NIC1* and *NIC2* are members of the *AsgWeb* application security group. *NIC3* is a member of the *AsgLogic* application security group. *NIC4* is a member of the *AsgDb* application security group. Though each network interface (NIC) in this example is a member of only one network security group, a network interface can be a member of multiple application security groups, up to the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). None of the network interfaces have an associated network security group. *NSG1* is associated to both subnets and contains the following rules:
+In the previous picture, *NIC1* and *NIC2* are members of the *AsgWeb* application security group. *NIC3* is a member of the *AsgLogic* application security group. *NIC4* is a member of the *AsgDb* application security group. Though each network interface (NIC) in this example is a member of only one application security group, a network interface can be a member of multiple application security groups, up to the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). None of the network interfaces have an associated network security group. *NSG1* is associated to both subnets and contains the following rules:
 
 ## Allow-HTTP-Inbound-Internet
 
@@ -53,8 +53,8 @@ Application security groups have the following constraints:
     
     - An example would be if *AsgLogic* had network interfaces from *VNet1* and *AsgDb* had network interfaces from *VNet2*. In this case, it would be impossible to assign *AsgLogic* as the source and *AsgDb* as the destination in a rule. All network interfaces for both the source and destination application security groups need to exist in the same virtual network.
 
-> [!TIP]
-> To minimize the number of security rules you need, and the need to change the rules, plan out the application security groups you need and create rules using service tags or application security groups, rather than individual IP addresses, or ranges of IP addresses, whenever possible.
+> [!TIP]  
+> To minimize the number of security rules you need, plan out the application security groups you require. Create rules using service tags or application security groups, rather than individual IP addresses or ranges of IP addresses, whenever possible.
 
 ## Next steps
 

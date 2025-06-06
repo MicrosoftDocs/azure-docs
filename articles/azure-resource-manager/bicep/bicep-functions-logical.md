@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - logical
 description: Describes the functions to use in a Bicep file to determine logical values.
-author: mumian
-ms.author: jgao
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 01/30/2023
+ms.date: 02/12/2025
 ---
 
 # Logical functions for Bicep
@@ -34,7 +32,7 @@ A boolean of the converted value.
 
 ### Examples
 
-The following example shows how to use bool with a string or integer.
+The following example shows how to use `bool` with a string or integer.
 
 ```bicep
 output trueString1 bool = bool('true')

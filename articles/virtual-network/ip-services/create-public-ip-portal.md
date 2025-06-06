@@ -2,18 +2,20 @@
 title: 'Quickstart: Create a public IP address - Azure portal'
 titleSuffix: Azure Virtual Network
 description: In this quickstart, you learn how to create a public IP address for a Standard SKU and a Basic SKU. You also learn about routing preferences and tiers.
-author: asudbring
-ms.author: allensu
-ms.service: virtual-network
+author: mbender-ms
+ms.author: mbender
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 03/24/2023
+ms.date: 04/16/2024
 ms.custom: template-quickstart, mode-ui
 ---
 
 # Quickstart: Create a public IP address using the Azure portal
 
 In this quickstart, you learn how to create Azure public IP addresses, which you use for public connections to Azure resources. Public IP addresses are available in two SKUs: Basic and Standard. Two tiers of public IP addresses are available: regional and global. You can also set the routing preference of a public IP address when you create it: Microsoft network or Internet.
+
+:::image type="content" source="./media/create-public-ip-portal/public-ip-example-resources.png" alt-text="Diagram of an example use of a public IP address. A public IP address is assigned to a load balancer.":::
 
 ## Prerequisites
 
@@ -39,27 +41,33 @@ Follow these steps to create a public IPv4 address with a Standard SKU named myS
 
 1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
-   - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *TestRG*.
-   - **Region**: Select **(US) East US 2**.
-   - **Name**: Enter *myStandardPublicIP*.
-   - **IP Version**: Select **IPv4**.
-   - **SKU**: Select **Standard**.
-   - **Availability zone**: Select **No Zone**.
-   - **Tier**: Select **Regional**.
-   - **IP address assignment**: Only option is **Static**.
-   - **Routing preference**: Select **Microsoft network**.
-   - **Idle timeout (minutes)**: Keep the default of **4**.
-   - **DNS name label**: Leave the value blank.
+    | **Setting**                        | **Value**                          |
+    |--------------------------------|--------------------------------|
+    | **Project details**               |                                    |
+    | Subscription                   | Keep the default or select a different subscription. |
+    | Resource group                 | Select **Create new**, and then name the group *QuickStartCreateIP-rg*. |
+    | **Instance details**              |                                    |
+    | Region                         | Select **(US) West US 2**.         |
+    | **Configuration details**         |                                    |
+    | Name                           | Enter *myStandardPublicIP*.        |
+    | IP Version                     | Select **IPv4**.                   |
+    | SKU                            | Select **Standard**.               |
+    | Availability zone              | Select **No Zone**.                |
+    | Tier                           | Select **Regional**.               |
+    | IP address assignment          | Only option is **Static**.         |
+    | Routing preference             | Select **Microsoft network**.      |
+    | Idle timeout (minutes)         | Keep the default of **4**.         |
+    | DNS name label                 | Leave the value blank.             |
+    | Domain name label scope (preview) | Leave the default **None**.             |
 
    :::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Standard SKU.":::
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 
 > [!NOTE]
-> In regions with [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select **No Zone** (default), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
+> In regions with [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select **No Zone** (default), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
 
-You can associate the public IP address you created with a Windows or Linux [virtual machine](../../virtual-machines/overview.md). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md#azure-cli). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+You can associate the public IP address you created with a Windows or Linux [virtual machine](/azure/virtual-machines/overview). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 # [**Basic SKU**](#tab/option-1-create-public-ip-basic)
 
@@ -76,19 +84,24 @@ Follow these steps to create a public IPv4 address with a Basic SKU named myBasi
 
 1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
-   - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *TestRG*.
-   - **Region**: Select **(US) East US 2**.
-   - **Name**: Enter *myBasicPublicIP*.
-   - **IP Version**: Select **IPv4**.
-   - **SKU**: Select **Basic**.
-   - **IP address assignment**: Select **Static**.
-   - **Idle timeout (minutes)**: Keep the default of **4**.
-   - **DNS name label**: Leave the value blank.
+    | **Setting** | **Value** |
+    |-------------|-----------|
+    | **Project details** | |
+    | Subscription | Keep the default or select a different subscription. |
+    | Resource group | Select **Create new**, and then name the group *QuickStartCreateIP-rg*. |
+    | **Instance details** | |    
+    | Region | Select **(US) West US 2**.         |
+    | **Configuration details** | |
+    | Name | Enter *myBasicPublicIP*.        |
+    | IP Version | Select **IPv4**.                   |
+    | SKU | Select **Basic**.               |
+    | IP address assignment | Select **Static**.         |
+    | Idle timeout (minutes) | Keep the default of **4**.         |
+    | Domain name label scope (preview) | Leave the default **None**.             |
 
    :::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Basic SKU.":::
 
-1. Select **Review + create**. After validation succeeds, select **Create**.
+2. Select **Review + create**. After validation succeeds, select **Create**.
 
 # [**Routing preference**](#tab/option-1-create-public-ip-routing-preference)
 
@@ -116,27 +129,31 @@ Follow these steps to create a public IPv4 address with a Standard SKU and routi
 
 1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
-   - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *TestRG*.
-   - **Region**: Select **(US) East US 2**.
-   - **Name**: Enter *myStandardPublicIP-RP*.
-   - **IP Version**: Select **IPv4**.
-   - **SKU**: Select **Standard**.
-   - **Availability zone**: Select **Zone-redundant**.
-   - **Tier**: Select **Regional**.
-   - **IP address assignment**: Only option is **Static**.
-   - **Routing preference**: Select **Internet**.
-   - **Idle timeout (minutes)**: Keep the default of **4**.
-   - **DNS name label**: Leave the value blank.
+    | **Setting**                   | **Value**                          |
+    |-------------------------------|------------------------------------|
+    | **Project details**           |                                    |
+    | Subscription                  | Keep the default or select a different subscription. |
+    | Resource group                | Select **Create new**, and then name the group *QuickStartCreateIP-rg*. |
+    | **Instance details**          |                                    |
+    | Region                        | Select **(US) West US 2**.         |
+    | **Configuration details**     |                                    |
+    | Name                          | Enter *myStandardPublicIP-RP*.     |
+    | IP Version                    | Select **IPv4**.                   |
+    | SKU                           | Select **Standard**.               |
+    | Availability zone             | Select **Zone-redundant**.         |
+    | Tier                          | Select **Regional**.               |
+    | IP address assignment         | Only option is **Static**.         |
+    | Routing preference            | Select **Internet**.               |
+    | Idle timeout (minutes)        | Keep the default of **4**.         |
+    | DNS name label                | Leave the value blank.             |
+    | Domain name label scope (preview) | Leave the default **None**            |
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 
-:::image type="content" source="./media/create-public-ip-portal/routing-preference.png" alt-text="Screenshot that shows the Create public IP address Basics tab for a Standard SKU and internet routing setting.":::
-
 > [!NOTE]
-> In regions with [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select **No Zone** (default), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
+> In regions with [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select **No Zone** (default), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
 
-You can associate the public IP address you created with a Windows or Linux [virtual machine](../../virtual-machines/overview.md). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md#azure-cli). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+You can associate the public IP address you created with a Windows or Linux [virtual machine](/azure/virtual-machines/overview). For more information, see [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md). You can also associate a public IP address with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) by assigning it to the load balancer front-end configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 # [**Tier**](#tab/option-1-create-public-ip-tier)
 
@@ -152,24 +169,28 @@ Follow these steps to create a public IPv4 address with a Standard SKU and a glo
 
 1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
-   - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *TestRG*.
-   - **Region**: Select **(US) East US 2**.
-   - **Name**: Enter *myStandardPublicIP-Global*.
-   - **IP Version**: Select **IPv4**.
-   - **SKU**: Select **Standard**.
-   - **Availability zone**: Select **Zone-redundant**.
-   - **Tier**: Select **Global**.
-   - **IP address assignment**: Only option is **Static**.
-   - **Routing preference**: Select **Microsoft network**.
-   - **Idle timeout (minutes)**: Keep the default of **4**.
-   - **DNS name label**: Leave the value blank.
+   | **Setting**                   | **Value**                          |
+   |-------------------------------|------------------------------------|
+   | **Project details**           |                                    |
+   | Subscription                  | Keep the default or select a different subscription. |
+   | Resource group                | Select **Create new**, and then name the group *QuickStartCreateIP-rg*. |
+   | **Instance details**          |                                    |
+   | Region                        | Select **(US) West US 2**.         |
+   | **Configuration details**     |                                    |
+   | Name                          | Enter *myStandardPublicIP-Global*. |
+   | IP Version                    | Select **IPv4**.                   |
+   | SKU                           | Select **Standard**.               |
+   | Availability zone             | Select **Zone-redundant**.         |
+   | Tier                          | Select **Global**.                 |
+   | IP address assignment         | Only option is **Static**.         |
+   | Routing preference            | Select **Microsoft network**.      |
+   | Idle timeout (minutes)        | Keep the default of **4**.         |
+   | DNS name label                | Leave the value blank.             |
+   | Domain name label scope (preview) | Leave the default **None**             |
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 
-:::image type="content" source="./media/create-public-ip-portal/tier.png" alt-text="Screenshot that shows the Create public IP address Basics tab for a Standard SKU and global tier setting.":::
-
-You can associate the IP address you created with a cross-region load balancer. For more information, see [Tutorial: Create a cross-region load balancer using the Azure portal](../../load-balancer/tutorial-cross-region-portal.md).
+   You can associate the IP address you created with a cross-region load balancer. For more information, see [Tutorial: Create a cross-region load balancer using the Azure portal](../../load-balancer/tutorial-cross-region-portal.md).
 
 ---
 
@@ -177,11 +198,11 @@ You can associate the IP address you created with a cross-region load balancer. 
 
 When you're finished, delete the resource group and all of the resources it contains:
 
-1. In the portal, search for and select **TestRG**.
+1. In the portal, search for and select **QuickStartCreateIP-rg**.
 
-1. From the **TestRG** screen, select **Delete resource group**.
+1. From the **QuickStartCreateIP-rg** screen, select **Delete resource group**.
 
-1. Enter *TestRG* for **Enter resource group name to confirm deletion**, and then select **Delete**.
+1. Enter *QuickStartCreateIP-rg* for **Enter resource group name to confirm deletion**, and then select **Delete**.
 
 ## Next steps
 

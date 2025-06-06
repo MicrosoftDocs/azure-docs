@@ -1,12 +1,11 @@
 ---
 title: Discover and explore data in ADF using Microsoft Purview
 description: Learn how to discover, explore data in Azure Data Factory using Microsoft Purview
-ms.service: data-factory
 ms.topic: conceptual
 author: jianleishen
 ms.author: jianleishen
-ms.custom: seo-lt-2019
-ms.date: 08/09/2022
+ms.date: 10/03/2024
+ms.subservice: monitoring
 ---
 
 # Discover and explore data in ADF using Microsoft Purview

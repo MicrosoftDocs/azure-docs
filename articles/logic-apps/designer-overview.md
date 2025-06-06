@@ -1,72 +1,64 @@
 ---
-title: About Standard logic app workflow designer
-description: Learn how the designer in single-tenant Azure Logic Apps helps you visually create workflows through the Azure portal. Discover the benefits and features in this latest version.
+title: Navigate the Standard Workflow Designer
+description: Learn how to complete basic tasks in the Standard workflow designer, which helps you visually create workflows using the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 08/20/2022
+ms.topic: how-to
+ms.date: 04/21/2025
 ---
 
-# About the Standard logic app workflow designer in single-tenant Azure Logic Apps
+# Navigate around the designer for Standard workflows in single-tenant Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-When you work with Azure Logic Apps in the Azure portal, you can edit your [*workflows*](logic-apps-overview.md#logic-app-concepts) visually or programmatically. After you open a [*logic app* resource](logic-apps-overview.md#logic-app-concepts) in the portal, on the resource menu under **Developer**, you can select between [**Code** view](#code-view) and **Designer** view. When you want to visually develop, edit, and run your workflow, select the designer view. You can switch between the designer view and code view at any time.
-
-> [!IMPORTANT]
-> Currently, the latest version of the designer is available only for *Standard* logic app resources, which run in the 
-> *single-tenant* Azure Logic Apps environment. For more information about different resource types and runtime 
-> environments in Logic Apps, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
-
-:::image type="content" source="./media/designer-overview/choose-developer-view.png" alt-text="Screenshot of a logic app resource page in the Azure portal, showing the sidebar options to view a workflow in Code or Designer view.":::
-
-When you select the **Designer** view, your workflow opens in the workflow designer.
-
-:::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot that shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
+When you work with Azure Logic Apps in the Azure portal, you can edit your [*workflows*](logic-apps-overview.md#logic-app-concepts) visually or programmatically.
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
-- A *Standard* logic app resource [in a single-tenant environment](single-tenant-overview-compare.md). For more information, see [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
-- A workflow for your single-tenant logic app.
+- A *Standard* logic app resource [in single-tenant Azure Logic Apps](single-tenant-overview-compare.md). For more information, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps using the Azure portal](create-single-tenant-workflows-azure-portal.md).
+- A workflow for your Standard logic app resource.
 
 ## Latest version features
 
 The latest workflow designer offers a new experience with noteworthy features and benefits, for example:
 
 - A new layout engine that supports more complicated workflows.
+
 - You can create and view complicated workflows cleanly and easily, thanks to the new layout engine, a more compact canvas, and updates to the card-based layout.
+
 - Add and edit steps using panels separate from the workflow layout. This change gives you a cleaner and clearer canvas to view your workflow layout. For more information, review [Add steps to workflows](#add-steps-to-workflows).
+
 - Move between steps in your workflow on the designer using keyboard navigation.
+
   - Move to the next card: **Ctrl** + **Down Arrow (&darr;)**
+
   - Move to the previous card: **Ctrl** + **Up Arrow (&uarr;)**
+
+## Open the workflow designer
+
+1. In the [Azure portal](https://portal.azure.com), open your [*logic app* resource](logic-apps-overview.md#logic-app-concepts).
+
+1. On the logic app menu, under **Workflows**, select **Workflows**.
+
+1. On the **Workflows** page, select the workflow that you want.
+
+1. On the workflow menu, select **Designer**.
+
+   To visually develop, edit, and run your workflow, select the designer view. To edit the workflow in JSON view, select [**Code**](#code-view). You can switch between the designer view and code view at any time.
+
+   :::image type="content" source="./media/designer-overview/choose-developer-view.png" alt-text="Screenshot of a logic app resource page in the Azure portal, showing the sidebar options to view a workflow in Code or Designer view.":::
+
+1. When you select the **Designer** view, your workflow opens in the workflow designer.
+
+   :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot that shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
 ## Add steps to workflows
 
 The workflow designer provides a visual way to add, edit, and delete steps in your workflow. As the first step in your workflow, always add a [*trigger*](logic-apps-overview.md#logic-app-concepts). Then, complete your workflow by adding one or more [*actions*](logic-apps-overview.md#logic-app-concepts).
 
-To add either the trigger or an action your workflow, follow these steps:
-
-1. Open your workflow in the designer.
-
-1. On the designer, select **Choose an operation**, which opens a pane named either **Add a trigger** or **Add an action**.
-
-1. In the opened pane, find an operation by filtering the list in the following ways:
-
-   1. Enter a service, connector, or category in the search bar to show related operations. For example, `Azure Cosmos DB` or `Data Operations`.
-
-   1. If you know the specific operation you want to use, enter the name in the search bar. For example, `Call an Azure function` or `When an HTTP request is received`.
-
-   1. Select the **Built-in** tab to only show categories of [*built-in operations*](logic-apps-overview.md#logic-app-concepts). Or, select the **Azure** tab to show other categories of operations available through Azure.
-
-   1. You can view only triggers or actions by selecting the **Triggers** or **Actions** tab. However, you can only add a trigger as the first step and an action as a following step. Based on the operation category, only triggers or actions might be available.
-
-      :::image type="content" source="./media/designer-overview/designer-add-operation.png" alt-text="Screenshot of the Logic Apps designer in the Azure portal, showing a workflow being edited to add a new operation." lightbox="./media/designer-overview/designer-add-operation.png":::
-
-1. Select the operation you want to use.
-
-   :::image type="content" source="./media/designer-overview/designer-filter-operations.png" alt-text="Screenshot of the Logic Apps designer, showing a pane of possible operations that can be filtered by service or name." lightbox="./media/designer-overview/designer-filter-operations.png":::
+To add a trigger or an action to your Standard workflow, see [Build a workflow with a trigger or action in Azure Logic Apps](create-workflow-with-trigger-or-action.md).
 
 1. Configure your trigger or action as needed.
 

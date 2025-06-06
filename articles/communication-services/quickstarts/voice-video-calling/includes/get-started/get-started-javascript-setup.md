@@ -2,18 +2,19 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/21/2022
+ms.date: 05/10/2025
 ms.author: rifox
 ---
 
-## Setting up
+## Set up
 
 ### Create a new Node.js application
 
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
-mkdir calling-quickstart && cd calling-quickstart
+mkdir calling-quickstart
+cd calling-quickstart
 ```
 
 Run `npm init -y` to create a **package.json** file with default settings.
@@ -35,10 +36,10 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ### Set up the app framework
 
-This quickstart uses parcel to bundle the application assets. Run the following command to install it and list it as a development dependency in your **package.json**:
+This article uses parcel to bundle the application assets. Run the following command to install it and list it as a development dependency in your **package.json**:
 
 ```console
 npm install parcel --save-dev
 ```
 
-Create an **index.html** file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a call.
+Create an **index.html** file in the root directory of your project. We use this file to configure a basic layout that enables the user to place a call.

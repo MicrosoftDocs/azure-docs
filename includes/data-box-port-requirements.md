@@ -1,10 +1,9 @@
 ---
-author: alkohli
-ms.service: databox
-ms.subservice: pod   
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 09/06/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 | Port no.|	In or out |	Port scope|	Required| Notes |
@@ -15,3 +14,4 @@ ms.author: alkohli
 | TCP 445 (SMB)|Out/In|LAN|In some cases<br>See notes|This port is required only if you're connecting via SMB. |
 | TCP 2049 (NFS)|Out/In|LAN|In some cases<br>See notes|This port is required only if you're connecting via NFS. |
 | TCP 111 (NFS)|Out/In|LAN|In some cases<br>See notes|This port is used for rpcbind/port mapping and required only if you're connecting via NFS.  |
+

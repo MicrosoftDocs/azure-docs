@@ -3,10 +3,10 @@ title: Service limits
 titleSuffix: Azure Load Testing
 description: 'Service limits used for capacity planning and configuring high-scale load tests in Azure Load Testing.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: reference
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 09/21/2022
 ---
 
@@ -27,8 +27,8 @@ The following limits apply on a per-region, per-subscription basis.
 
 | Resource  | Default limit | Maximum limit |
 |---------|---------|---------|
-| Concurrent engine instances |     5-100 <sup>1</sup>    |     1000    |
-| Engine instances per test run | 1-45 <sup>1</sup> |  45   | 
+| Concurrent engine instances |     5-400 <sup>1</sup>    |     1000    |
+| Engine instances per test run | 1-400 <sup>1</sup> |  400   | 
 
 <sup>1</sup> If you aren't already at the maximum limit, you can request an increase. We aren't currently able to approve increase requests past our maximum limitations stated above. To request an increase for your default limit, contact Azure Support. Default limits vary by offer category type.
 
@@ -38,11 +38,23 @@ The following limits apply on a per-region, per-subscription basis.
 
 | Resource  | Default limit |  Maximum limit |
 |---------|---------|---------|
-| Concurrent test runs | 5-25 <sup>2</sup> |     1000    |
-| Test duration | 3 hours | |
-| [Test criteria](./how-to-define-test-criteria.md#load-test-fail-criteria) per test | 10 | |
+| Concurrent test runs | 5-50 <sup>2</sup> |     1000    |
+| Test duration | 3 - 24 hours <sup>2</sup> | 24 |
+| Tests per resource | 10000 | |
+| Test runs per test | 5000 | |
+| File uploads per test | 1000 | |
+| Zip file uploads per test | 100 | |
+| App Components per test or test run | 100 | |
+| [Test criteria](./how-to-define-test-criteria.md#load-test-fail-criteria) per test | 50 | |
 
 <sup>2</sup> If you aren't already at the maximum limit, you can request an increase. We aren't currently able to approve increase requests past our maximum limitations stated above. To request an increase for your default limit, contact Azure Support. Default limits vary by offer category type.
+
+### Notifications
+The following limits apply on a per-region, per-subscription basis.
+| Resource  | Default limit |
+|---------| ---------: | 
+|Tests per notification rule  | 20 |
+|Action groups per notification rule| 5| 
 
 ### Data retention
 
@@ -53,7 +65,7 @@ Azure Load Testing captures metrics, test results, and logs for each test run. T
 | Server-side metrics | 90 days | Learn how to [configure server-side metrics](./how-to-monitor-server-side-metrics.md). |
 | Client-side metrics | 365 days | |
 | Test results | 6 months | Learn how to [export test results](./how-to-export-test-results.md). |
-| Test log files | 6 months | Learn how to [download the logs for troubleshooting tests](./how-to-troubleshoot-failing-test.md). |
+| Test log files | 6 months | Learn how to [download the logs for diagnosing failing load tests](./how-to-diagnose-failing-load-test.md). |
 
 ## Request quota increases
 
@@ -86,4 +98,4 @@ To raise the limit or quota above the default limit, [open an online customer su
 ## Next steps
 
 - Learn how to [set up a high-scale load test](./how-to-high-scale-load.md).
-- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to [configure automated performance testing](./quickstart-add-load-test-cicd.md).

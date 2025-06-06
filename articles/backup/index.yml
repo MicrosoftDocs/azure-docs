@@ -4,14 +4,14 @@ title: Azure Backup service documentation
 summary: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
 
 metadata:
-  title: Azure Backup Documentation 
-  description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. 
-  ms.service: backup
-  ms.custom: engagement-fy23
-  ms.topic: landing-page 
+  title: Azure Backup Documentation
+  description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
+  ms.service: azure-backup
+  ms.topic: landing-page
   author: jyothisuri
-  ms.author: jsuri 
-  ms.date: 03/14/2023
+  ms.author: jsuri
+  ms.date: 05/21/2025
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -50,37 +50,38 @@ landingContent:
         links:
           - text: Back up Azure VMs
             url: tutorial-backup-vm-at-scale.md
-          - text: Backup SQL Server on Azure VM
+          - text: Back up SQL Server on Azure VM
             url: tutorial-sql-backup.md
           - text: Backup files and folders on Windows Server
             url: tutorial-backup-windows-server-to-azure.md
           - text: Back up SAP HANA databases in an Azure VM
             url: tutorial-backup-sap-hana-db.md
+          - text: Configure SAP HANA database instance snapshot backup
+            url: tutorial-configure-sap-hana-database-instance-snapshot-backup.md 
+          - text: Configure item-level backup for an AKS cluster  
+            url: tutorial-configure-backup-aks.md
   # Card
   - title: Learn about the latest features in Azure Backup
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Selective disk backup and restore for Azure VMs
-            url: selective-disk-backup-restore.md
-          - text: Soft Delete for Azure Backup
-            url: backup-azure-security-feature-cloud.md
-          - text: Enhanced soft delete for Azure Backup (preview)
-            url: backup-azure-enhanced-soft-delete-about.md
-          - text: Multi-user authorization (MUA) for Recovery Services vault
-            url: ./multi-user-authorization-concept.md?tabs=recovery-services-vault
-          - text: Multi-user authorization (MUA) for Backup vault
-            url: ./multi-user-authorization-concept.md?tabs=backup-vault
-          - text: Immutable vault
-            url: backup-azure-immutable-vault-concept.md
-          - text: Multiple backups per day for Azure VMs
-            url: backup-azure-vms-enhanced-policy.md
-          - text: Azure Kubernetes Service backup (preview)
-            url: azure-kubernetes-service-backup-overview.md
-          - text: Azure Blob vaulted backups (preview)
-            url: blob-backup-overview.md
-          - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
-            url: selective-disk-backup-restore.md
+          - text: Azure Elastic SAN backup (preview)
+            url: azure-elastic-storage-area-network-backup-overview.md
+          - text: SAP ASE (Sybase) database backup support
+            url: sap-ase-database-about.md        
+          - text: Azure Data Lake Storage backup support (preview)
+            url: azure-data-lake-storage-backup-overview.md
+          - text: Azure Files vaulted backup support
+            url: azure-file-share-backup-overview.md?tabs=vault-standard
+          - text: Azure Database for PostgreSQL - Flexible server backup support
+            url: backup-azure-database-postgresql-flex-overview.md
+          - text: Secure by default with Vault soft delete (preview)
+            url: secure-by-default.md
+          - text: WORM enabled Immutable Storage for Recovery Services vaults
+            url: backup-azure-immutable-vault-concept.md  
+          - text: Vaulted backup and Cross Region Restore support for AKS
+            url: azure-kubernetes-service-backup-overview.md          
+
   # Card
   - title: Back up Azure VMs
     linkLists:
@@ -129,9 +130,9 @@ landingContent:
         links:
           - text: Back up SAP HANA databases on Azure VMs
             url: backup-azure-sap-hana-database.md
-          - text: Back up SAP HSR databases on Azure VMs (preview)
+          - text: Back up SAP HSR databases on Azure VMs
             url: sap-hana-database-with-hana-system-replication-backup.md
-          - text: Back up SAP HANA databases' instance snapshots on Azure VMs (preview)
+          - text: Back up SAP HANA databases' instance snapshots on Azure VMs
             url: sap-hana-database-instances-backup.md
           - text: Manage and monitor backed up SAP HANA databases
             url: sap-hana-db-manage.md
@@ -157,6 +158,8 @@ landingContent:
             url: backup-windows-with-mars-agent.md
           - text: Manage MARS Agent backups by using the Azure Backup service
             url: backup-azure-manage-mars.md
+          - text: Cross Region Restore support for MARS agent (preview)
+            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore
           - text: MARS agent support matrix
             url: backup-support-matrix-mars-agent.md
           - text: FAQ - MARS agent
@@ -195,6 +198,10 @@ landingContent:
           - text: Azure Backup pricing 
             url: azure-backup-pricing.md
           - text: Azure Backup service updates
-            url: https://azure.microsoft.com/updates/?product=backup
+            url: https://azure.microsoft.com/updates/?searchterms=Azure+Backup
           - text: Azure Backup Microsoft Q&A question page
             url: /answers/topics/azure-backup.html
+          - text: Azure Backup sample queries for reporting  
+            url: backup-reports-system-functions.md#sample-queries
+          - text: Azure Backup archived release notes  
+            url: backup-release-notes-archived.md

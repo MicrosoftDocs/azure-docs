@@ -1,16 +1,16 @@
 ---
 title: Configure customer-managed keys in the same tenant for a new storage account
 titleSuffix: Azure Storage
-description: Learn how to configure Azure Storage encryption with customer-managed keys for a new storage account by using the Azure portal, PowerShell, or Azure CLI. Customer-managed keys are stored in an Azure key vault.
+description: Learn how to configure Azure Storage encryption with customer-managed keys for a new storage account by using the Azure portal, PowerShell, or Azure CLI. Customer-managed keys are stored in an Azure Key Vault.
 services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 03/23/2023
-ms.author: tamram
+ms.author: normesta
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -20,7 +20,7 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 This article shows how to configure encryption with customer-managed keys at the time that you create a new storage account. The customer-managed keys are stored in a key vault.
 
-To learn how to configure customer-managed keys for an existing storage account, see [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md).
+To learn how to configure customer-managed keys for an existing storage account, see [Configure customer-managed keys in an Azure Key Vault for an existing storage account](customer-managed-keys-configure-existing-account.md).
 
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration of customer-managed keys. Any action that is supported for Azure Key Vault is also supported for Azure Key Vault Managed HSM.
@@ -37,7 +37,7 @@ To learn how to configure customer-managed keys for an existing storage account,
 
 When you configure encryption with customer-managed keys for a new storage account, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
 
-You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](../../key-vault/general/authentication.md).
+You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](/azure/key-vault/general/authentication).
 
 ### Configure encryption for automatic updating of key versions
 
@@ -75,6 +75,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
+    -AllowBlobPublicAccess $false `
     -IdentityType SystemAssignedUserAssigned `
     -UserAssignedIdentityId $userIdentity.Id `
     -KeyVaultUri $keyVault.VaultUri `
@@ -109,7 +110,7 @@ az storage account create \
 
 If you prefer to manually update the key version, then explicitly specify the version when you configure encryption with customer-managed keys while creating the storage account. In this case, Azure Storage won't automatically update the key version when a new version is created in the key vault. To use a new key version, you must manually update the version used for Azure Storage encryption.
 
-You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](../../key-vault/general/authentication.md).
+You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](/azure/key-vault/general/authentication).
 
 # [Azure portal](#tab/azure-portal)
 
@@ -146,6 +147,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
+    -AllowBlobPublicAccess $false `
     -IdentityType SystemAssignedUserAssigned `
     -UserAssignedIdentityId $userIdentity.Id `
     -KeyVaultUri $keyVault.VaultUri `
@@ -183,6 +185,7 @@ az storage account create \
     --location $location \
     --sku Standard_LRS \
     --kind StorageV2 \
+    --allow-blob-public-access false \
     --identity-type SystemAssigned,UserAssigned \
     --user-identity-id $identityResourceId \
     --encryption-key-vault $keyVaultUri \
@@ -210,5 +213,5 @@ Disabling the key will cause attempts to access data in the storage account to f
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
 - [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
-- [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md)
+- [Configure customer-managed keys in an Azure Key Vault for an existing storage account](customer-managed-keys-configure-existing-account.md)
 - [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md)

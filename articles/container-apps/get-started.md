@@ -2,12 +2,12 @@
 title: 'Quickstart: Deploy your first container app with containerapp up'
 description: Deploy your first application to Azure Container Apps using the Azure CLI containerapp up command.
 services: container-apps
-author: lanceleonard
-ms.service: container-apps
+author: craigshoemaker
+ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 03/29/2023
-ms.author: v-laleonard
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.date: 02/03/2025
+ms.author: cshoe
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -23,89 +23,12 @@ In this quickstart, you create and deploy your first container app using the `az
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-## Setup
-
-To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az login
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az login
-```
-
----
-
-Ensure you're running the latest version of the CLI via the upgrade command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az upgrade
-```
-
----
-
-Next, install or update the Azure Container Apps extension for the CLI.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az extension add --name containerapp --upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-
-```azurepowershell
-az extension add --name containerapp --upgrade
-```
-
----
-
-Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az provider register --namespace Microsoft.App
-```
-
-```azurecli
-az provider register --namespace Microsoft.OperationalInsights
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az provider register --namespace Microsoft.App
-```
-
-```azurepowershell
-az provider register --namespace Microsoft.OperationalInsights
-```
-
----
-
-Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
-
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 ## Create and deploy the container app
 
 Create and deploy your first container app with the `containerapp up` command. This command will:
 
-- Create the resource group
 - Create the Container Apps environment
 - Create the Log Analytics workspace
 - Create and deploy the container app using a public container image
@@ -121,13 +44,13 @@ az containerapp up \
   --resource-group my-container-apps \
   --location centralus \
   --environment 'my-container-apps' \
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
   --target-port 80 \
   --ingress external \
   --query properties.configuration.ingress.fqdn
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp up `
@@ -135,7 +58,7 @@ az containerapp up `
   --resource-group my-container-apps `
   --location centralus `
   --environment  my-container-apps `
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
+  --image mcr.microsoft.com/k8se/quickstart:latest `
   --target-port 80 `
   --ingress external `
   --query properties.configuration.ingress.fqdn

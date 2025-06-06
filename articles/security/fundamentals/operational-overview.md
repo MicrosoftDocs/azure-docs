@@ -3,19 +3,13 @@
 title: Azure operational security overview| Microsoft Docs
 description: Learn about Azure operational security in this overview. Operational security refers to asset protection services, controls, and features.
 services: security
-documentationcenter: na
-author: unifycloud
+author: msmbaldwin
 manager: rkarlin
-editor: tomsh
-
-ms.assetid:
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/31/2019
-ms.author: tomsh
+ms.date: 09/29/2024
+ms.author: mbaldwin
 
 ---
 
@@ -27,11 +21,11 @@ ms.author: tomsh
 
 An IT operations team is responsible for managing datacenter infrastructure, applications, and data, including the stability and security of these systems. However, gaining security insights across increasing complex IT environments often requires organizations to cobble together data from multiple security and management systems.
 
-[Microsoft Azure Monitor logs](../../azure-monitor/overview.md) is a cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Its core functionality is provided by the following services that run in Azure. Azure includes multiple services that help you manage and protect your on-premises and cloud infrastructure. Each service provides a specific management function. You can combine services to achieve different management scenarios. 
+[Microsoft Azure Monitor logs](/azure/azure-monitor/overview) is a cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Its core functionality is provided by the following services that run in Azure. Azure includes multiple services that help you manage and protect your on-premises and cloud infrastructure. Each service provides a specific management function. You can combine services to achieve different management scenarios. 
 
 ### Azure Monitor
 
-[Azure Monitor](../../azure-monitor/overview.md) collects data from managed sources into central data stores. This data can include events, performance data, or custom data provided through the API. After the data is collected, it's available for alerting, analysis, and export.
+[Azure Monitor](/azure/azure-monitor/overview) collects data from managed sources into central data stores. This data can include events, performance data, or custom data provided through the API. After the data is collected, it's available for alerting, analysis, and export.
 
 You can consolidate data from a variety of sources and combine data from your Azure services with your existing on-premises environment. Azure Monitor logs also clearly separates the collection of the data from the action taken on that data, so that all actions are available to all kinds of data.
 
@@ -51,15 +45,17 @@ For more information, see the [Azure Backup components table](../../backup/backu
 
 [Azure Site Recovery](../../site-recovery/index.yml) provides business continuity by orchestrating the replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working. You fail back when systems return to working order. Use Microsoft Defender for Cloud to perform more intelligent and effective threat detection.
 
-## Azure Active Directory
+<a name='azure-active-directory'></a>
 
-[Azure Active Directory (Azure AD)](../../active-directory/manage-apps/what-is-application-management.md) is a comprehensive identity service that:
+## Microsoft Entra ID
+
+[Microsoft Entra ID](../../active-directory/manage-apps/what-is-application-management.md) is a comprehensive identity service that:
 
 -	Enables identity and access management (IAM) as a cloud service.
 -	Provides central access management, single sign-on (SSO), and reporting.
 -	Supports integrated access management for [thousands of applications](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
 
-Azure AD also includes a full suite of [identity management capabilities](./identity-management-overview.md#security-monitoring-alerts-and-machine-learning-based-reports), including these:
+Microsoft Entra ID also includes a full suite of [identity management capabilities](./identity-management-overview.md#security-monitoring-alerts-and-machine-learning-based-reports), including these:
 
 - [Multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 - [Self-service password management](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
@@ -70,7 +66,7 @@ Azure AD also includes a full suite of [identity management capabilities](./iden
 - [Rich auditing](../../active-directory/reports-monitoring/concept-audit-logs.md)
 - [Security monitoring and alerting](../../security-center/security-center-managing-and-responding-alerts.md)
 
-With Azure Active Directory, all applications that you publish for your partners and customers (business or consumer) have the same identity and access management capabilities. This enables you to significantly reduce your operational costs.
+With Microsoft Entra ID, all applications that you publish for your partners and customers (business or consumer) have the same identity and access management capabilities. This enables you to significantly reduce your operational costs.
 
 ## Microsoft Defender for Cloud
 
@@ -84,20 +80,20 @@ With Azure Active Directory, all applications that you publish for your partners
 - Disk encryption validation.
 - Network-based attacks.
 
-Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md). Azure RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml). Azure RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you see information related to a resource only when you're assigned the role of owner, contributor, or reader for the subscription or resource group that a resource belongs to.
 
 >[!Note]
 >To learn more about roles and allowed actions in Defender for Cloud, see [Permissions in Microsoft Defender for Cloud](../../security-center/security-center-permissions.md).
 
-Defender for Cloud uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](../../azure-monitor/logs/manage-access.md) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
+Defender for Cloud uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](/azure/azure-monitor/logs/manage-access) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
 
 ## Azure Monitor
 
 Performance issues in your cloud app can affect your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you’re developing an app, your users usually discover issues that you didn’t find in testing. You should know about these issues immediately, and you should have tools for diagnosing and fixing the problems.
 
-[Azure Monitor](../../azure-monitor/overview.md) is basic tool for monitoring services running on Azure. It gives you infrastructure-level data about the throughput of a service and the surrounding environment. If you're managing your apps all in Azure and deciding whether to scale up or down resources, Azure Monitor is the place to start.
+[Azure Monitor](/azure/azure-monitor/overview) is basic tool for monitoring services running on Azure. It gives you infrastructure-level data about the throughput of a service and the surrounding environment. If you're managing your apps all in Azure and deciding whether to scale up or down resources, Azure Monitor is the place to start.
 
 You can also use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
@@ -105,23 +101,23 @@ Azure Monitor includes the following components.
 
 ### Azure Activity Log
 
-The [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md) provides insight into the operations that were performed on resources in your subscription. It was previously known as “Audit Log” or “Operational Log,” because it reports control-plane events for your subscriptions.
+The [Azure Activity Log](/azure/azure-monitor/essentials/platform-logs-overview) provides insight into the operations that were performed on resources in your subscription. It was previously known as “Audit Log” or “Operational Log,” because it reports control-plane events for your subscriptions.
 
 ### Azure diagnostic logs
 
-[Azure diagnostic logs](../../azure-monitor/essentials/platform-logs-overview.md) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
+[Azure diagnostic logs](/azure/azure-monitor/essentials/platform-logs-overview) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
 
 Windows event system logs are one category of diagnostic logs for VMs. Blob, table, and queue logs are categories of diagnostic logs for storage accounts.
 
-Diagnostic logs differ from the [Activity Log](../../azure-monitor/essentials/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostic logs provide insight into operations that your resource performed itself.
+Diagnostic logs differ from the [Activity Log](/azure/azure-monitor/essentials/platform-logs-overview). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostic logs provide insight into operations that your resource performed itself.
 
 ### Metrics
 
-Azure Monitor provides telemetry that gives you visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the [metrics](../../azure-monitor/data-platform.md) (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
+Azure Monitor provides telemetry that gives you visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the [metrics](/azure/azure-monitor/data-platform) (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
 ### Azure Diagnostics
 
-Azure Diagnostics enables the collection of diagnostic data on a deployed application. You can use the Diagnostics extension from various sources. Currently supported are [Azure cloud service roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure virtual machines](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Azure Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md).
+Azure Diagnostics enables the collection of diagnostic data on a deployed application. You can use the Diagnostics extension from various sources. Currently supported are [Azure cloud service roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure virtual machines](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Azure Service Fabric](/azure/azure-monitor/agents/diagnostics-extension-overview).
 
 ## Azure Network Watcher
 
@@ -153,7 +149,7 @@ For more information, see [Configure Network Watcher](../../network-watcher/netw
 
 [Customer Lockbox for Microsoft Azure](customer-lockbox-overview.md) is a service integrated into Azure portal that gives you explicit control in the rare instance when a Microsoft Support Engineer may need access to your data to resolve an issue.
 There are very few instances, such as a debugging remote access issue, where a Microsoft Support Engineer requires elevated permissions to resolve this issue. In such cases, Microsoft engineers use just-in-time access service that provides limited, time-bound authorization with access limited to the service.  
-While Microsoft has always obtained customer consent for access, Customer Lockbox now gives you the ability to review and approve or deny such requests from the Azure Portal. Microsoft support engineers will not be granted access until you approve the request.
+While Microsoft has always obtained customer consent for access, Customer Lockbox now gives you the ability to review and approve or deny such requests from the Azure portal. Microsoft support engineers will not be granted access until you approve the request.
 
 ## Standardized and Compliant Deployments
 
@@ -190,4 +186,4 @@ To learn about the Security and Audit solution, see the following articles:
 
 - [Security and compliance](https://azure.microsoft.com/overview/trusted-cloud/)
 - [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
-- [Azure Monitor](../../azure-monitor/overview.md)
+- [Azure Monitor](/azure/azure-monitor/overview)

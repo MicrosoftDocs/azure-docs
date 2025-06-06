@@ -3,7 +3,7 @@ title: How to send Azure SignalR Service events to Event Grid
 description: A guide to show you how to enable Event Grid events for your SignalR Service, then send client connection connected/disconnected events to a sample application.
 services: signalr
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/18/2022
@@ -14,11 +14,13 @@ ms.author: lianwei
 
 Azure Event Grid is a fully managed event routing service that provides uniform event consumption using a pub-sub model. In this guide, you use the Azure CLI to create an Azure SignalR Service, subscribe to connection events, then deploy a sample web application to receive the events. Finally, you can connect and disconnect and see the event payload in the sample application.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
+ 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## Create a resource group
 
@@ -139,6 +141,8 @@ When the subscription is completed, you should see output similar to the followi
 
 Switch to the service mode to `Serverless Mode` and set up a client connection to the SignalR Service. You can take [Serverless Sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) as a reference.
 
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
+
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
 
@@ -146,7 +150,7 @@ cd samples/Management
 
 # Start the negotiation server
 # Negotiation server is responsible for generating access token for clients
-cd NegotitationServer
+cd NegotiationServer
 dotnet user-secrets set Azure:SignalR:ConnectionString "<Connection String>"
 dotnet run
 

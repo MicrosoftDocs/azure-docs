@@ -2,13 +2,12 @@
 title: Confidential containers with Intel SGX enclaves on Azure
 description: Learn about unmodified container support with confidential containers on Intel SGX through OSS and partner solutions
 services: container-service
-author: agowdamsft
-ms.topic: article
+author: angarg05
+ms.topic: concept-article
 ms.date: 7/15/2022
-ms.author: amgowda
-ms.service: virtual-machines
-ms.subservice: confidential-computing
-ms.custom: ignite-fall-2021
+ms.author: ananyagarg
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ---
 
 # Confidential containers on Azure Kubernetes Service(AKS) with Intel SGX enclaves
@@ -35,7 +34,7 @@ Developers can choose software providers based on their features, integration wi
 
 ### Fortanix
 
-[Fortanix](https://www.fortanix.com/) has portal and Command Line Interface (CLI) experiences to convert their containerized applications to SGX-capable confidential containers. You don't need to modify or recompile the application. Fortanix provides the flexibility to run and manage a broad set of applications. You can use existing applications, new enclave-native applications, and pre-packaged applications. Start with Fortanix's [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/). Create confidential containers using the Fortanix's [quickstart guide for AKS](https://hubs.li/Q017JnNt0).
+[Fortanix](https://www.fortanix.com/) has portal and Command Line Interface (CLI) experiences to convert their containerized applications to SGX-capable confidential containers. You don't need to modify or recompile the application. Fortanix provides the flexibility to run and manage a broad set of applications. You can use existing applications, new enclave-native applications, and pre-packaged applications. Start with Fortanix's [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/). Create confidential containers using the Fortanix's quickstart guide for AKS.
 
 ![Diagram of Fortanix deployment process, showing steps to move applications to confidential containers and deploy.](./media/confidential-containers/fortanix-confidential-containers-flow.png)
 
@@ -51,9 +50,9 @@ You can deploy SCONE on Azure confidential computing nodes with AKS following th
 
 ### Anjuna
 
-[Anjuna](https://www.anjuna.io/) provides SGX platform software to run unmodified containers on AKS. For more information, see Anjuna's [documentation about functionality and sample applications](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
+[Anjuna](https://www.anjuna.io/) provides SGX platform software to run unmodified containers on AKS. For more information, see Anjuna's [documentation about functionality and sample applications](https://www.anjuna.io/partners/microsoft-azure).
 
-Get started with a sample Redis Cache and Python Custom Application [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)
+Get started with a sample Redis Cache and Python Custom Application [here](https://www.anjuna.io/partners/microsoft-azure)
 
 ![Diagram of Anjuna's process, showing how containers are run on Azure confidential computing.](media/confidential-containers/anjuna-process-flow.png)
 
@@ -94,6 +93,6 @@ Do you have questions about your implementation? Do you want to become an enable
 ## Next steps
 
 - [Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
-- [Microsoft Azure Attestation](../attestation/overview.md)
+- [Microsoft Azure Attestation](/azure/attestation/overview)
 - [Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
-- [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)

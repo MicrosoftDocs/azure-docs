@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Link a VNet to an ExpressRoute circuit - Azure CLI'
-description: This tutorial shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure CLI.
+title: 'Link a VNet to an ExpressRoute circuit - Azure CLI'
+description: This article shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure CLI.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: tutorial
-ms.date: 07/18/2022
+ms.service: azure-expressroute
+ms.topic: how-to
+ms.date: 09/15/2023
 ms.author: duau
 ms.custom: template-tutorial, devx-track-azurecli
 ---
-# Tutorial: Connect a virtual network to an ExpressRoute circuit using Azure CLI
+# Connect a virtual network to an ExpressRoute circuit using Azure CLI
 
-This tutorial shows you how to link virtual networks (VNets) to Azure ExpressRoute circuits using Azure CLI. To link using Azure CLI, the virtual networks must be created using the Resource Manager deployment model. They can either be in the same subscription, or part of another subscription. If you want to use a different method to connect your VNet to an ExpressRoute circuit, you can select an article from the following list:
+This article shows you how to link virtual networks (VNets) to Azure ExpressRoute circuits using Azure CLI. To link using Azure CLI, the virtual networks must be created using the Resource Manager deployment model. They can either be in the same subscription, or part of another subscription. If you want to use a different method to connect your VNet to an ExpressRoute circuit, you can select an article from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -20,12 +20,7 @@ This tutorial shows you how to link virtual networks (VNets) to Azure ExpressRou
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Connect a virtual network in the same subscription to a circuit
-> - Connect a virtual network in a different subscription to a circuit
-> - Modify a virtual network connection
-> - Configure ExpressRoute FastPath
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit." lightbox="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png":::
 
 ## Prerequisites
 
@@ -101,7 +96,7 @@ The response contains the authorization key and status:
 "authorizationKey": "0a7f3020-541f-4b4b-844a-5fb43472e3d7",
 "authorizationUseStatus": "Available",
 "etag": "W/\"010353d4-8955-4984-807a-585c21a22ae0\"",
-"id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/authorizations/MyAuthorization1",
+"id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/authorizations/MyAuthorization1",
 "name": "MyAuthorization1",
 "provisioningState": "Succeeded",
 "resourceGroup": "ExpressRouteResourceGroup"
@@ -115,9 +110,9 @@ The Circuit Owner can review all authorizations that are issued on a particular 
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**To add authorizations**
+**To create an authorization**
 
-The Circuit Owner can add authorizations by using the following example:
+The Circuit Owner can create an authorization by using the following example:
 
 ```azurecli-interactive
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
@@ -182,16 +177,6 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 > [!NOTE]
 > You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
 >
-
-## Enroll in ExpressRoute FastPath features (preview)
-
-FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. See [FastPath preview features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview), for instructions on how to enroll.
-
-> [!NOTE] 
-> Any connections configured for FastPath in the target subscription will be enrolled in this preview. We do not advise enabling this preview in production subscriptions.
-> If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
-> 1. Enroll in the FastPath preview feature with the Azure PowerShell command above.
-> 1. Disable and then re-enable FastPath on the target connection.
 
 ## Clean up resources
 

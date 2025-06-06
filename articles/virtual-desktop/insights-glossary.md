@@ -1,14 +1,11 @@
 ---
 title: Azure Virtual Desktop Insights glossary - Azure
 description: A glossary of terms and concepts related to Azure Virtual Desktop Insights.
-services: virtual-desktop
-author: Heidilohr
-
-ms.service: virtual-desktop
+author: dougeby
 ms.topic: conceptual
-ms.date: 10/26/2022
-ms.author: helohr
-manager: femila
+ms.date: 09/12/2023
+ms.author: avdcontent
+ms.custom: docs_inherited
 ---
 # Azure Virtual Desktop Insights glossary
 
@@ -16,7 +13,7 @@ This article lists and briefly describes key terms and concepts related to Azure
 
 ## Alerts
 
-Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 0](#severity-0-alerts) will appear in the Overview page. To learn how to set up alerts, see [Azure Monitor Log Alerts](../azure-monitor/alerts/alerts-log.md).
+Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 0](#severity-0-alerts) will appear in the Overview page. To learn how to set up alerts, see [Azure Monitor Log Alerts](/azure/azure-monitor/alerts/alerts-log).
 
 ## Available sessions
 
@@ -56,7 +53,7 @@ When an error or alert appears in Azure Virtual Desktop Insights, it's categoriz
 
      - Errors marked as "service" or "ServiceError = TRUE" happened in the Azure Virtual Desktop service.
      - Errors marked as "deployment" or tagged "ServiceError = FALSE" happened outside of the Azure Virtual Desktop service.
-     - To learn more about the ServiceError tag, see [Common error scenarios](./troubleshoot-set-up-overview.md).
+     - To learn more about the ServiceError tag, see [Common error scenarios](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview).
 
 - Source: this category gives a more specific description of where the error happened.
 
@@ -70,7 +67,60 @@ When an error or alert appears in Azure Virtual Desktop Insights, it's categoriz
 
      - Client: software running on the end-user machine that provides the interface to the Azure Virtual Desktop service. It displays the list of published resources and hosts the Remote Desktop connection once you've made a selection.
 
-Each diagnostics issue or error includes a message that explains what went wrong. To learn more about troubleshooting errors, see [Identify and diagnose Azure Virtual Desktop issues](./troubleshoot-set-up-overview.md).
+Each diagnostics issue or error includes a message that explains what went wrong. To learn more about troubleshooting errors, see [Identify and diagnose Azure Virtual Desktop issues](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview).
+
+## Gateway region codes
+
+Some metrics in Azure Virtual Desktop Insights list the gateway region a user connects through. The gateway region is represented by a three or four-letter code that corresponds to the Azure region where the gateway is located. The following table lists the gateway region codes and their corresponding Azure regions:
+
+| Gateway region code | Azure region |
+|--|--|
+| AUC | Australia Central |
+| AUC2 | Australia Central 2 |
+| AUE | Australia East |
+| AUSE | Australia Southeast |
+| BRS | Brazil South |
+| CAC | Canada Central |
+| CAE | Canada East |
+| CHNO | Switzerland North |
+| CIN | Central India |
+| CUS | Central US |
+| EAS | East Asia |
+| EEU | East Europe |
+| EUS | East US |
+| EUS2 | East US 2 |
+| FRAS | France South |
+| FRC | France Central |
+| GEC | Germany Central |
+| GEN | Germany North |
+| GENE | Germany Northeast |
+| GWC | Germany West Central |
+| JPE | Japan East |
+| JPW | Japan West |
+| KRC | Korea Central |
+| KRS | Korea South |
+| KRS2 | Korea South 2 |
+| NCUS | North Central US |
+| NEU | North Europe |
+| NOE | Norway East |
+| NOW | Norway West |
+| SAN | South Africa North |
+| SAW | South Africa West |
+| SCUS | South Central US |
+| SEA2 | Southeast Asia 2 |
+| SEAS | Southeast Asia |
+| SIN | South India |
+| SWW | Switzerland West |
+| UAEC | UAE Central |
+| UAEN | UAE North |
+| UKN | UK North |
+| UKS | UK South |
+| UKS2 | UK South 2 |
+| UKW | UK West |
+| WCUS | West Central US |
+| WEU | West Europe |
+| WIN | West India |
+| WUS | West US |
 
 ## Input delay
 
@@ -119,10 +169,6 @@ The following table lists the recommended performance counters and time interval
 |RemoteFX Network(\*)\\Current TCP RTT|30 seconds|
 |RemoteFX Network(\*)\\Current UDP Bandwidth|30 seconds|
 
-To learn more about how to read performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
-
-To learn more about input delay performance counters, see [User Input Delay performance counters](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
-
 ## Potential connectivity issues
 
 Potential connectivity issues shows the hosts, users, published resources, and clients with a high connection failure rate. Once you choose a "report by" filter, you can evaluate the issue's severity by checking the values in these columns:
@@ -140,7 +186,7 @@ You can also select entries to view additional information. You can view which h
 
 ## Round-trip time (RTT)
 
-Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the session host's Azure region. To see which locations have the best latency, look up your desired location in the [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the session host's Azure region. To see which locations have the best latency, look up your desired location in [Azure network round-trip latency statistics](../networking/azure-network-latency.md).
 
 ## Session history
 
@@ -152,7 +198,7 @@ The most urgent items that you need to take care of right away. If you don't add
 
 ## Time to connect
 
-Time to connect is the time between when a user opens a resource to start their session and when their desktop has loaded and is ready to use. For example, for RemoteApps, this is the time it takes to launch the application.
+Time to connect is the time between when a user opens a resource to start their session and when their desktop has loaded and is ready to use. For example, for a RemoteApp, this is the time it takes to launch the application.
 
 Time to connect has two stages:
 
@@ -161,16 +207,16 @@ Time to connect has two stages:
 
 When monitoring time to connect, keep in mind the following things:
 
-- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service diagnostics data. The checkpoints Insights uses to determine when the connection is established are different for a desktop versus a remote application scenario.
+- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service diagnostics data. The checkpoints Insights uses to determine when the connection is established are different for a desktop versus a RemoteApp scenario.
 
   - Begins: [WVDConnection](/azure/azure-monitor/reference/tables/wvdconnections) state = started
 
   - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = RdpShellAppExecuted (RemoteApp. For timing, consider the first app launch only)
 
-For example, Insights measures the time for a desktop experience to launch based on how long it takes to launch Windows Explorer. Insights also measures the time for a remote application to launch based on the time taken to launch the first instance of the shell app for a connection.
+For example, Insights measures the time for a desktop experience to launch based on how long it takes to launch Windows Explorer. Insights also measures the time for a RemoteApp to launch based on the time taken to launch the first instance of the shell app for a connection.
   
 >[!NOTE]
->If a user launches more than one remote application, sometimes the shell app can execute multiple times during a single connection. For an accurate measurement of time to connect, you should only use the first execution checkpoint for each connection.
+>If a user launches more than one RemoteApp, sometimes the shell app can execute multiple times during a single connection. For an accurate measurement of time to connect, you should only use the first execution checkpoint for each connection.
 
 - Establishing new sessions usually takes longer than reestablishing connections to existing sessions due to differences in the "logon" process for new and established connections. 
 
@@ -218,7 +264,7 @@ core. Knowing how many users are active will help you efficiently resource and s
 
 ## Windows Event Logs
 
-Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
+Windows Event Logs are data sources collected by either the Azure Monitor Agent or the Log Analytics agent on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
 The following table lists the required Windows Event Logs for Azure Virtual Desktop Insights:
 
@@ -231,21 +277,19 @@ The following table lists the required Windows Event Logs for Azure Virtual Desk
 | Microsoft-FSLogix-Apps/Operational|Error, Warning, and Information|
 |Microsoft-FSLogix-Apps/Admin|Error, Warning, and Information|
 
-To learn more about Windows Event Logs, see [Windows Event records properties](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).
-
 ## Next steps
 
 - To get started, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
 - To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](insights-costs.md).
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help and known issues.
+- If you encounter a problem, check out our [troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-insights) for help and known issues.
 
 
-You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](../advisor/advisor-overview.md).
+You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](/azure/advisor/advisor-overview).
 
 If you need help or have any questions, check out our community resources:
 
 - Ask questions or make suggestions to the community at the [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
    
-- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md#report-issues).
+- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview#report-issues).
 
 - You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)

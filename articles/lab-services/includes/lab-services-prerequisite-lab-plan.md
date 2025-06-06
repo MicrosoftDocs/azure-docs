@@ -1,7 +1,7 @@
 ---
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.date: 02/09/2023
 ms.topic: include
 ---
 
-- Run the [Quickstart: Create lab resources you need to get started with Azure Lab Services](../quick-create-resources.md) to create a lab plan.
+- An Azure lab plan. If you don't have a lab plan yet, follow the steps in [Quickstart: Set up resources to create labs](../quick-create-resources.md).

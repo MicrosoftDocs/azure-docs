@@ -1,17 +1,15 @@
 ---
 title: Questions about assessments in Azure Migrate
 description: Get answers to common questions about assessments in Azure Migrate.
-author: rashijoshi
-ms.author: rajosh
-ms.manager: abhemraj
-ms.topic: conceptual
-ms.date: 12/12/2022
-ms.custom: engagement-fy23
+ms.topic: concept-article
+ms.service: azure-migrate
+ms.date: 05/08/2025
+ms.custom: engagement-fy25
 ---
 
 # Assessment - Common questions
 
-This article answers common questions about assessments in Azure Migrate. If you've other questions, check these resources:
+This article answers common questions about assessments in Azure Migrate. If you have other questions, check these resources:
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
@@ -20,11 +18,11 @@ This article answers common questions about assessments in Azure Migrate. If you
 
 ## What geographies are supported for discovery and assessment with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+Review the supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 ## How many servers can I discover with an appliance?
 
-You can discover up to 10,000 servers from VMware environment, up to 5,000 servers from Hyper-V environment, and up to 1000 physical servers by using a single appliance. If you've more servers, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
+You can discover up to 10,000 servers from VMware environment, up to 5,000 servers from Hyper-V environment, and up to 1,000 physical servers by using a single appliance. If you have more servers, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
 
 ## How do I choose the assessment type?
 
@@ -36,26 +34,35 @@ You can discover up to 10,000 servers from VMware environment, up to 5,000 serve
 
 ## Why is performance data missing for some/all servers in my Azure VM and/or AVS assessment report?
 
-For "Performance-based" assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance can't collect performance data for the on-premises servers. Check:
+For "Performance-based" assessment, the assessment report export says "PercentageOfCoresUtilizedMissing" or "PercentageOfMemoryUtilizedMissing" when the Azure Migrate appliance can't collect performance data for the on-premises servers. You can check the *Resolve issues* tab on the Azure Migrate hub page for detailed issues or check the following manually:
 
 - If the servers are powered on for the duration for which you're creating the assessment
 - If only memory counters are missing and you're trying to assess servers in Hyper-V environment. In this scenario, enable dynamic memory on the servers and 'Recalculate' the assessment to reflect the latest changes. The appliance can collect memory utilization values for severs in Hyper-V environment only when the server has dynamic memory enabled.
 
-- If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
+- If all the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
     > [!Note]
     > If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
+
+## How can I understand details of errors causing performance data collection issues?
+
+You can now understand what errors you need to remediate to resolve performance data collection issues in Azure VM and Azure VMware Solution assessments. Follow these steps:
+
+- Go to Azure Migrate > **Servers, databases and web apps** > **Migration goals**, select **Resolve issues** on the Discovery and assessment tool.
+- Select **Affected objects** next to the assessment and select the link in the error ID column to review the error details and remediation actions.
+
+You can also review these errors/issues while creating the assessment in the **Select servers to assess** step or in the readiness tab of an existing assessment. If you don't see any errors/issues in the assessment but see non-zero errors in the Resolve issues tab, recalculate the assessment to see the issues within the Assessment tab. 
 
 ## Why is performance data missing for some/all SQL instances/databases in my Azure SQL assessment?
 
 To ensure performance data is collected, check:
 
 - If the SQL Servers are powered on for the duration for which you're creating the assessment.
-- If the connection status of the SQL agent in Azure Migrate is 'Connected', and check the last heartbeat. 
-- If Azure Migrate connection status for all SQL instances is 'Connected' in the discovered SQL instance section.
+- If the connection status of the SQL agent in Azure Migrate is "Connected", and check the last heartbeat. 
+- If Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance section.
 - If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
-If any of the performance counters are missing, Azure SQL assessment recommends the smallest Azure SQL configuration for that instance/database.
+If any of the performance counters are missing, Azure SQL assessment falls back to As on-premises sizing and recommends an Azure SQL configuration based on the allocated cores, memory, and total database size on-premises.
 
 ## Why is confidence rating not available for Azure App Service assessments?
 
@@ -63,7 +70,7 @@ Performance data isn't captured for Azure App Service assessment and hence you d
 
 ## Why is the confidence rating of my assessment low?
 
-The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
+The confidence rating is calculated for **Performance-based** assessments based on the percentage of [available data points](./assessment-report.md#confidence-ratings-performance-based) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you're creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you can't wait for the duration, change the performance duration to a smaller period and **Recalculate** the assessment.
 - Assessment isn't able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that: 
@@ -71,24 +78,24 @@ The confidence rating is calculated for "Performance-based" assessments based on
     - Outbound connections on ports 443 are allowed
     - For Hyper-V Servers, dynamic memory is enabled
     - The connection status of agents in Azure Migrate are 'Connected' and check the last heartbeat
-    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance section.
+    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is **Connected** in the discovered SQL instance section.
 
     **Recalculate** the assessment to reflect the latest changes in confidence rating.
 
-- For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
-- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings).
+- For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings-performance-based).
+- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings-performance-based).
 
 ## Why is my RAM utilization greater than 100%?
 
-By design, in Hyper-V if maximum memory provisioned is less than what is required by the VM, Assessment will show memory utilization to be more than 100%.
+By design, in Hyper-V if maximum memory provisioned is less than what the VM requires, the Assessment will show memory utilization to be more than 100%.
 
 ## I see a banner on my assessment that the assessment now also considers processor parameters. What will be the impact of recalculating the assessment?
 
-The assessment now considers processor parameters such as number of operational cores, sockets, etc. and calculating its optimal performance over a period in a simulated environment. This is done to benchmark all processor-based available processor information. Recalculate your assessments to see the updated recommendations.
+The assessment now considers processor parameters such as number of operational cores, sockets, etc. and calculates its optimal performance over a period in a simulated environment. This is done to benchmark all processor-based available processor information. Recalculate your assessments to see the updated recommendations.
 
-The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-premises VMware environment and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
+The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-premises VMware, Hyper-V, and Physical servers and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
 
-Due to this, the target Azure VM cost can differ from your earlier assessments of the same target. Also, the number of cores allocated in the target Azure SKU could also vary if the processor performance of target is a match for your on-premises VMware environment.
+Due to this, the target Azure VM cost can differ from your earlier assessments of the same target. Also, the number of cores allocated in the target Azure SKU could also vary if the processor performance of target is a match for your on-premises VMware, Hyper-V, and Physical servers.
 
 ## For scenarios where customers choose "as on premises", is there any impact due to processor benchmarking?
 
@@ -96,13 +103,13 @@ No, there will be no impact as we don't consider it for as on premises scenario.
 
 ## I see an increase in my monthly costs after I recalculate my assessments? Is this the most optimized cost for me?
 
-If you've selected all available options for your “VM Series” in your assessment settings, you will get the most optimized cost recommendation for your VMs. However, if you choose only some of the available options for the VM series, the recommendation might skip the most optimized option for you while assigning you an Azure VM SKU while matching your processor performance numbers.
+If you've selected all available options for your “VM Series” in your assessment settings, you'll get the most optimized cost recommendation for your VMs. However, if you choose only some of the available options for the VM series, the recommendation might skip the most optimized option for you while assigning you an Azure VM SKU while matching your processor performance numbers.
 
 ## Why can't I see all Azure VM families in the Azure VM assessment properties?
 
 There could be two reasons:
-- You've chosen an Azure region where a particular series isn't supported. Azure VM families shown in Azure VM assessment properties are dependent on the availability of the VM series in the chosen Azure location, storage type and Reserved Instance. 
-- The VM series isn't support in the assessment and isn't in the consideration logic of the assessment. We currently don't support B-series burstable, accelerated and high performance SKU series. We're trying to keep the VM series updated, and the ones mentioned are on our roadmap. 
+- You've chosen an Azure region where a particular series isn't supported. Azure VM families shown in Azure VM assessment properties are dependent on the availability of the VM series in the chosen Azure location, storage type, and Reserved Instance. 
+- The VM series isn't support in the assessment and isn't in the consideration logic of the assessment. We currently don't support B-series burstable, accelerated, and high performance SKU series. We're trying to keep the VM series updated, and the ones mentioned are on our roadmap. 
 
 ## The number of Azure VM or AVS assessments on the Discovery and assessment tool are incorrect
 
@@ -116,13 +123,13 @@ Discovery and assessment of SQL Server instances and databases running in your V
 
 Discovery and assessment of .NET web apps running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, ensure that you've completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
-## I can't see some servers when I am creating an Azure SQL assessment
+## I can't see some servers when I'm creating an Azure SQL assessment
 
 - Azure SQL assessment can only be done on servers running where SQL instances were discovered. If you don't see the servers and SQL instances that you wish to assess, wait for some time for the discovery, and then create the assessment.
 - If you're not able to see a previously created group while creating the assessment, remove any server without a SQL instance from the group.
 - If you're running Azure SQL assessments in Azure Migrate for the first time, it's advisable to create a new group of servers.
 
-## I can't see some servers when I am creating an Azure App Service assessment
+## I can't see some servers when I'm creating an Azure App Service assessment
 
 - Azure App Service assessment can only be done on servers running where web server role was discovered. If you don't see the servers that you wish to assess, wait for some time for the discovery to get completed, and then create the assessment.
 - If you're not able to see a previously created group while creating the assessment, remove any non-VMware server or any server without a web app from the group.
@@ -130,7 +137,7 @@ Discovery and assessment of .NET web apps running in your VMware environment is 
 
 ## I want to understand how was the readiness for my instance computed?
 
-The readiness for your SQL instances has been computed after doing a feature compatibility check with the targeted Azure SQL deployment type (SQL Server on Azure VM or Azure SQL Managed Instance or Azure SQL Database). [Learn more](./concepts-azure-sql-assessment-calculation.md#calculate-readiness). 
+The readiness for your SQL instances has been computed after doing a feature compatibility check with the targeted Azure SQL deployment type (SQL Server on Azure VM or Azure SQL Managed Instance or Azure SQL Database). [Learn more](./concepts-assessment-calculation.md#server-properties). 
 
 ## I want to understand how was the readiness for my web apps is computed?
 
@@ -138,7 +145,7 @@ The readiness for your web apps is computed by running series of technical check
 
 ## Why is my web app marked as Ready with conditions or Not ready in my Azure App Service assessment?
 
-This can happen when one or more technical checks fail for a given web app. You may select the readiness status for the web app to find out details and remediation for failed checks.
+This can happen when one or more technical checks fail for a given web app. You can select the readiness status for the web app to find out details and remediation for failed checks.
 
 ## Why is the readiness for all my SQL instances marked as unknown?
 
@@ -184,7 +191,7 @@ If there are changes to on-premises SQL instances and databases that are in a gr
 
 ## Why was I recommended a particular target deployment type?
 
-Azure Migrate recommends a specific Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft recommended target reduces your overall migration effort. This Azure SQL configuration (SKU) has been recommended after considering the performance characteristics of your SQL instance and the databases it manages. If multiple Azure SQL configurations are eligible, we recommend the one, which is the most cost effective. [Learn more](./concepts-azure-sql-assessment-calculation.md#calculate-sizing).
+Azure Migrate recommends a specific Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft recommended target reduces your overall migration effort. This Azure SQL configuration (SKU) has been recommended after considering the performance characteristics of your SQL instance and the databases it manages. If multiple Azure SQL configurations are eligible, we recommend the one, which is the most cost effective. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment).
 
 ## What deployment target should I choose if my SQL instance is ready for Azure SQL DB and Azure SQL MI?
 
@@ -196,13 +203,13 @@ The Azure SQL assessment only includes databases that are in online status. In c
 
 ## I want to compare costs for running my SQL instances on Azure VM vs Azure SQL Database/Azure SQL Managed Instance
 
-You can create a single **Azure SQL** assessment consisting of desired SQL servers across VMware, Microsoft Hyper-V and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. A single assessment covers readiness, SKUs, estimated costs and migration blockers for all the available SQL migration targets in Azure - Azure SQL Managed Instance, Azure SQL Database and SQL Server on Azure VM. You can then compare the assessment output for the desired targets. [Learn More](./concepts-azure-sql-assessment-calculation.md)
+You can create a single **Azure SQL** assessment consisting of desired SQL servers across VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. A single assessment covers readiness, SKUs, estimated costs, and migration blockers for all the available SQL migration targets in Azure - Azure SQL Managed Instance, Azure SQL Database, and SQL Server on Azure VM. You can then compare the assessment output for the desired targets. [Learn More](./concepts-azure-sql-assessment-calculation.md).
 
 ## The storage cost in my Azure SQL assessment is zero
 
-For Azure SQL Managed Instance, there's no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+For Azure SQL Managed Instance, there's no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32-GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
-## I can't see some groups when I am creating an Azure VMware Solution (AVS) assessment
+## I can't see some groups when I'm creating an Azure VMware Solution (AVS) assessment
 
 - AVS assessment can be done on groups that have only VMware machines. Remove any non-VMware machine from the group if you intend to perform an AVS assessment.
 - If you're running AVS assessments in Azure Migrate for the first time, it's advisable to create a new group of VMware machines.
@@ -211,11 +218,11 @@ For Azure SQL Managed Instance, there's no storage cost added for the first 32 G
 
 ### Can I migrate my disks to Ultra disk using Azure Migrate?
 
-No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. Find steps to deploy Ultra disk [here](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk)
+No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. Find steps to deploy Ultra disk [here](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
 
 ### Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
 
-As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra Disk is billed based on the provisioned size, provisioned IOPS and provisioned throughput. As per an example provided:
+As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra Disk is billed based on the provisioned size, provisioned IOPS, and provisioned throughput. As per an example provided:
 
 If you provisioned a 200 GiB Ultra Disk, with 20,000 IOPS and 1,000 MB/second and deleted it after 20 hours, it will map to the disk size offer of 256 GiB and you'll be billed for the 256 GiB, 20,000 IOPS and 1,000 MB/second for 20 hours.
 
@@ -257,8 +264,8 @@ For example, if an on-premises server has 4 cores and 8 GB of memory at 50% CPU 
 
 Similarly, disk sizing depends on sizing criteria and storage type:
 
-- If the sizing criteria is "performance-based" and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium or Ultra disk).
-- If the sizing criteria is "as on premises" and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium or Ultra disk.
+- If the sizing criteria are "performance-based" and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium, or Ultra disk).
+- If the sizing criteria are "as on premises" and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium, or Ultra disk.
 
 ## Does performance history and utilization affect sizing in an Azure VM assessment?
 
@@ -285,7 +292,7 @@ Using the 95th percentile value ensures that outliers are ignored. Outliers migh
 
 Import-based Azure VM assessments are assessments created with machines that are imported into Azure Migrate using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note:
 
- - The readiness criteria is less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it's assumed the machine has BIOS boot type, and the machine isn't marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users may not have all information on the machines in the early stages of migration planning when import-based assessments are done.
+ - The readiness criteria are less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it's assumed the machine has BIOS boot type, and the machine isn't marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users might not have all information on the machines in the early stages of migration planning when import-based assessments are done.
  - Performance-based import assessments use the utilization value provided by the user for right-sizing calculations. Since the utilization value is provided by the user, the **Performance history** and **Percentile utilization** options are disabled in the assessment properties. In assessments with discovery source as appliance, the chosen percentile value is picked from the performance data collected by the appliance.
 
 ## Why is the suggested migration tool in import-based AVS assessment marked as unknown?
@@ -294,4 +301,4 @@ For machines imported via a CSV file, the default migration tool in an AVS asses
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+Learn more about discovering [VMware VMs](tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).

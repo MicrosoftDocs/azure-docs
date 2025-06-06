@@ -1,21 +1,26 @@
 ---
-title: Set up an Azure Migrate appliance for server assessment in a VMware environment 
+title: Set up an Azure Migrate appliance for server assessment in a VMware environment
 description: Learn how to set up an Azure Migrate appliance to assess and migrate servers in VMware environment.
-author: vikram1988 
+author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 01/31/2023
-ms.custom: engagement-fy23
+ms.service: azure-migrate
+ms.date: 05/09/2025
+ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
 # Set up an appliance for servers in a VMware environment
 
-This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool.
+This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool.
+
 
 The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure.
 
 ## Set up the appliance
+
+>[!NOTE]
+>The appliance VM can be domain joined and managed with a domain account.
 
 You can deploy the Azure Migration appliance using these methods:
 
@@ -29,17 +34,20 @@ After you create the appliance, check if the appliance can connect to Azure Migr
 To set up the appliance by using an OVA template, you'll complete these steps, which are described in detail in this section:
 
 > [!NOTE]
-> OVA templates are not available for soverign clouds.
+> OVA templates are not available for sovereign clouds.
+
+> [!NOTE]
+> Do not clone or create a VM template out of an appliance deployed using OVA template. This scenario is unsupported and may result in deployment failures within the Migrate Service.
 
 1. Provide an appliance name and generate a project key in the portal.
 1. Download an OVA template file, and import it to vCenter Server. Verify that the OVA is secure.
 1. Create the appliance from the OVA file. Verify that the appliance can connect to Azure Migrate.
-1. Configure the appliance for the first time. 
+1. Configure the appliance for the first time.
 1. Register the appliance with the project by using the project key.
 
 #### Generate the project key
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Discover**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Discover**.
 1. In **Discover servers**, select **Are your servers virtualized?** > **Yes, with VMware vSphere hypervisor**.
 1. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up to discover servers in your VMware environment. The name should be alphanumeric and 14 characters or fewer.
 1. To start creating the required Azure resources, select **Generate key**. Don't close the **Discover** pane while the resources are being created.
@@ -56,17 +64,27 @@ Before you deploy the OVA file, verify that the file is secure:
 
 1. On the server on which you downloaded the file, open a Command Prompt window by using the **Run as administrator** option.
 1. Run the following command to generate the hash for the OVA file:
-  
-    ```bash
-    C:\>CertUtil -HashFile <file_location> <hashing_agorithm>
+
     ```
-   
-    For example: 
-    ```bash
+    C:\>CertUtil -HashFile <file_location> <hashing_algorithm>
+    ```
+
+    For example:
+    ```
     C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256
     ```
 
-1. Verify the latest hash value by comparing the outcome of above command to the value documented [here](./tutorial-discover-vmware.md#verify-security).
+1. Verify the latest appliance versions and hash values:
+
+    - For the Azure public cloud:
+    
+      [!INCLUDE [public-cloud-vmware.md](./includes/public-cloud-vmware.md)]
+
+    - For Azure Government:
+
+        **Algorithm** | **Download** | **SHA256**
+        --- | --- | ---
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](./includes/security-hash-value.md)]
 
 #### Create the appliance server
 
@@ -121,7 +139,7 @@ In the configuration manager, select **Set up prerequisites**, and complete thes
     1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and copy the key that's shown.
 	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure sign-in prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
-    
+
         :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in.":::
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
 	    > [!NOTE]
@@ -130,7 +148,7 @@ In the configuration manager, select **Set up prerequisites**, and complete thes
 
         After the appliance is successfully registered, select **View details** to see the registration details.
 
-1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 or 7.0 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, the default path is *C:\Program Files\VMware\VMware Virtual Disk Development Kit* as indicated in the *Installation instructions*.
+1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7, 7.0, or 8(depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zip file contents to the specified location on the appliance, the default path is *C:\Program Files\VMware\VMware Virtual Disk Development Kit* as indicated in the *Installation instructions*.
 
     The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 
@@ -171,7 +189,7 @@ To add server credentials:
 
 1. Select **Add Credentials**.
 1. In the dropdown menu, select **Credentials type**.
-    
+
     You can provide domain/, Windows(non-domain)/, Linux(non-domain)/, and SQL Server authentication credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
 1. For each type of credentials, enter:
     * A friendly name.
@@ -221,4 +239,4 @@ To start vCenter Server discovery, in **Step 3: Provide server credentials to pe
 
 ## Next steps
 
-Review the [tutorials for VMware assessment](./tutorial-assess-vmware-azure-vm.md) and [tutorials for agentless migration](tutorial-migrate-vmware.md).
+Review the [tutorials for VMware assessment](tutorial-assess-vmware-azure-vm.md) and [tutorials for agentless migration](tutorial-migrate-vmware.md).

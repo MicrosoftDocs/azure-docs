@@ -4,16 +4,15 @@ description: Explains region choices for Azure Stack Edge service, data storage,
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 03/20/2025
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to choose optimal region(s) to meet my performance needs, requirements, and data location preferences for my Azure Stack Edge devices and storage.
 ---
 # Choosing a region for Azure Stack Edge
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-and-fpga-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes region availability for the Azure Stack Edge service, data storage, and device shipments for an Azure Stack Edge device, and explains how your choice of regions affects service, performance, and billings.
 
@@ -55,7 +54,7 @@ In general, choose the nearest region to your service for your storage account. 
 
 ## Region of device
 
-To find out the countries and geographic regions where Azure Stack Edge models are available, see the product overview:
+To find out the countries/regions where Azure Stack Edge models are available, see the product overview:
 
 - [Region availability for Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md#region-availability)
 - [Region availability for Azure Stack Edge Pro R](azure-stack-edge-pro-r-overview.md#region-availability)

@@ -1,17 +1,17 @@
 ---
 title: Author graphical runbooks in Azure Automation
 description: This article tells how to author a graphical runbook without working with code.
-services: automation
+ms.service: azure-automation
 ms.subservice: process-automation
-ms.date: 04/25/2023
-ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.date: 09/09/2024
+ms.topic: overview 
+ms.custom:
 ---
 
 # Author graphical runbooks in Azure Automation
 
 > [!IMPORTANT]
-> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+> Azure Automation Run as accounts, including  Classic Run as accounts have retired on **30 September 2023** and replaced with [Managed Identities](automation-security-overview.md#managed-identities). You would no longer be able to create or renew Run as accounts through the Azure portal. For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts).
 
 All runbooks in Azure Automation are Windows PowerShell workflows. Graphical runbooks and graphical PowerShell Workflow runbooks generate PowerShell code that the Automation workers run but that you cannot view or modify. You can convert a graphical runbook to a graphical PowerShell Workflow runbook, and vice versa. However, you can't convert these runbooks to a textual runbook. Additionally, the Automation graphical editor can't import a textual runbook.
 
@@ -365,13 +365,13 @@ $h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
 $h
 ```
 
-The following example uses output from an activity called `Get Twitter Connection` to populate a hashtable.
+The following example uses output from an activity called `Get X Connection` to populate a hashtable.
 
 ```powershell-interactive
-@{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
-    'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
-    'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
-    'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+@{'ApiKey'=$ActivityOutput['Get X Connection'].ConsumerAPIKey;
+    'ApiSecret'=$ActivityOutput['Get X Connection'].ConsumerAPISecret;
+    'AccessToken'=$ActivityOutput['Get X Connection'].AccessToken;
+    'AccessTokenSecret'=$ActivityOutput['Get X Connection'].AccessTokenSecret}
 ```
 
 ## Authenticate to Azure resources
@@ -416,5 +416,4 @@ You have the option to revert to the Published version of a runbook. This operat
 
 * To get started with graphical runbooks, see [Tutorial: Create a graphical runbook](./learn/powershell-runbook-managed-identity.md).
 * To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
-* To understand how to authenticate using the Automation Run As account, see [Run As account](automation-security-overview.md#run-as-account).
 * For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/#automation).

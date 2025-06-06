@@ -1,26 +1,44 @@
 items:
-- name: Azure Native ISV Services documentation
+- name: Azure Native Integrations documentation
   items:
-  - name: Overview of Azure Native ISV Services
+  - name: Overview
     href: overview.md
   - name: Partner services
     href: partners.md
 - name: Partner services documentation
   expanded: true
   items:
-  - name: Apache Kafka on Confluent Cloud
+  - name: Arize AI
+    href: ./arize-ai/index.yml
+  - name: Astro
+    href: ./astronomer/index.yml
+  - name: Confluent
     href: ./apache-kafka-confluent-cloud/index.yml
-  - name: Datadog - An Azure Native ISV Service
+  - name: Datadog
     href: ./datadog/index.yml
+  - name: Dynatrace
+    href: ./dynatrace/index.yml
   - name: Elastic
     href: ./elastic/index.yml
-  - name: Logz.io
-    href: ./logzio/index.yml
-  - name: Azure Native Dynatrace Service
-    href: ./dynatrace/index.yml
-  - name: NGINXaaS - Azure Native ISV Service
-    href: ./nginx/index.yml
-  - name: Azure Native Qumulo Scalable File Service 
-    href: ./qumulo/index.yml
-  - name: Azure Native New Relic Service
+  - name: Informatica 
+    href: ./informatica/index.yml
+  - name: LambdaTest - HyperExecute
+    href: ./lambda-test/index.yml
+  - name: MongoDB Atlas (preview)
+    href: ./mongo-db/index.yml
+  - name: Neon Serverless Postgres
+    href: ./neon/index.yml 
+  - name: New Relic
     href: ./new-relic/index.yml
+  - name: Palo Alto Network
+    href: ./palo-alto/index.yml
+  - name: Pure Storage Cloud (preview)
+    href: ./pure-storage/index.yml
+  - name: NGINX
+    href: ./nginx/index.yml
+  - name: Qumulo 
+    href: ./qumulo/index.yml
+
+
+
+

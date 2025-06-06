@@ -2,19 +2,24 @@
 title: Boolean claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: Boolean claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As a developer working with Azure Active Directory B2C, I want to understand how to use boolean claims transformations, so that I can manipulate and evaluate boolean claims in my application.
+
 ---
 
 # Boolean claims transformations
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article provides examples for using the boolean claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [claims transformations](claimstransformations.md).
 

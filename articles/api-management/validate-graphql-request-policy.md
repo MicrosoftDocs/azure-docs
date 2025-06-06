@@ -4,15 +4,17 @@ description: Reference for the validate-graphql-request policy available for use
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: article
-ms.date: 12/02/2022
+ms.service: azure-api-management
+ms.topic: reference
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Validate GraphQL request
 
-The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths. An invalid query is a "request error". Authorization is only done for valid requests. 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths in a GraphQL API. An invalid query is a "request error". Authorization is only done for valid requests. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -67,25 +69,31 @@ Available actions are described in the following table.
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
   
-Because GraphQL queries use a flattened schema, permissions may be applied at any leaf node of an output type: 
+* Configure the policy for a [pass-through](graphql-api.md) or [synthetic](graphql-schema-resolve-api.md) GraphQL API that has been imported to API Management.
 
-* Mutation, query, or subscription
-* Individual field in a type declaration 
+* This policy can only be used once in a policy section.
 
-Permissions may not be applied to:
+* Because GraphQL queries use a flattened schema, permissions may be applied at any leaf node of an output type: 
+
+    * Mutation, query, or subscription
+    * Individual field in a type declaration 
+    
+    Permissions may not be applied to:
+     
+    * Input types
+    * Fragments
+    * Unions
+    * Interfaces
+    * The schema element
  
-* Input types
-* Fragments
-* Unions
-* Interfaces
-* The schema element  
- 
+* The policy can validate GraphQL requests with up to 250 query fields across all levels.
+  
 ## Error handling
 
 Failure to validate against the GraphQL schema, or a failure for the request's size or depth, is a request error and results in the request being failed with an errors block (but no data block). 
@@ -126,6 +134,6 @@ This example applies the following validation and authorization rules to a Graph
 
 ## Related policies
 
-* [Validation policies](api-management-policies.md#validation-policies)
+* [Content validation](api-management-policies.md#content-validation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

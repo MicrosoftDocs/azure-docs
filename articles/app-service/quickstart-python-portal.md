@@ -1,16 +1,18 @@
 ---
 title: 'Quickstart: Create a Python app in the Azure portal'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service by using the Azure portal.
+ms.author: msangapu
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 04/01/2021
 ms.devlang: python
-ms.custom: devx-track-python, mode-ui
+ms.custom: devx-track-python, mode-ui, linux-related-content
 ROBOTS: noindex
 ---
 
 # Quickstart: Create a Python app using Azure App Service on Linux (Azure portal)
 
-In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the Azure portal to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a basic App Service tier that incurs a small cost in your Azure subscription.
+In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md), Azure's highly scalable, self-patching web hosting service. You use the Azure portal to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a basic App Service tier that incurs a small cost in your Azure subscription.
 
 ## Configure accounts
 
@@ -149,7 +151,7 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django) web app with PostgreSQL](./tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Django) web app with PostgreSQL](./tutorial-python-postgresql-app-django.md)
 
 > [!div class="nextstepaction"]
 > [Configure Python app](configure-language-python.md)

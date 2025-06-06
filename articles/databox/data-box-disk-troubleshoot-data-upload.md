@@ -4,11 +4,10 @@ description: Describes review and follow-up for errors during uploads from an Az
 services: databox
 author: sipastak
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: troubleshooting
 ms.date: 01/24/2023
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Review copy errors in uploads from Azure Data Box Disk

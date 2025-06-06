@@ -1,89 +1,168 @@
 ---
-title: Manage an Elastic integration with Azure
-description: This article describes management of Elastic on the Azure portal. How to configure diagnostic settings and delete the resource.
-ms.topic: conceptual
-ms.date: 09/02/2021
-author: flang-msft
-ms.author: franlanglois
+title: Manage settings for your Elastic resource via Azure portal
+description: Manage settings, view resources, reconfigure metrics/logs, and more for your Elastic resource via Azure portal.
+ms.topic: how-to
+ms.date: 03/19/2025
+
+
 ---
 
-# Manage the Elastic integration with Azure
+# Manage settings for your Elastic resource via Azure portal
 
-This article describes how to manage your integration of Elastic with Azure. It shows how to configure the diagnostic settings and delete the Elastic resource.
+This article shows how to manage the settings for Elastic resources.
+
+## Resource overview
+
+[!INCLUDE [manage](../includes/manage.md)]
+
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of an Elastic resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
+
+The details include:
+
+- Resource group
+- Status
+- Region
+- Version
+- Size
+- Tags
+- Subscription
+- Advanced Settings
+- Elasticsearch endpoint
+- Deployment URL
+- Billing term
+
+To manage your resource, select the links next to corresponding details.
+
+Below the essentials, you can navigate to other details about your resource by selecting the links.
+
+- **Ingest logs and metrics from Azure Services** allows you to send logs and metrics from your Azure services resources.
+- **Add more data sources in Elastic** allows you to configure extra data sources in Elastic.
+- **View and manage your data in Elastic** allows you to create interactive dashboards to visualize your data in real time. 
 
 ## Reconfigure rules for metrics and logs
 
-When you created the Elastic resource, you configured which logs are sent to Elastic. If you need to change those settings, select **Metrics and Logs** in the left pane. Make the needed changes to how logs are sent to Elastic.
+When you created the Elastic resource, you configured which logs are sent to Elastic. If you need to change those settings, select **Metrics and Logs** in the left pane. 
 
-For more information about the two types of logs, see [QuickStart: Get started with Elastic](create.md).
-
-:::image type="content" source="media/manage/reconfigure-logs.png" alt-text="Change log settings":::
+Make the needed changes to how logs are sent to Elastic.
 
 ## View monitored resources
 
-To see a list of resources sending logs to Elastic, select **Monitored Resources** in the left pane.
+To view the list of resources emitting logs to Elastic, select **Elastic deployment configuration > Monitored resources** in the service menu.
 
-:::image type="content" source="media/manage/monitored-resources.png" alt-text="View monitored resources":::
+> [!TIP]
+> You can filter the list of resources by type, subscription, resource group, region, and whether the resource is sending logs to Elastic. 
 
-You can filter the list by resource type, resource group name, location, and whether the resource is sending logs.
+## Monitor multiple subscriptions
 
-The **Logs to Elastic** column indicates whether the resource is sending Logs to Elastic. If the resource isn't sending logs, this field specifies why logs aren't being sent. The reasons could be:
+To monitor multiple subscriptions:
 
-* Resource doesn't support sending logs. Only Azure resource logs for all resources types and log categories defined here can be configured to send logs to Elastic
-* Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
-* An error is blocking the logs from being sent to Elastic.
-* Logs aren't configured for the resource. Only resources that have the appropriate resource tags are sent to Elastic. You specified the tag rules in the log configuration. 
-* Region isn't supported. The Azure resource is in a region that doesn't currently send logs to Elastic. 
+1. Select **Elastic deployment configuration > Monitored Subscriptions**.
 
-## Monitor virtual machines using Elastic agent
+1. Select **Add subscriptions** from the Command bar.
 
-You can install Elastic agents on virtual machines as an extension. To see the available virtual machines in your subscription, select **Virtual Machines** from the left pane of your Elastic resource.
+    The **Add subscriptions** experience that opens shows subscriptions you have _Owner_ role assigned to and any Elastic resource created in those subscriptions that is already linked to the same Elastic organization as the current resource.
 
-:::image type="content" source="media/manage/vm-agents.png" alt-text="View virtual machines":::
+1. Select the subscriptions you want to monitor through the Elastic resource and select **Add**.
 
-For each virtual machine, the following data is displayed:
+    > [!IMPORTANT]
+    > Setting separate tag rules for different subscriptions isn't supported.
 
-* Resource Name – Virtual machine name.
-* Resource Status – Whether the virtual machine is stopped or running. The Elastic agent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Elastic agent is disabled.
-* Agent version – The Elastic agent version number.
-* Agent status – Whether the Elastic agent is running on the virtual machine.
-* Integrations enabled – The key metrics that are being collected by the Elastic agent.
-* Sending logs – Whether the Elastic agent is sending logs to Elastic.
+    Diagnostics settings are automatically added to the subscription's resources that match the defined tag rules.
 
-To install the Elastic agent, select a virtual machine and select **Install Extension**.
+    Select **Refresh**  to view the subscriptions and their monitoring status. 
 
-The portal asks for confirmation that you want to install the agent with the default authentication. Select **OK** to begin installation. The portal shows the status as **Installing** until the agent is installed and provisioned.
+Once the subscription is added, the status changes to *Active*.  
 
-After the Elastic agent is installed, the status changes to **Installed**.
+### Remove subscriptions
 
-To see that the Elastic agent has been installed, select the virtual machine and navigate to **Extensions**.
+To unlink subscriptions from an Elastic resource:
 
-To uninstall the Elastic agent on a virtual machine, select the virtual machine and **Uninstall Extension**.
+1. Select **Elastic deployment configuration > Monitored Subscriptions** from the service menu. 
 
-## Configure diagnostic settings
+1. Select the subscription you want to remove.
 
-To configure the diagnostic settings for a resource, select that resource. In the left pane, select **Diagnostic settings**. 
+1. Choose **Remove subscriptions**. 
 
-In the destination details section, check the option to send to partner solutions to select Elastic as a destination target. This option is only available after an Elastic resource has been created.
+To view the updated list of monitored subscriptions, select **Refresh** from the Command bar.
 
-:::image type="content" source="media/manage/diagnostic-settings.png" alt-text="Configure diagnostic settings":::
+## Monitor resources with Elastic agents
+
+You can install Elastic agents on virtual machines. 
+
+### Virtual machines
+
+To monitor resources for virtual machines, select **Elastic deployment configuration > Virtual machine agent** in the service menu.
+
+[!INCLUDE [install-elastic-agent](../includes/agent.md)]
+
+## Connect Azure OpenAI service with Elastic
+
+To configure Azure OpenAI, select **Elastic deployment configuration > Azure OpenAI configuration**. 
+
+1. From the working pane's command bar, select **Add**. 
+
+1. In the *Add OpenAI Configuration* panel, select your preferred **Azure OpenAI Resource** and **Azure OpenAI Deployment**.
+
+1. Select the **Create** button.
+
+Once the Connector is created, navigate to Kibana.
+
+> [!NOTE]
+> 
+> Kibana is a user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack. Your Connector can be used within Elastic's Observability AI Assistant to help provide contextual responses to your natural language prompts on your observability data by invoking the Azure OpenAI deployment.
 
 ## Private link management
 
-You can limit network access to a [private link](../../private-link/private-link-overview.md). To enable private link access, select **Configuration** in the left navigation. Under **Networking**, select **Private Link** and the name of the private link.
+You can limit network access to a private link.
 
-:::image type="content" source="media/manage/private-link.png" alt-text="Screenshot of enabling private link":::
+To enable private link access:
+
+1. Select **Configuration** in the left navigation.
+
+1. Under **Networking**, select **Private Link** and the name of the private link.
+
+## Traffic filters
+
+To manage how Elastic deployments can be accessed, set Traffic filters for Azure Private Links.
+
+There are two types of filters available:
+
+- IP traffic filter
+- Private Link traffic filter
+
+Select **Add** to set up and automatically associate a new traffic filter to an Elastic deployment.
+
+To associate an already existing traffic filter to the current deployment, you select **Link**. 
+
+> [!IMPORTANT]
+> The traffic filter must be in the same region as the deployment.
+
+If a traffic filter is no longer needed, unlink it from deployment and then delete it.
+
+## Connected Elastic resources
+
+To access all Elastic resources and deployments you created using the Azure or Elastic portal experience, go to the **Connected Elastic resources** tab in any of your Azure Elastic resources.
+
+You can easily manage the corresponding Elastic deployments or Azure resources using the links, provided you have owner or contributor rights to those deployments and resources.
 
 ## Delete Elastic resource
 
-When you no longer need your Elastic resource, delete the resource in the Azure portal.
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
-To delete the resource in Azure, select your Elastic resource. In **Overview**, select **Delete**. Confirm that you want to delete Elastic resource.
+> [!IMPORTANT]
+> 
+> - A single Azure Marketplace SaaS unifies billing for multiple Elastic deployments. 
+> - If you wish to completely stop billing for the marketplace SaaS, delete all linked Elastic deployments (created from Azure or Elastic portal). 
 
-:::image type="content" source="media/manage/delete-elastic.png" alt-text="Delete Elastic resource":::
+## Get support
 
-When the Elastic resource is deleted, logs are no longer sent to Elastic. All billing stops for Elastic through the Azure Marketplace.
+Contact [Elastic](https://cloud.elastic.co/help) for customer support.
 
-## Next steps
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
-For help with troubleshooting, see [Troubleshooting Elastic integration with Azure](troubleshoot.md).
+Select **Support + Troubleshooting** > **New support request** from the service menu. 
+
+## Related content
+
+- [What is Azure private link?](../../private-link/private-link-overview.md)
+

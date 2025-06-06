@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, azla
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 01/04/2024
 ---
 
 # Schedule and run tasks for contiguous data by using the Sliding Window trigger in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 To regularly run tasks, processes, or jobs that must handle data in contiguous chunks, you can start your logic app workflow with the **Sliding Window** trigger. You can set a date and time as well as a time zone for starting the workflow and a recurrence for repeating that workflow. If recurrences are missed for any reason, for example, due to disruptions or disabled workflows, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
@@ -23,10 +23,6 @@ Here are some patterns that this trigger supports:
 * Delay each recurrence for a specific duration before running.
 
 For differences between this trigger and the Recurrence trigger or for more information about scheduling recurring workflows, see [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
-
-> [!TIP]
-> If you want to trigger your logic app and run only one time in the future, see 
-> [Run jobs one time only](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
 
 ## Prerequisites
 

@@ -4,13 +4,15 @@ description: Reference for the set-header policy available for use in Azure API 
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: article
-ms.date: 12/08/2022
+ms.service: azure-api-management
+ms.topic: reference
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Set header
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `set-header` policy assigns a value to an existing HTTP response and/or request header or adds a new response and/or request header.
 
@@ -42,13 +44,13 @@ The `set-header` policy assigns a value to an existing HTTP response and/or requ
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
- Multiple values of a header are concatenated to a CSV string, for example: 
+Multiple values of a header are concatenated to a CSV string, for example: 
 
 `headerName: value1,value2,value3`
 
@@ -57,13 +59,19 @@ Exceptions include standardized headers whose values:
 - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
 - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 
-In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:
+In case of those exceptions, multiple header values won't be concatenated into one string and will be passed as separate headers, for example:
 
 ```
 User-Agent: value1
 User-Agent: value2
 User-Agent: value3
 ```
+
+#### Limitations
+
+- The following headers can't be appended, overridden, or deleted: `Connection`, `Content-Length`, `Keep-Alive`, `Transfer-Encoding`
+- The client IP address value in the `X-Forwarded-For` header can't be deleted
+- The `Server` header can't be deleted in responses
 
 ## Examples
 
@@ -96,6 +104,6 @@ This example shows how to apply policy at the API level to supply context inform
 
 ## Related policies
 
-- [API Management transformation policies](api-management-transformation-policies.md)
+- [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

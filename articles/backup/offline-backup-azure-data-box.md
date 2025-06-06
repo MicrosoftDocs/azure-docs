@@ -2,11 +2,11 @@
 title: Offline backup by using Azure Data Box
 description: Learn how you can use Azure Data Box to seed large initial backup data offline from the MARS Agent to a Recovery Services vault. 
 ms.topic: how-to
-ms.date: 1/23/2023
+ms.date: 04/18/2025
 author: jyothisuri
 ms.author: jsuri
-ms.service: backup
-ms.custom: engagement-fy23
+ms.service: azure-backup
+ms.custom: engagement-fy24
 ---
 
 # Azure Backup offline backup by using Azure Data Box
@@ -34,6 +34,7 @@ The process to seed data from the MARS Agent by using Azure Data Box is supporte
 | Windows 8 64 bit                      | Enterprise, Pro                                             |
 | Windows 7 64 bit                      | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | **Server**                             |                                                              |
+| Windows Server 2022 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2019 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2016 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2012 R2 64 bit         | Standard, Datacenter, Foundation                            |
@@ -65,6 +66,7 @@ The process to seed data from the MARS Agent by using Azure Data Box is supporte
 - The process requires that the user designated to perform the offline backup policy is an owner of the Azure subscription.
 - The Data Box job and the Recovery Services vault (to which the data needs to be seeded) are required to be in the same subscriptions.
 - We recommend that the target storage account associated with the Azure Data Box job and the Recovery Services vault are in the same region. However, this isn't necessary.
+- Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 
 ### Get Azure PowerShell 3.7.0
 
@@ -134,18 +136,18 @@ The offline backup process using MARS and Azure Data Box requires the Data Box d
 
 ## Set up Azure Data Box devices
 
-Depending on the Azure Data Box SKU you ordered, do the steps covered in the appropriate sections that follow. The steps show you how to set up and prepare the Data Box devices for the MARS Agent to identify and transfer the initial backup data.
+Depending on the Azure Data Box SKU you ordered, perform the steps covered in the appropriate sections that follow. The steps illustrate how to set up and prepare the Data Box devices for the MARS Agent to identify and transfer the initial backup data.
 
 ### Set up Azure Data Box disks
 
-If you ordered one or more Azure Data Box disks (up to 8 TB each), follow the steps mentioned here to [unpack, connect, and unlock your Data Box disk](../databox/data-box-disk-deploy-set-up.md).
+If you ordered one or more Azure Data Box disks (up to 100 TB), follow the steps mentioned within the [unpack, connect, and unlock your Data Box disk](../databox/data-box-disk-deploy-set-up.md) article.
 
 >[!NOTE]
 >It's possible that the server with the MARS Agent doesn't have a USB port. In that situation, you can connect your Azure Data Box disk to another server or client and expose the root of the device as a network share.
 
 ### Set up Azure Data Box
 
-If you ordered an Azure Data Box instance (up to 100 TB), follow the steps here [to set up your Data Box instance](../databox/data-box-deploy-set-up.md).
+If you ordered an Azure Data Box instance (up to 100 TB), follow the steps here [to set up your Data Box instance](../databox/data-box-deploy-set-up.md?pivots=dbx-ng).
 
 #### Mount your Azure Data Box instance as a Local System
 
@@ -239,9 +241,9 @@ After the backup of the data is finished, you'll see a page on the MARS Agent th
 
 This section explains the steps to take after the backup of the data to the Azure Data Box Disk is successful.
 
-- Follow the steps in this article to [ship the Azure Data Box disk to Azure](../databox/data-box-disk-deploy-picked-up.md). If you used an Azure Data Box 100-TB device, follow these steps to [ship the Azure Data Box device to Azure](../databox/data-box-deploy-picked-up.md).
+- Follow the steps in this article to [ship the Azure Data Box disk to Azure](../databox/data-box-disk-deploy-picked-up.md). If you used an Azure Data Box 100-TB device, follow these steps to [ship the Azure Data Box device to Azure](../databox/data-box-deploy-picked-up.md?pivots=dbx-ng).
 
-- [Monitor the Data Box job](../databox/data-box-disk-deploy-upload-verify.md) in the Azure portal. After the Azure Data Box job is finished, the MARS Agent automatically moves the data from the storage account to the Recovery Services vault at the time of the next scheduled backup. It then marks the backup job as *Job Completed* if a recovery point is successfully created.
+- [Monitor the Data Box job](../databox/data-box-disk-deploy-upload-verify.md?pivots=dbx-ng) in the Azure portal. After the Azure Data Box job is finished, the MARS Agent automatically moves the data from the storage account to the Recovery Services vault at the time of the next scheduled backup. It then marks the backup job as *Job Completed* if a recovery point is successfully created.
 
     >[!NOTE]
     >The MARS Agent triggers backups at the times scheduled during policy creation. These jobs flag "Waiting for Azure Data Box job to be completed" until the time the job is finished.
@@ -250,11 +252,11 @@ This section explains the steps to take after the backup of the data to the Azur
 
 ## Troubleshooting
 
-The Microsoft Azure Recovery Services (MARS) Agent creates an Azure Active Directory (Azure AD) application for you in your tenant. This application requires a certificate for authentication that's created and uploaded when you configure an offline seeding policy. We use Azure PowerShell to create and upload the certificate to the Azure AD application.
+The Microsoft Azure Recovery Services (MARS) Agent creates a Microsoft Entra application for you in your tenant. This application requires a certificate for authentication that's created and uploaded when you configure an offline seeding policy. We use Azure PowerShell to create and upload the certificate to the Microsoft Entra application.
 
 ### Problem
 
-When you configure offline backup, you might face a problem because of a bug in the Azure PowerShell cmdlet. You might be unable to add multiple certificates to the same Azure AD application created by the MAB Agent. This problem will affect you if you configured an offline seeding policy for the same or a different server.
+When you configure offline backup, you might face a problem because of a bug in the Azure PowerShell cmdlet. You might be unable to add multiple certificates to the same Microsoft Entra application created by the MAB Agent. This problem will affect you if you configured an offline seeding policy for the same or a different server.
 
 ### Verify if the problem is caused by this specific root cause
 
@@ -282,7 +284,7 @@ Sign in to PowerShell that appears on the MAB UI by using a different account wi
 
 #### Step 2 of workaround
 
-If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, delete this application. Select **Azure portal** > **Azure Active Directory** > **App registrations**.
+If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, delete this application. Select **Azure portal** > **Microsoft Entra ID** > **App registrations**.
 
 >[!NOTE]
 > Check to see if the `AzureOfflineBackup_<Azure User Id>` application doesn't have any other offline seeding configured and also if no other server is dependent on this application. Go to **Settings** > **Keys** under the **Public Keys** section. It shouldn't have any other public keys added. See the following screenshot for reference.

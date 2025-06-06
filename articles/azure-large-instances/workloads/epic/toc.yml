@@ -1,0 +1,10 @@
+- name: Azure Large Instances for Epic workload 
+  href: index.yml
+- name: Overview
+  items:
+  - name: Azure Large Instances SKUs for Epic workload
+    href: available-skus.md  
+- name: Configuration
+  items:
+  - name: Create a volume group
+    href: create-a-volume-group.md

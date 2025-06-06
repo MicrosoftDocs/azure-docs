@@ -2,16 +2,17 @@
 title: Differences between Azure Data Explorer and Azure Synapse Data Explorer (Preview)
 description: This article describes the differences between Azure Data Explorer and Azure Synapse Data Explorer.
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: maraheja
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
-ms.custom: ignite-fall-2021
 ---
 
 # What is the difference between Azure Synapse Data Explorer and Azure Data Explorer? (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](includes/data-explorer-deprecation-notice.md)]
 
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a stand-alone, fast, and highly scalable data exploration service for log and telemetry data. The same underlying technology that runs the service is available in Azure Synapse as an integrated analytics service to complement its existing SQL and Spark services geared for data warehouse and data engineering machine learning scenarios.
 
@@ -29,7 +30,7 @@ We recommend starting with Synapse Data Explorer if you are looking for a unifie
 | **Business Continuity** | Availability Zones | Optional | Enabled by default where Availability Zones are available |
 | **SKU** | Compute options | 22+ Azure VM SKUs to choose from | Simplified to Synapse workload types SKUs |
 | **Integrations** | Built-in ingestion pipelines | Event Hub, Event Grid, IoT Hub | Event Hub, Event Grid, and IoT Hub supported via the Azure portal for non-managed VNet |
-|  | Spark integration | Azure Data Explorer linked service: Built-in Kusto Spark integration with support for Azure Active Directory pass-through authentication, Synapse Workspace MSI, and Service Principal | Built-in Kusto Spark connector integration with support for Azure Active Directory pass-through authentication, Synapse Workspace MSI, and Service Principal |
+|  | Spark integration | Azure Data Explorer linked service: Built-in Kusto Spark integration with support for Microsoft Entra pass-through authentication, Synapse Workspace MSI, and Service Principal | Built-in Kusto Spark connector integration with support for Microsoft Entra pass-through authentication, Synapse Workspace MSI, and Service Principal |
 |  | KQL artifacts management | ✗ | Save KQL queries and integrate with Git |
 |  | Metadata sync | ✗ | ✗ |
 | **Features** | KQL queries | ✓ | ✓ |

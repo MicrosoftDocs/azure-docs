@@ -1,13 +1,12 @@
 ---
-title: Manage IoT Central organizations | Microsoft Docs
-description: This article describes how to create and manage an organization hierarchy to control which users can access which devices in your IoT Central organization. Use organizations to create multi-tenanted IoT Central applications.
+title: Manage IoT Central organizations
+description: How to create and manage an organization hierarchy to create multi-tenanted IoT Central applications.
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/21/2022
+ms.date: 10/22/2024
 ms.topic: how-to
-ms.custom: contperf-fy22q2
 ---
 
 # Manage IoT Central organizations
@@ -20,7 +19,7 @@ Organizations are hierarchical:
 
 :::image type="content" source="media/howto-create-organization/organizations-hierarchy.png" alt-text="Diagram showing a sample hierarchy of organizations." border="false":::
 
-When you create your first organization hierarchy, you'll see that the name of your application is at the root. Each organization you add becomes a child or leaf organization. Organization hierarchies use inheritance. For example, in the hierarchy shown in the previous diagram:
+When you create your first organization hierarchy, you see that the name of your application is at the root. Each organization you add becomes a child or leaf organization. Organization hierarchies use inheritance. For example, in the hierarchy shown in the previous diagram:
 
 - *Adatum Solar* users have access to devices in *United States*, *Canada*, *Europe*, and *Latin America*.
 - *Contoso* users have access to all devices in all organizations in the hierarchy.
@@ -84,7 +83,7 @@ You assign gateway and downstream devices to organizations. You don't have to as
 
 ## Roles
 
-When you create the first organization in your application, IoT Central adds three new roles in your application: **Org Administrator**, **Org Operator**, and **Org Viewer**. These roles are necessary because an organization user can't access certain application-wide capabilities such as pricing plans, branding and colors, API tokens, and application-wide enrollment group information.
+When you create the first organization in your application, IoT Central adds three new roles in your application: **Org Administrator**, **Org Operator**, and **Org Viewer**. These roles are necessary because an organization user can't access certain application-wide capabilities such as: pricing plans, branding and colors, API tokens, and application-wide enrollment group information.
 
 :::image type="content" source="media/howto-create-organization/organization-roles.png" alt-text="Screenshot that shows the three organization roles." lightbox="media/howto-create-organization/organization-roles.png":::
 
@@ -100,9 +99,9 @@ Then select the permissions for the role.
 
 ## Invite users
 
-After you've created your organization hierarchy and assigned devices to organizations, invite users to your application and assign them to organizations.
+After you create your organization hierarchy and assigned devices to organizations, invite users to your application and assign them to organizations.
 
-To invite a user, navigate to **Permissions > Users**. Enter their email address, the organization they're assigned to, and the role or roles the user is a member of. The organization you select filters the list of available roles to make sure you assign the user to a valid role:
+To invite a user, navigate to **Permissions > Users**. Enter their email address, the organization they're assigned to, and the role or roles they're a member of. The organization you select filters the list of available roles to make sure you assign the user to a valid role:
 
 :::image type="content" source="media/howto-create-organization/assign-user-organization.png" alt-text="Screenshot that shows how to assign a user to an organization and role." lightbox="media/howto-create-organization/assign-user-organization.png":::
 
@@ -113,13 +112,13 @@ You can assign the same user to multiple organizations. The user can have a diff
 | user1@contoso.com | Org Administrator | Custom app |
 | user1@contoso.com | Org Viewer | Custom app |
 
-When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user has signed in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
+When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user signs in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
 
 To access the application for the first time, an invited user must first navigate to the application using the link they receive from the administrator. The application isn't visible on the [My apps](https://apps.azureiotcentral.com/myapps) page on the Azure IoT Central site until then.
 
 ## Use organizations
 
-After you've created your organization hierarchy you can use organizations in areas of your application such as:
+After you create your organization hierarchy, you can use organizations in areas of your application such as:
 
 - [Organization dashboards](howto-manage-dashboards.md) that show information to users about devices in their organization.
 - [Device groups](tutorial-use-device-groups.md) for devices in specific organizations.
@@ -140,7 +139,7 @@ To set the default organization, select **Settings** on the top menu bar:
 
 ## Add organizations to an existing application
 
-An application may contain devices, users, and experiences such as dashboards, device groups, and jobs before you add an organization hierarchy.
+An application might contain devices, users, and experiences such as dashboards, device groups, and jobs before you add an organization hierarchy.
 
 When you start adding organizations, all existing devices, users, and experiences remain associated with the root organization in the application:
 
@@ -152,7 +151,7 @@ When you start adding organizations, all existing devices, users, and experience
 
 The following limits apply to organizations:
 
-- The hierarchy can be no more than five levels deep.
+- The hierarchy can't be more than five levels deep.
 - The total number of organizations can't be more than 200. Each node in the hierarchy counts as an organization.
 
 ## Next steps

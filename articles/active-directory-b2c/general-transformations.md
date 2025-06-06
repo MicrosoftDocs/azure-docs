@@ -2,19 +2,24 @@
 title: General claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: General claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to understand how to use general claims transformations, so that I can customize and manipulate user claims in my custom policies.
+
 ---
 
 # General claims transformations
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article provides examples for using general claims transformations of the Azure Active Directory B2C (Azure AD B2C) custom policy. For more information, see [claims transformations](claimstransformations.md).
 

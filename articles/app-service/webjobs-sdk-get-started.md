@@ -4,7 +4,7 @@ description: Learn how to enable your web apps to run background tasks. Use this
 author: ggailey777
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 06/25/2021
+ms.date: 01/17/2025
 ms.author: glenga
 ms.topic: tutorial
 
@@ -15,7 +15,7 @@ ms.topic: tutorial
 
 Get started with the Azure WebJobs SDK for Azure App Service to enable your web apps to run background tasks, scheduled tasks, and respond to events. 
 
-Use Visual Studio 2022 to create a .NET Core console app that uses the WebJobs SDK to respond to Azure Storage Queue messages, run the project locally, and finally deploy it to Azure.
+Use Visual Studio 2022 to create a .NET 8 console app that uses the WebJobs SDK to respond to Azure Storage Queue messages, run the project locally, and finally deploy it to Azure.
 
 In this tutorial, you will learn how to:
 
@@ -37,7 +37,7 @@ In this tutorial, you will learn how to:
 In this section, you start by creating a project in Visual Studio 2022. Next, you'll add tools for Azure development, code publishing, and functions that listen for triggers and call functions. Last, you'll set up console logging that disables a legacy monitoring tool and enables a console provider with default filtering. 
 
 >[!NOTE]  
->The procedures in this article are verified for creating a .NET Core console app that runs on .NET 6.0.
+>The procedures in this article are verified for creating a C# console app that runs on .NET 8.0.
 
 ### Create a project
 
@@ -64,6 +64,9 @@ Install the latest WebJobs NuGet package. This package includes Microsoft.Azure.
      ```powershell
      Install-Package Microsoft.Azure.WebJobs.Extensions -version <4_X_VERSION>
      ```
+     >[!NOTE]
+     >The sample code in this article works with package versions 4.x. Make sure you use a 4.x version because you get build errors when using package versions 5.x.
+       
 5. In the **Package Manager Console**, execute the command. The extension list appears and automatically installs. 
   
 ### Create the Host
@@ -109,10 +112,10 @@ Set up console logging that uses the [ASP.NET Core logging framework](/aspnet/co
 
 1. Get the latest stable version of the [`Microsoft.Extensions.Logging.Console` NuGet package](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/), which includes `Microsoft.Extensions.Logging`.
 
-2. In the following command, replace `<6_X_VERSION>` with the current version number you found in step 1. Each type of NuGet Package has a unique version number.
+2. In the following command, replace `<9_X_VERSION>` with the current version number you found in step 1. Each type of NuGet Package has a unique version number.
 
    ```powershell
-   Install-Package Microsoft.Extensions.Logging.Console -version <6_X_VERSION>
+   Install-Package Microsoft.Extensions.Logging.Console -version <9_X_VERSION>
    ```
 3. In the **Package Manager Console**, fill in the current version number and execute the command. The extension list appears and automatically installs. 
 
@@ -126,24 +129,30 @@ Set up console logging that uses the [ASP.NET Core logging framework](/aspnet/co
     ```cs
     builder.ConfigureLogging((context, b) =>
     {
-        b.AddConsole();
+         b.SetMinimumLevel(LogLevel.Error);
+         b.AddFilter("Function", LogLevel.Information);
+         b.AddFilter("Host", LogLevel.Debug);
+         b.AddConsole();
     });
     ```
 
-    The `Main` method now looks like this:
+    This adds logging that captures log output for function executions at the `Information` level, the host at the `Debug` level, and the `error` level for all other components. The `Main` method now looks like this:
 
     ```cs
     static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
-                {
-                    b.AddAzureStorageCoreServices();
-                });
+        {
+            b.AddAzureStorageCoreServices();
+        });
         builder.ConfigureLogging((context, b) =>
-                {
-                    b.AddConsole();
-                });
+        {
+            b.SetMinimumLevel(LogLevel.Error);
+            b.AddFilter("Function", LogLevel.Information);
+            b.AddFilter("Host", LogLevel.Debug);
+            b.AddConsole();
+        });
         var host = builder.Build();
         using (host)
         {
@@ -170,7 +179,7 @@ In this section, you create a function triggered by messages in an Azure Storage
 Starting with version 3 of the WebJobs SDK, to connect to Azure Storage services you must install a separate Storage binding extension package. 
 
 >[!NOTE]
-> Beginning with 5.x, Microsoft.Azure.WebJobs.Extensions.Storage has been [split by storage service](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage/CHANGELOG.md#major-changes-and-features) and has migrated the `AddAzureStorage()` extension method by service type.
+> Beginning with 5.x, Microsoft.Azure.WebJobs.Extensions.Storage has been [split by storage service](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage/CHANGELOG.md#major-changes-and-features) and has migrated the `AddAzureStorage()` extension method by service type. This version also requires you to update the version of the `Microsoft.Azure.WebJobs.Host.Storage` assembly used by the SDK.
 
 1. Get the latest stable version of the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 5.x.
 
@@ -179,7 +188,14 @@ Starting with version 3 of the WebJobs SDK, to connect to Azure Storage services
     ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version <5_X_VERSION>
     ```
+    
 1. In the **Package Manager Console**, execute the command with the current version number at the `PM>` entry point.
+
+1. Also run this command to update the `Microsoft.Azure.WebJobs.Host.Storage` package to version 4.1.0:
+
+    ```powershell
+    Install-Package Microsoft.Azure.WebJobs.Host.Storage -Version 4.1.0
+    ``` 
 
 1. Continuing in **Program.cs**, in the `ConfigureWebJobs` extension method, add the `AddAzureStorageQueues` method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance (before the `Build` command) to initialize the Storage extension. At this point, the `ConfigureWebJobs` method looks like this:
 
@@ -205,14 +221,17 @@ Starting with version 3 of the WebJobs SDK, to connect to Azure Storage services
     {
         var builder = new HostBuilder();
         builder.UseEnvironment(EnvironmentName.Development);
-        builder.ConfigureLogging((context, b) =>
-        {
-            b.AddConsole();
-        });
         builder.ConfigureWebJobs(b =>
         {
             b.AddAzureStorageCoreServices();
             b.AddAzureStorageQueues();
+        });
+        builder.ConfigureLogging((context, b) =>
+        {
+            b.SetMinimumLevel(LogLevel.Error);
+            b.AddFilter("Function", LogLevel.Information);
+            b.AddFilter("Host", LogLevel.Debug);
+            b.AddConsole();
         });
         var host = builder.Build();
         using (host)
@@ -238,7 +257,7 @@ The `QueueTrigger` attribute tells the runtime to call this function when a new 
     
     namespace WebJobsSDKSample
     {
-        public class Functions
+        public static class Functions
         {
             public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
             {
@@ -307,7 +326,7 @@ Build and run the project locally and create a message queue to trigger the func
 
 5. Go back to the **Queue** window and refresh it. The message is gone, since it has been processed by your function running locally.
 
-6.  Close the console window. 
+6.  Close the console window or type Ctrl+C. 
 
 It's now time to publish your WebJobs SDK project to Azure.
 
@@ -362,19 +381,19 @@ The connection string is now set in your app in Azure.
 
 ## Enable Application Insights logging
 
-When the WebJob runs in Azure, you can't monitor function execution by viewing console output. To be able to monitor your WebJob, you should create an associated [Application Insights](../azure-monitor/app/app-insights-overview.md) instance when you publish your project.
+When the WebJob runs in Azure, you can't monitor function execution by viewing console output. To be able to monitor your WebJob, you should create an associated [Application Insights](/azure/azure-monitor/app/app-insights-overview) instance when you publish your project.
 
 ### Create an Application Insights instance
 
 1. In your **Publish** profile page, select the three dots above **Hosting** to show **Hosting profile section actions** and choose **Open in Azure Portal**.
 
-1. In the web app under **Settings**, choose **Application Insights**, and select **Turn on Application Insights**.
+1. In the web app under **Monitoring**, choose **Application Insights**, and select **Turn on Application Insights**.
 
-1. Verify the generated **Resource name** for the instance and the **Location**, and select **Apply**. 
+1. Verify the generated **Resource name** for the instance and the **Location**, and select **Apply** and then **Yes**. 
 
-1. Under **Settings**, choose **Configuration** and verify that a new `APPINSIGHTS_INSTRUMENTATIONKEY` was created. This key is used to connect your WebJob instance to Application Insights.   
+1. Under **Settings**, choose **Environment variables** and verify that a new `APPINSIGHTS_INSTRUMENTATIONKEY` was created. This key is used to connect your WebJob instance to Application Insights.   
 
-To take advantage of [Application Insights](../azure-monitor/app/app-insights-overview.md) logging, you need to update your logging code as well.
+To take advantage of [Application Insights](/azure/azure-monitor/app/app-insights-overview) logging, you need to update your logging code as well.
 
 ### Install the Application Insights extension
 
@@ -406,23 +425,26 @@ The `Main` method code should now look like the following example:
 static async Task Main()
 {
     var builder = new HostBuilder();
-    builder.UseEnvironment(EnvironmentName.Development);
+    //builder.UseEnvironment(EnvironmentName.Development);
     builder.ConfigureWebJobs(b =>
-            {
-                b.AddAzureStorageCoreServices();
-                b.AddAzureStorage();
-            });
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddAzureStorageQueues();
+    });
     builder.ConfigureLogging((context, b) =>
-            {
-                b.AddConsole();
+    {
+        b.SetMinimumLevel(LogLevel.Error);
+        b.AddFilter("Function", LogLevel.Information);
+        b.AddFilter("Host", LogLevel.Debug);
+        b.AddConsole();
 
-                // If the key exists in settings, use it to enable Application Insights.
-                string instrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
-                if (!string.IsNullOrEmpty(instrumentationKey))
-                {
-                    b.AddApplicationInsightsWebJobs(o => o.InstrumentationKey = instrumentationKey);
-                }
-            });
+        // If the key exists in settings, use it to enable Application Insights.
+        string? instrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
+        if (!string.IsNullOrEmpty(instrumentationKey))
+        {
+            b.AddApplicationInsightsWebJobs(o => o.InstrumentationKey = instrumentationKey);
+        }
+    });
     var host = builder.Build();
     using (host)
     {
@@ -431,7 +453,7 @@ static async Task Main()
 }
 ```
 
-This initializes the Application Insights logging provider with default [filtering](webjobs-sdk-how-to.md#log-filtering). When running locally, all Information and higher-level logs are written to both the console and Application Insights.
+This initializes the Application Insights logging provider with default [filtering](webjobs-sdk-how-to.md#log-filtering). When running locally, all Information and higher-level logs are written to both the console and Application Insights. When running locally, Application Insights logging is only supported after you also add the `APPINSIGHTS_INSTRUMENTATIONKEY` to the `appsetting.json` file in the project. 
 
 ### Republish the project and trigger the function again
 
@@ -441,7 +463,7 @@ This initializes the Application Insights logging provider with default [filteri
 
 1. In your **Publish** profile page, select the three dots above **Hosting** to show **Hosting profile section actions** and choose **Open in Azure Portal**.
 
-1. In the web app under **Settings**, choose **Application Insights**, and select **View Application Insights data**.
+1. In the web app under **Settings** > **Monitor**, choose **Application Insights**, and select **View Application Insights data**.
 
 1. Select **Search** and then select **See all data in the last 24 hours**.
 

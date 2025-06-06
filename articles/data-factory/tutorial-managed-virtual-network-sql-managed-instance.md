@@ -3,13 +3,15 @@ title: Access Microsoft Azure SQL Managed Instance from Data Factory Managed VNE
 description: This tutorial provides steps for using the Azure portal to setup Private Link Service and access SQL Managed Instance from Managed VNET using Private Endpoint.
 author: lrtoyou1223
 ms.author: lle
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Tutorial: How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint
+
+> [!IMPORTANT]
+> SQL Managed Instance now has native support for private endpoints. Instead of implementing the solution in this document, we recommend creating a private endpoint directly to the SQL Managed Instance resource as described in [Managed private endpoints](managed-virtual-network-private-endpoint.md#managed-private-endpoints).
 
 This tutorial provides steps for using the Azure portal to setup Private Link Service and 
 access SQL Managed Instance from Managed VNET using Private Endpoint.
@@ -187,7 +189,7 @@ the page.
     |Region  |Select **East US**.|
     |Availability Options  |Select **Availability zones**.|
     |Availability zone  |Select **1**.| 
-    |Image  |Select **Ubuntu Server 18.04LTS – Gen1**.| 
+    |Image  |Select **Ubuntu Server 18.04LTS - Gen1**.| 
     |Azure Spot instance  |Select **No**.| 
     |Size   |Choose VM size or take default setting.| 
     |**Administrator account**||
@@ -228,8 +230,6 @@ the page.
 1. Run the script on with the following options:<br/>
     **sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433**<br/>
     <FQDN/IP> is the host of your SQL Managed Instance.
-    
-    :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Screenshot that shows SQL MI host." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
 3. Run below command and check the iptables in your backend server VMs. You can see one record in   your iptables with your target IP. <br/>
     **sudo iptables -t nat -v -L PREROUTING -n --line-number**
@@ -258,11 +258,8 @@ data factory from the resources list.
 6. Enter the name of private endpoint and select **myPrivateLinkService** in private 
 link service list.
 7. Add FQDN of your target SQL Managed Instance.
-    
-    :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Screenshot that shows SQL MI host." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
-
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-5.png" alt-text="Screenshot that shows the private endpoint settings.":::
+   :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-5.png" alt-text="Screenshot that shows the private endpoint settings.":::
 
 8. Create private endpoint.
 
@@ -287,7 +284,7 @@ link service list.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-mi-3.png" alt-text="Screenshot that shows the SQL MI linked service creation page.":::
 
-## Next steps
+## Related content
 
 Advance to the following tutorial to learn about accessing on premises SQL Server from Data Factory 
 Managed VNET using Private Endpoint：

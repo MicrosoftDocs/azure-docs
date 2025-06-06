@@ -3,15 +3,15 @@
  description: include file
  services: storage
  author: khdownie
- ms.service: storage
+ ms.service: azure-file-storage
  ms.topic: include
- ms.date: 08/03/2022
+ ms.date: 12/17/2024
  ms.author: kendownie
  ms.custom: include file
 ---
-Navigate to the storage account for which you would like to create a private endpoint. In the table of contents for the storage account, select **Networking**, **Private endpoint connections**, and then **+ Private endpoint** to create a new private endpoint.
+Navigate to the storage account for which you would like to create a private endpoint. From the service menu, under **Security + networking**, select **Networking**, **Private endpoint connections**, and then **+ Private endpoint** to create a new private endpoint.
 
-[![Screenshot of the private endpoint connections item in the storage account table of contents.](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png)](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png#lightbox)
+[![Screenshot of the private endpoint connections item in the storage account service menu.](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png)](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png#lightbox)
 
 The resulting wizard has multiple pages to complete.
 
@@ -35,4 +35,4 @@ You can optionally apply tags to categorize your resources, such as applying the
 
 [![Screenshot showing how to optionally tag your private endpoint with name/value pairs for easy categorization.](media/storage-files-networking-endpoints-private-portal/private-endpoint-tags.png)](media/storage-files-networking-endpoints-private-portal/private-endpoint-tags.png#lightbox)
 
-Click **Review + create** to create the private endpoint.
+Select **Create** to create the private endpoint.

@@ -1,10 +1,9 @@
 ---
 title: Create an Azure-SSIS integration runtime via Azure PowerShell 
 description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory via Azure PowerShell so you can deploy and run SSIS packages in Azure.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
 ms.custom: devx-track-azurepowershell
@@ -117,16 +116,25 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
 }
 ```
 
+## Get Azure Batch application ID
+
+1. Navigate to [Azure portal](https://portal.azure.com).
+1. In the search bar, type `Microsoft Azure Batch`, and select it from the drop-down list, under **Microsoft Entra ID**. 
+1. On the **Microsoft Azure Batch** page, note down or copy the **Application ID** to the clipboard.
+1. In the following script, set the `$BatchApplicationId` variable to this value before running it.  
+
 ## Configure a virtual network
 
 Add the following script to automatically configure virtual network permissions and settings for your Azure-SSIS integration runtime to join.
 
 ```powershell
 # Make sure to run this script against the subscription to which the virtual network belongs
+
+$BatchApplicationId = "[REPLACE_WITH_AZURE_BATCH_APP_ID]"
+
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
-    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
     $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
     Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
@@ -171,7 +179,7 @@ If you don't use an Azure SQL Database server with IP firewall rules/virtual net
 
 If you use managed instance to host SSISDB, you can omit the `CatalogPricingTier` parameter or pass an empty value for it. Otherwise, you can't omit it and must pass a valid value from the list of supported pricing tiers for Azure SQL Database. For more information, see [SQL Database resource limits](/azure/azure-sql/database/resource-limits-logical-server).
 
-If you use Azure AD authentication with the specified system/user-assigned managed identity for your data factory to connect to the database server, you can omit the `CatalogAdminCredential` parameter. But you must add the specified system/user-assigned managed identity for your data factory into an Azure AD group with access permissions to the database server. For more information, see [Enable Azure AD authentication for an Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md). Otherwise, you can't omit it and must pass a valid object formed from your server admin username and password for SQL authentication.
+If you use Microsoft Entra authentication with the specified system/user-assigned managed identity for your data factory to connect to the database server, you can omit the `CatalogAdminCredential` parameter. But you must add the specified system/user-assigned managed identity for your data factory into a Microsoft Entra group with access permissions to the database server. For more information, see [Enable Microsoft Entra authentication for an Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md). Otherwise, you can't omit it and must pass a valid object formed from your server admin username and password for SQL authentication.
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
@@ -197,7 +205,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
         -CatalogServerEndpoint $SSISDBServerEndpoint `
         -CatalogPricingTier $SSISDBPricingTier
 
-    if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNullOrEmpty($SSISDBServerAdminPassword)) # Add the CatalogAdminCredential parameter if you don't use Azure AD authentication
+    if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) -and ![string]::IsNullOrEmpty($SSISDBServerAdminPassword)) # Add the CatalogAdminCredential parameter if you don't use Azure AD authentication
     {
         $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
         $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
@@ -434,13 +442,15 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
         }
     }
 }
-
 ### Configure a virtual network
+
 # Make sure to run this script against the subscription to which the virtual network belongs
+
+$BatchApplicationId = "[REPLACE_WITH_AZURE_BATCH_APP_ID]"
+
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
-    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
     $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
     Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
@@ -483,7 +493,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
         -CatalogServerEndpoint $SSISDBServerEndpoint `
         -CatalogPricingTier $SSISDBPricingTier
 
-    if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNullOrEmpty($SSISDBServerAdminPassword)) # Add the CatalogAdminCredential parameter if you don't use Azure AD authentication
+    if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) -and ![string]::IsNullOrEmpty($SSISDBServerAdminPassword)) # Add the CatalogAdminCredential parameter if you don't use Azure AD authentication
     {
         $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
         $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
@@ -622,7 +632,7 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
-## Next steps
+## Related content
 
 - [Create an Azure-SSIS IR via Azure portal](create-azure-ssis-integration-runtime-portal.md).
 - [Create an Azure-SSIS IR via Azure Resource Manager template](create-azure-ssis-integration-runtime-resource-manager-template.md).

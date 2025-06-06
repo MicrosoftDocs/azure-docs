@@ -2,11 +2,11 @@
 title: Azure Application Gateway features
 description: Learn about Azure Application Gateway features
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
-ms.topic: conceptual
-ms.date: 03/24/2023
-ms.author: greglin
+author: mbender-ms
+ms.service: azure-application-gateway
+ms.topic: concept-article
+ms.date: 04/14/2025
+ms.author: mbender
 ---
 
 # Azure Application Gateway features
@@ -14,6 +14,8 @@ ms.author: greglin
 [Azure Application Gateway](overview.md) is a web traffic load balancer that enables you to manage traffic to your web applications.
 
 ![Application Gateway conceptual](media/overview/figure1-720.png)
+
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 Application Gateway includes the following features:
 
@@ -28,7 +30,7 @@ For more information, see [Overview of SSL termination and end to end SSL with A
 
 Application Gateway Standard_v2 supports autoscaling and can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. 
 
-For more information about the Application Gateway Standard_v2 features, see [What is Azure Application Gateway v2?](overview-v2.md).
+For more information about the Application Gateway Standard_v2 features, see [What is Azure Application Gateway v2](overview-v2.md).
 
 ## Zone redundancy
 
@@ -44,7 +46,7 @@ Web Application Firewall (WAF) is a service that provides centralized protection
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at many layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a Web Application Firewall enabled application gateway easily.
 
-For more information, see [What is Azure Web Application Firewall?](../web-application-firewall/overview.md).
+Refer to [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md) for guidance on how to use Azure WAF with Application Gateway to protect against DDoS attacks. For more information, see [What is Azure Web Application Firewall](../web-application-firewall/overview.md).
 
 ## Ingress Controller for AKS
 Application Gateway Ingress Controller (AGIC) allows you to use Application Gateway as the ingress for an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. 
@@ -92,7 +94,7 @@ The cookie-based session affinity feature is useful when you want to keep a user
 
 For more information, see [How an application gateway works](how-application-gateway-works.md#modifications-to-the-request).
 
-## Websocket and HTTP/2 traffic
+## WebSocket and HTTP/2 traffic
 
 Application Gateway provides native support for the WebSocket and HTTP/2 protocols. There's no user-configurable setting to selectively enable or disable WebSocket support.
 
@@ -102,16 +104,11 @@ For more information, see [WebSocket support](application-gateway-websocket.md) 
 
 ## Connection draining
 
-Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the application gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are:
-- explicitly removed from the backend pool after a configuration change by a user
-- reported as unhealthy by the health probes, or
-- removed during a scale-in operation
-
-The only exception is when requests continue to be proxied to the deregistering instances because of gateway-managed session affinity. 
+Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the application gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are explicitly removed from the backend pool after a configuration change by a user.
 
 The connection draining is honored for WebSocket connections as well. Connection draining is invoked for every single update to the gateway. To prevent connection loss to existing members of the backend pool, make sure to enable connection draining.
 
-For information on time limits, see [Backend Settings configuration](configuration-http-settings.md#connection-draining).
+For more details, see [Backend Settings configuration](configuration-http-settings.md#connection-draining).
 
 ## Custom error pages
 
@@ -139,7 +136,7 @@ Application Gateway Standard_v2 can be configured for autoscaling or fixed size 
 
 The Application Gateway Standard (v1) is offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 
-For a complete list of application gateway limits, see [Application Gateway service limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+For a complete list of application gateway limits, see [Application Gateway service limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#azure-application-gateway-limits).
 
 The following table shows an average performance throughput for each application gateway v1 instance with SSL offload enabled:
 
@@ -153,7 +150,7 @@ The following table shows an average performance throughput for each application
 
 ## Version feature comparison
 
-For an Application Gateway v1-v2 feature comparison, see [What is Azure Application Gateway v2?](overview-v2.md#feature-comparison-between-v1-sku-and-v2-sku).
+For an Application Gateway v1-v2 feature comparison, see [What is Azure Application Gateway v2](overview-v2.md#feature-comparison-between-v1-sku-and-v2-sku).
 
 ## Next steps
 

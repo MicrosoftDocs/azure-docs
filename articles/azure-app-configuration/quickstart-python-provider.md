@@ -2,13 +2,13 @@
 title: Quickstart for using Azure App Configuration with Python apps | Microsoft Learn
 description: In this quickstart, create a Python app with the Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
-author: mcleanbyron
+author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-other, engagement-fy23
-ms.date: 03/20/2023
-ms.author: mcleans
+ms.date: 12/03/2024
+ms.author: mametcal
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a Python app with Azure App Configuration
@@ -21,7 +21,7 @@ The Python App Configuration provider is a library running on top of the [Azure 
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Add key-values
 
@@ -57,6 +57,44 @@ In this section, you will create a console application and load data from your A
 
 1. Create a new file called *app-configuration-quickstart.py* in the *app-configuration-quickstart* directory and add the following code:
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    ```python
+    from azure.appconfiguration.provider import (
+        load,
+        SettingSelector
+    )
+    from azure.identity import DefaultAzureCredential
+    import os
+
+    endpoint = os.environ.get("AZURE_APPCONFIG_ENDPOINT")
+
+    # Connect to Azure App Configuration using Microsoft Entra ID.
+    config = load(endpoint=endpoint, credential=credential)
+    credential = DefaultAzureCredential()
+
+    # Find the key "message" and print its value.
+    print(config["message"])
+    # Find the key "my_json" and print the value for "key" from the dictionary.
+    print(config["my_json"]["key"])
+
+    # Connect to Azure App Configuration using Entra ID and trimmed key prefixes.
+    trimmed = {"test."}
+    config = load(endpoint=endpoint, credential=credential, trim_prefixes=trimmed)
+    # From the keys with trimmed prefixes, find a key with "message" and print its value.
+    print(config["message"])
+
+    # Connect to Azure App Configuration using SettingSelector.
+    selects = {SettingSelector(key_filter="message*", label_filter="\0")}
+    config = load(endpoint=endpoint, credential=credential, selects=selects)
+
+    # Print True or False to indicate if "message" is found in Azure App Configuration.
+    print("message found: " + str("message" in config))
+    print("test.message found: " + str("test.message" in config))
+    ```
+
+    ### [Connection string](#tab/connection-string)
     ```python
     from azure.appconfiguration.provider import (
         load,
@@ -84,81 +122,60 @@ In this section, you will create a console application and load data from your A
     selects = {SettingSelector(key_filter="message*", label_filter="\0")}
     config = load(connection_string=connection_string, selects=selects)
 
-   # Print True or False to indicate if "message" is found in Azure App Configuration.
+    # Print True or False to indicate if "message" is found in Azure App Configuration.
     print("message found: " + str("message" in config))
     print("test.message found: " + str("test.message" in config))
     ```
+    ---
 
 ### Run the application
 
-1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the connection string of your App Configuration store. At the command line, run the following command:
+1. Set an environment variable.
 
-    #### [Windows command prompt](#tab/windowscommandprompt)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
-    To build and run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
-
-    ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
-    ```
-
-    #### [PowerShell](#tab/powershell)
-
-    If you use Windows PowerShell, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
-
-    ```azurepowershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<app-configuration-store-connection-string>"
-    ```
-
-    #### [macOS](#tab/unix)
-
-    If you use macOS, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
-
-    ```console
-    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
-    ```
-
-    #### [Linux](#tab/linux)
-
-    If you use Linux, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
-
-    ```console
-    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
-   ```
-
-1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly with the command below.
-
-    #### [Windows command prompt](#tab/windowscommandprompt)
-
-    Using the Windows command prompt, run the following command:
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    printenv AZURE_APPCONFIG_CONNECTION_STRING
+    setx AZURE_APPCONFIG_ENDPOINT "endpoint-of-your-app-configuration-store"
     ```
 
-    #### [PowerShell](#tab/powershell)
+    If you use PowerShell, run the following command:
 
-    If you use Windows PowerShell, run the following command:
-
-    ```azurepowershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING
+    ```powershell
+    $Env:AZURE_APPCONFIG_ENDPOINT = "endpoint-of-your-app-configuration-store"
     ```
 
-    #### [macOS](#tab/unix)
+    If you use macOS or Linux, run the following command:
 
-    If you use macOS, run the following command:
-
-    ```console
-    echo "$AZURE_APPCONFIG_CONNECTION_STRING"
+    ```bash
+    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
-    #### [Linux](#tab/linux)
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
 
-    If you use Linux, run the following command:
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```console
-    echo "$AZURE_APPCONFIG_CONNECTION_STRING"
+    ```cmd
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    ```
 
-1. After the build successfully completes, run the following command to run the app locally:
+   If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    ```
+    ---
+
+1. After the environment variable is properly set, run the following command to run the app locally:
 
     ```python
     python app-configuration-quickstart.py
@@ -181,7 +198,7 @@ The App Configuration provider loads data into a `Mapping` object, accessible as
 You can use Azure App Configuration in your existing Flask web apps by updating its in-built configuration. You can do this by passing your App Configuration provider object to the `update` function of your Flask app instance in `app.py`:
 
 ```python
-azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
+azure_app_config = load(endpoint=os.environ.get("AZURE_APPCONFIG_ENDPOINT"), credential=credential)
 
 # NOTE: This will override all existing configuration settings with the same key name.
 app.config.update(azure_app_config)
@@ -194,7 +211,7 @@ message = app.config.get("message")
 You can use Azure App Configuration in your existing Django web apps by adding the following lines of code into your `settings.py` file
 
 ```python
-CONFIG = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
+AZURE_APPCONFIGURATION = load(endpoint=os.environ.get("AZURE_APPCONFIG_ENDPOINT"), credential=credential)
 ```
 
 To access individual configuration settings in the Django views, you can reference them from the provider object created in Django settings. For example, in `views.py`:
@@ -203,7 +220,7 @@ To access individual configuration settings in the Django views, you can referen
 from django.conf import settings
 
 # Access a configuration setting from Django settings instance.
-MESSAGE = settings.CONFIG.get("message")
+MESSAGE = settings.AZURE_APPCONFIGURATION.get("message")
 ```
 ---
 

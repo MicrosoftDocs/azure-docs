@@ -6,12 +6,11 @@ summary: Learn how to configure, create, and manage an Azure VPN gateway. Create
 metadata:
   title: VPN Gateway documentation
   description: Learn how to configure, create, and manage an Azure VPN gateway.
-  services: vpn-gateway
-  ms.service: vpn-gateway
+  ms.service: azure-vpn-gateway
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/30/2022
+  ms.date: 03/31/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,6 +24,8 @@ landingContent:
         links:
           - text: What is VPN Gateway?
             url: vpn-gateway-about-vpngateways.md
+          - text: What's new in VPN Gateway?
+            url: whats-new.md
       - linkListType: concept
         links:
           - text: VPN Gateway FAQ
@@ -50,7 +51,7 @@ landingContent:
             url: tutorial-create-gateway-portal.md
 
   # Card
-  - title: Point-to-site VPNs
+  - title: Point-to-site VPN
     linkLists:
       - linkListType: concept
         links:
@@ -60,17 +61,17 @@ landingContent:
             url: vpn-gateway-about-point-to-site-routing.md
       - linkListType: how-to-guide
         links:
-          - text: Certificate authentication
-            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
-          - text: RADIUS authentication
-            url: point-to-site-how-to-radius-ps.md
-          - text: Azure AD authentication
-            url: openvpn-azure-ad-tenant.md
-          - text: Multiple authentication types
+          - text: Configure point-to-site VPN Certificate authentication
+            url: point-to-site-certificate-gateway.md
+          - text: Configure point-to-site VPN Microsoft Entra ID authentication
+            url: point-to-site-entra-gateway.md
+          - text: Configure point-to-site VPN using Multiple authentication types
             url: howto-point-to-site-multi-auth.md
+          - text: Configure point-to-site VPN RADIUS authentication
+            url: point-to-site-how-to-radius-ps.md
 
 # Card
-  - title: Site-to-site VPNs
+  - title: Site-to-site VPN
     linkLists:
       - linkListType: tutorial
         links:
@@ -82,8 +83,8 @@ landingContent:
             url: bgp-howto.md
           - text: Configure forced tunneling
             url: vpn-gateway-forced-tunneling-rm.md
-          - text: Configure active-active gateways
-            url: active-active-portal.md
+          - text: Change a gateway to active-active mode
+            url: gateway-change-active-active.md
 
   # Card
   - title: VPN devices

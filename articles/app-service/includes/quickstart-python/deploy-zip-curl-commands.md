@@ -4,14 +4,19 @@ ms.author: daberry
 ms.topic: include
 ms.date: 01/29/2022
 ---
+Get the \<URL> from your Kudu Environment: 
+
+1. Open your app in the Azure portal and select **Development Tools** > **Advanced Tools**, then select **Go**.
+1. Copy the value from the address bar and append */api/zipdeploy*.
+
 ##### [bash](#tab/terminal-bash)
 
 ```bash
 curl -X POST \
     -H 'Content-Type: application/zip' \
-    -u <deployment-user> \
+    -u '<deployment-user>' \
     -T <zip-file-name> \
-    https://<app-name>.scm.azurewebsites.net/api/zipdeploy
+    <URL>
 ```
 
 ##### [PowerShell terminal](#tab/terminal-powershell)
@@ -23,7 +28,7 @@ curl -X POST `
     -H 'Content-Type: application/zip' `
     -u '<deployment-user>' `
     -T <zip-file-name> `
-    https://<app-name>.scm.azurewebsites.net/api/zipdeploy
+    <URL>
 ```
 
 ---

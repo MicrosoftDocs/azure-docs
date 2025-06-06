@@ -3,10 +3,9 @@ title: Azure Government Overview
 description: Overview of Azure Government capabilities
 ms.service: azure-government
 ms.topic: overview
-ms.workload: azure-government
 ms.custom: references_regions
-ms.author: stevevi
-author: stevevi
+ms.author: eliotgra
+author: EliotSeattle
 recommendations: false
 ms.date: 03/07/2022
 ---
@@ -33,7 +32,7 @@ There are some key differences that developers working on applications hosted in
 
 ## Region pairing
 
-Azure relies on [paired regions](../availability-zones/cross-region-replication-azure.md) to deliver [geo-redundant storage](../storage/common/storage-redundancy.md). The following table shows the primary and secondary region pairings in Azure Government.
+Azure relies on [paired regions](../reliability/cross-region-replication-azure.md) to deliver [geo-redundant storage](../storage/common/storage-redundancy.md). The following table shows the primary and secondary region pairings in Azure Government.
 
 |Geography|Regional Pair A|Regional Pair B|
 |---------|---------------|---------------|

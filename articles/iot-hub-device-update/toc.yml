@@ -6,8 +6,6 @@ items:
   items:
   - name: What is Device Update for IoT Hub?
     href: understand-device-update.md
-  - name: Device Update for IoT Hub public preview documentation
-    href: /previous-versions/azure/iot-hub-device-update/understand-device-update
   - name: Release notes and version history
     href: device-update-changelog.md
 - name: Tutorials
@@ -20,7 +18,7 @@ items:
     href: device-update-ubuntu-agent.md
   - name: Update device components or connected sensors
     href: device-update-howto-proxy-updates.md
-  - name: Device Update for Azure Real Time Operating System
+  - name: Device Update for Eclipse ThreadX
     href: device-update-azure-real-time-operating-system.md
 - name: Concepts
   items:
@@ -66,19 +64,20 @@ items:
       href: device-update-proxy-updates.md
     - name: Multi-step updates
       href: device-update-multi-step-updates.md
-    - name: Region mapping for BCDR
+    - name: Region mapping for scan and failover
       href: device-update-region-mapping.md  
-  - name: Updates for disconnected devices
-    href: connected-cache-disconnected-device-update.md
-    displayName: Microsoft Connected Cache, MCC, gateway
   - name: Diagnostic features
     href: device-update-diagnostics.md
   - name: Security
     href: device-update-security.md
   - name: Network security
     href: network-security.md
+  - name: Data encryption for Device Update for IoT Hub
+    href: device-update-data-encryption.md
   - name: Data privacy
     href: device-update-data-privacy.md
+  - name: Device Update Supported Platforms
+    href: support.md
 - name: How-to guides
   items:
   - name: Create a Device Update account
@@ -106,21 +105,21 @@ items:
     href: delta-updates.md
   - name: Use related files
     href: related-files.md
+  - name: Use TLS downloads
+    href: device-update-tls-download.md
+    displayName: IoT, update, TLS, https
   - name: Configure private endpoints
     href: configure-private-endpoints.md
     displayName: Azure CLI, az iot, az iot du
-  - name: Use Microsoft Connected Cache
-    items:
-    - name: Single gateway
-      href: connected-cache-single-level.md
-      displayName: Microsoft Connected Cache, MCC
-    - name: Nested gateways
-      href: connected-cache-nested-level.md
-      displayName: Industrial IoT, IIoT, Microsoft Connected Cache, MCC
   - name: Migrate devices to public preview refresh
     href: migration-public-preview-refresh-to-ga.md
+  - name: Prepare for root key rotation
+    href: device-update-rootkey.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot storage-related errors when importing updates
+      href: troubleshoot-storage.md
+      displayName: update, import, storage
     - name: Troubleshoot device updates
       href: troubleshoot-device-update.md
     - name: Troubleshoot proxy updates

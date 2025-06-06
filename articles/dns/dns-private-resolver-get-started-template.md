@@ -3,11 +3,11 @@ title: 'Quickstart: Create an Azure DNS Private Resolver - Azure Resource Manage
 titleSuffix: Azure DNS Private resolver
 description: Learn how to create Azure DNS Private Resolver. This article is a step-by-step quickstart to create and manage your first Azure DNS Private Resolver using Azure Resource Manager template (ARM template).
 services: dns
-author: aarunraaj
-ms.author: arselvar
-ms.date: 10/07/2022
+author: asudbring
+ms.author: allensu
+ms.date: 02/28/2024
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an administrator or developer, I want to learn how to create Azure DNS Private Resolver using ARM template so I can use Azure DNS Private Resolver as forwarder..
 ---
@@ -16,11 +16,15 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Azure DNS Private Resolver.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+
+The following figure summarizes the general setup used. Subnet address ranges used in templates are slightly different than those shown in the figure.
+
+:::image type="content" source="./media/dns-resolver-getstarted-portal/resolver-components.png" alt-text="Conceptual figure displaying components of the private resolver." lightbox="./media/dns-resolver-getstarted-portal/resolver-components.png":::
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazure-dns-private-resolver%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazure-dns-private-resolver%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -39,7 +43,7 @@ This template is configured to create a:
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/azure-dns-private-resolver/azuredeploy.json":::
 
-Seven resources have been defined in this template:
+Seven resources are defined in this template:
 
 - [**Microsoft.Network/virtualnetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Network/dnsResolvers**](/azure/templates/microsoft.network/dnsresolvers)
@@ -61,7 +65,7 @@ templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/
 
 az group create \
 --name $resourceGroupName \
---locataion $location
+--location $location
 
 az deployment group create \
 --resource-group $resourceGroupName \
@@ -82,7 +86,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Validate the deployment
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Resource groups** from the left pane.
 
@@ -112,5 +116,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Next steps
 
-In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains
+In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains.
 - [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md)

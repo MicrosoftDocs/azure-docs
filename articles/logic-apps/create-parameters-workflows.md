@@ -5,7 +5,9 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 08/06/2024
+ms.custom:
+  - build-2025
 ---
 
 # Create cross-environment parameters for workflow inputs in Azure Logic Apps
@@ -14,9 +16,9 @@ ms.date: 08/20/2022
 
 In Azure Logic Apps, you can abstract values that might change in workflows across development, test, and production environments by defining *parameters*. When you use parameters rather than environment-specific variables, you can initially focus more on designing your workflows, and insert your environment-specific variables later.
 
-This article introduces how to create, use, and edit parameters for multi-tenant Consumption logic app workflows and for single-tenant Standard logic app workflows. You'll also learn how to manage environment variables.
+This article introduces how to create, use, and edit parameters for multitenant Consumption logic app workflows and for single-tenant Standard logic app workflows. You'll also learn how to manage environment variables.
 
-For more information about multi-tenant and single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+For more information about multitenant and single-tenant Azure Logic Apps, review [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md).
 
 ## Prerequisites
 
@@ -36,18 +38,25 @@ For more information about multi-tenant and single-tenant Azure Logic Apps, revi
 
 For both Consumption and Standard logic app workflows, you can define parameters using the designer. After you define the parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app resource.
 
-In multi-tenant Consumption logic app workflows, after you create and use parameters in the designer, you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*, which means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
+In multitenant Consumption logic app workflows, after you create and use parameters in the designer, you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*, which means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
 
 In single-tenant Standard logic app workflows, you can work with environment variables both at runtime and deployment by using parameters *and* app settings. App settings contain global configuration options for *all the workflows* in the same logic app resource. For more information, review [Edit host and app settings for single-tenant based logic apps](edit-app-settings-host-settings.md).
 
-> [!NOTE]
-> In Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, 
-> aren't supported. However, as an alternative option, you can use app settings with Azure Key Vault. 
-> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), 
-> such as connection strings and keys. Similar to ARM templates, where you can define environment 
-> variables at deployment time, you can define app settings within your 
-> [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture 
-> dynamically generated infrastructure values, such as connection endpoints, storage strings, and more.
+> [!IMPORTANT]
+>
+> When you have sensitive information, such as connection strings that include usernames and passwords, 
+> make sure to use the most secure authentication flow available. For example, in Standard logic app workflows, 
+> secure data types, such as `securestring` and `secureobject`, aren't supported. Microsoft recommends that you 
+> authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
+> when possible, and assign a role that has the least privilege necessary.
+>
+> If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+> [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
+> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+> strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+> app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+> You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+> For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
 However, app settings have size limits and can't be referenced from certain areas in Azure Logic Apps. Parameters offer a wider range of use cases than app settings, such as support for large value sizes and complex objects.
 
@@ -134,7 +143,6 @@ For example, if you use Visual Studio Code as your local development tool to run
    | **Name** | Yes | The name for the parameter to create. |
    | **Type** | Yes | The data type for the parameter, such as **Array**, **Bool**, **Float**, **Int**, **Object**, and **String**. <br><br>**Note**: In Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, aren't supported. |
    | **Value** | Yes | The value for the parameter. <br><br>In Standard logic app workflows, you have to specify the parameter value because the workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve the parameter values before loading. |
-   ||||
 
    The following example shows a definition for a string parameter:
 
@@ -319,11 +327,11 @@ To add or update an app setting using the Azure CLI, run the command `az logicap
 az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
 
-#### Resource Manager or Bicep template
+#### Resource Manager or Bicep file
 
-To review and define your app settings in an ARM template or Bicep template, find your logic app's resource definition, and update the `appSettings` JSON object. For the full resource definition, see the [ARM template reference](/azure/templates/microsoft.web/sites).
+To review and define your app settings in an ARM template or Bicep file, find your logic app's resource definition, and update the `appSettings` JSON object. For the full resource definition, see the [ARM template reference](/azure/templates/microsoft.web/sites).
 
-This example shows file settings for either ARM templates or Bicep templates:
+This example shows file settings for either ARM templates or Bicep files:
 
 ```json
 "appSettings": [
@@ -341,6 +349,6 @@ This example shows file settings for either ARM templates or Bicep templates:
 
 ---
 
-## Next steps
+## Related content
 
-* [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+* [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md)

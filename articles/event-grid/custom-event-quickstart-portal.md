@@ -1,24 +1,19 @@
 ---
-title: 'Send custom events to web endpoint - Event Grid, Azure portal'
-description: 'Quickstart: Use Azure Event Grid and Azure portal to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
-ms.date: 07/21/2022
+title: Send custom events to web endpoint
+description: In this tutorial, you use Azure Event Grid and Azure portal to publish a custom topic, and subscribe to events for that topic. 
+ms.date: 12/13/2024
 ms.topic: quickstart
 ms.custom: mode-ui
+# Customer intent: I want to learn how to send custom events to Azure Event Grid and have them routed to a Webhook endpoint.
 ---
 
-# Route custom events to web endpoint with the Azure portal and Azure Event Grid
-Event Grid is a fully managed service that enables you to easily manage events across many different Azure services and applications. It simplifies building event-driven and serverless applications. For an overview of the service, see [Event Grid overview](overview.md).
-
-In this article, you use the Azure portal to do the following tasks: 
-
-1. Create a custom topic.
-1. Subscribe to the custom topic.
-1. Trigger the event.
-1. View the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
-
+# Quickstart: Send custom events to web endpoint with the Azure portal and Azure Event Grid
+In this quickstart, you create a topic, create a subscription to that topic using a Webhook endpoint, trigger a sample event, and then view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this tutorial, you send the events to a web app that collects and displays the messages.
 
 ## Prerequisites
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+- If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=azurefreeaccount) before you begin.
+- If you're new Azure Event Grid, see [Event Grid overview](overview.md).
 
 [!INCLUDE [register-provider.md](./includes/register-provider.md)]
 
@@ -35,7 +30,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
 1. On the **Create Topic** page, follow these steps:
     1. Select your Azure **subscription**.
     2. Select an existing resource group or select **Create new**, and enter a **name** for the **resource group**.
-    3. Provide a unique **name** for the custom topic. The topic name must be unique because it's represented by a DNS entry. Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-".
+    3. Provide a unique **name** for the custom topic. The topic name must be unique because it's represented by a DNS entry. Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and `-`.
     4. Select a **location** for the Event Grid topic.
     5. Select **Review + create** at the bottom of the page. 
 
@@ -45,7 +40,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
         :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Review settings and create":::
 5. After the deployment succeeds, select **Go to resource** to navigate to the **Event Grid Topic** page for your topic. Keep this page open. You use it later in the quickstart. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/topic-home-page.png" alt-text="Screenshot showing the Event Grid topic home page.":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/topic-home-page.png" alt-text="Screenshot showing the Event Grid topic home page." lightbox="./media/custom-event-quickstart-portal/topic-home-page.png":::
 
     > [!NOTE]
     > To keep the quickstart simple, you'll be using only the **Basics** page to create a topic. For detailed steps about configuring network, security, and data residency settings on other pages of the wizard, see [Create a custom topic](create-custom-topic.md).
@@ -55,28 +50,28 @@ Before you create a subscription for the custom topic, create an endpoint for th
 
 1. In the article page, select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="../media/template-deployments/deploy-to-azure.svg"  alt="Button to deploy to Azure."></a>
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json":::
+
 2. On the **Custom deployment** page, do the following steps: 
-    1. For **Resource group**, select the resource group that you created when creating the storage account. It will be easier for you to clean up after you're done with the tutorial by deleting the resource group.  
+    1. For **Resource group**, select an existing resource group or create a resource group.  
     2. For **Site Name**, enter a name for the web app.
     3. For **Hosting plan name**, enter a name for the App Service plan to use for hosting the web app.
     5. Select **Review + create**. 
 
         :::image type="content" source="./media/blob-event-quickstart-portal/template-deploy-parameters.png" alt-text="Screenshot showing the Custom deployment page.":::
 1. On the **Review + create** page, select **Create**. 
-1. The deployment may take a few minutes to complete. Select Alerts (bell icon) in the portal, and then select **Go to resource group**. 
+1. The deployment might take a few minutes to complete. Select Alerts (bell icon) in the portal, and then select **Go to resource group**. 
 
-    ![Alert - navigate to resource group.](./media/blob-event-quickstart-portal/navigate-resource-group.png)
-4. On the **Resource group** page, in the list of resources, select the web app that you created. You also see the App Service plan and the storage account in this list. 
+    :::image type="content" source="./media/blob-event-quickstart-portal/navigate-resource-group.png" alt-text="Screenshot showing the successful deployment message with a link to navigate to the resource group.":::
+4. On the **Resource group** page, in the list of resources, select the web app (**contosoegriviewer** in the following example) that you created. 
 
-    ![Select web site.](./media/blob-event-quickstart-portal/resource-group-resources.png)
+    :::image type="content" source="./media/blob-event-quickstart-portal/resource-group-resources.png" alt-text="Screenshot that shows the Resource Group page with the deployed resources.":::
 5. On the **App Service** page for your web app, select the URL to navigate to the web site. The URL should be in this format: `https://<your-site-name>.azurewebsites.net`.
     
-    ![Navigate to web site.](./media/blob-event-quickstart-portal/web-site.png)
-
+    :::image type="content" source="./media/blob-event-quickstart-portal/web-site.png" alt-text="Screenshot that shows the App Service page with the link to the site highlighted.":::
 6. Confirm that you see the site but no events have been posted to it yet.
 
-   ![View new site.](./media/blob-event-quickstart-portal/view-site.png)
+    :::image type="content" source="./media/blob-event-quickstart-portal/view-site.png" alt-text="Screenshot that shows the Event Grid Viewer sample app.":::    
 
 ## Subscribe to custom topic
 
@@ -84,7 +79,7 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 
 1. Now, on the **Event Grid Topic** page for your custom topic, select **+ Event Subscription** on the toolbar.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Add event subscription button":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Screenshot that shows the Add Event Subscription button on the toolbar." lightbox="./media/custom-event-quickstart-portal/new-event-subscription.png":::
 2. On the **Create Event Subscription** page, follow these steps:
     1. Enter a **name** for the event subscription.
     3. Select **Web Hook** for the **Endpoint type**. 
@@ -98,7 +93,7 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 
 3. View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
-    ![View subscription event](./media/custom-event-quickstart-portal/view-subscription-event.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/view-subscription-event.png" alt-text="Screenshot of the Event Grid Viewer app with the Subscription Validated event.":::
 
 ## Send an event to your topic
 
@@ -110,10 +105,10 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
 ### Azure CLI
 1. In the Azure portal, select **Cloud Shell**. The Cloud Shell opens in the bottom pane of the web browser. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Select Cloud Shell icon":::
-1. Select **Bash** in the top-left corner of the Cloud Shell window. 
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Screenshot that shows the selection of Cloud Shell button." lightbox="./media/custom-event-quickstart-portal/select-cloud-shell.png":::
+1. If the Cloud Shell opens a PowerShell session, select **Switch to Bash** in the top-left corner of the Cloud Shell window. If not, continue to the next step. 
 
-    ![Cloud Shell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/cloud-shell-bash.png" alt-text="Screenshot that shows the Cloud Shell with Bash selected in the top-left corner.":::
 1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. You publish sample events to this topic endpoint. 
 
     ```azurecli
@@ -200,26 +195,17 @@ If you plan to continue working with this event, don't clean up the resources cr
 
 1. Select **Resource Groups** on the left menu. If you don't see it on the left menu, select **All Services** on the left menu, and select **Resource Groups**. 
 
-    ![Resource groups](./media/custom-event-quickstart-portal/delete-resource-groups.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/delete-resource-groups.png" alt-text="Screenshot that shows the Resource Groups page." :::
 1. Select the resource group to launch the **Resource Group** page. 
 1. Select **Delete resource group** on the toolbar. 
 1. Confirm deletion by entering the name of the resource group, and select **Delete**. 
 
     The other resource group you see in the image was created and used by the Cloud Shell window. Delete it if you don't plan to use the Cloud Shell window later. 
 
-## Next steps
+## Related content
 
 Now that you know how to create custom topics and event subscriptions, learn more about what Event Grid can help you do:
 
-- [About Event Grid](overview.md)
 - [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md)
-- [Stream big data into a data warehouse](event-hubs-integration.md)
-
-See the following samples to learn about publishing events to and consuming events from Event Grid using different programming languages. 
-
 - [Azure Event Grid samples for .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
 - [Azure Event Grid samples for Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
-- [Azure Event Grid samples for Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
-- [Azure Event Grid samples for JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
-- [Azure Event Grid samples for TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

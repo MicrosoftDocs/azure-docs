@@ -2,11 +2,11 @@
 
 title: Enable Azure Site Recovery for your VMs by using Azure Policy
 description: Learn how to enable policy support to help protect your VMs by using Azure Site Recovery.
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+author: jyothisuri
+ms.author: jsuri
 ms.topic: how-to
-ms.date: 07/25/2021
-ms.service: site-recovery
+ms.date: 03/13/2024
+ms.service: azure-site-recovery
 ms.custom: template-how-to
 
 ---
@@ -51,11 +51,11 @@ With built-in Azure Policy capabilities, you have a way to enable Site Recovery 
   Classic deployment model | Not supported
   Zone-to-zone DR  | Supported
   Interoperability with other policies applied as default by Azure (if any) | Supported
+  Private endpoint | Not supported
+  Cross-subscription | Not supported
 
 > [!NOTE]
-> Site Recovery won't be enabled if:
-> - An unsupported VM is created within the scope of the policy.
-> - A VM is a part of both an availability set and a PPG.
+> Site Recovery won't be enabled if an unsupported VM is created within the scope of the policy.
 
 ## Create a policy assignment
 
@@ -146,4 +146,4 @@ If the VMs show up as noncompliant, it might be because policy evaluation happen
 
 ## Next steps
 
-[Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
+- [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

@@ -2,20 +2,22 @@
 title: Configure IDEMIA Mobile ID with Azure Active Directory B2C 
 titleSuffix: Azure AD B2C
 description: Learn to integrate Azure AD B2C authentication with IDEMIA Mobile ID for a relying party to consume Mobile ID, or US state-issued mobile IDs
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+# Customer intent: I'm an Azure AD B2C administrator, and I want to configure IDEMIA Mobile ID integration with Azure AD B2C. I want users to authenticate using biometric authentication services and benefit from a trusted, government-issued digital ID.
 ---
 
 # Tutorial: Configure IDEMIA Mobile ID with Azure Active Directory B2C 
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 ## Before you begin
 
@@ -66,7 +68,8 @@ To get started, you need:
 
 * Access to users with an IDEMIA, US state issued Mobile ID credential (mID) 
   * Or during the test phase, the mID demo application from IDEMIA
-* An Azure AD subscription
+* An Azure subscription
+
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to the Azure subscription
 * Your business web application registered in an Azure AD B2C tenant
@@ -124,7 +127,7 @@ To define IDEMIA as a claims provider, add it to the **ClaimsProvider** element 
           <Metadata>
             <Item Key="METADATA">https://idp.XXXX.net/oxauth/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid id_basic mt_scope</Item>
             <Item Key="response_mode">form_post</Item>
@@ -174,7 +177,7 @@ Select one of the following values:
 
 |Parameter value| Effect on user authentication process |
 |---|---|
-|`loa-2`| Crypto-based Azure AD Multi-Factor Authentication (MFA) only|
+|`loa-2`| Crypto-based Microsoft Entra multifactor authentication only|
 |`loa-3`| Crypto-based MFA, plus another factor|
 |`loa-4`| Crypto-based MFA, plus the user performs PIN and biometric authentication |
 

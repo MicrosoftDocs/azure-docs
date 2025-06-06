@@ -2,11 +2,9 @@
 title: Azure API Management - Overview and key concepts | Microsoft Docs
 description: Introduction to key scenarios, capabilities, and concepts of the Azure API Management service. API Management supports the full API lifecycle.
 services: api-management
-documentationcenter: ''
 author: dlepow
-editor: ''
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: overview
 ms.date: 06/27/2022
 ms.author: danlep
@@ -30,7 +28,7 @@ This article provides an overview of common scenarios and key components of Azur
 
 APIs enable digital experiences, simplify application integration, underpin new digital products, and make data and services reusable and universally accessible. ​With the proliferation and increasing dependency on APIs, organizations need to manage them as first-class assets throughout their lifecycle.​
 
-:::image type="content" source="media/api-management-key-concepts-experiment/apis-connected-experiences.png" alt-text="Diagram showing role of APIs in connected experiences.":::
+:::image type="content" source="media/api-management-key-concepts/apis-connected-experiences.png" alt-text="Diagram showing role of APIs in connected experiences.":::
 
 
 Azure API Management helps customers meet these challenges:
@@ -51,7 +49,7 @@ Common scenarios include:
 
 Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*. These components are Azure-hosted and fully managed by default. API Management is available in various [tiers](api-management-features.md) differing in capacity and features.
 
-:::image type="content" source="media/api-management-key-concepts-experiment/api-management-components.png" alt-text="Diagram showing key components of Azure API Management.":::
+:::image type="content" source="media/api-management-key-concepts/api-management-components.png" alt-text="Diagram showing key components of Azure API Management.":::
 
 ## API gateway
 
@@ -60,7 +58,7 @@ All requests from client applications first reach the API gateway, which then fo
 The API gateway:
   
   * Accepts API calls and routes them to configured backends
-  * Verifies API keys, JWT tokens, certificates, and other credentials
+  * Verifies API keys, JWTs, certificates, and other credentials
   * Enforces usage quotas and rate limits
   * Optionally transforms requests and responses as specified in [policy statements](#policies)
   * If configured, caches responses to improve response latency and minimize the load on backend services
@@ -91,7 +89,7 @@ Use the management plane to:
 
 The open-source [developer portal][Developer portal] is an automatically generated, fully customizable website with the documentation of your APIs. 
 
-:::image type="content" source="media/api-management-key-concepts-experiment/cover.png" alt-text="Screenshot of API Management developer portal - administrator mode." border="false":::
+:::image type="content" source="media/api-management-key-concepts/cover.png" alt-text="Screenshot of API Management developer portal - administrator mode." border="false":::
 
 API providers can customize the look and feel of the developer portal by adding custom content, customizing styles, and adding their branding. Extend the developer portal further by [self-hosting](developer-portal-self-host.md).
 
@@ -110,13 +108,13 @@ Using the developer portal, developers can:
 
 API Management integrates with many complementary Azure services to create enterprise solutions, including:
 
-* [Azure Key Vault](../key-vault/general/overview.md) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
+* [Azure Key Vault](/azure/key-vault/general/overview) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
 * [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
 * [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
 * [Virtual networks](virtual-network-concepts.md), [private endpoints](private-endpoint.md), and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
-* Azure Active Directory for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
+* Microsoft Entra ID for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
 * [Event Hubs](api-management-howto-log-event-hubs.md) for streaming events​
-* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.md), and others.​
+* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.yml), and others.​
 
 **More information**:
 * [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
@@ -137,7 +135,7 @@ Operations in API Management are highly configurable, with control over URL mapp
 
 ### Products
 
-Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely. 
+Products are how APIs are surfaced to developers. Products in API Management have one or more APIs and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely.
 
 When a product is ready for use by developers, it can be published. Once published, it can be viewed or subscribed to by developers. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
 
@@ -157,7 +155,7 @@ Groups are used to manage the visibility of products to developers. API Manageme
 
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-Administrators can also create custom groups or use external groups in an [associated Azure Active Directory tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
+Administrators can also create custom groups or use external groups in an [associated Microsoft Entra tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
 
 **More information**: 
 * [How to create and use groups][How to create and use groups]
@@ -184,7 +182,7 @@ Policies can be applied at different scopes, depending on your needs: global (al
 * [Transform and protect your API][How to create and configure advanced product settings].
 * [Policy expressions](./api-management-policy-expressions.md)
 
-## Next steps
+## Related content
 
 Complete the following quickstart and start using Azure API Management:
 

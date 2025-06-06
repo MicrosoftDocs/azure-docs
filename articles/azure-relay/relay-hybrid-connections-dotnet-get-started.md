@@ -1,16 +1,16 @@
 ---
 title: Azure Relay Hybrid Connections - WebSockets in .NET
-description: Write a C# console application for Azure Relay Hybrid Connections WebSockets.
-ms.topic: conceptual
+description: This tutorial shows you how to write a C# console application for Azure Relay Hybrid Connections WebSockets.
+ms.topic: tutorial
 ms.custom: devx-track-dotnet, mode-ui, mode-api
-ms.date: 06/21/2022
+ms.date: 12/10/2024
+# Customer intent: As a developer, I would like to know how to write a C# console application for Azure Relay Hybrid Connections WebSockets.
 ---
 
-# Get started with Relay Hybrid Connections WebSockets in .NET
+# Tutorial: Get started with Relay Hybrid Connections WebSockets in .NET
 [!INCLUDE [relay-selector-hybrid-connections](./includes/relay-selector-hybrid-connections.md)]
 
-In this quickstart, you create .NET sender and receiver applications that send and receive messages by using Hybrid Connections WebSockets in Azure Relay. 
-To learn about Azure Relay in general, see [Azure Relay](relay-what-is-it.md). 
+In this quickstart, you create .NET sender and receiver applications that send and receive messages by using Hybrid Connections WebSockets in Azure Relay. To learn about Azure Relay in general, see [Azure Relay](relay-what-is-it.md). 
 
 In this quickstart, you take the following steps:
 
@@ -50,9 +50,7 @@ In Visual Studio, write a C# console application to send messages to the relay.
 
     ![Console windows testing both the server and client applications.](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Congratulations, you've created a complete Hybrid Connections application!
-
-## Next steps
+## Related content
 In this quickstart, you created .NET client and server applications that used WebSockets to send and receive messages. The Hybrid Connections feature of Azure Relay also supports using HTTP to send and receive messages. To learn how to use HTTP with Azure Relay Hybrid Connections, see the [HTTP quickstart](relay-hybrid-connections-http-requests-dotnet-get-started.md).
 
 In this quickstart, you used .NET Framework to create client and server applications. To learn how to write client and server applications using Node.js, see the [Node.js WebSockets quickstart](relay-hybrid-connections-node-get-started.md) or the [Node.js HTTP quickstart](relay-hybrid-connections-http-requests-dotnet-get-started.md).

@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the mapping data flow Select Transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Select transformation in mapping data flow
@@ -39,7 +38,7 @@ Fixed mappings can be used to map a subcolumn of a hierarchical column to a top-
 ## Rule-based mapping
 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=f1d4575c-e0e0-4827-bc0b-6e85bca986b5]
 
 If you wish to map many columns at once or pass drifted columns downstream, use rule-based mapping to define your mappings using column patterns. Match based on the `name`, `type`, `stream`, and `position` of columns. You can have any combination of fixed and rule-based mappings. By default, all projections with greater than 50 columns will default to a rule-based mapping that matches on every column and outputs the inputted name. 
 
@@ -131,5 +130,5 @@ DerivedColumn1 select(mapColumn(
     skipDuplicateMapOutputs: true) ~> Select1
 ```
 
-## Next steps
+## Related content
 * After using Select to rename, reorder, and alias columns, use the [Sink transformation](data-flow-sink.md) to land your data into a data store.

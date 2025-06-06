@@ -2,21 +2,24 @@
 title: Manage emergency access accounts in Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
 description: Learn how to manage emergency access accounts in Azure AD B2C tenants 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: tutorial
-ms.date: 01/30/2023
-ms.custom: project-no-code, b2c-docs-improvements
+ms.date: 09/11/2024
+ms.custom: b2c-docs-improvements
 ms.reviewer: yoelh
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to create emergency access accounts with strong authentication and exclude them from conditional access policies, so that I can prevent accidental lockouts and ensure administrative access to the organization in case of emergencies.
+
 ---
 
 # Manage emergency access accounts in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 It's important that you prevent being accidentally locked out of your Azure Active Directory B2C (Azure AD B2C) organization because you can't sign in or activate another user's account as an administrator. You can mitigate the impact of accidental lack of administrative access by creating two or more *emergency access accounts* in your organization.
 
@@ -24,9 +27,11 @@ When you configure these accounts, the following requirements need to be met:
 
 - The emergency access accounts shouldn't be associated with any individual user in the organization. Make sure that your accounts aren't connected with any employee-supplied mobile phones, hardware tokens that travel with individual employees, or other employee-specific credentials. This precaution covers instances where an individual employee is unreachable when the credential is needed. It's important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD B2C. 
 
-- Use strong authentication for your emergency access accounts and make sure it doesn’t use the same authentication methods as your other administrative accounts. For example, if your normal administrator account uses the Microsoft Authenticator app for strong authentication, use a FIDO2 security key for your emergency accounts.
+- Use strong authentication for your emergency access accounts and make sure it doesn’t use the same authentication methods as your other administrative accounts.
 
 - The device or credential must not expire or be in scope of automated cleanup due to lack of use.
+
+- The emergency access accounts should be properly excluded from restrictive conditional access policies.
 
 ## Prerequisites 
 
@@ -41,7 +46,7 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 
 Use the following steps to create an emergency access account:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an existing Global Administrator. If you use your Azure AD account, make sure you're using the directory that contains your Azure AD B2C tenant:
+1. Sign in to the [Azure portal](https://portal.azure.com) as an existing [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator). If you use your Microsoft Entra account, make sure you're using the directory that contains your Azure AD B2C tenant:
 
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     
@@ -81,7 +86,7 @@ Use the following steps to create an emergency access account:
 
 Once you create your emergency accounts, you need to do the following: 
 
-- Make sure you [exclude at least one account from phone-based multi-factor authentication](../active-directory/roles/security-emergency-access.md#exclude-at-least-one-account-from-phone-based-multi-factor-authentication)
+- Make sure at least one of your emergency access accounts shouldn't have the same multifactor authentication mechanism as your other non-emergency accounts.
 
 - If you use [Conditional Access](conditional-access-user-flow.md), at least one emergency access account needs to be excluded from all conditional access policies.
 
@@ -89,4 +94,3 @@ Once you create your emergency accounts, you need to do the following:
 
 - [Read tenant name and ID](tenant-management-read-tenant-name.md)
 - [Clean up resources and delete tenant](tutorial-delete-tenant.md)
-

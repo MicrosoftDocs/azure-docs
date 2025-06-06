@@ -1,17 +1,19 @@
 ---
 title: 'Quickstart: Create a Python app on Linux'
 description: Get started with Azure App Service by deploying a Python app to a Linux container in App Service.
+ms.author: msangapu
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.devlang: python
-ms.custom: seo-python-october2019, cli-validate, devx-track-python, mode-other
+ms.custom: cli-validate, devx-track-python, mode-other, linux-related-content
 zone_pivot_groups: python-frameworks-01
 ROBOTS: noindex
 ---
 
 # Quickstart: Create a Python app in Azure App Service on Linux
 
-In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the [Azure CLI](/cli/azure/install-azure-cli) locally from a Windows, Linux, or macOS environment to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
+In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md), Azure's highly scalable, self-patching web hosting service. You use the [Azure CLI](/cli/azure/install-azure-cli) locally from a Windows, Linux, or macOS environment to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
 > [!TIP]
 > If you prefer to deploy apps through an IDE, see **[Deploy Python apps to App Service from Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
@@ -19,7 +21,7 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](overvi
 ## Set up your initial environment
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-1. Install <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
+1. Install <a href="https://www.python.org/downloads/" target="_blank">Python</a>.
 1. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
 Open a terminal window and check your Python version is 3.6 or higher:
@@ -292,7 +294,7 @@ The `--no-wait` argument allows the command to return before the operation is co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app-django.md)
 
 > [!div class="nextstepaction"]
 > [Configure Python app](configure-language-python.md)

@@ -1,13 +1,11 @@
 ---
 title: Set up disaster recovery for SQL Server with Azure Site Recovery 
 description: This article describes how to set up disaster recovery for SQL Server by using SQL Server and Azure Site Recovery.
-services: site-recovery
-author: ankitaduttaMSFT
-manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+author: jyothisuri
+ms.service: azure-site-recovery
+ms.topic: how-to
 ms.date: 03/28/2023
-ms.author: ankitadutta
+ms.author: jsuri
 
 ---
 # Set up disaster recovery for SQL Server
@@ -33,7 +31,7 @@ SQL Server on an Azure infrastructure as a service (IaaS) virtual machine (VM) o
 SQL Server on an Azure IaaS VM or at on-premises.| [Failover clustering (Always On FCI)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | The time taken to fail over between the nodes. | Because Always On FCI uses shared storage, the same view of the storage instance is available on failover.
 SQL Server on an Azure IaaS VM or at on-premises.| [Database mirroring (high-performance mode)](/sql/database-engine/database-mirroring/database-mirroring-sql-server) | The time taken to force the service, which uses the mirror server as a warm standby server. | Replication is asynchronous. The mirror database might lag somewhat behind the principal database. The lag is typically small. But it can become large if the principal or mirror server's system is under a heavy load.<br/><br/>Log shipping can be a supplement to database mirroring. It's a favorable alternative to asynchronous database mirroring.
 SQL as platform as a service (PaaS) on Azure.<br/><br/>This deployment type includes single databases and elastic pools. | Active geo-replication | 30 seconds after failover is triggered.<br/><br/>When failover is activated for one of the secondary databases, all other secondaries are automatically linked to the new primary. | RPO of five seconds.<br/><br/>Active geo-replication uses the Always On technology of SQL Server. It asynchronously replicates committed transactions on the primary database to a secondary database by using snapshot isolation.<br/><br/>The secondary data is guaranteed to never have partial transactions.
-SQL as PaaS configured with active geo-replication on Azure.<br/><br/>This deployment type includes a managed instances, elastic pools, and single databases. | Auto-failover groups | RTO of one hour. | RPO of five seconds.<br/><br/>Auto-failover groups provide the group semantics on top of active geo-replication. But the same asynchronous replication mechanism is used.
+SQL as PaaS configured with active geo-replication on Azure.<br/><br/>This deployment type includes managed instances, elastic pools, and single databases. | Auto-failover groups | RTO of one hour. | RPO of five seconds.<br/><br/>Auto-failover groups provide the group semantics on top of active geo-replication. But the same asynchronous replication mechanism is used.
 SQL Server on an Azure IaaS VM or at on-premises.| Replication with Azure Site Recovery | RTO is typically less than 15 minutes. To learn more, read the [RTO SLA provided by Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | One hour for application consistency and five minutes for crash consistency. If you are looking for lower RPO, use other BCDR technologies.
 
 > [!NOTE]
@@ -82,7 +80,7 @@ BCDR technologies Always On, active geo-replication, and auto-failover groups ha
 
 1. Import the scripts to fail over SQL Availability Group in both a [Resource Manager virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) and a [classic virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Import the scripts into your Azure Automation account.
 
-    [![Deploy to Azure logo](../media/template-deployments/deploy-to-azure.svg)](https://aka.ms/asr-automationrunbooks-deploy)
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://aka.ms/asr-automationrunbooks-deploy":::
 
 1. Add the ASR-SQL-FailoverAG script as a pre-action of the first group of the recovery plan.
 
@@ -156,9 +154,9 @@ Site Recovery replication for SQL Server is covered under the Software Assurance
 
 Site Recovery is application agnostic. Site Recovery can help protect any version of SQL Server that is deployed on a supported operating system. For more, see the [support matrix for recovery](vmware-physical-azure-support-matrix.md#replicated-machines) of replicated machines.
 
-### Does ASR Work with SQL Transactional Replication?
+### Does Azure Site Recovery Work with SQL Transactional Replication?
 
-Due to ASR using file-level copy, SQL cannot guarantee that the servers in an associated SQL replication topology are in sync at the time of ASR failover. This may cause the logreader and/or distribution agents to fail due to LSN mismatch, which can break replication. If you failover the publisher, distributor, or subscriber in a replication topology, you need to rebuild replication. It is recommended to [reinitialize the subscription to SQL Server](https://learn.microsoft.com/sql/relational-databases/replication/reinitialize-a-subscription?view=sql-server-ver16).
+Due to Azure Site Recovery using file-level copy, SQL cannot guarantee that the servers in an associated SQL replication topology are in sync at the time of Azure Site Recovery failover. This may cause the log reader and/or distribution agents to fail due to LSN mismatch, which can break replication. If you failover the publisher, distributor, or subscriber in a replication topology, you need to rebuild replication. It is recommended to [reinitialize the subscription to SQL Server](/sql/relational-databases/replication/reinitialize-a-subscription).
 
 
 ## Next steps

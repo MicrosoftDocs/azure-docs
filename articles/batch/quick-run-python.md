@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Use Python to create a pool and run a job'
 description: Follow this quickstart to run an app that uses the Azure Batch client library for Python to create and run Batch pools, nodes, jobs, and tasks.
-ms.date: 04/13/2023
+ms.date: 03/21/2025
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: seo-python-october2019, mvc, devx-track-python, mode-api
+ms.custom: mvc, devx-track-python, mode-api
 ---
 
 # Quickstart: Use Python to create a Batch pool and run a job
@@ -13,7 +13,7 @@ This quickstart shows you how to get started with Azure Batch by running an app 
 
 > [!div class="checklist"]
 > - Uploads several input data files to an Azure Storage blob container to use for Batch task processing.
-> - Creates a pool of two virtual machines (VMs), or compute nodes, running Ubuntu 20.04 LTS OS.
+> - Creates a pool of two virtual machines (VMs), or compute nodes, running Ubuntu 22.04 LTS OS.
 > - Creates a job and three tasks to run on the nodes. Each task processes one of the input files by using a Bash shell command line.
 > - Displays the output files that the tasks return.
 
@@ -25,7 +25,7 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 - A Batch account with a linked Azure Storage account. You can create the accounts by using any of the following methods: [Azure CLI](quick-create-cli.md) | [Azure portal](quick-create-portal.md) | [Bicep](quick-create-bicep.md) | [ARM template](quick-create-template.md) | [Terraform](quick-create-terraform.md).
 
-- [Python](https://python.org/downloads) version 3.6 or later, which includes the [pip](https://pip.pypa.io/en/stable/installing) package manager.
+- [Python](https://python.org/downloads) version 3.8 or later, which includes the [pip](https://pip.pypa.io/en/stable/installing) package manager.
 
 ## Run the app
 
@@ -137,7 +137,7 @@ Review the code to understand the steps in the [Azure Batch Python Quickstart](h
        for file_path in input_file_paths]
    ```
 
-1. The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch account. The Batch client uses shared key authentication. Batch also supports Azure Active Directory (Azure AD) authentication.
+1. The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch account. The Batch client uses shared key authentication. Batch also supports Microsoft Entra authentication.
 
    ```python
    credentials = SharedKeyCredentials(config.BATCH_ACCOUNT_NAME,
@@ -150,7 +150,7 @@ Review the code to understand the steps in the [Azure Batch Python Quickstart](h
 
 ### Create a pool of compute nodes
 
-To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and pool configuration. The following [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS Azure Marketplace image. Batch supports a wide range of Linux and Windows Server Marketplace images, and also supports custom VM images.
+To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and pool configuration. The following [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 22.04 LTS Azure Marketplace image. Batch supports a wide range of Linux and Windows Server Marketplace images, and also supports custom VM images.
 
 The `POOL_NODE_COUNT` and `POOL_VM_SIZE` are defined constants. The app creates a pool of two size Standard_DS1_v2 nodes. This size offers a good balance of performance versus cost for this quickstart.
 
@@ -163,10 +163,10 @@ new_pool = batchmodels.PoolAddParameter(
             image_reference=batchmodels.ImageReference(
                 publisher="canonical",
                 offer="0001-com-ubuntu-server-focal",
-                sku="20_04-lts",
+                sku="22_04-lts",
                 version="latest"
             ),
-            node_agent_sku_id="batch.node.ubuntu 20.04"),
+            node_agent_sku_id="batch.node.ubuntu 22.04"),
         vm_size=config.POOL_VM_SIZE,
         target_dedicated_nodes=config.POOL_NODE_COUNT
     )

@@ -2,13 +2,13 @@
 title: Calculate Enterprise Agreement (EA) savings plan cost savings
 titleSuffix: Microsoft Cost Management
 description: Learn how Enterprise Agreement users manually calculate their savings plan savings.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 04/03/2023
-ms.author: banders
+ms.date: 01/07/2025
+ms.author: onwokolo
 ---
 
 # Calculate EA savings plan cost savings
@@ -18,7 +18,9 @@ This article helps Enterprise Agreement (EA) users manually calculate their savi
 > [!NOTE]
 > The prices shown in this article are for example purposes only.
 
-This article is specific to EA users. Microsoft Customer Agreement (MCA) users can use similar steps to calculate their savings plan savings through invoices. However, the MCA amortized usage file doesn't contain UnitPrice (on-demand pricing) for savings plans. Other resources in the file do. For more information, see [Download usage for your Microsoft Customer Agreement](../savings-plan/utilization-cost-reports.md).
+This article is specific to EA users. 
+
+However, Microsoft Customer Agreement (MCA) users can use similar steps to calculate their savings plan savings through invoices. The MCA amortized usage file doesn't contain UnitPrice (on-demand pricing) for savings plans. You can get unit prices from your [MCA price sheet](download-savings-plan-price-sheet.md#download-mca-price-sheet).
 
 ## Required permissions
 
@@ -75,9 +77,9 @@ If you see a negative savings value, then you're likely to have  unused savings 
 
 Using the preceding steps, you can repeat the process for any number of months. Doing so allows you to see your savings over a longer period.
 
-Instead of downloading usage files, one per month, you can get all your usage data for a specific date range using exports from Cost Management and output the data to Azure Storage. Doing so allows you to see your savings over a longer period. For more information about creating an export, see [Create and manage exported data](../costs/tutorial-export-acm-data.md).
+Instead of downloading usage files, one per month, you can get all your usage data for a specific date range using exports from Cost Management and output the data to Azure Storage. Doing so allows you to see your savings over a longer period. For more information about creating an export, see [Create and manage exported data](../costs/tutorial-improved-exports.md).
 
 ## Next steps
 
 - If you have any unused savings plans, read [View savings plan utilization after purchase](view-utilization.md).
-- Learn more about creating an export at [Create and manage exported data](../costs/tutorial-export-acm-data.md).
+- Learn more about creating an export at [Create and manage exported data](../costs/tutorial-improved-exports.md).

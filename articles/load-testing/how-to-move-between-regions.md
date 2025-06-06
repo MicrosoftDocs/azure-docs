@@ -3,7 +3,7 @@ title: Move an Azure Load testing resource to another region
 titleSuffix: Azure Load Testing
 description: Learn how to move an Azure Load testing resource to another region.
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.custom: subject-moving-resources
 ms.author: ninallam
 author: ninallam
@@ -51,7 +51,7 @@ To get started, export the ARM template for the Azure load testing resource and 
     
     1. Select the ellipsis (**...**) for a test run, and then select **Download input file**.
     
-        The browser should now start downloading a zipped folder that contains all input files for the test, such as the [test configuration YAML file](./reference-test-config-yaml.md), the JMeter script, and any configuration or data files.
+        The browser begins downloading a zipped folder that contains all input files for the test, such as the [test configuration YAML file](./reference-test-config-yaml.md), the test script, and any configuration or data files.
         
         :::image type="content" source="media/how-to-move-an-azure-load-testing-resource/download-input-artifacts.png" alt-text="Screenshot that shows how to download input files for a test.":::
         
@@ -113,12 +113,12 @@ To move the resource to the target Azure region, modify the ARM template, create
 
 After creating the Azure load testing resource, you can [recreate the load tests in the Azure portal](how-to-create-and-run-load-test-with-jmeter-script.md#create-a-load-test).
 
-Refer to the test configuration in the `config.yaml` files you downloaded earlier for configuring the load test settings. Upload the Apache JMeter script and optional configuration files from the downloaded input artifacts.
+Refer to the test configuration in the `config.yaml` files you downloaded earlier for configuring the load test settings. Upload the test script and optional configuration files from the downloaded input artifacts.
 
 If you invoke the load tests in a CI/CD workflow, update the `loadTestResource` parameter in the CI/CD pipeline definition to match the new Azure load testing resource name.
 
 > [!NOTE]
-> If you have configured any of your load test with secrets from Azure Key Vault, make sure to [grant the new resource access to the Key Vault](./how-to-use-a-managed-identity.md?tabs=azure-portal#grant-access-to-your-azure-key-vault).
+> If you have configured any of your load tests with secrets or certificates from Azure Key Vault, make sure to [grant the new resource access to the Key Vault](./how-to-parameterize-load-tests.md#grant-access-to-your-azure-key-vault).
 
 ## Clean up source resources
 

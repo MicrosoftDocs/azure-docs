@@ -1,9 +1,9 @@
 ---
 title: Migrate Azure Batch custom image pools to Azure Compute Gallery
 description: Learn how to migrate Azure Batch custom image pools to Azure compute gallery and plan for feature end of support.
-ms.service: batch
+ms.service: azure-batch
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 04/25/2025
 ---
 
 # Migrate Azure Batch custom image pools to Azure Compute Gallery
@@ -48,13 +48,13 @@ you can select a source option to migrate from, including types being retired fo
 | VHD in a storage account | Select **Browse** to choose the storage account for the VHD. |
 
 For more information about this process, see
-[creating an image definition and version for Compute Gallery](../virtual-machines/image-version.md#create-an-image).
+[creating an image definition and version for Compute Gallery](/azure/virtual-machines/image-version#create-an-image).
 
 ## FAQs
 
 - How can I create an Azure Compute Gallery?
 
-  See the [guide](../virtual-machines/create-gallery.md#create-a-private-gallery) for Compute Gallery creation.
+  See the [guide](/azure/virtual-machines/create-gallery#create-a-private-gallery) for Compute Gallery creation.
 
 - How do I create a Pool with a Compute Gallery image?
 
@@ -64,10 +64,10 @@ For more information about this process, see
 
   See the [considerations for large pools](batch-sig-images.md#considerations-for-large-pools).
 
-- Can I use Azure Compute Gallery images in different subscriptions or in different Azure AD tenants?
+- Can I use Azure Compute Gallery images in different subscriptions or in different Microsoft Entra tenants?
 
-  If the Shared Image isn't in the same subscription as the Batch account, you must register the `Microsoft.Batch` resource provider for that subscription. The two subscriptions must be in the same Azure AD tenant. The image can be in a different region as long as it has replicas in the same region as your Batch account.
+  If the Shared Image isn't in the same subscription as the Batch account, you must register the `Microsoft.Batch` resource provider for that subscription. The two subscriptions must be in the same Microsoft Entra tenant. The image can be in a different region as long as it has replicas in the same region as your Batch account.
 
 ## Next steps
 
-For more information, see [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md).
+For more information, see [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery).

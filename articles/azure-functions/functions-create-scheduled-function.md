@@ -3,12 +3,14 @@ title: Create a function in Azure that runs on a schedule
 description: Learn how to use the Azure portal to create a function that runs based on a schedule that you define.
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
-ms.date: 06/10/2022
+ms.date: 05/07/2025
 ms.custom: mvc, cc996988-fb4f-47, devdivchpfy22
 ---
 # Create a function in the Azure portal that runs on a schedule
 
 Learn how to use the Azure portal to create a function that runs [serverless](https://azure.microsoft.com/solutions/serverless/) on Azure based on a schedule that you define.
+
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)]
 
 ## Prerequisites
 
@@ -20,7 +22,7 @@ Ensure that you have an Azure subscription. If you don't have an Azure subscript
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-Your new function app is ready to use. Next, you'll create a function in the new function app.
+Your new function app is ready to use. Next, you create a function in the new function app.
 
 :::image type="content" source="./media/functions-create-scheduled-function/function-app-create-success-new.png" alt-text="Screenshot showing successful creation of the function app." border="true":::
 
@@ -28,15 +30,15 @@ Your new function app is ready to use. Next, you'll create a function in the new
 
 ## Create a timer triggered function
 
-1. In your function app, select **Functions**, and then select **+ Create**.
+1. In your function app, select **Overview**, and then select **+ Create** under **Functions**.
 
    :::image type="content" source="./media/functions-create-scheduled-function/function-create-function.png" alt-text="Screenshot of adding a function in the Azure portal." border="true":::
 
-1. Select the **Timer trigger** template.
+1. Under **Select a template**, scroll down and choose the **Timer trigger** template.
 
     :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger-template.png" alt-text="Screenshot of select the timer trigger page in the Azure portal." border="true":::
 
-1. Configure the new trigger with the settings as specified in the table below the image, and then select **Create**.
+1. In **Template details**, configure the new trigger with the settings as specified in the table below the image, and then select **Create**.
 
     :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger-new.png" alt-text="Screenshot that shows the New Function page with the Timer Trigger template selected." border="true":::
 
@@ -77,6 +79,6 @@ You now have a function that runs once every hour, on the hour.
 
 ## Next steps
 
-You've created a function that runs based on a schedule. For more information about timer triggers, see [Schedule code execution with Azure Functions](functions-bindings-timer.md).
+You created a function that runs based on a schedule. For more information about timer triggers, see [Timer trigger for Azure Functions](functions-bindings-timer.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]

@@ -5,7 +5,7 @@ author: madsd
 keywords: ASE, ASEv3, ftp, remote debug
 
 ms.topic: tutorial
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.date: 03/29/2022
 ms.author: madsd
 ---
@@ -13,9 +13,6 @@ ms.author: madsd
 # Network configuration settings
 
 Because App Service Environments are isolated to the individual customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific network customizations that are available for App Service Environment v3.
-
-> [!NOTE]
-> This article is about App Service Environment v3, which is used with isolated v2 App Service plans.
 
 If you don't have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 
@@ -122,9 +119,6 @@ The setting is also available for configuration through Azure portal at the App 
 :::image type="content" source="./media/configure-network-settings/configure-allow-remote-debugging.png" alt-text="Screenshot from Azure portal of how to configure your App Service Environment to allow remote debugging.":::
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Create an App Service Environment from a template](./how-to-create-from-template.md)
 
 > [!div class="nextstepaction"]
 > [Deploy your app to Azure App Service using FTP](../deploy-ftp.md)

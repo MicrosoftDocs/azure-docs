@@ -1,20 +1,25 @@
 ---
 title: "ClaimsSchema: Azure Active Directory B2C"
-description: Specify the ClaimsSchema element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+description: Specify the ClaimsSchema element of a custom policy in Azure AD B2C. Define and manage claim types for user attributes and input controls.
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 03/06/2022
+ms.date: 03/21/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a policy administrator or developer, I want to understand the structure and attributes of the ClaimsSchema element, so that I can define and manage claim types in the policy effectively.
+
 ---
 
 # ClaimsSchema
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -68,7 +73,7 @@ The **DataType** element supports the following values:
 |boolean|Represents a Boolean (`true` or `false`) value.|
 |date| Represents an instant in time, typically expressed as a date of a day. The value of the date follows ISO 8601 convention.|
 |dateTime|Represents an instant in time, typically expressed as a date and time of day. The value of the date follows ISO 8601 convention during runtime and is converted to UNIX epoch time when issued as a claim into the token.|
-|duration|Represents a time interval in years, months, days, hours, minutes, and seconds. The format of is `PnYnMnDTnHnMnS`, where `P` indicates positive, or `N` for negative value. `nY` is the number of years followed by a literal `Y`. `nMo` is the number of months followed by a literal `Mo`. `nD` is the number of days followed by a literal `D`. Examples: `P21Y` represents 21 years. `P1Y2Mo` represents one year, and two months. `P1Y2Mo5D` represents one year, two months, and five days.  `P1Y2M5DT8H5M620S` represents one year, two months, five days, eight hours, five minutes, and twenty seconds.  |
+|duration|Represents a time interval in years, months, days, hours, minutes, and seconds. The format of is `PnYnMnDTnHnMnS`, where `P` indicates positive, or `N` for negative value. `nY` is the number of years followed by a literal `Y`. `nMo` is the number of months followed by a literal `Mo`. `nD` is the number of days followed by a literal `D`. Examples: `P21Y` represents 21 years. `P1Y2Mo` represents one year, and two months. `P1Y2Mo5D` represents one year, two months, and five days.  `P1Y2M5DT8H5M20S` represents one year, two months, five days, eight hours, five minutes, and twenty seconds.  |
 |phoneNumber|Represents a phone number. |
 |int| Represents number between -2,147,483,648 and 2,147,483,647|
 |long| Represents number between -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
@@ -106,11 +111,11 @@ In the following example, when the Identity Experience Framework interacts with 
 </ClaimType>
 ```
 
-As a result, the JWT token issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
+As a result, the JWT issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
 
 ```json
 {
-  "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
+  "sub": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "auth_time": 1535013501,
   "given_name": "David",
   "family_name": "Williams",
@@ -251,7 +256,7 @@ The **UserInputType** element available user input types:
 |Password | `string` |Password text box.|
 |RadioSingleSelect |`string` | Collection of radio buttons. The claim value is the selected value.|
 |Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Read-only text box. |
-|TextBox |`boolean`, `int`, `string` |Single-line text box. |
+|TextBox |`boolean`, `int`, `phoneNumber`, `string` |Single-line text box. |
 
 
 #### TextBox
@@ -321,7 +326,7 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 
 The **RadioSingleSelect** user input type is used to provide a collection of radio buttons that allows the user to select one option.
 
-![Using claim type with radiodsingleselect](./media/claimsschema/radiosingleselect.png)
+![Using claim type with radiosingleselect](./media/claimsschema/radiosingleselect.png)
 
 ```xml
 <ClaimType Id="color">
@@ -391,7 +396,7 @@ The **Readonly** user input type is used to provide a readonly field to display 
 
 #### Paragraph
 
-The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag.  For example, &lt;p&gt;text&lt;/p&gt;. A **Paragraph** user input type `OutputClaim` of self-asserted technical profile, must set the `Required` attribute `false` (default).
+The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag.  For example, &lt;p&gt;text&lt;/p&gt;. A **Paragraph** user input type `OutputClaim` of self-asserted technical profile, must set the `Required` attribute `false` (default). This user input type is only supported in self-asserted page layouts. Unified sign-in and sign-up pages (unifiedssp) might not display this properly.
 
 ![Using claim type with paragraph](./media/claimsschema/paragraph.png)
 

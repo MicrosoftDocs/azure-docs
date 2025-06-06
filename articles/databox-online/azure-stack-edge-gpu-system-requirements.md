@@ -4,12 +4,11 @@ description: Learn about the system requirements for your Microsoft Azure Stack 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
-ms.date: 04/17/2023
+ms.date: 06/26/2024
 ms.author: alkohli
-ms.custom: contperf-fy21q4, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 # System requirements for Azure Stack Edge Pro with GPU 
 
@@ -94,13 +93,13 @@ For complete information, go to [Firewall and port configuration rules for IoT E
 
 ## URL patterns for firewall rules
 
-Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Azure Stack Edge Pro device and the service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. These changes require the network administrator to monitor and update firewall rules for your Azure Stack Edge Pro as and when needed.
+Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Azure Stack Edge Pro device and the service depend on other Microsoft applications such as Azure Service Bus, Microsoft Entra Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. These changes require the network administrator to monitor and update firewall rules for your Azure Stack Edge Pro as and when needed.
 
 We recommend that you set your firewall rules for outbound traffic, based on Azure Stack Edge Pro fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
 
 > [!NOTE]
 > - The device (source) IPs should always be set to all the cloud-enabled network interfaces.
-> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### URL patterns for gateway feature
 
@@ -125,7 +124,7 @@ Add the following URL patterns for Azure Monitor if you're using the containeriz
 | https://\*.oms.opinsights.azure.com | 443 | Operations Management Suite (OMS) onboarding |
 | https://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
 
-For more information, see [Network firewall requirements for monitoring container insights](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
+For more information, see [Network firewall requirements for monitoring container insights](/azure/azure-monitor/containers/container-insights-onboard#network-firewall-requirements).
 
 ### URL patterns for gateway for Azure Government
 

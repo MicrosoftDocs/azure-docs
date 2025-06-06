@@ -1,14 +1,13 @@
 ---
 title: Move Azure SQL resources between regions with Azure Resource Mover
-description: Learn how to move Azure SQL resources to another region with Azure Resource Mover
-author: ankitaduttaMSFT
-manager: evansma
-ms.service: resource-mover
+description: Learn how to move Azure SQL resources to another region with Azure Resource Mover.
+author: jyothisuri
+ms.service: azure-resource-mover
 ms.topic: tutorial
-ms.date: 02/10/2023
-ms.author: ankitadutta
+ms.date: 12/27/2024
+ms.author: jsuri
 ms.custom: mvc, engagement-fy23
-#Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region.
+#Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region using Azure Resource Mover.
 ---
 
 # Move Azure SQL Database resources to another region
@@ -43,7 +42,7 @@ To check the SQL requirements before the move:
 
 1. [Check](support-matrix-move-region-sql.md) which database/elastic pool features are supported for moving to another region.
 2. In the target region, create a target server for each source server and ensure proper user access. [Learn more about how to configure logins and users](/azure/azure-sql/database/active-geo-replication-security-configure#how-to-configure-logins-and-users).
-4. Check if the databases are encrypted with transparent data encryption (TDE). If databases are encrypted with transparent data encryption and you use your own encryption key in Azure Key Vault, [learn how to move key vaults to another region](../key-vault/general/move-region.md).
+4. Check if the databases are encrypted with transparent data encryption (TDE). If databases are encrypted with transparent data encryption and you use your own encryption key in Azure Key Vault, [learn how to move key vaults to another region](/azure/key-vault/general/move-region).
 5. If SQL data sync is enabled, moving the member databases is supported. After the move, you need to set up SQL data sync to the new target database.
 6. Remove advanced data security settings before the move. After the move, [configure the settings](/azure/azure-sql/database/azure-defender-for-sql) at the SQL Server level in the target region.
 7. If auditing is enabled, the policies reset to default after the move. [Set up auditing](/azure/azure-sql/database/auditing-overview) again after moving.
@@ -99,14 +98,14 @@ To select the resources you want to move, follow these steps:
 To resolve the dependent resources you want to move, follow these steps:
 
 
-1. Dependencies are automatically validated in the background when you add the resources. If you still see the **Validate dependencies** option, select it to trigger the validation manually.
+1. Dependencies are auto-validated in the background when you add the resources. If the initial auto validation does not resolve the issue, you will see a **Validate dependencies** option, select it to validate manually. 
 1. If dependencies are found, select **Add dependencies**.
 
     :::image type="content" source="./media/tutorial-move-region-sql/add-dependencies.png" alt-text="Screenshot displays button to add dependencies." lightbox="./media/tutorial-move-region-sql/add-dependencies.png":::
    
 3. In **Add dependencies**, select the dependent resources > **Add dependencies**. You can monitor the progress in the notifications.
 
-4. Dependencies are automatically validated in the background once you add the dependencies. If you see a **Validate dependencies** option, select it to trigger the manual validation. 
+4. Dependencies are auto-validated in the background once you add the dependencies. If you see a **Validate dependencies** option, select it to trigger the manual validation. 
 
 5. On the **Across regions** page, verify that the resources are now in a *Prepare pending* state with no issues.
 

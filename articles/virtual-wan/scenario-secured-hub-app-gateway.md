@@ -5,9 +5,9 @@ description: Learn about Virtual WAN routing scenarios for secure traffic travel
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 04/27/2021
+ms.service: azure-virtual-wan
+ms.topic: concept-article
+ms.date: 10/25/2024
 ms.author: cherylmc
 
 ---
@@ -36,7 +36,7 @@ Currently, routes that are advertised from the Virtual WAN route table to spoke 
 
    * To ensure the application gateway is able to send traffic directly to the Internet, specify the following UDR:
 
-     * **Address Prefix:** 0.0.0.0.0/0
+     * **Address Prefix:** 0.0.0.0/0
      * **Next Hop:** Internet
 
    * To ensure the application gateway is able to send traffic to the backend pool via Azure Firewall in the Virtual WAN hub, specify the following UDR:
@@ -63,7 +63,7 @@ Currently, routes that are advertised from the Virtual WAN route table to spoke 
 
 1. Configure user-defined routes (UDRs) on the application gateway subnet. To ensure the application gateway is able to send traffic directly to the Internet, specify the following UDR:
 
-   * **Address Prefix:** 0.0.0.0.0/0
+   * **Address Prefix:** 0.0.0.0/0
    * **Next Hop:** Internet
 
 ## Next steps

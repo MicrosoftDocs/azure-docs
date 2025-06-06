@@ -2,27 +2,30 @@
 title: Store and use certificates in Azure Cloud Services (extended support)
 description: Processes for storing and using certificates in Azure Cloud Services (extended support)
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 10/13/2020
-ms.custom: 
+ms.date: 07/24/2024
+# Customer intent: As a cloud services administrator, I want to securely store and manage certificates using Key Vault so that I can enable secure communication and authentication for Azure Cloud Services (extended support) deployments.
 ---
 
 # Use certificates with Azure Cloud Services (extended support)
 
-Key Vault is used to store certificates that are associated to Cloud Services (extended support). Key Vaults can be created through [Azure portal](../key-vault/general/quick-create-portal.md) and [PowerShell](../key-vault/general/quick-create-powershell.md). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault.  
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
+Key Vault is used to store certificates that are associated to Cloud Services (extended support). Key Vaults can be created through the [Azure portal](/azure/key-vault/general/quick-create-portal) and [PowerShell](/azure/key-vault/general/quick-create-powershell). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault.
 
 ## Upload a certificate to Key Vault 
 
-1.	Sign in to the Azure portal and navigate to the Key Vault. If you do not have a Key Vault set up, you can opt to create one in this same window.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the Key Vault. If you don't have a Key Vault set up, you can opt to create one in this same window.
 
 2. Select **Access Configuration**
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Image shows selecting access policies from the key vault blade.":::
 
-3. Ensure the access configuration include the following property:
+3. Ensure the access configuration includes the following property:
     - **Enable access to Azure Virtual Machines for deployment**
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Image shows access policies window in the Azure portal.":::

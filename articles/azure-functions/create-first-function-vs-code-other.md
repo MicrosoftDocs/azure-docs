@@ -2,8 +2,9 @@
 title: Create a function in Go or Rust using Visual Studio Code - Azure Functions
 description: Learn how to create a Go function as an Azure Functions custom handler, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 06/22/2022
-ms.devlang: golang, rust
+ms.date: 05/20/2025
+ms.devlang: golang
+# ms.devlang: golang, rust
 ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
@@ -15,7 +16,8 @@ In this article, you use Visual Studio Code to create a [custom handler](functio
 
 Custom handlers can be used to create functions in any language or runtime by running an HTTP server process. This article supports both [Go](create-first-function-vs-code-other.md?tabs=go) and [Rust](create-first-function-vs-code-other.md?tabs=rust).
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+>[!TIP]
+>Completing this quickstart creates an app that runs in an [Elastic Premium plan](functions-premium-plan.md), which can incur costs in your Azure account even when you're not using it. You should [Clean up resources](#clean-up-resources) to remove the function app, App Service plan, and related resources after you've completed the article.   
 
 ## Configure your environment
 
@@ -29,8 +31,6 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
-
 + [Go](https://go.dev/doc/install), latest version recommended. Use the `go version` command to check your version.
 
 # [Rust](#tab/rust)
@@ -41,19 +41,17 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
-
 + Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
 
 ---
+
+[!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
 In this section, you use Visual Studio Code to create a local Azure Functions custom handlers project. Later in this article, you'll publish your function code to Azure.
 
-1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
-
-    :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create New Project...`.
 
 1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
@@ -64,7 +62,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions cu
     |**Select a language for your function project**|Choose `Custom Handler`.|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
-    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. 
@@ -294,18 +292,24 @@ In this section, you publish your project to Azure in a function app running Lin
 
 In this section, you create a function app and related resources in your Azure subscription. 
 
-1. Choose the Azure icon in the Activity bar. Then in the **Resources** area, select the **+** icon and choose the **Create Function App in Azure** option.
+1. In the command palette, enter **Azure Functions: Create function app in Azure...(Advanced)**.
 
-    ![Create a resource in your Azure subscription](../../includes/media/functions-publish-project-vscode/function-app-create-resource.png)
+1. If you're not signed in, you're prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After signing in from the browser, go back to Visual Studio Code.
 
-1. Provide the following information at the prompts:
+1. Following the prompts, provide this information:
 
-    |Prompt|Selection|
-    |--|--|
-    |**Select subscription**| Choose the subscription to use. You won't see this when you have only one subscription visible under **Resources**. |
-    |**Enter a globally unique name for the function app**| Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.|
-    |**Select a runtime stack**| Choose **Custom Handler**. |
-    |**Select a location for new resources**| For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.|
+   | Prompt |  Selection |
+   | ------ |  --------- |
+   | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
+   | Select a hosting plan. | Choose the **Premium** [hosting plan](functions-scale.md), which provides serverless hosting on Linux that scales dynamically as needed. |
+   | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Only regions that support your chosen hosting plan are displayed. |
+   | Select a runtime stack. | Select **Custom handler**. |
+   | Select an OS. | Select **Linux** since the app was compiled to run on Linux. |
+   | Select a Linux App Service plan | For Elastic Premium plans, you must explicitly **Create a new app service plan**, enter the plan name, and select the **EP1** pricing tier. |
+   | Select resource authentication type | Select **Managed identity**, which is the most secure option for connecting to the [default host storage account](storage-considerations.md#storage-account-guidance). When using managed identities with an Elastic Premium plan, secret key access to the default host storage remains enabled for Azure Files access. For more information, see [run without Azure Files](storage-considerations.md#create-an-app-without-azure-files). |
+   | Select a storage account. | Choose **Create new storage account**, and at the prompt, enter a globally unique name for the new storage account used by your function app. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. |
+   | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource**, and at the prompt, enter a name for the instance used to store runtime data from your functions. |
+   | Select a user assigned identity | Choose **Create a new user assigned identity**. This identity is used when accessing the default host storage account using Microsoft Entra ID authentication. | 
 
     The extension shows the status of individual resources as they are being created in Azure in the **Azure: Activity Log** panel.
 
@@ -314,6 +318,8 @@ In this section, you create a function app and related resources in your Azure s
 1. When the creation is complete, the following Azure resources are created in your subscription. The resources are named based on your function app name:
 
     [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
+
+    + A user-assigned managed identity that's added to the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor) role in the new default host storage account.
 
     A notification is displayed after your function app is created and the deployment package is applied.
 

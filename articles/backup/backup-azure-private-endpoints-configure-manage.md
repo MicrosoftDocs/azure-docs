@@ -2,8 +2,8 @@
 title: How to create and manage private endpoints (with v2 experience) for Azure Backup
 description: This article explains how to configure and manage private endpoints for Azure Backup.
 ms.topic: how-to
-ms.service: backup
-ms.date: 04/26/2023
+ms.service: azure-backup
+ms.date: 05/26/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -35,7 +35,9 @@ Follow these steps:
    :::image type="content" source="./media/backup-azure-private-endpoints/deny-public-network.png" alt-text="Screenshot showing how to select the Deny option.":::
 
    >[!Note]
-   >Once you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
+   >- When you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
+   >-  Denial of public access is currently not supported for [vaults that have cross-regions restore](backup-create-rs-vault.md#set-cross-region-restore) enabled.
+   
 
 3. Select **Apply** to save the changes. 
 
@@ -149,7 +151,7 @@ Once the private endpoints created for the vault in your VNet have been approved
 
 In the VM, in the locked down network, ensure the following:
 
-1. The VM should have access to Azure AD.
+1. The VM should have access to Microsoft Entra ID.
 2. Execute **nslookup** on the backup URL (`xxxxxxxx.privatelink.<geo>.backup.windowsazure.com`) from your VM, to ensure connectivity. This should return the private IP assigned in your virtual network.
 
 ### Configure backup
@@ -197,8 +199,58 @@ When using the MARS Agent to back up your on-premises resources, make sure your 
 But if you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
 
 >[!NOTE]
-> - Private endpoints are supported with only DPM server 2022 and later.
-> - Private endpoints are not yet supported with MABS.
+>- Private endpoints are supported with only DPM server 2022 (10.22.123.0) and later.
+>- Private endpoints are supported with only MABS V4 (14.0.30.0) and later.
+
+To auto-update the MARS Agent allow access to `download.microsoft.com/download/MARSagent/*`.
+
+#### Cross Subscription Restore to a Private Endpoint enabled vault
+
+To perform Cross Subscription Restore to a Private Endpoint enabled vault:
+
+1. In the *source Recovery Services vault*, go to the **Networking** tab.
+2. Go to the **Private access** section and create **Private Endpoints**.
+3. Select the *subscription* of the target vault in which you want to restore.
+4. In the **Virtual Network** section, select the **VNet** of the target VM that you want to restore across subscription.
+5. Create the **Private Endpoint** and trigger the restore process.
+
+#### Cross region restore to a private endpoint enabled vault
+
+You can create a **Secondary Private Endpoint** before or after adding protected items in the vault.
+
+To restore data across regions to a Private Endpoint enabled vault, follow these steps:
+
+1. Go to the target *Recovery Services Vault* > **Settings** > **Networking**, and ensure that Private Endpoint is created with the target *VM VNet* before protecting any items.
+
+
+     If the private endpoint is not enabled, [enable it](#deny-public-network-access-to-the-vault).
+
+2. On the **Private access** tab, [create *Private Endpoints* in the *secondary region*](#create-private-endpoints-for-azure-backup).
+
+   :::image type="content" source="./media/backup-azure-private-endpoints-configure-manage/create-private-endpoint-in-secondary-region.png" alt-text="Screenshot shows how to create private endpoints in a secondary region." lightbox="./media/backup-azure-private-endpoints-configure-manage/create-private-endpoint-in-secondary-region.png":::
+
+3.	On the **Create a private endpoint** blade, on the **Basics** tab, select the **Region** as the secondary region of the target VM to which you want to do the *Cross Region Restore* operation.
+
+     :::image type="content" source="./media/backup-azure-private-endpoints-configure-manage/select-region-for-cross-region-restore.png" alt-text="Screenshot shows how to select the region for restore to the secondary region.":::
+ 
+4. On the **Resource** tab, select the **Target sub-resource** as **AzureBackup_Secondary**.
+
+   :::image type="content" source="./media/backup-azure-private-endpoints-configure-manage/select-sub-resource.png" alt-text="Screenshot shows how to select the sub resource as Azure Backup Secondary.":::
+
+5. On the **Virtual Network** blade, select the **Virtual Network** of the target VM to which you want to do the *Cross Region Restore* operation.
+
+   :::image type="content" source="./media/backup-azure-private-endpoints-configure-manage/select-virtual-network.png" alt-text="Screenshot shows how to select the virtual network of the target VM for Cross Region Restore.":::
+ 
+   >[!Note]
+   >You can add a maximum of **12** Azure Backup Secondary Private Endpoints to a vault.
+
+6. [Create the private endpoint](#create-private-endpoints-for-azure-backup) and [start the restore process from the secondary region](sap-hana-database-restore.md#cross-subscription-restore).
+
+
+
+
+
+
 
 ## Deleting private endpoints
 

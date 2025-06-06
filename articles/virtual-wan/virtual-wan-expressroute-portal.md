@@ -2,15 +2,15 @@
 title: 'Tutorial: Create an ExpressRoute association to Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create ExpressRoute connections to Azure and on-premises environments.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: tutorial
-ms.date: 05/25/2022
+ms.date: 12/12/2024
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
 # Tutorial: Create an ExpressRoute association to Virtual WAN - Azure portal
 
-This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an ExpressRoute circuit. For more conceptual information about ExpressRoute in Virtual WAN, see [About ExpressRoute in Virtual WAN](virtual-wan-expressroute-about.md).
+This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an ExpressRoute circuit. For more conceptual information about ExpressRoute in Virtual WAN, see [About ExpressRoute in Virtual WAN](virtual-wan-expressroute-about.md). You can also create this configuration using the [PowerShell](expressroute-powershell.md) steps.
 
 In this tutorial, you learn how to:
 
@@ -94,23 +94,17 @@ Once the gateway is created, you can connect an [ExpressRoute circuit](../expres
 
 ### To connect the circuit to the hub gateway
 
-In the portal, go to the **Virtual hub -> Connectivity -> ExpressRoute** page. If you have access in your subscription to an ExpressRoute circuit, you'll see the circuit you want to use in the list of circuits. If you don’t see any circuits, but have been provided with an authorization key and peer circuit URI, you can redeem and connect a circuit. See [To connect by redeeming an authorization key](#authkey).
+First, verify that your circuit's peering status is provisioned in the **ExpressRoute circuit -> Peerings** page in Portal. Then, go to the **Virtual hub -> Connectivity -> ExpressRoute** page. If you have access in your subscription to an ExpressRoute circuit, you'll see the circuit you want to use in the list of circuits. If you don’t see any circuits, but have been provided with an authorization key and peer circuit URI, you can redeem and connect a circuit. See [To connect by redeeming an authorization key](#authkey).
 
 1. Select the circuit.
-2. Select **Connect circuit(s)**.
-
-   :::image type="content" source="./media/virtual-wan-expressroute-portal/cktconnect.png" alt-text="Screenshot shows connect circuits." border="false":::
+1. Select **Connect circuit(s)**.
 
 ### <a name="authkey"></a>To connect by redeeming an authorization key
 
 Use the authorization key and circuit URI you were provided in order to connect.
 
 1. On the ExpressRoute page, click **+Redeem authorization key**
-
-   :::image type="content" source="./media/virtual-wan-expressroute-portal/redeem.png" alt-text="Screenshot shows the ExpressRoute for a virtual hub with Redeem authorization key selected."border="false":::
 2. On the Redeem authorization key page, fill in the values.
-
-   :::image type="content" source="./media/virtual-wan-expressroute-portal/redeemkey2.png" alt-text="Screenshot shows redeem authorization key values." border="false":::
 3. Select **Add** to add the key.
 4. View the circuit. A redeemed circuit only shows the name (without the type, provider and other information) because it is in a different subscription than that of the user.
 
@@ -118,12 +112,9 @@ Use the authorization key and circuit URI you were provided in order to connect.
 
 After the circuit connection is established, the hub connection status will indicate 'this hub', implying the connection is established to the hub ExpressRoute gateway. Wait approximately 5 minutes before you test connectivity from a client behind your ExpressRoute circuit, for example, a VM in the VNet that you created earlier.
 
-
 ## To change the size of a gateway
 
 If you want to change the size of your ExpressRoute gateway, locate the ExpressRoute gateway inside the hub, and select the scale units from the dropdown. Save your change. It will take approximately 30 minutes to update the hub gateway.
-
-:::image type="content" source="./media/virtual-wan-expressroute-portal/changescale.png" alt-text="Screenshot shows Edit ExpressRoute Gateway." border="false":::
 
 ## To advertise default route 0.0.0.0/0 to endpoints
 
@@ -134,7 +125,20 @@ If you would like the Azure virtual hub to advertise the default route 0.0.0.0/0
    :::image type="content" source="./media/virtual-wan-expressroute-portal/defaultroute1.png" alt-text="Screenshot shows Edit ExpressRoute Gateway page." border="false":::
 1. Select **Enable** to propagate the default route.
 
-   :::image type="content" source="./media/virtual-wan-expressroute-portal/defaultroute2.png" alt-text="Screenshot shows enable propagate default route." border="false":::
+
+## To see your Virtual WAN connection from the ExpressRoute circuit blade
+
+Navigate to the **Connections** page for your ExpressRoute circuit to see each ExpressRoute gateway that your ExpressRoute circuit is connected to. If the gateway is in a different subscription than the circuit, then the **Peer** field will be the circuit authorization key.
+   :::image type="content" source="./media/virtual-wan-expressroute-portal/view-expressroute-connection.png" alt-text="Screenshot shows the initial container page." lightbox="./media/virtual-wan-expressroute-portal/view-expressroute-connection.png":::
+
+## Enable or disable VNet to Virtual WAN traffic over ExpressRoute
+
+By default, VNet to Virtual WAN traffic is disabled over ExpressRoute. You can enable this connectivity by using the following steps.
+
+1. In the "Edit virtual hub" blade, enable **Allow traffic from non Virtual WAN networks**.
+1. In the "Virtual network gateway" blade, enable **Allow traffic from remote Virtual WAN networks.** See instructions [here.](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute)
+
+We recommend that you keep these toggles disabled and instead create a Virtual Network connection between the standalone virtual network and Virtual WAN hub. This offers better performance and lower latency, as conveyed in our [FAQ.](virtual-wan-faq.md#when-theres-an-expressroute-circuit-connected-as-a-bow-tie-to-a-virtual-wan-hub-and-a-standalone-vnet-what-is-the-path-for-the-standalone-vnet-to-reach-the-virtual-wan-hub)
 
 ## <a name="cleanup"></a>Clean up resources
 

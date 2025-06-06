@@ -3,11 +3,11 @@ title: Create a custom probe using the portal
 titleSuffix: Azure Application Gateway
 description: Learn how to create a custom probe for Application Gateway by using the portal
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
+author: mbender-ms
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/10/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Create a custom probe for Application Gateway by using the portal
@@ -118,7 +118,7 @@ Now that the probe has been created, it's time to add it to the gateway. Probe s
 
 ## Next steps
 
-View the health of the backend resources as determined by the probe using the [backend health view](./application-gateway-diagnostics.md#backend-health).
+View the health of the backend servers as determined by the probe using the [Backend health view](application-gateway-backend-health.md).
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png

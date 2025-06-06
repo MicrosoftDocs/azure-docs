@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on iOS
+description: Learn how to use the Calling composite on iOS.
 author: garchiro7
 
 ms.author: jorgegarc
@@ -8,11 +8,11 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling)
+For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
-### Defining a Theme
+### Defining a theme
 
-You can customize the theme by changing the primary color and its associated tints and the option of overriding the light and dark  mode color scheme.
+You can customize the theme by changing the primary color and its associated tints. You also have the option of overriding the light and dark modes in the color scheme.
 
 #### Affected UI
 
@@ -29,7 +29,7 @@ You can customize the theme by changing the primary color and its associated tin
 
 #### Implementation
 
-Contoso developers can create custom theme options that implement the `ThemeOptions` protocol. They'll need to include an instance of that new class in your `CallCompositeOptions`.
+You can create custom theme options that implement the `ThemeOptions` protocol. You need to include an instance of that new class in `CallCompositeOptions`.
 
 ```swift
 class CustomThemeOptions: ThemeOptions {
@@ -58,8 +58,51 @@ class CustomThemeOptions: ThemeOptions {
 let callCompositeOptions = CallCompositeOptions(theme: CustomThemeOptions())
 ```
 
-#### Define Color Assets
+### Font color
 
-Define each color in the assets, with a shade for the light and dark modes. Like the below reference image, describe how Contoso can configure the assets on the XCODE project.
+The `foregroundOnPrimaryColor` allows you to programmatically update the font color that appears on elements using the primary color. You can use this method when you want to match a specific theme or brand guidelines. By invoking `foregroundOnPrimaryColor`, you should ensure that the text remains legible and visually appealing by selecting an appropriate contrasting font color for the primary-colored components.
 
-:::image type="content" source="media/ios-theming.png" alt-text="Screenshot of a I O S color assets example configuration.":::
+```swift
+struct CustomColorTheming: ThemeOptions {    
+
+    private var envConfigSubject: EnvConfigSubject  
+
+    init(envConfigSubject: EnvConfigSubject) {        
+        self.envConfigSubject = envConfigSubject    
+    }    
+
+    var primaryColor: UIColor {        
+        return UIColor(envConfigSubject.primaryColor)    
+    }    
+    
+    var primaryColorTint10: UIColor {        
+        return UIColor(envConfigSubject.tint10)    
+    }    
+    
+    var primaryColorTint20: UIColor {        
+        return UIColor(envConfigSubject.tint20)    
+    }    
+    
+    var primaryColorTint30: UIColor {        
+        return UIColor(envConfigSubject.tint30)    
+    }    
+    
+    var foregroundOnPrimaryColor: UIColor {        
+        return UIColor(envConfigSubject.foregroundOnPrimaryColor)    
+    }    
+
+    var colorSchemeOverride: UIUserInterfaceStyle {        
+        return envConfigSubject.colorSchemeOverride    
+    }
+}
+
+
+let callCompositeOptions = CallCompositeOptions(theme: CustomColorTheming())
+
+```
+
+### Defining color assets
+
+Define each color in the assets, with a shade for the light and dark modes. The following reference image shows how to configure the assets on an Xcode project.
+
+:::image type="content" source="media/ios-theming.png" alt-text="Screenshot of an example configuration of iOS color assets.":::

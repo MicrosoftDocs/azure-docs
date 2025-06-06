@@ -3,10 +3,11 @@ title: Configure ASP.NET apps
 description: Learn how to configure an ASP.NET app in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 ms.topic: article
 ms.date: 06/02/2020
-
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure an ASP.NET app for Azure App Service
@@ -20,7 +21,7 @@ This guide provides key concepts and instructions for ASP.NET developers. If you
 
 ## Show supported .NET Framework runtime versions
 
-In App Service, the Windows instances already have all the supported .NET Framework versions installed. To show the .NET Framework runtime and SDK versions available to you, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and run the appropriate command in the browser-based console:
+In App Service, the Windows instances already have all the supported .NET Framework versions installed. To show the .NET Framework runtime and SDK versions available to you, go to your app in the Azure portal. Select **Development Tools** > **Advanced Tools**. Select **Go**. In Kudu, select **Debug console** for **CMD** or **PowerShell**. Run the appropriate command in the browser-based console:
 
 For CLR 4 runtime versions (.NET Framework 4 and above):
 
@@ -35,6 +36,8 @@ For CLR 2 runtime versions (.NET Framework 3.5 and below):
 ```CMD
 ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework"
 ```
+
+If the runtime your application requires isn't supported, you can deploy it with a custom container.
 
 ## Show current .NET Framework runtime version
 
@@ -54,6 +57,8 @@ By default, App Service uses the latest supported .NET Framework version to run 
 az webapp config set --resource-group <resource-group-name> --name <app-name> --net-framework-version v2.0
 ```
 
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
+
 ## Access environment variables
 
 In App Service, you can [set app settings](configure-common.md#configure-app-settings) and connection strings outside of your app code. Then you can access them in any class using the standard ASP.NET pattern:
@@ -69,6 +74,10 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 ```
 
 If you configure an app setting with the same name in App Service and in *web.config*, the App Service value takes precedence over the *web.config* value. The local *web.config* value lets you debug the app locally, but the App Service value lets your run the app in product with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
+
+> [!NOTE]
+> Consider more secure connectivity options that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
+
 
 ## Deploy multi-project solutions
 

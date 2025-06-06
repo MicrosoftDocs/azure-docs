@@ -1,9 +1,9 @@
 ---
-author: alkohli
-ms.service: databox  
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 04/02/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 
 |    URL pattern                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Component or functionality                                                                           |
@@ -17,4 +17,5 @@ ms.author: alkohli
 |    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Support package                                                                                      |
 |    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Telemetry service in Windows, see the update   for customer experience and diagnostic telemetry      |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |  
+
 

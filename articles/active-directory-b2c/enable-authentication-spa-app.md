@@ -1,19 +1,24 @@
 ---
 title: Enable authentication in a SPA application by using Azure Active Directory B2C building blocks
 description:  This article discusses the building blocks of Azure Active Directory B2C for signing in and signing up users in a SPA application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a single-page application, I want to enable authentication using Azure AD B2C, so that I can securely authenticate users accessing my application and protect sensitive data.
+
 ---
 
 # Enable authentication in your own single-page application by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own single-page application (SPA). Learn how create a SPA application by using the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
 
@@ -101,12 +106,6 @@ The resources referenced by the *index.html* file are detailed in the following 
 |---|---|
 |MSAL.js library| MSAL.js authentication JavaScript library [CDN path](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/cdn-usage.md).|
 |[Bootstrap stylesheet](https://getbootstrap.com/) | A free front-end framework for faster and easier web development. The framework includes HTML-based and CSS-based design templates. |
-|[`policies.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js) | Contains the Azure AD B2C custom policies and user flows. |
-|[`authConfig.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authConfig.js) | Contains authentication configuration parameters.|
-|[`authRedirect.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authRedirect.js) | Contains the authentication logic. |
-|[`apiConfig.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/apiConfig.js) | Contains web API scopes and the API endpoint location. |
-|[`api.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | Defines the method to use to call your API and handle its response.|
-|[`ui.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controls the UI elements. |
 | | |
 
 To render the SPA index file, in the *myApp* folder, create a file named *index.html*, which contains the following HTML snippet:
@@ -215,13 +214,13 @@ To specify your Azure AD B2C user flows, do the following:
 
 1. Replace `B2C_1_SUSI` with your sign-in Azure AD B2C Policy name.
 1. Replace `B2C_1_EditProfile` with your edit profile Azure AD B2C policy name.
-1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./ tenant-management-read-tenant-name.md#get-your-tenant-name).
+1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./tenant-management-read-tenant-name.md#get-your-tenant-name).
 
 ## Step 7: Use the MSAL to sign in the user
 
 In this step, implement the methods to initialize the sign-in flow, API access token acquisition, and the sign-out methods. 
 
-For more information, see the [MSAL PublicClientApplication class reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html), and [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-msal-to-sign-in-the-user) articles.
+For more information, see the [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-msal-to-sign-in-the-user) article.
 
 To sign in the user, do the following:
 

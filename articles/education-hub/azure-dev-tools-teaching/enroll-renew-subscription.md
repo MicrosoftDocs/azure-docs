@@ -1,72 +1,66 @@
 ---
-title: Enrolling or renewing Azure Dev Tools for Teaching subscriptions
-description: Description of how to create or renew an Azure Dev subscription.
-author: v-shmck
-ms.author: rymend
+title: Enroll in or renew an Azure Dev Tools for Teaching subscription
+description: Learn how to enroll in a new Azure Dev Tools for Teaching subscription and renew one that's about to expire.
+author: vinnieangel
+ms.author: vangellotti
 ms.topic: quickstart
 ms.service: azure-education
-ms.date: 01/07/2021
+ms.date: 1/2/2024
 ms.custom: mode-other
 ---
 
-# Enroll or renew an Azure Dev Tools for Teaching subscription
+# Enroll in or renew an Azure Dev Tools for Teaching subscription
 
-This article describes the process for enrolling in Azure Dev Tools for Teaching and creating a subscription.
+This article describes the process for enrolling in an Azure Dev Tools for Teaching subscription. It also explains when and how to renew a subscription.
 
-## Enroll a new subscription
+After you complete either of the following procedures, you receive confirmation emails that include updates on enrollment status and any possible next steps.
 
-1. Navigate to the [Azure Dev Tools for Teaching webpage](https://portal.azureforeducation.microsoft.com/).
-1. Select the **Sign up** button. 
-1. Select **Enroll or Renew** on the Azure Dev Tools for Teaching banner.
-1. Select the type of subscription you're enrolling:
-    - Apply for a new subscription
-    - Continue an application you started
- 
-    :::image type="content" source="media/enroll-renew-subscription/enroll-renew.png" alt-text="Sign in error message." border="false":::
+## Enroll in a new subscription
 
-1. Select the **Save** button.
+1. Go to the [Azure Dev Tools for Teaching webpage](https://azureforeducation.microsoft.com/Order).
+1. Select the **Sign up** button.
+1. On the Azure Dev Tools for Teaching banner, select **Enroll or Renew**.
+1. For **Plan Status**, select **Apply for a new plan**, and then select **Save**.
 
-1. Complete your **Institution Information**, if enrolling for the first time. If renewing, this information will autofill.
+    :::image type="content" source="media/enroll-renew-subscription/adt4t.png" alt-text="Screenshot that shows the option for applying for a new plan." border="false":::
 
-    :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Enter institution information." border="false":::
+1. Complete the **Institution Information** details. (When you renew, this information is filled in automatically.)
 
-1. Select the **Subscription Plan** and confirm the **Subscription Administrator** for the subscription. The email domain of the Subscription Administrator will enable students on the same domain to get easy access to download their software benefits.
+    :::image type="content" source="media/enroll-renew-subscription/adt4t-order.png" alt-text="Screenshot that shows institution information." border="false":::
 
-    :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Select subscription plan." border="false":::
-    
-1. Confirm all enrollment information and click **Place Order**. Confirmation emails will be sent to your inbox, with updates on enrollment status and any possible next steps.
+1. For **Plan Information**, the plan name is automatically populated and the duration is set to one year. Fill out the information for plan administrator and department.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-confirm-place-order.png" alt-text="Confirm your order." border="false":::
+   If you want to activate Azure for Students for all students who sign up for the plan, select **Yes** for that option.
+
+   Finally, include the domain or domains to associate with the plan. This information will enable students on the same domain to get easy access to the benefit of downloading software.
+
+    :::image type="content" source="media/enroll-renew-subscription/adt4t-confirm.png" alt-text="Screenshot that shows plan information." border="false":::
+
+1. For **Review and Submit**, confirm all enrollment information and then select **Confirm and Place Order**.
+
+    :::image type="content" source="media/enroll-renew-subscription/adt4t-final-confirmation.png" alt-text="Screenshot that shows the area for confirming and placing an order." border="false":::
 
 ## Renew an existing subscription
 
-Your subscription doesn't renew automatically. To see if it's time to renew, go to the 
-[Azure Dev Tools for Teaching Management portal](https://portal.azureforeducation.microsoft.com/) 
-and look under **Subscriptions**.
+Your plan doesn't renew automatically. To see if it's time to renew, go to the [Azure Dev Tools for Teaching management portal](https://azureforeducation.microsoft.com/Order) and look under **Renew an existing plan**.
 
-Sixty days before your membership expires, you'll receive email reminders to renew your subscription. In a renewal email, you can select the [renewal link](https://portal.azureforeducation.microsoft.com/).
+Sixty days before your membership expires, you receive email reminders to renew your subscription. These reminders include a link to the Azure Dev Tools for Teaching management portal for renewal.
 
 You can complete the renewal process as early as 90 days before the expiration date:
 
-1. Navigate to the [Azure Dev Tools for Teaching Management portal](https://portal.azureforeducation.microsoft.com/).
+1. Go to the [Azure Dev Tools for Teaching management portal](https://azureforeducation.microsoft.com/Order).
 
-1. Select **Enroll or Renew** on the Azure Dev Tools for Teaching banner.
+1. On the Azure Dev Tools for Teaching banner, select **Renew an existing plan**.
 
-1. Select **Renew an existing subscription** on the Azure Dev Tools for Teaching banner.
+1. Search for your institution name and find the subscription ID that you want to renew.
 
-1. Search for your institution name and find the subscription ID you want to renew.
+1. Select the **Plan** type, and confirm the administrator information for the subscription.
 
-1. Select the **Subscription Plan** and confirm the **Subscription Administrator** for the subscription.
+1. Confirm all enrollment information, and then select **Confirm and Place Order**.
 
-1. Confirm all enrollment information and click **Place Order**. Confirmation emails will be sent to your inbox with updates on enrollment status and any possible next steps.
+## Related content
 
-
-## Next steps
-
-- [Set up access for Azure Dev Tools](set-up-access.md)
-
+- [Set up access for Azure Dev Tools for Teaching](set-up-access.md)
 - [Manage student access](manage-students.md)
-
 - [Download software](download-software.md)
-
-- [Support options](program-support.md)
+- [Learn about support options](program-support.md)

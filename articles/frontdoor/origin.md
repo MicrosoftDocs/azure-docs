@@ -2,19 +2,19 @@
 title: Origins and origin groups
 titleSuffix: Azure Front Door
 description: This article explains the concept of what an origin and origin group is in a Front Door configuration.
-services: front-door
-author: duongau
-ms.service: frontdoor
-ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 04/04/2023
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 08/12/2024
 zone_pivot_groups: front-door-tiers
 ---
 
 # Origins and origin groups in Azure Front Door
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 > [!NOTE]
 > *Origin* and *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
@@ -26,7 +26,7 @@ This article describes concepts about how to map your web application deployment
 
 ## Origin
 
-An origin refers to the application deployment that Azure Front Door retrieves contents from when caching isn't enabled or when a cache gets missed. Azure Front Door supports origins hosted in Azure and applications hosted in your on-premises datacenter or with another cloud provider. An origin shouldn't be confused with your database tier or storage tier. The origin should be viewed as the endpoint for your application backend. When you add an origin to an origin group in the Front Door configuration, you must also configure the following settings:
+An origin refers to the application deployment that Azure Front Door retrieves contents from. Azure Front Door supports origins hosted in Azure and applications hosted in your on-premises datacenter or with another cloud provider. An origin shouldn't be confused with your database tier or storage tier. The origin should be viewed as the endpoint for your application backend. When you add an origin to an origin group in the Front Door configuration, you must also configure the following settings:
 
 * **Origin type:** The type of resource you want to add. Front Door supports autodiscovery of your application backends from App Service, Cloud Service, or Storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
 
@@ -49,6 +49,9 @@ An origin refers to the application deployment that Azure Front Door retrieves c
 
 * **Weight**. Assign weights to your different backends to distribute traffic across a set of backends, either evenly or according to weight coefficients. For more information, see [Weights](routing-methods.md#weighted).
 
+> [!IMPORTANT]
+> When an origin is **disabled**, both routing and health probes to the origin are also disabled.
+
 ### Origin host header
 
 Requests that get forwarded by Azure Front Door to an origin include a host header field that the origin uses to retrieve the targeted resource. The value for this field typically comes from the origin URI that has the host header and port.
@@ -57,7 +60,10 @@ For example, a request made for `www.contoso.com` has the host header `www.conto
 
 Most app backends (Azure Web Apps, Blob storage, and Cloud Services) require the host header to match the domain of the backend. However, the frontend host that routes to your origin uses a different hostname such as `www.contoso.net`.
 
-If your origin requires the host header to match the origin hostname, make sure that the origin host header includes the hostname of the origin. 
+If your origin requires the host header to match the origin hostname, make sure that the origin host header includes the hostname of the origin.
+
+> [!NOTE]
+> If you're using an App Service as an origin, make sure that the App Service also has the custom domain name configured. For more information, see [set up an existing custom domain name for your app](../app-service/app-service-web-tutorial-custom-domain.md).
 
 #### Configure the origin host header for the origin
 

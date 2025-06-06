@@ -2,13 +2,12 @@
 title: Azure Data Box Heavy limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Heavy components and connections.
 services: databox
-author: alkohli
+author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
-ms.topic: article
-ms.date: 06/28/2021
-ms.author: alkohli
+ms.service: azure-data-box-heavy
+ms.topic: concept-article
+ms.date: 03/06/2025
+ms.author: shaas
 ---
 
 # Azure Data Box Heavy limits
@@ -23,7 +22,8 @@ Consider these limits as you deploy and operate your Azure Data Box Heavy device
 ## Data Box Heavy limits
 
 - Data Box Heavy can store a maximum of 1 billion files per node.
-- Data Box Heavy supports a maximum of 512 containers or shares per node in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud. 
+- Data Box Heavy supports a maximum of 512 containers or shares per node in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud.
+- Data Box currently does not support a scenario in which the customer's data is actively changing during export.
 
 ## Azure Storage limits
 

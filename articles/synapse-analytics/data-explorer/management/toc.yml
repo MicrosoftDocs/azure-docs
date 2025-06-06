@@ -1,400 +1,949 @@
 items:
-- name: Control commands overview
+- name: Management commands overview
   displayName: Management
-  href: /azure/data-explorer/kusto/management/index?context=/azure/synapse-analytics/context/context
+  href: /kusto/management/index?view=azure-data-explorer&preserve-view=true
 - name: Workload groups
   items:
   - name: Workload groups overview
-    href: /azure/data-explorer/kusto/management/workload-groups?context=/azure/synapse-analytics/context/context
-  - name: Workload groups management
-    href: /azure/data-explorer/kusto/management/workload-groups-commands?context=/azure/synapse-analytics/context/context
+    href: /kusto/management/workload-groups?view=azure-data-explorer&preserve-view=true
+  - name: Workload group commands
+    items:
+    - name: .alter-merge workload_group command
+      displayName: .alter-merge workload group
+      href: /kusto/management/alter-merge-workload-group-command?view=azure-data-explorer&preserve-view=true
+    - name: .create-or-alter workload_group command
+      href: /kusto/management/create-or-alter-workload-group-command?view=azure-data-explorer&preserve-view=true
+    - name: .drop workload_group command
+      href: /kusto/management/drop-workload-group-command?view=azure-data-explorer&preserve-view=true
+    - name: .show workload_group command
+      displayName: .show workload_groups
+      href: /kusto/management/show-workload-group-command?view=azure-data-explorer&preserve-view=true
   - name: Request classification policy
     items:
     - name: Request classification policy
-      href: /azure/data-explorer/kusto/management/request-classification-policy?context=/azure/synapse-analytics/context/context
-    - name: Request classification policy commands
-      href: /azure/data-explorer/kusto/management/request-classification-policy-commands?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/request-classification-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter cluster policy request_classification command
+      displayName: .alter cluster request_classification policy, .alter cluster request classification policy
+      href: /kusto/management/alter-cluster-policy-request-classification-command?view=azure-data-explorer&preserve-view=true
+    - name: .alter-merge cluster policy request_classification command
+      href: /kusto/management/alter-merge-cluster-policy-request-classification-command?view=azure-data-explorer&preserve-view=true
+    - name: .delete cluster policy request_classification command
+      href: /kusto/management/delete-cluster-policy-request-classification-command?view=azure-data-explorer&preserve-view=true
+    - name: .show cluster policy request_classification command
+      displayName: .show cluster policy request classification
+      href: /kusto/management/show-cluster-policy-request-classification-command?view=azure-data-explorer&preserve-view=true
   - name: Request limits policy
-    href: /azure/data-explorer/kusto/management/request-limits-policy?context=/azure/synapse-analytics/context/context
+    href: /kusto/management/request-limits-policy?view=azure-data-explorer&preserve-view=true
   - name: Request rate limit policy
-    href: /azure/data-explorer/kusto/management/request-rate-limit-policy?context=/azure/synapse-analytics/context/context
+    href: /kusto/management/request-rate-limit-policy?view=azure-data-explorer&preserve-view=true
   - name: Request rate limits enforcement policy
-    href: /azure/data-explorer/kusto/management/request-rate-limits-enforcement-policy?context=/azure/synapse-analytics/context/context
+    href: /kusto/management/request-rate-limits-enforcement-policy?view=azure-data-explorer&preserve-view=true
   - name: Request queuing policy
-    href: /azure/data-explorer/kusto/management/request-queuing-policy?context=/azure/synapse-analytics/context/context
+    href: /kusto/management/request-queuing-policy?view=azure-data-explorer&preserve-view=true
+  - name: Query consistency policy
+    href: /kusto/management/query-consistency-policy?view=azure-data-explorer&preserve-view=true
 - name: Schema
   items:
   - name: Best practices for schema management
-    href: /azure/data-explorer/kusto/management/management-best-practices?context=/azure/synapse-analytics/context/context
-  - name: Databases
-    href: /azure/data-explorer/kusto/management/databases?context=/azure/synapse-analytics/context/context
+    href: /kusto/management/management-best-practices?view=azure-data-explorer&preserve-view=true
+  - name: Clusters
     items:
-    - name: .show databases
-      href: /azure/data-explorer/kusto/management/show-databases?context=/azure/synapse-analytics/context/context
-    - name: .show database
-      href: /azure/data-explorer/kusto/management/show-database?context=/azure/synapse-analytics/context/context
-    - name: .show cluster databases
-      href: /azure/data-explorer/kusto/management/show-cluster-database?context=/azure/synapse-analytics/context/context
-    - name: .alter database prettyname
-      href: /azure/data-explorer/kusto/management/alter-database?context=/azure/synapse-analytics/context/context
-    - name: .show database(s) schema
-      href: /azure/data-explorer/kusto/management/show-schema-database?context=/azure/synapse-analytics/context/context
-    - name: .execute database script
-      href: /azure/data-explorer/kusto/management/execute-database-script?context=/azure/synapse-analytics/context/context
+    - name: .execute cluster script command
+      href: /kusto/management/execute-cluster-script?view=azure-data-explorer&preserve-view=true
+  - name: Databases
+    href: /kusto/management/databases?view=azure-data-explorer&preserve-view=true
+    items:
+    - name: .show databases command
+      displayName: .show databases command, .show cluster databases command
+      href: /kusto/management/show-databases?view=azure-data-explorer&preserve-view=true
+    - name: .show database command
+      href: /kusto/management/show-database?view=azure-data-explorer&preserve-view=true
+    - name: .alter database prettyname command
+      href: /kusto/management/alter-database-prettyname?view=azure-data-explorer&preserve-view=true
+    - name: .drop database prettyname command
+      href: /kusto/management/drop-database-prettyname?view=azure-data-explorer&preserve-view=true
+    - name: .show database schema command
+      displayName: .show databases schema
+      href: /kusto/management/show-schema-database?view=azure-data-explorer&preserve-view=true
+    - name: .show database schema violations
+      href: /kusto/management/show-database-schema-violations?view=azure-data-explorer&preserve-view=true
+    - name: .show databases entities command
+      displayName: .show databases entities
+      href: /kusto/management/show-databases-entities?view=azure-data-explorer&preserve-view=true
+    - name: .execute database script command
+      href: /kusto/management/execute-database-script?view=azure-data-explorer&preserve-view=true
   - name: Tables
     items:
     - name: Tables management
-      href: /azure/data-explorer/kusto/management/tables?context=/azure/synapse-analytics/context/context
-    - name: .alter-merge table
-      href: /azure/data-explorer/kusto/management/alter-merge-table-command?context=/azure/synapse-analytics/context/context
-    - name: .alter table
-      href: /azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context
-    - name: .alter table docstring
-      href: /azure/data-explorer/kusto/management/alter-table-docstring-command?context=/azure/synapse-analytics/context/context
-    - name: .alter table folder
-      href: /azure/data-explorer/kusto/management/alter-table-folder-command?context=/azure/synapse-analytics/context/context
-    - name: .alter ingestion mapping
-      href: /azure/data-explorer/kusto/management/alter-ingestion-mapping-command?context=/azure/synapse-analytics/context/context
-    - name: .create ingestion mapping
-      href: /azure/data-explorer/kusto/management/create-ingestion-mapping-command?context=/azure/synapse-analytics/context/context
-    - name: .drop ingestion mapping
-      href: /azure/data-explorer/kusto/management/drop-ingestion-mapping-command?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/tables?view=azure-data-explorer&preserve-view=true
+    - name: .alter-merge table command
+      href: /kusto/management/alter-merge-table-command?view=azure-data-explorer&preserve-view=true
+    - name: .alter table command
+      href: /kusto/management/alter-table-command?view=azure-data-explorer&preserve-view=true
+    - name: .alter table docstring command
+      href: /kusto/management/alter-table-docstring-command?view=azure-data-explorer&preserve-view=true
+    - name: .alter table folder command
+      href: /kusto/management/alter-table-folder-command?view=azure-data-explorer&preserve-view=true
+    - name: .alter ingestion mapping command
+      href: /kusto/management/alter-ingestion-mapping-command?view=azure-data-explorer&preserve-view=true
+    - name: .create ingestion mapping command
+      href: /kusto/management/create-ingestion-mapping-command?view=azure-data-explorer&preserve-view=true
+    - name: .create-or-alter ingestion mapping command
+      href: /kusto/management/create-or-alter-ingestion-mapping-command?view=azure-data-explorer&preserve-view=true
+    - name: .drop ingestion mapping command
+      href: /kusto/management/drop-ingestion-mapping-command?view=azure-data-explorer&preserve-view=true
     - name: .show ingestion mapping
-      href: /azure/data-explorer/kusto/management/show-ingestion-mapping-command?context=/azure/synapse-analytics/context/context
-    - name: .create table
-      href: /azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context
-    - name: .create table based-on
-      href: /azure/data-explorer/kusto/management/create-table-based-on-command?context=/azure/synapse-analytics/context/context
-    - name: .create tables
-      href: /azure/data-explorer/kusto/management/create-tables-command?context=/azure/synapse-analytics/context/context
-    - name: .create-merge table
-      href: /azure/data-explorer/kusto/management/create-merge-table-command?context=/azure/synapse-analytics/context/context
-    - name: .create-merge tables
-      href: /azure/data-explorer/kusto/management/create-merge-tables-command?context=/azure/synapse-analytics/context/context
-    - name: .drop table(s)
-      href: /azure/data-explorer/kusto/management/drop-table-command?context=/azure/synapse-analytics/context/context
-    - name: .rename table(s)
-      href: /azure/data-explorer/kusto/management/rename-table-command?context=/azure/synapse-analytics/context/context
-    - name: .show tables
-      href: /azure/data-explorer/kusto/management/show-tables-command?context=/azure/synapse-analytics/context/context
-    - name: .undo drop table
-      href: /azure/data-explorer/kusto/management/undo-drop-table-command?context=/azure/synapse-analytics/context/context
-    - name: .show table details
-      href: /azure/data-explorer/kusto/management/show-table-details-command?context=/azure/synapse-analytics/context/context
-    - name: .show table schema
-      href: /azure/data-explorer/kusto/management/show-table-schema-command?context=/azure/synapse-analytics/context/context
-    - name: .clear table data
-      href: /azure/data-explorer/kusto/management/clear-table-data-command?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/show-ingestion-mapping-command?view=azure-data-explorer&preserve-view=true
+    - name: .create table command
+      href: /kusto/management/create-table-command?view=azure-data-explorer&preserve-view=true
+    - name: .create table based-on command
+      href: /kusto/management/create-table-based-on-command?view=azure-data-explorer&preserve-view=true
+    - name: .create tables command
+      href: /kusto/management/create-tables-command?view=azure-data-explorer&preserve-view=true
+    - name: .create-merge table command
+      href: /kusto/management/create-merge-table-command?view=azure-data-explorer&preserve-view=true
+    - name: .create-merge tables command
+      href: /kusto/management/create-merge-tables-command?view=azure-data-explorer&preserve-view=true
+    - name: .drop table command
+      displayName: .drop tables
+      href: /kusto/management/drop-table-command?view=azure-data-explorer&preserve-view=true
+    - name: .rename table command
+      displayName: .rename tables
+      href: /kusto/management/rename-table-command?view=azure-data-explorer&preserve-view=true
+    - name: .show tables command
+      href: /kusto/management/show-tables-command?view=azure-data-explorer&preserve-view=true
+    - name: .undo drop table command
+      href: /kusto/management/undo-drop-table-command?view=azure-data-explorer&preserve-view=true
+    - name: .show table details command
+      displayName: .show tables details
+      href: /kusto/management/show-table-details-command?view=azure-data-explorer&preserve-view=true
+    - name: .show table schema command
+      href: /kusto/management/show-table-schema-command?view=azure-data-explorer&preserve-view=true
+    - name: .clear table data command
+      href: /kusto/management/clear-table-data-command?view=azure-data-explorer&preserve-view=true
   - name: External tables
     items:
-    - name: Create and alter Azure Storage external tables
-      href: /azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake?context=/azure/synapse-analytics/context/context
-    - name: Create and alter SQL Server external tables
-      href: /azure/data-explorer/kusto/management/external-sql-tables?context=/azure/synapse-analytics/context/context
-    - name: .drop external table
-      href: /azure/data-explorer/kusto/management/drop-external-table?context=/azure/synapse-analytics/context/context
-    - name: .show external table
-      href: /azure/data-explorer/kusto/management/show-external-tables?context=/azure/synapse-analytics/context/context
-    - name: .show external table schema
-      href: /azure/data-explorer/kusto/management/show-external-table-schema?context=/azure/synapse-analytics/context/context
+    - name: Azure Storage external tables
+      items:
+      - name: Create or alter Azure Blob Storage/ADLS external table
+        href: /kusto/management/external-tables-azure-storage?view=azure-data-explorer&preserve-view=true
+      - name: Create or alter delta external table
+        href: /kusto/management/external-tables-delta-lake?view=azure-data-explorer&preserve-view=true
+      - name: Manage external table mappings
+        items:
+        - name: .alter external table mapping command
+          href: /kusto/management/external-table-mapping-alter?view=azure-data-explorer&preserve-view=true
+        - name: .create external table mapping command
+          href: /kusto/management/external-table-mapping-create?view=azure-data-explorer&preserve-view=true
+        - name: .drop external table mapping command
+          href: /kusto/management/external-table-mapping-drop?view=azure-data-explorer&preserve-view=true
+        - name: .show external table mapping command
+          href: /kusto/management/external-table-mapping-show?view=azure-data-explorer&preserve-view=true
+      - name: .show external table artifacts command
+        href: /kusto/management/show-external-table-artifacts?view=azure-data-explorer&preserve-view=true
+    - name: Azure SQL external tables
+      items:
+      - name: Create and alter Azure SQL external tables
+        href: /kusto/management/external-sql-tables?view=azure-data-explorer&preserve-view=true
+        displayName: SQL Server, MySQL, PostgreSQL, Cosmos DB
+      - name: Query an Azure SQL external table
+        href: /kusto/management/external-sql-tables-query?view=azure-data-explorer&preserve-view=true
+      - name: Apply row-level security to Azure SQL external tables
+        displayName: RLS, SQL server
+        href: /kusto/management/row-level-security-external-sql?view=azure-data-explorer&preserve-view=true
+    - name: .drop external table command
+      href: /kusto/management/drop-external-table?view=azure-data-explorer&preserve-view=true
+    - name: .show external table command
+      href: /kusto/management/show-external-tables?view=azure-data-explorer&preserve-view=true
+      displayName: .show external tables
+    - name: .show external table schema command
+      href: /kusto/management/show-external-table-schema?view=azure-data-explorer&preserve-view=true
   - name: Materialized views
     items:
     - name: Materialized views overview
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-overview?context=/azure/synapse-analytics/context/context
-    - name: .create materialized-view
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-create?context=/azure/synapse-analytics/context/context
-    - name: .alter materialized-view
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-alter?context=/azure/synapse-analytics/context/context
-    - name: .create-or-alter materialized-view
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-create-or-alter?context=/azure/synapse-analytics/context/context
-    - name: .alter materialized-view docstring
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-alter-docstring?context=/azure/synapse-analytics/context/context
-    - name: .alter materialized-view folder
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-alter-folder?context=/azure/synapse-analytics/context/context
-    - name: .alter materialized-view lookback
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-alter-lookback?context=/azure/synapse-analytics/context/context
-    - name: .alter materialized-view autoUpdateSchema
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-alter-autoUpdateSchema?context=/azure/synapse-analytics/context/context
-    - name: .show materialized-view commands
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-show-commands?context=/azure/synapse-analytics/context/context
-    - name: .drop materialized-view
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-drop?context=/azure/synapse-analytics/context/context
-    - name: .clear materialized-view data
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-clear-data?context=/azure/synapse-analytics/context/context
-    - name: .disable | .enable materialized-view
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-enable-disable?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/materialized-views/materialized-view-overview?view=azure-data-explorer&preserve-view=true
+    - name: Materialized views limitations
+      href: /kusto/management/materialized-views/materialized-views-limitations?view=azure-data-explorer&preserve-view=true
     - name: Materialized views policies
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-policies?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/materialized-views/materialized-view-policies?view=azure-data-explorer&preserve-view=true
+    - name: Materialized views use cases
+      href: /kusto/management/materialized-views/materialized-view-use-cases?view=azure-data-explorer&preserve-view=true
     - name: Materialized views data purge
-      href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-purge?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/materialized-views/materialized-view-purge?view=azure-data-explorer&preserve-view=true
+    - name: Monitor materialized views
+      href: /kusto/management/materialized-views/materialized-views-monitoring?view=azure-data-explorer&preserve-view=true
+    - name: .alter materialized-view
+      displayName: alter
+      href: /kusto/management/materialized-views/materialized-view-alter?view=azure-data-explorer&preserve-view=true
+    - name: .alter materialized-view autoUpdateSchema
+      displayName: alter auto update schema
+      href: /kusto/management/materialized-views/materialized-view-alter-autoUpdateSchema?view=azure-data-explorer&preserve-view=true
+    - name: .alter materialized-view docstring
+      displayName: alter materialized view
+      href: /kusto/management/materialized-views/materialized-view-alter-docstring?view=azure-data-explorer&preserve-view=true
+    - name: .alter materialized-view folder
+      displayName: alter materialized view
+      href: /kusto/management/materialized-views/materialized-view-alter-folder?view=azure-data-explorer&preserve-view=true
+    - name: .alter materialized-view lookback
+      displayName: alter materialized view
+      href: /kusto/management/materialized-views/materialized-view-alter-lookback?view=azure-data-explorer&preserve-view=true
+    - name: .clear materialized-view data
+      displayName: clear materialized view data
+      href: /kusto/management/materialized-views/materialized-view-clear-data?view=azure-data-explorer&preserve-view=true
+    - name: .create materialized-view
+      displayName: create materialized view
+      href: /kusto/management/materialized-views/materialized-view-create?view=azure-data-explorer&preserve-view=true
+    - name: .create-or-alter materialized-view
+      displayName: create or alter materialized view
+      href: /kusto/management/materialized-views/materialized-view-create-or-alter?view=azure-data-explorer&preserve-view=true
+    - name: .disable | .enable materialized-view
+      displayName: disable enable
+      href: /kusto/management/materialized-views/materialized-view-enable-disable?view=azure-data-explorer&preserve-view=true
+    - name: .drop materialized-view
+      displayName: drop materialized view
+      href: /kusto/management/materialized-views/materialized-view-drop?view=azure-data-explorer&preserve-view=true
+    - name: .rename materialized-view
+      displayName: rename materialized view
+      href: /kusto/management/materialized-views/materialized-view-rename?view=azure-data-explorer&preserve-view=true
+    - name: .show materialized-view(s)
+      displayName: show materialized view
+      href: /kusto/management/materialized-views/materialized-view-show-command?view=azure-data-explorer&preserve-view=true
+    - name: .show materialized-view schema
+      displayName: show materialized view schema
+      href: /kusto/management/materialized-views/materialized-view-show-schema-command?view=azure-data-explorer&preserve-view=true
+    - name: .show materialized-view extents
+      displayName: show materialized view extents
+      href: /kusto/management/materialized-views/materialized-view-show-extents-command?view=azure-data-explorer&preserve-view=true
+    - name: .show materialized-view failures
+      displayName: show materialized view failures
+      href: /kusto/management/materialized-views/materialized-view-show-failures-command?view=azure-data-explorer&preserve-view=true
+    - name: .show materialized-view(s) details
+      displayName: show materialized view details
+      href: /kusto/management/materialized-views/materialized-view-show-details-command?view=azure-data-explorer&preserve-view=true
   - name: Stored query results
-    displayName: .set stored query, .show stored query, .drop stored query
-    href: /azure/data-explorer/kusto/management/stored-query-results?context=/azure/synapse-analytics/context/context
+    items:
+    - name: Stored query results
+      displayName: .set stored query, .show stored query, .drop stored query
+      href: /kusto/management/stored-query-results?view=azure-data-explorer&preserve-view=true
+    - name: .set stored query results command
+      displayName: .set stored query result, .set-or-replace stored_query_result, .set-or-replace stored query result
+      href: /kusto/management/set-stored-query-result-command?view=azure-data-explorer&preserve-view=true
+    - name: .show stored_query_result command
+      displayName: .show stored query result, .show stored_query_results
+      href: /kusto/management/show-stored-query-result-command?view=azure-data-explorer&preserve-view=true
+    - name: .drop stored_query_result command
+      displayName: .drop stored query result, .drop stored_query_results
+      href: /kusto/management/drop-stored-query-result-command?view=azure-data-explorer&preserve-view=true
   - name: Columns
     items:
     - name: Columns management
-      href: /azure/data-explorer/kusto/management/columns?context=/azure/synapse-analytics/context/context
-    - name: .alter column
-      href: /azure/data-explorer/kusto/management/alter-column?context=/azure/synapse-analytics/context/context
-    - name: .alter-merge table column-docstrings
-      href: /azure/data-explorer/kusto/management/alter-merge-table-column?context=/azure/synapse-analytics/context/context
-    - name: .drop column
-      href: /azure/data-explorer/kusto/management/drop-column?context=/azure/synapse-analytics/context/context
-    - name: .rename column(s)
-      href: /azure/data-explorer/kusto/management/rename-column?context=/azure/synapse-analytics/context/context
-  - name: Data mappings
-    href: /azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/columns?view=azure-data-explorer&preserve-view=true
+    - name: .alter column command
+      href: /kusto/management/alter-column?view=azure-data-explorer&preserve-view=true
+    - name: .drop column command
+      href: /kusto/management/drop-column?view=azure-data-explorer&preserve-view=true
+    - name: .rename column command
+      displayName: .rename columns
+      href: /kusto/management/rename-column?view=azure-data-explorer&preserve-view=true
+    - name: .alter table column-docstrings command
+      displayName: .alter column-docstrings
+      href: /kusto/management/alter-column-docstrings?view=azure-data-explorer&preserve-view=true
+    - name: .alter-merge table column-docstrings command
+      displayName: .alter-merge column-docstrings
+      href: /kusto/management/alter-merge-table-column?view=azure-data-explorer&preserve-view=true
+  - name: Ingestion mappings
+    items:
+    - name: Ingestion mappings overview
+      href: /kusto/management/mappings?view=azure-data-explorer&preserve-view=true
+      displayName: schema mappings, data mappings
+    - name: CSV mapping
+      href: /kusto/management/csv-mapping?view=azure-data-explorer&preserve-view=true
+    - name: JSON mapping
+      href: /kusto/management/json-mapping?view=azure-data-explorer&preserve-view=true
+    - name: AVRO mapping
+      href: /kusto/management/avro-mapping?view=azure-data-explorer&preserve-view=true
+    - name: Parquet mapping
+      href: /kusto/management/parquet-mapping?view=azure-data-explorer&preserve-view=true
+    - name: ORC mapping
+      href: /kusto/management/orc-mapping?view=azure-data-explorer&preserve-view=true
+    - name: W3CLOGFILE mapping
+      href: /kusto/management/w3c-log-file-mapping?view=azure-data-explorer&preserve-view=true
   - name: Functions
     items:
     - name: Stored functions management overview
-      href: /azure/data-explorer/kusto/management/functions?context=/azure/synapse-analytics/context/context
-    - name: .alter function
-      href: /azure/data-explorer/kusto/management/alter-function?context=/azure/synapse-analytics/context/context
-    - name: .alter function docstring
-      href: /azure/data-explorer/kusto/management/alter-docstring-function?context=/azure/synapse-analytics/context/context
-    - name: .alter function folder
-      href: /azure/data-explorer/kusto/management/alter-folder-function?context=/azure/synapse-analytics/context/context
-    - name: .create function
-      href: /azure/data-explorer/kusto/management/create-function?context=/azure/synapse-analytics/context/context
-    - name: .create-or-alter function
-      href: /azure/data-explorer/kusto/management/create-alter-function?context=/azure/synapse-analytics/context/context
-    - name: .drop function
-      href: /azure/data-explorer/kusto/management/drop-function?context=/azure/synapse-analytics/context/context
-    - name: .show functions
-      href: /azure/data-explorer/kusto/management/show-function?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/functions?view=azure-data-explorer&preserve-view=true
+    - name: .alter function command
+      href: /kusto/management/alter-function?view=azure-data-explorer&preserve-view=true
+    - name: .alter function docstring command
+      href: /kusto/management/alter-docstring-function?view=azure-data-explorer&preserve-view=true
+    - name: .alter function folder command
+      href: /kusto/management/alter-folder-function?view=azure-data-explorer&preserve-view=true
+    - name: .create function command
+      href: /kusto/management/create-function?view=azure-data-explorer&preserve-view=true
+    - name: .create-or-alter function command
+      href: /kusto/management/create-alter-function?view=azure-data-explorer&preserve-view=true
+    - name: .drop function command
+      displayName: .drop functions
+      href: /kusto/management/drop-function?view=azure-data-explorer&preserve-view=true
+    - name: .show functions command
+      displayName: .show function
+      href: /kusto/management/show-function?view=azure-data-explorer&preserve-view=true
 - name: Policies
   items:
+  - name: Policies overview
+    href: /kusto/management/policies?view=azure-data-explorer&preserve-view=true
   - name: Auto delete
     items:
     - name: Auto delete policy
-      href: /azure/data-explorer/kusto/management/auto-delete-policy?context=/azure/synapse-analytics/context/context
-    - name: auto delete policy command
-      href: /azure/data-explorer/kusto/management/auto-delete-policy-command?context=/azure/synapse-analytics/context/context
-  - name: Ingestion batching
+      href: /kusto/management/auto-delete-policy?view=azure-data-explorer&preserve-view=true
+      displayName: auto_delete policy
+    - name: .alter table policy auto_delete command
+      href: /kusto/management/alter-auto-delete-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter auto_delete policy, .alter auto delete policy
+    - name: .delete table policy auto_delete command
+      href: /kusto/management/delete-auto-delete-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete auto_delete policy, .delete auto delete policy
+    - name: .show table policy auto_delete command
+      href: /kusto/management/show-auto-delete-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show auto_delete policy, .show auto delete policy
+  - name: Caching
     items:
-    - name: Ingestionbatching policy
-      href: /azure/data-explorer/kusto/management/batchingpolicy?context=/azure/synapse-analytics/context/context
-    - name: ingestionbatching policy command
-      href: /azure/data-explorer/kusto/management/batching-policy?context=/azure/synapse-analytics/context/context
-  - name: Cache
-    items:
-    - name: Cache policy (hot and cold cache)
-      href: /azure/data-explorer/kusto/management/cachepolicy?context=/azure/synapse-analytics/context/context
-    - name: cache policy command
-      href: /azure/data-explorer/kusto/management/cache-policy?context=/azure/synapse-analytics/context/context
+    - name: Caching policy (hot and cold cache)
+      href: /kusto/management/cache-policy?view=azure-data-explorer&preserve-view=true
+      displayName: cache policy
+    - name: .alter cluster caching policy command
+      href: /kusto/management/alter-cluster-cache-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter cluster cache policy, .alter cluster caching policy
+    - name: .alter database policy caching command
+      href: /kusto/management/alter-database-cache-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter database cache policy, .alter database caching policy
+    - name: .alter materialized-view policy caching command
+      href: /kusto/management/alter-materialized-view-cache-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter materialized-view cache policy
+    - name: .alter table policy caching command
+      href: /kusto/management/alter-table-cache-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table cache policy command
+    - name: .delete database policy caching command
+      href: /kusto/management/delete-database-cache-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete database cache policy
+    - name: .delete materialized-view policy caching command
+      href: /kusto/management/delete-materialized-view-cache-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete materialized-view cache policy
+    - name: .delete table policy caching command
+      href: /kusto/management/delete-table-cache-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table cache policy, .delete table caching policy
+    - name: .show database policy caching command
+      href: /kusto/management/show-database-cache-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show database cache policy, .show database caching policy
+    - name: .show materialized-view policy caching command
+      href: /kusto/management/show-materialized-view-cache-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show materialized view cache policy, .show materialized-view cache policy
+    - name: .show table policy caching command
+      href: /kusto/management/show-table-cache-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table cache policy, .show table caching policy
   - name: Callout
-    href: /azure/data-explorer/kusto/management/calloutpolicy?context=/azure/synapse-analytics/context/context
+    items:
+    - name: Callout policy
+      href: /kusto/management/callout-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter cluster policy callout command
+      href: /kusto/management/alter-callout-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter cluster callout policy
+    - name: .alter-merge cluster policy callout command
+      href: /kusto/management/alter-merge-callout-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge cluster callout policy
+    - name: .delete cluster policy callout command
+      href: /kusto/management/delete-callout-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete cluster callout policy
+    - name: .show cluster policy callout command
+      href: /kusto/management/show-cluster-callout-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show cluster callout policy
   - name: Capacity
     items:
     - name: Capacity policy
-      href: /azure/data-explorer/kusto/management/capacitypolicy?context=/azure/synapse-analytics/context/context
-    - name: capacity policy commands
-      href: /azure/data-explorer/kusto/management/capacity-policy?context=/azure/synapse-analytics/context/context
-  - name: Ingestiontime
+      href: /kusto/management/capacity-policy?view=azure-data-explorer&preserve-view=true
+      displayName: IngestionCapacity, ExtentsMergeCapacity, ExtentsPurgeRebuildCapacity, ExportCapacity, ExtentsPartitionCapacity, MaterializedViewsCapacity, StoredQueryResultsCapacity, ingestion, extents,
+        purge, partition
+    - name: .alter cluster policy capacity command
+      href: /kusto/management/alter-capacity-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter cluster capacity policy command
+    - name: .alter-merge cluster policy capacity command
+      href: /kusto/management/alter-merge-capacity-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge cluster capacity policy
+    - name: .show cluster policy capacity command
+      href: /kusto/management/show-cluster-capacity-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show cluster capacity policy
+    - name: .show capacity command
+      href: /kusto/management/show-capacity-command?view=azure-data-explorer&preserve-view=true
+  - name: Encoding policy
     items:
-    - name: Ingestiontime policy
-      href: /azure/data-explorer/kusto/management/ingestiontimepolicy?context=/azure/synapse-analytics/context/context
-    - name: ingestiontime policy command
-      href: /azure/data-explorer/kusto/management/ingestiontime-policy?context=/azure/synapse-analytics/context/context
-  - name: Merge
-    items:
-    - name: Merge policy
-      href: /azure/data-explorer/kusto/management/mergepolicy?context=/azure/synapse-analytics/context/context
-    - name: merge policy command
-      href: /azure/data-explorer/kusto/management/merge-policy?context=/azure/synapse-analytics/context/context
-  - name: Partitioning
-    items:
-    - name: Partitioning policy
-      href: /azure/data-explorer/kusto/management/partitioningpolicy?context=/azure/synapse-analytics/context/context
-    - name: partitioning policy command
-      href: /azure/data-explorer/kusto/management/partitioning-policy?context=/azure/synapse-analytics/context/context
-  - name: Retention
-    items:
-    - name: Retention policy
-      href: /azure/data-explorer/kusto/management/retentionpolicy?context=/azure/synapse-analytics/context/context
-    - name: retention policy command
-      href: /azure/data-explorer/kusto/management/retention-policy?context=/azure/synapse-analytics/context/context
+    - name: Encoding policy
+      href: /kusto/management/encoding-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter column policy encoding command
+      href: /kusto/management/alter-encoding-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .alter encoding policy, .alter column encoding policy
+    - name: .show policy encoding command
+      href: /kusto/management/show-encoding-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .show encoding policy
   - name: Extent tags retention
     items:
     - name: Extent tags retention policy
-      href: /azure/data-explorer/kusto/management/extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
-    - name: .show extent tags retention policy
-      href: /azure/data-explorer/kusto/management/show-extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
-    - name: .delete extent tags retention policy
-      href: /azure/data-explorer/kusto/management/delete-extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
-    - name: .alter extent tags retention policy
-      href: /azure/data-explorer/kusto/management/alter-extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
-  - name: Restricted view access
+      href: /kusto/management/extent-tags-retention-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter database policy extent_tags_retention command
+      displayName: .alter database extent tags retention policy, .alter database extent_tags_retention policy
+      href: /kusto/management/alter-extent-tags-retention-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter table policy extent_tags_retention command
+      displayName: .alter table extent tags retention policy
+      href: /kusto/management/alter-table-extent-tags-retention-policy?view=azure-data-explorer&preserve-view=true
+    - name: .delete extent tags retention policy command
+      href: /kusto/management/delete-extent-tags-retention-policy?view=azure-data-explorer&preserve-view=true
+    - name: .show policy extent_tags_retention command
+      displayName: .show extent tags retention policy, .show extent_tags_retention policy, .show policy extent tags retention, .show policy extent tags retention
+      href: /kusto/management/show-extent-tags-retention-policy?view=azure-data-explorer&preserve-view=true
+  - name: Ingestion batching
     items:
-    - name: Restricted view access policy
-      href: /azure/data-explorer/kusto/management/restrictedviewaccesspolicy?context=/azure/synapse-analytics/context/context
-    - name: restricted_view_access policy command
-      href: /azure/data-explorer/kusto/management/restrictedviewaccess-policy?context=/azure/synapse-analytics/context/context
-  - name: Row level security
+    - name: Ingestion batching policy
+      href: /kusto/management/batching-policy?view=azure-data-explorer&preserve-view=true
+      displayName: ingestionbatching policy
+    - name: .alter database policy ingestionbatching command
+      href: /kusto/management/alter-database-ingestion-batching-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .alter database ingestion batching policy, .alter database ingestionbatching policy
+    - name: .alter-merge database policy ingestionbatching command
+      href: /kusto/management/alter-merge-database-ingestion-batching-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge database ingestion batching policy, .alter-merge database ingestionbatching policy
+    - name: .alter table policy ingestionbatching command
+      href: /kusto/management/alter-table-ingestion-batching-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table ingestion batching policy, .alter tables policy ingestionbatching
+    - name: .alter-merge table policy ingestionbatching command
+      href: /kusto/management/alter-merge-table-ingestion-batching-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge table ingestion batching policy, .alter-merge tables policy ingestionbatching
+    - name: .delete database policy ingestionbatching command
+      href: /kusto/management/delete-database-ingestion-batching-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .delete database ingestion batching policy, .delete database ingestionbatching policy
+    - name: .delete table policy ingestionbatching command
+      href: /kusto/management/delete-table-ingestion-batching-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table ingestionbatching policy, .delete table ingestion batching policy
+    - name: .show database policy ingestionbatching command
+      href: /kusto/management/show-database-ingestion-batching-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .show database ingestionbatching policy, .show database ingestion batching policy
+    - name: .show table policy ingestionbatching command
+      href: /kusto/management/show-table-ingestion-batching-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .show table ingestionbatching policy, .show table ingestion batching policy
+  - name: Ingestion time
     items:
-    - name: Row level security policy
-      href: /azure/data-explorer/kusto/management/rowlevelsecuritypolicy?context=/azure/synapse-analytics/context/context
-    - name: row_level_security policy command
-      href: /azure/data-explorer/kusto/management/row-level-security-policy?context=/azure/synapse-analytics/context/context
-  - name: Roworder
+    - name: Ingestion time policy
+      href: /kusto/management/ingestion-time-policy?view=azure-data-explorer&preserve-view=true
+      displayName: ingestiontime policy
+    - name: .alter table policy ingestiontime command
+      href: /kusto/management/alter-ingestion-time-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table ingestion time policy, .alter ingestiontime policy, .alter tables policy ingestiontime
+    - name: .delete table policy ingestiontime command
+      href: /kusto/management/delete-ingestion-time-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete ingestion time policy, .delete ingestiontime policy
+    - name: .show table policy ingestiontime command
+      href: /kusto/management/show-table-ingestion-time-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table ingestion time policy, .show table ingestiontime policy
+  - name: Managed Identity
     items:
-    - name: Roworder policy
-      href: /azure/data-explorer/kusto/management/roworderpolicy?context=/azure/synapse-analytics/context/context
-    - name: roworder policy command
-      href: /azure/data-explorer/kusto/management/roworder-policy?context=/azure/synapse-analytics/context/context
-  - name: Sandbox
+    - name: Managed Identity policy
+      href: /kusto/management/managed-identity-policy?view=azure-data-explorer&preserve-view=true
+      displayName: managed_identity policy, managedidentity policy
+    - name: .alter policy managed_identity command
+      href: /kusto/management/alter-managed-identity-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter managed identity policy
+    - name: .alter-merge policy managed_identity command
+      href: /kusto/management/alter-merge-managed-identity-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge managed identity policy
+    - name: .delete policy managed_identity command
+      href: /kusto/management/delete-managed-identity-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete managed identity policy
+    - name: .show policy managed_identity command
+      href: /kusto/management/show-managed-identity-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show managed identity policy
+  - name: Merge
     items:
-    - name: Using sandboxes
-      href: /azure/data-explorer/kusto/concepts/sandboxes?context=/azure/synapse-analytics/context/context
-    - name: Sandbox policy
-      href: /azure/data-explorer/kusto/management/sandboxpolicy?context=/azure/synapse-analytics/context/context
-    - name: Sandbox policy command
-      href: /azure/data-explorer/kusto/management/sandbox-policy?context=/azure/synapse-analytics/context/context
-  - name: Sharding
+    - name: Merge policy
+      href: /kusto/management/merge-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter database policy merge command
+      href: /kusto/management/alter-database-merge-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter database merge policy
+    - name: .alter materialized-view policy merge command
+      href: /kusto/management/alter-materialized-view-merge-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter materialized-view merge policy
+    - name: .alter table policy merge command
+      href: /kusto/management/alter-table-merge-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table merge policy
+    - name: .alter-merge database policy merge command
+      href: /kusto/management/alter-merge-database-merge-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge database merge policy
+    - name: .alter-merge table policy merge command
+      href: /kusto/management/alter-merge-table-merge-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge table merge policy
+    - name: .alter-merge materialized-view policy merge command
+      href: /kusto/management/alter-merge-materialized-view-merge-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge materialized-view merge policy
+    - name: .delete database policy merge command
+      href: /kusto/management/delete-database-merge-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete database merge policy
+    - name: .delete table policy merge command
+      href: /kusto/management/delete-table-merge-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table merge policy
+    - name: .show database policy merge command
+      href: /kusto/management/show-database-merge-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show database merge policy
+    - name: .show table policy merge command
+      href: /kusto/management/show-table-merge-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table merge policy
+  - name: Mirroring
     items:
-    - name: Sharding policy
-      href: /azure/data-explorer/kusto/management/shardingpolicy?context=/azure/synapse-analytics/context/context
-    - name: sharding policy command
-      href: /azure/data-explorer/kusto/management/sharding-policy?context=/azure/synapse-analytics/context/context
-  - name: Streaming ingestion
+    - name: Mirroring policy
+      href: /kusto/management/mirroring-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter merge policy mirroring command
+      href: /kusto/management/alter-merge-mirroring-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge mirroring policy
+    - name: .delete table policy mirroring command
+      href: /kusto/management/delete-table-mirroring-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table mirroring policy
+    - name: .show table policy mirroring command
+      href: /kusto/management/show-table-mirroring-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table mirroring policy
+    - name: .show table mirroring operations command
+      href: /kusto/management/show-table-mirroring-operations-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table mirroring operations
+    - name: .show table mirroring operations exported artifacts command
+      href: /kusto/management/show-table-mirroring-operations-exported-artifacts?view=azure-data-explorer&preserve-view=true
+      displayName: .Show table mirroring operations exported artifacts
+    - name: .show table mirroring operations failures command
+      href: /kusto/management/show-table-mirroring-operations-failures?view=azure-data-explorer&preserve-view=true
+      displayName: show table mirroring operations failures
+  - name: Partitioning
     items:
-    - name: Streaming ingestion policy
-      href: /azure/data-explorer/kusto/management/streamingingestionpolicy?context=/azure/synapse-analytics/context/context
-    - name: streamingingestion policy command
-      href: /azure/data-explorer/kusto/management/streamingingestion-policy?context=/azure/synapse-analytics/context/context
-  - name: Update
-    items:
-    - name: Update policy
-      href: /azure/data-explorer/kusto/management/updatepolicy?context=/azure/synapse-analytics/context/context
-    - name: update policy commands
-      href: /azure/data-explorer/kusto/management/update-policy?context=/azure/synapse-analytics/context/context
+    - name: Partitioning policy
+      href: /kusto/management/partitioning-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter materialized-view policy partitioning command
+      href: /kusto/management/alter-materialized-view-partitioning-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter materialized-view partitioning policy
+    - name: .alter table policy partitioning command
+      href: /kusto/management/alter-table-partitioning-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table partitioning policy
+    - name: .alter-merge materialized view partitioning policy command
+      href: /kusto/management/alter-merge-materialized-view-partitioning-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge materialized-view partitioning policy
+    - name: .alter-merge table policy partitioning command
+      href: /kusto/management/alter-merge-table-partitioning-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge table partitioning policy
+    - name: .delete materialized-view policy partitioning command
+      href: /kusto/management/delete-materialized-view-partitioning-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete materialized-view partitioning policy
+    - name: .delete table policy partitioning command
+      href: /kusto/management/delete-table-partitioning-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table partitioning policy
+    - name: .show materialized-view policy partitioning command
+      href: /kusto/management/show-materialized-view-partitioning-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show materialized view partitioning policy, .show materialized-view partitioning policy
+    - name: .show table policy partitioning command
+      href: /kusto/management/show-table-partitioning-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table partitioning policy
+    - name: .show database extents partitioning statistics command
+      href: /kusto/management/show-database-extents-partitioning-statistics?view=azure-data-explorer&preserve-view=true
   - name: Query weak consistency
     items:
     - name: Query weak consistency policy
-      href: /azure/data-explorer/kusto/management/query-weak-consistency-policy?context=/azure/synapse-analytics/context/context
-    - name: .alter query weak consistency policy
-      href: /azure/data-explorer/kusto/management/alter-query-weak-consistency-policy?context=/azure/synapse-analytics/context/context
-    - name: .show query weak consistency policy
-      href: /azure/data-explorer/kusto/management/show-query-weak-consistency-policy?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/query-weak-consistency-policy?view=azure-data-explorer&preserve-view=true
+      displayName: query_weak_consistency policy
+    - name: .alter cluster policy query_weak_consistency command
+      href: /kusto/management/alter-query-weak-consistency-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .alter cluster query weak consistency policy, .alter cluster query_weak_consistency policy
+    - name: .show cluster policy query_weak_consistency command
+      href: /kusto/management/show-query-weak-consistency-policy?view=azure-data-explorer&preserve-view=true
+      displayName: .show cluster policy query weak consistency, .show cluster query_weak_consistency policy, .show query weak consistency policy
+  - name: Restricted view access
+    items:
+    - name: Restricted view access policy
+      href: /kusto/management/restricted-view-access-policy?view=azure-data-explorer&preserve-view=true
+      displayName: restricted_view_access policy
+    - name: .alter table policy restricted_view_access command
+      href: /kusto/management/alter-table-restricted-view-access-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table restricted view access policy, .alter tables policy restricted_view_access
+    - name: .delete table policy restricted_view_access command
+      href: /kusto/management/delete-table-restricted-view-access-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table restricted view access policy, .delete table restricted_view_access policy
+    - name: .show table policy restricted_view_access command
+      href: /kusto/management/show-table-restricted-view-access-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table restricted view access policy, .show table restricted_view_access policy
+  - name: Retention
+    items:
+    - name: Retention policy
+      href: /kusto/management/retention-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter database policy retention command
+      href: /kusto/management/alter-database-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter database retention policy
+    - name: .alter materialized-view policy retention command
+      href: /kusto/management/alter-materialized-view-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter materialized-view retention policy, .alter materialized view retention policy
+    - name: .alter table policy retention command
+      href: /kusto/management/alter-table-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table retention policy
+    - name: .alter-merge database policy retention command
+      href: /kusto/management/alter-merge-database-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge database retention policy
+    - name: .alter-merge materialized-view policy retention command
+      href: /kusto/management/alter-merge-materialized-view-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge materialized view retention policy, .alter-merge materialized-view retention policy
+    - name: .alter-merge table policy retention command
+      href: /kusto/management/alter-merge-table-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge table retention policy
+    - name: .delete database policy retention command
+      href: /kusto/management/delete-database-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete database retention policy
+    - name: .delete materialized-view policy retention command
+      href: /kusto/management/delete-materialized-view-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete materialized-view retention policy
+    - name: .delete table policy retention command
+      href: /kusto/management/delete-table-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table retention policy
+    - name: .show database policy retention command
+      href: /kusto/management/show-database-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show database retention policy
+    - name: .show materialized-view policy retention command
+      href: /kusto/management/show-materialized-view-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show materialized-view retention policy, .show materialized view retention policy
+    - name: .show table policy retention command
+      href: /kusto/management/show-table-retention-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table retention policy
+  - name: Row level security
+    items:
+    - name: Row level security policy
+      href: /kusto/management/row-level-security-policy?view=azure-data-explorer&preserve-view=true
+      displayName: row_level_security policy
+    - name: .alter materialized-view policy row_level_security command
+      href: /kusto/management/alter-materialized-view-row-level-security-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter materialized-view row level security policy
+    - name: .alter table policy row_level_security command
+      href: /kusto/management/alter-table-row-level-security-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table row level security policy, .alter table row_level_security policy
+    - name: .delete materialized-view policy row_level_security command
+      displayName: .delete materialized-view policy row_level_security command
+      href: /kusto/management/delete-materialized-view-row-level-security-policy-command?view=azure-data-explorer&preserve-view=true
+    - name: .delete table policy row_level_security command
+      displayName: .delete table policy row_level_security command
+      href: /kusto/management/delete-table-row-level-security-policy-command?view=azure-data-explorer&preserve-view=true
+    - name: .show materialized-view policy row_level_security command
+      href: /kusto/management/show-materialized-view-row-level-security-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show materialized view row level security policy, .show materialized-view row_level_security policy, .show materialized view row_level_security policy
+    - name: .show table policy row_level_security command
+      href: /kusto/management/show-table-row-level-security-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table row level security policy, .show table row_level_security policy
+  - name: Row order
+    items:
+    - name: Row order policy command
+      href: /kusto/management/row-order-policy?view=azure-data-explorer&preserve-view=true
+      displayName: roworder policy
+    - name: .alter table policy roworder command
+      href: /kusto/management/alter-table-row-order-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table row order policy, .alter table roworder policy
+    - name: .alter-merge table policy roworder command
+      href: /kusto/management/alter-merge-table-row-order-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge table row order policy
+    - name: .delete table policy roworder command
+      href: /kusto/management/delete-table-row-order-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table row order policy, .delete table roworder policy
+    - name: .show table policy roworder command
+      href: /kusto/management/show-table-row-order-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table row order policy, .show table roworder policy
+  - name: Sandbox
+    items:
+    - name: Using sandboxes
+      href: /kusto/concepts/sandboxes?view=azure-data-explorer&preserve-view=true
+    - name: Sandbox policy
+      href: /kusto/management/sandbox-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter cluster policy sandbox command
+      href: /kusto/management/alter-cluster-sandbox-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter cluster sandbox policy
+    - name: .delete cluster policy sandbox command
+      href: /kusto/management/delete-cluster-sandbox-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete cluster sandbox policy
+    - name: .show cluster policy sandbox command
+      href: /kusto/management/show-cluster-sandbox-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show cluster sandbox policy
+  - name: Sharding
+    items:
+    - name: Sharding policy
+      href: /kusto/management/sharding-policy?view=azure-data-explorer&preserve-view=true
+    - name: .alter database policy sharding command
+      href: /kusto/management/alter-database-sharding-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter database sharding policy
+    - name: .alter table policy sharding command
+      href: /kusto/management/alter-table-sharding-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table sharding policy
+    - name: .alter-merge database policy sharding
+      href: /kusto/management/alter-merge-database-sharding-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge database sharding policy
+    - name: .alter-merge table policy sharding command
+      href: /kusto/management/alter-merge-table-sharding-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge table sharding policy
+    - name: .delete database policy sharding command
+      href: /kusto/management/delete-database-sharding-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete database sharding policy
+    - name: .delete table policy sharding command
+      href: /kusto/management/delete-table-sharding-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table sharding policy
+    - name: .show database policy sharding command
+      href: /kusto/management/show-database-sharding-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show database sharding policy
+    - name: .show table policy sharding command
+      href: /kusto/management/show-table-sharding-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table sharding policy
+  - name: Streaming ingestion
+    items:
+    - name: Streaming ingestion policy
+      href: /kusto/management/streaming-ingestion-policy?view=azure-data-explorer&preserve-view=true
+      displayName: streamingingestion policy
+    - name: .alter database policy streamingingestion command
+      href: /kusto/management/alter-database-streaming-ingestion-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter database streamingingestion policy, .alter database streaming ingestion policy
+    - name: .alter table policy streamingingestion command
+      href: /kusto/management/alter-table-streaming-ingestion-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table streaming ingestion policy, .alter table streamingingestion policy
+    - name: .alter-merge database policy streamingingestion command
+      href: /kusto/management/alter-merge-database-streaming-ingestion-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge database streaming ingestion policy, .alter-merge database streamingingestion policy
+    - name: .alter-merge table policy streamingingestion command
+      href: /kusto/management/alter-merge-table-streaming-ingestion-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge table streaming ingestion policy, .alter-merge table policy streaming ingestion
+    - name: .delete database policy streamingingestion command
+      href: /kusto/management/delete-database-streaming-ingestion-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete database streaming ingestion policy, .delete database streamingingestion policy
+    - name: .delete table policy streamingingestion command
+      href: /kusto/management/delete-table-streaming-ingestion-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table streaming ingestion policy, .delete table policy streaming ingestion
+    - name: .show database policy streamingingestion command
+      href: /kusto/management/show-database-streaming-ingestion-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show database streaming ingestion policy, .show database streamingingestion policy
+    - name: .show table policy streamingingestion command
+      href: /kusto/management/show-table-streaming-ingestion-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table streaming ingestion policy, .show table streaming policy
+  - name: Update
+    items:
+    - name: Update policy
+      href: /kusto/management/update-policy?view=azure-data-explorer&preserve-view=true
+      displayName: SQL triggers
+    - name: Update policy scenarios
+      href: /kusto/management/update-policy-common-scenarios?view=azure-data-explorer&preserve-view=true
+    - name: 'Tutorial: Route data using table update policies'
+      href: /kusto/management/update-policy-tutorial?view=azure-data-explorer&preserve-view=true
+    - name: .alter table policy update command
+      href: /kusto/management/alter-table-update-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter table update policy
+    - name: .alter-merge table policy update command
+      href: /kusto/management/alter-merge-table-update-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .alter-merge table update policy
+    - name: .delete table policy update command
+      href: /kusto/management/delete-table-update-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .delete table update policy
+    - name: .show table policy update command
+      href: /kusto/management/show-table-update-policy-command?view=azure-data-explorer&preserve-view=true
+      displayName: .show table update policy
+    - name: Use a managed identity
+      href: /kusto/management/update-policy-with-managed-identity?view=azure-data-explorer&preserve-view=true
 - name: Security roles
-  href: /azure/data-explorer/kusto/management/security-roles?context=/azure/synapse-analytics/context/context
+  items:
+  - name: Security roles overview
+    href: /kusto/management/security-roles?view=azure-data-explorer&preserve-view=true
+    displayName: role based access control, rbac, principals
+  - name: Access control
+    items:
+    - name: Access control overview
+      href: /kusto/access-control/index?view=azure-data-explorer&preserve-view=true
+    - name: Role-based access control
+      href: /kusto/access-control/role-based-access-control?view=azure-data-explorer&preserve-view=true
+    - name: Microsoft Entra App registration
+      href: /kusto/access-control/provision-entra-id-app?view=azure-data-explorer&preserve-view=true
+  - name: Manage database roles
+    href: /kusto/management/manage-database-security-roles?view=azure-data-explorer&preserve-view=true
+    displayName: .show principal, principal access, security roles, roles, rbac
+  - name: Manage table roles
+    items:
+    - name: Manage table roles
+      href: /kusto/management/manage-table-security-roles?view=azure-data-explorer&preserve-view=true
+      displayName: .show principal, principal access, security roles, roles, rbac
+    - name: Manage table view access
+      href: /kusto/management/manage-table-view-access?view=azure-data-explorer&preserve-view=true
+  - name: Manage external table roles
+    href: /kusto/management/manage-external-table-security-roles?view=azure-data-explorer&preserve-view=true
+    displayName: .show principal, principal access, security roles, roles, rbac
+  - name: Manage materialized view roles
+    href: /kusto/management/manage-materialized-view-security-roles?view=azure-data-explorer&preserve-view=true
+    displayName: .show principal, principal access, security roles, roles, rbac
+  - name: Manage function roles
+    href: /kusto/management/manage-function-security-roles?view=azure-data-explorer&preserve-view=true
+    displayName: .show principal, principal access, security roles, roles, rbac
+  - name: Reference security principals
+    displayName: Security group, Identity providers, IdPs, SG, Azure AD tenants
+    href: /kusto/management/reference-security-principals?view=azure-data-explorer&preserve-view=true
 - name: Data ingestion
   items:
+  - name: Data formats supported for ingestion
+    href: /kusto/ingestion-supported-formats?view=azure-data-explorer&preserve-view=true
+  - name: Ingestion properties
+    href: /kusto/ingestion-properties?view=azure-data-explorer&preserve-view=true
   - name: Ingest from storage
-    href: /azure/data-explorer/kusto/management/data-ingestion/ingest-from-storage?context=/azure/synapse-analytics/context/context
+    displayName: .ingest into, pull data, pulling ingestion
+    href: /kusto/management/data-ingestion/ingest-from-storage?view=azure-data-explorer&preserve-view=true
   - name: Ingest from query
-    href: /azure/data-explorer/kusto/management/data-ingestion/ingest-from-query?context=/azure/synapse-analytics/context/context
+    items:
+    - name: Ingest from query
+      displayName: .set, .append, .set-or-append, .set-or-replace, add row, append
+      href: /kusto/management/data-ingestion/ingest-from-query?view=azure-data-explorer&preserve-view=true
+    - name: cancel operation command
+      href: /kusto/management/cancel-operation-command?view=azure-data-explorer&preserve-view=true
   - name: Inline ingestion
-    href: /azure/data-explorer/kusto/management/data-ingestion/ingest-inline?context=/azure/synapse-analytics/context/context
+    displayName: .ingest inline
+    href: /kusto/management/data-ingestion/ingest-inline?view=azure-data-explorer&preserve-view=true
   - name: Streaming ingestion
     items:
     - name: Streaming ingestion and schema changes
-      href: /azure/data-explorer/kusto/management/data-ingestion/streaming-ingestion-schema-changes?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/data-ingestion/streaming-ingestion-schema-changes?view=azure-data-explorer&preserve-view=true
     - name: Clear schema cache for streaming ingestion
-      href: /azure/data-explorer/kusto/management/data-ingestion/clear-schema-cache-command?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/data-ingestion/clear-schema-cache-command?view=azure-data-explorer&preserve-view=true
+  - name: .dup-next-ingest command
+    href: /kusto/management/dup-next-ingest?view=azure-data-explorer&preserve-view=true
+    displayName: duplicate, ingestion, troubleshoot
+  - name: .dup-next-failed-ingest command
+    displayName: duplicate, failure, ingestion, troubleshoot
+    href: /kusto/management/dup-next-failed-ingest?view=azure-data-explorer&preserve-view=true
+  - name: .show ingestion failures command
+    href: /kusto/management/ingestion-failures?view=azure-data-explorer&preserve-view=true
+  - name: .show streamingingestion failures command
+    displayName: .show streaming ingestion failures
+    href: /kusto/management/streaming-ingestion-failures?view=azure-data-explorer&preserve-view=true
+  - name: Data operations
+    displayName: .show data operation command
+    href: /kusto/management/show-data-operations?view=azure-data-explorer&preserve-view=true
 - name: Data export
-  href: /azure/data-explorer/kusto/management/data-export/index?context=/azure/synapse-analytics/context/context
+  href: /kusto/management/data-export/index?view=azure-data-explorer&preserve-view=true
   items:
   - name: To cloud storage
-    href: /azure/data-explorer/kusto/management/data-export/export-data-to-storage?context=/azure/synapse-analytics/context/context
-  - name: To a SQL table
-    href: /azure/data-explorer/kusto/management/data-export/export-data-to-sql?context=/azure/synapse-analytics/context/context
+    href: /kusto/management/data-export/export-data-to-storage?view=azure-data-explorer&preserve-view=true
   - name: To an external table
-    href: /azure/data-explorer/kusto/management/data-export/export-data-to-an-external-table?context=/azure/synapse-analytics/context/context
+    href: /kusto/management/data-export/export-data-to-an-external-table?view=azure-data-explorer&preserve-view=true
+  - name: To an SQL table
+    href: /kusto/management/data-export/export-data-to-sql?view=azure-data-explorer&preserve-view=true
   - name: Continuous data export
     items:
     - name: Continuous data export overview
-      href: /azure/data-explorer/kusto/management/data-export/continuous-data-export?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/data-export/continuous-data-export?view=azure-data-explorer&preserve-view=true
     - name: Create or alter continuous export
-      href: /azure/data-explorer/kusto/management/data-export/create-alter-continuous?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/data-export/create-alter-continuous?view=azure-data-explorer&preserve-view=true
+    - name: Use a managed identity
+      href: /kusto/management/data-export/continuous-export-with-managed-identity?view=azure-data-explorer&preserve-view=true
     - name: Disable or enable continuous export
-      href: /azure/data-explorer/kusto/management/data-export/disable-enable-continuous?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/data-export/disable-enable-continuous?view=azure-data-explorer&preserve-view=true
     - name: Drop continuous export
-      href: /azure/data-explorer/kusto/management/data-export/drop-continuous-export?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/data-export/drop-continuous-export?view=azure-data-explorer&preserve-view=true
     - name: Show continuous export
-      href: /azure/data-explorer/kusto/management/data-export/show-continuous-export?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/data-export/show-continuous-export?view=azure-data-explorer&preserve-view=true
     - name: Show continuous export artifacts
-      href: /azure/data-explorer/kusto/management/data-export/show-continuous-artifacts?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/data-export/show-continuous-artifacts?view=azure-data-explorer&preserve-view=true
     - name: Show continuous export failures
-      href: /azure/data-explorer/kusto/management/data-export/show-continuous-failures?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/data-export/show-continuous-failures?view=azure-data-explorer&preserve-view=true
 - name: Database cursors
-  href: /azure/data-explorer/kusto/management/databasecursor?context=/azure/synapse-analytics/context/context
+  href: /kusto/management/database-cursor?view=azure-data-explorer&preserve-view=true
 - name: Plugin commands
   items:
-  - name: .show plugins
-    href: /azure/data-explorer/kusto/management/show-plugins?context=/azure/synapse-analytics/context/context
-  - name: .enable plugin
-    href: /azure/data-explorer/kusto/management/enable-plugin?context=/azure/synapse-analytics/context/context
-  - name: .disable plugin
-    href: /azure/data-explorer/kusto/management/disable-plugin?context=/azure/synapse-analytics/context/context
+  - name: .show plugins command
+    href: /kusto/management/show-plugins?view=azure-data-explorer&preserve-view=true
+  - name: .enable plugin command
+    href: /kusto/management/enable-plugin?view=azure-data-explorer&preserve-view=true
+  - name: .disable plugin command
+    href: /kusto/management/disable-plugin?view=azure-data-explorer&preserve-view=true
 - name: Query results cache
-  href: /azure/data-explorer/kusto/management/query-results-cache-commands?context=/azure/synapse-analytics/context/context
+  href: /kusto/management/query-results-cache-commands?view=azure-data-explorer&preserve-view=true
   items:
-  - name: Show cache
-    displayName: show database cache query results
-    href: /azure/data-explorer/kusto/management/show-query-results-cache-command?context=/azure/synapse-analytics/context/context
-  - name: Clear cache
-    displayName: clear query results cache
-    href: /azure/data-explorer/kusto/management/clear-query-results-cache-command?context=/azure/synapse-analytics/context/context
+  - name: .show database cache query_results command
+    displayName: .show database cache query results
+    href: /kusto/management/show-query-results-cache-command?view=azure-data-explorer&preserve-view=true
+  - name: .clear database cache query_results command
+    displayName: clear query results cache, .clear database query_results cache
+    href: /kusto/management/clear-query-results-cache-command?view=azure-data-explorer&preserve-view=true
+- name: Cross-cluster schema
+  items:
+  - name: .clear cache remote-schema command
+    displayName: clear query schema cache
+    href: /kusto/management/clear-cross-cluster-schema-cache?view=azure-data-explorer&preserve-view=true
 - name: System information
-  href: /azure/data-explorer/kusto/management/systeminfo?context=/azure/synapse-analytics/context/context
+  href: /kusto/management/system-info?view=azure-data-explorer&preserve-view=true
   items:
-  - name: Diagnostics
-    href: /azure/data-explorer/kusto/management/diagnostics?context=/azure/synapse-analytics/context/context
+  - name: Estimate table size
+    href: /kusto/management/estimate-table-size?view=azure-data-explorer&preserve-view=true
   - name: Journal
-    href: /azure/data-explorer/kusto/management/journal?context=/azure/synapse-analytics/context/context
-  - name: Queries
-    href: /azure/data-explorer/kusto/management/queries?context=/azure/synapse-analytics/context/context
-  - name: Commands
-    href: /azure/data-explorer/kusto/management/commands?context=/azure/synapse-analytics/context/context
-  - name: Commands and queries
-    href: /azure/data-explorer/kusto/management/commands-and-queries?context=/azure/synapse-analytics/context/context
+    href: /kusto/management/journal?view=azure-data-explorer&preserve-view=true
   - name: Operations
-    href: /azure/data-explorer/kusto/management/operations?context=/azure/synapse-analytics/context/context
-- name: Access control
-  href: /azure/data-explorer/kusto/management/access-control/index?context=/azure/synapse-analytics/context/context
-  items:
-  - name: Identities
-    href: /azure/data-explorer/kusto/management/access-control/principals-and-identity-providers?context=/azure/synapse-analytics/context/context
-  - name: Azure Active Directory
-    displayName: AAD, Azure AD
-    href: /azure/data-explorer/kusto/management/access-control/aad?context=/azure/synapse-analytics/context/context
-  - name: Principal roles
-    href: /azure/data-explorer/kusto/management/access-control/role-based-authorization?context=/azure/synapse-analytics/context/context
-  - name: Allow cross-tenant queries and commands
-    href: /azure/data-explorer/kusto/../cross-tenant-query-and-commands?context=/azure/synapse-analytics/context/context
-  - name: How-To Azure Active Directory authentication
-    displayName: AAD, Azure AD
-    href: /azure/data-explorer/kusto/management/access-control/how-to-authenticate-with-aad?context=/azure/synapse-analytics/context/context
+    items:
+    - name: .show operations
+      href: /kusto/management/show-operations?view=azure-data-explorer&preserve-view=true
+      displayName: operations
+    - name: .show operations details
+      href: /kusto/management/show-operation-details?view=azure-data-explorer&preserve-view=true
+      displayName: operations
+  - name: Queries and commands
+    items:
+    - name: .cancel query
+      href: /kusto/management/cancel-query-command?view=azure-data-explorer&preserve-view=true
+    - name: .show commands
+      href: /kusto/management/show-commands?view=azure-data-explorer&preserve-view=true
+    - name: .show commands-and-queries
+      href: /kusto/management/commands-and-queries?view=azure-data-explorer&preserve-view=true
+    - name: .show queries
+      href: /kusto/management/show-queries-command?view=azure-data-explorer&preserve-view=true
+  - name: Statistics
+    items:
+    - name: .show streamingingestion statistics
+      displayName: .show streaming ingestion statistics
+      href: /kusto/management/streaming-ingestion-statistics?view=azure-data-explorer&preserve-view=true
+    - name: .show table data statistics
+      href: /kusto/management/show-table-data-statistics?view=azure-data-explorer&preserve-view=true
 - name: Advanced data management
   items:
+  - name: Clear cached external artifacts
+    href: /kusto/management/clear-external-artifacts-cache-command?view=azure-data-explorer&preserve-view=true
+  - name: Data purge
+    href: /kusto/concepts/data-purge?view=azure-data-explorer&preserve-view=true
+  - name: Data soft delete
+    items:
+    - name: Soft delete overview
+      href: /kusto/concepts/data-soft-delete?view=azure-data-explorer&preserve-view=true
+    - name: Soft delete command
+      href: /kusto/management/soft-delete-command?view=azure-data-explorer&preserve-view=true
   - name: Extents (data shards)
     items:
     - name: Extents overview
-      href: /azure/data-explorer/kusto/management/extents-overview?context=/azure/synapse-analytics/context/context
+      href: /kusto/management/extents-overview?view=azure-data-explorer&preserve-view=true
+      displayName: data shards, shard
+    - name: Extent tags
+      href: /kusto/management/extent-tags?view=azure-data-explorer&preserve-view=true
+      displayName: data shards, shard
     - name: Extents commands
       items:
-      - name: .alter extent
-        href: /azure/data-explorer/kusto/management/alter-extent?context=/azure/synapse-analytics/context/context
-      - name: .drop extents
-        href: /azure/data-explorer/kusto/management/drop-extents?context=/azure/synapse-analytics/context/context
-      - name: .drop extent tags
-        href: /azure/data-explorer/kusto/management/drop-extent-tags?context=/azure/synapse-analytics/context/context
-      - name: .move extents
-        href: /azure/data-explorer/kusto/management/move-extents?context=/azure/synapse-analytics/context/context
-      - name: .replace extents
-        href: /azure/data-explorer/kusto/management/replace-extents?context=/azure/synapse-analytics/context/context
+      - name: .alter extent tags command
+        href: /kusto/management/alter-extent?view=azure-data-explorer&preserve-view=true
+        displayName: data shards, shard
+      - name: .drop extents command
+        href: /kusto/management/drop-extents?view=azure-data-explorer&preserve-view=true
+        displayName: data shards, shard
+      - name: .drop table extent tags command
+        href: /kusto/management/drop-extent-tags?view=azure-data-explorer&preserve-view=true
+        displayName: data shards, shard
+      - name: .move extents command
+        href: /kusto/management/move-extents?view=azure-data-explorer&preserve-view=true
+        displayName: data shards, shard
+      - name: .replace extents command
+        href: /kusto/management/replace-extents?view=azure-data-explorer&preserve-view=true
+        displayName: data shards, shard
       - name: .show extents
-        href: /azure/data-explorer/kusto/management/show-extents?context=/azure/synapse-analytics/context/context
-    - name: Extent containers clean commands
-      href: /azure/data-explorer/kusto/management/clean-extent-containers?context=/azure/synapse-analytics/context/context
-  - name: Cluster follower
-    href: /azure/data-explorer/kusto/management/cluster-follower?context=/azure/synapse-analytics/context/context
-  - name: Data purge
-    href: /azure/data-explorer/kusto/concepts/data-purge?context=/azure/synapse-analytics/context/context
-- name: Errors and failures
-  items:
-  - name: Ingestion error codes
-    href: /azure/data-explorer/error-codes?context=/azure/synapse-analytics/context/context
-  - name: Ingestion failures
-    href: /azure/data-explorer/kusto/management/ingestionfailures?context=/azure/synapse-analytics/context/context
+        href: /kusto/management/show-extents?view=azure-data-explorer&preserve-view=true
+        displayName: data shards, shard
+  - name: Follower commands
+    displayName: Cluster commands, database commands, materialized view commands, table commands
+    href: /kusto/management/cluster-follower?view=azure-data-explorer&preserve-view=true
+  - name: .update table command
+    href: /kusto/management/update-table-command?view=azure-data-explorer&preserve-view=true

@@ -19,6 +19,61 @@
       "source_path_from_root": "/articles/deployment-environments/how-to-configure-use-cli.md",
       "redirect_url": "https://aka.ms/CLI-reference",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/configure-catalog-item.md",
+      "redirect_url": "/azure/deployment-environments/configure-environment-definition",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/concept-common-components.md",
+      "redirect_url": "/azure/deployment-environments/overview-what-is-azure-deployment-environments#components-shared-with-microsoft-dev-box",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/concept-environments-reliability-availability.md",
+      "redirect_url": "/azure/reliability/reliability-deployment-environments",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/quickstart-create-and-configure-projects.md",
+      "redirect_url": "/azure/deployment-environments/quickstart-create-and-configure-devcenter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/concept-environments-scenarios.md",
+      "redirect_url": "/azure/deployment-environments/overview-what-is-azure-deployment-environments",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/how-to-configure-extensibility-generic-container-image.md",
+      "redirect_url": "/azure/deployment-environments/how-to-configure-extensibility-model-custom-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/how-to-configure-extensibility-bicep-container-image.md",
+      "redirect_url": "/azure/deployment-environments/how-to-configure-extensibility-model-custom-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/how-to-configure-extensibility-terraform-container-image.md",
+      "redirect_url": "/azure/deployment-environments/how-to-configure-extensibility-model-custom-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/how-to-configure-extensibility-pulumi-container-image.md",
+      "redirect_url": "/azure/deployment-environments/how-to-configure-extensibility-model-custom-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/how-to-create-environment-with-azure-developer.md",
+      "redirect_url": "/azure/deployment-environments/how-to-configure-azure-developer-cli-deployment-environments",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/ade-roadmap.md",
+      "redirect_url": "/azure/deployment-environments/overview-what-is-azure-deployment-environments",
+      "redirect_document_id": false
+    }      
   ]
 }

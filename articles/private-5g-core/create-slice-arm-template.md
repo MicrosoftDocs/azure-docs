@@ -2,9 +2,9 @@
 title: Create a slice - ARM template
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a slice in your private mobile network using an Azure Resource Manager (ARM) template. 
-author: b-branco
-ms.author: biancabranco
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 09/30/2022
 ms.custom: template-how-to, devx-track-arm-template
@@ -16,11 +16,11 @@ ms.custom: template-how-to, devx-track-arm-template
 
 In this how-to guide, you'll learn how to create a slice in your private mobile network using an Azure Resource Manager template (ARM template). You can configure a slice/service type (SST) and slice differentiator (SD) for slices associated with SIMs that will be provisioned on a 5G site. If a SIM is provisioned on a 4G site, the slice associated with its SIM policy must contain an empty SD and a value of 1 for the SST.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-slice%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-slice%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The following Azure resource is defined in the template.
 
 1. Select the following link to sign in to Azure and open the template.
 
-    [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-slice%2Fazuredeploy.json)
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-slice%2Fazuredeploy.json":::
  
 
 2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
@@ -52,8 +52,8 @@ The following Azure resource is defined in the template.
     |--|--|
     | **Subscription** | Select the Azure subscription you used to create your private mobile network. |
     | **Resource group** | Select the resource group containing the mobile network resource representing your private mobile network. |
-    | **Region** | Select **East US**. |
-    | **Location** | Enter *eastus*. |
+    | **Region** | Select the region in which you deployed the private mobile network. |
+    | **Location** | Enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network. |
     | **Existing Mobile Network Name** | Enter the name of the Mobile Network resource representing your private mobile network. |
     | **Slice Name** | Enter the name of the network slice. |
     | **Sst** | Enter the slice/service type (SST) value. If the slice will be used by 4G UEs, enter a value of 1. |

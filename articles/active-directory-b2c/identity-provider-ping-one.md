@@ -2,21 +2,21 @@
 title: Set up sign-up and sign-in with a PingOne account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with PingOne accounts in your applications using Azure Active Directory B2C.
-services: active-directory-b2c
 author: garrodonnell
 manager: CelesteDG
-
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 12/2/2021
-ms.custom: project-no-code
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer integrating PingOne with Azure Active Directory B2C, I want to set up sign-up and sign-in with a PingOne account, so that users can authenticate using their PingOne credentials.
 ---
 
 # Set up sign-up and sign-in with a PingOne account using Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -27,7 +27,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a PingOne application
 
-To enable sign-in for users with a PingOne (Ping Identity) account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the Ping Identity Administrator Console. For more information, see [Adding or updating an OIDC application](https://docs.pingidentity.com/access/sources/dita/topic?resourceid=p14e_add_update_oidc_application) in the Ping Identity documentation. If you don't already have a PingOne account, you can sign up at [`https://admin.pingone.com/web-portal/register`](https://admin.pingone.com/web-portal/register).
+To enable sign-in for users with a PingOne (Ping Identity) account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the Ping Identity Administrator Console. If you don't already have a PingOne account, you can sign up at [`https://admin.pingone.com/web-portal/register`](https://admin.pingone.com/web-portal/register).
 
 1. Sign in to the Ping Identity Administrator Console with your PingOne account credentials.
 1. In the left menu of the page, select **Connections**, then next to **Applications**, select **+**.
@@ -50,8 +50,7 @@ To enable sign-in for users with a PingOne (Ping Identity) account in Azure Acti
 
 ## Configure PingOne as an identity provider
 
-1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Enter a **Name**. For example, enter *PingOne*.
@@ -101,8 +100,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.

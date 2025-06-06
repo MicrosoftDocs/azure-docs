@@ -1,178 +1,256 @@
 ---
-title: Enable staged rollout of features for targeted audiences
+title: Roll out features to targeted audiences in an ASP.NET Core app
 titleSuffix: Azure App Configuration
-description: Learn how to enable staged rollout of features for targeted audiences
+description: Learn how to enable staged rollout of features for targeted audiences in an ASP.NET Core application.
 ms.service: azure-app-configuration
 ms.devlang: csharp
-author: mcleanbyron
-ms.author: mcleans
-ms.topic: conceptual
-ms.date: 11/20/2020
+author: zhiyuanliang-ms
+ms.author: zhiyuanliang
+ms.topic: how-to
+ms.date: 12/02/2024
+ms.custom:
+  - build-2025
 ---
 
-# Enable staged rollout of features for targeted audiences
+# Roll out features to targeted audiences in an ASP.NET Core application
 
-Feature flags allow you to dynamically activate or deactivate functionality in your application. Feature filters determine the state of a feature flag each time it's evaluated. The `Microsoft.FeatureManagement` library includes `TargetingFilter`, which enables a feature flag for a specified list of users and groups, or for a specified percentage of users. `TargetingFilter` is "sticky." This means that once an individual user receives a feature, they'll continue to see that feature on all future requests. You can use `TargetingFilter` to enable a feature for a specific account during a demo, to progressively roll out new features to users in different groups or "rings," and much more.
+In this guide, you'll use the targeting filter to roll out a feature to targeted audiences for your ASP.NET Core application. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
 
-In this article, you'll learn how to roll out a new feature in an ASP.NET Core web application to specified users and groups, using `TargetingFilter` with Azure App Configuration.
+## Prerequisites
 
-## Create a web application with feature flags and authentication
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- A feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
+- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
 
-To roll out features based on users and groups, you'll need a web application that allows users to sign in.
+## Create a web application with a feature flag
 
-1. Create a web application that authenticates against a local database using the following command:
+In this section, you create a web application that allows users to sign in and use the *Beta* feature flag you created before.
 
-   ```dotnetcli
-   dotnet new mvc --auth Individual -o TestFeatureFlags
-   ```
-
-1. Build and run, then select the **Register** link in the upper right corner to create a new user account. Use an email address of `test@contoso.com`. On the **Register Confirmation** screen, select **Click here to confirm your account**.
-
-1. Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to add a feature flag to your new web application.
-
-1. Toggle the feature flag in App Configuration. Validate that this action controls the visibility of the **Beta** item on the navigation bar.
-
-## Update the web application code to use TargetingFilter
-
-At this point, you can use the feature flag to enable or disable the `Beta` feature for all users. To enable the feature flag for some users while disabling it for others, update your code to use `TargetingFilter`. In this example, you'll use the signed-in user's email address as the user ID, and the domain name portion of the email address as the group. You'll add the user and group to the `TargetingContext`. The `TargetingFilter` uses this context to determine the state of the feature flag for each request.
-
-1. Update to the latest version of the `Microsoft.FeatureManagement.AspNetCore` package.
+1. Create a web application that authenticates against a local database using the following command.
 
    ```dotnetcli
-   dotnet add package Microsoft.FeatureManagement.AspNetCore
+   dotnet new webapp --auth Individual -o TestFeatureFlags
    ```
 
-1. Add a *TestTargetingContextAccessor.cs* file:
+1. Navigate to the newly created *TestFeatureFlags* directory and add references to the following NuGet packages.
 
-    ```csharp
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.FeatureManagement.FeatureFilters;
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-    namespace TestFeatureFlags
-    {
-        public class TestTargetingContextAccessor : ITargetingContextAccessor
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+    dotnet add package Microsoft.FeatureManagement.AspNetCore
+    dotnet add package Azure.Identity
+    ```
+
+    ### [Connection string](#tab/connection-string)
+
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+    dotnet add package Microsoft.FeatureManagement.AspNetCore
+    ```
+    ---
+
+1. Create a user secret for the application by running the following commands.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `Endpoints:AppConfiguration`, which stores the endpoint for your App Configuration store. Replace the `<your-App-Configuration-endpoint>` placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
+
+    ```dotnetcli
+    dotnet user-secrets init
+    dotnet user-secrets set Endpoints:AppConfiguration "<your-App-Configuration-endpoint>"
+    ```
+
+    ### [Connection string](#tab/connection-string)
+
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfiguration`, which stores the connection string for your App Configuration store. Replace the `<your-App-Configuration-connection-string>` placeholder with your App Configuration store's read-only connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
+
+    ```dotnetcli
+    dotnet user-secrets init
+    dotnet user-secrets set ConnectionStrings:AppConfiguration "<your-App-Configuration-connection-string>"
+    ```
+    ---
+
+1. Add Azure App Configuration and feature management to your application.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    
+    1. You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    1. Update the *Program.cs* file with the following code.
+    
+        ``` C#
+        // Existing code in Program.cs
+        // ... ...
+    
+        using Azure.Identity;
+    
+        var builder = WebApplication.CreateBuilder(args);
+    
+        // Retrieve the endpoint
+        string endpoint = builder.Configuration.GetValue<string>("Endpoints:AppConfiguration") 
+            ?? throw new InvalidOperationException("The setting `Endpoints:AppConfiguration` was not found.");
+        
+        // Connect to Azure App Configuration and load all feature flags with no label
+        builder.Configuration.AddAzureAppConfiguration(options =>
         {
-            private const string TargetingContextLookup = "TestTargetingContextAccessor.TargetingContext";
-            private readonly IHttpContextAccessor _httpContextAccessor;
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+                   .UseFeatureFlags();
+        });
+    
+        // Add Azure App Configuration middleware to the container of services
+        builder.Services.AddAzureAppConfiguration();
+    
+        // Add feature management to the container of services
+        builder.Services.AddFeatureManagement();
+    
+        // The rest of existing code in Program.cs
+        // ... ...
+        ```
 
-            public TestTargetingContextAccessor(IHttpContextAccessor httpContextAccessor)
-            {
-                _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
-            }
+    ### [Connection string](#tab/connection-string)
+    
+    Update the *Program.cs* file with the following code. 
 
-            public ValueTask<TargetingContext> GetContextAsync()
+    ``` C#
+    // Existing code in Program.cs
+    // ... ...
+
+    var builder = WebApplication.CreateBuilder(args);
+
+    // Retrieve the connection string
+    string connectionString = builder.Configuration.GetConnectionString("AppConfiguration")
+        ?? throw new InvalidOperationException("The connection string 'AppConfiguration' was not found.");
+
+    // Connect to Azure App Configuration and load all feature flags with no label
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+        options.Connect(connectionString)
+               .UseFeatureFlags();
+    });
+
+    // Add Azure App Configuration middleware to the container of services
+    builder.Services.AddAzureAppConfiguration();
+
+    // Add feature management to the container of services
+    builder.Services.AddFeatureManagement();
+
+    // The rest of existing code in Program.cs
+    // ... ...
+    ```
+
+    ---
+
+1. Enable configuration and feature flag refresh from Azure App Configuration with the App Configuration middleware.
+
+    Update Program.cs with the following code.
+
+    ``` C#
+    // Existing code in Program.cs
+    // ... ...
+    
+    var app = builder.Build();
+
+    // Use Azure App Configuration middleware for dynamic configuration refresh
+    app.UseAzureAppConfiguration();
+
+    // The rest of existing code in Program.cs
+    // ... ...
+    ```
+
+1. Add a new empty Razor page named **Beta** under the Pages directory. It includes two files *Beta.cshtml* and *Beta.cshtml.cs*.
+
+    ``` cshtml
+    @page
+    @model TestFeatureFlags.Pages.BetaModel
+    @{
+        ViewData["Title"] = "Beta Page";
+    }
+
+    <h1>This is the beta website.</h1>
+    ```
+
+1. Open *Beta.cshtml.cs*, and add the `FeatureGate` attribute to the `BetaModel` class.
+
+    ``` C#
+    using Microsoft.AspNetCore.Mvc.RazorPages;
+    using Microsoft.FeatureManagement.Mvc;
+
+    namespace TestFeatureFlags.Pages
+    {
+        [FeatureGate("Beta")]
+        public class BetaModel : PageModel
+        {
+            public void OnGet()
             {
-                HttpContext httpContext = _httpContextAccessor.HttpContext;
-                if (httpContext.Items.TryGetValue(TargetingContextLookup, out object value))
-                {
-                    return new ValueTask<TargetingContext>((TargetingContext)value);
-                }
-                List<string> groups = new List<string>();
-                if (httpContext.User.Identity.Name != null)
-                {
-                    groups.Add(httpContext.User.Identity.Name.Split("@", StringSplitOptions.None)[1]);
-                }
-                TargetingContext targetingContext = new TargetingContext
-                {
-                    UserId = httpContext.User.Identity.Name,
-                    Groups = groups
-                };
-                httpContext.Items[TargetingContextLookup] = targetingContext;
-                return new ValueTask<TargetingContext>(targetingContext);
             }
         }
     }
     ```
 
-1. In *Startup.cs*, add a reference to the *Microsoft.FeatureManagement.FeatureFilters* namespace:
+1. Open *Pages/_ViewImports.cshtml*, and register the feature manager Tag Helper using an `@addTagHelper` directive.
 
-    ```csharp
-    using Microsoft.FeatureManagement.FeatureFilters;
+    ``` cshtml
+    @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Update the *ConfigureServices* method to register `TargetingFilter`, following the call to `AddFeatureManagement()`:
+1. Open *_Layout.cshtml* in the *Pages/Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
-    ```csharp
-    services.AddFeatureManagement()
-            .AddFeatureFilter<TargetingFilter>();
-    ```
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
-1. Update the *ConfigureServices* method to add the `TestTargetingContextAccessor` created in the earlier step to the service collection. The *TargetingFilter* uses it to determine the targeting context every time that the feature flag is evaluated.
+## Enable targeting for the web application
 
-    ```csharp
-      services.AddSingleton<ITargetingContextAccessor, TestTargetingContextAccessor>();
-    ```
+A targeting context is required for feature evaluation with targeting. You can provide it as a parameter to the `featureManager.IsEnabledAsync` API explicitly. In ASP.NET Core, the targeting context can also be provided through the service collection as an ambient context by implementing the [ITargetingContextAccessor](./feature-management-dotnet-reference.md#itargetingcontextaccessor) interface.
 
-The entire *ConfigureServices* method will look like this:
+### Targeting Context Accessor
 
-```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-    services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlite(
-            Configuration.GetConnectionString("DefaultConnection")));
-    services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            .AddEntityFrameworkStores<ApplicationDbContext>();
-    services.AddControllersWithViews();
-    services.AddRazorPages();
+To provide the targeting context, pass your implementation type of the `ITargetingContextAccessor` to the `WithTargeting<T>` method. If no type is provided, a default implementation is used, as shown in the following code snippet. The default targeting context accessor utilizes `HttpContext.User.Identity.Name` as `UserId` and `HttpContext.User.Claims` of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role#system-security-claims-claimtypes-role) for `Groups`. You can reference the [DefaultHttpTargetingContextAccessor](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) to implement your own if customization is needed. To learn more about implementing the `ITargetingContextAccessor`, see the [feature reference for targeting](./feature-management-dotnet-reference.md#itargetingcontextaccessor).
 
-    // Add feature management, targeting filter, and ITargetingContextAccessor to service collection
-    services.AddFeatureManagement().AddFeatureFilter<TargetingFilter>();
-    services.AddSingleton<ITargetingContextAccessor, TestTargetingContextAccessor>();
-    }
+``` C#
+// Existing code in Program.cs
+// ... ...
+
+// Add feature management to the container of services
+builder.Services.AddFeatureManagement()
+                .WithTargeting();
+
+// The rest of existing code in Program.cs
+// ... ...
 ```
 
-## Update the feature flag to use TargetingFilter
+> [!NOTE]
+> For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
 
-1. In the Azure portal, go to your App Configuration store and select **Feature manager**.
+## Targeting filter in action
 
-1. Select the context menu for the *Beta* feature flag that you created in the quickstart. Select **Edit**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Edit Beta feature flag](./media/edit-beta-feature-flag.png)
-
-1. In the **Edit** screen, select the **Enable feature flag** checkbox if it isn't already selected. Then select the **Use feature filter** checkbox.
-
-1. Select the **Targeting** radio button.
-
-1. Select the following options:
-
-    - **Default percentage**: 0
-    - **Groups**: Enter a **Name** of _contoso.com_ and a **Percentage** of _50_
-    - **Users**: `test@contoso.com`
-
-    The feature filter screen will look like this:
+1. Build and run the application. Initially, the **Beta** item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
 
     > [!div class="mx-imgBorder"]
-    > ![Conditional feature flag](./media/feature-flag-filter-enabled.png)
+    > ![User not logged in and Beta item not displayed](./media/feature-filters/beta-not-targeted-by-default.png)
 
-    These settings result in the following behavior:
+1. Select the **Register** link in the upper right corner to create a new user account. Use an email address of `test@contoso.com`. On the **Register Confirmation** screen, select **Click here to confirm your account**.
 
-    - The feature flag is always enabled for user `test@contoso.com`, because `test@contoso.com` is listed in the _Users_ section.
-    - The feature flag is enabled for 50% of other users in the _contoso.com_ group, because _contoso.com_ is listed in the _Groups_ section with a _Percentage_ of _50_.
-    - The feature is always disabled for all other users, because the _Default percentage_ is set to _0_.
+1. Sign in as `test@contoso.com`, using the password you set when registering the account. 
 
-1. Select **Apply** to save these settings and return to the **Feature manager** screen.
+    The **Beta** item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
 
-1. The **Feature filter** for the feature flag now appears as *Targeting*. This state indicates that the feature flag will be enabled or disabled on a per-request basis, based on the criteria enforced by the *Targeting* feature filter.
+    > [!div class="mx-imgBorder"]
+    > ![User logged in and Beta item displayed](./media/feature-filters/beta-targeted-by-user.png)
 
-## TargetingFilter in action
-
-To see the effects of this feature flag, build and run the application. Initially, the *Beta* item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
-
-Now sign in as `test@contoso.com`, using the password you set when registering. The *Beta* item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
-
-The following video shows this behavior in action.
-
-> [!div class="mx-imgBorder"]
-> ![TargetingFilter in action](./media/feature-flags-targetingfilter.gif)
-
-You can create additional users with `@contoso.com` email addresses to see the behavior of the group settings. 50% of these users will see the *Beta* item. The other 50% won't see the *Beta* item.
+    Now sign in as `testuser@contoso.com`, using the password you set when registering the account. The **Beta** item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
 
 ## Next steps
 
+To learn more about the feature filters, continue to the following documents.
+
 > [!div class="nextstepaction"]
-> [Feature management overview](./concept-feature-management.md)
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
+
+> [!div class="nextstepaction"]
+> [Enable features on a schedule](./howto-timewindow-filter-aspnet-core.md)
+
+For the full feature rundown of the .NET feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)

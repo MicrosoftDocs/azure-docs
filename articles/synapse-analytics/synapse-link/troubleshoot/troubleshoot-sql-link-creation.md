@@ -1,10 +1,9 @@
 ---
 title: Troubleshooting guide for Azure Synapse Link creation for Azure SQL Database 
 description: Learn how to troubleshoot Azure Synapse Link creation for Azure SQL Database
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: imotiwala
-ms.service: synapse-analytics
+author: im-microsoft
+ms.author: imotiwala
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 12/22/2022
@@ -95,7 +94,7 @@ Disable and re-enable the SAMI for the Azure SQL logical server.
 ## Next steps
 
  - [Get started with Azure Synapse Link for Azure SQL Database](../connect-synapse-link-sql-database.md)
- - [Managed identities in Azure AD for Azure SQL](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity)
+ - [Managed identities in Microsoft Entra for Azure SQL](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity)
  - [Azure Synapse Link for SQL FAQ](../faq.yml)
  - [Known limitations and issues with Azure Synapse Link for SQL](../synapse-link-for-sql-known-issues.md)
  - [sys.dm_change_feed_errors (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors)

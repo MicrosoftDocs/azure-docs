@@ -87,9 +87,11 @@ public class App
 }
 ```
 
-### Step 1: Receive the Azure Active Directory user token and object ID via the MSAL library
+<a name='step-1-receive-the-azure-active-directory-user-token-and-object-id-via-the-msal-library'></a>
 
-The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md). It's essential to configure the MSAL client with the correct authority, based on the `tenantId` variable, to be able to retrieve the Object ID (`oid`) claim corresponding with a user in Fabrikam's tenant and initialize the `userObjectId` variable.
+### Step 1: Receive the Microsoft Entra user token and object ID via the MSAL library
+
+The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](/entra/identity-platform/reference-v2-libraries). It's essential to configure the MSAL client with the correct authority, based on the `tenantId` variable, to be able to retrieve the Object ID (`oid`) claim corresponding with a user in Fabrikam's tenant and initialize the `userObjectId` variable.
 
 ```java
 // You need to provide your Azure AD client ID and tenant ID
@@ -107,13 +109,13 @@ Set<String> scope = new HashSet<String>();
 scope.add("https://auth.msft.communication.azure.com/Teams.ManageCalls");
 scope.add("https://auth.msft.communication.azure.com/Teams.ManageChats");
 
-// Create an instance of InteractiveRequestParameters for acquiring the AAD token and object ID of a Teams user
+// Create an instance of InteractiveRequestParameters for acquiring the Microsoft Entra ID token and object ID of a Teams user
 InteractiveRequestParameters parameters = InteractiveRequestParameters
                     .builder(new URI(redirectUri))
                     .scopes(scope)
                     .build();
 
-// Retrieve the AAD token and object ID of a Teams user
+// Retrieve the Microsoft Entra ID token and object ID of a Teams user
 IAuthenticationResult result = pca.acquireToken(parameters).get();
 String teamsUserAadToken = result.accessToken();
 String[] accountIds = result.account().homeAccountId().split("\\.");
@@ -137,7 +139,9 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .buildClient();
 ```
 
-### Step 3: Exchange the Azure AD access token of the Teams User for a Communication Identity access token
+<a name='step-3-exchange-the-azure-ad-access-token-of-the-teams-user-for-a-communication-identity-access-token'></a>
+
+### Step 3: Exchange the Microsoft Entra access token of the Teams User for a Communication Identity access token
 
 Use the `getTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 

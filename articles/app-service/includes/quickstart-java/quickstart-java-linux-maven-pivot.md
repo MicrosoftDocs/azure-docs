@@ -1,7 +1,8 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
+ms.custom: linux-related-content
 ms.topic: quickstart
 ms.date: 06/30/2022
 ms.author: cephalin
@@ -24,7 +25,7 @@ ms.author: cephalin
 ---
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
-+ [Gradle](../../configure-language-java.md?pivots=platform-linux#gradle)
++ [Gradle](../../configure-language-java-deploy-run.md?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
@@ -34,32 +35,6 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 ## 1 - Use Azure Cloud Shell
 
 [!INCLUDE [cloud-shell-try-it-no-header.md](../../../../includes/cloud-shell-try-it-no-header.md)]
-
-### Install Java 17, if desired
-
-If you intend to run the Java SE sections of this quickstart, the sample app requires Java 17. The steps in this section show you how to check if your Cloud Shell instance supports Java 17, and how to install it does not.
-
-1. In the Azure Cloud Shell, enter `java -version`. If the output includes a version 17 or later, skip the rest of the steps in this section.
-1. Enter these commands to download and extract the Microsoft build of OpenJDK.
-
-   ```azurecli-interactive
-   wget https://aka.ms/download-jdk/microsoft-jdk-17-linux-x64.tar.gz
-   tar -zxf microsoft-jdk-17*.tar.gz
-   ```
-1. Enter these commands to override the built-in Open JDK installed in Azure Cloud Shell. 
-
-   > [!TIP]
-   > You must do this every time you open a new cloud shell, because the environment variables do not persist across cloud shell invocations. However, the files do persist.
-
-   ```azurecli-interactive
-   cd jdk-17*
-   export JAVA_HOME=`pwd`
-   cd ..
-   export PATH=${JAVA_HOME}/bin:$PATH
-   java -version
-   ```
-  
-You should see output stating the version of Java is 17 or greater. If not, troubleshoot and resolve the problem before continuing.
 
 ## 2 - Create a Java app
 
@@ -83,7 +58,7 @@ mvn clean install
 cd booty-duke-app-service
 ```
 
-If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you won't make any commits, detached HEAD state is appropriate.
 
 # [Tomcat](#tab/tomcat)
 
@@ -119,7 +94,7 @@ cd petstore-ee7
 mvn clean install
 ```
 
-If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you won't make any commits, detached HEAD state is appropriate.
 
 ---
 
@@ -128,12 +103,12 @@ If you see a message about being in **detached HEAD** state, this message is saf
 > [!TIP]
 > The Maven plugin supports **Java 17** and **Tomcat 10.0**. For more information about latest support, see [Java 17 and Tomcat 10.0 are available on Azure App Service](https://devblogs.microsoft.com/java/java-17-and-tomcat-10-0-available-on-azure-app-service/).
 
-The deployment process to Azure App Service uses your Azure credentials from the Azure CLI automatically. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with Oauth or device login. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+The deployment process to Azure App Service uses your Azure credentials from the Azure CLI automatically. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with OAuth or device sign-in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
 Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
 # [Java SE](#tab/javase)
@@ -231,8 +206,29 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
 
 ---
 
+After you confirm your choices, the plugin adds the above plugin element and requisite settings to your project's `pom.xml` file that configure your web app to run in Azure App Service.
 
-You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed below:
+The relevant portion of the `pom.xml` file should look similar to the following example.
+
+```xml-interactive
+<build>
+    <plugins>
+        <plugin>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>>azure-webapp-maven-plugin</artifactId>
+            <version>x.xx.x</version>
+            <configuration>
+                <schemaVersion>v2</schemaVersion>
+                <resourceGroup>your-resourcegroup-name</resourceGroup>
+                <appName>your-app-name</appName>
+            ...
+            </configuration>
+        </plugin>
+    </plugins>
+</build>           
+```
+
+You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed in the following table:
 
 Property | Required | Description | Version
 ---|---|---|---
@@ -247,7 +243,7 @@ Property | Required | Description | Version
 
 For the complete list of configurations, see the plugin reference documentation. All the Azure Maven Plugins share a common set of configurations. For these configurations see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration). For configurations specific to App Service, see [Azure Web App: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).
 
-Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they are used later.
+Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo). They're used later.
 
 ## 4 - Deploy the app
 
@@ -270,7 +266,7 @@ mvn package azure-webapp:deploy -DskipTests
 
 -----
 
-Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
+Once deployment is completed, your application is ready at `http://helloworld-1590394316693.azurewebsites.net` in the demo. Open the url with your local web browser, you should see
 
 # [Java SE](#tab/javase)
 
@@ -286,7 +282,7 @@ Once deployment is completed, your application is ready at `http://<appName>.azu
 
 ---
 
-**Congratulations!** You've deployed your first Java app to App Service.
+**Congratulations!** You deployed your first Java app to App Service.
 
 ## 5 - Clean up resources
 
@@ -296,4 +292,4 @@ In the preceding steps, you created Azure resources in a resource group. If you 
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
 ```
 
-This command may take a minute to run.
+This command might take a minute to run.

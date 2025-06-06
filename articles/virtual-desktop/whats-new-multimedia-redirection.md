@@ -1,29 +1,87 @@
 ---
-title: What's new in multimedia redirection MMR? - Azure Virtual Desktop
+title: What's new in multimedia redirection? - Azure Virtual Desktop
 description: New features and product updates for multimedia redirection for Azure Virtual Desktop.
-author: Heidilohr
+author: dougeby
 ms.topic: release-notes
-ms.date: 02/07/2023
-ms.author: helohr
-manager: femila
+ms.date: 02/19/2025
+ms.author: avdcontent
+ms.custom: docs_inherited
 ---
 
 # What's new in multimedia redirection?
 
-This article has the latest updates for multimedia redirection (MMR) for Azure Virtual Desktop. 
+This article has the latest updates for the host component of multimedia redirection for Azure Virtual Desktop, which is installed on session hosts. To learn how to install and configure multimedia redirection, see [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection.md).
 
-## Updates for version 1.0.2301.24004
+## Latest available version
 
-*Date published: February 7, 2023*
+The following table shows the latest available version of multimedia redirection for Azure Virtual Desktop.
+
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public | 1.0.2501.28001 | [Multimedia redirection](https://aka.ms/avdmmr/msi) |
+
+## Updates for version 1.0.2501.28001
+
+*Published: February 19, 2025*
 
 In this release, we've made the following changes:
 
-- Released general availability-compatible MMR host.
+- Improvements to the installer experience.
+- Added support for additional codecs (VP9, AV1, and HEVC, along with WebM parser).
+- Added framework to support GainNode for call redirection.
+- Better handling when switching between supported and unsupported clients.
+- Telemetry improvements.
+
+## Updates for version 1.0.2404.4003
+
+*Published: July 23, 2024*
+
+In this release, we've made the following changes:
+
+- Fixed a deadlock issue and improved telemetry processing.
+
+## Updates for version 1.0.2311.2004
+
+*Published: January 23, 2024*
+
+In this release, we've made the following changes:
+
+- Fixed an issue that affected call redirection.
+- Fixed an installer log file location issue.
+- The extension no longer displays error messages for unsupported media formats.
+
+## Updates for version 1.0.2309.7002
+
+*Published: September 12, 2023*
+
+In this release, we've made the following changes:
+
+- Added support for using the Preview version of the extension.
+- Fixed a memory leak that caused the host to not close.
+- Added support for providing Telemetry IDs to the extension for customer support purposes.
+- Improved call connection reliability.
+
+## Updates for version 1.0.2304.12009 
+
+*Published: June 13, 2023*
+
+In this release, we've made the following changes: 
+
+- Fixed various issues that caused crashes. 
+- Improved telemetry.
+
+## Updates for version 1.0.2301.24004
+
+*Published: February 7, 2023*
+
+In this release, we've made the following changes:
+
+- Released general availability-compatible multimedia redirection host.
 - Fixed an issue where content can cause the service to stop working instead of just giving a playback error.
 
 ## Updates for version 0.3.2210.12012
 
-*Date published: October 13, 2022*
+*Published: October 13, 2022*
 
 In this release, we've made the following changes:
 
@@ -32,4 +90,4 @@ In this release, we've made the following changes:
 
 ## Next steps
 
-Learn more about MMR at [Understanding multimedia direction for Azure Virtual Desktop](multimedia-redirection-intro.md) and [Use multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md).
+Learn more about multimedia redirection at [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md).

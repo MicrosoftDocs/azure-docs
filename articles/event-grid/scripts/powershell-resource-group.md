@@ -2,6 +2,7 @@
 title: Azure PowerShell script sample - Subscribe to resource group | Microsoft Docs
 description: This article provides a sample Azure PowerShell script that shows how to subscribe to Event Grid events for a resource group. 
 ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 09/15/2021
 ---
@@ -10,14 +11,14 @@ ms.date: 09/15/2021
 
 This script creates an Event Grid subscription to the events for a resource group.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 The preview sample script requires the Event Grid module. To install, run
 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 ## Sample script - stable
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group/subscribe-to-resource-group.ps1 "Subscribe to resource group")]
 

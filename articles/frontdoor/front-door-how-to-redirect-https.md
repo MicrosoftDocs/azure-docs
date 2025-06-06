@@ -1,85 +1,52 @@
 ---
-title: Create a Front Door with HTTP to HTTPS redirection - Azure portal
-description: Learn how to create a Front Door with redirected traffic from HTTP to HTTPS using the Azure portal.
-services: front-door
-author: duongau
-ms.service: frontdoor
+title: Configure HTTP to HTTPS redirection using the Azure portal
+titleSuffix: Azure Front Door
+description: This article shows you how to redirect traffic from HTTP to HTTPS for an Azure Front Door (classic) profile using the Azure portal.
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 09/30/2020
-ms.author: duau
-
+ms.date: 11/15/2024
 ---
-# Create a Front Door with HTTP to HTTPS redirection using the Azure portal
 
-You can use the Azure portal to [create a Front Door](quickstart-create-front-door.md) with a certificate for TLS termination. A routing rule is used to redirect HTTP traffic to HTTPS.
+# Configure HTTP to HTTPS redirection using the Azure portal
 
-## Create a Front Door with an existing Web App resource
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+This guide explains how to redirect traffic from HTTP to HTTPS for an Azure Front Door (classic) profile using the Azure portal. This setup ensures that all traffic to your domain is securely redirected to HTTPS.
 
-1. Select **Create a resource** found on the upper left-hand corner of the Azure portal.
+## Prerequisites
 
-1. Search for **Front Door and CDN profiles** using the search bar and once you find the resource type, select **Create**.
-
-1. Select **Explore other offerings**, then select **Azure Front Door (classic)**. Select **Continue** to begin configuring the profile.
-
-    :::image type="content" source="./media/front-door-url-redirect/compare-offerings.png" alt-text="Screenshot of the compare offerings page.":::
-
-1. Choose a *subscription* and then either use an existing resource group or create a new one. Select **Next** to enter the configuration tab.
-
-    > [!NOTE]
-    > The location asked in the UI is for the resource group only. Your Front Door configuration will get deployed across all of [Azure Front Door's POP locations](front-door-faq.yml#where-are-the-edge-locations-for-azure-front-door-).
-
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-basics.png" alt-text="Configure basics for new Front Door":::
-
-1. The configuration for Front Door happens in three steps - adding a default frontend host, adding backends in a backend pool and then creating routing rules to map the routing behavior for frontend host. Select the '**+**' icon on the _Frontend hosts_ to create a frontend host.
-
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer.png" alt-text="Front Door configuration designer":::
-
-1. Enter a globally unique name for your default frontend host for your Front Door. Select **Add** to continue to the next step.
-
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-frontend-host.png" alt-text="Add a frontend host":::
-
-### Create Backend Pool
-
-1. Select the '**+**' icon on the _Backend pools_ to create a backend pool. Provide a name for the backend pool and then select **Add a backend**.
-
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-backend-pool.png" alt-text="Front Door configuration designer backend pool":::
-
-1. Select the Backend Host Type as _App service_. Select the subscription where your web app is hosted and then select the specific web app from the dropdown for **Backend host name**.
-
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-backend-pool.png" alt-text="Add a backend in a backend pool":::
-
-1. Select **Add** to save the backend and select **Add** again to save the backend pool config. 
+* An existing Azure Front Door (classic) profile. For more information, see [create a Front Door (classic) profile](quickstart-create-front-door.md).
 
 ## Create HTTP to HTTPS redirect rule
 
-1. Select the '**+**' icon on the *Routing rules* to create a route. Provide a name for the route, for example 'HttpToHttpsRedirect', and then set the *Accepted Protocol* field to **'HTTP only'**. Ensure that the appropriate *Frontend/domains* is selected.  
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Front Door configuration designer routing rule":::
+2. Navigate to the Azure Front Door (classic) profile you want to configure. Select **Front Door designer** under *Settings* in the left-hand menu.
 
-1. Under the *Route Details* section, set the *Route Type* to **Redirect**. Set the *Redirect type* to **Moved (301)** and *Redirect protocol* get set to **HTTPS only**. 
+3. Select the **+** icon under *Routing rules* to create a new route. Name the route, for example, **HttpToHttpsRedirect**, and set the *Accepted Protocol* to **HTTP only**. Choose the *Frontend/domains* you want to redirect from HTTP to HTTPS.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Add an HTTP to HTTPS redirect route":::
+4. In the *Route Details* section, set the *Route Type* to **Redirect**. Choose **Moved (301)** for *Redirect type* and **HTTPS only** for *Redirect protocol*.
 
-1. Select **Add** to save the routing rule for HTTP to HTTPS redirect.
+    :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Screenshot of adding an HTTP to HTTPS redirect route.":::
+
+5. Select **Add** to create the routing rule for HTTP to HTTPS redirection.
 
 ## Create forwarding rule
 
-1. Add another routing rule to handle the HTTPS traffic. Select the '**+**' sign on the *Routing rules* and provide a name for the route, for example 'DefaultForwardingRoute'. Then set the *Accepted Protocols* field to **HTTPS only**. Ensure that the appropriate *Frontend/domains* is selected.
+1. Add another routing rule for handling HTTPS traffic. Select the **+** icon under *Routing rules* to add a new route. Name the route, for example, **DefaultForwardingRoute**, and set the *Accepted Protocols* to **HTTPS only**. Select the appropriate *Frontend/domains* for accepting this traffic.
 
-1. On the Route Details section, set the *Route Type* to **Forward**. Ensure that the right backend pool gets selected and the *Forwarding Protocol* is set to **HTTPS only**. 
+2. In the *Route Details* section, set the *Route Type* to **Forward**. Choose a backend pool to forward the traffic to and set the *Forwarding Protocol* to **HTTPS only**.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Add a forward route for HTTPS traffic" border="false":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Screenshot of adding a forward route for HTTPS traffic.":::
 
-1. Select **Add** to save the routing rule for request forwarding.
+3. Select **Add** to create the forwarding route, then select **Save** to apply the changes to the Front Door profile.
 
-1. Select **Review + create** and then **Create**, to create your Front Door profile. Go to the resource once created.
-
-    > [!NOTE]
-    > The creation of this redirect rule will incur a small charge.
+> [!NOTE]
+> Creating this redirect rule will incur a small charge.
 
 ## Next steps
 
-- Learn [how Front Door works](front-door-routing-architecture.md).
-- Learn more about [URL redirect on Front Door](front-door-url-redirect.md).
+- Learn more about [Azure Front Door routing architecture](front-door-routing-architecture.md).
+- Learn more about [Azure Front Door URL redirect](front-door-url-redirect.md).

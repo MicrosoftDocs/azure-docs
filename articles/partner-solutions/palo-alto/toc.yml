@@ -1,0 +1,20 @@
+items:
+- name: Cloud NGFW by Palo Alto Networks - Azure Native ISV Service documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Cloud NGFW by Palo Alto Networks?
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Cloud NGFW by Palo Alto Networks resource
+    href: create.md
+- name: How to
+  items:
+  - name: Manage your Cloud NGFW by Palo Alto Networks resource
+    href: manage.md
+  - name: Troubleshoot Cloud NGFW by Palo Alto Networks 
+    href: troubleshoot.md
+  - name: Deploy Cloud NGFW by Palo Alto Networks with the Application Gateway
+    href: application-gateway.md

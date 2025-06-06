@@ -1,16 +1,20 @@
 ---
 title: Available States for Azure Cloud Services (extended support)
 description: Available Power and Provisioning States for Azure Cloud Services (extended support)
-ms.topic: article
-ms.service: cloud-services-extended-support
+ms.topic: concept-article
+ms.service: azure-cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
-ms.date: 04/05/2022
+ms.date: 07/24/2024
 
+# Customer intent: As a cloud administrator, I want to understand the provisioning and power states for Azure Cloud Services (extended support) so that I can monitor and troubleshoot resource deployments and role instance behavior effectively.
 ---
 # Available Provisioning and Power States for Azure Cloud Services (extended support)
 
 ## Available Provisioning States for Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 This table lists the different Provisioning states for Cloud Services (extended support) resource. 
 
@@ -31,9 +35,9 @@ This table lists the different power states for Cloud Services (extended support
 |Started|The Role Instance is healthy and is currently running|
 |Stopping|The Role Instance is in the process of getting stopped|
 |Stopped|The Role Instance is in the Stopped State|
-|Unknown|The Role Instance is either in the process of creating or is not ready to service the traffic|
+|Unknown|The Role Instance is either in the process of creating or isn't ready to service the traffic|
 |Starting|The Role Instance is in the process of moving to healthy/running state|
-|Busy|The Role Instance is not responding|
+|Busy|The Role Instance isn't responding|
 |Destroyed|The Role instance is destroyed|
 
 

@@ -4,21 +4,37 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Indoor Module. 
 author: sipa
 ms.author: sipa
-ms.date: 3/24/2023
+ms.date: 10/25/2023
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Indoor Module release notes
 
 This document contains information about new features and other changes to the Azure Maps Indoor Module.
 
+## [0.2.3]
+
+### Changes (0.2.3)
+
+- Improve rendering performance by reading facility-level data from the style metadata when available.
+
+## [0.2.2]
+
+### Changes (0.2.2)
+
+- Performance improvements in dynamic styling updates.
+
+### Bug fixes (0.2.2)
+
+- Fix incorrect feature IDs usage in dynamic styling for [drawing package 2.0] derived tilesets.   
+
 ## [0.2.1]
 
 ### New features (0.2.1)
 
-- multiple statesets are now supported for map configurations with multiple tileset, instead of single stateset ID, a mapping between tileset IDs and stateset ids can be passed:
+- multiple statesets are now supported for map configurations with multiple tileset, instead of single stateset ID, a mapping between tileset IDs and stateset IDs can be passed:
   
   ```js
   indoorManager.setOptions({
@@ -75,7 +91,7 @@ This document contains information about new features and other changes to the A
 
 - Support for new [drawing package 2.0] derived tilesets.
 
-- Support the possibility to select a facility when clicking on a feature that doesn't contain a facilityId, but has a levelId so that the facility can be inferred from the levelId.
+- Support the possibility to select a facility when selecting a feature that doesn't contain a facilityId, but has a levelId so that the facility can be inferred from the levelId.
 
 ### Changes (0.2.0)
 
@@ -102,6 +118,8 @@ Stay up to date on Azure Maps:
 > [Azure Maps Blog]
 
 [drawing package 2.0]: ./drawing-package-guide.md
+[0.2.3]: https://www.npmjs.com/package/azure-maps-indoor/v/0.2.3
+[0.2.2]: https://www.npmjs.com/package/azure-maps-indoor/v/0.2.2
 [0.2.1]: https://www.npmjs.com/package/azure-maps-indoor/v/0.2.1
 [0.2.0]: https://www.npmjs.com/package/azure-maps-indoor/v/0.2.0
 [Azure Maps Creator Samples]: https://samples.azuremaps.com/?search=creator

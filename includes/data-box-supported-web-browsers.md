@@ -1,10 +1,9 @@
 ---
-author: alkohli
-ms.service: databox
-ms.subservice: pod   
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 05/22/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Here is a list of web browsers supported for the local web UI.
@@ -13,5 +12,6 @@ Here is a list of web browsers supported for the local web UI.
 | --- | --- | --- |
 | Google Chrome |Latest version |Tested with Chrome|
 | Microsoft Edge |Latest version | |
-| FireFox | Latest version | Tested with FireFox|
+| Firefox | Latest version | Tested with Firefox|
 | Internet Explorer |Latest version |If you cannot sign in, check if cookies and JavaScript are enabled. To enable the UI access, add the device IP to **Privacy Actions** so that the device can access cookies. |
+

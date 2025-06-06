@@ -1,17 +1,17 @@
 ---
-title: Limits and restrictions - Azure IoT Edge | Microsoft Docs 
-description: Description of the limits and restrictions when using IoT Edge.
-author: raisalitch
-ms.author: ralitchf
-ms.date: 11/7/2022
-ms.topic: conceptual
-ms.service: iot-edge
+title: Azure IoT Edge limits and restrictions
+description: Understand the limits and restrictions when using Azure IoT Edge
+author: PatAltimore
+ms.author: patricka
+ms.date: 06/05/2024
+ms.topic: concept-article
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
 # Understand Azure IoT Edge limits and restrictions
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article explains the limits and restrictions when using IoT Edge.
 
@@ -59,8 +59,8 @@ IoT Hub has the following restrictions for IoT Edge automatic deployments:
 
 IoT Edge certificates have the following restrictions:
 
-* The common name (CN) can't be the same as the "hostname" that will be used in the configuration file on the IoT Edge device.
-* The name used by clients to connect to IoT Edge can't be the same as the common name used in the edge CA certificate.
+* The common name (CN) can't be the same as the *hostname* that is used in the configuration file on the IoT Edge device.
+* The name used by clients to connect to IoT Edge can't be the same as the common name used in the Edge CA certificate.
 
 For more information, see [Certificates for device security](iot-edge-certs.md).
 
@@ -108,7 +108,9 @@ Changes made in `config.toml` to `edgeAgent` environment variables like the `hos
 
 ### NTLM Authentication
 
-IoT Edge does not currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allowlist.
+NTLM authentication is not supported. Proxies configured with NTLM authentication won't work.
+
+IoT Edge has limited support for proxy authentication. Proxies configured for username and password authentication only are supported.
 
 ## Next steps
 

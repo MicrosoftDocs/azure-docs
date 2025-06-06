@@ -3,11 +3,12 @@ title: 'Tutorial: Share outside your org - Azure Data Share'
 description: Tutorial - Share data with customers and partners using Azure Data Share  
 author:  sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 10/26/2022
+ms.date: 02/12/2025
 ---
+
 # Tutorial: Share data using Azure Data Share  
 
 In this tutorial, you'll learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
@@ -29,18 +30,18 @@ In this tutorial, you'll learn how to:
 ### Share from a storage account
 
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](../storage/common/storage-account-create.md)
-* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the **Storage Blob Data Contributor** role.
+* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the **Storage Account Contributor** role.
 * Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the **Owner** role. 
 
-
 ### Share from a SQL-based source
+
 Below is the list of prerequisites for sharing data from SQL source. 
 
 #### Prerequisites for sharing from Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
 
 * An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW) with tables and views that you want to share.
 * Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
-* **Azure Active Directory Admin** of the SQL server
+* **Microsoft Entra Admin** of the SQL server
 * SQL Server Firewall access. This can be done through the following steps: 
     1. In Azure portal, navigate to SQL server. Select *Firewalls and virtual networks* from left navigation.
     1. Select **Yes** for *Allow Azure services and resources to access this server*.
@@ -52,7 +53,7 @@ Below is the list of prerequisites for sharing data from SQL source.
 * * An Azure Synapse Analytics (workspace) dedicated SQL pool with tables that you want to share. Sharing of view isn't currently supported. Sharing from serverless SQL pool isn't currently supported.
 * Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
 * Permission for the Data Share resource's managed identity to access Synapse workspace SQL pool. This can be done through the following steps: 
-    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Azure Active Directory admin**.
+    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Microsoft Entra admin**.
     1. Open Synapse Studio, select *Manage* from the left navigation. Select *Access control* under Security. Assign yourself **SQL admin** or **Workspace admin** role.
     1. In Synapse Studio, select *Develop* from the left navigation. Execute the following script in SQL pool to add the Data Share resource Managed Identity as a db_datareader. 
     
@@ -60,7 +61,7 @@ Below is the list of prerequisites for sharing data from SQL source.
         create user "<share_acct_name>" from external provider;     
         exec sp_addrolemember db_datareader, "<share_acct_name>"; 
         ```                   
-       The *<share_acc_name>* is the name of your Data Share resource. If you haven't created a Data Share resource as yet, you can come back to this pre-requisite later.  
+       The *<share_acc_name>* is the name of your Data Share resource. If you haven't created a Data Share resource as yet, you can come back to this prerequisite later.  
 
 * Synapse workspace Firewall access. This can be done through the following steps: 
     1. In Azure portal, navigate to Synapse workspace. Select *Firewalls* from left navigation.
@@ -109,7 +110,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Use these commands to create the resource:
 
@@ -149,9 +150,9 @@ Create an Azure Data Share resource in an Azure resource group.
 
 Start by preparing your environment for PowerShell. You can either run PowerShell commands locally or using the Bash environment in the Azure Cloud Shell.
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
-   [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 Use these commands to create the resource:
 
@@ -209,7 +210,7 @@ Use these commands to create the resource:
 
    :::image type="content" source="./media/datasets.png" alt-text="Screenshot of the datasets page in share creation, the add datasets button is highlighted.":::
 
-1. Select the dataset type that you would like to add. You'll see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you'll be prompted for authentication method to list tables. Select Azure Active Directory authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
+1. Select the dataset type that you would like to add. You'll see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you'll be prompted for authentication method to list tables. Select Microsoft Entra authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
 
    :::image type="content" source="./media/add-datasets.png" alt-text="Screenshot showing the available dataset types.":::
 
@@ -265,7 +266,7 @@ Use these commands to create the resource:
 
 ### [PowerShell](#tab/powershell)
 
-1. If you don't already have data you would like to share, you can follow these steps to create a storage account. If you already have storage, you may skip to step 2.
+1. If you don't already have data you would like to share, you can follow these steps to create a storage account. If you already have storage, you can skip to step 2.
 
     1. Run the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command to create an Azure Storage account:
 
@@ -298,7 +299,7 @@ Use these commands to create the resource:
    New-AzDataShare -ResourceGroupName <String> -AccountName <String> -Name <String> -Description <String> -TermsOfUse <String>
    ```
 
-1. Use the [New-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatasharereceivedinvitation) command to create the invitation for the specified address:
+1. Use the [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation) command to create the invitation for the specified address:
 
    ```azurepowershell
    New-AzDataShareInvitation -ResourceGroupName <String> -AccountName <String> -ShareName <String> -Name <String> -TargetEmail <String>
@@ -312,13 +313,15 @@ Use these commands to create the resource:
 
 ---
 
+**Note:** Azure Data Share uses UTC (Coordinated Universal Time) for all scheduled operations, including snapshot schedules. Ensure you adjust your local time accordingly when setting the schedule.
+
 Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation.
 
 ## Clean up resources
 
 When the resource is no longer needed, go to the **Data Share Overview** page and select **Delete** to remove it.
 
-## Next steps
+## Next step
 
 In this tutorial, you learned how to create an Azure Data Share and invite recipients. To learn about how a Data Consumer can accept and receive a data share, continue to the accept and receive data tutorial.
 

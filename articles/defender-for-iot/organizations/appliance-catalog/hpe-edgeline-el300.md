@@ -7,7 +7,7 @@ ms.topic: reference
 
 # HPE Edgeline EL300
 
-This article describes the HPE Edgeline EL300 appliance for OT sensors or on-premises management consoles.
+This article describes the HPE Edgeline EL300 appliance for OT sensors.
 
 > [!NOTE]
 > Legacy appliances are certified but aren't currently offered as pre-configured appliances.
@@ -15,7 +15,7 @@ This article describes the HPE Edgeline EL300 appliance for OT sensors or on-pre
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | L500 |
+|**Hardware profile** | L100 |
 |**Performance** |Max bandwidth: 100 Mbps<br>Max devices: 800 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|
@@ -45,7 +45,7 @@ The following image shows a view of the back panel of the HPE Edgeline EL300.
 |Vibration|0.3 gram 10 Hz to 300 Hz, 15 minutes per axis - Din rail|
 |Shock|10G 10 ms, half-sine, three for each axis. (Both positive and negative pulse) – Din Rail|
 
-### Appliance BOM
+### HPE Edgeline EL300 - Bill of materials
 
 |Product|Description|
 |:----|:----|
@@ -149,4 +149,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

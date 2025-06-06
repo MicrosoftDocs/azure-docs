@@ -4,10 +4,9 @@ description: Describes the process to erase data from an Azure Stack Edge device
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 04/10/2024
 ms.author: alkohli
 ---
 # Erase data from your Azure Stack Edge
@@ -36,9 +35,9 @@ The following erase types are supported:
 
    ![Screenshot that shows the Azure portal option to confirm device reset for an Azure Stack Edge device.](media/azure-stack-edge-gpu-secure-erase-certificate/azure-stack-edge-secure-erase-certificate-reset-device-confirmation.png)
 
-1. Azure Stack Edge device reset operation generates a Secure Erase Certificate, as shown below:
+1. Azure Stack Edge device reset operation generates a Secure Erase Certificate:
 
-   ![Screenshot of the Secure Erase Certificate following reset of an Azure Stack Edge device.](media/azure-stack-edge-gpu-secure-erase-certificate/azure-stack-edge-secure-erase-certificate.png)
+   [![Screenshot of the Secure Erase Certificate following reset of an Azure Stack Edge device.](media/azure-stack-edge-gpu-secure-erase-certificate/azure-stack-edge-secure-erase-certificate.png)](media/azure-stack-edge-gpu-secure-erase-certificate/azure-stack-edge-secure-erase-certificate.png#lightbox)
 
 ## Download the Secure Erase Certificate for your device
 

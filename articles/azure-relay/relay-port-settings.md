@@ -2,7 +2,7 @@
 title: Azure Relay port settings | Microsoft Docs
 description: This article includes a table that describes the required configuration for port values for Azure Relay.
 ms.topic: article
-ms.date: 06/21/2022
+ms.date: 12/11/2024
 ---
 
 # Azure Relay port settings
@@ -11,9 +11,9 @@ The following table describes the required configuration for port values for Azu
 
 ## Hybrid Connections
 
-Hybrid Connections uses WebSockets on port 443 with TLS as the underlying transport mechanism, which uses **HTTPS** only. 
+Hybrid Connections uses WebSockets on port 443 with Transport Layer Security (TLS) as the underlying transport mechanism, which uses **HTTPS** only. 
 
-## WCF Relays
+## Windows Communication Foundation (WCF) Relays
   
 |Binding|Transport Security|Port|  
 |-------------|------------------------|----------|  

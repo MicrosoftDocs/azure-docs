@@ -7,50 +7,55 @@ metadata:
   title: Azure Native Qumulo Scalable File Service documentation
   description: Azure Native Qumulo Scalable File Service offers a scalable, performant, and simple-to-use cloud-native file system on Azure.
   ms.topic: landing-page
-  ms.date: 01/18/2023
-
+  ms.custom:
+    - ignite-2023
+  ms.date: 11/13/2003
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  # Card (optional)
-  - title: About Azure Native Qumulo Scalable File Service
+
+  - title: About Azure Native Qumulo
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Native Qumulo Scalable File Service?
-            url: qumulo-overview.md
+            url: overview.md
+          - text: FAQ
+            url: faq.yml
+
+
+  # Card
+  - title: Get Started with Azure Native Qumulo
+    linkLists:
       - linkListType: quickstart
         links:
-          - text: Create an Azure Native Qumulo Scalable File Service deployment
-            url: qumulo-create.md
-          # - text: Link to an existing Qumulo environment
-            # url: qumulo-link-to-existing.md
+          - text: Get started with Azure Native Qumulo
+            url: create.md
 
-  # Card
-  - title: Create an Azure Native Qumulo Scalable File Service instance
+  #Card
+  - title: Manage your Azure Native Qumulo resources
     linkLists:
-      - linkListType: how-to-guide
+    - linkListType: how-to-guide
+      links:
+        - text: Manage resources
+          url: manage.md
+        - text: Troubleshoot resources
+          url: troubleshoot.md 
+  
+  #Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference 
         links:
-          - text: Manage the Azure Native Qumulo Scalable File Service by using the portal
-            url: qumulo-how-to-manage.md
-          - text: Troubleshoot Azure Native Qumulo Scalable File Service
-            url: qumulo-troubleshoot.md
-
-  # Card
-#  - title: Explore reference content
-#    linkLists:
-#      - linkListType: reference
-#        links:
-#          - text: Python
-#            url: /python/api/overview/azure/qumulo
-#          - text: JavaScript
-#            url: /javascript/api/overview/azure/qumulo
-#          - text: .NET
-#            url: /dotnet/api/overview/azure/qumulo
-#          - text: Java
-#            url: /java/api/overview/azure/qumulo
-#          - text: REST API
-#            url: /rest/api/qumulo
-#          - text: Azure PowerShell
-#            url: 
-          
+          - text: Python
+            url: /python/api/overview/azure/qumulo
+          - text: JavaScript
+            url: /javascript/api/overview/azure/qumulo
+          - text: .NET
+            url: /dotnet/api/overview/azure/qumulo
+          - text: Java
+            url: /java/api/overview/azure/qumulo
+          - text: CLI
+            url: /cli/azure/service-page/qumulo
+          - text: Azure PowerShell
+            url: /powershell/module/az.qumulo

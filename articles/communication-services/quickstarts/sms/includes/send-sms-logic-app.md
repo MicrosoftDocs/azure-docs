@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: chpalm
+author: tophpalmer
 manager: anvalent
 
 ms.service: azure-communication-services
@@ -13,15 +13,16 @@ ms.custom: include file
 ms.author: chpalm
 ---
 
+Use the [Azure Communication Services SMS](../../../overview.md) connector and [Azure Logic Apps](../../../../logic-apps/logic-apps-overview.md) to create automated workflows that can send SMS messages.
 
-By using the [Azure Communication Services SMS](../../../overview.md) connector and [Azure Logic Apps](../../../../logic-apps/logic-apps-overview.md), you can create automated workflows that can send SMS messages. This quickstart shows how to automatically send text messages in response to a trigger event, which is the first step in a logic app workflow. A trigger event can be an incoming email message, a recurrence schedule, an [Azure Event Grid](../../../../event-grid/overview.md) resource event, or any other [trigger that's supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+This article describes how to automatically send text messages in response to a trigger event, which is the first step in a logic app workflow. A trigger event can be an incoming email message, a recurrence schedule, an [Azure Event Grid](../../../../event-grid/overview.md) resource event, or any other [trigger supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-:::image type="content" source="../media/logic-app/azure-communication-services-connector.png" alt-text="Screenshot that shows the Azure portal, which is open to the Logic App Designer, and shows an example logic app that uses the Send SMS action for the Azure Communication Services connector.":::
+:::image type="content" source="../media/logic-app/azure-communication-services-connector.png" alt-text="Screenshot that shows the Azure portal open to the Logic App Designer. Azure portal shows an example logic app that uses the Send SMS action for the Azure Communication Services connector.":::
 
-Although this quickstart focuses on using the connector to respond to a trigger, you can also use the connector to respond to other actions, which are the steps that follow the trigger in a workflow. If you're new to Logic Apps, review [What is Azure Logic Apps](../../../../logic-apps/logic-apps-overview.md) before you get started.
+Although this article focuses on using the connector to respond to a trigger, you can also use the connector to respond to other actions, which are the steps that follow the trigger in a workflow. If you're new to Logic Apps, see [What is Azure Logic Apps](../../../../logic-apps/logic-apps-overview.md) before you get started.
 
 > [!NOTE]
-> Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+> Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Prerequisites
 
@@ -33,7 +34,7 @@ Although this quickstart focuses on using the connector to respond to a trigger,
 
   This quickstart uses the **When a new email arrives** trigger, which is available with the [Office 365 Outlook connector](/connectors/office365/).
 
-- An SMS enabled phone number, or [get a phone number](./../../telephony/get-phone-number.md).
+- An SMS-enabled telephone number, short code, or alphanumeric sender ID. [Get a phone number](./../../telephony/get-phone-number.md).
 
 [!INCLUDE [Regional Availability Notice](../../../includes/regional-availability-include.md)]
 
@@ -62,7 +63,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
         
         1. Provide a name for the connection.
         
-        1. Select ConnectionString Authentication from the drop down options.
+        1. Select ConnectionString Authentication from the dropdown options.
         
         1. Enter the connection string of your Communication Services resource.
         
@@ -73,7 +74,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
     1. Using Service Principal ([Refer Services Principal Creation](../../identity/service-principal-from-cli.md)):
         1. Provide a name for the connection.
         
-        1. Select Service principal (Azure AD application) Authentication from the drop down options.
+        1. Select Service principal (Microsoft Entra application) Authentication from the dropdown options.
         
         1. Enter the Tenant ID, Client ID & Client Secret of your Service Principal.
         

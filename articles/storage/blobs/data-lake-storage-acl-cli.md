@@ -1,21 +1,20 @@
 ---
-title: Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
+title: Use Azure CLI to manage ACLs in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use the Azure CLI to manage access control lists (ACL) in storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
 
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 11/26/2024
 ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
-# Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
+# Use Azure CLI to manage ACLs in Azure Data Lake Storage
 
 This article shows you how to use the [Azure CLI](/cli/azure/) to get, set, and update the access control lists of directories and files.
 
@@ -33,17 +32,15 @@ ACL inheritance is already available for new child items that are created under 
 
 - One of the following security permissions:
 
-  - A provisioned Azure Active Directory (Azure AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, scoped to the target container, storage account, parent resource group, or subscription..
+  - A provisioned Microsoft Entra ID [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, scoped to the target container, storage account, parent resource group, or subscription.
 
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
-
-  - Storage account key.
 
 ## Ensure that you have the correct version of Azure CLI installed
 
 1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Verify that the version of Azure CLI that have installed is `2.14.0` or higher by using the following command.
+2. Verify that the version of Azure CLI that you have installed is `2.14.0` or higher by using the following command.
 
    ```azurecli
     az --version
@@ -65,7 +62,7 @@ ACL inheritance is already available for new child items that are created under 
 
    To learn more about different authentication methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to the subscription of the storage account that you want to operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```azurecli
    az account set --subscription <subscription-id>
@@ -74,7 +71,7 @@ ACL inheritance is already available for new child items that are created under 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
 > [!NOTE]
-> The example presented in this article show Azure Active Directory (Azure AD) authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
+> The example presented in this article show Microsoft Entra authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
 ## Get ACLs
 
@@ -98,11 +95,11 @@ The following image shows the output after getting the ACL of a directory.
 
 ![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
 
-In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
 ## Set ACLs
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.
+When you *set* an ACL, you **replace** the entire ACL including all of its entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.
 
 If you choose to *set* the ACL, you must add an entry for the owning user, an entry for the owning group, and an entry for all other users. To learn more about the owning user, the owning group, and all other users, see [Users and identities](data-lake-storage-access-control.md#users-and-identities).
 
@@ -142,7 +139,7 @@ The following image shows the output after setting the ACL of a file.
 
 ![Get ACL output 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
-In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
 ### Set ACLs recursively
 
@@ -170,39 +167,18 @@ This section shows you how to:
 
 ### Update an ACL
 
-Another way to set this permission is to use the [az storage fs access set](/cli/azure/storage/fs/access#az-storage-fs-access-set) command.
+Update the ACL of a file by using the [az storage fs access update-recursive](/cli/azure/storage/fs/access#az-storage-fs-access-update-recursive) command.
 
-Update the ACL of a directory or file by setting the `-permissions` parameter to the short form of an ACL.
-
-This example updates the ACL of a **directory**.
+This example updates an ACL entry with write permission.
 
 ```azurecli
-az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
+az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:rwx" -p my-parent-directory/myfile.txt -f my-container --account-name mystorageaccount --auth-mode login
 ```
 
-This example updates the ACL of a **file**.
-
-```azurecli
-az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-```
+To update the ACL of a specific group or user, use their respective object IDs. For example, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` or `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 > [!NOTE]
-> To a update the ACL of a specific group or user, use their respective object IDs. For example, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` or `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
-
-You can also update the owning user and group of a directory or file by setting the `--owner` or `group` parameters to the entity ID or User Principal Name (UPN) of a user.
-
-This example changes the owner of a directory.
-
-```azurecli
-az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-This example changes the owner of a file.
-
-```azurecli
-az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-
-```
+> Updating the ACL of a single directory without updating the ACL of child items is not supported by the Azure CLI. To update the ACL of a directory without modifying the ACLs of all child items in that directory, use any of the other supported tools and SDKs. See [How to set ACLs](data-lake-storage-access-control.md#how-to-set-acls).
 
 ### Update ACLs recursively
 
@@ -257,5 +233,5 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 - [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 - [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
-- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control model in Azure Data Lake Storage](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md)

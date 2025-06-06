@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 02/24/2023
 ms.author: yelevin
+
+
+#Customer intent: As a security analyst, I want to connect Azure, Windows, Microsoft, and Amazon services to Microsoft Sentinel so that I can centralize and streamline threat detection and response for our analysts.
+
 ---
 
 # Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services
@@ -32,9 +36,9 @@ The following articles present information that is common to each group of conne
 The following integrations are both more unique and popular, and are treated individually, with their own articles:
 
 - [Amazon Web Services (AWS) CloudTrail](connect-aws.md)
-- [Azure Active Directory](connect-azure-active-directory.md)
+- [Microsoft Entra ID](connect-azure-active-directory.md)
 - [Azure Virtual Desktop](connect-azure-virtual-desktop.md)
-- [Microsoft 365 Defender](connect-microsoft-365-defender.md)
+- [Microsoft Defender XDR](connect-microsoft-365-defender.md)
 - [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
 - [Microsoft Purview Information Protection](connect-microsoft-purview.md)
 - [Windows DNS](connect-dns-ama.md)

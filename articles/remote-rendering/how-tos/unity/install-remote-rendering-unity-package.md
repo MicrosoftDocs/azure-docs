@@ -98,6 +98,7 @@ Supported Unity render pipelines are documented in this dedicated article: [Unit
 
 ## Next steps
 
+* [Set up Remote Rendering for Unity](unity-setup.md)
 * [Unity Render Pipelines](unity-render-pipelines.md)
 * [Unity game objects and components](objects-components.md)
 * [Tutorial: View Remote Models](../../tutorials/unity/view-remote-models/view-remote-models.md)

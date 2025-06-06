@@ -1,10 +1,9 @@
 ---
-author: v-dalc
-ms.service: databox  
-ms.subservice: pod
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
-ms.date: 11/16/2021
-ms.author: alkohli
+ms.date: 04/29/2025
+ms.author: shaas
 ---
 
 Take the following steps if you're returning the device in Singapore.
@@ -16,7 +15,7 @@ Take the following steps if you're returning the device in Singapore.
 5. Email SingPost Customer Service using the following email template with the tracking number.
 
     ```
-    To: g-corpsgcs@singpost.com
+    To: g-keyacct@singpost.com
     Subject: Microsoft Azure Pickup - OrderName 
     Body: 
         1. Requestor name  
@@ -29,3 +28,4 @@ Take the following steps if you're returning the device in Singapore.
    > For booking requests received on a business day:
    > * Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
    > * After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
+

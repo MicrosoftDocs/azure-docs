@@ -1,5 +1,5 @@
 ---
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: include
 ms.date: 09/03/2022
 ---

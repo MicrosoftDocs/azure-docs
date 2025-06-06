@@ -2,13 +2,12 @@
 title: 'Tutorial: Configure geographic traffic routing with Azure Traffic Manager'
 description: This tutorial explains how to configure the geographic traffic routing method using Azure Traffic Manager
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 manager: kumudD
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 10/15/2020
-ms.author: greglin
+ms.date: 08/08/2024
+ms.author: allensu
 ms.custom: template-tutorial
 ---
 

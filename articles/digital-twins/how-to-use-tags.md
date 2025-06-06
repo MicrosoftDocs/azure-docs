@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Add tags to digital twins
 titleSuffix: Azure Digital Twins
 description: Learn how to implement marker and value tags on models and digital twins
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.author: baanders
+ms.date: 06/29/2023
 ms.topic: how-to
-ms.service: digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
+ms.service: azure-digital-twins
 ---
 
 # Add tags to digital twins 
@@ -31,7 +25,7 @@ A *marker tag* is a simple string that is used to mark or categorize a digital t
 
 ### Add marker tags to model 
 
-Marker tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) Map from `string` to `boolean`. The boolean `mapValue` is ignored, as the presence of the tag is all that's important. 
+Marker tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) Map from `string` to `boolean`. The boolean `mapValue` is ignored, as the presence of the tag is all that's important.
 
 Here's an excerpt from a twin model implementing a marker tag as a property:
 
@@ -45,7 +39,7 @@ Here's a code example on how to set marker `tags` for a twin using the [.NET SDK
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
 
-After creating the twin with tag properties according to the example above, the twin will look like this:
+After you create a twin with tag properties according to the example above, the twin will look like this:
 
 ```JSON
 {
@@ -89,7 +83,7 @@ A *value tag* is a key-value pair that is used to give each tag a value, such as
 
 ### Add value tags to model 
 
-Value tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) Map from `string` to `string`. Both the `mapKey` and the `mapValue` are significant. 
+Value tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) Map from `string` to `string`. Both the `mapKey` and the `mapValue` are significant. 
 
 Here's an excerpt from a twin model implementing a value tag as a property:
 

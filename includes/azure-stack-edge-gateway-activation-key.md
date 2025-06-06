@@ -1,6 +1,6 @@
 ---
 author: alkohli
-ms.service: databox  
+ms.service: azure-databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
@@ -8,7 +8,7 @@ ms.author: alkohli
 
 The activation key that you use:
 
-- Is an Azure Active Directory (Azure AD) based authentication key.
+- Is a Microsoft Entra ID based authentication key.
 - Expires after three days.
 - Isn't used after device activation.
 

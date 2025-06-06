@@ -1,9 +1,12 @@
 ---
 title: Subscribe to GitHub release notes repo
 description: Learn how to subscribe to GitHub release notes repo
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 12/29/2022
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date: 06/28/2024
 ---
 
 # Subscribe to HDInsight release notes GitHub repo
@@ -12,11 +15,11 @@ Learn how to subscribe to HDInsight release notes GitHub repo to get email notif
 
 ## Prerequisites
 
-* You should have a valid GitHub account to subscribe to this Release Notes notification. For more information on GitHub, [see here](https://github.com).
+* You should have a valid GitHub account to subscribe to this HDInsight Release Notes notification. For more information on GitHub, [see here](https://github.com).
 
 **Steps to subscribe to HDInsight release notes GitHub repo**
 
-1. Go to [GitHub repository](https://github.com/hdinsight/release-notes/releases).
+1. Go to [HDInsight GitHub repository](https://github.com/Azure/HDInsight/releases).
 1. Click **watch** and then **Custom**
 1. Select **Releases** and click **Apply**
 

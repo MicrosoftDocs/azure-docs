@@ -2,10 +2,9 @@
 title: Load data from Microsoft 365 (Office 365) by using Azure Data Factory 
 description: 'Use Azure Data Factory to copy data from Microsoft 365 (Office 365)'
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -19,7 +18,7 @@ This article shows you how to use the Data Factory _load data from Microsoft 365
 
 1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
@@ -110,7 +109,7 @@ To see activity runs associated with the pipeline run, select the **View Activit
 
 :::image type="content" source="./media/load-office-365-data/activity-status.png" alt-text="Monitor activity"::: 
 
-If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as **In Progress**, and only when you select into "Details" link under Actions will you see the status as **RequesetingConsent**.  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
+If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as **In Progress**, and only when you select into "Details" link under Actions will you see the status as **RequestingConsent**.  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
 _Status as requesting consent:_
 :::image type="content" source="./media/load-office-365-data/activity-details-request-consent.png" alt-text="Activity execution details - request consent"::: 
@@ -125,7 +124,7 @@ Once the consent is provided, data extraction will continue and, after some time
 
 Now go to the destination Azure Blob Storage and verify that Microsoft 365 (Office 365) data has been extracted in Binary format.
 
-## Next steps
+## Related content
 
 Advance to the following article to learn about Azure Synapse Analytics support: 
 

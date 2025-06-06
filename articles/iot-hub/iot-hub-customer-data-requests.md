@@ -1,11 +1,11 @@
 ---
 title: Customer data requests for Azure IoT Hub devices
 description: Most of the devices managed in Azure IoT Hub are not personal, but some are. This article talks about admins being able to export or delete personal data from a device.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 05/16/2018
 ms.topic: conceptual
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ---
 
@@ -13,7 +13,7 @@ services: iot-hub
 
 The Azure IoT Hub is a REST API-based cloud service targeted at enterprise customers that enables secure, bi-directional communication between millions of devices and a partitioned Azure service.
 
-[!INCLUDE [gdpr-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 Individual devices are assigned a device identifier (device ID) by a tenant administrator. Device data is based on the assigned device ID. Microsoft maintains no information and has no access to data that would allow device ID to user correlation.
 

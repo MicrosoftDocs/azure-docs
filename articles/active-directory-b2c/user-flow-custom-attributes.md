@@ -1,21 +1,25 @@
 ---
 title: Define custom attributes in Azure Active Directory B2C  
 description: Define custom attributes for your application in Azure Active Directory B2C to collect information about your customers.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
-ms.date: 03/09/2023
-ms.custom: project-no-code
+ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to define custom attributes in Azure AD B2C, so that I can manage specific scenarios and persist additional user data for customer-facing applications, identity providers, and custom user journeys.
+
 ---
 
 # Define custom attributes in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -37,10 +41,8 @@ Azure AD B2C allows you to extend the set of attributes stored on each user acco
 
 ## Create a custom attribute
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the Directory name list, and then select **Switch**
+1. Sign in to the [Azure portal](https://portal.azure.com/) as at least [External ID User Flow Attribute Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-attribute-administrator) of your Azure AD B2C tenant.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User attributes**, and then select **Add**.
 1. Provide a **Name** for the custom attribute (for example, "ShoeSize")
@@ -73,13 +75,11 @@ Extension attributes can only be registered on an application object, even thoug
 ### Get extensions app's application ID
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant; 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **All applications**.
 1. Select the `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` application.
-1. Copy the **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.
+1. Copy the **Application ID**. Example: `00001111-aaaa-2222-bbbb-3333cccc4444`.
  
 ::: zone-end
 
@@ -88,19 +88,17 @@ Extension attributes can only be registered on an application object, even thoug
 ### Get extensions app's application properties
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **All applications**.
 1. Select the **b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.** application.
 1. Copy the following identifiers to your clipboard and save them:
-    * **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.
-    * **Object ID**. Example: `22222222-2222-2222-2222-222222222222`.
+    * **Application ID**. Example: `00001111-aaaa-2222-bbbb-3333cccc4444`.
+    * **Object ID**. Example: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`.
 
 ## Modify your custom policy
 
-To enable custom attributes in your policy, provide **Application ID** and Application **Object ID** in the AAD-Common technical profile metadata. The *AAD-Common* technical profile is found in the base [Azure Active Directory](active-directory-technical-profile.md) technical profile, and provides support for Azure AD user management. Other Azure AD technical profiles include the AAD-Common to use its configuration. Override the AAD-Common technical profile in the extension file.
+To enable custom attributes in your policy, provide **Application ID** and Application **Object ID** in the **AAD-Common** technical profile metadata. The **AAD-Common*** technical profile is found in the base [Microsoft Entra ID](active-directory-technical-profile.md) technical profile, and provides support for Microsoft Entra user management. Other Microsoft Entra ID technical profiles include **AAD-Common** to use its configuration. Override the **AAD-Common** technical profile in the extension file.
 
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Find the ClaimsProviders element. Add a new ClaimsProvider to the ClaimsProviders element.
@@ -115,9 +113,9 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
         <TechnicalProfiles>
           <TechnicalProfile Id="AAD-Common">
             <Metadata>
-              <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
+              <!--Insert b2c-extensions-app application ID here, for example: 00001111-aaaa-2222-bbbb-3333cccc4444-->  
               <Item Key="ClientId"></Item>
-              <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
+              <!--Insert b2c-extensions-app application ObjectId here, for example: aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb-->
               <Item Key="ApplicationObjectId"></Item>
             </Metadata>
           </TechnicalProfile>
@@ -130,15 +128,13 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
 ## Upload your custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure B2C AD tenant:
-    1.  Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the TrustFrameworkExtensions.xml policy files that you changed.
 
 > [!NOTE]
-> The first time the Azure AD technical profile persists the claim to the directory, it checks whether the custom attribute exists. If it doesn't, it creates the custom attribute.  
+> The first time the Microsoft Entra ID technical profile persists the claim to the directory, it checks whether the custom attribute exists. If it doesn't, it creates the custom attribute.  
 
 ## Create a custom attribute through Azure portal
 
@@ -187,9 +183,9 @@ The following example demonstrates the use of a custom attribute in Azure AD B2C
 
 ## Manage extension attributes through Microsoft Graph
 
-You can use Microsoft Graph to create and manage the custom attributes then set the values for a user. Extension attributes are also called directory or Azure AD extensions.
+You can use Microsoft Graph to create and manage the custom attributes then set the values for a user. Extension attributes are also called directory or Microsoft Entra extensions.
 
-Custom attributes (directory extensions) in the Microsoft Graph API are named by using the convention `extension_{appId-without-hyphens}_{extensionProperty-name}` where `{appId-without-hyphens}` is the stripped version of the **appId** (called Client ID on the Azure AD B2C portal) for the `b2c-extensions-app` with only characters 0-9 and A-Z. For example, if the **appId** of the `b2c-extensions-app` application is `25883231-668a-43a7-80b2-5685c3f874bc` and the attribute name is `loyaltyId`, then the custom attribute is named `extension_25883231668a43a780b25685c3f874bc_loyaltyId`.
+Custom attributes (directory extensions) in the Microsoft Graph API are named by using the convention `extension_{appId-without-hyphens}_{extensionProperty-name}` where `{appId-without-hyphens}` is the stripped version of the **appId** (called Client ID on the Azure AD B2C portal) for the `b2c-extensions-app` with only characters 0-9 and A-Z. For example, if the **appId** of the `b2c-extensions-app` application is `11112222-bbbb-3333-cccc-4444dddd5555` and the attribute name is `loyaltyId`, then the custom attribute is named `extension_25883231668a43a780b25685c3f874bc_loyaltyId`.
 
 Learn how to [manage extension attributes in your Azure AD B2C tenant](microsoft-graph-operations.md#application-extension-directory-extension-properties) using the Microsoft Graph API. 
 
@@ -198,13 +194,13 @@ Learn how to [manage extension attributes in your Azure AD B2C tenant](microsoft
 Unlike built-in attributes, custom attributes can be removed. The extension attributes' values can also be removed. 
 
 > [!Important]
-> Before you remove the custom attribute, for each account in the directory, set the extension attribute value to `null`.  In this way you explicitly remove the extension attributes’s values. Then continue to remove the extension attribute itself. Custom attributes can be queries using Microsoft Graph API. 
+> Before you remove the custom attribute, for each account in the directory, set the extension attribute value to `null`.  That way, you explicitly remove the extension attribute’s values. Then, continue to remove the extension attribute itself. Custom attributes can be queried using Microsoft Graph API. 
 
 ::: zone pivot="b2c-user-flow"
 
 Use the following steps to remove a custom attribute from a user flow in your tenant:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as at least [External ID User Flow Attribute Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-attribute-administrator) of your Azure AD B2C tenant.
 2. Make sure you're using the directory that contains your Azure AD B2C tenant:
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the Directory name list, and then select **Switch**
@@ -219,8 +215,6 @@ Use the following steps to remove a custom attribute from a user flow in your te
 Use the [Microsoft Graph API](microsoft-graph-operations.md#application-extension-directory-extension-properties) to manage the custom attributes.
 
 ::: zone-end
-
- 
 
 
 ## Next steps

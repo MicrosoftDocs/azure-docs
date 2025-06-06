@@ -1,9 +1,11 @@
 ---
 title: Azure Event Grid on Kubernetes - Event delivery and retry
 description: This article describes how Event Grid on Kubernetes with Azure Arc delivers events and how it handles undelivered messages.
-author: jfggdl
+author: robece
 ms.subservice: kubernetes
-ms.author: jafernan
+ms.custom:
+  - build-2024
+ms.author: robece
 ms.date: 05/25/2021
 ms.topic: conceptual
 ---
@@ -16,7 +18,7 @@ By default, Event Grid on Kubernetes delivers one event at a time to the subscri
 [!INCLUDE [preview-feature-note.md](../includes/preview-feature-note.md)]
 
 > [!NOTE]
-> During the preview, Event Grid on Kubernetes features are supported through API version [2020-10-15-Preview](/rest/api/eventgrid/controlplane-version2021-10-15-preview/event-subscriptions/create-or-update). 
+> During the preview, Event Grid on Kubernetes features are supported through API version [2020-10-15-Preview](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update). 
 
 
 ## Retry schedule
@@ -36,7 +38,7 @@ There are two configurations that determine retry policy. They are:
 An event is dropped if either of the limits of the retry policy is reached. Configuration of these limits is done per subscription basis. The following section describes each one is further detail.
 
 ### Configuring defaults per subscriber
-You can also specify retry policy limits on a per subscription basis. See our [API documentation](/rest/api/eventgrid/controlplane-version2021-10-15-preview/event-subscriptions/create-or-update) for information on configuring defaults per subscriber. Subscription level defaults override the Event Grid module on Kubernetes level configurations.
+You can also specify retry policy limits on a per subscription basis. See our [API documentation](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update) for information on configuring defaults per subscriber. Subscription level defaults override the Event Grid module on Kubernetes level configurations.
 
 The following example sets up a Web hook subscription with `maxNumberOfAttempts` to 3 and `eventTimeToLiveInMinutes` to 30 minutes.
 

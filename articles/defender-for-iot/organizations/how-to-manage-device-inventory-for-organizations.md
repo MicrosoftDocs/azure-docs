@@ -1,16 +1,21 @@
 ---
 title: Manage your device inventory from the Azure portal
 description: Learn how to view and manage OT and IoT devices (assets) from the Device inventory page in the Azure portal.
-ms.date: 06/27/2022
+ms.date: 08/27/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
 
 # Manage your device inventory from the Azure portal
 
-Use the **Device inventory** page in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal to manage all network devices detected by cloud-connected sensors, including OT, IoT, and IT. Identify new devices detected, devices that might need troubleshooting, and more.
+Use the **Device inventory** page in [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal to manage all network devices detected by cloud-connected sensors, including OT, IoT, and IT. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+
+>[!Note]
+>
+>Currently, devices discovered in the Azure portal aren't synchronized with the Defender portal, and therefore the list of devices discovered could be different in each portal.
+>
 
 ## View the device inventory
 
@@ -23,9 +28,9 @@ Use any of the following options to modify or filter the devices shown:
 |Option  |Steps  |
 |---------|---------|
 | **Sort devices** | Select a column header to sort the devices by that column. Select it again to change the sort direction. |
-|**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br> In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br> You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page. <br><br> The **Network location (Preview)** filter is on by default. |
+|**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br> In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br> You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page. <br><br> The **Last active time** and **Network location (Preview)** filters are on by default. |
 |**Modify columns shown**     |   Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select the **+ Add Column** button to add new columns to the grid.<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
-| **Group devices** | From the **Group by** above the gird, select a category, such as **Class**, **Data source**, **Location**, **Purdue level**, **Site**, **Type**, **Vendor**, or **Zone**, to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
+| **Group devices** | From the **Group by** above the grid, select a category, such as **Class**, **Data source**, **Location**, **Purdue level**, **Site**, **Type**, **Vendor**, or **Zone**, to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 
 For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
@@ -49,7 +54,7 @@ The device details page displays comprehensive device information, including the
 |---------|---------|
 | **Attributes** | Displays full device details such as class, data source, firmware details, activity, type, protocols, Purdue level, sensor, site, zone, and more. |
 | **Backplane** | Displays the backplane hardware configuration, including slot and rack information. Select a slot in the backplane view to see the details of the underlying devices. The backplane tab is usually visible for Purdue level 1 devices that have slots in use, such as PLC, RTU, and DCS devices. |
-|**Vulnerabilities** | Displays current vulnerabilities specific to the device. Defender for IoT provides vulnerability coverage for [supported OT vendors](resources-manage-proprietary-protocols.md) where Defender for IoT can detect firmware models and firmwware versions.<br><br>Vulnerability data is based on the repository of standards-based vulnerability data documented in the US government National Vulnerability Database (NVD). Select the CVE name to see the CVE details and description. <br><br>**Tip**: View vulnerability data across your network with the [Defender for IoT Vulnerability workbook](workbooks.md#view-workbooks).|
+|**Vulnerabilities** | Displays current vulnerabilities specific to the device. Defender for IoT provides vulnerability coverage for [supported OT vendors](resources-manage-proprietary-protocols.md) where Defender for IoT can detect firmware models and firmware versions.<br><br>Vulnerability data is based on the repository of standards-based vulnerability data documented in the US government National Vulnerability Database (NVD). Select the CVE name to see the CVE details and description. <br><br>**Tip**: View vulnerability data across your network with the [Defender for IoT Vulnerability workbook](workbooks.md#view-workbooks).|
 |**Alerts** | Displays current open alerts related to the device. Select any alert to view more details, and then select **View full details** to open the alert page to view the full alert information and take action. For more information on the alerts page, see [View alerts on the Azure portal](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal). |
 |**Recommendations** | Displays current recommendations for the device, such as Review PLC operating mode and Review unauthorized devices. For more information on recommendations, see [Enhance security posture with security recommendations](recommendations.md). |
 
@@ -132,43 +137,13 @@ If you have devices no longer in use, delete them from the device inventory so t
 
 Devices might be inactive because of misconfigured SPAN ports, changes in network coverage, or because the device was unplugged from the network.
 
-Delete inactive devices to maintain a correct representation of current network activity, better understand your committed devices when managing your Defender for IoT plans, and to reduce clutter on your screen.
+Delete inactive devices to maintain a correct representation of current network activity, better understand the number of devices that you're monitoring when managing your Defender for IoT [licenses and plans](billing.md), and to reduce clutter on your screen.
 
 **To delete a device**:
 
 In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
 At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
-
-## Merge duplicate devices
-
-You may need to merge duplicate devices if the sensor has discovered separate network entities that are associated with a single, unique device.
-
-Examples of this scenario might include a laptop with both WiFi and a physical network card, a switch with multiple interfaces, an HMI with four network cards, or a single workstation with multiple network cards.
-
-> [!NOTE]
-> Once the devices are merged, they cannot be unmerged. To unmerge devices, you'll need to delete the merged device and wait for it to be rediscovered by the sensors as it was originally.
-
-**To manually merge devices**:
-
-1. In the **Device inventory** page, select two or more devices you would like to merge, and then select **Merge** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-icon.png" border="false"::: in the toolbar at the top of the page.
-You can merge up to 10 devices at a time, if all selected devices are in the same zone or site.
-
-    OT devices can only be merged with other OT devices. Enterprise IoT devices and devices detected by Microsoft Defender for Endpoint agents can be merged with other Enterprise IoT or Defender for Endpoint devices.
-
-1. In the **Merge** pane, select one of the following:
-
-    - Select **Merge** to merge the selected devices and return to the device inventory page.
-
-    - Select **Merge & View** to merge the devices and open the merged device details.
-
-    For example:
-
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-pane.png" alt-text="Screenshot of merging devices screen in the device inventory." lightbox="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-pane.png":::
-
-A success message appears at the top right confirming that the devices have been merged into a single, unique device.
-
-The merged device that is now listed in the grid retains the details of the device with the most recent activity or an update to its identifying details.
 
 ## Next steps
 

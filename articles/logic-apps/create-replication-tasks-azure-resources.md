@@ -5,8 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
-ms.custom: ignite-fall-2021
+ms.date: 01/04/2024
 ---
 
 # Create replication tasks for Azure resources using Azure Logic Apps (preview)
@@ -23,7 +22,7 @@ To reduce the effect that unpredictable events can have on your Azure resources 
 > You can also use replication tasks to move content between entities in the same region, but if the 
 > entire region becomes unavailable or experiences disruption, both source and target are affected.
 
-This article provides an overview about replication tasks powered by Azure Logic Apps and shows how to create an example replication task for Azure Service Bus queues. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+This article provides an overview about replication tasks powered by Azure Logic Apps and shows how to create an example replication task for Azure Service Bus queues. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md).
 
 <a name="replication-task"></a>
 
@@ -105,7 +104,7 @@ When a task replicates from Service Bus to Event Hubs, the task maps only the `U
 
 ## Order preservation
 
-For Event Hubs, replication between the same number of [partitions](../event-hubs/event-hubs-features.md#partitions) creates 1:1 clones with no changes in the events, but can also include duplicates. However, replication between different numbers of partitions, only the relative order of events is preserved based on partition key, but can also include duplicates. For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
+For Event Hubs, replication between the same number of [partitions](../event-hubs/event-hubs-features.md#partitions) creates 1:1 clones with no changes in the events, but can also include duplicates. However, replication between different numbers of partitions, only the relative order of events is preserved based on the partition key, but can also include duplicates. For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
 
 For Service Bus, you must enable sessions so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
 
@@ -114,7 +113,7 @@ For Service Bus, you must enable sessions so that message sequences with the sam
 > a disruptive event. To prevent reprocessing already processed messages, you have to set up a way to 
 > track the already processed messages so that processing resumes only with the unprocessed messages.
 >
-> For example, you can set up a database that stores the proccessing state for each message. 
+> For example, you can set up a database that stores the processing state for each message. 
 > When a message arrives, check the message's state and process only when the message is unprocessed. 
 > That way, no processing happens for an already processed message. 
 >
@@ -149,7 +148,7 @@ Based on the number of events that Event Hubs receives or messages that Service 
 The following examples illustrate hosting plan pricing tier and configuration options that provide the best throughput and cost for specific replication task scenarios, based on whether the scenario is Event Hubs or Service Bus and various configuration values.
 
 > [!NOTE]
-> The examples in the following sections use 800 as the default value for the the prefetch count, 
+> The examples in the following sections use 800 as the default value for the prefetch count, 
 > maximum event batch size for Event Hubs, and maximum message count for Service Bus, assuming 
 > that the event or message size is 1 KB. Based on your event sizes, you might want to adjust the 
 > prefetch count, maximum event batch size, or maximum message count. For example, if your event 
@@ -201,8 +200,8 @@ The examples in this section use 800 as the default value for the prefetch count
 |-------|-------------|
 | **Maximum bursts** | The *maximum* number of elastic workers to scale out under load. If your underlying app requires instances beyond the *always ready instances* in the next table row, your app can continue to scale out until the number of instances hits the maximum burst limit. To change this value, review [Edit hosting plan scale out settings](#edit-plan-scale-out-settings) later in this article. <p>**Note**: Any instances beyond your plan size are billed *only* when they are running and allocated to you on a per-second basis. The platform makes a best effort to scale out your app to the defined maximum limit. <p>**Tip**: As a recommendation, select a maximum value that's higher than you might need so that the platform can scale out to handle a larger load, if necessary, as unused instances aren't billed. <p>For more information, review the following documentation as the Workflow Standard plan shares some aspects with the Azure Functions Premium plan: <p>- [Plan and SKU settings - Azure Functions Premium plan](../azure-functions/functions-premium-plan.md#plan-and-sku-settings) <br>- [What is cloud bursting](https://azure.microsoft.com/overview/what-is-cloud-bursting/)? |
 | **Always ready instances** | The minimum number of instances that are always ready and warm for hosting your app. The minimum number is always 1. To change this value, review [Edit hosting plan scale out settings](#edit-plan-scale-out-settings) later in this article. <p>**Note**: Any instances beyond your plan size are billed *whether or not* they are running when allocated to you. <p>For more information, review the following documentation as the Workflow Standard plan shares some aspects with the Azure Functions Premium plan: [Always ready instances - Azure Functions Premium plan](../azure-functions/functions-premium-plan.md#always-ready-instances). |
-| **Prefetch count** | The default value for `AzureFunctionsJobHost__extensions__serviceBus__prefetchCount` app setting in your logic app resource that determines the pre-fetch count used by the underlying `ServiceBusProcessor` class. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__eventHubs__eventProcessorOptions__prefetchCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `prefetchCount` property, review the following documentation: <p>- [host.json settings - Azure Service Bus bindings for Azure Functions](../azure-functions/functions-bindings-service-bus.md) <br>- [ServiceBusProcessor.PrefetchCount property](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount) <br>- [ServiceBusProcessor Class](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) |
-| **Maximum message count** | The default value for the `AzureFunctionsJobHost__extensions__serviceBus__batchOptions__maxMessageCount` app setting in your logic app resource that determines the maximum number of messages to send when triggered. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__serviceBus__batchOptions__maxMessageCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `maxMessageCount` property, review the following documentation: [host.json settings - Azure Event Hubs bindings for Azure Functions](../azure-functions/functions-bindings-service-bus.md).|
+| **Prefetch count** | The default value for `AzureFunctionsJobHost__extensions__serviceBus__prefetchCount` app setting in your logic app resource that determines the pre-fetch count used by the underlying `ServiceBusProcessor` class. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__serviceBus__eventProcessorOptions__prefetchCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `prefetchCount` property, review the following documentation: <p>- [host.json settings - Azure Service Bus bindings for Azure Functions](../azure-functions/functions-bindings-service-bus.md) <br>- [ServiceBusProcessor.PrefetchCount property](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount) <br>- [ServiceBusProcessor Class](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) |
+| **Maximum message count** | The default value for the `AzureFunctionsJobHost__extensions__serviceBus__batchOptions__maxMessageCount` app setting in your logic app resource that determines the maximum number of messages to send when triggered. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__serviceBus__batchOptions__maxMessageCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `maxMessageCount` property, review the following documentation: [host.json settings - Azure Service Bus bindings for Azure Functions](../azure-functions/functions-bindings-service-bus.md).|
 |||
 
 ## Prerequisites
@@ -414,7 +413,7 @@ To learn how you can build your own automated workflows so that you can integrat
 
 ## Monitor replication tasks
 
-To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. The [Application Insights Application Map](../azure-monitor/app/app-map.md) is a useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](../azure-monitor/app/live-stream.md) portal tool, also a capability in Azure Monitor.
+To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](/azure/azure-monitor/app/app-insights-overview), which is a capability in Azure Monitor. The [Application Insights Application Map](/azure/azure-monitor/app/app-map) is a useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](/azure/azure-monitor/app/live-stream) portal tool, also a capability in Azure Monitor.
 
 <a name="edit-task"></a>
 
@@ -493,7 +492,7 @@ You can edit the underlying workflow behind a replication task, which changes th
 
    ![Screenshot showing the workflow's run details with the trigger's inputs, outputs, and properties.](./media/create-replication-tasks-azure-resources/view-updated-run-details-trigger-inputs.png)
 
-1. To disable the workflow so that the task doesn't continue running, on the **Overview** toolbar, select **Disable**. For more information, review [Disable or enable single-tenant workflows](create-single-tenant-workflows-azure-portal.md#disable-or-enable-workflows).
+1. To disable the workflow so that the task doesn't continue running, on the **Overview** toolbar, select **Disable**. For more information, review [Disable or enable single-tenant workflows](manage-logic-apps-with-azure-portal.md#disable-enable-standard-workflows).
 
 <a name="failover"></a>
 

@@ -1,13 +1,13 @@
 ---
 title: Prepay for Azure SQL Edge reservations
 description: Learn how you can prepay for Azure SQL Edge to save money over your pay-as-you-go costs.
-author: bandersmsft
-ms.reviewer: kendalv
+author: pri-mittal
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2022
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Prepay for Azure SQL Edge reservations
@@ -16,8 +16,8 @@ When you prepay for your SQL Edge reserved capacity, you can save money over you
 
 You can buy SQL Edge reserved capacity from the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](prepare-buy-reservation.md). To buy reserved capacity:
 
-- You must be in the Owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
-- For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
+- For Enterprise subscriptions, **Reserved Instances** policy option must be enabled in the [Azure portal](../manage/direct-ea-administration.md#view-and-manage-enrollment-policies). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 - For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy SQL Edge reserved capacity.
 
 ## Buy a software plan
@@ -48,7 +48,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Next steps
+## Related content
 
 To learn how to manage a reservation, see [Manage Azure reservations](manage-reserved-vm-instance.md).
 

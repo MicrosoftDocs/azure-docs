@@ -1,11 +1,11 @@
 ---
 title: Migrate manually from Azure Virtual Desktop (classic) - Azure
 description: How to migrate manually from Azure Virtual Desktop (classic) to Azure Virtual Desktop.
-author: Heidilohr
+author: dougeby
 ms.topic: how-to
 ms.date: 09/11/2020
-ms.author: helohr
-manager: femila
+ms.author: avdcontent
+ms.custom: docs_inherited
 ---
 # Migrate manually from Azure Virtual Desktop (classic)
 
@@ -27,7 +27,7 @@ Major updates can be inconvenient, especially ones you have to do manually. Howe
 Despite the hassle, migrating away from the classic version is still important. Here's what you can do after you migrate:
 
 - Manage Azure Virtual Desktop through the Azure portal.
-- Assign Azure Active Directory (Azure AD) user groups to application groups.
+- Assign Microsoft Entra user groups to application groups.
 - Use the improved Log Analytics feature to troubleshoot your deployment.
 - Use Azure-native role-based access control (Azure RBAC) to manage administrative access.
 

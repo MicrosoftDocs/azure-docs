@@ -1,10 +1,14 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
+
+## Sample code
+
+You can find the sample code for many of the IoT Plug and Play constructs described in this article in the [Azure IoT C SDKs and libraries](https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples/pnp) GitHub repository.
 
 ## Model ID announcement
 
@@ -36,7 +40,7 @@ Devices that use the [Device Provisioning Service (DPS)](../articles/iot-dps/abo
 
 ## Use components
 
-As described in [Understand components in IoT Plug and Play models](../articles/iot-develop/concepts-modeling-guide.md), you should decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections:
+As described in [Understand components in IoT Plug and Play models](../articles/iot/concepts-modeling-guide.md), you should decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections:
 
 ## Telemetry
 

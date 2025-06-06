@@ -4,16 +4,15 @@ description: Learn about the technical specifications for Azure Stack Edge power
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 03/09/2023
+ms.date: 03/20/2025
 ms.author: alkohli
 ---
 
 # Azure Stack Edge power cord specifications
 
-[!INCLUDE [applies-to-gpu-and-pro-fpga-sku](../../includes/azure-stack-edge-applies-to-gpu-pro-fpga-sku.md)]
+[!INCLUDE [Yes for Pro GPU SKU](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
 Your Azure Stack Edge device will need a power cord that will vary depending on your Azure region.
 
@@ -21,7 +20,7 @@ Your Azure Stack Edge device will need a power cord that will vary depending on 
 
 Use the following table to find the correct cord specifications for your region:
 
-| Country    | Rated Voltage (V)| Rated Current (A)| Cord Standard |Input Connector|Output Connector| Length mm |  
+| Country/Region    | Rated Voltage (V)| Rated Current (A)| Cord Standard |Input Connector|Output Connector| Length mm |  
 |------------|---------------|------------|----|--|----|--|--|--|
 |Albania|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Algeria|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
@@ -48,7 +47,7 @@ Use the following table to find the correct cord specifications for your region:
 |China|250|10|RVV300/500 3X0.75|GB 2099.1|C13|2000|
 |Colombia|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Costa Rica|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
-|Côte D'Ivoire (Ivory Coast)|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
+|Côte D'Ivoire|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Croatia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Cyprus|250|5|H05VV-F 3x0.75|BS1363  SS145/A|C13|1800|
 |Czech Republic|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
@@ -68,7 +67,7 @@ Use the following table to find the correct cord specifications for your region:
 |Greece|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Guatemala|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Honduras|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
-|Hong Kong|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
+|Hong Kong Special Administrative Region|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Hungary|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Iceland|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |India|250|10|IS694 3x0.75|IS 1293|C13|1830|
@@ -88,8 +87,7 @@ Use the following table to find the correct cord specifications for your region:
 |Liechtenstein|250|10|H05VV-F 3x0.75|SEV 1011|C13|1800|
 |Lithuania|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Luxembourg|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
-|Macau|2250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
-|Macedonia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
+|Macao Special Administrative Region|2250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Malaysia|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Malta|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Mauritius|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
@@ -105,6 +103,7 @@ Use the following table to find the correct cord specifications for your region:
 |New Zealand|250|10|H05VV-F 3x1.00|AS/NZS 3112|C13|2438|
 |Nicaragua|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Nigeria|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
+|North Macedonia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Norway|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Oman|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Pakistan|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|

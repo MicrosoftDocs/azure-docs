@@ -2,22 +2,23 @@
 title: Set sign-in with SAML identity provider options
 titleSuffix: Azure Active Directory B2C
 description: Configure sign-in SAML identity provider (IdP) options in Azure Active Directory B2C.
-services: active-directory-b2c
 author: garrodonnell
 manager: CelesteDG
-
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/20/2023
-ms.custom: project-no-code
+ms.date: 03/20/2024
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer integrating Azure AD B2C with a SAML identity provider, I want to understand how to configure the SAML identity provider options, so that I can enable sign-in with the identity provider and map the claims correctly.
+
 ---
 
 
 # Configure SAML identity provider options with Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) supports federation with SAML 2.0 identity providers. This article describes how to parse the security assertions, and the configuration options that are available when enabling sign-in with a SAML identity provider.
 
@@ -74,7 +75,7 @@ If both `SPNameQualifier` or `NameQualifier` attributes aren't presented in the 
 
 The SAML requests are sent to the identity provider as specified in the identity provider's metadata `SingleSignOnService` element. Most of the identity providers' authorization requests are carried directly in the URL query string of an HTTP GET request (as the messages are relatively short). Refer to your identity provider documentation for how to configure the bindings for both SAML requests.
 
-The following XML is an example of an Azure AD metadata single sign-on service with two bindings. The `HTTP-Redirect` takes precedence over the `HTTP-POST` because it appears first in the SAML identity provider metadata.
+The following XML is an example of a Microsoft Entra metadata single sign-on service with two bindings. The `HTTP-Redirect` takes precedence over the `HTTP-POST` because it appears first in the SAML identity provider metadata.
 
 ```xml
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -118,7 +119,7 @@ Azure AD B2C uses `Sha1` to sign the SAML request. Use the **XmlSignatureAlgorit
 
 ### Include key info
 
-When the identity provider indicates that Azure AD B2C binding is set to `HTTP-POST`, Azure AD B2C includes the signature and the algorithm in the body of the SAML request. You can also configure Azure AD to include the public key of the certificate when the binding is set to `HTTP-POST`. Use the **IncludeKeyInfo** metadata to `true`, or `false`. In the following example, Azure AD doesn't include the public key of the certificate.
+When the identity provider indicates that Azure AD B2C binding is set to `HTTP-POST`, Azure AD B2C includes the signature and the algorithm in the body of the SAML request. You can also configure Microsoft Entra ID to include the public key of the certificate when the binding is set to `HTTP-POST`. Use the **IncludeKeyInfo** metadata to `true`, or `false`. In the following example, Microsoft Entra ID doesn't include the public key of the certificate.
 
 ```xml
 <Metadata>
@@ -423,7 +424,7 @@ Upon an application sign-out request, Azure AD B2C attempts to sign out from you
 
 ## Debug SAML protocol
 
-To help configure and debug federation with a SAML identity provider, you can use a browser extension for the SAML protocol, such as [SAML DevTools extension](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome, [SAML-tracer](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) for FireFox, or [Microsoft Edge or IE Developer tools](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957).
+To help configure and debug federation with a SAML identity provider, you can use a browser extension for the SAML protocol, such as [SAML DevTools extension](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome, [SAML-tracer](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) for Firefox, or [Microsoft Edge or Internet Explorer developer tools](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957).
 
 Using these tools, you can check the integration between Azure AD B2C and your SAML identity provider. For example:
 

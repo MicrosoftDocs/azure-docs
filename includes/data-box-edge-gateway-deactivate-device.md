@@ -1,9 +1,9 @@
 ---
-author: alkohli
-ms.service: databox  
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 04/14/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 To reset your device, you need to securely wipe out all the data on the data disk and the boot disk of your device. 

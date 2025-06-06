@@ -3,10 +3,9 @@ title: include file
 description: Learn how to use the Number Management Python SDK to configure direct routing.
 services: azure-communication-services
 author: boris-bazilevskiy
-
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.date: 03/11/2023
+ms.date: 06/01/2023
 ms.topic: include
 ms.custom: include file
 ms.author: nikuklic
@@ -60,13 +59,13 @@ pip install azure-communication-phonenumbers==1.1.0
 
 ## Authenticate the client
 
-With `SipRoutingClient`, you can use Azure Active Directory (Azure AD) authentication. Using the `DefaultAzureCredential` object is the easiest way to get started with Azure AD, and you can install it by using the `pip install` command:
+With `SipRoutingClient`, you can use Microsoft Entra authentication. Using the `DefaultAzureCredential` object is the easiest way to get started with Microsoft Entra ID, and you can install it by using the `pip install` command:
 
 ```console
 pip install azure-identity
 ```
 
-Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` already set as environment variables with their corresponding values from your registered Azure AD application. For a quick way to get these environment variables, see [Authenticate using Azure Active Directory](../../identity/service-principal.md).
+Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` already set as environment variables with their corresponding values from your registered Microsoft Entra application. For a quick way to get these environment variables, see [Authenticate using Microsoft Entra ID](../../identity/service-principal.md).
 
 After you've installed the `azure-identity` library, you can continue with authenticating the client:
 

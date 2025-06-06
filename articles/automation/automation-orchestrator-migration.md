@@ -3,9 +3,9 @@ title: Migrate from Orchestrator to Azure Automation (Beta)
 description: This article tells how to migrate runbooks and integration packs from Orchestrator to Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
-ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.date: 09/09/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 # Migrate from Orchestrator to Azure Automation (Beta)
 

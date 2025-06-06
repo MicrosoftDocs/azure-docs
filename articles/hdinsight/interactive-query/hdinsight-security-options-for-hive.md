@@ -1,17 +1,20 @@
 ---
 title: Security options for Hive in Azure HDInsight
 description: Security options for Hive in Standard and ESP clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2023
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
+ms.date: 03/15/2024
 ---
 
 # Security options for Hive in Azure HDInsight
 
 This document describes the recommended security options for Hive in HDInsight. These options can be configured through Ambari.
 
-:::image type="content" source="./media/hdinsight-security-options-for-hive/security-options-hive.png " alt-text="`Security Options for Hive`" border="true":::
+:::image type="content" source="./media/hdinsight-security-options-for-hive/security-options-hive.png " alt-text="`Security Options for Hive`." border="true":::
 
 ## HiveServer2 authentication
 
@@ -28,7 +31,7 @@ For ESP clusters, authorization through Ranger is enabled by default.
 
 ## SSL Encryption for HiveServer2
 
-Enabling Hiveserver2 SSL isn't recommended for either standard or ESP clusters. SSL is enabled on the gateway instead. [Encryption in transit](../domain-joined/encryption-in-transit.md) can be enabled to encrypt communications among the cluster nodes using [Internet Protocol Security (IPSec)](https://en.wikipedia.org/wiki/IPsec).
+Enabling Hiveserver2 SSL isn't recommended for either standard or ESP clusters. SSL is enabled on the gateway instead. [Encryption in transit](../domain-joined/encryption-in-transit.md) can be enabled to encrypt communications among the cluster nodes using [Internet Protocol Security (IPsec)](https://en.wikipedia.org/wiki/IPsec).
 
 
 ## Next steps

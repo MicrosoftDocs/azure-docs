@@ -4,12 +4,11 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Azure Function activity to run an Azure Function in an Azure Data Factory or Azure Synapse Analytics pipeline
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
-ms.service: data-factory
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/23/2022
+ms.date: 09/25/2024
 
 ---
 
@@ -46,9 +45,9 @@ Function Key provides secure access to function name with each one having separa
 | ---------------- | ------------------------------------------------------------ | ------------ |
 | Type             | The type property must be set to: **AzureFunction**          | Yes          |
 | Function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal | Yes          |
-| Function key     | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | Yes          |
+| Function key     | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Work with access keys](../azure-functions/function-keys-how-to.md) | Yes          |
 | Authentication   | The authentication method used for calling the Azure Function. The supported values are 'System-assigned managed identity' or 'anonymous'.| Yes          |
-| Resource ID  | The App (client) ID of the Azure Function. Switch to **Authentication** section for the respective function, and get the App (client) ID under **Identity provider**. This property will be displayed when you use system-assigned managed identity. For more information, see [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md).| No         |
+| Resource ID  | The App (client) ID of the Azure Function. Switch to **Authentication** section for the respective function, and get the App (client) ID under **Identity provider**. This property will be displayed when you use system-assigned managed identity. For more information, see [Configure your App Service or Azure Functions app to use Microsoft Entra login](../app-service/configure-authentication-provider-aad.md).| No         |
 
 >[!Note]
 > When you use anonymous authentication, ensure that you have taken down your identity on the Azure Function side.
@@ -87,6 +86,6 @@ Learn more about Durable Functions in [this article](../azure-functions/durable/
 
 You can find a sample that uses an Azure Function to extract the content of a tar file [here](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
-## Next steps
+## Related content
 
 Learn more about supported activities in [Pipelines and activities](concepts-pipelines-activities.md).

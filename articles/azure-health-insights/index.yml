@@ -1,46 +1,52 @@
 ### YamlMime:Landing
 
-title: Project Health Insights
-summary: Project Health Insights
+title: Azure AI Health Insights
+summary: Azure AI Health Insights
 metadata:
-  title: Project Health Insights
-  description: this article contains documentation regarding the different Health Decision Models from Health A.I.
-  ms.service: Project Health Insights
+  title: Azure AI Health Insights
+  description: This article contains documentation regarding the different Health Decision Models of Azure Health Insights
+  ms.service: azure-health-insights
   ms.topic: landing-page 
   author: iBoonZ
   ms.author: behoorne
-  ms.date: 01/26/2023
+  ms.date: 05/05/2024
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new 
 
 landingContent:
-  - title: About Project Health Insights
+  - title: About Azure AI Health Insights
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Project Health Insights?
+          - text: What is Azure AI Health Insights?
             url: overview.md
       - linkListType: quickstart
         links:
           - text: Deploy using the portal
             url: deploy-portal.md
-  - title: Onco Phenotype
+      - linkListType: how-to-guide
+        links:
+          - text: How to Use Azure AI Health Insights with containers 
+            url: use-containers.md
+          - text: How to configure the containers 
+            url: configure-containers.md
+  - title: Radiology Insights
     linkLists:
       - linkListType: overview
         links:
-          - text: About Onco Phenotype
-            url: oncophenotype/overview.md
+          - text: About Radiology Insights
+            url: radiology-insights/overview.md
       - linkListType: concept
         links:
           - text: Model configuration
-            url: oncophenotype/model-configuration.md
+            url: radiology-insights/model-configuration.md
           - text: Inference information
-            url: oncophenotype/inferences.md    
+            url: radiology-insights/inferences.md
       - linkListType: quickstart
         links:
           - text: Get started
-            url: oncophenotype/get-started.md
+            url: radiology-insights/get-started.md
   - title: Trial Matcher
     linkLists:
       - linkListType: overview

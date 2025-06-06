@@ -6,7 +6,7 @@ services: storage
 ms.service: azure-import-export
 ms.topic: troubleshooting
 ms.date: 03/14/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Troubleshoot issues in Azure Import/Export

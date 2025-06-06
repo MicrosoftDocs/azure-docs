@@ -3,7 +3,7 @@ title: Azure Relay API overview | Microsoft Docs
 description: This article provides an overview of available Azure Relay APIs (.NET Standard, .NET Framework, Node.js, etc.)
 ms.topic: article
 ms.custom: devx-track-dotnet
-ms.date: 06/21/2022
+ms.date: 12/10/2024
 ---
 
 # Available Relay APIs
@@ -17,7 +17,7 @@ The [additional information](#additional-information) section contains more info
 | Language/Platform | Available feature | Client package | Repository |
 | --- | --- | --- | --- |
 | .NET Standard | Hybrid Connections | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
-| .NET Framework | WCF Relay | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
+| .NET Framework | Windows Communication Foundation (WCF) Relay | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
 | Node | Hybrid Connections | [WebSockets: `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSockets: `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP Requests: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### Additional information
@@ -44,7 +44,7 @@ Hybrid Connections with ASP.NET Core for web services.
 
 #### Node.js
 
-The Hybrid Connections modules listed in the table above replace or amend
+The Hybrid Connections modules replace or amend
 existing Node.js modules with alternative implementations that listen on
 the Azure Relay service instead of the local networking stack.
 

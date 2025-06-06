@@ -1,39 +1,38 @@
 ---
-title: Conditional deployment with Bicep
-description: Describes how to conditionally deploy a resource in Bicep.
-
-author: mumian
-ms.author: jgao
+title: Conditional deployments in Bicep with the if expression
+description: Understand how to use the 'if' expression to conditionally deploy a resource in Bicep.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 07/30/2021
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 03/25/2025
 ---
 
-# Conditional deployment in Bicep
+# Conditional deployments in Bicep with the if expression
 
-Sometimes you need to optionally deploy a resource or module in Bicep. Use the `if` keyword to specify whether the resource or module is deployed. The value for the condition resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource or module.
+To optionally deploy a resource or module in Bicep, use the `if` expression. An `if` expression includes a condition that resolves to true or false. When the `if` condition is true, the resource is deployed. When the value is false, the resource isn't created. You can only apply the value to the whole resource or module.
 
 > [!NOTE]
 > Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
 
 ### Training resources
 
-If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
+If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep files by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
-## Deploy condition
+## Define condition for deployment
 
-You can pass in a parameter value that indicates whether a resource is deployed. The following example conditionally deploys a DNS zone.
+In Bicep, you can conditionally deploy a resource by passing in a parameter that specifies if the resource is deployed. Test the condition with an `if` expression in the resource declaration. The following example shows the syntax for an `if` expression in a Bicep file. It conditionally deploys a Domain Name System (DNS) zone. When `deployZone` is `true`, it deploys the DNS zone. When `deployZone` is `false`, it skips deploying the DNS zone.
 
 ```bicep
 param deployZone bool
 
-resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+resource dnsZone 'Microsoft.Network/dnsZones@2023-07-01-preview' = if (deployZone) {
   name: 'myZone'
   location: 'global'
 }
 ```
 
-The next example conditionally deploys a module.
+The following example conditionally deploys a module:
 
 ```bicep
 param deployZone bool
@@ -43,11 +42,11 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
-Conditions may be used with dependency declarations. For [explicit dependencies](resource-dependencies.md), Azure Resource Manager automatically removes it from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but may produce a deployment error.
+You can use conditions with dependency declarations. For [explicit dependencies](resource-dependencies.md), Azure Resource Manager automatically removes them from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but might produce a deployment error.
 
 ## New or existing resource
 
-You can use conditional deployment to create a new resource or use an existing one. The following example shows how to either deploy a new storage account or use an existing storage account.
+You can use conditional deployment to create a new resource or use an existing one. The following example shows how to deploy a new storage account or use an existing storage account.
 
 ```bicep
 param storageAccountName string
@@ -59,34 +58,39 @@ param location string = resourceGroup().location
 ])
 param newOrExisting string = 'new'
 
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+resource saNew 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting == 'new') {
   name: storageAccountName
   location: location
   sku: {
     name: 'Standard_LRS'
-    tier: 'Standard'
   }
   kind: 'StorageV2'
-  properties: {
-    accessTier: 'Hot'
-  }
 }
+
+resource saExisting 'Microsoft.Storage/storageAccounts@2023-04-01' existing = if (newOrExisting == 'existing') {
+  name: storageAccountName
+}
+
+output storageAccountId string = ((newOrExisting == 'new') ? saNew.id : saExisting.id)
 ```
 
-When the parameter `newOrExisting` is set to **new**, the condition evaluates to true. The storage account is deployed. However, when `newOrExisting` is set to **existing**, the condition evaluates to false and the storage account isn't deployed.
+When the parameter `newOrExisting` is set to **new**, the condition evaluates to true. The storage account is deployed. Otherwise, the existing storage account is used.
+
+> [!WARNING]
+> If you reference a conditionally deployed resource but the resource isn't deployed, you get an error. The error message states that the resource isn't defined in the template.
 
 ## Runtime functions
 
-If you use a [reference](./bicep-functions-resource.md#reference) or [list](./bicep-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist.
+If you use a [reference](./bicep-functions-resource.md#reference) or [list](./bicep-functions-resource.md#list) function with a resource that you specify for conditional deployment, the function gets evaluated. If the resource isn't deployed, you get an error.
 
-Use the [conditional expression ?:](./operators-logical.md#conditional-expression--) operator to make sure the function is only evaluated for conditions when the resource is deployed. The following example template shows how to use this function with expressions that are only conditionally valid.
+Use the [conditional expression ?:](./operators-logical.md#conditional-expression--) operator to ensure that the function is only evaluated for conditions when the resource is deployed. The following example template shows how to use this function with expressions that are only conditionally valid.
 
 ```bicep
 param vmName string
 param location string
 param logAnalytics string = ''
 
-resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017-03-30' = if (!empty(logAnalytics)) {
+resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2024-03-01' = if (!empty(logAnalytics)) {
   name: '${vmName}/omsOnboarding'
   location: location
   properties: {
@@ -95,10 +99,10 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
     settings: {
-      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2015-11-01-preview').customerId : null)
+      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2022-10-01').customerId : null)
     }
     protectedSettings: {
-      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2015-11-01-preview').primarySharedKey : null)
+      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2022-10-01').primarySharedKey : null)
     }
   }
 }
@@ -108,6 +112,5 @@ output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!
 
 ## Next steps
 
-* Review the Learn module [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 * For recommendations about creating Bicep files, see [Best practices for Bicep](best-practices.md).
 * To create multiple instances of a resource, see [Iterative loops in Bicep](loops.md).

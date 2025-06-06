@@ -2,9 +2,9 @@
 title: 'Quickstart: Read Azure Event Hubs captured data (Python)'
 description: This quickstart shows you how to write Python code to capture data that's sent to an event hub and read the captured event data from an Azure storage account.
 ms.topic: quickstart
-ms.date: 03/14/2023
+ms.date: 02/07/2024
 ms.devlang: python
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-python
 ---
 
 # Quickstart: Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)
@@ -24,11 +24,7 @@ In this quickstart, you:
 
 ## Prerequisites
 
-- Python with PIP and the following packages installed. The code in this article has been tested against these versions. 
-    - Python 3.7
-    - azure-eventhub 5.2.0
-    - azure-storage-blob 12.6.0
-    - avro-python3 1.10.1
+- Python 3.8 or later, with pip installed and updated.
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.  
 - An active Event Hubs namespace and event hub.
 [Create an Event Hubs namespace and an event hub in the namespace](event-hubs-create.md). Record the name of the Event Hubs namespace, the name of the event hub, and the primary access key for the namespace. To get the access key, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md#azure-portal). The default key name is *RootManageSharedAccessKey*. For this quickstart, you need only the primary key. You don't need the connection string.  
@@ -72,7 +68,13 @@ In this section, you create a Python script that sends 200 events (10 devices * 
         event_data_batch = producer.create_batch() # Create a batch. You will add events to the batch later. 
         for dev in devices:
             # Create a dummy reading.
-            reading = {'id': dev, 'timestamp': str(datetime.datetime.utcnow()), 'uv': random.random(), 'temperature': random.randint(70, 100), 'humidity': random.randint(70, 100)}
+        reading = {
+                'id': dev, 
+                'timestamp': str(datetime.datetime.utcnow()), 
+                'uv': random.random(), 
+                'temperature': random.randint(70, 100), 
+                'humidity': random.randint(70, 100)
+            }
             s = json.dumps(reading) # Convert the reading into a JSON string.
             event_data_batch.add(EventData(s)) # Add event data to the batch.
         producer.send_batch(event_data_batch) # Send the batch of events to the event hub.
@@ -159,13 +161,6 @@ In this example, the captured data is stored in Azure Blob storage. The script i
    pip install azure-eventhub
    pip install avro-python3
    ```
-
-    > [!NOTE]
-    > The code in this article has been tested against these versions. 
-    > - Python 3.7
-    > - azure-eventhub 5.2.0
-    > - azure-storage-blob 12.6.0
-    > - avro-python3 1.10.1
 2. Change your directory to the directory where you saved *sender.py* and *capturereader.py*, and run this command:
    
    ```
@@ -185,7 +180,6 @@ In this example, the captured data is stored in Azure Blob storage. The script i
 Check out [Python samples on GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples). 
 
 
-[Azure portal]: https://portal.azure.com/
 [Overview of Event Hubs Capture]: event-hubs-capture-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md

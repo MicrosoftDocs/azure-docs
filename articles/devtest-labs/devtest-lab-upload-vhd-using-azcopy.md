@@ -4,7 +4,8 @@ description: Walk through the steps to use the AzCopy command-line utility to up
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/22/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Upload a VHD file to a lab storage account by using AzCopy
@@ -13,7 +14,7 @@ ms.date: 12/22/2022
 
 In this article, learn how to use the AzCopy command-line utility to upload a VHD file to a lab storage account in Azure DevTest Labs. After you upload your VHD file, you can create a custom image from the uploaded VHD file and use the image to provision a virtual machine.
 
-For more information about disks and VHDs in Azure, see [Introduction to managed disks](../virtual-machines/managed-disks-overview.md).
+For more information about disks and VHDs in Azure, see [Introduction to managed disks](/azure/virtual-machines/managed-disks-overview).
 
 > [!NOTE]
 >  

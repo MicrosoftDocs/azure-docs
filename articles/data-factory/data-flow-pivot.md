@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Pivot data from rows to columns using mapping data flow Pivot Transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Pivot transformation in mapping data flow
@@ -19,7 +18,7 @@ ms.date: 08/04/2022
 
 Use the pivot transformation to create multiple columns from the unique row values of a single column. Pivot is an aggregation transformation where you select group by columns and generate pivot columns using [aggregate functions](data-flow-aggregate-functions.md).
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4C4YN]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=10a0178b-4ae1-4af7-a092-84d90ff2e284]
 
 ## Configuration
 
@@ -105,6 +104,6 @@ BasketballPlayerStats pivot(groupBy(Tm),
 
 ```
 
-## Next steps
+## Related content
 
 Try the [unpivot transformation](data-flow-unpivot.md) to turn column values into row values. 

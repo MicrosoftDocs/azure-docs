@@ -1,11 +1,12 @@
 ---
 title: Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight
 description: Learn how to integrate Apache Spark and Apache Hive with the Hive Warehouse Connector on Azure HDInsight.
-author: reachnijel
-ms.author: nijelsf
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 12/09/2022
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
+ms.date: 03/11/2025
 ---
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight
@@ -16,7 +17,7 @@ The Hive Warehouse Connector allows you to take advantage of the unique features
 
 Apache Hive offers support for database transactions that are Atomic, Consistent, Isolated, and Durable (ACID). For more information on ACID and transactions in Hive, see [Hive Transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive also offers detailed security controls through Apache Ranger and Low Latency Analytical Processing (LLAP) not available in Apache Spark.
 
-Apache Spark, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with HDInsight 4.0, Apache Spark 2.3.1 & above, and Apache Hive 3.1.0 have separate metastore catalogs, which make interoperability difficult. 
+Apache Spark has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with HDInsight 4.0, Apache Spark 2.3.1 & above, and Apache Hive 3.1.0 have separate metastore catalogs, which make interoperability difficult. 
 
 The Hive Warehouse Connector (HWC) makes it easier to use Spark and Hive together. The HWC library loads data from LLAP daemons to Spark executors in parallel. This process makes it more efficient and adaptable than a standard JDBC connection from Spark to Hive. This brings out two different execution modes for HWC: 
 > - Hive JDBC mode via HiveServer2
@@ -25,7 +26,7 @@ The Hive Warehouse Connector (HWC) makes it easier to use Spark and Hive togethe
 By default, HWC is configured to use Hive LLAP daemons. 
 For executing Hive queries (both read and write) using the above modes with their respective APIs, see [HWC APIs](./hive-warehouse-connector-apis.md).
 
-:::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png" alt-text="hive warehouse connector architecture" border="true":::
+:::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png" alt-text="hive warehouse connector architecture." border="true":::
 
 Some of the operations supported by the Hive Warehouse Connector are:
 
@@ -57,6 +58,7 @@ Hive Warehouse Connector needs separate clusters for Spark and Interactive Query
 |:---:|:---:|---|
 | v1 | Spark 2.4 \| HDI 4.0 | Interactive Query 3.1 \| HDI 4.0 |
 | v2 | Spark 3.1 \| HDI 5.0 | Interactive Query 3.1 \| HDI 5.0 |
+| v2.1 | Spark 3.3.0 \| HDI 5.1 | Interactive Query 3.1 \| HDI 5.1 |
 
 ### Create clusters
 
@@ -85,7 +87,7 @@ value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.
 
 1. Expand **Custom spark2-defaults**.
 
-    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png" alt-text="Apache Ambari Spark2 configuration" border="true":::
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png" alt-text="Apache Ambari Spark2 configuration." border="true":::
 
 1. Select **Add Property...** to add the following configurations:
 
@@ -116,11 +118,11 @@ Apart from the configurations mentioned in the previous section, add the followi
     
     * From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` where CLUSTERNAME is the name of your Interactive Query cluster. Click on **HiveServer2 Interactive**. You'll see the Fully Qualified Domain Name (FQDN) of the head node on which LLAP is running as shown in the screenshot. Replace `<llap-headnode>` with this value.
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="hive warehouse connector Head Node" border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="hive warehouse connector Head Node." border="true":::
 
     * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Interactive Query cluster. Look for `default_realm` parameter in the `/etc/krb5.conf` file. Replace `<AAD-DOMAIN>` with this value as an uppercase string, otherwise the credential won't be found.
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive warehouse connector AAD Domain" border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Screenshot of Hive warehouse connector AAD Domain." border="true":::
 
     * For instance, `hive/hn*.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
     
@@ -170,9 +172,9 @@ This is a way to run Spark interactively through a modified version of the Scala
 
 ### Spark-submit
 
-Spark-submit is a utility to submit any Spark program (or job) to Spark clusters.
+`Spark-submit` is a utility to submit any Spark program (or job) to Spark clusters.
 
-The spark-submit job will set up and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
+The `spark-submit` job will set up and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
 
 Once you build the scala/java code along with the dependencies into an assembly jar, use the below command to launch a Spark application. Replace `<VERSION>`, and `<APP_JAR_PATH>` with the actual values.
 
@@ -199,7 +201,7 @@ Once you build the scala/java code along with the dependencies into an assembly 
     /<APP_JAR_PATH>/myHwcAppProject.jar
     ```
 
-This utility is also used when we have written the entire application in pySpark and packaged into py files (Python), so that we can submit the entire code to Spark cluster for execution.
+This utility is also used when we have written the entire application in pySpark and packaged into `.py` files (Python), so that we can submit the entire code to Spark cluster for execution.
 
 For Python applications, pass a .py file in the place of `/<APP_JAR_PATH>/myHwcAppProject.jar`, and add the below configuration (Python .zip) file to the search path with `--py-files`.
 
@@ -232,27 +234,27 @@ kinit USERNAME
     hive.executeQuery("SELECT * FROM demo").show()
     ```
 
-    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png" alt-text="demo table before applying ranger policy" border="true":::
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png" alt-text="demo table before applying ranger policy." border="true":::
 
 1. Apply a column masking policy that only shows the last four characters of the column.  
     1. Go to the Ranger Admin UI at `https://LLAPCLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Click on the Hive service for your cluster under **Hive**.
-        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png" alt-text="ranger service manager" border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png" alt-text="ranger service manager." border="true":::
     1. Click on the **Masking** tab and then **Add New Policy**
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png" alt-text="hive warehouse connector ranger hive policy list" border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png" alt-text="hive warehouse connector ranger hive policy list." border="true":::
 
     1. Provide a desired policy name. Select database: **Default**, Hive table: **demo**, Hive column: **name**, User: **rsadmin2**, Access Types: **select**, and **Partial mask: show last 4** from the **Select Masking Option** menu. Click **Add**.
-                :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png" alt-text="create policy" border="true":::
+                :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png" alt-text="create policy." border="true":::
 1. View the table's contents again. After applying the ranger policy, we can see only the last four characters of the column.
 
-    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png" alt-text="demo table after applying ranger policy" border="true":::
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png" alt-text="demo table after applying ranger policy." border="true":::
 
 ## Next steps
 
 * [HWC and Apache Spark operations](./apache-hive-warehouse-connector-operations.md)
 * [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
 * [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
-* [Submitting Spark Applications via Spark-submit utility](https://spark.apache.org/docs/2.4.0/submitting-applications.html)
+* [Submitting Spark Applications via Spark-submit utility](https://archive.apache.org/dist/spark/docs/2.4.0/submitting-applications.html)
 * [HWC 1.0 supported APIs](./hive-warehouse-connector-apis.md)
 * [HWC 2.0 supported APIs](./hive-warehouse-connector-v2-apis.md)

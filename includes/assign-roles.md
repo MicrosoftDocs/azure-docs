@@ -3,14 +3,14 @@ title: "include file"
 description: "include file"
 services: storage
 author: alexwolfmsft
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 10/11/2022
 ms.author: alexwolf
 ms.custom: include file
 ---
 
-When developing locally, make sure that the user account that is accessing blob data has the correct permissions. You'll need **Storage Blob Data Contributor** to read and write blob data. To assign yourself this role, you'll need to be assigned the **User Access Administrator** role, or another role that includes the **Microsoft.Authorization/roleAssignments/write** action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../articles/role-based-access-control/scope-overview.md) page.
+When developing locally, make sure that the user account that is accessing blob data has the correct permissions. You'll need **Storage Blob Data Contributor** to read and write blob data. To assign yourself this role, you'll need to be assigned the **User Access Administrator** role, or another role that includes the **Microsoft.Authorization/roleAssignments/write** action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. For more information about the **Storage Blob Data Contributor** role, see [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor). For more information about the available scopes for role assignments, see [Understand scope for Azure RBAC](../articles/role-based-access-control/scope-overview.md).
 
 In this scenario, you'll assign permissions to your user account, scoped to the storage account, to follow the [Principle of Least Privilege](../articles/active-directory/develop/secure-least-privileged-access.md). This practice gives users only the minimum permissions needed and creates more secure production environments.
 
@@ -35,7 +35,7 @@ The following example will assign the **Storage Blob Data Contributor** role to 
 
 6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
-7. In the dialog, search for your Azure AD username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
+7. In the dialog, search for your Microsoft Entra username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
 
 8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 

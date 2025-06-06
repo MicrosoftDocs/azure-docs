@@ -1,12 +1,11 @@
 ---
 title: Troubleshoot Azure VM replication in Azure Site Recovery
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
-author: ankitaduttaMSFT
-manager: rochakm
-ms.service: site-recovery
-ms.topic: article
-ms.date: 07/29/2022
-ms.author: ankitadutta
+author: jyothisuri
+ms.service: azure-site-recovery
+ms.topic: troubleshooting
+ms.date: 03/31/2025
+ms.author: jsuri
 ms.custom: engagement-fy23
 ---
 
@@ -32,7 +31,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### Fix the problem
 
-Contact [Azure billing support](../azure-portal/supportability/regional-quota-requests.md) to enable your subscription to create VMs of the required sizes in the target location. Then retry the failed operation.
+Contact [Azure billing support](/azure/azure-portal/supportability/regional-quota-requests) to enable your subscription to create VMs of the required sizes in the target location. Then retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to that location. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
@@ -66,6 +65,9 @@ For more information, see [Configure trusted roots and disallowed certificates](
 #### Linux
 
 Follow the guidance provided by the distributor of your Linux operating system version to get the latest trusted root certificates and the latest certificate revocation list on the VM.
+
+> [!IMPORTANT]
+> For RedHat Linux machines, add the Ca -Trust certificates to the `/etc/pki/ca-trust/` to avoid certificate errors.
 
 Because SUSE Linux uses symbolic links, or symlinks, to maintain a certificate list, follow these steps:
 
@@ -201,7 +203,7 @@ A connection can't be established to Microsoft 365 authentication and identity I
 #### Fix the problem
 
 Azure Site Recovery required access to Microsoft 365 IP ranges for authentication.
-If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Azure Active Directory (AAD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
+If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Microsoft Entra service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to Microsoft Entra ID. We no longer support IP address-based NSG rules.
 
 ### Issue 3: Site Recovery configuration failed (151197)
 
@@ -217,11 +219,11 @@ If you're using Azure Network Security Group (NSG) rules/firewall proxy to contr
 
 #### Possible cause
 
-The custom proxy settings are invalid and the Mobility service agent didn't autodetect the proxy settings from Internet Explorer (IE).
+The custom proxy settings are invalid and the Mobility service agent didn't autodetect the proxy settings from Internet Explorer.
 
 #### Fix the problem
 
-1. The Mobility service agent detects the proxy settings from IE on Windows and `/etc/environment` on Linux.
+1. The Mobility service agent detects the proxy settings from Internet Explorer on Windows and `/etc/environment` on Linux.
 1. If you prefer to set proxy only for the Mobility service, then you can provide the proxy details in _ProxyInfo.conf_ located at:
 
    - **Linux**: `/usr/local/InMage/config/`
@@ -259,8 +261,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Make sure that the data disks are initialized, and then retry the operation.
 
-- **Windows**: [Attach and initialize a new disk](../virtual-machines/windows/attach-managed-disk-portal.md).
-- **Linux**: [Initialize a new data disk in Linux](../virtual-machines/linux/add-disk.md).
+- **Windows**: [Attach and initialize a new disk](/azure/virtual-machines/windows/attach-managed-disk-portal).
+- **Linux**: [Initialize a new data disk in Linux](/azure/virtual-machines/linux/add-disk).
 
 If the problem persists, contact support.
 
@@ -546,7 +548,7 @@ The installer is unable to find the root disk that hosts the root file-system.
 
 Perform the following steps to fix this issue.
 
-1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL and CentOS machines using the below command: <br>
+1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL machines using the below command: <br>
 
 	`# find /var/lib/ -name Micro\*.gz`
 
@@ -580,4 +582,4 @@ To resolve this issue, wait till system time crosses the skewed future time. Ano
 
 ## Next steps
 
-[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md)
+[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md).

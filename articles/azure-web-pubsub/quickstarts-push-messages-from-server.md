@@ -20,6 +20,8 @@ This quickstart guide demonstrates how to
 > * **subscribe** to messages from an application server
 > * **push data** from an application server to **all** connected clients
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 
 - A Web PubSub resource. If you haven't created one, you can follow the guidance: [Create a Web PubSub resource](./howto-develop-create-instance.md)
@@ -72,7 +74,7 @@ As shown in the diagram above, the client joins the hub named `myHub1`.
 In the `subscriber` project folder, create a file named `subscribe.js` with the following code
 
 ```javascript
-import { WebPubSubClient } from "@azure/web-pubsub-client";
+const { WebPubSubClient } = require("@azure/web-pubsub-client");
 
 // Instantiates the client object
 // <client-access-url> is copied from Azure portal mentioned above
@@ -80,11 +82,12 @@ const client = new WebPubSubClient("<client-access-url>")
 
 // Registers a handler for the "server-message" event
 client.on("server-message", (e) => {
-    console.log(`Received message ${e.message.data}`);
+    console.log(`Received message ${e.message.data}`)
+});
 
 // Before a client can receive a message, 
 // you must invoke start() on the client object.
-await client.start();
+client.start();
 ```
 
 #### Run the program
@@ -96,18 +99,27 @@ Now this client establishes a connection with your Web PubSub resource and is re
 
 
 # [C#](#tab/csharp)
+
 #### Create a project directory named `subscriber` and install required dependencies
 
 ```bash
 mkdir subscriber
 cd subscriber
-
 # Create a .net console app
 dotnet new console
 
 # Add the client SDK
 dotnet add package Azure.Messaging.WebPubSub.Client --prerelease
 ```
+
+#### Connect to your Web PubSub resource and register a listener for the `ServerMessageReceived` event 
+A client uses a ***Client Access URL*** to connect and authenticate with your resource. 
+This URL follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown in the following diagram. It's best practice to not hard code the Client Access URL in your code. In the production world, we usually set up an app server to return this URL on demand. [Generate Client Access URL](./howto-generate-client-access-url.md) describes the practice in detail.
+
+![The diagram shows how to get client access url.](./media/quickstarts-push-messages-from-server/push-messages-from-server.png)
+
+As shown in the diagram above, the client joins the hub named `myHub1`.
+
 
 #### Replace the code in the `Program.cs` with the following code
 
@@ -117,19 +129,40 @@ using Azure.Messaging.WebPubSub.Clients;
 // Instantiates the client object
 // <client-access-uri> is copied from Azure portal mentioned above
 var client = new WebPubSubClient(new Uri("<client-access-uri>"));
-
 client.ServerMessageReceived += eventArgs =>
 {
     Console.WriteLine($"Receive message: {eventArgs.Message.Data}");
     return Task.CompletedTask;
 };
 
+client.Connected += eventArgs =>
+{
+    Console.WriteLine("Connected");
+    return Task.CompletedTask;
+};
+
 await client.StartAsync();
+
+
+// This keeps the subscriber active until the user closes the stream by pressing Ctrl+C
+var streaming = Console.ReadLine();
+while (streaming != null)
+{
+    if (!string.IsNullOrEmpty(streaming))
+    {
+        await client.SendToGroupAsync("stream", BinaryData.FromString(streaming + Environment.NewLine), WebPubSubDataType.Text);
+    }
+
+    streaming = Console.ReadLine();
+}
+
+await client.StopAsync();
+
 ```
    
 #### Run the following command
 ```bash
-dotnet run "myHub1"
+dotnet run
 ```
 Now this client establishes a connection with your Web PubSub resource and is ready to receive messages pushed from your application server.
 
@@ -147,7 +180,7 @@ python -m venv env
 source ./env/bin/activ
 
 pip install azure-messaging-webpubsubservice
-pip install websock
+pip install websockets
 ```
 
 #### Use the WebSocket API to connect to your Web PubSub resource. Create a `subscribe.py` file with the following code
@@ -180,8 +213,8 @@ if __name__ == '__main__':
 
     try:
         asyncio.get_event_loop().run_until_complete(connect(token['url']))
-        except KeyboardInterrupt:
-            pass
+    except KeyboardInterrupt:
+        pass
     
 ```
 
@@ -224,12 +257,12 @@ cd webpubsub-quickstart-subscriber
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-webpubsub</artifactId>
     <version>1.0.0</version>
-</dependen
+</dependency>
 <dependency>
     <groupId>org.java-websocket</groupId>
     <artifactId>Java-WebSocket</artifactId>
     <version>1.5.1</version>
-</dependen
+</dependency>
 ```
 In Web PubSub, you can connect to the service and subscribe to messages through WebSocket connections. WebSocket is a full-duplex communication channel allowing the service to push messages to your client in real time. You can use any API or library that supports WebSocket. For this sample, we use package [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket). 
 
@@ -357,6 +390,8 @@ For this quickstart guide, we'll get it from Azure portal as shown below.
 #### Run the server program
 Run the following commands in a ***new*** command shell.
 
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
 ```bash
 # Set the environment variable for your connection string.
 export WebPubSubConnectionString="<Put your connection string here>" 
@@ -416,6 +451,7 @@ The `SendToAllAsync()` call sends a message to all connected clients in the hub.
 #### Run the server program to push messages to all connected clients
 
 ```bash
+$connection_string="<connection-string>"
 dotnet run $connection_string "myHub1" "Hello World"
 ```
 
@@ -423,7 +459,7 @@ dotnet run $connection_string "myHub1" "Hello World"
 
 ```text
 # On the command shell used for running the "subscribe" program, you should see the received the messaged logged there. 
-# Try running the same "subscribe" program in multiple command shells, which simluates more than clients. 
+# Try running the same "subscribe" program in multiple command shells, which simulates more than clients. 
 # Try running the "publish" program several times and you see messages being delivered in real-time to all these clients.   
 Message received: Hello World
 ```

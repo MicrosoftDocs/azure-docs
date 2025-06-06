@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot a slow or failing job on Azure HDInsight cluster
 description: Diagnose and troubleshoot a slow or failing job on an Azure HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 06/09/2022
+ms.date: 07/12/2024
 ---
 
 # Troubleshoot a slow or failing job on a HDInsight cluster
@@ -46,7 +46,7 @@ Important cluster information includes:
 
 The Azure portal can provide this information:
 
-:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png" alt-text="HDInsight Azure portal Information":::
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png" alt-text="HDInsight Azure portal Information.":::
 
 You can also use [Azure CLI](/cli/azure/):
 
@@ -73,7 +73,7 @@ Each HDInsight cluster relies on various Azure services, and on open-source soft
 Apache Ambari provides management and monitoring of a HDInsight cluster with a web UI and a REST API. 
 Ambari is included on Linux-based HDInsight clusters. Select the **Cluster Dashboard** pane on the Azure portal HDInsight page.  Select the **HDInsight cluster dashboard** pane to open the Ambari UI, and enter the  cluster login credentials.  
 
-:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png" alt-text="Apache Ambari dashboard overview":::
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png" alt-text="Apache Ambari dashboard overview.":::
 
 To open a list of service views, select **Ambari Views** on the Azure portal page.  This list depends on which libraries are installed. For example, you may see YARN Queue Manager, Hive View, and Tez View.  Select a  service link to see configuration and service information.
 
@@ -84,7 +84,7 @@ HDInsight relies on several Azure services. It runs virtual servers on Azure HDI
 #### Check Azure service usage limits
 
 If you are launching a large cluster, or have launched many clusters simultaneously, a cluster can fail if  you have exceeded an Azure service limit. Service limits vary, depending on your Azure subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-You can request that Microsoft increase the number of HDInsight resources available (such as VM cores and VM instances) with a [Resource Manager core quota increase request](../azure-portal/supportability/regional-quota-requests.md).
+You can request that Microsoft increase the number of HDInsight resources available (such as VM cores and VM instances) with a [Resource Manager core quota increase request](/azure/azure-portal/supportability/regional-quota-requests).
 
 #### Check the release version
 
@@ -121,7 +121,7 @@ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v
 
 Ambari  displays an alert showing the hosts on which the WebHCat service is down. You can try to bring the WebHCat service back up by restarting the service on its host.
 
-:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png" alt-text="Apache Ambari Restart WebHCat Server":::
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png" alt-text="Apache Ambari Restart WebHCat Server.":::
 
 If a WebHCat server still does not come up, then check the  operations log  for failure messages. For more detailed information, check the `stderr` and `stdout` files referenced on the node.
 
@@ -131,7 +131,7 @@ An HDInsight Gateway times out responses that take longer than two minutes, retu
 
 In this case, review the following logs in the `/var/log/webhcat` directory:
 
-* **webhcat.log** is the log4j log to which server writes logs
+* **webhcat.log** is the Log4j log to which server writes logs
 * **webhcat-console.log** is the stdout of the server when started
 * **webhcat-console-error.log** is the stderr of the server process
 
@@ -166,17 +166,17 @@ At the YARN level, there are two types of timeouts:
 
     If you open the `/var/log/webhcat/webhcat.log` log file and search for "queued job", you may see multiple entries where the execution time is excessively long (>2000 ms), with entries showing increasing wait times.
 
-    The time for the queued jobs continues to increase because the rate at which new jobs get submitted is  higher than the rate at which the old jobs are completed. Once the YARN memory is 100% used,  the *joblauncher queue* can no longer borrow capacity from the *default queue*. Therefore, no more new jobs can be accepted into the joblauncher queue. This behavior can  cause the waiting time to become longer and longer, causing a timeout error that is usually followed by many others.
+    The time for the queued jobs continues to increase because the rate at which new jobs get submitted is  higher than the rate at which the old jobs are completed. Once the YARN memory is 100% used,  the `joblauncher queue` can no longer borrow capacity from the *default queue*. Therefore, no more new jobs can be accepted into the job launcher queue. This behavior can  cause the waiting time to become longer and longer, causing a timeout error that is usually followed by many others.
 
-    The  following  image shows the joblauncher queue at 714.4% overused. This is acceptable so long as there is still free capacity in the default queue to borrow from. However, when the cluster is fully utilized and the YARN memory is at 100% capacity, new jobs must wait, which eventually causes timeouts.
+    The  following  image shows the job launcher queue at 714.4% overused. This is acceptable so long as there is still free capacity in the default queue to borrow from. However, when the cluster is fully utilized and the YARN memory is at 100% capacity, new jobs must wait, which eventually causes timeouts.
 
-    :::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png" alt-text="HDInsight Job launcher queue view":::
+    :::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png" alt-text="HDInsight Job launcher queue view.":::
 
     There are two ways to resolve this issue: either reduce the speed of new jobs being submitted, or increase the consumption speed of old jobs by scaling up the cluster.
 
 2. YARN processing can take a long time, which can cause timeouts.
 
-    * List all jobs: This is a time-consuming call. This call enumerates the applications from the YARN ResourceManager, and for each completed application, gets the status from the YARN JobHistoryServer. With  higher numbers of jobs, this call can time out.
+    * List all jobs: This is a time-consuming call. This call enumerates the applications from the YARN Resource Manager, and for each completed application, gets the status from the YARN JobHistoryServer. With  higher numbers of jobs, this call can time out.
 
     * List jobs older than seven days: The HDInsight YARN JobHistoryServer is configured to retain completed job information for seven days (`mapreduce.jobhistory.max-age-ms` value). Trying to enumerate purged jobs results in a timeout.
 
@@ -202,7 +202,7 @@ To diagnose these issues:
 
 The Ambari UI **Stack and Version** page provides information about cluster services configuration and service version history.  Incorrect Hadoop service library versions can be a cause of cluster failure.  In the Ambari UI, select the **Admin** menu and then  **Stacks and Versions**.  Select the **Versions** tab on the page to see service version information:
 
-:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png" alt-text="Apache Ambari Stack and Versions":::
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png" alt-text="Apache Ambari Stack and Versions.":::
 
 ## Step 5: Examine the log files
 
@@ -226,7 +226,7 @@ The HDInsight Ambari UI includes a number of **Quick Links** sections.  To acces
 
 For example, for HDFS logs:
 
-:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-quick-links.png" alt-text="Ambari Quick Links to Log Files":::
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-quick-links.png" alt-text="Ambari Quick Links to Log Files.":::
 
 ### View Hadoop-generated log files
 

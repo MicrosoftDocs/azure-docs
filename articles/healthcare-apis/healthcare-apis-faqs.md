@@ -2,12 +2,12 @@
 title: FAQs about Azure Health Data Services
 description: This document provides answers to the frequently asked questions about Azure Health Data Services.
 services: healthcare-apis
-author: msjasteppe
+author: EXPEkesheth
 ms.custom: references_regions
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: reference
-ms.date: 12/15/2022
-ms.author: jasteppe
+ms.date: 06/02/2025
+ms.author: kesheth
 ---
 
 # Frequently asked questions about Azure Health Data Services
@@ -34,7 +34,7 @@ Azure Health Data Services enables you to:
 
 ### Can I migrate my existing production workload from Azure API for FHIR to Azure Health Data Services?
 
-No, unfortunately we don't offer migration capabilities at this time.
+Yes. Azure API for FHIR is retiring on September 30, 2023. See [migration strategies](./fhir/migration-strategies.md)
 
 ### What is the pricing of Azure Health Data Services?
 

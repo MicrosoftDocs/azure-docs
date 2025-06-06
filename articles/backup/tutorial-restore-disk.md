@@ -2,9 +2,9 @@
 title: Tutorial - Restore a VM with Azure CLI
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 ms.topic: tutorial
-ms.date: 10/28/2022
+ms.date: 01/20/2025
 ms.custom: mvc, devx-track-azurecli
-ms.service: backup
+ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -23,7 +23,7 @@ For information on using PowerShell to restore a disk and create a recovered VM,
 
 Now, you can also use CLI to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using CLI](#restore-data-to-virtual-machine-using-cli).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -121,7 +121,7 @@ az backup restore restore-disks \
 
 ### Cross-zonal restore
 
-You can restore [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) in any [availability zones](../availability-zones/az-overview.md) of the same region.
+You can restore [Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) in any [availability zones](../reliability/availability-zones-overview.md) of the same region.
 
 To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command.
 
@@ -212,7 +212,7 @@ When the *Status* of the restore job reports *Completed*, the necessary informat
 
 Azure Backup also allows you to use managed identity (MSI) during restore operation to access storage accounts where disks have to be restored to. This option is currently supported only for managed disk restore.
 
-If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***--mi-system-assigned*** to the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command. If you wish to use a user-assigned managed identity, pass a parameter ***--mi-user-assigned*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
+If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***--mi-system-assigned*** to the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command. If you wish to use a user-assigned managed identity, pass a parameter ***--mi-user-assigned*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-a-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
 
 ## Create a VM from the restored disk
 
@@ -278,22 +278,8 @@ Now get the SAS token for this container and template as detailed [here](../azur
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
-connection=$(az storage account show-connection-string \
-    --resource-group mystorageaccountRG \
-    --name mystorageaccount \
-    --query connectionString)
-token=$(az storage blob generate-sas \
-    --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
-    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
-    --expiry $expiretime \
-    --permissions r \
-    --output tsv \
-    --connection-string $connection)
-url=$(az storage blob url \
-   --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
-    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
-    --output tsv \
-    --connection-string $connection)
+token=$(az storage blob generate-sas --account-name $storageAccountName --container-name $containerName --name $templateName --permissions r --expiry $expiretime --auth-mode login --as-user --https-only --output tsv)
+url=$(az storage blob url --account-name $storageAccountName --container-name $containerName --name $templateName --output tsv --auth-mode login)
 ```
 
 ### Deploy the template to create the VM
@@ -346,7 +332,7 @@ az backup restore restore-disks \
     --vault-name myRecoveryServicesVault \
     --container-name myVM \
     --item-name myVM \
-    --restore-mode OriginalLocation \
+    --restore-mode AlternateLocation \
     --storage-account mystorageaccount \
 
 --target-resource-group "Target_RG" \

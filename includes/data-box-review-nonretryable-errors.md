@@ -1,10 +1,9 @@
 ---
-author: v-dalc
-ms.service: databox  
-ms.subservice: pod
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 05/07/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 To review non-retryable errors and proceed with your order, do the following:
@@ -37,4 +36,5 @@ To review non-retryable errors and proceed with your order, do the following:
    ![Status display for a Data Box import order that completed with errors](media/data-box-review-nonretryable-errors/copy-errors-in-upload-04.png)
 
    If you don't take any action, the order completes automatically after 14 days.
+
 

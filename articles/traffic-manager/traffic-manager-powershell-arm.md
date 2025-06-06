@@ -2,12 +2,11 @@
 title: Using PowerShell to manage Traffic Manager in Azure
 description: With this learning path, get started using Azure PowerShell for Traffic Manager.
 services: traffic-manager
-author: greg-lindsay
-ms.service: traffic-manager
+author: asudbring
+ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 03/16/2017
-ms.author: greglin 
+ms.date: 08/08/2024
+ms.author: allensu
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
@@ -15,7 +14,7 @@ ms.custom: template-how-to, devx-track-azurepowershell
 
 Azure Resource Manager is the preferred management interface for services in Azure. Azure Traffic Manager profiles can be managed using Azure Resource Manager-based APIs and tools.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Resource model
 
@@ -27,7 +26,7 @@ Each Traffic Manager profile is represented by a resource of type 'TrafficManage
 
 ## Setting up Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 These instructions use Microsoft Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 
@@ -67,7 +66,7 @@ The cmdlet creates a Traffic Manager profile in Azure and returns a correspondin
 
 ## Get a Traffic Manager Profile
 
-To retrieve an existing Traffic Manager profile object, use the `Get-AzTrafficManagerProfle` cmdlet:
+To retrieve an existing Traffic Manager profile object, use the `Get-AzTrafficManagerProfile` cmdlet:
 
 ```powershell
 $TmProfile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
@@ -132,7 +131,7 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 ### Example 2: Adding a publicIpAddress endpoint using `New-AzTrafficManagerEndpoint`
 
-In this example, a public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured, and can be bound either to the NIC of a VM or to a load balancer.
+In this example, a public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured and can be bound either to the NIC of a VM or to a load balancer.
 
 ```powershell
 $ip = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG

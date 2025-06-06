@@ -1,13 +1,14 @@
 ---
 title: Configure IP firewall rules for Azure Service Bus
-description: How to use Firewall Rules to allow connections from specific IP addresses to Azure Service Bus. 
-ms.topic: article
+description: This article describes how to use Firewall Rules to allow connections from specific IP addresses to Azure Service Bus. 
+ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 02/16/2023
+ms.date: 12/02/2024
+# Customer intent: As an IT administrator, I would like to know how to configure IP firewall rules for an Azure Service Bus namespace. 
 ---
 
 # Allow access to Azure Service Bus namespace from specific IP addresses or ranges
-By default, Service Bus namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
+By default, Service Bus namespaces are accessible from the internet as long as the request contains valid authentication and authorization. With IP firewall, inbound traffic can be restricted to a set of IPv4 addresses or IPv4 address ranges (in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation).
 
 This feature is helpful in scenarios in which Azure Service Bus should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Service Bus with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses or addresses of a corporate NAT gateway. 
 
@@ -15,7 +16,7 @@ This feature is helpful in scenarios in which Azure Service Bus should be only a
 The IP firewall rules are applied at the Service Bus namespace level. Therefore, the rules apply to all connections from clients using any **supported protocol** (AMQP (5671) and HTTPS (443)). Any connection attempt from an IP address that doesn't match an allowed IP rule on the Service Bus namespace is rejected as unauthorized. The response doesn't mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
 ## Important points
-- Firewalls and Virtual Networks are supported only in the **premium** tier of Service Bus. If upgrading to the **premier** tier isn't an option, we recommend that you keep the Shared Access Signature (SAS) token secure and share with only authorized users. For information about SAS authentication, see [Authentication and authorization](service-bus-authentication-and-authorization.md#shared-access-signature).
+- Virtual Networks are supported only in the **premium** tier of Service Bus. If upgrading to the **premium** tier isn't an option, it's possible to use IP firewall rules using the [Azure portal](#use-azure-portal), [Azure Resource Manager templates](#use-resource-manager-template), [Azure CLI](#use-azure-cli), [PowerShell](#use-azure-powershell) or [REST API](#rest-api). We recommend that you keep the Shared Access Signature (SAS) token secure and share it with only authorized users. For information about SAS authentication, see [Authentication and authorization](service-bus-authentication-and-authorization.md#shared-access-signature).
 - Specify **at least one IP firewall rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
 - Implementing firewall rules can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain **trusted services** even when IP filtering is enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services). 
 
@@ -43,7 +44,11 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     > [!NOTE]
     > You see the **Networking** tab only for **premium** namespaces.  
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
-    - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
+    - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md).
+    
+        :::image type="content" source="./media/service-bus-ip-filtering/public-access-disabled-page.png" alt-text="Screenshot that shows the Networking page of a namespace with public access disabled."::: 
+
+        Choose whether you want to allow trusted Microsoft services to bypass the firewall. For the list of trusted Microsoft services for Azure Service Bus, see the [Trusted Microsoft services](#trusted-microsoft-services) section.
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]
@@ -52,7 +57,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 1. To allow access from only specified IP address, select the **Selected networks** option if it isn't already selected. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
-    3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
+    3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. For the list of trusted Microsoft services for Azure Service Bus, see the [Trusted Microsoft services](#trusted-microsoft-services) section. 
 
         >[!WARNING]
         > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).    
@@ -138,37 +143,35 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`. The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
 ## Use Azure CLI
-Use [`az servicebus namespace network-rule`](/cli/azure/servicebus/namespace/network-rule) add, list, update, and remove commands to manage IP firewall rules for a Service Bus namespace.
+Use [`az servicebus namespace network-rule-set`](/cli/azure/servicebus/namespace/network-rule-set) add, list, update, and remove commands to manage IP firewall rules for a Service Bus namespace.
 
 ## Use Azure PowerShell
 Use the following Azure PowerShell commands to add, list, remove, update, and delete IP firewall rules. 
 
-- [`Add-AzServiceBusIPRule`](/powershell/module/az.servicebus/add-azservicebusiprule) to add an IP firewall rule.
-- [`New-AzServiceBusIPRuleConfig`](/powershell/module/az.servicebus/new-azservicebusipruleconfig) and [`Set-AzServiceBusNetworkRuleSet`](/powershell/module/az.servicebus/set-azservicebusnetworkruleset) together to add an IP firewall rule
-- [`Remove-AzServiceBusIPRule`](/powershell/module/az.servicebus/remove-azservicebusiprule) to remove an IP firewall rule.
+- [`New-AzServiceBusIPRuleConfig`](/powershell/module/az.servicebus/new-azservicebusipruleconfig) and [`Set-AzServiceBusNetworkRuleSet`](/powershell/module/az.servicebus/set-azservicebusnetworkruleset) together to add an IP firewall rule.
 
-## default action and public network access 
+## Default action and public network access 
 
 ### REST API
 
-The default value of the `defaultAction` property was `Deny` for API version **2021-01-01-preview and earlier**. However, the deny rule isn't enforced unless you set IP filters or virtual network (VNet) rules. That is, if you didn't have any IP filters or VNet rules, it's treated as `Allow`. 
+The default value of the `defaultAction` property was `Deny` for API version **2021-01-01-preview and earlier**. However, the deny rule isn't enforced unless you set IP filters or virtual network rules. That is, if you didn't have any IP filters or virtual network rules, Service Bus treats it as `Allow`. 
 
-From API version **2021-06-01-preview onwards**, the default value of the `defaultAction` property is `Allow`, to accurately reflect the service-side enforcement. If the default action is set to `Deny`, IP filters and VNet rules are enforced. If the default action is set to `Allow`, IP filters and VNet rules aren't enforced. The service remembers the rules when you turn them off and then back on again. 
+From API version **2021-06-01-preview onwards**, the default value of the `defaultAction` property is `Allow`, to accurately reflect the service-side enforcement. If the default action is set to `Deny`, IP filters and virtual network rules are enforced. If the default action is set to `Allow`, IP filters and virtual network rules aren't enforced. The service remembers the rules when you turn them off and then back on again. 
 
-The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
+The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If you set it to `Disabled`, operations are restricted to private links only. If you set it to `Enabled`, operations are allowed over the public internet. 
 
-For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/preview/private-endpoint-connections/create-or-update).
+For more information about these properties, [Create or Update Private Endpoint Connections](/rest/api/servicebus/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
-> None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
+> None of the above settings bypass validation of claims via SAS or Microsoft Entra authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
 
 ### Azure portal
 
-Azure portal always uses the latest API version to get and set properties.  If you had previously configured your namespace using **2021-01-01-preview and earlier** with `defaultAction` set to `Deny`, and specified zero IP filters and VNet rules, the portal would have previously checked **Selected Networks** on the **Networking** page of your namespace. Now, it checks the **All networks** option. 
+Azure portal always uses the latest API version to get and set properties. If you previously configured your namespace using **2021-01-01-preview and earlier** with `defaultAction` set to `Deny`, and specified zero IP filters and virtual network rules, the portal would have previously checked **Selected Networks** on the **Networking** page of your namespace. Now, it checks the **All networks** option. 
 
 :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.":::
 
-## Next steps
+## Related content
 
 For constraining access to Service Bus to Azure virtual networks, see the following link:
 

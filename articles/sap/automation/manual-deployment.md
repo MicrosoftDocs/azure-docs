@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
 # Get started with manual deployment
@@ -37,7 +38,7 @@ Before you begin, [check you're in the correct Azure subscription](#check-azure-
 
 Verify that you're using the appropriate Azure subscription:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. [Open Azure Cloud Shell](https://shell.azure.com/).
 

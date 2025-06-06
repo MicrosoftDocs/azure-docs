@@ -5,14 +5,18 @@ description: Learn how to integrate Azure AD B2C authentication with LexisNexis 
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 12/7/2022
+ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
+
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with LexisNexis ThreatMetrix. I want to configure the API and UI components, so I can verify user identities and perform risk analysis based on user attributes and device profiling information.
+
 ---
 # Tutorial for configuring LexisNexis with Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with [LexisNexis ThreatMetrix](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). Learn more about LexisNexis contact methods and [ThreatMetix](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd), the profiling and identity-validation service that also provides comprehensive risk assessments based on user devices.
 
@@ -28,7 +32,8 @@ ThreatMetrix risk analysis attributes:
 
 To get started, you'll need:
 
-- An Azure AD subscription 
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
@@ -68,7 +73,7 @@ The following architecture diagram shows the implementation.
 To deploy the API code to an Azure service, go to [/samples/ThreatMetrix/Api](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api). You can publish the code from Visual Studio.
 
 >[!NOTE]
->You'll need deployed service URL to configure Azure AD.
+>You'll need deployed service URL to configure Microsoft Entra ID.
 
 ### Configure the API
 

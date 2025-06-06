@@ -4,8 +4,9 @@ description: In this quickstart, you create a .NET Core application that sends/r
 ms.topic: quickstart
 ms.date: 04/26/2023
 ms.devlang: csharp
-author: kasun04
-ms.author: kindrasiri
+ms.custom: devx-track-dotnet
+author: spelluru
+ms.author: spelluru
 ---
 
 # Validate using an Avro schema when streaming events using Event Hubs .NET SDKs (AMQP) 
@@ -265,7 +266,7 @@ This section shows how to write a .NET Core console application that receives ev
     // connection string for the Azure Storage account
     const string blobStorageConnectionString = "AZURESTORAGECONNECTIONSTRING";
     
-    // name of the blob container that will be userd as a checkpoint store
+    // name of the blob container that will be used as a checkpoint store
     const string blobContainerName = "BLOBCONTAINERNAME";
     
     // Create a blob container client that the event processor will use 

@@ -2,15 +2,16 @@
 title: Manage resources - Python
 description: Use Python and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 ms.topic: conceptual
-ms.date: 04/21/2023
-ms.custom: devx-track-azurepowershell, devx-track-arm-template, ai-gen-docs
+ms.date: 02/10/2025
+ms.custom: devx-track-arm-template, devx-track-python
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Manage Azure resources by using Python
 
 Learn how to use Azure Python with [Azure Resource Manager](overview.md) to manage your Azure resources. For managing resource groups, see [Manage Azure resource groups by using Python](manage-resource-groups-python.md).
-
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
 ## Deploy resources to an existing resource group
 
@@ -18,7 +19,7 @@ You can deploy Azure resources directly by using Python, or deploy an Azure Reso
 
 ### Deploy resources by using Python classes
 
-The following example creates a storage account by using [StorageManagementClient.storage_accounts.begin_create](/python/api/azure-mgmt-storage/azure.mgmt.storage.v2022_09_01.operations.storageaccountsoperations#azure-mgmt-storage-v2022-09-01-operations-storageaccountsoperations-begin-create). The name for the storage account must be unique across Azure.
+The following example creates a storage account by using [StorageManagementClient.storage_accounts.begin_create](/azure/storage/blobs/storage-blob-python-get-started). The name for the storage account must be unique across Azure.
 
 ```python
 import os
@@ -154,7 +155,7 @@ For more information, see [Move resources to new resource group or subscription]
 
 ## Lock resources
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource.
 
 The following example locks a web site so it can't be deleted.
 
@@ -241,7 +242,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resources
 
-Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources-python.md).
+Tagging helps you organize your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources-python.md).
 
 ## Next steps
 

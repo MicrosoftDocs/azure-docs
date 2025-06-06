@@ -1,35 +1,49 @@
 ---
 author: ggailey777
 ms.service: azure-functions
+ms.custom:
+  - build-2024
+  - build-2025
 ms.topic: include
-ms.date: 02/25/2022	
+ms.date: 03/06/2025
 ms.author: glenga
 ---
-| Resource |[Consumption plan](../articles/azure-functions/consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
-| --- | --- | --- | --- | --- | --- |
-|Default [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>1</sup> | 30 | 30 |
-|Max [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | unbounded<sup>7</sup> | unbounded<sup>2</sup> | unbounded | unbounded |
-| Max outbound connections (per instance) | 600 active (1200 total) | unbounded | unbounded | unbounded | unbounded |
-| Max request size (MB)<sup>3</sup> | 100 | 100 | 100 | 100 | Depends on cluster |
-| Max query string length<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | Depends on cluster |
-| Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Depends on cluster |
-|[ACU](../articles/virtual-machines/acu.md) per instance | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [AKS pricing](https://azure.microsoft.com/pricing/details/container-service/) |
-| Max memory (GB per instance) | 1.5 | 3.5-14 | 1.75-14 | 3.5 - 14 | Any node is supported |
-| Max instance count (Windows/Linux) | 200/100 | 100/20 | varies by SKU<sup>9</sup> | 100<sup>9</sup> | Depends on cluster |   
-| Function apps per plan |100 |100 |unbounded<sup>4</sup> | unbounded | unbounded |
-| [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group | - | - |
-| [Deployment slots](../articles/azure-functions/functions-deployment-slots.md) per app<sup>10</sup> | 2 | 3 | 1-20<sup>9</sup> | 20 | n/a |
-| Storage<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | n/a |
-| Custom domains per app</a> |500<sup>6</sup> |500 |500 | 500 | n/a |
-| Custom domain [SSL support](../articles/app-service/configure-ssl-bindings.md) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | unbounded SNI SSL and 1 IP SSL connections included | n/a |
+| Resource |[Flex Consumption plan](/azure/azure-functions/flex-consumption-plan)|[Premium plan](/azure/azure-functions/functions-premium-plan)|[Dedicated plan](/azure/azure-functions/dedicated-plan)/[ASE](/azure/app-service/environment/intro)| [Container Apps](/azure/azure-functions/functions-container-apps-hosting)|[Consumption plan](/azure/azure-functions/consumption-plan)|
+| --- | --- | --- | --- | --- | --- | 
+| Default [time-out duration](/azure/azure-functions/functions-scale#timeout) (min) | 30 | 30 |30<sup>1</sup> | 30<sup>16</sup> |5 |
+| Max [time-out duration](/azure/azure-functions/functions-scale#timeout) (min) | unbounded<sup>9</sup> | unbounded<sup>9</sup> | unbounded<sup>2</sup> | unbounded<sup>17</sup> |10 |
+| Max outbound connections (per instance) |  unbounded | unbounded | unbounded | unbounded |600 active (1200 total) |
+| Max request size (MB)<sup>3</sup> |  210 | 210 | 210 | 210 |210 |
+| Max query string length<sup>3</sup> |  4096 | 4096 | 4096 | 4096 | 4096 |
+| Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 8192 | 
+|[ACU](/azure/virtual-machines/acu) per instance |  210-840 | 100-840/210-250<sup>10</sup> | [varies](/azure/container-apps/billing) |100 | varies |
+| Max memory (GB per instance) | 4<sup>14</sup> |  3.5-14 | 1.75-256/8-256 | [varies](/azure/container-apps/billing) |1.5 | 
+| Max instance count (Windows&nbsp;\|&nbsp;Linux)<sup>15</sup> |  n/a&nbsp;\|&nbsp;1000 | 20-100 |  10-30 (100 ASE)<sup>11</sup> | 300-1000<sup>18</sup> | 200&nbsp;\|&nbsp;100 | 
+| Function apps per plan<sup>13</sup> |  1 | 100 | unbounded<sup>4</sup> | unbounded<sup>4</sup> |100 |
+| [App Service plans](/azure/app-service/overview-hosting-plans) |  n/a | 100 per resource group |100 per resource group | n/a | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |
+| [Deployment slots](/azure/azure-functions/functions-deployment-slots) per app<sup>12</sup> |  n/a | 3 | 1-20<sup>11</sup> | not supported |2 |
+| Storage (temporary)<sup>5</sup> |  0.8 GB | 21-140 GB |11-140 GB | n/a |0.5 GB |
+| Storage (persisted) |  0 GB<sup>7</sup> | 250 GB |10-1000 GB<sup>11</sup> | n/a |1 GB<sup>6,7</sup> |
+| Custom domains per app</a> | 500 | 500 | 500 | not supported |500<sup>7</sup> |
+| Custom domain [TSL/SSL support](/azure/app-service/configure-ssl-bindings) | unbounded SNI SSL and one IP SSL connection included | unbounded SNI SSL and one IP SSL connection included |unbounded SNI SSL and one IP SSL connection included | not supported |unbounded SNI SSL connection included |
 
-<sup>1</sup> By default, the timeout for the Functions 1.x runtime in an App Service plan is unbounded.  
-<sup>2</sup> Requires the App Service plan be set to [Always On](../articles/azure-functions/dedicated-plan.md#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/).  
-<sup>3</sup> These limits are [set in the host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
-<sup>4</sup> The actual number of function apps that you can host depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
-<sup>5</sup> The storage limit is the total content size in temporary storage across all apps in the same App Service plan. Consumption plan uses Azure Files for temporary storage.  
-<sup>6</sup> When your function app is hosted in a [Consumption plan](../articles/azure-functions/consumption-plan.md), only the CNAME option is supported. For function apps in a [Premium plan](../articles/azure-functions/functions-premium-plan.md) or an [App Service plan](../articles/azure-functions/dedicated-plan.md), you can map a custom domain using either a CNAME or an A record.  
-<sup>7</sup> Guaranteed for up to 60 minutes.  
-<sup>8</sup> Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.   
-<sup>9</sup> See [App Service limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) for details.  
-<sup>10</sup> Including the production slot.
+Notes on service limits:
+
+1. By default, the time-out for the Functions 1.x runtime in an App Service plan is unbounded.  
+2. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/). A grace period of 10 minutes is given during platform updates.
+3. These limits are [set in the host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
+4. The actual number of function apps that you can host depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
+5. The storage limit is the total content size in temporary storage across all apps in the same App Service plan. For Consumption plans on Linux, the storage is currently 1.5 GB.
+6. Consumption plan uses an Azure Files share for persisted storage. When you provide your own Azure Files share, the specific share size limits depend on the storage account you set for [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](/azure/azure-functions/functions-app-settings#website_contentazurefileconnectionstring). 
+7. On Linux, you must [explicitly mount your own Azure Files share](/azure/azure-functions/storage-considerations#mount-file-shares).
+8. When your function app is hosted in a [Consumption plan](/azure/azure-functions/consumption-plan), only the CNAME option is supported. For function apps in a [Premium plan](/azure/azure-functions/functions-premium-plan) or an [App Service plan](/azure/azure-functions/dedicated-plan), you can map a custom domain using either a CNAME or an A record.  
+9. There's no maximum execution time-out duration enforced. However, the grace period given to a function execution is 60 minutes [during scale in](../articles/azure-functions/event-driven-scaling.md#scale-in-behaviors) and 10 minutes during platform updates.
+10. Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.   
+11. See [App Service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) for details.  
+12. Including the production slot.  
+13. There's currently a limit of 5,000 function apps in a given subscription. 
+14. Flex Consumption plan instance sizes are currently defined as 512 MB, 2,048 MB, or 4,096 MB. For more information, see [Instance memory](/azure/azure-functions/flex-consumption-plan#instance-memory).  
+15. For details, see [Scale](../articles/azure-functions/functions-scale.md#scale) in the Hosting comparison article.
+16. When the [minimum number of replicas](/azure/container-apps/scale-app#scale-definition) is set to zero, the default time-out depends on the specific triggers used in the app.
+17. When the [minimum number of replicas](../articles/container-apps/scale-app.md#scale-definition) is set to one or more.
+

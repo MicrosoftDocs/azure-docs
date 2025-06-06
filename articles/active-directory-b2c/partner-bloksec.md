@@ -2,20 +2,22 @@
 title: Tutorial to configure Azure Active Directory B2C with BlokSec for passwordless authentication
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with BlokSec for Passwordless authentication
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 06/21/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with BlokSec for passwordless authentication. I need to configure integration, so I can simplify user sign-in and protect against identity-related attacks.
 ---
 
 # Tutorial: Configure Azure Active Directory B2C with BlokSec for passwordless authentication
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 ## Before you begin
 
@@ -38,7 +40,7 @@ BlokSec integration includes the following components:
 * **BlokSec Decentralized Identity Router** – gateway for services that apply BlokSec DIaaS to route authentication and authorization requests to user Personal Identity Provider (PIdP) applications
   * It's an OpenID Connect (OIDC) identity provider in Azure AD B2C
 * **BlokSec SDK-based mobile app** – user PIdP in the decentralized authentication scenario. 
-  * If you're not using the BlokSec SDK, go to Google Play for the free [BlokSec yuID](https://play.google.com/store/apps/details?id=com.bloksec)
+  * If you're not using the BlokSec SDK, go to Google Play for the free [BlokSec yuID](https://play.google.com/store/apps/details/Google?id=com.google.android.googlequicksearchbox&hl=en-US)
 
 The following architecture diagram illustrates the sign-up, sign-in flow in the BlokSec solution implementation.
 
@@ -64,7 +66,7 @@ The following architecture diagram illustrates the sign-up, sign-in flow in the 
 
 To get started, you need:
 
-* An Azure AD subscription
+* An Azure subscription
   * If you don't have one, get an [Azfree account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
 * A BlokSec [demo](https://bloksec.com/)
@@ -97,7 +99,7 @@ Learn more: [Send a sign out request](./openid-connect.md#send-a-sign-out-reques
 
 For the following instructions, use the directory that contains your Azure AD B2C tenant. 
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/#home) as Global Administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least B2C IEF Policy Administrator of your Azure AD B2C tenant.
 2. In the portal toolbar, select **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
 4. Select **Switch**.
@@ -162,7 +164,7 @@ For the following instructions, ensure BlokSec is a new OIDC identity provider (
 
 Store the client secret you noted in your Azure AD B2C tenant. For the following instructions, use the directory with your Azure AD B2C tenant. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the portal toolbar, select **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
 4. Select **Switch**.
@@ -199,7 +201,7 @@ To define BlokSec as a claims provider, add it to the **ClaimsProvider** element
           <Metadata>
             <Item Key="METADATA">https://api.bloksec.io/oidc/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the BlokSec Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="response_mode">form_post</Item>
@@ -294,7 +296,7 @@ In the following example, for the `CustomSignUpOrSignIn` user journey, the Refer
 
 For the following instructions, use the directory with your Azure AD B2C tenant. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the portal toolbar, select the **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory
 4. Select **Switch**.
@@ -321,4 +323,3 @@ Learn more: [Tutorial: Register a web application in Azure Active Directory B2C]
 
 * [Azure AD B2C custom policy overview](./custom-policy-overview.md)
 * [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-

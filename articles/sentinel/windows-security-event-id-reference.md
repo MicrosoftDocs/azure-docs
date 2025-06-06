@@ -5,11 +5,15 @@ author: yelevin
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: yelevin
+
+
+#Customer intent: As a security analyst, I want to select specific sets of Windows security events to ingest into Microsoft Sentinel, so that I can efficiently monitor and detect potential threats while managing data volume.
+
 ---
 
 # Windows security event sets that can be sent to Microsoft Sentinel
 
-When ingesting security events from Windows devices using the [Windows Security Events data connector](data-connectors/windows-security-events-via-ama.md) (including the [legacy version](data-connectors/security-events-via-legacy-agent.md)), you can choose which events to collect from among the following sets:
+When ingesting security events from Windows devices using the [Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama) (including the legacy version), you can choose which events to collect from among the following sets:
 
 - **All events** - All Windows security and AppLocker events.
 
@@ -19,7 +23,7 @@ When ingesting security events from Windows devices using the [Windows Security 
 
 - **Minimal** - A small set of events that might indicate potential threats. This set does not contain a full audit trail. It covers only events that might indicate a successful breach, and other important events that have very low rates of occurrence. For example, it contains successful and failed user logons (event IDs 4624, 4625), but it doesn't contain sign-out information (4634) which, while important for auditing, is not meaningful for breach detection and has relatively high volume. Most of the data volume of this set consists of sign-in events and process creation events (event ID 4688).
 
-- **Custom** - A set of events determined by you, the user, and defined in a data collection rule using XPath queries. [Learn more about data collection rules](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries).
+- **Custom** - A set of events determined by you, the user, and defined in a data collection rule using XPath queries. [Learn more about data collection rules](/azure/azure-monitor/agents/data-collection-windows-events#filter-events-using-xpath-queries).
 
 ## Event ID reference
 

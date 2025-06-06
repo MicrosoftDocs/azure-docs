@@ -1,18 +1,18 @@
 ---
-title: Create web APIs & REST APIs for Azure Logic Apps
-description: Create web APIs & REST APIs to call your APIs, services, or systems for system integrations in Azure Logic Apps
+title: Patterns for web APIs and REST APIs
+description: Patterns for web APIs and REST APIs so you can call your APIs, services, or systems from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/21/2022
+ms.date: 04/15/2025
 ---
 
-# Create custom APIs you can call from Azure Logic Apps
+# Patterns for custom web APIs and REST APIs you can call from Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Although Azure Logic Apps offers hundreds of connectors 
+Although Azure Logic Apps offers 1,400+ connectors 
 that you can use in logic app workflows, you might want to call APIs, 
 systems, and services that aren't available as connectors. 
 You can create your own APIs that provide actions and triggers to use in workflows. 
@@ -24,7 +24,7 @@ that you can call from workflows:
 * Expand the reach, discoverability, and use for your service.
 
 Basically, connectors are web APIs that use REST for pluggable interfaces, 
-[Swagger metadata format](https://swagger.io/specification/) for documentation, 
+[OpenAPI metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. Because connectors are REST APIs 
 that communicate through HTTP endpoints, you can use any language to build connectors, 
 such as .NET, Java, Python, or Node.js. 
@@ -59,16 +59,12 @@ easy API hosting.
 > * [Node.js](../app-service/quickstart-nodejs.md)
 > * [PHP](../app-service/quickstart-php.md)
 > * [Python](../app-service/quickstart-python.md)
-> * [Ruby](../app-service/quickstart-ruby.md)
->
-> For API App samples built for logic apps, visit the 
-> [Azure Logic Apps GitHub repository](https://github.com/logicappsio).
 
 ## How do custom APIs differ from custom connectors?
 
 Custom APIs and [custom connectors](../logic-apps/custom-connector-overview.md) 
 are web APIs that use REST for pluggable interfaces, 
-[Swagger metadata format](https://swagger.io/specification/) for documentation, 
+[OpenAPI metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. And because these APIs and connectors 
 are REST APIs that communicate through HTTP endpoints, you can use any language, 
 like .NET, Java, Python, or Node.js, for building custom APIs and connectors.
@@ -81,7 +77,7 @@ like custom APIs but also have these attributes:
 * Registered as Logic Apps Connector resources in Azure.
 * Appear with icons alongside Microsoft-managed connectors in the Logic Apps Designer.
 * Available only to the connectors' authors and logic app resource users who have the same 
-Azure Active Directory tenant and Azure subscription in the region where the 
+Microsoft Entra tenant and Azure subscription in the region where the 
 logic apps are deployed.
 
 You can also nominate registered connectors for Microsoft certification. 
@@ -97,7 +93,7 @@ For more information, review the following documentation:
 ## Helpful tools
 
 A custom API works best with logic apps when the API also has a 
-[Swagger document](https://swagger.io/specification/) 
+[OpenAPI document](https://swagger.io/specification/) 
 that describes the API's operations and parameters.
 Many libraries, like [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), 
 can automatically generate the Swagger file for you. 
@@ -134,9 +130,6 @@ The polling pattern mirrors the behavior where you call the
 bakery every 20 minutes to check whether the cake is ready. 
 The webhook pattern mirrors the behavior where the bakery asks you 
 for your phone number so they can call you when the cake is ready.
-
-For samples, visit the [Logic Apps GitHub repository](https://github.com/logicappsio). 
-Also, learn more about [usage metering for actions](logic-apps-pricing.md).
 
 <a name="async-pattern"></a>
 
@@ -194,7 +187,7 @@ accepted the request payload (data input), and is now processing.
    * *Optional*: A `retry-after` header that specifies the number of seconds 
    that the engine should wait before checking the `location` URL for job status. 
 
-     By default, the engine checks every 20 seconds. To specify a different interval, 
+     By default, the engine polls the `location` URL after one second. To specify a different interval, 
      include the `retry-after` header and the number of seconds until the next poll.
 
 2. After the specified time passes, the Azure Logic Apps engine polls 
@@ -375,14 +368,6 @@ To make your custom APIs available to all users in Logic Apps,
 Power Automate, and Microsoft Power Apps, you must add security, 
 register your APIs as Azure Logic Apps connectors, and nominate your connectors for the 
 [Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
-
-## Get support
-
-* For specific help with custom APIs, 
-  contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
-
-* For questions, visit the 
-  [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 
 ## Next steps
 

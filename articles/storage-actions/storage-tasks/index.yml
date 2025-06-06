@@ -1,0 +1,86 @@
+### YamlMime:Landing
+
+title: Azure Storage Actions documentation
+summary: Azure Storage Actions is a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. The current release of Azure Storage Actions enables you to create storage tasks that can perform operations on blobs in Azure Storage accounts based on a set of conditions that you define.
+
+metadata:
+  title: Azure Storage Actions documentation
+  description: Azure Storage Actions documentation hub page. Points to service documentation for using the Azure Storage Actions to perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
+  ms.service: azure-storage-actions
+  ms.topic: landing-page
+  author: normesta
+  ms.author: normesta
+  ms.date: 05/05/2025
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Storage Actions?
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Storage Actions?
+            url: ../overview.md
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: 'Quickstart: Create, assign, and run a storage task'
+            url: storage-task-quickstart-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a storage task
+            url: storage-task-create.md
+      - linkListType: concept
+        links:
+          - text: Storage task scenarios
+            url: storage-task-scenarios.md
+          - text: Best practices for storage tasks
+            url: storage-task-best-practices.md
+          - text: Known issues and limitations with storage tasks
+            url: storage-task-known-issues.md
+          - text: Costs and billing
+            url: ../storage-actions-plan-manage-costs.md 
+   # Card
+  - title: Storage task composition
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Define storage task conditions and operations
+            url: storage-task-conditions-operations-edit.md
+      - linkListType: concept
+        links:
+          - text: Conditions
+            url: storage-task-conditions.md
+          - text: Operations
+            url: storage-task-operations.md
+     # Card
+  - title: Storage task assignments
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create and manage a storage task assignment
+            url: storage-task-assignment-create.md
+      - linkListType: concept
+        links:
+          - text: Storage task assignment
+            url: storage-task-assignment.md
+          - text: Storage task assignment roles
+            url: storage-task-authorization-roles-assign.md
+     # Card
+  - title: Monitor task runs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Storage task runs
+            url: storage-task-runs.md
+          - text: Monitor Azure Storage Actions
+            url: monitor-storage-tasks.md
+
+
+
+    

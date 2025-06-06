@@ -2,18 +2,13 @@
 title: Implement the Azure VM extension for SAP solutions | Microsoft Docs
 description: Learn how to deploy the VM Extension for SAP.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
-author: OliverDoll
+author: OliverDoMS
 manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/22/2021
 ms.author: oldoll
 ---
@@ -79,8 +74,9 @@ This version is the current standard VM Extension for SAP. There are some except
 This version is the new Azure VM extension for SAP solutions. With further improvements and new Azure Offerings the new extension was built to be able to monitor all Azure resources of a virtual machine. This extension needs internet access to the URL "management.azure.com". It supports additional storage options, for example Standard Disks and operating systems. Please choose the new version of the VM Extension if one of the following applies:
  
 * You want to install the VM extension with Terraform, Azure Resource Manager Templates or with other means than Azure CLI or Azure PowerShell
-* You want to install the extension on SUSE SLES 15 or higher.
-* You want to install the extension on Red Hat Enterprise Linux 8.1 or higher.
+* You want to install the extension on SUSE SLES 15 or higher
+* You want to install the extension on Red Hat Enterprise Linux 8.1 or higher
+* You want to install the extension on Oracle Linux 8.1 or higher
 * You want to use Azure Ultra Disk or Standard Managed Disks
 * Microsoft or SAP support asks you to install the new extension
  
@@ -94,4 +90,3 @@ We currently recommend using the standard version of the extension for each inst
 ## Next steps
 * [Standard Version of Azure VM extension for SAP solutions][std-extension]
 * [New Version of Azure VM extension for SAP solutions][new-extension]
-

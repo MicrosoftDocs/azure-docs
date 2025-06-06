@@ -1,9 +1,9 @@
 ---
-title: "include file"
-description: "include file"
+title: "Assign roles in Azure Service Bus"
+description: "This include contains information and steps about assigning Azure Service Bus roles to a user."
 services: service-bus
 author: alexwolfmsft
-ms.service: service-bus
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 10/11/2022
 ms.author: alexwolf
@@ -35,13 +35,13 @@ The following example will assign the **Azure Service Bus Data Owner** role to y
 
 6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
-7. In the dialog, search for your Azure AD username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
+7. In the dialog, search for your Microsoft Entra username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
 
 8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
 ### [Azure CLI](#tab/roles-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az servicesbus namespace show` command. You can filter the output properties using the `--query` parameter.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az servicebus namespace show` command. You can filter the output properties using the `--query` parameter.
 
 ```azurecli
 az servicebus namespace show --resource-group '<your-resource-group-name>' --name '<your-service-bus-namespace>' --query id

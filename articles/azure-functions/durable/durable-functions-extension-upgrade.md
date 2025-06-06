@@ -3,6 +3,7 @@ title: Upgrade Durable Functions extension version
 description: Learn why it's important to use the latest version of the Durable Functions extension and how to upgrade to the latest.
 author: lilyjma
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 02/15/2023
 ms.author: azfuncdf
 ---
@@ -32,7 +33,7 @@ If you're using the Netherite or MSSQL [storage providers](durable-functions-sto
 * [MSSQL, isolated worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer)
 
 ## Upgrade the extension bundle 
-[Extension bundles](../functions-bindings-register.md#extension-bundles) provide an easy and convenient way for non-.NET function apps to reference and use various Azure Function triggers and bindings. For example, if you need to send a message to Event Hubs every time your function is triggered, you can use the Event Hubs extension to gain access to Event Hubs bindings. The Durable Functions extension is also included in each version of extension bundles. Extension bundles are automatically configured in host.json when creating a function app using any of the supported development tools. 
+[Extension bundles](../extension-bundles.md) provide an easy and convenient way for non-.NET function apps to reference and use various Azure Function triggers and bindings. For example, if you need to send a message to Event Hubs every time your function is triggered, you can use the Event Hubs extension to gain access to Event Hubs bindings. The Durable Functions extension is also included in each version of extension bundles. Extension bundles are automatically configured in host.json when creating a function app using any of the supported development tools. 
 
 Most non-.NET applications rely on extension bundles to gain access to various triggers and bindings. The [latest bundle release](https://github.com/Azure/azure-functions-extension-bundles) often contains the latest version of the Durable Functions extension with critical bug fixes and performance improvements. Therefore, it's important that your app uses the latest version of extension bundles. You can check your host.json file to see whether the version range you're using includes the latest extension bundle version. 
 
@@ -52,15 +53,11 @@ func extensions install
 However, if you **only** wish to install the latest Durable Functions extension release, you would run the following command: 
 
 ```console
-func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
+func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
 ```
 
 For example:
 
 ```console
-func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
+func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
 ```
-
-
-
-

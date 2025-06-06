@@ -5,24 +5,24 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # View and create queries for monitoring and tracking in Azure Monitor logs for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 > [!NOTE]
 > This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, review 
 > [Enable or open Application Insights after deployment for Standard logic apps](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
 
-You can view the underlying queries that produce the results from [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) and create queries that filter the results based your specific criteria. For example, you can find messages based on a specific interchange control number. Queries use the [Kusto query language](/azure/data-explorer/kusto/query/), which you can edit if you want to view different results. For more information, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/).
+You can view the underlying queries that produce the results from [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) and create queries that filter the results based your specific criteria. For example, you can find messages based on a specific interchange control number. Queries use the [Kusto query language](/azure/data-explorer/kusto/query/), which you can edit if you want to view different results. For more information, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/).
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A Log Analytics workspace. If you don't have a Log Analytics workspace, learn [how to create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
+* A Log Analytics workspace. If you don't have a Log Analytics workspace, learn [how to create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
 * A logic app that's set up with Azure Monitor logging and sends that information to a Log Analytics workspace. Learn [how to set up Azure Monitor logs for your logic app](../logic-apps/monitor-logic-apps.md).
 
@@ -48,7 +48,7 @@ To view or edit the query that produces the results in your workspace summary, f
 
 ## Create your own query
 
-To find or filter results based on specific properties or values, you can create your own query by starting from an empty query or use an existing query. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
+To find or filter results based on specific properties or values, you can create your own query by starting from an empty query or use an existing query. For more information, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 
 1. In the [Azure portal](https://portal.azure.com), find and select your Log Analytics workspace.
 
@@ -68,6 +68,4 @@ To find or filter results based on specific properties or values, you can create
 
 ## Next steps
 
-* [AS2 tracking schemas](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
-* [X12 tracking schemas](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
-* [Custom tracking schemas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
+* [Tracking schemas for monitoring B2B messages](tracking-schemas-as2-x12-custom.md)

@@ -21,6 +21,8 @@
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-azure-resource-manager.md
+    - name: Terraform
+      href: quick-create-terraform.md
     - name: PowerShell
       href: stream-analytics-quick-create-powershell.md
   - name: Create a cluster
@@ -39,17 +41,23 @@
     href: no-code-power-bi-tutorial.md
   - name: Visualize fraudulent calls in Power BI
     href: stream-analytics-real-time-fraud-detection.md
-  - name: Integrate 3rd party services using Azure Functions
+  - name: Integrate third party services using Azure Functions
     href: stream-analytics-with-azure-functions.md
-  - name: Create a custom .NET deserializer
-    href: visual-studio-code-custom-deserializer.md
   - name: Create an IoT Edge job
     href: ../iot-edge/tutorial-deploy-stream-analytics.md
     maintainContext: true
 - name: Samples
   items:
   - name: Code samples
-    href: /samples/browse/?products=azure-stream-analytics
+    items:
+    - name: .NET
+      href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/streamanalytics/Azure.ResourceManager.StreamAnalytics/samples/Generated/Samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/streamanalytics/azure-resourcemanager-streamanalytics/src/samples/java/com/azure/resourcemanager/streamanalytics/generated
+    - name: JavaScript and TypeScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/streamanalytics/arm-streamanalytics/samples/v5-beta
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/streamanalytics/azure-mgmt-streamanalytics/generated_samples
 - name: Concepts
   items:
   - name: Stream Analytics resource model
@@ -75,12 +83,8 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/stream-analytics-security-baseline?toc=/azure/stream-analytics/TOC.json
-  - name: Metrics for job monitoring
-    items:
-    - name: Stream Analytics metrics
-      href: stream-analytics-job-metrics.md
-    - name: Stream Analytics metrics dimensions
-      href: stream-analytics-job-metrics-dimensions.md
+  - name: Integrate with Schema Registry
+    href: stream-analytics-schema-registry-integration.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -89,10 +93,10 @@
       href: stream-analytics-define-inputs.md
     - name: Reference data inputs
       href: stream-analytics-use-reference-data.md
+    - name: Kafka input
+      href: stream-analytics-define-kafka-input.md
     - name: Validate input schema
       href: input-validation.md
-    - name: Read inputs in any format using custom deserializers
-      href: custom-deserializer-examples.md
   - name: Output types for a job
     items:
     - name: Outputs overview
@@ -136,8 +140,8 @@
       href: service-bus-topics-output.md
     - name: Azure Functions
       href: azure-functions-output.md
-    - name: Azure Data Lake Storage Gen 1
-      href: azure-data-lake-storage-gen1-output.md
+    - name: Kafka output
+      href: kafka-output.md
   - name: Extend queries with functions
     items:
     - name: Functions overview
@@ -179,6 +183,8 @@
     href: stream-analytics-stream-analytics-query-patterns.md
   - name: Parse JSON and AVRO data
     href: stream-analytics-parsing-json.md
+  - name: Parsing Protobuf
+    href: stream-analytics-parsing-protobuf.md
   - name: Event ordering
     items:
     - name: Event ordering overview
@@ -219,8 +225,6 @@
       href: geo-redundancy.md
     - name: Encrypt your data (CMK)
       href: data-protection.md
-    - name: Configure alerts
-      href: stream-analytics-set-up-alerts.md
   - name: Manage Stream Analytics clusters
     items:
     - name: Create and delete private endpoints
@@ -280,12 +284,9 @@
     - name: Service Bus
       href: service-bus-managed-identity.md
       displayName: managed identity, identities, authenticate
-    - name: Azure Data Lake Storage Gen 1
-      href: stream-analytics-managed-identities-adls.md
-      displayName: managed identity, identities, authenticate
   - name: Build solutions
     items:
-    - name: Twitter sentiment analysis
+    - name: X sentiment analysis
       href: stream-analytics-twitter-sentiment-analysis-trends.md
     - name: Run jobs on Azure Stack
       href: on-azure-stack.md
@@ -312,15 +313,31 @@
       href: geospatial-scenarios.md
   - name: Monitor
     items:
+    - name: Monitor Stream Analytics
+      href: monitor-azure-stream-analytics.md
+    - name: Monitoring data reference
+      href: monitor-azure-stream-analytics-reference.md
     - name: Monitor jobs - Azure portal
       href: stream-analytics-monitoring.md
     - name: Monitor jobs - PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
     - name: Monitor jobs - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
+    - name: Configure alerts
+      href: stream-analytics-set-up-alerts.md
+    - name: Use activity and resource logs
+      href: stream-analytics-job-diagnostic-logs.md
+  - name: Optimize jobs
+    items:
+    - name: Job simulation
+      href: optimize-query-using-job-diagram-simulator.md
+    - name: Physical job diagram
+      href: stream-analytics-job-physical-diagram-with-metrics.md
+    - name: Logical job diagram
+      href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Automate
     items:
-    - name: Using PowerShell for auto-pausing
+    - name: Using PowerShell for auto pausing
       href: automation-powershell.md
     - name: Using .NET SDK for management
       href: stream-analytics-dotnet-management-sdk.md
@@ -336,11 +353,31 @@
       href: cicd-tools.md
     - name: Set up a pipeline with Azure DevOps
       href: set-up-cicd-pipeline.md
+    - name: Set up a pipeline using GitHub Actions
+      href: cicd-github-actions.md
+    - name: Deploy jobs with Bicep
+      href: cicd-deploy-with-bicep.md
     - name: Configure autoscale settings
       href: cicd-autoscale.md
+  - name: Visual Studio Code
+    items:
+    - name: Export and manage jobs
+      href: visual-studio-code-explore-jobs.md
+    - name: Test locally with live data
+      href: visual-studio-code-local-run-live-input.md
+    - name: Complete code with IntelliSense
+      href: vs-code-intellisense.md
+    - name: Run jobs locally with VS Code
+      href: visual-studio-code-local-run-all.md
+    - name: Test locally with sample data
+      href: visual-studio-code-local-run.md
+    - name: Debug queries using job diagram
+      href: debug-locally-using-job-diagram-vs-code.md
+    - name: JobConfig.json fields
+      href: job-config-json.md
   - name: Visual Studio
     items:
-    - name: Migrate ASA projects to VSCode
+    - name: Migrate to VS Code
       href: migrate-to-vscode.md
     - name: Quickstart
       href: stream-analytics-quick-create-vs.md
@@ -354,32 +391,12 @@
       href: stream-analytics-monitor-jobs-use-vs.md
     - name: Debug queries using job diagram
       href: debug-locally-using-job-diagram.md
-    - name: Create a custom .NET deserializer
-      href: custom-deserializer.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Run a C# UDF
       href: stream-analytics-edge-csharp-udf.md
     - name: Set up CI/CD pipeline
       href: stream-analytics-tools-for-visual-studio-cicd.md
-  - name: Visual Studio Code
-    items:
-    - name: Complete code with IntelliSense
-      href: vs-code-intellisense.md
-    - name: Run jobs locally with VS Code
-      href: visual-studio-code-local-run-all.md
-    - name: Test locally with sample data
-      href: visual-studio-code-local-run.md
-    - name: Test locally with live data
-      href: visual-studio-code-local-run-live-input.md
-    - name: Debug queries using job diagram
-      href: debug-locally-using-job-diagram-vs-code.md
-    - name: Explore jobs
-      href: visual-studio-code-explore-jobs.md
-    - name: Create and debug .NET custom deserializer
-      href: visual-studio-code-custom-deserializer.md
-    - name: JobConfig.json fields
-      href: job-config-json.md
   - name: Troubleshoot
     items:
     - name: Input
@@ -390,8 +407,6 @@
       href: stream-analytics-troubleshoot-query.md
     - name: Watermark delay increase
       href: stream-analytics-job-analysis-with-metric-dimensions.md
-    - name: Activity and resource logs
-      href: stream-analytics-job-diagnostic-logs.md
     - name: Data errors
       href: data-errors.md
     - name: Error codes
@@ -414,22 +429,16 @@
       href: stream-analytics-machine-learning-anomaly-detection.md
     - name: Use ML REST APIs
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
-  - name: Export from Application Insights
-    items:
-    - name: Export to Stream Analytics
-      href: app-insights-export-stream-analytics.md
-    - name: Export to SQL using Stream Analytics
-      href: app-insights-export-sql-stream-analytics.md
-  - name: Debug and optimize using job diagram
-    items:
-    - name: Optimize query using job diagram simulator
-      href: optimize-query-using-job-diagram-simulator.md
-    - name: Physical job diagram
-      href: stream-analytics-job-physical-diagram-with-metrics.md
-    - name: Logical job diagram
-      href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
+  - name: Run job in your virtual network
+    href: run-job-in-virtual-network.md
+  - name: Connect to confluent cloud kafka
+    items:
+    - name: Connect to confluent cloud kafka as input
+      href: confluent-kafka-input.md
+    - name: Connect to confluent cloud Kafka as output
+      href: confluent-kafka-output.md
 - name: Stream Analytics Query Language
   items:
     - name: Stream Analytics Query Language overview
@@ -760,6 +769,9 @@
         - name: Parsing JSON and AVRO data
           href: stream-analytics-parsing-json.md
           maintainContext: true
+        - name: Parsing Protobuf
+          href: stream-analytics-parsing-protobuf.md
+          maintainContext: true
     - name: Query Language Elements
       items:
         - name: Query Language Elements Overview
@@ -856,7 +868,7 @@
   - name: Feedback forum
     href: https://feedback.azure.com/d365community/forum/d12ec4e3-b825-ec11-b6e6-000d3a4f0f1c
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-stream-analytics.html
+    href: /answers/tags/179/azure-stream-analytics
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/stream-analytics/
   - name: Pricing calculator

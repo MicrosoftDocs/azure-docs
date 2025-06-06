@@ -1,13 +1,12 @@
 ---
-title: Create and use v2 custom rules
+title: Create and use WAF v2 custom rules on Application Gateway
 titleSuffix: Azure Web Application Firewall
 description: This article provides information on how to create Web Application Firewall (WAF) v2 custom rules in Azure Application Gateway.
-services: web-application-firewall
-ms.topic: article
-author: vhorne
-ms.service: web-application-firewall
-ms.date: 04/06/2023
-ms.author: victorh 
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-web-application-firewall
+ms.topic: how-to
+ms.date: 04/30/2025
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -20,9 +19,7 @@ This article shows you some example custom rules that you can create and use wit
 The JSON snippets shown in this article are derived from a [ApplicationGatewayWebApplicationFirewallPolicies](/azure/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) resource.
 
 >[!NOTE]
-> If your application gateway is not using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
-
-![Enable WAF][fig1]
+> If your application gateway isn't using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
 
 ## Example 1
 
@@ -51,7 +48,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -71,7 +68,7 @@ And here's the corresponding JSON:
             }
           ],
           "operator": "Contains",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "evilbot"
           ],
@@ -112,7 +109,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -132,7 +129,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "Regex",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "evilbot"
           ],
@@ -170,7 +167,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -189,7 +186,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "GeoMatch",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "US"
           ],
@@ -230,7 +227,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-Here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -249,7 +246,7 @@ Here's the corresponding JSON:
             }
           ],
           "operator": "IPMatch",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "192.168.5.0/24"
           ],
@@ -300,7 +297,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -State Enabled
 ```
 
-Here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -319,7 +316,7 @@ Here's the corresponding JSON:
             }
           ],
           "operator": "IPMatch",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "192.168.5.0/24"
           ],
@@ -333,7 +330,7 @@ Here's the corresponding JSON:
             }
           ],
           "operator": "Contains",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "evilbot"
           ],
@@ -391,7 +388,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -410,7 +407,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "IPMatch",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "192.168.5.0/24"
           ],
@@ -433,7 +430,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "Contains",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "chrome"
           ],
@@ -494,7 +491,7 @@ Corresponding JSON:
             }
           ],
           "operator": "Equal",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "user1",
             "user2"
@@ -509,7 +506,7 @@ Corresponding JSON:
 
 ## Example 7
 
-It isn't uncommon to see Azure Front Door deployed in front of Application Gateway. In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on securing access to your application using Azure Front Door, see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
+It isn't uncommon to see Azure Front Door deployed in front of Application Gateway. In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on securing access to your application using Azure Front Door, see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-)
 
 Logic: **not** p
 
@@ -535,7 +532,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -555,7 +552,7 @@ And here's the corresponding JSON:
             }
           ],
           "operator": "Equal",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ],
@@ -569,8 +566,6 @@ And here's the corresponding JSON:
 }
 ```
 
-## Next steps
+## Next step
 
 After you create your custom rules, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-
-[fig1]: ../media/create-custom-waf-rules/1.png

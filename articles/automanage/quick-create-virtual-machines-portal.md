@@ -5,12 +5,17 @@ author: ju-shim
 ms.author: jushiman
 ms.date: 12/10/2021
 ms.topic: quickstart
-ms.service: automanage
-ms.workload: infrastructure
+ms.service: azure-automanage
 ms.custom: mode-ui
 ---
 
 # Quickstart: Enable Azure Automanage for virtual machines in the Azure portal
+
+> [!CAUTION]
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. As a result, attempting to create a new configuration profile or onboarding a new subscription to the service will result in an error. Learn more [here](https://aka.ms/automanagemigration/) about how to migrate to Azure Policy before that date. 
+
+> [!CAUTION]
+> Starting February 1st 2025, Azure Automanage will begin rolling out changes to halt support and enforcement for all services dependent on the deprecated Microsoft Monitoring Agent (MMA). To continue using Change Tracking and Management, VM Insights, Update Management, and Azure Automation, [migrate to the new Azure Monitor Agent (AMA)](https://aka.ms/mma-to-ama/).
 
 Get started with Azure Automanage for virtual machines by using the Azure portal to enable automanagement on a new or existing virtual machine.
 
@@ -69,7 +74,7 @@ Quickly stop using Azure Automanage for virtual machines by disabling automanage
 
 1. Go to the **Automanage – Azure virtual machine best practices** page that lists all of your auto-managed VMs.
 1. Select the checkbox next to the virtual machine you want to disable.
-1. Click on the **Disable automanagent** button.
+1. Click on the **Disable automanagement** button.
 1. Read carefully through the messaging in the resulting pop-up before agreeing to **Disable**.
 
 
@@ -88,7 +93,7 @@ Azure Automanage creates default resource groups to store resources in. Check re
 
 In this quickstart, you enabled Azure Automanage for VMs.
 
-Discover how you can create and apply customize profiles when enabling Automanage on your virtual machine.
+Discover how you can create and apply customized profiles when enabling Automanage on your virtual machine.
 
 > [!div class="nextstepaction"]
 > [Azure Automanage Custom Profiles](virtual-machines-custom-profile.md)

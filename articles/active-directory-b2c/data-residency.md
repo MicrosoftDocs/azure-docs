@@ -2,32 +2,39 @@
 title: "Azure AD B2C: Region availability & data residency"
 titleSuffix: Azure AD B2C
 description: Region availability, data residency, high availability, SLA, and information about Azure Active Directory B2C preview tenants.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 03/06/2023
+ms.date: 11/27/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: references_regions
+
+
+#Customer intent: As a user of Azure Active Directory B2C, I want to understand the region availability and data residency options, so that I can choose the appropriate location for storing my customer data and ensure compliance with corporate policies and regulations.
+
 ---
 
 # Azure Active Directory B2C: Region availability & data residency
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-Azure Active Directory B2C (Azure AD B2C) stores customer data in a geographic location based on how a tenant was created and provisioned. For the Azure portal or Azure AD API, the location is defined when a customer selects a location from the pre-defined list.
+Azure Active Directory B2C (Azure AD B2C) stores customer data in a geographic location based on how a tenant was created and provisioned. For the Azure portal or Microsoft Entra API, the location is defined when a customer selects a location from the pre-defined list.
 
 Region availability and data residency are two different concepts that apply to Azure AD B2C. This article explains the differences between these two concepts, and compares how they apply to Azure versus Azure AD B2C. [Region availability](#region-availability) refers to where a service is available for use whereas [Data residency](#data-residency) refers to where user data is stored.
 
  
-Azure AD B2C is **generally available worldwide** with the option for **data residency** in the **United States, Europe, Asia Pacific, or Australia**.
+Azure AD B2C is **generally available worldwide** with the option for **data residency** in the **United States, Europe, Asia Pacific Australia or New Zealand**.
 
 [Region availability](#region-availability) refers to where a service is available for use. [Data residency](#data-residency) refers to where customer data is stored. For customers in the EU and EFTA, see [EU Data Boundary](#eu-data-boundary).
 
 If you enable [Go-Local add-on](#go-local-add-on), you can store your data exclusively in a specific country/region.
 
+> [!NOTE]
+> Azure AD B2C is generally available in the Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet. Azure AD B2C is not available in Microsoft Azure Government.
 
 ## Region availability
 
@@ -47,13 +54,13 @@ Data resides in the **United States** for the following locations:
 
 Data resides in **Europe** for the following locations:
 
-> Algeria (DZ), Austria (AT), Azerbaijan (AZ), Bahrain (BH), Belarus (BY), Belgium (BE), Bulgaria (BG), Croatia (HR), Cyprus (CY), Czech Republic (CZ), Denmark (DK), Egypt (EG), Estonia (EE), Finland (FT), France (FR), Germany (DE), Greece (GR), Hungary (HU), Iceland (IS), Ireland (IE), Israel (IL), Italy (IT), Jordan (JO), Kazakhstan (KZ), Kenya (KE), Kuwait (KW), Latvia (LV), Lebanon (LB), Liechtenstein (LI), Lithuania (LT), Luxembourg (LU), North Macedonia (ML), Malta (MT), Montenegro (ME), Morocco (MA), Netherlands (NL), Nigeria (NG), Norway (NO), Oman (OM), Pakistan (PK), Poland (PL), Portugal (PT), Qatar (QA), Romania (RO), Russia (RU), Saudi Arabia (SA), Serbia (RS), Slovakia (SK), Slovenia (ST), South Africa (ZA), Spain (ES), Sweden (SE), Switzerland (CH), Tunisia (TN), Türkiye (TR), Ukraine (UA), United Arab Emirates (AE) and United Kingdom (GB)
+> Algeria (DZ), Austria (AT), Azerbaijan (AZ), Bahrain (BH), Belarus (BY), Belgium (BE), Bulgaria (BG), Croatia (HR), Cyprus (CY), Czech Republic (CZ), Denmark (DK), Egypt (EG), Estonia (EE), Finland (Fl), France (FR), Germany (DE), Greece (GR), Hungary (HU), Iceland (IS), Ireland (IE), Israel (IL), Italy (IT), Jordan (JO), Kazakhstan (KZ), Kenya (KE), Kuwait (KW), Latvia (LV), Lebanon (LB), Liechtenstein (LI), Lithuania (LT), Luxembourg (LU), North Macedonia (ML), Malta (MT), Montenegro (ME), Morocco (MA), Netherlands (NL), Nigeria (NG), Norway (NO), Oman (OM), Pakistan (PK), Poland (PL), Portugal (PT), Qatar (QA), Romania (RO), Russia (RU), Saudi Arabia (SA), Serbia (RS), Slovakia (SK), Slovenia (ST), South Africa (ZA), Spain (ES), Sweden (SE), Switzerland (CH), Tunisia (TN), Türkiye (TR), Ukraine (UA), United Arab Emirates (AE) and United Kingdom (GB)
 
 Data resides in **Asia Pacific** for the following locations:
 
 > Afghanistan (AF), Hong Kong SAR (HK), India (IN), Indonesia (ID), Japan (JP), Korea (KR), Malaysia (MY), Philippines (PH), Singapore (SG), Sri Lanka (LK), Taiwan (TW), and Thailand (TH)
 
-Data resides in **Australia** for the following locations:
+Data resides in Australia or New Zealand for the following locations:
 
 > Australia (AU) and New Zealand (NZ)
 
@@ -61,14 +68,14 @@ The following locations are in the process of being added to the list. For now, 
 
 > Argentina, Brazil, Chile, Colombia, Ecuador, Iraq, Paraguay, Peru, Uruguay, and Venezuela
 
-To find the exact location where your data is located per country/country, refer to [where Azure Active Directory data is located](https://aka.ms/aaddatamap)service.   
+To find the exact location where your data is located per country/region, refer to [where Microsoft Entra data is located](https://aka.ms/aaddatamap)service.   
 
 
 ### Go-Local add-on
 
-*Go-Local* refers to Microsoft’s commitment to allow some customers to configure some services to store their data at rest in the Geo of the customer’s choice, typically a country/region. Go-Local is as way fulfilling corporate policies and compliance requirements. You choose the country/region where you want to store your data when you [create your Azure AD B2C](tutorial-create-tenant.md).  
+*Go-Local* refers to Microsoft’s commitment to allow some customers to configure some services to store their data at rest in the Geo of the customer’s choice, typically a country/region. Go-Local is as way of fulfilling corporate policies and compliance requirements. You choose the country/region where you want to store your data when you [create your Azure AD B2C](tutorial-create-tenant.md).  
 
-The Go-Local add-on is a paid add-on, but it's optional. If you choose to use it, you'll incur an extra charge in addition to your Azure AD B2C Premium P1 or P2 licenses. See more information in [Billing model](billing.md). 
+The Go-Local add-on is a paid add-on, but it's optional. If you choose to use it, you'll incur an extra charge in addition to your Azure AD B2C **Premium P1 or P2** licenses. See more information in [Billing model](billing.md). 
 
 At the moment, the following countries/regions have the local data residence option:
 
@@ -78,13 +85,10 @@ At the moment, the following countries/regions have the local data residence opt
 
 #### What do I need to do? 
 
-|If you're in  | What to do  |
+|Tenant status  | What to do  |
 |-------------|---------|
-| Australia | If you've an existing Azure AD B2C tenant that you created since **April 2021**, then your data is resident in Australia. You need to opt in to start using Go-Local add-on. <br> If you're creating a new Azure AD B2C tenant, you can enable Go-Local add-on when you create it.|
-| Japan | You can enable Go-Local add-on when you create a new Azure AD B2C tenant. |
-
-
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-go-local-add-on-preview-label.md)] 
+| I've an existing tenant | You need to opt in to start using Go-Local add-on by using the steps in [Activate Go-Local ad-on](tutorial-create-tenant.md#activate-azure-ad-b2c-go-local-add-on). |
+| I'm creating a new tenant | You enable Go-Local add-on when you create your new Azure AD B2C tenant. Learn how to [create your Azure AD B2C](tutorial-create-tenant.md) tenant.|
 
 ## EU Data Boundary
 

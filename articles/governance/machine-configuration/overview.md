@@ -1,12 +1,13 @@
 ---
-title: Understand Azure Automanage Machine Configuration
+title: Understand Azure Machine Configuration
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
-ms.date: 04/18/2023
+ms.date: 02/01/2024
 ms.topic: conceptual
 ---
-# Understand the machine configuration feature of Azure Automanage
+# Understanding Azure Machine Configuration
 
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 Azure Policy's machine configuration feature provides native capability to audit or configure
 operating system settings as code for machines running in Azure and hybrid
@@ -23,7 +24,7 @@ such as:
 
 Configurations are distinct from policy definitions. Machine configuration uses Azure Policy to
 dynamically assign configurations to machines. You can also assign configurations to machines
-[manually][03], or by using other Azure services such as [Automanage][04].
+[manually][03].
 
 Examples of each scenario are provided in the following table.
 
@@ -32,9 +33,22 @@ Examples of each scenario are provided in the following table.
 | [Configuration management][05] | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website."                                                                                                                                |
 | [Compliance][06]               | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they're deployed.                                                                  | "All machines should use TLS 1.2. Audit existing machines so I can release change where it's needed, in a controlled way, at scale. For new machines, enforce the setting when they're deployed." |
 
-You can view the per-setting results from configurations in the [Guest assignments page][07]. If an
+You can view the per-setting results from configurations in the [Guest assignments page][44]. If an
 Azure Policy assignment orchestrated the configuration is orchestrated, you can select the "Last
-evaluated resource" link on the ["Compliance details" page][07].
+evaluated resource" link on the ["Compliance details" page][07]. 
+
+> [!NOTE]
+> Machine Configuration currently supports the creation of up to 50 guest assignments per machine.
+
+## Enforcement Modes for Custom Policies
+
+In order to provide greater flexibility in the enforcement and monitoring of server settings, applications and workloads, Machine Configuration offers three main enforcement modes for each policy assignment as described in the following table.
+
+| Mode                  | Description                                                                                  |
+|:----------------------|:---------------------------------------------------------------------------------------------|
+| Audit                 | Only report on the state of the machine                                                      |
+| Apply and Monitor     | Configuration applied to the machine and then monitored for changes                          |
+| Apply and Autocorrect | Configuration applied to the machine and brought back into conformance in the event of drift |
 
 [A video walk-through of this document is available][08]. (Update coming soon)
 
@@ -64,17 +78,20 @@ Arc-enabled servers because it's included in the Arc Connected Machine agent.
 > machines.
 
 To deploy the extension at scale across many machines, assign the policy initiative
-`Deploy prerequisites to enable guest configuration policies on virtual machines` to a management
-group, subscription, or resource group containing the machines that you plan to manage.
+`Deploy prerequisites to enable Guest Configuration policies on virtual machines`
+to a management group, subscription, or resource group containing the machines that you plan to
+manage.
 
-If you prefer to deploy the extension and managed identity to a single machine, follow the guidance
-for each:
-
-- [Overview of the Azure Policy Guest Configuration extension][13]
-- [Configure managed identities for Azure resources on a VM using the Azure portal][14]
+If you prefer to deploy the extension and managed identity to a single machine, see
+[Configure managed identities for Azure resources on a VM using the Azure portal][14].
 
 To use machine configuration packages that apply configurations, Azure VM guest configuration
-extension version 1.29.24 or later is required.
+extension version 1.26.24 or later is required.
+
+> [!IMPORTANT]
+> The creation of a managed identity or assignment of a policy with "Guest Configuration 
+> Resource Contributor" role are actions that require appropriate Azure RBAC permissions to perform.
+> To learn more about Azure Policy and Azure RBAC, see [role-based access control in Azure Policy][45].
 
 ### Limits set on the extension
 
@@ -92,7 +109,7 @@ built-in content, machine configuration handles loading these tools automaticall
 
 | Operating system |                 Validation tool                 |                                                                         Notes                                                                          |
 | ---------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Windows          | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. Doesn't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                |
+| Windows          | [PowerShell Desired State Configuration][15] v2 | Side-loaded to a folder only used by Azure Policy. Doesn't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                |
 | Linux            | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. PowerShell isn't added to system path.                                                              |
 | Linux            | [Chef InSpec][16]                               | Installs Chef InSpec version 2.2.61 in default location and adds it to system path. It installs InSpec's dependencies, including Ruby and Python, too. |
 
@@ -115,28 +132,33 @@ status is then written to Azure Resource Graph.
 
 Machine configuration policy definitions are inclusive of new versions. Older versions of operating
 systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
-compatible. The following table shows a list of supported operating systems on Azure images. The
-`.x` text is symbolic to represent new minor versions of Linux distributions.
+compatible. Additionally, Linux server versions that are out of lifetime support by their
+respective publishers are excluded from the support matrix.
+
+The following table shows a list of supported operating systems on Azure images. The `.x` text is
+symbolic to represent new minor versions of Linux distributions.
 
 | Publisher | Name                       | Versions         |
 | --------- | -------------------------- | ---------------- |
 | Alma      | AlmaLinux                  | 9                |
 | Amazon    | Linux                      | 2                |
-| Canonical | Ubuntu Server              | 14.04 - 20.x     |
-| Credativ  | Debian                     | 8 - 10.x         |
+| Canonical | Ubuntu Server              | 16.04 - 24.x     |
+| Credativ  | Debian                     | 10.x - 12.x      |
 | Microsoft | CBL-Mariner                | 1 - 2            |
-| Microsoft | Windows Client             | Windows 10       |
-| Microsoft | Windows Server             | 2012 - 2022      |
+| Microsoft | Azure Linux                | 3                |
+| Microsoft | Windows Client             | Windows 10, 11   |
+| Microsoft | Windows Server             | 2012 - 2025      |
 | Oracle    | Oracle-Linux               | 7.x - 8.x        |
 | OpenLogic | CentOS                     | 7.3 - 8.x        |
 | Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 9.x        |
-| Rocky     | Rocky Linux                | 9                |
-| SUSE      | SLES                       | 12 SP3-SP5, 15.x |
+| Rocky     | Rocky Linux                | 8                |
+| SUSE      | SLES                       | 12 SP5, 15.x     |
 
 \* Red Hat CoreOS isn't supported.
 
 Machine configuration policy definitions support custom virtual machine images as long as they're
-one of the operating systems in the previous table.
+one of the operating systems in the previous table. Machine Configuration does not support VMSS 
+uniform but does support [VMSS Flex][46].
 
 ## Network requirements
 
@@ -146,60 +168,61 @@ Link to communicate with the machine configuration service.
 Azure Arc-enabled machines connect using the on-premises network infrastructure to reach Azure
 services and report compliance status.
 
-Following is a list of the Azure Storage endpoints required for Azure and Azure Arc-enabled virtual
-machines to communicate with the machine configuration resource provider in Azure:
+The following table shows the supported endpoints for Azure and Azure Arc-enabled machines:
 
-- `oaasguestconfigac2s1.blob.core.windows.net`
-- `oaasguestconfigacs1.blob.core.windows.net`
-- `oaasguestconfigaes1.blob.core.windows.net`
-- `oaasguestconfigases1.blob.core.windows.net`
-- `oaasguestconfigbrses1.blob.core.windows.net`
-- `oaasguestconfigbrss1.blob.core.windows.net`
-- `oaasguestconfigccs1.blob.core.windows.net`
-- `oaasguestconfigces1.blob.core.windows.net`
-- `oaasguestconfigcids1.blob.core.windows.net`
-- `oaasguestconfigcuss1.blob.core.windows.net`
-- `oaasguestconfigeaps1.blob.core.windows.net`
-- `oaasguestconfigeas1.blob.core.windows.net`
-- `oaasguestconfigeus2s1.blob.core.windows.net`
-- `oaasguestconfigeuss1.blob.core.windows.net`
-- `oaasguestconfigfcs1.blob.core.windows.net`
-- `oaasguestconfigfss1.blob.core.windows.net`
-- `oaasguestconfiggewcs1.blob.core.windows.net`
-- `oaasguestconfiggns1.blob.core.windows.net`
-- `oaasguestconfiggwcs1.blob.core.windows.net`
-- `oaasguestconfigjiws1.blob.core.windows.net`
-- `oaasguestconfigjpes1.blob.core.windows.net`
-- `oaasguestconfigjpws1.blob.core.windows.net`
-- `oaasguestconfigkcs1.blob.core.windows.net`
-- `oaasguestconfigkss1.blob.core.windows.net`
-- `oaasguestconfigncuss1.blob.core.windows.net`
-- `oaasguestconfignes1.blob.core.windows.net`
-- `oaasguestconfignres1.blob.core.windows.net`
-- `oaasguestconfignrws1.blob.core.windows.net`
-- `oaasguestconfigqacs1.blob.core.windows.net`
-- `oaasguestconfigsans1.blob.core.windows.net`
-- `oaasguestconfigscuss1.blob.core.windows.net`
-- `oaasguestconfigseas1.blob.core.windows.net`
-- `oaasguestconfigsecs1.blob.core.windows.net`
-- `oaasguestconfigsfns1.blob.core.windows.net`
-- `oaasguestconfigsfws1.blob.core.windows.net`
-- `oaasguestconfigsids1.blob.core.windows.net`
-- `oaasguestconfigstzns1.blob.core.windows.net`
-- `oaasguestconfigswcs1.blob.core.windows.net`
-- `oaasguestconfigswns1.blob.core.windows.net`
-- `oaasguestconfigswss1.blob.core.windows.net`
-- `oaasguestconfigswws1.blob.core.windows.net`
-- `oaasguestconfiguaecs1.blob.core.windows.net`
-- `oaasguestconfiguaens1.blob.core.windows.net`
-- `oaasguestconfigukss1.blob.core.windows.net`
-- `oaasguestconfigukws1.blob.core.windows.net`
-- `oaasguestconfigwcuss1.blob.core.windows.net`
-- `oaasguestconfigwes1.blob.core.windows.net`
-- `oaasguestconfigwids1.blob.core.windows.net`
-- `oaasguestconfigwus2s1.blob.core.windows.net`
-- `oaasguestconfigwus3s1.blob.core.windows.net`
-- `oaasguestconfigwuss1.blob.core.windows.net`
+| **Region** | **Geography** | **URL** | **Storage endpoint**|
+|---| ---| ---| ---|
+| **EastAsia**  | Asia Pacific | agentserviceapi.guestconfiguration.azure.com</br>eastasia-gas.guestconfiguration.azure.com</br> ea-gas.guestconfiguration.azure.com | oaasguestconfigeas1.blob.core.windows.net</br> oaasguestconfigseas1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+| **SoutheastAsia** | Asia Pacific | agentserviceapi.guestconfiguration.azure.com</br>southeastasia-gas.guestconfiguration.azure.com</br> sea-gas.guestconfiguration.azure.com | oaasguestconfigeas1.blob.core.windows.net</br> oaasguestconfigseas1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+| **AustraliaEast** | Australia | agentserviceapi.guestconfiguration.azure.com</br>australiaeast-gas.guestconfiguration.azure.com</br> ae-gas.guestconfiguration.azure.com | oaasguestconfigases1.blob.core.windows.net</br> oaasguestconfigaes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+| **AustraliaSoutheast** | Australia | agentserviceapi.guestconfiguration.azure.com</br>australiaeast-gas.guestconfiguration.azure.com</br> ae-gas.guestconfiguration.azure.com | oaasguestconfigases1.blob.core.windows.net</br> oaasguestconfigaes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**BrazilSouth**| Brazil | agentserviceapi.guestconfiguration.azure.com</br>brazilsouth-gas.guestconfiguration.azure.com</br> brs-gas.guestconfiguration.azure.com | oaasguestconfigbrss1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**CanadaCentral**| Canada | agentserviceapi.guestconfiguration.azure.com</br>canadacentral-gas.guestconfiguration.azure.com</br> cc-gas.guestconfiguration.azure.com | oaasguestconfigccs1.blob.core.windows.net</br> oaasguestconfigces1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**CanadaEast**| Canada | agentserviceapi.guestconfiguration.azure.com</br>canadaeast-gas.guestconfiguration.azure.com</br> ce-gas.guestconfiguration.azure.com | oaasguestconfigccs1.blob.core.windows.net</br> oaasguestconfigces1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**ChinaEast2**| China | agentserviceapi.guestconfiguration.azure.cn</br>chinaeast2-gas.guestconfiguration.azure.cn</br> chne2-gas.guestconfiguration.azure.cn | oaasguestconfigchne2s2.blob.core.chinacloudapi.cn |
+|**ChinaNorth**| China | agentserviceapi.guestconfiguration.azure.cn</br>chinanorth-gas.guestconfiguration.azure.cn</br> chnn-gas.guestconfiguration.azure.cn | oaasguestconfigchnns2.blob.core.chinacloudapi.cn |
+|**ChinaNorth2**| China | agentserviceapi.guestconfiguration.azure.cn</br>chinanorth2-gas.guestconfiguration.azure.cn</br> chnn2-gas.guestconfiguration.azure.cn | oaasguestconfigchnn2s2.blob.core.chinacloudapi.cn |
+|**ChinaNorth3**| China | agentserviceapi.guestconfiguration.azure.cn</br>chinanorth3-gas.guestconfiguration.azure.cn</br> chnn3-gas.guestconfiguration.azure.cn | oaasguestconfigchnn3s1.blob.core.chinacloudapi.cn |
+|**NorthEurope**| Europe | agentserviceapi.guestconfiguration.azure.com</br>northeurope-gas.guestconfiguration.azure.com</br> ne-gas.guestconfiguration.azure.com | oaasguestconfignes1.blob.core.windows.net</br> oaasguestconfigwes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**WestEurope**| Europe | agentserviceapi.guestconfiguration.azure.com</br>westeurope-gas.guestconfiguration.azure.com</br> we-gas.guestconfiguration.azure.com | oaasguestconfignes1.blob.core.windows.net</br> oaasguestconfigwes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**FranceCentral**| France | agentserviceapi.guestconfiguration.azure.com</br>francecentral-gas.guestconfiguration.azure.com</br> fc-gas.guestconfiguration.azure.com | oaasguestconfigfcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**GermanyNorth** | Germany | agentserviceapi.guestconfiguration.azure.com</br>germanynorth-gas.guestconfiguration.azure.com</br> gen-gas.guestconfiguration.azure.com | oaasguestconfiggens1.blob.core.windows.net</br> oaasguestconfiggewcs1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**GermanyWestCentral** | Germany | agentserviceapi.guestconfiguration.azure.com</br>germanywestcentral-gas.guestconfiguration.azure.com</br> gewc-gas.guestconfiguration.azure.com | oaasguestconfiggens1.blob.core.windows.net</br> oaasguestconfiggewcs1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**CentralIndia**| India | agentserviceapi.guestconfiguration.azure.com</br>centralindia-gas.guestconfiguration.azure.com</br> cid-gas.guestconfiguration.azure.com | oaasguestconfigcids1.blob.core.windows.net</br> oaasguestconfigsids1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SouthIndia**| India | agentserviceapi.guestconfiguration.azure.com</br>southindia-gas.guestconfiguration.azure.com</br> sid-gas.guestconfiguration.azure.com | oaasguestconfigcids1.blob.core.windows.net</br> oaasguestconfigsids1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**IsraelCentral**| Israel | agentserviceapi.guestconfiguration.azure.com</br>israelcentral-gas.guestconfiguration.azure.com</br> ilc-gas.guestconfiguration.azure.com | oaasguestconfigilcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**ItalyNorth**| Italy | agentserviceapi.guestconfiguration.azure.com</br>italynorth-gas.guestconfiguration.azure.com</br> itn-gas.guestconfiguration.azure.com | oaasguestconfigitns1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**JapanEast**| Japan | agentserviceapi.guestconfiguration.azure.com</br>japaneast-gas.guestconfiguration.azure.com</br> jpe-gas.guestconfiguration.azure.com | oaasguestconfigjpws1.blob.core.windows.net</br> oaasguestconfigjpes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**JapanWest**| Japan | agentserviceapi.guestconfiguration.azure.com</br>japanwest-gas.guestconfiguration.azure.com</br> jpw-gas.guestconfiguration.azure.com | oaasguestconfigjpws1.blob.core.windows.net</br> oaasguestconfigjpes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**KoreaCentral**| Korea | agentserviceapi.guestconfiguration.azure.com</br>koreacentral-gas.guestconfiguration.azure.com</br> kc-gas.guestconfiguration.azure.com | oaasguestconfigkcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**MexicoCentral**| Mexico | agentserviceapi.guestconfiguration.azure.com</br>mexicocentral-gas.guestconfiguration.azure.com</br> mxc-gas.guestconfiguration.azure.com | oaasguestconfigmxcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**NorwayEast**| Norway | agentserviceapi.guestconfiguration.azure.com</br>norwayeast-gas.guestconfiguration.azure.com</br> noe-gas.guestconfiguration.azure.com | oaasguestconfignoes2.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**PolandCentral**| Poland | agentserviceapi.guestconfiguration.azure.com</br>polandcentral-gas.guestconfiguration.azure.com</br> plc-gas.guestconfiguration.azure.com | oaasguestconfigwcuss1.blob.core.windows.net |
+|**QatarCentral**| Qatar | agentserviceapi.guestconfiguration.azure.com</br>qatarcentral-gas.guestconfiguration.azure.com</br> qac-gas.guestconfiguration.azure.com | oaasguestconfigqacs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SouthAfricaNorth** | SouthAfrica | agentserviceapi.guestconfiguration.azure.com</br>southafricanorth-gas.guestconfiguration.azure.com</br> san-gas.guestconfiguration.azure.com | oaasguestconfigsans1.blob.core.windows.net</br> oaasguestconfigsaws1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SouthAfricaWest** | SouthAfrica | agentserviceapi.guestconfiguration.azure.com</br>southafricawest-gas.guestconfiguration.azure.com</br> saw-gas.guestconfiguration.azure.com | oaasguestconfigsans1.blob.core.windows.net</br> oaasguestconfigsaws1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SpainCentral**| Spain | agentserviceapi.guestconfiguration.azure.com</br>spaincentral-gas.guestconfiguration.azure.com</br> spc-gas.guestconfiguration.azure.com | oaasguestconfigspcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SwedenCentral**| Sweden | agentserviceapi.guestconfiguration.azure.com</br>swedencentral-gas.guestconfiguration.azure.com</br> swc-gas.guestconfiguration.azure.com | oaasguestconfigswcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SwitzerlandNorth**| Switzerland | agentserviceapi.guestconfiguration.azure.com</br>switzerlandnorth-gas.guestconfiguration.azure.com</br> stzn-gas.guestconfiguration.azure.com | oaasguestconfigstzns1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SwitzerlandWest**| Switzerland | agentserviceapi.guestconfiguration.azure.com</br>switzerlandwest-gas.guestconfiguration.azure.com</br> stzw-gas.guestconfiguration.azure.com | oaasguestconfigstzns1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**TaiwanNorth**| Taiwan | agentserviceapi.guestconfiguration.azure.com</br>taiwannorth-gas.guestconfiguration.azure.com</br> twn-gas.guestconfiguration.azure.com | oaasguestconfigtwns1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**UAENorth**| United Arab Emirates| agentserviceapi.guestconfiguration.azure.com</br>uaenorth-gas.guestconfiguration.azure.com</br> uaen-gas.guestconfiguration.azure.com | oaasguestconfiguaens1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**UKSouth**| United Kingdom | agentserviceapi.guestconfiguration.azure.com</br>uksouth-gas.guestconfiguration.azure.com</br> uks-gas.guestconfiguration.azure.com | oaasguestconfigukss1.blob.core.windows.net</br> oaasguestconfigukws1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**UKWest**| United Kingdom | agentserviceapi.guestconfiguration.azure.com</br>ukwest-gas.guestconfiguration.azure.com</br> ukw-gas.guestconfiguration.azure.com | oaasguestconfigukss1.blob.core.windows.net</br> oaasguestconfigukws1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**EastUS**| US | agentserviceapi.guestconfiguration.azure.com</br>eastus-gas.guestconfiguration.azure.com</br> eus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**EastUS2**| US | agentserviceapi.guestconfiguration.azure.com</br>eastus2-gas.guestconfiguration.azure.com</br> eus2-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**WestUS**| US | agentserviceapi.guestconfiguration.azure.com</br>westus-gas.guestconfiguration.azure.com</br> wus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**WestUS2**| US | agentserviceapi.guestconfiguration.azure.com</br>westus2-gas.guestconfiguration.azure.com</br> wus2-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**WestUS3**| US | agentserviceapi.guestconfiguration.azure.com</br>westus3-gas.guestconfiguration.azure.com</br> wus3-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**CentralUS**| US | agentserviceapi.guestconfiguration.azure.com</br>centralus-gas.guestconfiguration.azure.com</br> cus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**NorthCentralUS**| US | agentserviceapi.guestconfiguration.azure.com</br>northcentralus-gas.guestconfiguration.azure.com</br> ncus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SouthCentralUS**| US | agentserviceapi.guestconfiguration.azure.com</br>southcentralus-gas.guestconfiguration.azure.com</br> scus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**WestCentralUS**| US | agentserviceapi.guestconfiguration.azure.com</br>westcentralus-gas.guestconfiguration.azure.com</br> wcus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**USGovArizona** | US Gov | agentserviceapi.guestconfiguration.azure.us</br>usgovarizona-gas.guestconfiguration.azure.us</br> usga-gas.guestconfiguration.azure.us | oaasguestconfigusgas1.blob.core.usgovcloudapi.net |
+|**USGovTexas** | US Gov | agentserviceapi.guestconfiguration.azure.us</br>usgovtexas-gas.guestconfiguration.azure.us</br> usgt-gas.guestconfiguration.azure.us | oaasguestconfigusgts1.blob.core.usgovcloudapi.net |
+|**USGovVirginia** | US Gov | agentserviceapi.guestconfiguration.azure.us</br>usgovvirginia-gas.guestconfiguration.azure.us</br> usgv-gas.guestconfiguration.azure.us | oaasguestconfigusgvs1.blob.core.usgovcloudapi.net |
+
+
 
 ### Communicate over virtual networks in Azure
 
@@ -265,10 +288,10 @@ correct behavior based on the current state of the machine resource in Azure.
 > instead. [Learn More][25]
 
 If the machine doesn't currently have any managed identities, the effective policy is:
-[Add system-assigned managed identity to enable machine configuration assignments on virtual machines with no identities][26]
+[Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with no identities][26]
 
 If the machine currently has a user-assigned system identity, the effective policy is:
-[Add system-assigned managed identity to enable machine configuration assignments on VMs with a user-assigned identity][27]
+[Add system-assigned managed identity to enable Guest Configuration assignments on VMs with a user-assigned identity][27]
 
 ## Availability
 
@@ -333,6 +356,9 @@ assignments:
 
 Azure Policy definitions in the category `Guest Configuration` can be assigned to management groups
 when the effect is `AuditIfNotExists` or `DeployIfNotExists`.
+
+> [!IMPORTANT]
+> When [policy exemptions][47] are created on a Machine Confgiguration policy, the associated guest assignment will need to be deleted in order to stop the agent from scanning.
 
 ### Client log files
 
@@ -438,46 +464,49 @@ Machine configuration built-in policy samples are available in the following loc
 - Learn how to view [compliance details for machine configuration][07] policy assignments.
 
 <!-- Link reference definitions -->
-[01]: ../../azure-arc/servers/overview.md
-[02]: ../../azure-resource-manager/management/extension-resource-types.md
-[03]: assignments.md#manually-creating-machine-configuration-assignments
-[04]: ../../automanage/index.yml
-[05]: assignments.md
+[01]: /azure/azure-arc/servers/overview
+[02]: /azure/azure-resource-manager/management/extension-resource-types
+[03]: ./concepts/assignments.md#manually-creating-machine-configuration-assignments
+[04]: /azure/automanage
+[05]: ./concepts/assignments.md
 [06]: ../policy/assign-policy-portal.md
 [07]: ../policy/how-to/determine-non-compliance.md
 [08]: https://youtu.be/t9L8COY-BkM
-[09]: ../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal
-[10]: ../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell
-[11]: ../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli
-[12]: ../../virtual-machines/extensions/overview.md
-[13]: ./overview.md
-[14]: ../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md
+[09]: /azure/azure-resource-manager/management/resource-providers-and-types#azure-portal
+[10]: /azure/azure-resource-manager/management/resource-providers-and-types#azure-powershell
+[11]: /azure/azure-resource-manager/management/resource-providers-and-types#azure-cli
+[12]: /azure/virtual-machines/extensions/overview
+[14]: /entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm
 [15]: /powershell/dsc/overview
 [16]: https://www.chef.io/inspec/
 [17]: ../policy/how-to/get-compliance-data.md#evaluation-triggers
-[18]: ../../virtual-network/manage-network-security-group.md#create-a-security-rule
-[19]: ../../virtual-network/service-tags-overview.md
+[18]: /azure/virtual-network/manage-network-security-group#create-a-security-rule
+[19]: /azure/virtual-network/service-tags-overview
 [20]: https://www.microsoft.com/download/details.aspx?id=56519
-[21]: ../../private-link/private-link-overview.md
-[22]: ../../virtual-network/what-is-ip-address-168-63-129-16.md
-[23]: ../../azure-arc/servers/network-requirements.md
-[24]: ../../azure-arc/servers/private-link-security.md
-[25]: ../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request
+[21]: /azure/private-link/private-link-overview
+[22]: /azure/virtual-network/what-is-ip-address-168-63-129-16
+[23]: /azure/azure-arc/servers/network-requirements
+[24]: /azure/azure-arc/servers/private-link-security
+[25]: /azure/active-directory/managed-identities-azure-resources/managed-identities-faq#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request
 [26]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e
 [27]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6
-[28]: ../../virtual-machines/availability.md
-[29]: ../../availability-zones/cross-region-replication-azure.md
-[30]: ../../virtual-machines/availability.md#availability-sets
-[31]: ../../site-recovery/site-recovery-overview.md
+[28]: /azure/virtual-machines/availability
+[29]: /azure/reliability/cross-region-replication-azure
+[30]: /azure/virtual-machines/availability#availability-sets
+[31]: /azure/site-recovery/site-recovery-overview
 [32]: ../policy/troubleshoot/general.md
-[33]: ./how-to-set-up-authoring-environment.md
-[34]: ./how-to-test-package.md
-[35]: ../../virtual-machines/windows/run-command.md
-[36]: ../../virtual-machines/linux/run-command.md
+[33]: ./how-to/develop-custom-package/overview.md
+[34]: ./how-to/develop-custom-package/3-test-package.md
+[35]: /azure/virtual-machines/windows/run-command
+[36]: /azure/virtual-machines/linux/run-command
 [37]: https://github.com/azure/nxtools#getting-started
-[38]: ../policy/samples/built-in-policies.md
-[39]: ../policy/samples/built-in-initiatives.md
+[38]: ../policy/samples/built-in-policies.md#guest-configuration
+[39]: ../policy/samples/built-in-initiatives.md#guest-configuration
 [40]: https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration
 [41]: https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules
-[42]: ./how-to-create-package.md
-[43]: ./how-to-create-policy-definition.md
+[42]: ./how-to/develop-custom-package/overview.md
+[43]: ./how-to/create-policy-definition.md
+[44]: ../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration
+[45]: ../policy/overview.md
+[46]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration
+[47]: ../policy/concepts/exemption-structure.md

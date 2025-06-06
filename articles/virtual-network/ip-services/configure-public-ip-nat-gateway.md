@@ -2,12 +2,12 @@
 title: Manage a public IP address with a NAT gateway
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with an Azure Virtual Network NAT gateway and how to change the configuration.
-author: asudbring
-ms.author: allensu
-ms.service: virtual-network
+author: mbender-ms
+ms.author: mbender
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 12/15/2022
+ms.date: 01/07/2025
 ms.custom: template-how-to, engagement-fy23
 ---
 
@@ -34,7 +34,7 @@ In this article, you learn how to:
 
 ## Create NAT gateway using existing public IP
 
-In this section, you'll create a NAT gateway resource. You'll select the IP address you created in the prerequisites as the public IP for the NAT gateway.
+In this section, you create a NAT gateway resource. You select the IP address you created in the prerequisites as the public IP for the NAT gateway.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -50,7 +50,7 @@ In this section, you'll create a NAT gateway resource. You'll select the IP addr
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroupNAT**. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> Enter **myResourceGroupNAT**.</br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myNATgateway**. |
     | Region | Select **(US) West US 2**. |
@@ -72,9 +72,9 @@ In this section, you'll create a NAT gateway resource. You'll select the IP addr
 
 ## Change or remove public IP address
 
-In this section, you'll change the IP address of the NAT gateway. 
+In this section, you change the IP address of the NAT gateway. 
 
-To change the IP, you'll associate a new public IP address created previously with the NAT gateway. A NAT gateway must have at least one IP address assigned.
+To change the IP, you associate a new public IP address created previously with the NAT gateway. A NAT gateway must have at least one IP address assigned.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -103,9 +103,9 @@ To change the IP, you'll associate a new public IP address created previously wi
 Public IP prefixes extend the extensibility of SNAT for outbound connections from the NAT gateway. A public IP prefix avoids SNAT port exhaustion. Each IP provides 64,512 ephemeral ports to NAT gateway for connecting outbound.
 
 > [!NOTE] 
-> When assigning a public IP prefix to a NAT gateway, the entire range will be used. 
+> When assigning a public IP prefix to a NAT gateway, the entire range is used. 
 
-In this section, you'll change the outbound IP configuration to use a public IP prefix you created previously.
+In this section, you change the outbound IP configuration to use a public IP prefix you created previously.
 
 > [!NOTE]
 > You can choose to remove the single IP address associated with the NAT gateway and reuse, or leave it associated to the NAT gateway to increase the outbound SNAT ports. NAT gateway supports a combination of public IPs and prefixes in the outbound IP configuration. If you created a public IP prefix with 16 addresses, remove the single public IP. The number of allocated IPs can't exceed 16.
@@ -139,7 +139,7 @@ In this section, you'll change the outbound IP configuration to use a public IP 
     > [!NOTE] 
     > Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Members of the load balancer backend pool would also use the NAT gateway for outbound connections. For more information, see [Design virtual networks with NAT gateway](../nat-gateway/nat-gateway-resource.md).
 
-* NAT gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives.  If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence. For more information, see [Design virtual networks with NAT gateway](../nat-gateway/nat-gateway-resource.md#timers).
+* NAT gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives. If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence. For more information, see [Design virtual networks with NAT gateway](../nat-gateway/nat-gateway-resource.md#timers).
 
 ## Caveats
 

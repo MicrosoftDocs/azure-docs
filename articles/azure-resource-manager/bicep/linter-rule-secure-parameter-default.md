@@ -1,9 +1,9 @@
 ---
 title: Linter rule - secure parameter default
 description: Linter rule - secure parameter default
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/10/2023
+ms.date: 02/12/2025
 ---
 
 # Linter rule - secure parameter default

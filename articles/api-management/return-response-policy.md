@@ -4,13 +4,15 @@ description: Reference for the return-response policy available for use in Azure
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: article
-ms.date: 12/08/2022
+ms.service: azure-api-management
+ms.topic: reference
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Return response
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `return-response` policy cancels pipeline execution and returns either a default or custom response to the caller. Default response is `200 OK` with no body. Custom response can be specified via a context variable or policy statements. When both are provided, the response contained within the context variable is modified by the policy statements before being returned to the caller.
 
@@ -36,15 +38,19 @@ The `return-response` policy cancels pipeline execution and returns either a def
 
 | Element         | Description                                                                               | Required |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
-| set-status      | A [set-status](set-status-policy.md) policy statement.           | No       |
-| set-header      | A [set-header](set-header-policy.md) policy statement. | No       |
-| set-body        | A [set-body](set-body-policy.md) policy statement.         | No       |
+| [set-status](set-status-policy.md)      | Sets the status code of the response.           | No       |
+| [set-header](set-header-policy.md)      | Sets a header in the response. | No       |
+| [set-body](set-body-policy.md)        | Sets the body in the response.         | No       |
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
+
+### Usage notes
+
+- A liquid template doesn't work when specified inside the body (set using `set-body`) of the `return-response` policy. The `return-response` policy cancels the current execution pipeline and removes the request body and response body in the current context. As a result, a liquid template specified inside the policy receives an empty string as its input and won't produce the expected output.  
 
 ## Example
 
@@ -59,6 +65,6 @@ The `return-response` policy cancels pipeline execution and returns either a def
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

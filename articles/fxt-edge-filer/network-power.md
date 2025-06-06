@@ -1,14 +1,17 @@
 ---
 title: 'Tutorial: Connect cables to an Azure FXT Edge Filer'
 description: How to cable the network ports and attach power for Azure FXT Edge Filer hardware
-author: femila
-ms.author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ---
 
 # Tutorial: Make network connections and supply power to the Azure FXT Edge Filer node
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 This tutorial teaches you how to cable the network connections for an Azure FXT Edge Filer hardware node.
 

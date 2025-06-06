@@ -3,14 +3,19 @@ title: OS and runtime patching cadence
 description: Learn how Azure App Service updates the OS and runtimes, what runtimes and patch level your apps has, and how you can get update announcements.
 ms.topic: article
 ms.date: 01/21/2021
-ms.custom: UpdateFrequency3
+ms.custom:
+  - UpdateFrequency3
+  - devx-track-azurecli
+  - build-2025
+author: cephalin
+ms.author: cephalin
 ---
 
 # OS and runtime patching in Azure App Service
 
 This article shows you how to get certain version information regarding the OS or software in [App Service](overview.md). 
 
-App Service is a Platform-as-a-Service, which means that the OS and application stack are managed for you by Azure; you only manage your application and its data. More control over the OS and application stack is available for you in [Azure Virtual Machines](../virtual-machines/index.yml). With that in mind, it is nevertheless helpful for you as an App Service user to know more information, such as:
+App Service is a Platform-as-a-Service, which means that the OS and application stack are managed for you by Azure; you only manage your application and its data. More control over the OS and application stack is available for you in [Azure Virtual Machines](/azure/virtual-machines/). With that in mind, it is nevertheless helpful for you as an App Service user to know more information, such as:
 
 -	How and when are OS updates applied?
 -	How is App Service patched against significant vulnerabilities (such as zero-day)?
@@ -20,7 +25,7 @@ For security reasons, certain specifics of security information are not publishe
 
 ## How and when are OS updates applied?
 
-Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](/security-updates/) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. 
+Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](/security-updates/) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. Azure App Service OS patching follows Safe Deployment Practices and Availability-First approach. As such, while we strive to ensure the latest patches are applied as soon as possible, OS patching may be slowed or paused at times to avoid app impacts and outages
 
 For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 

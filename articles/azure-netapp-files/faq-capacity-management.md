@@ -1,12 +1,13 @@
 ---
-title: FAQs About Azure NetApp Files | Microsoft Docs
+title: FAQs About Azure NetApp Files
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files capacity management.
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 09/01/2022
+ms.date: 03/01/2025
+ms.custom:
+  - build-2025
 ---
 # Capacity management FAQs for Azure NetApp Files
 
@@ -19,9 +20,10 @@ Azure NetApp Files provides capacity pool and volume usage metrics. You can also
 ## How do I determine if a directory is approaching the limit size?
 
 You can use the `stat` command from a client to see whether a directory is approaching the [maximum size limit](azure-netapp-files-resource-limits.md#resource-limits) for directory metadata (320 MB).
-See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#directory-limit) for the limit and calculation. 
 
-## Does snapshot space count towards the usable / provisioned capacity of a volume?
+See [Understand directory sizes in Azure NetApp Files](directory-sizes-concept.md) for the limit and calculation. 
+
+## Does snapshot space count towards the usable/provisioned capacity of a volume?
 
 Yes, the [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the provisioned space in the volume. In case the volume runs full, consider taking the following actions:
 
@@ -30,17 +32,17 @@ Yes, the [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-
 
 ## Does Azure NetApp Files support auto-grow for volumes or capacity pools?
 
-No, Azure NetApp Files volumes and capacity pool do not auto-grow upon filling up. See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md).   
+No, Azure NetApp Files volumes and capacity pools don't auto-grow upon filling up. See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md).   
 
-You can use the community supported [Logic Apps ANFCapacityManager tool](https://github.com/ANFTechTeam/ANFCapacityManager) to manage capacity-based alert rules. The tool can automatically increase volume sizes to prevent your volumes from running out of space.
+You can use the community supported [ANFCapacityManager tool](https://github.com/ANFTechTeam/ANFCapacityManager) to manage capacity-based alert rules. The tool can automatically increase volume sizes to prevent your volumes from running out of space.
 
 ## Does the destination volume of a replication count towards hard volume quota?  
 
-No, the destination volume of a replication does not count towards hard volume quota.
+No, the destination volume of a replication doesn't count towards hard volume quota.
 
 ## Can I manage Azure NetApp Files through Azure Storage Explorer?
 
-No. Azure NetApp Files is not supported by Azure Storage Explorer.
+No. Azure NetApp Files isn't supported by Azure Storage Explorer.
 
 ## Why is volume space not freed up immediately after deleting large amount of data in a volume?
 
@@ -48,7 +50,7 @@ When deleting a very large amount of data in a volume (which can include snapsho
 
 ## Next steps  
 
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)
 - [Performance FAQs](faq-performance.md)

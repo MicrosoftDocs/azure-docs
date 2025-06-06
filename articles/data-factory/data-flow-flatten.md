@@ -5,11 +5,10 @@ description: Denormalize hierarchical data using the flatten transformation in A
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/21/2023
+ms.date: 02/13/2025
 ---
 
 # Flatten transformation in mapping data flow
@@ -20,7 +19,7 @@ ms.date: 04/21/2023
 
 Use the flatten transformation to take array values inside hierarchical structures such as JSON and unroll them into individual rows. This process is known as denormalization.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWLX9j]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=df700f65-858e-4017-9114-bba7b4e6bbd9]
 
 ## Configuration
 
@@ -195,7 +194,7 @@ source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
     skipDuplicateMapOutputs: false) 
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Pivot transformation](data-flow-pivot.md) to pivot rows to columns.
 * Use the [Unpivot transformation](data-flow-unpivot.md) to pivot columns to rows.

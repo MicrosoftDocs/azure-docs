@@ -2,18 +2,22 @@
 title: User migration approaches
 titleSuffix: Azure AD B2C
 description: Migrate user accounts from another identity provider to Azure AD B2C by using the pre migration or seamless migration methods.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
-ms.date: 12/29/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.custom: engagement-fy23
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As an IT admin migrating user accounts to Azure AD B2C, I want to understand the different migration methods (pre migration and seamless migration), so that I can choose the appropriate approach and write the necessary application or script using the Microsoft Graph API.
+
 ---
 # Migrate users to Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Migrating from another identity provider to Azure Active Directory B2C (Azure AD B2C) might also require migrating existing user accounts. Two migration methods are discussed here, *pre migration* and *seamless migration*. With either approach, you're required to write an application or script that uses the [Microsoft Graph API](microsoft-graph-operations.md) to create user accounts in Azure AD B2C.
 
@@ -102,6 +106,6 @@ If the accounts you're migrating have weaker password strength than the [strong 
 
 ## Next steps
 
-The [azure-ad-b2c/user-migration](https://github.com/azure-ad-b2c/user-migration) repository on GitHub contains a seamless migration custom policy example and REST API code sample:
+The [`azure-ad-b2c/user-migration`](https://github.com/azure-ad-b2c/user-migration) repository on GitHub contains a seamless migration custom policy example and REST API code sample:
 
-[Seamless user migration custom policy & REST API code sample](https://aka.ms/b2c-account-seamless-migration)
+[Seamless user migration custom policy and REST API code sample](https://aka.ms/b2c-account-seamless-migration)

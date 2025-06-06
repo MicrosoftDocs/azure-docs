@@ -2,11 +2,11 @@
 title: 'Quickstart: Create an Azure Firewall and a firewall policy - Bicep'
 description: In this quickstart, you deploy an Azure Firewall and a firewall policy using Bicep.
 services: firewall-manager
-author: vhorne
-ms.author: victorh
-ms.date: 07/05/2022
+author: duongau
+ms.author: duau
+ms.date: 01/08/2025
 ms.topic: quickstart
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
@@ -16,7 +16,7 @@ In this quickstart, you use Bicep to create an Azure Firewall and a firewall pol
 
 Also, IP Groups are used in the rules to define the **Source** IP addresses.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
 
@@ -91,7 +91,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the firewall, delete the resource group. This removes the firewall and all the related resources.
+When you no longer need the resources that you created with the firewall, delete the resource group. The firewall and all the related resources are deleted.
 
 
 # [CLI](#tab/CLI)

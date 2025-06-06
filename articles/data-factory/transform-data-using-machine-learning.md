@@ -4,34 +4,30 @@ description: Learn how to create a predictive pipeline by using Machine Learning
 titleSuffix: Azure Data Factory & Azure Synapse
 author: nabhishek
 ms.author: abnarain
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/22/2022
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Create a predictive pipeline using Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-azure-ml-batch-execution-activity.md)
-> * [Current version](transform-data-using-machine-learning.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 > [!NOTE] 
 > Since Machine Learning Studio (classic) resources can no longer be created after 1 Dec, 2021, users are encouraged to use [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) with the [Machine Learning Execute Pipeline activity](transform-data-machine-learning-service.md) rather than using the Batch Execution activity to execute Machine Learning Studio (classic) batches.
 
-[ML Studio (classic)](../machine-learning/index.yml) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
+[ML Studio (classic)](/azure/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using the ML Studio (classic). ML Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
 2. **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring.
 3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. You can send data to your model via this web service end point and receive result predictions from the model.
 
 ### Using Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
-Azure Data Factory and Synapse Analytics enable you to easily create pipelines that use a published [Machine Learning Studio (classic)](../machine-learning/index.yml) web service for predictive analytics. Using the **Batch Execution Activity** in a pipeline, you can invoke Machine Learning Studio (classic) web service to make predictions on the data in batch.
+Azure Data Factory and Synapse Analytics enable you to easily create pipelines that use a published [Machine Learning Studio (classic)](/azure/machine-learning/) web service for predictive analytics. Using the **Batch Execution Activity** in a pipeline, you can invoke Machine Learning Studio (classic) web service to make predictions on the data in batch.
 
 Over time, the predictive models in the Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. You can retrain a model from a pipeline by doing the following steps:
 
@@ -67,7 +63,7 @@ You create an **Machine Learning Studio (classic)** linked service to link a Mac
 
 See [Compute linked services](compute-linked-services.md) article for descriptions about properties in the JSON definition.
 
-Machine Learning Studio (classic) supports both Classic Web Services and New Web Services for your predictive experiment. You can choose the right one to use from your Data Factory or Synapse workspace. To get the information required to create the Machine Learning Studio (classic) Linked Service, go to https://services.azureml.net, where all your (new) Web Services and Classic Web Services are listed. Click the Web Service you would like to access, and click **Consume** page. Copy **Primary Key** for **apiKey** property, and **Batch Requests** for **mlEndpoint** property.
+Machine Learning Studio (classic) supports both Classic Web Services and New Web Services for your predictive experiment. You can choose the right one to use from your Data Factory or Synapse workspace. To get the information required to create the Machine Learning Studio (classic) Linked Service, go to https://ml.azure.com/, where all your (new) Web Services and Classic Web Services are listed. Click the Web Service you would like to access, and click **Consume** page. Copy **Primary Key** for **apiKey** property, and **Batch Requests** for **mlEndpoint** property.
 
 :::image type="content" source="./media/transform-data-using-machine-learning/web-services.png" alt-text="ML Studio (classic) Web Services":::
 
@@ -214,7 +210,7 @@ Let's look at a scenario for using Web service parameters. You have a deployed M
 
 After you are done with retraining, update the scoring web service (predictive experiment exposed as a web service) with the newly trained model by using the **ML Studio (classic) Update Resource Activity**. See [Updating models using Update Resource Activity](update-machine-learning-models.md) article for details.
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways:
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

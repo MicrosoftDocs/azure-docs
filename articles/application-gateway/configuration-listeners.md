@@ -2,16 +2,16 @@
 title: Azure Application Gateway listener configuration
 description: This article describes how to configure Azure Application Gateway listeners.
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
-ms.topic: conceptual
-ms.date: 02/27/2023
-ms.author: greglin 
+author: mbender-ms
+ms.service: azure-application-gateway
+ms.topic: concept-article
+ms.date: 07/19/2023
+ms.author: mbender 
 ---
 
 # Application Gateway listener configuration
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 A listener is a logical entity that checks for incoming connection requests by using the port, protocol, host, and IP address. When you configure the listener, you must enter values for these that match the corresponding values in the incoming request on the gateway.
 
@@ -29,15 +29,19 @@ When you create a new listener, you choose between [*basic* and *multi-site*](./
 
 For the v1 SKU, requests are matched according to the order of the rules and the type of listener. If a rule with basic listener comes first in the order, it's processed first and will accept any request for that port and IP combination. To avoid this, configure the rules with multi-site listeners first and push the rule with the basic listener to the last in the list.
 
-For the v2 SKU, multi-site listeners are processed before basic listeners, unless rule priority is defined. If using rule priority, wildcard listeners should be defined a priority with a number greater than non-wildcard listeners, to ensure non-wildcard listeners execute prior to the wildcard listeners.
+For the v2 SKU, rule priority defines the order in which listeners are processed. Wildcard and basic listeners should be defined a priority with a number greater than site-specific and multi-site listeners, to ensure site-specific and multi-site listeners execute prior to the wildcard and basic listeners.
 
 ## Frontend IP address
 
 Choose the frontend IP address that you plan to associate with this listener. The listener will listen to incoming requests on this IP.
 
+  > [!NOTE]
+  > Application Gateway frontend supports dual-stack IP addresses. You can create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+
+
 ## Frontend port
 
-Associate a frontend port. You can select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. The same port can be used for public and private listeners (Preview feature). 
+Associate a frontend port. You can select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. The same port can be used for public and private listeners. 
 
 >[!NOTE] 
 > When using private and public listeners with the same port number, your application gateway changes the "destination" of the inbound flow to the frontend IPs of your gateway. Hence, depending on your Network Security Group's configuration, you may need an inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs.
@@ -81,17 +85,18 @@ $gw.EnableHttp2 = $true
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
+You can also enable HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in Application gateway > Configuration. 
+
 ### WebSocket support
 
 WebSocket support is enabled by default. There's no user-configurable setting to enable or disable it. You can use WebSockets with both HTTP and HTTPS listeners.
 
 ## Custom error pages
 
-You can define custom error at the global level or the listener level, however creating global-level custom error pages from the Azure portal is currently not supported. You can configure a custom error page for a 403 web application firewall error or a 502 maintenance page at the listener level. You must specify a publicly accessible blob URL for the given error status code. For more information, see [Create Application Gateway custom error pages](./custom-error.md).
+You can define customized error pages for different response codes returned by the Application Gateway. The response codes for which you can configure error pages are 400, 403, 405, 408, 500, 502, 503, and 504. You can use global-level or listener-specific error page configuration to set them granularly for each listener. For more information, see [Create Application Gateway custom error pages](./custom-error.md).
 
-![Application Gateway error codes](/azure/application-gateway/media/custom-error/ag-error-codes.png)
-
-To configure a global custom error page, see [Azure PowerShell configuration](./custom-error.md#azure-powershell-configuration).
+> [!NOTE]
+> An error originating from the backend server is passed along unmodified by the Application Gateway to the client. 
 
 ## TLS policy
 

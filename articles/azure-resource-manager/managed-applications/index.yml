@@ -6,12 +6,11 @@ summary: Offer cloud solutions that are easy for consumers to deploy and operate
 metadata:
   title: Azure Managed Applications documentation
   description: Azure Managed Applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
-  ms.service: managed-applications
+  ms.service: azure-managed-applications
   ms.topic: landing-page
-  ms.collection: na
-  author: davidsmatlak
-  ms.author: davidsmatlak
-  ms.date: 04/24/2023
+  author: MSEvanhi
+  ms.author: evanhi
+  ms.date: 07/11/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -39,10 +38,12 @@ landingContent:
             url: publish-service-catalog-app.md
           - text: Publish definition with bring your own storage
             url: publish-service-catalog-bring-your-own-storage.md
+          - text: Publish managed app definition with Bicep
+            url: publish-bicep-definition.md
           - text: Deploy service catalog managed app
             url: deploy-service-catalog-quickstart.md
-          - text: Deploy Azure Marketplace managed app
-            url: deploy-marketplace-app-quickstart.md  
+          - text: Deploy managed app definition with Bicep
+            url: deploy-bicep-definition.md
       - linkListType: tutorial
         links:
           - text: Publish marketplace application
@@ -53,6 +54,8 @@ landingContent:
         links:
           - text: Use secret from Key Vault
             url: key-vault-access.md
+          - text: Create storage with customer-managed key
+            url: create-storage-customer-managed-key.md
 
   # Card
   - title: Access control
@@ -63,7 +66,7 @@ landingContent:
             url: request-just-in-time-access.md
           - text: Approve just-in-time access
             url: approve-just-in-time-access.md
-          - text: Deploy with Managed Identity
+          - text: Deploy with Managed identity
             url: publish-managed-identity.md
 
   # Card

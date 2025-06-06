@@ -1,13 +1,13 @@
 ---
 title: EA billing administration for partners in the Azure portal
 description: This article explains the common tasks that a partner administrator accomplishes in the Azure portal to manage indirect enterprise agreements.
-author: bandersmsft
-ms.author: banders
-ms.date: 04/26/2023
+author: RaniChegondi
+ms.author: racheg
+ms.date: 04/01/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: sapnakeshari
+ms.reviewer: racheg
 ---
 
 # EA billing administration for partners in the Azure portal
@@ -133,6 +133,6 @@ Partner administrators can view a list of their customer enrollments (billing pr
 
 By default, all active enrollments are shown. You can change the status filter to view the entire list of enrollments associated with the partner organization. Then you can select an enrollment to manage.
 
-## Next steps
+## Related content
 
 - To view usage and charges for a specific enrollment, see the [View your usage summary details and download reports for EA enrollments](direct-ea-azure-usage-charges-invoices.md) article.

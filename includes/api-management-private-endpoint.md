@@ -1,9 +1,11 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 ms.date: 03/09/2023
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 With a private endpoint and Private Link, you can:
@@ -16,6 +18,11 @@ With a private endpoint and Private Link, you can:
 
 - Limit incoming traffic only to private endpoints, preventing data exfiltration.
 
+- Combine inbound private endpoints to Standard v2 instances with outbound [virtual network integration](../articles/api-management/integrate-vnet-outbound.md) to provide end-to-end network isolation of your API Management clients and backend services.
+
+    :::image type="content" source="../articles/api-management/media/private-endpoint/private-endpoint.png" alt-text="Diagram that shows a secure inbound connection to API Management Standard v2 using private endpoint.":::
+
+
 > [!IMPORTANT]
-> * You can only configure a private endpoint connection for **inbound** traffic to the API Management instance. Currently, outbound traffic isn't supported. 
-> * To enable private endpoints, the API Management instance can't already be configured with an external or internal [virtual network](../articles/api-management/virtual-network-concepts.md).  
+> * You can only configure a private endpoint connection for **inbound** traffic to the API Management instance. 
+> * You can only disable public network access to the API Management instance **after** configuring a private endpoint.

@@ -7,16 +7,14 @@ ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.author: kpunjabi
-ms.custom: public_preview
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Gather user input with Recognize action
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
-This guide will help you get started with recognizing DTMF input provided by participants through Azure Communication Services Call Automation SDK. 
+This guide helps you get started recognizing DTMF input provided by participants through Azure Communication Services Call Automation SDK. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Recognize action with .NET](./includes/recognize-action-quickstart-csharp.md)]
@@ -26,18 +24,42 @@ This guide will help you get started with recognizing DTMF input provided by par
 [!INCLUDE [Recognize action with Java](./includes/recognize-action-quickstart-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Recognize action with Java](./includes/recognize-how-to-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Recognize action with Java](./includes/recognize-how-to-python.md)]
+::: zone-end
+
 ## Event codes
 
-|Status|Code|Subcode|Message|
-|----|--|-----|-----|
-|RecognizeCompleted|200|8531|Action completed, max digits received.|
-|RecognizeCompleted|200|8514|Action completed as stop tone was detected.|
-|RecognizeCompleted|400|8508|Action failed, the operation was canceled.|
-|RecognizeFailed|400|8510|Action failed, initial silence timeout reached|
-|RecognizeFailed|400|8532|Action failed, inter-digit silence timeout reached.|
-|RecognizeFailed|500|8511|Action failed, encountered failure while trying to play the prompt.|
-|RecognizeFailed|500|8512|Unknown internal server error.|
+| Status | Code | Subcode | Message |
+| ---- | ---| ----- | ----- |
+| `RecognizeCompleted` | 200 | 8531 | Action completed, max digits received. |
+| `RecognizeCompleted` | 200 | 8514 | Action completed as stop tone was detected. |
+| `RecognizeCompleted` | 400 | 8508 | Action failed, the operation was canceled. |
+| `RecognizeCompleted` | 400 | 8532 | Action failed, inter-digit silence timeout reached. |
+| `RecognizeCanceled` | 400 | 8508 | Action failed, the operation was canceled. |
+| `RecognizeFailed` | 400 | 8510 | Action failed, initial silence timeout reached. |
+| `RecognizeFailed` | 500 | 8511 | Action failed, encountered failure while trying to play the prompt. |
+| `RecognizeFailed` | 500 | 8512 | Unknown internal server error. |
+| `RecognizeFailed` | 400 | 8510 | Action failed, initial silence timeout reached | 
+| `RecognizeFailed` | 400 | 8532 | Action failed, inter-digit silence timeout reached. | 
+| `RecognizeFailed` | 400 | 8565 | Action failed, bad request to Azure AI services. Check input parameters. | 
+| `RecognizeFailed` | 400 | 8565 | Action failed, bad request to Azure AI services. Unable to process payload provided, check the play source input. | 
+| `RecognizeFailed` | 401 | 8565 | Action failed, Azure AI services authentication error. |
+| `RecognizeFailed` | 403 | 8565 | Action failed, forbidden request to Azure AI services, free subscription used by the request ran out of quota. | 
+| `RecognizeFailed` | 429 | 8565 | Action failed, requests exceeded the number of allowed concurrent requests for the Azure AI services subscription. | 
+| `RecognizeFailed` | 408 | 8565 | Action failed, request to Azure AI services timed out. | 
+| `RecognizeFailed` | 500	| 8511	| Action failed, encountered failure while trying to play the prompt. | 
+| `RecognizeFailed` | 500	| 8512	| Unknown internal server error. | 
 
+## Known limitations
+- In-band DTMF isn't supported. Use RFC 2833 DTMF instead.
+- Text-to-Speech prompts support a maximum of 4,000 characters. If your prompt is longer than this limit, we suggest using SSML for Text-to-Speech-based play actions.
+- Speech input for recordings is captured for 1:1 calls but not recorded in group calls when recording is enabled.
+- Speech service quota increases can be requested if you exceed your quota limit. Follow the steps outlined [here](/azure/ai-services/speech-service/speech-services-quotas-and-limits) to request an increase.
 
 ## Clean up resources
 

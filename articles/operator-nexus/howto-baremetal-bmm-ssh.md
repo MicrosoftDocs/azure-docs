@@ -1,66 +1,86 @@
 ---
 title: Manage emergency access to a bare metal machine using the `az networkcloud cluster baremetalmachinekeyset` command for Azure Operator Nexus
 description: Step by step guide on using the `az networkcloud cluster baremetalmachinekeyset` command to manage emergency access to a bare metal machine.
-author: eak13
-ms.author: ekarandjeff
+author: DanCrank
+ms.author: danielcrank
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 04/18/2023
-ms.custom: template-how-to
+ms.date: 06/12/2024
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Manage emergency access to a bare metal machine using the `az networkcloud cluster baremetalmachinekeyset`
 
 > [!CAUTION]
-> Please note this process is used in emergency situations when all other troubleshooting options using Azure have been exhausted. SSH access to these bare metal machines (BMM) is restricted to users managed via this method from the specified jump host list.
+> Please note this process is used in emergency situations when all other troubleshooting options using Azure have been exhausted. Any write or edit actions executed on the BMM node(s) will require users to ['reimage'](./howto-baremetal-functions.md) in order to restore Microsoft support to the impacted BMM node(s).
+Please note that SSH access to these bare metal machines is restricted to users managed via this method from the specified jump host list.
 
-There are rare situations where a user needs to investigate & resolve issues with a BMM and all other ways have been exhausted via Azure. Azure Operator Nexus provides the `az networkcloud cluster baremetalmachinekeyset` command so users can manage SSH access to these BMM.
+There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways via Azure are exhausted. Azure Operator Nexus provides the `az networkcloud cluster baremetalmachinekeyset` command so users can manage SSH access to these bare metal machines. On keyset creation, users are validated against Microsoft Entra ID for proper authorization by cross referencing the User Principal Name provided for a user against the supplied Microsoft Entra Group ID `--azure-group-id <Entra Group ID>`.
 
-When the command runs, it executes on each BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command reflects which BMMs couldn't have the command executed. There is a reconciliation process that runs periodically that retries the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
+Users in a keyset are validated every four hours, and also when any changes are made to any keyset. Each user's status is then set to "Active" or "Invalid." Invalid users remain in the keyset but their keys are removed from all hosts and they aren't allowed access. Reasons for a user being invalid are:
+- The user's User Principal Name hasn't been specified
+- The user's User Principal Name isn't a member of the given Entra group
+- The given Entra group doesn't exist (in which case all users in the keyset are invalid)
+- The keyset is expired (in which case all users in the keyset are invalid)
 
-There's no limit to the number of users in a group.
+> [!NOTE]
+>> The User Principal Name is now required for keysets as Microsoft Entra ID validation is enforced for all users. Current keysets that do not specify User Principal Names for all users will continue to work until the expiration date. If a keyset without User Principal Names expires, the keyset will need to be updated with User Principal Names, for all users, in order to become valid again. Keysets that have not been updated with the User Principal Names for all users prior to December 2024 are at-risk of being `Invalid`. Note that if any user fails to specify a User Principal Name this results in the entire keyset being invalidated.
+
+The keyset and each individual user also have detailed status messages communicating other information:
+- The keyset's detailedStatusMessage tells you whether the keyset is expired, and other information about problems encountered while updating the keyset across the cluster.
+- The user's statusMessage tells you whether the user is active or invalid, and a list of machines that aren't yet updated to the user's latest active/invalid state. In each case, causes of problems are included if known.
+
+When the command runs, it executes on each bare metal machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Also, any bare metal machine that returns to the cluster via an `az networkcloud baremetalmachine reimage` or `az networkcloud baremetalmachine replace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
+
+> [!WARNING]
+> Using an Entra Group ID with greater than 5,000 users isn't recommended. Reconciling a large number of users can result in timeouts, blocking access and causing login issues.
 
 > [!CAUTION]
 > Notes for jump host IP addresses
 
-- The keyset create/update process adds the jump host IP addresses to the IP tables for the Cluster. The process adds these addresses to IP tables and restricts SSH access to only those IPs.
-- It's important to specify the Cluster facing IP addresses for the jump hosts. These IP addresses may be different than the public facing IP address used to access the jump host.
-- Once added, users are able to access BMMs from any specified jump host IP including a jump host IP defined in another BMM keyset group.
-- Existing SSH access remains when adding first BMM keyset. However, the keyset command limits an existing user's SSH access to the specified jump host IPs in the keyset commands.
+- The keyset create/update process adds the jump host IP addresses to the IP tables for each machine in the Cluster. The IP tables update restricts SSH access to be allowed only from those jump hosts.
+- It's important to specify the Cluster facing IP addresses for the jump hosts. These IP addresses might be different than the public facing IP address used to access the jump host.
+- While at least one keyset is defined, ssh access is allowed from any jump host in any keyset. For example, if keyset A specifies jump host A and keyset B specifies jump host B, users in either keyset can use either jump host A or B.
+- While no keysets are defined, ssh access is allowed from any jump host that has network connectivity to the machines.
 
 ## Prerequisites
 
-- Install the latest version of the
-  [appropriate CLI extensions](./howto-install-cli-extensions.md)
+- Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md).
 - The on-premises Cluster must have connectivity to Azure.
-- Get the Resource group name that you created for `Cluster` resource
-- The process applies keysets to all running BMMs.
-- The added users must be part of an Azure Active Directory (Azure AD) group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
-- To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets`. The options are `/read`, `/write` and `/delete`.
+- Get the Resource Group name for the `Cluster` resource.
+- The process applies keysets to all running bare metal machines.
+- The added users must be part of a Microsoft Entra group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
+- To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets`. The options are `/read`, `/write`, and `/delete`.
 
+> [!NOTE]
+> When bare metal machine access is created, modified, or deleted via the commands described in this
+> article, a background process delivers those changes to the machines. This process is paused during
+> Operator Nexus software upgrades. If an upgrade is known to be in progress, you can use the `--no-wait`
+> option with the command to prevent the command prompt from waiting for the process to complete.
 
 ## Creating a bare metal machine keyset
 
-The `baremetalmachinekeyset create` command creates SSH access to the BMM in a Cluster for a group of users.
+The `baremetalmachinekeyset create` command creates SSH access to the bare metal machine in a Cluster for a group of users.
 
 The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset create \
-  --name <BMM Keyset Name> \
-  --extended-location name=<Extended Location ARM ID> \
+  --name "<bare metal machine Keyset Name>" \
+  --extended-location name="<Extended Location ARM ID>" \
     type="CustomLocation" \
-  --location <Azure Region> \
-  --azure-group-id <Azure AAD Group ID> \
-  --expiration <Expiration Timestamp> \
-  --jump-hosts-allowed <List of jump server IP addresses> \
-  --os-group-name <Name of the Operating System Group> \
-  --privilege-level <"Standard" or "Superuser"> \
+  --location "<Azure Region>" \
+  --azure-group-id "<Azure Group ID>" \
+  --expiration "<Expiration Timestamp>" \
+  --jump-hosts-allowed "<List of jump server IP addresses>" \
+  --os-group-name "<Name of the Operating System Group>" \
+  --privilege-level "<"Standard" or "Superuser">" \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
-    "sshPublicKey":{"keyData":"<SSH Public Key>"}}]' \
-  --tags key1=<Key Value> key2=<Key Value> \
-  --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+    "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
+    "userPrincipalName":""}]', \
+  --tags key1="<Key Value>" key2="<Key Value>" \
+  --cluster-name "<Cluster Name>" \
+  --resource-group "<cluster_RG>"
 ```
 
 ### Create Arguments
@@ -76,8 +96,9 @@ az networkcloud cluster baremetalmachinekeyset create \
   --cluster-name                              [Required] : The name of the cluster.
   --expiration                                [Required] : The date and time after which the users
                                                            in this key set are removed from
-                                                           the bare metal machines. Format is:
-                                                           "YYYY-MM-DDTHH:MM:SS.000Z"
+                                                           the bare metal machines. The maximum
+                                                           expiration date is a year from creation
+                                                           date. Format is: "YYYY-MM-DDTHH:MM:SS.000Z".
   --extended-location                         [Required] : The extended location of the cluster
                                                            associated with the resource.
     Usage: --extended-location name=XX type=XX
@@ -90,14 +111,15 @@ az networkcloud cluster baremetalmachinekeyset create \
   --privilege-level                           [Required] : The access level allowed for the users
                                                            in this key set.  Allowed values:
                                                            "Standard" or "Superuser".
-  --resource-group -g                         [Required] : Name of resource group. Optional if
+  --resource-group -g                         [Required] : Name of cluster resource group. Optional if
                                                            configuring the default group using `az
                                                            configure --defaults group=<name>`.
   --user-list                                 [Required] : The unique list of permitted users.
     Usage: --user-list azure-user-name=XX description=XX key-data=XX
-      azure-user-name: Required. The Azure Active Directory user name (email name).
+      azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public ssh key of the user.
+      userPrincipalName: Required. The User Principal Name of the User.
 
       Multiple users can be specified by using more than one --user-list argument.
   --os-group-name                                        : The name of the group that users are assigned
@@ -138,34 +160,34 @@ This example creates a new keyset with two users that have standard access from 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset create \
   --name "bareMetalMachineKeySetName" \
-  --extended-location name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName" \
+  --extended-location name="/subscriptions/subscriptionId/resourceGroups/cluster_RG/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName" \
     type="CustomLocation" \
-  --location "location" \
+  --location "eastus" \
   --azure-group-id "f110271b-XXXX-4163-9b99-214d91660f0e" \
   --expiration "2022-12-31T23:59:59.008Z" \
   --jump-hosts-allowed "192.0.2.1" "192.0.2.5" \
   --os-group-name "standardAccessGroup" \
   --privilege-level "Standard" \
-  --user-list '[{"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userABC", "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}},\
-  {"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userXYZ","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}}]' \
+  --user-list '[{"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userABC", "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"},"userPrincipalName":"example@contoso.com"},\
+  {"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userXYZ","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, "userPrincipalName":"example@contoso.com"}]' \
   --tags key1="myvalue1" key2="myvalue2" \
   --cluster-name "clusterName"
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_RG"
 ```
 
 For assistance in creating the `--user-list` structure, see [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md).
 
 ## Deleting a bare metal machine keyset
 
-The `baremetalmachinekeyset delete` command removes SSH access to the BMM for a group of users. All members of the group no longer have SSH access to any of the BMM in the Cluster.
+The `baremetalmachinekeyset delete` command removes SSH access to the bare metal machine for a group of users. All members of the group no longer have SSH access to any of the bare metal machines in the Cluster.
 
 The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset delete \
-  --name <BMM Keyset Name> \
-  --cluster-name <Cluster Name> \
-  --resource-group <Resource Group Name>
+  --name "<bare metal machine Keyset Name>" \
+  --cluster-name "<Cluster Name>" \
+  --resource-group "<cluster_RG>"
 ```
 
 ### Delete Arguments
@@ -174,7 +196,7 @@ az networkcloud cluster baremetalmachinekeyset delete \
     --bare-metal-machine-key-set-name --name -n [Required] : The name of the bare metal machine key set to be
                                                              deleted.
     --cluster-name                              [Required] : The name of the cluster.
-    --resource-group -g                         [Required] : Name of resource group. Optional if configuring the
+    --resource-group -g                         [Required] : Name of cluster resource group. Optional if configuring the
                                                              default group using `az configure --defaults
                                                              group=<name>`.
     --no-wait                                              : Do not wait for the long-running operation to
@@ -188,7 +210,7 @@ This example removes the "bareMetalMachineKeysetName" keyset group in the "clust
 az networkcloud cluster baremetalmachinekeyset delete \
   --name "bareMetalMachineKeySetName" \
   --cluster-name "clusterName" \
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_RG"
 ```
 
 ## Updating a Bare Metal Machine Keyset
@@ -199,25 +221,27 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset update \
-  --name <BMM Keyset Name> \
-  --jump-hosts-allowed <List of jump server IP addresses> \
-  --privilege-level <"Standard" or "Superuser"> \
+  --name "<bare metal machine Keyset Name>" \
+  --jump-hosts-allowed "<List of jump server IP addresses>" \
+  --privilege-level "<"Standard" or "Superuser">" \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
-   "sshPublicKey":{"keyData":"<SSH Public Key>"}}]' \
-  --tags key1=<Key Value> key2=<Key Value> \
-  --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+   "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
+   "userPrincipalName":""}]', \
+  --tags key1="<Key Value>" key2="<Key Value> "\
+  --cluster-name "<Cluster Name>" \
+  --resource-group "<cluster_RG>"
 ```
 
 ### Update Arguments
 
 ```azurecli
-  --bare-metal-machine-key-set-name --name -n [Required] : The name of the BMM key set.
+  --bare-metal-machine-key-set-name --name -n [Required] : The name of the bare metal machine key set.
   --cluster-name                              [Required] : The name of the cluster.
   --expiration                                           : The date and time after which the users
                                                            in this key set are removed from
-                                                           the BMMs. Format is:
-                                                           "YYYY-MM-DDTHH:MM:SS.000Z"
+                                                           the bare metal machines. The maximum
+                                                           expiration date is a year from creation
+                                                           date. Format is: "YYYY-MM-DDTHH:MM:SS.000Z".
   --jump-hosts-allowed                                   : The list of IP addresses of jump hosts
                                                            with management network access from
                                                            which a login is allowed for the
@@ -227,12 +251,13 @@ az networkcloud cluster baremetalmachinekeyset update \
                                                            "Standard" or "Superuser".
   --user-list                                            : The unique list of permitted users.
     Usage: --user-list azure-user-name=XX description=XX key-data=XX
-      azure-user-name: Required. The Azure Active Directory user name (email name).
+      azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public SSH key of the user.
+      userPrincipalName: Required. The User Principal Name of the User.
 
       Multiple users can be specified by using more than one --user-list argument.
-  --resource-group -g                         [Required] : Name of resource group. Optional if
+  --resource-group -g                         [Required] : Name of cluster resource group. Optional if
                                                            configuring the default group using `az
                                                            configure --defaults group=<name>`.
   --tags                                                 : Space-separated tags: key[=value]
@@ -249,11 +274,15 @@ az networkcloud cluster baremetalmachinekeyset update \
   --name "bareMetalMachineKeySetName" \
  --expiration "2023-12-31T23:59:59.008Z" \
   --user-list '[{"description":"Needs access for troubleshooting as a part of the support team",\
-  "azureUserName":"userABC","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}},\
+  "azureUserName":"userABC", \
+  "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, \
+  "userPrincipalName":"example@contoso.com"},\
   {"description":"Needs access for troubleshooting as a part of the support team",\
-  "azureUserName":"userXYZ","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}}]' \
+    "azureUserName":"userXYZ", \
+    "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, \
+    "userPrincipalName":"example@contoso.com"}]' \
    --cluster-name "clusterName" \
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_RG"
 ```
 
 ## Listing Bare Metal Machine Keysets
@@ -264,15 +293,15 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset list \
-  --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+  --cluster-name "<Cluster Name>" \
+  --resource-group "<cluster_RG>"
 ```
 
 ### List Arguments
 
 ```azurecli
   --cluster-name                              [Required] : The name of the cluster.
-  --resource-group -g                         [Required] : Name of resource group. Optional if
+  --resource-group -g                         [Required] : Name of cluster resource group. Optional if
                                                            configuring the default group using `az
                                                            configure --defaults group=<name>`.
 ```
@@ -285,8 +314,8 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset show \
-  --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+  --cluster-name "<Cluster Name>" \
+  --resource-group "<cluster_RG>"
 ```
 
 ### Show Arguments
@@ -295,7 +324,7 @@ az networkcloud cluster baremetalmachinekeyset show \
   --bare-metal-machine-key-set-name --name -n [Required] : The name of the bare metal machine key
                                                            set.
   --cluster-name                              [Required] : The name of the cluster.
-  --resource-group -g                         [Required] : Name of resource group. You can
+  --resource-group -g                         [Required] : Name of cluster resource group. You can
                                                            configure the default group using `az
                                                            configure --defaults group=<name>`.
 ```

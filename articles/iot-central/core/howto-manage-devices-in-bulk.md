@@ -1,24 +1,27 @@
 ---
-title: Create and run jobs in your Azure IoT Central application | Microsoft Docs
+title: Create and run jobs in your Azure IoT Central application
 description: Azure IoT Central jobs allow for bulk device management capabilities, such as updating properties or running a command.
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022
+ms.date: 10/22/2024
 ms.topic: how-to
-ms.custom: contperf-fy23q1
+ms.custom: engagement-fy23
 ---
 
 # Manage devices in bulk in your Azure IoT Central application
 
-You can use Azure IoT Central to manage your connected devices at scale through jobs. Jobs let you do bulk updates to device and cloud properties and run commands. You can also use CSV files to import and export devices in bulk. This article shows you how to get started with using jobs in your own application and how to use the import and export features.
+You can use Azure IoT Central to manage your connected devices at scale through jobs. Jobs let you do bulk updates to device and cloud properties and run commands. This article shows you how to use jobs in your own application and how to use the import and export features.
 
-To learn how to manage jobs by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices.](../core/howto-manage-jobs-with-rest-api.md)
+To learn how to manage jobs by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices](../core/howto-manage-jobs-with-rest-api.md).
+
+> [!TIP]
+> When you create a recurring job, sign in to your application using a Microsoft account or Microsoft Entra account. If you sign in using a Microsoft Entra group, it's possible that the Microsoft Entra token associated with the group will expire at some point in the future and cause the job to fail.
 
 ## Create and run a job
 
-The following example shows you how to create and run a job to set the light threshold for a group of devices. You use the job wizard to create and run jobs. You can save a job to run later.
+The following example shows you how to create and run a job to set the light threshold for a group of devices. You use the job wizard to create and run jobs. You can save a job to run later:
 
 1. On the left pane, select **Jobs**.
 
@@ -76,7 +79,7 @@ The following example shows you how to create and run a job to set the light thr
 
     When the job is complete, you can select **Results log** to download a CSV file of your job details, including the devices and their status values. This information can be useful for troubleshooting:
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/download-details.png" alt-text="Screenshot that shows device status." lightbox="media/howto-manage-devices-in-bulk/download-details.png":::
+    :::image type="content" source="media/howto-manage-devices-in-bulk/download-details.png" alt-text="Screenshot that shows the device status in IoT Central." lightbox="media/howto-manage-devices-in-bulk/download-details.png":::
 
 1. The job now appears in **Last 30 days** list on the **Jobs** page. This page shows currently running jobs and the history of any previously run or saved jobs.
 
@@ -85,7 +88,7 @@ The following example shows you how to create and run a job to set the light thr
 
 ## Manage jobs
 
-To stop a running job, open it and select **Stop**. The job status changes to reflect that the job is stopped. The **Summary** section shows which devices have completed, have failed, or are still pending.
+To stop a running job, open it and select **Stop**. The job status changes to reflect that the job is stopped. The **Summary** section shows which devices completed, failed, or are still pending.
 
 When a job is in a stopped state, you can select **Continue** to resume running the job. The job status changes to reflect that the job is now running again. The **Summary** section continues to update with the latest progress.
 
@@ -103,7 +106,7 @@ After a job is created, the **Status** column updates with the latest job status
 | Failed               | This job failed and didn't fully run on devices.  |
 | Pending              | This job hasn't yet begun running on devices.         |
 | Running              | This job is currently running on devices.             |
-| Stopped              | A user has manually stopped this job.           |
+| Stopped              | A user manually stopped this job.           |
 | Canceled             | This job was canceled because the threshold set on the **Delivery options** page was exceeded. |
 
 The status message is followed by an overview of the devices in the job. The following table lists the possible *device status* values:
@@ -111,7 +114,7 @@ The status message is followed by an overview of the devices in the job. The fol
 | Status message       | Status meaning                                                     |
 | -------------------- | ------------------------------------------------------------------ |
 | Succeeded            | The number of devices that the job successfully ran on.       |
-| Failed               | The number of devices that the job has failed to run on.       |
+| Failed               | The number of devices that the job failed to run on.       |
 
 To view the status of the job and all the affected devices, open the job. Next to each device name, you see one of the following status messages:
 
@@ -156,8 +159,8 @@ To register a large number of devices to your application, you can bulk import d
 
 | Column | Description |
 | - | - |
-| IOTC_DEVICEID | The device ID is a unique identified this device will use to connect. The device ID can contain letters, numbers, and the `-` character without any spaces. The maximum length is 128 characters. |
-| IOTC_DEVICENAME | Optional. The device name is a friendly name that will be displayed throughout the application. If not specified, the same as the device ID. The maximum length is 148 characters. |
+| IOTC_DEVICEID | The device ID is a unique identified this device uses to connect. The device ID can contain letters, numbers, and the `-` character without any spaces. The maximum length is 128 characters. |
+| IOTC_DEVICENAME | Optional. The device name is a friendly name that's displayed throughout the application. If not specified, the device name is the same as the device ID. The maximum length is 148 characters. |
 
 To bulk-register devices in your application:
 
@@ -174,11 +177,11 @@ To bulk-register devices in your application:
 
 1. Select the CSV file that has the list of device IDs to be imported.
 
-1. Device import starts once the file has been uploaded. You can track the import status in the **Device Operations** panel. This panel appears automatically after the import starts or you can access it through the bell icon in the top right-hand corner.
+1. Device import starts after the file uploads. You can track the import status in the **Device Operations** panel. This panel appears automatically after the import starts or you can access it through the bell icon in the top right-hand corner.
 
 1. Once the import completes, a success message is shown in the **Device Operations** panel.
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import.png" alt-text="Screenshot showing import success." lightbox="media/howto-manage-devices-in-bulk/bulk-import.png":::
+    :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import.png" alt-text="Screenshot that shows a successful device import." lightbox="media/howto-manage-devices-in-bulk/bulk-import.png":::
 
 If the device import operation fails, you see an error message on the **Device Operations** panel. A log file capturing all the errors is generated that you can download.
 

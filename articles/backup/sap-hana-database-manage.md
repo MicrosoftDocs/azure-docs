@@ -2,21 +2,20 @@
 title: Manage backed up SAP HANA databases on Azure VMs
 description: In this article, you'll learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 12/23/2022
-ms.service: backup
-ms.custom: ignite-2022
+ms.date: 06/05/2025
+ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Manage and monitor backed up SAP HANA databases
+# Manage and monitor backed up SAP HANA databases using Azure portal
 
-This article describes common tasks for managing and monitoring SAP HANA databases that are running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by the [Azure Backup](./backup-overview.md) service. 
+This article describes common tasks for managing and monitoring SAP HANA databases that are running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by the [Azure Backup](./backup-overview.md) service.  You can also [manage SAP HANA databases that are backed up by Azure Backup using Azure CLI](tutorial-sap-hana-manage-cli.md).
 
 You'll learn how to monitor jobs and alerts, trigger an on-demand backup, edit policies, stop and resume database protection, and unregister a VM from backups.
 
 >[!Note]
->Support for HANA instance snapshots and support for HANA System Replication mode are in preview.
+>Support for HANA instance snapshots is in now generally available.
 
 If you haven't configured backups yet for your SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md). To earn more about the supported configurations and scenarios, see [Support matrix for backup of SAP HANA databases on Azure VMs](sap-hana-backup-support-matrix.md).
 
@@ -30,7 +29,11 @@ To run on-demand backups, follow these steps:
 
    ![Screenshot that shows the 'Backup items' link on the Recovery Services vault dashboard.](./media/sap-hana-db-manage/backup-items.png)
 
-1. On the **Backup Items** pane, select the VM that's running the SAP HANA database, and then select **Backup now**.
+1. On the **Backup Items** blade, select the **Backup Management Type** as **SAP HANA in Azure VM**.
+
+   :::image type="content" source="./media/sap-hana-db-manage/select-management-type.png" alt-text="Screenshot shows how to select the backup management type." lightbox="./media/sap-hana-db-manage/select-management-type.png":::
+
+1. On the **Backup Items (SAP HANA in Azure VM)** blade, select the VM that's running the SAP HANA database, and then select **Backup now**.
 
 1. On the **Backup Now** pane, choose the type of backup that you want to perform, and then select **OK**.
 
@@ -43,7 +46,8 @@ To run on-demand backups, follow these steps:
 1. Monitor the Azure portal notifications. To do so, on the Recovery Services vault dashboard, select **Backup Jobs**, and then select **In progress**. 
 
    >[!Note]
-   >Based on the size of your database, creating the initial backup might take a while.
+   >- Based on the size of your database, creating the initial backup might take a while.
+   >- Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration). [Learn more](#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
 
 ## Monitor manual backup jobs
 
@@ -231,6 +235,45 @@ Unregister an SAP HANA instance after you disable protection but before you dele
 1. Right-click the protected instance, and then select **Unregister**.
 
    ![Select unregister](./media/sap-hana-db-manage/unregister.png)
+
+### Verify the registration status of VMs or Nodes to the vault
+
+Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration). If backups fail after failover/fallback, ensure that physical/logical registration is complete. Otherwise, [rediscover the VMs/Nodes](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases).
+
+**Confirm the physical registration**
+
+Go to the *Recovery Services vault* > **Manage** > **Backup Infrastructure** > **Workload in Azure VM**.
+
+The status of both primary and secondary VMs should be **registered**.
+
+:::image type="content" source="./media/sap-hana-db-manage/confirm-physical-registration-status-of-node.png" alt-text="Screenshot shows the physical registration status." lightbox="./media/sap-hana-db-manage/confirm-physical-registration-status-of-node.png":::
+
+
+**Confirm the logical registration**
+
+Follow these steps:
+
+1. Go to *Recovery services vault* > **Backup Items** > **SAP HANA in Azure VM**.
+
+2. Under **HANA System**, select the name of the HANA instance.
+
+   :::image type="content" source="./media/sap-hana-db-manage/select-database-name.png" alt-text="Screenshot shows how to select the database name." lightbox="./media/sap-hana-db-manage/select-database-name.png":::
+
+   Two VMs/Nodes appear under **FQDN** and are in **registered** state.
+ 
+   :::image type="content" source="./media/sap-hana-db-manage/confirm-logical-registration-status.png" alt-text="Screenshot shows the logical registration status." lightbox="./media/sap-hana-db-manage/confirm-logical-registration-status.png":::
+ 
+>[!Note]
+>If status is in **not registered** state, you need to [rediscover the VMs/Nodes](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases) and check the status again.
+
+### Switch SAP HSR to standalone databases and configure backup
+
+To switch HANA System Replication (HSR) to standalone databases and configure backup, follow these steps:
+
+1. [Stop protection and retain data for the currently protected databases](#stop-protection-for-an-sap-hana-database-or-hana-instance).
+2. Run [pre-registration script](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) on both the nodes as Standalone.
+3. [Re-discover the databases](backup-azure-sap-hana-database.md#discover-the-databases) on both nodes.
+4. [Protect the databases as Standalone](backup-azure-sap-hana-database.md#configure-backup) on both the nodes.
 
 ## Manage operations using SAP HANA native clients
 

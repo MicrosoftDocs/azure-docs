@@ -1,29 +1,29 @@
 ---
-title: Export data to Blob Storage IoT Central | Microsoft Docs
-description: How to use the new data export to export your IoT data to Blob Storage
+title: Export data to Blob Storage
+description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Blob Storage
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/28/2022
+ms.date: 04/25/2025
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.custom: devx-track-azurecli
 ---
 
 # Export IoT data to Blob Storage
 
-This article describes how to configure data export to send data to the  Blob Storage service.
+This article describes how to configure data export to send data to the Blob Storage service.
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-To learn how to manage data export by using the IoT Central REST API, see [How to use the IoT Central REST API to manage data exports.](../core/howto-manage-data-export-with-rest-api.md)
+To learn how to manage data export by using the IoT Central REST API, see [How to use the IoT Central REST API to manage data exports.](../core/howto-manage-data-export-with-rest-api.md).
 
 ## Set up a Blob Storage export destination
 
 IoT Central exports data once per minute, with each file containing the batch of changes since the previous export. Exported data is saved in JSON format. The default paths to the exported data in your storage account are:
 
-- Telemetry: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
-- Property changes: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
+- Telemetry: *{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}*
+- Property changes: *{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}*
 
 To browse the exported files in the Azure portal, navigate to the file and select **Edit blob**.
 
@@ -31,58 +31,16 @@ To browse the exported files in the Azure portal, navigate to the file and selec
 
 Blob Storage destinations let you configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
 
+> [!TIP]
+> If the Blob Storage destination is protected by a firewall, you must use a managed identity to connect to it.
+
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
-This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
-
----
-
-# [Connection string](#tab/connection-string)
-
 ### Create an Azure Blob Storage destination
-
-If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. It then prints the connection string to use when you configure the data export in IoT Central:
-
-```azurecli-interactive
-# Replace the storage account name with your own unique value
-SA=yourstorageaccount$RANDOM
-CN=exportdata
-RG=centralexportresources
-LOCATION=eastus
-
-az group create -n $RG --location $LOCATION
-az storage account create --name $SA --resource-group $RG --location $LOCATION --sku Standard_LRS
-az storage container create --account-name $SA --resource-group $RG --name $CN
-
-CS=$(az storage account show-connection-string --resource-group $RG --name $SA --query "connectionString" --output tsv)
-
-echo "Storage connection string: $CS"
-```
-
-You can learn more about creating new [Azure Blob Storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following table shows the known compatible storage account types:
-
-|Performance Tier|Account Type|
-|-|-|
-|Standard|General Purpose V2|
-|Standard|General Purpose V1|
-|Standard|Blob storage|
-|Premium|Block Blob storage|
-
-To create the Blob Storage destination in IoT Central on the **Data export** page:
-
-1. Select **+ New destination**.
-
-1. Select **Azure Blob Storage** as the destination type.
-
-1. Select **Connection string** as the authorization type.
-
-1. Paste in the connection string for your Blob Storage resource, and enter the case-sensitive container name if necessary.
-
-1. Select **Save**.
 
 # [Managed identity](#tab/managed-identity)
 
-### Create an Azure Blob Storage destination
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a managed identity.
 
 If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your storage account:
 
@@ -138,6 +96,50 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 
 1. Select **Save**.
 
+If you don't see data arriving in your destination service, see [Troubleshooting in Azure IoT Central](troubleshooting.md).
+
+# [Connection string](#tab/connection-string)
+
+
+If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. It then prints the connection string to use when you configure the data export in IoT Central:
+
+```azurecli-interactive
+# Replace the storage account name with your own unique value
+SA=yourstorageaccount$RANDOM
+CN=exportdata
+RG=centralexportresources
+LOCATION=eastus
+
+az group create -n $RG --location $LOCATION
+az storage account create --name $SA --resource-group $RG --location $LOCATION --sku Standard_LRS
+az storage container create --account-name $SA --resource-group $RG --name $CN
+
+CS=$(az storage account show-connection-string --resource-group $RG --name $SA --query "connectionString" --output tsv)
+
+echo "Storage connection string: $CS"
+```
+
+You can learn more about creating new [Azure Blob Storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following table shows the known compatible storage account types:
+
+|Performance Tier|Account Type|
+|-|-|
+|Standard|General Purpose V2|
+|Standard|General Purpose V1|
+|Standard|Blob storage|
+|Premium|Block Blob storage|
+
+To create the Blob Storage destination in IoT Central on the **Data export** page:
+
+1. Select **+ New destination**.
+
+1. Select **Azure Blob Storage** as the destination type.
+
+1. Select **Connection string** as the authorization type.
+
+1. Paste in the connection string for your Blob Storage resource, and enter the case-sensitive container name if necessary.
+
+1. Select **Save**.
+
 ---
 
 [!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]
@@ -149,7 +151,7 @@ The following example shows an exported telemetry message:
 ```json
 
 {
-    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
     "messageSource": "telemetry",
     "deviceId": "1vzb5ghlsg1",
     "schema": "default@v1",
@@ -187,7 +189,7 @@ The following snippet shows a property change message exported to Blob Storage:
 
 ```json
 {
-    "applicationId": "fb74969c-8682-4708-af01-33499a7f7d98",
+    "applicationId": "11112222-bbbb-3333-cccc-4444dddd5555",
     "messageSource": "properties",
     "deviceId": "Pepjmh1Hcc",
     "enqueuedTime": "2023-03-02T10:35:39.281Z",
@@ -228,7 +230,7 @@ The following example shows an exported device connectivity message received in 
 
 ```json
 {
-  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "messageSource": "deviceConnectivity",
   "messageType": "connected",
   "deviceId": "1vzb5ghlsg1",
@@ -250,7 +252,7 @@ The following example shows an exported device lifecycle message received in Azu
 
 ```json
 {
-  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "messageSource": "deviceLifecycle",
   "messageType": "registered",
   "deviceId": "1vzb5ghlsg1",
@@ -271,7 +273,7 @@ The following example shows an exported device lifecycle message received in Azu
 
 ```json
 {
-  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "messageSource": "deviceTemplateLifecycle",
   "messageType": "created",
   "schema": "default@v1",
@@ -293,7 +295,7 @@ The following example shows an exported audit log message received in Azure Blob
     "id": "test-audit",
     "type": "apiToken"
     },
-  "applicationId": "570c2d7b-1111-2222-abcd-000000000000",
+  "applicationId": "22223333-cccc-4444-dddd-5555eeee6666",
   "enqueuedTime": "2022-07-25T21:54:40.000Z",
   "enrichments": {},
   "messageSource": "audit",
@@ -309,4 +311,4 @@ The following example shows an exported audit log message received in Azure Blob
 
 ## Next steps
 
-Now that you know how to export to Blob Storage, a suggested next step is to learn [Export to Service Bus](howto-export-to-service-bus.md).
+Now that you know how to export to Blob Storage, a suggested next step is to learn how to [Export IoT data to Service Bus](howto-export-to-service-bus.md).

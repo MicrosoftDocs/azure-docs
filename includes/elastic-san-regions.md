@@ -3,23 +3,59 @@
  description: include file
  services: storage
  author: roygara
- ms.service: storage
+ ms.service: azure-storage
  ms.topic: include
- ms.date: 12/09/2022
+ ms.date: 05/28/2024
  ms.author: rogarana
  ms.custom: include file
 ---
-Currently, Elastic SAN (preview) is only available in the following regions with the following redundancies:
+The following list contains the regions Elastic SAN is currently available in, and which regions support both zone-redundant storage (ZRS) and locally redundant storage (LRS), or only LRS:
 
-- France Central - LRS & ZRS
-- Southeast Asia - LRS
 - Australia East - LRS
-- North Europe - LRS & ZRS
-- West Europe - LRS & ZRS
-- UK South - LRS
+- Brazil South - LRS
+- Canada Central - LRS
+- Central US - LRS
+- East Asia - LRS
 - East US - LRS
-- South Central US - LRS
 - East US 2 - LRS
+- France Central - LRS & ZRS
+- Germany West Central - LRS
+- India Central - LRS
+- India South- LRS 
+- Japan East - LRS
+- Korea Central - LRS
+- North Europe - LRS & ZRS
+- Norway East - LRS
+- South Africa North - LRS
+- South Central US - LRS
+- Southeast Asia - LRS
+- Sweden Central - LRS
+- Switzerland North - LRS
+- UAE North - LRS
+- UK South - LRS
+- West Europe - LRS & ZRS
 - West US 2 - LRS & ZRS
 - West US 3 - LRS
-- Sweden Central - LRS
+
+Elastic SAN is also available in the following regions, but without Availability Zone support. To deploy in the following regions, use either the Azure PowerShell module or the Azure CLI: 
+- Canada East - LRS
+- Japan West - LRS
+- North Central US - LRS
+- Australia Central - LRS
+- Australia Southeast - LRS
+- Southeast Brazil - LRS
+- Korea South - LRS
+- UAE Central - LRS
+- Switzerland West - LRS
+- Germany North - LRS
+- France South- LRS
+- Norway West - LRS
+- Sweden South - LRS
+- West Central US - LRS
+- West US - LRS
+- UK West - LRS
+
+To enable these regions, run the following command to register the necessary feature flag: 
+```azurepowershell
+Register-AzProviderFeature -FeatureName "EnableElasticSANRegionalDeployment" -ProviderNamespace "Microsoft.ElasticSan"
+```

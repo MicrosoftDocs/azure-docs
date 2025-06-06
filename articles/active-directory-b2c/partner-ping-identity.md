@@ -2,25 +2,27 @@
 title: Tutorial to configure Azure Active Directory B2C with Ping Identity
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Ping Identity
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
+
+# Customer intent: I'm a developer, and I want to learn how to configure Ping Identity with Azure Active Directory B2C for secure hybrid access (SHA). I need to extend the capabilities of Azure AD B2C and enable secure hybrid access using PingAccess and PingFederate.
 ---
 
 # Tutorial: Configure Ping Identity with Azure Active Directory B2C for secure hybrid access
 
-In this tutorial, learn how to extend the capabilities of Azure Active Directory B2C (Azure AD B2C) with [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html) and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html). PingAccess provides access to applications and APIs, and a policy engine for authorized user access. PingFederate is an enterprise federation server for user authentication and single sign-on, an authority that permits customers, employees, and partners to access applications from devices. Use them together to enable secure hybrid access (SHA).
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+In this tutorial, learn how to extend the capabilities of Azure Active Directory B2C (Azure AD B2C) with [PingAccess](https://www.pingidentity.com/en/platform/capabilities/web-api-access/pingaccess.html) and [PingFederate](https://www.pingidentity.com/en/platform/capabilities/authentication-authority/pingfederate.html). PingAccess provides access to applications and APIs, and a policy engine for authorized user access. PingFederate is an enterprise federation server for user authentication and single sign-on, an authority that permits customers, employees, and partners to access applications from devices. Use them together to enable secure hybrid access (SHA).
 
 Many e-commerce sites and web applications exposed to the internet are deployed behind proxy systems, or a reverse-proxy system. These proxy systems pre-authenticate, enforce policy, and route traffic. Typical scenarios include protecting web applications from inbound web traffic and providing a uniform session management across distributed server deployments.
 
-Generally, configurations include an authentication translation layer that externalizes the authentication from the web application. Reverse proxies provide the authenticated user context to the web applications, such as a header value in clear or digest form. The applications aren't using industry standard tokens such as Security Assertion Markup Language (SAML), OAuth, or Open ID Connect (OIDC). Instead, the proxy provides authentication context and maintains the session with the end-user agent such as browser or native application. As a service running as a man-in-the-middle, proxies provide significant session control. The proxy service is efficient and scalable, not a bottleneck for applications behind the proxy service. The diagram is a reverse-proxy implementation and communications flow.
+Generally, configurations include an authentication translation layer that externalizes the authentication from the web application. Reverse proxies provide the authenticated user context to the web applications, such as a header value in clear or digest form. The applications aren't using industry standard tokens such as Security Assertion Markup Language (SAML), OAuth, or OpenID Connect (OIDC). Instead, the proxy provides authentication context and maintains the session with the end-user agent such as browser or native application. As a service running as a man-in-the-middle, proxies provide significant session control. The proxy service is efficient and scalable, not a bottleneck for applications behind the proxy service. The diagram is a reverse-proxy implementation and communications flow.
 
    ![Diagram of the reverse proxy implementation.](./media/partner-ping/reverse-proxy.png)
 
@@ -33,7 +35,7 @@ If you want to modernize an identity platform in such configurations, there migh
   - Drive the end-user experience consistency
   - Provide a single sign-in experience across applications
 
-In answer to these concerns, the approach in this tutorial is an Azure AD B2C, [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html), and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html) integration.
+In answer to these concerns, the approach in this tutorial is an Azure AD B2C, [PingAccess](https://www.pingidentity.com/en/platform/capabilities/web-api-access/pingaccess.html), and [PingFederate](https://www.pingidentity.com/en/platform/capabilities/authentication-authority/pingfederate.html) integration.
 
 ## Shared environment
 
@@ -67,7 +69,7 @@ You can configure PingFederate as an authentication provider, or a proxy, for up
 
 Use this function to contextually, dynamically, or declaratively switch an inbound request to an Azure AD B2C policy. See the following diagram of protocol sequence flow.
 
-   ![Diagram of the protocol sequence flow for PingAccess, PingFederate, Azure AD B2C, and the applicaiton.](./media/partner-ping/pingaccess-pingfederate-workflow.png)
+   ![Diagram of the protocol sequence flow for PingAccess, PingFederate, Azure AD B2C, and the application.](./media/partner-ping/pingaccess-pingfederate-workflow.png)
 
 ## Prerequisites
 
@@ -95,7 +97,7 @@ You can use basic user flows or advanced Identity Enterprise Framework (IEF) pol
 
    ![Screenshot of the subject sub claim URL on the Token compatibility dialog.](./media/partner-ping/token-setting.png)
 
-In the advanced policies, configuration includes the IssuanceClaimPattern metadata element to AuthorityWithTfp value in the [JWT token issuer technical profile](./jwt-issuer-technical-profile.md).
+In the advanced policies, configuration includes the IssuanceClaimPattern metadata element to AuthorityWithTfp value in the [JWT issuer technical profile](./jwt-issuer-technical-profile.md).
 
 ## Configure PingAccess and PingFederate
 
@@ -107,8 +109,6 @@ Use the instructions in the following sections to configure PingAccess and PingF
 
 To configure PingFederate as the token provider for PingAccess, ensure connectivity from PingFederate to PingAccess. Confirm connectivity from PingAccess to PingFederate.  
 
-For more information, see [Configure PingFederate as the token provider for PingAccess](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configure_pf_as_the_token_provider_for_pa) in the Ping Identity documentation.
-
 ### Configure a PingAccess application for header-based authentication
 
 Use the following instructions to create a PingAccess application for the target web application, for header-based authentication. 
@@ -116,7 +116,7 @@ Use the following instructions to create a PingAccess application for the target
 #### Create a virtual host
 
 >[!IMPORTANT]
->Create a virtual host for every application. For more information, see [What can I configure with PingAccess?](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_what_can_I_configure_with_pa) in the Ping Identity documentation.
+>Create a virtual host for every application.
 
 To create a virtual host:
 
@@ -135,9 +135,9 @@ To create a web session:
 3. Enter a **Name** for the web session.
 4. Select the **Cookie Type**: **Signed JWT** or **Encrypted JWT**.
 5. Enter a unique value for **Audience**.
-6. For **Client ID**, enter the **Azure AD Application ID**.
-7. For **Client Secret**, enter the **Key** you generated for the application in Azure AD.
-8. (Optional) Create and use custom claims with the Microsoft Graph API: Select **Advanced**. Deselect **Request Profile** and **Refresh User Attributes**. Learn more about custom claims: [Header-based single sign-on for on-premises apps with Azure AD App Proxy](../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
+6. For **Client ID**, enter the **Microsoft Entra Application ID**.
+7. For **Client Secret**, enter the **Key** you generated for the application in Microsoft Entra ID.
+8. (Optional) Create and use custom claims with the Microsoft Graph API: Select **Advanced**. Deselect **Request Profile** and **Refresh User Attributes**. Learn more about custom claims: [Header-based single sign-on for on-premises apps with Microsoft Entra application proxy](../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 9. Select **Save**
 
 #### Create identity mapping
@@ -211,7 +211,7 @@ To create an application in PingAccess for each application in Azure that you wa
 
 Configure the PingFederate authentication policy to federate to the multiple IdPs provided by the Azure AD B2C tenants
 
-1. Create a contract to bridge the attributes between the IdPs and the SP. You should need only one contract unless the SP requires a different set of attributes from each IdP. For more information, see [Federation hub and authentication policy contracts](https://docs.pingidentity.com/access/sources/dita/topic?category=pingfederate&Releasestatus_ce=Current&resourceid=pf_fed_hub_auth_polic_contract) in the Ping Identity documentation.
+1. Create a contract to bridge the attributes between the IdPs and the SP. You should need only one contract unless the SP requires a different set of attributes from each IdP. For more information, see [Federation hub and authentication policy contracts](https://docs.pingidentity.com/pingfederate/latest/introduction_to_pingfederate/pf_fed_hub_auth_polic_contract.html) in the Ping Identity documentation.
 
 2. For each IdP, create an IdP connection between the IdP and PingFederate, the federation hub as the SP.
 

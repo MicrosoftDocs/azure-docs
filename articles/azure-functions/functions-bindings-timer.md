@@ -3,10 +3,11 @@ title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 03/06/2023
-ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+ms.date: 04/16/2025
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Timer trigger for Azure Functions
@@ -21,21 +22,12 @@ For information on how to manually run a timer-triggered function, see [Manually
 
 Source code for the timer extension package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
-Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+[!INCLUDE [functions-bindings-python-models-intro](../../includes/functions-bindings-python-models-intro.md)]
 
-# [v2](#tab/python-v2)
-The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
-
-# [v1](#tab/python-v1)
-The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
-
----
-
-This article supports both programming models.
-
-> [!IMPORTANT]
-> The Python v2 programming model is currently in preview.
 ::: zone-end
 
 ## Example
@@ -46,7 +38,13 @@ This example shows a C# function that executes each time the minutes have a valu
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [In-process](#tab/in-process)
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
+# [Isolated worker model](#tab/isolated-process)
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" id="docsnippet_fixed_delay_retry_example" :::
+
+# [In-process model](#tab/in-process)
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -60,40 +58,10 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" range="11-17":::
-
-
-# [C# Script](#tab/csharp-script)
-
-The following example shows a timer trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence. The [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) object is passed into the function.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-Here's the C# script code:
-
-```csharp
-public static void Run(TimerInfo myTimer, ILogger log)
-{
-    if (myTimer.IsPastDue)
-    {
-        log.LogInformation("Timer is running late!");
-    }
-    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}" );  
-}
-```
+---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-java"
 
 The following example function triggers and executes every five minutes. The `@TimerTrigger` annotation on the function defines the schedule using the same string format as [CRON expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
@@ -109,8 +77,9 @@ public void keepAlive(
 }
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone-end
+
+::: zone pivot="programming-language-python"  
 
 The following example shows a timer trigger binding and function code that uses the binding, where an instance representing the timer is passed to the function. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
@@ -124,7 +93,7 @@ import azure.functions as func
 app = func.FunctionApp()
 
 @app.function_name(name="mytimer")
-@app.schedule(schedule="0 */5 * * * *", 
+@app.timer_trigger(schedule="0 */5 * * * *", 
               arg_name="mytimer",
               run_on_startup=True) 
 def test_function(mytimer: func.TimerRequest) -> None:
@@ -148,48 +117,6 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
-
-Here's the JavaScript code:
-
-```JavaScript
-module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if (myTimer.isPastDue)
-    {
-        context.log('Node is running late!');
-    }
-    context.log('Node timer trigger function ran!', timeStamp);   
-};
-```
-
----
-
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
-
-The following is the timer function code in the run.ps1 file:
-
-```powershell
-# Input bindings are passed in via param block.
-param($myTimer)
-
-# Get the current universal time in the default string format.
-$currentUTCtime = (Get-Date).ToUniversalTime()
-
-# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
-if ($myTimer.IsPastDue) {
-    Write-Host "PowerShell timer is running late!"
-}
-
-# Write an information log with the current time.
-Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
-```
-::: zone-end  
-::: zone pivot="programming-language-python"  
-
 Here's the Python code, where the object passed into the function is of type [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest).
 
 ```python
@@ -208,48 +135,122 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-csharp"
-## Attributes
+---
 
-[In-process](functions-dotnet-class-library.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs) from [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) whereas [isolated worker process](dotnet-isolated-process-guide.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Timer/src/TimerTriggerAttribute.cs) from [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) to define the function. 
+::: zone-end
 
-C# script instead uses a function.json configuration file.
+::: zone pivot="programming-language-typescript"  
 
-# [In-process](#tab/in-process)
+The following example shows a timer trigger [TypeScript function](functions-reference-node.md?tabs=typescript).
 
-|Attribute property | Description|
-|---------|----------------------|
-|**Schedule**| A [CRON expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as `%ScheduleAppSetting%`. |
-|**RunOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **RunOnStartup** should rarely if ever be set to `true`, especially in production. |
-|**UseMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
+# [Model v4](#tab/nodejs-v4)
 
-# [Isolated process](#tab/isolated-process)
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/timerTrigger1.ts" :::
 
-|Attribute property | Description|
-|---------|----------------------|
-|**Schedule**| A [CRON expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as `%ScheduleAppSetting%`. |
-|**RunOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **RunOnStartup** should rarely if ever be set to `true`, especially in production. |
-|**UseMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
+# [Model v3](#tab/nodejs-v3)
 
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes.
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | The name of the variable that represents the timer object in function code. | 
-|**schedule**| A [CRON expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". |
-|**runOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **runOnStartup** should rarely if ever be set to `true`, especially in production. |
-|**useMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
+TypeScript samples are not documented for model v3.
 
 ---
 
-::: zone-end  
+::: zone-end
+
+::: zone pivot="programming-language-javascript"  
+
+The following example shows a timer trigger [JavaScript function](functions-reference-node.md).
+
+# [Model v4](#tab/nodejs-v4)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/timerTrigger1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Here's the JavaScript code:
+
+```JavaScript
+module.exports = async function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if (myTimer.isPastDue)
+    {
+        context.log('Node is running late!');
+    }
+    context.log('Node timer trigger function ran!', timeStamp);   
+};
+```
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"  
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+The following is the timer function code in the run.ps1 file:
+
+```powershell
+# Input bindings are passed in via param block.
+param($myTimer)
+
+# Get the current universal time in the default string format.
+$currentUTCtime = (Get-Date).ToUniversalTime()
+
+# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
+if ($myTimer.IsPastDue) {
+    Write-Host "PowerShell timer is running late!"
+}
+
+# Write an information log with the current time.
+Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+## Attributes
+
+[In-process](functions-dotnet-class-library.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs) from [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) whereas [isolated worker process](dotnet-isolated-process-guide.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Timer/src/TimerTriggerAttribute.cs) from [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) to define the function. C# script instead uses a [function.json configuration file](#configuration).
+
+# [Isolated worker model](#tab/isolated-process)
+
+|Attribute property | Description|
+|---------|----------------------|
+|**Schedule**| A [CRON expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as `%ScheduleAppSetting%`. |
+|**RunOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **RunOnStartup** should rarely if ever be set to `true`, especially in production. |
+|**UseMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
+
+# [In-process model](#tab/in-process)
+
+|Attribute property | Description|
+|---------|----------------------|
+|**Schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as `%ScheduleAppSetting%`. |
+|**RunOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **RunOnStartup** should rarely if ever be set to `true`, especially in production. |
+|**UseMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
+
+---
+
+::: zone-end
 
 ::: zone pivot="programming-language-python"
 ## Decorators
@@ -261,11 +262,12 @@ For Python v2 functions defined using a decorator, the following properties on t
 | Property    | Description |
 |-------------|-----------------------------|
 | `arg_name` | The name of the variable that represents the timer object in function code. |
-| `schedule` | A [CRON expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%".  |
+| `schedule` | A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%".  |
 | `run_on_startup` | If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **runOnStartup** should rarely if ever be set to `true`, especially in production. |
 | `use_monitor` | Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+
 ::: zone-end
 
 ::: zone pivot="programming-language-java"  
@@ -277,8 +279,9 @@ The `@TimerTrigger` annotation on the function defines the `schedule` using the 
 + [name](/java/api/com.microsoft.azure.functions.annotation.timertrigger.name)
 + [schedule](/java/api/com.microsoft.azure.functions.annotation.timertrigger.schedule)
 
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python" 
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
  
 ## Configuration
 ::: zone-end
@@ -287,7 +290,36 @@ The `@TimerTrigger` annotation on the function defines the `schedule` using the 
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `app.timer()` method.
+
+| Property | Description |
+|---------|----------------------|
+|**schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". |
+|**runOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **runOnStartup** should rarely if ever be set to `true`, especially in production. |
+|**useMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|----------------------|
+|**type** | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | The name of the variable that represents the timer object in function code. | 
+|**schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". |
+|**runOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **runOnStartup** should rarely if ever be set to `true`, especially in production. |
+|**useMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell,programming-language-python"  
 
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
@@ -297,13 +329,13 @@ The following table explains the binding configuration properties that you set i
 |**type** | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | The name of the variable that represents the timer object in function code. | 
-|**schedule**| A [CRON expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". |
+|**schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". |
 |**runOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **runOnStartup** should rarely if ever be set to `true`, especially in production. |
 |**useMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
 <!--The following Include and Caution are from the original file and I wasn't sure if these need to be here-->
 
-::: zone-end  
+::: zone-end
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -315,6 +347,8 @@ See the [Example section](#example) for complete examples.
 ## Usage
 
 When a timer trigger function is invoked, a timer object is passed into the function. The following JSON is an example representation of the timer object.
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-powershell,programming-language-python"
 
 ```json
 {
@@ -329,6 +363,23 @@ When a timer trigger function is invoked, a timer object is passed into the func
     "IsPastDue":false
 }
 ```
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+```json
+{
+    "schedule":{
+        "adjustForDST": true
+    },
+    "scheduleStatus": {
+        "last":"2016-10-04T10:15:00+00:00",
+        "lastUpdated":"2016-10-04T10:16:00+00:00",
+        "next":"2016-10-04T10:20:00+00:00"
+    },
+    "isPastDue":false
+}
+```
+::: zone-end
 
 The `isPastDue` property is `true` when the current function invocation is later than scheduled. For example, a function app restart might cause an invocation to be missed.
 
@@ -343,12 +394,12 @@ Each field can have one of the following types of values:
 |Type  |Example  |When triggered  |
 |---------|---------|---------|
 |A specific value |<nobr>`0 5 * * * *`</nobr>| Once every hour of the day at minute 5 of each hour |
-|All values (`*`)|<nobr>`0 * 5 * * *`</nobr>| At every minute in the hour, beginning at hour 5 |
+|All values (`*`)|<nobr>`0 * 5 * * *`</nobr>| At every minute in the hour, during hour 5 |
 |A range (`-` operator)|<nobr>`5-7 * * * * *`</nobr>| Three times a minute - at seconds 5 through 7 during every minute of every hour of each day |
 |A set of values (`,` operator)|<nobr>`5,8,10 * * * * *`</nobr>| Three times a minute - at seconds 5, 8, and 10 during every minute of every hour of each day |
 |An interval value (`/` operator)|<nobr>`0 */5 * * * *`</nobr>| 12 times an hour - at second 0 of every 5th minute of every hour of each day |
 
-[!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
+[!INCLUDE [functions-cron-expressions-months-days](~/reusable-content/ce-skilling/azure/includes/functions/functions-cron-expressions-months-days.md)]
 
 #### NCRONTAB examples
 
@@ -366,10 +417,11 @@ Here are some examples of NCRONTAB expressions you can use for the timer trigger
 
 > [!NOTE]
 > NCRONTAB expression supports both **five field** and **six field** format. The sixth field position is a value for seconds which is placed at the beginning of the expression.
+> If the CRON expression is invalid the Azure Portal Function Test will display a 404 error, if Application Insights is connected more details are logged there.
 
 #### NCRONTAB time zones
 
-The numbers in a CRON expression refer to a time and date, not a time span. For example, a 5 in the `hour` field refers to 5:00 AM, not every 5 hours.
+The numbers in an NCRONTAB expression refer to a time and date, not a time span. For example, a 5 in the `hour` field refers to 5:00 AM, not every 5 hours.
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
@@ -377,7 +429,7 @@ The numbers in a CRON expression refer to a time and date, not a time span. For 
 
  A `TimeSpan` can be used only for a function app that runs on an App Service Plan.
 
-Unlike a CRON expression, a `TimeSpan` value specifies the time interval between each function invocation. When a function completes after running longer than the specified interval, the timer immediately invokes the function again.
+Unlike an NCRONTAB expression, a `TimeSpan` value specifies the time interval between each function invocation. When a function completes after running longer than the specified interval, the timer immediately invokes the function again.
 
 Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less than 24. When the first two digits are 24 or greater, the format is `dd:hh:mm`. Here are some examples:
 
@@ -390,7 +442,7 @@ Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less tha
 
 ### Scale-out
 
-If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances. It will not trigger again if there is an outstanding invocation is still running.
+If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances. It will not trigger again if there is an outstanding invocation still running.
 
 ### Function apps sharing Storage
 
@@ -423,6 +475,9 @@ Please refer to [manually run a non HTTP-triggered function](./functions-manuall
 
 For information about what to do when the timer trigger doesn't work as expected, see [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
+## Connections
+
+Timer triggers have an implicit dependency on blob storage, except when run locally through the Azure Functions Core Tools. The system uses blob storage to coordinate across multiple instances [when the app scales out](#scale-out). It accesses blob storage using the host storage (`AzureWebJobsStorage`) connection. If you configure the host storage to use an [identity-based connection](./functions-reference.md#connecting-to-host-storage-with-an-identity), the identity should have the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, which is the default requirement for host storage.
 
 ## Next steps
 

@@ -2,11 +2,11 @@
 title: Application gateway components
 description: This article provides information about the various components in an application gateway
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
-ms.topic: conceptual
-ms.date: 08/21/2020
-ms.author: greglin
+author: mbender-ms
+ms.service: azure-application-gateway
+ms.topic: concept-article
+ms.date: 05/21/2025
+ms.author: mbender
 ---
 
 # Application gateway components
@@ -43,19 +43,19 @@ A port is where a listener listens for the client request. You can configure por
 
 | SKU | Supported port range | Exception(s) |
 | ---------- | ---------- | ---------- |
-| V2 | 1 to 64999 | 22 |
+| V2 | 1 to 64999 | 22, 53 |
 | V1 | 1 to 65502 | 3389 |
 
 ### Protocols
 
-Application Gateway supports four protocols: HTTP, HTTPS, HTTP/2, and WebSocket:
->[!NOTE]
->HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is always over HTTP/1.1. By default, HTTP/2 support is disabled. You can choose to enable it.
+Application Gateway provides support for web protocols HTTP, HTTPS, HTTP/2, and WebSocket through its Layer 7 proxy. Additionally, it supports TLS and TCP protocols via its [Layer 4 proxy](tcp-tls-proxy-overview.md) in Preview, which can be configured on the same resource.
 
-- Specify between the HTTP and HTTPS protocols in the listener configuration.
+- Choose between the HTTP, HTTPS, TLS or TCP protocols in the listener configuration.
+- You can use an HTTPS or TLS listener for TLS termination. An HTTPS/TLS listener offloads the encryption and decryption work to your application gateway, so your servers aren't burdened by TLS computation overhead.
 - Support for [WebSockets and HTTP/2 protocols](features.md#websocket-and-http2-traffic) is provided natively, and [WebSocket support](application-gateway-websocket.md) is enabled by default. There's no user-configurable setting to selectively enable or disable WebSocket support. Use WebSockets with both HTTP and HTTPS listeners.
 
-Use an HTTPS listener for TLS termination. An HTTPS listener offloads the encryption and decryption work to your application gateway, so your web servers aren't burdened by the overhead.
+>[!NOTE]
+>HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is always over HTTP/1.1. By default, HTTP/2 support is disabled. You can choose to enable it.
 
 ### Custom error pages
 

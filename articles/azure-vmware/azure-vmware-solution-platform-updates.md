@@ -4,12 +4,168 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/24/2023
+ms.date: 5/23/2025
 ---
 
 # What's new in Azure VMware Solution
 
-Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
+
+## May 2025
+
+**HCX Upgrade and Hybridity Depot Decommissioning**
+
+The HCX Hybridity Depot has been decommissioned by Broadcom. All Azure VMware Solution customers will be upgraded to HCX 4.11.0 in the coming weeks. Until customers are fully upgraded to HCX 4.11.0, they must submit a support request (SR) to obtain the required HCX Connector upgrade bundles. Once customers are upgraded to HCX 4.11.0, previous and current HCX Connector upgrade bundles will be available directly to them from their vSAN datastore. 
+## April 2025
+
+**AV48 SKU**
+
+Azure VMware Solution AV48 node size is now available in the Japan East region. The AV48 node is built on Intel Xeon Gold 6442Y CPUs with a total of 48 physical cores, 1 TB of Memory and 19.2 TB of total storage. [Learn more](introduction.md#hosts-clusters-and-private-clouds)
+
+**Azure Native Pure Storage Cloud (preview)**
+
+Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for Azure VMware Solution, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
+
+**Azure VMware Solution Generation 2 Private Clouds (preview)**
+
+Public Preview of the next generation of Azure VMware Solution is here. Azure VMware Solution Generation 2 Private Clouds is now available in East US, UK South, Switzerland North, and Japan East on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required. [Learn more](native-introduction.md)
+
+**Azure VMware Solution was approved as a service within the DISA Provisional Authorization of Azure Government at Impact Level 5**
+
+Azure VMware Solution in Azure Government was approved and added as a service within the DISA Provisional Authorization of Azure Government at Impact Level 5. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/avs-was-approved-as-a-service-within-the-disa-provisional-authorization-of-azure/4404484)
+
+## March 2025
+
+To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in Broadcom security advisory [VMSA-2025-0004](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/25390), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0 U2d, Patch Release 24585300](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2d-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0004-remediation/4388074) 
+
+vSAN in-transit encryption is now available in Azure VMware Solution through a Run Command. This new feature enhances data security by encrypting data as it moves between hosts in your vSAN cluster in the Azure VMware Solution. [Learn more](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/using-encryption-in-a-vsan-cluster-1/vsan-data-in-transit-encryption.html)
+
+## February 2025
+
+Azure Elastic SAN for AV64 SKU is now generally available. [Learn more](/azure/azure-vmware/configure-azure-elastic-san)
+
+## December 2024
+
+Resource Health for Azure VMware Solution is now available in Public Preview. Resource Health, an Azure native feature, now monitors the health of Azure VMware Solution private cloud resources, provides recommended actions for current issues, and allows reporting on past and present resource health. [Learn more](ecosystem-app-monitoring-solutions.md#azure-resource-health-for-azure-vmware-solution-private-cloud-public-preview) 
+
+## November 2024
+
+Azure VMware Solution is now ready to update all existing Azure Commercial customers from vSphere 7 to vSphere 8 (Stretched Clusters & Azure Government still pending). Over the coming months, all customers will receive a scheduling notice for this upgrade. If you want to prioritize your vSphere 8 upgrade, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "Priority vSphere 8 upgrade" for your private cloud. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in [Microsoft Azure Government](https://azure.microsoft.com/explore/global-infrastructure/government/#why-azure). [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+Trusted Launch is now available in all Azure VMware Solution regions. This enables Virtual Trusted Platform Module (vTPM) on virtual machines, ensuring compliance with the latest security standards and unlocking the potential to run modern operating systems like Microsoft Windows 11. [Learn more](configure-virtual-trusted-platform-module.md#configure-virtual-trusted-platform-module-vtpm-on-virtual-machines-with-azure-vmware-solution)
+
+## October 2024
+
+The VMware Cloud Foundations (VCF) license portability feature on Azure VMware Solution allows you to bring your VCF entitlement to Azure VMware Solution and take advantage of potential cost savings.
+
+## August 2024
+
+All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in Azure Commercial (Stretched Clusters excluded). [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+Azure VMware Solution was approved to be added as a service within the [DoD SRG Impact Level 4 (IL4)](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope#azure-government-services-by-audit-scope) Provisional Authorization (PA) in [Microsoft Azure Government](https://azure.microsoft.com/explore/global-infrastructure/government/#why-azure).
+
+## May 2024
+
+Azure VMware Solution is now generally available in the Central India, UAE North, and Italy North regions, increasing the total region count to 33. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
+
+VMware HCX 4.8.2 is now available. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+## April 2024
+
+Azure VMware Solution Stretched Clusters is now generally available in the East US region. [Learn more](architecture-stretched-clusters.md)
+
+## March 2024
+
+Pure Cloud Block Store for Azure VMware Solution is now generally available. [Learn more](ecosystem-external-storage-solutions.md)
+
+VMware vCenter Server 7.0 U3o and VMware ESXi 7.0 U3o are being rolled out. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+## February 2024
+
+All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+## November 2023
+
+**VMware vSphere 8.0**
+
+VMware vSphere 8.0 is targeted for rollout to Azure VMware Solution by H2 2024.
+
+**AV64 SKU**
+
+Azure VMware Solution AV64 node size is now available in specific regions. The AV64 node is built on Intel Xeon Platinum 8370C CPUs with a total of 64 physical cores, 1 TB of memory and 15.4 TB of total storage. The AV64 SKU can be used for extending existing Azure VMware Solution private clouds built on AV36, AV36P, or AV52 node sizes. [Learn more](introduction.md#azure-vmware-solution-private-cloud-extension-with-av64-node-size)
+
+**Azure Elastic SAN (preview)**
+
+Azure Elastic SAN is a cloud-native managed SAN offering scalability, cost-efficiency, high performance, and security. It now supports snapshots, enhanced security, and integrates with Azure VMware Solution. Furthermore, as a VMware Certified datastore, Elastic SAN allows you to independently scale your storage and performance, optimizing your total cost of ownership and scalability. [Learn more](https://aka.ms/Elastic-san-preview-refresh-updates-blog)
+
+**Azure VMware Solution in Microsoft Azure Government**
+
+Azure VMware Solution was approved to be added as a service within the Azure Government Federal Risk and Authorization Management Program (FedRAMP) High Provisional Authorization to Operate (P-ATO). Azure VMware Solution is already available in Azure Commercial and included in the Azure Commercial FedRAMP High P-ATO. With this latest approval, customers and their partners who require the data sovereignty that Azure Government provides can now meet FedRAMP requirements with Azure VMware Solution in Azure Government. [Learn more](https://techcommunity.microsoft.com/t5/azure-migration-and/azure-vmware-solution-was-approved-and-added-to-the-fedramp-high/ba-p/3968157)
+
+**Azure NetApp Files for Microsoft Azure Government**
+
+All Azure NetApp Files features available on Azure public cloud are also available on supported Azure Government regions. For Azure Government regions supported by Azure NetApp Files, see [Products Available by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+
+**Azure Arc-enabled VMware vSphere**
+
+Azure Arc-enabled VMware vSphere term refers to both vSphere on-premises and Azure VMware Solutions customer. Customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](https://aka.ms/vSphereGAblog)
+
+**Five-year Reserved Instance**
+
+A Five-year Reserved Instance promotion is available for Azure VMware Solution until March 31, 2024 for customers looking to lock-in their VMware solution costs for multiple years. [Visit our pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/).
+
+## August 2023
+
+**Available in 30 Azure Regions**
+
+Azure VMware Solution is now available in 30 Azure regions. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
+
+**Pure Cloud Block Store (preview)**
+
+Pure Cloud Block Store for Azure VMware Solution is now in public preview. Now customers can use Pure Cloud Block Store from Pure Storage to scale compute and storage independently for storage heavy workloads. With Pure Cloud Block Store, customers can right size their storage and achieve sizeable savings in the process. [Learn more](ecosystem-external-storage-solutions.md)
+
+**Azure Arc-enabled VMware vSphere (preview)**
+
+Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](/azure/azure-arc/vmware-vsphere/overview)
+
+**VMware Cloud Director Service**
+
+VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multicloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud.
+
+**Well-Architected Assessment Tool**
+
+Azure VMware Solution Well-Architected Assessment Tool is now available. Based upon the Microsoft Azure Well-Architected Framework, the assessment tool methodically checks how your workloads align with best practices for resiliency, security, efficiency, and cost optimization. [Learn more](https://aka.ms/avswafdocs)
+
+**VMware Cloud Universal**
+
+VMware Cloud Universal now includes Azure VMware Solution.
+
+**Updated cloudadmin Permissions**
+
+Customers using the cloudadmin@vsphere.local credentials with the vSphere Client now have read-only access to the Management Resource Pool that contains the management and control plane of Azure VMware Solution (vCenter Server, NSX-T Data Center, HCX Manager, SRM Manager).
+
+## June 2023
+
+**Stretched Clusters Generally Available**
+
+Stretched Clusters for Azure VMware Solution is now available and provides 99.99 percent uptime for mission critical applications that require the highest availability. In times of availability zone failure, your virtual machines (VMs) and applications automatically fail over to an unaffected availability zone with no application impact. [Learn more](deploy-vsan-stretched-clusters.md)
+
+
+## May 2023
+
+**Azure VMware Solution in Azure Gov**
+ 
+Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virginia. With this release, we're combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
+
+**New Azure VMware Solution Region: Qatar**
+
+We're excited to announce that the Azure VMware Solution is now live in Qatar Central and available to customers. 
+
+With the introduction of AV36P in Qatar, customers receive access to 36 cores, 2.6-GHz clock speed, 768 GB of RAM, and 19.2 TB of SSD storage.
+
+To learn more about available regions of Azure products, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&regions=all)
 
 ## April 2023
 
@@ -23,9 +179,9 @@ All new Azure VMware Solution private clouds are being deployed with VMware NSX-
 
 **VMware HCX Enterprise Edition - Default**
 
-VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
+VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/vmware-hcx-services.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
 
-**Azure Log analytics - monitor Azure VMware Solution**
+**Azure Log Analytics - Monitor Azure VMware Solution**
 
 The data in Azure Log Analytics offer insights into issues by searching using Kusto Query Language.
 
@@ -37,17 +193,21 @@ AV52 is now available in the East US 2 Region. This node size is used for inte
 
 **Customer-managed keys using Azure Key Vault**
 
-You can use customer-managed keys to bring and manage your master encryption keys to encrypt vSAN. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
+You can use customer-managed keys to bring and manage your master encryption keys to encrypt vSAN data. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
 
 **Azure NetApp Files - more storage options available**    
 
 You can use Azure NetApp Files volumes as a file share for Azure VMware Solution workloads using Network File System (NFS) or Server Message Block (SMB).
 
-**Stretched clusters - increase uptime with Stretched Clusters (Preview)**
+**Stretched Clusters - increase uptime with Stretched Clusters (Preview)**
 
 Stretched clusters for Azure VMware Solution, provides 99.99% uptime for mission critical applications that require the highest availability.
 
 For more information, see [Azure Migration and Modernization blog](https://techcommunity.microsoft.com/t5/azure-migration-and/bg-p/AzureMigrationBlog). 
+
+## January 2023
+
+Starting January 2023, all new Azure VMware Solution private clouds are being deployed with Microsoft signed TLS certificate for vCenter Server and NSX.
 
 ## November 2022
 
@@ -157,8 +317,9 @@ Azure VMware Solution will apply the [VMware ESXi 6.7, Patch Release ESXi670-202
 
 Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://www.vmware.com/security/advisories/VMSA-2021-0002.html), will also be applied **through March 15, 2021**.
  
-   >[!NOTE]
-   >This is non-disruptive and should not impact the Azure VMware Solution service or workloads. During maintenance, various VMware vSphere alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
+>[!NOTE]
+>This is non-disruptive and should not impact the Azure VMware Solution service or workloads. During maintenance, various VMware vSphere alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
 
 ## Post update
 Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
+

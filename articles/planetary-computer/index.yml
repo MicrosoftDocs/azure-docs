@@ -1,0 +1,164 @@
+### YamlMime:Landing
+
+title: Microsoft Planetary Computer Pro
+summary: Microsoft Planetary Computer Pro is an Azure service that enables organizations to accelerate geospatial analytics by seamlessly ingesting, managing, and analyzing their private geospatial datasets. It provides tools for integrating Earth observation data into enterprise data workflows and AI systems, allowing businesses to extract valuable insights and make data-driven decisions using satellite imagery, remote sensing data, and other geospatial information.
+
+metadata:
+  title: Microsoft Planetary Computer Pro
+  description: Microsoft Planetary Computer Pro is an Azure service that enables organizations to accelerate geospatial analytics by seamlessly ingesting, managing, and analyzing their private geospatial datasets. It provides tools for integrating Earth observation data into enterprise data workflows and AI systems, allowing businesses to extract valuable insights and make data-driven decisions using satellite imagery, remote sensing data, and other geospatial information.
+  ms.service: planetary-computer-pro
+  ms.topic: landing-page
+  author: prasadko
+  ms.author: prasadkomma
+  ms.date: 05/08/2025
+  
+  ms.custom: build-2025
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Microsoft Planetary Computer Pro
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Planetary Computer Pro?
+            url: microsoft-planetary-computer-pro-overview.md
+      - linkListType: whats-new
+        links:
+          - text: What's new in Microsoft Planetary Computer Pro
+            url: whats-new.md
+      - linkListType: concept
+        links:
+          - text: STAC overview
+            url: stac-overview.md
+          - text: Supported data types
+            url: supported-data-types.md
+
+  # Card
+  - title: Deploy & setup
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Get started with Microsoft Planetary Computer Pro
+            url: get-started-planetary-computer.md
+      - linkListType: deploy
+        links:
+          - text: Deploy a GeoCatalog resource
+            url: deploy-geocatalog-resource.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage access to Microsoft Planetary Computer Pro
+            url: manage-access.md
+      - linkListType: tutorial
+        links:
+          - text: Use the Microsoft Planetary Computer Pro APIs to ingest and visualize data
+            url: api-tutorial.md
+
+
+  # Card
+  - title: Create a STAC collection
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a STAC collection (Web Interface)
+            url: create-collection-web-interface.md
+          - text: Create a STAC collection (API)
+            url: create-stac-collection.md
+  
+  # Card
+  - title: Ingest data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Ingestion overview
+            url: ingestion-overview.md
+          - text: Ingestion sources
+            url: ingestion-source.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up an ingestion source using managed identity
+            url: set-up-ingestion-credentials-managed-identity.md
+          - text: Set up ingestion source using SAS tokens
+            url: set-up-ingestion-credentials-sas-tokens.md
+          - text: Create a STAC item
+            url: create-stac-item.md
+      - linkListType: quickstart
+        links:
+          - text: Ingest data using the Web Interface
+            url: ingest-via-web-interface.md
+          - text: Add a STAC Item to a collection
+            url: add-stac-item-to-collection.md
+          - text: Bulk ingest data
+            url: bulk-ingestion-api.md
+
+  # Card
+  - title: Configure collections for visualization
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Collection configuration
+            url: collection-configuration-concept.md
+      - linkListType: quickstart
+        links:
+          - text: Configure collections for visualization
+            url: configure-collection-web-interface.md
+      - linkListType: concept
+        links:
+          - text: Mosaic configuration
+            url: mosaic-configurations-for-collections.md
+          - text: Render configuration
+            url: render-configuration.md
+          - text: Tile settings
+            url: tile-settings.md
+          - text: Queryables for custom search
+            url: queryables-for-explorer-custom-search-filter.md
+          - text: Supported color maps
+            url: supported-colormaps.md
+
+  # Card
+  - title: Build and use applications
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Build applications
+            url: build-applications-with-planetary-computer-pro.md
+      - linkListType: quickstart
+        links:
+          - text: Use the explorer
+            url: use-explorer.md
+      - linkListType: how-to-guide
+        links:
+          - text: Application authentication
+            url: application-authentication.md
+          - text: Connect to ArcGIS Pro
+            url: create-connection-arc-gis-pro.md
+      - linkListType: quickstart
+        links:
+          - text: Azure Batch and Microsoft Planetary Computer Pro
+            url: azure-batch.md
+      - linkListType: reference
+        links:
+          - text: API reference guide
+            url: /rest/api/planetarycomputer
+
+  # Card
+  - title: Working with data cubes
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Data cube overview
+            url: data-cube-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with data cubes
+            url: data-cube-quickstart.md
+      - linkListType: how-to-guide
+        links:
+          - text: Visualize data cubes
+            url: visualize-assets.md
+      - linkListType: quickstart
+        links:
+          - text: Get a collection SAS token
+            url: get-collection-sas-token.md

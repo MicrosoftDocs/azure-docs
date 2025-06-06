@@ -2,7 +2,7 @@
 title: Specify resource group for Azure VMs in DevTest Labs
 description: Learn how to specify a resource group for VMs in a lab in Azure DevTest Labs. 
 ms.topic: how-to
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 10/18/2021
@@ -20,7 +20,7 @@ By default, Azure DevTest Labs creates a new resource group whenever a new virtu
 With this feature, you can use a script to specify a new or existing resource group within your Azure subscription for all your lab VMs. Currently, Azure DevTest Labs supports this feature through an API.
 
 > [!NOTE]
-> All subscription limits apply when you create labs in DevTest Labs. Think of a lab as any other resource in your subscription. In case of resource groups, the limit is [980 resource groups per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). 
+> All subscription limits apply when you create labs in DevTest Labs. Think of a lab as any other resource in your subscription. In case of resource groups, the limit is [980 resource groups per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-subscription-limits).
 
 ## Use Azure portal
 Follow these steps to specify a resource group for all VMs created in the lab. 
@@ -71,22 +71,22 @@ Invoke the script by using the following command. ResourceGroup.ps1 is the file 
 If you're using an Azure Resource Manager template to create a lab, use the **vmCreationResourceGroupId** property in the lab properties section of your template, as shown in the following example:
 
 ```json
-        {
-            "type": "microsoft.devtestlab/labs",
-            "name": "[parameters('lab_name')]",
-            "apiVersion": "2018-10-15-preview",
-            "location": "eastus",
-            "tags": {},
-            "scale": null,
-            "properties": {
-                "vmCreationResourceGroupId": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>",
-                "labStorageType": "Premium",
-                "premiumDataDisks": "Disabled",
-                "provisioningState": "Succeeded",
-                "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
-            },
-            "dependsOn": []
-        },
+{
+    "type": "microsoft.devtestlab/labs",
+    "name": "[parameters('lab_name')]",
+    "apiVersion": "2018-10-15-preview",
+    "location": "eastus",
+    "tags": {},
+    "scale": null,
+    "properties": {
+        "vmCreationResourceGroupId": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>",
+        "labStorageType": "Premium",
+        "premiumDataDisks": "Disabled",
+        "provisioningState": "Succeeded",
+        "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
+    },
+    "dependsOn": []
+},
 ```
 
 

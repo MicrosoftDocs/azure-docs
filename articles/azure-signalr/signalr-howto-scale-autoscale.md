@@ -2,7 +2,7 @@
 title: Auto scale Azure SignalR Service
 description: Learn how to autoscale Azure SignalR Service.
 author: zackliu
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 06/06/2022
 ms.author: chenyl
@@ -13,9 +13,9 @@ ms.author: chenyl
 > [!IMPORTANT]
 > Autoscaling is only available in Azure SignalR Service Premium tier.
 
-Azure SignalR Service Premium tier supports an *autoscale* feature, which is an implementation of [Azure Monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md). Autoscale allows you to automatically scale the unit count for your SignalR Service to match the actual load on the service. Autoscale can help you optimize performance and cost for your application.
+Azure SignalR Service Premium tier supports an *autoscale* feature, which is an implementation of [Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview). Autoscale allows you to automatically scale the unit count for your SignalR Service to match the actual load on the service. Autoscale can help you optimize performance and cost for your application.
 
-Azure SignalR adds its own [service metrics](concept-metrics.md). However, most of the user interface is shared and common to other [Azure services that support autoscaling](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale). If you're new to the subject of Azure Monitor Metrics, review [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md) before digging into SignalR Service Metrics.
+Azure SignalR adds its own [service metrics](concept-metrics.md). However, most of the user interface is shared and common to other [Azure services that support autoscaling](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale). If you're new to the subject of Azure Monitor Metrics, review [Azure Monitor Metrics aggregation and display explained](/azure/azure-monitor/essentials/metrics-aggregation-explained) before digging into SignalR Service Metrics.
 
 ## Understanding autoscale in SignalR Service
 

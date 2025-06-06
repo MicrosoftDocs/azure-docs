@@ -1,12 +1,11 @@
 ---
 title: Device implementation
-titleSuffix: Azure IoT Central
 description: This article introduces the key concepts and best practices for implementing a device that connects to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/13/2023
+ms.date: 10/14/2024
 ms.topic: conceptual
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ms.custom:  [amqp, mqtt, device-developer]
@@ -28,18 +27,21 @@ An IoT Central device template includes a _model_ that specifies the behaviors a
 
 Each model has a unique _digital twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then assign the correct device template to the device.
 
-[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot-develop/concepts-convention.md) that a device should follow when it implements a Digital Twin Definition Language (DTDL) model.
+[IoT Plug and Play](../../iot/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot/concepts-convention.md) that a device should follow when it implements a Digital Twin Definition Language (DTDL) model.
 
 The [Azure IoT device SDKs](#device-sdks) include support for the IoT Plug and Play conventions.
 
 ### Device model
 
-A device model is defined by using the [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) modeling language. This language lets you define:
+For IoT Central, a device model is defined by using the [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) modeling language. This language lets you define:
 
 - The telemetry the device sends. The definition includes the name and data type of the telemetry. For example, a device sends temperature telemetry as a double.
 - The properties the device reports to IoT Central. A property definition includes its name and data type. For example, a device reports the state of a valve as a Boolean.
 - The properties the device can receive from IoT Central. Optionally, you can mark a property as writable. For example, IoT Central sends a target temperature as a double to a device.
 - The commands a device responds to. The definition includes the name of the command, and the names and data types of any parameters. For example, a device responds to a reboot command that specifies how many seconds to wait before rebooting.
+
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL v2 language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 A DTDL model can be a _no-component_ or a _multi-component_ model:
 
@@ -49,7 +51,7 @@ A DTDL model can be a _no-component_ or a _multi-component_ model:
 > [!TIP]
 > You can [import and export a complete device model or individual interface](howto-set-up-template.md#interfaces-and-components) from an IoT Central device template as a DTDL v2 file.
 
-To learn more about device models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
+To learn more about device models, see the [IoT Plug and Play modeling guide](../../iot/concepts-modeling-guide.md)
 
 ### Conventions
 
@@ -63,17 +65,17 @@ A device should follow the IoT Plug and Play conventions when it exchanges data 
 > [!NOTE]
 > Currently, IoT Central does not fully support the DTDL **Array** and **Geospatial** data types.
 
-To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot/concepts-convention.md).
 
-To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md).
+To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
 ### Device SDKs
 
-Use one of the [Azure IoT device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) to implement the behavior of your device. The code should:
+To implement the code that runs on your device, you should use one of the [Azure IoT device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). Actions your code should implement include:
 
 - Register the device with DPS and use the information from DPS to connect to the internal IoT hub in your IoT Central application.
 - Announce the DTMI of the model the device implements.
-- Send telemetry in the format that the device model specifies. IoT Central uses the model in the device template to determine how to use the telemetry for visualizations and analysis.
+- Send telemetry in the format that the device model specifies. To determine how to use the telemetry for visualizations and analysis, IoT Central uses the model in the device template.
 - Synchronize property values between the device and IoT Central. The model specifies the property names and data types so that IoT Central can display the information.
 - Implement command handlers for the commands specified in the model. The model specifies the command names and parameters that the device should use.
 
@@ -95,13 +97,33 @@ Communication protocols that a device can use to connect to IoT Central include 
 
 If your device can't use any of the supported protocols, use Azure IoT Edge to do protocol conversion. IoT Edge supports other intelligence-on-the-edge scenarios to offload processing from the Azure IoT Central application.
 
+## Telemetry timestamps
+
+By default, IoT Central uses the message enqueued time when it displays telemetry on dashboards and charts. Message enqueued time is set internally when IoT Central receives the message from the device.
+
+A device can set the `iothub-creation-time-utc` property when it creates a message to send to IoT Central. If this property is present, IoT Central uses it when it displays telemetry on dashboards and charts.
+
+You can export both the enqueued time and the `iothub-creation-time-utc` property when you export telemetry from your IoT Central application.
+
+To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-device-to-cloud-messages).
+
 ## Best practices
 
-These recommendations show how to implement devices to take advantage of the [built-in high availability, disaster recovery, and automatic scaling](concepts-faq-scalability-availability.md) in IoT Central.
+These recommendations show how to implement devices to take advantage of the built-in high availability, disaster recovery, and automatic scaling in IoT Central.
+
+### Device provisioning
+
+As the number of IoT hubs in your application changes, a device might need to connect to a different hub.
+
+Before a device connects to IoT Central, it must be registered and provisioned in the underlying services. When you add a device to an IoT Central application, IoT Central adds an entry to a DPS enrollment group. Information from the enrollment group such as the ID scope, device ID, and keys is surfaced in the IoT Central UI.
+
+When a device first connects to your IoT Central application, DPS provisions the device in one of the enrollments group's linked IoT hubs. The device is then associated with that IoT hub. DPS uses an allocation policy to load balance the provisioning across the IoT hubs in the application. This process makes sure each IoT hub has a similar number of provisioned devices.
+
+To learn more about registration and provisioning in IoT Central, see [IoT Central device connectivity guide](overview-iot-central-developer.md#how-devices-connect).
 
 ### Handle connection failures
 
-For scaling or disaster recovery purposes, IoT Central may update its underlying IoT hubs. To maintain connectivity, your device code should handle specific connection errors by establishing a connection to a new IoT Hub endpoint.
+When IoT Central automatically scales or handles a disaster recovery scenario, it might update its underlying IoT hubs. To maintain connectivity, your device code should handle specific connection errors by establishing a connection to a new IoT Hub endpoint.
 
 If the device gets any of the following errors when it connects, it should reprovision the device with DPS to get a new connection string. These errors mean the connection string is no longer valid:
 
@@ -114,9 +136,11 @@ If the device gets any of the following errors when it connects, it should use a
 - Operator blocked device.
 - Internal error 500 from the service.
 
-To learn more about device error codes, see [Troubleshooting device connections](troubleshoot-connection.md).
+To learn more about device error codes, see [Troubleshooting device connections](troubleshooting.md).
 
-To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot-develop/concepts-manage-device-reconnections.md).
+To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot/concepts-manage-device-reconnections.md).
+
+Currently, IoT Edge devices can't move between IoT hubs.
 
 ### Test failover capabilities
 
@@ -149,7 +173,7 @@ To learn more about the CLI command, see [az iot central device manual-failover]
 You can now check that telemetry from the device still reaches your IoT Central application.
 
 > [!TIP]
-> To see sample device code that handles failovers in various programing languages, see [IoT Central high availability clients](/samples/azure-samples/iot-central-high-availability-clients/iotc-high-availability-clients/).
+> To see sample device code that handles failovers in various programming languages, see [IoT Central high availability clients](/samples/azure-samples/iot-central-high-availability-clients/iotc-high-availability-clients/).
 
 ## Next steps
 

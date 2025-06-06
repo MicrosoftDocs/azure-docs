@@ -15,7 +15,11 @@
     - name: Send and receive messages - Node WebSockets
       href: relay-hybrid-connections-node-get-started.md
     - name: Send and receive messages - Node HTTP
-      href: relay-hybrid-connections-http-requests-node-get-started.md    
+      href: relay-hybrid-connections-http-requests-node-get-started.md   
+    - name: Send and receive messages - Java HTTP
+      href: relay-hybrid-connections-java-get-started.md
+    - name: Send and receive messages - Python WebSockets
+      href: relay-hybrid-connections-python-get-started.md
   - name: Windows Communication Foundation (WCF)
     items:
     - name: Expose an on-premises WCF service to a web application in the cloud
@@ -38,7 +42,7 @@
       items:
       - name: Overview (authentication and authorization)
         href: relay-authentication-and-authorization.md      
-      - name: Use Azure Active Directory 
+      - name: Use Microsoft Entra ID 
         items:
         - name: Authenticate with managed identities
           href: authenticate-managed-identity.md 
@@ -54,10 +58,6 @@
     href: move-across-regions.md
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
     href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json    
-  - name: Plan and design
-    items:
-    - name: Migrate from ACS to SAS
-      href: relay-migrate-acs-sas.md
   - name: Develop
     items:
     - name: Create a namespace
@@ -83,6 +83,8 @@
       href: diagnostic-logs.md
 - name: Reference
   items:
+  - name: REST
+    href: /rest/api/relay/
   - name: .NET
     items:
     - name: Microsoft.Azure.Relay

@@ -1,16 +1,16 @@
 ---
 title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
-ms.date: 04/12/2022
+ms.date: 03/04/2025
 ms.topic: how-to
-ms.custom: timwarner, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 # Use Azure Policy extension for Visual Studio Code
 
 > Applies to Azure Policy extension version **0.1.2** and newer
 
 Learn how to use the Azure Policy extension for Visual Studio Code (VS Code) to look up
-[aliases](../concepts/definition-structure.md#aliases), review resources and policy definitions,
+[aliases](../concepts/definition-structure-alias.md), review resources and policy definitions,
 export objects, and evaluate policy definitions. First, we'll describe how to install the Azure
 Policy extension in Visual Studio Code. Then we'll walk through how to look up aliases.
 
@@ -150,7 +150,7 @@ matching aliases.
 
 > [!NOTE]
 > The VS Code extension only supports evaluation of Resource Manager mode properties. For more
-> information about the modes, see the [mode definitions](../concepts/definition-structure.md#mode).
+> information about the modes, see the [mode definitions](../concepts/definition-structure-basics.md#mode).
 
 ### Search for and view policy definitions and assignments
 
@@ -186,6 +186,10 @@ the tree view, the Azure Policy extension opens the JSON that represents the pol
 all its Resource Manager property values. The extension can validate the opened Azure Policy JSON
 schema.
 
+> [!NOTE]
+> The VS Code extension will only show the latest version of the policy definition. For more
+> information about the versions of definitions, see the [definitions](../concepts/definition-structure-basics.md#version-preview).
+
 ### Export objects
 
 Objects from your subscriptions can be exported to a local JSON file. In either the **Resources** or
@@ -218,8 +222,8 @@ policy assignment.
    Studio Code opens with the resulting evaluation details in JSON form.
 
 > [!NOTE]
-> For [AuditIfNotExists](../concepts/effects.md#auditifnotexists) or
-> [DeployIfNotExists](../concepts/effects.md#deployifnotexists) policy definitions, use the plus
+> For [AuditIfNotExists](../concepts/effect-audit-if-not-exists.md) or
+> [DeployIfNotExists](../concepts/effect-deploy-if-not-exists.md) policy definitions, use the plus
 > icon in the **Evaluation** pane or **Azure Policy: Select a resource for existence check (only
 > used for if-not-exists policies)** from the Command Palette to select a _related_ resource for the
 > existence check.
@@ -247,21 +251,21 @@ example:
 
 > [!NOTE]
 > The VS Code extension only supports evaluation of Resource Manager mode properties. For more
-> information about the modes, see the [mode definitions](../concepts/definition-structure.md#mode).
+> information about the modes, see the [mode definitions](../concepts/definition-structure-basics.md#mode).
 >
 > The evaluation feature does not work on macOS and Linux installations of the extension.
 
-### Create policy definition from constraint template
+### Create policy definition from a constraint template or mutation template
 
 The VS Code extension can create a policy definition from an existing
 [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
-[constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). The YAML Ain't Markup Language (YAML)
+[constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) or an existing [mutation template](https://open-policy-agent.github.io/gatekeeper/website/docs/mutation/). The YAML Ain't Markup Language (YAML)
 file must be open in VS Code for the Command Palette to be an option.
 
 1. Open a valid OPA GateKeeper v3 constraint template YAML file.
 
 1. From the menu bar, go to **View** > **Command Palette**, and enter **Azure Policy for Kubernetes:
-   Create Policy Definition from Constraint Template**.
+   Create Policy Definition from Constraint Template Or Mutation**.
 
 1. Select the appropriate _sourceType_ value.
 
@@ -279,8 +283,8 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 ## Next steps
 
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Study the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Read [Understanding policy effects](../concepts/effects.md).
+- Study the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Read [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policy definitions](programmatically-create.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).
 - Grasp what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

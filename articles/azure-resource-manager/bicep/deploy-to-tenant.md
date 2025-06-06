@@ -1,14 +1,14 @@
 ---
 title: Use Bicep to deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in a Bicep file.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 11/22/2021
+ms.date: 02/10/2025
 ---
 
 # Tenant deployments with Bicep file
 
-As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
+As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Microsoft Entra tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
 
 ### Training resources
 
@@ -60,7 +60,7 @@ targetScope = 'tenant'
 
 The principal deploying the template must have permissions to create resources at the tenant scope. The principal must have permission to execute the deployment actions (`Microsoft.Resources/deployments/*`) and to create the resources defined in the template. For example, to create a management group, the principal must have Contributor permission at the tenant scope. To create role assignments, the principal must have Owner permission.
 
-The Global Administrator for the Azure Active Directory doesn't automatically have permission to assign roles. To enable template deployments at the tenant scope, the Global Administrator must do the following steps:
+The Global Administrator for the Microsoft Entra ID doesn't automatically have permission to assign roles. To enable template deployments at the tenant scope, the Global Administrator must do the following steps:
 
 1. Elevate account access so the Global Administrator can assign roles. For more information, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
 
@@ -120,18 +120,18 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 ## Deployment scopes
 
-When deploying to a tenant, you can deploy resources to:
+In a Bicep file, all resources declared with the [`resource`](./resource-declaration.md) keyword must be deployed at the same scope as the deployment. For a tenant deployment, this means all `resource` declarations in the Bicep file must be deployed to the same tenant or as a child or extension resource of a resource in the same tenant as the deployment.  
 
-* the tenant
-* management groups within the tenant
-* subscriptions
-* resource groups
+However, this restriction doesn't apply to [`existing`](./existing-resource.md) resources. You can reference existing resources at a different scope than the deployment.  
 
-An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
+To deploy resources at multiple scopes within a single deployment, use [modules](./modules.md). Deploying a module triggers a "nested deployment," allowing you to target different scopes. The user deploying the parent Bicep file must have the necessary permissions to initiate deployments at those scopes.
 
-The user deploying the template must have access to the specified scope.
+You can deploy a resource from within a tenant scope Bicep file at the following scopes:
 
-This section shows how to specify different scopes. You can combine these different scopes in a single template.
+* [The tenant](#scope-to-tenant)
+* [The management group](#scope-to-management-group)
+* [The subscription](#scope-to-subscription)
+* [The resource group](#scope-to-resource-group)
 
 ### Scope to tenant
 
@@ -141,7 +141,7 @@ Resources defined within the Bicep file are applied to the tenant.
 targetScope = 'tenant'
 
 // create resource at tenant
-resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
+resource mgName_resource 'Microsoft.Management/managementGroups@2023-04-01' = {
   ...
 }
 ```
@@ -203,7 +203,7 @@ The following template creates a management group.
 targetScope = 'tenant'
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
+resource mgName_resource 'Microsoft.Management/managementGroups@2023-04-01' = {
   name: mgName
   properties: {}
 }
@@ -226,7 +226,7 @@ param roleDefinitionId string = '8e3af657-a8ff-443c-a75c-2fe8c4bcb635'
 
 var roleAssignmentName = guid(principalId, roleDefinitionId)
 
-resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-03-01-preview' = {
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: roleAssignmentName
   properties: {
     roleDefinitionId: tenantResourceId('Microsoft.Authorization/roleDefinitions', roleDefinitionId)

@@ -1,9 +1,9 @@
 ---
 title: "Tutorial: Add an Azure Cosmos DB database connection in Azure Static Web Apps"
 description: Learn to add an  Azure Cosmos DB database connection to a web application in Azure Static Web Apps
-author: craigshoemaker
-ms.author: cshoe
-ms.service: static-web-apps
+author: v1212
+ms.author: wujia
+ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 03/07/2023
 ---
@@ -192,7 +192,7 @@ Next, create the configuration file that your static web app uses to interface w
 
 ```json
 {
-  "$schema": "https://dataapibuilder.azureedge.net/schemas/latest/dab.draft.schema.json",
+  "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
   "data-source": {
     "database-type": "cosmosdb_nosql",
     "options": {
@@ -232,7 +232,7 @@ Next, create the configuration file that your static web app uses to interface w
 }
 ```
 
-Before moving on to the next step, review the following table that explains different aspects of the configuration file. For full documentation on the configuration file and functionality such as relationships and policies for item-level security, refer to [Data API Builder documentation](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md).
+Before moving on to the next step, review the following table that explains different aspects of the configuration file. For full documentation on the configuration file and functionality such as relationships and policies for item-level security, refer to [Data API Builder documentation](/azure/data-api-builder/configuration-file).
 
 | Feature | Explanation |
 |---|---|
@@ -271,6 +271,8 @@ Replace the markup between the `body` tags in the *index.html* file with the fol
 ## Start the application locally
 
 Now you can run your website and manipulate data in the database directly.
+
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
 
 1. Use npm to install or update the Static Web Apps CLI. Select which command is best for your situation.
 

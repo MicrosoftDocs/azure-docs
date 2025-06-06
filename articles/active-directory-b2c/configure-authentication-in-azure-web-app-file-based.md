@@ -1,19 +1,24 @@
 ---
-title: Configure authentication in an Azure Web App configuration file by using Azure Active Directory B2C
+title: Configure authentication in an Azure Web App configuration file by using Azure AD B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an Azure Web App using configuration file.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
-ms.workload: identity
-ms.topic: reference
-ms.date: 06/28/2022
+ms.service: azure-active-directory
+
+ms.topic: how-to
+ms.date: 02/19/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a web app developer, I want to configure Azure AD B2C authentication in my Azure Web App, so that users can securely sign in to the app using their Azure AD B2C credentials.
+
 ---
 
 # Configure authentication in an Azure Web App configuration file by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article explains how to add Azure Active Directory B2C (Azure AD B2C) authentication functionality to an Azure Web App. For more information, check out the [File-based configuration in Azure App Service authentication](../app-service/configure-authentication-file-based.md) article.
 
@@ -48,8 +53,7 @@ During app registration, you'll specify the *redirect URI*. The redirect URI is 
 To register your application, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *My Azure web app*).
@@ -139,7 +143,6 @@ From your server code, the provider-specific tokens are injected into the reques
 |X-MS-CLIENT-PRINCIPAL-IDP| The identity provider name, `aadb2c`.|
 |X-MS-TOKEN-AADB2C-ID-TOKEN| The ID token issued by Azure AD B2C|
 
-## Next steps
-
+## Related content
 * After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out the [Work with user identities in Azure App Service authentication](../app-service/configure-authentication-user-identities.md).
 * Learn how to [Work with OAuth tokens in Azure App Service authentication](../app-service/configure-authentication-oauth-tokens.md).

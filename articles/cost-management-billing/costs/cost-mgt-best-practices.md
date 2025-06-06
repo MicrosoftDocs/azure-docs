@@ -2,14 +2,13 @@
 title: Optimize your cloud investment with Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
-author: bandersmsft
-ms.author: banders
-ms.date: 12/06/2022
+author: sdoultani
+ms.author: sadoulta
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
-ms.custom: seodec18
+ms.reviewer: sadoulta
 ---
 
 # How to optimize your cloud investment with Cost Management
@@ -63,7 +62,7 @@ Act to reduce your spending. Make the most of it based on the findings gathered 
 
 Everyone in your organization must engage in the cost management lifecycle. They need to stay involved on an ongoing basis to optimize costs. Be rigorous about this iterative process and make it a key tenet of responsible cloud governance in your organization.
 
-![Key principles diagram showing visibility, accountability, and optimization](./media/cost-mgt-best-practices/principles.png)
+:::image type="content" border="false" source="./media/cost-mgt-best-practices/principles.png" alt-text="The Key principles diagram showing visibility, accountability, and optimization.":::
 
 ## Plan with cost in mind
 
@@ -177,13 +176,13 @@ For more information, see [cost analysis](quick-acm-cost-analysis.md).
 
 Do you need to import your billing data into an external system, like a dashboard or financial system? Set up automated exports to Azure Storage and avoid manually downloading files every month. You can then easily set up automatic integrations with other systems to keep your billing data in sync.
 
-For more information about exporting billing data, see [Create and manage exported data](tutorial-export-acm-data.md).
+For more information about exporting billing data, see [Create and manage exported data](tutorial-improved-exports.md).
 
 ### Create budgets
 
-After you've identified and analyzed your spending patterns, it's important to begin setting limits for yourself and your teams. Azure budgets give you the ability to set either a cost or usage-based budget with many thresholds and alerts. Make sure to review the budgets that you create regularly to see your budget burn-down progress and make changes as needed. Azure budgets also allow you to configure an automation trigger when a given budget threshold is reached. For example, you can configure your service to shut down VMs. Or you can move your infrastructure to a different pricing tier in response to a budget trigger.
+After you've identified and analyzed your spending patterns, it's important to begin setting limits for yourself and your teams. Budgets give you the ability to set either a cost or usage-based budget with many thresholds and alerts. Make sure to review the budgets that you create regularly to see your budget burn-down progress and make changes as needed. Budgets also allow you to configure an automation trigger when a given budget threshold is reached. For example, you can configure your service to shut down VMs. Or you can move your infrastructure to a different pricing tier in response to a budget trigger.
 
-For more information, see [Azure Budgets](tutorial-acm-create-budgets.md).
+For more information, see [Create budgets](tutorial-acm-create-budgets.md).
 
 For more information about budget-based automation, see [Budget Based Automation](../manage/cost-management-budget-scenario.md).
 
@@ -198,7 +197,7 @@ After you've deployed your infrastructure in Azure, it's important to make sure 
 
 Azure Advisor is a service that, among other things, identifies virtual machines with low utilization from a CPU or network usage standpoint. From there, you can decide to either shut down or resize the machine based on the estimated cost to continue running the machines. Advisor also provides recommendations for reserved instance purchases. The recommendations are based on your last 30 days of virtual machine usage. When acted on, the recommendations can help you reduce your spending.
 
-For more information, see [Azure Advisor](../../advisor/advisor-overview.md).
+For more information, see [Azure Advisor](/azure/advisor/advisor-overview).
 
 ### Size your VMs properly
 
@@ -223,13 +222,14 @@ For more information, see [What are Azure Reservations?](../reservations/save-co
 
 #### Use Azure Hybrid Benefit
 
-If you already have Windows Server or SQL Server licenses in your on-premises deployments, you can use the Azure Hybrid Benefit program to save in Azure. With the Windows Server benefit, each license covers the cost of the OS (up to two virtual machines), and you only pay for base compute costs. You can use existing SQL Server licenses to save up to 55 percent on vCore-based SQL Database options. Options include SQL Server in Azure Virtual Machines and SQL Server Integration Services.
+If you already have Windows Server or SQL Server licenses in your on-premises deployments, you can use the Azure Hybrid Benefit program to save in Azure. With this Azure offer, each license covers the cost of the OS (up to two virtual machines). SQL Server licensees can save up to 55 percent on vCore-based SQL Database options. Options include SQL Server in Azure Virtual Machines and SQL Server Integration Services. 
 
-For more information, see [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/).
+For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 ### Other resources
 
 Azure also has a service that allows you to build services that take advantage of surplus capacity in Azure for reduced rates. For more information, see [Use low priority VMs with Batch](../../batch/batch-low-pri-vms.md).
 
-## Next steps
+## Related content
+
 - If you're new to Cost Management, read [What is Cost Management?](../cost-management-billing-overview.md) to learn how it helps monitor and control Azure spending and to optimize resource use.

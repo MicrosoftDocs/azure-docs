@@ -2,21 +2,13 @@
 title: Diagnose dropped notifications in Azure Notification Hubs
 description: Learn how to diagnose common issues with dropped notifications in Azure Notification Hubs.
 services: notification-hubs
-documentationcenter: Mobile
 author: sethmanheim
-manager: femila
-editor: jwargo
-
-ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
-ms.service: notification-hubs
-ms.workload: mobile
-ms.tgt_pltfrm: NA
+manager: lizross
+ms.service: azure-notification-hubs
 ms.devlang: csharp
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 06/08/2023
 ms.author: sethm
-ms.reviewer: jowargo
-ms.lastreviewed: 04/04/2019
 ms.custom: devx-track-csharp
 ---
 
@@ -66,14 +58,17 @@ If you inadvertently upload different types of certificates to the same hub, you
 
 ### FCM configuration
 
+> [!NOTE]
+> For information about Firebase Cloud Messaging deprecation and migration steps, see [Google Firebase Cloud Messaging migration](notification-hubs-gcm-to-fcm.md).
+
 1. Ensure that the *server key* you obtained from Firebase matches the server key you registered in the Azure portal.
 
    ![Firebase server key][3]
-
-2. Ensure that you have configured **Project ID** on the client. You can obtain the value for **Project ID** from the Firebase dashboard.
+   
+1. Ensure that you have configured **Project ID** on the client. You can obtain the value for **Project ID** from the Firebase dashboard.
 
    ![Firebase Project ID][1]
-
+   
 ## Application issues
 
 ### Tags and tag expressions
@@ -86,7 +81,7 @@ For example, suppose all your registrations with Notification Hubs use the tag "
 
 ### Template issues
 
-If you use templates, ensure that you follow the guidelines described in [Templates].
+If you use templates, ensure that you follow the guidelines described in [Templates](./notification-hubs-templates-cross-platform-push-messages.md)
 
 ### Invalid registrations
 
@@ -101,7 +96,7 @@ Each batch is sent to the push notification service, which in turn accepts and v
 
 In this case, the faulting registration is removed from the database. Then, we retry notification delivery for the rest of the devices in that batch.
 
-To get more error information about the failed delivery attempt against a registration, you can use the Notification Hubs REST APIs [Per Message Telemetry: Get Notification message telemetry](/rest/api/notificationhubs/get-notification-message-telemetry) and [PNS feedback](/previous-versions/azure/reference/mt705560(v=azure.100)). For sample code, see the [Send REST example](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+To get more error information about the failed delivery attempt against a registration, you can use the Notification Hubs REST APIs [Per Message Telemetry: Get Notification message telemetry](/rest/api/notificationhubs/get-notification-message-telemetry) and [PNS feedback](/rest/api/notificationhubs/get-pns-feedback). For sample code, see the [Send REST example](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## Push notification service issues
 
@@ -160,7 +155,7 @@ You can use **Test Send** page to send a test notification message:
 ![Visual Studio: Test Send](./media/notification-hubs-push-notification-fixer/test-send-vs.png)
 
 > [!NOTE]
-> Use Visual Studio to edit registrations only during development/test, and with a limited number of registrations. If you need to edit your registrations in bulk, consider using the export and import registration functionality described in [How To: Export and Modify Registrations in Bulk](/previous-versions/azure/azure-services/dn790624(v=azure.100)).
+> Use Visual Studio to edit registrations only during development/test, and with a limited number of registrations. If you need to edit your registrations in bulk, consider using the export and import registration functionality described in [How To: Export and Modify Registrations in Bulk](./export-modify-registrations-bulk.md).
 
 #### Service Bus Explorer
 
@@ -179,12 +174,6 @@ To send a test notification to your clients without having a service back end up
 You can also send test notifications from Visual Studio.
 
 ![Test Send functionality in Visual Studio][10]
-
-For more information about using Notification Hubs with Visual Studio Server Explorer, see these articles:
-
-* [How to view device registrations for notification hubs](/previous-versions/windows/apps/dn792122(v=win.10))
-* [Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]
-* [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]
 
 ### Debug failed notifications and review notification outcome
 
@@ -241,7 +230,7 @@ The Token obtained from the Token Provider is wrong
 This message indicates either that the credentials configured in Notification Hubs are invalid or that there's an issue with the registrations in the hub. Delete this registration and let the client re-create the registration before sending the message.
 
 > [!NOTE]
-> Use of the `EnableTestSend` property is heavily throttled. Use this option only in a development/test environment and with a limited set of registrations. Debug notifications are sent to only 10 devices. There's also a limit on processing debug sends, at 10 per minute.
+> Use of the `EnableTestSend` property is heavily throttled. Use this option only in a development/test environment and with a limited set of registrations. Debug notifications are sent to only 10 devices. There's also a limit on processing debug sends, at 10 per minute. Debug notifications are also excluded from the Azure Notification Hubs SLA.
 
 ### Review telemetry
 
@@ -252,18 +241,18 @@ In the portal, you can get a quick overview of all the activity in your notifica
 1. On the **Overview** tab, you can see an aggregated view of registrations, notifications, and errors by platform.
 
    ![Notification Hubs overview dashboard][5]
-
-2. On the **Monitor** tab, you can add many other platform-specific metrics for a deeper look. You can look specifically at errors that are returned when Notification Hubs tries to send the notification to the push notification service.
+   
+1. On the **Activity log** tab, you can add other platform-specific metrics for a deeper look. You can look specifically at errors that are returned when Notification Hubs tries to send the notification to the push notification service.
 
    ![Azure portal activity log][6]
-
-3. Begin by reviewing **Incoming Messages**, **Registration Operations**, and **Successful Notifications**. Then, go to the per-platform tab to review errors that are specific to the push notification service.
+   
+3. On the **Overview** tab, begin by reviewing **Incoming Messages**, **Registration Operations**, and **Successful Notifications**. Then, go to the per-platform tab to review errors that are specific to that push notification service.
 
 4. If the authentication settings for your notification hub are incorrect, the message **PNS Authentication Error** appears. It's a good indication to check the push notification service credentials.
 
 #### Programmatic access
 
-For more information about programmatic access, see [Programmatic access](/previous-versions/azure/azure-services/dn458823(v=azure.100)).
+For more information about programmatic access to [Azure Notification Hub Metrics](./monitor-notification-hubs-reference.md#metrics), see [Programmatic access](/azure/azure-monitor/essentials/rest-api-walkthrough).
 
 > [!NOTE]
 > Several telemetry-related features, like exporting and importing registrations and telemetry access via APIs, are available only on the Standard service tier. If you attempt to use these features from the Free or Basic service tier, you'll get an exception message if you use the SDK. You'll get an HTTP 403 (Forbidden) error if you use the features directly from the REST APIs.
@@ -278,7 +267,6 @@ For more information about programmatic access, see [Programmatic access](/previ
 [5]: ./media/notification-hubs-push-notification-fixer/PortalDashboard.png
 [6]: ./media/notification-hubs-push-notification-fixer/PortalAnalytics.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
-[8]: ./media/notification-hubs-push-notification-fixer/VSRegistrations.png
 [9]: ./media/notification-hubs-push-notification-fixer/vsserverexplorer.png
 [10]: ./media/notification-hubs-push-notification-fixer/VSTestNotification.png
 
@@ -288,10 +276,4 @@ For more information about programmatic access, see [Programmatic access](/previ
 [Templates]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: /previous-versions/azure/azure-services/dn790624(v=azure.100)
-[Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[View device registrations for notification hubs]: /previous-versions/windows/apps/dn792122(v=win.10)
-[Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend
-[Programmatic telemetry access]: /previous-versions/azure/azure-services/dn458823(v=azure.100)

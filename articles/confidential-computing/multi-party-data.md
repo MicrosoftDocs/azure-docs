@@ -6,20 +6,17 @@ description: Data cleanroom and multi-party data confidential computing solution
 
 services: virtual-machines
 
-author: grbury
+author: kapilv
 
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 
-ms.subservice: confidential-computing
+ms.subservice: azure-confidential-computing
 
-ms.workload: infrastructure
-
-ms.topic: conceptual
+ms.topic: concept-article
 
 ms.date: 04/20/2023
 
-ms.author: grbury
-
+ms.author: kapilv
 ---
 
 # Cleanroom and Multi-party Data Analytics
@@ -66,6 +63,11 @@ _Code integrity and confidential ledgers:_ With distributed ledger technology (D
 
 ## What are options to get started?
 
+### Azure Confidential Clean Rooms (Preview)
+[Azure Confidential Clean Rooms (ACCR)](./confidential-clean-rooms.md) is designed for organizations that need to share privacy sensitive data such as personally identifiable information (PII) or protected health information (PHI) securely with other organizations to derive business critical insights which can be securely fine-tuning your ML model with sensitive data from other organizations for improved accuracy or performing secure analytics on joint data with your partner organizations. ACCR uses confidential containers on Azure Container Instances to ensure that your data stays protected from other collaborators and from Azure operators. It has applications spanning multiple industries such as healthcare, advertising, banking and financial services and retail.
+
+You can enrol yourself for the ACCR preview by submititng this [form](https://aka.ms/ACCR-Preview-Onboarding).
+
 ### ACC platform offerings that help enable confidential cleanrooms
 Roll up your sleeves and build a data clean room solution directly on these confidential computing service offerings.
 
@@ -82,8 +84,8 @@ Use a partner that has built a multi-party data analytics solution on top of the
 
 - [**Anjuna**](https://www.anjuna.io/use-case-solutions) provides a confidential computing platform to enable various use cases, including secure clean rooms, for organizations to share data for joint analysis, such as calculating credit risk scores or developing machine learning models, without exposing sensitive information.
 - [**BeeKeeperAI**](https://www.beekeeperai.com/) enables healthcare AI through a secure collaboration platform for algorithm owners and data stewards. BeeKeeperAI™ uses privacy-preserving analytics on multi-institutional sources of protected data in a confidential computing environment. The solution supports end-to-end encryption, secure computing enclaves, and Intel's latest SGX enabled processors to protect the data and the algorithm IP.
-- [**Decentriq**](https://www.decentriq.com/) provides Software as a Service (SaaS) data clean rooms to enable companies to collaborate with other organizations on their most sensitive datasets and create value for their clients. The technologies help prevent anyone to see the sensitive data, including Decentriq.
+- [**Decentriq**](https://www.decentriq.com/) provides SaaS data cleanrooms built on confidential computing that enable secure data collaboration without sharing data. Data science cleanrooms allow flexible multi-party analysis, and no-code cleanrooms for media and advertising enable compliant audience activation and analytics based on first-party user data. Confidential cleanrooms are described in more detail in [this article on the Microsoft blog](https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-data-clean-rooms-the-evolution-of-sensitive-data/ba-p/3273844).
 - [**Fortanix**](https://www.fortanix.com/platform/confidential-ai) provides a confidential computing platform that can enable confidential AI, including multiple organizations collaborating together for multi-party analytics.
+- [**Habu**](https://habu.com) delivers an interoperable data clean room platform that enables businesses to unlock collaborative intelligence in a smart, secure, scalable, and simple way. Habu connects decentralized data across departments, partners, customers, and providers for better collaboration, decision-making, and results.
 - [**Mithril Security**](https://www.mithrilsecurity.io/) provides tooling to help SaaS vendors serve AI models inside secure enclaves, and providing an on-premises level of security and control to data owners. Data owners can use their SaaS AI solutions while remaining compliant and in control of their data.
 - [**Opaque**](https://opaque.co/) provides a confidential computing platform for collaborative analytics and AI, giving the ability to perform collaborative scalable analytics while protecting data end-to-end and enabling organizations to comply with legal and regulatory mandates.
-- [**SafeLiShare**](https://safelishare.com/solution/encrypted-data-clean-room/) provides policy-driven encrypted data clean rooms where access to data is auditable, trackable, and visible, while keeping data protected during multi-party data sharing.

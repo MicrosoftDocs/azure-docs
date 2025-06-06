@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on iOS
+description: Learn how to use the Calling composite on iOS.
 author: jorgegarc
 
 ms.author: jorgegarc
@@ -8,48 +8,48 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling)
+For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
-### Language Detection
+### Language detection
 
-If your application supports localization, the UI Library will be displayed based on user's system preferred language if it's part of the `Available Languages` listed below. Otherwise will default our predefined English (`en`) strings.
+If your application supports localization, the UI Library is displayed based on the user's system-preferred language if it's part of the available languages listed in the next section. Otherwise, the language defaults to the predefined English (`en`) strings.
 
-### Available Languages
+### Available languages
 
-The following table of `locale` with out of the box translations. If you want to localize the composite, pass the `locale` into `LocalizationOptions` as options into `CallComposite`.
+The following table lists out-of-the-box translations for `locale`. If you want to localize the composite, pass `locale` into `LocalizationOptions` as options into `CallComposite`.
 
-|         Language         | SupportedLocale       |    identifier  |
+|         Language         | SupportedLocale       |    Identifier  |
 |:------------------------:|:------------------:|:------------:|
-| Chinese, Simplified | zh | zh |
-| Chinese, Simplified | zhHans | zh-Hans |
-| Chinese, Simplified (China mainland) | zhHansCN | zh-Hans-CN |
-| Chinese, Traditional | zhHant | zh-Hant |
-| Chinese, Traditional (Taiwan) | zhHantTW | zh-Hant-TW |
-| Dutch | nl | nl |
-| Dutch (Netherlands) | nlNL | nl-NL |
-| English | en | en |
-| English (United Kingdom) | enGB | en-GB |
-| English (United States) | enUS | en-US |
-| French | fr | fr |
-| French (France) | frFR | fr-FR |
-| German | de | de |
-| German (Germany) | deDE | de-DE |
-| Italian | it | it |
-| Italian (Italy) | itIT | it-IT |
-| Japanese | ja | ja |
-| Japanese (Japan) | jaJP | ja-JP |
-| Korean | ko | ko |
-| Korean (South Korea) | koKR | ko-KR |
-| Portuguese | pt | pt |
-| Portuguese (Brazil) | ptBR | pt-BR |
-| Russian | ru | ru |
-| Russian (Russia) | ruRU | ru-RU |
-| Spanish | es | es |
-| Spanish (Spain) | esES | es-ES |
-| Turkish | tr | tr |
-| Turkish (Turkey) | trTR | tr-TR |
+| Chinese, Simplified | `zh` | `zh` |
+| Chinese, Simplified | `zhHans` | `zh-Hans` |
+| Chinese, Simplified (China mainland) | `zhHansCN` | `zh-Hans-CN` |
+| Chinese, Traditional | `zhHant` | `zh-Hant` |
+| Chinese, Traditional (Taiwan) | `zhHantTW` | `zh-Hant-TW` |
+| Dutch | `nl` | `nl` |
+| Dutch (Netherlands) | `nlNL` | `nl-NL` |
+| English | `en` | `en` |
+| English (United Kingdom) | `enGB` | `en-GB` |
+| English (United States) | `enUS` | `en-US` |
+| French | `fr` | `fr` |
+| French (France) | `frFR` | `fr-FR` |
+| German | `de` | `de` |
+| German (Germany) | `deDE` | `de-DE` |
+| Italian | `it` | `it` |
+| Italian (Italy) | `itIT` | `it-IT` |
+| Japanese | `ja` | `ja` |
+| Japanese (Japan) | `jaJP` | `ja-JP` |
+| Korean | `ko` | `ko` |
+| Korean (South Korea) | `koKR` | `ko-KR` |
+| Portuguese | `pt` | `pt` |
+| Portuguese (Brazil) | `ptBR` | `pt-BR` |
+| Russian | `ru` | `ru` |
+| Russian (Russia) | `ruRU` | `ru-RU` |
+| Spanish | `es` | `es` |
+| Spanish (Spain) | `esES` | `es-ES` |
+| Turkish | `tr` | `tr` |
+| Turkish (Türkiye) | `trTR` | `tr-TR` |
 
-You can also obtain list of `locale` by the static function `SupportedLocale.values` will return list of Locale structs.
+You can also get a list of `locale` structures by using the static function `SupportedLocale.values`.
 
 ```swift
 let locales: [Locale] = SupportedLocale.values.map{ $0.identifier }
@@ -60,26 +60,26 @@ print(locales)
 
 ### LocalizationOptions
 
-`LocalizationOptions` is an options wrapper that sets all the strings for UI Library components using a `locale`. By default, all text labels use our English (`en`) strings. If desired, `LocalizationOptions` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components and composites.
+`LocalizationOptions` is an options wrapper that sets all the strings for UI Library components by using `locale`. By default, all text labels use English (`en`) strings. You can use `LocalizationOptions` to set a different `locale` structure. Out of the box, the UI Library includes a set of `locale` structures that are usable with the UI components and composites.
 
-To use the `LocalizationOptions`, specify a `locale` Swift Locale struct (with or without a region code), and pass it to the `CallCompositeOptions`. For the example below, we'll localize the composite to French for France (`fr-FR`).
+To use `LocalizationOptions`, specify a Swift `locale` structure (with or without a region code) and pass it to `CallCompositeOptions`. The following example localizes the composite to French for France (`fr-FR`).
 
 ```swift
-// Creating swift Locale struct
+// Creating a Swift locale structure
 var localizationOptions = LocalizationOptions(locale: Locale(identifier: "fr-FR"))
 
-// Use intellisense SupportedLocale to get supported Locale struct
+// Use IntelliSense SupportedLocale to get supported locale structures
 localizationOptions = LocalizationOptions(locale: SupportedLocale.frFR)
 
 let callCompositeOptions = CallCompositeOptions(localization: localizationOptions)
 let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
 
-:::image type="content" source="media/ios-localization.png" alt-text="iOS localization":::
+:::image type="content" source="media/ios-localization.png" alt-text="Screenshot that shows iOS localization.":::
 
-### Layout Direction
+### Layout direction
 
-Certain cultures (Arabic, Hebrew, etc.) may need  for localization to have right-to-left layout. You can specify the `layoutDirection` as part of the `LocalizationOptions`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
+Certain cultures (for example, Arabic and Hebrew) might need localization to have right-to-left layout. You can specify `layoutDirection` as part of `LocalizationOptions`. The layout of the composite will be mirrored, but the text will remain in the direction of the string.
 
 ```swift
 var localizationOptions: LocalizationOptions
@@ -93,32 +93,28 @@ localizationOptions = LocalizationOptions(locale: Locale(identifier: "en"),
                                           localizableFilename: "Localizable",
                                           layoutDirection: .rightToLeft)
 
-// Add localizationOptions as option
+// Add localizationOptions as an option
 let callCompositeOptions = CallCompositeOptions(localization: localizationOptions)
 let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
 
-You can see below the right-to-left layout mirroring, by default without specifying `layoutDirection` will default to false (left-to-right layout).
+The following example shows right-to-left layout mirroring. If you don't specify `layoutDirection`, it defaults to `false` (left-to-right layout).
 
 |`layoutDirection = .leftToRight` (default) | `layoutDirection = .rightToLeft`     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
-| :::image type="content" source="media/ios-righttoleft-false.png" alt-text="iOS layout direction left-to-right"::: | :::image type="content" source="media/ios-righttoleft-true.png" alt-text="iOS layout direction right-to-left":::  |
+| :::image type="content" source="media/ios-righttoleft-false.png" alt-text="Screenshot that shows an iOS layout direction of left to right."::: | :::image type="content" source="media/ios-righttoleft-true.png" alt-text="Screenshot that shows an iOS layout direction of right to left.":::  |
 
-### Customizing Translations
+### Customizing translations
 
-There are two options to customize the language translations that we provide. To override a particular string, you can find the list of localization keys [here](https://github.com/Azure/communication-ui-library-ios/blob/main/AzureCommunicationUI/AzureCommunicationUIDemoApp/Sources/Views/en.lproj/Localizable.strings) for the key-value pair. You can specify the `locale` to be one of the supported languages, and when a key isn't provided, will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language (using `Localizable.strings` file), and will fall back to English strings when a key isn't provided.
+There are two options to customize the language translations that we provide. To override a particular string, you can use the [list of localization keys](https://github.com/Azure/communication-ui-library-ios/blob/main/AzureCommunicationUI/AzureCommunicationUIDemoApp/Sources/Views/en.lproj/Localizable.strings) for the key/value pair. You can specify `locale` as one of the supported languages. When a key isn't provided, it falls back to a supported translation string. If you specify an unsupported language, you should provide translations for all the keys for that language (by using the `Localizable.strings` file) and then fall back to English strings when a key isn't provided.
 
-Let's say you wish to have the `ControlBar` with strings from our English (US) locale but you want to change the label of `JoinCall` button to "Start Meeting" (instead of "Join call") in Setup View.
+Let's say you want to have the control bar use strings from the English (US) locale, but you want to change the label of the **Join Call** button to **Start Meeting** in setup view. Enable localization in the project for the `locale` instance that you want to override. Create a `Localizable.strings` file (or another file name with the extension `.strings`) with the key/value pair for selected keys that you want to override. The following example overrides the key `AzureCommunicationUI.SetupView.Button.JoinCall`.
 
-#### Override using Localization.strings file
+:::image type="content" source="media/ios-setup-project.png" alt-text="Screenshot that shows an iOS setup project.":::
 
-Enable Localization in the Project, below for the `locale` you want to override. Create a `Localizable.strings` file (or other filename with extension `.strings`) with the key-value pair for selected keys you want to override. In the example below, we're overriding the key `AzureCommunicationUI.SetupView.Button.JoinCall`.
+:::image type="content" source="media/ios-custom-string.png" alt-text="Screenshot that shows an iOS custom string.":::
 
-:::image type="content" source="media/ios-setup-project.png" alt-text="iOS setup project":::
-
-:::image type="content" source="media/ios-custom-string.png" alt-text="iOS custom string":::
-
-To specify you're overriding with Localization.strings, create a `LocalizationOptions` object to specify the `locale` and `localizationFilename`. Or when using the `locale` initializer, will look keys in Localizable.strings for `locale.collatorIdentifier` as the language in your project.
+To specify that you're overriding with `Localizable.strings`, create a `LocalizationOptions` object to specify `locale` and `localizationFilename`. Or when you're using the `locale` initializer, it looks at keys in `Localizable.strings` for `locale.collatorIdentifier` as the language in your project.
 
 ```swift
 let localizationOptions = LocalizationOptions(locale: Locale(identifier: "fr"),
@@ -127,8 +123,8 @@ let callCompositeOptions = CallCompositeOptions(localization: localizationOption
 let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
 
-### Accessibility VoiceOver for Localization
+### Accessibility voiceover for localization
 
-For VoiceOver to work properly for a localization, make sure the language is added into your app's Localizations. So the VoiceOver will detect the app supports the language specified in LocalizationOptions locale, and select the Speech voice for the language using the voice found in device's Settings -> Accessibility -> Speech. You can verify if the language is added to your project as shown below.
+For voiceover to work properly for a localization, make sure the language is added into your app's localizations. The voiceover then detects that the app supports the language specified in `LocalizationOptions` for `locale`. It selects the speech voice for the language by using the voice found in **Settings** > **Accessibility** > **Speech** on the device. You can verify that the language is added to your project, as shown in the following example.
 
-:::image type="content" source="media/ios-xcode-project-localizations.png" alt-text="iOS XCode Project Localizations":::
+:::image type="content" source="media/ios-xcode-project-localizations.png" alt-text="Screenshot that shows iOS Xcode project localizations.":::

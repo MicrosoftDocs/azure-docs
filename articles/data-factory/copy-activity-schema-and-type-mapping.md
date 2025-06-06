@@ -1,19 +1,18 @@
 ---
-title: Schema and data type mapping in copy activity 
+title: Schema and data type mapping in copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how copy activity in Azure Data Factory and Azure Synapse Analytics pipelines map schemas and data types from source data to sink data.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 03/21/2025
 ms.author: jianleishen
 ---
 # Schema and data type mapping in copy activity
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how the Azure Data Factory copy activity perform schema mapping and data type mapping from source data to sink data.
+This article describes how the Azure Data Factory copy activity performs schema mapping and data type mapping from source data to sink data.
 
 ## Schema mapping
 
@@ -278,19 +277,19 @@ Copy activity currently supports the following interim data types: Boolean, Byte
 
 The following data type conversions are supported between the interim types from source to sink.
 
-| Source\Sink | Boolean | Byte array | Decimal | Date/Time <small>(1)</small> | Float-point <small>(2)</small> | GUID | Integer <small>(3)</small> | String | TimeSpan |
-| ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Byte array  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
-| Date/Time   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
-| Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Float-point | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
-| Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
-| TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
+| Source\Sink | Boolean | Byte array | Date/Time | Decimal | Float-point | GUID | Integer | String | TimeSpan |
+| ----------- | ------- | ---------- | ------------- | ------- | --------------- | ---- | ------------ | ------ | -------- |
+| Boolean     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| Byte array  |         | ✓          |               |         |                 |      |              | ✓      |          |
+| Date/Time   |         |            | ✓             |         |                 |      |              | ✓      |          |
+| Decimal     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| Float-point | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| GUID        |         |            |               |         |                 | ✓    |              | ✓      |          |
+| Integer     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| String      | ✓       | ✓          | ✓             | ✓       |                 | ✓    | ✓            | ✓      | ✓        |
+| TimeSpan    |         |            |               |         |                 |      |              | ✓      | ✓        |
 
-(1) Date/Time includes DateTime and DateTimeOffset.
+(1) Date/Time includes DateTime, DateTimeOffset, Date and Time.
 
 (2) Float-point includes Single and Double.
 
@@ -309,9 +308,11 @@ The following properties are supported in copy activity for data type conversion
 | *Under `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Allow data truncation when converting source data to sink with different type during copy, for example, from decimal to integer, from DatetimeOffset to Datetime. <br>Default value is true. | No       |
 | treatBooleanAsNumber             | Treat booleans as numbers, for example, true as 1.<br>Default value is false. | No       |
+| dateFormat                   | Format string when converting between dates and strings, e.g. `yyyy-MM-dd`. Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | dateTimeFormat                   | Format string when converting between dates without time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff`.  Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | dateTimeOffsetFormat             | Format string when converting between dates with time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff zzz`.  Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | timeSpanFormat                   | Format string when converting between time periods and strings, for example, `dd\.hh\:mm`. Refer to [Custom TimeSpan Format Strings](/dotnet/standard/base-types/custom-timespan-format-strings) for detailed information. | No       |
+| timeFormat                   | Format string when converting between time and strings, e.g. `HH:mm:ss.fff`. Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | culture                          | Culture information to be used when convert types, for example, `en-us` or `fr-fr`. | No       |
 
 **Example:**
@@ -382,7 +383,7 @@ In the following example, the input dataset has a structure, and it points to a 
 }
 ```
 
-In this sample, the output dataset has a structure and it points to a table in Salesfoce.
+In this sample, the output dataset has a structure and it points to a table in Salesforce.
 
 ```json
 {
@@ -518,7 +519,7 @@ Configure the schema-mapping rule as the following copy activity JSON sample:
 }
 ```
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

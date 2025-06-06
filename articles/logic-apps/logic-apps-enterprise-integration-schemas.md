@@ -7,10 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/30/2022 
+ms.date: 02/19/2025
+# As a logic app workflow developer, I want to know how I can integrate and use schemas in my workflows.
 ---
 
 # Add schemas to use with workflows with Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Workflow actions such as **Flat File** and **XML Validation** require a schema to perform their tasks. For example, the **XML Validation** action requires an XML schema to check that documents use valid XML and have the expected data in the predefined format. This schema is an XML document that uses [XML Schema Definition (XSD)](https://www.w3.org/TR/xmlschema11-1/) language and has the .xsd file name extension. The **Flat File** actions use a schema to encode and decode XML content.
 
@@ -20,13 +23,10 @@ This article shows how to add a schema to your integration account. If you're wo
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The schema file that you want to add. To create schemas, you can use the following tools:
-
-  * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
-
-  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) extension.
+* The schema file that you want to add. To create schemas, you can use Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
 
    > [!NOTE]
+   >
    > Don't install the extension alongside the BizTalk Server extension. Having both extensions might 
    > produce unexpected behavior. Make sure that you only have one of these extensions installed.
    >
@@ -78,9 +78,7 @@ This article shows how to add a schema to your integration account. If you're wo
 
   To resolve this error, you need to use the element `xsd:import` or `xsd:include` instead of `xsd:redefine`, or use a URI.
 
-<a name="add-schema"></a>
-
-## Add schemas
+## Considerations for adding schemas
 
 * If you're working with a Consumption workflow, you must add your schema to a linked integration account.
 
@@ -92,7 +90,7 @@ This article shows how to add a schema to your integration account. If you're wo
 
 <a name="add-schema-integration-account"></a>
 
-### Add schema to integration account
+## Add schema to integration account
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
@@ -100,11 +98,17 @@ This article shows how to add a schema to your integration account. If you're wo
 
 1. Select the integration account where you want to add your schema.
 
-1. On your integration account's menu, under **Settings**, select **Schemas**.
+1. On your integration account resource menu, under **Settings**, select **Schemas**.
 
 1. On the **Schemas** pane toolbar, select **Add**.
 
-For Consumption workflows, based on your schema's file size, now follow the steps for uploading a schema that's either [up to 2 MB](#smaller-schema) or [more than 2 MB, up to 8 MB](#larger-schema).
+<a name="add-schema"></a>
+
+## Add schemas to logic app
+
+### [Consumption](#tab/consumption)
+
+For Consumption workflows, based on your schema's file size, follow the steps for uploading a schema that's either [up to 2 MB](#smaller-schema) or [more than 2 MB, up to 8 MB](#larger-schema).
 
 <a name="smaller-schema"></a>
 
@@ -172,19 +176,17 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 After your schema finishes uploading, the schema appears in the **Schemas** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded schema appears.
 
----
+### [Standard](#tab/standard)
 
-### Add schema to Standard logic app resource
-
-The following steps apply only if you want to add a schema directly to your Standard logic app resource. Otherwise, [add the schema to your integration account](#add-schema-integration-account).
+For a Standard logic app resource, the following steps apply only if you want to add a schema directly to your resource. Otherwise, [add the schema to your integration account](#add-schema-integration-account).
 
 #### Azure portal
 
-1. On your logic app resource's menu, under **Settings**, select **Schemas**.
+1. On the logic app resource menu, under **Settings**, select **Schemas**.
 
 1. On the **Schemas** pane toolbar, select **Add**.
 
-1. On the **Add schema** pane, enter a unique name for your schema.
+1. On the **Add Schema** pane, enter a unique name for your schema.
 
 1. Next to the **Schema** box, select the folder icon. Select the schema to upload.
 
@@ -194,13 +196,19 @@ The following steps apply only if you want to add a schema directly to your Stan
 
 #### Visual Studio Code
 
-1. In your logic app project's structure, open the **Artifacts** folder and then the **Schemas** folder.
+1. On your computer, go to your project's *local* folder, and expand the following folders: **Artifacts** > **Schemas**.
 
-1. In the **Schemas** folder, add your schema.
+1. In the **Schemas** folder, add your schema (**.xsd**) file.
 
-<a name="edit-schema"></a>
+1. Return to Visual Studio Code.
+
+   Your schema file now appears in your project, for example:
+
+   :::image type="content" source="media/logic-apps-enterprise-integration-schemas/schema-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project structure with expanded Artifacts and Schemas folders.":::
 
 ---
+
+<a name="edit-schema"></a>
 
 ## Edit a schema
 
@@ -228,7 +236,7 @@ The following steps apply only if you're updating a schema that you added to you
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 
-1. On your logic app resource's menu, under **Settings**, select **Schemas**.
+1. On the logic app resource menu, under **Settings**, select **Schemas**.
 
 1. After the **Schemas** pane opens, select your schema. To download and edit the schema first, on the **Schemas** pane toolbar, select **Download**, and save the schema.
 
@@ -252,7 +260,7 @@ The following steps apply only if you're updating a schema that you added to you
 
 1. In the [Azure portal](https://portal.azure.com), open your integration account, if not already open.
 
-1. On your integration account's menu, under **Settings**, select **Schemas**.
+1. On your integration account resource menu, under **Settings**, select **Schemas**.
 
 1. After the **Schemas** pane opens, select your schema, and then select **Delete**.
 
@@ -264,7 +272,7 @@ The following steps apply only if you're deleting a schema that you added to you
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 
-1. On your logic app resource's menu, under **Settings**, select **Schemas**.
+1. On the logic app resource menu, under **Settings**, select **Schemas**.
 
 1. After the **Schemas** pane opens, select your schema, and then select **Delete**.
 

@@ -2,7 +2,7 @@
 title: Create and configure Recovery Services vaults
 description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 01/17/2025
 ms.custom: references_regions, engagement-fy23
 author: jyothisuri
 ms.author: jsuri
@@ -10,7 +10,8 @@ ms.author: jsuri
 
 # Create and configure a Recovery Services vault
 
-This article describes how to create and configure an Azure Backup Recovery Services vault that stores backups and recovery points. You can also use Cross Region Restore to restore in a secondary region.
+This article describes how to create and configure an Azure Backup Recovery Services vault that stores backups and recovery points. You can use Cross Region Restore to restore in a secondary region. To create a Recovery Services vault using REST API, see [this article](backup-azure-arm-userestapi-createorupdatevault.md).
+
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -28,7 +29,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 1. For **Storage replication type**, select **Geo-redundant**, **Locally-redundant**, or **Zone-redundant**. Then select **Save**.
 
-   ![Set the storage configuration for new vault](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
+   :::image type="content" source="./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png" alt-text="Screenshot shows how to set the storage configuration for a new vault." lightbox="./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png":::
 
    Here are our recommendations for choosing a storage replication type:
    
@@ -43,23 +44,24 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 ## Set Cross Region Restore
 
-The Cross Region Restore option allows you to restore data in a secondary, [Azure paired region](../availability-zones/cross-region-replication-azure.md). You can use Cross Region Restore to conduct drills when there's an audit or compliance requirement. You can also use it to restore the data if there's a disaster in the primary region.
+The Cross Region Restore option allows you to restore data in a secondary, [Azure paired region](../reliability/cross-region-replication-azure.md). You can use Cross Region Restore to conduct drills when there's an audit or compliance requirement. You can also use it to restore the data if there's a disaster in the primary region.
 
 Before you begin, consider the following information:
 
 - Cross Region Restore is supported only for a Recovery Services vault that uses the [GRS replication type](#set-storage-redundancy).
 - Virtual machines (VMs) created through Azure Resource Manager and encrypted Azure VMs are supported. VMs created through the classic deployment model aren't supported. You can restore the VM or its disk.  
 - SQL Server or SAP HANA databases hosted on Azure VMs are supported. You can restore databases or their files.
+- MARS Agent is supported for vaults without private endpoint (preview).
 - Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
-- Using Cross Region Restore will incur additional charges. [Learn more](https://azure.microsoft.com/pricing/details/backup/).
-- After you opt in, it might take up to 48 hours for the backup items to be available in secondary regions.
+- Using Cross Region Restore will incur additional charges. Once you enable Cross Region restore, it might take up to 48 hours for the backup items to be available in secondary regions. [Learn more about pricing](https://azure.microsoft.com/pricing/details/backup/).
 - Cross Region Restore currently can't be reverted to GRS or LRS after the protection starts for the first time.
 - Currently, secondary region RPO is 36 hours. This is because the RPO in the primary region is 24 hours and can take up to 12 hours to replicate the backup data from the primary to the secondary region.
+- Review the [permissions required to use Cross Region Restore](backup-rbac-rs-vault.md#minimum-role-requirements-for-azure-vm-backup).
 
 A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault has a banner that links to the documentation. 
 
 >[!Note]
->Cross-region restore is currently not supported for machines running on Ultra disks. [Learn more about Ultra disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
+>Cross-region restore is also supported for machines running on Ultra disks. [Learn more about Ultra disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
 
 ![Screenshot that shows the banner about backup configuration.](./media/backup-azure-arm-restore-vms/banner.png)
 
@@ -79,6 +81,7 @@ For more information about backup and restore with Cross Region Restore, see the
 - [Cross Region Restore for Azure VMs](backup-azure-arm-restore-vms.md#cross-region-restore)
 - [Cross Region Restore for SQL Server databases](restore-sql-database-azure-vm.md#cross-region-restore)
 - [Cross Region Restore for SAP HANA databases](sap-hana-db-restore.md#cross-region-restore)
+- [Cross Region Restore for MARS (Preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore)
 
 ## Set encryption settings
 
@@ -93,13 +96,13 @@ To configure your vault to encrypt with customer-managed keys:
 1. Enable soft delete and purge protection in Azure Key Vault.
 1. Assign the encryption key to the Recovery Services vault.
 
-You can find instructions for each of these steps in [this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-using-customer-managed-keys).
+You can find instructions for each of these steps in [this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-by-using-customer-managed-keys).
 
 ## Modify default settings
 
 We highly recommend that you review the default settings for storage replication type and security before you configure backups in the vault.
 
-By default, **Soft delete** is set to **Enabled** on newly created vaults to help protect backup data from accidental or malicious deletions. To review and modify the settings, [follow these steps](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+By default, **Soft delete** is set to **Enabled** on newly created vaults to help protect backup data from accidental or malicious deletions. To review and modify the settings, [follow these steps](./backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
 
 Before you decide to move from GRS to LRS, review the trade-offs between lower cost and higher data durability that fit your scenario. If you must move from GRS to LRS after you configure backup, you have the following two choices. Your choice will depend on your business requirements to retain the backup data.
 
@@ -112,7 +115,7 @@ To help protect workloads in a new LRS vault, you need to delete the current pro
 
 To stop and delete current protection on the GRS vault:
 
-1. Follow [these steps](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) to disable soft delete in the GRS vault's properties.
+1. Follow [these steps](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) to disable soft delete in the GRS vault's properties.
 
 1. Stop protection and delete backups from the existing GRS vault. On the vault dashboard menu, select **Backup Items**. If you need to move items that are listed here to the LRS vault, you must remove them and their backup data. See [Delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [Delete protected items on-premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 

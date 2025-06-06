@@ -1,19 +1,24 @@
 ---
-title: Configure authentication in an Azure Static Web App by using Azure Active Directory B2C
+title: Configure authentication in an Azure Static Web App by using Azure AD B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an Azure Static Web App.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 08/22/2022
+ms.date: 02/17/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building an Azure Static Web App, I want to configure authentication using Azure AD B2C, so that users can sign up, sign in, and reset their passwords securely.
+
 ---
 
 # Configure authentication in an Azure Static Web App by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article explains how to add Azure Active Directory B2C (Azure AD B2C) authentication functionality to an Azure Static Web App. For more information, check out the [Custom authentication in Azure Static Web Apps](../static-web-apps/authentication-custom.md) article.
 
@@ -33,7 +38,7 @@ When the access token expires or the app session is invalidated, Azure Static We
 - A premium Azure subscription. 
 - If you haven't created an app yet, follow the guidance how to create an [Azure Static Web App](../static-web-apps/overview.md).
 - Familiarize yourself with the Azure Static Web App [staticwebapp.config.json](../static-web-apps/configuration.md) configuration file.
-- Familiarize yourself with the Azure Static Web App [App Settings](../static-web-apps/application-settings.md).
+- Familiarize yourself with the Azure Static Web App [App Settings](../static-web-apps/application-settings.yml).
 
 ## Step 1: Configure your user flow
 
@@ -50,8 +55,7 @@ During app registration, you specify a *redirect URI*. The redirect URI is the e
 To register your application, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *My Azure Static web app*).
@@ -75,7 +79,7 @@ To register your application, follow these steps:
 
 ## Step 3: Configure the Azure Static App
 
-Once the application is registered with Azure AD B2C, create the following application secrets in the Azure Static Web App's  [application settings](../static-web-apps/application-settings.md). You can configure application settings via the Azure portal or with the Azure CLI. For more information, check out the [Configure application settings for Azure Static Web Apps](../static-web-apps/application-settings.md#configure-application-settings) article.
+Once the application is registered with Azure AD B2C, create the following application secrets in the Azure Static Web App's  [application settings](../static-web-apps/application-settings.yml). You can configure application settings via the Azure portal or with the Azure CLI. For more information, check out the [Configure application settings for Azure Static Web Apps](../static-web-apps/application-settings.yml#configure-application-settings) article.
 
 Add the following keys to the app settings:
 
@@ -89,7 +93,7 @@ Add the following keys to the app settings:
 
 ### 3.1 Add an OpenID Connect identity provider
 
-Once you've added the app ID and secrete, use the following steps to add the Azure AD B2C as OpenId Connect identity provider.
+Once you've added the app ID and secret, use the following steps to add the Azure AD B2C as OpenId Connect identity provider.
 
 1. Add an `auth` section of the [configuration file](../static-web-apps/configuration.md) with a configuration block for the OIDC providers, and your provider definition.
 
@@ -109,7 +113,7 @@ Once you've added the app ID and secrete, use the following steps to add the Azu
                }
              },
              "login": {
-               "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+               "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
                "scopes": [],
                "loginParameterNames": []
              }
@@ -126,8 +130,8 @@ Once you've added the app ID and secrete, use the following steps to add the Azu
 ## Step 4: Check the Azure Static Web APP
 
 1. Navigate to `/.auth/login/aadb2c`. The `/.auth/login` points the Azure Static app login endpoint. The `aadb2c` references to your [OpenID Connect identity provider](#31-add-an-openid-connect-identity-provider).  The following URL demonstrates an Azure Static app login endpoint: `https://witty-island-11111111.azurestaticapps.net/.auth/login/aadb2c`.
-1. Complete the sign up or sign in process.
-1. In your browser debugger, [run the following JavaScript in the Console](/microsoft-edge/devtools-guide-chromium/console/console-javascript). The JavaScript code will present information about the sign in user.
+1. Complete the sign-up or sign-in process.
+1. In your browser debugger, [run the following JavaScript in the Console](/microsoft-edge/devtools-guide-chromium/console/console-javascript). The JavaScript code presents information about the sign in user.
 
     ```javascript
     async function getUserInfo() {

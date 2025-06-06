@@ -1,16 +1,22 @@
 ---
 title: Use Azure Maps Drawing Error Visualizer
+titleSuffix:  Microsoft Azure Maps Creator
 description: This article demonstrates how to visualize warnings and errors returned by the Creator Conversion API.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 02/17/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: creator
 ---
 
 # Using the Azure Maps Drawing Error Visualizer with Creator
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 The *Drawing Error Visualizer* is a stand-alone web application that displays [Drawing package warnings and errors] detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements]. The [Azure Maps Conversion API] returns a response with a link to the Error Visualizer only when an error is detected.
 
@@ -20,13 +26,16 @@ The *Drawing Error Visualizer* is a stand-alone web application that displays [D
 * A [subscription key]
 * A [Creator resource]
 
-This tutorial uses the [Postman] application, but you may choose a different API development environment.
+This tutorial uses the [Postman] application, but you can choose a different API development environment.
 
 ## Download
 
-1. Upload your drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package].
+1. Follow the steps outlined in the [How to create data registry] article to upload the drawing package into your Azure storage account then register it in your Azure Maps account.
 
-2. Now that the drawing package is uploaded, use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package].
+    > [!IMPORTANT]
+    > Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the drawing package you uploaded into your Azure storage account from your source code and HTTP requests.
+
+2. Now that the drawing package is uploaded, use `udid` for the uploaded package to convert the package into map data.
 
     >[!NOTE]
     >If your conversion process succeeds, you will not receive a link to the Error Visualizer tool.
@@ -59,7 +68,7 @@ Unzip the _VisualizationTool.zip_ folder. It contains the following items:
 * _static_ folder: source code
 * _index.html_ file: the web application.
 
-Open the _index.html_ file using any of the following browsers, with the respective version number. You may use a different version, if the version offers equally compatible behavior as the listed version.
+Open the _index.html_ file using any of the following browsers, with the respective version number. You can use a different version, if the version offers equally compatible behavior as the listed version.
 
 * Microsoft Edge 80
 * Safari 13
@@ -76,7 +85,7 @@ The  _ConversionWarningsAndErrors.json_ file has been placed at the root of the 
 
 :::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Drawing Error Visualizer App - Drag and drop to load data":::
 
-The _ConversionWarningsAndErrors.json_ contains a list of your drawing package errors and warnings. To view detailed information about an error or warning, select the **Details** link. An intractable section appears below the list. You may now navigate to each error to learn more details on how to resolve the error.
+The _ConversionWarningsAndErrors.json_ contains a list of your drawing package errors and warnings. To view detailed information about an error or warning, select the **Details** link. An intractable section appears below the list. You can now navigate to each error to learn more details on how to resolve the error.
 
 :::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Drawing Error Visualizer App - Errors and Warnings":::
 
@@ -88,12 +97,11 @@ Learn more by reading:
 > [Creator for indoor maps]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps Conversion API]: /rest/api/maps/v2/conversion
-[Convert a drawing package]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
+[Azure Maps Conversion API]: /rest/api/maps-creator/conversion
 [Creator for indoor maps]: creator-indoor-maps.md
 [Creator resource]: how-to-manage-creator.md
 [Drawing package requirements]: drawing-requirements.md
 [Drawing package warnings and errors]: drawing-conversion-error-codes.md
+[How to create data registry]: how-to-create-data-registries.md
 [Postman]: https://www.postman.com/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Upload a drawing package]: tutorial-creator-indoor-maps.md#upload-a-drawing-package

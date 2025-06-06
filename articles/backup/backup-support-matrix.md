@@ -1,10 +1,10 @@
 ---
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
-ms.topic: conceptual
-ms.date: 10/21/2022
-ms.custom: references_regions 
-ms.service: backup
+ms.topic: reference
+ms.date: 05/22/2025
+ms.custom: references_regions, linux-related-content
+ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -19,9 +19,11 @@ Other support matrices are available:
 - Support matrix for backup by using [System Center Data Protection Manager (DPM)/Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md)
 - Support matrix for backup by using the [Microsoft Azure Recovery Services (MARS) agent](backup-support-matrix-mars-agent.md)
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## Vault support
+
+Azure Backup supports both Recovery Services vault and Backup vault, and enables you to back up and restore different datasources. You need to create the appropriate vault based on the datasource type that you want to protect. Learn more about [the supported vaults](/azure/backup/backup-azure-backup-faq#what-are-the-various-vaults-supported-for-backup-and-restore-).
 
 Azure Backup uses Recovery Services vaults to orchestrate and manage backups for the following workload types - Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Azure File shares and on-premises workloads using Azure Backup Agent, Azure Backup Server and System Center DPM. It also uses Recovery Services vaults to store backed-up data for these workloads.
 
@@ -29,7 +31,7 @@ The following table describes the features of Recovery Services vaults:
 
 **Feature** | **Details**
 --- | ---
-**Vaults in subscription** | Up to 500 Recovery Services vaults in a single subscription.
+**Vaults in subscription** | Up to 500 Recovery Services vaults or Backup vaults in a single subscription.
 **Machines in a vault** | Up to 2000 datasources across all workloads (like Azure VMs, SQL Server VM, MABS Servers, and so on) can be protected in a single vault.<br><br>Up to 1,000 Azure VMs in a single vault.<br/><br/> Up to 50 MABS servers can be registered in a single vault.
 **Data sources** | Maximum size of an individual [data source](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) is 54,400 GB. This limit doesn't apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
@@ -57,27 +59,27 @@ Here's what's supported if you want to back up on-premises machines:
 **Limit** | **Details**
 --- | ---
 **Azure VM data disks** | See the [support matrix for Azure VM backup](./backup-support-matrix-iaas.md#vm-storage-support).
-**Azure VM data disk size** | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
+**Azure VM data disk size** | Individual disk size can be up to 64 TB and a maximum of 512 TB combined for all disks in a VM.
 
 ### Azure VM backup options
 
-Here's what's supported if you want to back up Azure VMs:
+The following table lists the supported scenarios for backup of Azure VMs:
 
 **Machine** | **What's backed up** | **Location** | **Features**
 --- | --- | --- | ---
-**Azure VM backup by using VM extension** | Entire VM | Back up to vault. | Extension installed when you enable backup for a VM.<br/><br/> Back up once a day.<br/><br/> App-aware backup for Windows VMs; file-consistent backup for Linux VMs. You can configure app-consistency for Linux machines by using custom scripts.<br/><br/> Restore VM or disk.<br/><br/>[Backup and restore of Active Directory domain controllers](active-directory-backup-restore.md) is supported.<br><br> Can't back up an Azure VM to an on-premises location.
+**Azure VM backup by using VM extension** <br > or **by using agentless crash-consistent backup** | Entire VM | Back up to vault. | Supports both agent-based and agentless backups.  <br/><br/> Back up multiple times a day.<br/><br/> App-aware backup for Windows VMs; file-consistent backup for Linux VMs. You can configure app-consistency for Linux machines by using custom scripts.   <br><br> You can also opt for agentless crash-consistent backups for Windows or Linux. [Learn more](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).     <br/><br/> Restore VM or disk.<br/><br/>[Backup and restore of Active Directory domain controllers](active-directory-backup-restore.md) is supported.<br><br> Can't back up an Azure VM to an on-premises location.
 **Azure VM backup by using MARS agent** | - Files, folders <br><br> - System state | Back up to vault. | - Back up three times a day. <br><br> - Back up once a day. <br/><br/> If you want to back up specific files or folders rather than the entire VM, the MARS agent can run alongside the VM extension.
 **Azure VM with DPM** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running DPM. DPM then backs up to vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
 **Azure VM with MABS** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running MABS. MABS then backs up to the vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
 
 ## Linux backup support
 
-Here's what's supported if you want to back up Linux machines:
+The following table lists the supported scenarios for backup of Linux machines:
 
 **Backup type** | **Linux (Azure endorsed)**
 --- | ---
 **Direct backup of on-premises machine that's running Linux** | Not supported. The MARS agent can be installed only on Windows machines.
-**Using agent extension to back up Azure VM that's running Linux** | App-consistent backup by using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
+**Using agent extension to back up Azure VM that's running Linux** or **agentless crash-consistent backup** | Supports file-system, app-consistent backup (using [custom scripts](backup-azure-linux-app-consistent.md)) via an extension. Also supports [crash-consistent agentless backups](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).  <br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
 **Using DPM to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMware.<br/><br/> VM restoration of Hyper-V and VMware Linux Guest VMs.
 **Using MABS to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMware.<br/><br/> VM restoration of Hyper-V and VMware Linux guest VMs.
 **Using MABS or DPM to back up Linux Azure VMs** | Not supported.
@@ -140,20 +142,21 @@ Backup supports the compression of backup traffic, as summarized in the followin
 **Maximum recovery points per protected instance (machine or workload)** | 9,999
 **Maximum expiry time for a recovery point** | No limit
 **Maximum backup frequency to DPM/MABS** | Every 15 minutes for SQL Server<br/><br/> Once an hour for other workloads
-**Maximum backup frequency to vault** | **On-premises Windows machines or Azure VMs running MARS:** Three per day<br/><br/> **DPM/MABS:** Two per day<br/><br/> **Azure VM backup:** One per day
+**Maximum backup frequency to vault** | **On-premises Windows machines or Azure VMs running MARS:** Three per day. A maximum of 22 TB of data change is supported between backups.<br/><br/> **DPM/MABS:** Two per day<br/><br/> **Azure VM backup:** One per day
 **Recovery point retention** | Daily, weekly, monthly, yearly
 **Maximum retention period** | Depends on backup frequency
 **Recovery points on DPM/MABS disk** | 64 for file servers; 448 for app servers <br/><br/>Unlimited tape recovery points for on-premises DPM
 
 ## Cross Region Restore
 
-Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving you full control to restore data to a secondary region. To configure this feature, visit [the Set Cross Region Restore article.](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
+Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving you full control to restore data to a secondary region. To configure this feature, see [Set Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA. |
 | SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central and UG IOWA. |
-| MARS Agent/On premises  | No                                                           | N/A               |
+| MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
+| DPM/MABS | No                        |                      N/A                   |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
 
 ## Resource health
@@ -174,7 +177,7 @@ Azure Backup now supports zone-redundant storage (ZRS).
 
 - Azure Backup currently supports ZRS for all workloads, except Azure Disk, in the following regions: UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South, South Central US, Korea Central, Norway East, France Central, West Europe, East Asia, Sweden Central, Canada Central, India Central, South Africa North, West US 2, Japan East, East US, US Gov Virginia, Switzerland North, Qatar, UAE North, and West US 3.
 
-- ZRS support for Azure Disk is generally available in the following regions: UK South, Southeast Asia, Australia East, North Europe, Central US, South Central US, West Europe, West US 2, Japan East, East US, US Gov Virginia, Qatar, and West US 3.
+- ZRS support for Azure Disk is generally available in the following regions: South Africa North, East Asia, Southeast Asia, Australia East, US Gov Virginia, Brazil South, Canada Central, China North 3, North Europe, West Europe, France Central, Germany West Central, Central India, Israel Central, Italy North, Japan East, Korea Central,Norway East, Poland Central, Qatar Central, Sweden Central, Switzerland North, UAE North, UK South, East US, East US 2, South Central US, West US 2, West US 3.
 
 ### Supported scenarios
 
@@ -199,6 +202,15 @@ The following table lists the workload specific operations supported even if zon
 | **Blob** | Recovery is successful, if the protected storage account is in ZRS. |
 | **Disk** | - Backups are successful, if the protected disk is in an active zone. <br><br> - Restore to an active zone is successful. |
 | **MARS** | Backups and restores are successful. |
+
+## Monitoring and Reporting support
+
+Azure Backup provides the following monitoring and reporting capabilities on backup operations:
+
+- Backup Alerts are available for all workloads in both Recovery Services vault and Backup vault.
+- Backup Alerts view and manage capabilities are available on Azure Monitor, Business Continuity Center, Recovery Services vault, Backup vault.
+
+Learn [about the different backup alerts currently available via Azure Monitor and the supported workload/vault types](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
 
 ## Next steps
 

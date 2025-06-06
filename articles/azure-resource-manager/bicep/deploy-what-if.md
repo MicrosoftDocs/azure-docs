@@ -1,18 +1,18 @@
 ---
 title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
-author: tfitzmac
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 02/15/2023
-ms.author: tomfitz
+ms.date: 04/28/2025
 ---
 
 # Bicep deployment what-if operation
 
 Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
 
-You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
+You can use the what-if operation with [Visual Studio Code](./visual-studio-code.md#deployment-pane), Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
+
+During What-If operations, the evaluation and expansion of `templateLink` aren't supported. As a result, any resources deployed using template links within nested deployments, including template spec references, won't be visible in the What-If operation results.
 
 ### Training resources
 
@@ -40,7 +40,7 @@ To install the module, use:
 Install-Module -Name Az -Force
 ```
 
-For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Install Azure CLI module
 
@@ -136,12 +136,13 @@ For REST API, use:
 
 ## Change types
 
-The what-if operation lists six different types of changes:
+The what-if operation lists seven different types of changes:
 
 - **Create**: The resource doesn't currently exist but is defined in the Bicep file. The resource will be created.
 - **Delete**: This change type only applies when using [complete mode](../templates/deployment-modes.md) for JSON template deployment. The resource exists, but isn't defined in the Bicep file. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](../templates/deployment-complete-mode-deletion.md) are included in this change type.
-- **Ignore**: The resource exists, but isn't defined in the Bicep file. The resource won't be deployed or modified. When you reach the limits for expanding nested templates, you will encounter this change type. See [What-if limits](#what-if-limits).
+- **Ignore**: The resource exists, but isn't defined in the Bicep file. The resource won't be deployed or modified. When you reach the limits for expanding nested templates, you'll encounter this change type. See [What-if limits](#what-if-limits).
 - **NoChange**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+- **NoEffect**: The property is ready-only and will be ignored by the service. For example, the `sku.tier` property is always set to match `sku.name` in the [`Microsoft.ServiceBus`](/azure/templates/microsoft.servicebus/namespaces) namespace.
 - **Modify**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
 - **Deploy**: The resource exists, and is defined in the Bicep file. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
 
@@ -210,7 +211,39 @@ The following results show the two different output formats:
 
 To see how what-if works, let's runs some tests. First, deploy a Bicep file that creates a virtual network. You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-before.bicep":::
+```bicep
+resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+  name: 'vnet-001'
+  location: resourceGroup().location
+  tags: {
+    CostCenter: '12345'
+    Owner: 'Team A'
+  }
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/16'
+      ]
+    }
+    enableVmProtection: false
+    enableDdosProtection: false
+    subnets: [
+      {
+        name: 'subnet001'
+        properties: {
+          addressPrefix: '10.0.0.0/24'
+        }
+      }
+      {
+        name: 'subnet002'
+        properties: {
+          addressPrefix: '10.0.1.0/24'
+        }
+      }
+    ]
+  }
+}
+```
 
 To deploy the Bicep file, use:
 
@@ -242,7 +275,32 @@ az deployment group create \
 
 After the deployment completes, you're ready to test the what-if operation. This time you deploy a Bicep file that changes the virtual network. It's missing one of the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-after.bicep":::
+```bicep
+resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
+  name: 'vnet-001'
+  location: resourceGroup().location
+  tags: {
+    CostCenter: '12345'
+  }
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/15'
+      ]
+    }
+    enableVmProtection: false
+    enableDdosProtection: false
+    subnets: [
+      {
+        name: 'subnet002'
+        properties: {
+          addressPrefix: '10.0.1.0/24'
+        }
+      }
+    ]
+  }
+}
+```
 
 To view the changes, use:
 
@@ -426,5 +484,5 @@ You can use the what-if operation through the Azure SDKs.
 ## Next steps
 
 - To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
-- If you notice incorrect results from the what-if operation, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- If you notice incorrect results from the what-if operation, report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - For a Learn module that demonstrates using what-if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/training/modules/arm-template-test/).

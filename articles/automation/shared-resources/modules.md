@@ -3,23 +3,32 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 11/01/2021
-ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.date: 05/27/2025
+ms.topic: how-to 
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-python
+  - build-2025
+ms.service: azure-automation
 ---
 
 # Manage modules in Azure Automation
 
+>[!NOTE]
+> Starting **February 1, 2025**, Azure Automation will *discontinue* the execution of all the runbooks that use AzureRM modules. Starting **November 1, 2024**, you won't be able to create new runbooks using AzureRM modules. The AzureRM PowerShell module has been officially deprecated as of **February 29, 2024**. We recommend you to migrate from the AzureRM module to the Az PowerShell module to ensure continued support and updates. While the AzureRM module may still work, it is no longer maintained or supported, and continued use of the AzureRM module is at the user's own risk. For more information, see [migration resources](https://aka.ms/azpsmigrate) for guidance on transitioning to the Az module.
+
 Azure Automation uses a number of PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations. Supported modules include:
 
 * [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az).
-* [Azure PowerShell AzureRM.Automation](/powershell/module/azurerm.automation/).
 * Other PowerShell modules.
 * Internal `Orchestrator.AssetManagement.Cmdlets` module.
 * Python 2 modules.
 * Custom modules that you create.
 
 When you create an Automation account, Azure Automation imports some modules by default. See [Default modules](#default-modules).
+
+> [!IMPORTANT]
+> New Runtime environment experience allows you to manage modules and packages by allowing you to configure the job execution environment. In the new experience, Modules and Packages blades are not available. To manage modules and packages, see [Manage Runtime environment and associated runbooks](../manage-runtime-environment.md).
 
 ## Sandboxes
 
@@ -53,7 +62,7 @@ The default modules are also known as global modules. In the Azure portal, the *
 ![Screenshot of global module property in Azure Portal](../media/modules/automation-global-modules.png)
 
 > [!NOTE]
-> We don't recommend altering modules and runbooks in Automation accounts used for deployment of the [Start/Stop VMs during off-hours](../automation-solution-vm-management.md) feature.
+> We don't recommend altering modules and runbooks in Automation accounts used for deployment of the [Start/Stop VMs during off-hours](../../azure-functions/start-stop-vms/overview.md)
 
 |Module name|Version|
 |---|---|
@@ -130,7 +139,7 @@ Be sure to test all runbooks and DSC configurations carefully, in a separate Aut
 
 To ensure that you don't run any existing runbooks or DSC configurations that use AzureRM modules, you must stop and unschedule all affected runbooks and configurations. First, make sure that you review each runbook or DSC configuration and its schedules separately, to ensure that you can reschedule the item in the future if necessary.
 
-When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) cmdlet. See [Remove a schedule](schedules.md#remove-a-schedule).
+When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzAutomationSchedule](/powershell/module/az.automation/remove-azautomationschedule) cmdlet. See [Remove a schedule](schedules.md#remove-a-schedule).
 
 ### Remove AzureRM modules
 
@@ -193,7 +202,7 @@ TestModule
    2.0.0
 ```
 
-Within each of the version folders, copy your PowerShell .psm1, .psd1, or PowerShell module **.dll** files that make up a module into the respective version folder. Zip up the module folder so that Azure Automation can import it as a single .zip file. While Automation only shows the highest version of the module imported, if the module package contains side-by-side versions of the module, they are all available for use in your runbooks or DSC configurations.  
+Within each of the version folders, copy your PowerShell .psm1, .psd1, or PowerShell module **.dll** files that make up a module into the respective version folder. Zip up the module folder so that Azure Automation can import it as a single .zip file. While Automation only shows one of the versions of the module imported, if the module package contains side-by-side versions of the module, they are all available for use in your runbooks or DSC configurations.  
 
 While Automation supports modules containing side-by-side versions within the same package, it does not support using multiple versions of a module across module package imports. For example, you import **module A**, which contains versions 1 and 2 into your Automation account. Later you update **module A** to include versions 3 and 4, when you import into your Automation account, only versions 3 and 4 are usable within any runbooks or DSC configurations. If you require all versions - 1, 2, 3, and 4 to be available, the .zip file your import should contain versions 1, 2, 3, and 4.
 
@@ -202,7 +211,7 @@ If you’re going to use different versions of the same module between runbooks,
 For a DSC resource, use the following command to specify a particular version:
 
 ```powershell
-Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
+Import-DscResource -ModuleName "<ModuleName>" -ModuleVersion "<version>"
 ```
 
 ### Help information
@@ -353,15 +362,23 @@ To import a module in the Azure portal:
 You can use the [New-AzAutomationModule](/powershell/module/az.automation/new-azautomationmodule) cmdlet to import a module into your Automation account. The cmdlet takes a URL for a module .zip package.
 
 ```azurepowershell-interactive
-New-AzAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+$moduleName = "<ModuleName>"
+$contentLinkUri = "<ModuleUri>"
+$runtimeVersion = "<RuntimeVersion>" # 5.1 or 7.2
+$resourceGroupName = "<ResourceGroupName>"
+$automationAccountName = "<AutomationAccountName>"
+New-AzAutomationModule -Name $moduleName -RuntimeVersion $runtimeVersion -ContentLinkUri $contentLinkUri -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName
 ```
 
 You can also use the same cmdlet to import a module from the PowerShell Gallery directly. Make sure to grab `ModuleName` and `ModuleVersion` from the [PowerShell Gallery](https://www.powershellgallery.com).
 
 ```azurepowershell-interactive
-$moduleName = <ModuleName>
-$moduleVersion = <ModuleVersion>
-New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
+$moduleName = "<ModuleName>"
+$moduleVersion = "<ModuleVersion>"
+$runtimeVersion = "<RuntimeVersion>" # 5.1 or 7.2
+$resourceGroupName = "<ResourceGroupName>"
+$automationAccountName = "<AutomationAccountName>"
+New-AzAutomationModule -AutomationAccountName $automationAccountName -RuntimeVersion $runtimeVersion -ResourceGroupName $resourceGroupName -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
 ```
 
 ### Import modules from the PowerShell Gallery
@@ -370,7 +387,7 @@ You can import [PowerShell Gallery](https://www.powershellgallery.com) modules e
 
 To import a module directly from the PowerShell Gallery:
 
-1. Go to https://www.powershellgallery.com and search for the module to import.
+1. Go to [https://www.powershellgallery.com](https://www.powershellgallery.com) and search for the module to import.
 2. Under **Installation Options**, on the **Azure Automation** tab, select **Deploy to Azure Automation**. This action opens the Azure portal. 
 3. On the Import page, select your Automation account, and select **OK**.
 

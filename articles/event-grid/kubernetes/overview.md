@@ -1,9 +1,11 @@
 ---
 title: Azure Event Grid on Kubernetes - overview
 description: This article provides an overview about Event Grid on Kubernetes with Azure Arc.
-author: jfggdl
-ms.author: jafernan
+author: robece
+ms.author: robece
 ms.subservice: kubernetes
+ms.custom:
+  - build-2024
 ms.date: 05/25/2021
 ms.topic: overview
 ---
@@ -24,14 +26,14 @@ Regardless of the edition of Event Grid you use, there's an **event publisher** 
 
 
 ## Event Grid on Kubernetes with Azure Arc
-Event Grid on Kubernetes with Azure Arc is an offering that allows you to run Event Grid on your own Kubernetes cluster. This capability is enabled by the use of [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md). Through Azure Arc-enabled Kubernetes, a [supported Kubernetes cluster](install-k8s-extension.md#supported-kubernetes-distributions) connects to Azure. Once connected, you're able to [install Event Grid](install-k8s-extension.md) on it. 
+Event Grid on Kubernetes with Azure Arc is an offering that allows you to run Event Grid on your own Kubernetes cluster. This capability is enabled by the use of [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview). Through Azure Arc-enabled Kubernetes, a [supported Kubernetes cluster](install-k8s-extension.md#supported-kubernetes-distributions) connects to Azure. Once connected, you're able to [install Event Grid](install-k8s-extension.md) on it. 
 
 ### Use case
 Event Grid on Kubernetes supports various event-driven integration scenarios. However, the main encompassing scenario supported and expressed as a user story is:
 
 "As an owner of a system deployed to a Kubernetes cluster, I want to communicate my system's state changes by publishing events and configuring routing of those events so that event handlers, under my control or otherwise, can process my system's events in a way they see fit."
 
-**Feature** that helps you realize above requirement: [Event Grid topics](/rest/api/eventgrid/controlplane-version2021-10-15-preview/topics).
+**Feature** that helps you realize above requirement: [Event Grid topics](/rest/api/eventgrid/controlplane-preview/topics).
 
 ### Event Grid on Kubernetes at a glance
 From the user perspective, Event Grid on Kubernetes is composed of the following resources in blue:
@@ -64,7 +66,7 @@ With Event Grid on Kubernetes, you can forward events to Azure for further proce
 Event handler destinations can be any HTTPS or HTTP endpoint to which Event Grid can reach through the network, public or private, and has access (not protected with some authentication mechanism). You define event delivery destinations when you create an event subscription. For more information, see [event handlers](event-handlers.md). 
 
 ## Features
-Event Grid on Kubernetes supports [Event Grid topics](/rest/api/eventgrid/controlplane-version2021-10-15-preview/topics), which is a feature also offered by [Azure Event Grid](../custom-topics.md). Event Grid topics help you realize the [primary integration use case](#use-case) where your requirements call for integrating your system with another workload that you own or otherwise is made accessible to your system.
+Event Grid on Kubernetes supports [Event Grid topics](/rest/api/eventgrid/controlplane-preview/topics), which is a feature also offered by [Azure Event Grid](../custom-topics.md). Event Grid topics help you realize the [primary integration use case](#use-case) where your requirements call for integrating your system with another workload that you own or otherwise is made accessible to your system.
 
 Some of the capabilities you get with Azure Event Grid on Kubernetes are:
 
@@ -81,9 +83,9 @@ Event Grid on Kubernetes with Azure Arc is offered without charge during its pre
 ## Next steps
 Follow these steps in the order to start routing events using Event Grid on Kubernetes.
 
-1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
+1. [Connect your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 1. [Install an Event Grid extension](install-k8s-extension.md), which is the actual resource that deploys Event Grid to a Kubernetes cluster. To learn more about the extension, see [Event Grid Extension](install-k8s-extension.md#event-grid-extension) section to learn more. 
-1. [Create a custom location](../../azure-arc/kubernetes/custom-locations.md). A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed.
+1. [Create a custom location](/azure/azure-arc/kubernetes/custom-locations). A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed.
 1. [Create a topic and one or more event subscriptions](create-topic-subscription.md).
 1. [Publish events](create-topic-subscription.md).
 

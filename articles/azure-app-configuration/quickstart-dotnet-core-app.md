@@ -1,25 +1,25 @@
 ---
-title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
-description: In this quickstart, create a .NET Core app with Azure App Configuration to centralize storage and management of application settings separate from your code.
+title: Quickstart for Azure App Configuration with .NET | Microsoft Docs
+description: In this quickstart, create a .NET app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
-author: mcleanbyron
+author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mode-other
-ms.date: 03/20/2023
-ms.author: mcleans
-#Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
+ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
+ms.date: 10/05/2024
+ms.author: malev
+#Customer intent: As a .NET developer, I want to manage all my app settings in one place.
 ---
-# Quickstart: Create a .NET Core app with App Configuration
+# Quickstart: Create a .NET app with App Configuration
 
-In this quickstart, you incorporate Azure App Configuration into a .NET Core console app to centralize storage and management of application settings separate from your code.
+In this quickstart, you incorporate Azure App Configuration into a .NET console app to centralize storage and management of application settings separate from your code.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [.NET Core SDK](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
+- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
 
 ## Add a key-value
 
@@ -29,13 +29,13 @@ Add the following key-value to the App Configuration store and leave **Label** a
 |----------------------------|-------------------------------------|
 | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
-## Create a .NET Core console app
+## Create a .NET console app
 
-You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET Core console app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
+You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET console app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
 
 1. Create a new folder for your project.
 
-2. In the new folder, run the following command to create a new .NET Core console app project:
+1. In the new folder, run the following command to create a new .NET console app project:
 
     ```dotnetcli
     dotnet new console
@@ -43,80 +43,117 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
 
 ## Connect to an App Configuration store
 
-1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
+You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
 
+1. Add NuGet package references by running the following command:
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    ```dotnetcli
+    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+    dotnet add package Azure.Identity
+    ```
+
+    ### [Connection string](#tab/connection-string)
     ```dotnetcli
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
+    ---
 
-2. Run the following command to restore packages for your project:
+1. Run the following command to restore packages for your project:
 
     ```dotnetcli
     dotnet restore
     ```
 
-3. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider.
+1. Open the *Program.cs* file, and add the following namespaces:
 
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    using Azure.Identity;
+    ```
+
+    ### [Connection string](#tab/connection-string)
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
+    ---
 
-4. Update the `Main` method to use App Configuration by calling the `builder.AddAzureAppConfiguration()` method.
+1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the `Program.cs` file.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
-    static void Main(string[] args)
+    var builder = new ConfigurationBuilder();
+    builder.AddAzureAppConfiguration(options =>
     {
-        var builder = new ConfigurationBuilder();
-        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
+        string endpoint = Environment.GetEnvironmentVariable("Endpoint");
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+    });
 
-        var config = builder.Build();
-        Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
-    }
+    var config = builder.Build();
+    Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
     ```
+
+    ### [Connection string](#tab/connection-string)
+    ```csharp
+    var builder = new ConfigurationBuilder();
+    builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
+    
+    var config = builder.Build();
+    Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
+    ```
+    ---
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command:
+1. Set an environment variable.
 
-    ### [Windows command prompt](#tab/windowscommandprompt)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
-    To build and run the app locally using the Windows command prompt, run the following command:
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```console
-    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```cmd
+    setx Endpoint "<endpoint-of-your-app-configuration-store>"
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+    If you use PowerShell, run the following command:
 
-    ### [PowerShell](#tab/powershell)
-
-    If you use Windows PowerShell, run the following command:
-
-    ```azurepowershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
     ```
 
-    ### [macOS](#tab/unix)
+    If you use macOS or Linux, run the following command:
 
-    If you use macOS, run the following command:
-
-    ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```bash
+    export Endpoint='<endpoint-of-your-app-configuration-store>'
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
 
-    ### [Linux](#tab/linux)
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    If you use Linux, run the following command:
-
-    ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```cmd
+    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+   If you use PowerShell, run the following command:
 
+    ```powershell
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export ConnectionString='<connection-string-of-your-app-configuration-store>'
+    ```
     ---
 
 1. Run the following command to build the console app:
@@ -131,13 +168,15 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
     dotnet run
     ```
 
+    :::image type="content" source="./media/quickstarts/dotnet-core-app-run.png" alt-text="Screenshot of a terminal window showing the app running locally.":::
+
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with a .NET Core console app via the [App Configuration provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). To learn how to configure your .NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
+In this quickstart, you created a new App Configuration store and used it with a .NET console app via the [App Configuration provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). To learn how to configure your .NET app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-dotnet-core.md)

@@ -3,7 +3,7 @@
  description: include file
  services: storage
  author: tamram
- ms.service: storage
+ ms.service: azure-storage
  ms.topic: include
  ms.date: 11/26/2019
  ms.author: tamram
@@ -21,7 +21,7 @@ To install the Blob storage package, run the following command from the NuGet pa
 Install-Package Azure.Storage.Blobs
 ```
 
-The examples shown here also use the latest version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. To install the package, run the following command from the NuGet package manager console:
+The examples shown here also use the latest version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Microsoft Entra credentials. To install the package, run the following command from the NuGet package manager console:
 
 ```powershell
 Install-Package Azure.Identity

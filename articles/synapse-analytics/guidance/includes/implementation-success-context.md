@@ -1,8 +1,7 @@
 ---
-author: SnehaGunda
-ms.author: sngun
-ms.reviewer: sngun
-ms.service: synapse-analytics
+author: juluczni
+ms.author: juluczni
+ms.service: azure-synapse-analytics
 ms.topic: include
 ms.date: 02/28/2022
 ---

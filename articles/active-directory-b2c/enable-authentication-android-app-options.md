@@ -1,19 +1,24 @@
 ---
 title: Enable Android mobile application options by using Azure Active Directory B2C
 description:  This article discusses several ways to enable Android mobile application options by using Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 10/06/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
+
+
+#Customer intent: As an Android app developer using Azure AD B2C for authentication, I want to configure authentication options in my app, so that I can customize and enhance the authentication experience for my users.
+
 ---
 
 # Configure authentication options in an Android app by using Azure AD B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes how you can enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Android application. 
 

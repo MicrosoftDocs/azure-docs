@@ -1,56 +1,74 @@
 ---
 title: Integrate Splunk with Microsoft Defender for IoT
-description: In this tutorial, learn how to integrate Splunk with Microsoft Defender for IoT.
-ms.topic: tutorial
-ms.date: 02/07/2022
+description: This article describes how to integrate Splunk with Microsoft Defender for IoT for multidimensional visibility across OT protocols and IIoT devices. 
+ms.topic: how-to
+ms.date: 12/21/2023
 ms.custom: how-to
 ---
 
 # Integrate Splunk with Microsoft Defender for IoT
 
-This tutorial will help you learn how to integrate, and use Splunk with Microsoft Defender for IoT.
+This article describes how to integrate Splunk with Microsoft Defender for IoT, in order to view both Splunk and Defender for IoT information in a single place.
 
-Defender for IoT mitigates IIoT, ICS, and SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats in less than an image hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
+Viewing both Defender for IoT and Splunk information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and IIoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
 
-To address a lack of visibility into the security and resiliency of OT networks, Defender for IoT developed the Defender for IoT, IIoT, and ICS threat monitoring application for Splunk, a native integration between Defender for IoT and Splunk that enables a unified approach to IT and OT security.
+If you're integrating with Splunk, we recommend that you use Splunk's own [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151). For more information, see:
 
-The application provides SOC analysts with multidimensional visibility into the specialized OT protocols and IIoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior. The application also enables both IT, and OT incident response from within one corporate SOC. This is an important evolution given the ongoing convergence of IT and OT to support new IIoT initiatives, such as smart machines and real-time intelligence.
+- [The Splunk documentation on installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall)
+- [The Splunk documentation on the OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/)
 
-The Splunk application can be installed locally ('Splunk Enterprise') or run on a cloud ('Splunk Cloud'). The Splunk integration along with Defender for IoT supports 'Splunk Enterprise' only.
+The OT Security Add-on for Splunk is supported for both cloud and on-premises integrations.
 
-> [!Note]
-> References to CyberX refer to Microsoft Defender for IoT.
+## Cloud-based integrations
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
+> [!TIP]
+> Cloud-based security integrations provide several benefits over on-premises solutions, such as centralized, simpler sensor management and centralized security monitoring.
 >
-> * Download the Defender for IoT application in Splunk
-> * Send Defender for IoT alerts to Splunk
+> Other benefits include real-time monitoring, efficient resource use, increased scalability and robustness, improved protection against security threats, simplified maintenance and updates, and seamless integration with third-party solutions.
+>
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To integrate a cloud-connected sensor with Splunk, we recommend that you use the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151).
 
-## Prerequisites
+## On-premises integrations
 
-### Version requirements
+If you're working with an air-gapped, locally managed sensor, you might also want to configure your sensor to send syslog files directly to Splunk, or use Defender for IoT's built-in API.
 
-The following versions are required for the application to run.
+For more information, see:
 
-* Defender for IoT version 2.4 and above.
+- [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md)
+- [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md)
 
-* Splunkbase version 11 and above.
+## On-premises integration (legacy)
 
-* Splunk Enterprise version 7.2 and above.
+This section describes how to integrate Defender for IoT and Splunk using the legacy, [CyberX ICS Threat Monitoring for Splunk](https://splunkbase.splunk.com/app/4313) application.
 
-### Splunk permission requirements
+> [!IMPORTANT]
+> The legacy **CyberX ICS Threat Monitoring for Splunk** application is supported through October 2024 using sensor version 23.1.3, and won't be supported in upcoming major software versions.
+>
+> For customers using the legacy CyberX ICS Threat Monitoring for Splunk application, we recommend using one of the following methods instead:
+>
+> - Use the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151)
+> - Configure your OT sensor to [forward syslog events](how-to-forward-alert-information-to-partners.md)
+> - Use [Defender for IoT APIs](references-work-with-defender-for-iot-apis.md)
 
-The following Splunk permission is required:
+Microsoft Defender for IoT was formally known as [CyberX](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments/). References to CyberX refer to Defender for IoT.
 
-* Any user with an *Admin* level user role.
+### Prerequisites
 
-## Download the Defender for IoT application in Splunk
+Before you begin, make sure that you have the following prerequisites:
 
-To access the Defender for IoT application within Splunk, you will need to download the application form the Splunkbase application store.
+|Prerequisites  |Description |
+|---------|---------|
+|**Version requirements**     | The following versions are required for the application to run: <br>- Defender for IoT version 2.4 and above. <br>- Splunkbase version 11 and above. <br>- Splunk Enterprise version 7.2 and above.        |
+|**Permission requirements**     | Make sure you have: <br>- Access to a Defender for IoT OT sensor as an [Admin user](roles-on-premises.md). <br>- Splunk user with an *Admin* level user role.        |
+
+> [!NOTE]
+> The Splunk application can be installed locally ('Splunk Enterprise') or run on a cloud ('Splunk Cloud'). The Splunk integration along with Defender for IoT supports 'Splunk Enterprise' only.
+>
+
+### Download the Defender for IoT application in Splunk
+
+To access the Defender for IoT application within Splunk, you need to download the application from the Splunkbase application store.
 
 **To access the Defender for IoT application in Splunk**:
 
@@ -62,68 +80,7 @@ To access the Defender for IoT application within Splunk, you will need to downl
 
 1. Select the **LOGIN TO DOWNLOAD BUTTON**.
 
-## Send Defender for IoT alerts to Splunk
-
-The Defender for IoT alerts provides information about an extensive range of security events. These events include:
-
-* Deviations from the learned baseline network activity.
-
-* Malware detections.
-
-* Detections based on suspicious operational changes.
-
-* Network anomalies.
-
-* Protocol deviations from protocol specifications.
-
-    :::image type="content" source="media/tutorial-splunk/address-scan.png" alt-text="A screen capture if an Address Scan Detected alert.":::
-
-You can also configure Defender for IoT to send alerts to the Splunk server, where alert information is displayed in the Splunk Enterprise dashboard.
-
-:::image type="content" source="media/tutorial-splunk/alerts-and-details.png" alt-text="View all of the alerts and their details." lightbox="media/tutorial-splunk/alerts-and-details-expanded.png":::
-
-To send alert information to the Splunk servers from Defender for IoT, you will need to create a Forwarding Rule.
-
-Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
-
-**To create the forwarding rule**:
-
-1. Sign in to the sensor, and select **Forwarding** from the left side pane.
-
-1. Select **Create nre rule**.
-
-1. In the **Add forwarding rule** dialog box, define the rule parameters.
-
-    :::image type="content" source="media/tutorial-splunk/forwarding-rule.png" alt-text="Create the rules for your forwarding rule." lightbox="media/tutorial-splunk/forwarding-rule-expanded.png":::
-
-    | Parameter | Description |
-    |--|--|
-    | **Name** | The forwarding rule name. |
-    | **Select Severity** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Protocols** | By default, all the protocols are selected. To select a specific protocol, select **Specific** and select the protocol for which this rule is applied. |
-    | **Engines** | By default, all the security engines are involved. To select a specific security engine for which this rule is applied, select **Specific** and select the engine. |
-    | **System Notifications** | Forward sensor system notifications to the Splunk server. For example, send the online/offline status of connected sensor. This option is only available if you have logged into the Central Manager. |
-
-1. Select **Action**, and then select **Send to Splunk Server**.
-
-1. Enter the following Splunk parameters.
-
-    | Parameter | Description |
-    |--|--|
-    | **Host** | Splunk server address |
-    | **Port** | 8089 |
-    | **Username** | Splunk server username |
-    | **Password** | Splunk server password |
-
-1. Select **Submit**.
-
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
-In this tutorial, you learned how to get started with the Splunk integration. Continue on to learn how to [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md).
-
 > [!div class="nextstepaction"]
-> [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)
+> [Integrations with Microsoft and partner services](integrate-overview.md)

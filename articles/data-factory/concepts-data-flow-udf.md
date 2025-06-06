@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the concepts of user defined functions in mapping data flow
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/10/2022
+ms.date: 01/05/2024
 ---
 
 # User defined functions in mapping data flow 
@@ -21,7 +20,7 @@ A user defined function is a customized expression you can define to be able to 
 
 Whenever you find yourself building the same logic in an expression across multiple mapping data flows this would be a good opportunity to turn that into a user defined function.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Zkek]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=6ee2ba96-a6ca-4a57-8545-d03032aa68a2]
 > 
 
 ## Getting started

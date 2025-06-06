@@ -2,13 +2,15 @@
 title: Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics.
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: synapse
-ms.date: 11/30/2022
+ms.custom:
+  - synapse
+  - build-2025
+ms.date: 04/28/2024
+ai-usage: ai-assisted
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -25,7 +27,7 @@ This connector is supported for the following activities:
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 
 For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
@@ -43,14 +45,14 @@ Refer to the following table of supported authentication types and configuration
 
 | Dynamics versions | Authentication types | Linked service samples |
 |:--- |:--- |:--- |
-| Dataverse <br/><br/> Dynamics 365 online <br/><br/> Dynamics CRM online | Azure Active Directory (Azure AD) service principal <br/><br/> Office 365 <br/><br/> User-assigned managed identity| [Dynamics online and Azure AD service-principal or Office 365 authentication](#dynamics-365-and-dynamics-crm-online) |
+| Dataverse <br/><br/> Dynamics 365 online <br/><br/> Dynamics CRM online | Microsoft Entra service principal <br/><br/> Office 365 <br/><br/> User-assigned managed identity| [Dynamics online and Microsoft Entra service principal or Office 365 authentication](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 on-premises with internet-facing deployment (IFD) <br/><br/> Dynamics CRM 2016 on-premises with IFD <br/><br/> Dynamics CRM 2015 on-premises with IFD | IFD | [Dynamics on-premises with IFD and IFD authentication](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 >[!NOTE]
 >With the [deprecation of regional Discovery Service](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated), the service has upgraded to leverage [global Discovery Service](/powerapps/developer/data-platform/webapi/discover-url-organization-web-api#global-discovery-service) while using Office 365 Authentication.
 
 > [!IMPORTANT]
->If your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you will not be able to use Office 365 Authentication type. For those situations, you must use an Azure Active Directory (Azure AD) service principal authentication.
+>If your tenant and user is configured in Microsoft Entra ID for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you will not be able to use Office 365 Authentication type. For those situations, you must use a Microsoft Entra service principal authentication.
 
 For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Sales
@@ -67,7 +69,7 @@ This connector doesn't support other application types like Finance, Operations,
 This Dynamics connector is built on top of [Dynamics XRM tooling](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 ## Prerequisites
-To use this connector with Azure AD service-principal authentication, you must set up server-to-server (S2S) authentication in Dataverse or Dynamics. First register the application user (Service Principal) in Azure Active Directory. You can find out how to do this [here](../active-directory/develop/howto-create-service-principal-portal.md). During application registration you will need to create that user in Dataverse or Dynamics and grant permissions. Those permissions can either be granted directly or indirectly by adding the application user to a team which has been granted permissions in Dataverse or Dynamics. You can find more information on how to set up an application user to authenticate with Dataverse [here](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication). 
+To use this connector with Microsoft Entra service principal authentication, you must set up server-to-server (S2S) authentication in Dataverse or Dynamics. First register the application user (Service Principal) in Microsoft Entra ID. You can find out how to do this [here](../active-directory/develop/howto-create-service-principal-portal.md). During application registration you will need to create that user in Dataverse or Dynamics and grant permissions. Those permissions can either be granted directly or indirectly by adding the application user to a team which has been granted permissions in Dataverse or Dynamics. You can find more information on how to set up an application user to authenticate with Dataverse [here](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication). 
 
 
 ## Get started
@@ -114,8 +116,8 @@ The following properties are supported for the Dynamics linked service.
 | deploymentType | The deployment type of the Dynamics instance. The value must be "Online" for Dynamics online. | Yes |
 | serviceUri | The service URL of your Dynamics instance, the same one you access from browser. An example is "https://\<organization-name>.crm[x].dynamics.com". | Yes |
 | authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal", "Office365" and "ManagedIdentity". | Yes |
-| servicePrincipalId | The client ID of the Azure AD application. | Yes when authentication is "AADServicePrincipal" |
-| servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
+| servicePrincipalId | The client ID of the Microsoft Entra application. | Yes when authentication is "AADServicePrincipal" |
+| servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". <br/><br/>Note: It's recommended to use ServicePrincipalKey. There's known limitation for ServicePrincipalCert credential type where the service may encounter transient issue of failing to retrieve secret from the key vault.| Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that the service encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes when authentication is "AADServicePrincipal" |
 | username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
 | password | The password for the user account you specified as the username. Mark this field with "SecureString" to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
@@ -125,7 +127,9 @@ The following properties are supported for the Dynamics linked service.
 >[!NOTE]
 >The Dynamics connector formerly used the optional **organizationName** property to identify your Dynamics CRM or Dynamics 365 online instance. While that property still works, we suggest you specify the new **serviceUri** property instead to gain better performance for instance discovery.
 
-#### Example: Dynamics online using Azure AD service-principal and key authentication
+<a name='example-dynamics-online-using-azure-ad-service-principal-and-key-authentication'></a>
+
+#### Example: Dynamics online using Microsoft Entra service principal and key authentication
 
 ```json
 {  
@@ -148,7 +152,9 @@ The following properties are supported for the Dynamics linked service.
 }  
 ```
 
-#### Example: Dynamics online using Azure AD service-principal and certificate authentication
+<a name='example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication'></a>
+
+#### Example: Dynamics online using Microsoft Entra service principal and certificate authentication
 
 ```json
 { 
@@ -230,17 +236,21 @@ Additional properties that compare to Dynamics online are **hostName** and **por
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes. |
-| deploymentType | The deployment type of the Dynamics instance. The value must be "OnPremisesWithIfd" for Dynamics on-premises with IFD.| Yes. |
-| hostName | The host name of the on-premises Dynamics server. | Yes. |
+| type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes |
+| deploymentType | The deployment type of the Dynamics instance. The value must be "OnPremisesWithIfd" for Dynamics on-premises with IFD.| Yes |
+| hostName | The host name of the on-premises Dynamics server. | Yes |
 | port | The port of the on-premises Dynamics server. | No. The default value is 443. |
-| organizationName | The organization name of the Dynamics instance. | Yes. |
-| authenticationType | The authentication type to connect to the Dynamics server. Specify "Ifd" for Dynamics on-premises with IFD. | Yes. |
-| username | The username to connect to Dynamics. | Yes. |
-| password | The password for the user account you specified for the username. You can mark this field with "SecureString" to store it securely. Or you can store a password in Key Vault and let the copy activity pull from there when it does data copy. Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes. |
+| organizationName | The organization name of the Dynamics instance. | Yes |
+| authenticationType | The authentication type to connect to the Dynamics server. Specify "ActiveDirectoryAuthentication" for Dynamics on-premises with IFD. | Yes |
+| domain | The Active Directory domain that will verify user credentials. | Yes  |
+| username | The username to connect to Dynamics. | Yes |
+| password | The password for the user account you specified for the username. You can mark this field with "SecureString" to store it securely. Or you can store a password in Key Vault and let the copy activity pull from there when it does data copy. Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
 
-#### Example: Dynamics on-premises with IFD using IFD authentication
+>[!Note]
+>Due to the sunset of Ifd authentication type by **August 31, 2024**, please upgrade to Active Directory Authentication type before the date if you are currently using it.
+ 
+#### Example: Dynamics on-premises with IFD using Active Directory authentication
 
 ```json
 {
@@ -253,7 +263,8 @@ Additional properties that compare to Dynamics online are **hostName** and **por
             "hostName": "contosodynamicsserver.contoso.com",
             "port": 443,
             "organizationName": "admsDynamicsTest",
-            "authenticationType": "Ifd",
+            "authenticationType": "ActiveDirectoryAuthentication",
+            "domain": "< Active Directory domain >", 
             "username": "test@contoso.onmicrosoft.com",
             "password": {
                 "type": "SecureString",
@@ -381,7 +392,9 @@ To copy data to Dynamics, the copy activity **sink** section supports the follow
 | alternateKeyName | The alternate key name defined on your entity to do an upsert. | No. |
 | writeBatchSize | The row count of data written to Dynamics in each batch. | No. The default value is 10. |
 | ignoreNullValues | Whether to ignore null values from input data other than key fields during a write operation.<br/><br/>Valid values are **TRUE** and **FALSE**:<ul><li>**TRUE**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.</li><li>**FALSE**: Update the data in the destination object to a null value when you do an upsert or update operation. Insert a null value when you do an insert operation.</li></ul> | No. The default value is **FALSE**. |
-| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections. | No |
+| bypassBusinessLogicExecution | Bypass custom business logic to disable custom plug-ins and workflows except:<br><br>&nbsp;• Plug-ins that are part of the core Microsoft Dataverse system or part of a solution where Microsoft is the publisher.<br>&nbsp;• Workflows included in a solution where Microsoft is the publisher.<br><br>The value can be `CustomSync`, `CustomAsync`, `CustomSync,CustomAsync`. You can also manually input GUIDs (separated by commas) as the value to specify which registered plug-in steps to bypass. This allows you to bypass the specified plug-in step instead of all synchronous and asynchronous custom logic.<br><br>Note that you must have the `prvBypassCustomBusinessLogic` privilege. By default, only users with the system administrator security role have this privilege. Any Dataverse user who belongs to a Dataverse team with an owner type automatically inherits the privileges associated with the team's security roles. For more information, see this [article](/power-apps/developer/data-platform/bypass-custom-business-logic?tabs=sdk). | No |
+| bypassPowerAutomateFlows | Bypass Power Automate flows. For more information, see this [article](/power-apps/developer/data-platform/bypass-power-automate-flows?tabs=sdk). | No |
 
 >[!NOTE]
 >The default value for both the sink **writeBatchSize** and the copy activity **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** for the Dynamics sink is 10. Therefore, 100 records are concurrently submitted by default to Dynamics.
@@ -423,6 +436,10 @@ The optimal combination of **writeBatchSize** and **parallelCopies** depends on 
     }
 ]
 ```
+
+When you select an [elastic tables](/power-apps/developer/data-platform/elastic-tables#partitioning-and-horizontal-scaling) in the copy activity sink, the connector mapping supports the `partitionid` column. You can map your source data column to the sink's `partitionid` column. If not mapped, the primary key value is used as the default value for the `partitionid` column.
+
+`partitionid` can be used in Dataverse alternate keys or primary key scenarios on the write path. Each elastic table contains a system-defined `partitionid` column and has an alternate key named `KeyForNoSqlEntityWithPKPartitionId`, which combines the primary key of the table with the `partitionid` column. For more information, see this [article](/power-apps/developer/data-platform/elastic-tables).
 
 ## Retrieving data from views
 
@@ -491,6 +508,15 @@ To write data into a lookup field with multiple targets like Customer and Owner,
    - If different records map to different target entities, make sure your source data has a column that stores the corresponding target entity name.
 
 1. Map both the value and entity-reference columns from source to sink. The entity-reference column must be mapped to a virtual column with the special naming pattern `{lookup_field_name}@EntityReference`. The column doesn't actually exist in Dynamics. It's used to indicate this column is the metadata column of the given multitarget lookup field.
+
+### Setting the Owner field
+
+When setting the Owner field in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM, it is important to provide a valid reference. The valid options for the `@EntityReference` are:
+
+- `systemuser`: This refers to an individual user within the system.
+- `team`: This refers to a team of users within the organization.
+
+Ensure that the value provided corresponds to one of these options to avoid errors during data transformation.
 
 For example, assume the source has these two columns:
 
@@ -616,6 +642,6 @@ IncomingStream sink(allowSchemaDrift: true,
 
 To learn details about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of supported data stores the copy activity as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

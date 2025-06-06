@@ -1,33 +1,38 @@
 ---
-title: How to connect on-premises Defender for IoT resources to Microsoft Sentinel
-description: Learn how to stream data into Microsoft Sentinel from an on-premises and locally-managed Microsoft Defender for IoT OT network sensor or an on-premises management console.
+title: Connect Defender for IoT on-premises resources to Microsoft Sentinel (legacy)
+description: This article describes the legacy method for connecting your OT sensor to Microsoft Sentinel.
 ms.topic: how-to
-ms.date: 12/26/2022
+ms.date: 08/17/2023
 ms.custom: template-how-to-pattern
+#CustomerIntent: As an admin user for my locally-managed OT sensor, I want to learn how to connect my sensor to Microsoft Sentinel so that I can view alerts generated together with other Microsoft Sentinel data.
 ---
 
-# Connect on-premises OT network sensors to Microsoft Sentinel
+# Connect OT network sensors to Microsoft Sentinel (legacy)
 
-You can [stream Microsoft Defender for IoT data into Microsoft Sentinel](../iot-solution.md) via the Azure portal, for any data coming from cloud-connected OT network sensors.
+This article describes the legacy method for connecting your OT sensor to Microsoft Sentinel. Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network.
 
-However, if you're working either in a hybrid environment, or completely on-premises, you might want to stream data in from your locally-managed sensors to Microsoft Sentinel. To do this, create forwarding rules on either your OT network sensor, or for multiple sensors from an on-premises management console.
-
-Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network. For more information, see [Microsoft Sentinel documentation](../../../sentinel/index.yml).
+> [!IMPORTANT]
+> This feature will be deprecated in **January 2025**.
+>
+> If you're using a cloud connected sensor, we recommend that you connect Defender for IoT data using the Microsoft Sentinel solution instead of the legacy integration method. For more information, see:
+>
+> - [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
+> - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
+> - [Tutorial: Investigate and detect threats for IoT devices](../iot-advanced-threat-monitoring.md)
 
 ## Prerequisites
 
 Before you start, make sure that you have the following prerequisites as needed:
 
-- Access to the OT network sensor or on-premises management console as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
+- Access to the OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
 - A proxy machine prepared to send data to Microsoft Sentinel. For more information, see [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](../../../sentinel/connect-common-event-format.md).
 
 - If you want to encrypt the data you send to Microsoft Sentinel using TLS, make sure to generate a valid TLS certificate from the proxy server to use in your forwarding alert rule.
 
-
 ## Set up forwarding alert rules
 
-1. Sign into your OT network sensor or on-premises management console and create a forwarding rule. For more information, see [Forward on-premises OT alert information](../how-to-forward-alert-information-to-partners.md).
+1. Sign into your OT network sensor and create a forwarding rule. For more information, see [Forward on-premises OT alert information](../how-to-forward-alert-information-to-partners.md).
 
 1. When creating your forwarding rule, make sure to select **Microsoft Sentinel** as the **Server** value. For example, on the OT sensor:
 
@@ -40,7 +45,6 @@ Select **Save** when you're done. Make sure to test the rule to make sure that i
 > [!IMPORTANT]
 > To forward alert details to multiple Microsoft Sentinel instances, make sure to create a separate forwarding rule for each instance. Don't use the **Add server** option in the same forwarding rule to send data to multiple Microsoft Sentinel instances.
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -48,3 +52,7 @@ Select **Save** when you're done. Make sure to test the rule to make sure that i
 
 > [!div class="nextstepaction"]
 > [Investigate in Microsoft Sentinel](../../../sentinel/investigate-cases.md)
+
+For more information, see:
+> [!div class="nextstepaction"]
+> [Integrations with Microsoft and partner services](../integrate-overview.md)

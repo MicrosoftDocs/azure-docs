@@ -1,10 +1,13 @@
 ---
 title: Use a Windows PC with Hadoop on HDInsight - Azure
 description: Work from a Windows PC in Hadoop on HDInsight. Manage and query clusters with PowerShell, Visual Studio, and Linux tools. Develop big data solutions with .NET.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 08/05/2022
+ms.custom: hdinsightactive, devx-track-dotnet, linux-related-content
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: hgowrisankar
+ms.date: 09/06/2024
 ---
 
 # Work in the Apache Hadoop ecosystem on HDInsight from a Windows PC
@@ -23,7 +26,7 @@ Examples of tasks you can do with PowerShell:
 * [Run Apache Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Manage clusters with PowerShell](hdinsight-administer-use-powershell.md).
 
-Follow steps to [install and configure Azure PowerShell](/powershell/azure/install-az-ps) to get the latest version.
+Follow steps to [install and configure Azure PowerShell](/powershell/azure/install-azure-powershell) to get the latest version.
 
 ## Utilities you can run in a browser
 
@@ -46,15 +49,15 @@ Examples of tasks you can do with the .NET SDK in Visual Studio:
 * [Run Apache Hive queries using the .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Use C# user-defined functions with Apache Hive and Apache Pig streaming on Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-## Intellij IDEA and Eclipse IDE for Spark clusters
+## IntelliJ IDEA and Eclipse IDE for Spark clusters
 
-Both [Intellij IDEA](https://www.jetbrains.com/idea/download) and the [Eclipse IDE](https://www.eclipse.org/downloads/) can be used to:
+Both [IntelliJ IDEA](https://www.jetbrains.com/idea/download) and the [Eclipse IDE](https://www.eclipse.org/downloads/) can be used to:
 * Develop and submit a Scala Spark application on an HDInsight Spark cluster.
 * Access Spark cluster resources.
 * Develop and run a Scala Spark application locally.
 
 These articles show how:
-* Intellij IDEA: [Create Apache Spark applications using the Azure Toolkit for Intellij plug-in and the Scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
+* IntelliJ IDEA: [Create Apache Spark applications using the Azure Toolkit for IntelliJ plug-in and the Scala SDK.](spark/apache-spark-intellij-tool-plugin.md)
 * Eclipse IDE or Scala IDE for Eclipse: [Create Apache Spark applications and the Azure Toolkit for Eclipse](spark/apache-spark-eclipse-tool-plugin.md)
 
 ## Notebooks on Spark for data scientists
@@ -68,8 +71,8 @@ Apache Spark clusters in HDInsight include Apache Zeppelin notebooks and kernels
 
 If you come across a situation where you must use a tool or technology that is only available on Linux, consider the following options:
 
-* **Bash on Ubuntu on Windows 10** provides a Linux subsystem on Windows. Bash allows you to directly run Linux utilities without having to maintain a dedicated Linux installation. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.
-* **Docker for Windows** provides access to many Linux-based tools, and can be run directly from Windows. For example, you can use Docker to run the Beeline client for Hive directly from Windows. You can also use Docker to run a local Jupyter Notebook and remotely connect to Spark on HDInsight. [Get started with Docker for Windows](https://docs.docker.com/docker-for-windows/)
+* **Bash on Ubuntu on Windows 10** provides a Linux subsystem on Windows. Bash allows you to directly run Linux utilities without having to maintain a dedicated Linux installation. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) work as well.
+* **Docker for Windows** provides access to many Linux-based tools and can be run directly from Windows. For example, you can use Docker to run the Beeline client for Hive directly from Windows. You can also use Docker to run a local Jupyter Notebook and remotely connect to Spark on HDInsight. [Get started with Docker for Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** allows you to graphically browse the cluster file system over an SSH connection.
 
 ## Cross-platform tools
@@ -78,6 +81,6 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
 ## Next steps
 
-If you're new to working in Linux-based clusters, see the follow articles:
+If you're new to work in Linux-based clusters, see the following articles:
 * [Set up Apache Hadoop, Apache Kafka, Apache Spark, or other clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Tips for HDInsight clusters on Linux](hdinsight-hadoop-linux-information.md)

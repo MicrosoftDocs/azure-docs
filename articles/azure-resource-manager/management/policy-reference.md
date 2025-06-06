@@ -1,10 +1,11 @@
 ---
 title: Built-in policy definitions for Azure Resource Manager
 description: Lists Azure Policy built-in policy definitions for Azure Resource Manager. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 02/21/2023
+ms.date: 02/06/2024
 ms.topic: reference
 ms.custom: subject-policy-reference, devx-track-arm-template
 ---
+
 # Azure Policy built-in definitions for Azure Resource Manager
 
 This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy

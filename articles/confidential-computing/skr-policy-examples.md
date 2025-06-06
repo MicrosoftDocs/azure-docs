@@ -1,20 +1,19 @@
 ---
 title: Secure Key Release Policy with Azure Key Vault and Azure Confidential Computing
 description: Examples of AKV SKR policies across offered Azure Confidential Computing Trusted Execution Environments
-author: agowdamsft
-ms.service: virtual-machines
-ms.subservice: confidential-computing
-ms.workload: infrastructure
-ms.topic: conceptual
+author: angarg05
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
+ms.topic: concept-article
 ms.date: 3/5/2023
-ms.author: amgowda
+ms.author: ananyagarg
 ---
 
-# Secure Key Release Policy (SKR) Examples for Confidential Computing (ACC)
+# Secure Key Release policy examples for Azure Confidential Computing
 
-SKR can only release exportable marked keys based on the Microsoft Azure Attestation (MAA) generated claims. There's a tight integration on the SKR policy definition to MAA claims. MAA claims by trusted execution environment (TEE) can be found [here.](../attestation/attestation-token-examples.md)
+Secure Key Release (SKR) can only release exportable marked keys based on the Microsoft Azure Attestation (MAA) generated claims. There's a tight integration on the SKR policy definition to MAA claims. MAA claims by trusted execution environment (TEE) can be found [here.](/azure/attestation/attestation-token-examples)
 
-Follow the policy [grammar](../key-vault/keys/policy-grammar.md) for more examples on how you can customize the SKR policies. 
+Follow the policy [grammar](/azure/key-vault/keys/policy-grammar) for more examples on how you can customize the SKR policies. 
 
 ## Intel SGX Application Enclaves SKR policy examples
 
@@ -131,7 +130,7 @@ Follow the policy [grammar](../key-vault/keys/policy-grammar.md) for more exampl
 
 ```
 
-**Example 2:** A SKR policy that validates if the CVM is an Azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and is of a known Virtual Machine ID. (VMIDs are unique across Azure)
+**Example 2:** A SKR policy that validates if the CVM is an Azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and is of a known Virtual Machine ID. (VMIDs are unique across Azure, edit the 'equals' part of the claim in the example below with the desired, unique VMID)
 
 ```json
 {
@@ -150,7 +149,7 @@ Follow the policy [grammar](../key-vault/keys/policy-grammar.md) for more exampl
         },
         {
           "claim": "x-ms-azurevm-vmid",
-          "equals": "B958DC88-E41D-47F1-8D20-E57B6B7E9825"
+          "equals": "<PLACE YOUR VMID here - for example - B958DC88-E41D-47F1-8D20-E57B6B7E9825>"
         }
       ]
     }
@@ -194,6 +193,6 @@ Follow the policy [grammar](../key-vault/keys/policy-grammar.md) for more exampl
 
 ## References
 
-[Microsoft Azure Attestation (MAA)](../attestation/overview.md)
+[Microsoft Azure Attestation (MAA)](/azure/attestation/overview)
 
 [Secure Key Release Concept and Basic Steps](concept-skr-attestation.md)

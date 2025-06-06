@@ -13,11 +13,13 @@ ms.service: azure-communication-services
 > [!IMPORTANT]
 > Number Retention and Portability: Phone numbers that are assigned to you during any preview program may need to be returned to Microsoft if you do not meet regulatory requirements before General Availability. During private preview and public preview, telephone numbers are not eligible for porting. [Details on offers in Public Preview / GA](../concepts/numbers/sub-eligibility-number-capability.md)
 
-Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
+[!INCLUDE [Azure Prepayment](../includes/azure-prepayment.md)]
 
-In most cases, customers with Azure subscriptions locations that match the country of the Number offer are able to buy the Number. See here for details on [in-country and cross-country purchases](../concepts/numbers/sub-eligibility-number-capability.md).
+Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country/region) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
 
-All prices shown below are in USD.
+In most cases, customers with Azure subscriptions locations that match the country/region of the Number offer are able to buy the Number. See here for details on [in-country/region and cross-country/region purchases](../concepts/numbers/sub-eligibility-number-capability.md).
+
+Pricing for all countries/regions is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees. All prices shown below are in USD.
 
 ## United States telephony offers
 
@@ -136,12 +138,14 @@ All prices shown below are in USD.
 ### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
-|Geographic     |USD 1.00/mo        |
+|Geographic    |USD 1.00/mo        |
+|Toll-Free     |USD 8.00/mo        |
 
 ### Usage charges
 |Number type   |To make calls*   |To receive calls|
-|--------------|-----------|------------|
-|Geographic     |Starting at USD 0.0160/min       |USD 0.0100/min        |
+|--------------|-----------------|----------------|
+|Geographic    |Starting at USD 0.0160/min       |USD 0.0100/min        |
+|Toll-free     |Starting at USD 0.0160/min       |USD 0.1100/min        |
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -156,8 +160,8 @@ All prices shown below are in USD.
 ### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
-|Geographic     |Starting at USD 0.165/min       |USD 0.0072/min        |
-|Toll-free |Starting at USD 0.165/min   | USD 0.2200/min |
+|Geographic     |Starting at USD 0.0165/min       |USD 0.0072/min        |
+|Toll-free |Starting at USD 0.0165/min   | USD 0.2200/min |
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -199,11 +203,13 @@ All prices shown below are in USD.
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 3.00/mo        |
+|Toll-Free     |USD 20.00/mo        |
 
 ### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.2300/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.2300/min   | USD 0.2800/min |
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -277,11 +283,13 @@ All prices shown below are in USD.
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.50/mo        |
+|Toll-Free     |USD 25.00/mo        |
 
 ### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.3500/min       |USD 0.0100/min        |
+|Toll-free |Starting at USD 0.3500/min   |Starting at USD 0.0770/min |
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
@@ -301,11 +309,272 @@ All prices shown below are in USD.
 
 \* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-***
+## Australia telephony offers
 
-Note: Pricing for all countries is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees.
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Geographic    |USD 3.00/mo   |
+|Toll-Free     |USD 16.00/mo  |
 
-***
+
+### Usage charges
+|Number type  |To make calls*             |To receive calls|
+|-------------|---------------------------|----------------|
+|Geographic   |Starting at USD 0.0240/min |USD 0.0100/min  |
+|Toll-free    |Starting at USD 0.0240/min |USD 0.0500/min  |
+
+\* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Japan telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|National      |USD 4.50/mo  |
+|Toll-Free     |USD 25.00/mo  |
+
+### Usage charges
+|Number type  |To make calls*             |To receive calls|
+|-------------|---------------------------|----------------|
+|Geographic   |Starting at USD 0.061/min |USD 0.0100/min  |
+|Toll-free    |Starting at USD 0.061/min |USD 0.2780/min  |
+
+\* For destination-specific pricing for making outbound calls, refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+
+## China telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 54.00/mo  |
+
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.3168/min   |
+
+## Finland telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 40.00/mo  |
+
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |Starting at USD 0.1888/min   |
+
+## Hong Kong SAR telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 25.00/mo  |
+
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.0672/min   |
+
+## Israel telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 15.00/mo  |
+
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.1344/min   |
+
+## New Zealand telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 40.00/mo  |
+
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |Starting at USD 0.0666/min   |
+
+## Poland telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 22.00/mo  |
+
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |Starting at USD 0.1125/min   |
+
+## Singapore telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 22.00/mo  |
+
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.0650/min   |
+
+## Taiwan telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 5.00/mo   |
+
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.2718/min   |
+
+## Thailand telephony offers
+
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 25.00/mo  |
+
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.2377/min   |
+
+## Saudi Arabia telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 48.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.5408/min   |
+
+## Malaysia telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 21.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.1587/min   |
+
+
+## United Arab Emirates telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 10.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.2632/min   |
+
+## South Africa telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 22.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.0844/min   |
+
+## South Korea telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 23.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.1287/min   |
+
+
+## Philippines telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 25.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |Starting at USD 0.3345/min   |
+
+## Indonesia telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 25.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.3022/min   |
+
+## Argentina telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 25.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.2347/min   |
+
+## Brazil telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 35.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |Starting at USD 0.1888/min   |
+
+## Chile telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 32.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.1621/min   |
+
+## Colombia telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 25.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.1707/min   |
+
+## Mexico telephony offers
+### Phone number leasing charges
+|Number type   |Monthly fee   |
+|--------------|--------------|
+|Toll-Free     |USD 30.00/mo  |
+### Usage charges
+|Number type  |To make calls  |To receive calls |
+|-------------|---------------|-----------------|
+|Toll-free    |N/A            |USD 0.2161/min   |
+
+
+
 ## Direct routing pricing
 For Azure Communication Services direct routing, there is a flat rate regardless of the geography:
 

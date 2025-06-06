@@ -2,19 +2,14 @@
 title: Standard version of Azure VM extension for SAP solutions | Microsoft Docs
 description: Learn how to deploy the Std VM Extension for SAP.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
-author: OliverDoll
+author: OliverDoMS
 manager: juergent
-editor: ''
-tags: azure-resource-manager
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-keywords: ''
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/22/2021
 ms.author: oldoll
 ---
@@ -65,7 +60,7 @@ ms.author: oldoll
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Deploy Azure PowerShell cmdlets
 
-Follow the steps described in the article [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
+Follow the steps described in the article [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
 Check frequently for updates to the PowerShell cmdlets, which usually are updated monthly. Follow the steps described in [this](/powershell/azure/install-az-ps#update-the-azure-powershell-module) article. Unless stated otherwise in SAP Note [1928533] or SAP Note [2015553], we recommend that you work with the latest version of Azure PowerShell cmdlets.
 
@@ -93,7 +88,7 @@ az --version
 To install the Azure Extension for SAP by using PowerShell:
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet. For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1]
-1. Run the following PowerShell cmdlet. For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure China 21Vianet, select **AzureChinaCloud**. 
+1. Run the following PowerShell cmdlet. For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**. 
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>
    Connect-AzAccount -Environment $env
@@ -276,7 +271,7 @@ If some of the infrastructure data is not delivered correctly as indicated by th
 ### Health checks using PowerShell
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
-1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure China 21Vianet, select **AzureChinaCloud**.
+1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
 
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>
@@ -428,7 +423,7 @@ If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun
 | <a name="wad_003"></a>wad/003 | Cannot read WAD table. There is no connection to WAD table. There can be several causes of this:<br /><br /> 1) outdated configuration <br />2) no network connection to Azure <br />3) issues with WAD setup | [run setup script][deployment-guide-run-the-script]<br />[fix internet connection][deployment-guide-fix-internet-connection]<br />[contact support][deployment-guide-contact-support] |
 | <a name="prf_011"></a>prf/011 | Perfmon NIC metrics failed. | [contact support][deployment-guide-contact-support] |
 | <a name="prf_012"></a>prf/012 | Perfmon disk metrics failed. | [contact support][deployment-guide-contact-support] |
-| <a name="prf_013"></a>prf/013 | Some prefmon metrics failed. | [contact support][deployment-guide-contact-support] |
+| <a name="prf_013"></a>prf/013 | Some perfmon metrics failed. | [contact support][deployment-guide-contact-support] |
 | <a name="prf_014"></a>prf/014 | Perfmon failed to create a counter. | [contact support][deployment-guide-contact-support] |
 | <a name="cfg_035"></a>cfg/035 | No metric providers configured. | [contact support][deployment-guide-contact-support] |
 | <a name="str_006"></a>str/006 | Bad Storage Analytics config. | [run setup script][deployment-guide-run-the-script] |

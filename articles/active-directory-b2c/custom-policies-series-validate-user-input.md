@@ -1,24 +1,29 @@
 ---
 title: Validate user inputs by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
-description: Learn how to validate user inputs by using Azure Active Directory B2C custom policy. Learn how to validate user input by limiting user input options. Learn how to validate user input by using Predicates. Learn how to validate user input by using Regular Expressions. Learn how to validate user input by using validation technical profiles    
-services: active-directory-b2c
+description: Learn how to validate user inputs using Azure AD B2C custom policies. Ensure data accuracy with options, predicates, regex, and validation technical profiles.
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to validate user inputs by using custom policies, so that I can ensure that the data entered by users is accurate and meets the required criteria.
+
 ---
 
 #  Validate user inputs by using Azure Active Directory B2C custom policy 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to make user inputs mandatory but also to validate them. You can mark user inputs as *required*, such as `<DisplayClaim ClaimTypeReferenceId="givenName" Required="true"/>`, but it doesn't mean your users will enter valid data. Azure AD B2C provides various ways to validate a user input. In this article, you'll learn how to write a custom policy that collects the user inputs and validates them by using the following approaches: 
+Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to make user inputs mandatory but also to validate them. You can mark user inputs as *required*, such as `<DisplayClaim ClaimTypeReferenceId="givenName" Required="true"/>`, but it doesn't mean your users will enter valid data. Azure AD B2C provides various ways to validate a user input. In this article, you learn how to write a custom policy that collects the user inputs and validates them by using the following approaches: 
 
 - Restrict the data a user enters by providing a list of options to pick from. This approach uses *Enumerated Values*, which you add when you declare a claim.
  
@@ -28,14 +33,14 @@ Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to m
 
 - Use the special claim type *reenterPassword* to validate that the user correctly re-entered their password during user input collection. 
 
-- Configure a *Validation Technical Profile* that defines complex business rules that aren't possible to define at claim declaration level. For example, you collect a user input, which needs to be validated against a set of other values in another claim.  
+- Configure a *Validation Technical Profile* that defines complex business rules that aren't possible to define at claim declaration level. For example, you collect a user input, which needs to be validated against a value or a set values in another claim.  
 
 
 ## Prerequisites
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms. 
+- [Register a web application](tutorial-register-applications.md).
 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
@@ -45,7 +50,7 @@ Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to m
 
 ## Step 1 - Validate user input by limiting user input options 
 
-If you know all the possible values that a user can enter for a given input, you can provide a finite set of values that a user must select from. You can use *DropdownSinglSelect*, *CheckboxMultiSelect*, and *RadioSingleSelect* [UserInputType](claimsschema.md#userinputtype) for this purpose. In this article, you'll use a *RadioSingleSelect* input type:
+If you know all the possible values that a user can enter for a given input, you can provide a finite set of values that a user must select from. You can use *DropdownSingleSelect*, *CheckboxMultiSelect*, and *RadioSingleSelect* [UserInputType](claimsschema.md#userinputtype) for this purpose. In this article, you'll use a *RadioSingleSelect* input type:
 
 1. In VS Code, open the file `ContosoCustomPolicy.XML`. 
 
@@ -147,7 +152,7 @@ While the *Predicates* define the validation to check against a claim type, the 
         </ClaimType>
     ``` 
 
-1. Add a `Predicates` element as a child of `BuildingBlocks` section by using the following code: 
+1. Add a `Predicates` element as a child of `BuildingBlocks` section by using the following code. You add the `Predicates` element below the `ClaimsSchema` element: 
 
     ```xml
         <Predicates>
@@ -195,7 +200,7 @@ While the *Predicates* define the validation to check against a claim type, the 
         </Parameters>
       </Predicate>
     
-      <Predicate Id="AllowedAADCharacters" Method="MatchesRegex" HelpText="An invalid character was provided.">
+      <Predicate Id="AllowedCharacters" Method="MatchesRegex" HelpText="An invalid character was provided.">
         <Parameters>
           <Parameter Id="RegularExpression">(^([0-9A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~"();! ]|(\.(?!@)))+$)|(^$)</Parameter>
         </Parameters>
@@ -210,7 +215,7 @@ While the *Predicates* define the validation to check against a claim type, the 
 
     We've defined several rules, which when put together described an acceptable password. Next, you can group predicates, to form a set of password policies that you can use in your policy.  
 
-1. Add a `PredicateValidations` element as a child of `BuildingBlocks` section by using the following code: 
+1. Add a `PredicateValidations` element as a child of `BuildingBlocks` section by using the following code. You add the `PredicateValidations` element as a child of `BuildingBlocks` section, but below the `Predicates` element: 
 
     ```xml
         <PredicateValidations>
@@ -326,7 +331,7 @@ Use the following steps to validate password re-enter in your custom policy:
     ```xml
         <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
     ```
-1. In your your `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` self-asserted technical profile, add *reenterPassword* claim as an output claim by using the following code:
+1. In your `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` self-asserted technical profile, add *reenterPassword* claim as an output claim by using the following code:
 
     ```xml
         <OutputClaim ClaimTypeReferenceId="reenterPassword"/>
@@ -353,7 +358,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
     You must correct your inputs before you continue.
 
-1. Enter correct values as suggested by the error messages, and then select **Continue** button again. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. The token looks similar to the following JWT token snippet: 
+1. Enter correct values as suggested by the error messages, and then select **Continue** button again. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT. The token looks similar to the following JWT snippet: 
 
 ```json
     {
@@ -375,7 +380,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
 ## Step 7 - Validate user input by using validation technical profiles
 
-The validation techniques we've used in step 1, step 2 and step 3 aren't applicable for all scenarios. If your business rules are complex to be defined at claim declaration level, you can configure a [Validation Technical](validation-technical-profile.md), and then call it from a [Self-Asserted Technical Profile](self-asserted-technical-profile.md).
+The validation techniques we've used in step 1, step 2 and step 3 aren't applicable for all scenarios. If your business rules are too complex to be defined at claim declaration level, you can configure a [Validation Technical](validation-technical-profile.md), and then call it from a [Self-Asserted Technical Profile](self-asserted-technical-profile.md).
 
 > [!NOTE] 
 > Only self-asserted technical profiles can use validation technical profiles. Learn more about [validation technical profile](validation-technical-profile.md) 
@@ -478,13 +483,12 @@ Use the following steps to learn how to validate user input by using validation 
     1. For **Email Address**, enter an invalid email address such as *maurice@fourthcoffee.com*.
     1. Enter the rest of the details as required and select **Continue**
     
-    Since *maurice@fourthcoffee.com* isn't a valid email, you'll see an error similar to the one shown in the screenshot below. You must use a valid email address to successfully run the custom policy and receive a JWT token. 
+    Since *maurice@fourthcoffee.com* isn't a valid email, you'll see an error similar to the one shown in the screenshot below. You must use a valid email address to successfully run the custom policy and receive a JWT. 
 
     :::image type="content" source="media/custom-policies-series-validate-user-input/screenshot-of-error-due-to-invalid-email-address.png" alt-text="screenshot of error due to invalid email address.":::
 
-## Next steps
+## Related content
 
 - Learn about [validation technical profile](validation-technical-profile.md).
 
--  Learn how to [Conditionally enable or disable Technical Profiles in Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md)
-
+-  Learn how to [Conditionally enable or disable Technical Profiles in Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md).

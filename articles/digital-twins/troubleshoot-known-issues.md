@@ -5,14 +5,21 @@ description: Get help recognizing and mitigating known issues with Azure Digital
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.service: digital-twins
-ms.date: 02/28/2022
-ms.custom: contperf-fy21q2
+ms.service: azure-digital-twins
+ms.date: 04/17/2025
 ---
 
 # Azure Digital Twins known issues
 
 This article provides information about known issues associated with Azure Digital Twins.
+
+## Azure Digital Twins Explorer doesn't support private endpoints
+
+**Issue description:** Azure Digital Twins Explorer shows errors when attempting to use it with an Azure Digital Twins instance that uses [Private Link](concepts-security.md#private-network-access-with-azure-private-link) to disable public access. You may see a popup that says *Error fetching models.*
+
+| Does this affect me? | Cause | Resolution |
+| --- | --- | --- |
+| If you're using Azure&nbsp;Digital&nbsp;Twins with a private endpoint/Private Link, this issue will affect you when trying to view your instance in Azure&nbsp;Digital&nbsp;Twins Explorer. | Azure Digital Twins Explorer does not offer support for private endpoints. | You can deploy your own version of the Azure Digital Twins Explorer codebase privately in the cloud. For instructions on how to do this, see [Azure Digital Twins Explorer: Running in the cloud](https://github.com/Azure-Samples/digital-twins-explorer#running-in-the-cloud). Alternatively, you can manage your Azure Digital Twins instance using the [APIs and SDKs](./concepts-apis-sdks.md) instead. |
 
 ## "400 Client Error: Bad Request" in Cloud Shell
 
@@ -37,6 +44,14 @@ This article provides information about known issues associated with Azure Digit
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
 | `DefaultAzureCredential` is used in most of the documentation examples for this service that include authentication. If you're writing authentication code using `DefaultAzureCredential` with version 1.3.0 of the `Azure.Identity` library and seeing this error message, this issue affects you. | It's likely a result of some configuration issue with the `Azure.Identity` library and `DefaultAzureCredential`, its authentication class. This class is a wrapper containing several credential types that are tried in order. The issue may occur when the authentication flow reaches the `SharedTokenCacheCredential` type. | One strategy to resolve this is to exclude `SharedTokenCacheCredential` from your credential, as described in this [DefaultAzureCredential issue](https://github.com/Azure/azure-sdk/issues/1970) that is currently open against `Azure.Identity`. You can exclude `SharedTokenCacheCredential` from your credential by instantiating the `DefaultAzureCredential` class using the following optional parameter: `new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeSharedTokenCacheCredential = true });`<br>Another option is to change your application to use an earlier version of `Azure.Identity`, such as [version 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3). Using an earlier version has no functional impact to Azure Digital Twins, which makes it an accepted solution. |
+
+## az dt commands fail with old azure-iot extension 
+
+**Issue description:** CLI commands from the `az dt` command set fail if you are using an earlier version of the `azure-iot` extension than 0.26.0 (0.26.0 is acceptable) alongside version 2.70.0 or later of the Azure CLI. The error message ends in *AttributeError: 'CredentialAdaptor' object has no attribute 'signed_session'*.
+
+| Does this affect me? | Cause | Resolution |
+| --- | --- | --- |
+| This issue affects your ability to run `az dt` commands if you're using an Azure CLI that's on version 2.70.0 or later, and a version of the `azure-iot` extension that's on an earlier version than 0.26.0. You can check your CLI version with the `az version` command and your `azure-iot` extension version with the `az extension show` command. | Version 0.26.0 or later of the `azure-iot` CLI extension is required to run `az dt` commands in version 2.70.0 or later of the Azure CLI. | Use the `az extension update` command to update the `azure-iot` extension to the latest version. |
 
 ## Next steps
 

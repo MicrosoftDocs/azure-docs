@@ -1,16 +1,9 @@
 ---
 title: Disaster recovery using Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
-description: Explains how to perform disaster recovery when using the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
+description: Explains how to perform disaster recovery when using the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: phjensen
@@ -35,7 +28,7 @@ The following pre-requisites must be met before you plan the disaster recovery f
 - You have storage replication working. The Microsoft operations team performs the storage replication setup at the time of DR provisioning automatically. You can monitor the storage replication using the command `azacsnap -c details --details replication` at the DR site.
 - You have set up and configured storage snapshots at the primary location.
 - You have an HANA instance installed at the DR site for the primary with the same SID as the primary instance has.
-- You read and understand the DR Failover procedure described in [SAP HANA Large Instances high availability and disaster recovery on Azure](../virtual-machines/workloads/sap/hana-failover-procedure.md)
+- You read and understand the DR Failover procedure described in [SAP HANA Large Instances high availability and disaster recovery on Azure](/azure/virtual-machines/workloads/sap/hana-failover-procedure)
 - You have set up and configured storage snapshots at the DR location.
 - A configuration file (for example, `DR.json`) has been created with the DR storage volumes and associated
     information on the DR server.

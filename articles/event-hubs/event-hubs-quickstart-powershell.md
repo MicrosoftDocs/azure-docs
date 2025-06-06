@@ -3,7 +3,7 @@ title: 'Quickstart: Create an event hub using PowerShell'
 description: This quickstart describes how to create an event hub using Azure PowerShell and then send and receive events using .NET Standard SDK.
 ms.topic: quickstart
 ms.date: 03/13/2023
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, devx-track-dotnet
 ---
 
 # Quickstart: Create an event hub using Azure PowerShell
@@ -12,9 +12,9 @@ In this quickstart, you create an event hub using Azure PowerShell.
 ## Prerequisites
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-If you're using PowerShell locally, you must run the latest version of PowerShell to complete this quickstart. If you need to install or upgrade, see [Install and Configure Azure PowerShell](/powershell/azure/install-az-ps).
+If you're using PowerShell locally, you must run the latest version of PowerShell to complete this quickstart. If you need to install or upgrade, see [Install and Configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Create a resource group
 Run the following command to create a resource group. A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. 
@@ -43,7 +43,7 @@ Run the following command to create an Event Hubs namespace in the resource grou
 
 ```azurepowershell-interactive
 $namespaceName="myNamespace$(Get-Random)"
-New-AzEventHubNamespace -ResourceGroupName $rgName -NamespaceName $namespaceName -Location $region
+New-AzEventHubNamespace -ResourceGroupName $rgName -Name $namespaceName -Location $region
 ```
 
 You see the output similar to the following one. You see the name of the namespace in the `Name` field. 

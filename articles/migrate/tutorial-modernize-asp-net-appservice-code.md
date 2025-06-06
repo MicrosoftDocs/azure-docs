@@ -1,11 +1,11 @@
 ---
 title: Modernize ASP.NET web apps to Azure App Service code
 description: At-scale migration of ASP.NET web apps to Azure App Service using Azure Migrate
-author: vineetvikram
-ms.author: vivikram
+author: ankitsurkar06
+ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 02/07/2025
 ms.custom: template-tutorial
 ---
 
@@ -45,7 +45,7 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
   - Currently, the migration flow doesn't support VNet integrated scenarios.
 
 To migrate the web apps, perform these steps:
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration tools** > **Migration and modernization**, select **Replicate**.
+1. In the Azure Migrate project > **Execute** > **Migration**, select **Replicate**.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/select-replicate.png" alt-text="Screenshot of the Replicate option selected.":::
 
@@ -108,7 +108,7 @@ Once you have successfully completed migration, you may explore the following st
 - [Security recommendations](../app-service/security-recommendations.md).
 - [Networking features](../app-service/networking-features.md).
 - [Monitor App Service with Azure Monitor](../app-service/monitor-app-service.md).
-- [Configure Azure AD authentication](../app-service/configure-authentication-provider-aad.md).
+- [Configure Microsoft Entra authentication](../app-service/configure-authentication-provider-aad.md).
 
 
 ## Next steps

@@ -1,20 +1,18 @@
 ---
-title: Data reference for Azure Monitor for SAP solutions (preview)
-description: Important reference material needed when you monitor SAP on Azure. 
-author: lauradolan
+title: Data reference for Azure Monitor for SAP solutions
+description: Important reference material needed when you monitor SAP on Azure.
+author: ju-shim
 ms.topic: reference
-ms.author: ladolan
+ms.author: jushiman
 ms.service: sap-on-azure
-ms.subservice: sap-monitor 
+ms.subservice: sap-monitor
 ms.custom: subject-monitoring
-ms.date: 10/27/2022
+ms.date: 08/21/2024
 ---
 
-# Data reference for Azure Monitor for SAP solutions (preview)
+# Data reference for Azure Monitor for SAP solutions 
 
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
-
-This article provides a reference of log data collected to analyze the performance and availability of Azure Monitor for SAP solutions. See [Monitor SAP on Azure (preview)](about-azure-monitor-sap-solutions.md) for details on collecting and analyzing monitoring data for SAP on Azure.
+This article provides a reference of log data collected to analyze the performance and availability of Azure Monitor for SAP solutions. See [Monitor SAP on Azure ](about-azure-monitor-sap-solutions.md) for details on collecting and analyzing monitoring data for SAP on Azure.
 
 ## Metrics
 
@@ -22,7 +20,7 @@ Azure Monitor for SAP solutions doesn't support metrics.
 
 ## Azure Monitor logs tables
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor for SAP solutions and available for query by Log Analytics. Azure Monitor for SAP solutions uses custom logs. The schemas for some tables are defined by third-party providers, such as SAP. Here are the current custom logs for Azure Monitor for SAP solutions with links to sources for more information.
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor for SAP solutions and available for query by Log Analytics. Azure Monitor for SAP solutions uses custom logs. The schemas for some tables are defined by non-Microsoft providers, such as SAP. Here are the current custom logs for Azure Monitor for SAP solutions with links to sources for more information.
 
 ### SapHana_HostConfig_CL
 
@@ -163,4 +161,4 @@ For more information, see [sys.sysprocesses (Transact-SQL)](/sql/relational-data
 ## Next steps
 
 - For more information on using Azure Monitor for SAP solutions, see [Monitor SAP on Azure](about-azure-monitor-sap-solutions.md).
-- For more information on Azure Monitor, see [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
+- For more information on Azure Monitor, see [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).

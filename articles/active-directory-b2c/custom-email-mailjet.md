@@ -2,20 +2,25 @@
 title: Custom email verification with Mailjet
 titleSuffix: Azure AD B2C
 description: Learn how to integrate with Mailjet to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 02/21/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to send customized email to users that sign up for my applications using a third-party email provider like Mailjet, so that I can use my own email template and customize the email address, subject, and support localization and custom one-time password settings.
+
 ---
 
 # Custom email verification with Mailjet
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -29,7 +34,7 @@ Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized
 
 ::: zone pivot="b2c-custom-policy"
 
-Custom email verification requires the use of a third-party email provider like [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
+Custom email verification requires the use of a third-party email provider like [Mailjet](https://www.mailjet.com/), [SendGrid](./custom-email-sendgrid.md), or [SparkPost](https://messagebird.com/support-center/omnichannel-and-connectivity/sms/sending-email-to-sms?sp=true), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
 
 ## Create a Mailjet account
 
@@ -46,9 +51,8 @@ If you don't already have one, start by setting up a Mailjet account (Azure cust
 
 Next, store the Mailjet API key in an Azure AD B2C policy key for your policies to reference.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the **Overview** page, select **Identity Experience Framework**.
 1. Select **Policy Keys**, and then select **Add**.
@@ -66,12 +70,12 @@ Next, store the Mailjet API key in an Azure AD B2C policy key for your policies 
 
 ## Create a Mailjet template
 
-With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [dynamic transactional template](https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-templates).
 
 1. On the Mailjet site, open the [transactional templates](https://app.mailjet.com/templates/transactional) page and select **Create a new template**.
 1. Select **By coding it in HTML**, and then select **Code from scratch**.
 1. Enter a unique template name like `Verification email`, and then select **Create**.
-1. In the HTML editor, paste following HTML template or use your own. The `{{var:otp:""}}` and `{{var:email:""}}` parameters will be replaced dynamically with the one-time password value and the user email address.
+1. In the HTML editor, paste following HTML template or use your own. The `{{var:otp:""}}` and `{{var:email:""}}` parameters are replaced dynamically with the one-time password value and the user email address.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -207,7 +211,7 @@ These claims types are necessary to generate and verify the email address using 
 
 ## Add the claims transformation
 
-Next, you need a claims transformation to output a JSON string claim that will be the body of the request sent to Mailjet.
+Next, you need a claims transformation to output a JSON string claim that's the body of the request sent to Mailjet.
 
 The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
 
@@ -376,7 +380,7 @@ As with the OTP technical profiles, add the following technical profiles to the 
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="sendOtp">
-      <DisplayName>Use email API to send the code the the user</DisplayName>
+      <DisplayName>Use email API to send the code to the user</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://api.mailjet.com/v3.1/send</Item>
@@ -569,7 +573,7 @@ The Localization element allows you to support multiple locales or languages in 
 ```
 
 
-## Next steps
+## Related content
 
 - You can find an example of a [Custom email verification - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/Mailjet) custom policy on GitHub.
 - For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).

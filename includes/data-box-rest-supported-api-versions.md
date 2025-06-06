@@ -1,10 +1,9 @@
 ---
-author: alkohli
-ms.service: databox
-ms.subservice: pod   
+author: stevenmatthew
+ms.service: azure-databox
 ms.topic: include
 ms.date: 09/24/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 - [2019-02-02](/rest/api/storageservices/version-2019-02-02)

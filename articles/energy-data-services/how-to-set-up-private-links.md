@@ -1,38 +1,91 @@
 ---
-title: Create a private endpoint for Microsoft Azure Data Manager for Energy Preview
-description: Learn how to set up private endpoints for Azure Data Manager for Energy Preview by using Azure Private Link.
+title: Create a private endpoint for Microsoft Azure Data Manager for Energy
+description: Learn how to set up private endpoints for Azure Data Manager for Energy by using Azure Private Link.
 author: Lakshmisha-KS
 ms.author: lakshmishaks
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 09/29/2022
 ms.custom: template-how-to
-#Customer intent: As a developer, I want to set up private endpoints for Azure Data Manager for Energy Preview.
+#Customer intent: As a developer, I want to set up private endpoints for Azure Data Manager for Energy.
 ---
 
-# Create a private endpoint for Azure Data Manager for Energy Preview
+# Create a private endpoint for Azure Data Manager for Energy
 [Azure Private Link](../private-link/private-link-overview.md) provides private connectivity from a virtual network to Azure platform as a service (PaaS). It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
 
-By using Azure Private Link, you can connect to an Azure Data Manager for Energy Preview instance from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Azure Data Manager for Energy Preview instance over these private IP addresses. 
+By using Azure Private Link, you can connect to an Azure Data Manager for Energy instance from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Azure Data Manager for Energy instance over these private IP addresses. 
 
-You can connect to an Azure Data Manager for Energy Preview instance that's configured with Private Link by using an automatic or manual approval method. To learn more, see the [Private Link documentation](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
+You can connect to an Azure Data Manager for Energy instance that's configured with Private Link by using an automatic or manual approval method. To learn more, see the [Private Link documentation](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-This article describes how to set up a private endpoint for Azure Data Manager for Energy Preview. 
+This article describes how to set up a private endpoint for Azure Data Manager for Energy. 
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+> [!NOTE]
+> To enable private endpoint, public access must be disabled for Azure Data Manager for Energy. If public access is enabled and private endpoint is created, the instance will only be accessed via private endpoint and not by public access.
 
 > [!NOTE]
 > Terraform currently does not support private endpoint creation for Azure Data Manager for Energy.
 
 ## Prerequisites
 
-[Create a virtual network](../virtual-network/quick-create-portal.md) in the same subscription as the Azure Data Manager for Energy Preview instance. This virtual network will allow automatic approval of the Private Link endpoint.
+[Create a virtual network](../virtual-network/quick-create-portal.md) in the same subscription as the Azure Data Manager for Energy instance. This virtual network allows automatic approval of the Private Link endpoint.
 
-## Create a private endpoint by using the Azure portal
+## Create a private endpoint during instance provisioning by using the Azure portal 
 
-Use the following steps to create a private endpoint for an existing Azure Data Manager for Energy Preview instance by using the Azure portal:
+Use the following steps to create a private endpoint while provisioning Azure Data Manager for Energy resource:
 
-1. From the **All resources** pane, choose an Azure Data Manager for Energy Preview instance.
+1. During the creation of Azure Data Manager for Energy instance, select the **Networking** tab.
+
+    [![Screenshot of the Networking tab during provisioning.](media/how-to-manage-private-links/private-links-11-networking-tab.png)](media/how-to-manage-private-links/private-links-11-networking-tab.png#lightbox)
+
+1. In the Networking tab, select **Disable public access and use private access** and then choose **Add** under Private endpoint.
+
+    [![Screenshot of choosing add private endpoint.](media/how-to-manage-private-links/private-links-12-add-private-endpoint.png)](media/how-to-manage-private-links/private-links-12-add-private-endpoint.png#lightbox)
+
+1. In **Create private endpoint**, enter or select the following information and select **OK**:
+
+    |Setting| Value|
+    |--------|-----|
+    |Subscription| Select your subscription|
+    |Resource group| Select a resource group|
+    |Location| Select the region where you want to deploy the private endpoint|
+    |Name| Enter a name for your private endpoint. The name must be unique|
+    |Target sub-resource| **Azure Data Manager for Energy** by default|
+
+    **Networking:**
+
+    |Setting| Value|
+    |--------|-----|
+    |Virtual network| Select the virtual network in which you want to deploy your private endpoint|
+    |Subnet| Select the subnet|
+
+    **Private DNS integration:**
+
+    |Setting| Value|
+    |--------|-----|
+    |Integrate with private DNS zone| Leave the default value - **Yes**|
+    |Private DNS zone| Leave the default value|
+
+    [![Screenshot of the Create private endpoint tab - 1.](media/how-to-manage-private-links/private-links-13-create-private-endpoint.png)](media/how-to-manage-private-links/private-links-13-create-private-endpoint.png#lightbox)
+
+    [![Screenshot of the Create private endpoint tab - 2.](media/how-to-manage-private-links/private-links-14-private-dns.png)](media/how-to-manage-private-links/private-links-14-private-dns.png#lightbox)
+
+
+1. Verify the private endpoint details in the Networking tab and next, select **Review+Create** after completing other tabs.
+
+    [![Screenshot of the Private endpoint details.](media/how-to-manage-private-links/private-links-15-review-private-endpoint.png)](media/how-to-manage-private-links/private-links-15-review-private-endpoint.png#lightbox)
+
+1. On the Review + create page, Azure validates your configurations.
+When you see Validation passed, select the **Create** button.
+1. An Azure Data Manager for Energy instance is created with private link.
+1. You can navigate to Networking post instance provisioning and see the private endpoint created under **Private access** tab.
+
+    [![Screenshot of the private endpoint created.](media/how-to-manage-private-links/private-links-16-validate-private-endpoint.png)](media/how-to-manage-private-links/private-links-16-validate-private-endpoint.png#lightbox)
+
+## Create a private endpoint post instance provisioning by using the Azure portal 
+
+Use the following steps to create a private endpoint for an existing Azure Data Manager for Energy instance by using the Azure portal:
+
+1. From the **All resources** pane, choose an Azure Data Manager for Energy instance.
 1. Select **Networking** from the list of settings.       
 1. On the **Public Access** tab, select **Enabled from all networks** to allow traffic from all networks.
 
@@ -56,7 +109,7 @@ Use the following steps to create a private endpoint for an existing Azure Data 
     [![Screenshot of entering basic information for a private endpoint.](media/how-to-manage-private-links/private-links-3-basics.png)](media/how-to-manage-private-links/private-links-3-basics.png#lightbox)
 	
     > [!NOTE]
-    > Automatic approval happens only when the Azure Data Manager for Energy Preview instance and the virtual network for the private endpoint are in the same subscription.
+    > Automatic approval happens only when the Azure Data Manager for Energy instance and the virtual network for the private endpoint are in the same subscription.
 
 1. Select **Next: Resource**. On the **Resource** page, confirm the following information:
 
@@ -64,8 +117,8 @@ Use the following steps to create a private endpoint for an existing Azure Data 
     |--------|--------|
     |**Subscription**| Your subscription|
     |**Resource type**|	**Microsoft.OpenEnergyPlatform/energyServices**|
-    |**Resource**| Your Azure Data Manager for Energy Preview instance|
-    |**Target sub-resource**| **Azure Data Manager for Energy** (for Azure Data Manager for Energy Preview) by default|
+    |**Resource**| Your Azure Data Manager for Energy instance|
+    |**Target sub-resource**| **Azure Data Manager for Energy** (for Azure Data Manager for Energy) by default|
 	
     [![Screenshot of resource information for a private endpoint.](media/how-to-manage-private-links/private-links-4-resource.png)](media/how-to-manage-private-links/private-links-4-resource.png#lightbox)
  
@@ -73,7 +126,7 @@ Use the following steps to create a private endpoint for an existing Azure Data 
 
     * Configure network and private IP settings. [Learn more](../private-link/create-private-endpoint-portal.md#create-a-private-endpoint).
 
-    * Configure a private endpoint with an application security group. [Learn more](../private-link/configure-asg-private-endpoint.md#create-private-endpoint-with-an-asg).
+    * Configure a private endpoint with an application security group. [Learn more](../private-link/configure-asg-private-endpoint.md#create-a-private-endpoint-with-an-asg).
 
     [![Screenshot of virtual network information for a private endpoint.](media/how-to-manage-private-links/private-links-4-virtual-network.png)](media/how-to-manage-private-links/private-links-4-virtual-network.png#lightbox)
 
@@ -96,17 +149,52 @@ Use the following steps to create a private endpoint for an existing Azure Data 
 
     [![Screenshot of information about a private endpoint with an indication of automatic approval.](media/how-to-manage-private-links/private-links-8-request-response.png)](media/how-to-manage-private-links/private-links-8-request-response.png#lightbox)
  
-1. Select the **Azure Data Manager for Energy Preview** instance, select **Networking**, and then select the **Private Access** tab. Confirm that your newly created private endpoint connection appears in the list.
+1. Select the **Azure Data Manager for Energy** instance, select **Networking**, and then select the **Private Access** tab. Confirm that your newly created private endpoint connection appears in the list.
 
     [![Screenshot of the Private Access tab with an automatically approved private endpoint connection.](media/how-to-manage-private-links/private-links-9-auto-approved.png)](media/how-to-manage-private-links/private-links-9-auto-approved.png#lightbox)
 
 > [!NOTE]
-> When the Azure Data Manager for Energy Preview instance and the virtual network are in different tenants or subscriptions, you have to manually approve the request to create a private endpoint. The **Approve** and **Reject** buttons appear on the **Private Access** tab. 
+> When the Azure Data Manager for Energy instance and the virtual network are in different tenants or subscriptions, you have to manually approve the request to create a private endpoint. The **Approve** and **Reject** buttons appear on the **Private Access** tab. 
 >
 > [![Screenshot that shows options for rejecting or approving a request to create a private endpoint.](media/how-to-manage-private-links/private-links-10-awaiting-approval.png)](media/how-to-manage-private-links/private-links-10-awaiting-approval.png#lightbox)
+
+## Manage multiple endpoints in the same virtual network
+### Access via IP vs DNS
+In the same virtual network, you can create multiple endpoints. Each end point will have a different IP. It is not possible to resolve one host name with two difference IPs. 
+- If you access the resource via IP: 
+   - The resource will be accessible only via the latest private IP address. 
+   - All the previous private IPs in the same vnet will become dangling. 
+   - Even when you delete the latest IP, all the previous IPs still remain dangling. 
+- If you access via DNS name:  You won't see any difference.
+
+
+### Know which endpoint the resource is connected to
+1. Go to any of the private endpoints, to the DNS configuration, and to Private DNS Zone associated with ADME resource.
+
+[![Screenshot that shows DNS Config.](media/how-to-manage-private-links/private-links-17-dns-config.png)](media/how-to-manage-private-links/private-links-17-dns-config.png#lightbox)
+
+
+2. In the private DNS zone, check the IP associated with the entry for your Azure Data Manager for Energy instance.
+
+[![Screenshot that shows DNS Zone.](media/how-to-manage-private-links/private-links-18-dns-zone.png)](media/how-to-manage-private-links/private-links-18-dns-zone.png#lightbox)
+
+
+3. This is the IP to which your resource is connected.
+
+## New data partitions with static IP private endpoints
+It is preferable to create private endpoints with dynamic IP to enable dynamic data partition creation. If you initiate the creation of new data partitions with static IPs private endpoint, it will fail. Each new data partition requires three additional static IPs which the static IP private endpoint is not able to provide. 
+
+
+To create new data partitions successfully with static IP private endpoint, follow the below steps:
+1. Create a new private endpoint with either dynamic IP or enable public access.
+2. Delete existing private endpoint with static IP from Azure Data Manager for Energy instance and delete it from Azure resources also.
+3. Create new data partitions successfully.
+4. Delete the newly created private endpoint with dynamic IP and/or disable public access.
+5. Create a new private endpoint with static IP. This step will now ask to assign additional static IPs needed for new data partition.
+[![Screenshot that shows static IP with new data partition.](media/how-to-manage-private-links/private-links-19-static-ip.png)](media/how-to-manage-private-links/private-links-19-static-ip.png#lightbox)
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
 To learn more about using Customer Lockbox as an interface to review and approve or reject access requests.
 > [!div class="nextstepaction"]
-> [Use Lockbox for Azure Data Manager for Energy Preview](how-to-create-lockbox.md)
+> [Use Lockbox for Azure Data Manager for Energy](how-to-create-lockbox.md)

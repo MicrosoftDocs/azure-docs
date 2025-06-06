@@ -2,22 +2,16 @@
 title: Utilize Azure VMs restart for “higher availability” of an SAP system | Microsoft Docs
 description: Utilize Azure infrastructure VM restart to achieve “higher availability” of SAP applications
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
 ms.assetid: f0b2f8f0-e798-4176-8217-017afe147917
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Utilize Azure infrastructure VM restart to achieve “higher availability” of an SAP system
@@ -43,7 +37,7 @@ ms.custom: H1Hack27Feb2017
 [getting-started]:get-started.md
 
 [sap-higher-availability]:sap-higher-availability-architecture-scenarios.md
-[sap-high-availability-architecture-scenarios-sap-app-ha]:sap-high-availability-architecture-scenarios.md#baed0eb3-c662-4405-b114-24c10a62954e
+[sap-high-availability-architecture-scenarios-sap-app-ha]:sap-high-availability-architecture-scenarios.md
 
 [planning-guide]:planning-guide.md  
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff
@@ -266,7 +260,7 @@ Assuming a typical Azure scenario of one SAP application server instance in a VM
 
 
   > [!NOTE]
-  > The Autostart parameter has certain shortcomings as well. Specifically, the parameter triggers the start of an SAP ABAP or Java instance when the related Windows or Linux service of the instance is started. That sequence occurs when the operating system boots up. However, restarts of SAP services are also a common occurrence for SAP Software Lifecycle Management functionality such as Software Update Manger (SUM) or other updates or upgrades. These functionalities are not expecting an instance to be restarted automatically. Therefore, the Autostart parameter should be disabled before you run such tasks. The Autostart parameter also should not be used for SAP instances that are clustered, such as ASCS/SCS/CI.
+  > The Autostart parameter has certain shortcomings as well. Specifically, the parameter triggers the start of an SAP ABAP or Java instance when the related Windows or Linux service of the instance is started. That sequence occurs when the operating system boots up. However, restarts of SAP services are also a common occurrence for SAP Software Lifecycle Management functionality such as Software Update Manager (SUM) or other updates or upgrades. These functionalities are not expecting an instance to be restarted automatically. Therefore, the Autostart parameter should be disabled before you run such tasks. The Autostart parameter also should not be used for SAP instances that are clustered, such as ASCS/SCS/CI.
   >
   >
 

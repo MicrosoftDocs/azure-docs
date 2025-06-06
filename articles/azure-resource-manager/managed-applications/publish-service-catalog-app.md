@@ -1,11 +1,9 @@
 ---
 title: Create and publish Azure Managed Application in service catalog
 description: Describes how to create and publish an Azure Managed Application in your service catalog using Azure PowerShell, Azure CLI, or Azure portal.
-author: davidsmatlak
-ms.author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, devx-track-arm-template, engagement-fy23
-ms.date: 03/21/2023
+ms.date: 09/22/2024
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -14,33 +12,35 @@ This quickstart provides an introduction to working with [Azure Managed Applicat
 
 To publish a managed application to your service catalog, do the following tasks:
 
-- Create an Azure Resource Manager template (ARM template) that defines the resources to deploy with the managed application.
+- Create an Azure Resource Manager template (ARM template) that defines the resources that deploy with the managed application.
 - Define the user interface elements for the portal when deploying the managed application.
 - Create a _.zip_ package that contains the required JSON files. The _.zip_ package file has a 120-MB limit for a service catalog's managed application definition.
 - Publish the managed application definition so it's available in your service catalog.
 
 If your managed application definition is more than 120 MB or if you want to use your own storage account for your organization's compliance reasons, go to [Quickstart: Bring your own storage to create and publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).
 
-> [!NOTE]
-> You can use Bicep to develop a managed application definition but it must be converted to ARM template JSON before you can publish the definition in Azure. To convert Bicep to JSON, use the Bicep [build](../bicep/bicep-cli.md#build) command. After the file is converted to JSON it's recommended to verify the code for accuracy.
->
-> Bicep files can be used to deploy an existing managed application definition.
+You can use Bicep to develop a managed application definition but it must be converted to ARM template JSON before you can publish the definition in Azure. For more information, go to [Quickstart: Use Bicep to create and publish an Azure Managed Application definition](publish-bicep-definition.md#convert-bicep-to-json).
+
+You can also use Bicep deploy a managed application definition from your service catalog. For more information, go to [Quickstart: Use Bicep to deploy an Azure Managed Application definition](deploy-bicep-definition.md).
 
 ## Prerequisites
 
 To complete this quickstart, you need the following items:
 
-- An Azure account with an active subscription and permissions to Azure Active Directory resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure account with an active subscription and permissions to Microsoft Entra resources like users, groups, or service principals. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For Bicep files, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
-- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- Install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create the ARM template
+
+> [!Note]
+> Azure Managed Applications only supports ARM templates using languageVersion 1.0 and **does not** support languageVersion 2.0. Refer to the [ARM Template documentation](https://learn.microsoft.com/azure/azure-resource-manager/templates/syntax#languageversion-20) to see what features will automatically enable version 2.0.
 
 Every managed application definition includes a file named _mainTemplate.json_. The template defines the Azure resources to deploy and is no different than a regular ARM template.
 
 Open Visual Studio Code, create a file with the case-sensitive name _mainTemplate.json_ and save it.
 
-Add the following JSON and save the file. It defines the resources to deploy an App Service, App Service plan, and storage account for the application. This storage account isn't used to store the managed application definition.
+Add the following JSON and save the file. It defines the resources to deploy an App Service and App Service plan. The template uses the App Service Basic plan (B1) that has pay-as-you-go costs. For more information, see [Azure App Service on Linux pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 
 ```json
 {
@@ -64,77 +64,48 @@ Add the following JSON and save the file. It defines the resources to deploy an 
       "metadata": {
         "description": "App Service name prefix."
       }
-    },
-    "storageAccountNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "metadata": {
-        "description": "Storage account name prefix."
-      }
-    },
-    "storageAccountType": {
-      "type": "string",
-      "allowedValues": [
-        "Premium_LRS",
-        "Standard_LRS",
-        "Standard_GRS"
-      ],
-      "metadata": {
-        "description": "Storage account type allowed values"
-      }
     }
   },
   "variables": {
-    "appServicePlanSku": "F1",
+    "appServicePlanSku": "B1",
     "appServicePlanCapacity": 1,
     "appServiceName": "[format('{0}{1}', parameters('appServiceNamePrefix'), uniqueString(resourceGroup().id))]",
-    "storageAccountName": "[format('{0}{1}', parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
+    "linuxFxVersion": "DOTNETCORE|8.0"
   },
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2023-01-01",
       "name": "[parameters('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "[variables('appServicePlanSku')]",
         "capacity": "[variables('appServicePlanCapacity')]"
+      },
+      "kind": "linux",
+      "properties": {
+        "zoneRedundant": false,
+        "reserved": true
       }
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2023-01-01",
       "name": "[variables('appServiceName')]",
       "location": "[parameters('location')]",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
         "httpsOnly": true,
+        "redundancyMode": "None",
         "siteConfig": {
-          "appSettings": [
-            {
-              "name": "AppServiceStorageConnectionString",
-              "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};Key={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').keys[0].value)]"
-            }
-          ]
+          "linuxFxVersion": "[variables('linuxFxVersion')]",
+          "minTlsVersion": "1.2",
+          "ftpsState": "Disabled"
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
       ]
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {
-        "accessTier": "Hot"
-      }
     }
   ],
   "outputs": {
@@ -144,11 +115,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
     },
     "appServiceApp": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2022-03-01').defaultHostName]"
-    },
-    "storageAccount": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').primaryEndpoints.blob]"
+      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2023-01-01').defaultHostName]"
     }
   }
 }
@@ -158,9 +125,11 @@ Add the following JSON and save the file. It defines the resources to deploy an 
 
 As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal's user interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
-Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it. The user interface allows the user to input the App Service name prefix, App Service plan's name, storage account prefix, and storage account type. During deployment, the variables in _mainTemplate.json_ use the `uniqueString` function to append a 13-character string to the name prefixes so the names are globally unique across Azure.
+In this example, the user interface prompts you to input the App Service name prefix and App Service plan's name. During deployment of _mainTemplate.json_ the `appServiceName` variables uses the `uniqueString` function to append a 13-character string to the name prefix so the name is globally unique across Azure.
 
-Add the following JSON to the file and save it.
+Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it.
+
+Add the following JSON code to the file and save it.
 
 ```json
 {
@@ -209,47 +178,12 @@ Add the following JSON to the file and save it.
             "visible": true
           }
         ]
-      },
-      {
-        "name": "storageConfig",
-        "label": "Storage settings",
-        "subLabel": {
-          "preValidation": "Configure the storage settings",
-          "postValidation": "Completed"
-        },
-        "elements": [
-          {
-            "name": "storageAccounts",
-            "type": "Microsoft.Storage.MultiStorageAccountCombo",
-            "label": {
-              "prefix": "Storage account name prefix",
-              "type": "Storage account type"
-            },
-            "toolTip": {
-              "prefix": "Enter maximum of 11 lowercase letters or numbers.",
-              "type": "Available choices are Standard_LRS, Standard_GRS, and Premium_LRS."
-            },
-            "defaultValue": {
-              "type": "Standard_LRS"
-            },
-            "constraints": {
-              "allowedTypes": [
-                "Premium_LRS",
-                "Standard_LRS",
-                "Standard_GRS"
-              ]
-            },
-            "visible": true
-          }
-        ]
       }
     ],
     "outputs": {
       "location": "[location()]",
       "appServicePlanName": "[steps('webAppSettings').appServicePlanName]",
-      "appServiceNamePrefix": "[steps('webAppSettings').appServiceName]",
-      "storageAccountNamePrefix": "[steps('storageConfig').storageAccounts.prefix]",
-      "storageAccountType": "[steps('storageConfig').storageAccounts.type]"
+      "appServiceNamePrefix": "[steps('webAppSettings').appServiceName]"
     }
   }
 }
@@ -261,9 +195,9 @@ To learn more, see [Get started with CreateUiDefinition](create-uidefinition-ove
 
 Add the two files to a package file named _app.zip_. The two files must be at the root level of the _.zip_ file. If the files are in a folder, when you create the managed application definition, you receive an error that states the required files aren't present.
 
-Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the command, replace the placeholder `<demostorageaccount>` including the angle brackets (`<>`), with your unique storage account name.
+Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the command, replace the placeholder `<pkgstorageaccountname>` including the angle brackets (`<>`), with your unique storage account name.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 In Visual Studio Code, open a new PowerShell terminal and sign in to your Azure subscription.
 
@@ -274,24 +208,41 @@ Connect-AzAccount
 The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ```azurepowershell
-New-AzResourceGroup -Name packageStorageGroup -Location westus3
+New-AzResourceGroup -Name packageStorageGroup -Location westus
 
-$storageAccount = New-AzStorageAccount `
-  -ResourceGroupName packageStorageGroup `
-  -Name "<demostorageaccount>" `
-  -Location westus3 `
-  -SkuName Standard_LRS `
-  -Kind StorageV2
+$pkgstorageparms = @{
+  ResourceGroupName = "packageStorageGroup"
+  Name = "<pkgstorageaccountname>"
+  Location = "westus"
+  SkuName = "Standard_LRS"
+  Kind = "StorageV2"
+  MinimumTlsVersion = "TLS1_2"
+  AllowBlobPublicAccess = $true
+  AllowSharedKeyAccess = $false
+}
 
-$ctx = $storageAccount.Context
+$pkgstorageaccount = New-AzStorageAccount @pkgstorageparms
+```
 
-New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
+The `$pkgstorageparms` variable uses PowerShell [splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) to improve readability for the parameter values used in the command to create the new storage account. Splatting is used in other PowerShell commands that use multiple parameter values.
 
-Set-AzStorageBlobContent `
-  -File "app.zip" `
-  -Container appcontainer `
-  -Blob "app.zip" `
-  -Context $ctx
+After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+
+After you add the role to the storage account, it takes a few minutes to become active in Azure. You can then create the context needed to create the container and upload the file.
+
+```azurepowershell
+$pkgstoragecontext = New-AzStorageContext -StorageAccountName $pkgstorageaccount.StorageAccountName -UseConnectedAccount
+
+New-AzStorageContainer -Name appcontainer -Context $pkgstoragecontext -Permission blob
+
+$blobparms = @{
+  File = "app.zip"
+  Container = "appcontainer"
+  Blob = "app.zip"
+  Context = $pkgstoragecontext
+}
+
+Set-AzStorageBlobContent @blobparms
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -305,33 +256,44 @@ az login
 The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ```azurecli
-az group create --name packageStorageGroup --location westus3
+az group create --name packageStorageGroup --location westus
 
 az storage account create \
-    --name <demostorageaccount> \
-    --resource-group packageStorageGroup \
-    --location westus3 \
-    --sku Standard_LRS \
-    --kind StorageV2
+  --name <pkgstorageaccountname> \
+  --resource-group packageStorageGroup \
+  --location westus \
+  --sku Standard_LRS \
+  --kind StorageV2 \
+  --min-tls-version TLS1_2 \
+  --allow-blob-public-access true \
+  --allow-shared-key-access false
+
+pkgstgacct=$(az storage account show \
+  --resource-group packageStorageGroup \
+  --name <pkgstorageaccountname> \
+  --query name \
+  --output tsv)
 ```
 
-After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Azure Active Directory user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
+The backslash (`\`) is a line continuation character to improve readability of the command's parameters and is used in many of the Azure CLI commands. The `pkgstgacct` variable contains the storage account name for use in other commands.
+
+After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
 
 After you add the role to the storage account, it takes a few minutes to become active in Azure. You can then use the parameter `--auth-mode login` in the commands to create the container and upload the file.
 
 ```azurecli
 az storage container create \
-    --account-name <demostorageaccount> \
-    --name appcontainer \
-    --auth-mode login \
-    --public-access blob
+  --account-name $pkgstgacct \
+  --name appcontainer \
+  --auth-mode login \
+  --public-access blob
 
 az storage blob upload \
-    --account-name <demostorageaccount> \
-    --container-name appcontainer \
-    --auth-mode login \
-    --name "app.zip" \
-    --file "app.zip"
+  --account-name $pkgstgacct \
+  --container-name appcontainer \
+  --auth-mode login \
+  --name "app.zip" \
+  --file "app.zip"
 ```
 
 For more information about storage authentication, see [Choose how to authorize access to blob data with Azure CLI](../../storage/blobs/authorize-data-operations-cli.md).
@@ -356,13 +318,22 @@ Create a storage account in a new resource group:
 
    - **Resource group**: Select **Create new** to create the _packageStorageGroup_ resource group.
    - **Storage account name**: Enter a unique storage account name. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers.
-   - **Region**: _West US3_
+   - **Region**: _West US_
    - **Performance**: _Standard_
    - **Redundancy**: _Locally-redundant storage (LRS)_.
 
+1. On the **Advanced** tab, use the following settings.
+
+   - Select **Require secure transfer for REST API operations**.
+   - Select **Allow enabling anonymous access on individual containers**.
+   - Uncheck the box **Enable storage account key access**.
+   - Verify **Minimum TLS version** is _Version 1.2_.
+
 1. Accept the defaults on the other tabs.
-1. Select **Review** and then select **Create**.
+1. Select **Review + create** and then select **Create**.
 1. Select **Go to resource** to go to the storage account.
+
+After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md). After you add the role to the storage account, it takes a few minutes to become active in Azure.
 
 Create a container and upload the _app.zip_ file:
 
@@ -395,18 +366,18 @@ Make a note of the _app.zip_ file's URL because you need it to create the manage
 
 ## Create the managed application definition
 
-In this section, you get identity information from Azure Active Directory, create a resource group, and deploy the managed application definition.
+In this section, you get identity information from Microsoft Entra ID, create a resource group, and deploy the managed application definition.
 
 ### Get group ID and role definition ID
 
 The next step is to select a user, security group, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor.
 
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `<managedAppDemo>` including the angle brackets (`<>`), with your group's name. You use this variable's value when you deploy the managed application definition.
+This example uses a security group, and your Microsoft Entra account should be a member of the group. To get the group's object ID, replace the placeholder `<managedAppDemo>` including the angle brackets (`<>`), with your group's name. You use this variable's value when you deploy the managed application definition.
 
-To create a new Azure Active Directory group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
+To create a new Microsoft Entra group, go to [Manage Microsoft Entra groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
 ```azurepowershell
 $principalid=(Get-AzADGroup -DisplayName <managedAppDemo>).Id
@@ -420,9 +391,9 @@ $roleid=(Get-AzRoleDefinition -Name Owner).Id
 
 # [Azure CLI](#tab/azure-cli)
 
-This example uses a security group, and your Azure Active Directory account should be a member of the group. To get the group's object ID, replace the placeholder `<managedAppDemo>` including the angle brackets (`<>`), with your group's name. You use this variable's value when you deploy the managed application definition.
+This example uses a security group, and your Microsoft Entra account should be a member of the group. To get the group's object ID, replace the placeholder `<managedAppDemo>` including the angle brackets (`<>`), with your group's name. You use this variable's value when you deploy the managed application definition.
 
-To create a new Azure Active Directory group, go to [Manage Azure Active Directory groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
+To create a new Microsoft Entra group, go to [Manage Microsoft Entra groups and group membership](../../active-directory/fundamentals/how-to-manage-groups.md).
 
 ```azurecli
 principalid=$(az ad group show --group <managedAppDemo> --query id --output tsv)
@@ -442,28 +413,31 @@ In the portal, the group ID and role ID are configured when you publish the mana
 
 ### Publish the managed application definition
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Create a resource group for your managed application definition.
 
 ```azurepowershell
-New-AzResourceGroup -Name appDefinitionGroup -Location westus3
+New-AzResourceGroup -Name appDefinitionGroup -Location westus
 ```
 
 The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
 
 ```azurepowershell
-$blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
+$blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $pkgstoragecontext
 
-New-AzManagedApplicationDefinition `
-  -Name "sampleManagedApplication" `
-  -Location "westus3" `
-  -ResourceGroupName appDefinitionGroup `
-  -LockLevel ReadOnly `
-  -DisplayName "Sample managed application" `
-  -Description "Sample managed application that deploys web resources" `
-  -Authorization "${principalid}:$roleid" `
-  -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
+$publishparms = @{
+  Name = "sampleManagedApplication"
+  Location = "westus"
+  ResourceGroupName = "appDefinitionGroup"
+  LockLevel = "ReadOnly"
+  DisplayName = "Sample managed application"
+  Description = "Sample managed application that deploys web resources"
+  Authorization = "${principalid}:$roleid"
+  PackageFileUri = $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
+}
+
+New-AzManagedApplicationDefinition @publishparms
 ```
 
 When the command completes, you have a managed application definition in your resource group.
@@ -482,21 +456,21 @@ Some of the parameters used in the preceding example are:
 Create a resource group for your managed application definition.
 
 ```azurecli
-az group create --name appDefinitionGroup --location westus3
+az group create --name appDefinitionGroup --location westus
 ```
 
-In the `blob` command's `account-name` parameter, replace the placeholder `<demostorageaccount>` including the angle brackets (`<>`), with your unique storage account name. The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
+The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
 
 ```azurecli
 blob=$(az storage blob url \
-  --account-name <demostorageaccount> \
+  --account-name $pkgstgacct \
   --container-name appcontainer \
   --auth-mode login \
   --name app.zip --output tsv)
 
 az managedapp definition create \
   --name "sampleManagedApplication" \
-  --location "westus3" \
+  --location "westus" \
   --resource-group appDefinitionGroup \
   --lock-level ReadOnly \
   --display-name "Sample managed application" \
@@ -526,7 +500,7 @@ To publish a managed application definition from the Azure portal, use the follo
 
    :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition.png" alt-text="Screenshot of the Service Catalog Managed Application Definition page with the create button highlighted.":::
 
-1. On the **Basics** tab, enter the following information and select **Next: Package**:
+1. On the **Basics** tab, enter the following information and select **Next**.
 
    :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition-basics.png" alt-text="Screenshot of the Basics tab on the form to create a service catalog definition. ":::
 
@@ -535,7 +509,7 @@ To publish a managed application definition from the Azure portal, use the follo
      - Create a new resource group named _appDefinitionGroup_.
    - **Instance details**:
       - **Name**: Enter a name like _instance-name_. The name isn't used in the definition but the form requires an entry.
-      - **Region**: _West US3_
+      - **Region**: _West US_
    - **Application details**:
       - **Name**: _sampleManagedApplication_
       - **Display name**: _Sample managed application_
@@ -552,7 +526,7 @@ To publish a managed application definition from the Azure portal, use the follo
      - **Roles**: Select _Owner_.
      - **Select principals**: Select your group's name like _managedAppDemo_.
 
-     The **Lock level** on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `Read Only` is the only supported lock level. `Read Only` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
+     The **Lock level** on the managed resource group prevents the customer from performing undesirable operations on this resource group. `Read Only` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
 
 1. After **Validation Passed** is displayed, select **Create**.
 
@@ -564,11 +538,48 @@ When the deployment is complete, you have a managed application definition in yo
 
 ## Make sure users can see your definition
 
-You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They might have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+
+## Clean up resources
+
+If you're going to deploy the definition, continue with the **Next steps** section that links to the article to deploy the definition.
+
+If you're finished with the managed application definition, you can delete the resource groups you created named _packageStorageGroup_ and _appDefinitionGroup_.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+The command prompts you to confirm that you want to remove the resource group.
+
+```azurepowershell
+Remove-AzResourceGroup -Name packageStorageGroup
+
+Remove-AzResourceGroup -Name appDefinitionGroup
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+The command prompts for confirmation, and then returns you to command prompt while resources are being deleted.
+
+```azurecli
+az group delete --resource-group packageStorageGroup --no-wait
+
+az group delete --resource-group appDefinitionGroup --no-wait
+```
+
+# [Portal](#tab/azure-portal)
+
+1. From Azure portal **Home**, in the search field, enter _resource groups_.
+1. Select **Resource groups**.
+1. Select _packageStorageGroup_ and **Delete resource group**.
+1. To confirm the deletion, enter the resource group name and select **Delete**.
+
+Use the same steps to delete _appDefinitionGroup_.
+
+---
 
 ## Next steps
 
-You've published the managed application definition. The next step is to learn how to deploy an instance of that definition.
+You published the managed application definition. The next step is to learn how to deploy an instance of that definition.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy a service catalog managed application](deploy-service-catalog-quickstart.md)

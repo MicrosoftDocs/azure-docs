@@ -4,10 +4,9 @@ description: Learn how to use blob index tags to categorize, manage, and query f
 author: normesta
 
 ms.author: normesta
-ms.date: 11/01/2021
-ms.service: storage
-ms.subservice: common
-ms.topic: conceptual
+ms.date: 05/01/2024
+ms.service: azure-blob-storage
+ms.topic: concept-article
 ms.custom: references_regions
 ---
 
@@ -67,7 +66,7 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Status" = 'Unprocessed'
 > "Priority" = '01'
 
-To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft-deleted blobs cannot be modified.
+To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on soft-deleted blobs cannot be modified.
 
 The following limits apply to blob index tags:
 
@@ -94,6 +93,9 @@ The following limits apply to blob index tags:
     - **0** through **9** (numbers)
 
   - Valid special characters: space, plus, minus, period, colon, equals, underscore, forward slash (` +-.:=_/`)
+  
+> [!TIP]
+> You can use a _storage task_ to set tags on objects at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
 
 ## Getting and listing blob index tags
 
@@ -117,7 +119,7 @@ After the blob index updates, you can use the native query and discovery capabil
 The [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) operation enables you to get a filtered set of blobs whose index tags match a given query expression. `Find Blobs by Tags` supports filtering across all containers within your storage account or you can scope the filtering to just a single container. Since all the index tag keys and values are strings, relational operators use a lexicographic sorting.
 
 > [!IMPORTANT]
-> Finding data using blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to to find blobs by tags (the `f` SAS permission).
+> Finding data using blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to find blobs by tags (the `f` SAS permission).
 >
 > In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` permission can perform this operation.
 
@@ -243,7 +245,7 @@ The following sample lifecycle management rule applies to block blobs in a conta
 
 You can authorize access to blob index tags using one of the following approaches:
 
-- Using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Use Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+- Using Azure role-based access control (Azure RBAC) to grant permissions to a Microsoft Entra security principal. Use Microsoft Entra ID for superior security and ease of use. For more information about using Microsoft Entra ID with blob operations, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
 - Using a shared access signature (SAS) to delegate access to blob index. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 
@@ -253,7 +255,7 @@ Blob index tags are a subresource to the blob data. A user with permissions or a
 
 ### Role-based access control
 
-Callers using an [Azure AD identity](../common/authorize-data-access.md) may be granted the following permissions to operate on blob index tags.
+Callers using an [Microsoft Entra identity](../common/authorize-data-access.md) may be granted the following permissions to operate on blob index tags.
 
 | Blob index tag operations                                          | Azure RBAC action                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -298,7 +300,7 @@ The blob read (`r`) and write (`w`) permissions alone aren't enough to allow rea
 
 Both blob index tags and metadata provide the ability to store arbitrary user-defined key-value properties alongside a blob resource. Both can be retrieved and set directly, without returning or altering the contents of the blob. It's possible to use both metadata and index tags.
 
-Only index tags are automatically indexed and made searchable by the native Blob Storage service. Metadata can't be natively indexed or searched. You must use a separate service such as [Azure Search](../../search/search-blob-ai-integration.md). Blob index tags have additional permissions for reading, filtering, and writing that are separate from the underlying blob data. Metadata uses the same permissions as the blob and is returned as HTTP headers by the [Get Blob](/rest/api/storageservices/get-blob) and [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operations. Blob index tags are encrypted at rest using a [Microsoft-managed key](../common/storage-service-encryption.md). Metadata is encrypted at rest using the same encryption key specified for blob data.
+Only index tags are automatically indexed and made searchable by the native Blob Storage service. Metadata can't be natively indexed or searched. You must use a separate service such as [Azure Search](/azure/search/search-blob-ai-integration). Blob index tags have additional permissions for reading, filtering, and writing that are separate from the underlying blob data. Metadata uses the same permissions as the blob and is returned as HTTP headers by the [Get Blob](/rest/api/storageservices/get-blob) and [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operations. Blob index tags are encrypted at rest using a [Microsoft-managed key](../common/storage-service-encryption.md). Metadata is encrypted at rest using the same encryption key specified for blob data.
 
 The following table summarizes the differences between metadata and blob index tags:
 
@@ -316,7 +318,7 @@ The following table summarizes the differences between metadata and blob index t
 
 ## Pricing
 
-You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blog Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
+You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blob Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 <a id="regional-availability-and-storage-account-support"></a>
 
@@ -334,25 +336,17 @@ This section describes known issues and conditions.
 
 - If Blob storage versioning is enabled, you can still use index tags on the current version. Index tags are preserved for previous versions, but those tags aren't passed to the blob index engine, so you cannot use them to retrieve previous versions. If you promote a previous version to the current version, then the tags of that previous version become the tags of the current version. Because those tags are associated with the current version, they are passed to the blob index engine and you can query them.
 
+- Similarly, Index tags are preserved for soft-deleted blobs and snapshots, but those tags aren't passed to the blob index engine, so you cannot use them to retrieve soft-deleted blobs and snapshots. If you restore the soft-deleted blobs and snapshots, their tags are passed to the blob index engine and you can query them.
+
 - There is no API to determine if index tags are indexed.
 
 - Lifecycle management only supports equality checks with blob index match.
 
 - `Copy Blob` doesn't copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation.
 
-## FAQ
+## Frequently asked questions (FAQ)
 
-**Can blob index help me filter and query content inside my blobs?**
-
-No, if you need to search within your blob data, use query acceleration or Azure search.
-
-**Are there any requirements on index tag values?**
-
-Blob index tags only support string data types and querying returns results with lexicographical ordering. For numbers, zero pad the number. For dates and times, store as an ISO 8601 compliant format.
-
-**Are blob index tags and Azure Resource Manager tags related?**
-
-No, Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Index tags provide blob management and discovery on the data plane.
+See [Blob index tags FAQ](storage-blob-faq.yml#blob-index-tags).
 
 ## Next steps
 

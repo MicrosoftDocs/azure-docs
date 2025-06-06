@@ -2,12 +2,12 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 04/24/2025
 ---
 
 # Tag support for Azure resources
 
-This article describes whether a resource type supports [tags](tag-resources.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../../cost-management-billing/costs/group-filter.md) and the [Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
+This article describes whether a resource type supports [tags](tag-resources.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../../cost-management-billing/costs/group-filter.md) and the [Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). To ensure that all the usage/cost records are tagged irrespective of whether the resource supports or emits tags, use [tag inheritance in Cost Management.](../../cost-management-billing/costs/enable-tag-inheritance.md)
 
 To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
@@ -310,12 +310,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | DataControllers | Yes | Yes |
+> | DataControllers | Yes | No |
 > | DataControllers / ActiveDirectoryConnectors | No | No |
-> | PostgresInstances | Yes | Yes |
-> | SqlManagedInstances | Yes | Yes |
-> | SqlServerInstances | Yes | Yes |
-> | SqlServerInstances / Databases | Yes | Yes |
+> | PostgresInstances | Yes | No |
+> | SqlManagedInstances | Yes | No |
+> | SqlServerInstances | Yes | No |
+> | SqlServerInstances / Databases | Yes | No |
+> | SqlServerInstances / AvailabilityGroups | Yes | No |
 
 ## Microsoft.AzureCIS
 
@@ -325,14 +326,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | autopilotEnvironments | Yes | Yes |
 > | dstsServiceAccounts | Yes | Yes |
 > | dstsServiceClientIdentities | Yes | Yes |
-
-## Microsoft.AzureData
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | sqlServerRegistrations | Yes | Yes |
-> | sqlServerRegistrations / sqlServers | No | No |
 
 ## Microsoft.AzureScan
 
@@ -425,7 +418,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | billingAccounts / appliedReservationOrders | No | No |
 > | billingAccounts / associatedTenants | No | No |
 > | billingAccounts / billingPermissions | No | No |
-> | billingAccounts / billingProfiles | No | No |
+> | billingAccounts / billingProfiles | Yes | Yes |
 > | billingAccounts / billingProfiles / billingPermissions | No | No |
 > | billingAccounts / billingProfiles / billingRoleAssignments | No | No |
 > | billingAccounts / billingProfiles / billingRoleDefinitions | No | No |
@@ -436,7 +429,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | billingAccounts / billingProfiles / invoices | No | No |
 > | billingAccounts / billingProfiles / invoices / pricesheet | No | No |
 > | billingAccounts / billingProfiles / invoices / transactions | No | No |
-> | billingAccounts / billingProfiles / invoiceSections | No | No |
+> | billingAccounts / billingProfiles / invoiceSections | Yes | Yes |
 > | billingAccounts / billingProfiles / invoiceSections / billingPermissions | No | No |
 > | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | No | No |
 > | billingAccounts / billingProfiles / invoiceSections / billingRoleDefinitions | No | No |
@@ -658,7 +651,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | CdnWebApplicationFirewallPolicies | Yes | Yes |
 > | edgenodes | No | No |
 > | migrate | No | No |
-> | profiles | Yes | Yes |
+> | profiles | Yes | No |
 > | profiles / afdendpoints | Yes | Yes |
 > | profiles / afdendpoints / routes | No | No |
 > | profiles / customdomains | No | No |
@@ -779,16 +772,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | storageAccounts / vmImages | No | No |
 > | vmImages | No | No |
 
-## Microsoft.CloudTest
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
-> | hostedpools | Yes | Yes |
-> | images | Yes | Yes |
-> | pools | Yes | Yes |
-
 ## Microsoft.CodeSigning
 
 > [!div class="mx-tableFixed"]
@@ -842,8 +825,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | availabilitySets | Yes | Yes |
-> | capacityReservationGroups | Yes | Yes |
-> | capacityReservationGroups / capacityReservations | Yes | Yes |
+> | capacityReservationGroups | No | No |
+> | capacityReservationGroups / capacityReservations | No | No |
 > | cloudServices | Yes | Yes |
 > | cloudServices / networkInterfaces | No | No |
 > | cloudServices / publicIPAddresses | No | No |
@@ -863,7 +846,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | hostGroups / hosts | Yes | Yes |
 > | images | Yes | Yes |
 > | proximityPlacementGroups | Yes | Yes |
-> | restorePointCollections | Yes | Yes |
+> | restorePointCollections | Yes | No |
 > | restorePointCollections / restorePoints | No | No |
 > | restorePointCollections / restorePoints / diskRestorePoints | No | No |
 > | sharedVMExtensions | Yes | Yes |
@@ -888,6 +871,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 
 > [!NOTE]
 > You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with [Set-AzVm -Generalized](/powershell/module/Az.Compute/Set-AzVM) or [az vm generalize](/cli/azure/vm#az-vm-generalize).
+> Tags on virtual machine extensions can only be updated when the VM is running.
 
 
 ## Microsoft.ConfidentialLedger
@@ -1334,7 +1318,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | flexibleServers | Yes | Yes |
 > | getPrivateDnsZoneSuffix | No | No |
 > | serverGroups | Yes | Yes |
-> | serverGroupsv2 | Yes | Yes |
+> | serverGroupsv2 | Yes | No |
 > | servers | Yes | Yes |
 > | servers / advisors | No | No |
 > | servers / keys | No | No |
@@ -1347,7 +1331,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / topQueryStatistics | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / waitStatistics | No | No |
-> | serversv2 | Yes | Yes |
+> | serversv2 | Yes | No |
 
 ## Microsoft.DelegatedNetwork
 
@@ -1486,6 +1470,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | cassandraClusters | Yes | Yes |
+> | mongoClusters | Yes | No |
 > | databaseAccountNames | No | No |
 > | databaseAccounts | Yes | Yes |
 > | databaseAccounts / encryptionScopes | No | No |
@@ -1715,6 +1700,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | machines / assessPatches | No | No |
 > | machines / extensions | Yes | Yes |
 > | machines / installPatches | No | No |
+> | machines / licenseProfiles | Yes |  |
 > | machines / privateLinkScopes | No | No |
 > | privateLinkScopes | Yes | Yes |
 > | privateLinkScopes / privateEndpointConnectionProxies | No | No |
@@ -1856,7 +1842,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | privateLinkScopes / privateEndpointConnections | No | No |
 > | privateLinkScopes / scopedResources | No | No |
 > | rollbackToLegacyPricingModel | No | No |
-> | scheduledqueryrules | Yes | Yes |
+> | scheduledqueryrules | Yes | No |
 > | scheduledqueryrules / networkSecurityPerimeterAssociationProxies | No | No |
 > | scheduledqueryrules / networkSecurityPerimeterConfigurations | No | No |
 > | topology | No | No |
@@ -2032,8 +2018,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces | Yes | Yes |
 > | workspaces / batchEndpoints | Yes | Yes |
 > | workspaces / batchEndpoints / deployments | Yes | Yes |
-> | workspaces / batchEndpoints / deployments / jobs | No | No |
-> | workspaces / batchEndpoints / jobs | No | No |
+> | workspaces / batchEndpoints / deployments / jobs | No | Yes |
+> | workspaces / batchEndpoints / jobs | No | Yes |
 > | workspaces / codes | No | No |
 > | workspaces / codes / versions | No | No |
 > | workspaces / components | No | No |
@@ -2055,9 +2041,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / onlineEndpoints / deployments | Yes | Yes |
 > | workspaces / schedules | No | No |
 > | workspaces / services | No | No |
-
-> [!NOTE]
-> Workspace tags don't propagate to compute clusters and compute instances.
 
 ## Microsoft.Maintenance
 
@@ -2217,10 +2200,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | objectAnchorsAccounts | Yes | Yes |
-> | objectUnderstandingAccounts | Yes | Yes |
 > | remoteRenderingAccounts | Yes | Yes |
-> | spatialAnchorsAccounts | Yes | Yes |
 
 ## Microsoft.MobileNetwork
 
@@ -2312,6 +2292,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | expressRouteProviderPorts | No | No |
 > | expressRouteServiceProviders | No | No |
 > | firewallPolicies | Yes, see [note below](#network-limitations) | Yes |
+> | firewallPolicies / ruleCollectionGroups | No | No |
 > | frontdoors | Yes, but limited (see [note below](#network-limitations)) | Yes |
 > | frontdoors / frontendEndpoints | Yes, but limited (see [note below](#network-limitations)) | No |
 > | frontdoors / frontendEndpoints / customHttpsConfiguration | Yes, but limited (see [note below](#network-limitations)) | No |
@@ -2322,6 +2303,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | internalPublicIpAddresses | No | No |
 > | ipGroups | Yes | Yes |
 > | loadBalancers | Yes | Yes |
+> | loadBalancers / backendAddressPools | No | No |
 > | localNetworkGateways | Yes | Yes |
 > | natGateways | Yes | Yes |
 > | networkExperimentProfiles | Yes | Yes |
@@ -2331,13 +2313,14 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkManagers | Yes | Yes |
 > | networkProfiles | Yes | Yes |
 > | networkSecurityGroups | Yes | Yes |
+> | networkSecurityGroups / securityRules | No | No |
 > | networkSecurityPerimeters | Yes | Yes |
 > | networkVirtualAppliances | Yes | Yes |
-> | networkWatchers | Yes | Yes |
-> | networkWatchers / connectionMonitors | Yes | No |
-> | networkWatchers / flowLogs | Yes | Yes |
-> | networkWatchers / lenses | Yes | No |
-> | networkWatchers / pingMeshes | Yes | No |
+> | networkWatchers | No | No |
+> | networkWatchers / connectionMonitors | No | No |
+> | networkWatchers / flowLogs | No | No |
+> | networkWatchers / lenses | No | No |
+> | networkWatchers / pingMeshes | No | No |
 > | p2sVpnGateways | Yes | Yes |
 > | privateDnsZones | Yes | Yes |
 > | privateDnsZones / A | No | No |
@@ -2359,6 +2342,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | publicIPPrefixes | Yes | Yes |
 > | routeFilters | Yes | Yes |
 > | routeTables | Yes | Yes |
+> | routeTables / routes | No | No |
 > | securityPartnerProviders | Yes | Yes |
 > | serviceEndpointPolicies | Yes | Yes |
 > | trafficManagerGeographicHierarchies | No | No |
@@ -2372,6 +2356,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | virtualNetworkGateways | Yes | Yes |
 > | virtualNetworks | Yes | Yes |
 > | virtualNetworks / privateDnsZoneLinks | No | No |
+> | virtualNetworks / subnets | No | No |
 > | virtualNetworks / taggedTrafficConsumers | No | No |
 > | virtualNetworkTaps | Yes | Yes |
 > | virtualRouters | Yes | Yes |
@@ -2383,8 +2368,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 <a id="network-limitations"></a>
 
 > [!NOTE]
-> For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported. Front Door doesn't support the use of # or : in the tag name.
-> 
 > Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number. Azure DNS and Traffic Manager tag names do not support special and unicode characters. The value can contain all characters.
 > 
 > Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az-network-ip-group-update) command.
@@ -2504,21 +2487,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / scopedPrivateLinkProxies | No | No |
 > | workspaces / storageInsightConfigs | No | No |
 > | workspaces / tables | No | No |
-
-## Microsoft.Orbital
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | contactProfiles | Yes | Yes |
-> | edgeSites | Yes | Yes |
-> | globalCommunicationsSites | No | No |
-> | groundStations | Yes | Yes |
-> | l2Connections | Yes | Yes |
-> | l3Connections | Yes | Yes |
-> | orbitalGateways | Yes | Yes |
-> | spacecrafts | Yes | Yes |
-> | spacecrafts / contacts | No | No |
 
 ## Microsoft.Peering
 
@@ -2661,6 +2629,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | backupProtectedItems | No | No |
 > | vaults | Yes | Yes |
+> | vaults / backupPolicies | Yes | Yes |
 
 ## Microsoft.RedHatOpenShift
 
@@ -3008,6 +2977,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | instancePools | Yes | Yes |
+> |instanceFailoverGroup|  No | No | 
 > | managedInstances | Yes | Yes |
 > | managedInstances / administrators | No | No |
 > | managedInstances / advancedThreatProtectionSettings | No | No |
@@ -3097,13 +3067,15 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / usages | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / vulnerabilityAssessments | No | No |
-> | virtualClusters | No | No |
+> | virtualClusters | Yes | No |
 
 <a id="sqlnote"></a>
 
 > [!NOTE]
 > The Master database doesn't support tags, but other databases, including Azure Synapse Analytics databases, support tags. Azure Synapse Analytics databases must be in Active (not Paused) state.
 
+> [!NOTE]
+> Only Virtual Clusters with version 2.0 support tags. Minimal required API version for configuring tags is 2022-05-01.
 
 ## Microsoft.SqlVirtualMachine
 

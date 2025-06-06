@@ -1,22 +1,18 @@
 ---
 title: 'Quickstart: Create an Azure Data Factory using Python'
 description: Use a data factory to copy data from one location in Azure Blob storage to another location.
-author: ssabat
-ms.author: susabat
-ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
+author: whhender
+ms.author: whhender
+ms.reviewer: susabat
+ms.subservice: data-movement
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/18/2022
-ms.custom: seo-python-october2019, devx-track-python, mode-api
+ms.date: 02/13/2025
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Create a data factory and pipeline using Python
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-python.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -36,7 +32,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (optional).
 
-* [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, using Authentication Option 2 (application secret), and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **Application (client) ID, client secret value, and tenant ID.**
+* [An application in Microsoft Entra ID](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, using Authentication Option 2 (application secret), and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **Application (client) ID, client secret value, and tenant ID.**
 
 ## Create and upload an input file
 
@@ -137,7 +133,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ClientSecretCredential(client_id='<Application (client) ID>', client_secret='<client secret value>', tenant_id='<tenant ID>') 
         
-        # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
+        # Specify following for Sovereign Clouds, import right cloud constant and then use it to connect.
         # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
         # credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
         
@@ -196,7 +192,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
 ```python
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(reference_name=ls_name)
+    ds_ls = LinkedServiceReference(type="LinkedServiceReference",reference_name=ls_name)
     blob_path = '<container>/<folder path>'
     blob_filename = '<file name>'
     ds_azure_blob = DatasetResource(properties=AzureBlobDataset(
@@ -370,7 +366,7 @@ def main():
 
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(reference_name=ls_name)
+    ds_ls = LinkedServiceReference(type="LinkedServiceReference",reference_name=ls_name)
     blob_path = '<container>/<folder path>'
     blob_filename = '<file name>'
     ds_azure_blob = DatasetResource(properties=AzureBlobDataset(
@@ -469,6 +465,6 @@ To delete the data factory, add the following code to the program:
 adf_client.factories.delete(rg_name, df_name)
 ```
 
-## Next steps
+## Related content
 
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios.

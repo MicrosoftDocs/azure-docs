@@ -1,23 +1,30 @@
 items:
 - name: Azure Native Qumulo Scalable File Service documentation 
   href: index.yml
-- name: Overview
-  items:
-  - name: What is Azure Native Qumulo Scalable File Service?
-    href: qumulo-overview.md
-- name: Quickstart
+- name: What is Azure Native Qumulo Scalable File Service?
+  href: overview.md
+- name: FAQ
+  href: faq.yml
+- name: Get started
   expanded: true
   items:
-  - name: Create an Azure Native Qumulo Scalable File Service resource
-    href: qumulo-create.md
+  - name: Create a Qumulo resource
+    href: create.md
 - name: How to
   items:
-  - name: Manage Azure Native Qumulo Scalable File Service
-    href: qumulo-how-to-manage.md
-  - name: Troubleshoot Azure Native Qumulo Scalable File Service
-    href: qumulo-troubleshoot.md
-- name: Reference
+  - name: Manage resources
+    href: manage.md
+- name: SDKs and command-lines
   items:
+  - name: Python
+    href: /python/api/overview/azure/qumulo
+  - name: JavaScript
+    href: /javascript/api/overview/azure/qumulo
   - name: .NET
     href: /dotnet/api/overview/azure/qumulo
-
+  - name: Java
+    href: /java/api/overview/azure/qumulo
+  - name: CLI
+    href: /cli/azure/service-page/qumulo
+  - name: Azure PowerShell
+    href: /powershell/module/az.qumulo

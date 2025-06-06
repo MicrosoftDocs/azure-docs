@@ -5,8 +5,9 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: how-to
-ms.date: 10/18/2022
-ms.custom: engagement-fy23
+ms.service: azure-migrate
+ms.date: 05/09/2025
+ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
 
@@ -27,9 +28,9 @@ Before you get started, perform the following steps:
 > You'll need at least one replicating virtual machine in the project before you can test the migration.
 
 Review the following tutorials based on your environment:
-- [Migrating VMware VMs with agentless migration](./tutorial-migrate-vmware.md).
-- [Migrating Hyper-V VMs to Azure](./tutorial-migrate-hyper-v.md).
-- [Migrating machines as physical servers to Azure](./tutorial-migrate-physical-virtual-machines.md)
+- [Migrating VMware VMs with agentless migration](tutorial-migrate-vmware.md).
+- [Migrating Hyper-V VMs to Azure](tutorial-migrate-hyper-v.md).
+- [Migrating machines as physical servers to Azure](tutorial-migrate-physical-virtual-machines.md)
 
 
 ## Setting up your test environment
@@ -45,7 +46,7 @@ The following logic is used for subnet selection for other scenarios (Migration 
  
 - If a target subnet (other than default) was specified as an input while enabling replication. Azure Migrate prioritizes using a subnet with the same name in the Virtual Network selected for the test migration.
 
-- If the subnet with the same name ins't found, then Azure Migrate selects the first subnet available alphabetically that isn't a Gateway/Application Gateway/Firewall/Bastion subnet. For example, 
+- If the subnet with the same name isn't found, then Azure Migrate selects the first subnet available alphabetically that isn't a Gateway/Application Gateway/Firewall/Bastion subnet. For example, 
 
     - Suppose the target VNet is VNet-alpha and target subnet is Subnet-alpha for a replicating VM. VNet-beta is selected during test migration for this VM, then -
     - If VNet-beta has a subnet named Subnet-alpha, that subnet would be chosen for test migration.
@@ -83,7 +84,7 @@ You can change the VNet and subnet of a replicating machine by following the ste
     :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-4.png" alt-text="Screenshot shows how to select a subnet for each Network Interface Card of replicating machine in the network and compute options of replicating machine.":::
 
 5. To change the settings, select edit. Change the setting for the NIC in the new form. Select **OK**. 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-5.png" alt-text="Screenshot shows the content of the Network Interface Card page after clicking the pencil icon next to Network Interface Card's name in the network and compute screen.":::
+    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-5.png" alt-text="Screenshot shows the content of the Network Interface Card page after selecting the pencil icon next to Network Interface Card's name in the network and compute screen.":::
 
 6. Select **Save**. Changes aren't saved until you can see the colored square next to the NIC's name.
 

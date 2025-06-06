@@ -2,10 +2,8 @@
 title: Use Azure Policy to audit for compliance of minimum TLS version for an Azure Event Hubs namespace
 titleSuffix: Event Hubs
 description: Configure Azure Policy to audit compliance of Azure Event Hubs for using a minimum version of Transport Layer Security (TLS).
-services: event-hubs
 author: EldertGrootenboer
 
-ms.service: event-hubs
 ms.topic: article
 ms.date: 04/25/2022
 ms.author: egrootenboer
@@ -39,7 +37,7 @@ To create a policy with an audit effect for the minimum TLS version with the Azu
             },
             {
               "not": {
-                "field": " Microsoft.EventHub/namespaces/minimumTlsVersion",
+                "field": "Microsoft.EventHub/namespaces/minimumTlsVersion",
                 "equals": "1.2"
               }
             }

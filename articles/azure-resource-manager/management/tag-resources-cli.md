@@ -2,7 +2,8 @@
 title: Tag resources, resource groups, and subscriptions with Azure CLI
 description: Shows how to use Azure CLI to apply tags to Azure resources.
 ms.topic: conceptual
-ms.date: 04/19/2023
+ms.custom: devx-track-azurecli
+ms.date: 09/26/2024
 ---
 
 # Apply tags with Azure CLI

@@ -1,11 +1,17 @@
 ---
 title: Monitor the health of your Microsoft Sentinel data connectors
 description: Use the SentinelHealth data table and the Health Monitoring workbook to keep track of your data connectors' connectivity and performance.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 10/17/2024
 ms.service: microsoft-sentinel
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
+
+#Customer intent: As a security analyst, I want to monitor the health and performance of my data connectors so that I can ensure uninterrupted data ingestion and quickly address any issues.
+
 ---
 
 # Monitor the health of your data connectors
@@ -14,7 +20,7 @@ To ensure complete and uninterrupted data ingestion in your Microsoft Sentinel s
 
 The following features allow you to perform this monitoring from within Microsoft Sentinel:
 
-- **Data connectors health monitoring workbook**: This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
+- **Data collection health monitoring workbook**: This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
 - ***SentinelHealth* data table (Preview)**: Querying this table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
 
@@ -26,9 +32,17 @@ The following features allow you to perform this monitoring from within Microsof
 
 ## Use the health monitoring workbook
 
-1. From the Microsoft Sentinel portal, select **Workbooks** from the **Threat management** menu.
+To get started, install the **Data collection health monitoring** workbook from the **Content hub** and view or create a copy of the template from the **Workbooks** section of Microsoft Sentinel.
 
-1. In the **Workbooks** gallery, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
+
+1. In the **Content hub**, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
+
+1. Select **Install** from the details pane. When you see a notification message that the workbook is installed, or if instead of *Install*, you see *Configuration*, proceed to the next step.
+
+1. In Microsoft Sentinel, under **Threat management**, select **Workbooks**.
+
+1. In the **Workbooks** page, select the **Templates** tab, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
 
 1. Select **View template** to use the workbook as is, or select **Save** to create an editable copy of the workbook. When the copy is created, select **View saved workbook**.
 
@@ -40,7 +54,7 @@ There are three tabbed sections in this workbook:
 
 - The **Overview** tab shows the general status of data ingestion in the selected workspace: volume measures, EPS rates, and time last log received.
 
-- The **Data collection anomalies** tab will help you to detect anomalies in the data collection process, by table and data source. Each tab presents anomalies for a particular table (the **General** tab includes a collection of tables). The anomalies are calculated using the **series_decompose_anomalies()** function that returns an **anomaly score**. [Learn more about this function](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Set the following parameters for the function to evaluate:
+- The **Data collection anomalies** tab will help you to detect anomalies in the data collection process, by table and data source. Each tab presents anomalies for a particular table (the **General** tab includes a collection of tables). The anomalies are calculated using the **series_decompose_anomalies()** function that returns an **anomaly score**. [Learn more about this function](/kusto/query/series-decompose-anomalies-function?view=microsoft-sentinel&preserve-view=true&WT.mc_id=Portal-fx). Set the following parameters for the function to evaluate:
 
     - **AnomaliesTimeRange**: This time picker applies only to the data collection anomalies view.
     - **SampleInterval**: The time interval in which data is sampled in the given time range. The anomaly score is calculated only on the last interval's data.
@@ -49,17 +63,9 @@ There are three tabbed sections in this workbook:
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="data connector health monitoring workbook anomalies page" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 
-- The **Agent info** tab shows you information about the health of the Log Analytics agents installed on your various machines, whether Azure VM, other cloud VM, on-premises VM, or physical. You can monitor the following:
+- The **Agent info** tab shows you information about the health of the agents installed on your various machines, whether Azure VM, other cloud VM, on-premises VM, or physical. Monitor system location, heartbeat status and latency, available memory and disk space, and agent operations.
 
-   - System location
-
-   - Heartbeat status and latency
-
-   - Available memory and disk space
-
-   - Agent operations
-
-    In this section you must select the tab that describes your machines’ environment: choose the **Azure-managed machines** tab if you want to view only the Azure Arc-managed machines; choose the **All machines** tab to view both managed and non-Azure machines with the Log Analytics agent installed.
+    In this section you must select the tab that describes your machines’ environment: choose the **Azure-managed machines** tab if you want to view only the Azure Arc-managed machines; choose the **All machines** tab to view both managed and non-Azure machines with the Azure Monitor Agent installed.
 
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="data connector health monitoring workbook agent info page" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
@@ -79,6 +85,7 @@ The *SentinelHealth* data table is currently supported only for the following da
 - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
+- Any connector based on [Codeless Connector Framework](create-codeless-connector.md)
 
 ### Understanding SentinelHealth table events
 
@@ -112,48 +119,59 @@ SentinelHealth
 **Detect connectors with changes from fail to success state**:
 
 ```kusto
-let lastestStatus = SentinelHealth
+let latestStatus = SentinelHealth
 | where TimeGenerated > ago(12h)
 | where OperationName == 'Data fetch status change'
 | where Status in ('Success', 'Failure')
 | project TimeGenerated, SentinelResourceName, SentinelResourceId, LastStatus = Status
 | summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-let nextToLastestStatus = SentinelHealth
+let nextTolatestStatus = SentinelHealth
 | where TimeGenerated > ago(12h)
 | where OperationName == 'Data fetch status change'
 | where Status in ('Success', 'Failure')
-| join kind = leftanti (lastestStatus) on SentinelResourceName, SentinelResourceId, TimeGenerated
+| join kind = leftanti (latestStatus) on SentinelResourceName, SentinelResourceId, TimeGenerated
 | project TimeGenerated, SentinelResourceName, SentinelResourceId, NextToLastStatus = Status
 | summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-lastestStatus
-| join kind=inner (nextToLastestStatus) on SentinelResourceName, SentinelResourceId
+latestStatus
+| join kind=inner (nextTolatestStatus) on SentinelResourceName, SentinelResourceId
 | where NextToLastStatus == 'Failure' and LastStatus == 'Success'
 ```
 
 **Detect connectors with changes from success to fail state**:
 
 ```kusto
-let lastestStatus = SentinelHealth
+let latestStatus = SentinelHealth
 | where TimeGenerated > ago(12h)
 | where OperationName == 'Data fetch status change'
 | where Status in ('Success', 'Failure')
 | project TimeGenerated, SentinelResourceName, SentinelResourceId, LastStatus = Status
 | summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-let nextToLastestStatus = SentinelHealth
+let nextTolatestStatus = SentinelHealth
 | where TimeGenerated > ago(12h)
 | where OperationName == 'Data fetch status change'
 | where Status in ('Success', 'Failure')
-| join kind = leftanti (lastestStatus) on SentinelResourceName, SentinelResourceId, TimeGenerated
+| join kind = leftanti (latestStatus) on SentinelResourceName, SentinelResourceId, TimeGenerated
 | project TimeGenerated, SentinelResourceName, SentinelResourceId, NextToLastStatus = Status
 | summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-lastestStatus
-| join kind=inner (nextToLastestStatus) on SentinelResourceName, SentinelResourceId
+latestStatus
+| join kind=inner (nextTolatestStatus) on SentinelResourceName, SentinelResourceId
 | where NextToLastStatus == 'Success' and LastStatus == 'Failure'
 ```
 
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***join*** operator](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***arg_max()*** aggregation function](/kusto/query/arg-max-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
+
 ### Configure alerts and automated actions for health issues
 
-While you can use the Microsoft Sentinel [analytics rules](automate-incident-handling-with-automation-rules.md) to configure automation in Microsoft Sentinel logs, if you want to be notified and take immediate action for health drifts in your data connectors, we recommend that you use [Azure Monitor alert rules](../azure-monitor/alerts/alerts-overview.md).
+While you can use the Microsoft Sentinel [analytics rules](automate-incident-handling-with-automation-rules.md) to configure automation in Microsoft Sentinel logs, if you want to be notified and take immediate action for health drifts in your data connectors, we recommend that you use [Azure Monitor alert rules](/azure/azure-monitor/alerts/alerts-overview).
 
 For example:
 
@@ -163,7 +181,7 @@ For example:
 
 1. For the rule actions, select an existing action group or create a new one as needed to configure push notifications or other automated actions such as triggering a Logic App, Webhook, or Azure Function in your system.
 
-For more information, see [Azure Monitor alerts overview](../azure-monitor/alerts/alerts-overview.md) and [Azure Monitor alerts log](../azure-monitor/alerts/alerts-log.md).
+For more information, see [Azure Monitor alerts overview](/azure/azure-monitor/alerts/alerts-overview) and [Azure Monitor alerts log](/azure/azure-monitor/alerts/alerts-log).
 
 ## Next steps
 

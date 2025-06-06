@@ -2,13 +2,12 @@
 title: Confidential containers on Azure
 description: Learn about unmodified container support with confidential containers.
 services: container-service
-author: agowdamsft
-ms.topic: article
-ms.date: 3/1/2023
-ms.author: amgowda
-ms.service: virtual-machines 
-ms.subservice: confidential-computing
-ms.custom: ignite-fall-2021
+author: angarg05
+ms.topic: overview
+ms.date: 9/12/2023
+ms.author: ananyagarg
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ---
 
 # Confidential containers on Azure
@@ -26,8 +25,8 @@ Below are the qualities of confidential containers:
 - Provides strong assurances of data confidentiality, code integrity and data integrity in a cloud environment with hardware based confidential computing offerings
 - Helps isolate your containers from other container groups/pods, as well as VM node OS kernel
 
-## VM Isolated Confidential containers on Azure Container Instances (ACI) - Public preview
-[Confidential containers on ACI](../container-instances/container-instances-confidential-overview.md) enables fast and easy deployment of containers natively in Azure and with the ability to protect data and code in use thanks to AMD EPYC™ processors with confidential computing capabilities. This is because your container(s) runs in a hardware-based and attested Trusted Execution Environment (TEE) without the need to adopt a specialized programming model and without infrastructure management overhead.  With this launch you get: 
+## VM Isolated Confidential containers on Azure Container Instances (ACI)
+[Confidential containers on ACI](/azure/container-instances/container-instances-confidential-overview) enables fast and easy deployment of containers natively in Azure and with the ability to protect data and code in use thanks to AMD EPYC™ processors with confidential computing capabilities. This is because your container(s) runs in a hardware-based and attested Trusted Execution Environment (TEE) without the need to adopt a specialized programming model and without infrastructure management overhead.  With this launch you get: 
 1.	Full guest attestation, which reflects the cryptographic measurement of all hardware and software components running within your Trusted Computing Base (TCB). 
 2.	Tooling to generate policies that will be enforced in the Trusted Execution Environment.
 3.	Open-source sidecar containers for secure key release and encrypted file systems. 
@@ -46,7 +45,7 @@ If you have questions about container offerings, please reach out to <acconaks@m
 ## Next steps
 
 - [Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
-- [Deploy Confidential container group with Azure Container Instances](../container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
-- [Microsoft Azure Attestation](../attestation/overview.md)
+- [Deploy Confidential container group with Azure Container Instances](/azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm)
+- [Microsoft Azure Attestation](/azure/attestation/overview)
 - [Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
-- [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)

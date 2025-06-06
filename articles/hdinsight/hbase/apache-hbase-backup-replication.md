@@ -1,10 +1,13 @@
 ---
 title: Backup & replication for Apache HBase, Phoenix - Azure HDInsight
 description: Set up Backup and replication for Apache HBase and Apache Phoenix in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/27/2022
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  01/02/2025
 ---
 
 # Set up backup and replication for Apache HBase and Apache Phoenix on HDInsight
@@ -137,7 +140,7 @@ To acquire the quorum host names, run the following curl command:
 curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/configurations?type=hbase-site&tag=TOPOLOGY_RESOLVED" | grep "hbase.zookeeper.quorum"
 ```
 
-The curl command retrieves a JSON document with HBase configuration information, and the grep command returns only the "hbase.zookeeper.quorum" entry, for example:
+The curl command retrieves a JSON document with HBase configuration information, and the `grep` command returns only the "hbase.zookeeper.quorum" entry, for example:
 
 ```output
 "hbase.zookeeper.quorum" : "<zookeepername1>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,<zookeepername2>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,<zookeepername3>.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
@@ -238,7 +241,7 @@ The general steps to set up replication are:
 5. Copy existing data from the source tables to the destination tables.
 6. Replication automatically copies new data modifications to the source tables into the destination tables.
 
-To enable replication on HDInsight, apply a Script Action to your running source HDInsight cluster. For a walkthrough of enabling replication in your cluster, or to experiment with replication on sample clusters created in virtual networks using Azure Resource Manager templates, see [Configure Apache HBase replication](apache-hbase-replication.md). That article also includes instructions for enabling replication of Phoenix metadata.
+To enable replication on HDInsight, apply a Script Action to the running source HDInsight cluster. For a walkthrough of enabling replication in your cluster, or to experiment with replication on sample clusters created in virtual networks using Azure Resource Manager templates, see [Configure Apache HBase replication](apache-hbase-replication.md). That article also includes instructions for enabling replication of Phoenix metadata.
 
 ## Next steps
 

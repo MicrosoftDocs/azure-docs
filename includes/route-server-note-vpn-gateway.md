@@ -1,9 +1,9 @@
 ---
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: include
-ms.date: 04/18/2023
+ms.date: 09/16/2024
 ---
 > [!IMPORTANT]
-> Azure VPN gateway must be created before creating Azure Route Server and must be configured in **active-active** mode and have the ASN set to 65515.
+> The Azure VPN gateway must be configured in [**active-active**](../articles/vpn-gateway/about-active-active-gateways.md) mode and have the ASN set to **65515**. It's not a requirement to have BGP enabled on the VPN gateway to communicate with the route server.

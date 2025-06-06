@@ -3,20 +3,19 @@
 title: Configure a custom domain name for your self-hosted Azure API Management gateway | Microsoft Docs
 description: This topic describes the steps for configuring a custom domain name for self-hosted Azure API Management gateway.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
-ms.service: api-management
-ms.topic: article
+ms.service: azure-api-management
+ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: danlep
 ---
 
 # Configure a custom domain name for a self-hosted gateway
 
-When you provision a [self-hosted Azure API Management gateway](self-hosted-gateway-overview.md), it is not assigned a host name and has to be referenced by its IP address. This article shows how to map an existing custom DNS name (also referred to as hostname) to a self-hosted gateway.
-
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
+When you provision a [self-hosted Azure API Management gateway](self-hosted-gateway-overview.md), it is not assigned a host name and has to be referenced by its IP address. This article shows how to map an existing custom DNS name (also referred to as hostname) to a self-hosted gateway.
 
 ## Prerequisites
 
@@ -24,7 +23,7 @@ To perform the steps described in this article, you must have:
 
 -   An active Azure subscription.
 
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+    [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 -   An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 - A self-hosted gateway. For more information, see [How to provision self-hosted gateway](api-management-howto-provision-self-hosted-gateway.md)
@@ -56,7 +55,7 @@ Add a custom domain certificate (.PFX) file to your API Management instance, or 
 9. Select **Add** to assign the custom domain name to the selected self-hosted gateway.
 
 > [!NOTE]
-> If clients connecting to the self-hosted gateway using the custom domain expect to be presented with all intermediate certificates in the chain, you must upload individual CA certificates to your API Management Service and associate them with the self-hosted gateway. For instructions on how to achieve this, see [Create custom CA for self-hosted gateway](api-management-howto-ca-certificates.md#create-custom-ca-for-self-hosted-gateway) .
-## Next steps
+> If clients connecting to the self-hosted gateway using the custom domain expect to be presented with all intermediate certificates in the chain, you must upload individual CA certificates to your API Management Service and associate them with the self-hosted gateway. For instructions on how to achieve this, see [Create custom CA for self-hosted gateway](api-management-howto-ca-certificates.md#create-custom-ca-for-a-self-hosted-gateway) .
+## Related content
 
 [Upgrade and scale your service](upgrade-and-scale.md)

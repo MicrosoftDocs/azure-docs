@@ -4,15 +4,16 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
 author: sinnypan
 ms.author: sipa
-ms.date: 11/11/2021
+ms.date: 08/27/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: rest-sdk
+ms.custom: devx-track-dotnet
 ---
 
 # C# REST SDK Developers Guide
 
-The Azure Maps C# SDK supports functionality available in the Azure Maps [Rest API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article introduces the C# REST SDK with examples to help you get started building location-aware applications in C# that incorporates the power of Azure Maps.
+The Azure Maps C# SDK supports functionality available in the Azure Maps [REST API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article introduces the C# REST SDK with examples to help you get started building location-aware applications in C# that incorporates the power of Azure Maps.
 
 > [!NOTE]
 > Azure Maps C# SDK supports any .NET version that is compatible with [.NET standard] version 2.0 or higher. For an interactive table, see [.NET Standard versions].
@@ -61,19 +62,21 @@ dotnet add package Azure.Maps.Geolocation --prerelease
 
 ## Create and authenticate a MapsSearchClient
 
-The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a `TokenCredential` object with the Azure Maps client ID when authenticating using Azure Active Directory (Azure AD).  For more information on authentication, see [Authentication with Azure Maps].
+The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a `TokenCredential` object with the Azure Maps client ID when authenticating using Microsoft Entra ID.  For more information on authentication, see [Authentication with Azure Maps].
 
-### Using an Azure AD credential
+<a name='using-an-azure-ad-credential'></a>
 
-You can authenticate with Azure AD using the [Azure Identity library][Identity library .NET]. To use the [DefaultAzureCredential][defaultazurecredential.NET] provider, you need to install the Azure Identity client library for .NET:
+### Using a Microsoft Entra credential
+
+You can authenticate with Microsoft Entra ID using the [Azure Identity library][Identity library .NET]. To use the [DefaultAzureCredential][defaultazurecredential.NET] provider, you need to install the Azure Identity client library for .NET:
 
 ```powershell
 dotnet add package Azure.Identity 
 ```
 
-You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
+You need to register the new Microsoft Entra application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
-Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
+Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Microsoft Entra application, and the map resource’s client ID as environment variables:
 
 | Environment Variable | Description                                                   |
 |----------------------|---------------------------------------------------------------|
@@ -111,7 +114,7 @@ var client = new MapsSearchClient(credential, clientId);
 
 You can authenticate with your Azure Maps subscription key. Your subscription key can be found in the **Authentication** section in the Azure Maps account as shown in the following screenshot:
 
-:::image type="content" source="./media/rest-sdk-dev-guides/subscription-key.png" alt-text="A screenshot showing the subscription key in the Authentication section of an Azure Maps account." lightbox="./media/rest-sdk-dev-guides/subscription-key.png":::
+:::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 Now you can create environment variables in PowerShell to store the subscription key:
 
@@ -131,189 +134,14 @@ var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? 
 var credential = new AzureKeyCredential(subscriptionKey);
 var client = new MapsSearchClient(credential); 
 ```
+## Geocode an address
 
-### Fuzzy search an entity
-
-The following code snippet demonstrates how, in a simple console application, to import the `Azure.Maps.Search` package and perform a fuzzy search on“Starbucks” near Seattle. In `Program.cs`:
+Call the `GetGeocoding` method to get the coordinate of an address.
 
 ```csharp
 using System;
 using Azure; 
-using Azure.Core.GeoJson; 
 using Azure.Maps.Search; 
-using Azure.Maps.Search.Models; 
-
-// Use Azure Maps subscription key authentication 
-var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
-var credential = new AzureKeyCredential(subscriptionKey);
-var client = new MapsSearchClient(credential); 
-
-SearchAddressResult searchResult = client.FuzzySearch( 
-    "Starbucks", new FuzzySearchOptions 
-    { 
-        Coordinates = new GeoPosition(-122.34255, 47.61010), 
-        Language = SearchLanguage.EnglishUsa 
-    }); 
-
-
-// Print the search results 
-foreach (var result in searchResult.Results) 
-{ 
-    Console.WriteLine($""" 
-        * {result.Address.StreetNumber} {result.Address.StreetName} 
-          {result.Address.Municipality} {result.Address.CountryCode} {result.Address.PostalCode} 
-          Coordinate: ({result.Position.Latitude:F4}, {result.Position.Longitude:F4}) 
-        """); 
-} 
-```
-
-The above code snippet demonstrates how to create a `MapsSearchClient` object using your Azure credentials, then uses its [FuzzySearch] method, passing in the point of interest (POI) name "_Starbucks_" and coordinates _GeoPosition(-122.31, 47.61)_. The SDK packages and sends the results to the Azure Maps REST endpoints. When the search results are returned, they're written out to the screen using `Console.WriteLine`.
-
-The following libraries are used:
-
-1. `Azure.Maps.Search` is required for the `MapsSearchClient` class.
-1. `Azure.Maps.Search.Models` is required for the `SearchAddressResult` class.
-1. `Azure.Core.GeoJson` is required for the `GeoPosition` struct used by the `FuzzySearchOptions` class.
-
-To run your application, go to the project folder and execute `dotnet run` in PowerShell:
-
-```powershell
-dotnet run 
-```
-
-You should see a list of Starbucks address and coordinate results:
-
-```text
-* 1912 Pike Place 
-  Seattle US 98101 
-  Coordinate: 47.61016, -122.34248 
-* 2118 Westlake Avenue 
-  Seattle US 98121 
-  Coordinate: 47.61731, -122.33782 
-* 2601 Elliott Avenue 
-  Seattle US 98121 
-  Coordinate: 47.61426, -122.35261 
-* 1730 Howell Street 
-  Seattle US 98101 
-  Coordinate: 47.61716, -122.3298 
-* 220 1st Avenue South 
-  Seattle US 98104 
-  Coordinate: 47.60027, -122.3338 
-* 400 Occidental Avenue South 
-  Seattle US 98104 
-  Coordinate: 47.5991, -122.33278 
-* 1600 East Olive Way 
-  Seattle US 98102 
-  Coordinate: 47.61948, -122.32505 
-* 500 Mercer Street 
-  Seattle US 98109 
-  Coordinate: 47.62501, -122.34687 
-* 505 5Th Ave S 
-  Seattle US 98104 
-  Coordinate: 47.59768, -122.32849 
-* 425 Queen Anne Avenue North 
-  Seattle US 98109 
-  Coordinate: 47.62301, -122.3571 
-```
-
-## Search an address
-
-Call the `SearchAddress` method to get the coordinate of an address. Modify the Main program from the sample as follows:
-
-```csharp
-// Use Azure Maps subscription key authentication 
-var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
-var credential = new AzureKeyCredential(subscriptionKey);
-var client = new MapsSearchClient(credential); 
-
-SearchAddressResult searchResult = client.SearchAddress(
-    "1301 Alaskan Way, Seattle, WA 98101, US");
-
-if (searchResult.Results.Count > 0) 
-{
-    SearchAddressResultItem result = searchResult.Results.First(); 
-    Console.WriteLine($"The Coordinate: ({result.Position.Latitude:F4}, {result.Position.Longitude:F4})"); 
-}
-```
-
-The `SearchAddress` method returns results ordered by confidence score and since `searchResult.Results.First()` is used, only the coordinates of the first result are returned.
-
-## Batch reverse search
-
-Azure Maps Search also provides some batch query methods. These methods return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically. The following example demonstrates how to call the batched reverse search methods:
-
-```csharp
-var queries = new List<ReverseSearchAddressQuery>() 
-{ 
-    new ReverseSearchAddressQuery(new ReverseSearchOptions() 
-    { 
-        Coordinates = new GeoPosition(2.294911, 48.858561) 
-    }), 
-    new ReverseSearchAddressQuery(new ReverseSearchOptions() 
-    { 
-        Coordinates = new GeoPosition(-122.127896, 47.639765), 
-        RadiusInMeters = 5000 
-    }) 
-};
-```
-
-In the above example, two queries are passed to the batched reverse search request. To get the LRO results, you have few options. The first option is to pass `WaitUntil.Completed` to the method. The request waits until all requests are finished and return the results:
-
-```csharp
-// Wait until the LRO return batch results 
-Response<ReverseSearchAddressBatchOperation> waitUntilCompletedResults = client.ReverseSearchAddressBatch(WaitUntil.Completed, queries); 
-
-// Print the result addresses 
-printReverseBatchAddresses(waitUntilCompletedResults.Value); 
-```
-
-Another option is to pass `WaitUntil.Started`. The request returns immediately, and you need to manually poll the results:
-
-```csharp
-// Manual polling the batch results 
-Response<ReverseSearchAddressBatchOperation> manualPollingOperation = client.ReverseSearchAddressBatch(WaitUntil.Started, queries);
-
-// Keep polling until we get the results
-while (true)
-{
-    manualPollingOperation.Value.UpdateStatus();
-    if (manualPollingOperation.Value.HasCompleted) break;
-    Task.Delay(1000);
-}
-printReverseBatchAddresses(manualPollingOperation);
-```
-
-We can also call `WaitUntilCompletion()` to explicitly wait for the result:
-
-```csharp
-Response<ReverseSearchAddressBatchOperation> manualPollingResult = manualPollingResults.WaitUntilCompleted();
-
-printReverseBatchAddresses(manualPollingResult.Value);
-```
-
-The third method requires the operation ID to get the results, which is cached on the server side for 14 days:
-
-```csharp
-  ReverseSearchAddressBatchOperation longRunningOperation = client.ReverseSearchAddressBatch(WaitUntil.Started, queries);
-
-  // Get batch results by ID 
-  string operationId = longRunningOperation.Value.Id;
-
-  // After the LRO completes, create a new operation
-  // to get the results from the server
-  ReverseSearchAddressBatchOperation newOperation = new ReverseSearchAddressBatchOperation(client, operationId);
-  Response<ReverseSearchAddressBatchOperation> newOperationResult = newOperation.WaitForCompletion();
-
-printReverseBatchAddresses(newOperationResult);
-```
-
-The complete code for reverse address batch search with operation ID:
-
-```csharp
-using system;
-using Azure;
-using Azure.Core.GeoJson;
-using Azure.Maps.Search;
 using Azure.Maps.Search.Models;
 
 // Use Azure Maps subscription key authentication 
@@ -321,43 +149,159 @@ var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? 
 var credential = new AzureKeyCredential(subscriptionKey);
 var client = new MapsSearchClient(credential); 
 
-var queries = new List<ReverseSearchAddressQuery>()
+Response<GeocodingResponse> searchResult = client.GetGeocoding(
+    "1 Microsoft Way, Redmond, WA 98052");
+
+for (int i = 0; i < searchResult.Value.Features.Count; i++)
 {
-    new ReverseSearchAddressQuery(new ReverseSearchOptions()
+    Console.WriteLine("Coordinate:" + string.Join(",", searchResult.Value.Features[i].Geometry.Coordinates));
+}
+```
+
+## Batch geocode addresses
+
+This sample demonstrates how to perform batch search address.
+
+```csharp
+using System;
+using Azure; 
+using Azure.Maps.Search; 
+using System.Collections.Generic;
+using Azure.Maps.Search.Models;
+using Azure.Maps.Search.Models.Queries;
+
+// Use Azure Maps subscription key authentication 
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
+var client = new MapsSearchClient(credential); 
+
+List<GeocodingQuery> queries = new List<GeocodingQuery>
+{
+    new GeocodingQuery()
     {
-        Coordinates = new GeoPosition(2.294911, 48.858561)
-    }),
-    new ReverseSearchAddressQuery(new ReverseSearchOptions()
+        Query ="15171 NE 24th St, Redmond, WA 98052, United States"
+    },
+    new GeocodingQuery()
     {
-        Coordinates = new GeoPosition(-122.127896, 47.639765),
-        RadiusInMeters = 5000
-    })
+        AddressLine = "400 Broad St"
+    },
 };
+Response<GeocodingBatchResponse> results = client.GetGeocodingBatch(queries);
 
-// Manual polling the batch results
-ReverseSearchAddressBatchOperation longRunningOperation = client.ReverseSearchAddressBatch(WaitUntil.Started, queries);
-
-// Get batch results by ID
-string operationId = longRunningOperation.Id;
-
-// A few days later, create a new operation and get the result from server
-ReverseSearchAddressBatchOperation newOperation = new ReverseSearchAddressBatchOperation(client, operationId);
-Response<ReverseSearchAddressBatchResult> newOperationResult = newOperation.WaitForCompletion();
-printReverseBatchAddresses(newOperationResult.Value);
-void printReverseBatchAddresses(ReverseSearchAddressBatchResult batchResult)
+//Print coordinates
+for (var i = 0; i < results.Value.BatchItems.Count; i++)
 {
-    // Print the search results
-    for (int i = 0; i < batchResult.Results.Count; i++)
+    for (var j = 0; j < results.Value.BatchItems[i].Features.Count; j++)
     {
-        Console.WriteLine($"Possible addresses for query {i}:");
-        var result = batchResult.Results[i];
-        foreach (var address in result.Addresses)
-        {
-            Console.WriteLine($"{address.Address.FreeformAddress}");
-        }
+        Console.WriteLine("Coordinates: " + string.Join(",", results.Value.BatchItems[i].Features[j].Geometry.Coordinates));
     }
 }
 ```
+
+## Reverse geocode a coordinates
+
+You can translate coordinates into human-readable street addresses. This process is also called reverse geocoding. 
+
+```csharp
+using System;
+using Azure; 
+using Azure.Maps.Search; 
+using Azure.Core.GeoJson;
+using Azure.Maps.Search.Models;
+
+// Use Azure Maps subscription key authentication 
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
+var client = new MapsSearchClient(credential); 
+
+GeoPosition coordinates = new GeoPosition(-122.138685, 47.6305637);
+Response<GeocodingResponse> result = client.GetReverseGeocoding(coordinates);
+
+//Print addresses
+for (int i = 0; i < result.Value.Features.Count; i++)
+{
+    Console.WriteLine(result.Value.Features[i].Properties.Address.FormattedAddress);
+}
+```
+
+## Batch reverse geocode a set of coordinates
+
+Azure Maps Search also provides some batch query APIs. The Reverse Geocoding Batch API sends batches of queries to [Reverse Geocoding API](/rest/api/maps/search/get-reverse-geocoding) using just a single API call. The API allows caller to batch up to **100** queries.
+
+```csharp
+using System;
+using Azure; 
+using Azure.Maps.Search; 
+using System.Collections.Generic;
+using Azure.Core.GeoJson;
+using Azure.Maps.Search.Models;
+using Azure.Maps.Search.Models.Queries;
+
+// Use Azure Maps subscription key authentication 
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
+var client = new MapsSearchClient(credential);
+
+List<ReverseGeocodingQuery> items = new List<ReverseGeocodingQuery>
+{
+    new ReverseGeocodingQuery()
+    {
+        Coordinates = new GeoPosition(-122.349309, 47.620498)
+    },
+    new ReverseGeocodingQuery()
+    {
+        Coordinates = new GeoPosition(-122.138679, 47.630356),
+        ResultTypes = new List<ReverseGeocodingResultTypeEnum>(){ ReverseGeocodingResultTypeEnum.Address, ReverseGeocodingResultTypeEnum.Neighborhood }
+    },
+};
+Response<GeocodingBatchResponse> result = client.GetReverseGeocodingBatch(items);
+//Print addresses
+for (var i = 0; i < result.Value.BatchItems.Count; i++)
+{
+    Console.WriteLine(result.Value.BatchItems[i].Features[0].Properties.Address.AddressLine);
+    Console.WriteLine(result.Value.BatchItems[i].Features[0].Properties.Address.Neighborhood);
+}
+```
+
+## Get polygons for a given location
+
+This sample demonstrates how to search polygons.
+
+```csharp
+using System;
+using Azure; 
+using Azure.Maps.Search; 
+using Azure.Core.GeoJson;
+using Azure.Maps.Search.Models;
+using Azure.Maps.Search.Models.Options;
+
+// Use Azure Maps subscription key authentication 
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
+var client = new MapsSearchClient(credential);
+
+GetPolygonOptions options = new GetPolygonOptions()
+{
+    Coordinates = new GeoPosition(-122.204141, 47.61256),
+    ResultType = BoundaryResultTypeEnum.Locality,
+    Resolution = ResolutionEnum.Small,
+};
+Response<Boundary> result = client.GetPolygon(options);
+
+var count = ((GeoJsonPolygon)((GeoJsonGeometryCollection)result.Value.Geometry).Geometries[0]).Coordinates.Count;
+for (var i = 0; i < count; i++)
+{
+    var coorCount = ((GeoJsonPolygon)((GeoJsonGeometryCollection)result.Value.Geometry).Geometries[0]).Coordinates[i].Count;
+    for (var j = 0; j < coorCount; j++)
+    {
+        Console.WriteLine(string.Join(",",((GeoJsonPolygon)((GeoJsonGeometryCollection)result.Value.Geometry).Geometries[0]).Coordinates[i][j]));
+    }
+}
+```
+
+## Using v1 SDKs for Search and Render
+
+For more information on using Search v1, see [Azure Maps Search client library for .NET](https://www.nuget.org/packages/Azure.Maps.Search/1.0.0-beta.5). For more information on using Render v1, see [Azure Maps Render client library for .NET](https://www.nuget.org/packages/Azure.Maps.Rendering/1.0.0-beta.3).
 
 ## Additional information
 
@@ -368,17 +312,16 @@ The [Azure.Maps Namespace] in the .NET documentation.
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure.Maps Namespace]: /dotnet/api/azure.maps
-[defaultazurecredential.NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet#defaultazurecredential
-[FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
+[defaultazurecredential.NET]: /dotnet/api/overview/azure/identity-readme#defaultazurecredential
 [geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Geolocation/README.md
 [geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
 [geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
 [Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
-[Identity library .NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet
+[Identity library .NET]: /dotnet/api/overview/azure/identity-readme
 [rendering package]: https://www.nuget.org/packages/Azure.Maps.Rendering
 [rendering readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Rendering/README.md
 [rendering sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Rendering/samples
-[Rest API]: /rest/api/maps/
+[REST API]: /rest/api/maps/
 [routing package]: https://www.nuget.org/packages/Azure.Maps.Routing
 [routing readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Routing/README.md
 [routing sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Routing/samples

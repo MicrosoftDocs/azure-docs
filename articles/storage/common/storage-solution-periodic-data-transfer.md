@@ -4,9 +4,9 @@ description: Learn how to choose an Azure solution for data transfer when you ar
 services: storage
 author: stevenmatthew
 
-ms.service: storage
-ms.subservice: blobs
-ms.topic: conceptual
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
+ms.topic: concept-article
 ms.date: 07/21/2021
 ms.author: shaas
 ---

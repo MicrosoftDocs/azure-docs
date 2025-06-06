@@ -5,7 +5,9 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 07/18/2022
 ms.author: azfuncdf
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-dotnet
 #Customer intent: As a developer, I want to understand what data is persisted to durable storage, how that data is serialized, and how I can customize it when it doesn't work the way my app needs it to.
 ---
 
@@ -153,7 +155,7 @@ For full customization of the serialization/deserialization pipeline, consider h
 
 It's recommended to use type annotations to ensure Durable Functions serializes and deserializes your data correctly. While many built-in types are handled automatically, some built-in data types require type annotations to preserve the type during deserialization.
 
-For custom data types, you must define the JSON serialization and deserialization of a data type by exporting a static `to_json` and `from_json` method from your class.
+For custom data types, you make JSON serialization and deserialization possible by defining class methods `to_json` and `from_json` on your data type class. Note that these methods are not called on the return value from the orchestrator function, meaning the return value has to be natively JSON-serializable. For more information, see [Bindings](durable-functions-bindings.md#python-trigger-usage).
 
 # [Java](#tab/java)
 

@@ -1,13 +1,13 @@
 ---
 title: Optimize Azure Synapse Analytics costs with a Pre-Purchase Plan
 description: Learn how you can save on your Azure Synapse Analytics costs when you prepurchase Azure Synapse commit units (SCU) for one year.
-author: bandersmsft
-ms.reviewer: nitinarora
+author: pri-mittal
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/28/2023
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Optimize Azure Synapse Analytics costs with a Pre-Purchase Plan
@@ -23,6 +23,17 @@ A synapse prepurchase applies to all Synapse workloads and tiers. You can think 
 There’s no ratio on which the SCUs are applied. SCUs are equivalent to the purchase currency value and are deducted at retail prices. Like other reservations, the benefit of a pre-purchase plan is discounted pricing by committing to a purchase term. The more you buy, the larger the discount you receive.
 
 For example, if you want to use your SCUs for Data Warehousing – Dedicated SQL pool in West US 2, and you consume 1 hour of SQL Dedicated Pool DWU100 that has a retail price of $1.20, then 1.2 SCUs are consumed.
+
+As another example, an enterprise customer has an Annual Commitment Discount (ACD) of 10%. This customer typically consumes 120,000 USD worth of Azure Synapse Analytics at retail prices annually. With the ACD applied, their actual usage cost is 108,000 USD.
+
+This year, the customer decided to purchase 100,000 Azure Synapse commit units (SCU) for 82,000 USD, which includes an 18% discount off the retail prices. This discount isn't combined with the ACD, effectively making the actual discount rate 8%.
+
+As SCUs are consumed at retail prices, the customer would still need to use 20,000 USD worth of Azure Synapse Analytics at the pay-as-you-go (PAYG) rates, applying the ACD discount.
+
+At the end of the commitment period, the actual Azure Synapse Analytics usage cost for the customer would be 82,000 USD for the SCUs (reflecting the price with the 18% discount) plus 18,000 USD for the PAYG consumption (reflecting the 10% ACD discount). This totals to 100,000 USD.
+
+> [!NOTE]
+> The mentioned prices are for example purposes only. They aren't intended to represent actual costs.
 
 The Synapse prepurchase discount applies to usage from the following products:
 
@@ -40,8 +51,8 @@ For more information about available SCU tiers and pricing discounts, you use th
 
 You buy Synapse plans in the [Azure portal](https://portal.azure.com). To buy a Pre-Purchase Plan, you must have the owner role for at least one enterprise or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates subscription, or the required role for CSP subscriptions.
 
-- You must be in an Owner role for at least one Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
-- For Enterprise Agreement (EA) subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin of the subscription.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
+- For Enterprise Agreement (EA) subscriptions, the **Reserved Instances** policy option must be enabled in the [Azure portal](../manage/direct-ea-administration.md#view-and-manage-enrollment-policies). Or, if that setting is disabled, you must be an EA Admin of the subscription.
 - For CSP subscriptions, follow the steps in [Acquire, provision, and manage Azure reserved VM instances (RI) + server subscriptions for customers](/partner-center/azure-ri-server-subscriptions).
 
 ### To Purchase:
@@ -65,18 +76,19 @@ You can make the following types of changes to a reservation after purchase:
 - Update reservation scope
 - Azure role-based access control (Azure RBAC)
 
-You can't split or merge a Synapse commit unit Pre-Purchase Plan. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
+You can't split or merge a Synapse Pre-Purchase Plan. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
 
 ## Cancellations and exchanges
 
 Cancel and exchange isn't supported for Synapse Pre-Purchase Plans. All purchases are final.
 
-## Next steps
+## Related content
 
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand Azure Reservations discount](understand-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
+- [Buy a reservation](prepare-buy-reservation.md)

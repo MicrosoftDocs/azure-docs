@@ -1,8 +1,9 @@
-- name: Microsoft Azure Data Manager for Energy Preview Documentation
+items:
+- name: Microsoft Azure Data Manager for Energy Documentation
   href: index.yml
 - name: Overview
   items:
-    - name: About Microsoft Azure Data Manager for Energy Preview
+    - name: About Microsoft Azure Data Manager for Energy
       displayName: Overview
       href: overview-microsoft-energy-data-services.md
     - name: About Domain Data Management Services (DDMS)
@@ -15,7 +16,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create a Microsoft Azure Data Manager for Energy Preview instance
+    - name: Create a Microsoft Azure Data Manager for Energy instance
       href: quickstart-create-microsoft-energy-data-services-instance.md
 - name: Tutorials
   items:
@@ -33,8 +34,14 @@
       href: tutorial-well-delivery-ddms.md
     - name: Use Petrel DDMS APIs
       href: tutorial-petrel-ddms.md
+    - name: Use Reservoir DDMS APIs
+      href: tutorial-reservoir-ddms-apis.md
+    - name: Use Reservoir DDMS websocket APIs
+      href: tutorial-reservoir-ddms-websocket.md
 - name: Concepts
   items:
+    - name: OSDU® services available on Azure Data Manager for Energy
+      href: osdu-services-on-adme.md
     - name: CSV parser ingestion
       href: concepts-csv-parser-ingestion.md
     - name: Manifest ingestion
@@ -43,29 +50,51 @@
       href: concepts-index-and-search.md
     - name: Domain Data Management Services (DDMS)
       href: concepts-ddms.md
+    - name: Authentication
+      href: concepts-authentication.md
     - name: Entitlements
       href: concepts-entitlements.md
     - name: Reliability
       items:
         - name: Reliability overview 
-          href: ../reliability/reliability-energy-data-services.md?toc=/azure/energy-data-services/toc.yml
+          href: ../reliability/reliability-energy-data-services.md?toc=/azure/energy-data-services/toc.json&bc=/azure/energy-data-services/breadcrumb/toc.json
           displayName: availability zones, high-availability, zone redundancy
+    - name: Tier details
+      href: concepts-tier-details.md
+    - name: Syncing Reference data values
+      href: concepts-reference-data-values.md
 - name: How-to guides
   items:
     - name: Administration
       items:
         - name: Manage users
           href: how-to-manage-users.md
+        - name: Manage ACLs
+          href: how-to-manage-acls.md
         - name: Manage legal tags
           href: how-to-manage-legal-tags.md
         - name: Manage data partitions
           href: how-to-add-more-data-partitions.md
+        - name: Deploy Geospatial Consumption Zone (GCZ)
+          href: how-to-deploy-gcz.md
+        - name: Deploy OSDU Admin UI
+          href: how-to-deploy-osdu-admin-ui.md
+        - name: How to enable External Data Sources (EDS)
+          href: how-to-enable-external-data-sources.md
+        - name: How to register External Data Sources (EDS)
+          href: how-to-register-external-data-sources.md
+        - name: How to enable legal tags restricted COO (Country of Origin)
+          href: how-to-enable-legal-tags-restricted-country-of-origin.md
+        - name: How to enable Reservoir DDMS
+          href: how-to-enable-reservoir-ddms.md
     - name: Monitoring
       items:
         - name: Airflow task logs integration with Azure Monitor
           href: how-to-integrate-airflow-logs-with-azure-monitor.md
         - name: Elastic logs integration with Azure Monitor
           href: how-to-integrate-elastic-logs-with-azure-monitor.md
+        - name: Integrate OSDU Service Logs with Azure Monitor
+          href: how-to-integrate-osdu-service-logs-with-azure-monitor.md
     - name: Security
       items:
         - name: Set up Private Links
@@ -80,14 +109,18 @@
           href: how-to-enable-cors.md
         - name: Set up audit logs
           href: how-to-manage-audit-logs.md
+        - name: Publish Microsoft Azure Data Manager for Energy APIs to a secured API gateway
+          href: how-to-secure-apis.md
     - name: Load datasets
       href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY
       href: how-to-convert-segy-to-zgy.md
     - name: Convert SEG-Y to oVDS
       href: how-to-convert-segy-to-ovds.md
-    - name: Generate a refresh token
-      href: how-to-generate-refresh-token.md
+    - name: Generate auth token
+      href: how-to-generate-auth-token.md
+    - name: Upload large files using file service
+      href: how-to-upload-large-files-using-file-service.md
 - name: References
   items:
   - name: REST API
@@ -104,3 +137,8 @@
     href: resources-partner-solutions.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/energy-data-services/
+- name: Support and troubleshooting
+  items:
+    - name: Troubleshooting manifest ingestion
+      href: troubleshoot-manifest-ingestion.md
+    

@@ -1,14 +1,12 @@
 ---
 title: "Minimize SQL issues for Netezza migrations"
 description: Learn how to minimize the risk of SQL issues when migrating from Netezza to Azure Synapse Analytics. 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-ms.devlang:
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
-ms.reviewer: wiassaf
+
 ms.date: 06/01/2022
 ---
 

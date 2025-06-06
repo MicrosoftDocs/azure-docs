@@ -3,10 +3,9 @@ title: Using credentials
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about using Azure credentials for Azure Data Factory. 
 author: nabhishek
-ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 09/26/2024
 ms.author: abnarain 
 ms.custom: synapse
 ---
@@ -21,7 +20,7 @@ Users must have the Managed Identity Operator (Azure RBAC) role or a custom role
 
 ## Using credentials
 
-We are introducing Credentials which can contain user-assigned managed identities, service principals, and also lists the system-assigned managed identity that you can use in the linked services that support Azure Active Directory (Azure AD) authentication. It helps you consolidate and manage all your Azure AD-based credentials.  
+We are introducing Credentials which can contain user-assigned managed identities, service principals, and also lists the system-assigned managed identity that you can use in the linked services that support Microsoft Entra authentication. It helps you consolidate and manage all your Microsoft Entra ID-based credentials.  
 
 Below are the generic steps for using a **user-assigned managed identity** in the linked services for authentication. 
 
@@ -67,11 +66,11 @@ Below are the generic steps for using a **user-assigned managed identity** in th
 
 ---
 
-> [!NOTE] 
-> You can use [SDK](/dotnet/api/microsoft.azure.management.synapse?preserve-view=true&view=azure-dotnet-preview)/ [PowerShell](/powershell/module/az.synapse/?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&view=azps-9.1.0&preserve-view=true)/ [REST APIs](/rest/api/synapse/) for the above actions. An example of creating a user-assigned managed identity and assigning it permissions to a resource with Bicep/ARM is available in [this example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-get-started).
-> Linked services with user-assigned managed identity are currently not supported in Synapse Spark. 
+## Managing credentials with scripts
 
-## Next steps
+You can use the [SDK](/dotnet/api/microsoft.azure.management.synapse?preserve-view=true&view=azure-dotnet-preview), [PowerShell](/powershell/module/az.synapse/?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&view=azps-9.1.0&preserve-view=true), and [REST APIs](/rest/api/synapse/) for the above actions. An example of creating a user-assigned managed identity and assigning it permissions to a resource with Bicep/ARM is available in [this example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-get-started). Linked services with user-assigned managed identity are currently not supported in Synapse Spark. 
+
+## Related content
 
 - [Managed identity](data-factory-service-identity.md)
 

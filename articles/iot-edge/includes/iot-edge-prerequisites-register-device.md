@@ -1,15 +1,15 @@
 ---
 ms.topic: include
-ms.date: 01/05/2023
+ms.date: 04/29/2025
 author: PatAltimore
 ms.author: patricka
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
 ### Device management tools
 
-You can use the **Azure portal**, **Visual Studio Code**, or **Azure CLI** for the steps to register your device. Each utility has its own prerequisites or may need to be installed:
+You can use the **Azure portal**, **Visual Studio Code**, or **Azure CLI** for the steps to register your device. Each utility has its own prerequisites or might need to be installed:
 
 # [Portal](#tab/azure-portal)
 
@@ -19,7 +19,7 @@ A free or standard [IoT hub](../../iot-hub/iot-hub-create-through-portal.md) in 
 
 * A free or standard [IoT hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension. The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension
 
 # [Azure CLI](#tab/azure-cli)

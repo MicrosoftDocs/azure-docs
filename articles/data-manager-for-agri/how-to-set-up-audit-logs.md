@@ -1,9 +1,9 @@
 ---
 title: Enable logging for Azure Data Manager for Agriculture
 description: Learn how enable logging and debugging in Azure Data Manager for Agriculture
-author: gourdsay
-ms.author: angour
-ms.service: data-manager-for-agri
+author: BlackRider97
+ms.author: ramithar
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 04/10/2023
 ms.custom: template-how-to
@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 After you create a Data Manager for Agriculture resource instance, you can monitor how and when your resources are accessed, and by whom. You can also debug reasons for failure for data-plane requests. To do this, you need to enable logging for Azure Data Manager for Agriculture. You can then save log information at a destination such as a storage account, event hub or a log analytics workspace, that you provide. 
 
-This article provides you with the steps to setup logging for Azure Data Manager for Agriculture.
+This article provides you with the steps to set up logging for Azure Data Manager for Agriculture.
 
 ## Enable collection of logs
 
@@ -53,11 +53,11 @@ The `categories` field for Data Manager for Agriculture can have values that are
 ### Categories table
 | category| Description |
 | --- | --- |
-|FarmManagementLogs| Logs for CRUD operations for party, Farm, Field, Boundary, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
+|FarmManagementLogs| Logs for CRUD operations for party, Farm, Field, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
 |FarmOperationsLogs|Logs for CRUD operations for FarmOperations data ingestion job, ApplicationData, PlantingData, HarvestingData, TillageData
 |SatelliteLogs| Logs for create and get operations for Satellite data ingestion job
 |WeatherLogs|Logs for create, delete and get operations for weather data ingestion job
-|ProviderAuthLogs| Logs for create, update, delete, cascade delete, get and get all for Oauth providers. It also has logs for get, get all, cascade delete for oauth tokens.
+|ProviderAuthLogs| Logs for create, update, delete, cascade delete, get and get all for OAuth providers. It also has logs for get, get all, cascade delete for oauth tokens.
 |JobProcessedLogs| Logs for indicating success or failure and reason of failure for jobs. In addition to logs for resource cascade delete jobs, data-ingestion jobs, it also contains logs for farm operations and event handling jobs.
 |ModelInferenceLogs| Logs for create and get operations for biomass model job.
 |InsightLogs| Logs for get and get all operations for insights.
@@ -221,6 +221,8 @@ The following table lists the **operationName** values and corresponding REST AP
   
 ### ApplicationAuditLogs
 The write and delete logs present in other categories are also present in this category. The difference between the logs in this category and other categories for the same API call is that, ApplicationAuditLogs doesn't log the request-body, while in other categories the request-body is populated. Use the correlation-id to relate logs of two different categories to get more details. Some of the control plane operations that aren't part of the rest of the categories are listed below.
+> [!NOTE] 
+>For making control plane calls, you need owner access on ADMA resource scope.
 
 |operationName|
 | --- |
@@ -237,7 +239,7 @@ All the `categories` of resource logs are mapped as a table in log analytics. To
 ### List of tables in log analytics and their mapping to categories in resource logs
 | Table name in log analytics| Categories in resource logs |Description
 | --- | --- | --- |
-|AgriFoodFarmManagementLogs|FarmManagementLogs| Logs for CRUD operations for party, Farm, Field, Boundary, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
+|AgriFoodFarmManagementLogs|FarmManagementLogs| Logs for CRUD operations for party, Farm, Field, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
 |AgriFoodFarmOperationsLogs|FarmOperationsLogs| Logs for CRUD operations for FarmOperations data ingestion job, ApplicationData, PlantingData, HarvestingData, TillageData.
 |AgriFoodSatelliteLogs|SatelliteLogs| Logs for create and get operations for satellite data ingestion job.
 |AgriFoodWeatherLogs|WeatherLogs|Logs for create, delete and get operations for weather data ingestion job.
@@ -274,7 +276,7 @@ All the `categories` of resource logs are mapped as a table in log analytics. To
 |**partyId**| ID of the party associated with the operation. |
 |**Properties** | Available only in`AgriFoodJobProcessesLogs` table, it contains: `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(Type of the entity that failed  to be created, can be ApplicationData, PeriodicJob, etc.), `errorCode`(Code for failure of the job at Data Manager for Agriculture end),`errorMessage`(Description of failure at the Data Manager for Agriculture end),`internalErrorCode`(Code of failure of the job provide by the provider),`internalErrorMessage`(Description of the failure provided by the provider),`providerId`(ID of the provider such as JOHN-DEERE). |
 
-Each of these tables can be queried by creating a log analytics workspace. Reference for query language is [here](https://learn.microsoft.com/azure/data-explorer/kql-quick-reference).
+Each of these tables can be queried by creating a log analytics workspace. Reference for query language is [here](/azure/data-explorer/kql-quick-reference).
 
 ### List of sample queries in the log analytics workspace
 | Query name | Description |

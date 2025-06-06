@@ -3,9 +3,10 @@ title: Configure gateway-required virtual network integration for your app
 description: Integrate your app in Azure App Service with Azure virtual networks using gateway-required virtual network integration.
 author: madsd
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 10/17/2023
 ms.author: madsd
-
+ms.custom:
+  - build-2025
 ---
 # Configure gateway-required virtual network integration
 
@@ -35,9 +36,9 @@ You can't use gateway-required virtual network integration:
 
 To create a gateway:
 
-1. [Create the VPN gateway and subnet](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw). Select a route-based VPN type.
+1. [Create the VPN gateway and subnet](../vpn-gateway/tutorial-create-gateway-portal.md). Select a route-based VPN type.
 
-1. [Set the point-to-site addresses](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#addresspool). If the gateway isn't in the basic SKU, then IKEV2 must be disabled in the point-to-site configuration and SSTP must be selected. The point-to-site address space must be in the RFC 1918 address blocks 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
+1. [Set the point-to-site addresses](../vpn-gateway/point-to-site-certificate-gateway.md#addresspool). If the gateway isn't in the basic SKU, then IKEV2 must be disabled in the point-to-site configuration and SSTP must be selected. The point-to-site address space must be in the RFC 1918 address blocks 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
 
 If you create the gateway for use with gateway-required virtual network integration, you don't need to upload a certificate. Creating the gateway can take 30 minutes. You won't be able to integrate your app with your virtual network until the gateway is created.
 
@@ -91,11 +92,19 @@ When gateway-required virtual network integration is enabled, there's a required
 
 If certificates or network information is changed, select **Sync Network**. When you select **Sync Network**, you cause a brief outage in connectivity between your app and your virtual network. Your app isn't restarted, but the loss of connectivity could cause your site to not function properly.
 
+### Certificate renewal
+
+The certificate used by the gateway-required virtual network integration has a lifespan of 8 years. If you have apps with gateway-required virtual network integrations that live longer you will have to renew the certificate. You can validate if your certificate has expired or has less than 6 month to expiry by visiting the VNet Integration page in Azure portal.
+
+:::image type="content" source="./media/overview-vnet-integration/vnetint-gateway-cert-expiry.png" alt-text="Screenshot that shows a near expiry gateway-required virtual network integration certificate.":::
+
+You can renew your certificate when the portal shows a near expiry or expired certificate. To renew the certificate you need to disconnect and reconnect the virtual network. Reconnecting will cause a brief outage in connectivity between your app and your virtual network. Your app isn't restarted, but the loss of connectivity could cause your site to not function properly.
+
 ## Pricing details
 
 Three charges are related to the use of the gateway-required virtual network integration feature:
 
-* **App Service plan pricing tier charges**: Your apps need to be in a Basic, Standard, Premium, Premium v2, or Premium v3 App Service plan. For more information on those costs, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
+* **App Service plan pricing tier charges**: Your apps need to be in a Basic, Standard, Premium, Premium v2, Premium v3, or Premium v4 App Service plan. For more information on those costs, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
 * **Data transfer costs**: There's a charge for data egress, even if the virtual network is in the same datacenter. Those charges are described in [Data transfer pricing details](https://azure.microsoft.com/pricing/details/data-transfers/).
 * **VPN gateway costs**: There's a cost to the virtual network gateway that's required for the point-to-site VPN. For more information, see [VPN gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 

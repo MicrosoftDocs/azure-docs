@@ -1,19 +1,24 @@
 ---
 title: Enable Node.js web app authentication options using Azure Active Directory B2C
 description:  This article discusses several ways to enable Node.js web app authentication options.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 02/02/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.subservice: b2c
+ms.custom: b2c-support, devx-track-js
+
+
+#Customer intent: As a Node.js web app developer, I want to enable and customize Azure Active Directory B2C authentication in my application, so that I can provide a secure and personalized authentication experience for my users.
+
 ---
 
 # Enable authentication options in a Node.js web app by using Azure Active Directory B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes how to enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Node.js web application. 
 
@@ -136,7 +141,7 @@ return confidentialClientApplication.getAuthCodeUrl(authCodeRequest)
 
 [!INCLUDE [active-directory-b2c-app-integration-logging](../../includes/active-directory-b2c-app-integration-logging.md)]
 
-To configure [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/logging.md), in *index.js*, configure the following keys:
+To configure [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/logging.md), in *index.js*, configure the following keys:
 
 - `logLevel` lets you specify the level of logging. Possible values: `Error`, `Warning`, `Info`, and `Verbose`.
 - `piiLoggingEnabled` enables the input of personal data. Possible values: `true` or `false`.
@@ -161,4 +166,3 @@ The following code snippet demonstrates how to configure MSAL logging:
 ## Next steps
 
 Learn more about [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md).
-

@@ -1,10 +1,13 @@
 ---
 title: Azure HDInsight Create a cluster - error dictionary
 description: Learn how to troubleshoot errors that occur when creating Azure HDInsight clusters
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/14/2022
+ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date: 06/15/2024
 ---
 
 
@@ -83,7 +86,7 @@ Make sure that the **VirtualNetworkId** and subnet values are in the correct for
 
 Here's an example of a virtual network ID:
 
-"/subscriptions/c15fd9b8-e2b8-1d4e-aa85-2e668040233b/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"
+"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"
 
 ---
 

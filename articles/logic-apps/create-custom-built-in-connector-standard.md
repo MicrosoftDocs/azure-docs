@@ -5,8 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
-ms.custom: ignite-2022
-ms.date: 08/20/2022
+ms.date: 08/06/2024
 ---
 
 # Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
@@ -21,7 +20,6 @@ This article shows how to create an example custom built-in Azure Cosmos DB conn
 |-----------|-------------------|-------------|
 | Trigger | When a document is received | This trigger operation runs when an insert operation happens in the specified Azure Cosmos DB database and collection. |
 | Action | None | This connector doesn't define any action operations. |
-||||
 
 This sample connector uses the same functionality as the [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), which is based on [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md). For the complete sample, review [Sample custom built-in Azure Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB).
 
@@ -37,7 +35,7 @@ For more information, review the following documentation:
 
 * Basic knowledge about single-tenant Azure Logic Apps, Standard logic app workflows, connectors, and how to use Visual Studio Code for creating single tenant-based workflows. For more information, review the following documentation:
 
-  * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+  * [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md)
 
   * [Create an integration workflow with single-tenant Azure Logic Apps (Standard) - Azure portal](create-single-tenant-workflows-azure-portal.md)
 
@@ -47,7 +45,7 @@ For more information, review the following documentation:
   >
   > This authoring capability is currently available only in Visual Studio Code.
 
-* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
+* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 
 ## High-level steps
 
@@ -111,6 +109,21 @@ You can add or expose an [Azure Functions trigger or action](../azure-functions/
 
 The following sections describe the methods that the example connector implements. For the complete sample, review [Sample CosmosDbServiceOperationProvider.cs](https://github.com/Azure/logicapps-connector-extensions/blob/CosmosDB/src/CosmosDB/Providers/CosmosDbServiceOperationProvider.cs).
 
+> [!IMPORTANT]
+>
+> When you have sensitive information, such as connection strings that include usernames and passwords, 
+> make sure to use the most secure authentication flow available. For example, Microsoft recommends that 
+> you authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
+> when support is available, and assign a role that has the least required privilege.
+>
+> If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+> [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
+> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+> strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+> app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+> You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+> For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
+
 #### GetService()
 
 The designer requires the following method to get the high-level description for your service:
@@ -143,7 +156,7 @@ public string GetBindingConnectionInformation(string operationId, InsensitiveDic
    return ServiceOperationsProviderUtilities
       .GetRequiredParameterValue(
          serviceId: ServiceId,
-         operationId: operationID,
+         operationId: operationId,
          parameterName: "connectionString",
          parameters: connectionParameters)?
       .ToValue<string>();
@@ -182,7 +195,7 @@ This method has a default implementation, so you don't need to explicitly implem
 
 ## Register your connector
 
-To load your custom built-in connector extension during the Azure Functions runtime start process, you have to add the Azure Functions extension registration as a startup job and register your connector as a service provider in service provider list. Based on the type of data that your built-in trigger needs as inputs, optionally add the converter. This example converts the **Document** data type for Azure Cosmos DB documents to a **JObject** array.
+To load your custom built-in connector extension during the Azure Functions runtime start process, you have to add the Azure Functions extension registration as a startup job and register your connector as a service provider in the service provider list. Based on the type of data that your built-in trigger needs as inputs, optionally add the converter. This example converts the **Document** data type for Azure Cosmos DB documents to a **JObject** array.
 
 The following sections show how to register your custom built-in connector as an Azure Functions extension.
 
@@ -209,7 +222,7 @@ The following sections show how to register your custom built-in connector as an
          public void Configure(IWebJobsBuilder builder)
          {
                // Register the extension.
-               builder.AddExtension<CosmosDbServiceProvider>)();
+               builder.AddExtension<CosmosDbServiceProvider>();
 
                // Use dependency injection (DI) for the trigger service operation provider.
                builder.Services.TryAddSingleton<CosmosDbTriggerServiceOperationsProvider>();
@@ -320,7 +333,7 @@ To add the NuGet reference from the previous section, in the extension bundle na
    If the extension for your custom built-in connector was successfully installed, you get output that looks similar to the following example:
 
    ```output
-   C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell - file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB
+   C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell -file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB
 
    Nuget extension path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\
    Extension dll path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\netcoreapp3.1\Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll
@@ -365,7 +378,6 @@ To add the NuGet reference from the previous section, in the extension bundle na
    |----------|----------|-------|-------------|
    | **Connection name** | Yes | <*Azure-Cosmos-DB-connection-name*> | The name for the Azure Cosmos DB connection to create |
    | **Connection String** | Yes | <*Azure Cosmos DB-DB-connection-string*> | The connection string for the Azure Cosmos DB database collection or lease collection where you want to add each new received document. |
-   |||||
 
    ![Screenshot showing the connection pane when using the connector for the first time.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-create-connection.png)
 
@@ -377,7 +389,6 @@ To add the NuGet reference from the previous section, in the extension bundle na
    |----------|----------|-------|-------------|
    | **Database name** | Yes | <*Azure-Cosmos-DB-database-name*> | The name for the Azure Cosmos DB database to use |
    | **Collection name** | Yes | <*Azure-Cosmos-DB-collection-name*> | The name for the Azure Cosmos DB collection where you want to add each new received document. |
-   |||||
 
    ![Screenshot showing the trigger properties pane.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-trigger-properties.png)
 

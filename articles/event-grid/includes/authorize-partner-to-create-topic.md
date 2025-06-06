@@ -1,11 +1,10 @@
 ---
- title: include file
- description: include file
- services: event-grid
+ title: Authorize partner to create a partner topic
+ description: This article shows how to authorize a partner system so that it can create a partner topic in your subscription. 
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
- ms.date: 10/31/2022
+ ms.date: 02/14/2025
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -15,10 +14,7 @@
 You must grant your consent to the partner to create partner topics in a resource group that you designate. This authorization has an expiration time. It's effective for the time period you specify between 1 to 365 days. 
 
 > [!IMPORTANT]
-> For a greater security stance, specify the minimum expiration time that offers the partner enough time to configure your events to flow to Event Grid and to provision your partner topic. Your partner won't be able to create resources (partner topics) in your Azure subscription after the authorization expiration time. 
-
-> [!NOTE]
-> Event Grid started enforcing authorization checks to create partner topics around June 30th, 2022. 
+> For a greater security stance, specify the minimum expiration time that offers the partner enough time to configure your events to flow to Event Grid and to create your partner topic. Your partner won't be able to create resources (partner topics) in your Azure subscription after the authorization expiration time. 
 
 Following example shows the way to create a partner configuration resource that contains the partner authorization. You must identify the partner by providing either its **partner registration ID** or the **partner name**. Both can be obtained from your partner, but only one of them is required. For your convenience, the following examples leave a sample expiration time in the UTC format.
 
@@ -46,12 +42,12 @@ Following example shows the way to create a partner configuration resource that 
         1. select **Add**. 
     
             :::image type="content" source="./media/subscribe-to-partner-events/add-verified-partner.png" alt-text="Screenshot for granting a verified partner the authorization to create resources in your resource group.":::        
-    1. To authorize a non-verified partner, select **Authorize non-verified partner**, and follow these steps:
+    1. To authorize a nonverified partner, select **Authorize non-verified partner**, and follow these steps:
         1. Enter the **partner registration ID**. You need to ask your partner for this ID. 
         1. Specify authorization expiration time. 
         1. Select **Add**. 
         
-            :::image type="content" source="./media/subscribe-to-partner-events/add-non-verified-partner.png" alt-text="Screenshot for granting a non-verified partner the authorization to create resources in your resource group.":::       
+            :::image type="content" source="./media/subscribe-to-partner-events/add-non-verified-partner.png" alt-text="Screenshot for granting a nonverified partner the authorization to create resources in your resource group.":::       
 
             > [!IMPORTANT]          
             > Your partner won't be able to create resources (partner topics) in your Azure subscription after the authorization expiration time. 

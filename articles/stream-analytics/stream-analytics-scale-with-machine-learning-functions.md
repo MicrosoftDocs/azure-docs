@@ -2,7 +2,7 @@
 title: Scale Machine Learning Studio (classic) functions in Azure Stream Analytics
 description: This article describes how to scale Stream Analytics jobs that use Machine Learning Studio (classic) functions, by configuring partitioning and stream units.
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 01/15/2021
 ---
@@ -11,7 +11,7 @@ ms.date: 01/15/2021
 > [!TIP]
 > It is highly recommended to use [Azure Machine Learning UDFs](machine-learning-udf.md) instead of Machine Learning Studio (classic) UDF for improved performance and reliability.
 
-[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 This article discusses how to efficiently scale Azure Stream Analytics jobs that use Machine Learning Studio (classic) functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
 
@@ -19,7 +19,7 @@ This article discusses how to efficiently scale Azure Stream Analytics jobs that
 
 A Machine Learning Studio (classic) function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. Behind the scenes, however, these function calls are actually Studio (classic) Web Service requests.
 
-You can improve the throughput of Studio (classic) web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Machine Learning Studio (classic) Web Services](../machine-learning/classic/consume-web-services.md). Support for Studio (classic) in Stream Analytics.
+You can improve the throughput of Studio (classic) web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Machine Learning Studio (classic) Web Services](/azure/machine-learning/classic/consume-web-services). Support for Studio (classic) in Stream Analytics.
 
 ## Configure a Stream Analytics job with Studio (classic) functions
 
@@ -53,7 +53,7 @@ In general, ***B*** for batch size, ***L*** for the web service latency at batch
 
 You can also configure the 'max concurrent calls' on the Studio (classic) web service. It's recommended to set this parameter to the maximum value (200 currently).
 
-For more information on this setting, review the [Scaling article for Machine Learning Studio (classic) Web Services](../machine-learning/classic/create-endpoint.md).
+For more information on this setting, review the [Scaling article for Machine Learning Studio (classic) Web Services](/azure/machine-learning/classic/create-endpoint).
 
 ## Example – Sentiment Analysis
 The following example includes a Stream Analytics job with the sentiment analysis Studio (classic) function, as described in the [Stream Analytics Machine Learning Studio (classic) integration tutorial](stream-analytics-machine-learning-integration-tutorial.md).
@@ -135,7 +135,7 @@ To scale a Stream Analytics job with Studio (classic) functions, consider the fo
 2. The tolerated latency for the running Stream Analytics job (and thus the batch size of the Studio (classic) web service requests).
 3. The provisioned Stream Analytics SUs and the number of Studio (classic) web service requests (the additional function-related costs).
 
-A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed, the [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html) is a great resource for getting additional help from the Stream Analytics team.
+A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed, the [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics) is a great resource for getting additional help from the Stream Analytics team.
 
 ## Next steps
 To learn more about Stream Analytics, see:

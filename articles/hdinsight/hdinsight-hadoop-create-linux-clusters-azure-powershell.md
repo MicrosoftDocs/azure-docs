@@ -1,11 +1,14 @@
 ---
 title: Create Apache Hadoop clusters using PowerShell - Azure HDInsight
 description: Learn how to create Apache Hadoop, Apache HBase, or Apache Spark clusters on Linux for HDInsight by using Azure PowerShell.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.tool: azure-powershell
-ms.custom: hdinsightactive, devx-track-azurepowershell
-ms.date: 08/05/2022
+ms.custom: hdinsightactive, devx-track-azurepowershell, linux-related-content
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 01/02/2025
 ---
 
 # Create Linux-based clusters in HDInsight using Azure PowerShell
@@ -18,9 +21,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[Azure PowerShell](/powershell/azure/install-Az-ps) Az module.
+[Azure PowerShell](/powershell/azure/install-azure-powershell) Az module.
 
 ## Create cluster
 
@@ -38,11 +41,11 @@ To create an HDInsight cluster by using Azure PowerShell, you must complete the 
 
 The following script demonstrates how to create a new cluster:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-71)]
+[!Code-powershell[main](../../azure_powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-74)]
 
 The values you specify for the cluster login are used to create the Hadoop user account for the cluster. Use this account to connect to services hosted on the cluster such as web UIs or REST APIs.
 
-The values you specify for the SSH user are used to create the SSH user for the cluster. Use this account to start a remote SSH session on the cluster and run jobs. For more information, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
+The values you specify for the SSH user are used to create the SSH user for the cluster. Use this account to start a remote SSH session on the cluster and run jobs. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 > [!IMPORTANT]  
 > If you plan to use more than 32 worker nodes (either at cluster creation or by scaling the cluster after creation), you must also specify a head node size with at least 8 cores and 14 GB of RAM.

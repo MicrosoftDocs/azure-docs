@@ -3,14 +3,14 @@ title: "include file"
 description: "include file"
 services: app-service
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: "include"
 ms.date: 07/10/2019
 ms.author: cephalin
-ms.custom: "include file, devx-track-azurecli"
+ms.custom: include file, devx-track-azurecli, linux-related-content
 ---
 
-Create a [web app](../articles/app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
+Create a [web app](../articles/app-service/overview.md) in the `myAppServicePlan` App Service plan. 
 
 In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `RUBY|2.6.2`. To see all supported runtimes, run [`az webapp list-runtimes --os linux`](/cli/azure/webapp). 
 

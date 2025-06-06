@@ -1,20 +1,25 @@
 ---
 title: Single sign-on session providers using custom policies
 titleSuffix: Azure AD B2C
-description: Learn how to manage single sign-on sessions using custom policies in Azure AD B2C.
-services: active-directory-b2c
+description: Learn how to manage single sign-on sessions using custom policies in Azure AD B2C. Customize SSO behavior and control the flow of your custom policy.
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 02/03/2022
+ms.date: 03/21/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As a developer configuring session behavior in Azure Active Directory B2C, I want to understand how to use session providers to manage single sign-on (SSO) sessions for different technical profiles, so that I can customize the SSO behavior and control the flow of my custom policy.
+
 ---
 
 # Single sign-on session providers in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In the [Configure session behavior in Azure Active Directory B2C](session-behavior.md) article, we describe the session management for your Azure AD B2C custom policy. This article describes how to further configure the single sign-on (SSO) behavior of any individual technical profile within your custom policy.
 
@@ -47,9 +52,9 @@ The following table shows which session provider to use depending on the type of
 
 |Session provider  |Applicable technical profile types| Purpose |Write claims|Read claims|
 |---------|---------|---------|---------|---------|
-|[DefaultSSOSessionProvider](#defaultssosessionprovider)  | [Self-asserted](self-asserted-technical-profile.md), [Azure Active Directory](active-directory-technical-profile.md), [Azure AD Multi-Factor Authentication](multi-factor-auth-technical-profile.md), [Claims transformation](claims-transformation-technical-profile.md)| Skips technical profile execution.| Yes | Yes |
-|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider) | [OAuth1 identity provider](oauth1-technical-profile.md), [Oauth2 identity provider](oauth2-technical-profile.md), [OpenID Connect identity provider](openid-connect-technical-profile.md), [SAML identity provider](saml-identity-provider-technical-profile.md)| Accelerate identity provider selection page. Performing single-logout.|Yes|Yes|
-|[OAuthSSOSessionProvider](#oauthssosessionprovider) |[JWT token issuer](jwt-issuer-technical-profile.md) | Manages session between OAuth2 or OpenId Connect relying party and Azure AD B2C. Performs single-logout. | No | No |
+|[DefaultSSOSessionProvider](#defaultssosessionprovider)  | [Self-asserted](self-asserted-technical-profile.md), [Microsoft Entra ID](active-directory-technical-profile.md), [Microsoft Entra multifactor authentication](multi-factor-auth-technical-profile.md), [Claims transformation](claims-transformation-technical-profile.md)| Skips technical profile execution.| Yes | Yes |
+|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider) | [OAuth1 identity provider](oauth1-technical-profile.md), [OAuth2 identity provider](oauth2-technical-profile.md), [OpenID Connect identity provider](openid-connect-technical-profile.md), [SAML identity provider](saml-identity-provider-technical-profile.md)| Accelerate identity provider selection page. Performing single-logout.|Yes|Yes|
+|[OAuthSSOSessionProvider](#oauthssosessionprovider) |[JWT issuer](jwt-issuer-technical-profile.md) | Manages session between OAuth2 or OpenId Connect relying party and Azure AD B2C. Performs single-logout. | No | No |
 |[SamlSSOSessionProvider](#samlssosessionprovider) | [SAML token issuer](saml-issuer-technical-profile.md) | Manages session between SAML relying party and Azure AD B2C. Performs single-logout. | No | No |
 |[NoopSSOSessionProvider](#noopssosessionprovider) |Any| Suppress any technical profile from being part of the session.| No | No |
 
@@ -67,7 +72,7 @@ To use a session provider in your technical profile:
 
     ```xml
     <TechnicalProfile Id="SM-AAD">
-      <DisplayName>Session Mananagement Provider</DisplayName>
+      <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <PersistedClaims>
         <PersistedClaim ClaimTypeReferenceId="objectId" />
@@ -170,7 +175,7 @@ For example, the `SM-AAD`session management technical profile uses the `DefaultS
 
 ## ExternalLoginSSOSessionProvider
 
-The `ExternalLoginSSOSessionProvider` session provider is used to skip the "identity provider selection" screen and sign-out from a federated identity provider. It’s typically referenced in a technical profile configured for a federated identity provider, such as Facebook, or Azure Active Directory.
+The `ExternalLoginSSOSessionProvider` session provider is used to skip the "identity provider selection" screen and sign-out from a federated identity provider. It’s typically referenced in a technical profile configured for a federated identity provider, such as Facebook or Microsoft Entra ID.
 
 - **Fresh logon**
   - The `PersistedClaims` element will write claims into the session cookie. Persisted claims can’t be rewritten.
@@ -287,9 +292,9 @@ To use the `SM-Saml-issuer` session management technical profile, add a referenc
 The `NoopSSOSessionProvider` session provider is used to suppress single sign on behavior. Technical profiles that use this type of session provider will always be processed, even when the user has an active session. This type of session provider can be useful to force particular technical profiles to always run, for example:
 
 - [Claims transformation](claims-transformation-technical-profile.md) - To create, or transform claims that are later used to determine which orchestration steps to process or skip.
-- [Restful](restful-technical-profile.md) - Fetch updated data from a Restful service each time the policy runs. You can also call a Restful for extended logging, and auditing.
+- [RESTful](restful-technical-profile.md) - Fetch updated data from a RESTful service each time the policy runs. You can also call a RESTful for extended logging, and auditing.
 - [Self-asserted](self-asserted-technical-profile.md) - Force the user to provide data each time the policy runs. For example, verify emails with one-time pass-code, or ask the user's consent.
-- [Phonefactor](phone-factor-technical-profile.md) - Force the user to perform Multi Factor Authentication as part of a "step up authentication", even during subsequent logons (single sign-on).
+- [Phonefactor](phone-factor-technical-profile.md) - Force the user to perform multifactor authentication as part of a "step up authentication" even during subsequent logons (single sign-on).
 
 This type of session provider doesn't persist claims to the user's session cookie. The following `SM-Noop` technical profile is type of `NoopSSOSessionProvider` session provider. The `SM-Noop` technical profile can be found in the [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack).
 
@@ -309,7 +314,6 @@ To suppress single sign on behavior of a technical profile, add a reference to `
 </TechnicalProfile>
 ```
 
-## Next steps
+## Related content
 
 Learn how to [configure session behavior](session-behavior.md).
-

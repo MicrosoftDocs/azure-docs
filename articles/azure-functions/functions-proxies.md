@@ -40,7 +40,7 @@ After you have your function app endpoints exposed by using API Management, the 
 | [Edit an API](../api-management/edit-api.md) | Shows you how to work with an existing API hosted in API Management. | 
 | [Policies in Azure API Management](../api-management/api-management-howto-policies.md) | In API Management, publishers can change API behavior through configuration using policies. Policies are a collection of statements that are run sequentially on the request or response of an API. |
 | [API Management policy reference](../api-management/api-management-policies.md) | Reference that details all supported API Management policies. |
-| [API Management policy samples](../api-management/policies/index.md) | Helpful collection of samples using API Management policies in key scenarios. |
+| [API Management policy samples](https://github.com/Azure/api-management-policy-snippets) | Helpful collection of samples using API Management policies in key scenarios. |
 
 ## Legacy Functions Proxies
 

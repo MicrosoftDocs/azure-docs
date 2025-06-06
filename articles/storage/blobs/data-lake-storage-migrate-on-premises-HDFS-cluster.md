@@ -1,20 +1,19 @@
 ---
 title: Migrate from on-premises HDFS store to Azure Storage with Azure Data Box
 titleSuffix: Azure Storage
-description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
+description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage) by using a Data Box device.
 author: normesta
 
-ms.service: storage
-ms.date: 03/09/2023
+ms.service: azure-data-lake-storage
+ms.date: 04/18/2025
 ms.author: normesta
 ms.topic: how-to
-ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ---
 
 # Migrate from on-premises HDFS store to Azure Storage with Azure Data Box
 
-You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from Data Box Disk, an 80-TB Data Box or a 770-TB Data Box Heavy.
+You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage) by using a Data Box device. You can choose from Data Box Disk, a Data Box with a capacity of either 80, 120, or 525 TiB, or a 770 TiB Data Box Heavy.
 
 This article helps you complete these tasks:
 
@@ -22,7 +21,7 @@ This article helps you complete these tasks:
 > - Prepare to migrate your data
 > - Copy your data to a Data Box Disk, Data Box or a Data Box Heavy device
 > - Ship the device back to Microsoft
-> - Apply access permissions to files and directories (Data Lake Storage Gen2 only)
+> - Apply access permissions to files and directories (Data Lake Storage only)
 
 ## Prerequisites
 
@@ -127,7 +126,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
 
     - Replace the `<container-name>` placeholder with the name of your container.
 
-    - Replace the `<exlusion_filelist_file>` placeholder with the name of the file that contains your list of file exclusions.
+    - Replace the `<exclusion_filelist_file>` placeholder with the name of the file that contains your list of file exclusions.
 
     - Replace the `<source_directory>` placeholder with the name of the directory that contains the data that you want to copy.
 
@@ -192,16 +191,16 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 5. After Microsoft receives your device, it's connected to the data center network, and the data is uploaded to the storage account you specified when you placed the device order. Verify against the BOM files that all your data is uploaded to Azure.
 
-## Apply access permissions to files and directories (Data Lake Storage Gen2 only)
+## Apply access permissions to files and directories (Data Lake Storage only)
 
 You already have the data into your Azure Storage account. Now you apply access permissions to files and directories.
 
 > [!NOTE]
-> This step is needed only if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you can skip this section.
+> This step is needed only if you are using Azure Data Lake Storage as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you can skip this section.
 
-### Create a service principal for your Azure Data Lake Storage Gen2 enabled account
+### Create a service principal for your Azure Data Lake Storage enabled account
 
-To create a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
+To create a service principal, see [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 - When performing the steps in the [Assign the application to a role](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
@@ -221,7 +220,9 @@ This command generates a list of copied files with their permissions.
 > [!NOTE]
 > Depending on the number of files in the HDFS, this command can take a long time to run.
 
-### Generate a list of identities and map them to Azure Active Directory identities
+<a name='generate-a-list-of-identities-and-map-them-to-azure-active-directory-identities'></a>
+
+### Generate a list of identities and map them to Microsoft Entra identities
 
 1. Download the `copy-acls.py` script. See the [Download helper scripts and set up your edge node to run them](#download-helper-scripts) section of this article.
 
@@ -236,11 +237,11 @@ This command generates a list of copied files with their permissions.
 
 3. Open the `id_map.json` file in a text editor.
 
-4. For each JSON object that appears in the file, update the `target` attribute of either an Azure AD User Principal Name (UPN) or ObjectId (OID), with the appropriate mapped identity. After you're done, save the file. You'll need this file in the next step.
+4. For each JSON object that appears in the file, update the `target` attribute of either a Microsoft Entra user Principal Name (UPN) or ObjectId (OID), with the appropriate mapped identity. After you're done, save the file. You'll need this file in the next step.
 
 ### Apply permissions to copied files and apply identity mappings
 
-Run this command to apply permissions to the data that you copied into the Data Lake Storage Gen2 enabled account:
+Run this command to apply permissions to the data that you copied into the Data Lake Storage enabled account:
 
 ```bash
 ./copy-acls.py -s ./filelist.json -i ./id_map.json  -A <storage-account-name> -C <container-name> --dest-spn-id <application-id>  --dest-spn-secret <client-secret>
@@ -296,7 +297,7 @@ Before you move your data onto a Data Box device, you need to download some help
 
 If the size of your data exceeds the size of a single Data Box device, you can split up files into groups that you can store onto multiple Data Box devices.
 
-If your data doesn't exceed the size of a singe Data Box device, you can proceed to the next section.
+If your data doesn't exceed the size of a single Data Box device, you can proceed to the next section.
 
 1. With elevated permissions, run the `generate-file-list` script that you downloaded by following the guidance in the previous section.
 
@@ -349,4 +350,4 @@ Here's an example:
 
 ## Next steps
 
-Learn how Data Lake Storage Gen2 works with HDInsight clusters. For more information, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Learn how Data Lake Storage works with HDInsight clusters. For more information, see [Use Azure Data Lake Storage with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).

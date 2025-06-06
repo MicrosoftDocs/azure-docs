@@ -17,4 +17,4 @@ Start using the Bing Entity Search API by creating one of the following Azure re
     
 ### [Multi-Service resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
    * Available through the Azure portal until you delete the resource.  
-   * Use the same key and endpoint for your applications, across multiple Cognitive Services.
+   * Use the same key and endpoint for your applications, across multiple Azure AI services.

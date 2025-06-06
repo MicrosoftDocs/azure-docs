@@ -3,11 +3,10 @@ title: Avro format
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with Avro format in Azure Data Factory and Synapse Analytics.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 01/05/2024
 ms.author: jianleishen
 ---
 
@@ -118,12 +117,12 @@ The below table lists the properties supported by an avro sink. You can edit the
 ## Data type support
 
 ### Copy activity
-Avro [complex data types](https://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed) in Copy Activity.
+Avro complex data types are not supported (records, enums, arrays, maps, unions, and fixed) in Copy Activity.
 
 ### Data flows
 When working with Avro files in data flows, you can read and write complex data types, but be sure to clear the physical schema from the dataset first. In data flows, you can set your logical projection and derive columns that are complex structures, then auto-map those fields to an Avro file.
 
-## Next steps
+## Related content
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)

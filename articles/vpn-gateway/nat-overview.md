@@ -3,9 +3,9 @@ title: 'About NAT (Network Address Translation) on VPN Gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn about NAT (Network Address Translation) in Azure VPN to connect networks with overlapping address spaces.
 author: cherylmc
-ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 05/11/2022
+ms.service: azure-vpn-gateway
+ms.topic: concept-article
+ms.date: 10/16/2024
 ms.author: cherylmc
 ms.custom: template-concept
 ---
@@ -80,31 +80,31 @@ The following diagram shows an example of Azure VPN NAT configurations:
 
 The diagram shows an Azure VNet and two on-premises networks, all with address space of 10.0.1.0/24. To connect these two networks to the Azure VNet and VPN gateway, create the following rules:
 
-* IngressSNAT rule 1: This rule translates the on-premises address space 10.0.1.0/24 to 100.0.2.0/24.
+* IngressSNAT rule 1: This rule translates the on-premises address space 10.0.1.0/24 192.168.2.0/24.
 
-* IngressSNAT rule 2: This rule translates the on-premises address space 10.0.1.0/24 to 100.0.3.0/24.
+* IngressSNAT rule 2: This rule translates the on-premises address space 10.0.1.0/24 to 192.168.3.0/24.
 
-* EgressSNAT rule 1: This rule translates the VNet address space 10.0.1.0/24 to 100.0.1.0/24.
+* EgressSNAT rule 1: This rule translates the VNet address space 10.0.1.0/24 to 192.168.1.0/24.
 
 In the diagram, each connection resource has the following rules:
 
 * Connection 1 (VNet-Branch1):
-    * IngressSNAT rule 1
-    * EgressSNAT rule 1
+  * IngressSNAT rule 1
+  * EgressSNAT rule 1
 
 * Connection 2 (VNet-Branch2)
-    * IngressSNAT rule 2
-    * EgressSNAT rule 1
+  * IngressSNAT rule 2
+  * EgressSNAT rule 1
 
 Based on the rules associated with the connections, here are the address spaces for each network:
 
-| Network  | Original    | Translated   |
-| ---      | ---         | ---          |
-| VNet     | 10.0.1.0/24 | 100.0.1.0/24 |
-| Branch 1 | 10.0.1.0/24 | 100.0.2.0/24 |
-| Branch 2 | 10.0.1.0/24 | 100.0.3.0/24 |
+| Network  | Original    | Translated     |
+| ---      | ---         | ---            |
+| VNet     | 10.0.1.0/24 | 192.168.1.0/24 |
+| Branch 1 | 10.0.1.0/24 | 192.168.2.0/24 |
+| Branch 2 | 10.0.1.0/24 | 192.168.3.0/24 |
 
-The diagram below shows an IP packet from Branch 1 to VNet, before and after the NAT translation:
+The following diagram shows an IP packet from Branch 1 to VNet, before and after the NAT translation:
 
 :::image type="content" source="./media/nat-overview/nat-packet.png" alt-text="Diagram showing before and after NAT translation." lightbox="./media/nat-overview/nat-packet.png" border="false":::
 
@@ -117,9 +117,9 @@ The diagram below shows an IP packet from Branch 1 to VNet, before and after the
 
 ## <a name="config"></a>NAT configuration
 
-To implement the NAT configuration as shown above, first create the NAT rules in your Azure VPN gateway, then create the connections with the corresponding NAT rules associated. See [Configure NAT on Azure VPN gateways](nat-howto.md) for steps to configure NAT for your cross-premises connections.
+To implement the NAT configuration shown in the previous section, first create the NAT rules in your Azure VPN gateway, then create the connections with the corresponding NAT rules associated. See [Configure NAT on Azure VPN gateways](nat-howto.md) for steps to configure NAT for your cross-premises connections.
 
-## NAT limitations
+## NAT limitations and considerations
 
 [!INCLUDE [NAT limitations](../../includes/vpn-gateway-nat-limitations.md)]
 

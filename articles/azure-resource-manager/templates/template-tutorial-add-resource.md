@@ -1,10 +1,8 @@
 ---
 title: Tutorial - Add resource to template
 description: Describes the steps to create your first Azure Resource Manager template (ARM template). You learn about the template file syntax and how to deploy a storage account.
-author: mumian
-ms.date: 06/14/2022
+ms.date: 06/20/2024
 ms.topic: tutorial
-ms.author: jgao
 ms.custom: devx-track-arm-template
 ---
 

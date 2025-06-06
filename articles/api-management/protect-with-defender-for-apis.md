@@ -4,14 +4,18 @@ description: Learn how to enable advanced API security features in Azure API Man
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 07/11/2024
 ms.author: danlep
 ---
 # Enable advanced API security features using Microsoft Defender for Cloud 
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
+
 [Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), offers full lifecycle protection, detection, and response coverage for APIs that are managed in Azure API Management. The service empowers security practitioners to gain visibility into their business-critical APIs, understand their security posture, prioritize vulnerability fixes, and detect active runtime threats within minutes. 
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 Capabilities of Defender for APIs include:
 
@@ -24,9 +28,7 @@ Capabilities of Defender for APIs include:
 
 This article shows how to use the Azure portal to enable Defender for APIs from your API Management instance and view a summary of security recommendations and alerts for onboarded APIs. 
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
-## Preview limitations
+## Plan limitations
 
 * Currently, Defender for APIs discovers and analyzes REST APIs only. 
 * Defender for APIs currently doesn't onboard APIs that are exposed using the API Management [self-hosted gateway](self-hosted-gateway-overview.md) or managed using API Management [workspaces](workspaces-overview.md).
@@ -35,7 +37,7 @@ This article shows how to use the Azure portal to enable Defender for APIs from 
 
 ## Prerequisites
 
-* At least one API Management instance in an Azure subscription. Defender for APIs is enabled at the level of a subscription. 
+* At least one API Management instance in an Azure subscription. Defender for APIs is enabled at the level of an Azure subscription. 
 * One or more supported APIs must be imported to the API Management instance.
 * Role assignment to [enable the Defender for APIs plan](/azure/defender-for-cloud/permissions).
 * Contributor or Owner role assignment on relevant Azure subscriptions, resource groups, or API Management instances that you want to secure. 
@@ -52,7 +54,7 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 
 1. Sign in to the [portal](https://portal.azure.com), and go to your API Management instance.
 
-1. In the left menu, select **Microsoft Defender for Cloud (preview)**.
+1. In the left menu, select **Microsoft Defender for Cloud**.
 
 1. Select **Enable Defender on the subscription**.
 
@@ -68,7 +70,7 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 > Onboarding APIs to Defender for APIs may increase compute, memory, and network utilization of your API Management instance, which in extreme cases may cause an outage of the API Management instance. Do not onboard all APIs at one time if your API Management instance is running at high utilization. Use caution by gradually onboarding APIs, while monitoring the utilization of your instance (for example, using [the capacity metric](api-management-capacity.md)) and scaling out as needed. 
 
 1. In the portal, go back to your API Management instance.
-1. In the left menu, select **Microsoft Defender for Cloud (preview)**.
+1. In the left menu, select **Microsoft Defender for Cloud**.
 1. Under **Recommendations**, select **Azure API Management APIs should be onboarded to Defender for APIs**.
     :::image type="content" source="media/protect-with-defender-for-apis/defender-for-apis-recommendations.png" alt-text="Screenshot of Defender for APIs recommendations in the portal." lightbox="media/protect-with-defender-for-apis/defender-for-apis-recommendations.png":::
 1. On the next screen, review details about the recommendation:
@@ -93,9 +95,9 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 
 After you onboard the APIs from API Management, Defender for APIs receives API traffic that will be used to build security insights and monitor for threats. Defender for APIs generates security recommendations for risky and vulnerable APIs.  
 
-You can view a summary of all security recommendations and alerts for onboarded APIs by selecting **Microsoft Defender for Cloud (preview)** in the menu for your API Management instance:
+You can view a summary of all security recommendations and alerts for onboarded APIs by selecting **Microsoft Defender for Cloud** in the menu for your API Management instance:
 
-1. In the portal, go to your API Management instance and select **Microsoft Defender for Cloud (preview**) from the left menu.
+1. In the portal, go to your API Management instance and select **Microsoft Defender for Cloud** from the left menu.
 1. Review **Recommendations** and **Security insights and alerts**.
 
     :::image type="content" source="media/protect-with-defender-for-apis/view-security-insights.png" alt-text="Screenshot of API security insights in the portal." lightbox="media/protect-with-defender-for-apis/view-security-insights.png":::
@@ -106,8 +108,9 @@ For the security alerts received, Defender for APIs suggests necessary steps to 
 
 You can remove APIs from protection by Defender for APIs by using Defender for Cloud in the portal. For more information, see [Manage your Defender for APIs deployment](/azure/defender-for-cloud/defender-for-apis-manage).
 
-## Next steps
+## Related content
 
 * Learn more about [Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
 * Learn more about [API findings, recommendations, and alerts](/azure/defender-for-cloud/defender-for-apis-posture) in Defender for APIs
+Learn how to [build a comprehensive API security strategy](https://aka.ms/API-Security-EBook)
 * Learn how to [upgrade and scale](upgrade-and-scale.md) an API Management instance

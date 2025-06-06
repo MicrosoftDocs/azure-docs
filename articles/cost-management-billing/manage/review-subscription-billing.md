@@ -1,13 +1,13 @@
 ---
 title: Review Azure subscription billing data with REST API
 description: Learn how to use Azure REST APIs to review subscription billing details. You can use filters to help customize results.
-author: bandersmsft
-ms.reviewer: adwise
+author: maddieminn
+ms.reviewer: maminn
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: article
-ms.date: 04/05/2023
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: maminn
 # Customer intent: As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 ---
 
@@ -29,7 +29,7 @@ Authorization: Bearer
 
 The `{subscriptionID}` parameter is required and identifies the target subscription.
 
-The `{billingPeriod}` parameter is required and specifies a current [billing period](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods). The billingPeriod parameter must be formatted without dashes. For example, `202112`. If a day of the month is added to billingPeriod, it is ignored.
+The `{billingPeriod}` parameter is required and specifies a current billing period. The billingPeriod parameter must be formatted without dashes. For example, `202112`. If a day of the month is added to billingPeriod, it is ignored.
 
 The `${startDate}` and `${endDate}` parameters are required for this example, but optional for the endpoint. They specify the date range as strings in the form of YYYY-MM-DD. For example, `2018-05-01` and `2018-06-15`. Dashes are required for startDate and endDate.
 
@@ -76,7 +76,7 @@ Each item in **value** represents a details regarding the use of a service:
 |**subscriptionGuid** | Globally unique ID for the subscription. |
 |**startDate** | Date the use started. |
 |**endDate** | Date the use ended. |
-|**useageQuantity** | Quantity used. |
+|**usageQuantity** | Quantity used. |
 |**billableQuantity** | Quantity actually billed. |
 |**pretaxCost** | Cost invoiced, before applicable taxes. |
 |**meterDetails** | Detailed information about the use. |
@@ -98,6 +98,4 @@ Other status codes indicate error conditions. In these cases, the response objec
 ```
 
 ## Next steps
-- Review [Enterprise reporting overview](./enterprise-api.md)
-- Investigate [Enterprise Billing REST API](/rest/api/billing/)
 - [Get started with Azure REST API](/rest/api/azure/)

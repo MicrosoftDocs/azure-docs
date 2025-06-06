@@ -1,114 +1,146 @@
 ---
-title: "Tutorial: Use dynamic configuration in a .NET Core app"
+title: "Tutorial: Use dynamic configuration in a .NET app"
 titleSuffix: Azure App Configuration
-description: In this tutorial, you learn how to dynamically update the configuration data for .NET Core apps
+description: In this tutorial, you learn how to dynamically update the configuration data for .NET apps
 services: azure-app-configuration
-documentationcenter: ''
-author: mcleanbyron
+author: maud-lv
 manager: zhenlan
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
-ms.date: 07/01/2019
-ms.author: mcleans
-
-#Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
+ms.date: 03/19/2025
+ms.author: malev
+#Customer intent: I want to dynamically update my .NET app to use the latest configuration data in App Configuration.
 ---
-# Tutorial: Use dynamic configuration in a .NET Core app
+# Tutorial: Use dynamic configuration in a .NET app
 
-The App Configuration .NET provider library supports updating configuration on demand without causing an application to restart. This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the app introduced in the quickstart. You should finish [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md) before continuing.
+The App Configuration .NET provider library supports updating configuration on demand without causing an application to restart. This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the app introduced in the quickstart. You should finish [Create a .NET app with App Configuration](./quickstart-dotnet-core-app.md) before continuing.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available on the Windows, macOS, and Linux platforms.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up your .NET Core app to update its configuration in response to changes in an App Configuration store.
+> * Set up your .NET app to update its configuration in response to changes in an App Configuration store.
 > * Consume the latest configuration in your application.
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-Finish the quickstart [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md).
+Finish the quickstart [Create a .NET app with App Configuration](./quickstart-dotnet-core-app.md).
 
 ## Activity-driven configuration refresh
 
-Open *Program.cs* and update the code as following.
+Open *Program.cs* and update the file with the following code. You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID.
+
+You use the `DefaultAzureCredential` to authenticate to your App Configuration store. While completing the quickstart listed in the prerequisites, you already [assigned your credential the **App Configuration Data Reader role**](./concept-enable-rbac.md#authentication-with-token-credentials).
 
 ```csharp
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-using System;
-using System.Threading.Tasks;
+using Azure.Identity;
 
-namespace TestConsole
+IConfiguration _configuration = null;
+IConfigurationRefresher _refresher = null;
+
+var builder = new ConfigurationBuilder();
+builder.AddAzureAppConfiguration(options =>
 {
-    class Program
-    {
-        private static IConfiguration _configuration = null;
-        private static IConfigurationRefresher _refresher = null;
+    string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
+    options.Connect(new Uri(endpoint), new DefaultAzureCredential())            
+           // Load the key-value with key "TestApp:Settings:Message" and no label
+           .Select("TestApp:Settings:Message")
+           // Reload configuration if any selected key-values have changed.
+           .ConfigureRefresh(refresh =>
+           {
+               refresh.RegisterAll()
+                      .SetRefreshInterval(TimeSpan.FromSeconds(10));
+           })
 
-        static void Main(string[] args)
-        {
-            var builder = new ConfigurationBuilder();
-            builder.AddAzureAppConfiguration(options =>
-            {
-                options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                        .ConfigureRefresh(refresh =>
-                        {
-                            refresh.Register("TestApp:Settings:Message")
-                                   .SetCacheExpiration(TimeSpan.FromSeconds(10));
-                        });
+    _refresher = options.GetRefresher();
+});
 
-                _refresher = options.GetRefresher();
-            });
+_configuration = builder.Build();
 
-            _configuration = builder.Build();
-            PrintMessage().Wait();
-        }
+Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
 
-        private static async Task PrintMessage()
-        {
-            Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
+// Wait for the user to press Enter
+Console.ReadLine();
 
-            // Wait for the user to press Enter
-            Console.ReadLine();
+if (_refresher != null)
+{
+    await _refresher.TryRefreshAsync();
+    Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
 
-            await _refresher.TryRefreshAsync();
-            Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
-        }
-    }
 }
 ```
 
-In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
+Inside the `ConfigureRefresh` method, you call the `RegisterAll` method to instruct the App Configuration provider to reload the entire configuration whenever it detects a change in any of the selected key-values (in this case, just *TestApp:Settings:Message*). For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
 
-Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid phantom requests sent to App Configuration even when your application is idle. You will want to include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time you press the Enter key. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
+The `SetRefreshInterval` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
+
+Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid requests sent to App Configuration even when your application is idle. You'll want to include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time you press the Enter key. Even if the call `TryRefreshAsync` fails for any reason, your application continues to use the cached configuration. Another attempt is made when the configured refresh interval has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured refresh interval elapses, so its performance impact is minimal, even if it's called frequently.
+
+### Configuration refresh using dependency injection
+
+In the previous code, you're manually saving an instance of `IConfigurationRefresher` to invoke `TryRefreshAsync`. Alternatively, if you're using dependency injection to resolve your services, you can reference the following steps.
+
+1. Register the required App Configuration services by invoking `AddAzureAppConfiguration` on your `IServiceCollection`.
+
+    Add the following code to *Program.cs*. 
+
+    ```csharp
+    // Existing code in Program.cs
+    // ... ...
+
+    // Add Azure App Configuration services to IServiceCollection
+    builder.Services.AddAzureAppConfiguration();
+    ```
+
+1. Refresh your configuration by resolving an instance of `IConfigurationRefresherProvider` from your service collection and invoking `TryRefreshAsync` on each of its refreshers.
+    
+    ```csharp
+    class SampleConfigRefresher
+    {
+        private readonly IEnumerable<IConfigurationRefresher> _refreshers = null;
+
+        public SampleConfigRefresher(IConfigurationRefresherProvider refresherProvider)
+        {
+            _refreshers = refresherProvider.Refreshers;
+        }
+
+        public async Task RefreshConfiguration()
+        {
+            foreach (var refresher in _refreshers)
+            {
+                _ = refresher.TryRefreshAsync();
+            }
+        }
+    }
+    ```
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
-    ```console
-     setx ConnectionString "connection-string-of-your-app-configuration-store"
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx Endpoint "<endpoint-of-your-app-configuration-store>"
     ```
 
-    If you use Windows PowerShell, run the following command:
+    If you use PowerShell, run the following command:
 
     ```powershell
-     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
-    ```console
-     export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```bash
+    export Endpoint='<endpoint-of-your-app-configuration-store>'
     ```
 
 1. Run the following command to build the console app:
@@ -138,7 +170,7 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
     ![Quickstart app refresh local](./media/quickstarts/dotnet-core-app-run-refresh.png)
     
     > [!NOTE]
-    > Since the cache expiration time was set to 10 seconds using the `SetCacheExpiration` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
+    > Since the refresh interval was set to 10 seconds using the `SetRefreshInterval` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
 
 ## Logging and monitoring
 
@@ -187,7 +219,7 @@ Logs are output upon configuration refresh and contain detailed information on k
 
 ## Next steps
 
-In this tutorial, you enabled your .NET Core app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your .NET app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

@@ -1,35 +1,30 @@
 ---
-title: 'Tutorial: Configure a virtual network gateway for ExpressRoute using PowerShell'
+title: 'Configure a virtual network gateway for ExpressRoute using PowerShell'
 description: This tutorial walks you through adding a virtual network gateway to a VNet for ExpressRoute using Azure PowerShell.
 services: expressroute
 author: duongau
-
-ms.service: expressroute
-ms.topic: tutorial
-ms.date: 07/22/2022
+ms.service: azure-expressroute
+ms.topic: how-to
+ms.date: 12/06/2024
 ms.author: duau
-ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
-
+ms.custom: devx-track-azurepowershell
 ---
-# Tutorial: Configure a virtual network gateway for ExpressRoute using PowerShell
+# Configure a virtual network gateway for ExpressRoute using PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)
 > 
 
-This tutorial walks you through the steps to add, resize, and remove a virtual network gateway for a pre-existing virtual network (VNet) using PowerShell. The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
+This article walks you through the steps to add, resize, and remove a virtual network gateway for a preexisting virtual network (VNet) using PowerShell. The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Create a gateway subnet.
-> - Create Virtual Network gateway.
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing an ExpressRoute gateway connected to the ExpressRoute circuit." lightbox="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png":::
 
 ## Prerequisites
 
 ### Configuration reference list
 
-The steps for this task use a VNet based on the values in the following configuration reference list. Additional settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
+The steps for this task use a VNet based on the values in the following configuration reference list. More settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
 
 | Setting                   | Value                                              |
 | ---                       | ---                                                |
@@ -41,7 +36,7 @@ The steps for this task use a VNet based on the values in the following configur
 | Subnet1 Name | *FrontEnd* |
 | Gateway Subnet name | *GatewaySubnet* |    
 | Gateway Subnet address space | *192.168.200.0/26* |
-| Region | *East US* |
+| Region | *West US* |
 | Gateway Name | *GW* |   
 | Gateway IP Name | *GWIP* |
 | Gateway IP configuration Name | *gwipconf* |
@@ -50,13 +45,29 @@ The steps for this task use a VNet based on the values in the following configur
 
 ## Add a gateway
 
+> [!IMPORTANT]
+> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku** or use Non-AZ SKU (Standard, HighPerformance, UltraPerformance) for -GatewaySKU with Standard and Static Public IP.
+> 
+
 1. To connect with Azure, run `Connect-AzAccount`.
 
 1. Declare your variables for this tutorial. Be sure to edit the sample to reflect the settings that you want to use.
 
    ```azurepowershell-interactive 
    $RG = "TestRG"
-   $Location = "East US"
+   $Location = "West US"
+   $GWName = "GW"
+   $GWIPName = "GWIP"
+   $GWIPconfName = "gwipconf"
+   $VNetName = "TestVNet"
+   ```
+
+    If you want to create the gateway in an Azure Extended Zone, add the **$ExtendedLocation** variable.
+
+   ```azurepowershell-interactive 
+   $RG = "TestRG"
+   $Location = "West US"
+   $ExtendedLocation = "losangeles"
    $GWName = "GW"
    $GWIPName = "GWIP"
    $GWIPconfName = "gwipconf"
@@ -90,13 +101,16 @@ The steps for this task use a VNet based on the values in the following configur
 1. Request a public IP address. The IP address is requested before creating the gateway. You can't specify the IP address that you want to use; it’s dynamically assigned. You'll use this IP address in the next configuration section. The AllocationMethod must be Dynamic.
 
    ```azurepowershell-interactive
-   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
-   ```
-      
-   If you plan to use IPv6-based private peering over ExpressRoute, set the IP SKU to Standard and the AllocationMethod to Static:
-   ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard
    ```
+    If you want to create the gateway in an Azure Extended Zone, request a public IP address in the Extended Zone using the **-ExtendedLocation** parameter.
+
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -ExtendedLocation $ExtendedLocation -AllocationMethod Static -SKU Standard
+   ```
+
+   > [!NOTE]
+   > Basic SKU public IP isn't supported with new ExpressRoute virtual network gateway.
    
 1. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you're specifying the configuration that will be used when you create the gateway. Use the following sample to create your gateway configuration.
 
@@ -108,12 +122,22 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
-> [!IMPORTANT]
-> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **-GatewaySku** or use Non-AZ SKU (Standard, HighPerformance, UltraPerformance) for -GatewaySKU with Standard and Static Public IP.
-> 
-> 
+    If you want to create the gateway in an Azure Extended Zone, add the **-ExtendedLocation** parameter.
+
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -ExtendedLocation $ExtendedLocation -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
+   ```
+
+   > [!NOTE]
+   > To create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), you must first [request access to the Extended Zone](../extended-zones/request-access.md). Once you have access, you can create the gateway.
+   >
+   > The following considerations apply when creating a virtual network gateway in an Extended Zone:
+   > - Availability Zones aren't supported in Azure Extended Zones.
+   > - The following SKUs are currently supported in Azure Extended Zones: *Standard*, *HighPerformance*, *UltraPerformance*.
+   > - Local SKU circuit isn't supported with gateways in Azure Extended Zone.
 
 ## Verify the gateway was created
+
 Use the following commands to verify that the gateway has been created:
 
 ```azurepowershell-interactive
@@ -121,6 +145,7 @@ Get-AzVirtualNetworkGateway -ResourceGroupName $RG
 ```
 
 ## Resize a gateway
+
 There are a number of [gateway SKUs](expressroute-about-virtual-network-gateways.md). You can use the following command to change the Gateway SKU at any time.
 
 ```azurepowershell-interactive

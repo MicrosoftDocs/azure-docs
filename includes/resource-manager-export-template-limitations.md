@@ -1,9 +1,9 @@
 ---
-author: tfitzmac
+author: mumian
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 03/22/2023
-ms.author: tomfitz
+ms.date: 10/25/2024
+ms.author: jgao
 ---
 
 ## Limitations
@@ -16,7 +16,7 @@ Some password parameters might be missing from the exported templates. You need 
 
 The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](../articles/data-factory/copy-clone-data-factory.md).
 
-To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](../articles/virtual-machines/migration-classic-resource-manager-overview.md).
+To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](/azure/virtual-machines/migration-classic-resource-manager-overview).
 
 If you get a warning when exporting a template that indicates a resource type wasn't exported, you can still discover the properties for that resource. For resource properties, see [template reference](/azure/templates). You can also look at the [Azure REST API](/rest/api/azure/) for the resource type.
 

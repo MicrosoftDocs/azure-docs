@@ -1,25 +1,20 @@
 ---
 title: Parsing JSON and AVRO in Azure Stream Analytics
-description: This article describes how to operate on complex data types like arrays, JSON, CSV formatted data.
-ms.service: stream-analytics
-author: ajetasin
-ms.author: ajetasi
-ms.topic: conceptual
-ms.date: 01/29/2020
-ms.custom: devx-track-js
+description: This article describes how to operate on complex data types like arrays, JSON, CSV formatted data when using Azure Stream Analytics.
+ms.service: azure-stream-analytics
+author: an-emma
+ms.author: raan
+ms.topic: concept-article
+ms.date: 01/23/2025
+# Customer intent: I want to know about Azure Stream Analytics support for parsing JSON and AVRO data. 
 ---
 # Parse JSON and Avro data in Azure Stream Analytics
 
-Azure Stream Analytics support processing events in CSV, JSON, and Avro data formats. Both JSON and Avro data can be structured and contain some complex types such as nested objects (records) and arrays. 
-
->[!NOTE]
->AVRO files created by Event Hub Capture use a specific format that requires you to use the *custom deserializer* feature. For more information, see [Read input in any format using .NET custom deserializers](./custom-deserializer-examples.md).
->
->Stream Analytics AVRO deserialization does not support Map type. Stream Analytics can't read EventHub capture blobs because EventHub capture uses map.
+The Azure Stream Analytics service supports processing events in CSV, JSON, and Avro data formats. Both JSON and Avro data can be structured and contain some complex types such as nested objects (records) and arrays. 
 
 
 ## Record data types
-Record data types are used to represent JSON and Avro arrays when corresponding formats are used in the input data streams. These examples demonstrate a sample sensor, which is reading input events in JSON format. Here is example of a single event:
+Record data types are used to represent JSON and Avro arrays when corresponding formats are used in the input data streams. These examples demonstrate a sample sensor, which is reading input events in JSON format. Here's example of a single event:
 
 ```json
 {
@@ -45,7 +40,7 @@ Record data types are used to represent JSON and Avro arrays when corresponding 
 ```
 
 ### Access nested fields in known schema
-Use dot notation (.) to easily access nested fields directly from your query. For example, this query selects the Latitude and Longitude coordinates under the Location property in the preceding JSON data. The dot notation can be used to navigate multiple levels as shown below.
+Use dot notation (.) to easily access nested fields directly from your query. For example, this query selects the Latitude and Longitude coordinates under the Location property in the preceding JSON data. The dot notation can be used to navigate multiple levels as shown in the following snippet:
 
 ```SQL
 SELECT
@@ -83,9 +78,9 @@ The result is:
 
 ### Access nested fields when property name is a variable
 
-Use the [GetRecordPropertyValue](/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) function if the property name is a variable. This allows for building dynamic queries without hardcoding property names.
+Use the [GetRecordPropertyValue](/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) function if the property name is a variable. It allows for building dynamic queries without hardcoding property names.
 
-For example, imagine the sample data stream needs **to be joined with reference data** containing thresholds for each device sensor. A snippet of such reference data is shown below.
+For example, imagine the sample data stream needs **to be joined with reference data** containing thresholds for each device sensor. A snippet of such reference data is shown in the following snippet.
 
 ```json
 {
@@ -100,13 +95,13 @@ For example, imagine the sample data stream needs **to be joined with reference 
 }
 ```
 
-The goal here is to join our sample dataset from the top of the article to that reference data, and output one event for each sensor measure above its threshold. That means our single event above can generate multiple output events if multiple sensors are above their respective thresholds, thanks to the join. To achieve similar results without a join, see the section below.
+The goal here's to join our sample dataset from the top of the article to that reference data, and output one event for each sensor measure above its threshold. That means our single event above can generate multiple output events if multiple sensors are above their respective thresholds, thanks to the join. To achieve similar results without a join, see the following example:
 
 ```SQL
 SELECT
     input.DeviceID,
     thresholds.SensorName,
-    "Alert : Sensor above threshold" AS AlertMessage
+    "Alert: Sensor above threshold" AS AlertMessage
 FROM input      -- stream input
 JOIN thresholds -- reference data input
 ON
@@ -120,8 +115,8 @@ WHERE
 The result is:
 
 |DeviceID|SensorName|AlertMessage|
-|-|-|-|
-|12345|Humidity|Alert : Sensor above threshold|
+| - | - | - |
+| 12345 | Humidity | Alert: Sensor above threshold |
 
 ### Convert record fields into separate events
 
@@ -166,12 +161,12 @@ SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE
 ```
 
 ### Parse JSON record in SQL reference data
-When using Azure SQL Database as reference data in your job, it's possible to have a column that has data in JSON format. An example is shown below.
+When using Azure SQL Database as reference data in your job, it's possible to have a column that has data in JSON format. An example is shown in the following example: 
 
 |DeviceID|Data|
 |-|-|
-|12345|{"key" : "value1"}|
-|54321|{"key" : "value2"}|
+|12345|{"key": "value1"}|
+|54321|{"key": "value2"}|
 
 You can parse the JSON record in the *Data* column by writing a simple JavaScript user-defined function.
 
@@ -181,7 +176,7 @@ return JSON.parse(string);
 }
 ```
 
-You can then create a step in your Stream Analytics query as shown below to access the fields of your JSON records.
+You can then create a step in your Stream Analytics query as shown here to access the fields of your JSON records.
 
  ```SQL
  WITH parseJson as
@@ -199,9 +194,9 @@ You can then create a step in your Stream Analytics query as shown below to acce
 
 ## Array data types
 
-Array data types are an ordered collection of values. Some typical operations on array values are detailed below. These examples use the functions [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics), and the [APPLY](/stream-analytics-query/apply-azure-stream-analytics) operator.
+Array data types are an ordered collection of values. Some typical operations on array values are detailed here. These examples use the functions [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics), and the [APPLY](/stream-analytics-query/apply-azure-stream-analytics) operator.
 
-Here is an example of a single event. Both `CustomSensor03` and `SensorMetadata` are of type **array**:
+Here's an example of an event. Both `CustomSensor03` and `SensorMetadata` are of type **array**:
 
 ```json
 {
@@ -295,7 +290,7 @@ The result is:
 |12345|Manufacturer|ABC|
 |12345|Version|1.2.45|
 
-If the extracted fields need to appear in columns, it is possible to pivot the dataset using the [WITH](/stream-analytics-query/with-azure-stream-analytics) syntax in addition to the [JOIN](/stream-analytics-query/join-azure-stream-analytics) operation. That join will require a [time boundary](/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) condition that prevents duplication:
+If the extracted fields need to appear in columns, it's possible to pivot the dataset using the [WITH](/stream-analytics-query/with-azure-stream-analytics) syntax in addition to the [JOIN](/stream-analytics-query/join-azure-stream-analytics) operation. That join requires a [time boundary](/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) condition that prevents duplication:
 
 ```SQL
 WITH DynamicCTE AS (
@@ -323,5 +318,5 @@ The result is:
 |-|-|-|-|-|
 |12345|47|122|1.2.45|ABC|
 
-## See Also
+## Related content
 [Data Types in Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics)

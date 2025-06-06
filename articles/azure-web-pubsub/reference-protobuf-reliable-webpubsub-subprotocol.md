@@ -14,9 +14,6 @@ This document describes the subprotocol `protobuf.reliable.webpubsub.azure.v1`.
 
 When a client is using this subprotocol, both the outgoing and incoming data frames are expected to be protocol buffers (protobuf) payloads.
 
-> [!NOTE]
-> Reliable protocols are still in preview. Some changes are expected in future.
-
 ## Overview
 
 Subprotocol `protobuf.reliable.webpubsub.azure.v1` empowers the client to have a high reliable message delivery experience under network issues and do a publish-subscribe (PubSub) directly instead of doing a round trip to the upstream server. The WebSocket connection with the `protobuf.reliable.webpubsub.azure.v1` subprotocol is called a Reliable PubSub WebSocket client.
@@ -28,7 +25,7 @@ For example, in JavaScript, you can create a Reliable PubSub WebSocket client wi
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.reliable.webpubsub.azure.v1');
 ```
 
-To correctly use `json.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber.
+To correctly use `protobuf.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber.
 
 > [!NOTE]
 > Currently, the Web PubSub service supports only [proto3](https://developers.google.com/protocol-buffers/docs/proto3).
@@ -50,6 +47,8 @@ message UpstreamMessage {
         EventMessage event_message = 5;
         JoinGroupMessage join_group_message = 6;
         LeaveGroupMessage leave_group_message = 7;
+        SequenceAckMessage sequence_ack_message = 8;
+        PingMessage ping_message = 9;
     }
 
     message SendToGroupMessage {
@@ -77,6 +76,9 @@ message UpstreamMessage {
 
     message SequenceAckMessage {
         uint64 sequence_id = 1;
+    }
+
+    message PingMessage {
     }
 }
 
@@ -107,6 +109,7 @@ message DownstreamMessage {
         AckMessage ack_message = 1;
         DataMessage data_message = 2;
         SystemMessage system_message = 3;
+        PongMessage pong_message = 4;
     }
     
     message AckMessage {
@@ -143,6 +146,9 @@ message DownstreamMessage {
             string reason = 2;
         }
     }
+
+    message PongMessage {
+    }
 }
 ```
 
@@ -173,7 +179,11 @@ The sender's `dataType` will cause one of the following messages to be sent:
 
 ### System response
 
-The Web PubSub service can also send system-related responses to the client. 
+The Web PubSub service can also send system-related responses to the client.
+
+### Pong response
+
+The Web PubSub service sends a `PongMessage` to the client when it receives a `PingMessage` from the client.
 
 #### Connected
 

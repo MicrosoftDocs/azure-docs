@@ -2,7 +2,7 @@
 title: Restore encrypted Azure VMs
 description: Describes how to restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 04/14/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -11,7 +11,7 @@ ms.author: jsuri
 This article describes how to restore Windows or Linux Azure virtual machines (VMs) with encrypted disks using the [Azure Backup](backup-overview.md) service. For more information, see [Encryption of Azure VM backups](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 > [!Note]
-> This article is applicable to virtual machines encrypted with Azure Disk encryption. For more information on ADE and how it differs from other disk encryption types in Azure, see [Disk Encryption Overview](../virtual-machines/disk-encryption-overview.md).
+> This article is applicable to virtual machines encrypted with Azure Disk encryption. For more information on ADE and how it differs from other disk encryption types in Azure, see [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview).
 
 ## Before you start
 
@@ -21,6 +21,7 @@ Review the known limitations before you start restore of an encrypted VM
 - Azure Backup supports VMs encrypted using standalone keys. Any key that's a part of a certificate used to encrypt a VM isn't currently supported.
 - ADE encrypted VMs can’t be recovered at the file/folder level. You need to recover the entire VM to restore files and folders.
 - When restoring a VM, you can't use the [replace existing VM](backup-azure-arm-restore-vms.md#restore-options) option for ADE encrypted VMs. This option is only supported for unencrypted managed disks.
+- - During Azure VM restore, the encryption settings appear only when the vault is CMK encryption enabled.
 
 
 ## Restore an encrypted VM
@@ -29,7 +30,7 @@ Encrypted VMs can only be restored by restoring the VM disk and creating a virtu
  
 Follow below steps to restore encrypted VMs:
 
-### **Step 1**: Restore the VM disk
+### Step 1: Restore the VM disk
 
 1. In **Restore configuration** > **Create new** > **Restore Type** select **Restore disks**.
 1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
@@ -43,9 +44,9 @@ When your virtual machine uses managed disks and you select the **Create virtual
 When your virtual machine uses unmanaged disks, they're restored as blobs to the storage account.
 
    > [!NOTE]
-   > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
+   > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](/azure/virtual-machines/windows/os-disk-swap).
 
-### **Step 2**: Recreate the virtual machine instance 
+### Step 2: Recreate the virtual machine instance 
 
 Do one of the following actions:
 
@@ -54,17 +55,17 @@ Do one of the following actions:
    >While deploying the template, verify the storage account containers and the public/private settings.
 - Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-### **Step 3**: Restore an encrypted Linux VM
+### Step 3: Restore an encrypted Linux VM
 
 Reinstall the ADE extension so the data disks are open and mounted.
 
 ## Cross Region Restore for an encrypted Azure VM
 
-Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure paired regions](../availability-zones/cross-region-replication-azure.md). Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore) for an encrypted VM.
+Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure paired regions](../reliability/cross-region-replication-azure.md). Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore) for an encrypted VM.
 
 ## Move an encrypted Azure VM
 
-Moving an encrypted VM across vault or resource group is same as moving a backed up Azure Virtual machine. See,
+Moving an encrypted VM across vault or resource group is same as moving a backed-up Azure Virtual machine. See,
 
 - [Steps to move an Azure virtual machine to a different recovery service vault](backup-azure-move-recovery-services-vault.md#move-an-azure-virtual-machine-to-a-different-recovery-service-vault)
 - [Steps to move an Azure virtual machine to different resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)

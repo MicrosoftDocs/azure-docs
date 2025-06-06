@@ -1,19 +1,24 @@
 ---
-title: Configure authentication in a sample Python web application by using Azure Active Directory B2C
+title: Configure authentication in a sample Python web app by using Azure AD B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a Python web application.
-services: active-directory-b2c
+
 author: kengaderdus
-manager: CelesteDG
-ms.service: active-directory
-ms.workload: identity
+manager: mwongerapk
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 02/28/2023
+ms.date: 06/04/2024
 ms.author: kengaderdus
-ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.subservice: b2c
+ms.custom: b2c-support, devx-track-python
+
+
+#Customer intent: As a Python web app developer, I want to configure Azure AD B2C authentication in a sample web app by using my own tenant, so that I can securely sign customer users.
+
 ---
 
 # Configure authentication in a sample Python web app by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article uses a sample Python web application to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your web applications.
 
@@ -33,7 +38,7 @@ The sign-in flow involves the following steps:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-- [Python 3.7+](https://www.python.org/downloads/)
+- [Python 3.8+](https://www.python.org/downloads/)
 
 ## Step 1: Configure your user flow
 
@@ -50,8 +55,7 @@ During app registration, you'll specify the *Redirect URI*. The redirect URI is 
 To create the web app registration, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *webapp1*).
@@ -71,7 +75,7 @@ To create the web app registration, follow these steps:
 
 ## Step 3: Get the web app sample
 
-[Download the zip file](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip), or clone the sample web application from GitHub. 
+[Download the zip file](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/main.zip), or clone the sample web application from GitHub. 
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-python-webapp.git
@@ -83,24 +87,21 @@ Extract the sample file to a folder where the total length of the path is 260 or
 
 In the project's root directory, follow these steps:
 
-1. Rename the *app_config.py* file to *app_config.py.OLD*.
-1. Rename the *app_config_b2c.py* file to *app_config.py*. This file contains information about your Azure AD B2C identity provider. 
-
-1. Create an `.env` file in the root folder of the project using `.env.sample.b2c` as a guide.
+1. Create an `.env` file in the root folder of the project using `.env.sample` as a guide.
 
     ```shell
     FLASK_DEBUG=True
-    TENANT_NAME=<tenant name>
+    B2C_TENANT_NAME=<tenant name>
     CLIENT_ID=<client id>
     CLIENT_SECRET=<client secret>
-    SIGNUPSIGNIN_USER_FLOW=B2C_1_profile_editing
-    EDITPROFILE_USER_FLOW=B2C_1_reset_password
-    RESETPASSWORD_USER_FLOW=B2C_1_signupsignin1
+    SIGNUPSIGNIN_USER_FLOW=B2C_1_signupsignin1
+    EDITPROFILE_USER_FLOW=B2C_1_profile_editing
+    RESETPASSWORD_USER_FLOW=B2C_1_reset_password
     ```
 
     |Key  |Value  |
     |---------|---------|
-    |`TENANT_NAME`| The first part of your Azure AD B2C [tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso`). |
+    |`B2C_TENANT_NAME`| The first part of your Azure AD B2C [tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso`). |
     |`CLIENT_ID`| The web API application ID from [step 2.1](#step-21-register-the-app).|
     |`CLIENT_SECRET`| The client secret value you created in [step 2.2](#step-22-create-a-web-app-client-secret). |
     |`*_USER_FLOW`|The user flows you created in [step 1](#step-1-configure-your-user-flow).|

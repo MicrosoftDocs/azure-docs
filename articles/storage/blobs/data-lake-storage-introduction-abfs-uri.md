@@ -1,26 +1,23 @@
 ---
-title: Use the Azure Data Lake Storage Gen2 URI
+title: Use the Azure Data Lake Storage URI
 titleSuffix: Azure Storage
-description: Learn URI syntax for the ABFS scheme identifier, which represents the Azure Blob File System driver (Hadoop Filesystem driver for Azure Data Lake Storage Gen2).
+description: Learn URI syntax for the ABFS scheme identifier, which represents the Azure Blob File System driver (Hadoop Filesystem driver for Azure Data Lake Storage).
 author: normesta
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
-ms.date: 03/09/2023
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.date: 11/15/2024
+ms.service: azure-data-lake-storage
 ms.reviewer: jamesbak
 ---
 
-# Use the Azure Data Lake Storage Gen2 URI
+# Use the Azure Data Lake Storage URI
 
-The [Hadoop Filesystem](https://www.aosabook.org/en/hdfs.html) driver that is compatible with Azure Data Lake Storage Gen2 is known by its scheme identifier `abfs` (Azure Blob File System). Consistent with other Hadoop Filesystem drivers, the ABFS driver employs a URI format to address files and directories within a Data Lake Storage Gen2 capable account.
+The [Hadoop Filesystem](https://www.aosabook.org/en/hdfs.html) driver that is compatible with Azure Data Lake Storage is known by its scheme identifier `abfs` (Azure Blob File System). Consistent with other Hadoop Filesystem drivers, the ABFS driver employs a URI format to address files and directories within a Data Lake Storage enabled account.
 
 ## URI syntax
 
-The URI syntax for Data Lake Storage Gen2 is dependent on whether or not your storage account is set up to have Data Lake Storage Gen2 as the default file system.
-
-If the Data Lake Storage Gen2 capable account you wish to address **is not** set as the default file system during account creation, then the shorthand URI syntax is:
+The Azure Blob File System driver can be used with the Data Lake Storage endpoint of an account even if that account does not have a hierarchical namespace enabled. If the storage account does not have a hierarchical namespace, then the shorthand URI syntax is:
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
@@ -34,7 +31,7 @@ If the Data Lake Storage Gen2 capable account you wish to address **is not** set
 
 5. **File name**: The name of the individual file. This parameter is optional if you're addressing a directory.
 
-However, if the account you want to address is set as the default file system during account creation, then the shorthand URI syntax is:
+However, if the account you want to address does have a hierarchical namespace, then the shorthand URI syntax is:
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
@@ -44,4 +41,4 @@ However, if the account you want to address is set as the default file system du
 
 ## Next steps
 
-- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=/azure/storage/blobs/toc.json)
+- [Use Azure Data Lake Storage with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=/azure/storage/blobs/toc.json)

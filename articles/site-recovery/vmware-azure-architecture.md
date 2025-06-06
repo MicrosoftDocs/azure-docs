@@ -1,11 +1,11 @@
 ---
 title: VMware VM disaster recovery architecture in Azure Site Recovery - Classic
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Classic
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 08/19/2021
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.topic: concept-article
+ms.date: 12/28/2024
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # VMware to Azure disaster recovery architecture - Classic
@@ -33,7 +33,7 @@ The following table and graphic provide a high-level view of the components used
 For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
 
 > [!NOTE]
-> Site Recovery of VMware/Physical machines using Classic architecture doesn't support using an authentication proxy to control network connectivity. The same is supported when using the [modernized architecutre](vmware-azure-architecture-modernized.md).
+> Site Recovery of VMware/Physical machines using Classic architecture doesn't support using an authentication proxy to control network connectivity. The same is supported when using the [modernized architecture](vmware-azure-architecture-modernized.md).
 
 ### Outbound connectivity for URLs
 
@@ -42,7 +42,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Microsoft Entra ID    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.us`   | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
@@ -120,7 +120,7 @@ A crash consistent snapshot captures data that was on the disk when the snapshot
 
 **Description** | **Details** | **Recommendation**
 --- | --- | ---
-App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) Azure Site Recovery uses Copy Only backup (VSS_BT_COPY) method which does not change Microsoft SQL's transaction log backup time and sequence number </br></br> 2) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   3) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   4) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication.
+App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contains all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) Azure Site Recovery uses Copy Only backup (VSS_BT_COPY) method which does not change Microsoft SQL's transaction log backup time and sequence number </br></br> 2) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   3) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   4) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication.
 
 ## Failover and failback process
 
@@ -141,7 +141,6 @@ After replication is set up and you run a disaster recovery drill (test failover
     - Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
     -  Stage 2: Run a failover to the on-premises site.
     - Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
-
 
 
 ![Diagram showing VMware failback from Azure.](./media/vmware-azure-architecture/enhanced-failback.png)

@@ -1,4 +1,4 @@
-Many Azure services support passwordless connections through Azure AD and Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries.
+Many Azure services support passwordless connections through Microsoft Entra ID and Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries.
 
 > [!IMPORTANT]
 > Some languages must implement `DefaultAzureCredential` explicitly in their code, while others utilize `DefaultAzureCredential` internally through underlying plugins or drivers.
@@ -15,7 +15,7 @@ The following code example demonstrates how to connect to Service Bus using pass
 A .NET application can pass an instance of `DefaultAzureCredential` into the constructor of a service client class. `DefaultAzureCredential` will automatically discover the credentials that are available in that environment.
 
 ```csharp
-var serviceBusClient = new ServiceBusClient(
-    new Uri("https://<your-service-bus-namespace>.blob.core.windows.net"),
+client = new ServiceBusClient(
+    "<NAMESPACE-NAME>.servicebus.windows.net",
     new DefaultAzureCredential());
 ```

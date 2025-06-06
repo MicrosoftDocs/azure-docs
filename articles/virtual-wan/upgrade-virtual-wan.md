@@ -3,9 +3,9 @@ title: 'Upgrade Virtual WAN - Basic SKU type to Standard'
 titleSuffix: Azure Virtual WAN
 description: You can upgrade your virtual WAN SKU type from Basic to Standard for greater functionality.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 04/29/2022
+ms.date: 07/28/2023
 ms.author: cherylmc
 ---
 

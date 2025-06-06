@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Migrate from preview API versions of the control plane to the stable GA version
 author: baanders
 ms.author: baanders
-ms.date: 02/08/2023
-ms.topic: conceptual
-ms.service: digital-twins
+ms.date: 05/02/2023
+ms.topic: concept-article
+ms.service: azure-digital-twins
 services: digital-twins
 ---
 
 # Migrate from Azure Digital Twins preview control plane APIs to the stable GA version 
 
-As of May 2, 2023, the following Azure Digital Twins preview control plane APIs will be retired:
+As of May 2, 2023, the following Azure Digital Twins preview control plane APIs have been retired and are no longer maintained:
 * [2020-03-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview)
 * [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2021-06-30-preview) 
 

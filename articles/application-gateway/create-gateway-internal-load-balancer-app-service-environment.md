@@ -1,19 +1,13 @@
-﻿---
+---
 title: Troubleshoot an Application Gateway in Azure – ILB ASE | Microsoft Docs
 description: Learn how to troubleshoot an application gateway by using an Internal Load Balancer with an App Service Environment in Azure
 services: vpn-gateway
-documentationCenter: na
-author: greg-lindsay
+author: mbender-ms
 manager: dcscontentpm
-editor: ''
-tags: ''
-
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/10/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Backend server certificate isn't allow-listed for an application gateway using an Internal Load Balancer with an App Service Environment

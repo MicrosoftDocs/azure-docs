@@ -2,7 +2,7 @@
 title: Prepare an OT site deployment - Microsoft Defender for IoT
 description: Learn how to prepare for an OT site deployment, including understanding how many OT sensors you'll need, where they should be placed, and how they'll be managed. 
 ms.topic: install-set-up-deploy
-ms.date: 02/16/2023
+ms.date: 04/08/2024
 ---
 
 # Prepare an OT site deployment
@@ -96,6 +96,23 @@ Together with your team, create a table of devices you want to monitor with the 
 | **Managed by partner services?** | Describe if a partner service, such as Siemens, Rockwell, or Emerson, manages the device. If relevant, describe the management policy.|
 | **Serial connections** | If the device communicates via a serial connection, specify the serial communication protocol. |
 
+### Calculate devices in your network
+
+Calculate the number of devices in each site so that you can [purchase Defender for IoT licenses](../how-to-manage-subscriptions.md#purchase-a-defender-for-iot-license) at the correct size. 
+
+**To calculate the number of devices in each site:**:
+
+1. Collect the total number of devices in your site and add them together.
+
+1. Remove any of the following devices, which are *not* identified as individual devices by Defender for IoT:
+
+    - **Public internet IP addresses**
+    - **Multi-cast groups**
+    - **Broadcast groups**
+    - **Inactive devices**: Devices that have no network activity detected for more than 60 days
+
+For more information, see [Devices monitored by Defender for IoT](../architecture.md#devices-monitored-by-defender-for-iot).
+
 ### Plan a multi-sensor deployment
 
 If you're planning on deploying multiple network sensors, also consider the following recommendations when deciding where to place your sensors:
@@ -118,7 +135,7 @@ After you understand the traffic you want to mirror to Defender for IoT, create 
 
 For each sensor, list:
 
-- Whether the sensor will be a [cloud-connected or locally-managed sensor](../architecture.md#cloud-connected-vs-local-ot-sensors)
+- Whether the sensor will be a [cloud-connected or locally managed sensor](../architecture.md#cloud-connected-vs-local-ot-sensors)
 
 - For cloud-connected sensors, the [cloud connection method](../architecture-connections.md) you'll be using.
 
@@ -181,7 +198,7 @@ Prepare a workstation from where you can run Defender for IoT deployment activit
 
 - Terminal software, such as PuTTY
 
-- A supported browser for connecting to sensor consoles and the Azure portal. For more information, see [recommended browsers for the Azure portal](../../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
+- A supported browser for connecting to sensor consoles and the Azure portal. For more information, see [recommended browsers for the Azure portal](/azure/azure-portal/azure-portal-supported-browsers-devices#recommended-browsers).
 
 - Required firewall rules configured, with access open for required interfaces. For more information, see [Networking requirements](../networking-requirements.md).
 

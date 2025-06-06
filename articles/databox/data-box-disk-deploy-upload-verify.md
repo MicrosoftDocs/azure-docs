@@ -1,12 +1,11 @@
 ---
 title: Tutorial to verify data upload from Azure Data Box Disk to storage account
 description: Use this tutorial to learn how to verify the data uploaded from your Azure Data Box Disk to Azure storage account.
-author: alkohli
-ms.service: databox
-ms.subservice: disk
+author: stevenmatthew
+ms.service: azure-data-box-disk
 ms.topic: tutorial
 ms.date: 05/05/2022
-ms.author: alkohli
+ms.author: shaas
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -106,7 +105,8 @@ To verify that the data has uploaded into Azure, take the following steps:
 
 ## Erasure of data from Data Box Disk
 
-Once the upload to Azure is complete, the Data Box Disk service erases the data on its disks as per the [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi) standard.
+Once the upload to Azure is complete, the Data Box Disk service erases the data on its disks as per the [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi) standard. After the erasure is complete, you can [Download the order history](data-box-portal-admin.md#download-order-history).
+
 
 ::: zone target="docs"
 

@@ -3,13 +3,11 @@ title: Troubleshoot Azure RBAC
 description: Troubleshoot issues with Azure role-based access control (Azure RBAC).
 services: azure-portal
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 04/19/2023
+ms.date: 05/27/2025
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
 ---
@@ -17,58 +15,11 @@ ms.custom: seohack1, devx-track-azurecli
 
 This article describes some common solutions for issues related to Azure role-based access control (Azure RBAC).
 
-## Limits
-
-###  Symptom - No more role assignments can be created
-
-When you try to assign a role, you get the following error message:
-
-`No more role assignments can be created (code: RoleAssignmentLimitExceeded)`
-
-**Cause**
-
-Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope.
-
-**Solution**
-
-Try to reduce the number of role assignments in the subscription. Here are some ways that you can reduce the number of role assignments:
-
-- Add users to groups and assign roles to the groups instead. 
-- Combine multiple built-in roles with a custom role. 
-- Make common role assignments at a higher scope, such as subscription or management group.
-- If you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) instead of permanently assigned. 
-- Add an additional subscription. 
-
-To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.md#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
-
-```azurepowershell
-$scope = "/subscriptions/<subscriptionId>"
-$ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($scope)}
-$ras.Count
-```
-
-###  Symptom - No more role assignments can be created at management group scope
-
-You're unable to assign a role at management group scope.
-
-**Cause**
-
-Azure supports up to **500** role assignments per management group. This limit is different than the role assignments limit per subscription.
-
-> [!NOTE]
-> The **500** role assignments limit per management group is fixed and cannot be increased.
-
-**Solution**
-
-Try to reduce the number of role assignments in the management group.
-
 ## Azure role assignments
 
-### Symptom - Unable to assign a role
+### Symptom - Add role assignment option is disabled
 
-You're unable to assign a role in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled or because you get the following permissions error:
-
-`The client with object id does not have authorization to perform action`
+You're unable to assign a role in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled
 
 **Cause**
 
@@ -76,7 +27,51 @@ You're currently signed in with a user that doesn't have permission to assign ro
 
 **Solution**
 
-Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you're trying to assign the role.
+Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) at the scope you're trying to assign the role.
+
+### Symptom - Roles or principals are not listed
+
+When you try to assign a role in the Azure portal, some roles or principals are not listed. For example, on the **Role** tab, you see a reduced set of roles.
+
+:::image type="content" source="./media/shared/constrained-roles-assign.png" alt-text="Screenshot of role assignments constrained to specific roles." lightbox="./media/shared/constrained-roles-assign.png":::
+
+Or, on the **Select members** pane, you see a reduced set of principals.
+
+:::image type="content" source="./media/shared/constrained-principals-assign.png" alt-text="Screenshot of role assignments constrained to specific groups." lightbox="./media/shared/constrained-principals-assign.png":::
+
+**Cause**
+
+There are restrictions on the role assignments you can add. For example, you are constrained in the roles that you can assign or constrained in the principals you can assign roles to.
+
+**Solution**
+
+View the [roles assigned to you](check-access.md). Check if there is a condition that constrains the role assignments you can add. For more information, see [Delegate Azure access management to others](delegate-role-assignments-overview.md).
+
+:::image type="content" source="./media/troubleshooting/role-assignments-condition.png" alt-text="Screenshot of role assignments that include a condition." lightbox="./media/troubleshooting/role-assignments-condition.png":::
+
+### Symptom - Unable to assign a role
+
+You are unable to assign a role and you get an error similar to the following:
+
+`Failed to add {securityPrincipal} as {role} for {scope} : The client '{clientName}' with object id '{objectId}' does not have authorization or an ABAC condition not fulfilled to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{subscriptionId}/Microsoft.Authorization/roleAssignments/{roleAssignmentId}' or the scope is invalid. If access was recently granted, please refresh your credentials.`
+
+**Cause 1**
+
+You are currently signed in with a user that does not have permission to assign roles at the selected scope.
+
+**Solution 1**
+
+Check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) at the scope you are trying to assign the role.
+
+**Cause 2**
+
+There are restrictions on the role assignments you can add. For example, you are constrained in the roles that you can assign or constrained in the principals you can assign roles to.
+
+**Solution 2**
+
+View the [roles assigned to you](check-access.md). Check if there is a condition that constrains the role assignments you can add. For more information, see [Delegate Azure access management to others](delegate-role-assignments-overview.md).
+
+:::image type="content" source="./media/troubleshooting/role-assignments-condition.png" alt-text="Screenshot of role assignments that include a condition." lightbox="./media/troubleshooting/role-assignments-condition.png":::
 
 ### Symptom - Unable to assign a role using a service principal with Azure CLI
 
@@ -93,13 +88,13 @@ az role assignment create --assignee "userupn" --role "Contributor"  --scope "/s
 
 **Cause**
 
-It's likely Azure CLI is attempting to look up the assignee identity in Azure AD and the service principal can't read Azure AD by default.
+It's likely Azure CLI is attempting to look up the assignee identity in Microsoft Entra ID and the service principal can't read Microsoft Entra ID by default.
 
 **Solution**
 
 There are two ways to potentially resolve this error. The first way is to assign the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role to the service principal so that it can read data in the directory.
 
-The second way to resolve this error is to create the role assignment by using the `--assignee-object-id` parameter instead of `--assignee`. By using `--assignee-object-id`, Azure CLI will skip the Azure AD lookup. You'll need to get the object ID of the user, group, or application that you want to assign the role to. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
+The second way to resolve this error is to create the role assignment by using the `--assignee-object-id` parameter instead of `--assignee`. By using `--assignee-object-id`, Azure CLI will skip the Microsoft Entra lookup. You'll need to get the object ID of the user, group, or application that you want to assign the role to. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
 
 ```azurecli
 az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -237,7 +232,7 @@ You deleted a security principal that had a role assignment. If you assign a rol
 
 **Solution 2**
 
-It isn't a problem to leave these role assignments where the security principal has been deleted. If you like, you can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](role-assignments-remove.md).
+It's a good practice to remove any role assignments that aren't being used. You can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you'll get the error message: `The provided information does not map to a role assignment`. The following output shows an example of the error message:
 
@@ -255,7 +250,7 @@ At line:1 char:1
 If you get this error message, make sure you also specify the `-Scope` or `-ResourceGroupName` parameters.
 
 ```
-PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
+PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" -Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
 ### Symptom - Cannot delete the last Owner role assignment
@@ -266,13 +261,19 @@ You attempt to remove the last Owner role assignment for a subscription and you 
 
 **Cause**
 
-Removing the last Owner role assignment for a subscription isn't supported to avoid orphaning the subscription.
+By default, removing the last Owner role assignment for a subscription isn't supported to avoid orphaning the subscription.
 
-**Solution**
+**Solution 1**
 
 If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
 
-You're allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you're a Global Administrator for the tenant or a classic administrator (Service Administrator or Co-Administrator) for the subscription. In this case, there's no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
+**Solution 2**
+
+You're allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you're a Global Administrator for the tenant. In this case, there's no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope. To override this default behavior, enable the "Allow removal of the last subscription Owner role assignment" feature in the Azure portal.
+
+**Solution 3**
+
+If you use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) and you are eligible for the Owner (or User Access Administrator) role, you can [activate](/entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles) your Owner (or User Access Administrator) role assignment temporarily, remove the last Owner role assignment, and then deactivate or let your role assignment expire.
 
 ### Symptom - Role assignment isn't moved after moving a resource
 
@@ -358,17 +359,25 @@ $validateRemovedRoles = Get-AzRoleAssignment -Scope /subscriptions/$subId | Wher
 
 ## Custom roles
 
-### Symptom - Unable to update a custom role
+### Symptom - Unable to update or delete a custom role
 
-You're unable to update an existing custom role.
+You're unable to update or delete an existing custom role.
 
-**Cause**
+**Cause 1**
 
-You're currently signed in with a user that doesn't have permission to update custom roles.
+You're currently signed in with a user that doesn't have permission to update or delete custom roles.
 
-**Solution**
+**Solution 1**
 
-Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinition/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission such as [User Access Administrator](built-in-roles.md#user-access-administrator).
+
+**Cause 2**
+
+The custom role includes a subscription in assignable scopes and that subscription is in a [disabled state](../cost-management-billing/manage/subscription-states.md).
+
+**Solution 2**
+
+Reactivate the disabled subscription and update the custom role as needed. For more information, see [Reactivate a disabled Azure subscription](../cost-management-billing/manage/subscription-disabled.md).
 
 ### Symptom - Unable to create or update a custom role
 
@@ -385,7 +394,7 @@ This error usually indicates that you don't have permissions to one or more of t
 Try the following:
 
 - Review [Who can create, delete, update, or view a custom role](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role) and check that you have permissions to create or update the custom role for all assignable scopes.
-- If you don't have permissions, ask your administrator to assign you a role that has the `Microsoft.Authorization/roleDefinitions/write` action, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator), at the scope of the assignable scope.
+- If you don't have permissions, ask your administrator to assign you a role that has the `Microsoft.Authorization/roleDefinitions/write` action, such as [User Access Administrator](built-in-roles.md#user-access-administrator), at the scope of the assignable scope.
 - Check that all the assignable scopes in the custom role are valid. If not, remove any invalid assignable scopes.
 
 For more information, see the custom role tutorials using the [Azure portal](custom-roles-portal.md), [Azure PowerShell](tutorial-custom-role-powershell.md), or [Azure CLI](tutorial-custom-role-cli.md).
@@ -430,20 +439,6 @@ You're trying to create a custom role with data actions and a management group a
 
 Create the custom role with one or more subscriptions as the assignable scope. For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
-### Symptom - No more role definitions can be created
-
-When you try to create a new custom role, you get the following message:
-
-`Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)`
-
-**Cause**
-
-Azure supports up to **5000** custom roles in a directory. (For Azure China 21Vianet, the limit is 2000 custom roles.)
-
-**Solution**
-
-Try to reduce the number of custom roles.
-
 ## Access denied or permission errors
 
 ### Symptom - Authorization failed
@@ -452,13 +447,41 @@ When you try to create a resource, you get the following error message:
 
 `The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)`
 
-**Cause**
+**Cause 1**
 
 You're currently signed in with a user that doesn't have write permission to the resource at the selected scope.
 
-**Solution**
+**Solution 1**
 
 Check that you're currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Azure built-in roles](built-in-roles.md).
+
+**Cause 2**
+
+The currently signed in user has a role assignment with the following criteria:
+
+- Role includes a [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) data action
+- Role assignment includes an ABAC condition that uses a [GUID comparison operators](conditions-format.md#guid-comparison-operators)
+
+**Solution 2**
+
+At this time, you can't have a role assignment with a Microsoft.Storage data action and an ABAC condition that uses a GUID comparison operator. Here are a couple of options to resolve this error:
+
+- If the role is a custom role, remove any Microsoft.Storage data actions
+- Modify the role assignment condition so that it does not use GUID comparison operators
+
+### Symptom - Guest user gets authorization failed
+
+When a guest user tries to access a resource, they get an error message similar to the following:
+
+`The client '<client>' with object id '<objectId>' does not have authorization to perform action '<action>' over scope '<scope>' or the scope is invalid.`
+
+**Cause**
+
+The guest user doesn't have permissions to the resource at the selected scope.
+
+**Solution**
+
+Check that the guest user is assigned a role with least privileged permissions to the resource at the selected scope. For more information, [Assign Azure roles to external users using the Azure portal](role-assignments-external-users.md).
 
 ### Symptom - Unable to create a support request
 
@@ -468,7 +491,7 @@ When you try to create or update a support ticket, you get the following error m
 
 **Cause**
 
-You're currently signed in with a user that doesn't have permission to the create support requests.
+You're currently signed in with a user that doesn't have permission to create support requests.
 
 **Solution**
 
@@ -578,36 +601,27 @@ Assign an [Azure built-in role](built-in-roles.md) with write permissions for th
 
 **Cause**
 
-When you transfer an Azure subscription to a different Azure AD directory, all role assignments are **permanently** deleted from the source Azure AD directory and aren't migrated to the target Azure AD directory.
+When you transfer an Azure subscription to a different Microsoft Entra directory, all role assignments are **permanently** deleted from the source Microsoft Entra directory and aren't migrated to the target Microsoft Entra directory.
 
 **Solution**
 
-You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [Transfer an Azure subscription to a different Azure AD directory](transfer-subscription.md) and [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
+You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [Transfer an Azure subscription to a different Microsoft Entra directory](transfer-subscription.md) and [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ### Symptom - Unable to access subscription after transferring a subscription
 
 **Solution**
 
-If you're an Azure AD Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
+If you're a Microsoft Entra Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
 
 ## Classic subscription administrators
 
-### Symptom - Deleting a guest assigned the Co-Administrator role doesn't the remove role assignment
-
-Consider the following scenario:
-
-- Invite a guest user from an external tenant and then assign them the classic Co-Administrator role.
-- Later, you delete the guest user from your tenant without removing the role assignment.
-- The guest user signs in to the Azure portal and switches to your tenant.
-
-The guest user still has the Co-Administrator role assignment.
-
-**Solution**
-
-Don't use the classic subscription administrator roles. Microsoft recommends that you manage access to Azure resources using Azure RBAC. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md) and [Assign Azure roles to external guest users using the Azure portal](role-assignments-external-users.md).
+> [!IMPORTANT]
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. Starting on **April 30, 2025**, any Co-Administrator or Service Administrator role assignments will lose access. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
+>
+> For more information, see [Azure classic subscription administrators](classic-administrators.md).
 
 ## Next steps
 
-- [Troubleshoot for guest users](role-assignments-external-users.md#troubleshoot)
-- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Troubleshoot for external users](role-assignments-external-users.md#troubleshoot)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
 - [View activity logs for Azure RBAC changes](change-history-report.md)

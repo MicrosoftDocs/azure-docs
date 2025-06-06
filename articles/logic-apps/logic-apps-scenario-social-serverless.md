@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 Azure offers [serverless](https://azure.microsoft.com/solutions/serverless/) tools that help you quickly build 
 and host apps in the cloud, without having to think about infrastructure. 
@@ -30,33 +30,26 @@ tweets based on predefined keywords.
 
 In this scenario, you create a logic app that triggers on finding feedback from customers. 
 Some connectors that help you respond to customer feedback include Outlook.com, 
-Office 365, Survey Monkey, Twitter, and an 
+Office 365, Survey Monkey, X, and an 
 [HTTP request from a web form](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). 
-The workflow that you create monitors a hashtag on Twitter.
-
-You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
-and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). 
-For a video walkthrough that shows how to create this solution, 
-[watch this Channel 9 video](/shows/). 
+The workflow that you create monitors a hashtag on X.
 
 ## Trigger on customer data
 
-1. In the Azure portal or Visual Studio, create a blank logic app workflow.
+1. In the Azure portal, create a blank logic app workflow.
 
-   If you're new to logic apps, review the [quickstart for the Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md) or the [quickstart for Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
-
-2. In workflow designer, find and add the Twitter trigger that has this action: **When a new tweet is posted**
+2. In workflow designer, find and add the X trigger that has this action: **When a new tweet is posted**
 
 3. Set up the trigger to listen for 
 tweets based on a keyword or hashtag.
 
    On polling-based triggers, 
-   such as the Twitter trigger, 
+   such as the X trigger, 
    the recurrence property 
    determines how often the logic app 
    checks for new items.
 
-   ![Example of Twitter trigger][1]
+   ![Example of X trigger.][1]
 
 This logic app now fires on all new tweets. 
 You can then take and analyze the tweet data 
@@ -65,7 +58,7 @@ so that you can better understand the sentiments expressed.
 ## Analyze tweet text
 
 To detect the sentiment behind some text, 
-you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
+you can use [Azure AI services](https://azure.microsoft.com/services/cognitive-services/).
 
 1. In workflow designer, under the trigger, choose **New step**.
 
@@ -73,7 +66,7 @@ you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cogn
 
 3. Select the **Detect Sentiment** action.
 
-4. If prompted, provide a valid Cognitive Services 
+4. If prompted, provide a valid Azure AI services 
 key for the Text Analytics service.
 
 5. Under **Request Body**, select the **Tweet Text** 
@@ -139,25 +132,13 @@ and then select the function that you created.
 To review any current or previous runs for your logic app, 
 you can use the rich debugging and monitoring capabilities 
 that Azure Logic Apps provides in the Azure portal, 
-Visual Studio, or through the Azure REST APIs and SDKs.
+Visual Studio Code, or through the Azure REST APIs and SDKs.
 
 To easily test your logic app, in Logic App Designer, 
 choose **Run Trigger**. The trigger polls for tweets 
 based on your specified schedule until a tweet that 
 meets your criteria is found. While the run progresses, 
 the designer shows a live view for that run.
-
-To view previous run histories in Visual Studio or the Azure portal: 
-
-* Open Visual Studio Cloud Explorer. 
-Find your logic app, open the app's shortcut menu. 
-Select **Open run history**.
-
-  > [!TIP]
-  > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
-
-* In the Azure portal, find your logic app. 
-On your logic app's menu, choose **Overview**. 
 
 ## Create automated deployment templates
 

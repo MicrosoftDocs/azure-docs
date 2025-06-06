@@ -1,10 +1,9 @@
 ---
 title: "Synapse implementation success methodology: Assess environment"
 description: "Learn how to assess your environment to help evaluate the solution design and make informed technology decisions to implement Azure Synapse Analytics."
-author: SnehaGunda
-ms.author: sngun
-ms.reviewer: sngun
-ms.service: synapse-analytics
+author: juluczni
+ms.author: juluczni
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022
 ---
@@ -101,7 +100,7 @@ Use the following checklists of possible requirements to guide your assessment.
     - Dynamic data masking
 - Authentication:
     - SQL login
-    - Azure Active Directory (Azure AD)
+    - Microsoft Entra ID
     - Multi-factor authentication (MFA)
 - Network security:
     - Virtual networks

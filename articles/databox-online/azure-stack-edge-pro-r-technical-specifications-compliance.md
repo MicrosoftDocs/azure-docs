@@ -4,8 +4,7 @@ description: Learn about the technical specifications and compliance for your Az
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: alkohli
@@ -34,7 +33,7 @@ A Graphics Processing Unit (GPU) is included on every device that enables Kubern
 
 | Specification           | Value                      |
 |-------------------------|----------------------------|
-| GPU   | One nVidia T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
+| GPU   | One NVIDIA T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
 
 ## Power supply unit specifications
 
@@ -82,8 +81,6 @@ Your Azure Stack Edge Pro R device has the following network hardware:
 | Device Part Number (XR2) | MCX4421A-ACAN  |
 | PSID (R640)           | MT_2420110034                         |-->
 <!-- confirm w/ Ravi what is this-->
-
-For a full list of supported cables, switches, and transceivers for these network cards, go to [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
 
 ## Storage specifications
 

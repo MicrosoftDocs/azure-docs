@@ -1,14 +1,17 @@
 ---
 title: Microsoft Azure FXT Edge Filer overview 
 description: Describes Azure FXT Edge Filer hybrid storage cache, an active archive and file access accelerator solution for high performance computing 
-author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: overview
 ms.date: 07/01/2019
-ms.author: femila 
 ---
 
 # What is Azure FXT Edge Filer hybrid storage cache?
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 Azure FXT Edge Filer is a hybrid storage caching appliance that provides fast file access and active archive for high-performance computing (HPC) tasks.
 

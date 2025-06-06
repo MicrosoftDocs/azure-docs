@@ -1,0 +1,30 @@
+items:
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+    - name: Health Data Services
+      tocHref: /azure/healthcare-apis/
+      topicHref: /azure/healthcare-apis/index
+      items:
+        - name: FHIR service
+          tocHref: /azure/healthcare-apis/fhir/
+          topicHref: /azure/healthcare-apis/fhir/index
+        - name: DICOM service
+          tocHref: /azure/healthcare-apis/dicom/
+          topicHref: /azure/healthcare-apis/dicom/index
+        - name: MedTech service
+          tocHref: /azure/healthcare-apis/iot/
+          topicHref: /azure/healthcare-apis/iot/index
+        - name: De-identification service
+          tocHref: /azure/healthcare-apis/deidentification/
+          topicHref: /azure/healthcare-apis/deidentification/index
+        - name: De-identification service
+          tocHref: /azure/reliability/
+          topicHref: /azure/healthcare-apis/deidentification/index
+        - name: Events
+          tocHref: /azure/healthcare-apis/events/
+          topicHref: /azure/healthcare-apis/events/index
+        - name: Azure API for FHIR
+          tocHref: /azure/healthcare-apis/azure-api-for-fhir/
+          topicHref: /azure/healthcare-apis/azure-api-for-fhir/index

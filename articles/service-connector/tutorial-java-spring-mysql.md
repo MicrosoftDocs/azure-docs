@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Deploy an application to Azure Spring Apps and connect it to Azure Database for MySQL Flexible Server using Service Connector'
 description: Create a Spring Boot application connected to Azure Database for MySQL Flexible Server with Service Connector.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 11/02/2022
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.devlang: azurecli
 ---
 
@@ -18,6 +18,11 @@ In this tutorial, you'll complete the following tasks using the Azure portal or 
 > * Provision an instance of Azure Spring Apps
 > * Build and deploy apps to Azure Spring Apps
 > * Integrate Azure Spring Apps with Azure Database for MySQL with Service Connector
+
+[!INCLUDE [deprecation-note](../spring-apps/includes/deprecation-note.md)]
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 ## Prerequisites
 

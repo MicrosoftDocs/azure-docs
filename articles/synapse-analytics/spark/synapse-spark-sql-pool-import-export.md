@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse Dedicated SQL Pool Connector for Apache Spark
 description: Azure Synapse Dedicated SQL Pool Connector for Apache Spark to move data between the Synapse Serverless Spark Pool and the Synapse Dedicated SQL Pool.
-author: kalyankadiyala-Microsoft
-ms.service: synapse-analytics
+author: dawn2111
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 05/10/2022
-ms.author: kakadiya
+ms.date: 01/22/2025
+ms.author: prdawn
 ms.reviewer: ktuckerdavis, aniket.adnaik
 --- 
 # Azure Synapse Dedicated SQL Pool Connector for Apache Spark
@@ -46,9 +46,9 @@ At a high-level, the connector provides the following capabilities:
 
 ![A high-level data flow diagram to describe the connector's orchestration of a write request.](./media/synapse-spark-sql-pool-import-export/synapse-dedicated-sql-pool-spark-connector-write-orchestration.png)
 
-## Pre-requisites
+## Prerequisites
 
-Pre-requisites such as setting up required Azure resources and steps to configure them are discussed in this section.
+Prerequisites such as setting up required Azure resources and steps to configure them are discussed in this section.
 
 ### Azure resources
 
@@ -63,7 +63,7 @@ Review and setup following dependent Azure Resources:
 
 Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
 
-* Create a database user that is mapped to the Azure Active Directory User Identity used to sign in to the Azure Synapse Workspace.
+* Create a database user that is mapped to the Microsoft Entra user Identity used to sign in to the Azure Synapse Workspace.
   
     ```sql
     CREATE USER [username@domain.com] FROM EXTERNAL PROVIDER;      
@@ -77,9 +77,11 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 ### Authentication
 
-#### Azure Active Directory based authentication
+<a name='azure-active-directory-based-authentication'></a>
 
-Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace.
+#### Microsoft Entra ID based authentication
+
+Microsoft Entra ID based authentication is an integrated authentication approach. The user is required to successfully sign in to the Azure Synapse Analytics Workspace.
 
 #### Basic authentication
 
@@ -92,7 +94,7 @@ A basic authentication approach requires user to configure `username` and `passw
 There are two ways to grant access permissions to Azure Data Lake Storage Gen2 - Storage Account:
 
 * Role based Access Control role - [Storage Blob Data Contributor role](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-  * Assigning the `Storage Blob Data Contributor Role` grants the User permissions to read, write and delete from the Azure Storage Blob Containers.
+  * Assigning the `Storage Blob Data Contributor Role` grants the User permissions to read, write, and delete from the Azure Storage Blob Containers.
   * RBAC offers a coarse control approach at the container level.
 * [Access Control Lists (ACL)](../../storage/blobs/data-lake-storage-access-control.md)
   * ACL approach allows for fine-grained controls over specific paths and/or files under a given folder.
@@ -149,8 +151,8 @@ To successfully bootstrap and orchestrate the read or write operation, the Conne
 
 Following is the list of configuration options based on usage scenario:
 
-* **Read using Azure AD based authentication**
-  * Credentials are auto-mapped, and user isn't required to provide specific configuration options.
+* **Read using Microsoft Entra ID based authentication**
+  * Credentials are automapped, and user isn't required to provide specific configuration options.
   * Three-part table name argument on `synapsesql` method is required to read from respective table in Azure Synapse Dedicated SQL Pool.
 * **Read using basic authentication**
   * Azure Synapse Dedicated SQL End Point
@@ -159,7 +161,7 @@ Following is the list of configuration options based on usage scenario:
     * `Constants.PASSWORD` - SQL User Password.
   * Azure Data Lake Storage (Gen 2) End Point  - Staging Folders
     * `Constants.DATA_SOURCE` - Storage path set on the data source location parameter is used for data staging.
-* **Write using Azure AD based authentication**
+* **Write using Microsoft Entra ID based authentication**
   * Azure Synapse Dedicated SQL End Point
     * By default, the Connector infers the Synapse Dedicated SQL end point by using the database name set on the `synapsesql` method's three-part table name parameter.
     * Alternatively, users can use the `Constants.SERVER` option to specify the sql end point. Ensure the end point hosts the corresponding database with respective schema.
@@ -189,7 +191,7 @@ This section presents reference code templates to describe how to use and invoke
 
 > [!Note]
 > Using the Connector in Python-
-> * The connector is supported in Python for Spark 3 only. For Spark 2.4, we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
+> * The connector is supported in Python for Spark 3 only. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
 > * The call back handle is not available in Python.
 
 ### Read from Azure Synapse Dedicated SQL Pool
@@ -209,7 +211,9 @@ synapsesql(table_name: str="") -> org.apache.spark.sql.DataFrame
 ```
 ---
 
-#### Read from a table using Azure AD based authentication
+<a name='read-from-a-table-using-azure-ad-based-authentication'></a>
+
+#### Read from a table using Microsoft Entra ID based authentication
 
 ##### [Scala](#tab/scala1)
 
@@ -269,13 +273,15 @@ dfToReadFromTable.show()
 ```
 ---
 
-#### Read from a query using Azure AD based authentication
+<a name='read-from-a-query-using-azure-ad-based-authentication'></a>
+
+#### Read from a query using Microsoft Entra ID based authentication
 > [!Note]
 > Restrictions while reading from query:
 > * Table name and query cannot be specified at the same time.
 > * Only select queries are allowed. DDL and DML SQLs are not allowed.
 > * The select and filter options on dataframe are not pushed down to the SQL dedicated pool when a query is specified.
-> * Read from a query is only available in Spark 3.1 and 3.2. It is not available in Spark 2.4.
+> * Read from a query is only available in Spark 3.
 
 ##### [Scala](#tab/scala2)
 
@@ -525,7 +531,7 @@ dfToReadFromQueryAsOption = (spark.read
                      # Set user's password to the database
                      .option(Constants.PASSWORD, "<user_password>")
                      # Set name of the data source definition that is defined with database scoped credentials.
-                     # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+                     # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
                      # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
                      # Query from where data will be read.
@@ -545,7 +551,7 @@ dfToReadFromQueryAsArgument = (spark.read
                      # Set user's password to the database
                      .option(Constants.PASSWORD, "<user_password>")
                      # Set name of the data source definition that is defined with database scoped credentials.
-                     # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+                     # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
                      # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
                      .synapsesql("select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
@@ -563,18 +569,6 @@ dfToReadFromQueryAsArgument.show()
 
 #### Write Request - `synapsesql` method signature
 
-The method signature for the Connector version built for Spark 2.4.8 has one less argument, than that applied to the Spark 3.1.2 version. Following are the two method signatures:
-
-* Spark Pool Version 2.4.8
-
-```Scala
-synapsesql(tableName:String, 
-           tableType:String = Constants.INTERNAL, 
-           location:Option[String] = None):Unit
-```
-
-* Spark Pool Version 3.1.2
-
 ##### [Scala](#tab/scala3)
 
 ```Scala
@@ -591,7 +585,9 @@ synapsesql(table_name: str, table_type: str = Constants.INTERNAL, location: str 
 ```
 ---
 
-#### Write using Azure AD based authentication
+<a name='write-using-azure-ad-based-authentication'></a>
+
+#### Write using Microsoft Entra ID based authentication
 
 Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
@@ -710,7 +706,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
 
 #### Write using basic authentication
 
-Following code snippet replaces the write definition described in the [Write using Azure AD based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
+Following code snippet replaces the write definition described in the [Write using Microsoft Entra ID based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
 
 ##### [Scala](#tab/scala5)
 
@@ -806,7 +802,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
 
 In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from an Azure Data Lake Storage Gen2 data source using Service Principal credentials:
 
- ```Scala
+```Scala
 //Specify options that Spark runtime must support when interfacing and consuming source data
 val storageAccountName="<storageAccountName>"
 val storageContainerName="<storageContainerName>"
@@ -966,8 +962,8 @@ By default, a write response is printed to the cell output. On failure, the curr
   * When writing large data sets, it's important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size).
 * Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends to spot throttling behaviors that can [impact](../../storage/common/scalability-targets-standard-account.md) read and write performance.
 
-## References
+## Related content
 
-* [Runtime library versions](../../synapse-analytics/spark/apache-spark-3-runtime.md)
+* [Runtime library versions](../../synapse-analytics/spark/apache-spark-34-runtime.md)
 * [Azure Storage](../../storage/blobs/data-lake-storage-introduction.md)
 * [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

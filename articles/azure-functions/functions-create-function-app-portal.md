@@ -1,29 +1,26 @@
 ---
-title: Create your first function in the Azure portal
-description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
+title: Create a function app in the Azure portal
+description: Learn how to create a function app for serverless execution in Azure Functions using the Azure portal.
 ms.topic: how-to
-ms.date: 06/10/2022
-ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47, devdivchpfy22"
+ms.date: 05/08/2025
+zone_pivot_groups: functions-hosting-plan-dynamic
 ---
 
-# Create your first function in the Azure portal
+# Create a function app in the Azure portal
 
-Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal.
+This article shows you how to use the Azure portal to create a function app that's hosted in Azure Functions. These hosting plan options, which support dynamic, event-driven scaling, are featured:
 
-[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)]
+| Hosting option | Description |
+| ----- | ----- |
+| [Flex Consumption plan](./flex-consumption-plan.md) | Linux-only plan that provides rapid horizontal scaling with support for managed identities, virtual networking, and pay-as-you-go billing. |
+| [Premium plan](./functions-premium-plan.md) | Provides longer execution times, more control over CPU/memory, and support for containers and virtual networks. |
+| [Consumption plan](./consumption-plan.md) | Original dynamic hosting plan, which supports portal development for some languages. |
 
-We recommend that you [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure.  
-Use one of the following links to get started with your chosen local development environment and language:
-
-| Visual Studio Code | Terminal/command prompt | Visual Studio |
-| --- | --- | --- |
-|  &bull;&nbsp;[Get started with C#](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Get started with C#](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-cli-python.md) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
-
-[!INCLUDE [functions-portal-language-support](../../includes/functions-portal-language-support.md)]
+Choose your preferred hosting plan at the [top](#top) of the article. For more information about all supported hosting options, see [Azure Functions hosting options](functions-scale.md).  
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sign in to Azure
 
@@ -31,46 +28,46 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create a function app
 
-You must have a function app to host the execution of your functions. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
+You must have a function app to host the execution of your functions. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources. 
 
-[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
+Use these steps to create your function app and related Azure resources in the Azure portal. 
 
-Next, create a function in the new function app.
+::: zone pivot="flex-consumption-plan"
+1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 
-## <a name="create-function"></a>Create an HTTP trigger function
+1. In the **New** page, select **Function App**.
 
-1. From the left menu of the **Function App** window, select **Functions**, and then select **Create** from the top menu.
+1. Under **Select a hosting option**, select **Flex Consumption** > **Select** to create your app in a [Flex Consumption plan](flex-consumption-plan.md). In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting option, you pay only for the time your functions run. To learn more about different hosting plans, see [Overview of plans](functions-scale.md#overview-of-plans). 
 
-1. From the **Create Function** window, leave the **Development environment** property as **Develop in portal**, and then select the **HTTP trigger** template.
+1. On the **Basics** page, use the function app settings as specified in the following table:
 
-    :::image type="content" source="./media/functions-create-first-azure-function/function-app-http-trigger.png" alt-text="Screenshot of HTTP trigger function.":::
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **Subscription** | Your subscription | The subscription under which you create your new function app. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you create your function app. You should create a new resource group because there are [known limitations when creating new function apps in an existing resource group](functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
+    | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
+    |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. |
+    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language.  |
+    |**Version**| Version number | Choose the version of your installed runtime. |
+    |**Instance Size**| 2048 MB | The instance memory size used for each instance of the app as it scales. |
 
-1. Under **Template details** use `HttpExample` for **New Function**, select **Anonymous** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#authorization-keys)** drop-down list, and then select **Create**.
+1. Accept the default options in the remaining tabs, including the default behavior of creating a new storage account on the **Storage** tab and a new Application Insights instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance, and change Azure OpenAI, Networking, Deployment, and Authentication settings.
 
-    Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
+1. Select **Review + create** to review the app configuration you chose, and then select **Create** to provision and deploy the function app.
 
-## Test the function
+1. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
 
-1. In your new HTTP trigger function, select **Code + Test** from the left menu, and then select **Get function URL** from the top menu.
+1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
 
-    :::image type="content" source="./media/functions-create-first-azure-function/function-app-http-example-get-function-url.png" alt-text="Screenshot of Get function URL window.":::
-
-1. In the **Get function URL** dialog, select **default** from the drop-down list, and then select the **Copy to clipboard** icon.
-
-    :::image type="content" source="./media/functions-create-first-azure-function/function-app-develop-tab-testing.png" alt-text="Screenshot of Copy the function URL window from the Azure portal.":::
-
-1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. The browser must display a response message that echoes back your query string value.
-
-    If the request URL included an [access key](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), it means you selected **Function** instead of **Anonymous** access level when creating the function. In this case, you must instead append `&name=<your_name>`.
-
-1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page. Call your function again to see the trace output written to the logs.
-
-    :::image type="content" source="media/functions-create-first-azure-function/function-app-log-view.png" alt-text="Screenshot of Functions log viewer in the Azure portal.":::
-
-## Clean up resources
-
-[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
+    :::image type="content" source="../../includes/media/functions-create-function-app-portal/function-app-create-notification-new.png" alt-text="Screenshot of deployment notification.":::
+::: zone-end
+::: zone pivot="consumption-plan"
+[!INCLUDE [Create Consumption plan app Azure portal](../../includes/functions-create-function-app-portal.md)]
+::: zone-end
+::: zone pivot="premium-plan"
+[!INCLUDE [Create Premium plan app Azure portal](../../includes/functions-premium-create.md)]
+::: zone-end
 
 ## Next steps
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+[!INCLUDE [functions-quickstarts-infra-next-steps](../../includes/functions-quickstarts-infra-next-steps.md)]

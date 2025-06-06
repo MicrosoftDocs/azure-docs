@@ -1,0 +1,94 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/certification/resources-glossary.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/how-to-software-levels.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/how-to-test-device-update.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/how-to-using-the-components-feature.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/program-requirements-azure-certified-device.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/program-requirements-edge-managed.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/tutorial-00-selecting-your-certification.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/tutorial-01-creating-your-project.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/tutorial-02-adding-device-details.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },		
+        {
+            "source_path_from_root": "/articles/certification/tutorial-03-testing-your-device.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/tutorial-04-publishing-your-device.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/concepts-legacy.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/concepts-marketing.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/how-to-edit-published-device.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/how-to-indirectly-connected-devices.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/program-requirements-pnp.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/how-to-troubleshoot-pnp.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/certification/how-to-test-pnp.md",
+            "redirect_url": "/azure/certification/overview",
+            "redirect_document_id": false
+        }
+    ]
+}

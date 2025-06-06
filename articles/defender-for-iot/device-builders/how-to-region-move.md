@@ -20,13 +20,13 @@ You can move a Microsoft Defender for IoT "iotsecuritysolutions" resource to a d
 
 - Make sure that your Azure subscription allows you to create "iotsecuritysolutions" resources in the target region.
 
-- Make sure that your subscription has enough resources to support the addition of resources for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of resources for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits)
 
 ## Alert preparation
 
 In this section, you'll prepare to move the resource for the move by finding the resource and confirming it is in a region you wish to move from.
 
-Before transitioning the resource to the new region, we recommended using [log analytics](../../azure-monitor/logs/quick-create-workspace.md) to store alerts, and raw events.
+Before transitioning the resource to the new region, we recommended using [log analytics](/azure/azure-monitor/logs/quick-create-workspace) to store alerts, and raw events.
 
 **To find the resource you want to move**:
 
@@ -58,7 +58,7 @@ After transferring, and enabling the resource, you can link to the same log anal
 
 In this section, you'll verify that the resource has been moved, that the connection to the IoT Hub has been enabled, and that everything is working correctly.
 
-**To verify the resource in in the correct region**:
+**To verify the resource is in the correct region**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **All Resources**.
 

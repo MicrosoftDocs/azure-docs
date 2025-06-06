@@ -6,7 +6,7 @@ manager: rcole
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 03/11/2023
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -15,9 +15,6 @@ ms.custom: kr2b-contr-experiment
 
 # Use direct routing to connect to existing telephony service
 Azure Communication Services direct routing enables you to connect your existing telephony infrastructure to Azure. The article lists the high-level steps required for connecting a supported Session Border Controller (SBC) to direct routing and how voice routing works for the enabled Communication resource. 
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 For information about whether Azure Communication Services direct routing is the right solution for your organization, see [Azure telephony concepts](./telephony-concept.md). For information about prerequisites and planning your deployment, see [Communication Services direct routing infrastructure requirements](./direct-routing-infrastructure.md).
 
@@ -28,6 +25,37 @@ Follow [these instructions](../../how-tos/telephony/domain-validation.md) to val
 
 ## Configure outbound voice routing 
 Refer to [Voice routing quickstart](../../quickstarts/telephony/voice-routing-sdk-config.md) to add an SBC and configure outbound voice routing rules.
+
+## Session Border Controller connection status
+
+The health of an SBC connection now exposed in Azure portal. It takes in account Transport Layer Security (TLS) status and SIP OPTIONS. 
+
+   [![Screenshot of SBC connection properties.](../../quickstarts/telephony/media/voice-routing/session-border-controller-connection-properties.png)](../../quickstarts/telephony//media/voice-routing/session-border-controller-connection-properties.png#lightbox)
+
+### Possible values of each health indicator
+
+TLS Status - Status of the TLS connections of a Trunk: 
+- Unknown - Indicates that SBC hasn't attempted a TLS handshake in the last 15 minutes. 
+- Active - Indicates that TLS connection is established. 
+- CertExpiring - Indicates that SBC certificate is expiring. 
+- CertExpired - Indicates that SBC certificate is expired. 
+
+SIP OPTIONS (Ping) - Status of SIP OPTIONS messages exchange: 
+- Unknown - Indicates that SBC hasn't sent any SIP options. 
+- Active - Indicates that OPTIONS are being sent and received. 
+- Expired - Indicates that SBC was sending SIP OPTIONS, but we haven't received any OPTIONS messages in the last 15 minutes. 
+- Error - Indicates an error in OPTIONS exchange.  
+
+Status - The overall health status of a Trunk: 
+- Unknown - Indicates an unknown health status. 
+- Online - Indicates that SBC connection is healthy. 
+- Warning - Indicates TLS or Ping is expired. 
+
+> [!NOTE]
+>If you've just configured a new trunk, it can take up to 15 minutes to update the status.
+
+> [!IMPORTANT]
+> Before placing or receiving calls, make sure that SBC status is *Online*
 
 ## Outbound voice routing considerations
 
@@ -58,7 +86,7 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
 If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 and sbc2 are unavailable, the route with lower priority is tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of the second route are available, the call is dropped.
 
 ### Three routes example:
-If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`, and created a third route with `^+1(\d[10])$` with `sbc5.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 nor sbc2 are unavailable, the route with lower priority is tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of a second route are available, the third route is tried. If sbc5 is also not available, the call is dropped. Also, if a user dials `+1 321 XXX XX XX`, the call goes to `sbc5.contoso.biz`, and it isn't available, the call is dropped.
+If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`, and created a third route with `^\+1(\d{10})$` with `sbc5.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 nor sbc2 are unavailable, the route with lower priority is tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of a second route are available, the third route is tried. If sbc5 is also not available, the call is dropped. Also, if a user dials `+1 321 XXX XX XX`, the call goes to `sbc5.contoso.biz`, and it isn't available, the call is dropped.
 
 > [!NOTE]
 > Failover to the next SBC in voice routing works only for response codes 408, 503, and 504.
@@ -67,7 +95,7 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
 > In all the examples, if the dialed number does not match the pattern, the call will be dropped unless there is a purchased number exist for the communication resource, and this number was used as `alternateCallerId` in the application. 
 
 ## Managing inbound calls
-For general inbound call management use [Call Automation SDKs](../call-automation/incoming-call-notification.md) to build an application that listens for and manage inbound calls placed to a phone number or received via ACS direct routing. 
+For general inbound call management use [Call Automation SDKs](../call-automation/incoming-call-notification.md) to build an application that listens for and manage inbound calls placed to a phone number or received via Azure Communication Services direct routing. 
 Omnichannel for Customer Service customers, refer to [these instructions](/dynamics365/customer-service/voice-channel-inbound-calling).
 
 ## Next steps
@@ -77,6 +105,7 @@ Omnichannel for Customer Service customers, refer to [these instructions](/dynam
 - [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
 - [Call Automation overview](../call-automation/call-automation.md)
 - [Pricing](../pricing.md)
+- [Try Phone Calling](./try-phone-calling.md)
 
 ### Quickstarts
 

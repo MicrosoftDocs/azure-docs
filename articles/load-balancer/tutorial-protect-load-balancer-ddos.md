@@ -1,21 +1,21 @@
 ---
-title: "Tutorial: Protect your public load balancer with Azure DDoS Protection Standard"
+title: "Tutorial: Protect your public load balancer with Azure DDoS Protection"
 titleSuffix: Azure Load Balancer
 description: Learn how to set up a public load balancer and protect it with Azure DDoS protection.
-author: duongau
-ms.service: load-balancer
-ms.topic: quickstart
-ms.date: 12/21/2022
-ms.author: duau
+author: mbender-ms
+ms.service: azure-load-balancer
+ms.topic: tutorial
+ms.date: 09/30/2024
+ms.author: mbender
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Protect your public load balancer with Azure DDoS Protection Standard
+# Tutorial: Protect your public load balancer with Azure DDoS Protection
 
-Azure DDoS Protection Standard enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your public load balancers from large scale DDoS attacks.
+Azure DDoS Protection enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your public load balancers from large scale DDoS attacks.
 
 > [!IMPORTANT]
-> Azure DDoS Protection incurs a cost when you use the Standard SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
+> Azure DDoS Protection incurs a cost when you use the Network Protection SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
 
 In this tutorial, you learn how to:
 
@@ -55,7 +55,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the virtual network
 
-In this section, you'll create a virtual network, subnet, Azure Bastion host, and associate the DDoS Protection Standard plan. The virtual network and subnet contains the load balancer and virtual machines. The bastion host is used to securely manage the virtual machines and install IIS to test the load balancer. The DDoS Protection plan will protect all public IP resources in the virtual network.
+In this section, you'll create a virtual network, subnet, Azure Bastion host, and associate the DDoS Protection plan. The virtual network and subnet contains the load balancer and virtual machines. The bastion host is used to securely manage the virtual machines and install IIS to test the load balancer. The DDoS Protection plan will protect all public IP resources in the virtual network.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+>
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual Networks** in the search results.
 
@@ -101,7 +107,7 @@ In this section, you'll create a virtual network, subnet, Azure Bastion host, an
     | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-11. Under **DDoS Protection Standard**, select **Enable**. Then from the drop-down menu, select **myDDoSProtectionPlan**.
+11. Under **DDoS Network Protection**, select **Enable**. Then from the drop-down menu, select **myDDoSProtectionPlan**.
 
     :::image type="content" source="./media/protect-load-balancer-with-ddos-standard/enable-ddos.png" alt-text="Screenshot of enabling DDoS during virtual network creation.":::
 
@@ -163,7 +169,7 @@ During the creation of the load balancer, you'll configure:
 11. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
 
 12. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -320,7 +326,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | **Zone 2** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 

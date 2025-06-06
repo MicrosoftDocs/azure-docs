@@ -1,20 +1,18 @@
 ---
-title: Manage a Virtual Instance for SAP solutions (preview)
+title: Manage a Virtual Instance for SAP solutions
 description: Learn how to configure a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through the Azure portal.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 02/03/2023
-author: lauradolan
-ms.author: ladolan
+author: sagarkeswani
+ms.author: sagarkeswani
 #Customer intent: As a SAP Basis Admin, I want to view and manage my SAP systems using Virtual Instance for SAP solutions resource where I can find SAP system properties.
 ---
 
-# Manage a Virtual Instance for SAP solutions (preview)
+# Manage a Virtual Instance for SAP solutions
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
 
-[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
 
 In this article, you'll learn how to view the *Virtual Instance for SAP solutions (VIS)* resource created in *Azure Center for SAP solutions* through the Azure portal. You can use these steps to find your SAP system's properties and connect parts of the VIS to other resources like databases.
 
@@ -58,6 +56,12 @@ In the sidebar menu, look under the section **SAP resources**:
 - To see properties of database instances, select **Databases**.
 
 :::image type="content" source="media/configure-virtual-instance/sap-resources.png" lightbox="media/configure-virtual-instance/sap-resources.png" alt-text="Screenshot of VIS resource in Azure portal, showing SAP resources pages in the sidebar menu for ASCS, App server, and Database instances.":::
+
+## View Manage identity under VIS
+
+You can view and create/delete the manage identity under the VIS.
+
+:::image type="content" source="media/configure-virtual-instance/manage-identity-under-vis.png" lightbox="media/configure-virtual-instance/manage-identity-under-vis.png" alt-text="Screenshot of Manage Identity view under VIS in Azure portal.":::
 
 ## Default Instance Numbers
 
@@ -141,7 +145,7 @@ To delete a VIS:
 1. [Open the VIS in the Azure portal](#open-vis-in-portal).
 1. On the overview page's menu, select **Delete**.
 
-    :::image type="content" source="media/configure-virtual-instance/delete-vis-button.png" lightbox="media/configure-virtual-instance/delete-vis-button.png" alt-text="Screenshot of VIS resource in the Azure portal, showing delete button in the overview page's menu..":::
+    :::image type="content" source="media/configure-virtual-instance/delete-vis-button.png" lightbox="media/configure-virtual-instance/delete-vis-button.png" alt-text="Screenshot of VIS resource in the Azure portal, showing delete button in the overview page's menu.":::
 
 1. In the deletion pane, make sure that you want to delete this VIS and related resources. You can see a count for each type of resource to be deleted.
     

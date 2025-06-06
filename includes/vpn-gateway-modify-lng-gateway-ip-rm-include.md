@@ -1,16 +1,12 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
- author: cherylmc
- ms.service: vpn-gateway
- ms.topic: include
- ms.date: 02/10/2021
- ms.author: cherylmc
- ms.custom: include file
+ms.author: cherylmc
+author: cherylmc
+ms.date: 12/02/2024
+ms.service: azure-vpn-gateway
+ms.topic: include
 ---
 
-If the VPN device that you want to connect to has changed its public IP address, you need to modify the local network gateway to reflect that change. When modifying this value, you can also modify the address prefixes at the same time. Be sure to use the existing name of your local network gateway in order to overwrite the current settings. If you use a different name, you create a new local network gateway, instead of overwriting the existing one.
+If you change the public IP address for your VPN device, you need to modify the local network gateway with the updated IP address. When modifying this value, you can also modify the address prefixes at the same time. When modifying, be sure to use the existing name of your local network gateway. If you use a different name, you create a new local network gateway, instead of overwriting the existing gateway information.
 
 ```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name Site1 `

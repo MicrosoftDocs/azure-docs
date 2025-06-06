@@ -3,28 +3,78 @@ title: Azure Automation data security
 description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 04/02/2023
-ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.date: 01/01/2025
+ms.topic: overview
+ms.custom:
+ms.service: azure-automation
 ---
 
 # Management of Azure Automation data
 
 This article contains several topics explaining how data is protected and secured in an Azure Automation environment.
 
-## TLS 1.2 for Azure Automation
+## TLS for Azure Automation
 
-To ensure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS) 1.2. The following are a list of methods or clients that communicate over HTTPS to the Automation service:
+To ensure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS). The following are a list of methods or clients that communicate over HTTPS to the Automation service:
 
 * Webhook calls
 
-* Hybrid Runbook Workers, which include machines managed by Update Management and Change Tracking and Inventory.
+* User Hybrid Runbook Workers (extension-based and agent-based)
 
-* DSC nodes
+* Machines managed by Azure Automation Update management and Azure Automation Change tracking & inventory
+
+* Azure Automation DSC nodes
 
 Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. We do not recommend explicitly setting your agent to only use TLS 1.2 unless its necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3.
 
-For information about TLS 1.2 support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS 1.2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
+For information about TLS support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS](/azure/azure-monitor/agents/log-analytics-agent#tls-protocol).
+
+### Upgrade TLS protocol for Hybrid Workers and Webhook calls
+
+From **March 01, 2025**, all agent-based and extension-based User Hybrid Runbook Workers, Webhooks, DSC nodes and Azure Automation Update management and Change Tracking managed machines, using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation. All jobs running or scheduled on Hybrid Workers using TLS 1.0 and 1.1 protocols will fail. 
+
+Ensure that the Webhook calls that trigger runbooks navigate on TLS 1.2 or higher. Learn how to [disable TLS 1.0/1.1 protocols on Windows Hybrid Worker and enable TLS 1.2 or above](/system-center/scom/plan-security-tls12-config#configure-windows-operating-system-to-only-use-tls-12-protocol) on Windows machine. 
+
+For Linux Hybrid Workers, run the following Python script to upgrade to the latest TLS protocol.
+
+```python
+import os
+
+# Path to the OpenSSL configuration file as per Linux distro
+openssl_conf_path = "/etc/ssl/openssl.cnf"
+
+# Open the configuration file for reading
+with open(openssl_conf_path, "r") as f:
+    openssl_conf = f.read()
+
+# Check if a default TLS version is already defined
+if "DEFAULT@SECLEVEL" in openssl_conf:
+    # Update the default TLS version to TLS 1.2
+    openssl_conf = openssl_conf.replace("CipherString = DEFAULT@SECLEVEL", "CipherString = DEFAULT@SECLEVEL:TLSv1.2")
+
+    # Open the configuration file for writing and write the updated version
+    with open(openssl_conf_path, "w") as f:
+        f.write(openssl_conf)
+
+    # Restart any services that use OpenSSL to ensure that the new settings are applied
+    os.system("systemctl restart apache2")
+    print("Default TLS version has been updated to TLS 1.2.")
+else:
+    # Add the default TLS version to the configuration file
+    openssl_conf += """
+    Options = PrioritizeChaCha,EnableMiddleboxCompat
+    CipherString = DEFAULT@SECLEVEL:TLSv1.2
+    MinProtocol = TLSv1.2
+    """
+
+    # Open the configuration file for writing and write the updated version
+    with open(openssl_conf_path, "w") as f:
+        f.write(openssl_conf)
+
+    # Restart any services that use OpenSSL to ensure that the new settings are applied
+    os.system("systemctl restart apache2")
+    print("Default TLS version has been added as TLS 1.2.")
+```
 
 ### Platform-specific guidance
 
@@ -60,7 +110,7 @@ When you delete an Automation account in Azure, all objects in the account are d
 
 ### Runbooks
 
-You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure.service/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
+You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
 
 ### Integration modules
 

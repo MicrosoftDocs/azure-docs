@@ -1,11 +1,10 @@
 ---
-title: Modify an Active Directory Connection for Azure NetApp Files | Microsoft Docs
+title: Modify an Active Directory Connection for Azure NetApp Files
 description: This article shows you how to modify Active Directory connections for Azure NetApp Files.
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 05/06/2025
 ms.author: anfdocs
 ---
 
@@ -13,7 +12,7 @@ ms.author: anfdocs
 
 Once you've [created an Active Directory connection](create-active-directory-connections.md) in Azure NetApp Files, you can modify it. When you're modifying an Active Directory connection, not all configurations are modifiable.
 
-[!INCLUDE [April 2023 Netlogon notice](includes/netlogon-april-2023.md)]
+For more information, see [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md).
 
 ## Modify Active Directory connections
 
@@ -30,7 +29,7 @@ Once you've [created an Active Directory connection](create-active-directory-con
 | AD DNS Domain Name | The domain name of your Active Directory Domain Services that you want to join. | No | None | N/A |
 | AD Site Name | The site to which the domain controller discovery is limited. | Yes | This should match the site name in Active Directory Sites and Services. See footnote.* | Domain discovery is limited to the new site name. If not specified, "Default-First-Site-Name" is used. |
 | SMB Server (Computer Account) Prefix | Naming prefix for the computer account in Active Directory that Azure NetApp Files will use for the creation of new accounts. See footnote.* | Yes | Existing volumes need to be mounted again as the mount is changed for SMB shares and NFS Kerberos volumes.* | Renaming the SMB server prefix after you create the Active Directory connection is disruptive. You'll need to remount existing SMB shares and NFS Kerberos volumes after renaming the SMB server prefix as the mount path will change. |
-| Organizational Unit Path | The LDAP path for the organizational unit (OU) where SMB server computer accounts will be created. `OU=second level`, `OU=first level`| No | If you're using Azure NetApp Files with Azure Active Directory Domain Services (AADDS), the organizational path is `OU=AADDC Computers` when you configure Active Directory for your NetApp Account. | Computer accounts will be placed under the OU specified. If not specified, the default of `OU=Computers` is used by default. |
+| Organizational Unit Path | The LDAP path for the organizational unit (OU) where SMB server computer accounts will be created. `OU=second level`, `OU=first level`| No | If you're using Azure NetApp Files with Microsoft Entra Domain Services, the organizational path is `OU=AADDC Computers` when you configure Active Directory for your NetApp Account. | Computer accounts will be placed under the OU specified. If not specified, the default of `OU=Computers` is used by default. |
 | AES Encryption | To take advantage of the strongest security with Kerberos-based communication, you can enable AES-256 and AES-128 encryption on the SMB server. | Yes | If you enable AES encryption, the user credentials used to join Active Directory must have the highest corresponding account option enabled, matching the capabilities enabled for your Active Directory. For example, if your Active Directory has only AES-128 enabled, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory doesn't have any Kerberos encryption capability, Azure NetApp Files uses DES by default.* | Enable AES encryption for Active Directory Authentication |
 | LDAP Signing | This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified Active Directory Domain Services domain controller. | Yes | LDAP signing to Require Signing in group policy* | This option provides ways to increase the security for communication between LDAP clients and Active Directory domain controllers. |
 | Allow local NFS users with LDAP | If enabled, this option manages access for local users and LDAP users. | Yes | This option allows access to local users. It's not recommended and, if enabled, should only be used for a limited time and later disabled. | If enabled, this option allows access to local users and LDAP users. If your configuration requires access for only LDAP users, you must disable this option. |
@@ -44,7 +43,7 @@ Once you've [created an Active Directory connection](create-active-directory-con
 | Username | Username of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |
 | Password | Password of the Active Directory domain administrator | Yes | None* <br></br> Password can't exceed 64 characters. | Credential change to contact DC |
 | Kerberos Realm: AD Server Name | The name of the Active Directory machine. This option is only used when creating a Kerberos volume. | Yes | None* | |
-| Kerberos Realm: KDC IP | Specifies the IP address of the Kerberos Distribution Center (KDC) server. KDC in Azure NetApp Files is an Active Directory server | Yes | None | A new KDC IP address will be used |
+| Kerberos Realm: KDC IP | Specifies the IP address of the Kerberos Distribution Center (KDC) server. KDC in Azure NetApp Files is an Active Directory server. You can only modify a KDC IP by editing the AD setting.  | Yes | None | A new KDC IP address will be used |
 | Region | The region where the Active Directory credentials are associated | No | None | N/A |
 | User DN | User domain name, which overrides the base DN for user lookups Nested userDN can be specified in `OU=subdirectory, OU=directory, DC=domain, DC=com` format.​ | Yes | None* | User search scope gets limited to User DN instead of base DN. |
 | Group DN | Group domain name. groupDN overrides the base DN for group lookups. Nested groupDN can be specified in `OU=subdirectory, OU=directory, DC=domain, DC=com` format.​ | Yes | None* | Group search scope gets limited to Group DN instead of base DN. |

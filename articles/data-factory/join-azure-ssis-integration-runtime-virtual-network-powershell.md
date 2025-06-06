@@ -1,10 +1,9 @@
 ---
 title: Join Azure-SSIS integration runtime to a virtual network via Azure PowerShell
 description: Learn how to join Azure-SSIS integration runtime to a virtual network via Azure PowerShell. 
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu 
 ms.custom: devx-track-azurepowershell
@@ -36,16 +35,25 @@ $FirstPublicIP = "[your first public IP address resource ID or leave it empty]"
 $SecondPublicIP = "[your second public IP address resource ID or leave it empty]"
 ```
 
+## Get Azure Batch application ID
+
+1. Navigate to [Azure portal](https://portal.azure.com).
+1. In the search bar, type `Microsoft Azure Batch`, and select it from the drop-down list, under **Microsoft Entra ID**. 
+1. On the **Microsoft Azure Batch** page, note down or copy the **Application ID** to the clipboard.
+1. In the following script, set the `$BatchApplicationId` variable to this value before running it.  
+
 ## Configure a virtual network
 
 Before you can join your Azure-SSIS IR to a virtual network, you need to configure the virtual network. To automatically configure virtual network permissions and settings for your Azure-SSIS IR to join a virtual network, add the following script:
 
 ```powershell
 # Make sure to run this script against the subscription to which the virtual network belongs.
+
+$BatchApplicationId = "[REPLACE_WITH_AZURE_BATCH_APP_ID]"
+
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
-    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
     $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
     Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
@@ -120,7 +128,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 If you use the express/standard virtual network injection method, this command takes 5/20-30 minutes to finish, respectively.
 
-## Next steps
+## Related content
 
 - [Configure a virtual network to inject Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md)
 - [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)

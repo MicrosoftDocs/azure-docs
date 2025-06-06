@@ -7,7 +7,7 @@ ms.topic: reference
 
 # Dell PowerEdge R340 XL
 
-This article describes the Dell PowerEdge R340 XL appliance, supported for OT sensors and on-premises management consoles.
+This article describes the Dell PowerEdge R340 XL appliance, supported for OT sensors.
 
 > [!NOTE]
 > Legacy appliances are certified but aren't currently offered as pre-configured appliances.
@@ -82,14 +82,14 @@ Before installing the software on the Dell appliance, you need to adjust the app
 
 To install the Dell PowerEdge R340XL appliance, you need:
 
-- An Enterprise license for Dell Remote Access Controller (iDrac)
+- An Enterprise license for Dell Remote Access Controller (iDRAC)
 
 - A BIOS configuration XML
 
 - One of the following server firmware versions:
 
   - BIOS version 2.1.6 or later
-  - iDrac version 3.23.23.23 or later
+  - iDRAC version 3.23.23.23 or later
 
 ### Configure the Dell BIOS
 
@@ -156,7 +156,7 @@ Configure the appliance BIOS only if you didn't purchase your appliance from Arr
 
 1. Select **Boot Settings**.
 
-1. For the **Boot Mode** option, select **BIOS**.
+1. For the **Boot Mode** option, select **UEFI**.
 
 1. Select **Back**, and then select **Finish** to exit the BIOS settings.
 
@@ -195,4 +195,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

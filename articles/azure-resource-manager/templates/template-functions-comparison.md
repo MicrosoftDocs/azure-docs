@@ -1,9 +1,9 @@
 ---
 title: Template functions - comparison
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 02/11/2022
+ms.date: 02/12/2025
 ---
 
 # Comparison functions for ARM templates
@@ -59,7 +59,7 @@ The output from the preceding example with the default values is:
 
 `equals(arg1, arg2)`
 
-Checks whether two values equal each other.
+Checks whether two values are identical. The comparison is case-sensitive.
 
 In Bicep, use the `==` operator instead. See [Equals ==](../bicep/operators-comparison.md#equals-).
 
@@ -83,7 +83,7 @@ The equals function is often used with the `condition` element to test whether a
   "condition": "[equals(parameters('newOrExisting'),'new')]",
   "type": "Microsoft.Storage/storageAccounts",
   "name": "[variables('storageAccountName')]",
-  "apiVersion": "2017-06-01",
+  "apiVersion": "2022-09-01",
   "location": "[resourceGroup().location]",
   "sku": {
     "name": "[variables('storageAccountType')]"
@@ -101,12 +101,12 @@ The following example checks different types of values for equality. All the def
 
 The output from the preceding example with the default values is:
 
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | True |
-| checkArrays | Bool | True |
-| checkObjects | Bool | True |
+| Name | Type | Value | Note |
+| ---- | ---- | ----- | ---- | 
+| checkInts | Bool | True |  |
+| checkStrings | Bool | False | The result is `false` because the comparison is case-sensitive. | 
+| checkArrays | Bool | True | |
+| checkObjects | Bool | True | |
 
 The following example template uses [not](template-functions-logical.md#not) with **equals**.
 

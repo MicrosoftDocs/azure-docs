@@ -1,19 +1,24 @@
 ---
 title: Configure authentication options in an Angular application by using Azure Active Directory B2C
 description:  Enable the use of Angular application options in several ways.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
+
+
+#Customer intent: As an Angular developer, I want to configure authentication options in my application using Azure Active Directory B2C, so that I can customize and enhance the authentication experience for my users.
+
 ---
 
 # Configure authentication options in an Angular application by using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes how you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Angular single-page application (SPA). 
 
@@ -26,7 +31,7 @@ Familiarize yourself with the article [Configure authentication in an Angular SP
 
 You can configure your single-page application to sign in users with MSAL.js in two ways:
 
-- **Pop-up window**: The authentication happens in a pop-up window, and the state of the application is preserved. Use this approach if you don't want users to move away from your application page during authentication.  However, there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups).
+- **Pop-up window**: The authentication happens in a pop-up window, and the state of the application is preserved. Use this approach if you don't want users to move away from your application page during authentication.  However, there are known issues with pop-up windows on Internet Explorer.
   - To sign in with pop-up windows, in the `src/app/app.component.ts` class, use the `loginPopup` method.  
   - In the `src/app/app.module.ts` class, set the `interactionType` attribute to `InteractionType.Popup`.
   - To sign out with pop-up windows, in the `src/app/app.component.ts` class, use the `logoutPopup` method. You can also configure `logoutPopup` to redirect the main window to a different page, such as the home page or sign-in page, after sign-out is complete by passing `mainWindowRedirectUri` as part of the request.
@@ -407,7 +412,7 @@ if (this.msalGuardConfig.authRequest) {
   authRequestConfig = { ...this.msalGuardConfig.authRequest } as RedirectRequest
 }
 
-authRequestConfig.extraQueryParameters = {"id_token_hint": idToken};;
+authRequestConfig.extraQueryParameters = {"id_token_hint": idToken};
 
 this.authService.loginRedirect(authRequestConfig);
 
@@ -459,7 +464,7 @@ const msalConfig = {
 
 [!INCLUDE [active-directory-b2c-app-integration-logging](../../includes/active-directory-b2c-app-integration-logging.md)]
 
-To configure Angular [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/logging.md), in *src/app/auth-config.ts*, configure the following keys:
+To configure Angular [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/logging.md), in *src/app/auth-config.ts*, configure the following keys:
 
 - `loggerCallback` is the logger callback function. 
 - `logLevel` lets you specify the level of logging. Possible values: `Error`, `Warning`, `Info`, and `Verbose`.

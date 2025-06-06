@@ -2,38 +2,40 @@
 title: Azure Static Web Apps hosting plans
 description: Compare and contrast the different Azure Static Web Apps hosting plans.
 services: static-web-apps
-author: craigshoemaker
-ms.service: static-web-apps
+author: v1212
+ms.service: azure-static-web-apps
 ms.topic:  overview
-ms.date: 10/05/2021
-ms.author: cshoe
+ms.date: 01/28/2025
+ms.author: wujia
 ---
 
 # Azure Static Web Apps hosting plans
 
-Azure Static Web Apps is available through two different plans, Free and Standard. See the [pricing page for Standard plan costs](https://azure.microsoft.com/pricing/details/app-service/static/).
+Azure Static Web Apps is available through two different plans, Free and Standard. See the [pricing page for Standard plan costs](https://azure.microsoft.com/pricing/details/app-service/static/). For information service level agreement details, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Features
 
-| Feature | Free plan <br> (For personal projects) | Standard plan <br> (For production apps) |
-| --- | --- | --- |
-| Web hosting | ✔ | ✔ |
-| GitHub integration | ✔ | ✔ |
-| Azure DevOps integration | ✔ | ✔ |
-| Globally distributed static content | ✔ | ✔ |
-| Free, automatically renewing SSL certificates | ✔ | ✔ |
-| Staging environments | 3 per app | 10 per app |
-| Max app size | 250 MB per app | 500 MB per app |
-| Custom domains | 2 per app | 5 per app |
-| APIs via Azure Functions | Managed | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) |
-| Authentication provider integration | [Pre-configured](authentication-authorization.md)<br>(Service defined) | [Custom registrations](authentication-custom.md) |
-| [Assign custom roles with a function](authentication-custom.md#manage-roles) | - | ✔ |
-| Private endpoints | - | ✔ |
-| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/app-service-static/v1_0/) | None  | ✔ |
+| Feature | Free plan <br> (For personal projects) | Standard plan <br> (For production apps) | Dedicated plan (Retired effective October 31st, 2025) |
+| --- | --- | --- |---|
+| Web hosting | ✔ | ✔ | ✔ |
+| GitHub integration | ✔ | ✔ | ✔ |
+| Azure DevOps integration | ✔ | ✔ | ✔ |
+| Globally distributed static content | ✔ | ✔ | ✗ |
+| Free, automatically renewing SSL certificates | ✔ | ✔ | ✔ |
+| Staging environments | 3 per app | 10 per app | 20 per app |
+| Max app size | 250 MB per app | 500 MB per app | 2 GB |
+| Custom domains | 2 per app | 5 per app | 10 per app |
+| APIs via Azure Functions | Managed | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) |
+| Authentication provider integration | [Preconfigured](authentication-authorization.yml)<br>(Service defined) | [Custom registrations](authentication-custom.md) | [Custom registrations](authentication-custom.md) |
+| [Assign custom roles with a function](authentication-custom.md#manage-roles) | ✗ | ✔ | ✔ |
+| Private endpoints | ✗ | ✔ | ✔ |
+| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/app-service-static/v1_0/) | None  | ✔ | ✔ |
 
 ## Selecting a plan
 
-The following scenarios can help you decide if the Standard plan best fits your needs.
+The following scenarios can help you decide if the Standard or Dedicated plan best fits your needs.
+
+Select Standard when:
 
 - Expected traffic volumes exceed bandwidth maximums.
 - The existing Azure Functions app you want to use either has triggers and bindings beyond HTTP endpoints, or can't be converted to a managed Functions app.
@@ -55,3 +57,5 @@ You can move between Free or Standard plans via the Azure portal.
 1. Select the hosting plan you want for your static web app.
 
 1. Select **Save**.
+
+**For Dedicated Plan deployments, follow the [Deploy your web app to Azure Static Web Apps](deploy-web-framework.md) guide to redeploy to a new Static Web App.**

@@ -1,29 +1,27 @@
 ---
-title: "Event-driven work using Dapr Bindings"
+title: "Tutorial: Event-driven work using Dapr Bindings"
 titleSuffix: "Azure Container Apps"
-description: Deploy a sample Dapr Bindings application to Azure Container Apps.
+description: Deploy a sample application to Azure Container Apps that leverages the Dapr Bindings API.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.service: container-apps
+ms.service: azure-container-apps
+ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 08/02/2024
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Event-driven work using Dapr Bindings 
+# Tutorial: Event-driven work using Dapr Bindings 
 
 In this tutorial, you create a microservice to demonstrate [Dapr's Bindings API](https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/) to work with external systems as inputs and outputs. You'll:
 > [!div class="checklist"]
-> * Run the application locally. 
+> * Run the application locally with the Dapr CLI. 
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with the provided Bicep. 
 
-The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostreSql output binding.
+The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostgreSQL output binding.
 
-:::image type="content" source="media/microservices-dapr-azd/bindings-quickstart.png" alt-text="Diagram of the Dapr binding application.":::
-
-> [!NOTE]
-> This tutorial uses [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
+:::image type="content" source="media/microservices-dapr-azd/bindings-quickstart.png" alt-text="Diagram of the binding application.":::
 
 ## Prerequisites
 
@@ -40,7 +38,7 @@ Before deploying the application to Azure Container Apps, start by running the P
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres) to your local machine.
+1. Clone the [sample application](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres) to your local machine.
 
    ```bash
    git clone https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres.git
@@ -52,7 +50,7 @@ Before deploying the application to Azure Container Apps, start by running the P
    cd bindings-dapr-nodejs-cron-postgres
    ```
 
-### Run the Dapr application using the Dapr CLI
+### Run the application using the Dapr CLI
 
 1. From the sample's root directory, change directories to `db`.
 
@@ -77,13 +75,13 @@ Before deploying the application to Azure Container Apps, start by running the P
    npm install
    ```
 
-1. Run the JavaScript service application with Dapr.
+1. Run the JavaScript service application.
 
    ```bash
    dapr run --app-id batch-sdk --app-port 5002 --dapr-http-port 3500 --resources-path ../components -- node index.js
    ```
 
-   The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
+   The `dapr run` command runs the binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
 
    #### Expected output
    
@@ -110,9 +108,9 @@ Before deploying the application to Azure Container Apps, start by running the P
    docker compose stop
    ```
 
-## Deploy the Dapr application template using Azure Developer CLI
+## Deploy the application template using Azure Developer CLI
 
-Now that you've run the application locally, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
+Now that you've run the application locally, let's deploy the bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
 
 ### Prepare the project
 
@@ -135,10 +133,10 @@ cd bindings-dapr-nodejs-cron-postgres
    | Parameter | Description |
    | --------- | ----------- |
    | Environment Name | Prefix for the resource group created to hold all Azure resources. |
-   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](/azure/postgresql/flexible-server/overview#azure-regions). |
    | Azure Subscription | The Azure subscription for your resources. |
 
-1. Run `azd up` to provision the infrastructure and deploy the Dapr application to Azure Container Apps in a single command.
+1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -192,7 +190,7 @@ In the Azure portal, verify the batch container app is logging each insert into 
 
 1. Copy the Container App name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the Container App resource by name.
 
 1. In the Container App dashboard, select **Monitoring** > **Log stream**.
 
@@ -217,7 +215,7 @@ Upon successful completion of the `azd up` command:
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/Azure-Samples/bindings-dapr-python-cron-postgres) to your local machine.
+1. Clone the [sample application](https://github.com/Azure-Samples/bindings-dapr-python-cron-postgres) to your local machine.
 
    ```bash
    git clone https://github.com/Azure-Samples/bindings-dapr-python-cron-postgres.git
@@ -229,7 +227,7 @@ Upon successful completion of the `azd up` command:
    cd bindings-dapr-python-cron-postgres
    ```
 
-### Run the Dapr application using the Dapr CLI
+### Run the application using the Dapr CLI
 
 Before deploying the application to Azure Container Apps, start by running the PostgreSQL container and Python service locally with [Docker Compose](https://docs.docker.com/compose/) and Dapr.
 
@@ -256,13 +254,13 @@ Before deploying the application to Azure Container Apps, start by running the P
    pip install -r requirements.txt
    ```
 
-1. Run the Python service application with Dapr.
+1. Run the Python service application.
 
    ```bash
    dapr run --app-id batch-sdk --app-port 5001 --dapr-http-port 3500 --resources-path ../components -- python3 app.py
    ```
 
-   The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
+   The `dapr run` command runs the binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
 
    #### Expected output
    
@@ -289,9 +287,9 @@ Before deploying the application to Azure Container Apps, start by running the P
    docker compose stop
    ```
 
-## Deploy the Dapr application template using Azure Developer CLI
+## Deploy the application template using Azure Developer CLI
 
-Now that you've run the application locally, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
+Now that you've run the application locally, let's deploy the bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
 
 ### Prepare the project
 
@@ -314,10 +312,10 @@ cd bindings-dapr-python-cron-postgres
    | Parameter | Description |
    | --------- | ----------- |
    | Environment Name | Prefix for the resource group created to hold all Azure resources. |
-   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](/azure/postgresql/flexible-server/overview#azure-regions). |
    | Azure Subscription | The Azure subscription for your resources. |
 
-1. Run `azd up` to provision the infrastructure and deploy the Dapr application to Azure Container Apps in a single command.
+1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -370,7 +368,7 @@ In the Azure portal, verify the batch container app is logging each insert into 
 
 1. Copy the Container App name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the Container App resource by name.
 
 1. In the Container App dashboard, select **Monitoring** > **Log stream**.
 
@@ -394,7 +392,7 @@ Upon successful completion of the `azd up` command:
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/Azure-Samples/bindings-dapr-csharp-cron-postgres) to your local machine.
+1. Clone the [sample application](https://github.com/Azure-Samples/bindings-dapr-csharp-cron-postgres) to your local machine.
 
    ```bash
    git clone https://github.com/Azure-Samples/bindings-dapr-csharp-cron-postgres.git
@@ -406,7 +404,7 @@ Upon successful completion of the `azd up` command:
    cd bindings-dapr-csharp-cron-postgres
    ```
 
-### Run the Dapr application using the Dapr CLI
+### Run the application using the Dapr CLI
 
 Before deploying the application to Azure Container Apps, start by running the PostgreSQL container and .NET service locally with [Docker Compose](https://docs.docker.com/compose/) and Dapr.
 
@@ -433,13 +431,13 @@ Before deploying the application to Azure Container Apps, start by running the P
    dotnet build
    ```
 
-1. Run the .NET service application with Dapr.
+1. Run the .NET service application.
 
    ```bash
    dapr run --app-id batch-sdk --app-port 7002 --resources-path ../components -- dotnet run
    ```
 
-   The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
+   The `dapr run` command runs the binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
 
    #### Expected output
    
@@ -466,9 +464,9 @@ Before deploying the application to Azure Container Apps, start by running the P
    docker compose stop
    ```
 
-## Deploy the Dapr application template using Azure Developer CLI
+## Deploy the application template using Azure Developer CLI
 
-Now that you've run the application locally, let's deploy the Dapr bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
+Now that you've run the application locally, let's deploy the bindings application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview). During deployment, we will swap the local containerized PostgreSQL for an Azure PostgreSQL component.
 
 ### Prepare the project
 
@@ -491,10 +489,10 @@ cd bindings-dapr-csharp-cron-postgres
    | Parameter | Description |
    | --------- | ----------- |
    | Environment Name | Prefix for the resource group created to hold all Azure resources. |
-   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](/azure/postgresql/flexible-server/overview#azure-regions). |
    | Azure Subscription | The Azure subscription for your resources. |
 
-1. Run `azd up` to provision the infrastructure and deploy the Dapr application to Azure Container Apps in a single command.
+1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -547,7 +545,7 @@ In the Azure portal, verify the batch container app is logging each insert into 
 
 1. Copy the Container App name from the terminal output.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com) and search for the Container App resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the Container App resource by name.
 
 1. In the Container App dashboard, select **Monitoring** > **Log stream**.
 
@@ -578,6 +576,7 @@ azd down
 
 ## Next steps
 
-- Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
+- Learn more about [deploying microservices using Dapr to Azure Container Apps](./microservices-dapr.md).
+- [Enable token authentication for Dapr requests.](./dapr-authentication-token.md)
 - Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
-- [Scale your Dapr applications using KEDA scalers](./dapr-keda-scaling.md)
+- [Scale your applications using KEDA scalers](./dapr-keda-scaling.md)

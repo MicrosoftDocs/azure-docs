@@ -2,19 +2,17 @@
 title: Job classification concepts for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Job Router classification concepts.
-author: jasonshave
+author: sroons
 manager: phans
 services: azure-communication-services
 
-ms.author: jassha
+ms.author: serooney 
 ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
 # Job classification
-
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 When you submit a job to Job Router, you can either specify the queue, priority, and worker selectors manually or you can specify a classification policy to drive these values.
 
@@ -25,6 +23,10 @@ The process of classifying a Job involves optionally setting the following prope
 - Priority
 - Worker Selectors
 - Queue ID
+
+## Fallback queue
+
+The fallback queue is used when queue selectors, resulting from queue selector attachments, are unable to select a queue _and_ the job does not have a `queueId`. In this case, if the fallback queue is defined, the job is assigned to it.
 
 ## Prioritization rule
 
@@ -66,9 +68,7 @@ Once a Job has been classified, it can be reclassified in the following ways:
 1. You can update the Job labels, which cause the Job Router to evaluate the new labels with the previous Classification Policy.
 2. You can update the Classification Policy ID of a Job, which causes Job Router to process the existing Job against the new policy.
 3. An Exception Policy **trigger** can take the **action** of requesting a Job be reclassified.
-
-> [!NOTE]
-> The Job Router SDK includes an `UpdateJobLabels` method which simply updates the labels without causing the Job Router to execute the reclassification process.
+4. You can Reclassify the job, which causes the Job Router to re-evaluate the current labels and Classification Policy.
 
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md

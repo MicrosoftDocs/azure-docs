@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Connect a web app to Azure App Configuration with Service Connector'
 description: Learn how you can connect an ASP.NET Core application hosted in Azure Web Apps to App Configuration using Service Connector'
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 10/24/2022
+ms.date: 1/5/2024
 ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
@@ -33,7 +33,7 @@ In this tutorial, use the Azure CLI to complete the following tasks:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
+Run `az login` in the Azure CLI to sign in to Azure.
 
 ## Set up Azure resources
 
@@ -47,9 +47,9 @@ Start by creating your Azure resources.
 
 1. Deploy the web app to Azure
 
-    Run `az login` to sign in to and follow these steps to create an App Service and deploy the sample app. Make sure you have the Subscription Contributor role.
+    Follow these steps to create an App Service and deploy the sample app. Make sure you have the Subscription Contributor or Owner role.
 
-    ### [SMI](#tab/smi)
+    ### [System-assigned managed identity (Recommended)](#tab/smi)
 
     Create an app service and deploy the sample app that uses system-assigned managed identity to interact with App Config.
 
@@ -72,7 +72,7 @@ Start by creating your Azure resources.
     | Resource group name    | You'll use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
     | App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-smi*   |
 
-    ### [UMI](#tab/umi)
+    ### [User-assigned managed identity](#tab/umi)
 
     Create an app service and deploy the sample app that uses user-assigned managed identity to interact with App Config. 
 
@@ -131,6 +131,9 @@ Start by creating your Azure resources.
 
     ### [Connection string](#tab/connectionstring)
 
+    > [!WARNING]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+    
     Create an app service and deploy the sample app that uses connection string to interact with App Config.
 
     ```azurecli
@@ -198,6 +201,9 @@ Start by creating your Azure resources.
         ```
 
     ### [Connection string](#tab/connectionstring)
+
+    > [!WARNING]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
     Import the test configuration file to Azure App Configuration using a connection string.
 
@@ -289,7 +295,7 @@ to let the application access it and get app configuration endpoint in [code](ht
 Service Connector manages the connection configuration for you:
 
 - Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/Program.cs#L10).
-- save service principal credential to WebApp AppSettings `AZURE_APPCONFIGURATION_CLIENTID`. `AZURE_APPCONFIGURATION_TENANTID`, `AZURE_APPCONFIGURATION_CLIENTSECRET` and grant App Configuration Data Reader role to the service principal, so the application could be authenticated to the App Configuration in [code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/Program.cs#L11-L18), by using `ClientSecretCredential` from [Azure.Identity](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Identity/1.0.0/api/index.html).
+- save service principal credential to WebApp AppSettings `AZURE_APPCONFIGURATION_CLIENTID`. `AZURE_APPCONFIGURATION_TENANTID`, `AZURE_APPCONFIGURATION_CLIENTSECRET` and grant App Configuration Data Reader role to the service principal, so the application could be authenticated to the App Configuration in [code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/Program.cs#L11-L18), by using `ClientSecretCredential` from [Azure.Identity](/dotnet/api/azure.identity.clientsecretcredential).
 
 ### [Connection string](#tab/connectionstring)
 
@@ -314,11 +320,13 @@ Optionally, do the following tests:
 
 1. Navigate to your Azure web app by going to `https://<myWebAppName>.azurewebsites.net/` and refresh the page. You'll see that the message is updated to "hello".
 
-## Cleanup
+## Clean up resources
 
-Once you're done, delete the Azure resources you created.
+Once you're done, if you're not going to use these Azure resources any longer, delete them by running the `az group delete` command. This command deletes your resource group and all the resources within it.
 
-`az group delete -n <myResourceGroupName> --yes`
+```azurecli
+az group delete -n <myResourceGroupName> --yes
+```
 
 ## Next steps
 

@@ -1,16 +1,21 @@
 ---
 title: Azure Active Directory B2C service limits and restrictions
 description: Reference for service limits and restrictions for Azure Active Directory B2C service.
-services: active-directory-b2c
+
 author: kengaderdus
 ms.author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: reference
-ms.date: 12/29/2022
-ms.subservice: B2C
+ms.date: 05/11/2024
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C user, I want to understand the service limits and restrictions, so that I can ensure that my application stays within the allowed usage constraints and request limits.
+ms.custom:
+  - build-2025
 ---
 
 # Azure Active Directory B2C service limits and restrictions
@@ -33,7 +38,7 @@ The number of users able to authenticate through an Azure AD B2C tenant is gated
 
 ## Endpoint request usage
 
-Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification), and [SAML](http://saml.xml.org/saml-specifications) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
+Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification/), and [SAML](http://saml.xml.org/saml-specifications) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
 
 The frequency of requests made to Azure AD B2C endpoints determines the overall token issuance capability. Azure AD B2C exposes endpoints, which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview.md) article for more information on which endpoints are consumed by your application.
 
@@ -75,7 +80,7 @@ When you add more features to a User Flow, such as multifactor authentication, m
 
 |Feature |Additional requests consumed    |
 |---------|---------|
-|Azure Active Directory Multi-Factor Authentication          |2   |
+|Microsoft Entra multifactor authentication          |2   |
 |Email one-time password      |2   |
 |Age gating     |2   |
 |Federated identity provider  |2   |
@@ -165,16 +170,85 @@ The following table lists the administrative configuration limits in the Azure A
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
 |Total number of objects (user accounts and applications) per tenant (default limit)|1.25 million |
-|Total number of objects (user accounts and applications) per tenant (using a verified custom domain)|5.25 million |
+|Total number of objects (user accounts and applications) per tenant (using a verified custom domain). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million |
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
 |Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
 |Maximum policy file size      |1024 KB          |
 |Number of API connectors per tenant     |20         |
 
-<sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+<sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+
+## Region specific service limits 
+
+As a protection for our customers, Microsoft places some restrictions on telephony verification for certain region codes. The following table lists the region codes and their corresponding limits.
+
+| Region Code | Region Name                                    | Limit per tenant per 60 minutes | Limit per tenant per 24 hours            |                         
+|:----------- |:---------------------------------------------- |:------------------------------- | :----------------------------------------|
+| 20  | Egypt | 50 | 200 | 
+| 211 |	South Sudan |	10	| 30 |
+| 212 | Morocco | 20 | 100 |
+| 213 | Algeria | 20 | 100 |
+| 216 | Tunisia | 20 | 100 |
+| 221 | Senegal | 10 | 30 |
+| 223 | Mali | 20 | 100 |
+| 224 | Guinea | 20 | 100 |
+| 225 |	Ivory Coast|	10	| 30 |
+| 226 |  Burina Faso   | 10  |  30  |
+| 228 |  Togo  | 10  |  30  |
+| 233 |	Ghana|	10	| 30 |
+| 234 | Nigeria | 20 | 100 |
+| 236 |	Central African Republic  |	10	| 30 |
+| 238 | Cape Verde | 10 | 30 |
+| 249 |  Sudan | 10  |  30  |
+| 251 |	Ethiopia  |	10	| 30 |
+| 252 |  Somalia   | 10  |  30  |  
+| 255 | Tanzania | 10 | 50 |
+| 256 | Uganda | 20 | 100 |
+| 257 |  Uzbek | 10  |  30  |
+| 258 |  Mozambique| 50  |  200 | 
+| 260 | Zambia | 50 | 200 | 
+| 261 | Madagascar | 10 | 30 |
+| 263 | Zimbabwe | 10 | 30 |
+| 265 |	Malawi  |	10	| 30 |
+| 373 |	Moldova |	20	| 100 |
+| 375 |	Belarus   |	10	| 30 |
+| 386 | Slovenia | 10 | 50 |
+| 501 |  Belize| 10  |  30  |
+| 502 | Guatemala | 10 | 50 
+| 503 | El Salvador | 10 | 30 |
+| 52 | Mexico | 100 | 500 |
+| 53 | Cuba | 10 | 30 |
+| 58 |	Venezuela|	10	| 30 |
+| 591 | Bolivia | 10 | 30 |
+| 60 | Malaysia | 50 | 200 |
+| 62 |  Indonesia | 50  |  200 |
+| 63 |  Philippines   | 50  |  200 |
+| 670 |	East Timor (Timor-Leste)  |	10	| 30 |
+| 675 |	Papua New Guinea  |	10	| 30 |
+| 7 |  Russia | 100  |  1000 |
+| 84 |  Vietnam   | 150  |  500 |
+| 855 |  Cambodia  | 50  |  200 |
+| 856 | Laos | 50 | 200 |
+| 880 | Bangladesh | 50 | 200 | 
+| 92 |  Pakistan| 100  |  1000 |
+| 93 |	Afghanistan  |	10	| 30 |
+| 94 |  Sri Lanka | 100  |  500 |
+| 95 |	Myanmar (Burma) | 10	| 30 |
+| 961 |	Lebanon  |	10	| 30 |
+| 963 |	Syria  |	10	| 30 |
+| 967 |	Yemen	|10	| 30 |
+| 970 |  State of Palestine| 10  |  30  |
+| 972 |	Israel  |	50	| 200 |
+| 976 |	Mongolia  |	10	| 30 |
+| 992 | Tajikistan | 10 | 30 |
+| 993 | Turkmenistan | 10 | 30 |
+| 994 | Azerbaijan | 50 | 200 | 
+| 995 | Georgia | 10 | 30 |
+| 996 |	Kyrgyzstan  |	10	| 30 |
+| 998 | Uzbekistan | 10 | 30 
 
 ## Next steps
 
 - Learn about [Microsoft Graph's throttling guidance](/graph/throttling) 
 - Learn about the [validation differences for Azure AD B2C applications](../active-directory/develop/supported-accounts-validation.md)
-- Learn about [Resilience through developer best practices](../active-directory/fundamentals/resilience-b2c-developer-best-practices.md)
+- Learn about [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md)

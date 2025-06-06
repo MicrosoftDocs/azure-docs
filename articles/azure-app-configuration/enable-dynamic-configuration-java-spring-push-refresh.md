@@ -1,28 +1,23 @@
 ---
-title: "Tutorial: Use dynamic configuration using push refresh in a single instance Java Spring app"
+title: "Use dynamic configuration using push refresh - Java Spring"
 titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for a Java Spring app using push refresh
 services: azure-app-configuration
-documentationcenter: ''
 author: mrm9084
 manager: zhenlan
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: java
+ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 05/07/2022
+ms.date: 12/04/2024
 ms.author: mametcal
-
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration using push refresh in a Java Spring app
 
 The App Configuration Java Spring client library supports updating configuration on demand without causing an application to restart. An application can be configured to detect changes in App Configuration using one or both of the following two approaches.
 
-- Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `AppConfigurationRefresh`'s `refreshConfigurations` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
+- Poll Model: The Poll Model is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `AppConfigurationRefresh`'s `refreshConfigurations` sends a request to the server to check if the configuration changed, and pulls the updated configuration if needed.
 
 - Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events with Event Grid, with a [Web Hook](../event-grid/handler-event-hubs.md), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
 
@@ -45,25 +40,36 @@ In this tutorial, you learn how to:
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 - An existing Azure App Configuration Store.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Setup Push Refresh
 
 1. Open *pom.xml* and update the file with the following dependencies.
 
-   ```xml
-           <dependency>
-               <groupId>com.azure.spring</groupId>
-               <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-               <version>2.6.0</version>
-           </dependency>
-   
-           <!-- Adds the Ability to Push Refresh -->
-           <dependency>
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-starter-actuator</artifactId>
-           </dependency>
-   ```
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+</dependency>
+
+<!-- Adds the Ability to Push Refresh -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>5.18.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
 
 1. Set up [Maven App Service Deployment](../app-service/quickstart-java.md?tabs=javase) so the application can be deployed to Azure App Service via Maven.
 
@@ -71,19 +77,60 @@ In this tutorial, you learn how to:
    mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
    ```
 
-1. Open bootstrap.properties and configure Azure App Configuration Push Refresh and Azure Service Bus
+1. Navigate to the `resources` directory of your app and open `bootstrap.properties` and configure Azure App Configuration Push Refresh. If the file doesn't exist, create it. Add the following line to the file.
 
-   ```properties
-   # Azure App Configuration Properties
-   spring.cloud.azure.appconfiguration.stores[0].connection-string= ${AppConfigurationConnectionString}
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30d
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key= sentinel
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30d
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key= sentinel
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
    
-   management.endpoints.web.exposure.include= appconfiguration-refresh
-   ```
+    management.endpoints.web.exposure.include= appconfiguration-refresh
+    ```
+
+    Additionally, you need to add the following code to your project, unless you want to use Managed Identity:
+
+    ```java
+    import org.springframework.stereotype.Component;
+    
+    import com.azure.data.appconfiguration.ConfigurationClientBuilder;
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
+    
+    @Component
+    public class AppConfigCredential implements ConfigurationClientCustomizer {
+    
+        @Override
+        public void customize(ConfigurationClientBuilder builder, String endpoint) {
+            builder.credential(new DefaultAzureCredentialBuilder().build());
+        }
+    }
+    ```
+
+    And add configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyApplication` with your application name and package:
+
+    ```factories
+    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+    com.example.MyApplication
+    ```
+
+    ### [Connection string](#tab/connection-string)
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30d
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key= sentinel
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
+   
+    management.endpoints.web.exposure.include= appconfiguration-refresh
+    ```
+    ---
 
 A random delay is added before the cached value is marked as dirty to reduce potential throttling. The default maximum delay before the cached value is marked as dirty is 30 seconds.
 
@@ -92,35 +139,64 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 ## Build and run the app in app service
 
-Event Grid Web Hooks require validation on creation. You can validate by following this [guide](../event-grid/webhook-event-delivery.md) or by starting your application with Azure App Configuration Spring Web Library already configured, which will register your application for you. To use an event subscription, follow the steps in the next two sections.
+Event Grid Web Hooks require validation on creation. You can validate by following this [guide](../event-grid/webhook-event-delivery.md) or by starting your application with Azure App Configuration Spring Web Library already configured, which registers your application for you. To use an event subscription, follow the steps in the next two sections.
 
-1. Set the environment variable to your App Configuration instance's connection string:
+1. Set an environment variable.
 
-    #### [Windows command prompt](#tab/cmd)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **APP_CONFIGURATION_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AppConfigurationConnectionString <connection-string-of-your-app-configuration-store>
+    setx APP_CONFIGURATION_ENDPOINT "endpoint-of-your-app-configuration-store"
     ```
 
-    #### [PowerShell](#tab/powershell)
+    If you use PowerShell, run the following command:
 
-    ```PowerShell
-    $Env:AppConfigurationConnectionString = <connection-string-of-your-app-configuration-store>
+    ```powershell
+    $Env:APP_CONFIGURATION_ENDPOINT = "endpoint-of-your-app-configuration-store"
     ```
 
-    #### [Bash](#tab/bash)
+    If you use macOS or Linux, run the following command:
 
     ```bash
-    export AppConfigurationConnectionString = <connection-string-of-your-app-configuration-store>
+    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
+
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **APP_CONFIGURATION_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    ```
+
+   If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export APP_CONFIGURATION_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    ```
+    ---
+
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
+
+    ---
 
 1. Update your `pom.xml` under the `azure-webapp-maven-plugin`'s `configuration` add
 
-```xml
-<appSettings>
-  <AppConfigurationConnectionString>${AppConfigurationConnectionString}</AppConfigurationConnectionString>
-</appSettings>
-```
+   ```xml
+   <appSettings>
+     <AppConfigurationConnectionString>${AppConfigurationConnectionString}</AppConfigurationConnectionString>
+   </appSettings>
+   ```
 
 1. Run the following command to build the console app:
 
@@ -136,11 +212,11 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 ## Set up an event subscription
 
-1. Open the App Configuration resource in the Azure portal, then click on `+ Event Subscription` in the `Events` pane.
+1. Open the App Configuration resource in the Azure portal, then select `+ Event Subscription` in the `Events` pane.
 
     :::image type="content" source="./media/events-pane.png" alt-text="The events pane has an option to create new Subscriptions." :::
 
-1. Enter a name for the `Event Subscription` and the `System Topic`. By default the Event Types Key-Value modified and Key-Value deleted are set, this can be changed along with using the Filters tab to choose the exact reasons a Push Event will be sent.
+1. Enter a name for the `Event Subscription` and the `System Topic`. By default the Event Types Key-Value modified and Key-Value deleted are set, the reason can be changed along with using the Filters tab to choose the exact reasons a Push Event is sent.
 
     :::image type="content" source="./media/create-event-subscription.png" alt-text="Events require a name, topic, and filters." :::
 
@@ -148,16 +224,19 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
     :::image type="content" source="./media/event-subscription-webhook-endpoint.png" alt-text="Selecting Endpoint creates a new blade to enter the endpoint URI." :::
 
-1. The endpoint is the URI of the application + "/actuator/appconfiguration-refresh?{your-token-name}={your-token-secret}". For example `https://my-azure-webapp.azurewebsites.net/actuator/appconfiguration-refresh?myToken=myTokenSecret`
+1. The endpoint is the URI of the application + "/actuator/appconfiguration-refresh?{your-token-name}={your-token-secret}". For example, `https://my-azure-webapp.azurewebsites.net/actuator/appconfiguration-refresh?myToken=myTokenSecret`
 
-1. Click on `Create` to create the event subscription. When `Create` is selected a registration request for the Web Hook will be sent to your application. This is received by the Azure App Configuration client library, verified, and returns a valid response.
+1. Select `Create` to create the event subscription. When `Create` is selected, a registration request for the Web Hook is sent to your application. The request is received by the Azure App Configuration client library, verified, and returns a valid response.
 
-1. Click on `Event Subscriptions` in the `Events` pane to validate that the subscription was created successfully.
+1. Select `Event Subscriptions` in the `Events` pane to validate that the subscription was created successfully.
 
     :::image type="content" source="./media/event-subscription-view-webhook.png" alt-text="Web Hook shows up in a table on the bottom of the page." :::
 
 > [!NOTE]
-> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md) or [Service Bus subscription filters](../service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
+> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
+
+> [!NOTE]
+> If you have multiple instances of your application running, you can use the `appconfiguration-refresh-bus` endpoint which requires setting up Azure Service Bus, which is used to send a message to all instances of your application to refresh their configuration. This is useful if you have multiple instances of your application running and want to ensure that all instances are updated with the latest configuration. This endpoint isn't available unless you have `spring-cloud-bus` as a dependency with it configured. For more information, see [Azure Service Bus Spring Cloud Bus documentation](/azure/developer/java/spring-framework/using-service-bus-in-spring-applications). The service bus connection only needs to be set up and the Azure App Configuration library will handle sending and receiving the messages.
 
 ## Verify and test application
 

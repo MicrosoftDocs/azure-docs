@@ -1,8 +1,8 @@
 ---
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
-ms.topic: conceptual
-ms.date: 08/11/2022
+ms.topic: overview
+ms.date: 04/23/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -10,13 +10,10 @@ ms.author: jsuri
 
 [Azure Backup](backup-overview.md) offers a stream-based, specialized solution to back up SQL Server running in Azure VMs. This solution aligns with Azure Backup's benefits of zero-infrastructure backup, long-term retention, and central management. It additionally provides the following advantages specifically for SQL Server:
 
-1. Workload aware backups that support all backup types - full, differential, and log
-2. 15 minute RPO (recovery point objective) with frequent log backups
-3. Point-in-time recovery up to a second
-4. Individual database level backup and restore
-
->[!Note]
->Snapshot-based backup for SQL databases in Azure VM is now in preview. This unique offering combines the goodness of snapshots, leading to a better RTO and low impact on the server along with the benefits of frequent log backups for low RPO. For any queries/access, write to us at  [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+- Workload aware backups that support all backup types - full, differential, and log
+- 15 minute RPO (recovery point objective) with frequent log backups
+- Point-in-time recovery up to a second
+- Individual database level back up and restore
 
 To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support).
 
@@ -72,8 +69,12 @@ For all other versions, fix permissions with the following steps:
   5. In **Server Roles**, make sure the **sysadmin** role is selected. Select **OK**. The required permissions should now exist.
 
       ![Make sure the sysadmin server role is selected](./media/backup-azure-sql-database/sysadmin-server-role.png)
+  
+     If the SQL Server instance is part of an **Always-On Availability Group (AG)**, ensure that the **NT AUTHORITY\SYSTEM** account has the **VIEW SERVER STATE** permission enabled.
 
-  6. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
+     :::image type="content" source="./media/backup-azure-sql-database/view-server-state-permission.png" alt-text="Screenshot shows how to check permission on an SQL server instance selected for backup." lightbox="./media/backup-azure-sql-database/view-server-state-permission.png":::
+
+6. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
 
       ![Verify the server has appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
 
@@ -108,11 +109,11 @@ Add **NT AUTHORITY\SYSTEM** and **NT Service\AzureWLBackupPluginSvc** logins to 
 
 7. Select OK.
 8. Repeat the same sequence of steps (1-7 above) to add NT Service\AzureWLBackupPluginSvc login to the SQL Server instance. If the login already exists, make sure it has the sysadmin server role and under Status it has Grant the Permission to connect to database engine and Login as Enabled.
-9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Backup Infrastructure **->** Workload in Azure VM:
+9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Manage **->** Backup Infrastructure **->** Workload in Azure VM:
 
     ![Rediscover DBs in Azure portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
-Alternatively, you can automate giving the permissions by running the following PowerShell commands in admin mode. The instance name is set to MSSQLSERVER by default. Change the instance name argument in script if need be:
+Alternatively, you can automate giving the permissions by running the following PowerShell commands in admin mode. The instance name is set to MSSQLSERVER by default. Change the instance name argument in script if needed.
 
 ```powershell
 param(
@@ -147,8 +148,74 @@ catch
 }
 ```
 
+## Configure simultaneous backups
+
+You can now configure backups to save the SQL server recovery points and logs in a local storage and Recovery Services vault simultaneously.
+
+To configure simultaneous backups, follow these steps:
+
+1. Go to the `C:\Program Files\Azure Workload Backup\bin\plugins` location, and then create the file **PluginConfigSettings.json**, if it's not present.
+2. Add the comma separated key value entities, with keys `EnableLocalDiskBackupForBackupTypes` and `LocalDiskBackupFolderPath` to the JSON file.
+
+   - Under `EnableLocalDiskBackupForBackupTypes`, list the backup types that you want to store locally.
+
+     For example, if you want to store the *Full* and *Log* backups, mention `["Full", "Log"]`. To store only the log backups, mention `["Log"]`.
+
+   - Under `LocalDiskBackupFolderPath`, mention the *path to the local folder*. Ensure that you use the *double forward slash* while mentioning the path in the JSON file.
+   
+     For example, if the preferred path for local backup is `E:\LocalBackup`, mention the path in JSON as `E:\\LocalBackup`.
+
+     The final JSON should appear as:
+ 
+     ```json
+     {
+        "EnableLocalDiskBackupForBackupTypes": ["Log"],
+        "LocalDiskBackupFolderPath": "E:\\LocalBackup",
+     }
+     ```
+
+     If there are other pre-populated entries in the JSON file, add the above two entries at the bottom of the JSON file *just before the closing curly bracket*.
+
+3. For the changes to take effect immediately instead of regular one hour, go to **TaskManager** > **Services**, right-click **AzureWLbackupPluginSvc** and select **Stop**.
+
+   >[!Caution]
+   >This action will cancel all the ongoing backup jobs.
+
+   The naming convention of the stored backup file and the folder structure for it will be `{LocalDiskBackupFolderPath}\{SQLInstanceName}\{DatabaseName}`.
+
+   For example, if you have a database `Contoso` under the SQL instance `MSSQLSERVER`, the files will be located at in `E:\LocalBackup\MSSQLSERVER\Contoso`.
+
+   The name of the file is the `VDI device set guid`, which is used for the backup operation.
+
+4. Check if the target location under `LocalDiskBackupFolderPath` has *read* and *write* permissions for `NT Service\AzureWLBackupPluginSvc`.
+
+   >[!Note]
+   >For a folder on the local VM disks, right-click the folder and configure the required permissions for `NT Service\AzureWLBackupPluginSvc` on the **Security** tab.
+   
+   If you're using a network or SMB share, configure the permissions by running the below PowerShell cmdlets from a user console that already has the permission to access the share:
+
+   ```azurepowershell
+   $cred = Get-Credential
+   New-SmbGlobalMapping -RemotePath <FileSharePath> -Credential $cred -LocalPath <LocalDrive>:  -FullAccess @("<Comma Separated list of accounts>") -Persistent $true
+   ```
+
+   **Example**:
+   
+   ```azurepowershell
+   $cred = Get-Credential
+   New-SmbGlobalMapping -RemotePath \\i00601p1imsa01.file.core.windows.net\rsvshare -Credential $cred -LocalPath Y:  -FullAccess @("NT AUTHORITY\SYSTEM","NT Service\AzureWLBackupPluginSvc") -Persistent $true
+   ```
+
 ## Next steps
 
 * [Learn about](backup-sql-server-database-azure-vms.md) backing up SQL Server databases.
 * [Learn about](restore-sql-database-azure-vm.md) restoring backed up SQL Server databases.
 * [Learn about](manage-monitor-sql-database-backup.md) managing backed up SQL Server databases.
+
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
+

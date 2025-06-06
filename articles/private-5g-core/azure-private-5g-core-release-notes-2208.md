@@ -1,9 +1,9 @@
 ---
 title: Azure Private 5G Core 2208 release notes 
 description: Discover what's new in the Azure Private 5G Core 2208 release
-author: djrmetaswitch
-ms.author: drichards
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: release-notes
 ms.date: 09/23/2022
 ---

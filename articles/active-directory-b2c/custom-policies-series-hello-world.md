@@ -1,32 +1,37 @@
 ---
 title: Write your first Azure AD B2C custom policy - Hello World! 
 titleSuffix: Azure AD B2C
-description: Learn how to write your first custom policy. A custom that shows of returns Hello World message. 
-services: active-directory-b2c
+description: Learn how to write your first Azure AD B2C custom policy. Configure keys, build the policy file, upload it to Azure, and test the custom policy.
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 03/16/2023
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
+
+
+#Customer intent: As a developer creating a custom policy for Azure Active Directory B2C, I want to learn how to configure the signing and encryption keys, build the custom policy file, upload the policy file to Azure portal, and test the custom policy, so that I can customize user flows to meet my business specific needs.
+
 ---
 
 # Write your first Azure Active Directory B2C custom policy - Hello World! 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-In your applications, you can use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you use [custom policies](custom-policy-overview.md). 
+In your application, you can use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you can use [custom policies](custom-policy-overview.md). 
 
-While you can use pre-made custom policy [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) to write custom policies, it's important for you understand how a custom policy is built. In this article, you'll learn how to create your first custom policy from scratch. 
+While you can use pre-made custom policy [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) to write custom policies, it's important for you understand how a custom policy is built. In this article, you learn how to create your first custom policy from scratch. 
 
 ## Prerequisites 
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms. 
+- [Register a web application](tutorial-register-applications.md). 
 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
@@ -137,16 +142,16 @@ If you haven't already done so, create the following encryption keys. To automat
         </ClaimsProvider>
     ```
     
-    We've declared a JWT Token Issuer. In the `CryptographicKeys` section, if you used different names to configure the signing and encryption keys in [step 1](#step-1---configure-the-signing-and-encryption-keys), make sure you use the correct value for the `StorageReferenceId`.  
+    We've declared a JWT Issuer. In the `CryptographicKeys` section, if you used different names to configure the signing and encryption keys in [step 1](#step-1---configure-the-signing-and-encryption-keys), make sure you use the correct value for the `StorageReferenceId`.  
 
 1. In the `UserJourneys` section of the `ContosoCustomPolicy.XML` file, add the following code:
 
     ```xml
       <UserJourney Id="HelloWorldJourney">
-  <OrchestrationSteps>
-    <OrchestrationStep Order="1" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-  </OrchestrationSteps>
-</UserJourney>
+        <OrchestrationSteps>
+          <OrchestrationStep Order="1" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        </OrchestrationSteps>
+      </UserJourney>
     ```
     
     We've added a [UserJourney](userjourneys.md). The user journey specifies the business logic the end user goes through as Azure AD B2C processes a request. This user journey has only one step that issues a JTW token with the claims that you'll define in the next step.
@@ -248,9 +253,7 @@ After you complete [step 2](#step-2---build-the-custom-policy-file), the `Contos
 ## Step 3 - Upload custom policy file
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the left menu, under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**, browse select and then upload the `ContosoCustomPolicy.XML` file. 
@@ -265,7 +268,7 @@ After you upload the file, Azure AD B2C adds the prefix `B2C_1A_`, so the names 
 1. For **Select application** on the overview page of the custom policy, select the web application such as *webapp1* that you previously registered. Make sure that the **Select reply URL** value is set to`https://jwt.ms`.
 1. Select **Run now** button.
 
-After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. It looks similar to the following JWT token snippet: 
+After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT. It looks similar to the following JWT snippet: 
 
 ```json
     {
@@ -284,7 +287,7 @@ After the policy finishes execution, you're redirected to `https://jwt.ms`, and 
 
 Notice the `message` and `sub` claims, which we set as [output claims](relyingparty.md#outputclaims) in the `RelyingParty` section. 
 
-## Next steps
+## Related content
 
 In this article, you learned and used four sections that are included in an Azure AD B2C custom policy. These sections are added as child elements the `TrustFrameworkPolicy` root element: 
 

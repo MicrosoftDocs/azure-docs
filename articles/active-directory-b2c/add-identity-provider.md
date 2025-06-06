@@ -1,21 +1,25 @@
 ---
-title: Add an identity provider - Azure Active Directory B2C  
+title: Add an identity provider
+titleSuffix: Azure AD B2C 
 description: Learn how to add an identity provider to your Active Directory B2C tenant.
-services: active-directory-b2c
 author: garrodonnell
 manager: CelesteDG
-
 ms.author: godonnell
-ms.date: 02/08/2023
+ms.date: 01/05/2025
 ms.custom: mvc
 ms.topic: how-to
-ms.service: active-directory
-ms.subservice: B2C
+ms.service: azure-active-directory
+ms.subservice: b2c
+
+#Customer Intent: As a developer integrating Azure AD B2C into my application, I want to add an identity provider, so that users can sign in with their existing social or enterprise accounts without creating a new account.
+
 ---
 
 # Add an identity provider to your Azure Active Directory B2C tenant
 
-You can configure Azure AD B2C to allow users to sign in to your application with credentials from external social or enterprise identity providers (IdP). Azure AD B2C supports external identity providers like Facebook, Microsoft account, Google, Twitter, and any identity provider that supports OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols.
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+You can configure Azure AD B2C to allow users to sign in to your application with credentials from external social or enterprise identity providers (IdP). Azure AD B2C supports external identity providers like Facebook, Microsoft account, Google, X, and any identity provider that supports OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols.
 
 With external identity provider federation, you can offer your consumers the ability to sign in with their existing social or enterprise accounts, without having to create a new account just for your application.
 
@@ -32,8 +36,8 @@ You typically use only one identity provider in your applications, but you have 
 * [AD FS](identity-provider-adfs.md)
 * [Amazon](identity-provider-amazon.md)
 * [Apple](identity-provider-apple-id.md)
-* [Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md)
-* [Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md)
+* [Microsoft Entra ID (Single-tenant)](identity-provider-azure-ad-single-tenant.md)
+* [Microsoft Entra ID (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md)
 * [Azure AD B2C](identity-provider-azure-ad-b2c.md)
 * [eBay](identity-provider-ebay.md)
 * [Facebook](identity-provider-facebook.md)
@@ -49,6 +53,6 @@ You typically use only one identity provider in your applications, but you have 
 * [Salesforce](identity-provider-salesforce.md)
 * [Salesforce (SAML protocol)](identity-provider-salesforce-saml.md)
 * [SwissID](identity-provider-swissid.md)
-* [Twitter](identity-provider-twitter.md)
+* [X](identity-provider-twitter.md)
 * [WeChat](identity-provider-wechat.md)
 * [Weibo](identity-provider-weibo.md)
