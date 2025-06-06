@@ -18,7 +18,7 @@ This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) by enab
   - You must already have an Azure tenant and subscription.
   - You must be an Owner of an existing Azure subscription.
 
-## Register the Microsoft.Mission Resource Provider and grant permissions
+## Register the `Microsoft.Mission` Resource Provider and grant permissions
 
 ### Option 1: PowerShell (Fastest)
 

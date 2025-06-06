@@ -36,7 +36,7 @@ Web applications can be hosted inside of an enclave and made publicly accessible
     - **Destination Enclave**: `Enclave-WebApp`
     - **Destination Endpoint**: `endpoint-MyService`
 
-## Public Web Application in the PLx Managed Service
+## Public Web Application in the `PLx Managed Service`
 
 ![Diagram showing the architecture for securely hosting an application in the PLX Managed Service.](./media/secure-webapp-architecture-plx.png)
 
@@ -48,7 +48,7 @@ Web applications can be hosted inside of an enclave and made publicly accessible
 
 3. Deploy the resources required to host the web application into `Enclave-WebApp`
 
-4. Create an outbound NSG rule on the subnet hosting the Application Gateway in Enclave-DMZ that allows traffic from the Application Gateway IP Address over port `443` and/or `80` into `Enclave-WebApp` (`endpoint-MyService`) to the Web Application IP/Subnet
+4. Create an outbound Network Security Group (NSG) rule on the subnet hosting the Application Gateway in Enclave-DMZ that allows traffic from the Application Gateway IP Address over port `443` and/or `80` into `Enclave-WebApp` (`endpoint-MyService`) to the Web Application IP/Subnet
 
 5. Create a firewall rule that allows traffic from `Enclave-DMZ` into `Enclave-WebApp` that allows traffic to the web application's IP Address over port `443` and/or `80` into `Enclave-WebApp` (`endpoint-MyService`)
 
