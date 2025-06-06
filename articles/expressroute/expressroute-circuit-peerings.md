@@ -7,7 +7,6 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 01/10/2025
 ms.author: duau 
-# Customer intent: As a network administrator, I want to understand ExpressRoute circuits and peering options, so that I can effectively connect my on-premises infrastructure to Microsoft cloud services and ensure high availability and reliability for our network operations.
 ---
 
 # ExpressRoute circuits and peering

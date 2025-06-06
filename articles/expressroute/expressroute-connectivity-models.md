@@ -7,7 +7,6 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
-# Customer intent: As a network engineer, I want to explore different connectivity models for connecting my on-premises network to the Microsoft cloud, so that I can choose the best option that fits our organization's requirements for performance and reliability.
 ---
 
 # ExpressRoute connectivity models

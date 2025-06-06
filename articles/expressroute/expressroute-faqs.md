@@ -8,7 +8,6 @@ ms.topic: faq
 ms.date: 01/10/2025
 ms.author: duau
 
-# Customer intent: "As a network engineer, I want to establish a private connection between my on-premises infrastructure and Azure using ExpressRoute, so that I can achieve secure, reliable, and low-latency data transfer for my organization's cloud applications."
 ---
 # ExpressRoute FAQ
 

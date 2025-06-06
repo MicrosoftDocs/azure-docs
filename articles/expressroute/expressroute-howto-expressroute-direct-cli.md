@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau 
 ms.custom: devx-track-azurecli
-# Customer intent: As a network administrator, I want to configure Azure ExpressRoute Direct using the command line, so that I can establish a direct connection to Microsoft’s global network efficiently and manage bandwidth requirements for my organization.
 ---
 
 # Configure ExpressRoute Direct by using the Azure CLI

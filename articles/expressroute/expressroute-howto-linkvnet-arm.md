@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-# Customer intent: "As a network administrator, I want to link virtual networks to an ExpressRoute circuit using PowerShell so that I can ensure reliable and high-performance connectivity between my on-premises network and Azure resources."
 ---
 # Connect a virtual network to an ExpressRoute circuit using Azure PowerShell
 

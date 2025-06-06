@@ -8,7 +8,6 @@ ms.topic: troubleshooting
 ms.date: 11/18/2024
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-# Customer intent: As a network administrator, I want to troubleshoot and validate the connectivity of my Azure ExpressRoute circuit, so that I can ensure reliable and efficient network performance between my on-premises infrastructure and the Microsoft Cloud.
 ---
 
 # Verify ExpressRoute connectivity

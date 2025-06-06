@@ -9,7 +9,6 @@ ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
-# Customer intent: As a network administrator, I want to migrate an Azure ExpressRoute circuit from the classic deployment model to the Resource Manager model, so that I can manage it through the Resource Manager and enable connectivity between virtual networks across both deployment models without disruption.
 ---
 
 # Moving ExpressRoute circuits from the classic to the Resource Manager deployment model

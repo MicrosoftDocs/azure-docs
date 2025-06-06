@@ -10,7 +10,6 @@ ms.custom:
 ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau
-# Customer intent: As a network engineer, I want to configure ExpressRoute Direct using Azure PowerShell, so that I can establish a direct connection to Microsoft's global network for enhanced connectivity and performance.
 ---
 
 # How to configure ExpressRoute Direct

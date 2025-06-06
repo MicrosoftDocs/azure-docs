@@ -7,7 +7,6 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
-# Customer intent: As an IT network engineer, I want to review the prerequisites for setting up an ExpressRoute circuit, so that I can ensure all requirements are met for a successful connection to Microsoft cloud services.
 ---
 
 # ExpressRoute prerequisites & checklist

@@ -7,7 +7,6 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
-# Customer intent: "As a network engineer, I want to configure an ExpressRoute circuit and its peerings, so that I can establish reliable and efficient connectivity between on-premises infrastructure and Azure services."
 ---
 # ExpressRoute workflows for circuit provisioning and circuit states
 This article provides a high-level overview of the workflows for service provisioning and routing configuration for ExpressRoute circuits.

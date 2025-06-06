@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
-# Customer intent: As a network administrator, I want to configure MACsec on ExpressRoute Direct ports so that I can secure the communication between my edge routers and Microsoft’s edge routers.
 ---
 
 # Configure MACsec on ExpressRoute Direct ports

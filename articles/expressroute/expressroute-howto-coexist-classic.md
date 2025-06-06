@@ -7,7 +7,6 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
-# Customer intent: As a network administrator, I want to configure coexisting ExpressRoute and Site-to-Site VPN connections in the classic deployment model, so that I can ensure secure and reliable network connectivity with a failover path.
 ---
 
 # Configure ExpressRoute and Site-to-Site coexisting connections (classic)

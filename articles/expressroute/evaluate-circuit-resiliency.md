@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 06/24/2024
 ms.author: duau
 ms.custom: ai-usage
-# Customer intent: "As a network administrator, I want to manually test the failover of multi-site redundant ExpressRoute circuits, so that I can evaluate their resiliency and ensure reliable connectivity during potential outages."
 ---
 
 # Evaluate the resiliency of multi-site redundant ExpressRoute circuits

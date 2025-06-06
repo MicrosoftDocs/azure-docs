@@ -7,7 +7,6 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau 
-# Customer intent: As a network administrator, I want to link virtual networks to an ExpressRoute circuit using PowerShell, so that I can establish reliable and secure connections between different networks and manage bandwidth efficiently across subscriptions.
 ---
 
 # Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)

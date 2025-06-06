@@ -8,7 +8,6 @@ ms.date: 08/05/2024
 ms.topic: quickstart
 ms.service: azure-expressroute
 ms.custom: mode-ui
-# Customer intent: "As a network engineer, I want to create and manage ExpressRoute circuits through the portal, so that I can ensure reliable and resilient connectivity for hybrid cloud environments."
 ---
 
 # Quickstart: Create and modify ExpressRoute circuits

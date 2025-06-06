@@ -8,7 +8,6 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.author: duau
-# Customer intent: As a network engineer, I want to configure IPv6 support for my ExpressRoute connections using CLI commands, so that I can ensure compatibility with my Azure resources and take advantage of modern networking standards.
 ---
 
 # Add IPv6 support for private peering using Azure CLI

@@ -7,7 +7,6 @@ ms.service: azure-expressroute
 ms.topic: troubleshooting
 ms.date: 01/31/2025
 ms.author: duau
-# Customer intent: "As a network administrator, I want to retrieve and analyze ARP tables for my ExpressRoute circuit using PowerShell, so that I can diagnose and troubleshoot layer 2 connectivity issues effectively."
 ---
 # Getting ARP tables in the Resource Manager deployment model
 

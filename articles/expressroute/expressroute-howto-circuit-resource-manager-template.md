@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
-# Customer intent: As a network administrator, I want to deploy an Azure ExpressRoute circuit using a Resource Manager template, so that I can establish a private connection to Azure cloud services efficiently.
 ---
 
 # Create an ExpressRoute circuit by using Azure Resource Manager template

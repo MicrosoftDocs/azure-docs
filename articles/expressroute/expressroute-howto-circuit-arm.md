@@ -8,7 +8,6 @@ ms.date: 09/25/2024
 ms.topic: quickstart
 ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell, mode-api
-# Customer intent: As a network engineer, I want to create and manage an ExpressRoute circuit using PowerShell, so that I can ensure reliable and efficient connectivity for my organization’s cloud resources.
 ---
 
 # Quickstart: Create and modify an ExpressRoute circuit using Azure PowerShell

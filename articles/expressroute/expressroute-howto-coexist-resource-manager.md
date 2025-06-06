@@ -8,7 +8,6 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau
-# Customer intent: As a network administrator, I want to configure coexisting ExpressRoute and site-to-site VPN connections using PowerShell, so that I can ensure a secure and reliable connectivity setup for my on-premises and Azure environments.
 ---
 
 # Configure ExpressRoute and site-to-site coexisting connections using PowerShell

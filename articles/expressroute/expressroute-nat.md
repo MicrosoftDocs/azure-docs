@@ -7,7 +7,6 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 06/14/2024
 ms.author: duau
-# Customer intent: As a network engineer, I want to configure NAT for my ExpressRoute circuits, so that I can ensure proper connectivity to Microsoft cloud services while adhering to the necessary IP address validation and routing requirements.
 ---
 
 # ExpressRoute NAT requirements

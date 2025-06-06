@@ -7,7 +7,6 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau
-# Customer intent: As a network administrator, I want to optimize routing for multiple ExpressRoute circuits, so that I can reduce latency and improve application performance for users connecting to Azure from various locations.
 ---
 
 # Optimize routing for Azure ExpressRoute

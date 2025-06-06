@@ -8,7 +8,6 @@ ms.topic: concept-article
 ms.date: 08/19/2024
 ms.author: duau
 ms.custom: references_regions
-# Customer intent: "As a network administrator, I want to configure an ExpressRoute virtual network gateway, so that I can establish secure and efficient connectivity between my on-premises network and Azure resources."
 ---
 
 # About ExpressRoute virtual network gateways

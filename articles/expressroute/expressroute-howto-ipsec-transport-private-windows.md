@@ -7,7 +7,6 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
-# Customer intent: "As a network administrator, I want to configure IPsec transport mode between Azure VMs and on-premises hosts using group policy objects, so that I can ensure secure communication for HTTP traffic over ExpressRoute private peering."
 ---
 
 # Configure IPsec transport mode for ExpressRoute private peering
