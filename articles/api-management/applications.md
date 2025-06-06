@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/19/2025
+ms.date: 06/06/2025
 ms.author: danlep
 ms.custom:
   - build-2025
@@ -19,10 +19,9 @@ ms.custom:
 API Management now supports built-in OAuth 2.0 application-based access to product APIs using the client credentials flow. This feature allows API managers to register Microsoft Entra ID applications, streamlining secure API access for developers through OAuth 2.0 authorization.
 
 > [!NOTE]
-> Applications are currently in limited preview. To sign up, fill [this form](https://aka.ms/apimappspreview).
+> Applications are currently in preview. 
 
-With this feature:
-
+With this fea
 * API managers set a product property to enable application-based access.
 * API managers register client applications in Microsoft Entra ID to limit access to specific products. 
 * Using the OAuth 2.0 client credentials flow, developers or apps obtain tokens that they can include in API requests
@@ -152,6 +151,16 @@ To review application settings in **App registrations**:
 
     :::image type="content" source="media/applications/client-api-permissions.png" alt-text="Screenshot of API permissions in the portal.":::  
 
+## Get application settings in developer portal
+
+Users can sign in to the developer portal to view the client applications that they own.
+
+1. Sign in to the [developer portal](https://<your-apim-instance-name>.developer.azure-api.net) using a user account that was set as the owner of a client application.
+1. In the top navigation menu, select **Applications**.
+1. Applications that the user owns are listed. 
+1. Select an application to view its details, such as the **Client ID**, **Client secret**, and **Scope**. These values are needed to generate a token to call the product APIs.
+
+    :::image type="content" source="media/applications/applications-developer-portal.png" alt-text="Screenshot of client applications in the developer portal.":::
 
 ## Create token and use with API call
 
