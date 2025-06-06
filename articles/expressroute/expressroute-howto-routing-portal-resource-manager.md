@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 02/11/2025
 ms.author: duau
+# Customer intent: As a network engineer, I want to configure peering for an ExpressRoute circuit using the Azure portal, so that I can establish efficient connectivity between on-premises networks and Azure services.
 ---
 
 # Create and modify peering for an ExpressRoute circuit using the Azure portal

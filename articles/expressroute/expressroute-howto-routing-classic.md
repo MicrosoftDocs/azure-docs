@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/22/2024
 ms.author: duau
 
+# Customer intent: As a network administrator, I want to configure private, public, and Microsoft peering for an ExpressRoute circuit using PowerShell, so that I can establish reliable and secure connectivity to Azure resources.
 ---
 # Create and modify peering for an ExpressRoute circuit (classic)
 > [!div class="op_single_selector"]

@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 07/11/2024
 ms.author: duau
+# Customer intent: As a network engineer, I want to understand the implications of asymmetric routing when using multiple links to Azure services, so that I can prevent packet drops caused by stateful devices and ensure reliable network traffic flow.
 ---
 
 # Asymmetric routing with multiple network paths

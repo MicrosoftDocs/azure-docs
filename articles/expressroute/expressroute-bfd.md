@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 06/03/2024
 ms.author: duau
+# Customer intent: As a network engineer, I want to configure Bidirectional Forwarding Detection (BFD) over my ExpressRoute circuit, so that I can achieve faster link failure detection and improve the reliability of my network connections.
 ---
 
 # Configure BFD over ExpressRoute

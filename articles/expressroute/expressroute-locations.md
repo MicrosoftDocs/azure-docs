@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 05/26/2025
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
+# Customer intent: "As a network architect, I want to identify the available ExpressRoute connectivity providers and their peering locations, so that I can plan and establish efficient network connectivity to Azure for our hybrid infrastructure."
 ---
 
 # ExpressRoute connectivity partners and peering locations

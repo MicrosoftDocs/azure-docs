@@ -9,6 +9,7 @@ ms.custom: ignite-2023
 ms.topic: how-to
 ms.date: 10/29/2024
 ms.author: duau
+# Customer intent: As a network engineer, I want to migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell, so that I can ensure higher network throughput and more reliable connections for my organization's cloud infrastructure.
 ---
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell

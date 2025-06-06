@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.author: duau
+# Customer intent: As a network administrator, I want to add IPv6 support to my ExpressRoute private peering configuration, so that I can ensure my Azure resources are accessible over IPv6 protocols.
 ---
 
 # Add IPv6 support for private peering using the Azure portal

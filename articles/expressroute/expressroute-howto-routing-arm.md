@@ -9,6 +9,7 @@ ms.date: 04/22/2024
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: "As a network administrator, I want to configure and manage peering for my ExpressRoute circuit using PowerShell, so that I can ensure reliable and efficient connectivity between my on-premises infrastructure and the Azure cloud."
 ---
 # Create and modify peering for an ExpressRoute circuit using PowerShell
 

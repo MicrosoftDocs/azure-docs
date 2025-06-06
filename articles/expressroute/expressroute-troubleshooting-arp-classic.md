@@ -9,6 +9,7 @@ ms.topic: troubleshooting
 ms.date: 01/30/2017
 ms.author: duau
 
+# Customer intent: "As a network operator, I want to retrieve the ARP tables for my ExpressRoute circuit in classic deployment, so that I can troubleshoot Layer 2 connectivity and validate my network configuration."
 ---
 # Getting ARP tables in the classic deployment model
 > [!div class="op_single_selector"]

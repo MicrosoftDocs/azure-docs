@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
+# Customer intent: As a network administrator, I want to visualize and monitor my ExpressRoute metrics and configurations in one platform, so that I can effectively manage connectivity and performance without additional setup.
 ---
 
 # Azure ExpressRoute Insights using Network Insights

@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
+# Customer intent: As a network engineer, I want to access configuration samples for Cisco and Juniper routers when setting up Azure ExpressRoute, so that I can effectively manage routing and ensure reliable connectivity for my organization.
 ---
 
 # Router configuration samples to set up and manage routing

@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: duau
+# Customer intent: "As a network administrator, I want to configure QoS for Skype for Business and Microsoft Teams via ExpressRoute, so that I can ensure proper traffic management and prioritization for voice and video services."
 ---
 
 # ExpressRoute QoS requirements

@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to link a virtual network to an ExpressRoute circuit using the Azure portal, so that I can establish a secure and reliable connection between my on-premises network and Azure resources.
 ---
 
 # Connect a virtual network to ExpressRoute circuits using the Azure portal

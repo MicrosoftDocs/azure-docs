@@ -10,6 +10,7 @@ ms.author: duau
 ms.custom:
   - reference_regions
   - ignite-2023
+# Customer intent: "As a network administrator, I want to configure a virtual network gateway for ExpressRoute, so that I can establish a secure, high-speed connection between our on-premises network and Azure services."
 ---
 
 # Configure a virtual network gateway for ExpressRoute using the Azure portal

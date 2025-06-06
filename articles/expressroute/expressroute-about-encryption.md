@@ -9,6 +9,7 @@ ms.custom:
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to understand how to implement encryption for ExpressRoute connections, so that I can ensure the security and integrity of data transmitted between my on-premises network and Azure.
 ---
 
 # About encryption for Azure ExpressRoute

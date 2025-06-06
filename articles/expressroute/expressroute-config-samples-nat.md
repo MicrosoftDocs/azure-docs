@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 12/28/2023
 ms.author: duau
+# Customer intent: "As a network engineer, I want to access NAT configuration samples for Cisco and Juniper routers, so that I can effectively set up and manage connectivity with Azure ExpressRoute."
 ---
 
 # Router configuration samples to set up and manage NAT

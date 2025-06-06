@@ -9,6 +9,7 @@ ms.custom: ignite-2023, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/22/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to migrate an existing ExpressRoute virtual network gateway to an availability zone-enabled SKU, so that I can enhance the reliability and throughput of my network connections with minimal downtime.
 ---
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal

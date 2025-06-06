@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: overview
 ms.date: 07/16/2024
 ms.author: duau
+# Customer intent: As a network administrator, I want to establish a private connection to Microsoft cloud services using ExpressRoute, so that I can ensure higher reliability, faster speeds, and enhanced security for our data transfer compared to traditional internet connections.
 ---
 
 # What is Azure ExpressRoute?

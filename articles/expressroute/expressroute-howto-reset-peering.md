@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/28/2023
 ms.author: duau
+# Customer intent: As a network administrator, I want to reset the peerings of my ExpressRoute circuit using PowerShell, so that I can test disaster recovery scenarios and enable Bidirectional Forwarding Detection efficiently.
 ---
 
 # Reset ExpressRoute circuit peerings using Azure PowerShell

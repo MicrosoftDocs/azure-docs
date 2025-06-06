@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to configure ExpressRoute Global Reach using the Azure portal so that I can establish a private network connection between my on-premises networks across different regions.
 ---
 
 # Configure ExpressRoute Global Reach using the Azure portal

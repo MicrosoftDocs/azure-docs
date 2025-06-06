@@ -8,6 +8,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 10/18/2024
 ms.author: duau
+# Customer intent: "As a Cloud Solution Provider, I want to integrate Azure services with ExpressRoute into my offerings, so that I can provide high-speed, reliable access to Azure resources for my customers without investing in new infrastructure."
 ---
 # ExpressRoute for Cloud Solution Providers (CSP)
 

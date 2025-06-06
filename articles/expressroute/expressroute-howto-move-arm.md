@@ -10,6 +10,7 @@ ms.date: 02/25/2019
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: "As a network engineer, I want to migrate my ExpressRoute circuit from the classic deployment model to the Resource Manager model using PowerShell, so that I can leverage enhanced management features and maintain connectivity across both deployment environments."
 ---
 # Move ExpressRoute circuits from classic to Resource Manager deployment model using PowerShell
 

@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 06/20/2024
 ms.author: duau
 ms.custom: references_regions
+# Customer intent: As a network administrator, I want to understand the routing requirements for configuring ExpressRoute circuits, so that I can successfully manage connectivity between my on-premises network and Microsoft cloud services.
 ---
 
 # ExpressRoute routing requirements

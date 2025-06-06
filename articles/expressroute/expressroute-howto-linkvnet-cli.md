@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: duau
 ms.custom: template-tutorial, devx-track-azurecli
+# Customer intent: As a network administrator, I want to link virtual networks to an ExpressRoute circuit using Azure CLI, so that I can ensure secure and private connections while managing multiple subscriptions efficiently.
 ---
 # Connect a virtual network to an ExpressRoute circuit using Azure CLI
 

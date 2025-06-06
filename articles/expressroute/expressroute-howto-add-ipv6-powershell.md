@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.author: duau
+# Customer intent: "As a network engineer, I want to add IPv6 support to my ExpressRoute circuit using PowerShell, so that I can connect to Azure resources with both IPv4 and IPv6 addressing configurations."
 ---
 
 # Add IPv6 support for private peering using Azure PowerShell

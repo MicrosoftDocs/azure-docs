@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/28/2023
 ms.author: duau
 
+# Customer intent: As a network administrator, I want to migrate ExpressRoute-associated virtual networks from the classic deployment model to the Resource Manager model, so that I can take advantage of enhanced management features and maintain operational continuity during the migration process.
 ---
 # Migrate ExpressRoute-associated virtual networks from classic to Resource Manager
 

@@ -9,6 +9,7 @@ ms.custom:
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
+# Customer intent: "As a network engineer, I want to set up ExpressRoute Direct connections so that I can achieve high-bandwidth, low-latency communication with Microsoft cloud services while ensuring regulatory compliance and data security for my organization."
 ---
 
 # About ExpressRoute Direct

@@ -8,6 +8,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 11/05/2019
 ms.author: duau 
+# Customer intent: As a network administrator, I want to manage my ExpressRoute circuit using PowerShell commands, so that I can efficiently check status, modify settings, and deprovision resources without downtime or disruption.
 ---
 # Modify an ExpressRoute circuit using PowerShell (classic)
 

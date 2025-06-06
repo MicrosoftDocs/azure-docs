@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: duau
+# Customer intent: As a cloud architect, I want to understand various methods for connecting Azure to public clouds, so that I can implement a multicloud strategy that optimizes performance, reduces latency, and meets our organization's business requirements.
 ---
 
 # Connecting Azure with public clouds

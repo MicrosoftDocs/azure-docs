@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
+# Customer intent: "As a network administrator, I want to reset the peerings on an Azure ExpressRoute circuit, so that I can manage network traffic and enable necessary features like Bidirectional Forwarding Detection effectively."
 ---
 
 # Reset ExpressRoute circuit peerings by using the Azure portal

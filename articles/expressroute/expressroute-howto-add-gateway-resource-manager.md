@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/06/2024
 ms.author: duau
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a network engineer, I want to configure a virtual network gateway for ExpressRoute using PowerShell, so that I can establish a reliable and secure connection between my on-premises infrastructure and Azure resources."
 ---
 # Configure a virtual network gateway for ExpressRoute using PowerShell
 > [!div class="op_single_selector"]

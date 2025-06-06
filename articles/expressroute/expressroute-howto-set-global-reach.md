@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a network administrator, I want to configure ExpressRoute Global Reach between my on-premises networks, so that I can enable private and secure connectivity across multiple regions using ExpressRoute circuits.
 ---
 
 # Configure ExpressRoute Global Reach
