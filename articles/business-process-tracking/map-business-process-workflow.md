@@ -10,6 +10,8 @@ ms.date: 06/09/2025
 
 # Map a business process to a Standard logic app workflow
 
+[!INCLUDE [logic-apps-sku-standard](includes/logic-apps-sku-standard.md)]
+
 After you finish creating your business process, you can map each stage, transaction ID, and business properties to actual operations and outputs in a Standard logic app workflow that you created using Azure Logic Apps.
 
 ## Prerequisites
