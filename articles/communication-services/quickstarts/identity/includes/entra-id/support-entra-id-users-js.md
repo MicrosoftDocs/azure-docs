@@ -40,10 +40,10 @@ npm init -y
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Identity and Azure Communication Services Common SDKs for JavaScript.
+Use the `npm install` command to install the Azure Identity and Azure Communication Services Common SDKs for JavaScript.The Azure Communication Services Common SDK version should be `2.4.0` or later.
 
 ```console
-npm install @azure/communication-common@2.3.2-beta.1 --save
+npm install @azure/communication-common@latest --save
 npm install --save @azure/identity
 npm install express --save
 npm install dotenv --save
