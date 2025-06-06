@@ -111,6 +111,10 @@ Creating assignments on premium block blobs storage accounts doesn't work.
 
 The workaround is to exclude the specific prefixes which are soft deleted.
 
+## No option to choose priority during re-hydration of blobs 
+
+When re-hydrating archived storage blobs there is no option to choose priority. The blobs are re-hydrated with Standard priority. 
+
 ## See Also
 
 - [Azure Storage Actions overview](../overview.md)
