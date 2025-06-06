@@ -60,7 +60,7 @@ You've added your chat completion configuration named  **ChatApp:Model** in the 
     |----------------------------------|----------------------------------------------------------------|
     |  _ChatApp:AzureOpenAI:Endpoint_  | _Paste the resource endpoint you copied in the previous step_  |
  
-1. To store your Azure OpenAI resource API key as a Key Vault reference, refer to [Add a Key Vault reference to App Configuration](./use-key-vault-references-dotnet-core.md#add-a-key-vault-reference-to-app-configuration) guide to add a Key Vault reference with the key _ChatApp:AzureOpenAI:ApiKey_.
+1. Refer to [Add a Key Vault reference to App Configuration](./use-key-vault-references-dotnet-core.md#add-a-key-vault-reference-to-app-configuration) guide to add your Azure OpenAI resource API key as a Key Vault reference with the key _ChatApp:AzureOpenAI:ApiKey_.
 
 1. Continue to the following instructions to implement the chat completion configuration into your application for the language or platform you are using.
 
