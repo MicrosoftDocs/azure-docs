@@ -81,12 +81,16 @@
       href: standard-premium/how-to-configure-rule-set.md
     - name: Configure security headers
       href: front-door-security-headers.md?pivots=front-door-standard-premium
+    - name: Configure delivery rules
+      href: standard-premium/front-door-add-rules-cli.md
     - name: Server variables
       href: rule-set-server-variables.md
     - name: URL rewrite
       href: front-door-url-rewrite.md?pivots=front-door-standard-premium
     - name: URL redirect
       href: front-door-url-redirect.md?pivots=front-door-standard-premium
+    - name: Cross-Origin Resource Sharing (CORS)
+      href: standard-premium/troubleshoot-cross-origin-resources.md
   - name: Origins
     items:
     - name: Origins and origin groups
@@ -100,7 +104,7 @@
     - name: Add origins to origin group
       href: how-to-configure-origin.md
     - name: Add origin authentication
-      href: origin-authentication-with-managed-identities.md  
+      href: origin-authentication-with-managed-identities.md
   - name: Private Link
     items:
     - name: Secure your origin with Private Link
@@ -155,38 +159,44 @@
       href: ../static-web-apps/front-door-manual.md?toc=/azure/frontdoor/toc.json
 - name: Migration and upgrades
   items:
-  - name: Migrate to Standard or Premium tier
+  - name: Migrations
     items:
-    - name: Overview
-      href: tier-migration.md
-    - name: Classic to Standard/Premium mapping
-      href: tier-mapping.md
-    - name: Migrate from Front Door (classic) - Portal
-      href: migrate-tier.md
-    - name: Migrate from Front Door (classic) - PowerShell
-      href: migrate-tier-powershell.md
-  - name: Microsoft CDN (classic) retirement FAQ
-    href: ../cdn/classic-cdn-retirement-faq.md
-  - name: Edgio retirement FAQ
-    href: /previous-versions/azure/cdn/edgio-retirement-faq?toc=/azure/frontdoor/toc.json
-  - name: CDN (classic) to Azure Front Door
+    - name: Front Door (classic) to Standard/Premium
+      items:
+      - name: Classic to Standard/Premium migration
+        href: tier-migration.md
+      - name: Classic to Standard/Premium mapping
+        href: tier-mapping.md
+      - name: Migrate from Front Door (classic) - Portal
+        href: migrate-tier.md
+      - name: Migrate from Front Door (classic) - PowerShell
+        href: migrate-tier-powershell.md
+    - name: CDN (classic) to Front Door Standard/Premium
+      items:
+      - name: CDN (classic) to Front Door migration
+        href: ../cdn/tier-migration.md?toc=/azure/frontdoor/toc.json
+      - name: Migrate from Azure CDN (classic) to Azure Front Door
+        href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/toc.json
+    - name: Other CDN to Front Door Standard/Premium
+      items:
+      - name: Migrate CDN provider
+        href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
+      - name: Custom domain
+        href: migrate-cdn-to-front-door.md
+  - name: Upgrades
     items:
-    - name: Overview
-      href: ../cdn/tier-migration.md?toc=/azure/frontdoor/toc.json
-    - name: Migrate from Azure CDN (classic) to Azure Front Door
-      href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/toc.json
-  - name: Migrate CDN provider
-    href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
-  - name: Migrate any CDN to Azure Front Door
-    items:
-    - name: Custom domain
-      href: migrate-cdn-to-front-door.md
-  - name: Upgrade to Premium tier
-    items:
-    - name: Azure portal
+    - name: Upgrade from Standard to Premium tier - Portal
       href: tier-upgrade.md
-    - name: Azure PowerShell
+    - name: Upgrade from Standard to Premium tier - PowerShell
       href: tier-upgrade-powershell.md
+  - name: Retirements
+    items:
+    - name: CDN (classic) retirement FAQ
+      href: ../cdn/classic-cdn-retirement-faq.md
+    - name: Front Door (classic) retirement FAQ
+      href: classic-retirement-faq.md
+    - name: Edgio retirement FAQ
+      href: /previous-versions/azure/cdn/edgio-retirement-faq?toc=/azure/frontdoor/toc.json
 - name: Security
   items:
   - name: Security baseline
@@ -283,29 +293,13 @@
     items:
     - name: What is Azure Front Door (classic)?
       href: classic-overview.md
-    - name: Front Door (classic) retirement FAQ
-      href: classic-retirement-faq.md
     - name: What is Azure Content Delivery Network (Azure CDN)?
       href: ../cdn/cdn-overview.md?toc=/azure/frontdoor/toc.json
   - name: Quickstarts
     items:
-    - name: Front Door (classic)
-      items:
-      - name: Create a Front Door - Portal
-        href: quickstart-create-front-door.md
-      - name: Create a Front Door - PowerShell
-        href: quickstart-create-front-door-powershell.md
-      - name: Create a Front Door - CLI
-        href: quickstart-create-front-door-cli.md
-      - name: Create a Front Door - Bicep
-        href: quickstart-create-front-door-bicep.md
-      - name: Create a Front Door - ARM Template
-        href: quickstart-create-front-door-template.md
-      - name: Create a Front Door - Terraform
-        href: quickstart-create-front-door-terraform.md
     - name: CDN from Microsoft (classic)
       items:
-      - name: Integrate a storage account
+      - name: Integrate a storage account - Portal
         href: ../cdn/cdn-create-a-storage-account-with-cdn.md?toc=/azure/frontdoor/toc.json
       - name: Create a profile and endpoint - Portal
         href: ../cdn/cdn-create-new-endpoint.md?toc=/azure/frontdoor/toc.json
@@ -382,8 +376,6 @@
           href: ../cdn/cdn-cors.md?toc=/azure/frontdoor/toc.json
         - name: Monitor resources
           href: ../cdn/cdn-resource-health.md?toc=/azure/frontdoor/toc.json
-        - name: Use Traffic Manager
-          href: ../cdn/cdn-traffic-manager.md?toc=/azure/frontdoor/toc.json
       - name: Analyze
         href: ../cdn/cdn-log-analysis.md?toc=/azure/frontdoor/toc.json
         items:

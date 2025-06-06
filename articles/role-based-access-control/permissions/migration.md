@@ -271,7 +271,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/write | Creates a new SQL assessment or updates an existing SQL assessment |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/delete | Deletes an SQL assessment |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/downloadurl/action | Downloads an SQL assessment report's URL |
-> | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlDatabases/read | Get the properties of assessed SQL databses |
+> | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlDatabases/read | Get the properties of assessed SQL databases |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlInstances/read | Get the properties of assessed SQL instances |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlMachines/read | Get the properties of assessed SQL machines |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/recommendedAssessedEntities/read | Get the properties of recommended assessed entity |
