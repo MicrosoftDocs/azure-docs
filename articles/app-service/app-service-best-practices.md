@@ -7,7 +7,9 @@ ms.topic: article
 ms.date: 05/06/2025
 author: msangapu-msft
 ms.author: msangapu
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - build-2025
 ---
 # Best practices for Azure App Service
 

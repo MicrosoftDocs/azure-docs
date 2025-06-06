@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 06/05/2025
 ms.author: jianleishen
 ---
 # Copy data from Impala using Azure Data Factory or Synapse Analytics
@@ -14,6 +14,9 @@ ms.author: jianleishen
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Impala. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
+
+> [!IMPORTANT]
+> The Impala connector version 2.0 (Preview) provides improved native Impala support. If you are using the Impala connector version 1.0 in your solution, please [upgrade your Impala connector](#upgrade-the-impala-connector) before **September 30, 2025**. Refer to this [section](#differences-between-impala-version-20-and-version-10) for details on the difference between version 2.0 (Preview) and version 1.0.
 
 ## Supported capabilities
 
@@ -66,6 +69,62 @@ Use the following steps to create a linked service to Impala in the Azure portal
 The following sections provide details about properties that are used to define Data Factory entities specific to the Impala connector.
 
 ## Linked service properties
+
+The Impala connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-impala-connector) to upgrade your Impala connector version from version 1.0. For the property details, see the corresponding sections.
+
+- [Version 2.0 (Preview)](#version-20)
+- [Version 1.0](#version-10)
+
+### <a name="version-20"></a> Version 2.0 (Preview)
+
+The Impala linked service supports the following properties when apply version 2.0 (Preview):
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **Impala**. | Yes |
+| version | The version that you specify. The value is `2.0`. | Yes |
+| host | The IP address or host name of the Impala server (that is, 192.168.222.160).  | Yes |
+| port | The TCP port that the Impala server uses to listen for client connections. The default value is 21050.  | No |
+| thriftTransportProtocol | The transport protocol to use in the Thrift layer. Allowed values are: **Binary**, **HTTP**. The default value is Binary. | Yes |
+| authenticationType | The authentication type to use. <br/>Allowed values are **Anonymous** and **UsernameAndPassword**. | Yes |
+| username | The user name used to access the Impala server. | No |
+| password | The password that corresponds to the user name when you use UsernameAndPassword. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| enableSsl | Specifies whether the connections to the server are encrypted by using TLS. The default value is true.  | No |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. Always use System Trust Store. The default value is true. | No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+
+**Example:**
+
+```json
+{
+    "name": "ImpalaLinkedService",
+    "properties": {
+        "type": "Impala",
+        "version": "2.0",
+        "typeProperties": {
+            "host" : "<host>",
+            "port" : "<port>",
+            "authenticationType" : "UsernameAndPassword",
+            "username" : "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            },
+            "enableSsl": true,
+            "thriftTransportProtocol": "Binary",
+            "enableServerCertificateValidation": true
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Version 1.0
+
+The following properties are supported for Impala linked service when apply version 1.0:
 
 The following properties are supported for Impala linked service.
 
@@ -184,10 +243,50 @@ To copy data from Impala, set the source type in the copy activity to **ImpalaSo
 ]
 ```
 
+## Data type mapping for Impala
+
+When you copy data from and to Impala, the following interim data type mappings are used within the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Impala data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
+|:--- |:--- |:--- |
+| ARRAY        | String                   | String                 |
+| BIGINT       | Int64                    | Int64                  |
+| BOOLEAN      | Boolean                  | Boolean                |
+| CHAR         | String                   | String                 |
+| DATE         | DateTime                 | DateTime               |
+| DECIMAL      | Decimal                  | Decimal                |
+| DOUBLE       | Double                   | Double                 |
+| FLOAT        | Single                   | Single                 |
+| INT          | Int32                    | Int32                  |
+| MAP          | String                   | String                 |
+| SMALLINT     | Int16                    | Int16                  |
+| STRING       | String                   | String                 |
+| STRUCT       | String                   | String                 |
+| TIMESTAMP    | DateTimeOffset           | DateTime               |
+| TINYINT      | SByte                    | Int16                  |
+| VARCHAR      | String                   | String                 |
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
+## Upgrade the Impala connector 
+
+Here are steps that help you upgrade the Impala connector: 
+
+1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0](#version-20). 
+
+2. The data type mapping for the Impala linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Impala](#data-type-mapping-for-impala).
+
+## <a name="differences-between-impala-version-20-and-version-10"></a> Differences between Impala version 2.0 (Preview) and version 1.0 
+
+The Impala connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (Preview) and version 1.0. 
+
+| Version 2.0 (Preview) | Version 1.0 |
+|:--- |:--- |
+| SASLUsername authentication type is not supported. | Support SASLUsername authentication type. |
+| The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br><br>`enableServerCertificateValidation` is supported.| The default value of `enableSSL` is false. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are supported.<br><br>`enableServerCertificateValidation` is not supported.  |
+| The following mappings are used from Impala data types to interim service data type.<br><br>TIMESTAMP -> DateTimeOffset <br>TINYINT -> SByte | The following mappings are used from Impala data types to interim service data type.<br><br>TIMESTAMP -> DateTime <br>TINYINT -> Int16 |  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -44,7 +44,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) backend
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

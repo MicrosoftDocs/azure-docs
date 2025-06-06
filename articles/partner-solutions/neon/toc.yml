@@ -16,6 +16,8 @@ items:
   items:
   - name: Manage a resource
     href: manage.md
+  - name: Get support
+    href: https://neon.tech/docs/introduction/support
   - name: Troubleshoot 
     href: troubleshoot.md
   - name: Connect to compute services

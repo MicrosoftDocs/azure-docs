@@ -6,7 +6,11 @@ ms.topic: article
 ms.date: 05/12/2025
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - references_regions
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - build-2025
 #customer intent: As a deployment engineer, I want to understand the process and the benefits of scaling up apps to the Premium V4 pricing tier in Azure App Service.
 ---
 

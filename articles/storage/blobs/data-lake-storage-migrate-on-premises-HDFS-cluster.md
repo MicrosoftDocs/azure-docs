@@ -297,7 +297,7 @@ Before you move your data onto a Data Box device, you need to download some help
 
 If the size of your data exceeds the size of a single Data Box device, you can split up files into groups that you can store onto multiple Data Box devices.
 
-If your data doesn't exceed the size of a singe Data Box device, you can proceed to the next section.
+If your data doesn't exceed the size of a single Data Box device, you can proceed to the next section.
 
 1. With elevated permissions, run the `generate-file-list` script that you downloaded by following the guidance in the previous section.
 

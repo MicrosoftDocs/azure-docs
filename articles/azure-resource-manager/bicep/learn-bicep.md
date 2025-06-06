@@ -2,7 +2,9 @@
 title: Learn modules for Bicep
 description: Get started with an overview of Microsoft Learn modules for Bicep.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 ms.date: 04/09/2025
 ---
 
