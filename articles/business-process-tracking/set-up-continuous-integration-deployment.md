@@ -340,7 +340,7 @@ Azure Business Process Tracking uses Azure Data Explorer as the backend data sto
 
 1. To complete this task, select **Save**.
 
-## Run the business process infrastructure pipeline
+## Run infrastructure pipeline for your business process
 
 To create the business process resource in Azure, follow these steps:
 
