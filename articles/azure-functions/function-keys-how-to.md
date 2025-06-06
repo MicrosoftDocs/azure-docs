@@ -74,8 +74,7 @@ When using Key Vault for key storage, the app settings you need depend on the ma
 | [AzureWebJobsSecretStorageKeyVaultClientSecret](functions-app-settings.md#azurewebjobssecretstoragekeyvaultclientsecret) | X | X | ✓ |
 | [AzureWebJobsSecretStorageKeyVaultTenantId](functions-app-settings.md#azurewebjobssecretstoragekeyvaulttenantid) | X | X | ✓ |
 
-> [!IMPORTANT]
-> When using Key Vault for key storage, there is no scoping of the secrets to each function app. If you configure `AzureWebJobsSecretStorageKeyVaultUri` with the same Key Vault resource for multiple function apps there can be inadvertent behavior, like apps will share the same key and keys getting overwritten. It is recommended to use different Key Vault resources for different function apps.
+[!INCLUDE [functions-key-vault-secrets-storage-warning](../../includes/functions-key-vault-secrets-storage-warning.md)]
 
 ## Use access keys
 

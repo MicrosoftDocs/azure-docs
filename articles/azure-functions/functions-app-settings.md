@@ -274,7 +274,9 @@ The vault must have an access policy corresponding to the system-assigned manage
 |---|------------|
 |AzureWebJobsSecretStorageKeyVaultUri|`https://<VAULT_NAME>.vault.azure.net`|
 
-To learn more, see [Use Key Vault references for Azure Functions](../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json).
+[!INCLUDE [functions-key-vault-secrets-storage-warning](../../includes/functions-key-vault-secrets-storage-warning.md)]
+
+To learn more, see [Manage Key Storage](../azure-functions/function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageSas
 
