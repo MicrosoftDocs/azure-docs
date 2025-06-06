@@ -23,7 +23,7 @@ ms.custom: include file
     If you don't set a value for the cool access retrieval policy, the retrieval policy is set to Default. The following table describes each policy's data retrieval behavior:
 
     | Retrieval policy | Behavior |
-    | - | ---- | 
+    | - | - | 
     | Default | Cold data is returned to the hot tier when performing random reads. Data is served from the cool tier with sequential reads. | 
     | On-read | On both sequential and random reads, cold data  is returned to the hot tier. |
     | Never | Cold data is served directly from the cool tier. After data moves to the cool tier, it's not returned to the hot tier. |
