@@ -159,7 +159,7 @@ For this task, see the general steps in [Create your first pipeline](/azure/devo
 
 ## Create CI pipeline for your logic app
 
-1. Follow the steps [Create a pipeline for logic app infrastructure](#create-infrastructure-pipeline-for-logic-app) until you specify the path for the CI pipeline file.
+1. Follow the steps in [Create a pipeline for logic app infrastructure](#create-infrastructure-pipeline-for-logic-app) until you specify the path for the CI pipeline file.
 
 1. For **Path**, find and select the **CI-pipeline.yaml** file at the following location:
 
@@ -171,7 +171,7 @@ For this task, see the general steps in [Create your first pipeline](/azure/devo
 
 ## Create CD pipeline for your logic app
 
-1. Follow the steps [Create a pipeline for logic app infrastructure](#create-infrastructure-pipeline-for-logic-app) until you specify the path for the CD pipeline file.
+1. Follow the steps in [Create a pipeline for logic app infrastructure](#create-infrastructure-pipeline-for-logic-app) until you specify the path for the CD pipeline file.
 
 1. For **Path**, find and select the **CD-pipeline.yaml** file at the following location:
 
@@ -330,7 +330,7 @@ Azure Business Process Tracking uses Azure Data Explorer as the backend data sto
 
 ## Create infrastructure pipeline for your business process
 
-1. Follow the steps [Create a pipeline for logic app infrastructure](#create-infrastructure-pipeline-for-logic-app) until you specify the path for the business process infrastructure pipeline file.
+1. Follow the steps in [Create a pipeline for logic app infrastructure](#create-infrastructure-pipeline-for-logic-app) until you specify the path for the business process infrastructure pipeline file.
 
 1. For **Path**, find and select the **infrastucture-business-process-pipeline.yaml** file at the following location:
 
@@ -352,7 +352,7 @@ After the pipeline completes, your business process resource is created in the A
 
 ## Create CD pipeline for your business process
 
-1. Follow the steps [Create a pipeline for logic app infrastructure](#create-infrastructure-pipeline-for-logic-app) until you specify the path for the business process CD pipeline file.
+1. Follow the steps in [Create a pipeline for logic app infrastructure](#create-infrastructure-pipeline-for-logic-app) until you specify the path for the business process CD pipeline file.
 
 1. For **Path**, find and select the **deploy-business-process-pipeline.yaml** file at the following location:
 
