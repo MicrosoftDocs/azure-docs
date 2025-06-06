@@ -23,7 +23,9 @@ ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, 
 
 To use the [ARG GET/LIST API](./guidance-for-throttled-requests.md#still-being-throttled), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which will route the request to this ARG backend for response.
 
-Callers must also design appropriate retry logic and implement fallback mechanisms to ensure smooth and reliable experience. You are required to contact the ARG product group by sending an email to [Azure Resource Graph team]( resourcegraphsupport@microsoft.com) sharing a brief overview of your scenario and the ARG team will reach out to you with next steps.  This opt-in model was deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
+You are required to contact the ARG product group by sending an email to [Azure Resource Graph team]( resourcegraphsupport@microsoft.com) sharing a brief overview of your scenario and the ARG team will reach out to you with next steps.
+
+ This opt-in model was deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
 
 Refer to some known limitations [here](#known-limitations) and [frequently asked questions](#frequently-asked-questions).
 
@@ -101,6 +103,8 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 
 ### List VMSS VM (Uniform) with InstanceView 
 
+For this specific example, use the following request to retrieve the list of VMSS VM with InstanceView. This is for VMSS VM in Flexible orchestration mode.
+
 #### ARG GET/LIST Request 
 
 ```api
@@ -125,12 +129,6 @@ For this specific example, use the following requests to retrieve the list of st
 
 ```api
 HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.storage/storageAccounts?api-version=2024-01-01&useResourceGraph=true 
-```
-
-#### SRP request 
-
-```api
-HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.storage/storageAccounts?api-version=2024-01-01 
 ```
 
 ## Known Limitations  
