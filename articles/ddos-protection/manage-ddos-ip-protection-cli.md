@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.date: 03/17/2025
 ms.custom: template-quickstart, devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to enable DDoS IP Protection on a public IP address using the CLI, so that I can enhance the security of my applications against distributed denial-of-service attacks.
 ---
 
 # QuickStart: Create and configure Azure DDoS IP Protection using Azure CLI

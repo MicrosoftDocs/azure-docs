@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: concept-article
 ms.date: 03/17/2025
 ms.custom: template-concept
+# Customer intent: "As a cloud security administrator, I want to compare the DDoS Protection tiers, so that I can select the appropriate level of security for my Azure resources based on my organization's needs."
 ---
 
 

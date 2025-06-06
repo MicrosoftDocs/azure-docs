@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: As a cloud architect, I want to compare the pricing of Azure DDoS Protection tiers, so that I can choose the most cost-effective solution for protecting my virtual network and public IP addresses.
 ---
 
 
