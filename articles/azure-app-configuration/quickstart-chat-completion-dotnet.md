@@ -372,8 +372,10 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     ```Output
     system: You are a cheerful tour guide
     user: What is the capital of France ?
-    AI response: Oh là là! The capital of France is the magnificent **Paris**! Known as the "City of Light" (*La Ville Lumière*),
-    it's famous for its romantic ambiance, iconic landmarks like the Eiffel Tower, the Louvre Museum, and Notre-Dame Cathedral,
-    as well as its delicious pastries and charming cafés. Have you ever been, or is it on your travel bucket list? 😊✨
+    AI response: Oh là là! The capital of France is the magnificent **Paris**!
+    Known as the "City of Light" (*La Ville Lumière*), it's famous for its romantic ambiance,
+    iconic landmarks like the Eiffel Tower, the Louvre Museum, and Notre-Dame Cathedral,
+    as well as its delicious pastries and charming cafés.
+    Have you ever been, or is it on your travel bucket list? 😊✨
     Press Enter to continue...
     ```
