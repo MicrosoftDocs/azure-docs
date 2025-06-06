@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to upgrade the bandwidth of my ExpressRoute circuit, so that I can ensure sufficient capacity for my production workloads and maintain optimal connectivity to Microsoft's global network.
 ---
 
 # About upgrading ExpressRoute circuit bandwidth

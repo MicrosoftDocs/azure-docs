@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 05/26/2025
 ms.author: duau
 ms.custom: references_regions, ai-usage
+# Customer intent: As a network architect, I want to understand the features and benefits of ExpressRoute Metro, so that I can implement high-resiliency connectivity solutions between our on-premises networks and Azure resources.
 ---
 
 # About ExpressRoute Metro

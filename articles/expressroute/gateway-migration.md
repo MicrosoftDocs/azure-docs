@@ -11,6 +11,7 @@ ms.custom:
 ms.topic: concept-article
 ms.date: 05/19/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to migrate my existing ExpressRoute gateway to an Availability Zone-enabled SKU, so that I can enhance the reliability and high availability of my network connections without significant downtime.
 ---
 
 # About ExpressRoute Gateway Migration

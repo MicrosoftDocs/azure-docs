@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau
+# Customer intent: "As a network administrator, I want to configure custom BGP community values for my Azure ExpressRoute private peering so that I can optimize routing decisions and manage outbound traffic effectively between Azure and my on-premises network."
 ---
 
 # Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal

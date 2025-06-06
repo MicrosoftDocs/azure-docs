@@ -9,6 +9,7 @@ ms.date: 06/30/2023
 ms.topic: quickstart
 ms.service: azure-expressroute
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+# Customer intent: As a cloud architect, I want to deploy an ExpressRoute circuit using an ARM template, so that I can ensure secure and high-performance connectivity between my on-premises infrastructure and Azure resources.
 ---
 
 # Quickstart: Create an ExpressRoute circuit with private peering using an ARM template
