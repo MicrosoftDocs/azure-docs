@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: how-to
 ms.date: 06/07/2024
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to delegate a subdomain in Azure DNS, so that I can manage it independently from the parent domain while ensuring proper DNS resolution and administration."
 ---
 
 # Delegate an Azure DNS subdomain

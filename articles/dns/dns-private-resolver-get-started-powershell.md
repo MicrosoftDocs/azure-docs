@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.service: azure-dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
+# Customer intent: "As a network administrator, I want to create and manage an Azure DNS Private Resolver using PowerShell, so that I can facilitate seamless DNS resolution for my private virtual networks without the need for VM-based DNS servers."
 ---
 
 # Quickstart: Create an Azure DNS Private Resolver using Azure PowerShell

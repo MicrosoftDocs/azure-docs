@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: article
 ms.date: 02/24/2025
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to configure DNS security policies for my virtual network, so that I can filter and log DNS queries to protect against malicious domains and optimize DNS traffic."
 ---
 
 # DNS security policy (Preview)

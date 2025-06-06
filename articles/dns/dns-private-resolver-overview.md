@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 01/29/2025
 ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
+# Customer intent: "As a network administrator, I want to explore Azure DNS Private Resolver so that I can assess its capabilities for managing DNS queries between Azure and my on-premises environment without the need for traditional DNS servers."
 ---
 
 # What is Azure DNS Private Resolver? 

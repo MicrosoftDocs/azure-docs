@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/21/2025
 ms.author: allensu
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a network administrator, I want to configure reverse DNS for public IP addresses in Azure, so that I can ensure proper domain name resolution for my cloud services."
 ---
 
 # Configure reverse DNS for services hosted in Azure

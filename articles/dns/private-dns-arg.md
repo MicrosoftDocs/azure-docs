@@ -8,6 +8,7 @@ ms.service: azure-dns
 ms.date: 03/20/2024
 ms.author: allensu
 ms.topic: how-to
+# Customer intent: As a cloud administrator, I want to query Azure Private DNS zones using Azure Resource Graph, so that I can efficiently manage and analyze DNS records and their properties within my cloud infrastructure.
 ---
 
 # Private DNS information in Azure Resource Graph
