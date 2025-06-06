@@ -61,7 +61,7 @@ For information on release notes for the connected machine agent, see
 
 ## Extension for Linux extension release notes (Microsoft.GuestConfiguration.ConfigurationforLinux)
 
-### Version 1.26.87 - June 2025
+### Version 1.26.87 - April 2025
 
 #### Updated
 
