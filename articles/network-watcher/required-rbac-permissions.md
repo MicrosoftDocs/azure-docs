@@ -95,7 +95,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 > [!IMPORTANT]
-> [Management group](../governance/management-groups/overview.md?toc=/azure/network-watcher/toc.json) inherited permissions are currently not supported for enabling traffic analytics.
+> [Management group](../governance/management-groups/overview.md?toc=/azure/network-watcher/toc.json) inherited permissions are currently not supported for enabling traffic analytics. Regarding the subscription to which the Log Analytics workspace belongs, assigning the Monitoring Contributor role scoped to that subscription will be sufficient. For the subscription that contains the Virtual Network and Virtual Network Flow Log settings, assigning the Network Contributor role scoped to that subscription is considered sufficient. The role to be assigned to the subscription that contains the storage account is considered to be sufficiently covered by Storage Account Contributor. The key point is that, the scope is subscriptions, not resource groups.
 
 ## Connection troubleshoot
 
