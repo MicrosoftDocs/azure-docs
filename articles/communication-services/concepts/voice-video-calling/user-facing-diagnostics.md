@@ -2,12 +2,11 @@
 title: Azure Communication Services User Facing Diagnostics
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the User Facing Diagnostics feature.
-author: tophpalmer
-ms.author: chpalm
-manager: chpalm
+author: sloanster
+ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 10/21/2021
+ms.date: 06/04/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling

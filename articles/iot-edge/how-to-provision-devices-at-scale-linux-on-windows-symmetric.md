@@ -3,7 +3,7 @@ title: Create and provision IoT Edge devices using symmetric keys on Linux on Wi
 description: Use symmetric key attestation to test provisioning Linux on Windows devices at scale for Azure IoT Edge with device provisioning service
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/03/2024
+ms.date: 06/06/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -14,15 +14,15 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-This article shows how to autoprovision one or more [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) devices using symmetric keys. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
+This article shows how to autoprovision one or more [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) devices using symmetric keys. Automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
 
-The tasks are as follows:
+Here are the tasks:
 
 1. Create either an **individual enrollment** for a single device or a **group enrollment** for a set of devices.
 1. Deploy a Linux virtual machine with the IoT Edge runtime installed and connect it to the IoT Hub.
 
-Symmetric key attestation is a simple approach to authenticating a device with a device provisioning service instance. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or do not have strict security requirements. Device attestation using a [TPM](../iot-dps/concepts-tpm-attestation.md) or [X.509 certificates](../iot-dps/concepts-x509-attestation.md) is more secure, and should be used for more stringent security requirements.
+Symmetric key attestation is a simple way to authenticate a device with a device provisioning service instance. This attestation method is a "Hello world" experience for developers who are new to device provisioning or don't have strict security requirements. Device attestation using a [TPM](../iot-dps/concepts-tpm-attestation.md) or [X.509 certificates](../iot-dps/concepts-x509-attestation.md) is more secure, and you should use it for more stringent security requirements.
 
 ## Prerequisites
 
@@ -40,13 +40,13 @@ Symmetric key attestation is a simple approach to authenticating a device with a
 
 ## Provision the device with its cloud identity
 
-Once the runtime is installed on your device, configure the device with the information it uses to connect to the device provisioning service and IoT Hub.
+After you install the runtime on your device, configure the device with the information it uses to connect to the device provisioning service and IoT Hub.
 
-Have the following information ready:
+Make sure you have the following information:
 
 * The DPS **ID Scope** value
 * The device **Registration ID** you created
-* Either the **Primary Key** from an individual enrollment, or a [derived key](#derive-a-device-key) for devices using a group enrollment.
+* The **Primary Key** from an individual enrollment, or a [derived key](#derive-a-device-key) for devices using a group enrollment.
 
 Run the following command in an elevated PowerShell session with the placeholder values updated with your own values:
 
@@ -56,15 +56,15 @@ Provision-EflowVm -provisioningType DpsSymmetricKey -scopeId PASTE_YOUR_ID_SCOPE
 
 ## Verify successful installation
 
-Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
+Check that IoT Edge for Linux on Windows is installed and set up on your IoT Edge device.
 
 # [Individual enrollment](#tab/individual-enrollment)
 
-You can verify that the individual enrollment that you created in device provisioning service was used. Navigate to your device provisioning service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
+Check that the individual enrollment you created in device provisioning service is used. Go to your device provisioning service instance in the Azure portal. Open the enrollment details for the individual enrollment you created. The status of the enrollment is **assigned**, and the device ID is listed.
 
 # [Group enrollment](#tab/group-enrollment)
 
-You can verify that the group enrollment that you created in device provisioning service was used. Navigate to your device provisioning service instance in the Azure portal. Open the enrollment details for the group enrollment that you created. Go to the **Registration Records** tab to view all devices registered in that group.
+Check that the group enrollment you created in device provisioning service is used. Go to your device provisioning service instance in the Azure portal. Open the enrollment details for the group enrollment you created. Go to the **Registration Records** tab to view all devices registered in that group.
 
 ---
 
@@ -77,7 +77,7 @@ You can verify that the group enrollment that you created in device provisioning
    >[!NOTE]
    >The only account allowed to SSH to the virtual machine is the user that created it.
 
-1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
+1. Once you're logged in, you can check the list of running IoT Edge modules using the following Linux command:
 
    ```bash
    sudo iotedge list
@@ -104,16 +104,16 @@ You can verify that the group enrollment that you created in device provisioning
     >
     >**Could not check current state of edgeHub container**
     >
-    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To fix the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device, including the IoT Edge Hub module.
 
-When you create a new IoT Edge device, it displays the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+When you create a new IoT Edge device, it shows the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal and means the device is ready to receive a module deployment.
 
 <!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
 [!INCLUDE [uninstall-iot-edge-linux-on-windows.md](includes/iot-edge-uninstall-linux-on-windows.md)]
 
 ## Next steps
 
-The device provisioning service enrollment process lets you set the device ID and device twin tags at the same time as you provision the new device. You can use those values to target individual devices or groups of devices using automatic device management. Learn how to [Deploy and monitor IoT Edge modules at scale using the Azure portal](how-to-deploy-at-scale.md) or [using Azure CLI](how-to-deploy-cli-at-scale.md).
+The device provisioning service enrollment process lets you set the device ID and device twin tags when you provision a new device. Use those values to target individual devices or groups of devices with automatic device management. Learn how to [deploy and monitor IoT Edge modules at scale using the Azure portal](how-to-deploy-at-scale.md) or [using Azure CLI](how-to-deploy-cli-at-scale.md).
 
 You can also:
 
