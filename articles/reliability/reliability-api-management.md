@@ -172,7 +172,7 @@ For zonal instances, there's no way to simulate an outage of the availability zo
 ::: zone-end
 
 ## Multi-region support
-::: zone pivot="premium-v2developer,basic,standard,consumption"
+::: zone pivot="premium-v2,developer,basic,standard,consumption"
 
 Azure API Management doesn't support multi-region deployments in the Consumption, Developer, Basic, and Standard tiers. These tiers are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that multi-region deployments offer. To achieve high availability and multi-region support, consider using the Premium tier, which supports availability zones and multi-region deployments. To learn more about the Premium tiers, select a premium tier at the top of this page.
 
