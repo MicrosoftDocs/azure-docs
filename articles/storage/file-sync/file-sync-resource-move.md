@@ -102,7 +102,7 @@ Set-AzStorageSyncService -ResourceGroupName <ResourceGroupName> -Name <ManagedId
 ```
 When you see the new SPN, you can navigate to portal to create the role assignments on Storage Accounts and Storage Account File Shares. 
 
-To learn more about how to manage role assignments, see [List Azure role assignments](/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-at-a-scope.md) and [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal).
+To learn more about how to manage role assignments, see [List Azure role assignments](/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-at-a-scope) and [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal).
 
 
 ## Azure File Sync storage access authorization
