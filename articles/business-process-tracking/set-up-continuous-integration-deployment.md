@@ -319,14 +319,14 @@ Azure Business Process Tracking uses Azure Data Explorer as the backend data sto
    For more information, see the following documentation:
 
    - [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions)
-   - [Security roles overview](/kusto/management/security-roles?view=azure-data-explorer)
+   - [Security roles overview](/kusto/management/security-roles?view=azure-data-explorer&preserve-view=true)
 
 1. On the cluster database where your service connection needs to create a table, make sure that your service connection has administrator privileges.
 
    For more information, see the following documentation:
 
-   - [Manage database security roles](/kusto/management/manage-database-security-roles?view=azure-data-explorer)
-   - [Security roles overview](/kusto/management/security-roles?view=azure-data-explorer)
+   - [Manage database security roles](/kusto/management/manage-database-security-roles?view=azure-data-explorer&preserve-view=true)
+   - [Security roles overview](/kusto/management/security-roles?view=azure-data-explorer&preserve-view=true)
 
 ## Create infrastructure pipeline for your business process
 
