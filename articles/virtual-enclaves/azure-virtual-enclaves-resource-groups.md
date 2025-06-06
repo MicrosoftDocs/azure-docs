@@ -14,7 +14,7 @@ Azure Virtual Enclaves simplifies the creation of complex secure environments an
 ## Single subscription deployment architecture
 For a deployment into a single subscription, the Azure Virtual Enclaves resources can be organized in one resource group. This example shows a community, an enclave, a workload with one workload resource group, and a workload with 3 workload resource groups.
 
-[Diagram showing Azure Virtual Enclaves organized into the different resource groups used in a deployment in one subscription.](./media/azure-virtual-enclaves-resource-groups-one-subscription.svg)
+![Diagram showing Azure Virtual Enclaves organized into the different resource groups used in a deployment in one subscription.](./media/azure-virtual-enclaves-resource-groups-one-subscription.svg)
  
 1.	The resource group where the Azure Virtual Enclave resources are deployed. The Azure Virtual Enclave resources can be organized into resource groups according to your needs. 
 2.	Community managed resource group - The managed resource group deployed with the community for the community resources like the firewall and Log Analytics workspace. Our documentation will refer to this resource group as the `community managed resource group` and one is created for each community. You should not normally deploy new Azure resources to this resource group manually. Azure Virtual Enclaves will manage resources in this resource group. This resource group is deleted when the community is deleted. [What gets deployed](./what-azure-virtual-enclaves.md#what-gets-deployed)
@@ -28,7 +28,7 @@ During the creation of a community or enclave, a new resource group is also crea
 ## Multi-subscription deployment architecture
 For a deployment into two subscriptions, the Azure Virtual Enclaves resources can be organized into two resource groups. This example shows a community in one subscription and an enclave, a workload with one workload resource group, and a workload with 3 workload resource groups in another subscription.
 
-[Diagram showing Azure Virtual Enclaves organized into the different resource groups used in a deployment in two subscriptions.](./media/azure-virtual-enclaves-resource-groups-two-subscriptions.svg)
+![Diagram showing Azure Virtual Enclaves organized into the different resource groups used in a deployment in two subscriptions.](./media/azure-virtual-enclaves-resource-groups-two-subscriptions.svg)
  
 The main difference with two subscriptions is that the Azure Virtual Enclaves resources are organized into two resource groups, one in each subscription. The other resource groups are aligned with the subscription as shown.
 
