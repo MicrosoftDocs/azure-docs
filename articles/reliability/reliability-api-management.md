@@ -72,7 +72,7 @@ Azure API Management supports availability zones in both zonal and zone-redundan
     > Pinning to a single availability zone is only recommended when cross-zone latency is too high for your needs, and when you have verified that the latency doesn't meet your requirements. By itself, a zonal instance doesn’t increase resiliency. To improve the resiliency of a zonal instance, you need to explicitly deploy separate instances into multiple availability zones and configure traffic routing and failover.
 ::: zone-end
 
-::: zone pivot="developer,basic,standard, premium-v2"
+::: zone pivot="developer,basic,standard, premium-v2, consumption"
 
 Azure API Management doesn't support availability zones in the Premium v2, Developer, Basic, and Standard tiers. These tiers are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that availability zones offer.
 
@@ -172,9 +172,9 @@ For zonal instances, there's no way to simulate an outage of the availability zo
 ::: zone-end
 
 ## Multi-region support
-::: zone pivot="premium-v2developer,basic,standard"
+::: zone pivot="premium-v2developer,basic,standard,consumption"
 
-Azure API Management doesn't support multi-region deployments in the Developer, Basic, and Standard tiers. These tiers are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that multi-region deployments offer. To achieve high availability and multi-region support, consider using the Premium tier, which supports availability zones and multi-region deployments. To learn more about the Premium tiers, select a premium tier at the top of this page.
+Azure API Management doesn't support multi-region deployments in the Consumption, Developer, Basic, and Standard tiers. These tiers are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that multi-region deployments offer. To achieve high availability and multi-region support, consider using the Premium tier, which supports availability zones and multi-region deployments. To learn more about the Premium tiers, select a premium tier at the top of this page.
 
 ::: zone-end
 
