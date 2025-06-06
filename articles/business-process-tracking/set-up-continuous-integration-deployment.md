@@ -12,7 +12,7 @@ ms.date: 06/09/2025
 
 [!INCLUDE [logic-apps-sku-standard](includes/logic-apps-sku-standard.md)]
 
-You can set up pipelines that provision infrastructure and manage the CI/CD process for business process stages mapped to a Standard workflow's operations in different environments, such as development, test, and production, without having to rebuild and remap the stages to workflow operations aznd rebuild logic app projects, you can set up continuous integration (CI) and continuous deployment (CD) for your business processes and Standard logic app workflows.
+You can set up pipelines that provision infrastructure and manage the CI/CD process for business process stages mapped to a Standard workflow's operations in different environments, such as development, test, and production, without having to rebuild and remap the stages to workflow operations and rebuild logic app projects, you can set up continuous integration (CI) and continuous deployment (CD) for your business processes and Standard logic app workflows.
 
 This guide shows how to complete the following tasks:
 
@@ -284,7 +284,7 @@ Now, update your **business-process-pipelines-variables.yml** file to use the pr
 
 1. In Visual Studio Code, go to your logic app project, find the **pipelines** folder, and open the file named **business-process-pipelines-variables.yml** at the end of this path:
 
-   **deployment\businessprocess\<*business-process-name*>\\pipelines\\**
+   **deployment\businessprocesses\<*business-process-name*>\\pipelines\\**
 
    The **business-process-pipelines-variables.yml** file contains a node named **`businessProcessMapping`**. This node includes references to your business process stage mappings and specific logic apps. These references contain paths with Azure subscription IDs and names for resource groups and logic apps.
 
@@ -334,7 +334,7 @@ Azure Business Process Tracking uses Azure Data Explorer as the backend data sto
 
 1. For **Path**, find and select the **infrastucture-business-process-pipeline.yaml** file at the following location:
 
-   **deployment/businessprocess/<*business-process-name*>/pipelines/**
+   **deployment/businessprocesses/<*business-process-name*>/pipelines/**
 
 1. Select **Continue** > **Review pipeline**. Provide a name for the pipeline and pipeline folder.
 
@@ -356,7 +356,7 @@ After the pipeline completes, your business process resource is created in the A
 
 1. For **Path**, find and select the **deploy-business-process-pipeline.yaml** file at the following location:
 
-   **deployment/businessprocess/<*business-process-name*>/pipelines/**
+   **deployment/businessprocesses/<*business-process-name*>/pipelines/**
 
 1. Select **Continue** > **Review pipeline**. Provide a name for the pipeline and pipeline folder.
 
