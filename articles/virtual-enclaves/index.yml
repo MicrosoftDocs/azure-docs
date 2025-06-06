@@ -27,7 +27,7 @@ landingContent:
         - text: Why use Azure Virtual Enclaves?
           url: why-azure-virtual-enclaves.md
         - text: Azure Virtual Enclaves FAQs
-          url: virtual-enclaves-faq.md
+          url: azure-virtual-enclaves-faq.md
         - text: "What's new?"
           url: whats-new.md
       # - linkListType: learn

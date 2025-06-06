@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.date: 04/08/2025
 ---
 
-# What's new in Azure Virtual WAN?
+# What's new in Azure Virtual Enclaves?
 
 Azure Virtual Enclaves is updated regularly. Stay up to date with the latest announcements. This article provides you with information about:
 
@@ -62,4 +62,4 @@ The following features are currently in gated preview. After working with the li
 
 ## Next steps
 
-For more information about Azure Virtual Enclaves, see [What is Azure Virtual Enclaves](./what-azure-virtual-enclaves.md.md) and [frequently asked questions- FAQ](./virtual-enclaves-faq.md).
+For more information about Azure Virtual Enclaves, see [What is Azure Virtual Enclaves](./what-azure-virtual-enclaves.md) and [frequently asked questions- FAQ](./azure-virtual-enclaves-faq.md).
