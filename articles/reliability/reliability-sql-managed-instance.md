@@ -145,6 +145,8 @@ During normal operations, requests are routed to the node that runs your SQL Man
 
 During normal operations, requests are routed to your managed instance's primary replica. The primary replica continually and sequentially pushes changes to the secondary replicas in different availability zones, which ensures that data is persisted on a sufficient number of secondary replicas before committing each transaction. Those replicas are located in different availability zones. This process guarantees that, if the primary replica or a readable secondary replica become unavailable for any reason, a fully synchronized replica is always available for failover.
 
+<!-- Can we say anything about how enabling zone redundancy affects write latency? -->
+
 ::: zone-end
 
 ### Zone-down experience
