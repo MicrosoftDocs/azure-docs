@@ -88,51 +88,51 @@ There are three error messages associated with this error code. Check the cause 
 
 ### Error message: ORA-12650: No common encryption or data integrity algorithm
 
-**Symptoms**: You meet the following error message: `ORA-12650: No common encryption or data integrity algorithm`
+- **Symptoms**: You meet the following error message: `ORA-12650: No common encryption or data integrity algorithm`
 
-**Cause**: The client and server failed to agree on a common encryption/data integrity behavior or algorithm during negotiation. The default client-side configurations are as follows:
+- **Cause**: The client and server failed to agree on a common encryption/data integrity behavior or algorithm during negotiation. The default client-side configurations are as follows:
 
-- `encryptionClient`: `required`
-- `encryptionTypesClient`: `(AES256)`
-- `cryptoChecksumClient`: `required`
-- `cryptoChecksumTypesClient`: `(SHA512)`
+    - `encryptionClient`: `required`
+    - `encryptionTypesClient`: `(AES256)`
+    - `cryptoChecksumClient`: `required`
+    - `cryptoChecksumTypesClient`: `(SHA512)`
 
-**Recommendation**:
+- **Recommendation**:
 
-1. Check the server-side configurations, including SQLNET.ENCRYPTION_SERVER and SQLNET.CRYPTO_CHECKSUM_SERVER. Update the linked service additional properties `encryptionClient` and `cryptoChecksumClient` on the client side if needed. Note that the actual behavior is determined by the negotiation outcome between the client and server configuration, as shown below. 
-
-    | Client\Server | rejected | accepted | requested | required |
-    |---------------|----------|----------|-----------|----------|
-    | rejected      | OFF      | OFF      | OFF       | Connection fails |
-    | accepted      | OFF      | OFF      | ON        | ON       |
-    | requested     | OFF      | ON       | ON        | ON       |
-    | required      | Connection fails | ON | ON | ON |
-
-1. Check the server-side configurations, including SQLNET.ENCRYPTION_TYPES_SERVER and SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER. Update the linked service additional properties `encryptionTypesClient` and `cryptoChecksumTypesClient` on the client side to ensure that a common algorithm can be found between them. You can set `encryptionTypesClient` to `(AES128, AES192, AES256, 3DES112, 3DES168)` and `cryptoChecksumTypesClient` to `(SHA1, SHA256, SHA384, SHA512)` to include all supported client-side algorithms.
+    1. Check the server-side configurations, including SQLNET.ENCRYPTION_SERVER and SQLNET.CRYPTO_CHECKSUM_SERVER. Update the linked service additional properties `encryptionClient` and `cryptoChecksumClient` on the client side if needed. Note that the actual behavior is determined by the negotiation outcome between the client and server configuration, as shown below. 
+    
+        | Client\Server | rejected | accepted | requested | required |
+        |---------------|----------|----------|-----------|----------|
+        | rejected      | OFF      | OFF      | OFF       | Connection fails |
+        | accepted      | OFF      | OFF      | ON        | ON       |
+        | requested     | OFF      | ON       | ON        | ON       |
+        | required      | Connection fails | ON | ON | ON |
+    
+    1. Check the server-side configurations, including SQLNET.ENCRYPTION_TYPES_SERVER and SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER. Update the linked service additional properties `encryptionTypesClient` and `cryptoChecksumTypesClient` on the client side to ensure that a common algorithm can be found between them. You can set `encryptionTypesClient` to `(AES128, AES192, AES256, 3DES112, 3DES168)` and `cryptoChecksumTypesClient` to `(SHA1, SHA256, SHA384, SHA512)` to include all supported client-side algorithms.
 
 
 ### Decimal precision too large error
 
-**Symptoms**: When copying NUMBER type columns from Oracle, the copy may fail or the data written to the sink cannot be further consumed by other tools because the decimal precision is too large. 
+- **Symptoms**: When copying NUMBER type columns from Oracle, the copy may fail or the data written to the sink cannot be further consumed by other tools because the decimal precision is too large. 
 
-**Cause**: To avoid data loss, the decimal precision used to represent the Oracle NUMBER type is 256, which exceeds the max precision supported by the sink connector or downstream consumer.
+- **Cause**: To avoid data loss, the decimal precision used to represent the Oracle NUMBER type is 256, which exceeds the max precision supported by the sink connector or downstream consumer.
 
-**Recommendation**:
+- **Recommendation**:
 
-Resolve this issue by using one of the two methods provided below:
-
-- Use a query to explicitly cast the column to BINARY_DOUBLE. For example:  
-  `SELECT CAST(ColA AS BINARY_DOUBLE) AS ColB FROM TableA.`
-
-- Set the linked service additional property `supportV1DataTypes` to `true`, which ensures that version 2.0 uses the same data type mappings as version 1.0.
+    Resolve this issue by using one of the two methods provided below:
+    
+    - Use a query to explicitly cast the column to BINARY_DOUBLE. For example:  
+      `SELECT CAST(ColA AS BINARY_DOUBLE) AS ColB FROM TableA.`
+    
+    - Set the linked service additional property `supportV1DataTypes` to `true`, which ensures that version 2.0 uses the same data type mappings as version 1.0.
 
 ### Error message: ORA-00933: SQL command not properly ended 
 
-**Symptoms**: You meet the following error message: `ORA-00933: SQL command not properly ended` 
+- **Symptoms**: You meet the following error message: `ORA-00933: SQL command not properly ended` 
 
-**Cause**: Currently Oracle version 2.0 doesn’t support the query ended with a semicolon. 
+- **Cause**: Currently Oracle version 2.0 doesn’t support the query ended with a semicolon. 
 
-**Recommendation**: Remove the semicolon at the end of the query.  
+- **Recommendation**: Remove the semicolon at the end of the query.  
 
 
 ## Related content
