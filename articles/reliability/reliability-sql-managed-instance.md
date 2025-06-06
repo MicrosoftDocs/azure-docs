@@ -139,6 +139,8 @@ All scaling operations in Azure SQL, including enabling zone redundancy, are onl
 
 During normal operations, requests are routed to the node that runs your SQL Managed Instance compute layer.
 
+<!-- Can we say anything about how enabling zone redundancy affects write latency? -->
+
 ::: zone-end
 
 ::: zone pivot="business-critical"
