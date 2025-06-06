@@ -5,6 +5,8 @@ author: madsd
 ms.topic: article
 ms.date: 05/07/2025
 ms.author: madsd
+ms.custom:
+  - build-2025
 ---
 
 # Create an App Service Environment

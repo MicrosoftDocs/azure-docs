@@ -7,6 +7,8 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 05/13/2025
 monikerRange: migrate
+ms.custom:
+  - build-2025
 ---
 
 # Security best practices to deploy Azure Migrate Appliance

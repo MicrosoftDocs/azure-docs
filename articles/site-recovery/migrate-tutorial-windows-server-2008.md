@@ -5,8 +5,8 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 12/30/2022
 ms.custom: MVC, engagement-fy23
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 

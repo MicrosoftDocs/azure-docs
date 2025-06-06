@@ -8,7 +8,9 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.author: danlep
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - build-2025
 ---
 
 # Capacity of an Azure API Management instance

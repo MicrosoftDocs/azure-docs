@@ -10,14 +10,12 @@ ms.date: 03/06/2025
 This article provides troubleshooting tips for issues that you might run into when using Event Hubs for Apache Kafka. 
 
 ## Server Busy exception
-You might receive Server Busy exception because of Kafka throttling. With AMQP clients, Event Hubs immediately returns a **server busy** exception upon service throttling. It's equivalent to a "try again later" message. In Kafka, messages are delayed before being completed. The delay length is returned in milliseconds as `throttle_time_ms` in the produce/fetch response. In most cases, these delayed requests aren't logged as server busy exceptions on Event Hubs dashboards. Instead, the response's `throttle_time_ms` value should be used as an indicator that throughput has exceeded the provisioned quota.
+You might see ThrottledRequests metrics because of Kafka throttling. With AMQP clients, Event Hubs immediately returns a **server busy** exception upon service throttling. It's equivalent to a "try again later" message. In Kafka, incoming messages are delay before being acknowledged while outgoing message will see delayed delivery. The delay length is returned in milliseconds as `throttle_time_ms` in the produce/fetch response. In most cases, these delayed requests aren't logged as ThrottledRequests metrics on Event Hubs dashboards. Instead, the response's `throttle_time_ms` value should be used as an indicator that throughput has exceeded the provisioned quota.
 
 If the traffic is excessive, the service has the following behavior:
 
 - If produce request's delay exceeds request time-out(*request.timeout.ms*), Event Hubs returns **Policy Violation** error code.
 - If fetch request's delay exceeds request time out, Event Hubs logs the request as throttled and responds with empty set of records and no error code.
-
-[Dedicated clusters](event-hubs-dedicated-overview.md) don't have throttling mechanisms. You're free to consume all of your cluster resources.
 
 ## No records received
 You might see consumers not getting any records and constantly rebalancing. In this scenario, consumers don't get any records and constantly rebalance. There's no exception or error when it happens, but the Kafka logs will show that the consumers are stuck trying to rejoin the group and assign partitions. There are a few possible causes:
