@@ -66,8 +66,8 @@ In this guide, you build an AI chat application and iterate on the prompt using 
             string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
 
             options.Connect(new Uri(endpoint), credential)
-                   // Load all keys that start with `ChatLLM:` and have no label.
-                   .Select("ChatLLM:*")
+                   // Load all keys that start with `ChatApp:` and have no label.
+                   .Select("ChatApp:*")
                    // Reload configuration if any selected key-values have changed.
                    // Use the default refresh interval of 30 seconds. It can be overridden via AzureAppConfigurationRefreshOptions.SetRefreshInterval.
                    .ConfigureRefresh(refresh =>
@@ -85,7 +85,7 @@ In this guide, you build an AI chat application and iterate on the prompt using 
 
     ```csharp
     // Initialize the AzureOpenAIClient
-    var openAIEndpoint = configuration["ChatLLM:Endpoint"];
+    var openAIEndpoint = configuration["ChatApp:AzureOpenAI:Endpoint"];
     AzureOpenAIClient client = new AzureOpenAIClient(new Uri(openAIEndpoint), credential);
     ```
 
@@ -93,11 +93,11 @@ In this guide, you build an AI chat application and iterate on the prompt using 
 
     ```csharp
     // Initialize the AzureOpenAIClient
-    var apiKey = configuration["ChatLLM:ApiKey"];
+    var apiKey = configuration["ChatApp:AzureOpenAI:ApiKey"];
     AzureOpenAIClient client = new AzureOpenAIClient(new Uri(openAIEndpoint), new AzureKeyCredential(apiKey));
     ```
 
-    If the key _ChatLLM:ApiKey_ is a Key Vault reference in App Configuration, make sure to add the following code snippet to the `AddAzureAppConfiguration` call and [grant your app access to Key Vault](./use-key-vault-references-dotnet-core.md#grant-your-app-access-to-key-vault).
+    If the key _ChatApp:AzureOpenAI:ApiKey_ is a Key Vault reference in App Configuration, make sure to add the following code snippet to the `AddAzureAppConfiguration` call and [grant your app access to Key Vault](./use-key-vault-references-dotnet-core.md#grant-your-app-access-to-key-vault).
 
     ```cshrap
     options.ConfigureKeyVault(keyVaultOptions =>
@@ -141,41 +141,36 @@ In this guide, you build an AI chat application and iterate on the prompt using 
 
     ```csharp
     ...
-    var modelConfig = configuration.GetSection("ChatLLM:Model").Get<ModelConfiguration>();
-    
-    ChatClient chatClient = client.GetChatClient(modelConfig.Model);
+    var modelConfiguration = configuration.GetSection("ChatApp:Model").Get<ModelConfiguration>();
+
+    ChatClient chatClient = client.GetChatClient(modelConfiguration.Model);
 
     // Configure chat completion options
     ChatCompletionOptions options = new ChatCompletionOptions
     {
-        Temperature = modelConfig.Temperature,
-        MaxOutputTokenCount = modelConfig.MaxTokens,
-        TopP = modelConfig.TopP
+        Temperature = modelConfiguration.Temperature,
+        MaxOutputTokenCount = modelConfiguration.MaxTokens,
+        TopP = modelConfiguration.TopP
     };
+
+    foreach (var message in modelConfiguration.Messages)
+    {
+        Console.WriteLine($"{message.Role}: {message.Content}");
+    }
     ```
 
 1. Update the _Program.cs_ file to add a helper method `GetChatMessages` to process chat messages:
 
     ```csharp
     // Helper method to convert configuration messages to chat API format
-    IEnumerable<ChatMessage> GetChatMessages(ModelConfiguration model)
+    IEnumerable<ChatMessage> GetChatMessages(ModelConfiguration modelConfiguration)
     {
-        var chatMessages = new List<ChatMessage>();
-
-        foreach (Message message in model.Messages)
+        return modelConfiguration.Messages.Select<Message, ChatMessage>(message => message.Role switch
         {
-            switch (message.Role)
-            {
-                case "system":
-                    chatMessages.Add(ChatMessage.CreateSystemMessage(message.Content));
-                    break;
-                case "user":
-                    chatMessages.Add(ChatMessage.CreateUserMessage(message.Content));
-                    break;
-            }
-        }
-
-        return chatMessages;
+            "system" => ChatMessage.CreateSystemMessage(message.Content),
+            "user" => ChatMessage.CreateUserMessage(message.Content),
+            "assistant" => ChatMessage.CreateAssistantMessage(message.Content)
+        });
     }
     ```
 
@@ -184,16 +179,14 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     ...
 
     // CompleteChatAsync method generates a completion for the given chat
-    IEnumerable<ChatMessage> messages = GetChatMessages(modelConfig);
+    IEnumerable<ChatMessage> messages = GetChatMessages(modelConfiguration);
 
     ChatCompletion completion = await chatClient.CompleteChatAsync(messages, options);
 
-    Console.WriteLine("-------------------Model response--------------------------");
-    Console.WriteLine(completion.Content[0].Text);
-    Console.WriteLine("-----------------------------------------------------------");
+    Console.WriteLine($"AI response: {completion.Content[0].Text}");
 
+    Console.WriteLine("Press Enter to continue...");
     Console.ReadLine();
-    Console.Clear();
     ...
     ```
 
@@ -208,17 +201,16 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     {
         if (_refresher != null)
         {
+            // Refresh the configuration from Azure App Configuration
             await _refresher.RefreshAsync();
 
             // Existing code
             //
             
-            Console.WriteLine("-------------------Model response--------------------------");
-            Console.WriteLine(completion.Content[0].Text);
-            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine($"AI response: {completion.Content[0].Text}");
 
+            Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
-            Console.Clear();
         }
     }
     ```
@@ -243,73 +235,68 @@ In this guide, you build an AI chat application and iterate on the prompt using 
             string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
 
             options.Connect(new Uri(endpoint), credential)
-                   // Load all keys that start with `ChatLLM:` and have no label.
-                   .Select("ChatLLM:*")
-                   // Reload configuration if any selected key-values have changed.
-                   // Use the default refresh interval of 30 seconds. It can be overridden via AzureAppConfigurationRefreshOptions.SetRefreshInterval
-                   .ConfigureRefresh(refresh =>
-                   {
-                       refresh.RegisterAll();
-                   });
+                // Load all keys that start with `ChatApp:*` and have no label.
+                .Select("ChatApp:*")
+                // Reload configuration if any selected key-values have changed.
+                // Use the default refresh interval of 30 seconds. It can be overridden via AzureAppConfigurationRefreshOptions.SetRefreshInterval.
+                .ConfigureRefresh(refresh =>
+                {
+                    refresh.RegisterAll();
+                });
 
             _refresher = options.GetRefresher();
-
         }).Build();
 
-    var openAIEndpoint = configuration["ChatLLM:Endpoint"];
-
     // Initialize the AzureOpenAIClient
+    var openAIEndpoint = configuration["ChatApp:AzureOpenAI:Endpoint"];
+
     AzureOpenAIClient client = new AzureOpenAIClient(new Uri(openAIEndpoint), credential);
 
     while (true)
     {
         if (_refresher != null)
         {
+            // Refresh the configuration from Azure App Configuration
             await _refresher.RefreshAsync();
 
-            var modelConfig = configuration.GetSection("ChatLLM:Model").Get<ModelConfiguration>();
-        
-            ChatClient chatClient = client.GetChatClient(modelConfig.Model);
+            var modelConfiguration = configuration.GetSection("ChatApp:Model").Get<ModelConfiguration>();
+
+            ChatClient chatClient = client.GetChatClient(modelConfiguration.Model);
 
             // Configure chat completion options
             ChatCompletionOptions options = new ChatCompletionOptions
             {
-                Temperature = modelConfig.Temperature,
-                MaxOutputTokenCount = modelConfig.MaxTokens,
-                TopP = modelConfig.TopP
+                Temperature = modelConfiguration.Temperature,
+                MaxOutputTokenCount = modelConfiguration.MaxTokens,
+                TopP = modelConfiguration.TopP
             };
 
-            IEnumerable<ChatMessage> messages = GetChatMessages(modelConfig);
+            foreach (var message in modelConfiguration.Messages)
+            {
+                Console.WriteLine($"{message.Role}: {message.Content}");
+            }
+
+            // CompleteChatAsync method generates a completion for the given chat
+            IEnumerable<ChatMessage> messages = GetChatMessages(modelConfiguration);
 
             ChatCompletion completion = await chatClient.CompleteChatAsync(messages, options);
 
-            Console.WriteLine("-------------------Model response--------------------------");
-            Console.WriteLine(completion.Content[0].Text);
-            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine($"AI response: {completion.Content[0].Text}");
 
+            Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
-            Console.Clear();
         }
     }
 
-    IEnumerable<ChatMessage> GetChatMessages(ModelConfiguration model)
+    // Helper method to convert configuration messages to chat API format
+    IEnumerable<ChatMessage> GetChatMessages(ModelConfiguration modelConfiguration)
     {
-        var chatMessages = new List<ChatMessage>();
-
-        foreach (Message message in model.Messages)
+        return modelConfiguration.Messages.Select<Message, ChatMessage>(message => message.Role switch
         {
-            switch (message.Role)
-            {
-                case "system":
-                    chatMessages.Add(ChatMessage.CreateSystemMessage(message.Content));
-                    break;
-                case "user":
-                    chatMessages.Add(ChatMessage.CreateUserMessage(message.Content));
-                    break;
-            }
-        }
-
-        return chatMessages;
+            "system" => ChatMessage.CreateSystemMessage(message.Content),
+            "user" => ChatMessage.CreateUserMessage(message.Content),
+            "assistant" => ChatMessage.CreateAssistantMessage(message.Content)
+        });
     }
 
     public class ModelConfiguration
@@ -369,24 +356,24 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     You should see the following output:
 
     ```Output
-    -------------------Model response--------------------------
-    Of course! How can I assist you today?
-    -----------------------------------------------------------
+    system: You are a helpful assistant.
+    user: What is the capital of France ?
+    AI response: The capital of France is **Paris**.
+    Press Enter to continue...
 
     ```
 
 1. In Azure portal, select the App Configuration store instance that you created. From the **Operations** menu, select **Configuration explorer** and select the **ChatLLM:Model** key. Update the value of the Messages property:
-    - For the first message:
         - Role: **system**
-        - Content: "You are a historian who always speaks with a pirate accent".
-    - Add a second message:
-        - Role: **user**
-        - Content: "Tell me about the Roman empire in 20 words"
+        - Content: "You are a cheerful tour guide".
 
 1. Press the Enter key to trigger a refresh and you should see the updated value in the Command Prompt or Powershell window:
 
     ```Output
-    -------------------Model response--------------------------
-    Arrr, the Roman Empire be a mighty force, spanin' lands far 'n wide, with legions, emperors, roads, and grand gladiator games!
-    -----------------------------------------------------------
+    system: You are a cheerful tour guide
+    user: What is the capital of France ?
+    AI response: Oh là là! The capital of France is the magnificent **Paris**! Known as the "City of Light" (*La Ville Lumière*),
+    it's famous for its romantic ambiance, iconic landmarks like the Eiffel Tower, the Louvre Museum, and Notre-Dame Cathedral,
+    as well as its delicious pastries and charming cafés. Have you ever been, or is it on your travel bucket list? 😊✨
+    Press Enter to continue...
     ```
