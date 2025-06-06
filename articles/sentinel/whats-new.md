@@ -5,9 +5,9 @@ author: batamig
 ms.author: bagol
 ms.topic: concept-article
 ms.date: 05/22/2025
-
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
-
+ms.custom:
+  - build-2025
 ---
 
 # What's new in Microsoft Sentinel
@@ -17,6 +17,15 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 The listed features were released in the last six months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## June 2025
+
+### Microsoft Sentinel data connectors
+
+The Microsoft Sentinel Codeless Connector Platform (CCP) has been renamed to **Codeless Connector Framework (CCF)**. The new name reflects the platform's evolution and avoids confusion with other platform-orineted services, while still providing the same ease of use and flexibility that users have come to expect.
+
+We have also consolidated the connector reference documentation, merging the separate connector articles into a single, comprehensive reference table. You can find the new connector reference at [Microsoft Sentinel data connectors](/azure/sentinel/data-connectors-reference#sentinel-data-connectors).
+
 
 ## May 2025
 
@@ -53,10 +62,15 @@ For more information, see [SOC optimization reference](soc-optimization/soc-opti
 
 ## April 2025
 
+- [Microsoft Sentinel solution for Microsoft Business Apps generally available in the Azure portal](#microsoft-sentinel-solution-for-microsoft-business-apps-generally-available-in-the-azure-portal)
 - [Security Copilot generates incident summaries in Microsoft Sentinel in the Azure portal (Preview)](#security-copilot-generates-incident-summaries-in-microsoft-sentinel-in-the-azure-portal-preview)
 - [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (Preview)](#multi-workspace-and-multitenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
 - [Microsoft Sentinel now ingests all STIX objects and indicators into new threat intelligence tables (Preview)](#microsoft-sentinel-now-ingests-all-stix-objects-and-indicators-into-new-threat-intelligence-tables-preview)
 - [SOC optimization support for unused columns (Preview)](#soc-optimization-support-for-unused-columns-preview)
+
+### Microsoft Sentinel solution for Microsoft Business Apps generally available in the Azure portal
+
+The [Microsoft Sentinel solution for Microsoft Business Apps](business-applications/solution-overview.md) is now generally available in the Azure portal.
 
 ### Security Copilot generates incident summaries in Microsoft Sentinel in the Azure portal (Preview)
 

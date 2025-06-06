@@ -60,9 +60,9 @@ The emulator doesn't support these high-level features:
 - Visual metrics and alerts
 
 > [!NOTE]
-> The emulator is intended solely for development and test scenarios. We discourage any kind of production use. We don't provide any official support for the emulator.
+> The emulator is intended solely for development and test scenarios, specifically built for sequential testing use cases. We discourage any kind of production use.
 >
-> Report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-service-bus-emulator-installer).
+> We don't provide any official support for the emulator. Report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-service-bus-emulator-installer).
 
 ## Usage quotas
 
