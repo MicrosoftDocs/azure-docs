@@ -1,28 +1,28 @@
 ---
-title: Create Pipelines for Business Processes and Standard logic apps
-description: Learn to create pipelines that set up infrastructure, continuous integration (CI) and deployment (CD) for your business process and mapped Standard workflow operations in different environments without rebuilding or remapping.
+title: Create Pipelines for Infrastructure, CI, and CD
+description: Learn to create pipelines that automate infrastructure, continuous integration (CI) and deployment (CD) for business process stages mapped to Standard workflow operations in different environments without rebuilding or remapping.
 ms.service: azure-business-process-tracking
 ms.topic: how-to
-ms.reviewer: estfan, kewear, azla
+ms.reviewer: estfan, kewear, archidda, azla
 ms.date: 06/09/2025
-# Customer intent: As an integration developer, I want to set up piplines that provision infrastructure, CI, and CD for a Standard logic app and mapped business process stages without having to rebuild and remap in different environments, such as development, test, and production.
+# Customer intent: As an integration developer, I want to create pipelines that automate infrastructure, CI, and CD provisioning for business process stages mapped to Standard workflow operations in different deployment environments without rebuilding and remapping.
 ---
 
-# Create pipelines to set up infrastructure, continuous integration (CI), and continuous deployment (CD) for business processes mapped to Standard logic apps in different environments
+# Automate pipelines for business process and logic app infrastructure, CI, and CD in different environments
 
 [!INCLUDE [logic-apps-sku-standard](includes/logic-apps-sku-standard.md)]
 
-You can set up pipelines that provision infrastructure and manage the CI/CD process for business process stages mapped to a Standard workflow's operations in different environments, such as development, test, and production, without having to rebuild and remap the stages to workflow operations and rebuild logic app projects, you can set up continuous integration (CI) and continuous deployment (CD) for your business processes and Standard logic app workflows.
+To avoid rebuilding logic apps and remapping business processes to logic app workflow operations when you deploy to different environments, you can create pipelines by using Azure DevOps. Pipelines do all the work to automate infrastructure creation, continuous integration (CI) and continuous deployment (CD). These pipelines create resources for your logic apps, business processes, mappings between business process stages and workflow operations, and set up transaction tracking in your deployment environments for development, test, and production.
 
 This guide shows how to complete the following tasks:
 
-- Set up pipelines for your Standard logic app infrastructure, CI, and CD by using the Azure Logic Apps Standard Tasks for Azure DevOps and then test run those pipelines.
+- Create and run pipelines for your Standard logic app infrastructure, CI, and CD by using **Azure Logic Apps Standard Tasks** for Azure DevOps.
 
 - Prepare your business process for CI and CD.
 
-- Set up pipelines for your business process infrastructure, CI, and CD by using the Azure Logic Apps Standard Tasks for Azure DevOps, and then test run those pipelines.
+- Create and run pipelines for your business process infrastructure, CI, and CD by using **Azure Logic Apps Standard Tasks** for Azure DevOps.
 
-- Update and run your logic app CI and CD pipelines.
+- Update and run your CI and CD pipelines after you configure other necessary components.
 
 ## Prerequisites
 
