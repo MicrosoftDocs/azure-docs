@@ -118,7 +118,7 @@ userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
 ## Accessing Remote User Facing Diagnostic events
-To send remote UFDs to all participants on a call, you must first UDF's to sent. You enable or disable this on a per client basis. Once activated, the client will begin transmitting its local UFDs remotely to all participants for their consumption and processing. Please note that when the number of participants on a call exceeds 20, the transmission of remote UFDs from the local client will cease. This measure is in place to prevent excessive consumption of network bandwidth due to UFD traffic. 
+To transmit remote UFDs to all participants on a call, it is necessary to enable the function from each client. This can be activated or deactivated on a per-client basis. Once enabled, the client will start transmitting its local UFDs remotely to all participants for their use and processing. It should be noted that if the number of participants exceeds 20, the transmission of remote UFDs from the local client will stop. This measure is implemented to prevent excessive network bandwidth consumption due to UFD traffic.
 
 ```js
 // Start the local client to send its local UFD to all participants (send local UFD to remote clients).
@@ -127,9 +127,9 @@ remoteUfdsFeature.startSendingDiagnostics();
 remoteUfdsFeature.stopSendingDiagnostics();
 ```
 
-RemoteParticipantDiagnosticsData has the following data
-- diagnostic contains array of diagnostics UFD that have been fired off on a remote machines. For example a UFD of `NetworkSendQuality`.
-- value is `DiagnosticQuality` or `DiagnosticFlag`:
+For the code sample below, `RemoteParticipantDiagnosticsData` has the following data associated with it:
+- `diagnostic` contains array of diagnostics UFD that have been fired from a remote machines. For example a UFD of `NetworkSendQuality`.
+- The value of that element will be defined as: `DiagnosticQuality` or `DiagnosticFlag`:
 - DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
 - DiagnosticFlag = `true` | `false`
 - valueType of the array = `DiagnosticQuality` | `DiagnosticFlag`
