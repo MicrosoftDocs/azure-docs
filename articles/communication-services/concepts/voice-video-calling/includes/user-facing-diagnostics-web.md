@@ -78,8 +78,16 @@ The following user-facing diagnostics are available:
 
 User-facing diagnostics is an extended feature of the core [`Call`](/javascript/api/azure-communication-services/@azure/communication-calling/call?view=azure-communication-services-js&preserve-view=true) API. You can understand more about the `UserFacingDiagnosticsFeature` interface [here](/javascript/api/azure-communication-services/@azure/communication-calling/userfacingdiagnosticsfeature?view=azure-communication-services-js&preserve-view=true).
 
+To utilize user fake facing diagnostics. First thing you must do is instantiate the. user facing diagnostics feature from the call. something something.....
 ```js
 const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
+```
+
+After you have initialized the user facing diagnostics, then you can define that. the events. will be fired off from some. things, something, something.
+```js
+// Subscribe to the `diagnosticChanged` event to monitor when any local user-facing diagnostic changes.
+userFacingDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener);
+userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
 ## Local User Facing Diagnostic events
