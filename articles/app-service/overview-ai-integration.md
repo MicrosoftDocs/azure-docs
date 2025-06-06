@@ -14,7 +14,7 @@ ms.custom:
 
 This article guides you to language-specific tutorials and resources to help you build intelligent applications with App Service.
 
-Azure App Service makes it easy to integrate AI capabilities into your web applications across multiple programming languages and frameworks. Whether you want to use powerful Azure OpenAI models, deploy local small language models (SLMs) directly with your apps, host [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) servers or implement advanced patterns like retrieval augmented generation (RAG), App Service provides the flexible, secure platform you need for AI-powered applications.
+Azure App Service makes it easy to integrate AI capabilities into your web applications across multiple programming languages and frameworks. Whether you want to use powerful Azure OpenAI models, deploy local small language models (SLMs) directly with your apps, host Model Context Protocol (MCP) servers or implement advanced patterns like retrieval augmented generation (RAG), App Service provides the flexible, secure platform you need for AI-powered applications.
 
 App Service offers several advantages for developing and deploying AI-powered applications:
 
@@ -66,11 +66,11 @@ Implement AI capabilities in your Python web applications:
 
 Host [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) in your web applications:
 
--[Host a .NET MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-dotnet) - Deploy an MCP server with .NET.
--[Host a Node.js MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-node) - Deploy an MCP server with Node.js.
--[Host a Python MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python) - Deploy an MCP server with Python.
--[Host a Pyton MCP server with key-based authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth) - Deploy an MCP server with Python and key-based authorization.
--[Host a Pyton MCP server with OAuth 2.0 authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth-oauth) - Deploy an MCP server with Python and [Open Authorization (OAuth) 2.0 authorization with Micrososft Entra ID](/entra/architecture/auth-oauth2).
+- [Host a .NET MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-dotnet) - Deploy an MCP server with .NET.
+- [Host a Node.js MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-node) - Deploy an MCP server with Node.js.
+- [Host a Python MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python) - Deploy an MCP server with Python.
+- [Host a Pyton MCP server with key-based authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth) - Deploy an MCP server with Python and key-based authorization.
+- [Host a Pyton MCP server with OAuth 2.0 authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth-oauth) - Deploy an MCP server with Python and [Open Authorization (OAuth) 2.0 authorization with Micrososft Entra ID](/entra/architecture/auth-oauth2).
 
 ## More resources
 
