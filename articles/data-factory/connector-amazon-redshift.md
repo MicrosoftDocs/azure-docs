@@ -32,7 +32,9 @@ This Amazon Redshift connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-For version 2.0 (Preview), you need to [install the Amazon Redshift ODBC driver](https://docs.aws.amazon.com/redshift/latest/mgmt/odbc20-install-win.html) manually. For version 1.0, this Amazon Redshift connector supports retrieving data from Redshift using query or built-in Redshift UNLOAD support.
+For version 2.0 (Preview), you need to [install the Amazon Redshift ODBC driver](https://docs.aws.amazon.com/redshift/latest/mgmt/odbc20-install-win.html) manually. For version 1.0, the service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver. 
+
+The Amazon Redshift connector supports retrieving data from Redshift using query or built-in Redshift UNLOAD support.
 
 The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
