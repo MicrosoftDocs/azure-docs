@@ -12,7 +12,7 @@ ms.custom: ai-usage
 
 # Evaluate the resiliency of multi-site redundant ExpressRoute circuits
 
-The [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) assists in the configuration of ExpressRoute circuits for maximum resiliency. The subsequent diagram illustrates the logical architecture of an ExpressRoute circuit designed for maximum resiliency."
+The [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) assists in the configuration of ExpressRoute circuits for maximum resiliency. The subsequent diagram illustrates the logical architecture of an ExpressRoute circuit designed for maximum resiliency.
 
 :::image type="content" source=".\media\evaluate-circuit-resiliency\maximum-resiliency.png" alt-text="Diagram of ExpressRoute circuits configured with maximum resiliency.":::
 
