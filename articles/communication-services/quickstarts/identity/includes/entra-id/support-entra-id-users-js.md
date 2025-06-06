@@ -125,7 +125,7 @@ app.get('/', async (req, res) => {
     }
 });
 ```
-Providing scopes is optional. When not specified, the .default scope is automatically used, requesting all API permissions for Communication Services Clients.
+Providing scopes is optional. When not specified, the `https://communication.azure.com/clients/.default` scope is automatically used, requesting all API permissions for Communication Services Clients.
 
 <a name='step-3-obtain-acs-access-token-of-the-entra-id-user'></a>
 

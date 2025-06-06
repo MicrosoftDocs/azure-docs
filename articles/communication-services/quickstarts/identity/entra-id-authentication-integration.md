@@ -178,6 +178,10 @@ The developer's required actions are shown in following diagram:
 > [!NOTE]
 > The following sections describe how to create `AzureCommunicationTokenCredential`.
 
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [.NET](./includes/entra-id/support-entra-id-users-net.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [JavaScript](./includes/entra-id/support-entra-id-users-js.md)]
 ::: zone-end
