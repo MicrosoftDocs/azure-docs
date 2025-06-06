@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: shaas
+# Customer intent: "As an IT administrator managing an Azure Data Box Gateway, I want to apply software updates through the Azure portal or local web UI, so that I can ensure the device is up-to-date and minimize downtime."
 ---
 # Update your Azure Data Box Gateway
 

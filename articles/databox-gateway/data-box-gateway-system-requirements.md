@@ -8,6 +8,7 @@ ms.service: azure-data-box-gateway
 ms.topic: concept-article
 ms.date: 03/24/2022
 ms.author: shaas
+# Customer intent: As a system administrator, I want to understand the system and networking requirements for Azure Data Box Gateway, so that I can ensure proper deployment and connectivity for seamless operation.
 ---
 # Azure Data Box Gateway system requirements
 
