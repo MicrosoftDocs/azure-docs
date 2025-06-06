@@ -4,7 +4,7 @@ description: Learn ways to improve the performance and throughput of NFS Azure f
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/09/2024
 ms.author: kendownie
 ---
@@ -14,12 +14,18 @@ ms.author: kendownie
 This article explains how you can improve performance for network file system (NFS) Azure file shares.
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![No, this article doesn't apply to standard SMB Azure file shares LRS/ZRS.](../media/icons/no-icon.png) | ![NFS shares are only available in premium Azure file shares.](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![No, this article doesn't apply to standard SMB Azure file shares GRS/GZRS.](../media/icons/no-icon.png) | ![NFS is only available in premium Azure file shares.](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![No, this article doesn't apply to premium SMB Azure file shares.](../media/icons/no-icon.png) | ![Yes, this article applies to premium NFS Azure file shares.](../media/icons/yes-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Increase read-ahead size to improve read throughput
 
@@ -46,41 +52,39 @@ To change this value, set the read-ahead size by adding a rule in udev, a Linux 
    sudo udevadm control --reload
    ```
 
-## `Nconnect`
+## NFS nconnect
+NFS nconnect is a client-side mount option for NFS file shares that allows you to use multiple TCP connections between the client and your NFS file share. 
 
-`Nconnect` is a client-side Linux mount option that increases performance at scale by allowing you to use more Transmission Control Protocol (TCP) connections between the client and the Azure Premium Files service for NFSv4.1.
+### Benefits
 
-### Benefits of `nconnect`
-
-With `nconnect`, you can increase performance at scale using fewer client machines to reduce total cost of ownership (TCO). `Nconnect` increases performance by using multiple TCP channels on one or more NICs, using single or multiple clients. Without `nconnect`, you'd need roughly 20 client machines in order to achieve the bandwidth scale limits (10 GiB/s) offered by the largest premium Azure file share provisioning size.  With `nconnect`, you can achieve those limits using only 6-7 clients, reducing compute costs by nearly 70% while providing significant improvements in I/O operations per second (IOPS) and throughput at scale. See the following table.
+With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership (TCO). The nconnect feature increases performance by using multiple TCP channels on one or more NICs, using single or multiple clients. Without nconnect, you'd need roughly 20 client machines in order to achieve the bandwidth scale limits (10 GiB / sec) offered by the largest SSD file share provisioning size. With nconnect, you can achieve those limits using only 6-7 clients, reducing compute costs by nearly 70% while providing significant improvements in I/O operations per second (IOPS) and throughput at scale. See the following table.
 
 | **Metric (operation)** | **I/O size**  | **Performance improvement** |
-|------------------------|---------------|-----------------------------|
-| IOPS (write)           | 64K, 1024K    | 3x                          |
-| IOPS (read)            | All I/O sizes | 2-4x                        |
-| Throughput (write)     | 64K, 1024K    | 3x                          |
-| Throughput (read)      | All I/O sizes | 2-4x                        |
+|-|-|-|
+| IOPS (write) | 64 KiB, 1,024 KiB | 3x |
+| IOPS (read) | All I/O sizes | 2-4x |
+| Throughput (write) | 64 KiB, 1,024 KiB | 3x |
+| Throughput (read) | All I/O sizes | 2-4x |
 
 ### Prerequisites
 
-- The latest Linux distributions fully support `nconnect`. For older Linux distributions, ensure that the Linux kernel version is 5.3 or higher.
+- The latest Linux distributions fully support nconnect. For older Linux distributions, ensure that the Linux kernel version is 5.3 or higher.
 - Per-mount configuration is only supported when a single file share is used per storage account over a private endpoint.
 
-### Performance impact of `nconnect`
+### Performance impact
 
-We achieved the following performance results when using the `nconnect` mount option with NFS Azure file shares on Linux clients at scale. For more information on how we achieved these results, see [performance test configuration](#performance-test-configuration).
+We achieved the following performance results when using the nconnect mount option with NFS Azure file shares on Linux clients at scale. For more information on how we achieved these results, see [performance test configuration](#performance-test-configuration).
 
 :::image type="content" source="media/nfs-performance/nconnect-iops-improvement.png" alt-text="Screenshot showing average improvement in IOPS when using nconnect with NFS Azure file shares." border="false":::
 
 :::image type="content" source="media/nfs-performance/nconnect-throughput-improvement.png" alt-text="Screenshot showing average improvement in throughput when using nconnect with NFS Azure file shares." border="false":::
 
-### Recommendations for `nconnect`
-
+### Recommendations
 Follow these recommendations to get the best results from `nconnect`.
 
 #### Set `nconnect=4`
 
-While Azure Files supports setting `nconnect` up to the maximum setting of 16, we recommend configuring the mount options with the optimal setting of `nconnect=4`. Currently, there are no gains beyond four channels for the Azure Files implementation of `nconnect`. In fact, exceeding four channels to a single Azure file share from a single client might adversely affect performance due to TCP network saturation.
+While Azure Files supports setting nconnect up to the maximum setting of 16, we recommend configuring the mount options with the optimal setting of nconnect=4. Currently, there are no gains beyond four channels for the Azure Files implementation of nconnect. In fact, exceeding four channels to a single Azure file share from a single client might adversely affect performance due to TCP network saturation.
 
 #### Size virtual machines carefully
 
@@ -90,18 +94,18 @@ Depending on your workload requirements, it's important to correctly size the cl
 
 Queue depth is the number of pending I/O requests that a storage resource can service. We don't recommend exceeding the optimal queue depth of 64 because you won't see any more performance gains. For more information, see [Queue depth](understand-performance.md#queue-depth).
 
-### `Nconnect` per-mount configuration
+### Per mount configuration
 
-If a workload requires mounting multiple shares with one or more storage accounts with different `nconnect` settings from a single client, we can't guarantee that those settings will persist when mounting over the public endpoint. Per-mount configuration is only supported when a single Azure file share is used per storage account over the private endpoint as described in Scenario 1.
+If a workload requires mounting multiple shares with one or more storage accounts with different nconnect settings from a single client, we can't guarantee that those settings persist when mounting over the public endpoint. Per mount configuration is only supported when a single Azure file share is used per storage account over the private endpoint as described in Scenario 1.
 
-#### Scenario 1: `nconnect` per-mount configuration over private endpoint with multiple storage accounts (supported)
+#### Scenario 1: per mount configuration over private endpoint with multiple storage accounts (supported)
 
 - StorageAccount.file.core.windows.net = 10.10.10.10
 - StorageAccount2.file.core.windows.net = 10.10.10.11
   - `Mount StorageAccount.file.core.windows.net:/StorageAccount/FileShare1 nconnect=4`
   - `Mount StorageAccount2.file.core.windows.net:/StorageAccount2/FileShare1`
 
-#### Scenario 2: `nconnect` per-mount configuration over public endpoint (not supported)
+#### Scenario 2: per mount configuration over public endpoint (not supported)
 
 - StorageAccount.file.core.windows.net = 52.239.238.8
 - StorageAccount2.file.core.windows.net = 52.239.238.7
@@ -110,9 +114,9 @@ If a workload requires mounting multiple shares with one or more storage account
   - `Mount StorageAccount2.file.core.windows.net:/StorageAccount2/FileShare1`
 
 > [!NOTE]
-> Even if the storage account resolves to a different IP address, we can't guarantee that address will persist because public endpoints aren't static addresses.
+> Even if the storage account resolves to a different IP address, we can't guarantee that address persist because public endpoints aren't static addresses.
 
-#### Scenario 3: `nconnect` per-mount configuration over private endpoint with multiple shares on single storage account (not supported)
+#### Scenario 3: per mount configuration over private endpoint with multiple shares on single storage account (not supported)
 
 - StorageAccount.file.core.windows.net = 10.10.10.10
   - `Mount StorageAccount.file.core.windows.net:/StorageAccount/FileShare1 nconnect=4`
@@ -125,7 +129,7 @@ We used the following resources and benchmarking tools to achieve and measure th
 
 - **Single client:** Azure VM ([DSv4-Series](/azure/virtual-machines/dv4-dsv4-series#dsv4-series)) with single NIC
 - **OS:** Linux (Ubuntu 20.40)
-- **NFS storage:** Azure Files premium file share (provisioned 30 TiB, set `nconnect=4`)
+- **NFS storage:** SSD file share (provisioned 30 TiB, set `nconnect=4`)
 
 | **Size**        | **vCPU**  | **Memory** | **Temp storage (SSD)** | **Max data disks** | **Max NICs** | **Expected network bandwidth** |
 |-----------------|-----------|------------|------------------------|--------------------|--------------|--------------------------------|
@@ -153,13 +157,13 @@ fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_b
 
 #### High throughput: 100% reads
 
-**64k I/O size - random read - 64 queue depth**
+**64 KiB I/O size - random read - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=64k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300
 ```
 
-**1024k I/O size - 100% random read - 64 queue depth**
+**1,024 KiB I/O size - 100% random read - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=1024k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300
@@ -167,13 +171,13 @@ fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_b
 
 #### High IOPS: 100% writes
 
-**4k I/O size - 100% random write - 64 queue depth**
+**4 KiB I/O size - 100% random write - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=4k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
 ```
 
-**8k I/O size - 100% random write - 64 queue depth**
+**8 KiB I/O size - 100% random write - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=8k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
@@ -181,13 +185,13 @@ fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_b
 
 #### High throughput: 100% writes
 
-**64k I/O size  - 100% random write - 64 queue depth**
+**64 KiB I/O size  - 100% random write - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=64k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
 ```
 
-**1024k I/O size  - 100% random write - 64 queue depth**
+**1024 KiB I/O size  - 100% random write - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=1024k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300

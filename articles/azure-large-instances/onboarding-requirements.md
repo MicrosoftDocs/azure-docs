@@ -3,11 +3,12 @@ title: Onboarding requirements for Azure Large Instances
 titleSuffix: Azure Large Instances
 description: Provides an overview of onboarding requirements for Azure Large Instances.
 ms.title: Onboarding requirements
-ms.topic: conceptual
+ms.topic: concept-article
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
 ms.date: 06/01/2023
+# Customer intent: As a cloud architect, I want to understand the onboarding requirements for Azure Large Instances, so that I can successfully set up and configure the environment for optimal performance and connectivity.
 ---
 
 # Azure Large Instances onboarding requirements

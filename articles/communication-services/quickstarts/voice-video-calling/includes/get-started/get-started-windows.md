@@ -2,15 +2,15 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 05/10/2025
 ms.author: rifox
 ---
 
-In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for Windows.
+This article describes how to start a call using the Azure Communication Services Calling SDK for Windows.
 
 ## [UWP](#tab/uwp)
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling).
+You can download the sample app from GitHub at [Calling SDK for .NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling).
 
 ### Prerequisites
 
@@ -38,7 +38,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.4.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.4.0) or superior. Make sure `Include Prerelease` is checked if you want to see the versions for public preview.
+Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.4.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.4.0) or later. Make sure `Include Prerelease` is checked if you want to see the versions for public preview.
 
 #### Request access
 
@@ -104,7 +104,8 @@ Open the `MainPage.xaml` of your project and add the `Grid` node to your `Page`:
 </Page>
 ```
 
-Open the `MainPage.xaml.cs` and replace the content with following implementation: 
+Open the `MainPage.xaml.cs` and replace the content with following implementation:
+
 ```C#
 using Azure.Communication.Calling.WindowsClient;
 using System;
@@ -202,21 +203,21 @@ namespace CallingQuickstart
 
 The next table listed the classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
+| Name | Description |
+| --- | --- |
 | `CallClient` | The `CallClient` is the main entry point to the Calling SDK.|
-| `CallAgent` | The `CallAgent` is used to start and manage calls. |
-| `CommunicationCall` | The `CommunicationCall` is used to manage an ongoing call. |
-| `CallTokenCredential` | The `CallTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
-|` CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
+| `CallAgent` | Use the `CallAgent` to start and manage calls. |
+| `CommunicationCall` | Use the `CommunicationCall` to manage an ongoing call. |
+| `CallTokenCredential` | Use the `CallTokenCredential` as the token credential to instantiate the `CallAgent`.|
+| `CallIdentifier` | Use `CallIdentifier` to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier`, and so on. |
 
 ### Authenticate the client
 
 Initialize a `CallAgent` instance with a User Access Token that enables us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
 
-In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available.
+In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. If you don't already have a token available, see [user access token](../../../identity/access-tokens.md).
 
-Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. This helper can be customized to meet the requirements of your application.
+Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. You can customize this helper to meet the requirements of your application.
 
 ```C#
         private async Task InitCallAgentAndDeviceManagerAsync()
@@ -255,7 +256,7 @@ Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. Thi
 
 ### Start the call
 
-Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
+Once you obtain a `StartCallOptions` object, you can use `CallAgent` cto initiate the Azure Communication Services call:
 
 ```C#
         private async Task<CommunicationCall> StartCallAsync(string acsCallee)
@@ -268,7 +269,7 @@ Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiat
 
 ### End a call
 
-End the current call when the `Hang up` button is clicked. Add the implementation to the HangupButton_Click to end a call, and stop the preview and video streams.
+End the current call when the end user clicks the **Hang up** button. Add the implementation to the `HangupButton_Click` to end a call, and stop the preview and video streams.
 
 ```C#
         private async void HangupButton_Click(object sender, RoutedEventArgs e)
@@ -283,7 +284,7 @@ End the current call when the `Hang up` button is clicked. Add the implementatio
 
 ### Toggle mute/unmute on audio
 
-Mute the outgoing audio when the `Mute` button is clicked. Add the implementation to the MuteLocal_Click to mute the call.
+Mute the outgoing audio when the end user clicks the **Mute** button. Add the implementation to `MuteLocal_Click` to mute the call.
 
 ```C#
         private async void MuteLocal_Click(object sender, RoutedEventArgs e)
@@ -334,7 +335,7 @@ Application has an opportunity to configure how the incoming call should be acce
 
 ### Monitor and response to call state change event
 
-`StateChanged` event on `CommunicationCall` object is fired when an in progress call transactions from one state to another. Application is offered the opportunities to reflect the state changes on UI or insert business logics.
+The `StateChanged` event on `CommunicationCall` object runs when an in progress call transitions from one state to another. This change gives you the opportunity to reflect the state changes or execute business logic in your application.
 
 ```C#
         private async void OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
@@ -373,7 +374,7 @@ Application has an opportunity to configure how the incoming call should be acce
 
 Once the `Callee ID` isn't null or empty, you can start a call.
 
-The call state must be changed using the `OnStateChangedAsync` action.
+You must change the call state using the `OnStateChangedAsync` action.
 
 ```C#
 
@@ -397,13 +398,13 @@ The call state must be changed using the `OnStateChangedAsync` action.
 
 You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64`, and `x86`. 
 
-You can make an outbound call by providing a user ID in the text field and clicking the `Start Call/Join` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
+To make an outbound call, provide a user ID in the text field and click the **Start Call/Join** button. Calling `8:echo123` connects you with an echo bot. Use this feature to get started and verifying that your audio devices are working.
 
 :::image type="content" source="../../media/windows/run-the-app.png" alt-text="Screenshot showing running the UWP quickstart app":::
 
 ## [WinUI 3](#tab/WinUI3)
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallingWinUI).
+You can download the sample app from GitHub at [Calling SDK for Windows](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallingWinUI).
 
 ### Prerequisites
 
@@ -414,7 +415,6 @@ To complete this tutorial, you need the following prerequisites:
 - Basic understanding of how to create a WinUI 3 app. [Create your first WinUI 3 (Windows App SDK) project](/windows/apps/winui/winui3/create-your-first-winui3-app?pivots=winui3-packaged-csharp) is a good resource to start with.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
-
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
@@ -440,11 +440,11 @@ Right select your project and go to `Manage Nuget Packages` to install `Azure.Co
 
 #### Set up the app framework
 
-We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start/Join call` button and a `Hang up` button. A `Mute` and a `BackgroundBlur` checkboxes are also included in this sample to demonstrate the features of toggling audio states and video effects.
+Configure a basic layout to attach our logic. To place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start/Join call` button and a `Hang up` button. We include a `Mute` and a `BackgroundBlur` checkboxes this sample to demonstrate the features of toggling audio states and video effects.
 
 Open the `MainPage.xaml` of your project and add the `Grid` node to your `Page`:
 
-We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button.
+Configure a basic layout to attach our logic. To place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button.
 Open the `MainPage.xaml` of your project and add the `Grid` node to your `Page`:
 
 ```C#
@@ -571,18 +571,18 @@ The next table listed the classes and interfaces handle some of the major featur
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | `CallClient` | The `CallClient` is the main entry point to the Calling SDK.|
-| `CallAgent` | The `CallAgent` is used to start and manage calls. |
-| `CommunicationCall` | The `CommunicationCall` is used to manage an ongoing call. |
-| `CallTokenCredential` | The `CallTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
-|` CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
+| `CallAgent` | Use the `CallAgent` to start and manage calls. |
+| `CommunicationCall` | Use the `CommunicationCall` to manage an ongoing call. |
+| `CallTokenCredential` | Use the `CallTokenCredential` as the token credential to instantiate the `CallAgent`.|
+| `CallIdentifier` | Use `CallIdentifier` to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier`, and so on. |
 
 ### Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token that enables us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
+Initialize a `CallAgent` instance with a User Access Token that enables us to make and receive calls. You can also optionally obtain a DeviceManager instance to query for client device configurations.
 
-In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available.
+In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. If you don't already have a token available, see [user access token](../../../identity/access-tokens.md).
 
-Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. This helper can be customized to meet the requirements of your application.
+Add the `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. You can customize this helper to meet the requirements of your application.
 
 ```C#
         private async Task InitCallAgentAndDeviceManagerAsync()
@@ -615,7 +615,7 @@ Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. Thi
 
 ### Start a call
 
-Add the implementation to the `CallButton_Click` to start various kinds of calls with the `callAgent` object we created, and hook up `RemoteParticipantsUpdated` and `StateChanged` event handlers on `CommunicationCall` object.
+Add the implementation to the `CallButton_Click` to start various kinds of calls with the `callAgent` object we created. Hook up `RemoteParticipantsUpdated` and `StateChanged` event handlers on `CommunicationCall` object.
 
 ```C#
         private async void CallButton_Click(object sender, RoutedEventArgs e)
@@ -632,7 +632,7 @@ Add the implementation to the `CallButton_Click` to start various kinds of calls
 
 ### End a call
 
-End the current call when the `Hang up` button is clicked. Add the implementation to the HangupButton_Click to end a call, and stop the preview and video streams.
+End the current call when the user clicks the **Hang up** button. Add the implementation to `HangupButton_Click` to end a call, and stop the preview and video streams.
 
 ```C#
         private async void HangupButton_Click(object sender, RoutedEventArgs e)
@@ -647,7 +647,7 @@ End the current call when the `Hang up` button is clicked. Add the implementatio
 
 ### Toggle mute/unmute on audio
 
-Mute the outgoing audio when the `Mute` button is clicked. Add the implementation to the MuteLocal_Click to mute the call.
+Mute the outgoing audio when the `Mute` button is clicked. Add the implementation to `MuteLocal_Click` to mute the call.
 
 ```C#
         private async void MuteLocal_Click(object sender, RoutedEventArgs e)
@@ -676,7 +676,7 @@ Mute the outgoing audio when the `Mute` button is clicked. Add the implementatio
 
 ### Customize the call
 
-`StartCallOptions` provides options to configure audio and video to fit the requirements of the calling scenarios.
+Use `StartCallOptions` to configure audio and video to fit the requirements of the calling scenarios.
 
 ```C#
         private StartCallOptions GetStartCallOptions()
@@ -690,7 +690,8 @@ Mute the outgoing audio when the `Mute` button is clicked. Add the implementatio
         }
 
 ```
-In the meeting join scenario, `JoinCallOptions` is made available to customize the audio and video calling experience.
+In the meeting join scenario, you can use `JoinCallOptions` is to customize the audio and video calling experience.
+
 ```C#
         private JoinCallOptions GetJoinCallOptions()
         {
@@ -704,7 +705,7 @@ In the meeting join scenario, `JoinCallOptions` is made available to customize t
 
 ### Start the call
 
-Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
+Once you obtain a `StartCallOptions`,  you can use`CallAgent` to initiate the Azure Communication Services call:
 
 ```C#
         private async Task<CommunicationCall> StartCallAsync(string acsCallee)
@@ -724,7 +725,8 @@ Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiat
     this.callAgent.IncomingCallReceived += OnIncomingCallAsync;
 ```
 
-Application has an opportunity to configure how the incoming call should be accepted, such as video and audio stream kinds.
+You can use the application to configure how the incoming call should be accepted, such as video and audio stream types.
+
 ```C#
         private async void OnIncomingCallAsync(object sender, IncomingCallReceivedEventArgs args)
         {
@@ -776,8 +778,8 @@ Application has an opportunity to configure how the incoming call should be acce
 
 ### Run the code
 
-You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64`, and `x86`. 
 
-You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
+You can make an outbound call by providing a user ID in the text field and clicking the **Start Call** button. Calling `8:echo123` connects you with an echo bot. Use this feature to get started and verify that your audio devices are working.
 
 :::image type="content" source="../../media/windows/run-the-winui-app.png" alt-text="Screenshot showing running the WinUI quickstart app":::

@@ -3,7 +3,7 @@ title: Configure Microsoft Entra Authentication
 description: Learn how to configure Microsoft Entra authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 03/28/2025
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
@@ -11,8 +11,6 @@ ms.author: cephalin
 ---
 
 # Configure your App Service or Azure Functions app to use Microsoft Entra sign-in
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 Select another authentication provider to jump to it.
 
@@ -81,7 +79,7 @@ To use an existing registration, select either:
 
 If you need to manually create an app registration in a workforce tenant, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app). As you go through the registration process, be sure to note the application (client) ID and client secret values.
 
-During the registration process, in the **Redirect URIs** section, select **Web** for platform and enter `<app-url>/.auth/login/aad/callback`. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+During the registration process, in the **Redirect URIs** section, select **Web** for platform, and enter a redirect URI. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
 Now, modify the app registration:
 
@@ -168,7 +166,7 @@ To use an existing registration, select **Provide the details of an existing app
 
 If you need to manually create an app registration in an external tenant, see [Register an app in your external tenant](/entra/external-id/customers/how-to-register-ciam-app?tabs=webapp#register-your-web-app).
 
-During the registration process, in the **Redirect URIs** section, select **Web** for platform and enter `<app-url>/.auth/login/aad/callback`. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+During the registration process, in the **Redirect URIs** section, select **Web** for platform, and enter a redirect URI. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
 Now, modify the app registration:
 
@@ -364,7 +362,7 @@ You can register native clients to request access to your App Service app's APIs
 
 1. On the **Register an application** pane, for **Name**, enter a name for your app registration.
 
-1. In **Redirect URI**, select **Public client/native (mobile & desktop)** and enter the URL `<app-url>/.auth/login/aad/callback`. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. In **Redirect URI**, select **Public client/native (mobile & desktop)** and enter the redirect URL. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
 1. Select **Register**.
 

@@ -1,0 +1,101 @@
+### YamlMime:Landing
+
+title: Migrate Amazon Web Services (AWS) to Microsoft Azure
+summary: Replatforming an entire workload from Amazon Web Services (AWS) to Azure involves migrating various components, including compute, databases, storage, and applications. This section offers service comparisons between both platforms and example scenarios to help integrate components for transition to Azure.
+metadata:
+  title: Migrate Amazon Web Services (AWS) to Microsoft Azure
+  description: Learn about resources that can help you transition your workload components from Amazon Web Services (AWS) to Azure.
+  ms.topic: landing-page
+  ms.service: azure-migrate
+  author: markingmyname
+  ms.author: maghan
+  ms.reviewr: robbymillsap, chkittel, prwilk
+  ms.date: 03/25/2025
+  ms.collection:
+   - migration
+   - aws-to-azure
+
+landingContent:
+  - title: Migration strategy
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migrate workloads to Azure from other cloud-based services
+            url:  ./migrate-to-azure.md
+
+  - title: Component migration
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migrate compute from AWS to Azure
+            url:  migrate-compute-from-aws.md
+          - text: Migrate databases from AWS to Azure
+            url:  migrate-databases-from-aws.md
+          - text: Migrate networking from AWS to Azure
+            url:  migrate-networking-from-aws.md
+          - text: Migrate security from AWS to Azure
+            url:  migrate-security-from-aws.md
+          - text: Migrate storage from AWS to Azure
+            url:  migrate-storage-from-aws.md
+
+  - title: Start with component comparisons
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure compute services map
+            url:  /azure/architecture/aws-professional/compute
+          - text: Azure data and AI services map
+            url:  /azure/architecture/aws-professional/data-ai
+          - text: Azure database services map
+            url:  /azure/architecture/aws-professional/databases
+          - text: Azure messaging services map
+            url:  /azure/architecture/aws-professional/messaging
+          - text: Azure networking services mapping
+            url:  /azure/architecture/aws-professional/networking
+          - text: Azure security services map
+            url:  /azure/architecture/aws-professional/security-identity
+          - text: Azure storage services map
+            url:  /azure/architecture/aws-professional/storage
+
+  - title: Migration examples
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migrate AWS Lambda to Azure Functions
+            url: /azure/azure-functions/migration/lambda-functions-migration-overview
+          - text: Migrate Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (offline)
+            url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
+          - text: Migrate Amazon Aurora PostgreSQL to Azure Database for PostgreSQL (offline)
+            url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
+          - text: AKS for Amazon EKS professionals
+            url:  /azure/architecture/aws-professional/eks-to-aks/
+          - text: Copy data from Amazon S3 to Azure Storage (AzCopy)
+            url: /azure/storage/common/storage-use-azcopy-s3
+          - text: Copy data from Amazon S3 to Azure Storage (Azure Data Factory)
+            url: /azure/data-factory/data-migration-guidance-s3-azure-storage
+          - text: Connect AWS and Azure using a BGP-enabled VPN gateway
+            url: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
+
+  - title: Migration training modules
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Introduction to migrating from Amazon Web Services to Microsoft Azure
+            url: /training/modules/introduction-to-migrating-aws-to-azure/
+          - text: Configure and migrate to Azure Database for PostgreSQL
+            url:  /training/paths/microsoft-learn-azure-database-for-postgresql/
+          - text: Migrate to Azure Database for PostgreSQL
+            url:  /training/modules/migrate-azure-database-postgresql-flexible-server/
+
+  - title: Explore related resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure for AWS professionals
+            url: /azure/architecture/aws-professional/
+          - text: Azure Migrate documentation
+            url: /azure/migrate/
+          - text: Discover, assess, and migrate Amazon Web Services (AWS) VMs to Microsoft Azure
+            url: /azure/migrate/tutorial-migrate-aws-virtual-machines
+
+

@@ -314,6 +314,7 @@ To enable AzCopy to use that token, type the following command, and then press t
 
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
+export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
 For more information about how to sign in with the Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).

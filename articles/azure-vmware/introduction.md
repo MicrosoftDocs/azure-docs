@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 9/16/2024
+ms.date: 4/24/2025
 ms.custom: engagement-fy23
 ---
 
@@ -17,6 +17,14 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 :::image type="content" source="media/introduction/adjacency-overview-drawing-final.png" alt-text="Diagram showing Azure VMware Solution private cloud adjacency to Azure services and on-premises environments." border="false" lightbox="media/introduction/adjacency-overview-drawing-final.png":::
 
+## Azure VMware Solution private cloud types
+
+Azure VMware Solution provides two different private cloud generations:
+
+1. Azure VMware Solution Generation 1 provides VMware vSphere clusters built from dedicated bare-metal hosts deployed in Azure data center facilities. Microsoft-managed **ExpressRoute circuits** provide connectivity between VMware vSphere hosts and native Azure resources deployed in Virtual Networks.
+
+1. [Azure VMware Solution Generation 2](native-introduction.md) (Public Preview) provides VMware vSphere clusters built from dedicated Azure bare-metal hosts. Azure VMware Solution Generation 2 features an updated network architecture whereby VMware vSphere hosts are directly attached to Azure Virtual Networks. This offering is only supported on the AV64 SKU.
+
 ## Hosts, clusters, and private clouds
 
 [!INCLUDE [host-sku-sizes](includes/disk-capabilities-of-the-host.md)]
@@ -25,15 +33,15 @@ You can deploy new or scale existing private clouds through the Azure portal or 
 
 ## Azure VMware Solution private cloud extension with AV64 node size
 
-The AV64 is a new Azure VMware Solution host SKU, which is available to expand (not to create) the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
+The AV64 is an Azure VMware Solution host SKU, which is available to expand the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. If you want to deploy AV64 directly, refer to [Azure VMWare Solution in an Azure Virtual Network](native-introduction.md). Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
 
 :::image type="content" source="media/introduction/av64-mixed-sku-topology.png" alt-text="Diagram showing Azure VMware Solution private cloud with AV64 SKU in mixed SKU configuration." border="false" lightbox="media/introduction/av64-mixed-sku-topology.png":::
 
-### Prerequisite for AV64 usage 
+### Prerequisite for AV64 expansion on AV36, AV36P, and AV52 
 
 See the following prerequisites for AV64 cluster deployment. 
 
-- An Azure VMware solution private cloud is created using AV36, AV36P, or AV52 in AV64 supported [region/AZ](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware). 
+- An Azure VMware solution private cloud is created using AV36, AV36P, AV48, or AV52 in AV64 supported [region/AZ](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware). 
 
 - You need one /23 or three (contiguous or noncontiguous) /25 address blocks for AV64 cluster management. 
 
@@ -60,7 +68,7 @@ When a customer has a deployed Azure VMware Solution private cloud, they can sca
 
 The traditional Azure VMware Solution host clusters don't have explicit vSAN FD configuration. The reasoning is the host allocation logic ensures, within clusters, that no two hosts reside in the same physical fault domain within an Azure region. This feature inherently brings resilience and high availability for storage, which the vSAN FD configuration is supposed to bring. More information on vSAN FD can be found in the [VMware documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/expanding-and-managing-a-vsan-cluster/managing-fault-domains-in-vsan-clusters.html). 
 
-The Azure VMware Solution AV64 host clusters have an explicit vSAN fault domain (FD) configuration. Azure VMware Solution control plane configures seven vSAN fault domains (FDs) for AV64 clusters. Hosts are balanced evenly across the seven FDs as users scale up the hosts in a cluster from three nodes to 16 nodes. Some Azure regions still support a maximum of five FDs as part of the initial release of the AV64 SKU. Refer to the [Azure Region Availability Zone (AZ) to SKU mapping table](architecture-private-clouds.md#azure-region-availability-zone-az-to-sku-mapping-table) for more information.
+The Azure VMware Solution AV64 host clusters have an explicit vSAN fault domain (FD) configuration. Azure VMware Solution control plane configures seven vSAN fault domains (FDs) for AV64 clusters. Hosts are balanced evenly across the seven FDs as users scale up the hosts in a cluster from three nodes to 16 nodes. Some Azure regions still support a maximum of five FDs as part of the initial release of the AV64 SKU. Refer to the [Azure region availability zone to host type mapping table](architecture-private-clouds.md#azure-region-availability-zone-to-host-type-mapping-table) for more information.
 
 ### Cluster size recommendation
 
@@ -93,7 +101,7 @@ The following three scenarios show examples of instances that normally error out
 
 ### AV64 supported RAID configuration 
 
-This table provides the list of RAID configuration supported and host requirements in AV64 clusters. The RAID-6 FTT2 and RAID-1 FTT3 policies are supported with the AV64 SKU in some regions. In Azure regions that are currently constrained to five FDs, Microsoft allows customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with six or more nodes to meet the service level agreement (SLA). Refer to the [Azure Region Availability Zone (AZ) to SKU mapping table](architecture-private-clouds.md#azure-region-availability-zone-az-to-sku-mapping-table) for more information. 
+This table provides the list of RAID configuration supported and host requirements in AV64 clusters. The RAID-6 FTT2 and RAID-1 FTT3 policies are supported with the AV64 SKU in some regions. In Azure regions that are currently constrained to five FDs, Microsoft allows customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with six or more nodes to meet the service level agreement (SLA). Refer to the [Azure region availability zone to host type mapping table](architecture-private-clouds.md#azure-region-availability-zone-to-host-type-mapping-table) for more information. 
 
 | RAID configuration 	| Failures to tolerate (FTT) |	Minimum hosts required |
 |-------------------|--------------------------|------------------------|
@@ -129,7 +137,7 @@ Azure VMware Solution doesn't store customer data.
 
 ## Host and software lifecycle maintenance
 
-Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private clouds. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
+Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private clouds. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
 
 ## Monitoring your private cloud
 
@@ -163,7 +171,7 @@ The following table provides a detailed list of roles and responsibilities betwe
 | -------- | ---------------- |
 | Microsoft - Azure VMware Solution | Physical infrastructure<ul><li>Azure regions</li><li>Azure availability zones</li><li>Express Route/Global Reach</ul></li>Compute/Network/Storage<ul><li>Rack and power Bare Metal hosts</li><li>Rack and power network equipment</ul></li>Private cloud deploy/lifecycle<ul><li>VMware ESXi deploy, patch, and upgrade</li><li>VMware vCenter Servers deploy, patch, and upgrade</li><li>VMware NSX deploy, patch, and upgrade</li><li>VMware vSAN deploy, patch, and upgrade</ul></li>Private cloud Networking - VMware NSX provider config<ul><li>Microsoft Edge node/cluster, VMware NSX host preparation</li><li>Provider Tier-0 and Tenant Tier-1 Gateway</li><li>Connectivity from Tier-0 (using BGP) to Azure Network via ExpressRoute</ul></li>Private cloud compute - VMware vCenter Server provider config<ul><li>Create default cluster</li><li>Configure virtual networking for vMotion, Management, vSAN, and others</ul></li>Private cloud backup/restore<ul><li>Back up and restore VMware vCenter Server</li><li>Back up and restore VMware NSX Manager</ul></li>Private cloud health monitoring and corrective actions, for example: replace failed hosts</br><br>(optional) VMware HCX deploys with fully configured compute profile on cloud side as add-on</br><br>(optional) VMware SRM deploys, upgrade, and scale up/down</br><br>Support - Private cloud platforms and VMware HCX      |
 | Customer | Request Azure VMware Solution host quote with Microsoft<br>Plan and create a request for private clouds on Azure portal with:<ul><li>Host count</li><li>Management network range</li><li>Other information</ul></li>Configure private cloud network and security (VMware NSX)<ul><li>Network segments to host applications</li><li>More Tier -1 routers</li><li>Firewall</li><li>VMware NSX LB</li><li>IPsec VPN</li><li>NAT</li><li>Public IP addresses</li><li>Distributed firewall/gateway firewall</li><li>Network extension using VMware HCX or VMware NSX</li><li>AD/LDAP config for RBAC</ul></li>Configure private cloud - VMware vCenter Server<ul><li>AD/LDAP config for RBAC</li><li>Deploy and lifecycle management of Virtual Machines (VMs) and application<ul><li>Install operating systems</li><li>Patch operating systems</li><li>Install antivirus software</li><li>Install backup software</li><li>Install configuration management software</li><li>Install application components</li><li>VM networking using VMware NSX segments</ul></li><li>Migrate Virtual Machines (VMs)<ul><li>VMware HCX configuration</li><li>Live vMotion</li><li>Cold migration</li><li>Content library sync</ul></li></ul></li>Configure private cloud - vSAN<ul><li>Define and maintain vSAN VM policies</li><li>Add hosts to maintain adequate 'slack space'</ul></li>Configure VMware HCX<ul><li>Download and deploy HCA connector OVA in on-premises</li><li>Pairing on-premises VMware HCX connector</li><li>Configure the network profile, compute profile, and service mesh</li><li>Configure VMware HCX network extension/MON</li><li>Upgrade/updates</ul></li>Network configuration to connect to on-premises, virtual network, or internet</br><br>Add or delete hosts requests to cluster from Portal</br><br>Deploy/lifecycle management of partner (third party) solutions      |
-| Partner ecosystem | Support for their product/solution. For reference, the following are some of the supported Azure VMware Solution partner solution/product:<ul><li>BCDR - VMware SRM, JetStream, Zerto, and others</li><li>Backup - Veeam, Commvault, Rubrik, and others</li><li>VDI - Horizon, Citrix</li><li>Multitenancy for enterprises - VMware Cloud Director Service (CDS), VMware vCloud Director Availability (VCDA)</li><li>Security solutions - BitDefender, TrendMicro, Checkpoint</li><li>Other VMware products - Aria Suite, NSX Advanced Load Balancer     |
+| Partner ecosystem | Support for their product/solution. For reference, the following are some of the supported Azure VMware Solution partner solution/product:<ul><li>BCDR - VMware SRM, JetStream, Zerto, and others</li><li>Backup - Veeam, Commvault, Rubrik, and others</li><li>VDI - Horizon, Citrix</li><li>VMware Cloud Director, VMware Cloud Director Availability (VCDA)</li><li>Security solutions - BitDefender, TrendMicro, Checkpoint</li><li>Other VMware products - Aria Suite, NSX Advanced Load Balancer     |
 
 
 ## Next steps

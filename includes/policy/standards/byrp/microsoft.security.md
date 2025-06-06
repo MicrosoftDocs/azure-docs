@@ -1,10 +1,12 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/25/2025
+ms.date: 05/23/2025
 ms.author: jasongroce
 author: jasongroce
-ms.custom: generated
+ms.custom:
+  - generated
+  - build-2025
 ---
 
 ## Australian Government ISM PROTECTED
@@ -1757,7 +1759,7 @@ For more information about this compliance standard, see
 |Operational framework | op.exp.6 |Operation |[Configure Microsoft Defender for Azure Cosmos DB to be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82bf5b87-728b-4a74-ba4d-6123845cf542) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_Microsoft_Defender_Azure_Cosmos_DB_DINE.json) |
 |Operational framework | op.exp.6 |Operation |[Configure Microsoft Defender for Containers to be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9ddb292-b203-4738-aead-18e2716e858f) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Azure_Defender_Containers_DINE.json) |
 |Operational framework | op.exp.6 |Operation |[Configure Microsoft Defender for Key Vault plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f725891-01c0-420a-9059-4fa46cb770b7) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Azure_Defender_KeyVault_DINE.json) |
-|Operational framework | op.exp.6 |Operation |[Configure Microsoft Defender for Storage to be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcfdc5972-75b3-4418-8ae1-7f5c36839390) |[1.4.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_Microsoft_Defender_For_Storage_Full_DINE.json) |
+|Operational framework | op.exp.6 |Operation |[Configure Microsoft Defender for Storage to be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcfdc5972-75b3-4418-8ae1-7f5c36839390) |[1.5.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_Microsoft_Defender_For_Storage_Full_DINE.json) |
 |Operational framework | op.exp.6 |Operation |[Deploy export to Event Hub as a trusted service for Microsoft Defender for Cloud data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf9f6c70-eb74-4189-8d15-e4f11a7ebfd4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ExportToEventHubAsTrustedService_DINE.json) |
 |Operational framework | op.exp.6 |Operation |[Enable Microsoft Defender for Cloud on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac076320-ddcf-4066-b451-6154267e8ad2) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Register_To_Azure_Security_Center_DINE.json) |
 |Operational framework | op.exp.6 |Operation |[Microsoft Defender CSPM should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f90fc71-a595-4066-8974-d4d0802e8ef0) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Azure_Defender_CSPM_Audit.json) |

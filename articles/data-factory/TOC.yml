@@ -310,6 +310,8 @@ items:
     items:
     - name: Create data factory - Azure CLI
       href: quickstart-create-data-factory-azure-cli.md
+    - name: Create data factory - ARM
+      href: quickstart-create-data-factory-resource-manager-template.md
     - name: Create data factory - Azure PowerShell
       href: quickstart-create-data-factory-powershell.md
     - name: Create data factory - .NET
@@ -365,6 +367,20 @@ items:
     items:
     - name: Connector overview
       href: connector-overview.md
+    - name: Connector lifecycle
+      items:
+      - name: Connector lifecycle overview
+        href: connector-lifecycle-overview.md
+      - name: Connector upgrade guidance
+        href: connector-upgrade-guidance.md
+      - name: Connector upgrade advisor
+        href: connector-upgrade-advisor.md
+      - name: Connector release stages and timelines
+        href: connector-release-stages-and-timelines.md
+      - name: Connector upgrade FAQ
+        href: connector-deprecation-frequently-asked-questions.md  
+      - name: Guidance for Bring Your Own Driver (BYOD)
+        href: guidance-for-byod-approach.md        
     - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
@@ -699,6 +715,8 @@ items:
       href: transform-data-using-custom-activity.md
     - name: Databricks Jar activity
       href: transform-data-databricks-jar.md
+    - name: Databricks Job activity
+      href: transform-data-databricks-job.md
       displayName: data bricks
     - name: Databricks Notebook activity
       href: transform-data-databricks-notebook.md
@@ -1201,6 +1219,9 @@ items:
       - name: Overview and general copy activity errors
         href: connector-troubleshoot-guide.md
         displayName: polybase, timeout, troubleshooting
+      - name: Amazon S3
+        href: connector-troubleshoot-amazon-simple-storage-service.md
+        displayName: troubleshooting  
       - name: Azure Blob Storage
         href: connector-troubleshoot-azure-blob-storage.md
         displayName: troubleshooting
@@ -1267,11 +1288,17 @@ items:
       - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
         href: connector-troubleshoot-sap.md
         displayName: troubleshooting
+      - name: ServiceNow
+        href: connector-troubleshoot-servicenow.md
+        displayName: troubleshooting
       - name: SharePoint Online list
         href: connector-troubleshoot-sharepoint-online-list.md
         displayName: troubleshooting
       - name: Snowflake
         href: connector-troubleshoot-snowflake.md
+        displayName: troubleshooting
+      - name: Teradata
+        href: connector-troubleshoot-teradata.md
         displayName: troubleshooting
       - name: XML format
         href: connector-troubleshoot-xml.md
@@ -1398,12 +1425,6 @@ items:
     href: monitor-data-factory-reference.md
 - name: Resources
   items:
-  - name: Important changes coming
-    items: 
-    - name: Connector upgrades
-      href: connector-deprecation-plan.md
-    - name: Connector upgrade FAQ
-      href: connector-deprecation-frequently-asked-questions.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ

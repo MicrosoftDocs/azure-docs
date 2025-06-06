@@ -3,7 +3,7 @@ title: Azure Files customer case studies
 description: Case studies describing how Microsoft customers use Azure Files and Azure File Sync in different industries.
 author: nataraj
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/24/2023
 ms.author: nasindam
 ---

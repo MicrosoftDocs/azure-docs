@@ -9,7 +9,7 @@ ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint - Bicep

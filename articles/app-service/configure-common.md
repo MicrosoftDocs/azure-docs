@@ -16,8 +16,6 @@ ms.author: cephalin
 
 This article explains how to configure common settings for web apps, a mobile back end, or an API app. For Azure Functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md).
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 ## Configure app settings
 
 In Azure App Service, app settings are variables passed as environment variables to the application code. The following conditions apply to app settings:
@@ -53,6 +51,9 @@ App settings are always encrypted when they're stored (encrypted at rest).
    :::image type="content" source="./media/configure-common/open-ui.png" alt-text="Screenshot that shows selections for displaying app settings." lightbox="./media/configure-common/open-ui.png":::
 
    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, under **Value**, select **Show value**. To see the hidden values of all app settings, select **Show values**.
+
+   > [!NOTE]
+   > Read/Write user permissions are required to view this section in the Azure portal. RBAC built-in roles with sufficient permissions are Owner, Contributor, and Website Contributor. The Reader role alone would not be allowed to access this page. 
 
 1. To add a new app setting, select **Add**. To edit a setting, select the setting.
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).

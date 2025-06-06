@@ -19,7 +19,7 @@ This article only applies to customers with an Enterprise Agreement or an MSDN, 
 
 ## Migration destinations
 
-We've merged Azure Marketplace and Azure usage records into a single usage details dataset. Read the [Choose a cost details solution](usage-details-best-practices.md) article before you choose the solution that's right for your workload. Generally, we recommend using [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
+We've merged Azure Marketplace and Azure usage records into a single usage details dataset. Read the [Choose a cost details solution](usage-details-best-practices.md) article before you choose the solution that's right for your workload. Generally, we recommend using [Exports](../costs/tutorial-improved-exports.md) if you have ongoing data ingestion needs or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
 
 If you have a smaller usage details dataset or a scenario that isn't met by Exports, consider using the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report instead. For more information, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 
@@ -33,7 +33,7 @@ New solutions provide many benefits over the Consumption Usage Details API. Here
 - **Single dataset for all usage details** - Azure and Azure Marketplace usage details were merged into one dataset. It reduces the number of APIs that you need to call to get see all your charges.
 - **Scalability** - The Marketplaces API is deprecated because it promotes a call pattern that isn't able to scale as your Azure usage increases. The usage details dataset can get exceedingly large as you deploy more resources into the cloud. The Marketplaces API is a paginated synchronous API so it isn't optimized to effectively transfer large volumes of data over a network with high efficiency and reliability. Exports and the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report are asynchronous. They provide you with a CSV file that can be directly downloaded over the network.
 - **API improvements** - Exports and the Cost Details API are the solutions that Azure supports moving forward. All new features are being integrated into them.
-- **Schema consistency** - The [Cost Details](/rest/api/cost-management/generate-cost-details-report) API and [Exports](../costs/tutorial-export-acm-data.md) process provide files with matching fields os you can move from one solution to the other, based on your scenario.
+- **Schema consistency** - The [Cost Details](/rest/api/cost-management/generate-cost-details-report) API and [Exports](../costs/tutorial-improved-exports.md) process provide files with matching fields os you can move from one solution to the other, based on your scenario.
 - **Cost Allocation integration** - Enterprise Agreement and Microsoft Customer Agreement customers using Exports or the Cost Details API can view charges in relation to the cost allocation rules that they've configured. For more information about cost allocation, see [Allocate costs](../costs/allocate-costs.md).
 
 ## Field differences

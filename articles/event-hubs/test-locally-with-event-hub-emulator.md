@@ -88,6 +88,7 @@ To run the Event Hubs emulator locally on Linux or macOS:
 
 2. To spin up containers for Event Hubs emulator, Save the following .yaml file as *docker-compose.yaml*.
 
+
   ```
   services:
     emulator:
@@ -110,7 +111,7 @@ To run the Event Hubs emulator locally on Linux or macOS:
         eh-emulator:
           aliases:
             - "eventhubs-emulator"
-  
+
     azurite:
       container_name: "azurite"
       image: "mcr.microsoft.com/azure-storage/azurite:latest"
@@ -123,7 +124,9 @@ To run the Event Hubs emulator locally on Linux or macOS:
         eh-emulator:
           aliases:
             - "azurite"
+
   
+
   networks:
     eh-emulator:
 

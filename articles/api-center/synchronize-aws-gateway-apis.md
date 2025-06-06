@@ -4,12 +4,13 @@ description: Integrate an Amazon API Gateway to Azure API Center for automatic s
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 02/10/2025
+ms.date: 06/02/2025
 ms.author: danlep 
 ms.custom: 
   - devx-track-azurecli
-  - migration
-  - aws-to-azure
+ms.collection: 
+ - migration
+ - aws-to-azure
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
 ---
 
@@ -96,10 +97,11 @@ You can integrate an Amazon API Gateway using the portal or the Azure CLI.
 
 #### [Portal](#tab/portal)
 1. In the [portal](https://portal.azure.com), navigate to your API center.
-1. Under **Assets**, select **Environments**.
-1. Select **Integrations (preview)** > **+ New integration** > **From Amazon API Gateway**.
+1. Under **Platforms**, select **Integrations**.
+1. Select **+ New integration** > **From Amazon API Gateway**.
 1. In the **Integrate your Amazon API Gateway Service** page:
-    1. Enter the Key Vault secret identifiers for the AWS access key and secret access key, and the AWS region where the Amazon API Gateway is deployed.
+    1. For the **AWS access key** and **AWS secret access key**, click **Select** and select the subscription, key vault, secret that you stored. 
+    1. Select the **AWS region** where the Amazon API Gateway is deployed.
     1. In **Integration details**, enter an identifier.
     1. In **Environment details**, enter an **Environment title** (name), **Environment type**, and optional **Description**.
     1. In **API Details**:

@@ -3,7 +3,7 @@ title: Set Up Staging Environments
 description: Learn how to deploy apps to a nonproduction slot and automatically swap into production. Increase the reliability and eliminate app downtime from deployments.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: how-to
-ms.date: 01/24/2025
+ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
 ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli, ai-video-demo
@@ -13,8 +13,6 @@ ai-usage: ai-assisted
 
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 When you deploy your web app, web app on Linux, mobile back end, or API app to [Azure App Service](./overview.md), you can use a separate deployment slot instead of the default production slot. This approach is available if you run in the Standard, Premium, or Isolated tier of an App Service plan. Deployment slots are live apps with their own host names. App content and configuration elements can be swapped between two deployment slots, including the production slot.
 
@@ -68,7 +66,7 @@ For you to enable multiple deployment slots, the app must be running in the Stan
 
     :::image type="content" source="media/web-sites-staged-publishing/open-deployment-slot.png" alt-text="Screenshot that shows how to open a deployment slot's management page in the portal." lightbox="media/web-sites-staged-publishing/open-deployment-slot.png":::
 
-    The staging slot has a management page just like any other App Service app. You can change the slot's configuration. To remind you that you're viewing the deployment slot, the app name appears as *\<app-name>/\<slot-name>*. The app type is **App Service (Slot)**. You can also see the slot as a separate app in your resource group, with the same designations.
+    The staging slot has a management page just like any other App Service app. You can change the slot's configuration. To remind you that you're viewing the deployment slot, the app name and the slot name appear in the URL. The app type is **App Service (Slot)**. You can also see the slot as a separate app in your resource group, with the same designations.
 
 1. On the slot's resource page, select the app URL. The deployment slot has its own host name and is also a live app. To limit public access to the deployment slot, see [Set up Azure App Service access restrictions](app-service-ip-restrictions.md).
 
@@ -216,7 +214,7 @@ If you cancel the swap, App Service reapplies configuration elements to the sour
 
 1. When you're ready to start the swap, select **Start Swap**.
 
-   When the first phase finishes, the dialog notifies you. Preview the swap in the source slot by going to `https://<app_name>-<source-slot-name>.azurewebsites.net`.
+   When the first phase finishes, the dialog notifies you.
 
 1. When you're ready to complete the pending swap, select **Complete Swap** in **Swap action**, and then select the **Complete Swap** button.
 
@@ -394,7 +392,7 @@ For more information, see [Get-AzLog](/powershell/module/az.monitor/get-azlog).
 
 ## Route production traffic automatically
 
-By default, all client requests to the app's production URL (`http://<app_name>.azurewebsites.net`) are routed to the production slot. You can route a portion of the traffic to another slot. This feature is useful if you need user feedback for a new update but you're not ready to release it to production.
+By default, all client requests to the app's production URL are routed to the production slot. You can route a portion of the traffic to another slot. This feature is useful if you need user feedback for a new update but you're not ready to release it to production.
 
 # [Azure portal](#tab/portal)
 
@@ -421,8 +419,10 @@ For more information, see [az webapp traffic-routing set](/cli/azure/webapp/traf
 To add a routing rule on a slot and transfer 15% of production traffic to it, run the following command:
 
 ```azurepowershell-interactive
-Add-AzWebAppTrafficRouting -ResourceGroupName "<group-name>" -WebAppName "<app-name>" -RoutingRule @{ActionHostName='<app-name>-<slot-name>.azurewebsites.net';ReroutePercentage='15';Name='<slot-name>'}
+Add-AzWebAppTrafficRouting -ResourceGroupName "<group-name>" -WebAppName "<app-name>" -RoutingRule @{ActionHostName='<URL>';ReroutePercentage='15';Name='<slot-name>'}
 ```
+
+Get the URL for that deployment slot from the **Deployment slots** page in the Azure portal.
 
 For more information, see [Add-AzWebAppTrafficRouting](/powershell/module/az.websites/add-azwebapptrafficrouting). To update an existing rule, use [Update-AzWebAppTrafficRouting](/powershell/module/az.websites/update-azwebapptrafficrouting).
 

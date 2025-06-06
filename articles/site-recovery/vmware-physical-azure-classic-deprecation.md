@@ -3,8 +3,8 @@ title: Deprecation of classic experience to protect VMware and physical machines
 description: Details about upcoming deprecation of classic experience to protect VMware and physical machines to Azure and alternate options
 ms.service: azure-site-recovery
 ms.topic: overview
-ms.date: 03/14/2023
-ms.author: ankitadutta
+ms.date: 03/26/2025
+ms.author: jsuri
 
 ---
 
@@ -38,7 +38,7 @@ The [modernized experience](vmware-azure-architecture-modernized.md) is an alter
 
 Follow these steps to move your existing replications to the modernized experience:
 
-1. [Check the required infrastructure for your setup](move-from-classic-to-modernized-vmware-disaster-recovery.md#how-to-define-required-infrastructure) and the [FAQs](move-from-classic-to-modernized-vmware-disaster-recovery.md#faqs) for all related information.
+1. [Check the required infrastructure for your setup](move-from-classic-to-modernized-vmware-disaster-recovery.md#how-to-define-required-infrastructure) and the [FAQs](./classic-to-modernized-common-questions.md) for all related information.
 2. [Check the architecture and minimum version of all components](move-from-classic-to-modernized-vmware-disaster-recovery.md#architecture) required for this migration.
 3. Check all the [resources required](move-from-classic-to-modernized-vmware-disaster-recovery.md#required-infrastructure) and deploy the [Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-modernized.md).  
 4. [Prepare the classic Recovery Services vault](move-from-classic-to-modernized-vmware-disaster-recovery.md#prepare-classic-recovery-services-vault) used by your existing replications.
@@ -47,6 +47,6 @@ Follow these steps to move your existing replications to the modernized experien
 
 ## Next steps
 
-Plan ahead for the deprecation and move to the modernized experience to take advantage of its [benefits](move-from-classic-to-modernized-vmware-disaster-recovery.md#why-should-i-migrate-my-machines-to-the-modernized-architecture) and stay up-to-date. 
+Plan ahead for the deprecation and move to the modernized experience to take advantage of its [benefits](./classic-to-modernized-common-questions.md#why-should-i-migrate-my-machines-to-the-modernized-architecture) and stay up-to-date. 
 
 In case you have any queries regarding this deprecation, reach out to Microsoft Support.

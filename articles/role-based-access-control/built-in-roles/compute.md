@@ -2,12 +2,12 @@
 title: Azure built-in roles for Compute - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Compute category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -38,7 +38,7 @@ Arc VMware VM Contributor has permissions to perform all VM actions.
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
@@ -233,6 +233,55 @@ Lets you manage classic virtual machines, but not access to them, and not the vi
     }
   ],
   "roleName": "Classic Virtual Machine Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Compute Fleet Contributor
+
+Allows users to manage Compute Fleet resources.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AzureFleet](../permissions/compute.md#microsoftazurefleet)/fleets/* | Create and manage compute fleets |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows users to manage Compute Fleet resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/2bed379c-9fba-455b-99e4-6b911073bcf2",
+  "name": "2bed379c-9fba-455b-99e4-6b911073bcf2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AzureFleet/fleets/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Compute Fleet Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -783,15 +832,15 @@ Provide permission to the Azure Virtual Desktop Resource Provider to start and s
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/restart/action | Restarts the virtual machine |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/start/action | Starts the virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesCancelOperations/action | virtualMachinesCancelOperations: cancelOperations for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteDeallocate/action | virtualMachinesExecuteDeallocate: executeDeallocate for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteHibernate/action | virtualMachinesExecuteHibernate: executeHibernate for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteStart/action | virtualMachinesExecuteStart: executeStart for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesGetOperationErrors/action |  |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesGetOperationStatus/action | virtualMachinesGetOperationStatus: getOperationStatus for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitDeallocate/action | virtualMachinesSubmitDeallocate: submitDeallocate for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitHibernate/action | virtualMachinesSubmitHibernate: submitHibernate for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitStart/action | virtualMachinesSubmitStart: submitStart for a virtual machine |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesCancelOperations/action | VirtualMachinesCancelOperations: Cancel a previously submitted (start/deallocate/hibernate) request |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteDeallocate/action | VirtualMachinesExecuteDeallocate: Execute deallocate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteHibernate/action | VirtualMachinesExecuteHibernate: Execute hibernate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteStart/action | VirtualMachinesExecuteStart: Execute start operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesGetOperationErrors/action | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesGetOperationStatus/action | VirtualMachinesGetOperationStatus: Polling endpoint to read status of operations performed on virtual machines |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitDeallocate/action | VirtualMachinesSubmitDeallocate: Schedule deallocate operation for a batch of virtual machines at datetime in future. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitHibernate/action | VirtualMachinesSubmitHibernate: Schedule hibernate operation for a batch of virtual machines at datetime in future. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitStart/action | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
 > | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/register/action | Register the subscription for Microsoft.ComputeSchedule |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/read | Read hostpools |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Read hostpools/sessionhosts |
@@ -1088,7 +1137,7 @@ This role is in preview and subject to change. Provide permission to the Azure V
 > | --- | --- |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/read | Read hostpools |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/write | Write hostpools |
-> | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/retrieveRegistrationToken/action | List registration tokens for host pool |
+> | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/retrieveRegistrationToken/action | Retrieve registration token for host pool |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Read hostpools/sessionhosts |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/write | Write hostpools/sessionhosts |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/delete | Delete hostpools/sessionhosts |
@@ -1678,6 +1727,8 @@ Create and manage virtual machines, manage disks, install and run software, rese
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/read | Get the properties of a Disk |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/delete | Deletes the Disk |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/hostgroups/write | Creates a new host group or updates an existing host group |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/hostgroups/hosts/write | Creates a new host or updates an existing host |
 > | [Microsoft.DevTestLab](../permissions/devops.md#microsoftdevtestlab)/schedules/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool. Not Alertable. |
@@ -1739,6 +1790,8 @@ Create and manage virtual machines, manage disks, install and run software, rese
         "Microsoft.Compute/disks/write",
         "Microsoft.Compute/disks/read",
         "Microsoft.Compute/disks/delete",
+        "Microsoft.Compute/hostgroups/write",
+        "Microsoft.Compute/hostgroups/hosts/write",
         "Microsoft.DevTestLab/schedules/*",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Network/applicationGateways/backendAddressPools/join/action",

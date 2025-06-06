@@ -1,15 +1,15 @@
 ---
 title: Microsoft Dev Box architecture
-description: Learn about the architecture, key concepts & terminology for Microsoft Dev Box. Understand dev center, dev box, dev box definitions, and dev box pools.
+description: Learn about the architecture, key concepts, and terminology for Microsoft Dev Box. Understand dev centers, dev boxes, dev box definitions, and dev box pools.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
-ms.date: 09/24/2024
+ms.date: 10/05/2023
 ms.custom: template-concept
 
-#Customer intent: As a platform engineer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
+#Customer intent: As a platform engineer, I want to understand the architecture and key components of Microsoft Dev Box to effectively configure and manage cloud-based development environments for my team.
 ---
 
 # Microsoft Dev Box architecture overview
@@ -17,6 +17,8 @@ ms.custom: template-concept
 In this article, you learn about the architecture and key concepts for Microsoft Dev Box. Microsoft Dev Box gives developers self-service access to preconfigured, and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, and manage security and network settings to access resources securely.
 
 Microsoft Dev Box builds on the same foundations as [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Both services are complementary and share certain architectural components, such as a dev center or project.
+
+For an overview of Microsoft Dev Box, see [Beyond VDI: Get secure cloud dev environments with Microsoft Dev Box](https://devblogs.microsoft.com/develop-from-the-cloud/devboxignite2024/).
 
 ## How does Microsoft Dev Box work?
 
@@ -116,6 +118,8 @@ There's no requirement to configure your dev boxes to make these connections. Mi
 For more information on the network architecture of Azure Virtual Desktop, see [Understanding Azure Virtual Desktop network connectivity](/en-us/azure/virtual-desktop/network-connectivity).
 
 Microsoft Dev Box doesn't support third-party connection brokers.
+
+[!INCLUDE [dev-box-get-started-links](includes/dev-box-get-started-links.md)]
 
 ## Related content
 

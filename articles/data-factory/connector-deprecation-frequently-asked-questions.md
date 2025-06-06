@@ -6,7 +6,9 @@ ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.date: 11/08/2024
+ms.date: 05/27/2025
+ms.custom:
+  - build-2025
 ---
 
 # Connector upgrade FAQ
@@ -75,5 +77,8 @@ Our Azure Data Factory team will assist you and ensure a smooth transition to th
 
 ## Related content
 
-- [Planned connector deprecations for Azure Data Factory](connector-deprecation-plan.md)
-
+- [Connector overview](connector-overview.md)  
+- [Connector lifecycle overview](connector-lifecycle-overview.md) 
+- [Connector upgrade guidance](connector-upgrade-guidance.md) 
+- [Connector upgrade advisor](connector-upgrade-advisor.md)  
+- [Connector release stages and timelines](connector-release-stages-and-timelines.md)  

@@ -1,10 +1,10 @@
 ---
 title: Set up VMware disaster recovery using PowerShell in Azure Site Recovery
 description: Learn how to set up replication and failover to Azure for disaster recovery of VMware VMs using PowerShell in Azure Site Recovery.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: ankitadutta
+ms.author: jsuri
 ms.date: 03/07/2024
 ms.custom: devx-track-azurepowershell
 
@@ -223,7 +223,7 @@ In this step, two replication policies are created. One policy to replicate VMwa
    StateDescription : Completed
    StartTime        : 11/24/2017 2:49:24 AM
    EndTime          : 11/24/2017 2:49:23 AM
-   TargetObjectId   : ab31026e-4866-5440-969a-8ebcb13a372f
+   TargetObjectId   : bbbbbbbb-1111-2222-3333-cccccccccccc
    TargetObjectType : ProtectionProfile
    TargetObjectName : ReplicationPolicy
    AllowedActions   :
@@ -437,7 +437,7 @@ State            : InProgress
 StateDescription : InProgress
 StartTime        : 11/24/2017 2:04:26 PM
 EndTime          :
-TargetObjectId   : 88bc391e-d091-11e7-9484-000c2955bb50
+TargetObjectId   : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 TargetObjectType : ProtectionEntity
 TargetObjectName : Win2K12VM1
 AllowedActions   :

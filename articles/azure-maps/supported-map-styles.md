@@ -3,7 +3,7 @@ title: Supported built-in Azure Maps map styles
 description: Learn about the built-in map styles that Azure Maps supports, such as road, blank_accessible, satellite, satellite_road_labels, road_shaded_relief, and night.
 author: faterceros
 ms.author: aterceros
-ms.date: 11/01/2023
+ms.date: 03/31/2025
 ms.topic: conceptual
 ms.service: azure-maps
 ms.subservice: render
@@ -25,7 +25,6 @@ A **road** map is a standard map that displays roads. It also displays natural a
 * [Get Map Static Image]
 * [Get Map Tile]
 * [Web SDK map control]
-* [Android map control]
 * [Power BI visual]
 
 ## blank and blank_accessible
@@ -49,7 +48,6 @@ The **satellite** style is a combination of satellite and aerial imagery.
 
 * [Get Map Tile]
 * [Web SDK map control]
-* [Android map control]
 * [Power BI visual]
 
 ## satellite_road_labels
@@ -61,7 +59,6 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 
 * [Web SDK map control]
-* [Android map control]
 * [Power BI visual]
 
 ## grayscale_dark
@@ -75,7 +72,6 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 * [Get Map Static Image]
 * [Get Map Tile]
 * [Web SDK map control]
-* [Android map control]
 * [Power BI visual]
 
 ## grayscale_light
@@ -87,7 +83,6 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 
 * [Web SDK map control]
-* [Android map control]
 * [Power BI visual]
 
 ## night
@@ -99,7 +94,6 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 
 * [Web SDK map control]
-* [Android map control]
 * [Power BI visual]
 
 ## road_shaded_relief
@@ -112,7 +106,6 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 * [Get Map Tile]
 * [Web SDK map control]
-* [Android map control]
 * [Power BI visual]
 
 ## high_contrast_dark
@@ -124,7 +117,6 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 
 * [Web SDK map control]
-* [Android map control]
 * [Power BI visual]
 
 ## high_contrast_light
@@ -136,7 +128,6 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 
 * [Web SDK map control]
-* [Android map control]
 * [Power BI visual]
 
 ## Map style accessibility
@@ -146,7 +137,7 @@ The interactive Azure Maps map controls use vector tiles in the map styles to po
 | Map style  | Color contrast | Screen reader | Notes |
 |------------|----------------|---------------|-------|
 | `blank` | N/A | No | A blank canvas useful for developers who want to use their own tiles as the base map, or want to view their data without any background. The screen reader doesn't rely on the vector tiles for descriptions.  |
-| `blank_accessible` | N/A  | Yes | This map style continues to load the vector tiles used to render the map, but makes that data transparent. This way the data still loads, and can be used to power the screen reader. |
+| `blank_accessible` | N/A  | Yes | This map style continues to load the vector tiles used to render the map, but makes that data transparent. This way the data still loads and can be used to power the screen reader. |
 | `grayscale_dark` | Partial | Yes | Primarily designed for business intelligence scenarios. Also useful for overlaying colorful layers such as weather radar imagery. |
 | `grayscale_light` | Partial | Yes | This map style is primarily designed for business intelligence scenarios. |
 | `high_contrast_dark` | Yes | Yes | Fully accessible map style for users in high contrast mode with a dark setting. When the map loads, high contrast settings are automatically detected. |
@@ -164,7 +155,6 @@ Learn about how to set a map style in Azure Maps:
 > [!div class="nextstepaction"]
 > [Choose a map style]
 
-[Android map control]: how-to-use-android-map-control-library.md
 [Choose a map style]: choose-map-style.md
 [Get Map Static Image]: /rest/api/maps/render/get-map-static-image
 [Get Map Tile]: /rest/api/maps/render/get-map-tile

@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Create branching in user journey by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Different users of the same app can follow different user journeys depending on the values of the data in a custom policy. Azure Active Directory B2C (Azure AD B2C) custom policies allows you to conditionally enable or disable a technical profile to achieve this capability. For example, in [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md), we used a `Precondition` to determine whether or not we should run a validation technical profile based on the value of *accountType* claim. 
 

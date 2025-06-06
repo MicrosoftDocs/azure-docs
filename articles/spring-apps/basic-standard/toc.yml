@@ -53,7 +53,7 @@ items:
     expanded: false
     items:
       - name: Overview
-        href: ../migration/migrate-to-azure-container-apps-build-overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+        href: ../migration/containerization-overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
       - name: Build an image from artifacts
         href: ../migration/migrate-to-azure-container-apps-build-artifacts.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
       - name: Build an image using Paketo

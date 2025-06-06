@@ -1,9 +1,11 @@
 ---
 title: Use deployment scripts in templates | Microsoft Docs
 description: Use deployment scripts in Azure Resource Manager templates.
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - build-2025
 ms.topic: conceptual
-ms.date: 06/14/2024
+ms.date: 04/28/2025
 ---
 
 # Use deployment scripts in ARM templates
@@ -24,7 +26,7 @@ These scripts can be used for performing custom steps such as:
 
 The benefits of deployment script:
 
-- Easy to code, use, and debug. You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
+- You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
 - You can specify the script language and platform. Currently, Azure PowerShell and Azure CLI deployment scripts on the Linux environment are supported.
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
@@ -61,6 +63,9 @@ For deployment script API version 2020-10-01 or later, there are two principals 
             "Microsoft.Resources/deployments/*",
             "Microsoft.Resources/deploymentScripts/*"
           ],
+         "dataActions": [
+            "Microsoft.Storage/storageAccounts/fileServices/*"
+          ]
         }
       ],
       "assignableScopes": [

@@ -5,8 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 08/22/2022
-appliesto: 
-  - Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to delete duplicate or erroneous incidents in my incident management system so that I can maintain an accurate and efficient incident queue.
 ---
 

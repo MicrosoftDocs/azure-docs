@@ -81,13 +81,13 @@ When importing a GeoJSON package, the `ID` and `Geometry` fields must be supplie
 
 :::image type="content" source="./media/creator-indoor-maps/geojson.png" alt-text="A screenshot showing the geometry and ID fields in a GeoJSON file.":::
 
-For more information, see [Create a dataset using a GeoJson package].
+For more information, see [Create a dataset using a GeoJSON package].
 
 ---
 
 :::zone-end
 
-In addition to these common fields, each feature class defines a set of properties. Each property is defined by its data type and constraints. Some feature classes have properties that are dependent on other feature classes. Dependant properties evaluate to the `ID` of another feature class.
+In addition to these common fields, each feature class defines a set of properties. Each property is defined by its data type and constraints. Some feature classes have properties that are dependent on other feature classes. Dependent properties evaluate to the `ID` of another feature class.
 
 The remaining sections in this article define the different feature classes and their properties that make up the facility ontology in Microsoft Azure Maps Creator.
 
@@ -585,7 +585,7 @@ Learn more about Creator for indoor maps by reading:
 [Polygon]: /rest/api/maps-creator/wfs/get-features?tabs=HTTP#geojsonpolygon
 
 <!---------   learn.microsoft.com links     --------------->
-[Create a dataset using a GeoJson package]: how-to-dataset-geojson.md
+[Create a dataset using a GeoJSON package]: how-to-dataset-geojson.md
 [Creator for indoor maps]: creator-indoor-maps.md
 
 <!---------   External Links     --------------->

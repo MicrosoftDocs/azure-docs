@@ -1,424 +1,202 @@
 ---
-title: 'Invoke an OpenAPI App Service web app from Azure AI Agent Service'
-description: Learn how to integrate App Service with AI Agent Service and get started with agentic AI
+title: 'Invoke an OpenAPI App Service web app from Azure AI Foundry Agent Service'
+description: Learn how to integrate App Service with AI Foundry Agent Service and get started with agentic AI
 author: seligj95
 ms.author: jordanselig
-ms.date: 02/19/2025
+ms.date: 05/28/2025
 ms.topic: article
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - build-2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Invoke an OpenAPI App Service web app from Azure AI Agent Service
+# Invoke an OpenAPI App Service web app from Azure AI Foundry Agent Service
 
-[Azure AI Agent Service](/azure/ai-services/agents/overview) allows you to create AI agents tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. You can now connect your Azure AI Agent to an external API using an [OpenAPI 3.0](https://www.openapis.org/what-is-openapi) specified tool, allowing for scalable interoperability with various applications. 
+[Azure AI Foundry Agent Service](/azure/ai-services/agents/overview) allows you to create AI agents tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. You can now connect your Azure AI Agent to an external API using an [OpenAPI 3.0](https://www.openapis.org/what-is-openapi) specified tool, allowing for scalable interoperability with various applications. 
 
-Azure App Service is a fully managed platform for building, deploying, and scaling web apps and APIs. If your API is hosted on Azure App Service, you can connect your AI Agent to the API using the OpenAPI specification. The OpenAPI specification defines the API and how to interact with it. You can then use natural language to invoke the API through your AI Agent.
+Azure App Service is a fully managed platform for building, deploying, and scaling web apps and APIs. If your API is hosted on Azure App Service, you can connect your AI Agent to the API using the OpenAPI specification. The OpenAPI specification defines the API and how to interact with it. You can then use natural language to invoke the API through your AI Agent. This tool is powerful because it allows you to add AI agent capabilities to your existing apps with minimal code changes. Also, this agent has the ability to directly interact with your app. There's no need for significant code changes or implementation work other thank minor updates to interact with the agent using the available SDKs.
 
-In the following tutorial, you're using an Azure AI Agent to invoke an API hosted on Azure App Service.
+In this tutorial, you're using an Azure AI Foundry Agent to invoke an existing API hosted on Azure App Service. By the end of this tutorial, you have a fashion assistant chat application running in App Service using an AI agent from the Azure AI Foundry Agent Service.
+
+:::image type="content" source="media/invoke-openapi-web-app-from-azure-ai-agent-service/browse-app.png" alt-text="A screenshot showing an AI agent running within App Service.":::
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure AI Agent project and a RESTful API hosted on Azure App Service. The API should have an OpenAPI specification that defines the API. The OpenAPI specification for the sample app in this tutorial is provided.
+1. A GitHub account. You can also [get one for free](https://github.com/join).
+1. An Azure account with an active subscription. If you don't have an Azure account, you can create one for free.
 
-1. Ensure you complete the prerequisites and setup steps in the [quickstart](/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure). This quickstart walks you through creating your Azure AI Hub and Agent project. You should complete the agent configuration and agent sample the quickstart provides to get a full understanding of the tool and ensure your setup works.
-1. Ensure you have [Git installed](https://git-scm.com/downloads).
-1. Ensure you have the latest [.NET 9.0 SDK installed](https://dotnet.microsoft.com/download/dotnet/9.0).
-1. Follow the guidance in the next section to create the sample app and deploy it to Azure App Service. The sample app is a simple to-do list app that allows you to create, read, update, and delete items from the list.
 
-## Create and deploy the sample app
+## 1. Inspect the sample in GitHub Codespaces
 
-1. Ensure you have the [Azure CLI](/cli/azure/install-azure-cli) installed and that you're logged into your Azure account. You can sign-in using the following command.
+1. Sign in to your GitHub account and navigate to [https://github.com/Azure-Samples/ai-agent-openai-web-app/fork](https://github.com/Azure-Samples/ai-agent-openai-web-app/fork).
+1. Select **Create fork**.
+1. Select **Code** > **Create codespace on main**. The codespace takes a few minutes to set up.
 
-    ```bash
-    az login
-    ```
+The sample repository has the following content:
 
-1. In the terminal window, use `cd` to go to a working directory.
-1. Clone the sample repository, and then go to the repository root. This repository contains an app based on the tutorial [ASP.NET Core web API documentation with Swagger / OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). It uses a Swagger generator to serve the [Swagger UI](https://swagger.io/swagger-ui/) and the Swagger JSON endpoint.
+| Content            | Description                                                                 |
+|--------------------|-----------------------------------------------------------------------------|
+| *src/webapp*       | A front-end .NET Blazor application. |
+| *infra*            | Infrastructure-as-code for deploying a .NET web app in Azure and Azure AI Foundry resources for the AI Agent. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible). |
+| *azure.yaml*       | Azure Developer CLI configuration that deploys the Blazor application to App Service. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible). |
 
-    ```bash
-    git clone https://github.com/Azure-Samples/dotnet-core-api
-    cd dotnet-core-api
-    ```
+## 2. Deploy the Azure infrastructure and application
 
-1. You can run the app locally to ensure it works. To start the app, run the following commands.
+1. Sign into your Azure account by using the `azd auth login` command and following the prompt:
 
     ```bash
-    dotnet restore
-    dotnet run
+    azd auth login
     ```
 
-1. Browse to `http://localhost:5000/swagger` in a browser to try the Swagger UI.
-1. Browse to `http://localhost:5000/api/todo` to see the to-do list.
-1. Press `Ctrl+C` in the terminal window to stop the app.
-1. To deploy the app to Azure App Service, run the following command.
+1. Create the App Service app and deploy the code using the `azd up` command:
 
     ```bash
-    az webapp up
+    azd up
     ```
 
-1. After the app is deployed, browse to the URL provided in the terminal window to see the app running in Azure App Service. It can take a few minutes for the app to be fully deployed and running. Note this URL for later use.
- 
-## Connect your AI Agent to your App Service API
+    The `azd up` command might take a few minutes to complete. `azd up` uses the Bicep files in your projects to create an App Service app in the **P0v3** pricing tier and deploys the .NET app in `src/webapp`. The command also creates the Azure AI Foundry and supporting resources for the agent.
 
-### Create and review the OpenAPI specification
+## 3. Create the AI agent
 
-Now that you have the required infrastructure, you can put it all together and start interacting with your API using your AI Agent. For a general overview on how to do get started, see [How to use Azure AI Agent Service with OpenAPI Specified Tools](/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview). That overview includes prerequisites and other requirements including how to include authentication if your API requires it. The provided sample API is publicly accessible so authentication isn't required.
+1. In the [Azure portal](https://portal.azure.com), navigate to the **resource group** that the azd template creates. The name of the resource group is in the output of the azd command you run.
+1. Select the **Azure AI project** resource. The name should be in the format `ai-aiproject-<identifier>`. Ensure you select the **project** resource and not the hub or AI services resources. Agents are created from the Azure AI project resource.
+1. Select **Launch studio** to open the Azure AI Foundry studio.
+1. From the left menu under **Build and customize**, select **Agents**.
+1. When the page loads, in the dropdown, select the autogenerated Azure OpenAI Service resource that is created for you and then select **Let's go**.
+1. Select **+ New agent** to create a new agent or use the default one if one is already created for you.
+1. When the agent is created, add the following instructions in the right menu. These instructions ensure your agent only answers questions and completes tasks related to the fashion store app.
 
-1. This specification is the OpenAPI specification for the sample app that is provided. On your local machine, create a file called `swagger.json` and copy the following contents.
+    <pre>
+    You are an agent for a fashion store that sells clothing. You have the ability to view inventory, update the customer's shopping cart, and answer questions about the clothing items that are in the inventory. You should not answer questions about topics that are unrelated to the fashion store. If a user asks an unrelated question, please respond by telling them that you can only talk about things that are related to the fashion store.
+    </pre>
 
-    ```json
-    {
-    "openapi": "3.0.1",
-    "info": {
-        "title": "My API",
-        "version": "v1"
-    },
-    "servers": [
-        {
-        "url": "<APP_SERVICE_URL>"
-        }
-    ],
-    "paths": {
-        "/api/Todo": {
-        "get": {
-            "tags": [
-            "Todo"
-            ],
-            "operationId": "getToDoListItems",
-            "responses": {
-            "200": {
-                "description": "Success",
-                "content": {
-                "text/plain": {
-                    "schema": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/components/schemas/TodoItem"
-                    }
-                    }
-                },
-                "application/json": {
-                    "schema": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/components/schemas/TodoItem"
-                    }
-                    }
-                },
-                "text/json": {
-                    "schema": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/components/schemas/TodoItem"
-                    }
-                    }
-                }
-                }
-            }
-            }
-        },
-        "post": {
-            "tags": [
-            "Todo"
-            ],
-            "operationId": "createToDoListItem",
-            "requestBody": {
-            "content": {
-                "application/json": {
-                "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                }
-                },
-                "text/json": {
-                "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                }
-                },
-                "application/*+json": {
-                "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                }
-                }
-            }
-            },
-            "responses": {
-            "200": {
-                "description": "Success",
-                "content": {
-                "text/plain": {
-                    "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                    }
-                },
-                "application/json": {
-                    "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                    }
-                },
-                "text/json": {
-                    "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                    }
-                }
-                }
-            }
-            }
-        }
-        },
-        "/api/Todo/{id}": {
-        "get": {
-            "tags": [
-            "Todo"
-            ],
-            "operationId": "getToDoListItemById",
-            "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "required": true,
-                "schema": {
-                "type": "integer",
-                "format": "int64"
-                }
-            }
-            ],
-            "responses": {
-            "200": {
-                "description": "Success",
-                "content": {
-                "text/plain": {
-                    "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                    }
-                },
-                "application/json": {
-                    "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                    }
-                },
-                "text/json": {
-                    "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                    }
-                }
-                }
-            }
-            }
-        },
-        "put": {
-            "tags": [
-            "Todo"
-            ],
-            "operationId": "updateToDoListItem",
-            "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "required": true,
-                "schema": {
-                "type": "integer",
-                "format": "int64"
-                }
-            }
-            ],
-            "requestBody": {
-            "content": {
-                "application/json": {
-                "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                }
-                },
-                "text/json": {
-                "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                }
-                },
-                "application/*+json": {
-                "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                }
-                }
-            }
-            },
-            "responses": {
-            "200": {
-                "description": "Success"
-            }
-            }
-        },
-        "delete": {
-            "tags": [
-            "Todo"
-            ],
-            "operationId": "deleteToDoListItem",
-            "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "required": true,
-                "schema": {
-                "type": "integer",
-                "format": "int64"
-                }
-            }
-            ],
-            "responses": {
-            "200": {
-                "description": "Success",
-                "content": {
-                "text/plain": {
-                    "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                    }
-                },
-                "application/json": {
-                    "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                    }
-                },
-                "text/json": {
-                    "schema": {
-                    "$ref": "#/components/schemas/TodoItem"
-                    }
-                }
-                }
-            }
-            }
-        }
-        }
-    },
-    "components": {
-        "schemas": {
-        "TodoItem": {
-            "type": "object",
-            "properties": {
-            "id": {
-                "type": "integer",
-                "format": "int64"
-            },
-            "name": {
-                "type": "string",
-                "nullable": true
-            },
-            "isComplete": {
-                "type": "boolean"
-            }
-            },
-            "additionalProperties": false
-        }
-        },
-        "securitySchemes": {}
-    },
-    "security": [
-        {
-        "apiKeyHeader": []
-        }
-    ]
-    }
-    ```
+## 4. Add the OpenAPI Specified Tool to the AI agent
 
-1. Replace the placeholder for `APP_SERVICE_URL` with your app's URL that you copied earlier. This URL is in the format `https://<app_name>.azurewebsites.net`.
-1. Review the file to understand the API and its endpoints. The `operationId` values are CRUD operations that can be performed on the to-do list. Once the app is up and running, you can use your AI Agent to invoke the API and perform the various operations on your behalf using natural language. At the end of the specification, you have the `securitySchemes` section. This security section is where you add authentication if your API requires it. This section is left blank for the sample app, but is included because the AI Agent Service requires it.
+For detailed guidance with screenshots and additional information, see [Add OpenAPI spec tool in the Azure AI Foundry portal](/azure/ai-services/agents/how-to/tools/openapi-spec). The steps are summarized in the following instructions.
 
-### Create the OpenAPI Spec tool definition
+1. Select **+ Add** next to **Action**.
+1. Select **OpenAPI 3.0 specified tool**.
+1. Give your tool a name and the following description. The description is used by the model to decide when and how to use the tool.
 
-1. Create a file in the same directory as your `swagger.json` file called `tool.py`. Copy the following contents into the file. Ensure you complete the prerequisites and setup steps in the [quickstart](/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure) to get the required packages installed as well as get you logged into your Azure account.
-    
-    ```python
-    import os
-    import jsonref
-    from azure.ai.projects import AIProjectClient
-    from azure.identity import DefaultAzureCredential
-    from azure.ai.projects.models import OpenApiTool, OpenApiAnonymousAuthDetails
-    
-    # Set the environment variable for your connection string, copied from your Azure AI Foundry project
-    os.environ["PROJECT_CONNECTION_STRING"] = "<HostName>;<AzureSubscriptionId>;<ResourceGroup>;<HubName>"
-    
-    # Create an Azure AI Client from a connection string
-    project_client = AIProjectClient.from_connection_string(
-        credential=DefaultAzureCredential(), conn_str=os.environ["PROJECT_CONNECTION_STRING"]
-    )
-    
-    # Read and print the OpenAPI spec
-    with open('./swagger.json', 'r') as f:
-        openapi_spec = jsonref.loads(f.read())
-    
-    # Create Auth object for the OpenApiTool (note that connection or managed identity auth setup requires additional setup in Azure)
-    auth = OpenApiAnonymousAuthDetails()
-    
-    # Initialize agent OpenAPI tool using the OpenAPI spec
-    openapi = OpenApiTool(name="toDolistAgent", spec=openapi_spec, description="Manage the to do list", auth=auth)
-    
-    # Prompt for the message content
-    message_content = input("Message content: ")
-    
-    # Create agent with OpenAPI tool
-    with project_client:
-        agent = project_client.agents.create_agent(
-            model="gpt-4o-mini",
-            name="my-assistant",
-            instructions="You are a helpful assistant",
-            tools=openapi.definitions
-        )
-        print(f"Created agent, ID: {agent.id}")
-    
-        # Create thread for communication
-        thread = project_client.agents.create_thread()
-        print(f"Created thread, ID: {thread.id}")
-    
-        # Create message to thread
-        message = project_client.agents.create_message(
-            thread_id=thread.id,
-            role="user",
-            content=message_content,
-        )
-        print(f"Created message, ID: {message.id}")
-    
-        # Create and process agent run in thread with tools
-        run = project_client.agents.create_and_process_run(thread_id=thread.id, assistant_id=agent.id)
-        print(f"Run finished with status: {run.status}")
-    
-        if run.status == "failed":
-            # Check if you got "Rate limit is exceeded.", then you want to get more quota
-            print(f"Run failed: {run.last_error}")
-    
-        # Fetch all messages
-        messages = project_client.agents.list_messages(thread_id=thread.id)
-    
-        # Get the last message from the sender
-        last_msg = messages.get_last_text_message_by_role("assistant")
-        if last_msg:
-            print(f"Last Message: {last_msg.text.value}")
-    
-        # Delete the assistant when done
-        project_client.agents.delete_agent(agent.id)
-        print("Deleted agent")
-    ```
+    <pre>
+    This tool is used to interact with and manage an online fashion store. The tool can add or remove items from a shopping cart as well as view inventory.
+    </pre>
 
-1. Replace the placeholder for your project's connection string. If you need help with finding the connection string, see the [Configure and run agent section of the quickstart](/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure#configure-and-run-an-agent).
-1. Review the file to understand how the OpenAPI tool is created and how the AI Agent is invoked. The OpenAPI specification is passed into the file. Each time the tool is invoked, the AI Agent uses the OpenAPI specification to determine how to interact with the API. The `message_content` variable is where you enter the natural language command that you want the AI Agent to perform. You're prompted to enter the message once you run the script. The AI Agent invokes the API and returns the results. It creates and deletes the AI Agent each time you run the script.
+1. Leave the authentication method as anonymous. There's no authentication on the web app. If the app required an API key or managed identity to access it, this location is where you would specify this information.
+1. Copy and paste the OpenAPI specification in the text box. The OpenAPI specification is provided in the Codespace in the `src/webapp` directory and is called `swagger.json`.
+1. Before you complete creating the tool, you need to copy and paste your app's URL into the OpenAPI specification. Replace the placeholder `<APP-SERVICE-URL>` in line 10 of the OpenAPI specification with your app's URL. It's in the format `https://<app-name>.azurewebsites.net`.
+    - To find your app's URL, go back to your resource group and navigate to your **App Service**. The URL is on the **Overview** page of your App Service.
+1. Select **Next**, review the details you provided, and then select **Create Tool**.
 
-## Run the OpenAPI Spec tool
+## 5. Connect your App Service to the AI Agent
 
-1. Open a terminal and browse to the directory where you created the `tool.py` and `swagger.json` files. To run the script, run the following command.
+After setting up the AI Agent and adding the OpenAPI Specified Tool, you need to configure your App Service with the appropriate environment variables so the app knows which agent to connect to. The app already has a managed identity assigned that gives it access to the AI Agent Service. This managed identity is required for the app to reach the agent and is created with the azd template.
 
-    ```bash
-    python tool.py
-    ```
+1. From the Agents dashboard where you added the OpenAPI tool, note the **agent ID**. It's in the format `asst_<unique-identifier>`.
+1. Select **Overview** in the menu note the **project's connection string**. It's in the format `<region>.api.azureml.ms;<subscription-id>;<resource-group-name>;<project-name>`.
+1. Navigate to your App Service in the Azure portal.
+1. Select **Environment variables** in the left menu.
+1. In the **App settings** tab, select **+ Add** and add the following setting:
+    - Name: `AzureAIAgent__ConnectionString`
+    - Value: The connection string you noted from your AI Agent Service
+1. Add another app setting:
+    - Name: `AzureAIAgent__AgentId`
+    - Value: The Agent ID you noted when creating your agent
+1. Select **Apply** at the bottom of the page and confirm when prompted. The app restarts with the new settings applied.
 
-1. When prompted, enter a message for your Agent. For example, you can enter "What's on my to-do list?", "Add a task to buy bread," "Mark all my tasks as done," or any other question or action that can be performed on the list. The AI Agent then invokes the API and returns the results. You can also enter "Add an item to the to-do list" and the AI Agent prompts you for the details of the item to add.
+## 6. Verify the running app
+
+In the azd output, find the URL of your app and navigate to it in the browser. The URL looks like this in the azd output:
+
+<pre>
+Deploying services (azd deploy)
+
+    (✓) Done: Deploying service web
+    - Endpoint: https://&lt;app-name>.azurewebsites.net/
+</pre>
+
+In the chat window, ask the agent questions such as:
+- What's in my cart?
+- Add a small denim jacket to my cart
+- Do we have any blazers in stock?
+You can also ask general questions about the items and the agent should be able to provide information.
+- Tell me about Red Slim Fit Checked Casual Shirt
+- Is the blazer warm?
+
+## Clean-up
+
+When you're done with this app, run the following to delete the resource group with all of the resources created during this tutorial.
+
+```bash
+azd down
+```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Chat Not Working**
+   - Verify that the environment variables (`AzureAIAgent__ConnectionString` and `AzureAIAgent__AgentId`) are correctly set in the App Service environment variables.
+   - Check that the AI Agent is properly created and configured with the correct OpenAPI tool.
+   - Ensure the OpenAPI specification URL is accessible from the Azure AI Foundry Agent Service.
+   - Ensure the App Service URL is updated in the `swagger.json` provided to the OpenAPI Specified Tool.
+1. **Permission Issues**
+   - If you encounter authentication errors, ensure that your App Service's managed identity has proper permissions to access the Azure AI Foundry Agent Service. The managed identity needs at least the `Microsoft.MachineLearningServices/workspaces/agents/action` permission to interact with the Agent. The provided "Azure AI Developer role" has this permission and should be sufficient. If you decide to change this role, be sure it has the necessary permission.
+1. **API Issues**
+   - If the agent is unable to perform actions on the inventory or cart, check the API routes in the OpenAPI specification.
+   - Verify that the API endpoints are responding correctly by testing them directly in the Swagger UI at `/api/docs`.
+
+### Viewing Logs
+
+To view logs for your App Service:
+
+1. Navigate to your App Service in the Azure portal.
+2. In the left menu, select **Monitoring** > **Log stream** to view real-time logs.
+3. These logs reveal any application issues that you might need to address.
+
+## Understanding the API Capabilities
+
+The OpenAPI specification provides the AI agent with information about available endpoints:
+
+### Cart API Endpoints
+- **GET /api/Cart**: Retrieves the current shopping cart contents and total cost
+- **DELETE /api/Cart**: Clears all items from the cart
+- **POST /api/Cart/add**: Adds an item to the shopping cart
+- **PUT /api/Cart/{productId}/size/{size}**: Updates the quantity of a specific item
+- **DELETE /api/Cart/{productId}/size/{size}**: Removes a specific item from the cart
+
+### Inventory API Endpoints
+- **GET /api/Inventory**: Lists all available inventory items
+- **GET /api/Inventory/{id}**: Gets details about a specific product
+- **GET /api/Inventory/{id}/size/{size}**: Checks inventory for a specific product size
+- **GET /api/Inventory/sizes**: Gets all available sizes in the inventory
+
+## Advanced Agent Interactions
+
+Beyond basic interactions, the AI agent can handle more complex scenarios:
+
+- **Personalized Recommendations**: "I need a business casual outfit for a meeting"
+- **Size Guidance**: "What size blazer would fit someone who's 6'2" and 180 pounds?"
+- **Outfit Coordination**: "What would go well with the black denim jacket?"
+- **Shopping Cart Management**: "Remove the large shirt and add a medium instead"
+- **Inventory Checks**: "Do you have any red shirts in medium?"
+- **Price Inquiries**: "What's the price range for blazers?"
+
+## Security Considerations
+
+- The application uses Azure managed identities for secure authentication to Azure AI Foundry Agent Service in production environments.
+- You can further secure your app and agent using any of the standard practices and Azure resources. For secure Azure AI Agent infrastructure templates, see the [azureai-samples repo](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Agents/setup).
 
 ## Next steps
 
 Now that you learned how to connect your AI Agent to an API on Azure App Service, you can explore the other AI integrations available with App Service:
 
 > [!div class="nextstepaction"]
-> [Deploy an application that uses OpenAI on Azure App Service](./deploy-intelligent-apps.md)
+> [Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (.NET)](tutorial-ai-openai-chatbot-dotnet.md)
 
 > [!div class="nextstepaction"]
-> [Run a local SLM in a sidecar container in Azure App Service](./tutorial-sidecar-local-small-language-model.md)
+> [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (ASP.NET Core)](tutorial-ai-slm-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service](./deploy-intelligent-apps-dotnet-to-azure-sql.md)

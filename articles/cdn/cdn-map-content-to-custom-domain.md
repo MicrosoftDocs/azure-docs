@@ -9,7 +9,7 @@ ms.author: halkazwini
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As a website owner, I want to add a custom domain to my content delivery network endpoint so that my users can use my custom domain to access my content.
 ---

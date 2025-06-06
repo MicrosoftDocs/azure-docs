@@ -1,14 +1,14 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-ms.date: 12/27/2024
+ms.date: 04/26/2025
 ms.service: azure-site-recovery
 ms.topic: overview
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.custom: engagement-fy23
 ---
-# Common questions - Hyper-V to Azure disaster recovery
+# Common questions about Hyper-V to Azure disaster recovery
 
 This article provides answers to common questions we see when replicating on-premises Hyper-V VMs to Azure. 
 
@@ -77,6 +77,16 @@ Yes. When you create a vault in a region, we ensure that all metadata used by Si
 
 ### Does Site Recovery encrypt replication?
 Yes, both encryption-in-transit and [encryption in Azure](../storage/common/storage-service-encryption.md) are supported.
+
+### Does backup recovery services agent (MARS) installation on Hyper-V host impact the replication?
+
+
+Without VMM, the Azure Site Recovery provider and Recovery Services agent are installed on each Hyper-V host. 
+
+With VMM, the Recovery Services agent is installed on each Hyper-V host, while the Azure Site Recovery Provider runs on the VMM server. 
+
+> [!IMPORTANT]
+> Installing the Recovery Services agent designed for Microsoft Azure Backup (MARS) is not supported. Ensure you install the correct version of the Recovery Services agent specifically tailored for Azure Site Recovery.
 
 
 ## Deployment

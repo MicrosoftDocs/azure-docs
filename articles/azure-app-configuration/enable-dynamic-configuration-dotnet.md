@@ -101,13 +101,13 @@ Add the following key-value to the App Configuration store and leave **Label** a
         {
             string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
             options.Connect(new Uri(endpoint), new DefaultAzureCredential())
-                   // Load all keys that start with `TestApp:`.
+                   // Load all keys that start with `TestApp:` and have no label.
                    .Select("TestApp:*")
-                   // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
+                   // Reload configuration if any selected key-values have changed.
                    .ConfigureRefresh(refresh =>
                    {
-                       refresh.Register("TestApp:Settings:Message")
-                              .SetCacheExpiration(TimeSpan.FromSeconds(10));
+                       refresh.RegisterAll()
+                              .SetRefreshInterval(TimeSpan.FromSeconds(10));
                    });
 
             _refresher = options.GetRefresher();
@@ -133,13 +133,13 @@ Add the following key-value to the App Configuration store and leave **Label** a
         builder.AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                   // Load all keys that start with `TestApp:`.
+                   // Load all keys that start with `TestApp:` and have no label.
                    .Select("TestApp:*")
-                   // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
+                   // Reload configuration if any selected key-values have changed.
                    .ConfigureRefresh(refresh =>
                    {
-                       refresh.Register("TestApp:Settings:Message")
-                              .SetCacheExpiration(TimeSpan.FromSeconds(10));
+                       refresh.RegisterAll()
+                              .SetRefreshInterval(TimeSpan.FromSeconds(10));
                    });
 
             _refresher = options.GetRefresher();
@@ -152,8 +152,9 @@ Add the following key-value to the App Configuration store and leave **Label** a
     // ... ...
     ```
     ---
+    Inside the `ConfigureRefresh` method, you call the `RegisterAll` method to instruct the App Configuration provider to reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with *TestApp:* and having no label). For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
 
-    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
+    The `SetRefreshInterval` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
 
 1. Add a method called `PrintMessage()` that triggers a refresh of configuration data from App Configuration.
 
@@ -170,7 +171,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     }
     ```
 
-    Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid requests sent to App Configuration even when your application is idle. You can include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` when you press the Enter key. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
+    Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid requests sent to App Configuration even when your application is idle. You can include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` when you press the Enter key. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured refresh interval elapses, so its performance impact is minimal, even if it's called frequently.
 
 ## Build and run the app locally
 
@@ -236,7 +237,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     ![App refresh local](./media/dotnet-app-run-refresh.png)
     
     > [!NOTE]
-    > Since the cache expiration time was set to 10 seconds using the `SetCacheExpiration` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
+    > Since the refresh interval was set to 10 seconds using the `SetRefreshInterval` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
 
 ## Clean up resources
 

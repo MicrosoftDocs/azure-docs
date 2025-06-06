@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Services (extended support) Definition Schema (csdef File) | Microsoft Docs
 description: Information related to the definition schema (csdef) for Cloud Services (extended support)
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-cloud-services-extended-support
 ms.date: 07/24/2024
 author: gachandw
@@ -11,6 +11,9 @@ ms.reviewer: mimckitt
 ---
 
 # Azure Cloud Services (extended support) definition schema (csdef file)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The service definition file defines the service model for an application. The file contains the definitions for the roles that are available to a Cloud Service, specifies the service endpoints, and establishes configuration settings for the service. Configuration setting values are set in the service configuration file, as described by the [Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md)).
 

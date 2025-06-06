@@ -3,9 +3,11 @@ title: What's new in Azure Files and Azure File Sync
 description: Learn about new features and enhancements in Azure Files and Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 03/28/2025
+ms.topic: concept-article
+ms.date: 05/21/2025
 ms.author: kendownie
+ms.custom:
+  - build-2025
 ---
 
 # What's new in Azure Files and Azure File Sync
@@ -14,11 +16,25 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ## What's new in 2025
 
+### 2025 quarter 2 (April, May, June)
+
+#### Encryption in Transit (EiT) for NFS file shares is now in public preview
+
+With the launch of Encryption in Transit for NFSv4.1 shares, Azure Files now delivers enterprise-grade security on par with industry standards, closing a key security gap for enterprise workloads. [Learn more](encryption-in-transit-for-nfs-shares.md).
+
+#### Metadata caching for SSD SMB file shares is now generally available
+
+Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-ssd-file-shares).
+
 ### 2025 quarter 1 (January, February, March)
+
+#### Azure File Sync support for system-assigned managed identities is now generally available
+
+Azure File Sync support for managed identities is now generally available, enabling customers to be secure by default. Using managed identities eliminates the need for shared keys (storage account key, SAS keys) to authenticate to Azure Files by utilizing a system-assigned managed identity provided by Microsoft Entra ID. [Learn more](../file-sync/file-sync-managed-identities.md).
 
 #### Azure Files vaulted backup is now generally available
 
-Azure Backup now supports vaulted backup of file shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+Azure Backup now supports vaulted backup of HDD file shares to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
 
 We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
 
@@ -28,9 +44,9 @@ For more information, see [About Azure Files backup](/azure/backup/azure-file-sh
 
 Data plane REST API access to NFS Azure file shares will enable further development of multiple value-added services for NFS shares, such as AzCopy and Azure Backup. This enhancement also allows third-party ISV partners to implement efficient migration, backup, and disaster recovery scenarios. Additionally, the REST API support includes OAuth, providing end-to-end security and enabling access without storage account keys.
 
-#### Support for customer initiated LRS-ZRS redundancy conversion for Premium Files storage accounts
+#### Support for customer initiated LRS-ZRS redundancy conversion for SSD file shares
 
-Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for premium Files storage accounts with SMB and NFS (private endpoints enabled) shares. You can easily manage the migration of your storage accounts through the Azure Portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
+Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for SSD file shares. NFS file shares supported if using private endpoints. You can easily manage the migration of your storage accounts through the Azure Portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
 
 ## What's new in 2024
 
@@ -56,8 +72,12 @@ The Azure File Sync v19 release improves performance, security, and adds support
 - Preview: Managed Identities support for Azure File Sync service and servers
 - Azure File Sync agent support for Windows Server 2025
 
-To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md#version-19100). 
+To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md#version-19100).
 
+#### Provisioned v2 for HDD file shares
+The provisioned v2 model for Azure Files HDD (standard) pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. Provisioned v2 shares enable independent provisioning of storage, IOPS, and throughput. In addition to predictable pricing and flexible provisioning, provisioned v2 also enables increased scale and performance, up to 256 TiB, 50,000 IOPS, and 5 GiB/sec of throughput; and per share monitoring.
+
+To learn more, see [understanding the provisioned v2 model](./understanding-billing.md#provisioned-v2-model).
 
 ### 2024 quarter 3 (July, August, September)
 
@@ -73,17 +93,16 @@ Azure Backup now enables you to perform a vaulted backup of Azure Files to prote
 
 ### 2024 quarter 1 (January, February, March)
 
-#### Azure Files geo-redundancy for standard large file shares is generally available
+#### Generally available: Azure Files large file share support for Geo and GeoZone redundancy 
+HDD file shares that are Geo (GRS) or GeoZone (GZRS) redundant can now scale up to 100 TiB capacity with significantly improved IOPS and throughput limits. For more information, see [Geo and GeoZone redundancy](./files-redundancy.md#redundancy-in-a-secondary-region).
 
-Standard SMB file shares that are geo-redundant (GRS and GZRS) can now scale up to 100TiB capacity with significantly improved IOPS and throughput limits. For more information, see [blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-files-geo-redundancy-for-standard/ba-p/4097935) and [documentation](geo-redundant-storage-for-large-file-shares.md).
+#### Metadata caching for SSD SMB file shares is in public preview
 
-#### Metadata caching for premium SMB file shares is in public preview
+Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-ssd-file-shares).
 
-Metadata caching is an enhancement for SMB Azure premium file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-premium-smb-file-shares).
+#### Snapshot support for NFS file shares is generally available
 
-#### Snapshot support for NFS Azure premium file shares is generally available
-
-Customers using NFS Azure file shares can now take point-in-time snapshots of file shares. This enables users to roll back their entire filesystem to a previous point in time, or restore specific files that were accidentally deleted or corrupted. Customers using this feature can perform share-level snapshot management operations via the Azure portal, REST API, Azure PowerShell, and Azure CLI. This feature is now available in all Azure public cloud regions. [Learn more](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
+Customers using NFS file shares can now take point-in-time snapshots of file shares. This enables users to roll back their entire filesystem to a previous point in time, or restore specific files that were accidentally deleted or corrupted. Customers using this feature can perform share-level snapshot management operations via the Azure portal, REST API, Azure PowerShell, and Azure CLI. This feature is now available in all Azure public cloud regions. [Learn more](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
 
 #### Sync upload performance improvements for Azure File Sync
 
@@ -115,32 +134,31 @@ This feature enables share-level read and write access to SMB Azure file shares 
 
 #### Azure Files scalability improvement for Azure Virtual Desktop and other workloads that open root directory handles is generally available
 
-Azure Files has increased the root directory handle limit per share from 2,000 to 10,000 for standard and premium file shares. This improvement benefits applications that keep an open handle on the root directory. For example, Azure Virtual Desktop with FSLogix profile containers now supports 10,000 active users per share (5x improvement). 
+Azure Files has increased the root directory handle limit per share from 2,000 to 10,000 for Azure file shares. This improvement benefits applications that keep an open handle on the root directory. For example, Azure Virtual Desktop with FSLogix profile containers now supports 10,000 active users per share (5x improvement). 
 
 Note: The number of active users supported per share is dependent on the applications that are accessing the share. If your applications are not opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.
  
 The root directory handle limit has been increased in all regions and applies to all existing and new file shares. For more information about Azure Files scale targets, see: [Azure Files scalability and performance targets](storage-files-scale-targets.md).
 
-#### Geo-redundant storage for large file shares is in public preview
+#### Preview: Azure Files large file share support for Geo and GeoZone redundancy
+Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for HDD file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for HDD file shares. For more information, see [Geo and GeoZone redundancy](./files-redundancy.md#redundancy-in-a-secondary-region).
 
-Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for standard SMB Azure file shares. For more information, see [Azure Files geo-redundancy for large file shares preview](geo-redundant-storage-for-large-file-shares.md).
+#### New SLA of 99.99% uptime for SSD file shares
 
-#### New SLA of 99.99 percent uptime for Azure Files Premium Tier is generally available
-
-Azure Files now offers a 99.99 percent SLA per file share for all Azure Files Premium shares, regardless of protocol (SMB, NFS, and REST) or redundancy type. This means that you can benefit from this SLA immediately, without any configuration changes or extra costs. If the availability drops below the guaranteed 99.99 percent uptime, you're eligible for service credits.
+Azure Files now offers a 99.99% SLA per file share for all SSD file shares, regardless of protocol (SMB or NFS) or redundancy type. This means that you can benefit from this SLA immediately, without any configuration changes or extra costs. If the availability drops below the guaranteed 99.99% uptime, you're eligible for service credits.
 
 #### Support for Azure Files REST API with OAuth authentication is in public preview
 
-This preview enables share-level read and write access to SMB Azure file shares for users, groups, and managed identities when accessing file share data through the REST API. Cloud native and modern applications that use REST APIs can utilize identity-based authentication and authorization to access file shares. For more information, [read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-introducing-azure-ad-support-for-azure-files-smb/ba-p/3826733).
+This preview enables share-level read and write access to SMB file shares for users, groups, and managed identities when accessing file share data through the REST API. Cloud native and modern applications that use REST APIs can utilize identity-based authentication and authorization to access file shares. For more information, [read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-introducing-azure-ad-support-for-azure-files-smb/ba-p/3826733).
 
 #### AD Kerberos authentication for Linux clients (SMB) is generally available
 
 Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB using either on-premises Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS). For more information, see [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
 
 ### 2023 quarter 1 (January, February, March)
-#### Nconnect for NFS Azure file shares is generally available
+#### NFS nconnect for Azure file shares is generally available
 
-Nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and the Azure Premium Files service for NFSv4.1. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
+NFS nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and NFS file shares. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
 
 #### Improved Azure File Sync service availability
 
@@ -170,8 +188,8 @@ To improve TCO, we markedly decreased the number of transactions needed to fully
 ## What's new in 2021
 
 ### 2021 quarter 4 (October, November, December)
-#### Increased IOPS for premium file shares
-Premium Azure file shares now have additional included baseline IOPS and a higher minimum burst IOPS. The baseline IOPS included with a provisioned share was increased from 400 to 3,000, meaning that a 100 GiB share (the minimum share size) is guaranteed 3,100 baseline IOPS. Additionally, the floor for burst IOPS was increased from 4,000 to 10,000, meaning that every premium file share will be able to burst up to at least 10,000 IOPS. 
+#### Increased IOPS for SSD file shares
+SSD file shares now have additional included baseline IOPS and a higher minimum burst IOPS. The baseline IOPS included with a provisioned share was increased from 400 to 3,000, meaning that a 100 GiB share (the minimum share size) is guaranteed 3,100 baseline IOPS. Additionally, the floor for burst IOPS was increased from 4,000 to 10,000, meaning that every SSD file share will be able to burst up to at least 10,000 IOPS. 
 
 Formula changes:
 
@@ -181,11 +199,11 @@ Formula changes:
 | Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
 
 For more information, see:
-- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-v1-model)
+- [The provisioned v1 model for SSD file shares](understanding-billing.md#provisioned-v1-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 #### NFSv4.1 protocol support is generally available
-Premium Azure file shares now support either the SMB or the NFSv4.1 protocols. NFSv4.1 is available in all regions where Azure Files supports the premium tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFSv4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
+SSD file shares now support either the SMB or the NFSv4.1 protocols. NFSv4.1 is available in all regions where Azure Files supports the SSD media tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFSv4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
 
 For more information, see:
 
@@ -193,8 +211,8 @@ For more information, see:
 - [High availability for SAP NetWeaver on Azure VMs with NFS on Azure Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
-#### Symmetric throughput for premium file shares
-Premium Azure file shares now support symmetric throughput provisioning, which enables the provisioned throughput for an Azure file share to be used for 100% ingress, 100% egress, or some mixture of ingress and egress. Symmetric throughput provides the flexibility to make full utilization of available throughput and aligns premium file shares with standard file shares.
+#### Symmetric throughput for SSD file shares
+SSD file shares now support symmetric throughput provisioning, which enables the provisioned throughput for an Azure file share to be used for 100% ingress, 100% egress, or some mixture of ingress and egress. Symmetric throughput provides the flexibility to make full utilization of available throughput.
 
 Formula changes:
 
@@ -203,12 +221,12 @@ Formula changes:
 | Throughput (MiB/sec) | <ul><li>Ingress: `40 + CEILING(0.04 * ProvisionedGiB)`</li><li>Egress: `60 + CEILING(0.06 * ProvisionedGiB)`</li></ul> | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
 For more information, see:
-- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-v1-model)
+- [The provisioned v1 model for SSD file shares](understanding-billing.md#provisioned-v1-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### 2021 quarter 3 (July, August, September)
 #### SMB Multichannel is generally available
-SMB Multichannel enables SMB clients to establish multiple parallel connections to an Azure file share. This allows SMB clients to take full advantage of all available network bandwidth and makes them resilient to network failures, reducing total cost of ownership and enabling 2-3x for reads and 3-4x for writes through a single client. SMB Multichannel is available for premium file shares (file shares deployed in the FileStorage storage account kind) and is disabled by default. 
+SMB Multichannel enables SMB clients to establish multiple parallel connections to an Azure file share. This allows SMB clients to take full advantage of all available network bandwidth and makes them resilient to network failures, reducing total cost of ownership and enabling 2-3x for reads and 3-4x for writes through a single client. SMB Multichannel is available for SSD file shares and is disabled by default. 
 
 For more information, see:
 
@@ -230,8 +248,8 @@ For more information, see:
 - [Overview of SMB features in the Windows Server documentation](/windows-server/storage/file-server/file-server-smb-overview)
 
 ### 2021 quarter 2 (April, May, June)
-#### Premium, hot, and cool storage reservations 
-Azure Files supports storage reservations (also referred to as *reserved instances*). Azure Files Reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports Reservations on the premium, hot, and cool tiers. Reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
+#### Azure Files reservations for provisioned v1 and pay-as-you-go file shares 
+Azure Files supports reservations (also referred to as *reserved instances*). Azure Files reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports reservations on file shares using the provisioned v1 or pay-as-you-go billing models. Reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
 
 For more information, see:
 
@@ -251,7 +269,7 @@ For more information, see:
 
 ### 2021 quarter 1 (January, February, March)
 #### Azure Files management now available through the control plane
-Management APIs for Azure Files resources, the file service and file shares, are now available through control plane (`Microsoft.Storage` resource provider). This enables Azure file shares to be created with an Azure Resource Manager or Bicep template, to be fully manageable when the data plane (i.e. the FileREST API) is inaccessible (like when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
+Management APIs for Azure Files resources, the file service and file shares, are now available through control plane (`Microsoft.Storage` resource provider). This enables Azure file shares to be created with an Azure Resource Manager or Bicep file, to be fully manageable when the data plane (i.e. the FileREST API) is inaccessible (like when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
 
 We recommend you manage Azure Files through the control plane in most cases. To support management of the file service and file shares through the control plane, the Azure portal, Azure storage PowerShell module, and Azure CLI have been updated to support most management actions through the control plane. 
 

@@ -176,7 +176,11 @@ If you fail to pay your bill and your account has an active time-based retention
 
 ## Feature support
 
-This feature is incompatible with point in time restore and last access tracking. This feature is compatible with customer-managed unplanned failover, however, any changes that are made to the immutable policy after the last sync time (such as locking a time based retention policy, extending it, etc.) will not be synced to the secondary region. Once failover is completed, you can redo the changes to the secondary region to ensure it is up-to-date with your immutability requirements.
+> [!IMPORTANT]
+> This feature is **incompatible** with point-in-time restore and last access tracking.
+
+
+This feature is compatible with customer-managed unplanned failover, however, any changes that are made to the immutable policy after the last sync time (such as locking a time based retention policy, extending it, etc.) will not be synced to the secondary region. Once failover is completed, you can redo the changes to the secondary region to ensure it is up-to-date with your immutability requirements.
 Immutability policies aren't supported in accounts that have Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
 
 Some workloads, such as SQL Backup to URL, create a blob and then add to it.   If a container has an active time-based retention policy or legal hold in place, this pattern won't succeed. For more information, see [Allow protected append blob writes](immutable-container-level-worm-policies.md#allow-protected-append-blobs-writes).

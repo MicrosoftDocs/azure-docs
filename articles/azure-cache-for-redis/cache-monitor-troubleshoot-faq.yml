@@ -1,12 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Cache for Redis common error FAQs
-  description: Learn the answers to common questions that help you monitor and troubleshoot Azure Cache for Redis.
+  title: Monitoring and troubleshooting FAQs
+  description: Learn the answers to common questions to help you monitor and troubleshoot Azure Cache for Redis.
   
   
   
   ms.topic: faq
-  ms.date: 12/01/2021
+  ms.date: 05/23/2025
+  appliesto:
+    - ✅ Azure Cache for Redis
+
 title: Azure Cache for Redis monitoring and troubleshooting FAQs
 summary: This article provides answers to common questions about how to monitor and troubleshoot Azure Cache for Redis.
 
@@ -15,59 +18,67 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          How do I monitor the health and performance of my cache?
+          How do I monitor cache health and performance?
         answer: |
-          Microsoft Azure Cache for Redis instances can be monitored in the [Azure portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md).
+          You can monitor Azure Cache for Redis cache metrics in the [Azure portal](https://portal.azure.com). You can pin metrics charts to your Dashboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts for certain conditions. For more information, see [Monitor Azure Cache for Redis](../redis/monitor-cache.md).
           
-          The Azure Cache for Redis **Resource menu** also contains several tools for monitoring and troubleshooting your caches.
+          The following items in the left navigation menu for your cache also help you monitor and troubleshoot your cache.
           
-          * **Diagnose and solve problems** provides information about common issues and strategies for resolving them.
-          * **Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](/azure/service-health/resource-health-overview).
-          * **New support request** provides options to open a support request for your cache.
+          - **Diagnose and solve problems** provides information about common issues and strategies for resolving them.
+          - **Resource health** under **Help** tells you if your resource is running as expected. For more information, see [Resource health overview](/azure/service-health/resource-health-overview).
+          - **Support + Troubleshooting** under **Help** provides support options for your cache.
           
-          These tools enable you to monitor the health of your Azure Cache for Redis instances. The tools also help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Cache for Redis](cache-configure.md).
+          These tools help you monitor the health of your Azure Redis cache instances, and also help you manage your cached applications.
           
       - question: |
-          Why am I seeing timeouts?
+          What can cause timeouts?
         answer: |
-          Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up. The Redis server eventually picks up the command and executes it. However, the client can time out during this process. If it does, an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [client-side troubleshooting](cache-troubleshoot-client.md) and [StackExchange.Redis timeout exceptions](cache-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
+          Timeouts can happen during client communication with Redis. When a client sends a command to the Redis server, the command is queued. The Redis server eventually picks up the command and executes it. The client request can time out during this process, and an exception is raised on the calling side.
+          
+          For more information on troubleshooting timeout issues, see [Troubleshoot Azure Cache for Redis latency and timeouts](cache-troubleshoot-timeouts.md) and [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](https://azure.microsoft.com/blog/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
           
       - question: |
           Why was my client disconnected from the cache?
         answer: |
-          The following are some common reason for a cache disconnect.
+          The following are some common reasons for a cache disconnect.
           
-          * Client-side causes
-            * The client application was redeployed.
-            * The client application did a scaling operation.
-              * Cloud Services or Web Apps might cause a cache disconnect during autoscaling.
-            * The networking layer on the client side changed.
-            * Transient errors occurred in the client or in the network nodes between the client and the server.
-            * The bandwidth threshold limits were reached.
-            * CPU bound operations took too long to complete.
-          * Server-side causes
-            * On the standard cache offering, the Azure Cache for Redis service started a fail-over from the primary node to the replica node.
-            * Azure was patching the instance where the cache was deployed during a Redis server update or general VM maintenance.
+          **Client-side**
+          * The client application was redeployed.
+          * The client application did a scaling operation. Cloud Services or Web Apps might cause a cache disconnect during autoscaling.
+          * The networking layer on the client side changed.
+          * Transient errors occurred in the client or in the network nodes between the client and the server.
+          * The bandwidth threshold limits were reached.
+          * CPU-bound operations took too long to complete.
+          
+          **Server-side**
+          * A Standard-tier cache started a failover from the primary node to the replica node.
+          * Azure was patching the cache instance during a Redis server update or general virtual machine (VM) maintenance.
 
       - question: |
-          Why am I seeing "Cache is busy processing a previous update request or is undergoing system maintenance. As such, it's currently unable to accept the update request. Try again later."
+          Why do I see a "Cache is busy processing a previous update request..." message?
         answer: |
-          This message indicates that a management operation, like scaling or patching, is in progress on your cache. All other management operations are blocked until the ongoing operation is completed. Usually, the ongoing management operation should be completed in a few hours. If you see this error even after 12 hours, reach out to Azure support. During this time, you can expect your Azure Cache For Redis to be fully functional for client operations. 
+          The error message **Cache is busy processing a previous update request or is undergoing system maintenance. As such, it's currently unable to accept the update request. Try again later.** indicates that a management operation, like scaling or patching, is in progress on your cache. All other management operations are blocked until the ongoing operation completes.
+          
+          The ongoing management operation usually completes in a few hours. If you see this error for more than 12 hours, contact Azure support. During this time, your Azure Redis cache is fully functional for client operations.
       - question: |
-          Why is my cache in "Failed" state?
+          Why is my cache in a Failed state?
         answer: |
-          Azure Cache For Redis can end up in a *Failed* state if a management operation fails. Despite this state, you can expect your Azure Cache For Redis to be fully functional for client operations.
+          An Azure Redis cache can show a **Failed** state if a management operation fails. Despite this state, your Azure Redis cache is fully functional for client operations.
       - question: |
-          Why is Zone information missing on my subscription?
+          Why is zone information missing from my subscription?
         answer: |
-          Zone information may be missing on your subscription due to multiple reasons:
-          1. Subscription might not have been registered with the 'Microsoft.Cache' provider: Please run the following PowerShell command (after logging in into your subscription):
-                Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cache
-          2. Your subscription might not have been enabled for zones: Please raise a support ticket with Azure support, so that they can enable your subscription for zones. Once this step is completed, please execute step 1 (even if you have already registered your subscription with the Microsoft.Cache provider).
+          Zone information might be missing from your subscription for the following reasons:
+          - Your subscription might not be registered with the `Microsoft.Cache` provider. Sign in to your subscription and run the following PowerShell command:
+                `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cache`.
+          - Your subscription might not be enabled for zones. Contact Azure support so they can enable your subscription for zones. Then reregister the `Microsoft.Cache` provider even if you already registered it for your subscription.
           
 additionalContent: |
 
-  ## Next steps
-     For more information about monitoring and troubleshooting your Azure Cache for Redis instances, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md) and the various troubleshoot guides.
+  ## Related content
           
-     Learn about other [Azure Cache for Redis FAQs](cache-faq.yml).
+    - [How to monitor Azure Cache for Redis](../redis/monitor-cache.md)
+    - [Planning FAQs](cache-planning-faq.yml)
+    - [Development FAQs](cache-development-faq.yml)
+    - [Management FAQs](cache-management-faq.yml)
+    - [Azure Redis Cache FAQs](../redis/faq.yml)
+

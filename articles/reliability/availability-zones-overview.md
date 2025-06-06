@@ -26,6 +26,10 @@ The following diagram shows several example Azure regions. Regions 1 and 2 suppo
 
 To see which regions support availability zones, see [List of Azure regions](regions-list.md).
 
+## What is the difference between a datacenter and an availability zone?
+
+An availability zone is a logical grouping of one or more physically separate datacenters within a region. Each availability zone is built in a way that if something goes wrong in one (like a power outage or network issue), the others keep working. A single datacenter doesn’t offer this level of protection on its own.
+
 <a name='zonal-and-zone-redundant-services'></a>
 ## Types of availability zone support
 
@@ -76,6 +80,7 @@ az rest --method get \
 $subscriptionId = (Get-AzContext).Subscription.ID
 $response = Invoke-AzRestMethod -Method GET -Path "/subscriptions/$subscriptionId/locations?api-version=2022-12-01"
 $locations = ($response.Content | ConvertFrom-Json).value
+$locations | Where-Object {$null -ne $_.availabilityZoneMappings} | Select-Object -Property name,displayName,@{name='availabilityZoneMappings';expression={$_.availabilityZoneMappings | convertto-json}} | Format-List
 ```
 
 ---

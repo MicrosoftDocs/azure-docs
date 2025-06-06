@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 05/31/2024
  ms.author: mbender-ms
-ms.custom: include-file
+ms.custom:
+  - include-file
+  - build-2025
 ---
 
 ## Sign in to Azure
@@ -27,8 +29,8 @@ Set-AzContext -Subscription '<Azure Subscription A>'
 
 # Get the Virtual Network information with Get-AzVirtualNetwork
 $net = @{
-    Name = '<vnet name>'
-    ResourceGroupName = '<Resource Group Subscription A>'
+    Name = 'virtual-network-subA'
+    ResourceGroupName = 'resource-group-v2'
 }
 $vnet = Get-AzVirtualNetwork @net
 ```

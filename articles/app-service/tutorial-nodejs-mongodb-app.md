@@ -2,7 +2,7 @@
 title: Deploy a Node.js + MongoDB app to Azure
 description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Azure Cosmos DB.
 ms.topic: tutorial
-ms.date: 09/30/2024
+ms.date: 04/17/2025
 ms.service: azure-app-service
 ms.role: developer
 ms.devlang: javascript
@@ -117,7 +117,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB for MongoDB. For the creation process, you'll specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of Node to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -372,7 +372,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     :::column span="2":::
         **Step 1:** In the App Service page:
         1. From the left menu, select **Overview**.
-        1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
+        1. Select the URL of your app.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-1.png":::
@@ -422,7 +422,7 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
     :::column span="2":::
         **Step 1:** In the App Service page:
         1. From the left menu, select **Advanced Tools**.
-        1. Select **Go**. You can also navigate directly to `https://<app-name>.scm.azurewebsites.net`.
+        1. Select **Go**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-1.png" alt-text="A screenshot showing how to navigate to the App Service Kudu page." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-1.png":::
@@ -616,7 +616,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -636,7 +636,7 @@ Azure App Service captures all messages logged to the console to assist you in d
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: &lt;URL>
 </pre>
 
 Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).

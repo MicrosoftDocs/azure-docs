@@ -1,20 +1,17 @@
 ---
-title: Test and troubleshoot MSIX packages for app attach - Azure
+title: Test and troubleshoot MSIX packages for App Attach in Azure Virtual Desktop
 description: Learn how to mount disk images for testing and troubleshooting outside of Azure Virtual Desktop.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 03/04/2024
+author: dougeby
+ms.author: avdcontent
+ms.date: 06/04/2024
 ---
 
-# Test MSIX packages for app attach
+# Test MSIX packages for App Attach
 
-> [!IMPORTANT]
-> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
+This article shows you how to mount MSIX packages outside of Azure Virtual Desktop to help test your packages for App Attach. The APIs that power App Attach are available for Windows 11 Enterprise and Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop for testing, however there's no management plane for App Attach outside of Azure Virtual Desktop.
 
-This article shows you how to mount MSIX packages outside of Azure Virtual Desktop to help test your packages for app attach. The APIs that power app attach are available for Windows 11 Enterprise and Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop for testing, however there's no management plane for app attach or MSIX app attach outside of Azure Virtual Desktop.
-
-For more information about app attach and MSIX app attach, see [app attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md).
+For more information about App Attach, see [App Attach in Azure Virtual Desktop](app-attach-overview.md).
 
 ## Prerequisites
 
@@ -22,7 +19,7 @@ Before you can test a package to follow the directions in this article, you need
 
 - A device running Windows 11 Enterprise or Windows 10 Enterprise.
 
-- An application you expanded from MSIX format into an image you can use with app attach. Learn how to [Create an MSIX image to use with app attach in Azure Virtual Desktop](app-attach-create-msix-image.md).
+- An application you expanded from MSIX format into an image you can use with App Attach. Learn how to [Create an MSIX image to use with App Attach in Azure Virtual Desktop](app-attach-create-msix-image.md).
 
 - If you're using a CimFS image, you need to install the [CimDiskImage PowerShell module](https://www.powershellgallery.com/packages/CimDiskImage).
 
@@ -254,7 +251,7 @@ Dismount-DiskImage -DevicePath $deviceId.TrimEnd('\')
 
 Once you finished dismounting your disks, you've safely removed your MSIX package.
 
-## Set up simulation scripts for the MSIX app attach agent
+## Set up simulation scripts for the App Attach agent
 
 If you want to add and remove MSIX packages to your device automatically, you can use the PowerShell commands in this article to create scripts that run at startup, logon, logoff, and shutdown. To learn more, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/). You need to make sure that any variables required for each phase are available in each script.
 
@@ -320,7 +317,7 @@ You can find demonstration scripts for all four stages of testing MSIX packages 
 
 ## Next steps
 
-Learn more about app attach and MSIX app attach in Azure Virtual Desktop:
+Learn more about App Attach in Azure Virtual Desktop:
 
-- [app attach and MSIX app attach](app-attach-overview.md).
-- [Add and manage app attach and MSIX app attach applications](app-attach-setup.md).
+- [App Attach in Azure Virtual Desktop](app-attach-overview.md).
+- [Add and manage App Attach applications](app-attach-setup.md).
