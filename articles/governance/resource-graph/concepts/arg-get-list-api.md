@@ -14,16 +14,16 @@ ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, 
 - If User A is accessing Subscription X, they get up to 4,000 requests per minute.
 - If User A accesses Subscription Y, that’s a separate quota.
 - If User B accesses Subscription X, that’s also a separate quota.
-The API provides a response header “x-ms-user-quota-remaining" indicating remaining quota and "x-ms-user-quota-resets-after" indicating the time for a full quota reset based on which you can understand your quota consumption.  
+- The API provides a response header “x-ms-user-quota-remaining" indicating remaining quota and "x-ms-user-quota-resets-after" indicating the time for a full quota reset based on which you can understand your quota consumption.  
 
 > [!NOTE]
 > Keep in mind that the Azure Resource Manager quota applies to these calls. Read about the [Azure Resource Manager limits](../../../azure-resource-manager/management/request-limits-and-throttling.md#azure-resource-graph-throttling), which are the new limits that ARM follows for Azure Public cloud.  
 
 ## Using the ARG GET/LIST API 
 
-To use the [ARG GET/LIST API](guidance-for-throttled-requests.md#still-being-throttled), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which will route the request to this ARG backend for response.
+To use the [ARG GET/LIST API](./guidance-for-throttled-requests.md#still-being-throttled), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which will route the request to this ARG backend for response.
 
-Contact the ARG product group by sending an email to Azure Resource Graph team sharing a brief overview of your scenario and the ARG team will reach out to you with next steps. Callers must also design appropriate retry logic and implement fallback mechanisms to ensure smooth and reliable experience. This opt-in model was deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
+Callers must also design appropriate retry logic and implement fallback mechanisms to ensure smooth and reliable experience. You are required to contact the ARG product group by sending an email to [Azure Resource Graph team]( resourcegraphsupport@microsoft.com) sharing a brief overview of your scenario and the ARG team will reach out to you with next steps.  This opt-in model was deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
 
 Refer to some known limitations [here](#known-limitations) and [frequently asked questions](#frequently-asked-questions).
 
