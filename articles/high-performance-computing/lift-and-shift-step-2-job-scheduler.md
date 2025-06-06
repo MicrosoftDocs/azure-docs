@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As a cloud architect, I want to configure job schedulers during the migration of high performance computing environments, so that I can ensure efficient resource allocation and management in the cloud.
 ---
 
 # Job scheduler configuration
