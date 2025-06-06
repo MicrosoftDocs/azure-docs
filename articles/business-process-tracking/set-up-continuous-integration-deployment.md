@@ -1,6 +1,6 @@
 ---
-title: Set Up Pipelines for Business Processes and Standard logic apps
-description: Learn to set up pipelines that provision infrastructure, continuous integration (CI) and deployment (CD) for your business process and mapped Standard workflow operations in different environments without rebuilding or remapping.
+title: Create Pipelines for Business Processes and Standard logic apps
+description: Learn to create pipelines that set up infrastructure, continuous integration (CI) and deployment (CD) for your business process and mapped Standard workflow operations in different environments without rebuilding or remapping.
 ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, kewear, azla
@@ -8,7 +8,7 @@ ms.date: 06/09/2025
 # Customer intent: As an integration developer, I want to set up piplines that provision infrastructure, CI, and CD for a Standard logic app and mapped business process stages without having to rebuild and remap in different environments, such as development, test, and production.
 ---
 
-# Set up pipelines to provision infrastructure, continuous integration (CI), and continuous deployment (CD) for business processes mapped to Standard logic apps in different environments
+# Create pipelines to set up infrastructure, continuous integration (CI), and continuous deployment (CD) for business processes mapped to Standard logic apps in different environments
 
 [!INCLUDE [logic-apps-sku-standard](includes/logic-apps-sku-standard.md)]
 
