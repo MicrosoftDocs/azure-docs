@@ -4,7 +4,7 @@ description: Learn about disabling basic authentication for increased security a
 author: cephalin
 ms.author: cephalin
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 06/06/2025
 keywords: azure app service, security, deployment, FTP, MsDeploy
 
 ---
@@ -13,7 +13,7 @@ keywords: azure app service, security, deployment, FTP, MsDeploy
 
 This article discusses how to disable basic username and password authentication for deploying code to Azure App Service apps. The article explains several ways to disable basic authentication, fallback deployment methods if any, and how to monitor basic authentication access attempts.
 
-App Service provides basic authentication for FTP and web deployment clients to connect using username and password deployment credentials. The basic authentication APIs are good for browsing your site's file system, uploading drivers and utilities, and deploying with MSBuild. For more information, see [Configure deployment credentials for Azure App Service](deploy-configure-credentials.md).
+App Service provides basic authentication for FTP and Web Deploy clients to connect using username and password deployment credentials. The basic authentication APIs are good for browsing your site's file system, uploading drivers and utilities, and deploying with MSBuild. For more information, see [Configure deployment credentials for Azure App Service](deploy-configure-credentials.md).
 
 Enterprises often require more secure deployment methods than basic authentication, such as [Microsoft Entra ID](/entra/fundamentals/whatis). Microsoft Entra OAuth 2.0 access tokens have a limited usable lifetime, are specific to the applications and resources they're issued for, and can't be reused. OAuth token-based authorization helps mitigate many problems with basic authentication.
 
