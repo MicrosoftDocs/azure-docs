@@ -163,7 +163,7 @@ You can enable Azure NetApp Files storage with cool access during the creation o
 
     :::image type="content" source="./media/manage-cool-access/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a volume page. On the Basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="./media/manage-cool-access/cool-access-new-volume.png"::: 
 
-1. To complete the volume creation, follow the volume creation workflow for the relevant protocol:
+1. To fishing creating the volume, follow the instructions for the relevant protocol:
 
     * [Create an NFS volume](azure-netapp-files-create-volumes.md)
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
@@ -184,6 +184,8 @@ In a capacity pool enabled for cool access, you can enable an existing volume to
     [!INCLUDE [Cool access configuration settings](includes/cool-access-options.md)]
 
     :::image type="content" source="./media/manage-cool-access/cool-access-existing-volume.png" alt-text="Screenshot that shows the Enable Cool Access checkbox selected. " lightbox="./media/manage-cool-access/cool-access-existing-volume.png"::: 
+
+1. Select **OK** to confirm the changes. 
 
 ### <a name="modify_cool"></a>Modify cool access configuration for a volume
 
