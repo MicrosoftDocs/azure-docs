@@ -89,7 +89,7 @@ To configure availability zones for API Management, your instance must be in one
 
 ### Requirements
 
- - Your API Management instance must use either the Premium (classic) or Premium v2 tier. 
+You must use the Premium (classic) tier to enable availability zone support. To upgrade your instance to Premium tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 
 ### Considerations 
