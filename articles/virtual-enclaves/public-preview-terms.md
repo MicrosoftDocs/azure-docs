@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 03/26/2025
 ---
 
-# Azure Virtual Enclaves Public Preview Terms
+# Azure Virtual Enclaves public preview terms
 
 The following terms and conditions govern the use of the Azure Virtual Enclaves service preview by using this service preview you agree to the following terms and conditions.
 
-## Preview terms of use & permitted purposesPREVIEW TERMS OF USE & PERMITTED PURPOSES
+## Preview terms of use and permitted purposes
 Your use of Azure Virtual Enclaves is subject to your agreement governing your use of Azure.  In addition, Azure Virtual Enclaves will be provided as a preview, as described in the “Previews” section of the Product Terms; and the terms set forth below.   During the Preview, Azure Virtual Enclaves may only be used for non-production testing and validation purposes with non-sensitive data and content.
 
 ## Preview duration
