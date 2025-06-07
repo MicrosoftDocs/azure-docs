@@ -1,31 +1,31 @@
 ---
 title: TestErrorResponseAdditionalInfo Class Definition
-description: The error response additional info with service-specific schema dependent on type
+description: The error response with additional info and the service-specific schema that is dependent on **Type** string.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/02/2025
+ms.topic: reference
+ms.date: 06/10/2025
 ---
 
 # TestErrorResponseAdditionalInfo Class Definition
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.ErrorResponses
 
-The error response additional info. The schema of Info is service-specific and dependent on the Type string. This class provides additional contextual information for error responses in workflow testing scenarios.
+This class provides more contextual information for the error responses in workflow testing scenarios. The information schema is service-specific and dependent on the **Type** string.
 
 ## Usage
 
 ```C#
-// Request ID additional info
+// The request ID for the additional info
 var requestIdInfo = new TestErrorResponseAdditionalInfo
 {
     Type = "RequestId",
     Info = JToken.FromObject("req-abc123")
 };
 
-// Timestamp additional info
+// The timestamp for the additional info
 var timestampInfo = new TestErrorResponseAdditionalInfo
 {
     Type = "Timestamp",
@@ -56,10 +56,10 @@ var error = new TestErrorInfo(
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|Type|The error additional info type|string|No|
+|Type|The type for the additional error info|string|No|
 |Info|The additional information|JToken|No|
 
-## Related Content
+## Related content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
