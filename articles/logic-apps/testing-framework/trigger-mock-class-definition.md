@@ -1,19 +1,19 @@
 ---
 title: TriggerMock Class Definition
-description: Creates a mocked instance of a trigger in a workflow for testing purposes
+description: Creates a mock instance for a trigger in a Standard logic app workflow for unit testing.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/02/2025
+ms.topic: reference
+ms.date: 06/10/2025
 ---
 
 # TriggerMock Class Definition
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-This class creates a mocked instance of a trigger in a workflow. It provides multiple ways to create trigger mocks for testing Logic Apps workflows with static outputs, error conditions, or dynamic behavior based on execution context.
+This class creates a mock instance for a trigger in a Standard logic app workflow. The **`TriggerMock`** class provides multiple ways to create mock triggers for testing Standard workflkows by using static outputs, error conditions, or dynamic behavior based on execution context.
 
 ## Usage
 
@@ -58,9 +58,9 @@ var dynamicTrigger = new TriggerMock(
 
 ## Constructors
 
-### Constructor with Static Outputs
+### Constructor with static outputs
 
-Creates a mocked instance for TriggerMock with static outputs.
+Creates a mock instance for **`TriggerMock`** with static outputs.
 
 ```C#
 public TriggerMock(TestWorkflowStatus status, string name = null, MockOutput outputs = null)
@@ -68,21 +68,21 @@ public TriggerMock(TestWorkflowStatus status, string name = null, MockOutput out
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|status|The mocked trigger result status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|Yes|
-|name|The mocked trigger name|string|No|
-|outputs|The mocked static outputs|MockOutput|No|
+|status|The mock trigger result status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|Yes|
+|name|The mock trigger name|string|No|
+|outputs|The mock static outputs|MockOutput|No|
 
 ```C#
-// Example: Creating a trigger mock with successful status and static outputs
+// Example: Create a mock trigger with successful status and static outputs
 var outputs = new MockOutput { 
     Body = JToken.Parse(@"{""webhookData"": ""sample payload""}")
 };
 var triggerMock = new TriggerMock(TestWorkflowStatus.Succeeded, "WebhookTrigger", outputs);
 ```
 
-### Constructor with Error Info
+### Constructor with error information
 
-Creates a mocked instance for TriggerMock with static error info.
+Creates a mock instance for **`TriggerMock`** with static error information.
 
 ```C#
 public TriggerMock(TestWorkflowStatus status, string name = null, TestErrorInfo error = null)
@@ -90,12 +90,12 @@ public TriggerMock(TestWorkflowStatus status, string name = null, TestErrorInfo 
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|status|The mocked trigger result status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|Yes|
-|name|The mocked trigger name|string|No|
-|error|The mocked trigger error info|[TestErrorInfo](test-error-info-class-definition.md)|No|
+|status|The mock trigger result status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|Yes|
+|name|The mock trigger name|string|No|
+|error|The mock trigger error info|[TestErrorInfo](test-error-info-class-definition.md)|No|
 
 ```C#
-// Example: Creating a trigger mock with failed status and error information
+// Example: Create a mock trigger with failed status and error information
 var errorInfo = new TestErrorInfo(
     ErrorResponseCode.Unauthorized,
     "Authentication failed for trigger"
@@ -103,9 +103,9 @@ var errorInfo = new TestErrorInfo(
 var triggerMock = new TriggerMock(TestWorkflowStatus.Failed, "SecureTrigger", errorInfo);
 ```
 
-### Constructor with Callback Function
+### Constructor with callback function
 
-Creates a mocked instance for TriggerMock with a callback function for dynamic outputs.
+Creates a mock instance for **`TriggerMock`** with a callback function for dynamic outputs.
 
 ```C#
 public TriggerMock(Func<TestExecutionContext, TriggerMock> onGetTriggerMock, string name = null)
@@ -113,11 +113,11 @@ public TriggerMock(Func<TestExecutionContext, TriggerMock> onGetTriggerMock, str
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|onGetTriggerMock|The callback function to get the mocked trigger|Func&lt;TestExecutionContext, TriggerMock&gt;|Yes|
-|name|The mocked trigger name|string|No|
+|onGetTriggerMock|The callback function to get the mock trigger|Func&lt;TestExecutionContext, TriggerMock&gt;|Yes|
+|name|The mock trigger name|string|No|
 
 ```C#
-// Example: Creating a trigger mock with dynamic outputs based on execution context
+// Example: Create a mock trigger with dynamic outputs based on execution context
 var triggerMock = new TriggerMock(
     (context) => {
         var inputs = context.ActionContext.ActionInputs;
@@ -137,9 +137,9 @@ var triggerMock = new TriggerMock(
     "ConditionalEventTrigger");
 ```
 
-### JSON Constructor
+### JSON constructor
 
-Creates a mocked instance for TriggerMock from JSON.
+Creates a mock instance for **`TriggerMock`** from JSON.
 
 ```C#
 public TriggerMock(TestWorkflowStatus status, string name = null, JToken outputs = null, TestErrorInfo error = null)
@@ -147,13 +147,13 @@ public TriggerMock(TestWorkflowStatus status, string name = null, JToken outputs
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|status|The mocked trigger result status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|Yes|
-|name|The mocked trigger name|string|No|
-|outputs|The mocked outputs|MockOutput|No|
-|error|The mocked error|[TestErrorInfo](test-error-info-class-definition.md)|No|
+|status|The mock trigger result status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|Yes|
+|name|The mock trigger name|string|No|
+|outputs|The mock outputs|MockOutput|No|
+|error|The mock error|[TestErrorInfo](test-error-info-class-definition.md)|No|
 
 ```C#
-// Example: Creating a trigger mock from JSON
+// Example: Create a mock trigger from JSON
 var triggerFromJson = JsonConvert.DeserializeObject<TriggerMock>(File.ReadAllText(mockDataPath));
 ```
 
@@ -161,12 +161,12 @@ var triggerFromJson = JsonConvert.DeserializeObject<TriggerMock>(File.ReadAllTex
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|Name|The name of the mocked operation|string|No|
-|Status|The operation status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)?|No|
+|Name|The name of the mock operation|string|No|
+|Status|The operation status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|No|
 |Outputs|The static output in JSON format|JToken|No|
 |Error|The operation error|[TestErrorInfo](test-error-info-class-definition.md)|No|
 
-## Related Content
+## Related content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TestActionExecutionContext Class Definition](test-action-execution-context-class-definition.md)
