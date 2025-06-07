@@ -11,7 +11,7 @@ ms.date: 06/10/2025
 
 # Azure Logic Apps Automated Test SDK
 
-This SDK provides a comprehensive framework for unit testing Standard workflows in single-tenant Azure Logic Apps. You can create mock data, run workflows in isolation, and validate execution results.
+This SDK provides a comprehensive framework for unit testing Standard workflows in single-tenant Azure Logic Apps. You can create mock operations and data, run workflows in isolation, and validate execution results.
 
 The SDK contains several key components that work together to provide a complete testing solution:
 
@@ -79,7 +79,7 @@ The SDK provides the following detailed information about test execution:
 ## Best practices
 
 - Create comprehensive mock data that covers both success and failure scenarios.
-- To improve test readability by using meaningful names for your mock objects.
+- Improve test readability by using meaningful names for your mock objects.
 - Validate both successful execution paths and error handling scenarios.
 - Organize your test files in a clear directory structure.
 - Use appropriate timeout values for your specific workflow requirements.
