@@ -1,19 +1,19 @@
 ---
 title: TestExecutionContext Class Definition
-description: The execution context for a unit test containing action execution details
+description: The execution context for a unit test that contains action execution details.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/02/2025
+ms.topic: reference
+ms.date: 06/10/2025
 ---
 
 # TestExecutionContext Class Definition
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-The execution context for a unit test. This class provides the execution context for Logic Apps workflow testing and helps maintain state during test execution, especially useful when creating dynamic mocks that respond differently based on the current workflow state.
+This class provides the execution context for a unit test used for Standard workflow testing in single-tenant Azure Logic Apps. The class helps maintain the state during test execution and is useful when you want to create dynamic mocks that respond differently based on the current workflow state.
 
 ## Usage
 
@@ -39,9 +39,9 @@ var actionMock = new CallExternalSystemsActionMock(name: "Call_External_Systems"
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|ActionContext|Gets the current action context|[TestActionExecutionContext](test-action-execution-context-class-definition.md)|Yes|
+|ActionContext|Gets the current action context.|[TestActionExecutionContext](test-action-execution-context-class-definition.md)|Yes|
 
-## Related Content
+## Related content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
