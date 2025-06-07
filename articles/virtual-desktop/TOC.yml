@@ -425,7 +425,7 @@
         - name: Security baseline
           href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
         - name: Screen capture protection
-          displayName: security
+          displayName: security, scp
           href: screen-capture-protection.md
         - name: Watermarking
           displayName: security

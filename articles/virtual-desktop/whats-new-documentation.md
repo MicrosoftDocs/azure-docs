@@ -4,12 +4,28 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dougeby
 ms.author: avdcontent
-ms.date: 04/30/2025
+ms.date: 06/06/2025
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## June 2025
+
+Here are the highlights of documentation changes in June 2025:
+
+- Updated [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md) to include the general availability of the High Efficiency Video Coding (HEVC), also known as H.265.
+
+- Removed MSIX App Attach content from the documentation, as MSIX App Attach functionality has been removed from Azure Virtual Desktop and replaced with App Attach. For more information, see [App Attach in Azure Virtual Desktop](app-attach-overview.md).
+
+## May 2025
+
+Here are the highlights of documentation changes in May 2025:
+
+- Updated [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md) to include the general availability of assigning multiple desktops to a single user. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).
+
+- Added Azure PowerShell steps to configure dynamic autoscale in [Create and assign an autoscale scaling plan for Azure Virtual Desktop](autoscale-create-assign-scaling-plan.md?pivots=dynamic).
 
 ## April 2025
 
