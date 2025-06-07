@@ -11,8 +11,6 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 
 # Configure Private Endpoints for Azure Elastic SAN
 
-Before you can connect to an Azure Elastic SAN volume, you need to configure how the network traffic will reach it. Azure Elastic SAN offers multiple ways to securely connect from your virtual network, and the right choice depends on your environment’s architecture and needs. This article helps you understand the available access methods: Private Endpoint, Service Endpoint and Public Network Access- and walk you through how to set up the one that fits your scenario. You’ll learn what each option does, how they interact with your network and public access settings, and how to configure them.
-
 This article covers configuring your Elastic SAN volume group to use Private Endpoints.
 
 ## Prerequisites
@@ -193,6 +191,115 @@ az network private-endpoint-connection approve \
 > [!NOTE]
 > If your Elastic SAN and the private endpoint are in different subscriptions, register the Microsoft.ElasticSan resource provider in the subscription that contains the private endpoint. 
 > Follow the steps in this [article](/azure/private-link/how-to-approve-private-link-cross-subscription) to approve and register private endpoints. 
+
+
+## Configure iSCSI error detection
+
+Now that your Private Endpoints have been configured, you can configure iSCSI error detection.
+
+### Enable iSCSI error detection
+
+To enable CRC-32C checksum verification for iSCSI headers or data payloads, set CRC-32C on header or data digests for all connections on your clients that connect to Elastic SAN volumes. To do this, connect your clients to Elastic SAN volumes using multi-session scripts generated either in the Azure portal or provided in either the [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-Linux.md) Elastic SAN connection articles.
+
+If you need to, you can do this without the multi-session connection scripts. On Windows, you can do this by setting header or data digests to 1 during login to the Elastic SAN volumes (`LoginTarget` and `PersistentLoginTarget`). On Linux, you can do this by updating the global iSCSI configuration file (iscsid.conf, generally found in /etc/iscsi directory). When a volume is connected, a node is created along with a configuration file specific to that node (for example, on Ubuntu it can be found in /etc/iscsi/nodes/$volume_iqn/portal_hostname,$port directory) inheriting the settings from global configuration file. If you have already connected volumes to your client before updating your global configuration file, update the node specific configuration file for each volume directly, or using the following command:
+
+```sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n $iscsi_setting_name -v $setting_value```
+
+Where
+- $volume_iqn: Elastic SAN volume IQN
+- $portal_hostname: Elastic SAN volume portal hostname
+- $port: 3260
+- $iscsi_setting_name: node.conn[0].iscsi.HeaderDigest (or) node.conn[0].iscsi.DataDigest 
+- $setting_value: CRC32C
+
+### Enforce iSCSI error detection
+
+To enforce iSCSI error detection, set CRC-32C for both header and data digests on your clients and enable the CRC protection property on the volume group that contains volumes already connected to or have yet to be connected to from your clients. If your Elastic SAN volumes are already connected and don't have CRC-32C for both digests, you should disconnect the volumes and reconnect them using multi-session scripts generated in the Azure portal when connecting to an Elastic SAN volume, or from the [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-Linux.md) Elastic SAN connection articles.
+
+> [!NOTE]
+> CRC protection feature isn't currently available in North Europe and South Central US.
+
+To enable CRC protection on the volume group:
+
+# [Portal](#tab/azure-portal)
+
+Enable CRC protection on a new volume group:
+
+:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-create-volume-group.png" alt-text="Screenshot of CRC protection enablement on new volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-create-volume-group.png":::
+
+Enable CRC protection on an existing volume group:
+
+:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-update-volume-group.png" alt-text="Screenshot of CRC protection enablement on an existing volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-update-volume-group.png":::
+
+# [PowerShell](#tab/azure-powershell)
+
+Use this script to enable CRC protection on a new volume group using the Azure PowerShell module. Replace the values of `$RgName`, `$EsanName`, `$EsanVgName` before running the script.
+
+```powershell
+# Set the variable values.
+# The name of the resource group where the Elastic San is deployed.
+$RgName = "<ResourceGroupName>"
+# The name of the Elastic SAN.
+$EsanName = "<ElasticSanName>"
+# The name of volume group within the Elastic SAN.
+$EsanVgName = "<VolumeGroupName>"
+
+# Create a volume group by enabling CRC protection
+New-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName -Name $EsanVgName -EnforceDataIntegrityCheckForIscsi $true
+
+```
+
+Use this script to enable CRC protection on an existing volume group using the Azure PowerShell module. Replace the values of `$RgName`, `$EsanName`, `$EsanVgName` before running the script.
+
+```powershell
+# Set the variable values.
+$RgName = "<ResourceGroupName>"
+$EsanName = "<ElasticSanName>"
+$EsanVgName = "<VolumeGroupName>"
+
+# Edit a volume group to enable CRC protection
+Update-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName -Name $EsanVgName -EnforceDataIntegrityCheckForIscsi $true
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+The following code sample enable CRC protection on a new volume group using Azure CLI. Replace the values of `RgName`, `EsanName`, `EsanVgName`, before running the sample.
+
+```azurecli
+# Set the variable values.
+# The name of the resource group where the Elastic San is deployed.
+RgName="<ResourceGroupName>"
+# The name of the Elastic SAN.
+EsanName="<ElasticSanName>"
+# The name of volume group within the Elastic SAN.
+EsanVgName= "<VolumeGroupName>"
+
+# Create the Elastic San.
+az elastic-san volume-group create \
+    --elastic-san-name $EsanName \
+    --resource-group $RgName \
+    --volume-group-name $EsanVgName \
+    --data-integrity-check true
+```
+
+The following code sample enable CRC protection on an existing volume group using Azure CLI. Replace the values of `RgName`, `EsanName`, `EsanVgName`, before running the sample.
+
+```azurecli
+# Set the variable values.
+RgName="<ResourceGroupName>"
+EsanName="<ElasticSanName>"
+EsanVgName= "<VolumeGroupName>"
+
+# Create the Elastic San.
+az elastic-san volume-group update \
+    --elastic-san-name $EsanName \
+    --resource-group $RgName \
+    --volume-group-name $EsanVgName \
+    --data-integrity-check true
+```
+
+---
+
 
 
 ## Configure client connections

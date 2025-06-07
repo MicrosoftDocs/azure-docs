@@ -11,19 +11,58 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 
 # Configure service endpoints for Azure Elastic SAN
 
-Before you can connect to an Azure Elastic SAN volume, you need to configure how the network traffic will reach it. Azure Elastic SAN offers multiple ways to securely connect from your virtual network, and the right choice depends on your environment’s architecture and needs. This article helps you understand the available access methods: Private Endpoint, Service Endpoint and Public Network Access- and walk you through how to set up the one that fits your scenario. You’ll learn what each option does, how they interact with your network and public access settings, and how to configure them.  
+This article configures service endpoint connections to your Elastic SAN.
 
 ## Prerequisites
 
 - If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
 - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
-There are no extra registration steps required.
 
 ## Access via Service Endpoint:  
 
 A service endpoint enables secure connectivity to Elastic SAN from a subnet within your virtual network, without requiring a private IP. Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints.
 To use a service endpoint, you must configure [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) on your Elastic SAN volume group to allow traffic from specific subnets. These network rules apply only to the public endpoint of the volume group — they are not used for private endpoints. In other words, traffic from a subnet using a service endpoint must be explicitly permitted through a configured rule at the volume group level.Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. 
+
+
+## Configure public network access
+
+You enable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
+
+You can enable public network access when you create an elastic SAN, or enable it for an existing SAN using the Azure PowerShell module or the Azure CLI.
+
+# [Portal](#tab/azure-portal)
+
+Use the Azure PowerShell module or the Azure CLI to enable public network access.
+
+# [PowerShell](#tab/azure-powershell)
+
+Use this sample code to update an Elastic SAN to enable public network access using PowerShell. Replace the values of `RgName` and `EsanName` with your own, then run the sample:
+
+```powershell
+# Set the variable values.
+$RgName       = "<ResourceGroupName>"
+$EsanName     = "<ElasticSanName>"
+# Update the Elastic San.
+Update-AzElasticSan -Name $EsanName -ResourceGroupName $RgName -PublicNetworkAccess Enabled
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Use this sample code to update an Elastic SAN to enable public network access using the Azure CLI. Replace the values of `RgName` and `EsanName` with your own values:
+
+```azurecli
+# Set the variable values.
+$RgName="<ResourceGroupName>"
+$EsanName="<ElasticSanName>"
+# Update the Elastic San.
+az elastic-san update \
+    --elastic-san-name $EsanName \
+    --resource-group $RgName \
+    --public-network-access enabled
+```
+
+---
 
 ### Configure an Azure Storage service endpoint
 
@@ -102,8 +141,6 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ### [PowerShell](#tab/azure-powershell)
 
-- Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
-
 - List virtual network rules.
 
     ```azurepowershell
@@ -141,8 +178,6 @@ You can manage virtual network rules for volume groups through the Azure portal,
     ```
 
 ### [Azure CLI](#tab/azure-cli)
-
-- Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
 - List information from a particular volume group, including their virtual network rules.
 
@@ -198,8 +233,6 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ### [PowerShell](#tab/azure-powershell)
 
-- Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
-
 - List virtual network rules.
 
     ```azurepowershell
@@ -237,8 +270,6 @@ You can manage virtual network rules for volume groups through the Azure portal,
     ```
 
 ### [Azure CLI](#tab/azure-cli)
-
-- Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
 - List information from a particular volume group, including their virtual network rules.
 
