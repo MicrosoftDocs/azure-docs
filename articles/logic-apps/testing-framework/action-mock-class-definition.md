@@ -13,7 +13,7 @@ ms.date: 06/10/2025
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-This class creates a mock instance of an action in a Standard logic app workflow. The **ActionMock** class provides multiple ways to create mock actions for testing Standard logic app workflows with static outputs, error conditions, or dynamic behavior based on execution context.
+This class creates a mock instance of an action in a Standard logic app workflow. The *`*ActionMock`** class provides multiple ways to create mock actions for testing Standard logic app workflows with static outputs, error conditions, or dynamic behavior based on execution context.
 
 ## Usage
 
@@ -61,7 +61,7 @@ var dynamicAction = new ActionMock(
 
 ### Constructor with static outputs
 
-Creates a mock instance for **ActionMock** with static outputs.
+Creates a mock instance for **`ActionMock`** with static outputs.
 
 ```C#
 public ActionMock(TestWorkflowStatus status, string name = null, MockOutput outputs = null)
@@ -84,7 +84,7 @@ var actionMock = new ActionMock(TestWorkflowStatus.Succeeded, "ProcessData", out
 
 ### Constructor with error info
 
-Creates a mock instance for **ActionMock** with static error info.
+Creates a mock instance for **`ActionMock`** with static error info.
 
 ```C#
 public ActionMock(TestWorkflowStatus status, string name = null, TestErrorInfo error = null)
@@ -107,7 +107,7 @@ var actionMock = new ActionMock(TestWorkflowStatus.Failed, "ExternalAPICall", er
 
 ### Constructor with callback function
 
-Creates a mock instance for **ActionMock** with a callback function for dynamic outputs.
+Creates a mock instance for **`ActionMock`** with a callback function for dynamic outputs.
 
 ```C#
 public ActionMock(Func<TestExecutionContext, ActionMock> onGetActionMock, string name = null)
@@ -140,7 +140,7 @@ var actionMock = new ActionMock(
 
 ### JSON constructor
 
-Creates a mock instance for **ActionMock** from JSON.
+Creates a mock instance for **`ActionMock`** from JSON.
 
 ```C#
 internal ActionMock(TestWorkflowStatus status, string name = null, JToken outputs = null, TestErrorInfo error = null)
@@ -160,7 +160,7 @@ var actionFromJson = JsonConvert.DeserializeObject<ActionMock>(File.ReadAllText(
 
 ## Properties
 
-This class inherits the following properties from the **OperationMock** base class.
+This class inherits the following properties from the **`OperationMock`** base class.
 
 |Name|Description|Type|Required|
 |---|---|---|---|
