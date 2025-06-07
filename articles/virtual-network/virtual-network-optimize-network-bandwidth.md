@@ -97,49 +97,88 @@ To enhance network performance, consider implementing the following optimization
 
 - **Network buffer settings**: Adjust kernel parameters to maximize read and write memory buffers. Add these configurations to `/etc/sysctl.d/99-azure-network-buffers.conf`: 
 
-  ```plaintext
-  net.core.rmem_max = 2147483647 
-  net.core.wmem_max = 2147483647 
-  net.ipv4.tcp_rmem = 4096 67108864 1073741824 
-  net.ipv4.tcp_wmem = 4096 67108864 1073741824 
-  ```
+```plaintext
+net.ipv4.tcp_mem = 4096 87380 67108864
+net.ipv4.udp_mem = 4096 87380 33554432
+net.ipv4.tcp_rmem = 4096 87380 67108864
+net.ipv4.tcp_wmem = 4096 65536 67108864
+net.core.rmem_default = 33554432
+net.core.wmem_default = 33554432
+net.ipv4.udp_wmem_min = 16384
+net.ipv4.udp_rmem_min = 16384
+net.core.wmem_max = 134217728
+net.core.rmem_max = 134217728
+net.core.busy_poll = 50
+net.core.busy_read = 50
+```
  
-- **Congestion control**: Enabling BBR congestion control can often result in better throughput. Add this configuration to `/etc/sysctl.d/99-azure-congestion-control.conf`: 
+- **Congestion control for kernels 4.19+**: Enabling BBR congestion control can often result in better throughput. Add this configuration to `/etc/sysctl.d/99-azure-congestion-control.conf`: 
 
-- Ensure the BBR module is loaded by adding it to `/etc/modules-load.d/99-azure-tcp-bbr.conf`: 
+```plaintext
+net.ipv4.tcp_congestion_control = bbr 
+```
+- **Extra TCP parameters that will usually help with better consistency, throughput**: Add these configurations to `/etc/sysctl.d/99-azure-network-extras.conf`:
 
-  ```plaintext
-  tcp_bbr 
-  ```
+````plaintext
+# For deployments where the Linux VM is BEHIND an Azure Load Balancer, timestamps MUST be set to 0
+net.ipv4.tcp_timestamps = 1
 
-  ```plaintext
-  net.ipv4.tcp_congestion_control = bbr 
-  ```
+# Reuse does require tcp_timestamps to be enabled. If tcp_timestamps are disabled because of load balancers, you should set reuse to 2.
+net.ipv4.tcp_tw_reuse = 1
+
+# Allowed local port range. This will increase the number of locally available ports (source ports)
+net.ipv4.ip_local_port_range = 1024 65535
+
+# Maximum number of packets taken from all interfaces in one polling cycle (NAPI poll). In one polling cycle interfaces which are # registered to polling are probed in a round-robin manner.
+net.core.netdev_budget = 1000
+
+# For high-performance environments, it's recommended to increase from the default 20KB to 65KB, in some extreme cases, for environments that support 100G+ networking, you can 
+# increase it to 1048576
+net.core.optmem_max = 65535
+
+# F-RTO is not recommended on wired networks. 
+net.ipv4.tcp_frto = 0
+
+# Increase the number of incoming connections / number of connections backlog
+net.core.somaxconn = 32768
+net.core.netdev_max_backlog = 32768
+net.core.dev_weight = 64
+````
 
 - **Queue discipline (qdisc)**: Packet processing in Azure is generally improved by setting the default qdisc to `fq`. Add this configuration to `/etc/sysctl.d/99-azure-qdisc.conf`: 
 
-  ```plaintext
-  net.core.default_qdisc = fq 
-  ```
+```plaintext
+net.core.default_qdisc = fq 
+```
 
+- **Optimize NIC ring buffers for TX/RX**: Create a udev rule in `/etc/udev/rules.d/99-azure-ring-buffer.rules` to ensure they are applied to network interfaces:
+
+````plaintext
+# Setup Accelerated Interface ring buffers (Mellanox / Mana) 
+SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add",  RUN+="/usr/sbin/ethtool -G $env{INTERFACE} rx 1024 tx 1024"
+
+# Setup Synthetic interface ring buffers (hv_netvsc)
+SUBSYSTEM=="net", DRIVERS=="hv_netvsc*", ACTION=="add",  RUN+="/usr/sbin/ethtool -G $env{INTERFACE} rx 1024 tx 1024"
+````
+  
 - Create a udev rule in `/etc/udev/rules.d/99-azure-qdisc.rules` to ensure the qdisc is applied to network interfaces: 
 
-  ```plaintext
-  ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="enP*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root noqueue" 
-  ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="eth*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root fq“ 
-  ```
+```plaintext
+ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="enP*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root noqueue" 
+ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="eth*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root fq“ 
+```
 
 - **IRQ scheduling**: Depending on your workload, you may wish to restrict the irqbalance service from scheduling IRQs on certain nodes. Update `/etc/default/irqbalance` to specify which CPUs should not have IRQs scheduled: 
 
-  ```bash
-  IRQBALANCE_BANNED_CPULIST=0-2 
-  ```
+```bash
+IRQBALANCE_BANNED_CPULIST=0-2 
+```
 
 - **udev rules**: Add rules to optimize queue length and manage device flags efficiently. Create the following rule in `/etc/udev/rules.d/99-azure-txqueue-len.rules`: 
 
-  ```plaintext
-  SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="eth*", ATTR{tx_queue_len}="10000“ 
-  ```
+```plaintext
+SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="eth*", ATTR{tx_queue_len}="10000“ 
+```
 
 ### For Packets delayed twice 
 
