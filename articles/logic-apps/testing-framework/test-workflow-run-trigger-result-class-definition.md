@@ -1,19 +1,19 @@
 ---
 title: TestWorkflowRunTriggerResult Class Definition
-description: The unit test flow run trigger result representing trigger execution details
+description: The execution result from a trigger in a Standard logic app workflow run during unit test execution.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/02/2025
+ms.topic: reference
+ms.date: 06/10/2025
 ---
 
 # TestWorkflowRunTriggerResult Class Definition
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-The unit test flow run trigger result. This class represents the execution result of a trigger within a workflow during testing, providing specific functionality for trigger operations.
+This class represents the execution result from a trigger in a Standard logic app workflow run during unit test execution and provides specific functionality for trigger operations.
 
 ## Usage
 
@@ -37,10 +37,10 @@ Assert.IsNull(testFlowRun.Trigger.Error);
 |Inputs|The trigger execution inputs|JToken|No|
 |Outputs|The trigger execution outputs|JToken|No|
 |Code|The trigger status code|string|No|
-|Status|The trigger status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)?|Yes|
+|Status|The trigger status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|Yes|
 |Error|The trigger error|[TestErrorInfo](test-error-info-class-definition.md)|No|
 
-## Related Content
+## Related content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
