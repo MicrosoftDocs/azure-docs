@@ -19,7 +19,7 @@ The SDK contains several key components that work together to provide a complete
 |-----------|-------------|
 | **Test execution** | Core classes for running workflow tests |
 | **Mock data** | Classes for creating mock triggers and actions |
-| **Test context** | Casses that represent test execution state and context |
+| **Test context** | Classes that represent test execution state and context |
 | **Results** | Classes that contain workflow execution results and status information |
 | **Error handling** | Classes for managing test errors and exceptions |
 
