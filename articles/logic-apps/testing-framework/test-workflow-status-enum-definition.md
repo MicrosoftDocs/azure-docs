@@ -1,36 +1,39 @@
 ---
 title: TestWorkflowStatus Enum Definition
-description: The status of a unit test flow representing different execution states
+description: The possible execution states that a unit test run can have for a Standard logic app workflow, trigger, or action during test execution.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/02/2025
+ms.topic: reference
+ms.date: 06/10/2025
 ---
 
 # TestWorkflowStatus Enum Definition
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-The status of a unit test flow. This enumeration represents the various execution states that a workflow, action, or trigger can have during testing scenarios.
+This enumeration represents the possible execution states that a unit test run can have for a Standard logic app workflow, trigger, or action during test execution.
 
 ## Values
 
 |Name|Description|
 |---|---|
-|Succeeded|The flow status is succeeded|
-|Skipped|The flow status is skipped|
-|Cancelled|The flow status is cancelled|
-|Failed|The flow status is failed|
-|TimedOut|The flow status is timed out|
-|Terminated|The flow status is Terminated|
-|NotSpecified|The flow status is not specified|
+|Succeeded|The flow status is succeeded.|
+|Skipped|The flow status is skipped.|
+|Cancelled|The flow status is cancelled.|
+|Failed|The flow status is failed.|
+|TimedOut|The flow status is timed out.|
+|Terminated|The flow status is terminated.|
+|NotSpecified|The flow status is not specified.|
 
-> [!Note]
-> Mocks can only be created using the Succeeded and Failed status values. The other values are used by the engine to represent the final state of action after execution.
+> [!NOTE]
+>
+> You can create mock operations by using only the **Succeeded**
+> and **Failed** statuses. Azure Logic Apps uses the other status
+> values to report the final operation state after execution completes.
 
-## Related Content
+## Related content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
