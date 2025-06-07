@@ -1,6 +1,6 @@
 ---
 title: TestWorkflowRunTriggerResult Class Definition
-description: The execution result from a trigger in a Standard logic app workflow run during unit test execution.
+description: The result from the trigger execution in a Standard logic app workflow run during test execution.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
@@ -13,7 +13,7 @@ ms.date: 06/10/2025
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-This class represents the execution result from a trigger in a Standard logic app workflow run during unit test execution and provides specific functionality for trigger operations.
+This class represents the result from the trigger execution in a Standard logic app workflow run during unit test execution. The class also provides specific functionality for trigger operations.
 
 ## Usage
 
