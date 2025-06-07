@@ -1,19 +1,19 @@
 ---
 title: TestActionExecutionContext Class Definition
-description: The execution context for a unit test action containing action details and iteration information
+description: The execution context for a unit test action that contains action details and iteration information.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/02/2025
+ms.topic: reference
+ms.date: 06/10/2025
 ---
 
 # TestActionExecutionContext Class Definition
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-The execution context for a unit test action. This class stores information about the current action being executed in a Logic Apps workflow test, including the action name, inputs, parent action context, and iteration details for looping scenarios.
+The execution context for a unit test action, this class stores information about the current action running in a test for a Standard logic app workflow. This information includes the action name, inputs, parent action context, and iteration details for looping scenarios.
 
 ## Properties
 
@@ -24,7 +24,7 @@ The execution context for a unit test action. This class stores information abou
 |ParentActionName|The current parent action name|string|No|
 |CurrentIterationInput|The current iteration input|[TestIterationItem](test-iteration-item-class-definition.md)|No|
 
-## Related Content
+## Related content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
@@ -38,4 +38,5 @@ The execution context for a unit test action. This class stores information abou
 - [TestWorkflowRunActionResult Class Definition](test-workflow-run-action-result-class-definition.md)
 - [TestWorkflowRunTriggerResult Class Definition](test-workflow-run-trigger-result-class-definition.md)
 - [TestWorkflowStatus Enum Definition](test-workflow-status-enum-definition.md)
+
 - [UnitTestExecutor Class Definition](unit-test-executor-class-definition.md)
