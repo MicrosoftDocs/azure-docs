@@ -1,19 +1,19 @@
 ---
 title: TestWorkflowOutputParameter Class Definition
-description: The unit test flow output parameter representing workflow execution outputs
+description: The unit test flow output parameter that represents the outputs from a Standard logic app workflow during test execution.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/02/2025
+ms.topic: reference
+ms.date: 06/10/2025
 ---
 
 # TestWorkflowOutputParameter Class Definition
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-The unit test flow output parameter. This class represents an output parameter from a workflow execution during testing, including its type, value, description, and any associated error information.
+This class represents the output parameter for a unit test flow when a Standard logic app workflow runs during test execution. The output parameter includes its type, value, description, and any associated error information.
 
 ## Usage
 
@@ -34,7 +34,7 @@ Assert.IsNull(flow.Outputs["outputName"].Error);
 |Description|The description of the output parameter|string|No|
 |Error|The operation error|TestErrorInfo|No|
 
-## Related Content
+## Related content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
