@@ -13,7 +13,7 @@ ms.date: 06/10/2025
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-This class creates a mock instance for an action in a Standard logic app workflow. The *`*ActionMock`** class provides multiple ways to create mock actions for testing Standard workflows with static outputs, error conditions, or dynamic behavior based on execution context.
+This class creates a mock instance for an action in a Standard logic app workflow. The **`*ActionMock`** class provides multiple ways to create mock actions for testing Standard workflows with static outputs, error conditions, or dynamic behavior based on execution context.
 
 ## Usage
 
