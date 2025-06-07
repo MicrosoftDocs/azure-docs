@@ -1,6 +1,6 @@
 ---
 title: ActionMock Class Definition
-description: Creates a mocked instance of an action in a Standard logic app workflow for testing purposes.
+description: Creates a mock instance of an action in a Standard logic app workflow for testing purposes.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
