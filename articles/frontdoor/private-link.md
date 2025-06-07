@@ -6,7 +6,10 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 08/12/2024
-ms.custom: references_regions, ignite-2024
+ms.custom:
+  - references_regions
+  - ignite-2024
+  - build-2025
 ---
 
 # Secure your Origin with Private Link in Azure Front Door Premium

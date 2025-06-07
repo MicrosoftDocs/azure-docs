@@ -250,7 +250,7 @@ Functions version 1.x doesn't support the isolated worker process. To use the is
 - [Run a function as queue storage data changes (Trigger)](./functions-bindings-storage-queue-trigger.md)
 - [Write queue storage messages (Output binding)](./functions-bindings-storage-queue-output.md)
  
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
 [Update your extensions]: ./functions-bindings-register.md
 

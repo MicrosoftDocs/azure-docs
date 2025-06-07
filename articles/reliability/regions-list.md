@@ -54,7 +54,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | Japan West | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Japan East | Osaka | Japan |
 | Korea Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country disaster recovery" border="false"::: Korea South | Seoul | Korea |
 | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country disaster recovery" border="false"::: Korea South | | Korea Central | Busan | Korea |
-|:::image type="content" source="media/icon-region-coming-soon.svg"  alt-text="Icon that shows that this region is coming soon."  border="false"::: Malaysia West | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes"   border="false"::: | n/a | n/a | Malaysia |
+| Malaysia West | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | n/a | n/a | Malaysia |
 | Mexico Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | Querétaro State | Mexico |
 | New Zealand North | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | Auckland | New Zealand |
 | North Central US | | South Central US | Illinois | United States |

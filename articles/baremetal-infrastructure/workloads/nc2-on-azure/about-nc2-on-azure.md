@@ -8,6 +8,7 @@ ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
 ms.date: 03/28/2025
 ms.service: azure-baremetal-infrastructure
+# Customer intent: "As a cloud architect, I want to leverage Nutanix Cloud Clusters on Azure, so that I can seamlessly manage hybrid workloads and optimize resource provisioning while utilizing existing skills and licenses."
 ---
 
 # About Nutanix Cloud Clusters on Azure

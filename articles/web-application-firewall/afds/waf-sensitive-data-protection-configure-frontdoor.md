@@ -29,7 +29,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 
 <sup>1</sup> If a request triggers a rule that scans the request body, and the content type is either `application/x-www-form-urlencoded` or `application/json`,  the WAF will scrub all request details from the logs to prevent any potential storage of PII. 
 
-<sup>2</sup> Request IP Address and Request URI rules only support the *equals any* operator and scrubs all instances of the requestor's IP address that appears in the WAF logs.
+<sup>2</sup> Request IP Address and Request URI rules only support the *equals any* operator and scrubs all instances of the requester's IP address that appears in the WAF logs.
 
 For more information, see [What is Azure Web Application Firewall on Azure Front Door Sensitive Data Protection?](waf-sensitive-data-protection-frontdoor.md)
 

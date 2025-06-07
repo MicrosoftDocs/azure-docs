@@ -4,6 +4,8 @@ ms.service: azure-app-service
 ms.topic: include
 ms.date: 05/07/2025
 ms.author: cephalin
+ms.custom:
+  - build-2025
 ---
 
 Now that the infrastructure is deployed, you need to upload documents and create a search index that the application will use:

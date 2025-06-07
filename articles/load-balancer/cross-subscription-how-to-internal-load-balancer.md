@@ -7,7 +7,9 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 05/12/2025
 ms.author: mbender
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? > .
 ---
 
