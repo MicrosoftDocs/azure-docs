@@ -83,8 +83,8 @@ var error = new TestErrorInfo(
 |---|---|---|---|
 |Code|The error code|ErrorResponseCode|Yes|
 |Message|The error message|string|Yes|
-|Details|The detailed error message details|[TestErrorInfo](test-error-info-class-definition.md)[]|No|
-|AdditionalInfo|The array of additional information|[TestErrorResponseAdditionalInfo](test-error-response-additional-info-class-definition.md)[]|No|
+|Details|The detailed error message details|[TestErrorInfo](test-error-info-class-definition.md)|No|
+|AdditionalInfo|The array of additional information|[TestErrorResponseAdditionalInfo](test-error-response-additional-info-class-definition.md)|No|
 
 ## Related content
 
