@@ -165,7 +165,7 @@ This class inherits the following properties from the **OperationMock** base cla
 |Name|Description|Type|Required|
 |---|---|---|---|
 |Name|Gets or sets the name for the mock operation.|string|No|
-|Status|Gets or sets the operation status.|[TestWorkflowStatus](test-workflow-status-enum-definition.md)?|No|
+|Status|Gets or sets the operation status.|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|No|
 |Outputs|Gets or sets a value that represents static output in JSON format.|JToken|No|
 |Error|Gets or sets the operation error.|[TestErrorInfo](test-error-info-class-definition.md)|No|
 
