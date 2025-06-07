@@ -19,19 +19,18 @@ This enumeration represents the possible execution states that a unit test run c
 
 |Name|Description|
 |---|---|
-|Succeeded|The flow status is succeeded.|
-|Skipped|The flow status is skipped.|
-|Cancelled|The flow status is cancelled.|
-|Failed|The flow status is failed.|
-|TimedOut|The flow status is timed out.|
-|Terminated|The flow status is terminated.|
-|NotSpecified|The flow status is not specified.|
+|Succeeded|The status is 'Succeeded'.|
+|Skipped|The status is 'Skipped'.|
+|Cancelled|The status is 'Cancelled'.|
+|Failed|The status is 'Failed'.|
+|TimedOut|The status is 'Timed out'.|
+|Terminated|The status is 'Terminated'.|
+|NotSpecified|The status isn't specified.|
 
 > [!NOTE]
 >
-> You can create mock operations by using only the **Succeeded**
-> and **Failed** statuses. Azure Logic Apps uses the other status
-> values to report the final operation state after execution completes.
+> You can create mock operations with only the **Succeeded** and **Failed** statuses. Azure Logic 
+> Apps uses the other status values to report the final operation state after execution completes.
 
 ## Related content
 
