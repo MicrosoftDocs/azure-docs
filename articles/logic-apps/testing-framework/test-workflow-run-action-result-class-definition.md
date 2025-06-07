@@ -1,19 +1,19 @@
 ---
 title: TestWorkflowRunActionResult Class Definition
-description: The unit test flow run action result representing action execution details
+description: The result from an action during unit test execution that represents the action execution details for a Standard logic app workflow.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/02/2025
+ms.topic: reference
+ms.date: 06/10/2025
 ---
 
 # TestWorkflowRunActionResult Class Definition
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-The unit test flow run action result. This class represents the execution result of an action within a workflow, including support for nested actions and repetition results for looping scenarios.
+This class reprsents the result from an action in a Standard logic app workflow during unit test execution. The class supports results from loop actions nested actions.
 
 ## Usage
 
@@ -37,12 +37,12 @@ Assert.IsNull(testFlowRun.Actions["Call_External_Systems"].Error);
 |Inputs|The action execution inputs|JToken|No|
 |Outputs|The action execution outputs|JToken|No|
 |Code|The action status code|string|No|
-|Status|The action status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)?|Yes|
+|Status|The action status|[TestWorkflowStatus](test-workflow-status-enum-definition.md)|Yes|
 |Error|The action error|[TestErrorInfo](test-error-info-class-definition.md)|No|
 |ChildActions|The nested action results|Dictionary&lt;string, [TestWorkflowRunActionResult](test-workflow-run-action-result-class-definition.md)&gt;|No|
-|Repetitions|The repetition action results|[TestWorkflowRunActionRepetitionResult](test-workflow-run-action-repetition-result-class-definition.md)[]|No|
+|Repetitions|The repetition action results|[TestWorkflowRunActionRepetitionResult](test-workflow-run-action-repetition-result-class-definition.md)|No|
 
-## Related Content
+## Related content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
