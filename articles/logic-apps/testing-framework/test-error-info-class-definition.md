@@ -1,19 +1,19 @@
 ---
 title: TestErrorInfo Class Definition
-description: The extended error information for workflow testing scenarios
+description: The extended error information for Standard logic app workflow testing scenarios.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/02/2025
+ms.topic: reference
+ms.date: 06/10/2025
 ---
 
 # TestErrorInfo Class Definition
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.ErrorResponses
 
-The extended error information. This class provides detailed error information for workflow testing scenarios, including error codes, messages, nested error details, and additional contextual information.
+This class provides extended and detailed error information for Standard logic app workflow testing scenarios, including error codes, messages, nested error details, and other contextual information.
 
 ## Usage
 
@@ -54,9 +54,9 @@ var complexError = new TestErrorInfo(
 
 ## Constructors
 
-### Primary Constructor
+### Primary constructor
 
-Creates a new instance of the TestErrorInfo class.
+Creates a new instance of the **`TestErrorInfo`** class.
 
 ```C#
 public TestErrorInfo(ErrorResponseCode code, string message, TestErrorInfo[] details = null, TestErrorResponseAdditionalInfo[] additionalInfo = null)
@@ -66,8 +66,8 @@ public TestErrorInfo(ErrorResponseCode code, string message, TestErrorInfo[] det
 |---|---|---|---|
 |code|The error code|ErrorResponseCode|Yes|
 |message|The error message|string|Yes|
-|details|The detailed error message details|[TestErrorInfo](test-error-info-class-definition.md)[]|No|
-|additionalInfo|The array of additional information|[TestErrorResponseAdditionalInfo](test-error-response-additional-info-class-definition.md)[]|No|
+|details|The detailed error message details|[TestErrorInfo](test-error-info-class-definition.md)|No|
+|additionalInfo|The array of additional information|[TestErrorResponseAdditionalInfo](test-error-response-additional-info-class-definition.md)|No|
 
 ```C#
 // Example: Creating an error with code and message
@@ -86,7 +86,7 @@ var error = new TestErrorInfo(
 |Details|The detailed error message details|[TestErrorInfo](test-error-info-class-definition.md)[]|No|
 |AdditionalInfo|The array of additional information|[TestErrorResponseAdditionalInfo](test-error-response-additional-info-class-definition.md)[]|No|
 
-## Related Content
+## Related content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
