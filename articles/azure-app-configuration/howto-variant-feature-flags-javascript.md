@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 06/06/2025
 ---
 
-# Tutorial: Use variant feature flags in an ASP.NET Core application
+# Tutorial: Use variant feature flags in a Node.js application
 
 In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./howto-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
