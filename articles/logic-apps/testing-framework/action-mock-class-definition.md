@@ -1,6 +1,6 @@
 ---
 title: ActionMock Class Definition
-description: Creates a mock instance of an action in a Standard logic app workflow for testing purposes.
+description: Creates a mock instance for an action in a Standard logic app workflow for unit testing.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
@@ -13,7 +13,7 @@ ms.date: 06/10/2025
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-This class creates a mock instance of an action in a Standard logic app workflow. The *`*ActionMock`** class provides multiple ways to create mock actions for testing Standard logic app workflows with static outputs, error conditions, or dynamic behavior based on execution context.
+This class creates a mock instance for an action in a Standard logic app workflow. The *`*ActionMock`** class provides multiple ways to create mock actions for testing Standard workflows with static outputs, error conditions, or dynamic behavior based on execution context.
 
 ## Usage
 
