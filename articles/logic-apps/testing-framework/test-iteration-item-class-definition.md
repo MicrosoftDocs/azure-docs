@@ -1,19 +1,19 @@
 ---
 title: TestIterationItem Class Definition
-description: The iteration item for unit test execution context in looping scenarios
+description: The item in an iteration context for looping actions in Standard workflows during unit text execution.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 06/02/2025
+ms.topic: reference
+ms.date: 06/10/2025
 ---
 
 # TestIterationItem Class Definition
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-The iteration item for unit test execution context. This class represents an item in an iteration context when testing Logic Apps workflows with looping actions (like For each, Until, etc.). It provides access to the current item, its index, and allows navigation to parent iterations in nested loops.
+This class represents an item in an iteration context for a looping action, such as **For each**, **Until**, and so on, during unit test execution for a Standard logic app workflow. The class provides access to the current item, its index, and allows navigation to parent iterations in nested loops.
 
 ## Properties
 
@@ -23,7 +23,7 @@ The iteration item for unit test execution context. This class represents an ite
 |Item|The iteration item|JToken|No|
 |Parent|The parent iteration item|TestIterationItem|No|
 
-## Related Content
+## Related content
 
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
