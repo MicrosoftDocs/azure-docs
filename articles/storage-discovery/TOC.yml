@@ -1,0 +1,34 @@
+items:
+- name: Azure Storage Mover documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: What is Azure Storage Discovery?
+    href: overview.md  
+  expanded: true
+- name: Concepts
+  items: 
+  - name: placeholder
+    href: overview.md  
+- name: How-To
+  items: 
+  - name: Deploy
+    items:
+    - name: placeholder
+      href: overview.md      
+  - name: Manage
+    items:
+    - name: placeholder
+      href: overview.md    
+  - name: Decommission
+    items: 
+    - name: placeholder
+      href: overview.md     
+  - name: Troubleshoot
+    items: 
+    - name: placeholder
+      href: overview.md    
+- name: Resources
+  items:
+  - name: placeholder
+    href: overview.md
