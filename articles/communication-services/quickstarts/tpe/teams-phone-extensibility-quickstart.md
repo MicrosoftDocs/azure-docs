@@ -27,7 +27,7 @@ This article describes how an independent software vendor (ISV) can provision Te
 - ISV is using the .NET ACS Call Automation SDK version 1.5.0-beta.1
 - ISV is using the JavaScript ACS Call Automation SDK version 1.5.0-beta.2
 - ISV is using the JavaScript ACS Client SDK version 1.36.1-beta.1
-- You allowlisted the ISV’s Azure subscription in Microsoft Teams.
+
 
 ## Quick start
 
