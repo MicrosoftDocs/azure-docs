@@ -387,11 +387,7 @@
     - name: Azure Backup
       href: reliability-backup.md
     - name: Azure Blob Storage
-      items:
-      - name: Availability zones
-        href: /azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option
-      - name: Disaster recovery
-        href: /azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-storage-blob.md
     - name: Azure Databox
       href: ../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-
     - name: Azure Elastic SAN
