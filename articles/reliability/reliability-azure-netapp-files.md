@@ -6,7 +6,7 @@ ms.author: anfdocs
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-netapp-files
-ms.date: 05/09/2025
+ms.date: 06/09/2025
 ---
 # Reliability in Azure NetApp Files
 
@@ -56,7 +56,7 @@ In the diagram below, all virtual machines (VMs) within the region in (peered) V
 
 :::image type="content" source="./media/reliability-netapps-files/availability-zone-diagram.png" alt-text="Diagram that shows NetApp Files availability zone volume placement." border="false" **lightbox="./media/reliability-netapps-files/availability-zone-diagram.png":::**
 
-A single-zone deployment isn't sufficient to meet high reliability requirements.  To asynchronously replicate data between volumes in different availability zones, you can use [cross-zone replication](../azure-netapp-files/cross-zone-replication-introduction.md). You must configure cross-zone replication separately from availability zone volume placement.
+A single-zone deployment isn't sufficient to meet high reliability requirements. To asynchronously replicate data between volumes in different availability zones, you can use [cross-zone replication](../azure-netapp-files/cross-zone-replication-introduction.md). You must configure cross-zone replication separately from availability zone volume placement.
 
 If an availability zone fails, you're responsible for detecting the failure and switching to an alternative volume in a different zone.
 
@@ -66,8 +66,10 @@ Cross-zone replication is available in all [availability zone-enabled regions](a
 
 ### Considerations
 
-- Availability zone volume placement in Azure NetApp Files provides zonal volume placement, with latency within the zonal latency envelopes. It doesn't provide proximity placement towards compute. As such, it doesn't provide a lowest latency guarantee. <!-- TODO checking what this means -->
+- Availability zone volume placement in Azure NetApp Files provides zonal volume placement. You'll see low latency when connecting to virtual machines within the same availability zone. However, it doesn't provide proximity placement with virtual machines or other resources, and the volumew might be in a different physical part of the datacenter. <!-- Please confirm this is accurate. The previous wording was a little unclear. -->
+
 - Replication is permitted between different Azure subscriptions as long as they are within the same Microsoft Entra tenant.
+
 - For other considerations related to availability zones in Azure NetApp Files, see [Requirements and considerations for using cross-zone replication](../azure-netapp-files/cross-zone-replication-requirements-considerations.md) and [Manage availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md#requirements-and-considerations).
 
 ### Cost
@@ -133,9 +135,11 @@ This section describes what to expect when Azure NetApps Files volumes are confi
     | Hourly | Two hours |
     | Daily | < 48 hours |
 
-- **Expected downtime:** Failover to another zone requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. You can expect these to be completed within one minute.
+    <!-- These numbers feel a little too precise. Should they be made a little fuzzier to avoid implying this is exact? For example, maybe we could say "1-2 hours" for the hourly one? -->
 
-    However, the total amount of downtime (also called the recovery time objective, or RTO) you can expect during a zone failover depends on multiple factors, including how long it takes for your systems or processes to detect the loss of the zone and to initiate failover processes. Depending on your processes, this typically lasts a few minutes to an hour for well-prepared configurations.
+- **Expected downtime:** Failover to another zone requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. After you trigger the peering to break, you can expect these to be completed within one minute.
+
+    However, the total amount of downtime (also called the recovery time objective, or RTO) you can expect during a zone failover depends on multiple factors, including how long it takes for your systems or processes to detect the loss of the zone and to initiate failover processes. It also is is important to decide whether to automate your response or if manual steps are required. For well-prepared configurations, the overall process typically requires between a few minutes and up to an hour.
 
 - **Traffic rerouting:** You're responsible for redirecting your application traffic to connect to to the newly active destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
@@ -145,7 +149,7 @@ Failback is a manual process that requires performing a resync operation, reesta
 
 ### Testing for zone failures
 
-To learn about a high-level approach to test your cross-zone replication configuration, see [Test disaster recovery for Azure NetApp Files](../azure-netapp-files/test-disaster-recovery.md).
+You can test your cross-zone replication configuration safely by using snapshots of your volume. To learn about a high-level approach to test your cross-zone replication configuration, see [Test disaster recovery for Azure NetApp Files](../azure-netapp-files/test-disaster-recovery.md).
 
 ## Multi-region support
 
@@ -211,9 +215,11 @@ This section describes what to expect when Azure NetApps Files volumes are confi
     | Hourly | < Two hours |
     | Daily | < 48 hours |
 
-- **Expected downtime:** Failover to another region requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. You can expect these to be completed within one minute.
+    <!-- These numbers feel a little too precise. Should they be made a little fuzzier to avoid implying this is exact? For example, maybe we could say "1-2 hours" for the hourly one? -->
 
-    However, the total amount of downtime (also called the recovery time objective, or RTO) you can expect during a region failover depends on multiple factors, including how long it takes for your systems or processes to detect the loss of the region and to initiate failover processes. Depending on your processes, this typically lasts a few minutes to an hour for well-prepared configurations.
+- **Expected downtime:** Failover to another region requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. After you trigger the peering to break, you can expect these to be completed within one minute.
+
+    However, the total amount of downtime (also called the recovery time objective, or RTO) you can expect during a zone failover depends on multiple factors, including how long it takes for your systems or processes to detect the loss of the zone and to initiate failover processes. It also is is important to decide whether to automate your response or if manual steps are required. For well-prepared configurations, the overall process typically requires between a few minutes and up to an hour.
 
 - **Traffic rerouting:** You're responsible for redirecting your application traffic to connect to to the newly active destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
@@ -223,7 +229,7 @@ Failback is a manual process that requires performing a resync operation, reesta
 
 ### Testing for region failures
 
-To learn about a high-level approach to test your cross-region replication configuration, see [Test disaster recovery for Azure NetApp Files](../azure-netapp-files/test-disaster-recovery.md).
+You can test your cross-region replication configuration safely by using snapshots of your volume. To learn about a high-level approach to test your cross-region replication configuration, see [Test disaster recovery for Azure NetApp Files](../azure-netapp-files/test-disaster-recovery.md).
 
 ## Backups
 
