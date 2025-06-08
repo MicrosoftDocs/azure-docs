@@ -1,21 +1,152 @@
-## Microsoft Sentinel Provider class 
+---  
+title: Microsoft Sentinel Provider class reference (Preview)
+description: Reference documentation for the Microsoft Sentinel Provider class, which allows you to connect to the Microsoft Sentinel data lake and perform various operations.
+titleSuffix: Microsoft Security  
+description: This article provides reference documentation for the Microsoft Sentinel Provider class. Tis class allows you to connect to the Microsoft Sentinel data lake and perform various operations such as listing databases, reading tables, and saving data.
+author: EdB-MSFT
+ms.topic: reference 
+ms.date: 06/04/2025
+ms.author: edbayansh  
 
-To connect to the Microsoft Sentinel data lake,  use the `SentinelLakeProvider` class.
-This class is part of the `access_module.data_loader` module and provides methods to interact with the data lake. To use this class, you need to import it and create an instance of the class using the `spark` session.
+# Customer intent: As a security engineer or data scientist, I want to understand how to use the Microsoft Sentinel Provider class to connect to the Microsoft Sentinel data lake and perform operations such as listing databases, reading tables, and saving data.
+---
+ 
+
+# Microsoft Sentinel Provider class 
+
+The `SentinelLakeProvider` class provides a way to interact with the Microsoft Sentinel data lake, allowing you to perform operations such as listing databases, reading tables, and saving data. This class is designed to work with the Spark sessions in Jupyter notebooks and provides methods to access and manipulate data stored in the Microsoft Sentinel data lake. 
+
+This class is part of the `access_module.data_loader` module and provides methods to interact with the data lake. To use this class, import it and create an instance of the class using the `spark` session.
 
 ```python
 from access_module.data_loader import SentinelLakeProvider
 lake_provider = SentinelLakeProvider(spark)    
 ```
+You must have the necessary permissions to perform operations such as reading and writing data. For more information on permissions, see [Microsoft Sentinel data lake permissions](./sentinel-lake-permissions.md).
 
-The `SentinelLakeProvider` class provides methods to interact with the data lake, including listing databases, reading tables, and saving data. Below is a summary of the available methods:
+## Methods
 
-| Method | Arguments | Type | Return | Example |
-|--------|-----------|------|--------|---------|
-| `list_databases` <p>List all available databases / Sentinel workspaces | none | None | list[str] | `SentinelLakeProvider.list_databases()` |
-| `list_tables` <p>List all tables in a given database | `database`<br><br>`id` (optional) | str<br><br> str | list[str] | 1. List lake tables:<br>`SentinelLakeProvider.list_tables("workspace1")`<br><br>2. If your workspace names are not unique, use the table GUID:<br>`SentinelLakeProvider.list_tables("workspace1", id="ab1111112222ab333333")` |
-| `read_table` <p>Load a DataFrame from a table in Lake | `table_name`<br><br>`database`<br><br>`id` (optional) | str<br><br> str<br><br>str | DataFrame | 1. Native tables, custom tables:<br>`SentinelLakeProvider.read_table("user", "default")`<br><br>2. Aux tables:<br>`SentinelLakeProvider.read_table("SignInLogs", "workspace1")`<br><br>3.  If your workspace names are not unique, use the table GUID:<br>`SentinelLakeProvider.read_table("SignInLogs", "workspace1", id="ab1111112222ab333333")` |
-| `save_as_table` <p>Write a DataFrame as a managed table | `DataFrame`<br><br>`table_name`<br><br>`database: `<br><br>`id` (optional)<br><br>`WriteOptions {mode: Append, Overwrite}` (optional) | DataFrame<br><br>str<br><br>str<br><br>str<br><br>dict| str (runId) | 1. Create new custom table:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_SPRK", "msgworkspace1")`<br><br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1")`<br><br>2. Append/Overwrite to existing custom table:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1", mode="Append")`<br><br>3. If your workspace names are not unique, use GUID:<br>`SentinelLakeProvider.save_as_table(dataframe, "CustomTable1_CL", "workspace1", id="ab1111112222ab333333", mode="Append")` |
-| `delete_table` <p>Deletes the table from the schema | `table_name`<br><br>`database`<br><br>`id` (optional) | str<br><br>str<br><br>str| dict | 1. Delete a custom table:<br>`SentinelLakeProvider.delete_table("customtable_SPRK", "msgworkspace")`<br><br>2.  If your workspace names are not unique, use the table  GUID:<br>`SentinelLakeProvider.delete_table("SignInLogs", "workspace1", id="ab1111112222ab333333")` |
-| `get_status` <p>Check status of a save/write to table | `run_id`<br><br>`plan: lake/analytics` | str<br><br>str | dict (run_id, status, message_col) | 1. Get write status for lake table:<br>`SentinelLakeProvider.get_status("123456", plan="lake")`<br><br>2. Get write status for analytics table:<br>`SentinelLakeProvider.get_status("123456", plan="analytics")` |
-| `get_metadata` <p>Retrieve metadata about a table | `table_name`, `schema` | str<br><br> str | dict | |
+The `SentinelLakeProvider` class provides several methods to interact with the Microsoft Sentinel data lake. 
+Each method listed below assumes the `SentinelLakeProvider` class has been imported and an instance has been created using the `spark` session as follows:
+
+```python
+from access_module.data_loader import SentinelLakeProvider
+lake_provider = SentinelLakeProvider(spark)
+```
+
+### list_databases
+
+List all available databases / Microsoft Sentinel workspaces 
+
+```python
+lake_provider.list_databases()    
+```
+
+Returns:
+- `list[str]`: A list of database names (workspaces) available in the Microsoft Sentinel data lake.    
+ 
+### list_tables
+
+List all tables in a given database
+
+```python
+lake_provider.list_tables({database})
+   
+```
+
+Parameters:
+- `database` (str): The name of the database (workspace) to list tables from.
+- `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
+
+Returns:
+- `list[str]`: A list of table names in the specified database.
+
+Example:
+
+Specify the `id` of the database if your workspace names aren't unique
+
+```python
+lake_provider.list_tables("workspace1", id="ab1111112222ab333333")
+```
+
+
+### read_table
+
+Load a DataFrame from a table in Lake
+
+```python
+lake_provider.read_table({table}, {database}, [id])
+```
+
+Parameters:
+- `table_name` (str): The name of the table to read.
+- `database` (str): The name of the database (workspace) containing the table.
+- `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
+
+Returns:
+- `DataFrame`: A DataFrame containing the data from the specified table.
+
+Example:
+```python
+# Native tables, custom tables
+df = lake_provider.read_table("user", "default")
+```
+
+### save_as_table
+
+Write a DataFrame as a managed table
+
+```python
+lake_provider.save_as_table({DataFrame}, {table_name}, {database}, [id], [WriteOptions])
+```
+
+Parameters:
+- `DataFrame` (DataFrame): The DataFrame to write as a table.
+- `table_name` (str): The name of the table to create or overwrite.
+- `database` (str): The name of the database (workspace) to save the table in.
+- `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
+- `WriteOptions` (dict, optional): Options for writing the table, such as `mode` ("Append", "Overwrite").
+
+Returns:
+- `str`: The run ID of the write operation.
+
+Examples:
+
+Create new custom table in the data lake tier
+
+```python
+lake_provider.save_as_table(dataframe, "CustomTable1_SPRK", "msgworkspace1")
+```
+
+Create new custom table in the analytics tier
+```python
+lake_provider.save_as_table(dataframe, "CustomTable1_CL", "workspace1")
+```
+
+Append or overwrite to an existing custom table in the analytics tier
+```python
+
+lake_provider.save_as_table(dataframe, "CustomTable1_CL", "workspace1", mode="Append")
+```
+
+### delete_table
+
+Deletes the table from the schema
+
+```python
+lake_provider.delete_table({table_name}, {database}, [id])
+```
+Parameters:
+- `table_name` (str): The name of the table to delete.
+- `database` (str): The name of the database (workspace) containing the table.
+- `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
+
+Returns:
+- `dict`: A dictionary containing the result of the delete operation.
+
+Example:
+```python
+lake_provider.delete_table("customtable_SPRK", "msgworkspace")
+``` 
+
+

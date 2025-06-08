@@ -16,20 +16,31 @@ Below are some sample code snippets that demonstrate how to interact with lake d
 
 To run these examples, must have the require permissions and Visual Studio Code installed with the Microsoft Sentinel extension for Visual Studio Code. For more information, see [Sentinel data lake permissions](./sentinel-lake-permissions.md) and  [Use Jupyter notebooks with Microsoft Sentinel Data lake](./spark-notebooks.md).
 
-# In this example, the goal is to identify users with failed logins attempted. To do so, this Spark notebook example processes login data from two tables: 
-# "microsoft.entra.id.SignInLogs" and "microsoft.entra.id.AADNonInteractiveUserSignInLogs".
-# The query performs the following steps:
-# 1. Loads data from the specified tables into DataFrames.
-# 2. Parses the 'Status' JSON field to extract 'errorCode' and determines whether each login attempt was a success or failure.
-# 3. Aggregates the data to count the number of failed and successful login attempts for each user.
-# 4. Filters the data to include only users with more than 100 failed login attempts and at least one successful login attempt.
-# 5. Orders the results by the number of failed login attempts.
-# 6. Combines the results from both tables into a single DataFrame.
-# 7. Converts the Spark DataFrame to a Pandas DataFrame.
-# 8. Filters the Pandas DataFrame to show the top 20 users with the highest number of failed login attempts.
-# 9. Creates a bar chart to visualize the users with the highest number of failed login attempts.
-# Note this takes approx 10 mins on Large pool depending on the amount of logs
 
+## Failed login attempts analysis
+
+This example, identifies users with failed logins attempted. To do so, this notebook example processes login data from two tables: 
+ + microsoft.entra.id.SignInLogs 
+ + microsoft.entra.id.AADNonInteractiveUserSignInLogs
+
+The notebook performs the following steps:
+1. Create a function to process data from the specified tables, which includes:
+    1. Load data from the specified tables into DataFrames.
+    1. Parse the 'Status' JSON field to extract 'errorCode' and determines whether each login attempt was a success or failure.
+    1. Aggregate the data to count the number of failed and successful login attempts for each user.
+    1. Filter the data to include only users with more than 100 failed login attempts and at least one successful login attempt.
+    1. Order the results by the number of failed login attempts.
+1. Call the function for both `SignInLogs` and `AADNonInteractiveUserSignInLogs` tables.
+1. Combine the results from both tables into a single DataFrame.
+1. Convert the DataFrame to a Pandas DataFrame.
+1. Filter the Pandas DataFrame to show the top 20 users with the highest number of failed login attempts.
+1. Create a bar chart to visualize the users with the highest number of failed login attempts.
+
+> [!NOTE] 
+> This notebook may take around 10 minutes to run on the Large pool depending on the volume of data in the logs tables
+
+```python
+# Import necessary libraries
 import matplotlib.pyplot as plt
 from sentinel_lake.providers import MicrosoftSentinelProvider
 from pyspark.sql.functions import col, when, count, from_json, desc
@@ -91,7 +102,14 @@ plt.title('Top 20 Users with Failed Logins')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
-### Access Lake Tier Entra ID Group Table  
+```
+
+The following screenshot shows a sample of the output of the code above, displaying the top 20 users with the highest number of failed login attempts in a bar chart format.
+
+:::image type="content" source="media/notebook-examples/failed-login-analysis.png" lightbox="media/notebook-examples/failed-login-analysis.png" alt-text="A screenshot showing a bar chart of the users with the highest number of failed login attempts.":::
+
+## Access Lake Tier Entra ID Group Table  
+
 
 The following code sample demonstrates how to access the Entra ID `Group` table in the Microsoft Sentinel data lake. It retrieves various fields such as displayName, groupTypes, mail, mailNickname, description, and tenantId. 
 
@@ -105,9 +123,10 @@ df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "t
 ```  
 The following screenshot shows a sample of the output of the code above, displaying the Entra ID group information in a dataframe format.
 
-:::image type="content" source="media/notebook-examples/sample-1-output.png" alt-text="A screenshot showing sample output for the first code example.":::
+:::image type="content" source="media/notebook-examples/entra-id-group-output.png" lightbox="media/notebook-examples/entra-id-group-output.png" alt-text="A screenshot showing sample output from the Entra ID group table.":::
 
 ### Access Entra ID SignInLogs for a Specific User  
+
 The following code sample demonstrates how to access the Entra ID `SignInLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
 
 ```python  
@@ -118,11 +137,13 @@ table_name = "microsoft.entra.id.SignInLogs"
 df = data_provider.read_table(table_name)  
 df.select("UserDisplayName", "UserPrincipalName", "UserId", "CorrelationId", "UserType", 
  "ResourceTenantId", "RiskLevel", "ResourceProvider", "IPAddress", "AppId", "AADTenantId")\
-    .filter(df.UserPrincipalName == "benploni@contoso.com")\
+    .filter(df.UserPrincipalName == "bploni5@contoso.com")\
     .show(100, truncate=False) 
 ```  
+
+
  
-### Examine SignIn Locations  
+## Examine SignIn Locations  
 
 The following code sample demonstrates how to extract and display sign-in locations from the Entra ID SignInLogs table. It uses the `from_json` function to parse the JSON structure of the `LocationDetails` field, allowing you to access specific location attributes such as city, state, and country or region.
 
