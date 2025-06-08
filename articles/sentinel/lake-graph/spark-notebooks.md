@@ -126,7 +126,7 @@ For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
 > Selecting the kernel starts the Spark session and runs the code in the notebook. After selecting the pool, it can take 3-5 mins for the session to start. Subsequent runs a faster as the session is already active.
 
 When the session is started, the code in the notebook runs and the results are displayed in the output pane below the code cell, for example:
-    :::image type="content" source="media/spark-notebooks/results.png" lightbox="media/spark-notebooks/results.png alt-text="A screenshot showing the results from running a notebook cell.":::
+    :::image type="content" source="media/spark-notebooks/results.png" lightbox="media/spark-notebooks/results.png" alt-text="A screenshot showing the results from running a notebook cell.":::
 
 
 For sample notebooks that demonstrate how to interact with the Microsoft Sentinel data lake, see [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md).
