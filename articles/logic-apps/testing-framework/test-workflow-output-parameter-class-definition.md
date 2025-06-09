@@ -1,5 +1,5 @@
 ---
-title: TestWorkflowOutputParameter Class Definition
+title: TestWorkflowOutputParameter class
 description: The unit test flow output parameter that represents the outputs from a Standard logic app workflow during test execution.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/10/2025
 ---
 
-# TestWorkflowOutputParameter Class Definition
+# TestWorkflowOutputParameter class
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
