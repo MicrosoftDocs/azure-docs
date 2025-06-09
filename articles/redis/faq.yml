@@ -6,7 +6,7 @@ metadata:
   ms.topic: faq
   ms.custom:
     - ignite-2024
-      - build-2025
+    - build-2025
   appliesto:
     - ✅ Azure Managed Redis
     - ✅ Azure Cache for Redis

@@ -2,8 +2,12 @@
 title: Bicep warnings and error codes
 description: Understand Bicep warnings and error codes.
 ms.topic: conceptual
-ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 05/20/2025
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-bicep
+  - devx-track-arm-template
+  - build-2025
+ms.date: 06/06/2025
 ---
 
 # Bicep core diagnostics

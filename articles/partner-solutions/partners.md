@@ -5,6 +5,7 @@ description: Explore Azure Native Integrations partner solutions for observabili
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2025
 ms.date: 04/21/2025
 ---
 

@@ -4,6 +4,7 @@ description: Learn how to configure vaulted backup for Azure Files using Azure B
 ms.devlang: azurecli
 ms.custom:
   - ignite-2024
+  - build-2025
 ms.topic: quickstart
 ms.date: 05/22/2025
 ms.service: azure-backup

@@ -4,8 +4,10 @@ description: Learn what's new with Azure VPN Gateway such as the latest release 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 05/08/2025
+ms.date: 05/30/2025
 ms.author: cherylmc
+ms.custom:
+  - build-2025
 ---
 
 # What's new in Azure VPN Gateway?

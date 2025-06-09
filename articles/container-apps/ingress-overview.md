@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
+  - build-2025
 ms.topic: conceptual
 ms.date: 05/02/2025
 ms.author: cshoe

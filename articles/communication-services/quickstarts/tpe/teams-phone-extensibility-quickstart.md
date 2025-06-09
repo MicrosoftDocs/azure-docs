@@ -24,9 +24,10 @@ This article describes how an independent software vendor (ISV) can provision Te
 - ISV’s Customer has access to Microsoft 365 Admin Center.
 - ISV has access to change Azure Communication Services Resource settings.
 - You grant Teams Tenant access to a CCaaS service for Graph API usage.
-- ISV is using the latest alpha version of Azure Communication Services Call Automation which as of publishing this document is 1.4.0-alpha.20250129.2 or newer.
-- ISV is using the Alpha version of the Azure Communication Services Client SDK v1.3.3 or newer.
-- You allowlisted the ISV’s Azure subscription in Microsoft Teams.
+- ISV is using the .NET ACS Call Automation SDK version 1.5.0-beta.1
+- ISV is using the JavaScript ACS Call Automation SDK version 1.5.0-beta.2
+- ISV is using the JavaScript ACS Client SDK version 1.36.1-beta.1
+
 
 ## Quick start
 
@@ -472,6 +473,32 @@ await callConnection.TransferCallToParticipantAsync(new TransferToParticipantOpt
 ...
 ...
 ```
+
+### CCaaS developer: How to start recording session with StartRecordingOptions
+
+For Teams Phone extensibility, you need to use the CallConnectionId received during initiation of the call, when starting the recording session.
+
+- Use RecordingContent to pass the recording content type. Use AUDIO.
+- Use RecordingChannel to pass the recording channel type. Use MIXED or UNMIXED.
+- Use RecordingFormat to pass the format of the recording. Use WAV.
+
+```csharp
+CallAutomationClient callAutomationClient = new CallAutomationClient("<ACSConnectionString>");
+ 
+StartRecordingOptions recordingOptions = new StartRecordingOptions("<callConnectionId>")
+{
+    RecordingContent = RecordingContent.Audio,
+    RecordingChannel = RecordingChannel.Unmixed,
+    RecordingFormat = RecordingFormat.Wav,
+    RecordingStateCallbackUri = new Uri("<CallbackUri>");
+};
+Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
+.StartAsync(recordingOptions);
+```
+> [!NOTE]
+> Recording started with connection Id is started async (204 response code) and recording state change is updated via call back event (Microsoft.Communication.RecordingStateChanged) received on RecordingStateCallbackUri.
+Additionally any failures to start recording is reported via a new callback event (Microsoft.Communication.StartRecordingFailed) received on RecordingStateCallbackUri.
+
 
 ## Alpha SDKs
 

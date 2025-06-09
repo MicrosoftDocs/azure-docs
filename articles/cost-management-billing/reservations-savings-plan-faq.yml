@@ -1,0 +1,55 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Reservations and Savings Plan frequently asked questions (FAQ)
+  titleSuffix: Microsoft Cost Management
+  description: Frequently asked questions and answers.
+  author: pri-mittal
+  ms.reviewer: primittal, onwokolo
+  ms.service: cost-management-billing
+  ms.subservice: reservations
+  ms.topic: faq
+  ms.date: 06/04/2025
+  ms.author: primittal
+title: Azure Reservations and Savings Plan frequently asked questions (FAQ)
+summary: |
+sections:
+  - name: Azure Reservations questions
+    questions:
+      - question: How do I view reservation charges?
+        answer: |
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Add a filter for **Pricing Model: Reservation**.
+          
+          You can choose to view either the actual cost (reflecting when the purchase was charged) or the amortized cost (which spreads the cost of the Reservation across the resources that used it).
+          
+          To switch between these views, select the down arrow next to the Actual Cost KPI and select your desired metric from the drop-down.
+      - question: How do I see reservation savings?
+        answer: |
+          There are a couple of ways to view your savings.
+          -  If you're an EA customer, you can use the Cost Management Power BI App for EA to view the [RI Savings report](./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md#reports-available-with-the-app).
+          -  Use the Usage + Charges data file to manually [determine reservation savings](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings).
+      - question: How do I view reservation underutilization?
+        answer: |
+          Sign in to the Azure portal. Then select All services > **Reservations** and note the **Utilization (%)** for a reservation. Select a reservation. Review the reservation usage trend over time. For more information, see [View reservation use in the Azure portal](reservations/manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json#view-reservation-use-in-the-azure-portal). You can also [View unused reservation costs in Cost Analysis](costs/cost-analysis-common-uses.md#view-unused-ri-costs-in-cost-analysis).
+      - question: How can I find reservation costs to charge back?
+        answer: |
+          See [Charge back Azure Reservation costs](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json) for detailed information.
+      - question: How can I view charges incurred for Spot VMs?
+        answer: |
+          See [View your Spot VM charges](./costs/cost-analysis-common-uses.md#view-your-spot-vm-charges).
+      - question: How do I get a reservation details report?
+        answer: |
+          Read the API documentation to [generate a reservation details report](./reservations/reservation-utilization.md).
+           - name: Azure Savings plan questions
+  - name: Azure Savings Plan questions
+    questions:
+      - question: How do I view savings plan charges?
+        answer: |
+          In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. Then, add a filter for **Pricing Model: Savings plan**. 
+
+          You can choose to view either the actual cost (reflecting when the purchase was charged) or the amortized cost (which spreads the cost of the Savings Plan across the resources that used it).
+          
+          To switch between these views, select the down arrow next to the Actual Cost KPI and select your desired metric from the drop-down.
+
+      - question: How do I view savings plan underutilization?
+        answer: |
+          Sign in to the Azure portal. Then select All services > **Savings plan** and note the **Utilization (%)** for a savings plan. Select a savings plan. Review the savings plan use trend over time. 

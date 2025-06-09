@@ -5,7 +5,10 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
 ms.service: azure
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - build-2025
 ms.topic: overview
 ms.date: 01/15/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
@@ -58,7 +61,7 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 - Azure Key Vault
 - Azure Front Door
 
-## Download and Install
+## Download and install
 
 To use the `appcat` CLI, you must download the package specific to your environment, and have the required dependencies in your environment. The `appcat` CLI runs on any environment such as Windows, Linux, or Mac, using Intel, Arm, or Apple Silicon hardware. For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/java/openjdk).
 
@@ -97,7 +100,7 @@ To use the `appcat` CLI, you must download the package specific to your environm
 - [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the `JAVA_HOME` environment variable is set.
 - [Download Apache Maven](https://maven.apache.org/download.cgi) and [install locally](https://maven.apache.org/install.html). Ensure that the Maven binary (`mvn`) is reachable through `PATH` environment variable.
 
-### Installation
+### Install AppCAT
 
 To install `appcat`, download the appropriate zip file for your platform. After you download the file, depending on your operating system, you should find either a **.tar.gz** (Linux/macOS) or **.zip** file (Windows).
 
@@ -118,7 +121,7 @@ Extract the binary from the downloaded file. You should see the following folder
 └── readme.html
 ```
 
-### Run the tool
+### Run AppCAT
 
 To run `appcat` from any location in your terminal, extract the archive to your desired location. Then, update the `PATH` environment variable to include the directory where you extracted the archive.
 
@@ -347,6 +350,16 @@ Then, for each file or class affected by the incident, you can jump into the sou
 
 ## Release notes
 
+### 7.6.0.6
+
+This release contains the following fixes and enhancements.
+
+- A default **.appcat-ignore** file is now included in the release package by default. This file causes the tool to exclude specified folders or paths that don't need to be analyzed.
+- Fixed the issue of missing dependencies in the report when using `full` mode (specified by using `--mode`).
+- Scoped analysis to AppCAT-supported targets when no targets are specified.
+- Ignored comment lines during analysis.
+- Fixed incorrect location for XML rules.
+
 ### 7.6.0.5
 
 This release contains the following fixes and enhancements.
@@ -454,6 +467,13 @@ Previously, a set of targets were enabled by default, making it difficult for ce
 GA (Generally Available) release of Azure Migrate application and code assessment.
 
 ## Known issues
+
+### 7.6.0.6
+
+- Rules issues:
+  - The `azure-system-config-01000` rules aren't being triggered.
+  - The `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
+- An error in the Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.6.0.5
 

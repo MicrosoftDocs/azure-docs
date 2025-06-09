@@ -10,6 +10,8 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to understand how use arithmetic and logic operators in the rules that I create for my Azure Logic Apps Rules Engine project.
+ms.custom:
+  - build-2025
 ---
 
 # Add arithmetic and logical operators to rules using Microsoft Rules Composer

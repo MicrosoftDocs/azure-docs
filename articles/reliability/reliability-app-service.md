@@ -4,7 +4,9 @@ description: Find out about reliability in Azure App Service, including availabi
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability
+ms.custom:
+  - subject-reliability
+  - build-2025
 ms.service: azure-app-service
 ms.date: 05/07/2025
 zone_pivot_groups: app-service-sku
@@ -23,11 +25,9 @@ When you deploy Azure App Service, you can provision multiple instances in an *A
 
 ::: zone pivot="free-shared-basic"
 
-
 - Use premium v3/v4 App Service plans.
 
 - [Enable zone redundancy](#availability-zone-support), which requires that you use Premium v3, Premium v4 or Isolated v2 App Service plans and that you have at minimum three instances of the plan. To view more information, make sure that you select the appropriate tier at the top of this page.
-
 
 ::: zone-end
 
