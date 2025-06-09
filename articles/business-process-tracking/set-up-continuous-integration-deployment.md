@@ -314,19 +314,19 @@ After you finish these steps, your business process pipelines now appear in the 
 
 Azure Business Process Tracking uses Azure Data Explorer as the backend data store. So, you need to make sure that your service connection can connect, access, and update Data Explorer cluster, database, and tables.
 
-1. On your Data Explorer cluster, check whether your service connection has contributor access. If not, assign your service connection the appropriate role on your cluster.
+1. On the cluster, check whether your service connection has the **Contributor** role or access. If not, assign your service connection the appropriate role on your cluster.
 
    For more information, see the following documentation:
 
-   - [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions)
-   - [Security roles overview](/kusto/management/security-roles?view=azure-data-explorer&preserve-view=true)
+   - [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)
+   - [Role-based access control (Azure Data Explorer)](/kusto/access-control/role-based-access-control?view=azure-data-explorer#roles-and-permissions&preserve-view=true)
 
 1. On the cluster database where your service connection needs to create a table, make sure that your service connection has administrator privileges.
 
    For more information, see the following documentation:
 
-   - [Manage database security roles](/kusto/management/manage-database-security-roles?view=azure-data-explorer&preserve-view=true)
-   - [Security roles overview](/kusto/management/security-roles?view=azure-data-explorer&preserve-view=true)
+   - [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)
+   - [Role-based access control (Azure Data Explorer)](/kusto/access-control/role-based-access-control?view=azure-data-explorer#roles-and-permissions&preserve-view=true)
 
 ## Create infrastructure pipeline for your business process
 
