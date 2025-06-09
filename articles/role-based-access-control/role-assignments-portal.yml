@@ -77,9 +77,10 @@ procedureSection:
         > [!NOTE] 
         > If you're unsure of which role you need to assign, you can now use Copilot to help you select the appropriate role. 
         
-        ![Screenshot of Copilot button in the Add role assignment page.](./media/role-assignments-portal/copilot-for-role-assignment.png)
       - |
         (Optional) In the **Role** tab, click the **Copilot can help pick role** button. The Copilot dialog box opens. 
+
+        ![Screenshot of Copilot button in the Add role assignment page.](./media/role-assignments-portal/copilot-for-role-assignment.png)
         
         In the dialog box, you can add descriptive prompts to tell Copilot your requirements for the role, and what you need a user to be authorized to do, for example, *"I want this user to deploy and manage Azure functions."*, or *"I want this user to manage and view a workspace, but not modify member information."*
 
