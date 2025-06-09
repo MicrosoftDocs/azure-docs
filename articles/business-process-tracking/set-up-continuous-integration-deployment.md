@@ -405,23 +405,23 @@ Now, update your logic app CI pipeline to use the task named **Azure Logic Apps 
 
    ```yml
    jobs:
-   - job: logic_app_build
-   displayName: 'Build and publish logic app'
-   steps:
-   - task: AzureLogicAppsStandardBusinessProcessArtifactsBuild@0
-     inputs:
-       connectedServiceNameARM: '$(serviceConnectionName)'
-       appName: '$(logicAppName)'
-       subscriptionId: '$(subscriptionId)'
-       targetFolder: '$(Build.SourcesDirectory)/$(logicAppName)'
-       deploymentFolder: '$(System.DefaultWorkingDirectory)/deployment/$(logicAppName)/'
-       stagingAppSettingsFilePath: '$(Build.ArtifactStagingDirectory)/appsettings_businessprocess_$(Build.BuildId).json'
-   - task: AzureLogicAppsStandardBuild@0
-     displayName: 'Azure Logic Apps Standard Build'
-     inputs:
-       sourceFolder: '$(Build.SourcesDirectory)/$(logicAppName)'
-       deploymentFolder: '$(System.DefaultWorkingDirectory)/deployment/$(logicAppName)/'
-       archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+     - job: logic_app_build
+       displayName: 'Build and publish logic app'
+       steps:
+         - task: AzureLogicAppsStandardBusinessProcessArtifactsBuild@0
+           inputs:
+             connectedServiceNameARM: '$(serviceConnectionName)'
+             appName: '$(logicAppName)'
+             subscriptionId: '$(subscriptionId)'
+             targetFolder: '$(Build.SourcesDirectory)/$(logicAppName)'
+             deploymentFolder: '$(System.DefaultWorkingDirectory)/deployment/$(logicAppName)/'
+             stagingAppSettingsFilePath: '$(Build.ArtifactStagingDirectory)/appsettings_businessprocess_$(Build.BuildId).json'
+         - task: AzureLogicAppsStandardBuild@0
+           displayName: 'Azure Logic Apps Standard Build'
+           inputs:
+             sourceFolder: '$(Build.SourcesDirectory)/$(logicAppName)'
+             deploymentFolder: '$(System.DefaultWorkingDirectory)/deployment/$(logicAppName)/'
+             archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
    ```
 
 1. When you're done, select **Add**.
@@ -435,6 +435,7 @@ Now, update your logic app CI pipeline to use the task named **Azure Logic Apps 
         targetPath: '$(Build.ArtifactStagingDirectory)'
         artifact: '$(logicAppCIArtifactName)'
         publishLocation: 'pipeline'
+   ``` 
 
 1. When you're done, select **Validate and Save**.
 
