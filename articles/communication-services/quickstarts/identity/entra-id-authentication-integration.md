@@ -40,7 +40,6 @@ The Administrator role has extended permissions in Microsoft Entra ID. Members o
 1. The Contoso Administrator create a service principal for Communication Services Clients application in Contoso Microsoft Entra ID tenant. This step is required to allow the Contoso application to access Communication Services Clients application API permissions.
 1. The Contoso Administrator creates or selects an existing *application* in Microsoft Entra ID. The property *Supported account types* defines whether users from various tenants can authenticate to the application. The property *Redirect URI* redirects a successful authentication request to the Contoso *client application*.
 1. The Contoso Administrator adds required API permissions from Communication Services Clients application. For the all list of the permissions, see [Access tokens with Microsoft Entra ID](./identity-model.md#access-tokens-with-microsoft-entra-id).
-1. The Contoso Administrator allows public client flow for the application.
 1. The Contoso Administrator creates or selects existing communication services. The Contoso Administrator grants Fabrikam Entra ID users access to Contoso Azure Communication Services resource. Azure Communication Services Common SDK will be used for  Microsoft Entra ID user authentication and in the background seamlessly obtain an Azure Communication Services access token for Microsoft Entra ID user. For more information, see [Create and manage Communication Services resources](./create-communication-resource.md).
 1. The Fabrikam Administrator grants required Communication Services Clients application API permissions to the Contoso application. This step is required if only Fabrikam Administrator can grant access to the application with the required permissions.
 
@@ -82,11 +81,7 @@ The following application settings influence the experience:
 For more detailed information, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app#register-an-application). 
 
 
-### Step 3: Allow public client flows
-
-On the **Authentication** pane of your application, you can see a configured platform for *Public client/native(mobile & desktop)* with a redirect URI pointing to *http://localhost*. At the bottom of the pane, you'll see an *Allow public client flows* toggle control, which for this quickstart should be set to **Yes**.
-
-### Step 4: Add Azure Communication Services Clients permissions in the application
+### Step 3: Add Azure Communication Services Clients permissions in the application
 
 The application must declare Azure Communication Services Clients to have access to Azure Communication Services capabilities. Microsoft Entra ID user would be requesting a Microsoft Entra user token with these permissions. 
 
@@ -99,7 +94,7 @@ The application must declare Azure Communication Services Clients to have access
 
 ![Add Communication Services Clients permissions to the Microsoft Entra application created in previous step.](./media/entra-id/entra-id-add-permissions.png)
 
-### Step 5: Create or select a Communication Services resource and grant Entra ID users access it 
+### Step 4: Create or select a Communication Services resource and grant Entra ID users access it 
 
 The Azure Communication Services resource is used to authenticate all requests from Microsoft Entra ID users and to grant them access to the resource.
 
@@ -118,7 +113,7 @@ In the Azure portal follow these steps:
 8. Click **Save and exit** to apply the changes.
 
 
-### Step 6: Provide Administrator consent and group access to Azure Communication Services Clients application
+### Step 5: Provide Administrator consent and group access to Azure Communication Services Clients application
 
 Microsoft Entra tenant can be configured, to require Microsoft Entra administrator consent for Azure Communication Services Clients API permissions of the application. In such a case, the Microsoft Entra Administrator must grant permissions to the Contoso application for Azure Communication Services Clients API permissions. The Fabrikam Microsoft Entra Administrator provides consent via a unique URL. 
 
