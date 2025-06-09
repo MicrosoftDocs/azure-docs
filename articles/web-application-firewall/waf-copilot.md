@@ -34,7 +34,7 @@ This integration supports the standalone experience and is accessed through [htt
 
 ## Key features 
 
-Azure Web Application Firewall integration in Microsoft Security Copilot provides several powerful capabilities to help you analyze and understand your security posture. These features leverage AI to translate complex WAF logs into actionable insights through natural language responses.
+Azure Web Application Firewall integration in Microsoft Security Copilot provides several powerful capabilities to help you analyze and understand your security posture. These features use AI to translate complex WAF logs into actionable insights through natural language responses.
 
 - Providing a list of top Azure WAF rules triggered in the customer environment and generating deep context with related attack vectors.  
    
