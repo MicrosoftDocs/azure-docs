@@ -42,7 +42,7 @@ With deployment slots, you can achieve continuous delivery and improve your appl
   - Product verification testing before slot swapping
   - A/B testing
 
-- Additional steps are needed if the storage is private:
+- If your storage is private, complete the following steps:
   
   - After creating a slot, open the slot's environment variable WEBSITE_CONTENTSHARE to find its value for the file share. Then go to the storage account to manually create a file share with the same name.
   - On each slot, add an environment varaible named WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS and set its value to 0.
