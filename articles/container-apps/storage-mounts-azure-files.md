@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 03/20/2025
+ms.date: 06/09/2025
 ms.author: cshoe
 ---
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Set up the environment
 
-The following commands help you define  variables and ensure your Container Apps extension is up to date.
+The following commands define environment variables and ensure your Container Apps extension is up to date.
 
 1. Sign in to the Azure CLI.
 
@@ -291,7 +291,7 @@ Next, create a storage account and establish a file share to mount to the contai
 
     ---
 
-    The storage account key is required to create the storage link in your Container Apps environment.
+    The storage account key is required to create the storage link in your Container Apps environment. Container Apps does not support identity-based access to Azure file shares.
 
 1. Define the storage mount name.
 
