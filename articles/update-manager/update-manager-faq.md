@@ -144,7 +144,7 @@ All other resources including, but not limited to the following will be charged.
  - Management of individual Azure Local machines. For example, *Machine - Azure Arc* resource or *Azure Update Manager - Machines*.
  - All VMs on Azure Local that is not created by Arc resource bridge - VMs projected as Arc-enabled servers and/or VMs on Azure Local managed by Azure Arc-enabled SCVMM.
 
-## Is there any additional cost associated with Azure Update Manager for any data transfers?
+### Is there any additional cost associated with Azure Update Manager for any data transfers?
 
 No, there is no extra cost for data transfer when using Azure Update Manager for patch management operations.
 
