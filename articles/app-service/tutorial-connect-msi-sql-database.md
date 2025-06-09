@@ -6,7 +6,7 @@ ms.author: cephalin
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/02/2025
+ms.date: 06/06/2025
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ---
 # Tutorial: Use a managed identity to connect to an Azure web app and Azure SQL back end
@@ -41,12 +41,12 @@ For guidance about using Azure Database for MySQL or Azure Database for PostgreS
   - [Tutorial: Build an ASP.NET app in Azure with Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
   - [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
   
-  You can also use your own .NET web app that uses Azure SQL Database as the back end. The steps in this tutorial support the following .NET versions:
+- Have a basic Azure App Service [ASP.NET MVC](https://www.asp.net/mvc) or [ASP.NET Core MVC](/aspnet/core/mvc/overview) create-read-update-delete (CRUD) app that uses Azure SQL Database with SQL authentication as the back end. The steps in this tutorial support the following .NET versions:
 
   - .NET Framework 4.8 and above
   - .NET 6.0 and above
 
-- Allow client connection from your computer to Azure, so you can debug your app. You can add the client IP address by following the steps at [Manage server-level IP firewall rules using the Azure portal](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+- Allow client connection from your computer to Azure, so you can debug your app in Visual Studio. You can add the client IP address by following the steps at [Manage server-level IP firewall rules using the Azure portal](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 - Sign in to Azure Cloud Shell or prepare your environment to use the Azure CLI.
   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
@@ -60,7 +60,7 @@ Enable Microsoft Entra authentication to the Azure SQL database by assigning a M
 - For more information on allowed Microsoft Entra users for SQL Database, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#limitations).
 - For more information on adding an Azure SQL server admin, see [Provision a Microsoft Entra administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
-Run the following commands in the Bash environment of Azure Cloud Shell, or after signing in to Azure locally.
+Run the following commands in the Bash environment of Azure Cloud Shell, or after signing in to Azure CLI locally.
 
 1. Use [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) with the `display-name`, `filter`, or `upn` parameter to get the object ID for the Microsoft Entra ID user. Run `az ad user list` standalone to show information for all the users in the Microsoft Entra directory.
 
@@ -227,8 +227,8 @@ The Azure Identity client library can use tokens from Azure PowerShell.
 
 You can now use Microsoft Entra authentication to develop and debug your Azure SQL database-backed web app. The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
 
-- An ASP.NET app like the one in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) uses [Entity Framework](/ef/ef6/) by default.
-- An ASP.NET Core app like the one in [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md) uses [Entity Framework Core](/ef/core/) by default.
+- An ASP.NET app uses [Entity Framework](/ef/ef6/) by default.
+- An ASP.NET Core app uses [Entity Framework Core](/ef/core/) by default.
 
 # [ASP.NET app](#tab/ef)
 
@@ -275,7 +275,7 @@ You can now use Microsoft Entra authentication to develop and debug your Azure S
 1. In the Visual Studio **Package Manager Console**, add the NuGet package [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient).
 
    ```powershell
-   Install-Package Microsoft.Data.SqlClient -Version 5.1.0
+   Install-Package Microsoft.Data.SqlClient
    ```
 
 1. In [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md), the `MyDbConnection` connection string in *appsettings.json* isn't used at all yet. The local and Azure environments both get connection strings from their respective environment variables, to keep connection secrets out of the source file. But Microsoft Entra authentication doesn't use secrets.
@@ -295,7 +295,7 @@ You can now use Microsoft Entra authentication to develop and debug your Azure S
 
    The `DefaultAzureCredential` class caches the token in memory and retrieves it from Microsoft Entra ID just before expiration. You don't need any custom code to refresh the token.
 
-1. Press **Ctrl**+**F5** to run the app. The CRUD app in your browser now connects to the Azure SQL database directly, using Microsoft Entra authentication. This setup lets you run database migrations from Visual Studio.
+1. When you run your app, the CRUD app in your browser now connects to the Azure SQL database directly, using Microsoft Entra authentication. This setup lets you run database migrations from Visual Studio.
 
 ---
 
