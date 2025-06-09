@@ -1,5 +1,5 @@
 ---
-title: TestErrorResponseAdditionalInfo Class Definition
+title: TestErrorResponseAdditionalInfo class
 description: The error response with additional info and the service-specific schema that is dependent on **Type** string.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/10/2025
 ---
 
-# TestErrorResponseAdditionalInfo Class Definition
+# TestErrorResponseAdditionalInfo class
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.ErrorResponses
 
