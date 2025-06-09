@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 ## Review the template
 In this section, you review the template and the parameters that are used to deploy the global load balancer. 
-The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/load-balancer-cross-region/).
+The template used in this quickstart is from the Azure Quickstart Templates.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/2-vms-internal-load-balancer/azuredeploy.json":::
 

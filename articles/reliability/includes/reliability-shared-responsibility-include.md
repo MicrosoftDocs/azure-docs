@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-Reliability is a shared responsibility between you and Microsoft. You can use this guide to find out which reliability options fulfill your specific business objectives and uptime goals. 
+Reliability is a shared responsibility between you and Microsoft. You can use this guide to determine which reliability options fulfill your specific business objectives and uptime goals. 
