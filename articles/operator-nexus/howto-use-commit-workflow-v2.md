@@ -82,6 +82,22 @@ az networkfabric fabric view-device-configuration \
 
 - **Post-Device Changes**: Preview of what will be applied after commit
 
+### Step 3a: Discard commit batch (Optional)
+
+After validating with ViewDeviceConfiguration, users may discard pending configuration updates if issues are found. This restores the ARM resource state to its last known good configuration and resets the fabric state from Accepted & Locked to Succeeded.
+
+
+```Azure CLI
+az networkfabric fabric discard-commit-batch \
+  --resource-group "example-rg" \
+  --network-fabric-name "example-fabric"
+```
+
+> [!Note]
+> Internal/External network resources move to Admin State: Disabled and Config State: Rejected.<br>
+> Resources are not deleted — user must delete them manually if required.<br>
+> Network Monitor handling includes additional constraints (disabled monitors revert to rejected state).<br>
+
 #### Need to Make More Updates?
 
 Unlock the configuration to make further changes, then repeat the lock/validate/commit steps.
