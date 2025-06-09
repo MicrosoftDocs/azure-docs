@@ -162,6 +162,35 @@ One benefit of disabling a rule is that if you know all traffic that contains a 
 
 If you want to use Azure PowerShell, see [Customize web application firewall rules through PowerShell](application-gateway-customize-waf-rules-powershell.md). If you want to use Azure CLI, see [Customize web application firewall rules through the Azure CLI](application-gateway-customize-waf-rules-cli.md).
 
+## HAR files
+
+You can use your browser or an external tool like Fiddler to record HTTP Archive (HAR) files. HAR files contain information about the requests and responses that your browser makes when loading a web page. This information can be useful for troubleshooting WAF issues.
+
+> [!TIP]
+> It's a good practice to have the HAR file ready when you contact support. The support team can use the HAR file to help diagnose the issue.
+
+To record and save a HAR file in Microsoft Edge, follow these steps
+
+1. Press **F12** or **Ctrl + Shift + I** to launch Edge Developer tools. You can also launch the tools from the toolbar menu under **More tools > Developer tools**.
+
+1. In the **Console** tab, select **Clear console** or press **Ctrl + L**.
+
+    :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-console.png" alt-text="Screenshot of the Console tab of Microsoft Edge developer tools.":::
+
+1. Select the **Network** tab.
+
+1. Select **Clear network log**, and then select the **Record network log** if it's not recording.
+
+    :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-network.png" alt-text="Screenshot of the Network tab of Microsoft Edge developer tools.":::
+
+1. Load the web page that you want to inspect.
+
+1. Stop recording by selecting the **Stop recording network log**.
+
+1. Select **Export HAR (sanitized)...** and save the file. If you don't see the export icon, expand the width of your Edge developer tools window.
+
+    :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-save-file.png" alt-text="Screenshot that shows how to save the HAR file in Microsoft Edge developer tools.":::
+
 ## Finding request attribute names
 
 With the help of [Fiddler](https://www.telerik.com/fiddler), you inspect individual requests and determine what specific fields of a web page are called. This can help to exclude certain fields from inspection using Exclusion Lists.
