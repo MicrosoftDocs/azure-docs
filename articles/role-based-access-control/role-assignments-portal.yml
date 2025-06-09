@@ -3,10 +3,10 @@
 metadata:
   title: Assign Azure roles using the Azure portal - Azure RBAC
   description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the Azure portal and Azure role-based access control (Azure RBAC).
-  author: rolyon
-  ms.author: rolyon
-  manager: femila
-  ms.date: 11/11/2024
+  author: jenniferf-skc 
+  ms.author: jfields
+  manager: pmwpmwongera
+  ms.date: 06/09/2025
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
@@ -73,6 +73,17 @@ procedureSection:
           You can search for a role by name or by description. You can also filter roles by type and category.
 
         ![Screenshot of Add role assignment page with Role tab.](./media/shared/roles.png)
+
+        > [!NOTE] 
+        > If you're unsure of which role you need to assign, you can now use Copilot to help you select the appropriate role. 
+        ![Screenshot of Copilot in the Add role assignment page.](./media/shared/copilot-role-assignment.png)
+      - |
+        In the **Role** tab, click the **Copilot can help pick role** button. The Copilot dialog box opens. 
+        
+        In the dialog box, you can add descriptive prompts to tell Copilot your requirements for the role, and what you need a user to be authorized to do, for example, *"I want this user to deploy and manage Azure functions."*, or "I want this user to manage and view a workspace, but not modify member information."
+
+        From the direction of your prompt, Copilot suggests a role, or multiple roles, based on the requirements provided. Copilot will ask you to confirm or **Select permissions**, or you can ask it to **Recommend other permissions**. Copilot then recommends a role based on the
+        criteria provided. You can **Select role**, or you can ask Copilot to **Recommend other roles**. If you select **Select role**, you're taken back to the Add role assignment page where you can select the recommended role and view its details.
       - |
         If you want to assign a privileged administrator role, select the **Privileged administrator roles** tab to select the role.
 
