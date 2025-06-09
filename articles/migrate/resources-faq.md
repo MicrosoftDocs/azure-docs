@@ -92,9 +92,7 @@ No, Azure Migrate doesn't support moving resources. To move resources created by
 
 ## What skills and expertise help manage migration effectively with Azure Migrate?
 
-Customers who want to migrate should be familiar at the least with the Azure portal and migration concepts such as 6R. Furthermore, customers would need the following skills: 
-
-Customers who want to migrate first learn how to use the Azure portal and understand basic migration concepts like the 6Rs. They also need the following technical skills, which vary depending on what they migrate: 
+Customers who want to migrate must be familiar with the Azure portal and understand basic migration concepts like the 6Rs. They also need the following technical skills, which vary depending on what they migrate: 
 
 - **Application migration**: Understand application architecture, dependencies, and code refactoring.
 - **Cloud migration**: Know Azure roles, networking, and security.
