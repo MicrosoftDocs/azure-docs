@@ -13,7 +13,7 @@ ms.date: 06/10/2025
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-This class represents the result from an action in a Standard logic app workflow run during unit test execution. This result contains the action execution details. The class supports results from loop actions and nested actions.
+This class represents the result from an action in a Standard logic app workflow run during unit test execution. This result contains the action execution details. The class supports results from actions in loop iterations and nested actions.
 
 ## Usage
 

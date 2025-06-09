@@ -13,7 +13,7 @@ ms.date: 06/10/2025
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
-This class represents an item in an iteration context for a looping action, such as **For each**, **Until**, and so on, during unit test execution for a Standard logic app workflow. The class provides access to the current item, its index, and allows navigation to parent iterations in nested loops.
+This class represents an item from a loop iteration, such as a **For each** loop or **Until** loop for a Standard logic app workflow during unit test execution. The class provides access to the current item, its index, and allows navigation to parent iterations in nested loops.
 
 ## Properties
 
