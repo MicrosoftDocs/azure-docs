@@ -65,10 +65,10 @@ landingContent:
         links:
           - text: Build a RAG application with Azure OpenAI and Azure AI Search (.NET)
             url: tutorial-ai-openai-search-dotnet.md
+          - text: Build a chatbot with Azure OpenAI (Blazor)
+            url: tutorial-ai-openai-chatbot-dotnet.md            
           - text: Build a chatbot with Azure OpenAI (Spring Boot)
             url: tutorial-ai-openai-chatbot-java.md            
-          - text: Build a chatbot with Azure OpenAI (Blazor)
-            url: tutorial-ai-openai-chatbot-dotnet.md
           - text: Run a chatbot with a local SLM (Express.js)
             url: tutorial-ai-slm-expressjs.md
           - text: Invoke OpenAPI web app from Azure AI Agent
