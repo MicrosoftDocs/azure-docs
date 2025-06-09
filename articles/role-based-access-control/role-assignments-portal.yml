@@ -76,7 +76,7 @@ procedureSection:
 
         > [!NOTE] 
         > If you're unsure of which role you need to assign, you can now use Copilot to help you select the appropriate role. 
-        ![Screenshot of Copilot in the Add role assignment page.](./media/shared/copilot-for-role-assignment.png)
+        ![Screenshot of Copilot in the Add role assignment page.](./media/copilot-for-role-assignment.png)
       - |
         In the **Role** tab, click the **Copilot can help pick role** button. The Copilot dialog box opens. 
         
