@@ -47,7 +47,7 @@ With deployment slots, you can achieve continuous delivery and improve your appl
   1. After you create the slot, go to the deployment slot. On the slot menu, under **Settings**, select **Environment variables**.
   1. On the **App settings** tab, find the file share value for the app setting named **WEBSITE_CONTENTSHARE**.
   1. Go to the storage account and manually create a file share that uses the same name.
-  - On each slot, add an environment varaible named WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS and set its value to 0.
+  1. On each slot, add an app setting named **WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS**, and set the value to **0**.
 
 ## Prerequisites
 
