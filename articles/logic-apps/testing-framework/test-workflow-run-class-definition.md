@@ -1,5 +1,5 @@
 ---
-title: TestWorkflowRun Class Definition
+title: TestWorkflowRun class
 description: The properties and data from a Standard logic app workflow run during unit test execution.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/10/2025
 ---
 
-# TestWorkflowRun Class Definition
+# TestWorkflowRun class
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
