@@ -48,7 +48,7 @@ Follow the steps in this section to configure an AWS connector within your Stora
     
     Verify all values and select **Next** to continue.
 
-        :::image type="content" source="media/cloud-to-cloud-migration/add-aws-connector-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Basics tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-aws-connector.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-aws-connector-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Basics tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-aws-connector.png":::
 
 1. Within the **Solutions** tab:
     - Add an **Inventory** solution, making sure that `AWS Services: S3` is selected.
