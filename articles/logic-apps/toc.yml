@@ -573,33 +573,33 @@ items:
     items:
       - name: Standard Automated Test SDK
         href: testing-framework/automated-test-sdk.md
-      - name: ActionMock Class Definition
+      - name: ActionMock class
         href: testing-framework/action-mock-class-definition.md
-      - name: TestActionExecutionContext Class Definition
+      - name: TestActionExecutionContext class
         href: testing-framework/test-action-execution-context-class-definition.md
-      - name: TestErrorInfo Class Definition
+      - name: TestErrorInfo class
         href: testing-framework/test-error-info-class-definition.md
-      - name: TestErrorResponseAdditionalInfo Class Definition
+      - name: TestErrorResponseAdditionalInfo class
         href: testing-framework/test-error-response-additional-info-class-definition.md
-      - name: TestExecutionContext Class Definition
+      - name: TestExecutionContext class
         href: testing-framework/test-execution-context-class-definition.md
-      - name: TestIterationItem Class Definition
+      - name: TestIterationItem class
         href: testing-framework/test-iteration-item-class-definition.md
-      - name: TestWorkflowOutputParameter Class Definition
+      - name: TestWorkflowOutputParameter class
         href: testing-framework/test-workflow-output-parameter-class-definition.md
-      - name: TestWorkflowRunActionRepetitionResult Class Definition
+      - name: TestWorkflowRunActionRepetitionResult class
         href: testing-framework/test-workflow-run-action-repetition-result-class-definition.md
-      - name: TestWorkflowRunActionResult Class Definition
+      - name: TestWorkflowRunActionResult class
         href: testing-framework/test-workflow-run-action-result-class-definition.md
-      - name: TestWorkflowRun Class Definition
+      - name: TestWorkflowRun class
         href: testing-framework/test-workflow-run-class-definition.md
-      - name: TestWorkflowRunTriggerResult Class Definition
+      - name: TestWorkflowRunTriggerResult class
         href: testing-framework/test-workflow-run-trigger-result-class-definition.md
-      - name: TestWorkflowStatus Enum Definition
+      - name: TestWorkflowStatus enum
         href: testing-framework/test-workflow-status-enum-definition.md
-      - name: TriggerMock Class Definition
+      - name: TriggerMock class
         href: testing-framework/trigger-mock-class-definition.md
-      - name: UnitTestExecutor Class Definition
+      - name: UnitTestExecutor class
         href: testing-framework/unit-test-executor-class-definition.md    
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
