@@ -82,9 +82,10 @@ procedureSection:
 
         ![Screenshot of Copilot button in the Add role assignment page.](./media/role-assignments-portal/copilot-for-role-assignment.png)
         
-        In the dialog box, you can add descriptive prompts to tell Copilot your requirements for the role, and what you need a user to be authorized to do, for example, *"I want this user to deploy and manage Azure functions."*, or *"I want this user to manage and view a workspace, but not modify member information."*
+        In the dialog box, you can add descriptive prompts to tell Copilot your requirements for the role, and what you need a user to be authorized to do, for example, *"Help me select a role to deploy and manage Azure functions."*, or *"Which role should I use if I
+        want a user to manage and view a workspace, but not modify member information?"* Using phrases such as *'Help me select...'* or *'Which role should I use to...'* helps Copilot understand your intent more clearly in order to deliver the best results.
 
-        From the direction of your prompt, Copilot suggests a role, or multiple roles, based on the requirements provided. Copilot asks you to confirm, or **Select permissions**, or you can ask it to **Recommend other permissions**. Copilot then recommends a role based on the
+        From the direction of your prompt, Copilot suggests a role, or multiple roles, based on the requirements provided. Copilot asks you to confirm by **Select permissions**, or you can ask it to **Recommend other permissions**. Copilot then recommends a role based on the
         criteria provided. You can **Select role**, or you can ask Copilot to **Recommend other roles**. If you select **Select role**, you're taken back to the **Add role assignment** page where you can select the recommended role and view its details.
       - |
         If you want to assign a privileged administrator role, select the **Privileged administrator roles** tab to select the role.
