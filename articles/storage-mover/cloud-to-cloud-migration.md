@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 06/05/2025
+ms.date: 06/09/2025
 ---
 
 # Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
@@ -31,9 +31,9 @@ Before you begin, ensure that you have:
 
 ## Create a multicloud connector for AWS
 
-The first step in performing a cross-cloud migration to Azure is the creation of an Azure Arc multicloud connector for AWS within your Storage Mover resource. The multicloud connector allows you to securely connect AWS services to Azure.
+The first step in performing a cross-cloud migration to Azure is the creation of an Azure Arc multicloud connector for AWS. The multicloud connector allows you to securely connect AWS services to Azure.
 
-Follow the steps in this section to configure an AWS connector. 
+Follow the steps in this section to configure an AWS connector within your Storage Mover resource.
 
 1. Navigate to your Storage Mover resource within the Azure portal. In the **Overview** pane, select the **Multicloud migration** tab as shown in the following image.
 
