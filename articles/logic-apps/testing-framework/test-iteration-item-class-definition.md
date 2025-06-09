@@ -1,5 +1,5 @@
 ---
-title: TestIterationItem Class Definition
+title: TestIterationItem class
 description: The item from a loop iteration for a Standard workflow during unit text execution.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/10/2025
 ---
 
-# TestIterationItem Class Definition
+# TestIterationItem class
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
