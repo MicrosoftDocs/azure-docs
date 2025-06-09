@@ -11,6 +11,9 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 
 # Configure service endpoints for Azure Elastic SAN
 
+A service endpoint enables secure connectivity to Elastic SAN from a subnet within your virtual network, without requiring a private IP. Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints.
+To use a service endpoint, you must configure [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) on your Elastic SAN volume group to allow traffic from specific subnets. These network rules apply only to the public endpoint of the volume group — they are not used for private endpoints. In other words, traffic from a subnet using a service endpoint must be explicitly permitted through a configured rule at the volume group level.Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. 
+
 This article configures service endpoint connections to your Elastic SAN.
 
 ## Prerequisites
@@ -18,12 +21,6 @@ This article configures service endpoint connections to your Elastic SAN.
 - If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
 - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
-
-## Access via Service Endpoint:  
-
-A service endpoint enables secure connectivity to Elastic SAN from a subnet within your virtual network, without requiring a private IP. Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints.
-To use a service endpoint, you must configure [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) on your Elastic SAN volume group to allow traffic from specific subnets. These network rules apply only to the public endpoint of the volume group — they are not used for private endpoints. In other words, traffic from a subnet using a service endpoint must be explicitly permitted through a configured rule at the volume group level.Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. 
-
 
 ## Configure public network access
 
@@ -71,7 +68,7 @@ To configure an Azure Storage service endpoint from the virtual network where ac
 Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints. 
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Microsoft Entra tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they can be viewed in the portal.
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Microsoft Entra tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, they can only be viewed in the portal.
 
 ### [Portal](#tab/azure-portal)
 
@@ -129,9 +126,9 @@ All incoming requests for data over a service endpoint are blocked by default. O
 You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI.
 
 > [!IMPORTANT]
-> If you want to enable access to your storage account from a virtual network/subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Microsoft Entra tenants.
+> To enable access to your storage account from a virtual network/subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal doesn't show subnets in other Microsoft Entra tenants.
 >
-> If you delete a subnet that has been included in a network rule, it will be removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
+> If you delete a subnet that has been included in a network rule, its removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
 
 ### [Portal](#tab/azure-portal)
 
