@@ -1,5 +1,5 @@
 ---
-title: TestErrorInfo Class Definition
+title: TestErrorInfo class
 description: The extended error information for Standard logic app workflow testing scenarios.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/10/2025
 ---
 
-# TestErrorInfo Class Definition
+# TestErrorInfo class
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.ErrorResponses
 
