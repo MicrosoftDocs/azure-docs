@@ -1,5 +1,5 @@
 ---
-title: TestExecutionContext Class Definition
+title: TestExecutionContext class
 description: The execution context for a unit test that contains action execution details.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/10/2025
 ---
 
-# TestExecutionContext Class Definition
+# TestExecutionContext class
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
