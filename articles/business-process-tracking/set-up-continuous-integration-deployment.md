@@ -139,7 +139,7 @@ For this task, see the general steps in [Create your first pipeline](/azure/devo
 
    This example selects **Azure DevOps**.
 
-1. On the **Inventory** tab, select **Non-production** > **Configure pipeline**.
+1. On the **Inventory** tab, select **Production** or **Non-production**, and then select **Configure pipeline**.
 
 1. On the **Configure** tab, select **Existing Azure Pipeline YAML file**.
 
@@ -284,7 +284,7 @@ Now, update your **business-process-pipelines-variables.yml** file to use the pr
 
 1. In Visual Studio Code, go to your logic app project, find the **pipelines** folder, and open the file named **business-process-pipelines-variables.yml** at the end of this path:
 
-   **deployment\businessprocesses\<*business-process-name*>\\pipelines\\**
+   **deployment\businessprocesses\\<*business-process-name*>\\pipelines\\**
 
    The **business-process-pipelines-variables.yml** file contains a node named **`businessProcessMapping`**. This node includes references to your business process stage mappings and specific logic apps. These references contain paths with Azure subscription IDs and names for resource groups and logic apps.
 
@@ -312,21 +312,18 @@ After you finish these steps, your business process pipelines now appear in the 
 
 ## Set up permissions and access to Azure Data Explorer
 
-Azure Business Process Tracking uses Azure Data Explorer as the backend data store. So, you need to make sure that your service connection can connect, access, and update Data Explorer cluster, database, and tables.
+Azure Business Process Tracking uses Azure Data Explorer as the backend data store. So, you need to make sure that your service connection can connect, access, and update Data Explorer cluster, database, and tables by completing the following steps:
 
-1. On the cluster, check whether your service connection has the **Contributor** role or access. If not, assign your service connection the appropriate role on your cluster.
+On the Data Explorer database where your service connection needs to create a table, make sure that your service connection has **Database Admin** role.
 
-   For more information, see the following documentation:
+1. In your Azure Database Explorer cluster, go to your Data Explorer database.
+1. On the database menu, under **Overview**, select **Permissions**.
+1. Add your service connection, and assign the **Database Admin** role.
 
-   - [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)
-   - [Role-based access control (Azure Data Explorer)](/kusto/access-control/role-based-access-control?view=azure-data-explorer#roles-and-permissions&preserve-view=true)
+For more information, see the following documentation:
 
-1. On the cluster database where your service connection needs to create a table, make sure that your service connection has administrator privileges.
-
-   For more information, see the following documentation:
-
-   - [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)
-   - [Role-based access control (Azure Data Explorer)](/kusto/access-control/role-based-access-control?view=azure-data-explorer#roles-and-permissions&preserve-view=true)
+- [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Role-based access control (Azure Data Explorer)](/kusto/access-control/role-based-access-control?view=azure-data-explorer#roles-and-permissions&preserve-view=true)
 
 ## Create infrastructure pipeline for your business process
 
