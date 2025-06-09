@@ -1,10 +1,10 @@
 ---
 title: Roles and permissions in Microsoft Sentinel
 description: Learn how Microsoft Sentinel assigns permissions to users using Azure role-based access control, and identify the allowed actions for each role.
-author: yelevin
+author: batamig
 ms.topic: conceptual
-ms.date: 03/07/2024
-ms.author: yelevin
+ms.date: 06/09/2025
+ms.author: bagol
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
