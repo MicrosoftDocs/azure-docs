@@ -61,7 +61,7 @@ These steps show example EFLOW PowerShell commands to share one or more Windows 
 
 1. Within the *Read-Access* shared folder, create a sample file that we'll later read inside the EFLOW virtual machine.
 
-    For example, use a text editor to create a file named *Hello-World.txt* in the *Read-Access* folder and save some text in the file.within the *Read-Access* folder and save some text in the file.
+    For example, use a text editor to create a file named *Hello-World.txt* in the *Read-Access* folder and save some text in the file.
 
 1. Use a text editor to create the shared folder configuration file. This file has information about the folders to share with the EFLOW VM, including the mount points and options. For more information about the JSON configuration file, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md).
 
@@ -104,7 +104,7 @@ These steps show example EFLOW PowerShell commands to share one or more Windows 
 1. Go to the *Read-Access* shared folder (mounted under */tmp/host-read-access*) and check the contents of the *Hello-World.txt* file.
     
     >[!NOTE]
-    >By default, all shared folders are owned by *root*. To access the folder, log in as root using `sudo su` or change the folder ownership to *iotedge-user* using the `chown` command.
+    >By default, all shared folders are owned by *root*. To access the folder, sign in as root using `sudo su` or change the folder ownership to *iotedge-user* using the `chown` command.
     
     ```bash
     sudo su
