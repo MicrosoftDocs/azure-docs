@@ -1,5 +1,5 @@
 ---
-title: TestWorkflowRunActionResult Class Definition
+title: TestWorkflowRunActionResult class
 description: The result from an action in a Standard logic app workflow run during unit test execution. This result represents the action execution details.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/10/2025
 ---
 
-# TestWorkflowRunActionResult Class Definition
+# TestWorkflowRunActionResult class
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
