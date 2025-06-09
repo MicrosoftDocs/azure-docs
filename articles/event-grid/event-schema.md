@@ -3,6 +3,8 @@ title: Azure Event Grid event schema
 description: Describes the properties and schema for the proprietary, nonextensible, yet fully functional Event Grid format. 
 ms.topic: reference
 ms.date: 09/25/2024
+ms.custom:
+  - build-2025
 ---
 
 # Azure Event Grid event schema
@@ -104,6 +106,12 @@ CloudEvents is the recommended event format to use. Azure Event Grid continues i
 | CloudEvents format | CloudEvents format
 | Event Grid format  | CloudEvents format
 | Event Grid format  | Event Grid format
+
+## Supported Schema Versions
+
+Event Grid currently supports the following schema versions:
+- **Event Grid Schema**: Version `1.0` 
+- **CloudEvents Schema**: Version `1.0`, following the CloudEvents [v1.0 specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md)
 
 ## Next steps
 

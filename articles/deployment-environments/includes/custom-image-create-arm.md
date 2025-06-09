@@ -4,6 +4,8 @@ ms.topic: include
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 01/10/2025
+ms.custom:
+  - build-2025
 ---
 
 You build custom images by using the ADE standard images as a base with ADE CLI, which is preinstalled on the standard images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
@@ -14,7 +16,7 @@ To create an image configured for ADE, follow these steps:
 1. Create a custom image based on a standard image.
 1. Install desired packages.
 1. Configure operation shell scripts.
-1. Create operation shell scripts to deploy ARM or Bicep templates.
+1. Create operation shell scripts to deploy ARM or Bicep files.
 
 
 **1. Create a custom image based on a standard image**
@@ -55,7 +57,7 @@ RUN find /scripts/ -type f -iname "*.sh" -exec dos2unix '{}' '+'
 RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
 
-**4. Create operation shell scripts to deploy ARM or Bicep templates**
+**4. Create operation shell scripts to deploy ARM or Bicep files**
 
 To ensure you can successfully deploy ARM or Bicep infrastructure through ADE, you must:
 1. Convert ADE parameters to ARM-acceptable parameters
@@ -101,7 +103,7 @@ while true; do
 done
 ```
 
-To begin deployment of the ARM or Bicep templates, run the `az deployment group create` command. When running this command inside the container, choose a deployment name that doesn't override any past deployments, and use the `--no-prompt true` and `--only-show-errors` flags to ensure the deployment doesn't fail on any warnings or stall on waiting for user input, as shown in the following example:
+To begin deployment of the ARM or Bicep files, run the `az deployment group create` command. When running this command inside the container, choose a deployment name that doesn't override any past deployments, and use the `--no-prompt true` and `--only-show-errors` flags to ensure the deployment doesn't fail on any warnings or stall on waiting for user input, as shown in the following example:
 
 ```bash
 deploymentName=$(date +"%Y-%m-%d-%H%M%S")

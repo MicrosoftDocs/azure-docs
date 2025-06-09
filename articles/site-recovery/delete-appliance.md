@@ -1,11 +1,11 @@
 ---
 title: Remove an Azure Site Recovery replication appliance
 description: Learn how to remove an Azure Site Recovery replication appliance using the Azure portal.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 11/18/2024
-ms.author: ankitadutta
+ms.author: jsuri
 ---
 
 # How to Delete the Replication Appliance

@@ -2,11 +2,11 @@
 title: Health monitoring overview for Azure Application Gateway
 description: Azure Application Gateway monitors the health of all resources in its backend pool and automatically removes any resource considered unhealthy from the pool.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 04/09/2025
-ms.author: greglin 
+ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 ---
 

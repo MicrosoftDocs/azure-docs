@@ -1,12 +1,14 @@
 ---
-title: What is Azure Native Arize AI Cloud Service (preview)?
+title: What is Azure Native Arize AI Cloud Service?
 description: Access Azure Native Arize AI Cloud Service via Azure portal to develop, debug, and improve AI applications with enterprise quality using observability and evaluation tools.
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: overview
 ms.date: 04/21/2025
+ms.custom:
+  - build-2025
 ---
-# What is Azure Native Arize AI Cloud Service (preview)?
+# What is Azure Native Arize AI Cloud Service?
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 

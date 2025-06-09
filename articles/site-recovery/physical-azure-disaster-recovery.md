@@ -4,8 +4,8 @@ description: Learn how to set up disaster recovery to Azure for on-premises Wind
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 07/08/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.custom: engagement-fy23, linux-related-content
 ---
 # Set up disaster recovery to Azure for on-premises physical servers
