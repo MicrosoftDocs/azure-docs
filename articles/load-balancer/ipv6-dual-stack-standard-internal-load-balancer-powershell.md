@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, template-how-to, engagement-fy23
+# Customer intent: "As a network engineer, I want to deploy an IPv6 dual stack application using a load balancer in Azure, so that I can ensure both IPv4 and IPv6 connectivity for my virtual machines."
 ---
 
 # Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure using PowerShell

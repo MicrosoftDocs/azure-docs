@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 07/22/2024
 ms.custom: template-tutorial, devx-track-arm-template
 #Customer intent: As a administrator, I want to deploy a global load balancer for global high availability of my application or service.
+# Customer intent: As an IT administrator, I want to deploy a global load balancer using ARM templates so that I can ensure high availability of my applications across multiple Azure regions.
 ---
 
 # Tutorial: Deploy a global load balancer with Azure Resource Manager templates

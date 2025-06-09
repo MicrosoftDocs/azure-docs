@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/21/2025
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to deploy a dual stack (IPv4 + IPv6) application using a load balancer, so that I can ensure my application is accessible over both IP protocols in a Microsoft Azure environment."
 ---
 
 # Deploy IPv6 dual stack application with Azure Load Balancer

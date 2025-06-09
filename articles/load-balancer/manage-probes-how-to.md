@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 12/06/2024
 ms.custom: template-how-to
+# Customer intent: "As a network administrator, I want to manage health probes for my load balancer, so that I can ensure backend instances are monitored and remain operational."
 ---
 
 # Manage health probes for Azure Load Balancer using the Azure portal

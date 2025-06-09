@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 01/13/2025
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to implement best practices for deploying and configuring a load balancer, so that I can enhance the reliability and performance of my Azure network infrastructure.
 ---
 
 # Azure Load Balancer Best Practices

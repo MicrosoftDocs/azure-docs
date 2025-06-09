@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 09/06/2024
 ms.author: mbender
 ms.custom: template-how-to
+# Customer intent: As an IT administrator, I want to configure an outbound-only load balancer using internal and public load balancers, so that I can enable secure outbound connectivity for virtual machines without allowing inbound public access.
 ---
 
 # Outbound-only load balancer configuration

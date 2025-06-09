@@ -14,6 +14,7 @@ ms.custom:
   - engagement-fy23
   - devx-track-arm-template
   - build-2025
+# Customer intent: "As a cloud administrator, I want to deploy an internal load balancer using an ARM template, so that I can efficiently manage traffic distribution to virtual machines within a virtual network."
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using an ARM template

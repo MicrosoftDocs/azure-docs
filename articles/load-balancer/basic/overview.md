@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 03/12/2024
 ms.custom: template-overview, engagement-fy23
 ROBOTS: NOINDEX, NOFOLLOW
+# Customer intent: "As a cloud architect, I want to understand the features and limitations of the Basic Load Balancer, so that I can assess its suitability for our non-production workloads."
 ---
 
 # What is Basic Azure Load Balancer?

@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 05/06/2025
 ms.custom: template-tutorial, engagement-fy23
 zone_pivot_groups: load-balancer-multiple-ip-pv
+# Customer intent: As a cloud architect, I want to configure load balancing across multiple IPs for virtual machines, so that I can ensure high availability and manage website traffic efficiently.
 ---
 
 # Tutorial: Load balance multiple IP configurations

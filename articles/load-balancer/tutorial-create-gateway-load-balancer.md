@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 03/21/2025
 ms.custom: template-tutorial
+# Customer intent: "As a cloud architect, I want to create a gateway load balancer using the appropriate tools, so that I can ensure high performance and scalability for my network virtual appliances."
 ---
 
 # Tutorial: Create a gateway load balancer
