@@ -99,7 +99,7 @@ You can execute the run command to uninstall Cloud Backup for Virtual Machines.
 
 > [!IMPORTANT]
 > Before you initiate the upgrade, you must:
-> * Backup the MySQL database of Cloud Backup for Virtual Machines. 
+> * Back up the MySQL database of Cloud Backup for Virtual Machines. 
 > * Ensure that there are no other VMs installed in the VMware vSphere tag: `AVS_ANF_CLOUD_ADMIN_VM_TAG`. All VMs with this tag are deleted when you uninstall.
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Uninstall-NetAppCBSAppliance**.
