@@ -41,7 +41,7 @@ The Administrator role has extended permissions in Microsoft Entra ID. Members o
 1. The Contoso Administrator creates or selects an existing *application* in Microsoft Entra ID. The property *Supported account types* defines whether users from various tenants can authenticate to the application. The property *Redirect URI* redirects a successful authentication request to the Contoso *client application*.
 1. The Contoso Administrator adds required API permissions from Communication Services Clients application. For the all list of the permissions, see [Access tokens with Microsoft Entra ID](./identity-model.md#access-tokens-with-microsoft-entra-id).
 1. The Contoso Administrator creates or selects existing communication services. The Contoso Administrator grants Fabrikam Entra ID users access to Contoso Azure Communication Services resource. Azure Communication Services Common SDK will be used for  Microsoft Entra ID user authentication and in the background seamlessly obtain an Azure Communication Services access token for Microsoft Entra ID user.
-1. The Fabrikam Administrator grants required Communication Services Clients application API permissions to the Contoso application. This step is required if only Fabrikam Administrator can grant access to the application with the required permissions.
+1. The Fabrikam Administrator grants admin consent for the required Communication Services Clients application API permissions to the Contoso application.
 
 <a name='step-1-create-a-service-principal-for-acs-clients-application'></a>
 
@@ -143,7 +143,6 @@ You can see that the status of the Communication Services Clients application AP
 
 
 If you run into the issue "The app is trying to access a service '2a04943b-b6a7-4f65-8786-2bb6131b59f6'(Azure Communication Services Clients) that your organization '{GUID}' lacks a service principal for. You need to create a service principal for your tenant by following the instructions in the [Step 1: Create a service principal for Azure Communication Services Clients application](entra-id-authentication-integration.md#step-1-create-a-service-principal-for-azure-communication-services-clients-application).
-
 
 The group access to Azure Communication Services Clients application should be only provided if the Contoso Administrator provided a group access to the Contoso Azure Communication Services resource in the previous step. For the user or entire tenant access to the Azure Communication Services resource, the Fabrikam Administrator can skip this step.
 
