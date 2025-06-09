@@ -102,7 +102,7 @@ jetpack autoscale --file=custom-autoscale.json
 
 Use `jetpack config` to fetch information that CycleCloud passes into a VM. It exposes:
 
-* all the system properties made available via [Ohai](https://docs.getchef.com/ohai.html)
+* all the system properties made available via [Ohai](https://docs.chef.io/ohai/)
 * a subset of the VM's [Azure metadata](/azure/virtual-machines/windows/instance-metadata-service)
 * information about the parent CycleCloud cluster.
 
