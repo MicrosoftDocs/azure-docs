@@ -93,7 +93,6 @@ Dynamic sessions are available in the following regions:
 | Norway East | ✔ | ✔ |
 | Poland Central | ✔ | ✔ |
 | South Africa North | ✔ | ✔ |
-| South Central US | ✔ | ✔ |
 | South India | ✔ | ✔ |
 | Sweden Central | ✔ | ✔ |
 | Switzerland North | ✔ | ✔ |
