@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 02/13/2023
 ms.author: shaas
 ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to export data from Azure Blob storage using the Import/Export service, so that I can securely transfer large datasets back to on-premises drives for backup or analysis."
 ---
 # Tutorial: Export data from Azure Blob storage with Azure Import/Export
 
