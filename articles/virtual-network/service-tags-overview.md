@@ -28,13 +28,13 @@ You can use service tags to define network access controls on [network security 
 > [!IMPORTANT]
 > While Service Tags simplify the ability to enable IP-based Access Control Lists (ACLs), Service Tags alone aren't sufficient to secure traffic without considering the nature of the service and the traffic it sends. For more information about IP based ACLs, see **[What is an IP based access control list (ACL)?](ip-based-access-control-list-overview.md)**.
 >
-> Additional information about the nature of the traffic can be found later in this article for each service and their tag. It's important to ensure you are familiar with the traffic that you allow when utilizing service tags for IP based ACLs. Consider added levels of security to protect your environment.
+> Additional information about the nature of the traffic can be found later in this article for each service and their tag. It's important to ensure you're familiar with the traffic that you allow when utilizing service tags for IP based ACLs. Consider added levels of security to protect your environment.
 
 ## How service tags work
 
 When you specify a service tag name (such as **ApiManagement**) in the appropriate *source* or *destination* field of a security rule, you allow or deny the traffic for the corresponding service. The service tag automatically includes all current and future IP address ranges used by that service.
 
-By specifying the service tag name in the address prefix of a route, you can route traffic intended for any of the prefixes encapsulated by the service tag to a desired next hop type.
+You can route traffic intended for any of the prefixes encapsulated by the service tag to a desired next hop type. Specify the service tag name in the address prefix of a route.
 
 ### Common use cases
 
@@ -44,7 +44,7 @@ Service tags help you:
 - **Simplify security rules**: Create rules without managing individual IP addresses
 - **Ensure automatic updates**: Stay current with Azure service IP ranges without manual intervention
 
-For example, you can create inbound/outbound network security group rules to:
+For example, you can create inbound/outbound network security group rules that:
 
 - Deny traffic to/from **Internet**
 - Allow traffic to/from **AzureCloud** or other [available service tags](#available-service-tags) of specific Azure services
@@ -61,7 +61,7 @@ The columns indicate whether the tag:
 - Supports [regional](/azure/regions) scope.
 - Is usable in [Azure Firewall](../firewall/service-tags.md) rules as a *destination* rule only for inbound or outbound traffic.
 
-By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope, and the direction listed for each tag is a recommendation. For example, the AzureCloud tag may be used to allow inbound traffic. In most scenarios, we don't recommend allowing traffic from all Azure IPs since IPs used by other Azure customers are included as part of the service tag.
+By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope, and the direction listed for each tag is a recommendation. For example, the AzureCloud tag might be used to allow inbound traffic. In most scenarios, we don't recommend allowing traffic from all Azure IPs since IPs used by other Azure customers are included as part of the service tag.
 
 | Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
@@ -71,7 +71,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AppConfiguration** | App Configuration. | Outbound | No | Yes |
 | **[AppService](/azure/app-service/overview-inbound-outbound-ips)** | Azure App Service. This tag is recommended for outbound security rules to web apps and function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
 | **[AppServiceManagement](/azure/app-service/environment/management-addresses)** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
-| **AzureActiveDirectory** | Microsoft Entra ID Services. This tag includes login, MS Graph and other Entra services not specifically listed in this table | Outbound | No | Yes |
+| **AzureActiveDirectory** | Microsoft Entra ID Services. This tag includes sign-in, MS Graph and other Microsoft Entra services not listed in this table | Outbound | No | Yes |
 | **[AzureActiveDirectoryDomainServices](/entra/identity/domain-services/network-considerations#inbound-connectivity)** | Management traffic for deployments dedicated to Microsoft Entra Domain Services. | Both | No | Yes |
 | **[AzureAdvancedThreatProtection](/defender-for-identity/deploy/configure-proxy#enable-access-with-a-service-tag)** | Microsoft Defender for Identity. | Outbound | No | Yes |
 | **AzureArcInfrastructure** | Azure Arc-enabled servers, Azure Arc-enabled Kubernetes, and Guest Configuration traffic.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**,**AzureTrafficManager**, and **AzureResourceManager** tags. | Outbound | No | Yes |
@@ -111,7 +111,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[AzureSpringCloud](/azure/spring-apps/enterprise/concept-security-controls)** | Allow traffic to applications hosted in Azure Spring Apps. | Outbound | No | Yes |
 | **AzureStack** | Azure Stack Bridge services. <br/> This tag represents the Azure Stack Bridge service endpoint per region. | Outbound | No | Yes |
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md). | Inbound | No | Yes |
-| **AzureUpdateDelivery** | The Azure Update Delivery service tag used for accessing Windows Updates is marked for deprecation and in the future it will be decommissioned. </br></br> Customers are advised to not take a dependency on this service tag and for customers already using it they are advised to migrate to one of the following options: </br></br>Configure Azure Firewall for your Windows 10/11 devices as documented: </br></br> • **[Manage connection endpoints for Windows 11 Enterprise](/windows/privacy/manage-windows-11-endpoints)** </br></br> • **[Manage connection endpoints for Windows 10 Enterprise, version 21H2](/windows/privacy/manage-windows-21h2-endpoints)** </br></br> Deploy the Windows Server Update Services (WSUS) </br></br> **[Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus/)** then proceed to </br> **[Step 2: Configure WSUS](/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#211-configure-your-firewall-to-allow-your-first-wsus-server-to-connect-to-microsoft-domains-on-the-internet)** | Outbound | No | Yes |
+| **AzureUpdateDelivery** | The Azure Update Delivery service tag used for accessing Windows Updates is marked for deprecation and in the future will be decommissioned.</br></br> Customers are advised to not take a dependency on this service tag and for customers already using it they're advised to migrate to one of the following options: </br></br>Configure Azure Firewall for your Windows 10/11 devices as documented: </br></br> • **[Manage connection endpoints for Windows 11 Enterprise](/windows/privacy/manage-windows-11-endpoints)** </br></br> • **[Manage connection endpoints for Windows 10 Enterprise, version 21H2](/windows/privacy/manage-windows-21h2-endpoints)** </br></br> Deploy the Windows Server Update Services (WSUS) </br></br> **[Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus/)** then proceed to </br> **[Step 2: Configure WSUS](/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#211-configure-your-firewall-to-allow-your-first-wsus-server-to-connect-to-microsoft-domains-on-the-internet)** | Outbound | No | Yes |
 | **AzureWebPubSub** | AzureWebPubSub | Both | Yes | Yes |
 | **[BatchNodeManagement](/azure/batch/batch-virtual-network)** | Management traffic for deployments dedicated to Azure Batch. | Both | Yes | Yes |
 | **[ChaosStudio](/azure/chaos-studio/chaos-studio-permissions-security)** | Azure Chaos Studio. <br/><br/>**Note**: If you have enabled Application Insights integration on the Chaos Agent, the AzureMonitor tag is also required. | Both | No | Yes |
@@ -132,17 +132,17 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[LogicAppsManagement](/azure/logic-apps/logic-apps-limits-and-config#firewall-ip-configuration-considerations)** | Management traffic for Logic Apps. | Inbound | No | Yes |
 | **[M365ManagementActivityApi](/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api)** | The Office 365 Management Activity API provides information about various user, admin, system, and policy actions and events from Office 365 and Microsoft Entra activity logs. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **[M365ManagementActivityApiWebhook](/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api)** | Notifications are sent to the configured webhook for a subscription as new content becomes available. | Inbound | Yes | Yes |
-| **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. </br> **Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** tag. | Both | No | Yes |
+| **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server.</br> **Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** tag. | Both | No | Yes |
 | **[MicrosoftCloudAppSecurity](/defender-cloud-apps/network-requirements)** | Microsoft Defender for Cloud Apps. | Both | No | Yes |
-| **[MicrosoftDefenderForEndpoint](/defender-endpoint/configure-device-connectivity)** | Microsoft Defender for Endpoint core services.<br/><br/>**Note**: Devices need to be onboarded with streamlined connectivity and meet requirements in order to use this service tag. Defender for Endpoint/Server require additional service tags, like OneDSCollector, to support all functionality.<br/></br> For more information, see [Onboarding devices using streamlined connectivity for Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-device-connectivity) | Both | No | Yes |
+| **[MicrosoftDefenderForEndpoint](/defender-endpoint/configure-device-connectivity)** | Microsoft Defender for Endpoint core services.<br/><br/>**Note**: Devices need to be onboarded with streamlined connectivity and meet requirements in order to use this service tag. Defender for Endpoint/Server require more service tags, like OneDSCollector, to support all functionality.<br/></br> For more information, see [Onboarding devices using streamlined connectivity for Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-device-connectivity) | Both | No | Yes |
 | **[PowerBI](/power-bi/enterprise/service-premium-service-tags)** | Power BI platform backend services and API endpoints.<br/><br/> | Both | Yes | Yes |
 | **[PowerPlatformInfra](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. | Both | Yes | Yes |
 | **[PowerPlatformPlex](/power-platform/admin/online-requirements)** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Both | Yes | Yes |
 | **[PowerQueryOnline](/data-integration/gateway/service-gateway-communication)** | Power Query Online. | Both | No | Yes |
-| **Scuba** | Data connectors for Microsoft security products (Sentinel, Defender, etc.). | Inbound | No | No|
+| **Scuba** | Data connectors for Microsoft security products (Microsoft Sentinel, Defender, etc.). | Inbound | No | No|
 | **[SerialConsole](/troubleshoot/azure/virtual-machines/linux/serial-console-linux#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled)** | Limit access to boot diagnostics storage accounts from only Serial Console service tag | Inbound | No | Yes |
 | **ServiceBus** | Azure Service Bus traffic. | Outbound | Yes | Yes |
-| **[ServiceFabric](/azure/service-fabric/how-to-managed-cluster-networking#bring-your-own-virtual-network)** | Azure Service Fabric.<br/><br/>**Note**: This tag represents the Service Fabric service endpoint for control plane per region. This enables customers to perform management operations for their Service Fabric clusters from their VNET endpoint. (For example, https:// westus.servicefabric.azure.com). | Both | No | Yes |
+| **[ServiceFabric](/azure/service-fabric/how-to-managed-cluster-networking#bring-your-own-virtual-network)** | Azure Service Fabric.<br/><br/>**Note**: This tag represents the Service Fabric service endpoint for control plane per region. This enables customers to perform management operations for their Service Fabric clusters from their virtual network endpoint. (For example, https:// westus.servicefabric.azure.com). | Both | No | Yes |
 | **Sql** | Azure SQL Database, Azure Database for MariaDB, and Azure Synapse Analytics.<br/><br/>**Note**: This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. This tag doesn't apply to SQL managed instance. | Outbound | Yes | Yes |
 | **SqlManagement** | Management traffic for SQL-dedicated deployments. | Both | No | Yes |
 | **[Storage](/azure/storage/file-sync/file-sync-networking-overview#configuring-firewalls-and-service-tags)** | Azure Storage. <br/><br/>**Note**: This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |
@@ -150,13 +150,13 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **StorageMover** | Storage Mover. | Outbound | Yes | Yes |
 | **[WindowsAdminCenter](/windows-server/manage/windows-admin-center/azure/manage-vm#networking-requirements)** | Allow the Windows Admin Center backend service to communicate with customers' installation of Windows Admin Center. | Outbound | No | Yes |
 | **[WindowsVirtualDesktop](/azure/virtual-desktop/required-fqdn-endpoint?tabs=azure#service-tags-and-fqdn-tags)** | Azure Virtual Desktop (formerly Windows Virtual Desktop). | Both | No | Yes |
-| **[VideoIndexer](/azure/azure-video-indexer/network-security)** | Video Indexer. </br> Used to allow customers opening up their NSG to Video Indexer service and receive callbacks to their service. | Both | No | Yes |
+| **[VideoIndexer](/azure/azure-video-indexer/network-security)** | Video Indexer.</br> Used to allow customers opening up their NSG to Video Indexer service and receive callbacks to their service. | Both | No | Yes |
 | **VirtualNetwork** | The virtual network address space (all IP address ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks, virtual networks connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](./network-security-groups-overview.md#azure-platform-considerations), and address prefixes used on [user-defined routes](virtual-networks-udr-overview.md). This tag might also contain default routes. | Both | No | No |
 
 > [!NOTE]
-> - When using service tags with Azure Firewall, you can only create destination rules on inbound and outbound traffic. Source rules are not supported. For more information, see the [Azure Firewall Service Tags](../firewall/service-tags.md) doc.
+> - When using service tags with Azure Firewall, you can only create destination rules on inbound and outbound traffic. Source rules aren't supported. For more information, see the [Azure Firewall Service Tags](../firewall/service-tags.md) doc.
 >
-> - Service tags of Azure services denote the address prefixes from the specific cloud being used. For example, the underlying IP ranges that correspond to the **Sql** tag value on the Azure Public cloud will be different from the underlying ranges on the Microsoft Azure operated by 21Vianet cloud.
+> - Service tags of Azure services denote the address prefixes from the specific cloud being used. For example, the underlying IP ranges that correspond to the **Sql** tag value on the Azure Public cloud is different from the underlying ranges on the Microsoft Azure operated by 21Vianet cloud.
 >
 > - If you implement a [virtual network service endpoint](virtual-network-service-endpoints-overview.md) for a service, such as Azure Storage or Azure SQL Database, Azure adds a [route](virtual-networks-udr-overview.md#optional-default-routes) to a virtual network subnet for the service. The address prefixes in the route are the same address prefixes, or CIDR ranges, as those of the corresponding service tag.
 
@@ -172,7 +172,7 @@ The classic deployment model (before Azure Resource Manager) supports a small su
 
 ### Tags unsupported for user defined routes (UDR)
 
-The following is a list of tags currently unsupported for use with user defined routes (UDR).
+The following list of tags is currently unsupported for use with user defined routes (UDR).
 
 - AzurePlatformDNS
 - AzurePlatformIMDS
@@ -202,8 +202,8 @@ $storage.Properties.AddressPrefixes
 ```
 
 > [!NOTE]
-> - The API data represents those tags that can be used with NSG rules in your region. Use the API data as the source of truth for available Service Tags as it may be different than the JSON downloadable file.
-> - It takes up to 4 weeks for new Service Tag data to propagate in the API results across all Azure regions. Because of this process, your API data results may be out of sync with the downloadable JSON file as the API data represents a subset of the tags currently in the downloadable JSON file.
+> - The API data represents those tags that can be used with NSG rules in your region. Use the API data as the source of truth for available Service Tags as it might be different than the JSON downloadable file.
+> - It takes up to four weeks for new Service Tag data to propagate in the API results across all Azure regions. Because of this process, your API data results might be out of sync with the downloadable JSON file as the API data represents a subset of the tags currently in the downloadable JSON file.
 > - You must be authenticated and have a role with read permissions for your current subscription.
 
 ### Discover service tags by using downloadable JSON files
@@ -234,7 +234,7 @@ The following AzureCloud tags don't have regional names formatted according to t
 > [!TIP]
 > - You can detect updates from one publication to the next by noting increased *changeNumber* values in the JSON file. Each subsection (for example, **Storage.WestUS**) has its own *changeNumber* that's incremented as changes occur. The top level of the file's *changeNumber* is incremented when any of the subsections is changed.
 > - For examples of how to parse the service tag information (for example, get all address ranges for Storage in WestUS), see the [Service Tag Discovery API PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag) documentation.
-> - When new IP addresses are added to service tags, they won't be used in Azure for at least one week. This gives you time to update any systems that might need to track the IP addresses associated with service tags.
+> - When new IP addresses are added to service tags, they aren't used in Azure for at least one week. This process gives you time to update any systems that might need to track the IP addresses associated with service tags.
 
 ## Next steps
 
