@@ -56,10 +56,10 @@ To enable the integration, follow these steps:
 
 1.	Ensure that you have at least Copilot contributor permissions.
 2.	Open [https://securitycopilot.microsoft.com/](https://securitycopilot.microsoft.com).
-3.	Open the Copilot for Security menu.
+3.	Open the Security Copilot menu.
 4.	Open **Sources** in the prompt bar.  
 5.	On the Plugins page, set the Azure Web Application Firewall toggle to **On**.
-6.	Select the Settings on the Azure Web Application Firewall plugin to configure the Log Analytics workspace for Azure Front Door WAF and/or the Azure Application Gateway WAF.
+6.	Select the Settings on the Azure Web Application Firewall plugin to configure the Log Analytics workspace for Azure Front Door WAF or the Azure Application Gateway WAF.
 7.	To start using the skills, use the prompt bar.
 :::image type="content" source="media/waf-copilot/prompt-bar.png" alt-text="Screenshot showing the Microsoft Security Copilot prompt bar.":::
 
@@ -88,7 +88,7 @@ The following example prompts might be helpful.
 
 ### Summarize information about cross-site scripting attacks
 
-- Was any XSS attack detected in my AppGW WAF in the last 12 hours?
+- Was any XSS attack detected in my Application Gateway WAF in the last 12 hours?
 - Show me list of all XSS attacks in my Azure Front Door WAF
 
 ### Generate a list of threats in my environment based on WAF rules
@@ -119,9 +119,10 @@ If you migrate to Azure Log Analytics dedicated tables in the Application Gatewa
 
 ## Privacy and data security in Microsoft Security Copilot
 
-To understand how Microsoft Security Copilot handles your prompts and the data that’s retrieved from the service(prompt output), see [Privacy and data security in Microsoft Security Copilot](/security-copilot/privacy-data-security).
+To understand how Microsoft Security Copilot handles your prompts and the data that’s retrieved from the service (prompt output), see [Privacy and data security in Microsoft Security Copilot](/security-copilot/privacy-data-security).
 
 ## Related content
 
 - [What is Microsoft Security Copilot?](/copilot/security/microsoft-security-copilot)
-
+- [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot)
+- [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot)
