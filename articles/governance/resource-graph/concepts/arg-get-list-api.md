@@ -160,8 +160,7 @@ The following example is a .NET Code sample to call ARG GET/LIST API by creating
 First, we create custom ArmClientOption with policy that adds the `useResourceGraph=True` flag per call: 
 
 ```bicep
-var armClientOptions = new ArmClientOptions(); 
-armClientOptions.AddPolicy(new ArgGetListHttpPipelinePolicy(), HttpPipelinePosition.PerCall); 
+var armClientOptions = new ArmClientOptions(); armClientOptions.AddPolicy(new ArgGetListHttpPipelinePolicy(), HttpPipelinePosition.PerCall); 
 ```
 
 Then, we create ArmClient using the custom ArmClientOptions:
