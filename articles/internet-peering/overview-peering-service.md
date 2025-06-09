@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: overview
 ms.date: 04/21/2025
+# Customer intent: As a network engineer, I want to understand the differences between Internet peering and Peering Service, so that I can determine the best connectivity options for optimizing performance and reliability when connecting to Microsoft Cloud Services.
 ---
 
 # Internet peering vs. Peering Service

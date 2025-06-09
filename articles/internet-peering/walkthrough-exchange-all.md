@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 04/21/2025
 
 #CustomerIntent: As an administrator, I want to learn about the requirements to create an exchange peering in Azure Peering Service, so I can provision and manage exchange peerings.
+# Customer intent: As a network administrator, I want to understand how to provision and manage exchange peerings in Azure Peering Service, so that I can establish reliable connections for data exchange.
 ---
 
 # Set up and manage an exchange peering
