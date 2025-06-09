@@ -39,7 +39,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | Canada East | | Canada Central | Quebec | Canada |
 | Central India | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | South India | Pune | India |
 | Central US | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | East US 2 | Iowa | United States |
-| :::image type="content" source="media/icon-region-coming-soon.svg"  alt-text="Icon that shows that this region is coming soon."  border="false"::: Chile Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | Santiago | Chile |
+| Chile Central | :::image alt-text="Yes" type="content" source="media/icon-checkmark.svg" border="false"::: | n/a | Santiago | Chile |
 | East Asia | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Southeast Asia | Hong Kong SAR | Asia Pacific |
 | East US | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | West US | Virginia | United States |
 | East US 2 | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Central US | Virginia | United States |
@@ -90,6 +90,7 @@ To retrieve a list of regions names directly, including the names that can be us
 - [Azure CLI - az account list-locations](/cli/azure/account#az-account-list-locations)
 - [Azure PowerShell - Get-AzLocation](/powershell/module/az.resources/get-azlocation)
 - [Azure Resource Manager REST API](/rest/api/resources/subscriptions/list-locations)
+
 ## Related content
 
 - [What are Azure regions](regions-overview.md)
