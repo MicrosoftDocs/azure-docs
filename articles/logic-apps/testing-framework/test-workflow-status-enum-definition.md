@@ -1,5 +1,5 @@
 ---
-title: TestWorkflowStatus Enum Definition
+title: TestWorkflowStatus enum
 description: The possible execution states that a unit test run can have for a Standard logic app workflow, trigger, or action during test execution.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/10/2025
 ---
 
-# TestWorkflowStatus Enum Definition
+# TestWorkflowStatus enum
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
