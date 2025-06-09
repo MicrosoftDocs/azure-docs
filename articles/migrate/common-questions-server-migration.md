@@ -394,6 +394,39 @@ You can work out the bandwidth requirement based on:
 
 Ideally, you'd want initial replication to complete at least 3-4 days before the actual migration window. This timeline gives you sufficient time to perform a test migration before the actual window and keep downtime during the window to a minimum.
 
+## How do I roll back if something goes wrong during the migration process?
+
+Azure Migrate doesn't support rollback today, which means after users migrate, they can't go back to on-premises.
+
+## What strategies do I use to reduce downtime during migration?
+
+1. Use Agent-Based Replication for Continuous Sync
+    **Tool**: Azure Migrate: Server Migration
+    **How it helps**: It continuously replicates on-premises VMs to Azure.
+    **Benefit**: This helps you cut over with minimal data loss (RPO of a few seconds) and reduces downtime (RTO of a few minutes).
+1. Perform Test Migrations
+    **How it helps**: Azure Migrate lets you run test migrations without affecting the production VM.
+    **Benefit**: You check boot success, network connectivity, and application functionality in Azure before the final cutover.
+1. Use Replication Groups for Dependency-Aware Migration
+    **How it helps**: You group VMs based on application or service dependencies and migrate them together.
+    **Benefit**: This lowers the risk of broken dependencies during migration and helps keep services running smoothly.
+1.  Schedule Cutovers During Maintenance Windows
+    **How it helps**: You plan the final cutover (switching users to the Azure-hosted app) during a known low-traffic period.
+    **Benefit**: This minimizes the user impact and gives time for rollback if needed.
+1. Do a Phased Migration
+    **How it helps**: You migrate and modernize workloads in stages instead of all at once.
+    **Benefit**: Smaller changes minimize the risk and help keep services available throughout the process.
+
+## How do I measure the success of my cloud migration execution?
+
+| Metric  | Description |
+| --- | --- |
+| Cutover success rate | Percentage of workloads successfully migrated without rollback or issues. |
+| Downtime duration | Total unplanned downtime occurs during cutover; the goal is minimal or zero. |
+| Data integrity | Post-migration validation of data completeness and accuracy. |
+| Application functionality |Post-migration, apps work exactly as expected (functional testing, and UAT pass). |
+| Migration completion timeline | Actual vs planned migration schedule adherence. |
+
 ## Related content
 
 * Learn more about migrating [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [physical servers](tutorial-migrate-physical-virtual-machines.md).

@@ -102,6 +102,26 @@ Customers who want to migrate first learn how to use the Azure portal and unders
 - **Scripting**: Use Bash, PowerShell, or Python to automate parts of the migration and testing.
 - **Integration**: Use APIs, middleware, and tools like MuleSoft or Boomi toto maintain interoperability.
 
+
+## What migration approaches do I have with Azure Migrate, such as rehosting, replatforming, or refactoring?
+
+Azure Migrate now offers options to create business cases and assessment reports for workloads that users want to rehost, replatform, or refactor.
+
+For actual migration execution, Azure Migrate supports rehosting (also known as lift-and-shift).
+
+For rehosting:
+
+- **Server migration**: It helps move virtual machines (VMware, Hyper-V, or physical servers).
+- **Database migration service (DMS)**: It supports migrating SQL Server and other databases.
+
+This approach works best for:
+
+- Legacy applications
+- Quick migrations with minimal testing
+- Time-sensitive lift-and-shift projects
+- Applications with complex code that still run well on Azure
+
+
 ## Next steps
 
 Read the [Azure Migrate overview](migrate-services-overview.md).
