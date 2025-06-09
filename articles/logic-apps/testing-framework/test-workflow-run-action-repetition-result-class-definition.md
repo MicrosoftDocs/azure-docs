@@ -1,5 +1,5 @@
 ---
-title: TestWorkflowRunActionRepetitionResult Class Definition
+title: TestWorkflowRunActionRepetitionResult class
 description: The result from an action in a loop iteration from a Standard logic app workflow run during unit test execution.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/10/2025
 ---
 
-# TestWorkflowRunActionRepetitionResult Class Definition
+# TestWorkflowRunActionRepetitionResult class
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting.Definitions
 
