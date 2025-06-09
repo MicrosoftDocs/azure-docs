@@ -1,5 +1,5 @@
 ---
-title: UnitTestExecutor Class Definition
+title: UnitTestExecutor class
 description: Detailed documentation for the UnitTestExecutor class in the Azure Logic Apps Unit Testing SDK.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/10/2025
 ---
 
-# UnitTestExecutor Class Definition
+# UnitTestExecutor class
 
 This class provides functionality to run unit tests for Standard logic app workflows in single-tenant Azure Logic Apps. The class serves as the main entry point for running workflow tests with mock data and custom configurations.
 
