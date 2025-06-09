@@ -44,7 +44,7 @@ ASIM includes two levels of parsers: **unifying** parser and **source-specific**
 The unifying parser name is `_Im_<schema>` for built-in parsers and `im<schema>` for workspace deployed parsers, where `<schema>` stands for the specific schema it serves. Source-specific parsers can also be used independently. Use `_Im_<schema>_<source>` for built-in parsers and `vim<schema><source>` for workspace deployed parsers. For example, in an Infoblox-specific workbook, use the `_Im_Dns_InfobloxNIOS` source-specific parser. You can find a list of source-specific parsers in the [ASIM parsers list](normalization-parsers-list.md).
 
 >[!TIP]
-> A corresponding set of parsers that use `_ASim_<schema>` and `ASim<Schema>` are also available. Theses parsers do not support filtering parameters and are provided to help mitigate the [Time picker set to a custom range](normalization-known-issues.md#time-picker-set-to-a-custom-range) issue. Use those parsers only interactively in the logs screen, but not elsewhere, for example in analytic rules or workbooks. This parsers may not be removed when the issue is resolves.
+> A corresponding set of parsers that use `_ASim_<schema>` and `ASim<Schema>` are also available. These parsers do not support filtering parameters and are provided to help mitigate the [Time picker set to a custom range](normalization-known-issues.md#time-picker-set-to-a-custom-range) issue. Use those parsers only interactively in the logs screen, but not elsewhere, for example in analytic rules or workbooks. This parsers may not be removed when the issue is resolves.
 
 
 >[!TIP]

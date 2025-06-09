@@ -265,9 +265,9 @@ Adapters provide the connectivity capabilities in BizTalk Server and run locally
 
 Connectors provide the connectivity capabilities in Azure Logic Apps and offer an abstraction on top of APIs that are usually owned by the underlying SaaS system. For example, services such as SharePoint are built using an API-first approach where APIs provide functionality to the service for end users, but the same functionality is exposed for other systems to call through an API. To simplify calling these APIs, connectors use metadata to describe the messaging contract so that developers know what data is expected in the request and in the response.
 
-The following screenshot shows the connector operations search experience in the designer for a Standard logic app workflow in single-tenant Azure Logic Apps. When you select **In-app** from the **Runtime** list, you can find built-in connectors such as Azure Functions, Azure Service Bus, IBM DB2, SQL Server, Azure Storage, File System, HTTP, and more. If you select **Shared**, you can find over 1,000 connectors, including other Microsoft SaaS connectors, partner SaaS connectors, and so on.
+The following screenshot shows the connector operations search experience in the designer for a Standard logic app workflow in single-tenant Azure Logic Apps. When you select **Built-in**, you can find built-in connectors such as Azure Functions, Azure Service Bus, IBM DB2, SQL Server, Azure Storage, File System, HTTP, and more. If you select **Shared**, you can find over 1,000 connectors, including other Microsoft SaaS connectors, partner SaaS connectors, and so on.
 
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/azure-logic-apps-connectors-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and connectors based on whether In-app or Shared is selected.":::
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/azure-logic-apps-connectors-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and connectors based on whether Built-in or Shared is selected.":::
 
 ### Web services and API connectivity
 

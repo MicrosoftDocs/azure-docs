@@ -10,7 +10,10 @@ ms.custom: engagement-fy23
 
 # Install Cloud Backup for Virtual Machines (preview)
 
-Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to back up and restore Azure NetApp Files datastores and virtual machines (VMs). 
+Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to back up and restore Azure NetApp Files datastores and virtual machines (VMs) residing in NetApp Datastore to be backed up and restored.
+
+:::image type="content" source="./media/cloud-backup/cloud-backup-overview.png" alt-text="Diagram showing solution overview of Cloud Backup for Virtual Machines." lightbox="./media/cloud-backup/cloud-backup-overview.png":::
+
 
 Cloud Backup for Virtual Machines features:
 
@@ -96,7 +99,7 @@ You can execute the run command to uninstall Cloud Backup for Virtual Machines.
 
 > [!IMPORTANT]
 > Before you initiate the upgrade, you must:
-> * Backup the MySQL database of Cloud Backup for Virtual Machines. 
+> * Back up the MySQL database of Cloud Backup for Virtual Machines. 
 > * Ensure that there are no other VMs installed in the VMware vSphere tag: `AVS_ANF_CLOUD_ADMIN_VM_TAG`. All VMs with this tag are deleted when you uninstall.
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Uninstall-NetAppCBSAppliance**.

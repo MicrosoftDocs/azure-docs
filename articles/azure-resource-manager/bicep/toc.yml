@@ -509,6 +509,9 @@ items:
       - name: No unused existing resources
         displayName: linter
         href: linter-rule-no-unused-existing-resources.md
+      - name: No unused imports
+        displayName: linter
+        href: linter-rule-no-unused-imports.md
       - name: No unused parameters
         displayName: linter
         href: linter-rule-no-unused-parameters.md

@@ -75,6 +75,9 @@ The following example shows the rules that are available for configuration.
         "no-unused-existing-resources": {
           "level": "warning"
         },
+        "no-unused-imports": {
+          "level": "warning"
+        },
         "no-unused-params": {
           "level": "warning"
         },

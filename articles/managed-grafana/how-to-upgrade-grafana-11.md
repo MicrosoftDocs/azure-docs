@@ -7,7 +7,7 @@ author: maud-lv
 ms.author: malev 
 ms.date: 02/28/2025 
 ms.topic: how-to 
-# customerIntent: As a user of Azure Managed Grafana, I want to upgrade my workspce from Grafana 10 to Grafana 11.
+# customerIntent: As a user of Azure Managed Grafana, I want to upgrade my workspace from Grafana 10 to Grafana 11.
 --- 
 
 # Upgrade to Grafana 11

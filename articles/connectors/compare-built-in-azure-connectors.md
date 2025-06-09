@@ -1,17 +1,17 @@
 ---
-title: Built-in operations versus Azure connectors in Standard
-description: Learn the differences between built-in operations and Azure connectors for Standard logic apps.
+title: Built-in operations versus shared connectors in Standard
+description: Learn the differences between built-in operations and shared connectors for Standard logic apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 02/20/2025
+ms.date: 06/09/2025
 # Customer intent: As a developer, I want to understand the differences between built-in and Azure connectors in Azure Logic Apps (Standard).
 ---
 
 # Differences between built-in operations and Azure connectors in Azure Logic Apps (Standard)
 
-For Standard logic app resources, the workflow designer shows the available connectors and operations using the labels named **In-App** and **Shared**. The **In-App** label applies to [*built-in* operations](built-in.md), which natively run in the same cluster and runtime as your Standard logic app in single-tenant Azure Logic Apps. This label also applies to connectors known as *service providers*, which are actually custom extensions that are implemented based on Azure Functions. Anyone can create their own service provider connector.
+For Standard logic app resources, the workflow designer shows the available connectors and operations using the labels named **Built-in** and **Shared**. The **Built-in** label applies to [*built-in* operations](built-in.md), which natively run in the same cluster and runtime as your Standard logic app in single-tenant Azure Logic Apps. This label also applies to connectors known as *service providers*, which are actually custom extensions that are implemented based on Azure Functions. Anyone can create their own service provider connector.
 
 The **Shared** label applies to [Azure-hosted connectors *managed* by Microsoft](managed.md), which run in shared connector clusters in the multitenant Azure cloud. These shared managed connector clusters exist separately from single-tenant Azure Logic Apps, which runs in a different cluster. If your workflow has to invoke a managed connector operation, Azure Logic Apps makes a call to the connector in the managed connector clusters. In turn, the connector might then call the backend target service, which can be Office 365, Salesforce, and so on.
 
@@ -50,7 +50,7 @@ Built-in connectors run in the same cluster as the Azure Logic Apps host runtime
 
 Instead, for Azure connectors to work when VNet integration is enabled on a Standard logic app, you have to allow traffic through the [outbound IP addresses for managed connectors](/connectors/common/outbound-ip-addresses) in the region where you created your logic app. For example, if the subnet that's used in the VNet integration has a network security group (NSG) policy or firewall, that subnet has to allow outbound traffic to the outbound IP addresses for managed connectors.
 
-## Next steps
+## Related content
 
 - [Logic Apps Anywhere: Networking possibilities with Logic Apps (single-tenant)](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
 
