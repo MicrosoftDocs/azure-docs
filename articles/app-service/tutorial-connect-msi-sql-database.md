@@ -36,11 +36,6 @@ For guidance about using Azure Database for MySQL or Azure Database for PostgreS
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-- Create a sample web app by using one of the following tutorials:
-
-  - [Tutorial: Build an ASP.NET app in Azure with Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
-  - [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
-  
 - Have a basic Azure App Service [ASP.NET MVC](https://www.asp.net/mvc) or [ASP.NET Core MVC](/aspnet/core/mvc/overview) create-read-update-delete (CRUD) app that uses Azure SQL Database with SQL authentication as the back end. The steps in this tutorial support the following .NET versions:
 
   - .NET Framework 4.8 and above
