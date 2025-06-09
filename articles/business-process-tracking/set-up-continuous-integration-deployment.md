@@ -314,14 +314,18 @@ After you finish these steps, your business process pipelines now appear in the 
 
 Azure Business Process Tracking uses Azure Data Explorer as the backend data store. So, you need to make sure that your service connection can connect, access, and update Data Explorer cluster, database, and tables.
 
-1. On the cluster, check whether your service connection has the **Contributor** role or access. If not, assign your service connection the appropriate role on your cluster.
+1. Go to the Data Explorer cluster, and check whether your service connection has the **Contributor** role or permissions. If not, assign your service connection the appropriate role on your cluster.
 
    For more information, see the following documentation:
 
    - [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)
    - [Role-based access control (Azure Data Explorer)](/kusto/access-control/role-based-access-control?view=azure-data-explorer#roles-and-permissions&preserve-view=true)
 
-1. On the cluster database where your service connection needs to create a table, make sure that your service connection has administrator privileges.
+1. On the Data Explorer database where your service connection needs to create a table, make sure that your service connection has **Database Admin** role.
+
+   1. Go to your Data Explorer database.
+   1. On the database menu, under **Overview**, select **Permissions**.
+   1. Add the service connection, and assign the **Database Admin** role.
 
    For more information, see the following documentation:
 
