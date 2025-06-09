@@ -180,5 +180,5 @@ BreakGlass account reconciliation occurs every four hours and ensures alignment 
 
 - **Group Role Assignment Removed**: All users in the group have their access revoked.
 
-- **Failure to Resolve Group Membership**: If group membership cannot be verified (for example, due to Entra API failures or connectivity issues), no changes are made to existing device accounts.
+- **Failure to Resolve Group Membership**: If group membership can't be verified (for example, due to Entra API failures or connectivity issues), no changes are made to existing device accounts.
 
