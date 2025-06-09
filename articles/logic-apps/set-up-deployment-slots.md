@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira, azla
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 06/09/2025
 
 #Customer intent: As a logic app developer, I want to set up deployment slots on my logic app resource so that I can deploy with zero downtime.
 ---
@@ -41,6 +41,11 @@ With deployment slots, you can achieve continuous delivery and improve your appl
   - Blue-green deployment
   - Product verification testing before slot swapping
   - A/B testing
+
+- Additional steps are needed if the storage is private:
+  
+  - After creating a slot, open the slot's environment variable WEBSITE_CONTENTSHARE to find its value for the file share. Then go to the storage account to manually create a file share with the same name.
+  - On each slot, add an environment varaible named WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS and set its value to 0.
 
 ## Prerequisites
 
