@@ -1058,7 +1058,7 @@ items:
       href: how-tos/call-automation/actions-for-call-control.md
     - name: Control mid call media actions
       href: how-tos/call-automation/control-mid-call-media-actions.md
-    - name: Secure webhook endpoints
+    - name: Secure webhook and websocket endpoints
       href: how-tos/call-automation/secure-webhook-endpoint.md
     - name: Handle Call Automation events with EventProcessor
       href: how-tos/call-automation/handle-events-with-event-processor.md
