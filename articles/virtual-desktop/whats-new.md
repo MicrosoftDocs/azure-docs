@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: dougeby
 ms.author: avdcontent
-ms.date: 04/30/2025
+ms.date: 06/06/2025
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,32 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## June 2025
+
+Here's what changed in June 2025:
+
+### High Efficiency Video Coding (HEVC/H.265) hardware acceleration support is now generally available
+
+Azure Virtual Desktop graphics processing unit (GPU) acceleration support for frame encoding using HEVC/H.265 is now generally available. GPU acceleration improves graphical experiences when using the Remote Desktop Protocol (RDP) with a compatible GPU-enabled Azure Virtual Machine.
+
+For more information, see [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md).
+
+## May 2025
+
+Here's what changed in May 2025:
+
+### Connect directly to Azure Virtual Desktop with a direct launch URL
+
+You can now connect directly to Azure Virtual Desktop using a direct launch URL. The direct launch URL opens Windows App in a web browser and connects directly to a specific resource, such as a desktop or application, without requiring the user to select it from a list. This feature is useful for scenarios where you want to provide a direct link to a specific resource.
+
+For more information, see [Access desktops and apps using direct launch URLs for Windows App in a web browser](/windows-app/direct-launch-urls?tabs=avd).
+
+## Multiple personal desktops for a single user is now generally available
+
+Multiple personal desktop assignment allows you to assign more than one personal desktop to a single user in a single host pool, and is now generally available. Multiple desktops are useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments.
+
+For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).
 
 ## April 2025
 
