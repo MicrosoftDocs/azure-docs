@@ -76,7 +76,7 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "no-unused-imports": {
-          "level": "error"
+          "level": "warning"
         },
         "no-unused-params": {
           "level": "warning"
