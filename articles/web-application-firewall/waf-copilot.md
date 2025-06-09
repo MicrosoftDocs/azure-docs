@@ -36,17 +36,19 @@ This integration supports the standalone experience and is accessed through [htt
 
 - Providing a list of top Azure WAF rules triggered in the customer environment and generating deep context with related attack vectors.  
    
-   This capability provides details about Azure WAF rules that are triggered due to a WAF block. It provides an ordered list of rules based on trigger frequency in the desired time period. It does this by analyzing Azure WAF logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why a particular request was blocked.
+    This capability provides details about Azure WAF rules that are triggered due to a WAF block. It provides an ordered list of rules based on trigger frequency in the desired time period. The analysis processes Azure WAF logs and connects related logs over a specific time period. The result is an easy-to-understand natural language explanation of why a particular request was blocked.
+
 - Providing a list of malicious IP addresses in the customer environment and generating related threats.
 
-   This capability provides details about client IP addresses blocked by the Azure WAF. It does this by analyzing Azure WAF logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of which IP addresses the WAF blocked and the reason for the blocks. 
+    This capability provides details about client IP addresses blocked by the Azure WAF. The analysis processes Azure WAF logs and connects related logs over a specific time period. The result is an easy-to-understand natural language explanation of which IP addresses the WAF blocked and the reason for the blocks.
 
 - Summarizing SQL injection (SQLi) attacks.
 
-   This Azure WAF skill provides you with insights into why it blocks SQL injection (SQLi) attacks on web applications. It does this by analyzing Azure WAF logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why a SQLi request was blocked. 
+   This capability provides details about SQL injection (SQLi) attacks that were blocked by Azure WAF. By analyzing Azure WAF logs and correlating related data over a specific time period, this skill delivers an easy-to-understand natural language explanation of why SQLi requests were blocked.
+
 - Summarizing Cross-site scripting (XSS) attacks.
 
-   This Azure WAF skill helps you understand why Azure WAF blocked Cross Site Scripting (XSS) attacks to web applications. It does this by analyzing Azure WAF logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why an XSS request was blocked.
+   This Azure WAF skill helps you understand why Azure WAF blocked Cross Site Scripting (XSS) attacks to web applications. The skill analyzes Azure WAF logs and connects related incidents over a specific time period. The result is an easy-to-understand natural language explanation of why an XSS request was blocked.
 
 ## Enable the Azure WAF integration in Copilot for Security
 
