@@ -118,7 +118,7 @@ In this sample cmdlet:
 - The second and third command fetches the India timezone and updates the timezone in the $schedulePolicy.
 - The fourth and fifth command initializes the schedule window start time and updates the $schedulePolicy. 
 
-  >[Note]
+  >[!Note]
   >The start time must be in UTC even if the timezone is not UTC.
 
 - The sixth and seventh command updates the interval (in hours) after which the backup will be retriggered on the same day, duration (in hours) for which the schedule will run.

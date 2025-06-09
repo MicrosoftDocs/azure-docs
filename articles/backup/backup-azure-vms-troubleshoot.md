@@ -584,7 +584,7 @@ Get more information on how to set up a static IP through PowerShell:
 
 **Error code**: `BackUpOperationFailedV2`
 
-**Error message**: The backups of VMs have failed after the policy migration from Standard to Enhanaced policy.
+**Error message**: The backups of VMs have failed after the policy migration from Standard to Enhanced policy.
 
 **Cause**: Snapshot retention of the Enhanced policy is applied on the older recovery points that were originally created under the Standard policy when you move a VM from a Standard to Enhanced policy.
 
