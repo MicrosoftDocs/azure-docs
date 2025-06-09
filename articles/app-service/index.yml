@@ -61,22 +61,25 @@ landingContent:
         links:
           - text: Introduction to AI integration with App Service
             url: overview-ai-integration.md
-          - text: Using Azure OpenAI with App Service
-            url: tutorial-openai-app-service.md
-          - text: Adding AI-powered chatbots to your web app
-            url: tutorial-ai-chatbot-app.md
       - linkListType: tutorial
         links:
+          - text: Build a RAG application with Azure OpenAI and Azure AI Search (.NET)
+            url: tutorial-ai-openai-search-dotnet.md
+          - text: Build a chatbot with Azure OpenAI (Spring Boot)
+            url: tutorial-ai-openai-chatbot-java.md            
           - text: Build a chatbot with Azure OpenAI (Blazor)
             url: tutorial-ai-openai-chatbot-dotnet.md
-          - text: Build a retrieval-augmented generation (RAG) application with Azure OpenAI and Azure AI Search (.NET)
-            url: tutorial-ai-openai-search-dotnet.md
-          - text: Build a RAG application with Azure OpenAI and Azure SQL
-            url: deploy-intelligent-apps-dotnet-to-azure-sql.md
-          - text: Run a chatbot with a local semantic language model (SLM) sidecar extension
-            url: tutorial-ai-slm-dotnet.md
+          - text: Run a chatbot with a local SLM (Express.js)
+            url: tutorial-ai-slm-expressjs.md
           - text: Invoke OpenAPI web app from Azure AI Agent
             url: invoke-openapi-web-app-from-azure-ai-agent-service.md
+
+  - title: Troubleshoot with Azure SRE Agent (AI)
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Fix application issues with SRE Agent
+            url: tutorial-sre-agent.md
 
   - title: Build a CRUD app
     linkLists:
