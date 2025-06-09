@@ -1,6 +1,6 @@
 ---
 title: TestIterationItem Class Definition
-description: The item in an iteration context for looping actions in Standard workflows during unit text execution.
+description: The item from a loop iteration for a Standard workflow during unit text execution.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
