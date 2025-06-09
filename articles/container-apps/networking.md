@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 05/02/2025
+ms.date: 06/09/2025
 ms.author: cshoe
 ms.custom:
   - build-2025
@@ -137,7 +137,7 @@ Different environment types have different subnet requirements:
 
 - When using an external environment with external ingress, inbound traffic routes through the infrastructure’s public IP rather than through your subnet.
 
-- Container Apps automatically reserves 12 IP addresses for integration with the subnet. The number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you're using more IP addresses are allocated depending on your environment's workload profile:
+- Container Apps automatically reserves 14 IP addresses for integration with the subnet. The number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you're using more IP addresses are allocated depending on your environment's workload profile:
 
   - [Dedicated workload profile](workload-profiles-overview.md#profile-types): As your container app scales out, each node has one IP address assigned.
 
@@ -147,13 +147,13 @@ Different environment types have different subnet requirements:
 
     | Subnet Size | Available IP Addresses<sup>1</sup> | Max nodes (Dedicated workload profile)<sup>2</sup>| Max replicas (Consumption workload profile)<sup>2</sup> |
     |--|--|--|--|
-    | /23 | 495 | 247 | 2,470 |
-    | /24 | 239 | 119 | 1,190 |
-    | /25 | 111 | 55 | 550 |
-    | /26 | 47 | 23 | 230 |
-    | /27 | 15 | 7 | 70 |
+    | /23 | 498 | 249 | 2,490 |
+    | /24 | 242 | 121 | 1,210 |
+    | /25 | 114 | 57 | 570 |
+    | /26 | 50 | 25 | 250 |
+    | /27 | 18 | 9 | 90 |
     
-    <sup>1</sup> The available IP addresses is the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure and 5 IP addresses reserved by the subnet.  
+    <sup>1</sup> The available IP addresses is the size of the subnet minus the 14 IP addresses required for Azure Container Apps infrastructure and reserved by the subnet.
     <sup>2</sup> This is accounting for apps in single revision mode.  
 
 # [Consumption only environment](#tab/consumption-only-env)
@@ -169,7 +169,6 @@ Different environment types have different subnet requirements:
 - When you make a [change to a revision](revisions.md#revision-scope-changes) in single revision mode, the required address space is doubled for a short period of time in order to support zero downtime deployments. This affects the real, available supported replicas for a given subnet size.
 
 ---
-
 
 ### Subnet address range restrictions
 
