@@ -13,7 +13,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 Break glass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide walks you through setting up and using break glass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
 
-Method D v2.0 also supports assigning roles to Entra Groups, streamlining the management of break glass access by leveraging group-based role assignments. 
+Method D v2.0 also supports assigning roles to Entra Groups, streamlining the management of break glass access by applying group-based role assignments. 
 
 ## Generating SSH Keys using the Nexusidentity Azure CLI
 
@@ -83,7 +83,7 @@ To start with break glass Identity and Access Management (IAM) configuration, yo
       az login
       ```
 
-   d. Run the following command to generate SSH keys:
+   d. To generate SSH keys run the following command:
 
       ```Azure CLI
       az nexusidentity gen-keys
@@ -134,13 +134,14 @@ Once these roles are assigned, the corresponding username and public SSH key are
 
 ## Scope for group based role assignments
 
-Role assignments can be made at either the subscription or fabric scope. But these role assignments have been validated at the fabric level. Each user must have rights for the specific fabric instance, which may be inherited from higher-level grants (e.g., subscription-level assignments).
+Role assignments can be made at either the subscription or fabric scope. These role assignments were validated at the fabric level. Each user must have rights for the specific fabric instance, which may be inherited from higher-level grants (for example, subscription-level assignments).
 
-Multiple groups can be assigned the same NNF built-in role (e.g., Nexus Network Fabric Service Reader or Writer) for a given fabric instance.
+Multiple groups can be assigned the same Nexus Network Fabric (NNF) built-in role (for example, Nexus Network Fabric Service Reader or Writer) for a given fabric instance.
 
 ### User Limitations
-A maximum of 200 user accounts (across all groups and individual assignments) can be granted BreakGlass access. This limit is subject to review in future releases.
-Multiple groups may be assigned the same role for a fabric instance, but the 200-user limit still applies.
+A maximum of 200 user accounts (across all groups and individual assignments) can be granted BreakGlass access.
+
+Multiple groups may be assigned to the same role for a fabric instance, but the 200-user limit still applies.
 
 > [!Note] 
 > Nested groups are not supported. Only direct group memberships are considered.
@@ -173,11 +174,11 @@ Upon assigning an Entra Group to a BreakGlass role, all users in that group will
 
 BreakGlass account reconciliation occurs every four hours and ensures alignment between Entra role assignments and device access:
 
-- **User Removed from Group**: Device access will be revoked.
+- **User Removed from Group**: Device access is revoked.
 
-- **User Added to Group**: Appropriate device access will be provisioned.
+- **User Added to Group**: Appropriate device access is provisioned.
 
-- **Group Role Assignment Removed**: All users in the group will have their access revoked.
+- **Group Role Assignment Removed**: All users in the group have their access revoked.
 
-- **Failure to Resolve Group Membership**: If group membership cannot be verified (e.g., due to Entra API failures or connectivity issues), no changes will be made to existing device accounts.
+- **Failure to Resolve Group Membership**: If group membership can't be verified (for example, due to Entra API failures or connectivity issues), no changes are made to existing device accounts.
 
