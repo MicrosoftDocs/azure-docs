@@ -1,25 +1,24 @@
 ---
-title: Enable and view enhanced telemetry for Standard workflows
-description: How to enable and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps.
+title: Set up and view enhanced telemetry for Standard workflows
+description: Learn to set up and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/16/2024
+ms.date: 06/19/2025
 
 # Customer intent: As a developer, I want to turn on and view enhanced telemetry in Application Insights for Standard logic app workflows.
 ---
 
-# Enable and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps
+# Set up and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 In Application Insights, you can enable enhanced telemetry collection for your Standard logic app resource and then view the collected data after your workflow finishes a run. This capability gives you a simplified experience to discover insights about your workflows and more control over filtering events at the data source, which helps you reduce storage costs. These improvements focus on real-time performance metrics that provide insights into your system's health and behavior. This can help you with proactively detecting and resolving issues earlier.
 
-With your logic app connected to Application Insights, you can view log data and other metrics in near real time through the Azure portal by using [Live Metrics Stream](/azure/azure-monitor/app/live-stream). 
-You also have visualizations to help you plot incoming requests, outgoing requests, and overall health and access to a table of trace level diagnostics.
+With your logic app connected to Application Insights, you can view log data and other metrics in near real time through the Azure portal by using [Live Metrics Stream](/azure/azure-monitor/app/live-stream). You also have visualizations to help you plot incoming requests, outgoing requests, and overall health and access to a table of trace level diagnostics.
 
 The following list describes some example telemetry improvements:
 
@@ -28,6 +27,13 @@ The following list describes some example telemetry improvements:
 -	Capture exceptions for trigger and action failures.
 -	More control over filtering non-workflow related events.
 -	Advanced filtering that gives you more control over how events are emitted, including triggers and actions.
+
+You can also set up your Standard logic app resource to export log and trace data in [OpenTelemetry format](https://opentelemetry.io/). By default, this telemetry data is sent to Application Insights using the Application Insights SDK. However, you can choose to export this data using OpenTelemetry semantics. While you can still use an OpenTelemetry format to send your data to Application Insights, you can also export the same data to any other OpenTelemetry-compliant endpoint. OpenTelemetry provides the following benefits for your logic app:
+
+- Correlation across traces and logs generated at the host and in your application code.
+- Consistent, standards-based generation for exportable telemetry data.
+- Integration with other providers that can consume OpenTelemetry-compliant data.
+- Enable OpenTelemetry at the logic app resource level, both in host configuration (host.json) and in your logic app project.
 
 This guide shows how to turn on enhanced telemetry collection in Application Insights for your Standard logic app.
 
@@ -100,6 +106,128 @@ This guide shows how to turn on enhanced telemetry collection in Application Ins
    This configuration enables the default level of verbosity. For other options, see [Apply filtering at the source](#filter-events-source).
 
 ---
+
+## Set up OpenTelemetry for performance monitoring
+
+For partially connected and on-premises scenarios, you can configure your Standard logic app to emit telemetry based on the [OpenTelemetry-supported](https://opentelemetry.io/) app settings that you define for the specific environment. However, before you set up OpenTelemetry, consider the following limitations in the current release:
+
+- Only the following triggers currently support OpenTelemetry outputs: HTTP, Service Bus, and Event Hubs
+
+- Metrics export is currently unsupported.
+
+### [Portal](#tab/portal)
+
+To set up OpenTelemetry capability in the Azure portal, follow the steps, based on hosting option for your Standard logic workflow.
+
+#### Hosting option: Workflow Service Plan or App Service Environment V3
+
+For a Standard logic app that uses the hosting option for **Workflow Service Plan** or **App Service Environment V3**, follow these steps to update the **host.json** file in the root directory for your logic app resource:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource navigation menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+
+1. In the **Kudu+** console, from the **Debug console** menu, select **CMD**. Go to **site** > **wwwroot**.
+
+1. Edit the **host.json** file. At the root level, add the following **telemetryMode** setting with the **OpenTelemetry** value, for example:
+
+   ```json
+   {
+       "version": "2.0",
+       "extensionBundle": {
+           "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+           "version": "[1.*, 2.0.0)"
+       },
+       "telemetryMode": "OpenTelemetry"
+   }
+   ```
+
+1. Save your edits.
+
+1. On the resource navigation menu, under **Settings** > **Environment variables**, select **App settings**.
+
+1. Add the following app settings:
+
+   | App setting | Description |
+   |-------------|-------------|
+   | **OTEL_EXPORTER_OTLP_ENDPOINT** | The online transaction processing (OTLP) exporter endpoint URL for where to send the telemetry data, for example: **`https://otel.kloud....`** <br><br> For more information, see [OTEL_EXPORTER_OTLP_ENDPOINT](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_endpoint). |
+   | **OTEL_EXPORTER_OTLP_HEADERS** (optional) | A list of headers to apply to all outgoing data. Commonly used to pass authentication keys or tokens to your observability backend, for example, **`Authorization=sk_....`**. <br><br> For more information, see [OTEL_EXPORTER_OTLP_HEADERS](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_headers). |
+
+1. When you're done, select **Apply**.
+
+1. If your OpenTelemetry endpoint requires other OpenTelemetry-related settings, include these settings in the app settings too. For more information, see [OTLP Exporter Configuration](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/).
+
+#### Hosting option: Hybrid
+
+For a Standard logic app that uses the **Hybrid** hosting option, follow the corresponding steps to set up OpenTelemetry:
+
+1. On your on-premises SMB file share, in the root directory, find and open the **host.json** file.
+
+1. In the **host.json** file, at the root level, add the following **telemetryMode** setting with the **OpenTelemetry** value, and save your changes, for example:
+
+   ```json
+   {
+       "version": "2.0",
+       "extensionBundle": {
+           "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+           "version": "[1.*, 2.0.0)"
+       },
+       "telemetryMode": "OpenTelemetry"
+   }
+   ```
+
+1. Save your edits.
+
+1. In the [Azure portal](https://portal.azure.com), find and open your Standard logic app resource with the **Hybrid** hosting option.
+
+1. On the resource navigation menu, under **Settings**, select **Containers**, and then select **Edit and deploy**.
+
+1. On the **Edit a container** pane, select **Environment variables**, and then select **Add** so you can add the following app settings:
+
+   | Name | Source | Value | Description |
+   |------|--------|-------|-------------|
+   | **OTEL_EXPORTER_OTLP_ENDPOINT** | **Manual** | <*OTLP-endpoint-URL*> | The online transaction processing (OTLP) exporter endpoint URL for where to send the telemetry data, for example: **`https://otel.kloud....`** <br><br> For more information, see [OTEL_EXPORTER_OTLP_ENDPOINT](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_endpoint). |
+   | **OTEL_EXPORTER_OTLP_HEADERS** (optional) | **Manual** | <*OTLP-headers*> | A list of headers to apply to all outgoing data. Commonly used to pass authentication keys or tokens to your observability backend, for example, **`Authorization=sk_....`**. <br><br> For more information, see [OTEL_EXPORTER_OTLP_HEADERS](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_headers). |
+
+   The following example shows the specified app settings added to the logic app resource:
+
+   :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/hybrid-app-settings.png" alt-text="Screenshot shows Azure portal, Logic App (Hybrid) resource menu with selected Settings, Containers, Edit and deploy, and pane named Environment variables." lightbox="media/enable-enhanced-telemetry-standard-workflows/hybrid-app-settings.png":::
+
+1. When you're done, select **Save**.
+
+1. If your OpenTelemetry endpoint requires other OpenTelemetry-related settings, include these settings in the app settings too. For more information, see [OTLP Exporter Configuration](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/).
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+To set up OpenTelemetry capability in Visual Studio Code, follow these steps:
+
+1. In your Standard logic app project, open the **host.json** file at the project root level.
+
+1. In the **host.json** file, at the root level, add the following **telemetryMode** setting with the **OpenTelemetry** value, for example:
+
+   ```json
+   {
+       "version": "2.0",
+       "extensionBundle": {
+           "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+           "version": "[1.*, 2.0.0)"
+       },
+       "telemetryMode": "OpenTelemetry"
+   }
+   ```
+
+1. Open the **local.settings.json** file at the project root level, add the following app settings:
+
+   | App setting | Description |
+   |-------------|-------------|
+   | **OTEL_EXPORTER_OTLP_ENDPOINT** | The online transaction processing (OTLP) exporter endpoint URL for where to send the telemetry data, for example: **`https://otel.kloud....`** <br><br> For more information, see [OTEL_EXPORTER_OTLP_ENDPOINT](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_endpoint). |
+   | **OTEL_EXPORTER_OTLP_HEADERS** (optional) | A list of headers to apply to all outgoing data. Commonly used to pass authentication keys or tokens to your observability backend, for example, **`Authorization=sk_....`**. <br><br> For more information, see [OTEL_EXPORTER_OTLP_HEADERS](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_headers). |
+
+1. If your OpenTelemetry endpoint requires other OpenTelemetry-related settings, include these settings in the app settings too. For more information, see [OTLP Exporter Configuration](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/).
+
+---
+
+For more information, see [Edit host and app settings for Standard logic apps](edit-app-settings-host-settings.md).
 
 <a name="open-application-insights"></a>
 

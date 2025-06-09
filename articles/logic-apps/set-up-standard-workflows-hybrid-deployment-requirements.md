@@ -6,36 +6,33 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/13/2025
+ms.date: 06/09/2025
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ms.custom:
   - build-2025
 ---
 
-# Set up your own infrastructure for Standard logic apps using hybrid deployment (Preview)
+# Set up your own infrastructure for Standard logic apps using hybrid deployment
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
->
-> This capability is in preview, incurs charges for usage, and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Sometimes you have to set up and manage your own infrastructure to meet specific needs for regulatory compliance, data privacy, or network restrictions. Azure Logic Apps offers a *hybrid deployment model* so that you can deploy and host Standard logic app workflows in on-premises, private cloud, or public cloud scenarios. This model gives you the capabilities to host integration solutions in partially connected environments when you need to use local processing, data storage, and network access. With the hybrid option, you have the freedom and flexibility to choose the best environment for your workflows.
 
 ## How hybrid deployment works
 
-Standard logic app workflows with the hybrid deployment option are powered by an Azure Logic Apps runtime that is hosted in an Azure Container Apps extension. In your workflow, any [built-in operations](../connectors/built-in.md) run locally with the runtime so that you get higher throughput for access to local data sources. If you need access to non-local data resources, for example, cloud-based services such as Microsoft Office 365, Microsoft Teams, Salesforce, GitHub, LinkedIn, or ServiceNow, you can choose operations from [1,000+ connectors hosted in Azure](/connectors/connector-reference/connector-reference-logicapps-connectors) to include in your workflows. For more information, see [Managed (shared) connectors](../connectors/managed.md). Although you need to have internet connectivity to manage your logic app in the Azure portal, the semi-connected nature of this platform lets you absorb any temporary internet connectivity issues.
+Standard logic app workflows with the hybrid deployment option are powered by an Azure Logic Apps runtime that is hosted in an Azure Container Apps extension. In your workflow, any [built-in, runtime-native operations](../connectors/built-in.md) run locally with the runtime so that you get higher throughput for access to local data sources. If you need access to non-local data resources, for example, cloud-based services such as Microsoft Office 365, Microsoft Teams, Salesforce, GitHub, LinkedIn, or ServiceNow, you can choose operations from [1,400+ connectors hosted in Azure](/connectors/connector-reference/connector-reference-logicapps-connectors) to include in your workflows. For more information, see [Managed (shared) connectors](../connectors/managed.md). Although you need to have internet connectivity to manage your logic app in the Azure portal, the semi-connected nature of this platform lets you absorb any temporary internet connectivity issues.
 
 For example, if you have an on-premises scenario, the following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
 
 - Azure Arc-enabled Azure Kubernetes Service (AKS) clusters
-- A SQL database to locally store workflow run history, inputs, and outputs for processing
+- An SQL database to locally store workflow run history, inputs, and outputs for processing
 - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
 :::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
 
 For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Local](/azure/azure-local/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks/hybrid/kubernetes-walkthrough-powershell).
+
+The hybrid deployment model combines on-premises and cloud capabilities to provide flexible integration solutions for various needs. For example, your hybrid logic app resource can efficiently adjust resources based on changing workloads. This dynamic scaling helps you manage computing costs by increasing capacity during peak demand and reducing resources when usage drops.
 
 For more information, see the following documentation:
 
@@ -44,66 +41,20 @@ For more information, see the following documentation:
 - [Custom locations for Azure Arc-enabled Kubernetes clusters](/azure/azure-arc/platform/conceptual-custom-locations)
 - [What is Azure Container Apps?](../container-apps/overview.md)
 - [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
+- [Dynamic scaling model and architecture for Kubernetes-based Event-Driven Autoscaling (KEDA)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/scaling-mechanism-in-hybrid-deployment-model-for-azure-logic-apps-standard/4389763)
 
 This how-to guide shows how to set up the necessary on-premises resources in your infrastructure so that you can create, deploy, and host a Standard logic app workflow using the hybrid deployment model.
 
-<a name="billing"></a>
-
-## How billing works
-
-The hybrid option uses a billing model where you pay only for what you need and can scale resources for dynamic workloads without having to buy for peak usage. You're responsible for the following items:
-
-- Your Azure Arc-enabled Kubernetes infrastructure
-
-- Your SQL Server license
-
-- Billing charges for vCPU usage to support Standard logic app workloads
-
-  For more information, see the following sections:
-
-  - [vCPU usage calculation](#vcpu-usage-calculation)
-  - [Billing charge calculation](#billing-charge-calculation)
-
-- Billing charges for any [managed (shared) connector operations](../connectors/managed.md), such as Microsoft Teams or Microsoft Office 365, in your logic app workflows.
-
-  These operation executions follow [Standard pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing).
-
-<a name="vcpu-usage-calculation"></a>
-
-### vCPU usage calculation
-
-The vCPU usage for your Standard logic app affects your billing charges. A *vCPU* refers to the number of CPU cores, but this ratio isn't necessarily 1:1. The following formula calculates the vCPU usage for your logic app:
-
-**vCPU usage** = (**# of allocated vCPUs**) x (**# of replicas**)
-
-| Value | Description |
-|-------|-------------|
-| **# of allocated vCPUs** | By default, your logic app is allocated a default number of vCPUs. You can [change this vCPU allocation](create-standard-workflows-hybrid-deployment.md#change-vcpu-and-memory-allocation-in-the-azure-portal) anytime after you create your logic app resource. <br><br>**Note**: Any vCPUs that you allocate to your logic app come from *replica* vCPUs, so your allocation range is from 0.25 to 2 cores. For more information, see the next row. |
-| **# of replicas** | A [*replica*](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) is a new instance of a logic app resource revision or version that deploys when a workflow trigger event occurs. This number of replicas can vary due to your app's scaling needs at any given time. You can [change the minimum and maximum number of replicas](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) that each version or revision can have to meet your scaling needs. <br><br>**Note**: Each replica is limited to two vCPUs. Any vCPUs that you allocate to your logic app come from replica vCPUs, so your allocation range is 0.25 to 2 cores. |
-
-<a name="billing-charge-calculation"></a>
-
-### Billing charge calculation
-
-The following formula calculates your billing charge per hour, which is based on vCPU usage and at the rate of $0.18 USD per hour while your logic app is enabled:
-
-**Charge per hour** = (**vCPU usage**) x (**rate per hour**)
-
-For example, the following table shows some example billing charge calculations:
-
-| # of allocated vCPUs | # of replicas | vCPU usage | $USD rate per hour | Charge per hour |
-|----------------------|---------------|------------|--------------------|-----------------|
-| 1 | 1 | (1 x 1) = 1 | $0.18 | (1 x $0.18) = **$0.18** |
-| 0.5 | 2 | (0.5 x 2) = 1 | $0.18 | (1 x $0.18) = **$0.18** |
-| 0.5 | 1 | (0.5 x 1) = 0.5 | $0.18 | (0.5 x $0.18) = **$0.09** |
-
 ## Limitations
 
-- Hybrid deployment is currently available and supported only for the following Azure Arc-enabled Kubernetes clusters:
+The following section describes the limitations for the hybrid deployment option:
 
-  - Azure Arc-enabled Kubernetes clusters
-  - Azure Arc-enabled Kubernetes clusters on Azure Local (formerly Azure Stack HCI)
-  - Azure Arc-enabled Kubernetes clusters on Windows Server
+| Limitation | Description |
+|------------|-------------|
+| Data logging with a disconnected runtime | In partially connected mode, the Azure Logic Apps runtime can stay disconnected up to 24 hours and still retain data logs. However, any logging data past this duration might be lost. |
+| Supported Azure regions | Hybrid deployment is currently available and supported only in the following Azure regions: <br><br>- Central US <br>- East Asia <br>- East US <br>- North Central US <br>- Southeast Asia <br>- Sweden Central <br>- UK South <br>- West Europe <br>- West US <br> |
+| Supported Azure Arc-enabled Kubernetes clusters | - Azure Arc-enabled Kubernetes clusters <br>- Azure Arc-enabled Kubernetes clusters on Azure Local (formerly Azure Stack HCI) <br>- Azure Arc-enabled Kubernetes clusters on Windows Server |
+| Unsupported capabilities available in single-tenant Azure Logic Apps (Standard) and related Azure services | - Deployment slots <br><br>- Azure Business process tracking <br><br>- Resource health under **Support + troubleshooting** in Azure portal <br><br>- Managed identity authentication for connector operations. For more information, see [Limitations for creating hybrid deployment workflows](create-standard-workflows-hybrid-deployment.md#limitations). |
 
 ## Prerequisites
 
@@ -114,6 +65,10 @@ For example, the following table shows some example billing charge calculations:
 - [Technical requirements for working with Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli#before-you-begin)
 
 - [Technical requirements for Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-overview#prerequisites), including access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
+
+## Billing
+
+For information about how billing works, see [Standard (hybrid deployment)](logic-apps-pricing.md#standard-hybrid-pricing).
 
 ## Create a Kubernetes cluster
 
@@ -674,7 +629,7 @@ For more information, such as global parameters, see [**az containerapp arc setu
 
 ## Create SQL Server storage provider
 
-Standard logic app workflows in the hybrid deployment model use a SQL database as the storage provider for the data used by workflows and the Azure Logic Apps runtime, for example, workflow run history, inputs, outputs, and so on. 
+Standard logic app workflows in the hybrid deployment model use an SQL database as the storage provider for the data used by workflows and the Azure Logic Apps runtime, for example, workflow run history, inputs, outputs, and so on. 
 
 Your SQL database requires inbound and outbound connectivity with your Kubernetes cluster, so these resources must exist in the same network.
 
@@ -780,6 +735,10 @@ To test the connection between your Arc-enabled Kubernetes cluster and your SMB 
      **`- mount -t cifs //{ip-address-smb-computer}/{file-share-name}/mnt/smb -o username={user-name}, password={password}`**
 
 - To confirm that artifacts correctly upload, connect to the SMB file share path, and check whether artifact files exist in the correct folder that you specify during deployment.
+
+## Optimize performance for hybrid deployments
+
+To maximize the efficiency and performance for a Standard logic app in a hybrid deployment, you need to understand how to analyze and evaluate key aspects such as CPU, memory allocation, and scaling mechanisms so you can get valuable insights around optimization. Other key elements include the underlying Kubernetes infrastructure, SQL configuration, and scaling setup, which can significantly affect workflow efficiency and overall performance. For more information, see [Hybrid deployments performance analysis and optimization recommendations](https://techcommunity.microsoft.com/blog/integrationsonazureblog/hybrid-deployment-model-for-logic-apps--performance-analysis-and-optimization-re/4401529).
 
 ## Next steps
 

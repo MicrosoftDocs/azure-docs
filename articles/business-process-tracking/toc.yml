@@ -15,5 +15,7 @@ items:
     href: map-business-process-workflow.md
   - name: Deploy business process and tracking
     href: deploy-business-process.md
+  - name: Set up CI/CD pipelines
+    href: set-up-continuous-integration-deployment.md
   - name: Manage a business process
     href: manage-business-process.md

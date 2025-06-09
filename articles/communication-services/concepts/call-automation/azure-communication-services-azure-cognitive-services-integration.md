@@ -120,7 +120,7 @@ For the most up-to-date list of supported regions, refer to the official Azure A
 
 ## Known limitations
 
-- Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
+- Text-to-Speech text prompts support a maximum of 4000 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
 - For scenarios where you exceed your Speech service quota limit, you can request to increase this limit by following the steps outlined [here](/azure/ai-services/speech-service/speech-services-quotas-and-limits).
 
 ## Next steps
