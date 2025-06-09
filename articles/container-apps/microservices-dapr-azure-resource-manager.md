@@ -7,7 +7,11 @@ ms.service: azure-container-apps
 ms.topic: quickstart
 ms.date: 05/15/2025
 ms.author: cshoe
-ms.custom: devx-track-bicep, devx-track-arm-template, devx-track-azurepowershell
+ms.custom:
+  - devx-track-bicep
+  - devx-track-arm-template
+  - devx-track-azurepowershell
+  - build-2025
 zone_pivot_groups: container-apps
 ---
 

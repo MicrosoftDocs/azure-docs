@@ -9,6 +9,8 @@ ms.tgt_pltfrm: na
 ms.topic: concept-article
 ms.date:  01/29/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 # Requirements and considerations for Azure NetApp Files application volume group for Oracle 
 

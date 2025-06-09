@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 05/28/2025
+ms.date: 06/02/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -18,6 +18,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- June 2025
+  - [Migration of Azure VM backups from Standard to Enhanced policy is now generally available](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-is-now-generally-available)
 - May 2025
   - [Operational backup support for Azure Elastic SAN (preview)](#operational-backup-support-for-azure-elastic-san-preview)
   - [Vaulted Backups for Azure Database for PostgreSQL – flexible server is now generally available](#vaulted-backups-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
@@ -111,6 +113,21 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier for Azure Backup (in preview)](#archive-tier-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Migration of Azure VM backups from Standard to Enhanced policy is now generally available
+
+Azure Backup now supports migrating VM backups (protected with Standard policy) to the Enhanced policy, offering greater flexibility and resilience.
+
+This feature includes:
+
+- Scheduling multiple backups per day (up to every 4 hours).
+- Retaining snapshots for extended durations.
+- Ensuring multi-disk crash consistency for VM backups.
+- Providing zonally resilient snapshot-tier recovery points.
+- Enabling seamless migration of VMs to Trusted Launch, and using Premium SSD v2 and Ultra disks for the VMs without disrupting existing backups.
+- Migrating protected VMs from Standard policy to Enhanced policy in bulk.
+
+For more information, see [Migrate Azure VM backups from Standard to Enhanced policy](backup-azure-vm-migrate-enhanced-policy.md).
 
 ## Operational backup support for Azure Elastic SAN (preview)
 
@@ -609,7 +626,7 @@ For more information, see [Archive Tier support](./archive-tier-support.md).
 
 Operational backup for Azure Blobs is a managed-data protection solution that lets you protect your block blob data from various data loss scenarios, such as blob corruptions, blob deletions, and accidental deletion of storage accounts.
 
-Being an operational backup solution, the backup data is stored locally in the source storage account, and can be recovered from a selected point-in-time, giving you a simple and cost-effective means to protect your blob data. To do this, the solution uses the blob point-in-time restore capability available from blob storage.
+Being an operational backup solution, the backup data is stored locally in the source storage account and can be recovered from a selected point-in-time, giving you a simple and cost-effective means to protect your blob data. To do this, the solution uses the blob point-in-time restore capability available from blob storage.
 
 Operational backup for blobs integrates with the Azure Backup management tools, including Backup Center, to help you manage the protection of your blob data effectively and at-scale. In addition to previously available capabilities, you can now configure and manage operational backup for blobs using the **Data protection** view of the storage accounts, also  [through PowerShell](backup-blobs-storage-account-ps.md). Also, Backup now gives you an enhanced experience for managing role assignments required for configuring operational backup.
 

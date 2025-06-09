@@ -4,8 +4,8 @@ description: This article details how to use Azure Update Manager in the Azure p
 ms.service: azure-update-manager
 ms.date: 03/07/2025
 ms.topic: how-to
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.custom: references_regions
 ---
 

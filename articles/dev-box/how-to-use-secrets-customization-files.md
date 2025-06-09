@@ -17,9 +17,6 @@ ms.date: 05/10/2025
 
 # Use Azure Key Vault secrets in customization files
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
-
 You can use secrets from your Azure key vault in your YAML customizations to clone private repositories, or with any task you author that requires an access token. For example, in a team customization file, you can use a personal access token (PAT) stored in a key vault to access a private repository.
 
 ## Use key vault secrets in customization files
@@ -28,7 +25,9 @@ To use a secret, like a PAT, in your customization files, store your PAT as a ke
 
 Both team and user customizations support fetching secrets from a key vault. Team customizations, also known as image definition files, define the base image for the dev box with the `image` parameter, and list the tasks that run when a dev box is created. User customizations list the tasks that run when a dev box is created. The following examples show how to use a key vault secret in both types of customizations.
 
-To configure key vault secrets for use in your YAML customizations:
+To configure key vault secrets for use in your team or user customizations, ensure that your dev center project's managed identity has the Key Vault Secrets User role on your key vault.
+
+To configure key vault secrets for use in user customizations, you need to additionally:
 
 1. Ensure that your dev center project's managed identity has the Key Vault Reader role and the Key Vault Secrets User role on your key vault.
 2. Grant the Key Vault Secrets User role for the key vault secret to each user or user group that should be able to consume the secret during the customization of a dev box. The user or group granted the role must include the managed identity for the dev center, the admin's user account, and any user or group that needs the secret during dev box customization.

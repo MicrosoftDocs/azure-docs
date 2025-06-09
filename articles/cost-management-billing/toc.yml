@@ -297,6 +297,12 @@
   items:
   - name: Cost Management + Billing FAQ
     href: cost-management-billing-faq.yml
+  - name: Enterprise Agreement (EA) FAQ
+    href: enterprise-agreement-faq.yml
+  - name: Partner FAQ
+    href: partner-faq.yml
+  - name: Azure Reservations and Savings Plan FAQ
+    href: reservations-savings-plan-faq.yml
   - name: Discover cloud footprint FAQ
     href: manage/discover-cloud-footprint.md
 - name: Samples

@@ -1,26 +1,26 @@
 ---
-title: Clone an App with PowerShell
+title: Clone an App by Using PowerShell
 description: Learn how to clone your App Service app to a new app by using PowerShell. Learn about various cloning scenarios, including Traffic Manager integration.
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: how-to
-ms.date: 01/14/2016
+ms.date: 05/02/2025
 ms.custom: devx-track-azurepowershell
 author: msangapu-msft
 ms.author: msangapu
 ---
-# Clone an Azure App Service App by using PowerShell
+# Clone an Azure App Service app by using PowerShell
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-With the release of Microsoft Azure PowerShell version 1.1.0, there's a new option for `New-AzWebApp`. By using this option, you can clone an existing App Service app to a newly created app in a different region or in the same region. You can deploy multiple apps across different regions quickly and easily.
+This article explains how you can clone an existing App Service app to create a new app in a different region or in the same region. You can deploy multiple apps across different regions quickly and easily.
 
-App cloning is supported for Standard, Premium, Premium V2, and Isolated App Service plans. The feature uses the same limitations as the App Service Backup feature, see [Back up an app in Azure App Service](manage-backup.md).
+App cloning is supported in Standard tiers and higher, and in Isolated tiers. The feature has the same limitations as the App Service Backup feature, see [Back up an app in Azure App Service](manage-backup.md).
 
 ## Clone an existing app
 
-Scenario: You want to clone the contents of an existing app in the South Central US region to a new app in the North Central US region. You can use the Azure Resource Manager version of the PowerShell cmdlet to create a new app with the `-SourceWebApp` option.
+Scenario: You want to clone the contents of an existing app in the South Central US region to a new app in the North Central US region. You can use the Azure Resource Manager version of the PowerShell cmdlet to create a new app by using the `-SourceWebApp` option.
 
-When you know the name of the resource group that contains the source app, you can use the following PowerShell command to get the source app's information (in this case named `source-webapp`):
+When you know the name of the resource group that contains the source app, you can use the following PowerShell command to get the source app's information, in this case named `source-webapp`:
 
 ```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
@@ -38,7 +38,7 @@ By using the `New-AzWebApp` command, you can create the new app in the North Cen
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-To clone an existing app, including all associated deployment slots, you need to use the `IncludeSourceWebAppSlots` parameter. The `IncludeSourceWebAppSlots` parameter is supported only for cloning an entire app including all of its slots. The following PowerShell command demonstrates the use of that parameter with the `New-AzWebApp` command:
+To clone an existing app, including all associated deployment slots, you need to use the `IncludeSourceWebAppSlots` parameter. This parameter is supported only for cloning an entire app including all of its slots. The following PowerShell command demonstrates the use of that parameter with the `New-AzWebApp` command:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
@@ -54,7 +54,7 @@ $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-weba
 
 Scenario: You want to clone the contents of an existing app in the South Central US region to a new app in an existing App Service Environment.
 
-When you know the name of the resource group that contains the source app, you can use the following PowerShell command to get the source app's information (in this case named `source-webapp`):
+When you know the name of the resource group that contains the source app, you can use the following PowerShell command to get the source app's information, in this case named `source-webapp`:
 
 ```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
@@ -109,8 +109,9 @@ After you have the Traffic Manager ID, the following command demonstrates how to
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
+
 > [!NOTE]
-> If you're receiving an error that states "SSL validation on the traffic manager hostname is failing," we suggest you use the `-IgnoreCustomHostNames` attribute in the PowerShell cmdlet while you perform the clone operation. The alternative is that you can use the portal.
+> If you receive an error that states **SSL validation on the traffic manager hostname is failing**, we suggest that you use the `-IgnoreCustomHostNames` attribute in the PowerShell cmdlet while you perform the clone operation. Alternatively, you can use the Azure portal.
 
 ## Current restrictions
 
@@ -125,14 +126,13 @@ Here are the known restrictions of app cloning:
 * TiP rules aren't cloned.
 * Database content isn't cloned.
 * Outbound IP addresses change if you clone to a different scale unit.
-* Linux apps: not available.
+* Linux apps aren't available.
 * Managed identities aren't cloned.
-* Function apps: not available.
+* Function apps aren't available.
 
 ## Related content
 
-* [Clone an app in Azure App Service](app-service-web-app-cloning.md)
-* [Back up an app in Azure App Service](manage-backup.md)
-* [Learn about Azure Resource Manager support for Azure Traffic Manager Preview](../traffic-manager/traffic-manager-powershell-arm.md)
-* [Get an introduction to App Service Environment](environment/intro.md)
-* [Use Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
+* [Back up and restore your app in Azure App Service](manage-backup.md)
+* [Using PowerShell to manage Traffic Manager](../traffic-manager/traffic-manager-powershell-arm.md)
+* [App Service Environment overview](environment/intro.md)
+* [Manage Azure resources by using Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

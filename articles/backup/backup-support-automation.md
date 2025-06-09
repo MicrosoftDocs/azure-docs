@@ -6,7 +6,9 @@ ms.topic: reference
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - build-2025
 ---
 
 # Support matrix for automation in Azure Backup

@@ -15,11 +15,9 @@ ai-usage: ai-assisted
 
 This article shows you how to create a managed identity for Azure App Service and Azure Functions applications, and how to use it to access other resources.
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
-The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, go to the slot first. To find the managed identity for your web app or deployment slot in your Microsoft Entra tenant from the Azure portal, search for it directly from the **Overview** page of your tenant. Usually, the slot name is similar to `<app-name>/slots/<slot-name>`.
+The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, go to the slot first. To find the managed identity for your web app or deployment slot in your Microsoft Entra tenant from the Azure portal, search for it directly from the **Overview** page of your tenant.
 
 > [!NOTE]
 > Managed identities aren't available for [apps deployed in Azure Arc](overview-arc-integration.md).

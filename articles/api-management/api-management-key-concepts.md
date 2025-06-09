@@ -163,7 +163,7 @@ Operations in API Management are highly configurable, with control over URL mapp
 
 ### Products
 
-Products are how APIs are surfaced to API consumers such as app developers. Products in API Management have one or more APIs, and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely. 
+Products are how APIs are surfaced to API consumers such as app developers. Products in API Management have one or more APIs and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely.
 
 When a product is ready for use by consumers, it can be published. Once published, it can be viewed or subscribed to by users through the developer portal. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
 
