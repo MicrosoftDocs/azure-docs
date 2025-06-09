@@ -23,7 +23,7 @@ To improve the security posture of Graphical PowerShell Workflow runbooks, the s
 
 Workaround is to use Start-AzAutomationRunbook (from [Az.Automation module](/powershell/module/Az.Automation/Start-AzAutomationRunbook)) from within the parent runbook to start child runbook. For example, use the InlineScript block:
 
-
+```
 
 $job = Start-AzAutomationRunbook `
 
@@ -44,6 +44,8 @@ do {
     Start-Sleep -Seconds 5
 
     $jobStatus = Get-AzAutomationJob -Id $job.Id -AutomationAccountName "MyAccount" -ResourceGroupName "MyRG"} while ($jobStatus.Status -ne "Completed")
+
+```
 
 ## It is no longer possible to use cmdlets from imported non-default modules in graphical PowerShell runbooks
 
