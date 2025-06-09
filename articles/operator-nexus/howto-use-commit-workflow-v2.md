@@ -32,7 +32,7 @@ Any `patch` operation on parent resources or `Create`/`Update`/`Delete` (CUD) op
 ### Step 1: Update resources
 
 Make patch or CUD operations via Azure CLI, Portal, or ARM template.
-Once these changes are made, the fabric's configuration state will change to `Accepted (Pending Commit)`.
+Once these changes are made, the fabric's configuration state changes to `Accepted (Pending Commit)`.
 
 #### Example scenarios
 
@@ -84,7 +84,7 @@ az networkfabric fabric view-device-configuration \
 
 ### Step 3a: Discard commit batch (Optional)
 
-After validating with ViewDeviceConfiguration, users may discard pending configuration updates if issues are found. This restores the ARM resource state to its last known good configuration and resets the fabric state from Accepted & Locked to Succeeded.
+After validating with ViewDeviceConfiguration, users may choose to discard pending configuration updates if issues are found. This operation restores the ARM resource state to its last known good configuration and resets the fabric state from Accepted & Locked to Succeeded.
 
 
 ```Azure CLI
@@ -95,7 +95,7 @@ az networkfabric fabric discard-commit-batch \
 
 > [!Note]
 > Internal/External network resources move to Admin State: Disabled and Config State: Rejected.<br>
-> Resources are not deleted — user must delete them manually if required.<br>
+> Resources are not deleted, user must delete them manually if required.<br>
 > Network Monitor handling includes additional constraints (disabled monitors revert to rejected state).<br>
 
 #### Need to Make More Updates?

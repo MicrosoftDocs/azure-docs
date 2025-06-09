@@ -62,19 +62,19 @@ Commit Workflow v2 introduces new operational expectations and constraints to en
 
 ### Availability & locking rules 
 
-- Available only on Runtime Version 5.0.1+. Downgrade to v1 is not supported.
+- Available only on Runtime Version 5.0.1+. Downgrade to v1 isn't supported.
 
 - Locking is allowed only when:
 
   - No commit is in progress.
 
-  - Fabric is not under maintenance or upgrade.
+  - Fabric isn't under maintenance or upgrade.
 
   - Fabric is in an administrative enabled state.
 
 ### Unsupported during maintenance or upgrade
 
-`Lock`, `ViewDeviceConfiguration`, and `related post-actions` are not allowed during maintenance or upgrade windows.
+`Lock`, `ViewDeviceConfiguration`, and `related post-actions` aren't allowed during maintenance or upgrade windows.
 
 ### Commit Finality
 
@@ -86,23 +86,23 @@ Once committed, changes **can't be rolled back**. Any further edits require a ne
 
   - Reverts all ARM resource changes to their last known good state.
 
-  - Updates admin/config states (e.g., external/internal networks become disabled and rejected).
+  - Updates admin/config states (for example, external/internal networks become disabled and rejected).
 
-  - Does not delete resources; users must delete them manually if desired.
+  - Doesn't delete resources; users must delete them manually if desired.
 
   - Enables further patching to reapply changes.
 
 - When the discard batch action is performed:
 
-  - The administrative state of internal/external network resources moves to disabled and their configuration state to rejected; however, the resources are not deleted automatically. A separate delete operation is required for removal.
+  - The administrative state of internal/external network resources moves to disabled and their configuration state to rejected; however, the resources aren't deleted automatically. A separate delete operation is required for removal.
 
-  - Enabled Network Monitor resources attached to a fabric cannot be attached to another fabric unless first detached and committed.
+  - Enabled Network Monitor resources attached to a fabric can't be attached to another fabric unless first detached and committed.
 
-  - For Network Monitor resources in administrative state disabled (in commit queue), discard batch moves the config state to rejected. Users can re-apply updates (PUT/patch) and commit again to enable.
+  - For Network Monitor resources in administrative state disabled (in commit queue), discard batch moves the config state to rejected. Users can reapply updates (PUT/patch) and commit again to enable.
 
 ### Resource update restrictions
 
-**Post-lock**, only a limited set of `Create`/`Update`/`Delete` (CUD) actions are supported (e.g., unattached ACLs, TAP rules).
+**Post-lock**, only a limited set of `Create`/`Update`/`Delete` (CUD) actions are supported (for example, unattached ACLs, TAP rules).
 
 Device-impacting resources (like Network-to-Network Interconnect (NNI), Isolation Domain (ISD), Route Policy, or ACLs attached to parent resources) are blocked during configuration lock.
 
@@ -110,7 +110,7 @@ Device-impacting resources (like Network-to-Network Interconnect (NNI), Isolatio
 
 | **Supported resource actions which require commit workflow**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | **Unsupported resource actions which doesn’t require commit workflow**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **All resource updates impacting device configuration:**<br>• Updates to Network Fabric resource<br>• Updates to Network-to-Network Interconnect (NNI)<br>• Updates to ISD (L2 and L3)<br>• Creation and updates to Internal and External Networks of enabled L3 ISD<br>• Addition/updates/removal of Route Policy in Internal, External, ISD, and NNI resources<br>• Addition/updates/removal of IP Prefixes, IP Community, and Extended IP Community when attached to Route Policy or Fabric<br>• Addition/updates/removal of ACLs to Internal, External, ISD, and NNI resources<br>• Addition/updates/removal of Network Fabric resource in Network Monitor resource<br>• Additional description updates to Network Device properties<br>• Creation of multiple NNI | **Creation/updating of resources not impacting device configuration:**<br>• Creation of Isolation Domain (ISD) (L3 and L2)<br>• Network Fabric Controller (NFC) creation/updates<br>• Creation and updates to Network TAP rules, Network TAP, Neighbor groups<br>• Creation and updates to Network TAP rules, Network TAP, Neighbor groups<br>• Creation of new Route Policy and connected resources (IP Prefix, IP Community, IP Extended Community)<br>• Update of Route Policy and connected resources when not attached to ISD/Internal/External/NNI<br>• Creation/update of new Access Control List (ACL) which is not attached<br><br>**ARM resources updates only:**<br>• Tag updates for all supported resources<br><br>**Other administrative actions and post actions which manage lifecycle events:**<br>• Enabling/Disabling Isolation Domain (ISD), Return Material Authorization (RMA), Upgrade, and all administrative actions (enable/disable), serial number update<br>• Deletion of all Nexus Network Fabric (NNF) resources |
+| **All resource updates impacting device configuration:**<br>• Updates to Network Fabric resource<br>• Updates to Network-to-Network Interconnect (NNI)<br>• Updates to ISD (L2 and L3)<br>• Creation and updates to Internal and External Networks of enabled L3 ISD<br>• Addition/updates/removal of Route Policy in Internal, External, ISD, and NNI resources<br>• Addition/updates/removal of IP Prefixes, IP Community, and Extended IP Community when attached to Route Policy or Fabric<br>• Addition/updates/removal of ACLs to Internal, External, ISD, and NNI resources<br>• Addition/updates/removal of Network Fabric resource in Network Monitor resource<br>• Additional description updates to Network Device properties<br>• Creation of multiple NNI | **Creation/updating of resources not impacting device configuration:**<br>• Creation of Isolation Domain (ISD) (L3 and L2)<br>• Network Fabric Controller (NFC) creation/updates<br>• Creation and updates to Network TAP rules, Network TAP, Neighbor groups<br>• Creation and updates to Network TAP rules, Network TAP, Neighbor groups<br>• Creation of new Route Policy and connected resources (IP Prefix, IP Community, IP Extended Community)<br>• Update of Route Policy and connected resources when not attached to ISD/Internal/External/NNI<br>• Creation/update of new Access Control List (ACL) which isn't attached<br><br>**ARM resources updates only:**<br>• Tag updates for all supported resources<br><br>**Other administrative actions and post actions which manage lifecycle events:**<br>• Enabling/Disabling Isolation Domain (ISD), Return Material Authorization (RMA), Upgrade, and all administrative actions (enable/disable), serial number update<br>• Deletion of all Nexus Network Fabric (NNF) resources |
 
 
 ### Allowed actions after configuration lock
