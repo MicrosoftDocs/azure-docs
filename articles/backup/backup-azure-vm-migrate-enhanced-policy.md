@@ -6,7 +6,9 @@ ms.date: 05/27/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - build-2025
 ---
 
 # Migrate Azure VM backups from standard  to enhanced policy

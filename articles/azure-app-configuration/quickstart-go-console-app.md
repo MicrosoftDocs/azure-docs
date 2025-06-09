@@ -6,7 +6,11 @@ author: linglingye
 ms.service: azure-app-configuration
 ms.devlang: golang
 ms.topic: quickstart
-ms.custom: quickstart, mode-other, devx-track-go
+ms.custom:
+  - quickstart
+  - mode-other
+  - devx-track-go
+  - build-2025
 ms.date: 03/31/2025
 ms.author: linglingye
 #Customer intent: As a Go developer, I want to manage all my app settings in one place.

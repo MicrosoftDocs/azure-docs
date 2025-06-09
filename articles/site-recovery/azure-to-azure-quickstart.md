@@ -4,8 +4,8 @@ description: Quickly set up disaster recovery to another Azure region for an Azu
 ms.topic: quickstart
 ms.date: 05/30/2025
 ms.custom: mvc, mode-other
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.service: azure-site-recovery
 ---
 

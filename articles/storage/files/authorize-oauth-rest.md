@@ -6,7 +6,9 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 03/26/2025
 ms.author: kendownie
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 ---
 
 # Access Azure file shares using Microsoft Entra ID with Azure Files OAuth over REST

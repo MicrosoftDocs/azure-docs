@@ -4,8 +4,8 @@ description: Summarizes support for disaster recovery of VMware VMs and physical
 ms.topic: concept-article
 ms.service: azure-site-recovery
 ms.date: 03/11/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.custom: engagement-fy23, linux-related-content
 ---
 

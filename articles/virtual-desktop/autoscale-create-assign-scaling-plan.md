@@ -36,7 +36,7 @@ To use a power management scaling plan, make sure you follow these guidelines:
 
 - You must grant Azure Virtual Desktop access to manage the power state of your session hosts. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This permission is part of **User Access Administrator** and **Owner** built in roles.
 
-- If you want to use personal desktop autoscale with hibernation, you need to enable hibernation feature on your session hosts. FSLogix and app attach currently don't support hibernate. Don't enable hibernate if you're using FSLogix or app attach for your personal host pools. For more information on using hibernation, including how hibernation works, limitations, and prerequisites, see [Hibernation for Azure virtual machines](/azure/virtual-machines/hibernate-resume).
+- If you want to use personal desktop autoscale with hibernation, you need to enable hibernation feature on your session hosts. FSLogix and App Attach currently don't support hibernate. Don't enable hibernate if you're using FSLogix or App Attach for your personal host pools. For more information on using hibernation, including how hibernation works, limitations, and prerequisites, see [Hibernation for Azure virtual machines](/azure/virtual-machines/hibernate-resume).
 
 - If you're using PowerShell to create and assign your scaling plan, you need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
 
