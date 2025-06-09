@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 05/09/2025
+ms.date: 06/09/2025
 ---
 
 # Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway
@@ -146,11 +146,11 @@ One benefit of using an exclusion list is that only a specific part of a request
 
 Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there's a token that gets passed when authenticating using Microsoft Entra ID. *__RequestVerificationToken* is usually passed in as a request cookie. However, in some cases where cookies are disabled, this token is also passed as a request attribute or `arg`. If this happens, you need to ensure that *__RequestVerificationToken* is added to the exclusion list as a **Request attribute name** as well.
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/exclusion-list.png" alt-text="Screenshot that shows the exclusion list.":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/exclusion-list.png" alt-text="Screenshot that shows the exclusion list." lightbox="../media/web-application-firewall-troubleshoot/exclusion-list.png":::
 
 In this example, you want to exclude the **Request attribute name** that equals *text1*. This is apparent because you can see the attribute name in the firewall logs: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. The attribute is **text1**. You can also find this attribute name a few other ways, see [Finding request attribute names](#finding-request-attribute-names).
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/waf-config.png" alt-text="Screenshot that shows how to configure WAF exclusion lists.":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/waf-config.png" alt-text="Screenshot that shows how to configure WAF exclusion lists." lightbox="../media/web-application-firewall-troubleshoot/waf-config.png":::
 
 You can create exclusions for WAF in Application Gateway at different scope levels. For more information, see [Web Application Firewall exclusion lists](application-gateway-waf-configuration.md#exclusion-scopes).
 
@@ -168,11 +168,11 @@ With the help of [Fiddler](https://www.telerik.com/fiddler), you inspect individ
 
 In this example, you can see that the field where the *1=1* string was entered is called **text1**.
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. In the Raw tab, 1 = 1 is visible after the name text1.":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. In the Raw tab, 1 = 1 is visible after the name text1." lightbox="../media/web-application-firewall-troubleshoot/fiddler-1.png":::
 
 This is a field you can exclude. To learn more about exclusion lists, See [Web application firewall exclusion lists](application-gateway-waf-configuration.md). You can exclude the evaluation in this case by configuring the following exclusion:
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/waf-exclusion-02.png" alt-text="Screenshot that shows WAF exclusion.":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/waf-exclusion-02.png" alt-text="Screenshot that shows WAF exclusion." lightbox="../media/web-application-firewall-troubleshoot/waf-exclusion-02.png":::
 
 You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, resource logs, and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
@@ -293,11 +293,11 @@ The second one (rule 942130) is the interesting one. You can see in the details 
 
 Fiddler is a useful tool once again to find request header names. In the following screenshot, you can see the headers for this GET request, which include *Content-Type*, *User-Agent*, and so on.
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. The Raw tab lists request header details like the connection, content-type, and user-agent." border="false":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. The Raw tab lists request header details like the connection, content-type, and user-agent." lightbox="../media/web-application-firewall-troubleshoot/fiddler-2.png":::
 
 Another way to view request and response headers is to look inside the developer tools of Chrome. You can press F12 or right-click -> **Inspect** -> **Developer Tools**, and select the **Network** tab. Load a web page, and select the request you want to inspect.
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/chrome-f12.png" alt-text="Screenshot that shows the result of clicking F12 in a Chrome browser.":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/chrome-f12.png" alt-text="Screenshot that shows the result of clicking F12 in a Chrome browser." lightbox="../media/web-application-firewall-troubleshoot/chrome-f12.png":::
 
 ## Finding request cookie names
 
