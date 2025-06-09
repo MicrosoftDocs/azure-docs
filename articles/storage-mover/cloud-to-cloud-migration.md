@@ -1,6 +1,6 @@
 ---
 title: Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
-description: The Cloud-to-Cloud Migration feature (preview) in Azure Storage mover allows you to securely transfer data from AWS S3 to Azure Blob Storage, utilizing Azure Arc for AWS to simplify authentication and resource management.
+description: The Cloud-to-Cloud Migration feature (preview) in Azure Storage mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage, utilizing Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management.
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
@@ -10,39 +10,46 @@ ms.date: 06/05/2025
 
 # Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
 
-The Cloud-to-Cloud Migration feature in Azure Storage Mover allows you to securely transfer data from Amazon Web Services (AWS) S3 to Azure Blob Storage, utilizing Azure Arc for AWS to simplify authentication and resource management. This article guides you through the complete process of configuring Storage Mover to migrate your data from AWS S3 to Azure Blob Storage. This guidance includes configuring Azure Arc for AWS, configuring endpoints, and running a migration job.
+The Cloud-to-Cloud Migration feature in Azure Storage Mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage. 
+
+The feature utilizes Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management. The Azure Arc service provides a centralized source for management and governance. The service uses multicloud connectors to extend Azure's management capabilities to resources outside of the Azure cloud. These capabilities and resources can include on-premises servers, multicloud environments, and edge computing devices. For more details on Azure Arc, visit the [Azure Arc overview](/azure/azure-arc/overview) article.
+
+This article guides you through the complete process of configuring Storage Mover to migrate your data from Amazon S3 to Azure Blob Storage. The process consists of creating a multicloud connector for AWS, configuring endpoints, and creating and running a migration job.
 
 > [!IMPORTANT]
-> After your subscription is granted access to this feature, you must use the following link to access the Azure portal: [https://aka.ms/awstoazuremover](https://aka.ms/awstoazuremover).
+> After your subscription is granted access to this feature, you must use the following link to access the feature within the Azure portal: [https://aka.ms/awstoazuremover](https://aka.ms/awstoazuremover).
 
 ## Prerequisites
 
 Before you begin, ensure that you have: 
 
-- An active Azure subscription with permissions to create and manage Azure Storage mover and Azure Arc resources.
-- An AWS account with access to the S3 bucket from which you want to migrate.
-- An Azure Blob Storage set up as the destination.
-- Azure Arc for AWS configured to enable secure authentication and access to AWS resources via Multicloud connectors.
-- A Storage Mover service instance deployed in your Azure subscription.
+- An active Azure subscription with [permissions to create and manage Azure Storage mover and Azure Arc resources](/azure/azure-arc/multicloud-connector/connect-to-aws#azure-prerequisites).
+- An AWS account with access to the Amazon S3 bucket from which you want to migrate.
+- An [Azure Storage account](../storage/common/storage-account-create.md) to use as the destination.
+<!--- Azure Arc for AWS configured to enable secure authentication and access to AWS resources via Multicloud connectors.-->
+- A [Storage Mover resource](storage-mover-create.md) deployed in your Azure subscription.
 
-## Configure Azure Arc for AWS
+## Create a multicloud connector for AWS
 
-<!--Azure Arc is a service that extends Azure's management capabilities to resources outside of the Azure cloud, including on-premises servers, multi-cloud environments, and edge computing.-->
+The first step in performing a cross-cloud migration to Azure is the creation of an Azure Arc multicloud connector for AWS within your Storage Mover resource. The multicloud connector allows you to securely connect AWS services to Azure.
 
-<!--Multicloud connectors enabled by Azure Arc lets you connect non-Azure public cloud resources to Azure, providing a centralized source for management and governance.-->
+Follow the steps in this section to configure an AWS connector. 
 
-This first step in performing a cross-cloud migration to Azure is the configuration of the Azure Arc service. Azure Arc allows you to securely connect AWS services to Azure. It enables seamless authentication and management via Multicloud connectors. 
-
-Follow the steps in this section to configure an AWS connector in the Azure Arc service. For more details on Azure Arc, visit the [Azure Arc overview](/azure/azure-arc/overview) article.
-
-1. In Azure Arc, navigate to Multicloud connectors.
+1. Navigate to your Storage Mover resource within the Azure portal. In the **Overview** pane, select the **Multicloud migration** tab as shown in the following image.
 
     :::image type="content" source="media/cloud-to-cloud-migration/sample-migration-sml.png" alt-text="A screen capture showing the Storage Mover Overview page with the Multicloud Migration tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/sample-migration.png":::
-1. Select **Create Connector** and enter values for the following fields:
-    - An AWS account ID for secure authentication.
-    - An Azure region for the connector.
+
+1. Within the **Multicloud migration** tab, select **Create multicloud connector** to open the **Add AWS connector** page. 
+1. In the **Basics** tab:
+
+    - From the drop-down lists located in the **Project Details** section, select the subscription and resource group in which you're creating your connector resource. Optionally, you can create a new resource group by selecting **Create new**.
+    - In the **Connector details** section, provide a value for the **Connector name** field. From the **Azure region** drop-down list, select the region where you want to create and save your connector resource.
+    - In the **AWS account** section, select the appropriate AWS account type and provide the AWS account ID from which your connector is reading resources.
+    
+    Verify all values and select **Next** to continue.
 
         :::image type="content" source="media/cloud-to-cloud-migration/add-aws-connector-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Basics tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-aws-connector.png":::
+
 1. Within the **Solutions** tab:
     - Add an **Inventory** solution, making sure that `AWS Services: S3` is selected.
     - Add a **Storage - Data Management** solution.
@@ -96,7 +103,7 @@ Follow the steps in this section to create and run a Storage Mover Migration Job
         :::image type="content" source="media/cloud-to-cloud-migration/create-job-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Basics tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-job.png":::
     - **Source endpoint**: Select the AWS S3 bucket configured via Azure Arc.
         > [!NOTE]
-        > Note that S3 buckets might take up to an hour to become visible within newly created Multicloud connectors.
+        > Amazon S3 buckets might take up to an hour to become visible within newly created Multicloud connectors.
 
         :::image type="content" source="media/cloud-to-cloud-migration/create-source-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-source.png":::
     - **Destination endpoint**: Select the Azure Blob Storage container.
