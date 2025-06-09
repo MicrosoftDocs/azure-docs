@@ -5,7 +5,7 @@ metadata:
   description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the Azure portal and Azure role-based access control (Azure RBAC).
   author: jenniferf-skc 
   ms.author: jfields
-  manager: pmwpmwongera
+  manager: pmwongera
   ms.date: 06/09/2025
   ms.service: role-based-access-control
   ms.topic: how-to
@@ -76,7 +76,8 @@ procedureSection:
 
         > [!NOTE] 
         > If you're unsure of which role you need to assign, you can now use Copilot to help you select the appropriate role. 
-        ![Screenshot of Copilot in the Add role assignment page.](./media/copilot-for-role-assignment.png)
+        
+        ![Screenshot of Copilot button in the Add role assignment page.](./media/role-assignments-portal/copilot-for-role-assignment.png)
       - |
         In the **Role** tab, click the **Copilot can help pick role** button. The Copilot dialog box opens. 
         
