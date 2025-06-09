@@ -32,7 +32,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Australia Central 2 | | Australia Central | Canberra | Australia |
 | Australia East | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Australia Southeast | New South Wales | Australia |
 | Australia Southeast | | Australia East | Victoria | Australia |
-|:::image type="content" source="media/icon-region-coming-soon.svg"  alt-text="Icon that shows that this region is coming soon."  border="false"::: Austria East | | n/a | n/a | Austria |
+|:::image type="content" source="media/icon-region-coming-soon.svg"  alt-text="Icon that shows that this region is coming soon."  border="false"::: Austria East | :::image alt-text="Yes" type="content" source="media/icon-checkmark.svg" border="false"::: | n/a | Vienna| Austria |
 | Brazil South | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | South Central US | Sao Paulo State | Brazil |
 | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Brazil Southeast | | Brazil South | Rio | Brazil |
 | Canada Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Canada East | Toronto | Canada |
