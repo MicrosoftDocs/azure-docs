@@ -112,7 +112,7 @@ azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDi
 
 The first container that appears in this command is the source. The second one is the destination.
 
-If you provide a SAS token make sure that you use a SAS token which corresponds to source and destination storage account, while using **azcopy sync**
+If you provide a SAS token, make sure that you use a SAS token which corresponds to source and destination storage account, while using **azcopy sync**.
 
 **Syntax**
 
@@ -127,7 +127,7 @@ azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-0
 > [!TIP]
 > If you are copying larger size of data, you can use :[Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer).
 > 
-> Verify size details that you have copied On the top bar menu choose **More** -> **Folder Statistics** will help you get the details of the Directory including the size in bytes.
+> Verify size details that you have copied. On the top bar menu, choose **More** -> **Folder Statistics** to help you get the details of the Directory including the size in bytes.
 
 
 ## Synchronize with optional flags
