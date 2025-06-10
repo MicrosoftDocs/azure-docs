@@ -39,7 +39,7 @@ The chosen export format for an inventory report (CSV or Apache Parquet) can inf
 ### Large number of soft-deleted objects
 
 Soft-deleted objects, though not permanently removed, are still included in inventory scans. A high volume of these objects can add to processing time and reduce performance.
-By considering these factors, you can enhance the performance of your Inventory runs and have more efficient data management experience.
+By considering these factors, you can enhance the performance of your inventory runs and have more efficient data management experience.
 
 
 ## Best practices to improve blob inventory performance
