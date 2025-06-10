@@ -13,7 +13,7 @@ ms.author: duau
 
 Organizations often need to update their Azure Firewall Policy for various reasons, such as onboarding new applications or workloads, addressing security vulnerabilities, performing maintenance, or optimizing policies by merging or removing unused rules. These updates can involve multiple contributors, and each change can take several minutes to deploy.
 
-[!IMPORTANT]
+>[!IMPORTANT]
 > **Azure Firewall Draft + Deployment** is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -58,11 +58,11 @@ Azure Firewall Draft + Deployment allows you to make bulk updates to your firewa
 
 1. On the draft page, make changes or additions to your rules or settings. These pages are identical to those in the deployed policy. The changes will only take effect when you deploy the draft.
 
-    :::image type="content" source="media/draft-deploy/drafting changes.png" alt-text="Screenshot showing drafting changes.":::
+    :::image type="content" source="media/draft-deploy/drafting-changes.png" alt-text="Screenshot showing drafting changes.":::
 
 1. To verify the changes, return to the **Deploy** screen to review the updated rules or settings. To apply the changes, select **Deploy draft**. Once deployed, the draft replaces the current policy and becomes the latest version. The draft is deleted after deployment.
 
-    :::image type="content" source="media/draft-deploy/verify and deploy changes.png" alt-text="Screenshot showing verification and deployment of changes.":::
+    :::image type="content" source="media/draft-deploy/verify-and-deploy-changes.png" alt-text="Screenshot showing verification and deployment of changes.":::
 
 1. Repeat this process as needed to make further updates to your firewall policy.
 
