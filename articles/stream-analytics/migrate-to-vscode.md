@@ -103,7 +103,7 @@ If you have a local ASA project in Visual Studio and not yet submitted, follow t
 
 4. Then you can go to the Azure portal and find the ASA job under your **Resource Group**. 
 
-5. To learn how to export an ASA job in VS Code, see [here](#export-an-asa-job-and-open-in-vscode).
+5. To learn how to export an ASA job in VS Code, see [here](#export-an-asa-job-and-open-in-vs-code).
 
 ### Do I need to configure the input and output sources after an ASA job is exported?
 
