@@ -507,8 +507,8 @@ When you copy data from and to Oracle, the following interim data type mappings 
 | LONG RAW |Byte[] |Byte[] |
 | NCHAR |String |String |
 | NCLOB |String |String |
-| NUMBER (p,s) |Int16, Int32, Int64, Single, Double, Decimal (p <= 256,s <= 130) |Decimal, String (if p > 28) |
-| NUMBER without precision and scale | Decimal |Double |
+| NUMBER (p,s) |Int16, Int32, Int64, Single, Double, Decimal |Decimal, String (if p > 28) |
+| NUMBER without precision and scale | Decimal (256,130)  |Double |
 | NVARCHAR2 |String |String |
 | RAW |Byte[] |Byte[] |
 | TIMESTAMP |DateTime |DateTime |
