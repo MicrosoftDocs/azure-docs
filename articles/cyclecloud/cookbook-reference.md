@@ -3,7 +3,7 @@ title: Cookbook Reference
 description: See reference information for Chef Cookbooks in Azure CycleCloud. Understand basic Chef concepts, attributes, and the thunderball resource.
 author: adriankjohnson
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 06/10/2025
 ms.author: adjohnso
 ---
 
