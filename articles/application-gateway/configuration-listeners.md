@@ -85,7 +85,9 @@ $gw.EnableHttp2 = $true
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-You can also enable HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in Application gateway > Configuration. 
+> [!IMPORTANT]
+> When creating an application gateway resource through the Azure portal, the default option for **HTTP2** is set as enabled. You can choose **Disabled** during creation, and re-enabled HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in **Application gateway > Configuration**.
+>
 
 ### WebSocket support
 
