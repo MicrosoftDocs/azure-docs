@@ -40,10 +40,7 @@ There are many things to consider when upgrading to a new gateway SKU. The follo
 Upgrading a gateway SKU takes about 45 minutes to complete.
 
 1. Go to the **Configuration** page for your virtual network gateway.
-1. On the right side of the page, click the dropdown arrow to show a list of available SKUs. The options listed are based on the starting SKU and SKU Generation.
-
-   :::image type="content" source="./media/gateway-sku-upgrade/upgrade-sku.png" alt-text="Screenshot showing how to upgrade the gateway SKU." lightbox ="./media/gateway-sku-upgrade/upgrade-sku.png":::
-1. Select the SKU from the dropdown.
+1. On the right side of the page, click the dropdown arrow to show a list of available SKUs. The options listed are based on the starting SKU and SKU Generation. Select the SKU from the dropdown.
 1. **Save** your changes.
 1. It takes about 45 minutes for the gateway SKU upgrade to complete.
 
