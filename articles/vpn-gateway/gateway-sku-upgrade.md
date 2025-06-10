@@ -32,7 +32,6 @@ There are many things to consider when upgrading to a new gateway SKU. The follo
 
 * You can't upgrade a Basic SKU to a new SKU. You must instead delete the gateway, and then create a new one.
 * You can't downgrade a SKU without deleting the gateway and creating a new one.
-* For information
 * Legacy gateway SKUs (Standard and High Performance) can't be upgraded to the new SKU families. You must delete the gateway and create a new one. For more information about working with legacy gateway SKUS, see [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md)
 
 ## Upgrade a gateway SKU using the Azure portal
@@ -60,4 +59,4 @@ The high level workflow is:
 
 ## Next steps
 
-For more information about SKUs, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
+For more information about SKUs, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md). 
