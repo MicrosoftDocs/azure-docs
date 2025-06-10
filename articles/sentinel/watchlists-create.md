@@ -24,7 +24,7 @@ Upload a watchlist file from a local folder or from your Azure Storage account. 
 
 Local file uploads are currently limited to files of up to 3.8 MB in size. A file that's over 3.8 MB in size and up to 500 MB is considered a [large watchlist](#create-a-large-watchlist-from-file-in-azure-storage-preview). Upload the file to an Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md#watchlist-limitations).
 
-Watchlist data is retained for 28 days. 
+Data in the Log Analytics Watchlist table is retained for 28 days.
 
 > [!IMPORTANT]
 > The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
