@@ -83,7 +83,7 @@ The Standard SKU public IP address parameter for the VPN Gateway Basic SKU is cu
 
 ### Can I change to a Standard SKU public IP address manually?
 
-Yes, you can. If you choose to do this manually, you'll need to delete the old gateway and then create a new gateway in your virtual network. When you create a new gateway, your gateway will automatically use a Standard SKU public IP address. However, if you choose to use this process, you'll incur downtime while the old gateway is deleted and the new gateway is created. For more information, see [Change a gateway SKU](gateway-sku-change.md).
+Yes, you can. If you choose to do this manually, you'll need to delete the old gateway and then create a new gateway in your virtual network. When you create a new gateway, your gateway will automatically use a Standard SKU public IP address. However, if you choose to use this process, you'll incur downtime while the old gateway is deleted and the new gateway is created.
 
 ### If I delete and re-create my gateway, will my IP address change?
 
