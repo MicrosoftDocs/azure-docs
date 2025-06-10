@@ -57,18 +57,18 @@ Learn more about the Azure Monitor's [diagnostic settings destinations](/azure/a
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, use the following steps:
 
-1. Note your storage account's resource ID, where the log data is stored. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. You can use any storage account in your subscription. You can use the Azure portal to find this information.
+1. Note your storage account's resource ID, where the log data is stored. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resourceGroupName\>/providers/Microsoft.Storage/storageAccounts/\<storageAccountName\>. You can use any storage account in your subscription. You can use the Azure portal to find this information.
 
-   :::image type="content" source="media/application-gateway-diagnostics/diagnostics2.png" alt-text="Screenshot of storage account endpoints" lightbox="media/application-gateway-diagnostics/diagnostics2.png":::
+   :::image type="content" source="media/application-gateway-diagnostics/diagnostics2-small.png" alt-text="Screenshot of storage account endpoints" lightbox="media/application-gateway-diagnostics/diagnostics2.png":::
 
-2. Note your application gateway's resource ID for which logging is enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
+2. Note your application gateway's resource ID for which logging is enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resourceGroupName\>/providers/Microsoft.Network/applicationGateways/\<applicationGatewayName\>. You can use the portal to find this information.
 
-   :::image type="content" source="media/application-gateway-diagnostics/diagnostics1.png" alt-text="Screenshot of app gateway properties" lightbox="media/application-gateway-diagnostics/diagnostics1.png":::
+   :::image type="content" source="media/application-gateway-diagnostics/diagnostics1-small.png" alt-text="Screenshot of app gateway properties" lightbox="media/application-gateway-diagnostics/diagnostics1.png":::
 
 3. Enable diagnostic logging by using the following PowerShell cmdlet:
 
     ```powershell
-    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName> -Enabled $true     
     ```
 
 > [!TIP]
