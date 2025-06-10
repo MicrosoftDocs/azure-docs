@@ -11,11 +11,9 @@ ms.author: cephalin
 
 # Deploy your app to Azure App Service using FTP
 
-This article shows you how to use File Transfer Protocol (FTP) or File Transfer Protocol Secure (FTPS) to deploy your web app, mobile app backend, or API app to [Azure App Service](overview.md).
+This article shows you how to use File Transfer Protocol (FTP) or File Transfer Protocol Secure (FTPS) to deploy your web app, mobile app backend, or API app to [Azure App Service](overview.md). No configuration is necessary to enable FTP or FTPS app deployment. The FTP endpoint for your app is already active.
 
-FTPS is a more secure form of FTP that uses Transport Layer Security (TLS) and Secure Sockets Layer (SSL). For more information, see [Enforce FTPS](#enforce-ftps). In this article, the terms are interchangeable unless otherwise specified.
-
-The FTP endpoint for your app is already active. No configuration is necessary to enable FTP or FTPS deployment. 
+FTPS is a more secure form of FTP that uses Transport Layer Security (TLS) and Secure Sockets Layer (SSL). This article uses *FTP* to indicate both forms unless otherwise specified. For more information, see [Enforce FTPS](#enforce-ftps).
 
 > [!NOTE]
 > Both SCM Basic Auth Publishing Credentials and FTP Basic Auth Publishing Credentials must be enabled for FTP deployment to work. When [basic authentication is disabled](configure-basic-auth-disable.md), FTP deployment doesn't work, and you can't view or configure FTP credentials in the app's **Deployment Center**.
@@ -24,9 +22,9 @@ The FTP endpoint for your app is already active. No configuration is necessary t
 
 To get credentials for deployment, follow the instructions at [Configure deployment credentials for Azure App Service](deploy-configure-credentials.md). Copy the application-scope credentials for your app, or set and copy user-scope credentials. You can connect to your app's FTP endpoint by using either set of credentials.
 
-For application-scope credentials, the FTP username format is `<app-name>\$<app-name>`. For user-scope credentials, the FTP username format is `<app-name>\<username>`. The App Service FTP endpoint is shared among apps, so because user-scope credentials aren't linked to a specific resource, you must prepend the username with the app name.
+For application-scope credentials, the FTP username format is `<app-name>\$<app-name>`. For user-scope credentials, the FTP username format is `<app-name>\<username>`. The App Service FTP endpoint is shared among apps, and because user-scope credentials aren't linked to a specific resource, you must prepend the username with the app name.
 
-## Get FTP endpoint
+## Get the FTP endpoint
 
 To get the FTP endpoint:
 
@@ -42,7 +40,7 @@ Run the following [az webapp deployment list-publishing-profiles](/cli/azure/web
 az webapp deployment list-publishing-profiles --name <app-name> --resource-group <resource-group-name> --query "[?ends_with(profileName, 'FTP')].{profileName: profileName, publishUrl: publishUrl}"
 ```
 
-Each app has two FTP endpoints, read-write and read-only, where `profileName` contains `ReadOnly` and is for data-recovery scenarios. For FTP deployment, copy the read-write URL.
+Each app has two FTP endpoints, read-write and read-only. The read-only endpoint has a `profileName` containing `ReadOnly` and is for data-recovery scenarios. For FTP deployment, copy the read-write URL.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -59,7 +57,7 @@ $xml.SelectNodes("//publishProfile[@publishMethod=`"FTP`"]/@publishUrl").value
 
 To deploy files to Azure with FTP:
 
-1. From your FTP client such as [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), or [WinSCP](https://winscp.net/index.php)), use your connection information to connect to your app.
+1. From your FTP client such as [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), or [WinSCP](https://winscp.net/index.php), use your connection information to connect to your app.
 1. Copy your files and their directory structure to the [/site/wwwroot](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) directory in Azure or the */site/wwwroot/App_Data/Jobs/* directory for WebJobs.
 1. Browse to your app's URL to verify the app is running properly.
 
@@ -68,11 +66,12 @@ To deploy files to Azure with FTP:
 > - Restoring dependencies like NuGet, NPM, PIP, and Composer automation.
 > - Compiling .NET binaries.
 > - Generating a *web.config* file.
+> 
 > You must generate these necessary files manually on your local machine and then deploy them with your app. For a Node.js *web.config* example, see [Using a custom web.config for Node apps](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps).
 
 ## Enforce FTPS
 
-For enhanced security, you should allow FTPS over TLS/SSL only. You can also disable both FTP and FTPS if you don't use FTP deployment.
+For enhanced security, you should enforce FTPS over TLS/SSL only. You can also disable both FTP and FTPS if you don't use FTP deployment.
 
 To disable unencrypted FTP:
 
@@ -136,7 +135,8 @@ If the app was deployed using Azure DevOps, you can see the deployment history i
 The first step for troubleshooting FTP deployment is distinguishing between deployment issues and runtime application issues.
 
 - A deployment issue typically results in no files or wrong files deployed to your app. You can troubleshoot by investigating your FTP deployment or selecting an alternate deployment path, such as source control.
-- A runtime application issue typically results in the right set of files deployed to your app but incorrect app behavior. You can troubleshoot by focusing on code behavior at runtime and investigating specific failure paths.
+
+- A runtime application issue typically results in the right files deployed to your app but incorrect app behavior. You can troubleshoot by focusing on code behavior at runtime and investigating specific failure paths.
 
 For more information, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
@@ -156,11 +156,11 @@ FTPS allows establishing an Explicit or Implicit TLS secure connection.
 
 The URL format you use can affect your connection success, depending on your client application. The portal might show the URL as `ftps://`, but if the URL you connect with starts with `ftp://`, the connection is implied to be on port 21. If the URL starts with `ftps://`, the connection is implied to be Implicit and on port 990.
 
-Make sure not to mix the settings, such as attempting to connect to `ftps://` by using port 21. This setting fails to connect even by using Explicit encryption, because an Explicit connection starts as a plain FTP connection before the AUTH method.
+Make sure not to mix the settings, such as attempting to connect to `ftps://` by using port 21. This setting fails to connect even by using Explicit encryption, because an Explicit connection starts as a plain FTP connection before the `AUTH` method.
 
 ## Related resources
 
 - [Local Git deployment to Azure App Service](deploy-local-git.md)
 - [Azure App Service deployment credentials](deploy-configure-credentials.md)
-- [Sample: Create a web app and deploy files with FTP (Azure CLI)](./scripts/cli-deploy-ftp.md).
-- [Sample: Upload files to a web app using FTP (PowerShell)](./scripts/powershell-deploy-ftp.md).
+- [Sample: Create a web app and deploy files with FTP (Azure CLI)](./scripts/cli-deploy-ftp.md)
+- [Sample: Upload files to a web app using FTP (PowerShell)](./scripts/powershell-deploy-ftp.md)
