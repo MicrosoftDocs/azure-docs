@@ -1,11 +1,10 @@
 ---
 title: Restore individual files with single-file restore from backups in Azure NetApp Files
-description: With single-file restore from backup, you can restore a single file to a specific location in a volume or multiple files (up to 8) to a specific directory.
+description: With single-file restore from backup, you can restore up to eight files to a directory. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 05/22/2025
 ms.author: anfdocs
