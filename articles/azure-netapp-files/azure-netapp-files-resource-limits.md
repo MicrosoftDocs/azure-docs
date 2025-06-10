@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 04/23/2025
+ms.date: 06/10/2025
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
