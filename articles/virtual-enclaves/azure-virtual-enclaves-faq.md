@@ -49,6 +49,9 @@ Currently, Azure Virtual Enclaves recommends following the [Tutorial: Disallow r
 
 As an example, to prevent deploying Communities to a Subscription, you would assign the `Not allowed resource type` [policy definition](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6c112d4e-5bc7-47ae-a041-ea2d9dccd749) while including `Microsoft.Mission/communities` in the parameter list of not allowed resource types.
 
+### Can I `move` my enclave?
+Moving the enclave resource itself is not supported and moves for some of the resources deployed in the enclave managed resource group also do not support moves actions (for example bastion, ipgroups, and user assigned managed identity).
+
 ## Billing
 Questions related to Azure Virtual Enclaves billing.
 
@@ -68,3 +71,6 @@ Managed resources for Azure Virtual Enclaves includes:
 Visit the Azure Virtual Enclaves community and enclave documentation for a complete list of managed resources and visit the Azure Virtual Enclaves pricing page for current costs.
 
 The cost of the Enclave includes the community, community endpoints, enclave endpoints, enclave connections, and transit hub.
+
+### Are partial hours pro-rated?
+Enclaves deployed during part of an hour are charged for the full hour.
