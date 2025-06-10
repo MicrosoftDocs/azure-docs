@@ -7,6 +7,8 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 11/25/2024
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 # Configure Virtual WAN for Azure NetApp Files
 

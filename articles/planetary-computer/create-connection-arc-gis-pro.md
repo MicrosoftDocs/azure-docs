@@ -3,10 +3,12 @@ title: Using ArcGIS Pro with Microsoft Planetary Computer Pro
 description: Learn how to configure and authenticate ArcGIS Pro so that it can read STAC item data from Microsoft Planetary Computer Pro. 
 author: aloverro
 ms.author: adamloverro
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 05/08/2025
 
+ms.custom:
+  - build-2025
 # customer intent: As a GeoCatalog user, I want to configure and authenticate ArcGIS pro to operate with Microsoft Planetary Computer Pro so that I can view imagery stored in my GeoCatalog within the ArcGIS Pro tool.
 ---
 

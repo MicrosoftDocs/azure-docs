@@ -29,7 +29,7 @@ sections:
 
           - The storage account must be of `Standard general-purpose v2` type.
           - The blob container must be created in the storage account before installing the AKS Backup Extension.
-          - The blob container should preferably be empty before installation or atleast shouldn't haven't nonbackup related data in it, as the extension will create its own folder structure within the container to store backup data and metadata.
+          - The blob container should preferably be empty before installation or at least shouldn't have nonbackup related data in it, as the extension will create its own folder structure within the container to store backup data and metadata.
           - In case the AKS cluster is within a Private Network, the storage account must be accessible from the AKS cluster. This can be achieved by using a Private Endpoint for the storage account or by configuring the necessary network rules to allow access from the AKS cluster to the storage account.
 
       - question: |
@@ -234,6 +234,22 @@ sections:
           Following are the actions used in the **Storage Blob Data Owner** role assigned on the Backup Vault over the Staging Storage Account in case backups are to be restored from Vault Tier:
 
           1. Microsoft.Storage/storageAccounts/blobServices/containers/blobs/*
+
+      - question: |
+          Will snapshots for all Persistent Volumes (PVs) in a backup configuration be taken at the exact same time, or is there a delay?
+        answer: |
+          Azure Backup for AKS does not currently support taking snapshots of all PVs at the exact same millisecond. While the snapshot operations are initiated in parallel, there may be slight delays between individual PV snapshots due to infrastructure and API timing. To help achieve consistency across multiple PVs, Azure Backup supports application-consistent backups using hooks. Hooks allow users to pause application writes before snapshotting and resume them afterward. This approach improves consistency and mimics crash consistency, though it may not be equivalent to true simultaneous snapshots or coordinated database-level consistency.
+
+      - question: |
+          What happens if I select the "Skip" option for Kubernetes resources including PVCs during an AKS restore?
+        answer: |
+          Selecting "Skip" means the restore process will not attempt to recreate any Kubernetes resources. If matching resources already exist in the target cluster, they will be reused as-is. If they do not exist, Azure Backup will attempt to dynamically recreate them. In case of PVs, ensure that compatible StorageClass definitions and permissions exist in the target environment.
+
+      - question: |
+          Why is my restored cluster trying to mount PVCs from the original source cluster?
+        answer: |
+          This typically happens when the restored cluster references Persistent Volumes (PVs) that still point to the original source resource group. AKS separates cluster resources into two resource groups: one for the control plane and another for infrastructure (like disks). If the PVC-to-PV mapping wasn’t correctly updated during restore, the restored workloads may attempt to attach source PVs, resulting in errors. Ensure that the restore process correctly remaps PVCs to new or existing PVs in the target cluster's resource group.
+
 
 additionalContent: |
 

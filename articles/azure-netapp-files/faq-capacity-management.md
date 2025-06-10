@@ -6,6 +6,8 @@ ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 03/01/2025
+ms.custom:
+  - build-2025
 ---
 # Capacity management FAQs for Azure NetApp Files
 

@@ -8,6 +8,8 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/21/2025
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 # Feature-based comparison of the Azure API Management tiers
