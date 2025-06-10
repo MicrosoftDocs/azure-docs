@@ -39,14 +39,14 @@ Before you can create a bot, you need to register an Application ID.
 
 1. From the Azure portal, open **App Registrations**.
 
-    :::image type="content" source="./media/teams-phone-extensibility-app-registration.png" alt-text="Screen capture showing the Azure portal with App registration selected from services."  lightbox="./media/teams-phone-extensibility-app-registration.png":::
+    :::image type="content" source="media/teams-phone-extensibility-app-registration.png" alt-text="Screen capture showing the Azure portal with App registration selected from services."  lightbox="media/teams-phone-extensibility-app-registration.png":::
 
 2. Select **New registration**.
 3. Complete the required fields and click **Register**.
 4. When the portal completes the resource, click **Go to resource**.
 5. Record the values for the **Application (client) ID** and **Directory (tenant) ID**.
 
-    :::image type="content" source="./media/teams-phone-extensibility-app-registration-resources.png" alt-text="Screen capture showing the Azure portal App registrations resource displaying Essentials including Application (client) ID and Directory (tenant) ID."  lightbox="./media/teams-phone-extensibility-app-registration-resources.png":::
+    :::image type="content" source="media/teams-phone-extensibility-app-registration-resources.png" alt-text="Screen capture showing the Azure portal App registrations resource displaying Essentials including Application (client) ID and Directory (tenant) ID."  lightbox="media/teams-phone-extensibility-app-registration-resources.png":::
 
 6. Open **Certificates & secrets**. Create new a client secret and record the certificate and secret ID values.
 
