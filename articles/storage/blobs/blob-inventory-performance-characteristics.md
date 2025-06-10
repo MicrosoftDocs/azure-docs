@@ -32,7 +32,7 @@ The distribution of objects within a hierarchical namespace-enabled account can 
 
 The total number of objects scanned based on an inventory rule is a key factor in processing performance. Rules that target a large volume of objects require more time and resources to generate an inventory report. The number of objects to be processed increases if your inventory rule includes versions, snapshots, and soft deleted objects. When these subtypes exist in high volumes, they can further extend processing time needed to generate the inventory report.
 
-### Export Format of the Inventory Report
+### Export format of the inventory report
 
 The chosen export format for an inventory report CSV or Apache Parquet can influence performance. While Parquet is optimized for fast data processing, it introduces overhead that may slow down report generation compared to CSV.
 
