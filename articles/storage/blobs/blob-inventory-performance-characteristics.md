@@ -65,7 +65,7 @@ Customize your inventory reports by selecting only the relevant fields you need.
 ### Subtype inclusion: deleted objects, snapshots, and versions
 While including these subtypes can provide a more comprehensive view of your storage account, it's important to assess whether they're essential for your audit and management needs. If they aren't critical, excluding them can help improve the performance and efficiency of your report generation process. To identify objects deleted in recent inventory runs, compare the blob names from the current run with those from a previous run. The difference can provide a list of recently deleted objects.
 
-### Subscribe to Blob Inventory Events
+### Subscribe to blob inventory events
 Stay informed about user-induced errors by subscribing to blob inventory events. This proactive approach helps you to quickly address issues. Learn more about how to subscribe to inventory events here - articles/storage/blobs/blob-inventory-how-to.md#subscribe-to-blob-inventory-policy-completed-event
 
 ### Monitor Unexpected Increases in capacity
