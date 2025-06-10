@@ -94,6 +94,10 @@ No, Azure Migrate doesn't support moving resources. To move resources created by
 
 Yes, Azure Migrate supports Virtual Desktop Infrastructure (VDI) migrations. For more information, see [tech community blog](https://techcommunity.microsoft.com/blog/azuremigrationblog/migrate-virtual-desktops-to-azure/1361120).
 
+## Can I use Azure Migrate to move VMs from AVS to Azure?
+
+No, you can't use Azure Migrate to move VMs from AVS to Azure. Azure Migrate supports moving VMs from on-premises to AVS or other Azure services, but not the other way around.
+
 ## Next steps
 
 Read the [Azure Migrate overview](migrate-services-overview.md).
