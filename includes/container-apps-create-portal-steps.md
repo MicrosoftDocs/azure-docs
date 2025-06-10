@@ -12,8 +12,8 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 To create your container app, start at the Azure portal home page.
 
-1. Search for **Container Apps** in the top search bar.
-1. Select **Container Apps** in the search results.
+1. Search for **Container App** in the top search bar.
+1. Select **Container App** in the search results.
 1. Select the **Create** button.
 
 ### Basics tab
