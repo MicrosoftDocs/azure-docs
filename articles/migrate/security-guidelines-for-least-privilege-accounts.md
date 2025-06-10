@@ -11,20 +11,25 @@ ms.custom: engagement-fy24
 
 # Security guidelines for least privilege accounts for Azure Migrate
 
-Azure Migrate Appliance is a lightweight appliance used by Azure Migrate: Discovery and Assessment uses to discover on-premises servers and send their configuration and performance metadata to Azure. It also performs software inventory, agentless dependency analysis, and discovers workloads like web apps and SQL Server instances and databases. To use these capabilities, users add server and guest credentials in the Appliance Config Manager. For security and efficiency, we recommend following the principle of least privilege to reduce potential risks.
+Azure Migrate Appliance is a lightweight appliance used by Azure Migrate. Discovery and Assessment uses to discover on-premises servers and send their configuration and performance metadata to Azure. It also performs software inventory, agentless dependency analysis, and discovers workloads like web apps and SQL Server instances and databases. To use these capabilities, users add server and guest credentials in the Appliance Config Manager. For security and efficiency, we recommend following the principle of least privilege to reduce potential risks.
 
 ## Discovery of VMware estate:  
 
+**vCenter account permissions**
+
 To discover basic configurations of servers running in a VMware estate, the following permissions are required.
 
-vCenter account: To perform deep discovery of the VMware estate and to run software inventory and dependency analysis, add the following extra privileges.
-
 - Read-only: Use the built in read-only role or create a clone of it and assign the user role to vCenter account.  
+
+Discovery of server metadata helps enable software inventory, dependency analysis, and performance assessments.
+
+
+
 - Guest operations: Add guest operations privileges to the read-only user role. 
 
-### Guest user accounts for Windows & Linux 
+**Scoped discovery of VMware servers**
 
-Guest user accounts allow limited access to Windows and Linux servers for discovery and assessment capablilites.
+1. To discover specific VMs, assign read permissions directly to those VMs. To discover all VMs in a folder, assign read permissions at the folder level and enable the "propagate to children" option.
 
 Windows: Use a Windows local guest user account  
 
