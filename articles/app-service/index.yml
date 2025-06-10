@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   ms.author: msangapu
   ms.service: azure-app-service
-  ms.date: 01/22/2025
+  ms.date: 06/10/2025
   ms.custom: UpdateFrequency3
 
 landingContent:
@@ -55,6 +55,40 @@ landingContent:
           - text: Custom container
             url: quickstart-custom-container.md
 
+  - title: Integrate AI with App Service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Introduction to AI integration with App Service
+            url: overview-ai-integration.md
+      - linkListType: tutorial
+        links:
+          - text: Build a RAG application with Azure OpenAI and Azure AI Search (.NET)
+            url: tutorial-ai-openai-search-dotnet.md
+          - text: Build a chatbot with Azure OpenAI (Blazor)
+            url: tutorial-ai-openai-chatbot-dotnet.md            
+          - text: Build a chatbot with Azure OpenAI (Spring Boot)
+            url: tutorial-ai-openai-chatbot-java.md            
+          - text: Run a chatbot with a local SLM (Express.js)
+            url: tutorial-ai-slm-expressjs.md
+          - text: Invoke OpenAPI web app from Azure AI Agent
+            url: invoke-openapi-web-app-from-azure-ai-agent-service.md
+
+  - title: Secure and deploy  
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Security in Azure App Service
+            url: overview-security.md        
+      - linkListType: tutorial
+        links:
+          - text: Secure with custom domain and certificate
+            url: tutorial-secure-domain-certificate.md
+          - text: Continuous deployment
+            url: deploy-continuous-deployment.md
+          - text: Upload content with FTP
+            url: deploy-ftp.md
+
   - title: Build a CRUD app
     linkLists:
       - linkListType: tutorial
@@ -76,17 +110,9 @@ landingContent:
           - text: REST API
             url: /rest/api/appservice/
 
-  - title: Secure and deploy  
+  - title: Troubleshoot with Azure SRE Agent (AI)
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Security in Azure App Service
-            url: overview-security.md        
       - linkListType: tutorial
         links:
-          - text: Secure with custom domain and certificate
-            url: tutorial-secure-domain-certificate.md
-          - text: Continuous deployment
-            url: deploy-continuous-deployment.md
-          - text: Upload content with FTP
-            url: deploy-ftp.md
+          - text: Fix application issues with SRE Agent
+            url: tutorial-sre-agent.md
