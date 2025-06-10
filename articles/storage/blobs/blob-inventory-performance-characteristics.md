@@ -71,7 +71,7 @@ Stay informed about user-induced errors by subscribing to blob inventory events.
 ### Monitor Unexpected Increases in capacity
 Pay attention to unexpected spikes in your storage account’s capacity, as they might signal the accumulation of blob versions, snapshots, or soft-deleted objects. Monitoring these changes can help you detect and resolve potential issues before they impact performance. Additionally, managing the lifecycle of these objects can prevent unnecessary buildup and improve Blob Inventory performance. To learn more about blob lifecycle management, see [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md)
 
-By following these best practices, you can enhance the performance of your Blob Inventory, ensuring efficient and effective management of your Azure Blob Storage. 
+By following these best practices, you can enhance the performance of your blob inventory, ensuring efficient and effective management of your Azure Blob Storage. 
 
 
 ## Next Steps
