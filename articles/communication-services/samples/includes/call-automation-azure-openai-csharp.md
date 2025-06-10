@@ -25,6 +25,9 @@ This server-side application helps create a virtual assistant that can handle ph
 - Azure Dev Tunnels. For details, see  [Enable dev tunnel](/azure/developer/dev-tunnels/get-started)
 - An Azure OpenAI Resource and Deployed Model. See [instructions](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
+> [!NOTE]
+> Bidirectional Streaming in Azure Communication Services is generally available, but the Azure OpenAI real-time API has its own release schedule. For up-to-date info on the API’s availability, check out the [official docs](/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#audio-models).
+
 ## Set up instructions
 
 Before running this sample, you need to set up the resources with the following configuration updates:
