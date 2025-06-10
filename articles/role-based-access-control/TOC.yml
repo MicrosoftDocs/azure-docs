@@ -66,6 +66,8 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
+    - name: Granular RBAC
+      href: ../azure-monitor/logs/granular-rbac.md
 - name: How-to guides
   items:
   - name: List role definitions
