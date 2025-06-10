@@ -28,7 +28,7 @@ When using blob inventory to generate an inventory report, several key factors c
 
 The distribution of objects within a hierarchical namespace-enabled account can significantly affect inventory performance. Blob inventory scans one directory at a time and completes that scan before moving to the next directory. Therefore, a high number of directories, especially with sparse object distribution and deep nesting, can increase the time required to generate the inventory report. 
 
-### Number of Objects Processed for the Inventory Rule
+### Number of objects processed for the inventory rule
 
 The total number of objects scanned based on an inventory rule is a key factor in processing performance. Rules that target a large volume of objects require more time and resources to generate an inventory report. Additionally, including versions, snapshots, and soft deleted objects in the inventory rule increases the number of objects to be processed. When these subtypes exist in high volumes, they can further extend processing time needed to generate the inventory report
 
