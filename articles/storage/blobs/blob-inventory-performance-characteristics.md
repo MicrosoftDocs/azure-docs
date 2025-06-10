@@ -59,7 +59,7 @@ Instead of running inventory on the entire storage account, use a prefix match f
 
 - Exclude Prefix: Use this filter to exclude some specific subset from it. This approach also helps narrow the scope of your inventory report. To learn more, see the articles/storage/blobs/blob-inventory.md#rule-filters.
 
-### Select Relevant Fields
+### Select relevant fields
 Customize your inventory reports by selecting only the relevant fields you need. Doing this reduces the amount of data processed and exported, leading to quicker report generation, and easier analysis. Learn more about the inventory schema fields here - articles/storage/blobs/blob-inventory.md#custom-schema-fields-supported-for-blob-inventory
 
 ### Subtype Inclusion: Deleted Objects, Snapshots, and Versions
