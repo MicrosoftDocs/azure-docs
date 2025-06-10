@@ -102,6 +102,11 @@
       href: concepts-security-access-identity.md
     - name: Availability
       href: concepts-nexus-availability.md
+    - name: Credential
+      expanded: false
+      items:
+        - name: Baseboard Management Controller Credential Rotation Overview
+          href: concepts-baseboard-management-controller-credential-rotation.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
