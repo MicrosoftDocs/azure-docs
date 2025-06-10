@@ -1,6 +1,6 @@
 ---
-title: Configure Private Endpoints for Azure Elastic SAN
-description: Learn how to configure Private Endpoint connections to Azure Elastic SAN volumes.
+title: Configure private endpoints for Azure Elastic SAN
+description: Learn how to configure private endpoint connections to Azure Elastic SAN volumes.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
@@ -9,11 +9,11 @@ ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Configure Private Endpoints for Azure Elastic SAN
+# Configure private endpoints for Azure Elastic SAN
 
 A private endpoint allows you to connect to your Elastic SAN volume group over a private IP address within your virtual network. When you use a private endpoint, traffic between your virtual network and the Elastic SAN remains entirely on Azure’s private backbone, without traversing the public internet. Once a private endpoint is configured and approved, access is granted automatically to the subnet where it resides. This configuration provides strong network isolation and is ideal for production or security-sensitive workloads. 
 
-This article covers configuring your Elastic SAN volume group to use Private Endpoints.
+This article covers configuring your Elastic SAN volume group to use private endpoints.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ Fill out the values in the menu that pops up, select the virtual network and the
 
 ### [PowerShell](#tab/azure-powershell)
 
-The following script creates a Private Endpoint for your Elastic SAN volume group. Replace the values of `RgName`, `VnetName`, `SubnetName`, `EsanName`, `EsanVgName`, `PLSvcConnectionName`, `EndpointName`, and `Location`(Region) with your own values, and uncomment `-ByManualRequest` if you're following the two step process, then run the script.
+The following script creates a private endpoint for your Elastic SAN volume group. Replace the values of `RgName`, `VnetName`, `SubnetName`, `EsanName`, `EsanVgName`, `PLSvcConnectionName`, `EndpointName`, and `Location`(Region) with your own values, and uncomment `-ByManualRequest` if you're following the two step process, then run the script.
 
 Afterwards, if you don't have all necessary permissions and need the network admin to approve the connection, make sure to also run the script in [Approve connection](#approve-connection).
 
@@ -112,7 +112,7 @@ $EndpointConnection.PrivateLinkServiceConnectionState
 
 ### [Azure CLI](#tab/azure-cli)
 
-The following script creates a Private Endpoint for your Elastic SAN volume group. Uncomment the `--manual-request` parameter if you're using the two-step process. Replace all example variable values with your own, then run the script.
+The following script creates a private endpoint for your Elastic SAN volume group. Uncomment the `--manual-request` parameter if you're using the two-step process. Replace all example variable values with your own, then run the script.
 
 Afterwards, if you don't have all necessary permissions and need the network admin to approve the connection, make sure to also run the script in [Approve connection](#approve-connection-1).
 

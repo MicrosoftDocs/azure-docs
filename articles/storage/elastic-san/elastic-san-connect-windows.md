@@ -21,8 +21,7 @@ You must use a cluster manager when connecting an individual Elastic SAN volume 
 
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - [Deploy an Elastic SAN](elastic-san-create.md)
-- [Configure a virtual network endpoint](elastic-san-networking.md)
-- [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
+- Either [configure private endpoints](elastic-san-configure-private-endpoints.md) or [configure service endpoints](elastic-san-configure-service-endpoints.md)
 
 ## Enable iSCSI Initiator
 
@@ -79,11 +78,13 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
-## Set session number
+### Set session number
 
 You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
 
-You can customize the number of sessions by using the optional `-NumSession parameter` when running the `connect.ps1` script. 
+> [!NOTE]
+> Use the `-NumSession` parameter to customize the number of sessions. The parameter accepts values from 1 to 32, and has a default value of 32.
+
 
 ```bash
 .\connect.ps1 ` 
@@ -98,9 +99,6 @@ You can customize the number of sessions by using the optional `-NumSession para
 
   -NumSession “<value>”
 ```
-
-> [!NOTE]
-> The `-NumSession` parameter accepts values from 1 to 32, and has a default value of 32.
 
 ## Next steps
 

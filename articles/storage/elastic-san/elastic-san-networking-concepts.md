@@ -35,11 +35,11 @@ Private endpoints have several advantages over service endpoints. For a complete
 
 Traffic between the virtual network and the Elastic SAN is routed over an optimal path on the Azure backbone network. Unlike service endpoints, you don't need to configure network rules to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints.
 
-For details on how to configure private endpoints, see [Enable private endpoint](elastic-san-networking.md#configure-a-private-endpoint).
+For details on how to configure private endpoints, see [Configure private endpoints for Azure Elastic SAN](elastic-san-configure-private-endpoints.md).
 
 ## Public network access
 
-When you create a SAN, you can enable or disable public internet access to your Elastic SAN endpoints at the SAN level. If you're using private endpoints, you should disable public network access, and only enable it if you're using service endpoints. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups in that SAN over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints.
+When you create a SAN, you can enable or disable public internet access to your Elastic SAN endpoints at the SAN level. If you're exclusively using private endpoints, disable public network access, only enable it if you're using service endpoints. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups in that SAN over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints.
 
 ## Storage service endpoints
 
@@ -48,9 +48,9 @@ When you create a SAN, you can enable or disable public internet access to your 
 [Cross-region service endpoints for Azure Storage](../common/storage-network-security.md#azure-storage-cross-region-service-endpoints) work between virtual networks and storage service instances in any region. With cross-region service endpoints, subnets no longer use a public IP address to communicate with any storage account, including those in another region. Instead, all the traffic from a subnet to a storage account uses a private IP address as a source IP.
 
 > [!TIP]
-> The original local service endpoints, identified as **Microsoft.Storage**, are still supported for backward compatibility, but you should create cross-region endpoints, identified as **Microsoft.Storage.Global**, for new deployments.
+> The original local service endpoints, identified as **Microsoft.Storage**, are supported for backward compatibility, but you should create cross-region endpoints, identified as **Microsoft.Storage.Global**, for new deployments.
 >
-> Cross-region service endpoints and local ones can't coexist on the same subnet. To use cross-region service endpoints, you might have to delete existing **Microsoft.Storage** endpoints and recreate them as **Microsoft.Storage.Global**.
+> Cross-region service endpoints and local ones can't coexist on the same subnet. To use cross-region service endpoints, delete existing **Microsoft.Storage** endpoints and recreate them as **Microsoft.Storage.Global**.
 
 ## Virtual network rules
 
