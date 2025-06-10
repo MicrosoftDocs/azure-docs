@@ -4,7 +4,7 @@ description: Learn how to deploy your app to Azure App Service using FTP or FTPS
 
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
-ms.date: 06/09/2025
+ms.date: 06/10/2025
 author: cephalin
 ms.author: cephalin
 ---
@@ -98,7 +98,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 Run the following [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) command, replacing the `<app-name>` and `<resource-group-name>` with your values. Use the `-FtpsState` parameter set to `FtpsOnly` to enforce FTPS, or `Disabled` to disable both FTP and FTPS..
 
 ```azurepowershell-interactive
-Set-AzWebApp -Name <app-name> -ResourceGroupName <-resource-group-name> -FtpsState FtpsOnly
+Set-AzWebApp -Name <app-name> -ResourceGroupName <resource-group-name> -FtpsState FtpsOnly
 ```
 
 -----
