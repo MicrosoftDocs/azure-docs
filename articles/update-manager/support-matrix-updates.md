@@ -58,8 +58,8 @@ The asterisk (*) in the Offer or Plan columns acts as a wildcard. * means all po
 | center-for-internet-security-inc | cis-windows-server-2019-v1-0-0-l2 | cis-ws2019-l2 |  |
 | center-for-internet-security-inc | cis-windows-server-2022-l1 | * |  |
 | center-for-internet-security-inc | cis-windows-server-2022-l2 | * |  |
-| center-for-internet-security-inc |  | cis-windows-server2019-l*  |
-| center-for-internet-security-inc |  | cis-windows-server2022-l*  |
+| center-for-internet-security-inc |  | cis-windows-server2019-l* |  |
+| center-for-internet-security-inc |  | cis-windows-server2022-l* |  |
 | center-for-internet-security-inc |  |  | cis-windows-server-l*-azure-observability |
 | center-for-internet-security-inc |  | cis-windows-server2019-stig-gen1 |
 | cloud-infrastructure-services | ad-dc-2016 | ad-dc-2016 |  |
