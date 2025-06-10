@@ -54,7 +54,7 @@ When generating inventory reports, opt for csv format if your use case doesn't r
 
 
 ### Scope your inventory rule using a prefix
-Instead of running inventory on the entire storage account, use prefix match to generate an inventory report for specific subsets of your data.
+Instead of running inventory on the entire storage account, use a prefix match filter to generate an inventory report for specific subsets of your data.
 -	Include Prefix: This filter targets a set of containers or paths within a container. This approach helps narrow down the scope of your inventory report, making the process faster and more efficient.
 
 - Exclude Prefix: Similar to including prefix, If you want to include a prefix, but exclude some specific subset from it, then you could use the excludePrefix filter. This approach also helps narrow the scope of your inventory report. To learn more, see the articles/storage/blobs/blob-inventory.md#rule-filters.
