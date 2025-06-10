@@ -50,7 +50,7 @@ Efficiently managing your Azure Blob Storage is essential for maintaining optima
 Sparse accounts are those that contain a large number of objects spread across many directories. These directories might or might not include deeply nested structures. Sparse accounts result in a very low file-to-directory ratio, which can cause inefficiencies in inventory report generation and even lead to failures. To mitigate these inefficiencies, ensure that your hierarchical namespace-enabled storage account is well-organized and avoid having a sparse distribution of objects.
 
 ### Use CSV for the export format	
-When generating inventory reports, opt for csv format if your use case doesn't require fast data processing. Parquet is a columnar storage file format optimized for performance and one of the fastest formats to read for data processing. However, it may increase the time required to generate reports due to its overhead making it slower than generating a report in csv format. If you need the parquet format to post-process your report, you can utilize available open-source tools that convert CSV to Parquet format.
+When generating inventory reports, opt for csv format if your use case doesn't require fast data processing. Parquet is a columnar storage file format optimized for performance and one of the fastest formats to read for data processing. However, a parquet format might increase the time required to generate reports due to its overhead which makes it slower than generating a report in csv format. If you need the parquet format to post-process your report, you can utilize available open-source tools that convert CSV to parquet format.
 
 
 ### Scope your Inventory rule using Prefix
