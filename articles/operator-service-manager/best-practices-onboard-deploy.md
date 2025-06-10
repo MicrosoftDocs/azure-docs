@@ -302,6 +302,8 @@ As the first step towards cleaning up an onboarded environment, start by deletin
 > [!IMPORTANT]
 > Deleting resources out of order can result in orphaned resources left behind.
 
+AOSM does not perform a delete namespace as part of any delete operation. As such, once all resources have been deleted, some artifacts may remain on the cluster. To purge any remaining artifacts, the user should perform a delete namespace on any workload namespaces created on the cluster. Including this delete namespace operation as part of the workflow pipeline is recommended to automate the action.
+
 ## NfApp Sequential Ordering Behavior
 
 ### Overview

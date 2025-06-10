@@ -106,6 +106,8 @@ The following table provides a brief description of each built-in role. Click th
 > | --- | --- | --- |
 > | <a name='avere-contributor'></a>[Avere Contributor](./built-in-roles/storage.md#avere-contributor) | Can create and manage an Avere vFXT cluster. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | <a name='avere-operator'></a>[Avere Operator](./built-in-roles/storage.md#avere-operator) | Used by the Avere vFXT cluster to manage the cluster | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | <a name='azure-file-sync-administrator'></a>[Azure File Sync Administrator](./built-in-roles/storage.md#azure-file-sync-administrator) | Provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC. | 92b92042-07d9-4307-87f7-36a593fc5850 |
+> | <a name='azure-file-sync-reader'></a>[Azure File Sync Reader](./built-in-roles/storage.md#azure-file-sync-reader) | Provides read access to Azure File Sync service (Storage Sync Service). | 754c1a27-40dc-4708-8ad4-2bffdeee09e8 |
 > | <a name='backup-contributor'></a>[Backup Contributor](./built-in-roles/storage.md#backup-contributor) | Lets you manage backup service, but can't create vaults and give access to others | 5e467623-bb1f-42f4-a55d-6e525e11384b |
 > | <a name='backup-mua-admin'></a>[Backup MUA Admin](./built-in-roles/storage.md#backup-mua-admin) | Backup MultiUser-Authorization. Can create/delete ResourceGuard  | c2a970b4-16a7-4a51-8c84-8a8ea6ee0bb8 |
 > | <a name='backup-mua-operator'></a>[Backup MUA Operator](./built-in-roles/storage.md#backup-mua-operator) | Backup MultiUser-Authorization. Allows user to perform critical operation protected by resourceguard | f54b6d04-23c6-443e-b462-9c16ab7b4a52 |

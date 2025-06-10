@@ -25,12 +25,12 @@ To configure your Azure File Sync deployment to utilize system-assigned managed 
 # [Portal](#tab/azure-portal) 
 - **Azure File Sync agent version 20.0.0.0 or later** must be installed on the registered server. 
 
-- On your **storage accounts** used by Azure File Sync, you must be a **member of the Owner management role** or have `Microsoft.Authorization/roleassignments/write` permissions. 
+- On your **storage accounts** used by Azure File Sync, you must be a **member of the Azure File Sync Administrator or Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions. 
 
 # [PowerShell](#tab/azure-powershell) 
 - **Azure File Sync agent version 20.0.0.0 or later** must be installed on the registered server. 
 
-- On your **storage accounts** used by Azure File Sync, you must be a **member of the Owner management role** or have `Microsoft.Authorization/roleassignments/write` permissions. 
+- On your **storage accounts** used by Azure File Sync, you must be a **member of the Azure File Sync Administrator or Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions. 
 
  
   

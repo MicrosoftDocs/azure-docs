@@ -35,7 +35,7 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 ## Supported regions
 
-All regions that support Azure Premium Files now support encryption in transit, with the exception of Korea Central and West Europe.
+All regions that support Azure Premium Files now support encryption in transit, with the exception of West Europe.
 
 
 ## Register for preview

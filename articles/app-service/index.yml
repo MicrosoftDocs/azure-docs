@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   ms.author: msangapu
   ms.service: azure-app-service
-  ms.date: 01/22/2025
+  ms.date: 06/10/2025
   ms.custom: UpdateFrequency3
 
 landingContent:
@@ -74,12 +74,20 @@ landingContent:
           - text: Invoke OpenAPI web app from Azure AI Agent
             url: invoke-openapi-web-app-from-azure-ai-agent-service.md
 
-  - title: Troubleshoot with Azure SRE Agent (AI)
+  - title: Secure and deploy  
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Security in Azure App Service
+            url: overview-security.md        
       - linkListType: tutorial
         links:
-          - text: Fix application issues with SRE Agent
-            url: tutorial-sre-agent.md
+          - text: Secure with custom domain and certificate
+            url: tutorial-secure-domain-certificate.md
+          - text: Continuous deployment
+            url: deploy-continuous-deployment.md
+          - text: Upload content with FTP
+            url: deploy-ftp.md
 
   - title: Build a CRUD app
     linkLists:
@@ -102,18 +110,9 @@ landingContent:
           - text: REST API
             url: /rest/api/appservice/
 
-  - title: Secure and deploy  
+  - title: Troubleshoot with Azure SRE Agent (AI)
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Security in Azure App Service
-            url: overview-security.md        
       - linkListType: tutorial
         links:
-          - text: Secure with custom domain and certificate
-            url: tutorial-secure-domain-certificate.md
-          - text: Continuous deployment
-            url: deploy-continuous-deployment.md
-          - text: Upload content with FTP
-            url: deploy-ftp.md
-
+          - text: Fix application issues with SRE Agent
+            url: tutorial-sre-agent.md
