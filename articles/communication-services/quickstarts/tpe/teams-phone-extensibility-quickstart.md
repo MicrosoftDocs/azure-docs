@@ -24,9 +24,9 @@ This article describes how an independent software vendor (ISV) can provision Te
 - ISV’s Customer has access to Microsoft 365 Admin Center.
 - ISV has access to change Azure Communication Services Resource settings.
 - You grant Teams Tenant access to a CCaaS service for Graph API usage.
-- ISV is using the .NET ACS Call Automation SDK version 1.5.0-beta.1
-- ISV is using the JavaScript ACS Call Automation SDK version 1.5.0-beta.2
-- ISV is using the JavaScript ACS Client SDK version 1.36.1-beta.1
+- ISV is using the .NET ACS Call Automation SDK version 1.5.0-beta.1.
+- ISV is using the JavaScript ACS Call Automation SDK version 1.5.0-beta.2.
+- ISV is using the JavaScript ACS Client SDK version 1.36.1-beta.1.
 
 
 ## Quick start
@@ -39,16 +39,16 @@ Before you can create a bot, you need to register an Application ID.
 
 1. From the Azure portal, open **App Registrations**.
 
-  :::image type="content" source="./media/teams-phone-extensibility-app-registration.png" alt-text="Screen capture showing the Azure portal with App registration selected from services."  lightbox="./media/teams-phone-extensibility-app-registration.png":::
+    :::image type="content" source="./media/teams-phone-extensibility-app-registration.png" alt-text="Screen capture showing the Azure portal with App registration selected from services."  lightbox="./media/teams-phone-extensibility-app-registration.png":::
 
-1. Select **New registration**.
-1. Complete the required fields and click **Register**.
-1. When the portal completes the resource, click **Go to resource**.
-1. Record the values for the **Application (client) ID** and **Directory (tenant) ID**.
+2. Select **New registration**.
+3. Complete the required fields and click **Register**.
+4. When the portal completes the resource, click **Go to resource**.
+5. Record the values for the **Application (client) ID** and **Directory (tenant) ID**.
 
-  :::image type="content" source="./media/teams-phone-extensibility-app-registration-resources.png" alt-text="Screen capture showing the Azure portal App registrations resource displaying Essentials including Application (client) ID and Directory (tenant) ID."  lightbox="./media/teams-phone-extensibility-app-registration-resources.png":::
+    :::image type="content" source="./media/teams-phone-extensibility-app-registration-resources.png" alt-text="Screen capture showing the Azure portal App registrations resource displaying Essentials including Application (client) ID and Directory (tenant) ID."  lightbox="./media/teams-phone-extensibility-app-registration-resources.png":::
 
-1. Open **Certificates & secrets**. Create new a client secret and record the certificate and secret ID values.
+6. Open **Certificates & secrets**. Create new a client secret and record the certificate and secret ID values.
 
 For more information, see [Registering a calling bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html#registering-an-app-registration).
 
@@ -59,19 +59,19 @@ Once you create the `AppID`, Teams Phone system also uses the current process as
 Alternatively, you can complete the following steps to create just the bot after you create an  Application ID using the Azure CLI.
 
 1. Download Azure CLI.
-1. Sign in with your Azure account used for the preceding App Registration: 
+2. Sign in with your Azure account used for the preceding App Registration: 
 
-  ```azurecli
-  az login 
-  ```
+    ```azurecli
+    az login 
+    ```
 
-1. If not already installed, install `Az.BotService`:  
+3. If not already installed, install `Az.BotService`:  
 
-  ```azurecli
-  Install-Module Az.BotService -AllowClobber 
-  ```
+    ```azurecli
+    Install-Module Az.BotService -AllowClobber 
+    ```
 
-1. Provision the bot using the following command. For more information, see [Publish a bot with Azure PowerShell - Azure AI Bot Service - Bot Service](/azure/bot-service/powershell/bot-builder-powershell-quickstart):
+4. Provision the bot using the following command. For more information, see [Publish a bot with Azure PowerShell - Azure AI Bot Service - Bot Service](/azure/bot-service/powershell/bot-builder-powershell-quickstart):
 
 If your environment is already provisioned, skip the following steps.
 
