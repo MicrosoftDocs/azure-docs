@@ -13,27 +13,68 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy24, linux-related-content
 
 # Tutorial: Discover physical servers with Azure Migrate: Discovery and assessment
 
-As part of your migration journey to Azure, you discover your servers for assessment and migration.
+This article explains how to set up the Azure Migrate appliance to discover physical servers and servers running in AWS, GCP, or any other cloud.
 
-This tutorial shows you how to discover on-premises physical servers with the Azure Migrate: Discovery and assessment tool, using a lightweight Azure Migrate appliance. You deploy the appliance as a physical server, to continuously discover servers and performance metadata.
+The Azure Migrate appliance is a lightweight tool that Azure Migrate: Discovery and assessment uses to:
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Set up an Azure account.
-> * Prepare physical servers for discovery.
-> * Create a project.
-> * Set up the Azure Migrate appliance.
-> * Start continuous discovery.
-
-> [!NOTE]
-> Tutorials show the quickest path for trying out a scenario, and use default options.  
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+- Discover on-premises servers
+- Send metadata and performance data of the discovered servers to Azure Migrate: Discovery and assessment
 
 ## Prerequisites
 
-Before you start this tutorial, ensure you have these prerequisites in place.
+Before you set up the appliance, [create an Azure Migrate project](create-project.md) by following these steps.
+
+## Prepare Azure Migrate appliance
+
+- Check the hardware requirements for the [Azure Migrate appliance](migrate-appliance.md).
+- Ensure the appliance VM can connect to all the required [endpoints](migrate-appliance.md#url-access).
+
+
+### Prepare Windows server
+
+To discover Windows servers and enable software inventory and agentless dependency analysis, use a domain account for domain-joined servers or a local account for servers that are not domain-joined.
+
+You can create the local user account in one of two ways:
+
+#### Option 1: Set up a least-privileged Windows user account (recommended)
+
+- Add the user account to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
+- If the Remote Management Users group is not available, add the user to the `WinRMRemoteWMIUsers_ group` instead.
+- The account needs these permissions so the appliance can create a CIM connection with the server and collect configuration and performance data from the required WMI classes.
+- Sometimes, even after adding the account to the right groups, it may not return the needed data because of UAC(add link) filtering. To fix this, give the user account the right permissions on the **CIMV2 namespace** and its sub-namespaces on the target server. You can follow these [steps](troubleshoot-appliance.md) to set the required permissions.
+
+>[!Note]
+> - For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
+> - To discover SQL Server databases on Windows Servers, both Windows and SQL Server authentication are supported. </br> You can enter credentials for both types in the appliance configuration manager. </br> Azure Migrate needs a Windows user account that is part of the `sysadmin` server role.
+
+#### Option 2: Set up administrator account
+
+To set up:
+
+- Create an account with administrator rights on the servers.
+- This account helps collect configuration and performance data using a CIM connection.
+- It also supports software inventory (finding installed applications) and enables agentless dependency analysis through PowerShell remoting.
+
+### Prepare Linux server
+
+To discover Linux servers, you can create a sudo user account like this:
+
+- You need a sudo user account on the Linux servers you want to discover.
+- This account helps collect configuration and performance data, perform software inventory (find installed applications), and enable agentless dependency analysis using SSH.
+- The user account must have sudo access to the required file paths.
+
+`/usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l /proc/*/exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay ""`
+
+- Ensure that you enable `NOPASSWD` for the account so it can run the required commands without asking for a password each time it uses sudo.
+- For example, you can add an entry like this in the `/etc/sudoers` file.
+
+`AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l /proc/*/exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay ""[`
+
+- You can find the list of commands run on the target servers and the information they collect. [Learn more](discovered-metadata.md#linux-server-metadata).
+- Below is the list of supported Linux operating system distributions.
+
+
+
 
 **Requirement** | **Details**
 --- | ---
