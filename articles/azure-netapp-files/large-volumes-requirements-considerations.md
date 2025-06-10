@@ -1,15 +1,15 @@
 ---
-title: Requirements and considerations for large volumes | Microsoft Docs
+title: Requirements and considerations for Azure NetApp Files large volumes
 description: Describes the requirements and considerations you need to be aware of before using large volumes.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
-ms.topic: conceptual
-ms.date: 02/25/2025
+ms.topic: concept-article
+ms.date: 04/17/2025
 ms.author: anfdocs
 ---
-# Requirements and considerations for large volumes
+# Requirements and considerations for Azure NetApp Files large volumes
 
 This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
 
@@ -20,44 +20,44 @@ The following requirements and considerations apply to large volumes. For perfor
 * A regular volume can’t be converted to a large volume.
 * You must create a large volume at a size of 50 TiB or larger. The maximum size of a large volume is 1,024 TiB, though 2-PiB large volumes are available on request depending on regional dedicated capacity availability. To request 2-PiB large volumes, contact your account team. 
 * You can't resize a large volume to less than 50 TiB.
-    A large volume cannot be resized to more than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits). When requesting the resize, specify the exact size desired size in TiB. 
+    A large volume cannot be resized to more than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits). When requesting the resize, specify the desired size in TiB. 
 * Large volumes are currently not supported with Azure NetApp Files backup.
 * You can't create a large volume with application volume groups.
 * Currently, large volumes aren't suited for database (HANA, Oracle, SQL Server, etc.) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes. To optimize multiple volume deployments for databases, use [application volume groups](application-volume-group-concept.md).
-* Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You're able to grow to 1 PiB with the throughput ceiling per the following table:  
+*	The throughput ceiling for the Standard, Premium, and Ultra service levels with large volumes is 12,800 MiB/s. You're able to grow to 1 PiB with the throughput ceiling per the following table:  
     
     <table><thead>
       <tr>
         <th></th>
         <th colspan="2">Capacity</th>
-        <th colspan="2">Linear performance scaling per TiB up to maximum allowed capacity tier throughput (large volume) </th>
+        <th colspan="2">Linear performance scaling per TiB up to maximum 12,800 MiB/s </th>
       </tr></thead>
     <tbody>
       <tr>
         <td>Capacity tier</td>
         <td>Minimum volume size<br>(TiB)</td>
-        <td>Maximum volume size (TiB)</td>
+        <td>Maximum volume size (TiB)*</td>
         <td>Minimum throughput for capacity tier (MiB/s)</td>
         <td>Maximum throughput for capacity tier (MiB/s)</td>
       </tr>
       <tr>
         <td>Standard (16 MiB/s per TiB)</td>
         <td>50</td>
-        <td>1,024</td>
+        <td>1,024*</td>
         <td>800</td>
         <td>12,800</td>
       </tr>
       <tr>
         <td>Premium (64 MiB/s per TiB)</td>
         <td>50</td>
-        <td>1,024</td>
+        <td>1,024*</td>
         <td>3,200</td>
         <td>12,800</td>
       </tr>
       <tr>
         <td>Ultra (128 MiB/s per TiB)</td>
         <td>50</td>
-        <td>1,024</td>
+        <td>1,024*</td>
         <td>6,400</td>
         <td>12,800</td>
       </tr>
@@ -114,6 +114,8 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * UAE North
 * UK West
 * UK South
+* US Gov Arizona
+* US Gov Texas
 * US Gov Virginia 
 * West Europe
 * West US

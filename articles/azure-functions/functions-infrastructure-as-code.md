@@ -20,7 +20,7 @@ This article shows you how to automate the creation of resources and deployment 
 
 The template code required depends on the desired hosting options for your function app. This article supports the following hosting options:
 
-| Hosting option | Deployment type | To learn more, see... |
+| Hosting option | Deployment type | Sample template |
 | ----- | ----- | ----- |
 | [Azure Functions Consumption plan](functions-infrastructure-as-code.md?pivots=consumption-plan) | Code-only | [Consumption plan](./consumption-plan.md) |
 | [Azure Functions Flex Consumption plan](functions-infrastructure-as-code.md?pivots=consumption-plan) | Code-only | [Flex Consumption plan](./flex-consumption-plan.md) |

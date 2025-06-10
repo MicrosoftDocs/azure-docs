@@ -41,7 +41,7 @@ The following example scenario uses two Azure Resource Manager (ARM) template de
 1. Create a user-assigned managed identity.
 1. Assign Azure role-based access control (RBAC) **Azure Maps Data Reader** role to the user-assigned managed identity.
 1. Create an Azure Maps account with a [Cross Origin Resource Sharing (CORS) configuration](azure-maps-authentication.md#cross-origin-resource-sharing-cors), and attach the user-assigned managed identity.
-1. Create and save a SAS token in the Azure key vault.
+1. Create and save a SAS token in the Azure Key Vault.
 1. Retrieve the SAS token secret from the key vault.
 1. Create an Azure Maps REST API request that uses the SAS token.
 

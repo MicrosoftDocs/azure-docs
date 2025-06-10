@@ -8,9 +8,6 @@ ms.author: madsd
 ---
 
 # Certificates and the App Service Environment 
-> [!NOTE]
-> This article is about the App Service Environment v3, which is used with Isolated v2 App Service plans
->
 
 The App Service Environment is a deployment of the Azure App Service that runs within your Azure virtual network. It can be deployed with an internet accessible application endpoint or an application endpoint that is in your virtual network. If you deploy the App Service Environment with an internet accessible endpoint, that deployment is called an External App Service Environment. If you deploy the App Service Environment with an endpoint in your virtual network, that deployment is called an ILB App Service Environment. You can learn more about the ILB App Service Environment from the [Create and use an ILB App Service Environment](./creation.md) document.
 
@@ -70,7 +67,7 @@ Export-Certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
 If your app acts as a server in a client-server model, either behind a reverse proxy or directly with private client and you're using a private CA certificate, you need to upload the server certificate (*.pfx* file) with the full certificate chain to your app and bind the certificate to the custom domain. Because the infrastructure is dedicated to your App Service Environment, the full certificate chain is added to the trust store of the servers. You only need to upload the certificate once to use it with apps that are in the same App Service Environment.
 
 >[!NOTE]
-> If you uploaded your certificate prior to 1. October 2023, you will need to reupload and rebind the certificate for the full certificate chain to be added to the servers.
+> If you uploaded your certificate prior to October 1, 2023, you need to reupload and rebind the certificate for the full certificate chain to be added to the servers.
 
 Follow the [secure custom domain with TLS/SSL](../configure-ssl-bindings.md) tutorial to upload/bind your private CA rooted certificate to the app in your App Service Environment.
 

@@ -6,10 +6,10 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 01/14/2025
+  ms.date: 06/01/2025
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
-  This article provides answers to the most frequently asked questions asked about Azure Network Watcher.
+  This article provides answers to the most frequently asked questions about Azure Network Watcher.
   
 
 sections:
@@ -35,7 +35,7 @@ sections:
             * [Packet capture](network-watcher-packet-capture-overview.md) enables you to capture your virtual machine traffic.
             * [VPN troubleshoot](network-watcher-troubleshoot-overview.md) runs multiple diagnostics checks on your VPN gateways and connections to help debug issues.
           * Traffic
-            * [Network security group flow logs](network-watcher-nsg-flow-logging-overview.md) and [virtual network flow logs](vnet-flow-logs-overview.md) allow you to log network traffic passing through your network security groups (NSGs) and virtual networks respectively.
+            * [Virtual network flow logs](vnet-flow-logs-overview.md) and [network security group flow logs](network-watcher-nsg-flow-logging-overview.md) allow you to log network traffic passing through your virtual networks and network security groups (NSGs) respectively.
             * [Traffic analytics](traffic-analytics.md) processes your network security group flow log data enabling you to visualize, query, analyze, and understand your network traffic.
           
           For more detailed information, see [Network Watcher overview](network-watcher-overview.md).
@@ -173,6 +173,13 @@ sections:
         answer: |
           There's currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](/azure/azure-monitor/logs/cross-workspace-query).
 
+  - name: Network diagnostic tools
+    questions:
+      - question: | 
+          Are there any limitations with network diagnostics tools for Application Gateway?
+        answer: |
+          Yes. Connection troubleshoot and NSG diagnostics don't support private Application Gateway deployments. For more information, see [Private Application Gateway deployment](/azure/application-gateway/application-gateway-private-deployment).
+
   - name: Flow logs
     questions:
       - question: |
@@ -216,14 +223,14 @@ sections:
           Yes, you can use a storage account from a different subscription as long as this subscription is in the same region of the network security group and associated with the same Microsoft Entra tenant of the network security group or virtual network's subscription.
 
       - question: |
-          How do I use network security group flow logs with a storage account behind a firewall?
+          How do I use flow logs with a storage account behind a firewall?
         answer: |
-          To use a storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
+          To use a storage account behind a firewall, you have to allow *trusted Azure services* to access your storage account:
           
           1. Go to the storage account by entering the storage account's name in the search box at the top of the portal.
           2. Under the **Security + networking**, select **Networking**, then select **Firewalls and virtual networks**.
           3. In **Public network access**, select **Enabled from selected virtual networks and IP addresses**. Then under **Exceptions**, check the box next to **Allow Azure services on the trusted services list to access this storage account.** 
-          4. Enable network security group flow logs by creating a flow log for your target network security group using the storage account. For more information, see [Create a flow log](nsg-flow-logging.md#create-a-flow-log).
+          4. Enable flow logs by creating a flow log for your target resource using the storage account. For more information, see [Create a flow log](vnet-flow-logs-manage.md#create-a-flow-log).
           
           You can check the storage logs after a few minutes. You should see an updated TimeStamp or a new JSON file created.
 
@@ -233,14 +240,14 @@ sections:
           Network Watcher has a built-in fallback mechanism that it uses when connecting to a storage account behind a firewall (firewall enabled). It tries to connect to the storage account using a key, and if that fails, it switches to a token. In this case, a 403 error is logged in the storage account activity log.
 
       - question: |
-          Can Network Watcher send network security group flow logs data to a storage account enabled with Private Endpoint?
+          Can Network Watcher send flow logs data to a storage account enabled with Private Endpoint?
         answer: |
-          Yes, Network Watcher supports sending network security group flow logs data to a storage account enabled with a private endpoint.
+          Yes, Network Watcher supports sending flow logs data to a storage account enabled with a private endpoint.
 
       - question: |
-          How do I use network security group flow logs with a storage account behind a Service Endpoint?
+          How do I use flow logs with a storage account behind a service endpoint?
         answer: |
-          Network security group flow logs are compatible with Service Endpoints without requiring any extra configuration. For more information, see [Enable a service endpoint](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint).
+          Flow logs are compatible with service endpoints without requiring any extra configuration. For more information, see [Enable a service endpoint](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint).
           
       - question: |
           What is the difference between flow logs versions 1 and 2?

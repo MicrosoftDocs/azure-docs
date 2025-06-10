@@ -15,7 +15,7 @@ This guide describes how to migrate Azure Cosmos DB for NoSQL from non-availabil
 
 Using availability zones in Azure Cosmos DB has no discernible impact on performance or latency. It doesn't require any adjustments to the selected consistency mode, and also doesn't require any modification to application code.
 
-When availability zones are enabled, Azure Cosmos DB intelligently distributes the four replicas of your data across all available zones. This ensures that, in the event of an outage in one availability zone, the account remains fully operational. In contrast, without availability zones, all replicas would be located in a single availability zone (we do not expose which), leading to potential downtime if that specific zone experiences an issue.
+When availability zones are enabled, Azure Cosmos DB intelligently distributes the four replicas of your data across all available zones. This ensures that, in the event of an outage in one availability zone, the account remains fully operational. In contrast, without availability zones, all replicas would be located in a single availability zone (we don't expose which), leading to potential downtime if that specific zone experiences an issue.
 
 Enabling availability zones is a great way to increase resilience of your Cosmos DB database without introducing additional application complexities, affecting performance, or even incurring additional costs, if autoscale is also used.
 
@@ -24,7 +24,7 @@ Enabling availability zones is a great way to increase resilience of your Cosmos
 
 - Serverless accounts can use availability zones, but this choice is only available during account creation. Existing accounts without availability zones cannot be converted to an availability zone configuration. For mission critical workloads, provisioned throughput is the recommended choice.
  
-- Understand that enabling availability zones is not an account-wide choice. A single Cosmos DB account can span an arbitrary number of Azure regions, each of which can independently be configured to leverage availability zones and some regional pairs may not have availability zone support. This is important, as some regions do not yet support availability zones, but adding them to a Cosmos DB account will not prevent enabling availability zones in other regions configured for that account.  The billing model also reflects this possibility. For more information on SLA for Cosmos DB, see [Reliability in Cosmos DB for NoSQL](./reliability-cosmos-db-nosql.md#sla-improvements). To see which regions support availability zones, see [Azure regions with availability zone support](./availability-zones-region-support.md).
+- Understand that enabling availability zones isn't an account-wide choice. A single Cosmos DB account can span an arbitrary number of Azure regions, each of which can independently be configured to leverage availability zones and some regional pairs may not have availability zone support. This is important, as some regions don't yet support availability zones, but adding them to a Cosmos DB account won't prevent enabling availability zones in other regions configured for that account.  The billing model also reflects this possibility. For more information on SLA for Cosmos DB, see [Reliability in Cosmos DB for NoSQL](./reliability-cosmos-db-nosql.md#sla-improvements). To see which regions support availability zones, see [Azure regions with availability zone support](./regions-list.md).
 
 ## Downtime requirements
 
@@ -32,7 +32,7 @@ When you migrate to availability zone support, a small amount of write unavailab
 
 ## Migration
 
-Because you can't enable availability zones in a region that has already been added to your account, you'll need to remove that region and add it again with availability zones enabled. To avoid any service disruption, you'll add and failover to a temporary region until the availability zone configuration is complete.
+Because you can't enable availability zones in a region that has already been added to your account, you'll need to remove that region and add it again with availability zones enabled. To avoid any service disruption, you'll add a temporary region and fail over to it until the availability zone configuration is complete.
 
 Follow the steps below to enable availability zones for your account in select regions.
 
@@ -94,7 +94,7 @@ Follow the steps below to enable availability zones for your account in select r
         az cosmosdb failover-priority-change --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --failover-policies eastus=0 westus=1
     ```
 
-1. Remove temporary region. The following example shows how to remove West US region from an account configured with East US (write region) and West US (read-only) regions. You must include all accounts that should not be removed in the command. 
+1. Remove temporary region. The following example shows how to remove West US region from an account configured with East US (write region) and West US (read-only) regions. You must include all accounts that shouldn't be removed in the command. 
 
  
     ```azurecli
@@ -108,4 +108,4 @@ Follow the steps below to enable availability zones for your account in select r
 
 - [Move an Azure Cosmos DB account to another region](/azure/cosmos-db/how-to-move-regions)
 - [Azure services with availability zones](availability-zones-service-support.md)
-- [Azure regions with availability zones](availability-zones-region-support.md)
+- [Azure regions with availability zones](regions-list.md)

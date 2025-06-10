@@ -5,7 +5,7 @@ description: Describes the concept of a hierarchical namespace for Azure Data La
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2024
 ms.author: normesta
 ms.reviewer: jamesbak

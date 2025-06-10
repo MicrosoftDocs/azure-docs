@@ -1,93 +1,83 @@
 ---
-title: "Quickstart: Create a  Neon Serverless Postgres (Preview) resource"
-description: Learn how to create a resource for  Neon Serverless Postgres (Preview) using the Azure portal.
+title: "Quickstart: Create a Neon Serverless Postgres Resource"
+description: Learn how to create a resource for Neon Serverless Postgres by using the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 12/02/2024
-
+ms.date: 05/06/2025
 ---
-# Quickstart: Create a Neon Serverless Postgres (Preview) resource
+# Quickstart: Create a Neon Serverless Postgres resource
 
-This quickstart shows you how to create a Neon Serverless Postgres (Preview) resource using the Azure portal.
+This quickstart shows you how to create a Neon Serverless Postgres resource by using the Azure portal.
 
 ## Prerequisites
 
-- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/). Make sure you're an *Owner* or a *Contributor* in the subscription.
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 
-## Setup
+- You must [subscribe to Neon](overview.md#subscribe-to-neon).
 
-Begin by signing in to the [Azure portal](https://portal.azure.com/).
+## Create a resource
 
-## Create a Neon Serverless Postgres resource
-
-To create your Neon Serverless Postgres resource, start at the Azure portal home page.
-
-1. Search for the Neon Serverless Postgres resource provider by typing **Neon Serverless Postgres** the header search bar.
-
-1. Choose **Neon Serverless Postgres** from the *Services* search results.
-
-1. Select the **+ Create** option.
-
-The **Create a Neon Serverless Postgres** Resource pane opens to the *Basics* tab by default.
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
 ### Basics tab
 
-The *Basics* tab has three sections:
+The **Basics** tab has sections for details about the project, the Azure resource, and the Neon organization. Red asterisks identify required settings.
 
-- Project details
-- Azure Resource details
-- New Organization details
+:::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot of the Azure portal that shows the Basics tab to create a new Neon resource.":::
 
-   :::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot from the Azure portal showing the Basics tab to create a new Neon resource.":::
+1. Under **Project details**, enter these values:
 
-There are required fields in each section that you need to fill out.
+    |Setting              |Action                                                          |
+    |-------------------|----------------------------------------------------------------|
+    |**Subscription**       |Select a subscription from your existing subscriptions.         |
+    |**Resource group**     |Use an existing resource group or create a new one.             |
 
-1. Enter the values for each required setting under *Project details*.
+1. Under **Azure Resource details**, enter these values:
 
-    |Field  |Action  |
-    |---------|---------|
-    |Subscription    |Select a subscription from your existing subscriptions.         |
-    |Resource group     |Use an existing resource group or create a new one.          |
+    |Setting             |Action                                            |
+    |------------------|--------------------------------------------------|
+    |**Resource name**     |Specify a unique name for the resource.           |
+    |**Region**            |Select a region to deploy your resource.          |
 
-1. Enter the values for each required setting under *Azure Resource details*.
+1. Under **New Organization details**, enter these values:
 
-    |Field |Action  |
-    |---------|---------|
-    |Resource name     |Specify a unique name for the resource.    |
-    |Region     |Select a region to deploy your resource.         |
+    |Setting            |Action                                                               |
+    |-----------------|---------------------------------------------------------------------|
+    |**Organization name**     |Specify a name for the organization.                                 |
+    |**Plan**             |Select the **Change Plan** link and choose the plan that you want.        |
 
-1. Enter the values for each required setting under *New Organization details*.
+    The remaining settings update themselves to reflect the details of the plan that you selected for this new organization.
 
-    |Field  |Action  |
-    |---------|---------|
-    |Organization     |Specify a name for the organization.   |
-    |Plan    |Select the **Change plan** link and choose the plan you want.        |
+1. Select **Next**.
 
-    The remaining fields update to reflect the details of the plan you selected for this new organization.
+### Project tab
 
-1. Select the **Next** button at the bottom of the page.
+In Neon, everything starts with a project: the top-level object in the Neon object hierarchy. When you create a project, a default branch and database are automatically created for your project to help you get started.
+
+:::image type="content" source="media/create/project-tab.png" alt-text="Screenshot of the Azure portal that shows the Project tab for a Neon resource.":::
+
+On the **Project** tab, enter the values for each setting, or continue with the default values for your project.
+
+|Setting              |Action                                                             |
+|-------------------|-------------------------------------------------------------------|
+|**Project name**       |Specify a name for your Neon project.                              |
+|**Postgres version**   |Choose a Postgres version for your project.                        |
+|**Database name**      |Specify a name for your first database in the project.             |
+|**Project region**     |Choose the region for your database.                               |
+
+> [!NOTE]
+> The **Project region** value on this pane corresponds to your database. Don't confuse this value with the **Region** value from the **Basics** tab, which is where your Azure resource is deployed.
 
 ### Tags tab (optional)
 
-If you wish, you can optionally create a tag for your Neon Serverless Postgres resource, then select the **Review + create** button at the bottom of the page. 
+[!INCLUDE [tags](../includes/tags.md)]
 
 ### Review + create tab
 
-> [!NOTE]
-> The view automation template link directs you to a downloadable [ARM template](../../azure-resource-manager/templates/overview.md). 
+[!INCLUDE [review-create](../includes/review-create.md)]
 
-If the review identifies errors, a red dot appears next each section where errors exist. Fields with errors are highlighted in red. 
-
-1. Open each section with errors and fix the errors.
-
-1. Select the **Review + create** button again.
-
-1. Select the **Create** button.
-
-Once the resource is created, select **Go to Resource** to navigate to the Neon resource. 
-
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Manage your Neon  integration through the portal](manage.md)
+> [Manage your resource](manage.md)

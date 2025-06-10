@@ -6,7 +6,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
-ms.reviewer: wiassaf
+
 ms.date: 07/12/2022
 ---
 
@@ -234,7 +234,7 @@ A key element of data warehouse migration is testing of reports and dashboards i
 
 For information about how to migrate users, user groups, roles, and privileges, see [Security, access, and operations for Netezza migrations](3-security-access-operations.md).
 
-Automate testing as much as possible to make each test repeatable and to support a consistent approach to evaluating test results. Automation works well for known regular reports, and can be managed via [Azure Synapse pipelines](../../get-started-pipelines.md) or [Azure Data Factory](../../../data-factory/introduction.md) orchestration. If you already have a suite of test queries in place for regression testing, you can use the existing testing tools to automate post migration testing.
+Automate testing as much as possible to make each test repeatable and to support a consistent approach to evaluating test results. Automation works well for known regular reports and can be managed via [Azure Synapse pipelines](../../get-started-pipelines.md) or [Azure Data Factory](../../../data-factory/introduction.md) orchestration. If you already have a suite of test queries in place for regression testing, you can use the existing testing tools to automate post migration testing.
 
 >[!TIP]
 >Best practice is to build an automated test suite to make tests repeatable.

@@ -4,6 +4,9 @@ description: Learn how to create an HDInsight application, and then publish it i
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 02/03/2025
 
 ---

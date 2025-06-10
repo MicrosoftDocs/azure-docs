@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Set up sign-up and sign-in with an Apple ID  using Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-custom-policy"
@@ -110,7 +112,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Signing the client secret
 
-Use the .p8 file you downloaded previously to sign the client secret into a JWT token. There are many libraries that can create and sign the JWT for you. Use the [Azure Function that creates a token](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-with-apple/azure-function) for you. 
+Use the .p8 file you downloaded previously to sign the client secret into a JWT. There are many libraries that can create and sign the JWT for you. Use the [Azure Function that creates a token](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-with-apple/azure-function) for you. 
 
 1. Create an [Azure Function](../azure-functions/functions-create-function-app-portal.md).
 1. Under **Developer**, select **Code + Test**. 
@@ -154,7 +156,7 @@ You need to store the client secret that you previously recorded in your Azure A
 1. Select **Policy Keys**, and then select **Add**.
 1. For **Options**, choose **Manual**.
 1. Enter a **Name** for the policy key. For example, "AppleSecret". The prefix "B2C_1A_" is added automatically to the name of your key.
-1. In **Secret**, enter the value of a token returned by the Azure Function (a JWT token).
+1. In **Secret**, enter the value of a token returned by the Azure Function (a JWT).
 1. For **Key usage**, select **Signature**.
 1. Select **Create**.
 

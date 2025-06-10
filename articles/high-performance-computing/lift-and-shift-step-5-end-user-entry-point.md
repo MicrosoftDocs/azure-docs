@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 5: end-user entry point - end-user entry point component"
-description: Learn about the configuration of end-user entry points during migration deployment step five.
+title: "End-user entry point configuration"
+description: Learn how to configure end-user entry points during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 5: end-user entry point - end-user entry point component
+# End-user entry point configuration
 
 Users access the computing environment in different ways. A common access point is through a terminal with ssh via command line interface (CLI). Other mechanisms are graphical user interface via VDI or web portals with on-demand, Jupyter lab, or r-studio. Some users may also rely on ssh via Visual Studio Code (VS Code). An end-user entry point component is key to shape the user experience accessing the HPC cloud resources, and it's highly dependent on the user workflow and application.
 

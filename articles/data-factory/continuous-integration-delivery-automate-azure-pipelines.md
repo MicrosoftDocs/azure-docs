@@ -4,7 +4,7 @@ description: Learn how to automate continuous integration in Azure Data Factory 
 ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 01/29/2025
 ---

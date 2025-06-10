@@ -1,7 +1,7 @@
 ---
-title: Call a REST API by using Azure Active Directory B2C custom policy
+title: Call a REST API by using Azure AD B2C custom policy
 titleSuffix: Azure AD B2C
-description: Learn how to make an HTTP call to external API by using Azure Active Directory B2C custom policy.
+description: Learn how to call a REST API using Azure AD B2C custom policy. Make HTTP calls to external APIs to send and receive data from external services.
 
 author: kengaderdus
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements, devx-track-js
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Call a REST API by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) custom policy allows you to interact with application logic that you implement outside of Azure AD B2C. To do so, you make an HTTP call to an endpoint. Azure AD B2C custom policies provide RESTful technical profile for this purpose. By using this capability, you can implement features that aren't available within Azure AD B2C custom policy.   
 
@@ -35,7 +36,7 @@ In this article, you learn how to:
 
 ## Scenario overview 
 
-In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP `200 OK` response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 4xx response, and the user must reenter an access code. 
+In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP `200 OK` response, and Azure AD B2C issues JWT. Otherwise, the service returns an HTTP 4xx response, and the user must reenter an access code. 
 
 :::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="A flowchart of calling a R E S T  A P I.":::
 
@@ -93,7 +94,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
                     "requestId": "requestId",
                     "userMessage" : "The access code you entered is incorrect. Please try again.",
                     "developerMessage" : `The provided code ${req.body.accessCode} does not match the expected code for user.`,
-                    "moreInfo" :"https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
+                    "moreInfo" :"https://learn.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
                 };
                 res.status(409).send(errorResponse);                
             }
@@ -138,7 +139,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
             "requestId": "requestId",
             "userMessage": "The access code you entered is incorrect. Please try again.",
             "developerMessage": "The provided code 54321 does not match the expected code for user.",
-            "moreInfo": "https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
+            "moreInfo": "https://learn.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
         }
     ```
 Your REST service can return HTTP 4xx status code, but the value of `status` in the JSON response must be `409`.
@@ -215,7 +216,7 @@ to:
 ```xml
     <ValidationTechnicalProfile ReferenceId="ValidateAccessCodeViaHttp"/>
 ```
-At this point, the Technical Profile with `Id` *CheckAccessCodeViaClaimsTransformationChecker* isn't needed, and can be removed. 
+At this point, the Technical Profile with `Id` *CheckAccessCodeViaClaimsTransformationChecker* isn't needed and can be removed.
 
 
 ## Step 3 - Upload custom policy file
@@ -228,7 +229,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 1. For **Account Type**, select **Personal Account**
 1. Enter the rest of the details as required, and then select **Continue**. You see a new screen.
-1. For **Access Code**, enter *88888*, and then select **Continue**. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. If you repeat the procedure, and enter a different **Access Code**, other than *88888*, you see an error, **The access code you entered is incorrect. Please try again.**
+1. For **Access Code**, enter *88888*, and then select **Continue**. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT. If you repeat the procedure, and enter a different **Access Code**, other than *88888*, you see an error, **The access code you entered is incorrect. Please try again.**
 
 ## Step 5 - Enable debug mode
 
@@ -313,7 +314,7 @@ If your REST API returns data, which you want to include as claims in your polic
 
 Use the steps in [Receiving data](api-connectors-overview.md?pivots=b2c-custom-policy#receiving-data) to learn how to format the data the custom policy expects, how to handle nulls values, and how to parse REST the API's nested JSON body.
 
-## Next steps
+## Related content
 
 Next, learn:
 

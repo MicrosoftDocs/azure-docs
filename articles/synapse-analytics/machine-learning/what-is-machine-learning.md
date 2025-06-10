@@ -4,7 +4,6 @@ description: An Overview of machine learning capabilities in Azure Synapse Analy
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview 
-ms.reviewer: whhender
 ms.date: 12/30/2024
 author: nelgson
 ms.author: negust

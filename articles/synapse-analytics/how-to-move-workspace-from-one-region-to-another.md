@@ -5,9 +5,8 @@ ms.service: azure-synapse-analytics
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/30/2022
-author: matt1883
-ms.author: mahi
-ms.reviewer: wiassaf
+author: gillharmeet
+ms.author: harmeetgill
 ---
 
 # Move an Azure Synapse Analytics workspace from one region to another

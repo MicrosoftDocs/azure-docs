@@ -40,6 +40,7 @@ You can use any of these tools to upload content to the **$web** container:
 > - [Azure PowerShell module](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > - [AzCopy](../common/storage-use-azcopy-v10.md)
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> - [Azure portal](storage-blob-static-website-how-to.md?tabs=azure-portal#upload-files)
 > - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 > - [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Channel 9 video demonstration](/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
@@ -141,11 +142,15 @@ A 404 error can happen if you refer to a file name by using an incorrect case. F
 
 In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP.
 
+##### Why am I unable to access static websites in a storage account when a private endpoint is enabled for the blob in the storage account?
+
+Enabling a private endpoint for blobs in a storage account restricts access to that storage account to only resources within the same virtual network. Consequently, this restriction prevents external access to the static website hosted in the storage account, making the static website content inaccessible. The private endpoint configuration limits access to all storage account resources, including the static website content, to resources within the same virtual network where the private endpoint is enabled. The resolution would be to create a private endpoint specifically for the web. The static website needs a dedicated private end point for the $web domain.
+
 ## Next steps
 
 - [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
 - [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
 - [Azure Functions](../../azure-functions/functions-overview.md)
 - [Azure App Service](../../app-service/overview.md)
-- [Build your first serverless web app](/labs/build2018/serverlesswebapp/)
+- [Build your first serverless web app](/samples/azure-samples/azure-opensource-labs/azure-opensource-labs/)
 - [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

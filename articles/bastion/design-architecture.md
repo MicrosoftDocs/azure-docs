@@ -1,10 +1,10 @@
 ---
 title: 'About Azure Bastion design and architecture'
 description: Learn about the different architectures available with Azure Bastion.
-author: cherylmc
+author: abell
 ms.topic: concept-article
-ms.date: 05/09/2024
-ms.author: cherylmc
+ms.date: 03/14/2025
+ms.author: abell
 ms.service: azure-bastion
 ---
 
@@ -14,7 +14,7 @@ Azure Bastion offers multiple deployment architectures, depending on the selecte
 
 RDP and SSH are some of the fundamental means through which you can connect to your workloads running in Azure. Exposing RDP/SSH ports over the Internet isn't desired and is seen as a significant threat surface. This is often due to protocol vulnerabilities. To contain this threat surface, you can deploy bastion hosts (also known as jump-servers) at the public side of your perimeter network. Bastion host servers are designed and configured to withstand attacks. Bastion servers also provide RDP and SSH connectivity to the workloads sitting behind the bastion, and also further inside the network.
 
-The SKU you select when you deploy Bastion determines the architecture and the available features. You can upgrade to a higher SKU to support more features, but you can't downgrade a SKU after deploying. Certain architectures, such as [Private-only](#private-only) and [Developer SKU](#developer), must be configured at the time of deployment.
+The SKU you select when you deploy Bastion determines the architecture and the available features. You can upgrade to a higher SKU to support more features, but you can't downgrade a SKU after deploying. Certain architectures, such as [Private-only](#private-only) and [Bastion Developer](#developer), must be configured at the time of deployment.
 
 ## <a name="basic"></a>Deployment - Basic SKU and higher
 
@@ -30,16 +30,16 @@ For some configurations, the user can connect to the virtual machine via the nat
 
 For configuration steps, see:
 
-* [Deploy Bastion automatically - Basic SKU only](quickstart-host-portal.md)
+* [Deploy Bastion automatically using default settings and the Standard SKU](quickstart-host-portal.md)
 * [Deploy Bastion using manually specified settings](tutorial-create-host-portal.md)
 
-## <a name="developer"></a>Deployment - Developer SKU
+## <a name="developer"></a>Deployment - Bastion Developer
 
-:::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion developer SKU architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
+:::image type="content" source="./media/quickstart-developer/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion Developer architecture." lightbox="./media/quickstart-developer/bastion-shared-pool.png":::
 
-[!INCLUDE [Developer SKU](../../includes/bastion-developer-sku-description.md)]
+[!INCLUDE [Bastion Developer](../../includes/bastion-developer-description.md)]
 
-For more information about the Developer SKU, see [Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md).
+For more information about Bastion Developer, see [Connect with Azure Bastion Developer](quickstart-developer.md).
 
 ## <a name="private-only"></a>Deployment - Private-only
 
@@ -57,7 +57,7 @@ For more information about private-only deployments, see [Deploy Bastion as priv
 
 ## Next steps
 
-* [Deploy Bastion automatically - Basic SKU only](quickstart-host-portal.md)
-* [Deploy Bastion using manually specified settings](tutorial-create-host-portal.md)
-* [Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md)
+* [Deploy Bastion automatically - Standard SKU only](quickstart-host-portal.md)
+* [Deploy Bastion using manually specified settings and SKU](tutorial-create-host-portal.md)
+* [Connect with Azure Bastion Developer](quickstart-developer.md)
 * [Deploy Bastion as private-only](private-only-deployment.md)

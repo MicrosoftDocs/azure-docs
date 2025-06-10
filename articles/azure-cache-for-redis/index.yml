@@ -1,109 +1,22 @@
 ### YamlMime:Landing
-title: Azure Redis Documentation
-summary: Learn how to use the managed Redis offerings on Azure, including Azure Managed Redis and Azure Cache for Redis. Either service can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Additionally, Azure Managed Redis can be used for more applications, like storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure.
+title: Azure Cache for Redis Documentation
+summary: Azure Cache for Redis is a fully managed Redis service based on the community edition of Redis. It can be used as a data cache, session store, or message broker that provides high throughput and low-latency access to data for applications. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For the latest and most performant Redis experience, see the links on this page for Azure Managed Redis, the newest Redis offering on Azure. 
 metadata:
-  title: Azure Redis Documentation
-  description: Learn how to use Azure Managed Redis or Azure Cache for Redis, secure data caches and messaging brokers that give applications fast access to data. Tutorials, API references, and more.
+  title: Azure Cache for Redis Documentation
+  description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that give applications fast access to data. Tutorials, API references, and more.
   
   ms.topic: landing-page
   ms.custom:
     - ignite-2024
-  
-  
-  ms.date: 08/15/2022
+
+
+  ms.date: 04/14/2025
+  appliesto:
+    - ✅ Azure Cache for Redis
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  # Card
-  - title: About Azure Managed Redis
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Managed Redis?
-            url: managed-redis/managed-redis-overview.md
-          - text: Azure Managed Redis architecture
-            url: managed-redis/managed-redis-architecture.md
-          - text: Azure Managed Redis performance
-            url: managed-redis/managed-redis-best-practices-performance.md
-      - linkListType: how-to-guide
-        links:
-          - text: How to migrate to Azure Managed Redis from Azure Cache for Redis
-            url: migrate/migrate-overview.md
-      - linkListType: whats-new
-        links:
-          - text: What's new?
-            url: managed-redis/managed-redis-whats-new.md
-  - title: 'Quickstarts'
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Code a .NET Framework app
-            url: cache-dotnet-how-to-use-azure-redis-cache.md
-          - text: Code a .NET Core app
-            url: cache-dotnet-core-quickstart.md
-          - text: Code an ASP.NET web app
-            url: cache-web-app-howto.md
-          - text: Code an ASP.NET Core web app
-            url: cache-web-app-aspnet-core-howto.md
-          - text: Code a Java app
-            url: cache-java-get-started.md
-          - text: Code a Node.js app
-            url: cache-nodejs-get-started.md
-          - text: Code a Python app
-            url: cache-python-get-started.md
-      - linkListType: tutorial
-        links:
-          - text: Use session state provider
-            url: cache-aspnet-session-state-provider.md
-          - text: Use output cache provider
-            url: cache-aspnet-output-cache-provider.md
-          - text: Use Redis as a semantic cache
-            url: cache-tutorial-semantic-cache.md
-          - text: Use Redis triggers and bindings with Azure Functions
-            url: cache-tutorial-functions-getting-started.md
-          - text: Use Spring Boot Initializer
-            url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
-      - linkListType: get-started
-        links:
-          - text: Samples
-            url: cache-redis-samples.md
-  - title: Azure Managed Redis Fundamentals
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-         - text: Scale
-           url: managed-redis/managed-redis-how-to-scale.md
-         - text: Use active geo-replication
-           url: managed-redis/managed-redis-how-to-active-geo-replication.md
-         - text: Import/Export data
-           url: managed-redis/managed-redis-how-to-import-export-data.md
-         - text: Use data persistence
-           url: managed-redis/managed-redis-how-to-persistence.md
-         - text: Microsoft Entra ID authentication
-           url: managed-redis/managed-redis-entra-for-authentication.md
-         - text: Upgrade to the latest Redis version
-           url: managed-redis/managed-redis-how-to-upgrade.md
-         - text: Use Redis with kubernetes-hosted client applications
-           url: managed-redis/managed-redis-best-practices-kubernetes.md
-         - text: Configure disk encryption
-           url: managed-redis/managed-redis-how-to-encryption.md
-         - text: Connect to a Redis instance using the CLI
-           url: managed-redis/managed-redis-how-to-redis-cli-tool.md
-      - linkListType: concept
-        links:
-         - text: High availability
-           url: managed-redis/managed-redis-high-availability.md
-         - text: Storing embeddings vectors and performing vector similarity search
-           url: managed-redis/managed-redis-overview-vector-similarity.md
-         - text: Redis modules
-           url: managed-redis/managed-redis-redis-modules.md
-         - text: Find the right client library
-           url: managed-redis/managed-redis-best-practices-client-libraries.md
-         - text: Connection resilience
-           url: managed-redis/managed-redis-best-practices-connection.md
-         - text: Development best practices
-           url: managed-redis/managed-redis-best-practices-development.md
-
   - title: About Azure Cache for Redis
     linkLists:
       - linkListType: overview
@@ -118,7 +31,7 @@ landingContent:
         links:
           - text: What's new?
             url: cache-whats-new.md
-  - title: Azure Managed Redis SDKs and CLI reference
+  - title: Azure Redis SDKs and CLI reference
     linkLists:
       - linkListType: reference
         links:
@@ -158,19 +71,15 @@ landingContent:
             url: /powershell/module/az.rediscache
           - text: Azure CLI
             url: /cli/azure/redis
-  # - title: Troubleshoot
-  #   linkLists:
-  #     - linkListType: how-to-guide
-  #       links:
-  #         - text: Troubleshoot connectivity issues
-  #           url: cache-troubleshoot-connectivity.md
-  #         - text: Troubleshoot latency and timeouts
-  #           url: cache-troubleshoot-timeouts.md
-  #         - text: Troubleshoot client issues
-  #           url: cache-troubleshoot-client.md
-  #         - text: Troubleshoot Redis server issues
-  #           url: cache-troubleshoot-server.md
-  #         - text: Troubleshoot data loss issues
-  #           url: cache-troubleshoot-data-loss.md
-  #         - text: Troubleshooting FAQs
-  #           url: cache-monitor-troubleshoot-faq.yml
+  - title: About Azure Managed Redis
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Managed Redis?
+            url: /azure/redis/overview
+          - text: What's new?
+            url: /azure/redis/whats-new
+          - text: Azure Managed Redis architecture
+            url: /azure/redis/architecture
+          - text: Moving to Azure Managed Redis from Azure Cache for Redis
+            url: /azure/redis/migrate/migrate-overview

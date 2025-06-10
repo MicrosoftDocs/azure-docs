@@ -4,8 +4,8 @@ description: This article provides details on known issues and how to troublesho
 ms.service: azure-update-manager
 ms.date: 02/17/2025
 ms.topic: troubleshooting
-ms.author: sudhirsneha
-author: SnehaSudhirG
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # Troubleshoot issues with Azure Update Manager
@@ -270,10 +270,27 @@ The property should be set to true to allow extensions to work properly.
 
 #### Issue
 
-Sudo privileges are not granted to the extensions for assessment or patching operations on Linux machines.
+Sudo privileges are not granted to the extensions for assessment or patching operations on Linux machines. You may see the following exception:
+```
+EXCEPTION: Exception('Unable to invoke sudo successfully. Output: root is not in the sudoers file. This incident will be reported. False ',)
+```
+
+Azure Update Manager (*AUM*) requires a high level of permissions due to the many different components that may be updated with AUM (*Kernel drivers, OS Security Patching, etc.*). The AUM extensions use the `root` account for operations.
 
 #### Resolution
-Grant sudo privileges to ensure assessment or patching operations succeed. 
+Grant sudo privileges to ensure assessment or patching operations succeed. You will need to add the root account to the sudoers file.
+
+1. Open the sudoers file for editing:
+   ```bash
+   sudo visudo
+   ```
+
+2. Add the following entry to the end of `/etc/sudoers` file:
+   ```
+   root ALL=(ALL) ALL
+   ```
+
+3. When done, save and exit the editor using the `Ctrl-X` command. If you are using the *vi* editor you can type `:wq` and press <kbd>⏎ ENTER</kbd>.
 
 ### Proxy is configured
 

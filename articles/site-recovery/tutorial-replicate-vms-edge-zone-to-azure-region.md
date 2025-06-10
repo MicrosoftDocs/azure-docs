@@ -1,11 +1,11 @@
 ---
 title: Set up disaster recovery to another region using PowerShell
 description: This article describes how to replicate, failover, and failback Azure virtual machines running in an Azure Extended Zone to its parent region.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 01/13/2025
-ms.author: ankitadutta
+ms.author: jsuri
 
 ---
 
@@ -485,4 +485,4 @@ To replicate VMs running in an Azure Extended Zone to an Azure region, follow th
 
 ## Next steps
 
-- View the [Azure Site Recovery PowerShell reference](https://learn.microsoft.com/powershell/module/az.recoveryservices/?view=azps-13.0.0) to learn how you can create recovery plans, perform failovers, and failbacks with PowerShell.
+- View the [Azure Site Recovery PowerShell reference](/powershell/module/az.recoveryservices/?view=azps-13.0.0&preserve-view=true) to learn how you can create recovery plans, perform failovers, and failbacks with PowerShell.

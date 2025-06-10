@@ -3,17 +3,17 @@ title: 'Quickstart: Deploy Application Gateway for Containers ALB Controller'
 titlesuffix: Azure Application Load Balancer
 description: In this quickstart, you learn how to provision the Application Gateway for Containers ALB Controller in an AKS cluster.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 2/15/2025
-ms.author: greglin
+ms.date: 5/2/2025
+ms.author: mbender
 ---
 
 # Quickstart: Deploy Application Gateway for Containers ALB Controller
 
-The [ALB Controller](application-gateway-for-containers-components.md#application-gateway-for-containers-alb-controller) is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers. The following guide walks through the steps needed to provision an ALB Controller into a new or existing AKS cluster.
+The [ALB Controller](application-gateway-for-containers-components.md#application-gateway-for-containers-alb-controller) is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers. The following guide walks through the steps needed to provision an ALB Controller into a new or existing Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 
@@ -41,10 +41,10 @@ You need to complete the following tasks before deploying Application Gateway fo
 
     > [!NOTE]
     > The AKS cluster needs to be in a [region where Application Gateway for Containers is available](overview.md#supported-regions)
-    > AKS cluster should use [Azure CNI](/azure/aks/configure-azure-cni).
+    > AKS cluster should use [Azure CNI](/azure/aks/configure-azure-cni) or [Azure CNI Overlay](/azure/aks/concepts-network-azure-cni-overlay).
     > AKS cluster should have the workload identity feature enabled. [Learn how](/azure/aks/workload-identity-deploy-cluster#update-an-existing-aks-cluster) to enable workload identity on an existing AKS cluster.
 
-    If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster. Workload identities can be enabled via the following:
+    If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster. Workload identities can be enabled via the following commands:
 
     ```azurecli-interactive
     AKS_NAME='<your cluster name>'
@@ -77,7 +77,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     [Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
 
     > [!NOTE]
-    > Helm is already available in Azure Cloud Shell. If you are using Azure Cloud Shell, no additional Helm installation is necessary.
+    > Helm is already available in Azure Cloud Shell. If you're using Azure Cloud Shell, no additional Helm installation is necessary.
 
     You can also use the following steps to install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed.
 
@@ -125,7 +125,7 @@ You need to complete the following tasks before deploying Application Gateway fo
         --issuer "$AKS_OIDC_ISSUER" \
         --subject "system:serviceaccount:azure-alb-system:alb-controller-sa"
     ```
-    ALB Controller requires a federated credential with the name of _azure-alb-identity_. Any other federated credential name is unsupported.
+    ALB Controller requires a federated credential with the name of `azure-alb-identity`. Any other federated credential name is unsupported.
 
    > [!Note]
    > Assignment of the managed identity immediately after creation may result in an error that the principalId does not exist. Allow about a minute of time to elapse for the identity to replicate in Microsoft Entra ID before delegating the identity.
@@ -136,7 +136,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     
     To install ALB Controller, use the `helm install` command.
 
-    When the `helm install` command is run, it deploys the helm chart to the  _default_ namespace. When alb-controller is deployed, it deploys to the _azure-alb-system_ namespace. Both of these namespaces may be overridden independently as desired. To override the namespace the helm chart is deployed to, you may specify the --namespace (or -n) parameter. To override the _azure-alb-system_ namespace used by alb-controller, you may set the albController.namespace property during installation (`--set albController.namespace`). If neither the `--namespace` or the `--set albController.namespace` parameters are defined, the _default_ namespace is used for the helm chart and the _azure-alb-system_ namespace is used for the ALB controller components. Lastly, if the namespace for the helm chart resource isn't yet defined, ensure the `--create-namespace` parameter is also specified along with the `--namespace` or `-n` parameters.
+    When the `helm install` command is run, it deploys the helm chart to the  _default_ namespace. When alb-controller is deployed, it deploys to the `azure-alb-system` namespace. Both of these namespaces may be overridden independently as desired. To override the namespace the helm chart is deployed to, you may specify the --namespace (or -n) parameter. To override the `azure-alb-system` namespace used by alb-controller, you may set the albController.namespace property during installation (`--set albController.namespace`). If neither the `--namespace` or the `--set albController.namespace` parameters are defined, the _default_ namespace is used for the helm chart and the `azure-alb-system` namespace is used for the ALB controller components. Lastly, if the namespace for the helm chart resource isn't yet defined, ensure the `--create-namespace` parameter is also specified along with the `--namespace` or `-n` parameters.
     
     ALB Controller can be installed by running the following commands:
 
@@ -146,7 +146,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
          --namespace $HELM_NAMESPACE \
-         --version 1.4.12 \
+         --version 1.6.7 \
          --set albController.namespace=$CONTROLLER_NAMESPACE \
          --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
@@ -164,7 +164,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
         --namespace $HELM_NAMESPACE \
-        --version 1.4.12 \
+        --version 1.6.7 \
         --set albController.namespace=$CONTROLLER_NAMESPACE \
         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
@@ -176,7 +176,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     ```azurecli-interactive
     kubectl get pods -n azure-alb-system
     ```
-    You should see the following:
+    You should see the following output:
    
     | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
     | ---------------------------------------- | ----- | ------- | -------- | ---- |
@@ -190,7 +190,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     kubectl get gatewayclass azure-alb-external -o yaml
     ```
 
-    You should see that the GatewayClass has a condition that reads **Valid GatewayClass**. This indicates that a default GatewayClass is set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
+    You should see that the GatewayClass has a condition that reads **Valid GatewayClass**. This condition indicates that a default GatewayClass is set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
     ```output
     apiVersion: gateway.networking.k8s.io/v1beta1
     kind: GatewayClass
@@ -220,9 +220,9 @@ The next step is to link your ALB controller to Application Gateway for Containe
 
 There are two deployment strategies for management of Application Gateway for Containers:
 - **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association resource, and Frontend resource is assumed via Azure portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
-   - To use a BYO deployment, see [Create Application Gateway for Containers - bring your own deployment](quickstart-create-application-gateway-for-containers-byo-deployment.md)
+   - To use a BYO deployment, see [Create Application Gateway for Containers - bring your own deployment](quickstart-create-application-gateway-for-containers-byo-deployment.md).
 - **Managed by ALB controller:** In this deployment strategy, ALB Controller deployed in Kubernetes is responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller creates an Application Gateway for Containers resource when an **ApplicationLoadBalancer** custom resource is defined on the cluster. The service lifecycle is based on the lifecycle of the custom resource.
-  - To use an ALB managed deployment, see [Create Application Gateway for Containers managed by ALB Controller](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md)
+  - To use an ALB managed deployment, see [Create Application Gateway for Containers managed by ALB Controller](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 
 ## Uninstall Application Gateway for Containers and ALB Controller
 
@@ -230,17 +230,17 @@ If you wish to uninstall the ALB Controller, complete the following steps.
 
 1. Delete the Application Gateway for Containers, you can delete the Resource Group containing the Application Gateway for Containers resources:
 
-```azurecli-interactive
-az group delete --resource-group $RESOURCE_GROUP
-```
+   ```azurecli-interactive
+   az group delete --resource-group $RESOURCE_GROUP
+   ```
 
 2. Uninstall ALB Controller and its resources from your cluster run the following commands:
 
-```azurecli-interactive
-helm uninstall alb-controller
-kubectl delete ns azure-alb-system
-kubectl delete gatewayclass azure-alb-external
-```
+   ```azurecli-interactive
+   helm uninstall alb-controller
+   kubectl delete ns azure-alb-system
+   kubectl delete gatewayclass azure-alb-external
+   ```
 
 > [!Note]
 > If a different namespace was used for alb-controller installation, ensure you specify the -n parameter on the helm uninstall command to define the proper namespace to be used. For example: `helm uninstall alb-controller -n unique-namespace`

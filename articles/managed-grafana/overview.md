@@ -6,7 +6,9 @@ author: maud-lv
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: overview 
-ms.date: 04/25/2024
+ms.date: 04/16/2025
+ms.custom:
+  - build-2025
 --- 
 
 # What is Azure Managed Grafana?
@@ -18,6 +20,8 @@ Azure Managed Grafana is optimized for the Azure environment. It works seamlessl
 * Built-in support for [Azure Monitor](/azure/azure-monitor/) and [Azure Data Explorer](/azure/data-explorer/)
 * User authentication and access control using Microsoft Entra identities
 * Direct import of existing charts from the Azure portal
+
+Grafana is also available within Azure Monitor. For more information, see [Difference between Azure Managed Grafana and Grafana in Azure Monitor](./faq.md#whats-the-difference-between-azure-managed-grafana-and-grafana-in-azure-monitor).
 
 To learn more about how Grafana works, visit the [Getting Started documentation](https://grafana.com/docs/grafana/latest/getting-started/) on the Grafana Labs website.  
 
@@ -66,7 +70,8 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 
 Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#throttling-limits-and-quotas).
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Create an Azure Managed Grafana workspace using the Azure portal](./quickstart-managed-grafana-portal.md)
+- [Create an Azure Managed Grafana workspace using the Azure portal](quickstart-managed-grafana-portal.md)
+- [Create an Azure Managed Grafana workspace using the Azure CLI](quickstart-managed-grafana-cli.md)
+- [Frequently asked questions](faq.md)

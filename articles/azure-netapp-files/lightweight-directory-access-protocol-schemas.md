@@ -4,7 +4,7 @@ description: This article helps you understand schemas in the lightweight direct
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/18/2025
 ms.author: anfdocs
 ---

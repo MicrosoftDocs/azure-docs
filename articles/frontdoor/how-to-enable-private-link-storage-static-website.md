@@ -2,16 +2,19 @@
 title: 'Connect Azure Front Door Premium to a storage static website origin with Private Link'
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a storage static website privately.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
-ms.author: duau
 zone_pivot_groups: front-door-dev-exp-portal-cli
+ms.custom:
+  - build-2025
 ---
 
 # Connect Azure Front Door Premium to a storage static website with Private Link
+
+**Applies to:** :heavy_check_mark: Front Door Premium
 
 ::: zone pivot="front-door-portal"
 
@@ -135,6 +138,13 @@ When creating a private endpoint connection to the storage static website's seco
 Once the origin is added and the private endpoint connection is approved, you can test your private link connection to your storage static website.
 
 ::: zone-end
+
+## Common mistakes to avoid
+
+The following are common mistakes when configuring an origin with Azure Private Link enabled:
+
+* Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
+
 
 ## Next steps
 

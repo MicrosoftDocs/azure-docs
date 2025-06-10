@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 09/05/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 

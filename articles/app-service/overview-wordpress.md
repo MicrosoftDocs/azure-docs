@@ -5,7 +5,7 @@ keywords: app service, azure app service, wordpress, preview, app service on lin
 author: msangapu-msft
 ai-usage: ai-assisted
 ms.topic: overview
-ms.date: 2/21/2025
+ms.date: 04/17/2025
 # ms.devlang: wordpress
 ms.author: msangapu
 ms.subservice: wordpress
@@ -20,9 +20,9 @@ ms.collection: ce-skilling-ai-copilot
 >
 > You can also ask Azure Copilot these questions:
 >
-> - *what are the pricing options for wordpress on app service?*
+> - *What are the pricing options for WordPress on App Service?*
 > - *What are the benefits of using Azure App Service for WordPress?*
-> - *How does wordpress on app service compare with wordpress on AKS?*
+> - *How does WordPress on App Service compare with WordPress on AKS?*
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
@@ -55,7 +55,7 @@ Azure App Service makes deploying WordPress sites straightforward for both begin
 - **Pre-configured setup:** Get a preconfigured setup optimized for performance and security using powerful Azure services like Azure App Service, Azure Database for MySQL, Azure CDN, and Azure Blob Storage.
 - **Flexible file transfers:** Easily transfer files via FTP for custom content uploads.
 - **Custom server configurations:** Adjust NGINX settings using startup scripts.
-- **Staging slots:** Teset changes safely in isolated environments before deploying them to production.
+- **Staging slots:** Test changes safely in isolated environments before deploying them to production.
 
 ## What enterprise-grade features are available?
 

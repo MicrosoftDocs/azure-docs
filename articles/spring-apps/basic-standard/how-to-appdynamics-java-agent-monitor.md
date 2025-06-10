@@ -220,7 +220,7 @@ You can define more metrics for the JVM, as shown in this screenshot of the **Me
 
 ## View AppDynamics Agent logs
 
-By default, Azure Spring Apps prints the *info* level logs of the AppDynamics Agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the `info` level logs of the AppDynamics Agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the AppDynamics Agent from the following locations:
 
@@ -237,7 +237,7 @@ The AppDynamics Agent is upgraded regularly with JDK (quarterly). Agent upgrade 
 
 ## Configure virtual network injection instance outbound traffic
 
-For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [Cisco AppDynamics SaaS Domains and IP Ranges](https://docs.appdynamics.com/paa/en/cisco-appdynamics-saas-domains-and-ip-ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
+For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [Cisco AppDynamics SaaS Domains and IP Ranges](https://docs.appdynamics.com/paa/cisco-appdynamics-saas-domains-and-ip-ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
 
 ## Understand the limitations
 

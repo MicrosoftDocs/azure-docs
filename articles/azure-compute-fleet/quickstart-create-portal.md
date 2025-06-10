@@ -1,20 +1,17 @@
 ---
 title: Create an Azure Compute Fleet using Azure portal
 description: Learn how to create an Azure Compute Fleet in the Azure portal.
-author: rrajeesh
-ms.author: rajeeshr
+author: shandilvarun
+ms.author: vashan
 ms.topic: how-to
 ms.service: azure-compute-fleet
 ms.custom:
   - build-2024
-ms.date: 02/19/2025
+ms.date: 04/21/2025
 ms.reviewer: jushiman
 ---
 
-# Create an Azure Compute Fleet using Azure portal (Preview)
-
-> [!IMPORTANT]
-> Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+# Create an Azure Compute Fleet using Azure portal 
 
 This article steps through using the Azure portal to create a Compute Fleet.
 

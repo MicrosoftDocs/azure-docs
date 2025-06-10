@@ -12,11 +12,11 @@ ms.service: azure-communication-services
 ms.custom: include files
 ---
 
-Get started with Azure CLI PowerShell to automate the creation of Azure Communication Services (ACS), Email Communication Services (ECS), manage custom domains, configure DNS records, verify domains, and domain linking to communication resource.
+Get started with Azure CLI PowerShell to automate the creation of Azure Communication Services, Email Communication Services, manage custom domains, configure DNS records, verify domains, and domain linking to communication resource.
 
-In this sample, we cover what the sample does and the prerequisites you need before running it locally on your machine.
+In this sample, we describe what the sample does and the prerequisites you need before running it locally on your machine.
 
-This documentation provides a detailed guide on using Azure CLI PowerShell to automate the creation of Azure Communication Services (ACS) and Email Communication Services (ECS). It also covers the process of managing custom domains, configuring DNS records (such as Domain, SPF, DKIM, DKIM2), verifying domains and domain linking to communication resource.
+This article describes how to use Azure CLI PowerShell to automate the creation of Azure Communication Services and Email Communication Services. It also describes the process of managing custom domains, configuring DNS records (such as Domain, SPF, DKIM, DKIM2), verifying domains and domain linking to communication resource.
 
 ## Prerequisites
 
@@ -27,13 +27,13 @@ This documentation provides a detailed guide on using Azure CLI PowerShell to au
 
 ## Prerequisite check
 
-- In a command prompt, run the `powershell -command $PSVersionTable.PSVersion` command to check whether the PowerShell is installed or not.
+- In a command prompt, run the `powershell -command $PSVersionTable.PSVersion` command to check whether the PowerShell is installed.
 
 ```azurepowershell-interactive
 powershell -command $PSVersionTable.PSVersion
 ```
 
-- In a command prompt, run the `az --version` command to check whether the Azure CLI is installed or not.
+- In a command prompt, run the `az --version` command to check whether the Azure CLI is installed.
 
 ```azurepowershell-interactive
 az --version
@@ -51,10 +51,10 @@ Before proceeding, define the variables needed for setting up the ACS, ECS, and 
 
 ```azurepowershell-interactive
 # Variables
-# Define the name of the Azure resource group where resources will be created
+# Define the name of the Azure resource group where resources are created
 $resourceGroup = "ContosoResourceProvider1"
 
-# Specify the region where the resources will be created. In this case, Europe.
+# Specify the region where the resources are created. In this case, Europe.
 $dataLocation = "europe"
 
 # Define the name of the Azure Communication Service resource
@@ -63,7 +63,7 @@ $commServiceName = "ContosoAcsResource1"
 # Define the name of the Email Communication Service resource
 $emailServiceName = "ContosoEcsResource1"
 
-# Define the DNS zone name where the domains will be managed (replace with actual DNS zone)
+# Define the DNS zone name where the domains are managed (replace with actual DNS zone)
 $dnsZoneName = "contoso.net"
 
 # Define the list of domains to be created and managed (replace with your own list of domains)
@@ -76,9 +76,9 @@ $domains = @(
 )
 ```
 
-## Login to Azure Account
+## Sign in to Azure account
 
-Before performing any actions with Azure resources, authenticate using the `az login` cmdlet. This process allows you to log in and authenticate your Azure account for further tasks:
+Before performing any actions with Azure resources, authenticate using the `az login` cmdlet. This process enables you to sign in and authenticate your Azure account for further tasks:
 
 ```azurepowershell-interactive
 # Log in to Azure
@@ -185,7 +185,7 @@ function Add-RecordSetToDNS {
     $domainDetails = $domainDetailsJson | ConvertFrom-Json
 
     # Extract verification record values Domain, SPF and DKIM from the parsed JSON response
-    # These values will be used to create DNS records
+    # These values are used to create DNS records
     $dkimName = $domainDetails.verificationRecords.DKIM.name
     $dkimValue = $domainDetails.verificationRecords.DKIM.value
     $dkim2Name = $domainDetails.verificationRecords.DKIM2.name
@@ -329,10 +329,10 @@ if ($linkedDomainIds.Count -gt 0) {
 
 ```azurepowershell-interactive
 # Variables
-# Define the name of the Azure resource group where resources will be created
+# Define the name of the Azure resource group where resources are created
 $resourceGroup = "ContosoResourceProvider1"
 
-# Specify the region where the resources will be created. In this case, Europe.
+# Specify the region where the resources are created. In this case, Europe.
 $dataLocation = "europe"
 
 # Define the name of the Azure Communication Service resource
@@ -341,7 +341,7 @@ $commServiceName = "ContosoAcsResource1"
 # Define the name of the Email Communication Service resource
 $emailServiceName = "ContosoEcsResource1"
 
-# Define the DNS zone name where the domains will be managed (replace with actual DNS zone)
+# Define the DNS zone name where the domains are managed (replace with actual DNS zone)
 $dnsZoneName = "contoso.net"
 
 # Define the list of domains to be created and managed (replace with your own list of domains)
@@ -423,7 +423,7 @@ function Add-RecordSetToDNS {
     $domainDetails = $domainDetailsJson | ConvertFrom-Json
 
     # Extract verification record values Domain, SPF and DKIM from the parsed JSON response
-    # These values will be used to create DNS records
+    # These values are used to create DNS records
     $dkimName = $domainDetails.verificationRecords.DKIM.name
     $dkimValue = $domainDetails.verificationRecords.DKIM.value
     $dkim2Name = $domainDetails.verificationRecords.DKIM2.name
@@ -534,7 +534,7 @@ $linkedDomainIds = @()
 
 # Loop through each domain in the domains list
 foreach ($domainName in $domains) {
-    # Extract the subdomain prefix from the fully qualified domain name (e.g., "sales" from "sales.contoso.net")
+    # Extract the subdomain prefix from the fully qualified domain name (for example: "sales" from "sales.contoso.net")
     $subDomainPrefix = $domainName.Split('.')[0]
     try {
         # Output the domain name that is being created

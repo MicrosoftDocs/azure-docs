@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Digital twins and the twin graph
 titleSuffix: Azure Digital Twins
 description: Learn about digital twins, and how their relationships form a digital twin graph.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Digital twins and their twin graph
@@ -28,7 +22,7 @@ Before you can create a digital twin in your Azure Digital Twins instance, you n
 
 After creating and uploading a model, your client app can create an instance of the type. This instance is a digital twin. For example, after creating a model of Floor, you may create one or several digital twins that use this type (like a Floor-type twin called GroundFloor, another called Floor2, and so on).
 
-[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
+[!INCLUDE [digital-twins-versus-device-twins](includes/digital-twins-versus-device-twins.md)]
 
 ## Relationships: A graph of digital twins
 
@@ -38,7 +32,7 @@ For example, the model Floor might define a `contains` relationship that targets
 
 The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.
 
-[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+[!INCLUDE [visualizing with Azure Digital Twins explorer](includes/digital-twins-visualization.md)]
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 

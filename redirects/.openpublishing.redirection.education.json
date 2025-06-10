@@ -2,47 +2,72 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/education-hub/custom-tenant-set-up-classroom.md",
-            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/education-hub/it-admin-allocate-credit.md",
-            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/education-hub/get-started-education-hub.md",
-            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/education-hub/find-ids.md",
-            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/education-hub/delete-lab-education-hub-apis.md",
-            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/education-hub/hub-overview-page.md",
-            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/education-hub/create-assignment-allocate-credit.md",
-            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/education-hub/educator-service-desk.md",
-            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/education-hub/create-lab-education-hub.md",
-            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/education-hub/access-education-hub.md",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/education-hub/set-up-lab.md",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/education-hub/add-student-api.md",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/education-hub/full-api-script.md",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/education-hub/about-education-hub.md",
+            "redirect_url": "/azure/education-hub/about-azure-for-students",
             "redirect_document_id": false
         }
     ]

@@ -1,15 +1,16 @@
 ---
 title: Migrate Azure Front Door (classic) to Standard or Premium tier
 description: This article provides step-by-step instructions on how to migrate from an Azure Front Door (classic) profile to an Azure Front Door Standard or Premium tier profile.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 11/18/2024
-ms.author: duau
 ---
 
 # Migrate Azure Front Door (classic) to Standard or Premium tier
+
+**Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 

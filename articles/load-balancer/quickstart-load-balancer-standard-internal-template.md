@@ -7,7 +7,13 @@ ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.author: mbender
 ms.date: 05/08/2024
-ms.custom: subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - template-quickstart
+  - engagement-fy23
+  - devx-track-arm-template
+  - build-2025
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using an ARM template
@@ -32,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/internal-loadbalancer-create/).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/internal-loadbalancer-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/internal-loadbalancer-create/main.bicep":::
 
 Multiple Azure resources have been defined in the template:
 

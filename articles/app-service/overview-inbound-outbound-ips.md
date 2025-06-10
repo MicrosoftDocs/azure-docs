@@ -4,8 +4,10 @@ description: Learn how inbound and outbound IP addresses are used in Azure App S
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
-ms.date: 05/13/2024
-ms.custom: UpdateFrequency3
+ms.date: 03/10/2025
+ms.custom:
+  - UpdateFrequency3
+  - build-2025
 ---
 
 # Inbound and outbound IP addresses in Azure App Service
@@ -20,13 +22,16 @@ An App Service app runs in an App Service plan, and App Service plans are deploy
 
 Because you're not allowed to move an App Service plan between deployment units, the virtual IP addresses assigned to your app usually remain the same, but there are exceptions.
 
+> [!NOTE]
+> The Premium V4 tier does not provide a stable set of outbound IP addresses.  This behavior is intentional.  Although applications running on the Premium V4 tier can make outbound calls to internet-facing endpoints, the App Service platform does not provide a stable set of outbound IP addresses for the Premium V4 tier.  This is a change in behavior from previous App Service pricing tiers.  The portal will show "Dynamic" for outbound IP addresses and additional outbound IP addresses information for applications using Premium V4.  ARM and CLI calls will return empty strings for the values of *outboundIpAddresses* and *possibleOutboundIpAddresses*.  If applications running on Premium V4 require a stable outbound IP address(es), developers will need to use a solution like [Azure NAT Gateway](overview-nat-gateway-integration.md) to get a predictable IP address for outbound internet-facing traffic.
+
 ## When inbound IP changes
 
 Regardless of the number of scaled-out instances, each app has a single inbound IP address. The inbound IP address may change when you perform one of the following actions:
 
 - Delete an app and recreate it in a different resource group (deployment unit may change).
 - Delete the last app in a resource group _and_ region combination and recreate it (deployment unit may change).
-- Delete an existing IP-based TLS/SSL binding, such as during certificate renewal (see [Renew certificate](configure-ssl-certificate.md#renew-an-expiring-certificate)).
+- Delete an existing IP-based TLS binding, such as during certificate renewal (see [Renew certificate](configure-ssl-certificate.md#renew-an-expiring-certificate)).
 
 ## Find the inbound IP
 
@@ -86,13 +91,21 @@ For function apps, see [Function app outbound IP addresses](/azure/azure-functio
 
 You can control the IP address of outbound traffic from your app by using virtual network integration together with a virtual network NAT gateway to direct traffic through a static public IP address. [Virtual network integration](./overview-vnet-integration.md) is available on **Basic**, **Standard**, **Premium**, **PremiumV2**, and **PremiumV3** App Service plans. To learn more about this setup, see [NAT gateway integration](./networking/nat-gateway-integration.md).
 
+## IP Address properties in Azure portal
+
+IP Addresses appear in multiple places in Azure portal. The properties page will show you the raw output from `inboundIpAddress`, `possibleInboundIpAddresses`, `outboundIpAddresses`, and `possibleOutboundIpAddresses`. The overview page will also show the same values, but not include the **Possible Inbound IP Addresses**.
+
+Networking overview shows the combination of **Inbound IP Address** and any private endpoint IP addresses in the **Inbound addresses** field. If public network access is disabled, the public IP address won't be shown. The **Outbound addresses** field has a combined list of **(Possible) Outbound IP Addresses**, and if the app is virtual network integrated and is routing all traffic, and the subnet has a NAT gateway attached, the field will also include the IP addresses from the NAT gateway.
+
+:::image type="content" source="./media/overview-inbound-outbound-ips/networking-overview.png" alt-text="Screenshot that shows how IP addresses are shown in the networking overview page.":::
+
 ## Service tag
 
 By using the `AppService` service tag, you can define network access for the Azure App Service service without specifying individual IP addresses. The service tag is a group of IP address prefixes that you use to minimize the complexity of creating security rules. When you use service tags, Azure automatically updates the IP addresses as they change for the service. However, the service tag isn't a security control mechanism. The service tag is merely a list of IP addresses.
 
 The `AppService` service tag includes only the inbound IP addresses of multitenant apps. Inbound IP addresses from apps deployed in isolated (App Service Environment) and apps using [IP-based TLS bindings](./configure-ssl-bindings.md) aren't included. Further all outbound IP addresses used in both multitenant and isolated aren't included in the tag.
 
-The tag can be used to allow outbound traffic in a Network security group (NSG) to apps. If the app is using IP-based TLS or the app is deployed in isolated mode, you must use the dedicated IP address instead.
+The tag can be used to allow outbound traffic in a Network security group (NSG) to apps. If the app is using IP-based TLS or the app is deployed in isolated mode, you must use the dedicated IP address instead. As the tag only includes inbound IP addresses, the tag can't be used in access restrictions to limit access to an app from other apps in App Service.
 
 > [!NOTE]
 > Service tag helps you define network access, but it shouldn't be considered as a replacement for proper network security measures as it doesn't provide granular control over individual IP addresses.

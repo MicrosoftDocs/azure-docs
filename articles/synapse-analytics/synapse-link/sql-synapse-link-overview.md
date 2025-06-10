@@ -1,20 +1,21 @@
 ---
 title: What is Azure Synapse Link for SQL?
 description: Learn about Azure Synapse Link for SQL, the benefits it offers, and price.
-author: whhender
+author: Rodrigossz
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: synapse-link
-ms.date: 11/18/2024
-ms.author: whhender
-ms.reviewer: whhender
+ms.date: 05/07/2025
+ms.author: rosouz
+ms.custom:
+  - build-2025
 ---
 
 # What is Azure Synapse Link for SQL?
 
 Azure Synapse Link for SQL enables near real time analytics over operational data in Azure SQL Database or SQL Server 2022. With a seamless integration between operational stores including Azure SQL Database and SQL Server 2022 and Azure Synapse Analytics, Azure Synapse Link for SQL enables you to run analytics, business intelligence and machine learning scenarios on your operational data with minimum impact on source databases with a new change feed technology.
 
-The following image shows the Azure Synapse Link integration with Azure SQL DB, SQL Server 2022, and Azure Synapse Analytics:
+The following image shows the Azure Synapse Link integration with Azure SQL Database, SQL Server 2022, and Azure Synapse Analytics:
 
 :::image type="content" source="../media/sql-synapse-link-overview/synapse-link-sql-architecture.png" alt-text="Diagram of the Azure Synapse Link for SQL architecture.":::
 

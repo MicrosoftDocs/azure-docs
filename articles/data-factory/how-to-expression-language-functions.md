@@ -3,7 +3,7 @@ title: How to use parameters and expressions in Azure Data Factory
 description: This How To article provides information about expressions and functions that you can use in creating data factory entities.
 author: ssabat
 ms.author: susabat
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 02/13/2025
@@ -76,7 +76,7 @@ Dynamic content editor automatically escapes characters in your content when you
 }
 ```
 
-Dynamic content editor converts above content to expression `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"`. The result of this expression is a JSON format string showed below.
+Dynamic content editor converts above content to expression `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"`. The result of this expression is a JSON format string shown below.
 
 ```json
 {

@@ -1,8 +1,6 @@
 ---
 title: Get support or request changes for Azure Communications Gateway
 description: This article guides you through how to submit support requests if you have a problem with your service or require changes to it.
-author: GemmaWakeford
-ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 01/08/2023

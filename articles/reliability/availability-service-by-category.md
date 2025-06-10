@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 02/27/2025
+ms.date: 04/11/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ---
@@ -27,8 +27,6 @@ Azure assigns service categories as foundational, mainstream, and strategic at g
 
 Azure services are presented in the following lists by category. Note that some services are non-regional, which means that they're available globally regardless of region. For information and a complete list of non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
-
-
 ## ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services
 - Azure Application Gateway
 - Azure Backup
@@ -36,13 +34,15 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Event Hubs
 - Azure ExpressRoute
 - Azure Key Vault
+- Azure Kubernetes Service (AKS)
 - Azure Load Balancer
 - Azure NAT Gateway
 - Azure Public IP
 - Azure Service Bus
 - Azure Service Fabric
 - Azure Site Recovery
-- Azure SQL
+- Azure SQL Database
+- Azure SQL Managed Instance
 - Azure Storage Accounts
 - Azure Storage Data Lake Storage
 - Azure Storage: Blob Storage
@@ -60,7 +60,6 @@ Azure services are presented in the following lists by category. Note that some 
 - Virtual Machines: Edv5 and Edsv5-series
 - Virtual Machines: Ev3 and Esv3-series
 - Virtual Machines: Ev5 and Esv5-series
-
 
 ## ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream services 
 
@@ -85,7 +84,6 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Functions
 - Azure HDInsight
 - Azure IoT Hub
-- Azure Kubernetes Service (AKS)
 - Azure Logic Apps
 - Azure Media Services
 - Azure Monitor: Application Insights
@@ -109,8 +107,6 @@ Azure services are presented in the following lists by category. Note that some 
 
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
-
-
 - Azure AI services
 - Azure Analysis Services
 - Azure API for FHIR
@@ -123,6 +119,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Dedicated HSM
 - Azure Digital Twins
 - Azure HPC Cache
+- Azure Kubernetes Fleet Manager
 - Azure Lab Services
 - Azure Machine Learning
 - Azure Managed HSM

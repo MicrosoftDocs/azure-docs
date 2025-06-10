@@ -4,7 +4,7 @@ description: An overview of Azure File Sync, a service that enables you to creat
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 09/14/2022
+ms.date: 06/04/2025
 ms.author: kendownie
 ---
 
@@ -35,6 +35,11 @@ Azure File Sync is backed by Azure Files, which offers several redundancy option
 ### Cloud-side backup
 
 Reduce your on-premises backup spending by taking centralized backups in the cloud using Azure Backup. SMB Azure file shares have native snapshot capabilities, and the process can be automated using Azure Backup to schedule your backups and manage their retention. Azure Backup also integrates with your on-premises servers, so when you restore to the cloud, these changes are automatically downloaded on your Windows Servers.
+
+### Migration
+
+Azure File Sync enables seamless migration of your on-premises file data to Azure Files. By syncing your existing file servers with Azure Files in the background, you can move data without disrupting users or changing access patterns. Your file structure and permissions remain intact, and applications continue to operate as expected. This makes it easy to modernize infrastructure, consolidate storage, or retire aging hardware while ensuring continuous availability.
+
 
 ## Training
 

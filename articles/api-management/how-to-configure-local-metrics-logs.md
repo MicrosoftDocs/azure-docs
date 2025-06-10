@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 manager: gwallace
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/12/2024
 ms.author: danlep
 ---
@@ -25,7 +25,7 @@ The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), whi
 The following sample YAML configuration deploys StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway then publishes metrics to the StatsD Service. We'll access the Prometheus dashboard via its Service.
 
 > [!NOTE]
-> The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](/azure/container-registry/buffer-gate-public-content)
+> The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure Container Registry. [Learn more about working with public images.](/azure/container-registry/buffer-gate-public-content)
 
 ```yaml
 apiVersion: v1
@@ -316,7 +316,7 @@ May 15 05:54:21 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05
 > [!NOTE]
 > If you have changed the root with `chroot`, for example `chroot /host`, then the above path needs to reflect that change.
 
-## Next steps
+## Related content
 
 * Learn about the [observability capabilities of the Azure API Management gateways](observability.md).
 * Learn more about the [Azure API Management self-hosted gateway](self-hosted-gateway-overview.md).

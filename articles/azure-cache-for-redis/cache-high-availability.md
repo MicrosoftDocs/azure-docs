@@ -6,6 +6,8 @@ description: Learn about Azure Cache for Redis high availability features and op
 
 ms.topic: conceptual
 ms.date: 08/05/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ms.custom: references_regions
 ---
@@ -132,10 +134,7 @@ Zone-redundant Enterprise and Enterprise Flash tier caches are available in the 
 
 #### Availability zone redeployment and migration
 
-Currently, the only way to convert your cache from a non-AZ configuration to an AZ configuration is to redeploy the cache. To learn how to redeploy your current cache, see [Migrate an Azure Cache for Redis instance to availability zone support](/azure/reliability/migrate-cache-redis).
-
-> [!NOTE]
-   > Converting an existing resource from non-availability zone support to availability zone support is in Preview for Standard and Premium tier caches.
+In the Standard and Premium tiers, you can upgrade an existing resource to use zone redundancy. To learn how to upgrade your current cache, see [Migrate an Azure Cache for Redis instance to availability zone support](/azure/reliability/migrate-cache-redis).
 
 ## Persistence
 

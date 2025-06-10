@@ -9,6 +9,8 @@ ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 01/22/2025
 #Customer intent: I want to learn about the feature management libraries of different languages, specifically to track their feature development status.
+ms.custom:
+  - build-2025
 ---
 
 # Feature Management Overview
@@ -39,7 +41,7 @@ Feature | .NET | Spring | Python | JavaScript
 ------- | ---- | ------ | ------ | ----------
 Targeting Filter | [GA](./feature-management-dotnet-reference.md#targeting) | GA | [GA](./feature-management-python-reference.md#targeting) | [GA](./feature-management-javascript-reference.md#targeting)
 Targeting Exclusion | [GA](./feature-management-dotnet-reference.md#targeting-exclusion) | GA | [GA](./feature-management-python-reference.md#targeting-exclusion) | [GA](./feature-management-javascript-reference.md#targeting-exclusion)
-Ambient Targeting | [GA](./feature-management-dotnet-reference.md#targeting-in-a-web-application) | GA | WIP | WIP
+Ambient Targeting | [GA](./feature-management-dotnet-reference.md#targeting-in-a-web-application) | WIP | WIP | [Preview](./feature-management-javascript-reference.md#targeting-in-a-web-application)
 Time Window Filter | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | [GA](./feature-management-python-reference.md#microsofttimewindow) | [GA](./feature-management-javascript-reference.md#microsofttimewindow)
 Recurring Time Window | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | WIP | WIP
 Custom Feature Filter | [GA](./feature-management-dotnet-reference.md#implementing-a-feature-filter) | GA | [GA](./feature-management-python-reference.md#implementing-a-feature-filter) | [GA](./feature-management-javascript-reference.md#implementing-a-feature-filter)
@@ -49,3 +51,7 @@ Feature Flag Telemetry | [GA](./feature-management-dotnet-reference.md#telemetry
 Application Insights Integration | [GA](./feature-management-dotnet-reference.md#application-insights-telemetry) | GA | [GA](./feature-management-python-reference.md#application-insights-telemetry) | [GA](./feature-management-javascript-reference.md#application-insights-integration)
 Feature Gate | [GA](./feature-management-dotnet-reference.md#controllers-and-actions) | GA | N/A | N/A
 Feature Gated Middleware | [GA](./feature-management-dotnet-reference.md#application-building) | GA | N/A | N/A
+
+## Support policy
+
+Details on the support policy for feature management libraries can be found [here](./client-library-support-policy.md).

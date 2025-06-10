@@ -4,7 +4,7 @@ description: Learn how to use tools to develop Intel SGX applications for Azure 
 author: ju-shim
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/01/2021
 ms.author: jushiman #, raginjup, ananyagarg
 ms.custom: Inspire 2022

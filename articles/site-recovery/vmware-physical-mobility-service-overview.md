@@ -1,12 +1,11 @@
 ---
 title: About the Mobility service for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
 description: Learn about the Mobility service agent for disaster recovery of VMware VMs and physical servers to Azure using the Azure Site Recovery service.
-author: ankitaduttaMSFT
-manager: gaggupta
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: ankitadutta
-ms.date: 08/21/2024
+ms.author: jsuri
+ms.date: 04/03/2025
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -78,8 +77,10 @@ During a push installation of the Mobility service, the following steps are perf
 ### Prerequisites
 
 Locate the installer files for the server’s operating system using the following steps:
-- On the appliance, go to the folder *E:\Software\Agents*.
-- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as *C:\Program Files (x86)\Microsoft Azure Site Recovery*.
+- Ensure that all server configurations meet the [requirements for server's operating system](vmware-physical-azure-support-matrix.md#replicated-machines).
+- [Locate the installer](vmware-physical-mobility-service-overview.md#locate-installer-files) for server's operating system.
+- On the appliance, go to the folder `E:\Software\Agents`.
+- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, for example `C:\Program Files (x86)\Microsoft Azure Site Recovery`.
 
 
 **Use the following steps to install the mobility service:**
@@ -112,6 +113,17 @@ Locate the installer files for the server’s operating system using the followi
 
 >[!NOTE]
 > This section is applicable to Azure Site Recovery - Modernized. [Here are the installation instructions for Classic](#install-the-mobility-service-using-command-prompt-classic).
+
+### Prerequisites
+
+### Prerequisites
+
+Locate the installer files for the server’s operating system using the following steps:
+- Ensure that all server configurations meet the [requirements for server's operating system](vmware-physical-azure-support-matrix.md#replicated-machines).
+- [Locate the installer](vmware-physical-mobility-service-overview.md#locate-installer-files) for server's operating system.
+- On the appliance, go to the folder `E:\Software\Agents`.
+- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, for example `C:\Program Files (x86)\Microsoft Azure Site Recovery`.
+
 
 ### Windows machine
 
@@ -401,6 +413,8 @@ Installer file | Operating system (64-bit only)
 [To be downloaded and placed in this folder manually](#debian-7-debian-8-or-debian-9-server) | Debian 9
 
 ## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Cent OS 5, Debian 7, Debian 8, Debian 9, Oracle Linux 6 and Ubuntu 14.04 server
+
+Oracle Linux 6 is supported for Mobility Service installation. You can follow the same steps as RHEL 5, as both distributions share a similar package structure and system dependencies. Ensure that required dependencies such as glibc and perl are present.
 
 ### SUSE 11 SP3 or SUSE 11 SP4 server
 

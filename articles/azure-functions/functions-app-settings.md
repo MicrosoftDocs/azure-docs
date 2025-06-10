@@ -203,15 +203,27 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 |---|------------|
 |AzureWebJobsFeatureFlags|`feature1,feature2,EnableProxies`|
 
-Add `EnableProxies` to this list to re-enable proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Re-enable proxies in Functions v4.x](./legacy-proxies.md#re-enable-proxies-in-functions-v4x). 
+If your app currently has this setting, add new flags to the end of the comma-delineated list. 
+
+Currently-supported feature flags:
+
+|Flag value | Description |
+| ----- | ----- |
+| `EnableProxies` | Re-enables proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Re-enable proxies in Functions v4.x](./legacy-proxies.md#re-enable-proxies-in-functions-v4x). |
+| `EnableAzureMonitorTimeIsoFormat` | Enables the `ISO 8601` time format in Azure Monitor logs for Linux apps running on a Dedicated (App Service) plan. |
 
 ## AzureWebJobsKubernetesSecretName 
 
-Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. This setting requires you to set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
+Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. 
 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsKubernetesSecretName|`<SECRETS_RESOURCE>`|
+
+Considerations when use a Kubernetes Secrets resource:
++ You must also set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. 
++ The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
++ [Immutable secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) aren't supported and using them results in runtime errors.
 
 To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
@@ -269,7 +281,9 @@ The vault must have an access policy corresponding to the system-assigned manage
 |---|------------|
 |AzureWebJobsSecretStorageKeyVaultUri|`https://<VAULT_NAME>.vault.azure.net`|
 
-To learn more, see [Use Key Vault references for Azure Functions](../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json).
+[!INCLUDE [functions-key-vault-secrets-storage-warning](../../includes/functions-key-vault-secrets-storage-warning.md)]
+
+To learn more, see [Manage Key Storage](../azure-functions/function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageSas
 

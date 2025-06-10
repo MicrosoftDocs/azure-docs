@@ -134,7 +134,7 @@
       - name: Move Automation account to another subscription
         href: how-to/move-account.md
       - name: Move Automation account to another region
-        href: ../operational-excellence/relocation-automation.md?toc=/azure/private-link/toc.json
+        href: ../azure-resource-manager/management/relocation/relocation-automation.md?toc=/azure/private-link/toc.json
     - name: Manage Automation account
       href: delete-account.md
     - name: Migrate from Orchestrator to Azure Automation (Beta)
@@ -266,69 +266,19 @@
     - name: Supported regions
       href: change-tracking/region-mappings-monitoring-agent.md
     - name: Enable change tracking and inventory
-      href: change-tracking/enable-vms-monitoring-agent.md
+      items:
+      - name: At scale using Azure portal - Machines blade (New)
+        href: change-tracking/enable-change-tracking-at-scale-machines-blade.md
+      - name: At scale using Azure Policy
+        href: change-tracking/enable-change-tracking-at-scale-policy.md
+      - name: At scale using Azure portal - Virtual machines
+        href: change-tracking/enable-vms-monitoring-agent.md
     - name: Manage change tracking and inventory
       href: change-tracking/manage-change-tracking-monitoring-agent.md
   - name: Migration from Change Tracking and Inventory using LA to Change Tracking using AMA
     items:
     - name: Migration from Log Analytics to Azure Monitoring Agent version
       href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md
-  - name: Update Management (Retired)
-    items:
-    - name: Overview
-      href: update-management/overview.md
-    - name: Plan your deployment
-      href: update-management/plan-deployment.md
-    - name: Enable
-      items:
-      - name: System prerequisites
-        href: update-management/operating-system-requirements.md
-      - name: Enable using Azure Resource Manager template
-        href: update-management/enable-from-template.md
-      - name: Enable from the Azure portal
-        href: update-management/enable-from-portal.md
-      - name: Enable from an Azure VM
-        href: update-management/enable-from-vm.md
-      - name: Enable from an Automation account
-        href: update-management/enable-from-automation-account.md
-      - name: Enable from a runbook
-        href: update-management/enable-from-runbook.md
-    - name: Manage updates for your VMs
-      items:
-      - name: Get started
-        href: update-management/manage-updates-for-vm.md
-      - name: Assess compliance
-        href: update-management/view-update-assessments.md
-      - name: Deploy updates and review status
-        href: update-management/deploy-updates.md
-      - name: Use pre-scripts and post-scripts
-        href: update-management/pre-post-scripts.md
-      - name: Configure alerts
-        href: update-management/configure-alerts.md
-    - name: Integrate with Configuration Manager
-      href: update-management/mecmintegration.md
-    - name: Configure Windows Update client
-      href: update-management/configure-wuagent.md
-    - name: Use dynamic groups
-      href: update-management/configure-groups.md
-    - name: Query Update Management logs
-      href: update-management/query-logs.md
-    - name: Work with scope configurations
-      href: update-management/scope-configuration.md
-    - name: Disable
-      items:
-      - name: Remove Update Management
-        href: update-management/remove-feature.md
-      - name: Remove machines
-        href: update-management/remove-vms.md
-    - name: Troubleshoot
-      items:
-      - name: Troubleshoot Update Management issues
-        href: troubleshoot/update-management.md
-      - name: Troubleshoot Windows update agent issues
-        href: troubleshoot/update-agent-issues.md
-      - name: Troubleshoot Linux update agent issues
-        href: troubleshoot/update-agent-issues-linux.md
   - name: Scenarios
     items:
     - name: Send an email from a runbook

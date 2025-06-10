@@ -4,8 +4,8 @@ description: Describes the workloads that can be protected using disaster recove
 ms.topic: concept-article
 ms.service: azure-site-recovery
 ms.date: 01/10/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # About disaster recovery for on-premises apps

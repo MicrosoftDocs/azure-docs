@@ -18,6 +18,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Transmit Security with Azure Active Directory B2C for Fraud Prevention
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security's Detection and Response Services (DRS)](https://transmitsecurity.com/platform/detection-and-response). Transmit Security allows you to detect risk in customer interactions on digital channels, and to enable informed identity and trust decisions across the consumer experience.
 
 ::: zone pivot="b2c-user-flow"

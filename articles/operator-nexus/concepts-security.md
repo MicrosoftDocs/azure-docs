@@ -6,7 +6,9 @@ ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 08/14/2023
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - build-2025
 ---
 
 # Azure Operator Nexus security
@@ -131,3 +133,9 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 The Operator Nexus Cluster Manager is an AKS implementation. The following image shows the Kube-Bench exceptions for the Cluster Manager. A full report of CIS Benchmark control evaluation for Azure Kubernetes Service (AKS) can be found [here](/azure/aks/cis-kubernetes)
 
 :::image type="content" source="media/security/nexus-cluster-manager-kubebench.png" alt-text="Screenshot of Cluster Manager Kube-Bench exceptions." lightbox="media/security/nexus-cluster-manager-kubebench.png":::
+
+## Encryption at rest
+
+Azure Operator Nexus provides persistent storage for virtualized and containerized workloads. Data is stored and encrypted at rest on the storage appliances in the Azure Operator Nexus aggregator rack. For more information, please see [the storage appliance reference documentation](/azure/operator-nexus/reference-near-edge-storage).
+
+Nexus Kubernetes clusters and Nexus virtual machines consume storage from a local disk. Data stored on local disks is encrypted using LUKS2 with the AES256 bit algorithm in XTS mode. All encryption keys are platform managed.

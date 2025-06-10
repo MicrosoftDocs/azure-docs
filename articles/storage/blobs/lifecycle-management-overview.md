@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 02/10/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -77,7 +77,7 @@ Each rule within the policy has several parameters, described in the following t
 
 When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
 
-An active policy processes objects periodically, and is interrupted if changes are made to the policy. If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
+An active policy processes objects periodically, and is interrupted if changes are made to the policy. If you delete a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. If you disable all of the rules in a policy, then the policy becomes inactive. If a run is already in progress, that run will come to a stop within 24 hours, and no new runs will be scheduled. It is recommended to disable a policy first, wait 24 hours and then delete policy.
 
 The time required for a run to complete depends on the number of blobs evaluated and operated on. The latency with which a blob is evaluated and operated on may be longer if the request rate for the storage account approaches the storage account limit. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads.  To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 Learn more about [Lifecycle Management Performance Characteristics](lifecycle-management-performance-characteristics.md).
@@ -210,6 +210,9 @@ The `LifecyclePolicyCompleted` event is generated when the actions defined by a 
     "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "data": {
         "scheduleTime": "2022/05/24 22:57:29.3260160",
+        “policyRunSummary”: { 
+            “completionStatus”: “Completed/CompletedWithError/Incomplete” 
+        },
         "deleteSummary": {
             "totalObjectsCount": 16,
             "successCount": 14,
@@ -282,7 +285,7 @@ This example shows how to transition block blobs prefixed with `sample-container
 
 You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. To learn how to enable last access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
 
-When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. A [Get Blob](/rest/api/storageservices/get-blob) operation is considered an access operation. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time. 
+When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) operations are considered access operations. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time. 
 
 If last access time tracking is enabled, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. Lifecycle management uses the date the lifecycle policy was enabled instead of `LastAccessTime` in the following cases:
 
@@ -299,6 +302,9 @@ In the following example, blobs are moved to cool storage if they haven't been a
 
 > [!TIP]
 > If a blob is moved to the cool tier, and then is automatically moved back before 30 days has elapsed, an early deletion fee is charged. Before you set the `enableAutoTierToHotFromCool` property, make sure to analyze the access patterns of your data so you can reduce unexpected charges.
+
+Automatic uptiering of objects on access is limited to once in 30 days. This safeguard is in place to avoid multiple early deletion penalties from the cool tier. If the object tiers back to cool due to the policy, any transactions on the blob is charged at the cool tier prices. It is cost-efficient to keep the blob in hot tier if it needs to be auto-uptiered more than once in a 30-day period.
+Enabling a rule with "enableAutoTierToHotFromCool" applies only to objects that are tiered down with this rule. The enableAutoTierToHotFromCool property can't be enabled for blobs that are already in the cool tier. Therefore, the access tier of those blobs won't automatically change to hot when they are accessed.
 
 ```json
 {
@@ -476,7 +482,7 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 - Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
 
-- A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
+- A lifecycle management policy can't be used to change the tier of a blob that uses an encryption scope to the archive tier.
 
 - The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
 

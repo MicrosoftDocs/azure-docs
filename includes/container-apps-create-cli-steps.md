@@ -2,8 +2,8 @@
 ms.service: azure-container-apps
 ms.topic: include
 ms.date: 02/03/2025
-author: v1212
-ms.author: wujia
+author: craigshoemaker
+ms.author: cshoe
 ---
 
 ## Setup

@@ -1,0 +1,33 @@
+<svg id="Titles" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #2bc7f4;
+      }
+
+      .cls-2, .cls-4 {
+        fill: #55d2f6;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+
+      .cls-3, .cls-4 {
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <title>i_categorize</title>
+  <rect class="cls-1" x="1" y="3" width="22" height="57"/>
+  <polygon class="cls-2" points="23 3 23 23 3 3 23 3"/>
+  <rect class="cls-3" x="1" y="3" width="22" height="57"/>
+  <rect class="cls-4" x="28" y="3" width="15" height="15"/>
+  <rect class="cls-4" x="48" y="3" width="15" height="15"/>
+  <rect class="cls-4" x="28" y="24" width="15" height="15"/>
+  <rect class="cls-4" x="48" y="24" width="15" height="15"/>
+  <rect class="cls-4" x="28" y="45" width="15" height="15"/>
+  <rect class="cls-4" x="48" y="45" width="15" height="15"/>
+</svg>

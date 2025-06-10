@@ -2,14 +2,15 @@
 title: What is a content delivery network? - Azure
 description: Learn what Azure Content Delivery Network is and how to use it to deliver high-bandwidth content.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumud
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: azure-cdn
 ms.topic: overview
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # What is a content delivery network on Azure?
@@ -38,7 +39,7 @@ For a list of current content delivery network node locations, see [Azure Conten
 
 3. The origin server returns the file to an edge server in the POP.
 
-4. An edge server in the POP caches the file and returns the file to the original requestor (Alice). The file remains cached on the edge server in the POP until the time to live (TTL) specified by its HTTP headers expires. If the origin server didn't specify a TTL, the default TTL is seven days.
+4. An edge server in the POP caches the file and returns the file to the original requester (Alice). The file remains cached on the edge server in the POP until the time to live (TTL) specified by its HTTP headers expires. If the origin server didn't specify a TTL, the default TTL is seven days.
 
 5. More users can then request the same file by using the same URL that Alice used, and gets directed to the same POP.
 

@@ -118,8 +118,6 @@
         href: manage/subscription-disabled.md
       - name: Reactivate Azure Student subscription
         href: manage/azurestudents-subscription-disabled.md
-      - name: Set up and configure AWS integration
-        href: costs/aws-integration-set-up-configure.md
       - name: Create an MCA subscription
         href: manage/create-subscription.md
       - name: Create an MCA subscription request
@@ -131,7 +129,7 @@
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Change administrator
-        displayName: azure subcription owner, add user to azure subscription, azure subscription permissions, azure change account admin
+        displayName: azure subscription owner, add user to azure subscription, azure subscription permissions, azure change account admin
         href: manage/add-change-subscription-administrator.md
       - name: Switch subscription offer
         href: manage/switch-azure-offer.md
@@ -241,6 +239,8 @@
       href: manage/resolve-past-due-balance.md
     - name: Add, update, or delete payment method
       href: manage/change-credit-card.md
+    - name: Supported payment methods
+      href: manage/supported-payment-methods.md
     - name: View payment history
       href: manage/view-payment-history.md
   - name: Troubleshoot billing
@@ -297,6 +297,12 @@
   items:
   - name: Cost Management + Billing FAQ
     href: cost-management-billing-faq.yml
+  - name: Enterprise Agreement (EA) FAQ
+    href: enterprise-agreement-faq.yml
+  - name: Partner FAQ
+    href: partner-faq.yml
+  - name: Azure Reservations and Savings Plan FAQ
+    href: reservations-savings-plan-faq.yml
   - name: Discover cloud footprint FAQ
     href: manage/discover-cloud-footprint.md
 - name: Samples

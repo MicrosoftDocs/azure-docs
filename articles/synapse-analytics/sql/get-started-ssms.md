@@ -7,7 +7,6 @@ ms.topic: overview
 ms.subservice: sql 
 ms.date: 02/11/2025 
 ms.author: stefanazaric 
-ms.reviewer: whhender
 ---
 
 # Connect to Synapse SQL with SQL Server Management Studio

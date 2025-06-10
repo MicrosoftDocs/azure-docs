@@ -1,11 +1,11 @@
 ---
 title: Support matrix for moving Azure VMs to another region with Azure Resource Mover
 description: Review support for moving Azure VMs between regions with Azure Resource Mover.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: how-to
-ms.date: 12/27/2024
-ms.author: ankitadutta
+ms.date: 04/22/2025
+ms.author: jsuri
 ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
 ---
 
@@ -17,6 +17,9 @@ This article summarizes support and prerequisites when you move virtual machines
 
 Resource Mover supports Azure VMs running these Windows operating systems.
 
+> [!NOTE]
+> Windows Trusted Launch VMs are supported by Resource Mover. 
+
 **Operating system** | **Details**
 --- | ---
 Windows Server 2019 | Supported for Server Core, Server with Desktop Experience.
@@ -27,16 +30,19 @@ Windows Server 2008 R2 with SP1/SP2 | Supported.<br/><br/> For machines running 
 Windows 10 (x64) | Supported.
 Windows 8.1 (x64) | Supported.
 Windows 8 (x64) | Supported.
-Windows 7 (x64) with SP1 onwards | Install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) on machines running Windows 7 with SP1.  SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the 'prepare' step will not succeed. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
+Windows 7 (x64) with SP1 onwards | Install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) on machines running Windows 7 with SP1.  SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the 'prepare' step won't succeed. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
 
 
 ## Linux VM support
 
-Resource Move supports Azure VMs running these Linux operating systems.
+Resource Mover supports Azure VMs running these Linux operating systems.
+
+> [!NOTE]
+> Linux Trusted Launch VMs aren't supported by Resource Mover.
 
 **Operating system** | **Details**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, 9.4
 Ubuntu 14.04 LTS Server | [Supported kernel versions](#supported-ubuntu-kernel-versions)
 Ubuntu 16.04 LTS Server | [Supported kernel version](#supported-ubuntu-kernel-versions)<br/><br/> Ubuntu servers using password-based authentication and sign-in, and the cloud-init package to configure cloud VMs, might have password-based sign-in disabled on failover (depending on the cloud-init configuration). Password-based sign-in can be reenabled on the virtual machine by resetting the password from the Support > Troubleshooting > Settings menu (of the failed over VM in the Azure portal.
 Ubuntu 18.04 LTS Server | [Supported kernel version](#supported-ubuntu-kernel-versions).
@@ -106,7 +112,7 @@ Extensions | Not supported | Extensions aren't copied over to the  VM in target 
 This table summarized support for the Azure VM OS disk, data disk, and temporary disk. It's important to observe the VM disk limits and targets for [managed disks](/azure/virtual-machines/disks-scalability-targets) to avoid any performance issues.
 
 > [!NOTE]
-> The target VM size should be equal to or larger than the source VM. The parameters used for validation are: Data Disks Count, NICs count, Available CPUs, Memory in GB. If it sn't a error is issued.
+> The target VM size should be equal to or larger than the source VM. The parameters used for validation are: Data Disks Count, NICs count, Available CPUs, Memory in GB. If it isn't, an error is issued.
 
 
 **Component** | **Support** | **Details**
@@ -152,7 +158,7 @@ Network security group | Supported | Specify an existing resource in the target 
 Reserved (static) IP address | Supported | You can't currently configure this. The value defaults to the source value. <br/><br/> If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the target VM.<br/><br/> If the target subnet doesn't have the same IP address available, the initiate move for the VM will fail.
 Dynamic IP address | Supported | You can't currently configure this. The value defaults to the source value.<br/><br/> If the NIC on the source has dynamic IP addressing, the NIC on the target VM is also dynamic by default.
 IP configurations | Supported | You can't currently configure this. The value defaults to the source value.
-VNET Peering | Not Retained | The VNET which is moved to the target region will not retain its VNET peering configuration present in the source region. To retain the peering, it needs to do be done again manually in the target region.
+VNET Peering | Not Retained | The VNET which is moved to the target region won't retain its VNET peering configuration present in the source region. To retain the peering, it needs to do be done again manually in the target region.
 
 ## Outbound access requirements
 

@@ -1,7 +1,7 @@
 ---
-title: RestApiPoller data connector reference for the Codeless Connector Platform
+title: RestApiPoller data connector reference for the Codeless Connector Framework
 titleSuffix: Microsoft Sentinel
-description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type and its data connection rules as part of the Codeless Connector Platform.
+description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type and its data connection rules as part of the Codeless Connector Framework.
 services: sentinel
 author: austinmccollum
 ms.topic: reference
@@ -10,15 +10,15 @@ ms.author: austinmc
 
 
 
-#Customer intent: As a security engineer, I want to reference paging, authentication and payload options to create and configure RestApiPoller data connectors using the Codeless Connector Platform so that I can integrate a specific data source into Microsoft Sentinel without writing custom code.
+#Customer intent: As a security engineer, I want to reference paging, authentication and payload options to create and configure RestApiPoller data connectors using the Codeless Connector Framework so that I can integrate a specific data source into Microsoft Sentinel without writing custom code.
 
 ---
 
-# RestApiPoller data connector reference for the Codeless Connector Platform
+# RestApiPoller data connector reference for the Codeless Connector Framework
 
-To create a `RestApiPoller` data connector with the Codeless Connector Platform (CCP), use this reference as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors) docs.
+To create a `RestApiPoller` data connector with the Codeless Connector Framework (CCF), use this reference as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors) docs.
 
-Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel data connector. One data connector might have multiple connections, which fetch data from different endpoints. The JSON configuration built using this reference document is used to complete the deployment template for the CCP data connector. 
+Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel data connector. One data connector might have multiple connections, which fetch data from different endpoints. The JSON configuration built using this reference document is used to complete the deployment template for the CCF data connector. 
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md#create-the-deployment-template).
 
@@ -45,7 +45,7 @@ For more information about the latest API version, see [Data Connectors - Create
 
 ## Request body
 
-The request body for a `RestApiPoller` CCP data connector has the following structure:
+The request body for a `RestApiPoller` CCF data connector has the following structure:
 
 ```json
 {
@@ -66,7 +66,7 @@ The request body for a `RestApiPoller` CCP data connector has the following stru
 
 ### RestApiPoller
 
-**RestApiPoller** represents an API Poller CCP data connector where you customize paging, authorization and request/response payloads for your data source.
+**RestApiPoller** represents an API Poller CCF data connector where you customize paging, authorization and request/response payloads for your data source.
 
 | Name | Required | Type | Description |
 | ---- | ---- | ---- | ---- |
@@ -82,20 +82,20 @@ The request body for a `RestApiPoller` CCP data connector has the following stru
 
 ## Authentication configuration
 
-The CCP supports the following authentication types:
+The CCF supports the following authentication types:
 - [Basic](#basic-auth)
 - [APIKey](#apikey)
 - [OAuth2](#oauth2)
-- [Jwt](#jwt)
+- [JWT](#jwt)
 
 > [!NOTE]
-> CCP OAuth2 implementation does not support client certificate credentials.
+> CCF OAuth2 implementation does not support client certificate credentials.
 
 As a best practice, use parameters in the auth section instead of hard-coding credentials. For more information, see [Secure confidential input](create-codeless-connector.md#secure-confidential-input).
 
 In order to create the deployment template which also uses parameters, you need to escape the parameters in this section with an extra starting `[`. This allows the parameters to assign a value based on the user interaction with the connector. For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
 
-To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters. For more information, see [Data connector definitions reference for the Codeless Connector Platform](data-connector-ui-definitions-reference.md#instructions).
+To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters. For more information, see [Data connector definitions reference for the Codeless Connector Framework](data-connector-ui-definitions-reference.md#instructions).
 
 #### Basic auth
 
@@ -152,7 +152,7 @@ Since the `ApiKeyName` is explicitly set to `""`, the result is the following he
 
 #### OAuth2
 
-The Codeless Connector Platform supports OAuth 2.0 authorization code grant and client credentials. The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
+The Codeless Connector Framework supports OAuth 2.0 authorization code grant and client credentials. The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
 After the user returns to the client via the redirect URL, the application will get the authorization code from the URL and use it to request an access token.
 
 |Field | Required | Type | Description |
@@ -215,7 +215,7 @@ OAuth2 `client_credentials` grant type
 }
 ```
 
-#### Jwt
+#### JWT
 
 Example:
 JSON web token (JWT)
@@ -231,14 +231,14 @@ JSON web token (JWT)
         "key":"password",
         "value":"[[parameters('Password')]"
     },
-    "TokenEndpoint": {"https://token_endpoint.contoso.com"},
+    "TokenEndpoint": "https://token_endpoint.contoso.com",
     "IsJsonRequest": true
 }
 ```
 
 ## Request configuration
 
-The request section defines how the CCP data connector sends requests to your data source, like the API endpoint and how often to poll that endpoint.
+The request section defines how the CCF data connector sends requests to your data source, like the API endpoint and how often to poll that endpoint.
 
 |Field |Required |Type |Description	|
 | ---- | ---- | ---- | ---- |
@@ -246,7 +246,7 @@ The request section defines how the CCP data connector sends requests to your da
 | **RateLimitQPS** |  | Integer | Defines the number of calls or queries allowed in a second. |
 | **QueryWindowInMin** |  | Integer | Defines the available query window in minutes. Minimum is 1 minute. Default is 5 minutes.|
 | **HttpMethod** |  | String | Defines the API method: `GET`(default) or `POST` |
-| **QueryTimeFormat** |  | String | Defines the date and time format the endpoint (remote server) expects. The CCP uses the current date and time wherever this variable is used. Possible values are the constants: `UnixTimestamp`, `UnixTimestampInMills` or any other valid representation of date time, for example: `yyyy-MM-dd`, `MM/dd/yyyy HH:mm:ss`<br>default is ISO 8601 UTC |
+| **QueryTimeFormat** |  | String | Defines the date and time format the endpoint (remote server) expects. The CCF uses the current date and time wherever this variable is used. Possible values are the constants: `UnixTimestamp`, `UnixTimestampInMills` or any other valid representation of date time, for example: `yyyy-MM-dd`, `MM/dd/yyyy HH:mm:ss`<br>default is ISO 8601 UTC |
 | **RetryCount** |  | Integer (1...6) | Defines `1` to `6` retries allowed to recover from a failure. Default is `3`.|
 | **TimeoutInSeconds** |  | Integer (1...180) | Defines the request timeout, in seconds. Default is `20` |
 | **IsPostPayloadJson** |  | Boolean | Determines whether the POST payload is in JSON format.	Default is `false`|
@@ -418,7 +418,7 @@ The expected response in this example prepares for a CSV with no header.
 
 ## Paging configuration
 
-When the data source can't send the entire response payload all at once, the CCP data connector needs to know how to receive portions of the data in response *pages*. The paging types to choose from are:
+When the data source can't send the entire response payload all at once, the CCF data connector needs to know how to receive portions of the data in response *pages*. The paging types to choose from are:
 
 | Paging type | decision factor |
 |----|----|
@@ -531,7 +531,7 @@ Paging: {
 |----|----|----|----|
 | **PageSize** | False | Integer | How many events per page |
 | **PageSizeParameterName** | False | String | Query parameter name for the page size |
-| **OffsetParaName** | False | String | The next request query parameter name. The CCP calculates the offset value for each request, (all events ingested + 1) |
+| **OffsetParaName** | False | String | The next request query parameter name. The CCF calculates the offset value for each request, (all events ingested + 1) |
 
 Example:
 ```json
@@ -550,9 +550,9 @@ Paging: {
 | **DataCollectionRuleImmutableId** | True | String | The DCR immutable ID. Find it by viewing the DCR creation response or using the [DCR API](/rest/api/monitor/data-collection-rules/get) |
 | **StreamName** | True | string | This value is the `streamDeclaration` defined in the DCR (prefix must begin with *Custom-*) |
 
-## Example CCP data connector
+## Example CCF data connector
 
-Here's an example of all the components of the CCP data connector JSON together.
+Here's an example of all the components of the CCF data connector JSON together.
 
 ```json
 {

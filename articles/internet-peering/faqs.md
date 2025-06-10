@@ -29,7 +29,7 @@ Peering connections that were set up outside of the automated portal process and
 
 ### When will peering IP addresses be allocated and displayed in the Azure portal?
 
-Our automated process allocates IP addresses and sends the information via email to the PNI requestor after the port is configured on our side. This may take up to a week after the request has been submitted as the port has been cabled before it can be configured.
+Our automated process allocates IP addresses and sends the information via email to the PNI requester after the port is configured on our side. This may take up to a week after the request has been submitted as the port has been cabled before it can be configured.
 
 ### What Microsoft routes will be advertised over Peering Service connections?
 

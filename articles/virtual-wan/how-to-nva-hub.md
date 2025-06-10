@@ -4,13 +4,17 @@ description: Learn how to deploy a Network Virtual Appliance in the Virtual WAN 
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 03/26/2025
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ---
 # How to create a Network Virtual Appliance in an Azure Virtual WAN hub
 
 This article shows you how to deploy an **Integrated Network Virtual Appliance (NVA)** in an Azure Virtual WAN hub.  
+
+
+> [!Important]
+> This document applies to Integrated Network Virtual Appliances deployed in the Virtual WAN hub and does **not** apply to software-as-a-service (SaaS) solutions. See [third-party integrations](third-party-integrations.md) for more information on the differences between Integrated Network Virtual Appliances and SaaS solutions. Reference your SaaS provider's documentation for information related to infrastructure operations available for SaaS solutions.
 
 ## Background
 
@@ -43,6 +47,18 @@ To deploy a Network Virtual Appliance in a Virtual WAN Hub, the user or service 
 * Microsoft.Network/publicIpAddresses/join over the public IP address resources that are deployed with the Network Virtual Appliance for [Internet Inbound](how-to-network-virtual-appliance-inbound.md) use cases.
 
 These permissions need to be granted to the Azure Marketplace Managed Application to ensure deployments succeed. Other permissions may be required based on the implementation of the deployment workflow developed by your NVA partner.
+
+## Hub address space
+
+Each Virtual WAN hub has a fixed subnet size used for NVA deployments. The number of IP addresses available for consumption is statically defined for all hub address sizes.
+
+Ensure your Virtual WAN hub has sufficient IP addresses to allow for scalability and future network deployment updates:
+
+* Deploy additional NVAs (more than one) in the hub.
+* Add additional IP configurations to your NVA interfaces.
+* Re-size your NVA (increase scale unit).
+
+For more information on how Virtual WAN allocates IP addresses to NVAs in the hub, see [hub address space for NVAs documentation](about-nva-hub.md#hub-address-space).
 
 ## Assigning Permissions to Azure Managed Application
 

@@ -1,11 +1,11 @@
 ---
 title: Azure Firewall Premium features
 description: Azure Firewall Premium is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
-author: duau
+author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: concept-article
-ms.date: 06/14/2023
+ms.date: 03/17/2025
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -14,55 +14,51 @@ ms.custom: references_regions
 
 :::image type="content" source="media/premium-features/pci-logo.png" alt-text="PCI certification logo" border="false":::
 
-Azure Firewall Premium provides advanced threat protection that meets the needs of highly sensitive and regulated environments, such as the payment and healthcare industries. 
+Azure Firewall Premium offers advanced threat protection suitable for highly sensitive and regulated environments, such as payment and healthcare industries.
 
-Organizations can use Premium stock-keeping unit (SKU) features like IDPS and TLS inspection to prevent malware and viruses from spreading across networks in both lateral and horizontal directions. To meet the increased performance demands of IDPS and TLS inspection, Azure Firewall Premium uses a more powerful virtual machine SKU. Like the Standard SKU, the Premium SKU can seamlessly scale up to 100 Gbps and integrate with availability zones to support the service level agreement (SLA) of 99.99 percent. The Premium SKU complies with Payment Card Industry Data Security Standard (PCI DSS) environment needs.
+Organizations can leverage Premium SKU features like IDPS and TLS inspection to prevent malware and viruses from spreading across networks. To meet the increased performance demands of these features, Azure Firewall Premium uses a more powerful virtual machine SKU. Similar to the Standard SKU, the Premium SKU can scale up to 100 Gbps and integrate with availability zones to support a 99.99% SLA. The Premium SKU complies with Payment Card Industry Data Security Standard (PCI DSS) requirements.
 
 :::image type="content" source="media/premium-features/premium-overview.png" alt-text="Azure Firewall Premium overview diagram":::
 
 Azure Firewall Premium includes the following features:
 
-- **TLS inspection** - decrypts outbound traffic, processes the data, then encrypts the data and sends it to the destination.
-- **IDPS** - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
-- **URL filtering** - extends Azure Firewall’s FQDN filtering capability to consider an entire URL along with any additional path. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.
-- **Web categories** - administrators can allow or deny user access to website categories such as gambling websites, social media websites, and others.
+- **TLS inspection**: Decrypts outbound traffic, processes it, then re-encrypts and sends it to the destination.
+- **IDPS**: Monitors network activities for malicious activity, logs information, reports it, and optionally blocks it.
+- **URL filtering**: Extends FQDN filtering to consider the entire URL, including any additional path.
+- **Web categories**: Allows or denies user access to website categories such as gambling or social media.
 
-To compare Azure Firewall features for all Firewall SKUs, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
+To compare Azure Firewall features for all SKUs, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
 
 ## TLS inspection
 
-The TLS (Transport Layer Security) protocol primarily provides cryptography for privacy, integrity, and authenticity using certificates between two or more communicating applications. It runs in the application layer and is widely used to encrypt the HTTP protocol.
+The TLS (Transport Layer Security) protocol provides cryptography for privacy, integrity, and authenticity using certificates between communicating applications. It encrypts HTTP traffic, which can hide illegal user activity and malicious traffic.
 
-Encrypted traffic has a possible security risk and can hide illegal user activity and malicious traffic. Azure Firewall without TLS inspection (as shown in the following diagram) has no visibility into the data that flows in the encrypted TLS tunnel, so it can't provide full-protection coverage.
-
-The second diagram shows how Azure Firewall Premium terminates and inspects TLS connections to detect, alert, and mitigate malicious activity in HTTPS. The firewall creates two dedicated TLS connections: one with the Web Server (contoso.com) and another connection with the client. Using the customer provided CA certificate, it generates an on-the-fly certificate, which replaces the Web Server certificate and shares it with the client to establish the TLS connection between the firewall and the client.
+Without TLS inspection, Azure Firewall cannot see the data within the encrypted TLS tunnel, limiting its protection capabilities. Azure Firewall Premium, however, terminates and inspects TLS connections to detect, alert, and mitigate malicious activity in HTTPS. It creates two TLS connections: one with the web server and another with the client. Using a customer-provided CA certificate, it generates an on-the-fly certificate to replace the web server certificate and shares it with the client to establish the TLS connection.
 
 Azure Firewall without TLS inspection:
+
 :::image type="content" source="media/premium-features/end-to-end-transport-layer-security.png" alt-text="End-to-end TLS for Azure Firewall Standard":::
 
 Azure Firewall with TLS inspection:
+
 :::image type="content" source="media/premium-features/transport-layer-security-inspection.png" alt-text="TLS with Azure Firewall Premium":::
 
 The following use cases are supported with Azure Firewall:
-- Outbound TLS Inspection
 
-   To protect against malicious traffic that is sent from an internal client hosted in Azure to the Internet.
-- East-West TLS Inspection (includes traffic that goes from/to an on-premises network)
-
-   To protect your Azure workloads from potential malicious traffic sent from within Azure.
+- **Outbound TLS Inspection**: Protects against malicious traffic sent from an internal client hosted in Azure to the Internet.
+- **East-West TLS Inspection**: Protects Azure workloads from potential malicious traffic sent within Azure, including traffic to/from an on-premises network.
 
 The following use case is supported by [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md):
-- Inbound TLS Inspection
 
-   To protect internal servers or applications hosted in Azure from malicious requests that arrive from the Internet or an external network. Application Gateway provides end-to-end encryption.
+- **Inbound TLS Inspection**: Protects internal servers or applications hosted in Azure from malicious requests arriving from the Internet or an external network. Application Gateway provides end-to-end encryption.
 
-   For related information, see:
+For related information, see:
 
-   - [Azure Firewall Premium and name resolution](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
-   - [Application Gateway before Firewall](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+- [Azure Firewall Premium and name resolution](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
+- [Application Gateway before Firewall](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 
 > [!TIP]
-> TLS 1.0 and 1.1 are being deprecated and won’t be supported. TLS 1.0 and 1.1 versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable, and while they still currently work to allow backwards compatibility, they aren't recommended. Migrate to TLS 1.2 as soon as possible.
+> TLS 1.0 and 1.1 are being deprecated and won’t be supported. These versions have been found to be vulnerable. While they still work for backward compatibility, they aren't recommended. Migrate to TLS 1.2 as soon as possible.
 
 To learn more about Azure Firewall Premium Intermediate CA certificate requirements, see [Azure Firewall Premium certificates](premium-certificates.md).
 
@@ -70,120 +66,102 @@ To learn more about TLS inspection, see [Building a POC for TLS inspection in Az
 
 ## IDPS
 
-A network intrusion detection and prevention system (IDPS) allows you to monitor your network for malicious activity, log information about this activity, report it, and optionally attempt to block it. 
+A network intrusion detection and prevention system (IDPS) monitors your network for malicious activity, logs information, reports it, and optionally blocks it.
 
-Azure Firewall Premium provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are applicable for both application and network-level traffic (Layers 3-7). They're fully managed and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic. Spoke-to-spoke (East-West) includes traffic that goes from/to an on-premises network. You can configure your IDPS private IP address ranges using the **Private IP ranges** feature. For more information, see [IDPS Private IP ranges](#idps-private-ip-ranges).
+Azure Firewall Premium offers signature-based IDPS to quickly detect attacks by identifying specific patterns, such as byte sequences in network traffic or known malicious instruction sequences used by malware. These IDPS signatures apply to both application and network-level traffic (Layers 3-7). They are fully managed and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic, including traffic to/from an on-premises network. You can configure your IDPS private IP address ranges using the **Private IP ranges** feature. For more information, see [IDPS Private IP ranges](#idps-private-ip-ranges).
 
 The Azure Firewall signatures/rulesets include:
-- An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
-- Over 67,000 rules in over 50 categories.
-    - The categories include malware command and control, phishing, trojans, botnets, informational events, exploits, vulnerabilities, SCADA network protocols, exploit kit activity, and more.
-- 20 to 40+ new rules are released each day.
-- Low false positive rating by using state-of-the-art malware detection techniques such as global sensor network feedback loop.
+- Focus on identifying actual malware, Command and Control, exploit kits, and malicious activities missed by traditional methods.
+- Over 67,000 rules in more than 50 categories, including malware command and control, phishing, trojans, botnets, informational events, exploits, vulnerabilities, SCADA network protocols, and exploit kit activity.
+- 20 to 40+ new rules released daily.
+- Low false positive rate using advanced malware detection techniques such as global sensor network feedback loop.
 
-IDPS allows you to detect attacks in all ports and protocols for nonencrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
+IDPS detects attacks on all ports and protocols for non-encrypted traffic. For HTTPS traffic inspection, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.
 
-The IDPS Bypass List is a configuration that allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list. The IDPS Bypass list isn't intended to be a way to improve throughput performance, as the firewall is still subject to the performance associated with your use case. For more information, see [Azure Firewall performance](firewall-performance.md#performance-data).
+The IDPS Bypass List allows you to exclude specific IP addresses, ranges, and subnets from filtering. Note that the bypass list is not intended to improve throughput performance, as the firewall's performance is still subject to your use case. For more information, see [Azure Firewall performance](firewall-performance.md#performance-data).
 
 ### IDPS Private IP ranges
 
-In Azure Firewall Premium IDPS, private IP address ranges are used to identify if traffic is inbound, outbound, or internal (East-West). Each signature is applied on specific traffic direction, as indicated in the signature rules table. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. So, traffic sent from a private IP address range to a private IP address range is considered internal. To modify your private IP addresses, you can now easily edit, remove, or add ranges as needed.
+In Azure Firewall Premium IDPS, private IP address ranges are used to determine if traffic is inbound, outbound, or internal (East-West). Each signature is applied to specific traffic directions as indicated in the signature rules table. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. Traffic between private IP address ranges is considered internal. You can easily edit, remove, or add private IP address ranges as needed.
 
 ### IDPS signature rules
 
 IDPS signature rules allow you to:
 
-- Customize one or more signatures and change their mode to *Disabled*, *Alert* or *Alert and Deny*. The maximum number of customized IDPS rules should not exceed 10,000.
-
-   For example, if you receive a false positive where a legitimate request is blocked by Azure Firewall due to a faulty signature, you can use the signature ID from the network rules logs and set its IDPS mode to off. This causes the "faulty" signature to be ignored and resolves the false positive issue.
-- You can apply the same fine-tuning procedure for signatures that are creating too many low-priority alerts, and therefore interfering with visibility for high-priority alerts.
-- Get a holistic view of the more than 67,000 signatures
-- Smart search
-
-   This action allows you to search through the entire signatures database by any type of attribute. For example, you can search for specific CVE-ID to discover what signatures are taking care of this CVE by typing the ID in the search bar.
-
+- Customize signatures by changing their mode to *Disabled*, *Alert*, or *Alert and Deny*. You can customize up to 10,000 IDPS rules.
+   - For example, if a legitimate request is blocked due to a faulty signature, you can disable that signature using its ID from the network rules logs to resolve the false positive issue.
+- Fine-tune signatures that generate excessive low-priority alerts to improve visibility for high-priority alerts.
+- View all 67,000+ signatures.
+- Use smart search to find signatures by attributes, such as CVE-ID.
 
 IDPS signature rules have the following properties:
 
-
-|Column  |Description  |
-|---------|---------|
-|Signature ID     |Internal ID for each signature. This ID is also presented in Azure Firewall Network Rules logs.|
-|Mode      |Indicates if the signature is active or not, and whether firewall drops or alerts upon matched traffic. The below signature mode can override IDPS mode<br>- **Disabled**: The signature isn't enabled on your firewall.<br>- **Alert**: You receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You receive alerts and suspicious traffic is blocked. Few signature categories are defined as “Alert Only”, therefore by default, traffic matching their signatures isn't blocked even though IDPS mode is set to “Alert and Deny”. You can override this by customizing these specific signatures to *Alert and Deny* mode. <br><br>IDPS Signature mode is determined by one of the following reasons:<br><br> 1. Defined by Policy Mode – Signature mode is derived from IDPS mode of the existing policy.<br>2. Defined by Parent Policy – Signature mode is derived from IDPS mode of the parent policy.<br>3. Overridden – You can override and customize the Signature mode.<br>4. Defined by System - Signature mode is set to *Alert Only* by the system due to its [category](idps-signature-categories.md). You can override this signature mode.<br><br>Note: IDPS alerts are available in the portal via network rule log query.|
-|Severity      |Each signature has an associated severity level and assigned priority that indicates the probability that the signature is an actual attack.<br>- **Low (priority 3)**: An abnormal event is one that doesn't normally occur on a network or Informational events are logged. Probability of attack is low.<br>- **Medium (priority 2)**: The signature indicates an attack of a suspicious nature. The administrator should investigate further.<br>- **High (priority 1)**: The attack signatures indicate that an attack of a severe nature is being launched. There's little probability that the packets have a legitimate purpose.|
-|Direction      |The traffic direction for which the signature is applied.<br><br>- **Inbound**: Signature is applied only on traffic arriving from the Internet and destined to your [configured private IP address range](#idps-private-ip-ranges).<br>- **Outbound**: Signature is applied only on traffic sent from your [configured private IP address range](#idps-private-ip-ranges) to the Internet.<br>- **Internal**: Signature is applied only on traffic sent from and destined to your [configured private IP address range](#idps-private-ip-ranges).<br>- **Internal/Inbound**: Signature is applied on traffic arriving from your [configured private IP address range](#idps-private-ip-ranges) or from the Internet and destined to your [configured private IP address range](#idps-private-ip-ranges).<br>- **Internal/Outbound**: Signature is applied on traffic sent from your [configured private IP address range](#idps-private-ip-ranges) and destined to your [configured private IP address range](#idps-private-ip-ranges) or to the Internet.<br>- **Any**: Signature is always applied on any traffic direction.|
-|Group      |The group name that the signature belongs to.|
-|Description      |Structured from the following three parts:<br>- **Category name**: The category name that the signature belongs to as described in [Azure Firewall IDPS signature rule categories](idps-signature-categories.md).<br>- High level description of the signature<br>- **CVE-ID** (optional) in the case where the signature is associated with a specific CVE.|
-|Protocol     |The protocol associated with this signature.|
-|Source/Destination Ports     |The ports associated with this signature.|
-|Last updated     |The last date that this signature was introduced or modified.|
+| Column | Description |
+|--------|-------------|
+| Signature ID | Internal ID for each signature, also shown in Azure Firewall Network Rules logs. |
+| Mode | Indicates if the signature is active and whether the firewall drops or alerts on matched traffic. Modes:<br>- **Disabled**: Signature is not enabled.<br>- **Alert**: Alerts on suspicious traffic.<br>- **Alert and Deny**: Alerts and blocks suspicious traffic. Some signatures are "Alert Only" by default but can be customized to "Alert and Deny".<br><br>Signature mode is determined by:<br>1. Policy Mode – Derived from the IDPS mode of the policy.<br>2. Parent Policy – Derived from the IDPS mode of the parent policy.<br>3. Overridden – Customized by the user.<br>4. System – Set to "Alert Only" by the system due to its category, but can be overridden.<br><br>IDPS alerts are available in the portal via network rule log query. |
+| Severity | Indicates the probability that the signature is an actual attack:<br>- **Low (priority 3)**: Low probability, informational events.<br>- **Medium (priority 2)**: Suspicious, requires investigation.<br>- **High (priority 1)**: Severe attack, high probability. |
+| Direction | Traffic direction for which the signature is applied:<br>- **Inbound**: From the Internet to your private IP range.<br>- **Outbound**: From your private IP range to the Internet.<br>- **Internal**: Within your private IP range.<br>- **Internal/Inbound**: From your private IP range or the Internet to your private IP range.<br>- **Internal/Outbound**: From your private IP range to your private IP range or the Internet.<br>- **Any**: Applied to any traffic direction. |
+| Group | The group name the signature belongs to. |
+| Description | Includes:<br>- **Category name**: The category of the signature.<br>- High-level description.<br>- **CVE-ID** (optional): Associated CVE. |
+| Protocol | The protocol associated with the signature. |
+| Source/Destination Ports | The ports associated with the signature. |
+| Last updated | The date the signature was last introduced or modified. |
 
 For more information about IDPS, see [Taking Azure Firewall IDPS on a Test Drive](https://techcommunity.microsoft.com/t5/azure-network-security-blog/taking-azure-firewall-idps-on-a-test-drive/ba-p/3872706).
 
 ## URL filtering
 
-URL filtering extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.  
+URL filtering extends Azure Firewall’s FQDN filtering capability to consider the entire URL, such as `www.contoso.com/a/c` instead of just `www.contoso.com`.
 
-URL Filtering can be applied both on HTTP and HTTPS traffic. When HTTPS traffic is inspected, Azure Firewall Premium can use its TLS inspection capability to decrypt the traffic and extract the target URL to validate whether access is permitted. TLS inspection requires opt-in at the application rule level. Once enabled, you can use URLs for filtering with HTTPS. 
+URL filtering can be applied to both HTTP and HTTPS traffic. When inspecting HTTPS traffic, Azure Firewall Premium uses its TLS inspection capability to decrypt the traffic, extract the target URL, and validate whether access is permitted. TLS inspection must be enabled at the application rule level. Once enabled, URLs can be used for filtering HTTPS traffic.
 
 ## Web categories
 
-Web categories let administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are also included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic.
+Web categories allow administrators to permit or deny user access to specific categories of websites, such as gambling or social media. While this feature is available in both Azure Firewall Standard and Premium, the Premium SKU offers more granular control by matching categories based on the entire URL for both HTTP and HTTPS traffic.
 
-Azure Firewall Premium web categories are only available in firewall policies. Ensure that your policy SKU matches the SKU of your firewall instance. For example, if you have a Firewall Premium instance, you must use a Firewall Premium policy.
+Azure Firewall Premium web categories are only available in firewall policies. Ensure that your policy SKU matches your firewall instance SKU. For example, a Firewall Premium instance requires a Firewall Premium policy.
 
-For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
+For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`:
+- Firewall Standard examines only the FQDN, categorizing `www.google.com` as *Search Engine*.
+- Firewall Premium examines the complete URL, categorizing `www.google.com/news` as *News*.
 
-- Firewall Standard – only the FQDN part is examined, so `www.google.com` is categorized as *Search Engine*. 
-
-- Firewall Premium – the complete URL is examined, so `www.google.com/news` is categorized as *News*.
-
-The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**. For a detailed description of the web categories, see [Azure Firewall web categories](web-categories.md).
+Categories are organized by severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**. For detailed descriptions, see [Azure Firewall web categories](web-categories.md).
 
 ### Web category logging
-You can view traffic that has been filtered by **Web categories** in the Application logs. **Web categories** field is only displayed if it has been explicitly configured in your firewall policy application rules. For example, if you don't have a rule that explicitly denies *Search Engines*, and a user requests to go to www.bing.com, only a default deny message is displayed as opposed to a Web categories message. This is because the web category wasn't explicitly configured.
+
+Traffic filtered by web categories is logged in the Application logs. The **Web categories** field appears only if explicitly configured in your firewall policy application rules. For example, if no rule explicitly denies *Search Engines* and a user requests `www.bing.com`, only a default deny message is displayed.
 
 ### Category exceptions
 
-You can create exceptions to your web category rules. Create separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the predefined **Social networking** web category.
+You can create exceptions to web category rules by configuring separate allow or deny rule collections with higher priority. For example, allow `www.linkedin.com` with priority 100 and deny **Social networking** with priority 200 to create an exception for the **Social networking** category.
 
 ### Web category search
 
-You can identify what category a given FQDN or URL is by using the **Web Category Check** feature. To use this, select the **Web Categories** tab under **Firewall Policy Settings**. This is useful when defining your application rules for destination traffic.
+Identify the category of an FQDN or URL using the **Web Category Check** feature under **Firewall Policy Settings**. This helps define application rules for destination traffic.
 
 > [!IMPORTANT]
-> To use the **Web Category Check** feature, the user must have an access of Microsoft.Network/azureWebCategories/* for **subscription** level, not resource group level.
+> To use the **Web Category Check** feature, the user must have Microsoft.Network/azureWebCategories/* access at the subscription level.
 
 ### Category change
 
-Under the **Web Categories** tab in **Firewall Policy Settings**, you can request a category change if you: 
-
-- think an FQDN or URL should be under a different category 
-
-   or 
-
-- have a suggested category for an uncategorized FQDN or URL 
-
- Once you submit a category change report, you're given a token in the notifications that indicate that we've received the request for processing. You can check whether the request is in progress, denied, or approved by entering the token in the search bar.  Be sure to save your token ID to do so.
+Under the **Web Categories** tab in **Firewall Policy Settings**, you can request a category change if you believe an FQDN or URL should be in a different category or have a suggestion for an uncategorized FQDN or URL. After submitting a category change report, you receive a token to track the request status.
 
 :::image type="content" source="media/premium-features/firewall-category-change.png" alt-text="Firewall category report dialog":::
 
 ### Web categories that don't support TLS termination
 
-Due to privacy and compliance reasons, certain web traffic that is encrypted can't be decrypted using TLS termination. For example, employee health data transmitted through web traffic over a corporate network shouldn't be TLS terminated due to privacy reasons.
-
-As a result, the following Web Categories don't support TLS termination: 
+Certain web traffic, such as employee health data, cannot be decrypted using TLS termination due to privacy and compliance reasons. The following web categories do not support TLS termination:
 - Education
 - Finance
 - Government
 - Health and medicine
 
-As a workaround, if you want a specific URL to support TLS termination, you can manually add one or more URLs with TLS termination in application rules. For example, you can add `www.princeton.edu` to application rules to allow this website. 
+To support TLS termination for specific URLs, manually add them to application rules. For example, add `www.princeton.edu` to allow this website.
 
 ## Supported regions
 
-For the supported regions for Azure Firewall, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-firewall).
-
+For a list of regions where Azure Firewall is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-firewall).
 
 ## Next steps
 

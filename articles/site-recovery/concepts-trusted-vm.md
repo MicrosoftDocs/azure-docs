@@ -2,36 +2,52 @@
 title: Trusted launch VMs with Azure Site Recovery 
 description: Describes how to use trusted launch virtual machines with Azure Site Recovery for disaster recovery and migration.
 services: site-recovery
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 07/29/2024
-ms.author: ankitadutta
+ms.topic: concept-article
+ms.date: 06/05/2025
+ms.author: jsuri
 
 ---
 # Azure Site Recovery support for Azure trusted launch virtual machines 
 
-[Trusted launch](/azure/virtual-machines/trusted-launch) protects against advanced and persistent attack techniques. It is composed of several coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats. To deploy an Azure trusted launch VM, follow [these steps](/azure/virtual-machines/trusted-launch-portal).
+[Trusted launch](/azure/virtual-machines/trusted-launch) protects against advanced and persistent attack techniques. It is composed of several coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats. To deploy an Azure trusted launch VM, follow [these steps](/azure/virtual-machines/trusted-launch-portal). 
 
 
 ## Support matrix
 
 Find the support matrix for Azure trusted launch virtual machines with Azure Site Recovery:
 
-- **Region**: Available in all [Azure Site Recovery supported regions](./azure-to-azure-support-matrix.md#region-support). 
+- **Operating system**: Support for Windows and Linux OS is generally available. [Learn more](#supported-linux-distributions-and-kernels) on supported Linux distributions and kernels.
+- **Region**: Available in all [Azure Site Recovery supported regions](./azure-to-azure-support-matrix.md#region-support).
+    
     > [!NOTE]
-    > For [Azure government regions](../azure-government/documentation-government-overview-dod.md), both source and target location should either be in `US Gov` regions or both should be in `US DoD` regions. Setting source location of US Gov regions and target location of US DoD regions or vice versa isn't supported.
-- **Operating system**: Support available only for Windows OS. Linux OS is currently not supported.
-- **Private endpoints**: Azure trusted virtual machines can be protected using private endpoint configured recovery services vault with the following conditions:
-    - You can create a new recovery services vault and [configure private endpoints on it](./azure-to-azure-how-to-enable-replication-private-endpoints.md). Then you can start protecting Azure Trusted VMs using it. 
-    - You can't protect Azure Trusted VMs using recovery services vault which were created before the public preview and have private endpoints configured.
+    > For [Azure Government regions](../azure-government/documentation-government-overview-dod.md), both source and target location should either be in `US Gov` regions or both should be in `US DoD` regions. Setting source location of US Gov regions and target location of US DoD regions or vice versa isn't supported.
+- **Private endpoints**: Azure trusted virtual machines can be protected using private endpoint configured recovery services vault
 - **Migration**: Migration of Azure Site Recovery protected existing Generation 1 Azure VMs to trusted VMs and [Generation 2 Azure virtual machines to trusted VMs](/azure/virtual-machines/trusted-launch-existing-vm) isn't supported. [Learn more](#migrate-azure-site-recovery-protected-azure-generation-2-vm-to-trusted-vm) about migration of Generation 2 Azure VMs.
 - **Disk Network Access**: Azure Site Recovery creates disks (replica and target disks) with public access enabled by default. To disable public access for these disks follow [these steps](./azure-to-azure-common-questions.md#disk-network-access).
 - **Boot integrity monitoring**: Replication of [Boot integrity monitoring](/azure/virtual-machines/boot-integrity-monitoring-overview) state isn't supported. If you want to use it, enable it explicitly on the failed over virtual machine.
-- **Shared disks**: Trusted virtual machines with attached shared disks are currently supported.
+- **Shared disks**: Trusted virtual machines with attached shared disks are currently supported only for Windows OS.
 - **Scenario**: Available only for Azure-to-Azure scenario. 
-- **Create a new VM flow**: Enabling **Management** > **Site Recovery** option in *Create a new Virtual machine* flow is currently not supported.
+- **Create a new VM flow**: Enabling **Management** > **Site Recovery** option in *Create a new Virtual machine* flow is currently  supported for Windows OS only. Linux OS is not yet supported.
+- **VM creation time**: Only Linux Trusted VMs created after `1-Apr-2024` are supported. Linux Trusted VMs created prior to this date are not supported.
 
+## Supported Linux distributions and kernels
+
+The following Linux distributions and kernels are supported for trusted launch virtual machines:
+
+Following are the supported distros:
+- **Ubuntu**: 18.04, 20.04, 22.04, 24.04
+- **RHEL**: 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5
+- **SUSE 15**: SP3, SP4, SP5, SP6
+- **Alma Linux**: 8.10, 9.4, 9.5
+- **Debian**: 12
+
+Azure Site Recovery supports the same kernels for Azure Trusted VMs as for Azure Standard VMs across the listed Linux distributions. For SUSE, however, Azure Site Recovery support only the following kernels for Azure Trusted launch VMs, provided these kernels are also supported for Azure Standard VMs by Azure Site Recovery:
+- **SUSE 15 SP3**: 5.3.18-150300.59.179.1 and later 
+- **SUSE 15 SP4**: 5.14.21-150400.24.141.1 and later 
+- **SUSE 15 SP5**: 5.14.21-150500.55.83.1 and later 
+- **SUSE 15 SP6**: 6.4.0-150600.23.25.1 and later 
 
 ## Azure Site Recovery for trusted VMs 
 

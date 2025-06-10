@@ -1,7 +1,7 @@
 ---
 title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
-ms.date: 04/12/2022
+ms.date: 03/04/2025
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ---

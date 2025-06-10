@@ -3,7 +3,7 @@ title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/19/2024
+ms.date: 04/28/2025
 ---
 
 # Add linter settings in the Bicep config file
@@ -75,6 +75,9 @@ The following example shows the rules that are available for configuration.
         "no-unused-existing-resources": {
           "level": "warning"
         },
+        "no-unused-imports": {
+          "level": "warning"
+        },
         "no-unused-params": {
           "level": "warning"
         },
@@ -119,7 +122,7 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "use-resource-id-functions": {
-          "level": "warning"
+          "level": "off"
         },
         "use-resource-symbol-reference": {
           "level": "warning"

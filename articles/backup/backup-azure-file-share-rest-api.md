@@ -1,17 +1,17 @@
 ---
-title: Back up Azure file shares with REST API
-description: Learn how to use REST API to back up Azure file shares in the Recovery Services vault
+title: Back up Azure Files with REST API
+description: Learn how to use REST API to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
-ms.date: 02/09/2025
+ms.date: 05/22/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Backup Azure file share using Azure Backup via REST API
+# Backup Azure Files using Azure Backup via REST API
 
-This article describes how to back up an Azure File share using Azure Backup via REST API.
+This article describes how to back up an Azure Files using Azure Backup via REST API.
 
-This article assumes you've already created a Recovery Services vault and policy for configuring backup for your file share. If you haven’t, refer to the [create vault](./backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials for creating new vaults and policies.
+This article assumes you've already created a Recovery Services vault and policy for configuring backup for your File Share. If you haven’t, refer to the [create vault](./backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials for creating new vaults and policies.
 
 For this article, we'll use the following resources:
 
@@ -25,11 +25,11 @@ For this article, we'll use the following resources:
 
 - **File Share**: `testshare`
 
-## Configure backup for an unprotected Azure file share using REST API
+## Configure backup for an unprotected Azure Files using REST API
 
-### Discover storage accounts with unprotected Azure file shares
+### Discover storage accounts with unprotected Azure Files
 
-The vault needs to discover all Azure storage accounts in the subscription with file shares that can be backed up to the Recovery Services vault. This is triggered using the [refresh operation](/rest/api/backup/protection-containers/refresh). It's an asynchronous *POST* operation that ensures the vault gets the latest list of all unprotected Azure File shares in the current subscription and 'caches' them. Once the file share is 'cached', Recovery services can access the file share and protect it.
+The vault needs to discover all Azure storage accounts in the subscription with File Shares that can be backed up to the Recovery Services vault. This is triggered using the [refresh operation](/rest/api/backup/protection-containers/refresh). It's an asynchronous *POST* operation that ensures the vault gets the latest list of all unprotected Azure File Shares in the current subscription and 'caches' them. Once the File Share is 'cached', Recovery services can access the File Share and protect it.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -86,7 +86,7 @@ Track the resulting operation using the "Location" header with a simple *GET* co
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/operationResults/cca47745-12d2-42f9-b3a4-75335f18fdf6?api-version=2016-12-01
 ```
 
-Once all the Azure Storage accounts  are discovered, the GET command returns a 204 (No Content) response. The vault is now able to discover any storage account with file shares that can be backed up  within the subscription.
+Once all the Azure Storage accounts  are discovered, the GET command returns a 204 (No Content) response. The vault is now able to discover any storage account with File Shares that can be backed up  within the subscription.
 
 ```http
 HTTP/1.1 200 NoContent
@@ -103,9 +103,9 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105304Z:d9bdb266-8349-4dbd-968
 Date   : Mon, 27 Jan 2020 10:53:04 GMT
 ```
 
-### Get List of storage accounts with file shares that can be backed up with Recovery Services vault
+### Get List of storage accounts with File Shares that can be backed up with Recovery Services vault
 
-To confirm that “caching” is done, list all the storage accounts in the subscription with file shares that can be backed up with the Recovery Services vault. Then locate the desired storage account in the response. This is done using the [GET ProtectableContainers](/rest/api/backup/protectable-containers/list) operation.
+To confirm that “caching” is done, list all the storage accounts in the subscription with File Shares that can be backed up with the Recovery Services vault. Then locate the desired storage account in the response. This is done using the [GET ProtectableContainers](/rest/api/backup/protectable-containers/list) operation.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -271,9 +271,9 @@ x-ms-routing-request-id   : CENTRALUSEUAP:20200127T105305Z:68727f1e-b8cf-4bf1-bf
 Date  : Mon, 27 Jan 2020 10:53:05 GMT
 ```
 
-### Select the file share you want to back up
+### Select the File Share you want to back up
 
-You can list all protectable items under the subscription and locate the desired file share to be backed up using the [GET backupprotectableItems](/rest/api/backup/backup-protectable-items/list) operation.
+You can list all protectable items under the subscription and locate the desired File Share to be backed up using the [GET backupprotectableItems](/rest/api/backup/backup-protectable-items/list) operation.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -344,11 +344,11 @@ Status Code:200
 }
 ```
 
-The response contains the list of all unprotected file shares and contains all the information required by the Azure Recovery Service to configure the backup.
+The response contains the list of all unprotected File Shares and contains all the information required by the Azure Recovery Service to configure the backup.
 
-### Enable backup for the file share
+### Enable backup for the File Share
 
-After the relevant file share is "identified" with the friendly name, select the policy to protect. To learn more about existing policies in the vault, refer to [list Policy API](/rest/api/backup/backup-policies/list). Then select the [relevant policy](/rest/api/backup/protection-policies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](./backup-azure-arm-userestapi-createorupdatepolicy.md).
+After the relevant File Share is "identified" with the friendly name, select the policy to protect. To learn more about existing policies in the vault, refer to [list Policy API](/rest/api/backup/backup-policies/list). Then select the [relevant policy](/rest/api/backup/protection-policies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](./backup-azure-arm-userestapi-createorupdatepolicy.md).
 
 Enabling protection is an asynchronous *PUT* operation that creates a "protected item".
 
@@ -358,7 +358,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 Set the **containername** and **protecteditemname** variables using the ID attribute in  the response body of the GET backupprotectableitems operation.
 
-In our example, the ID of file share we want to protect is:
+In our example, the ID of File Share we want to protect is:
 
 ```output
 "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;testvault2/protectableItems/azurefileshare;testshare
@@ -442,11 +442,11 @@ Sample Response Body:
 }
 ```
 
-This confirms that protection is enabled for the file share and the first backup will be triggered according to the policy schedule.
+This confirms that protection is enabled for the File Share and the first backup will be triggered according to the policy schedule.
 
-## Trigger an on-demand backup for file share
+## Trigger an on-demand backup for File Share
 
-Once an Azure file share is configured for backup, backups run according to the policy schedule. You can wait for the first scheduled backup or trigger an on-demand backup anytime.
+Once an Azure Files is configured for backup, backups run according to the policy schedule. You can wait for the first scheduled backup or trigger an on-demand backup anytime.
 
 Triggering an on-demand backup is a POST operation.
 
@@ -541,4 +541,6 @@ Since the backup job is a long running operation, it needs to be tracked as expl
 
 ## Next steps
 
-- Learn how to [restore Azure file shares using REST API](restore-azure-file-share-rest-api.md).
+- [Restore Azure Files using REST API](restore-azure-file-share-rest-api.md).
+- Restore Azure Files using [Azure portal](restore-afs.md), [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md).
+- Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

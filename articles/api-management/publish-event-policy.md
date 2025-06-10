@@ -46,7 +46,7 @@ The `publish-event` policy publishes an event to one or more subscriptions speci
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) `http-response` element in `http-data-source` resolver
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) `http-response` element in `http-data-source` resolver
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver only
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 

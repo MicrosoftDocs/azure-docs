@@ -19,7 +19,7 @@ In the developer portal for Azure API Management, the default authentication met
 For an overview of options to secure the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md). 
 
 > [!CAUTION]
-> While you can use basic authentication to secure users' access to the developer portal, we recommend configuring a more secure authentication method such as [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md), if available. 
+> While you can use basic authentication to secure users' access to the developer portal, we recommend configuring a more secure authentication method such as [Microsoft Entra ID](api-management-howto-aad.md) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam), if available. 
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ There are two ways to add a username and password for authentication to the deve
 
 ## Delete the username and password provider
 
-If you've configured another identity provider for the developer portal such as [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md), you might want to delete the username and password provider. 
+If you've configured another identity provider for the developer portal such as [Microsoft Entra ID](api-management-howto-aad.md) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam), you might want to delete the username and password provider. 
 
 Deleting the identity provider prevents adding users to use username and password authentication. Existing users configured for basic authentication are also prevented from signing into the developer portal.
 
@@ -68,7 +68,7 @@ Deleting the identity provider prevents adding users to use username and passwor
 > If you want to disable all sign up or sign in functionality in the developer portal, see [How do I disable sign up in the developer portal?](developer-portal-faq.md#how-do-i-disable-sign-up-in-the-developer-portal)
 
 
-## Next steps
+## Related content
 
 For steps to add other identity providers for developer sign-up to the developer portal, see:
 

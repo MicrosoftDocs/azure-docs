@@ -1,58 +1,59 @@
 ---
-title: Add caching to improve performance in Azure API Management
+title: Add Caching to Improve Performance in Azure API Management
 description: Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls.
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 05/15/2025
 ms.author: danlep
+
+#customer intent: As an API developer, I want to use caching so that I can improve performance in API Management.
 ---
 
 # Add caching to improve performance in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
+**APPLIES TO: Developer | Basic | Basic v2 | Standard | Standard v2 | Premium | Premium v2 | Isolated**
 
-APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers.
+APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers. This article describes how to add caching to your APIs. 
 
 > [!IMPORTANT]
-> Built-in cache is volatile and is shared by all units in the same region in the same API Management service. Regardless of the cache type being used (internal or external), if the cache-related operations fail to connect to the cache due to the volatility of the cache or any other reason, the API call that uses the cache related operation doesn't raise an error, and the cache operation completes successfully. In the case of a read operation, a null value is returned to the calling policy expression. Your policy code should be designed to ensure that there's a "fallback" mechanism to retrieve data not found in the cache.
+> Built-in cache is volatile and is shared by all units in the same region in the same API Management instance. Regardless of the cache type used (internal or external), if cache-related operations fail to connect to the cache because of the volatility of the cache or for any other reason, the API call that uses the cache-related operation doesn't raise an error, and the cache operation completes successfully. In the case of a read operation, a null value is returned to the calling policy expression. Your policy code should be designed to ensure that there's a fallback mechanism to retrieve data that's not found in the cache.
+
 For more detailed information about caching, see [API Management caching policies](api-management-policies.md#caching) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
-![cache policies](media/api-management-howto-cache/cache-policies.png)
+:::image type="content" source="media/api-management-howto-cache/cache-policies.png" alt-text="Screenshot that shows cache policies in API Management." lightbox="media/api-management-howto-cache/cache-policies.png":::
 
-What you'll learn:
+
+In this article you: 
 
 > [!div class="checklist"]
 > * Add response caching for your API
-> * Verify caching in action
+> * Verify that caching is working
 
 
 > [!NOTE]
-> Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead. You can also configure an external cache in other API Management service tiers.
+> Internal caching isn't available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead. You can also configure an external cache in other API Management service tiers.
 > 
 
-
-
 ## Prerequisites
-
-To complete this tutorial:
 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
 + [Import and publish an API](import-and-publish.md)
 
-## Add the caching policies
+## Add caching policies
 
-With caching policies shown in this example, the first request to a test operation returns a response from the backend service. This response is cached, keyed by the specified headers and query string parameters. Subsequent calls to the operation, with matching parameters, will have the cached response returned, until the cache duration interval has expired.
+With the caching policies shown in this example, the first request to a test operation returns a response from the backend service. This response is cached, keyed by the specified headers and query string parameters. Subsequent calls to the operation, with matching parameters, will return the cached response until the cache duration interval expires.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to your API Management instance.
-1. Select **APIs** > **APIs** from the menu on the left.
+1. Go to your API Management instance.
+1. Select **APIs** > **APIs** in the menu on the left.
 1. Select an API for which you want to configure caching.
-1. On the top of the screen, select **Design** tab.
-1. In the **Inbound processing** section, select the **</>** icon.
-    :::image type="content" source="media/api-management-howto-cache/code-editor.png" alt-text="Screenshot of the API Management policy editor in the portal.":::
+1. At the top of the screen, select the **Design** tab.
+1. In the **Inbound processing** section, select the **</>** icon:
+    
+   :::image type="content" source="media/api-management-howto-cache/code-editor.png" alt-text="Screenshot that shows API Management APIs in the portal." lightbox="media/api-management-howto-cache/code-editor.png":::
 
-8. In the `inbound` element, add the following policy:
+1. In the `inbound` element, add the following policy:
 
    ```xml
    <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
@@ -62,33 +63,37 @@ With caching policies shown in this example, the first request to a test operati
    </cache-lookup>
    ```
 
-9. In the `outbound` element, add the following policy:
+1. In the `outbound` element, add the following policy:
 
    ```xml
    <cache-store duration="20" />
    ```
 
-    In this policy, **duration** specifies the expiration interval of the cached responses. In this example, the interval is **20** seconds.
+    In this policy, `duration` specifies the expiration interval of the cached responses. The interval is 20 seconds.
+
+1. Select **Save**.
 
 > [!TIP]
-> If you are using an external cache, as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md), you may want to specify the `caching-type` attribute of the caching policies. See [API Management caching policies](api-management-policies.md#caching) for more details.
+> If you're using an external cache, as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md), you might want to specify the `caching-type` attribute of the caching policies. See [API Management caching policies](api-management-policies.md#caching) for more information.
 
-## Call an operation and test the caching
-To see the caching in action, call an operation from the portal.
+## Call an operation to test the caching
 
-1. In the Azure portal, browse to your API Management instance.
-1. Select **APIs** > **APIs** from the menu on the left.
+To test caching, call an operation in the portal.
+
+1. In the Azure portal, go to your API Management instance.
+1. Select **APIs** > **APIs** in the menu on the left.
 1. Select the API to which you added caching policies.
 1. Select an operation to test.
-1. Select the **Test** tab in the top right menu.
+1. Select the **Test** tab at the top of the window.
 1. Select **Trace** two or three times in quick succession.
 1. Under **HTTP response**, select the **Trace** tab.
-1. Jump to the **Inbound** section and scroll to the `cache-lookup` policy. You should see a message similar to the one in the following screenshot, indicating a cache hit:
+1. Jump to the **Inbound** section and scroll to the `cache-lookup` policy. You should see a message similar to the one in the following screenshot, which indicates a cache hit:
     :::image type="content" source="media/api-management-howto-cache/test-api-cache-lookup.png" alt-text="Screenshot of cache-lookup when testing an API in the portal.":::
 
 ## Related content
+
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
-* For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
+* For information on caching items by key by using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 * For more information about using external Azure Cache for Redis or Azure Managed Redis, see [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png

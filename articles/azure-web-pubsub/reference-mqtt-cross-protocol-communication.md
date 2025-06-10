@@ -45,7 +45,7 @@ Here's the conversion between the MQTT "content type" field and Web PubSub messa
 
 ### Message content conversion
 
-For text-based Web PubSub message data types, including `Text` and `Json`, they convert to and from MQTT by UTF-8 encoding. For binary-based Web PubSub message data types, including `Protobuf` and `Binary`, they remain exactly the same in the MQTT message content.
+For text-based Web PubSub message data types, including `text` and `json`, they convert to and from MQTT by UTF-8 encoding. For binary-based Web PubSub message data types, including `protobuf` and `binary`, they remain exactly the same in the MQTT message content.
 
 ### Message quality of service (QoS) conversion
 

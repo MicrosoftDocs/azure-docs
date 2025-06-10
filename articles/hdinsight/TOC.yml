@@ -749,8 +749,6 @@ items:
           href: ./apache-kafka-spark-structured-streaming-cosmosdb.md
         - name: Apache Kafka and Apache Spark (DStream)
           href: ./hdinsight-apache-spark-with-kafka.md
-        - name: Use Apache Kafka with Azure Kubernetes Service
-          href: ./kafka/apache-kafka-azure-container-services.md
     - name: Manage
       items:
       - name: Use Apache Kafka in a virtual network

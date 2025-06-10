@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure DDoS Protection monitoring data reference
 description: This article contains important reference material you need when you monitor Azure DDoS Protection by using Azure Monitor.
-ms.date: 01/03/2025
+ms.date: 03/17/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: AbdullahBell

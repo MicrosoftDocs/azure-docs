@@ -116,7 +116,7 @@ The Azure Communication Calling SDK raises a cameraStartFailed: true call diagno
 ## Hold and resume call
 
 > [!NOTE]
-> At any given moment of time, there should be only 1 active call (in `Connected` state, with active media). All other calls should be put on hold by a user, or programatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
+> At any given moment of time, there should be only 1 active call (in `Connected` state, with active media). All other calls should be put on hold by a user, or programmatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
 
 To hold or resume the call, you can use the `hold` and `resume` asynchronous APIs:
 
@@ -267,7 +267,11 @@ const state = remoteParticipant.state;
 
 To mute all other participants or mute a specific participant who is connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
 
- *Note: The scenarios to mute PSTN (phone number) participants or 1:1 call participants are not supported.* 
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+Muting a PSTN endpoint using the calling WebJS SDK is currently in public preview and is available in build 1.34.1 [1.34.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1341-beta2-2025-03-20) and later versions.
+
+> [!NOTE]
+> Muting others on a 1:1 call is not supported.
 
 ```js
 //mute all participants except yourself

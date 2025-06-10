@@ -2,9 +2,11 @@
 title: Update session hosts in a host pool with a session host configuration in Azure Virtual Desktop (preview) - Azure Virtual Desktop
 description: Learn how to update session hosts in a host pool with a session host configuration using session host update in Azure Virtual Desktop.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 01/24/2025
+author: dougeby
+ms.author: avdcontent
+ms.date: 05/19/2025
+ms.custom:
+  - build-2025
 ---
 
 # Update session hosts using session host update in Azure Virtual Desktop (preview)
@@ -71,7 +73,7 @@ Before you update session hosts using session host update, you need:
 
    - Configure the key vault access configuration to allow [Azure Resource Manager for template deployment](../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
-   - Configure the key vault network settings to [Allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+   - Configure the key vault network settings to [Allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security). This requirement is a known issue; support for key vaults that don't allow public access is planned.
 
 - For any custom configuration PowerShell scripts you specify in the session host configuration to run after an update, the URL to the script must be resolvable from the public internet.
 
@@ -219,7 +221,7 @@ You can update the session host management policy before you schedule an update,
    Get-AzWvdSessionHostConfiguration @parameters | FL *
    ```
 
-3. *Optional*: If you want to update the session host management policy before scheduling an update, run the following command, using the `Update-AzWvdSessionHostManagement` cmdlet. Alternatively, you can override specific values when scheduling an update, which are used for that update only. For valid time zone values, see [Get-TimeZone PowerShell reference](/powershell/module/microsoft.powershell.management/get-timezone) and use the value from the `StandardName` property.
+3. *Optional*: If you want to update the session host management policy before scheduling an update, run the following command, using the `Update-AzWvdSessionHostManagement` cmdlet. Alternatively, you can override specific values when scheduling an update, which are used for that update only. For valid time zone values, see [Get-TimeZone PowerShell reference](/powershell/module/microsoft.powershell.management/get-timezone) and use the value from the `StandardName` property. We recommend setting `UpdateDeleteOriginalVM = $true` so that you don't need to clean up session host resources after an update.
 
    ```azurepowershell
    $parameters = @{
@@ -291,7 +293,6 @@ You can update the session host management policy before you schedule an update,
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       IsLatest = $true
    }
 
    Get-AzWvdSessionHostManagementsUpdateStatus @parameters | FL *
@@ -336,7 +337,6 @@ From your existing PowerShell session, use the `Get-AzWvdSessionHostManagementsU
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       IsLatest = $true
    }
 
    $updateProgress = Get-AzWvdSessionHostManagementsUpdateStatus @parameters |
@@ -357,7 +357,6 @@ From your existing PowerShell session, use the `Get-AzWvdSessionHostManagementsU
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       IsLatest = $true
    }
    $updateProgress = Get-AzWvdSessionHostManagementsUpdateStatus @parameters | FL *
 
@@ -402,7 +401,6 @@ From your existing PowerShell session, use the `Invoke-AzWvdControlSessionHostUp
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       IsLatest = $true
    }
 
    Get-AzWvdSessionHostManagementsUpdateStatus @parameters | FL Status
@@ -465,7 +463,6 @@ From your existing PowerShell session, use the `Invoke-AzWvdControlSessionHostUp
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       IsLatest = $true
    }
 
    Get-AzWvdSessionHostManagementsUpdateStatus @parameters | FL Action, Status

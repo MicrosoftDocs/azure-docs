@@ -37,4 +37,4 @@ As the machine learning algorithm requires 30 days' worth of data to build a bas
 ## Next steps
 
 - [Windows security event sets that can be sent to Microsoft Sentinel](windows-security-event-id-reference.md)
-- [Windows Security Events via AMA connector for Microsoft Sentinel](data-connectors/windows-security-events-via-ama.md)
+- [Windows Security Events via AMA connector for Microsoft Sentinel](data-connectors-reference.md#windows-security-events-via-ama)

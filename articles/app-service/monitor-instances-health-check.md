@@ -11,8 +11,6 @@ ms.author: msangapu
 
 # Monitor App Service instances by using Health check
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 This article describes how to use Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances and replacing instances if they remain unhealthy. It does that by pinging your web application every minute, via a path that you choose.
 
 ![Diagram that shows how Health check works.][1]
@@ -143,11 +141,11 @@ function envVarMatchesHeader(headerValue) {
 
 ## Instances
 
-Once Health check is enabled, you can restart and monitor the status of your application instances from the instances tab. The instances tab shows your instance's name and the status of that application's instance. You can also manually restart the instance from this tab.
+Once Health check is enabled, you can restart and monitor the status of your application instances from the instances tab. The instances tab shows your instance's name and the status of that application's instance. You can also manually do an advanced application restart from this tab by using the "Restart" button.
 
-If the status of your application instance is "unhealthy," you can restart the instance manually by using the restart button in the table. Keep in mind that any other applications hosted on the same App Service plan as the instance will also be affected by the restart. If there are other applications using the same App Service plan as the instance, they're listed on the opening blade from the restart button.
+If the status of your application instance is "unhealthy," you can restart the worker process of the respective app manually by using the restart button in the table. This will not be affecting any of the other applications hosted on the same App Service plan. If there are other applications using the same App Service plan as the instance, they're listed on the opening blade from the restart button.
 
-If you restart the instance and the restart process fails, you'll be given the option to replace the worker. (Only one instance can be replaced per hour.)  This will also affect any applications using the same App Service plan.
+If you restart the instance and the restart process fails, you'll be given the option to replace the worker. (Only one instance can be replaced per hour.)  This will affect any applications using the same App Service plan.
 
 For Windows applications, you can also view processes via the Process Explorer. This gives you further insight on the instance's processes, including thread count, private memory, and total CPU time.
 
@@ -163,7 +161,7 @@ After providing your application's Health check path, you can monitor the health
 
 ## Limitations
 
-- Health check can be enabled for **Free** and **Shared** App Service plans, so you can have metrics on the site's health and set up alerts. However, because **Free** and **Shared** sites can't scale out, unhealthy instances won't be replaced. You should scale up to the **Basic** tier or higher so you can scale out to two or more instances and get the full benefit of Health check. This is recommended for production-facing applications as it increases your app's availability and performance.
+- Health check can be enabled for **Free** and **Shared** App Service plans, so you can have metrics on the site's health and set up alerts. However, because **Free** and **Shared** sites don't support scale out, unhealthy instances won't be replaced automatically. You should scale up to the **Basic** tier or higher so you can scale out to two or more instances and get the full benefit of Health check. This is recommended for production-facing applications as it increases your app's availability and performance.
 - An App Service plan can have a maximum of one unhealthy instance replaced per hour and, at most, three instances per day.
 - There's a nonconfigurable limit on the total number of instances replaced by Health check per scale unit. If this limit is reached, no unhealthy instances are replaced. This value gets reset every 12 hours.
 

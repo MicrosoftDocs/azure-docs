@@ -3,8 +3,8 @@ title: What's new in Azure Update Manager
 description: Learn about what's new and recent updates in the Azure Update Manager service.
 ms.service: azure-update-manager
 ms.topic: overview
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 11/01/2024
 ---
 
@@ -23,7 +23,7 @@ Public preview: Azure Update Manager now supports Hotpatching on Arc enabled ser
 
 ### Support for 35 CIS images added along with 59 other images
 
-Azure Update Manager now supports CIS images along with 59 other popular images. For more information, see the [latest list of supported images](support-matrix.md#supported-operating-systems).
+Azure Update Manager now supports CIS images along with 59 other popular images. For more information, see the [latest list of supported images](support-matrix-updates.md#custom-images).
 
 
 ### Pre and Post events
@@ -40,7 +40,7 @@ Public preview: Azure Update Manager now supports Windows IoT Enterprise on Arc 
 
 ### New region support
 
-General Availability: Azure Update Manager is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions).
+General Availability: Azure Update Manager is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](supported-regions.md).
 
 ## May 2024
 
@@ -61,7 +61,7 @@ Support for ubuntu pro 22.04 gen1 and gen2, redhat 8.8, centos-hpc 7.1 and 7.3, 
  
 ### New region support
 
-Azure Update Manager (preview) is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions)
+Azure Update Manager (preview) is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](supported-regions.md)
 
 
 ## February 2024
@@ -114,7 +114,7 @@ Update management center is now rebranded as Azure Update Manager.
 
 ### New region support
 
-Azure Update Manager is now available in Canada East and Sweden Central regions for Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
+Azure Update Manager is now available in Canada East and Sweden Central regions for Arc-enabled servers. [Learn more](supported-regions.md).
 
 ### SQL Server patching
 
@@ -131,7 +131,7 @@ Dynamic scope is an advanced capability of schedule patching. You can now create
 
 ### Customized image support
 
-Update Manager now supports [generalized](/azure/virtual-machines/linux/imaging#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update Manager now supports [generalized](/azure/virtual-machines/linux/imaging#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix-updates.md#azure-marketplacepir-images). 
 
 ### Multi-subscription support
 
@@ -151,7 +151,7 @@ A new patch orchestration - **Customer Managed Schedules (Preview)** is introduc
 
 ### New region support
 
-Update Manager now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
+Update Manager now supports new five regions for Azure Arc-enabled servers. [Learn more](supported-regions.md).
 
 ## October 2022
 

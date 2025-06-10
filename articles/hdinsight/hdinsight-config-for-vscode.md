@@ -3,8 +3,10 @@ title: Azure HDInsight configuration settings reference
 description: Introduce the configuration of Azure HDInsight extension.
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: hgowrisankar
 ms.date: 10/17/2024
-ms.custom:
 ---
 
 # Azure HDInsight configuration settings reference
@@ -32,7 +34,7 @@ For general information about working with settings in VS Code, refer to [User a
 | HDInsight: Sign-in Tips Enable | Unchecked | When this option is checked, there's a prompt when logging in to Azure |
 | HDInsight: Previous Extension Version | Display the version number of the current extension | Show the previous extension version|
 | HDInsight: Results Font Family | -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, HelveticaNeue-Light, Ubuntu, Droid Sans, sans-serif | Set the font family for the results grid; set to blank to use the editor font |
-| HDInsight: Results Font Size | 13 |Set the font size for the results gird; set to blank to use the editor size |
+| HDInsight: Results Font Size | 13 |Set the font size for the results grid; set to blank to use the editor size |
 | HDInsight Cluster: Linked Cluster | -- | Linked clusters urls. Also can edit the JSON file to set |
 | HDInsight Hive: Apply Localization | Unchecked | [Optional] Configuration options for localizing into Visual Studio Code's configured locale (must restart Visual Studio Code for settings to take effect)|
 | HDInsight Hive: Copy Includes Headers | Unchecked | [Optional] Configuration option for copying results from the Results Views |

@@ -4,9 +4,11 @@ description: Provides references to best practices for solution architectures us
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: linux-related-content
-ms.topic: conceptual
-ms.date: 12/11/2024
+ms.custom:
+  - linux-related-content
+  - build-2025
+ms.topic: concept-article
+ms.date: 05/19/2025
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -56,6 +58,7 @@ This section provides references for solutions for Linux OSS applications and da
 * [Migrate Product Lifecycle Management (PLM) to Azure](/industry/manufacturing/architecture/ra-migrate-plm-azure)
 
 ### Machine Learning
+* [Building an Enterprise RAG Pipeline in Azure with NVIDIA AI Blueprint for RAG and Azure NetApp Files](https://techcommunity.microsoft.com/blog/azurearchitectureblog/building-an-enterprise-rag-pipeline-in-azure-with-nvidia-ai-blueprint-for-rag-an/4414301)
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 * [Distributed ML Training for Lane Detection, powered by NVIDIA and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/distributed-ml-training-for-lane-detection-powered-by-nvidia-and/ba-p/3848255)
 * [Distributed ML Training for Click-Through Rate Prediction with NVIDIA, Dask and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/distributed-ml-training-for-click-through-rate-prediction-with/ba-p/3848262)
@@ -212,7 +215,6 @@ This section provides references for High Performance Computing (HPC) solutions.
 * [EDA workloads on Azure NetApp Files - Performance Best Practice](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab with Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
-* [Azure for the semiconductor industry](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure%20for%20the%20semiconductor%20industry.pdf)
 * [Benchmark EDA workloads on Azure Intel Emerald Rapids (EMR) VMs](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/benchmark-eda-workloads-on-azure-intel-emerald-rapids-emr-vms/4334619)
 
 ### Analytics

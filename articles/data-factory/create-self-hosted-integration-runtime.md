@@ -3,10 +3,10 @@ title: Create a self-hosted integration runtime
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a self-hosted integration runtime in Azure Data Factory and Azure Synapse Analytics, which lets pipelines access data stores in a private network.
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: concept-article
 author: lrtoyou1223
 ms.author: lle
-ms.date: 09/03/2024
+ms.date: 03/31/2025
 ms.custom: synapse
 ai-usage: ai-assisted
 ---
@@ -15,18 +15,16 @@ ai-usage: ai-assisted
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The integration runtime (IR) is the compute infrastructure that Azure Data Factory and Synapse pipelines use to provide data-integration capabilities across different network environments. For details about IR, see [Integration runtime overview](concepts-integration-runtime.md).
+The [integration runtime (IR)](concepts-integration-runtime.md) is the compute infrastructure that Azure Data Factory and Synapse pipelines use to provide data-integration capabilities across different network environments.
 
-A self-hosted integration runtime can run copy activities between a cloud data store and a data store in a private network. It also can dispatch transform activities against compute resources in an on-premises network or an Azure virtual network. The installation of a self-hosted integration runtime needs an on-premises machine or a virtual machine inside a private network.  
-
-This article describes how you can create and configure a self-hosted IR.
+A self-hosted integration runtime provides these capabilities between a cloud data store and a data store in a private network, for example an on-premises network or an Azure virtual network. This article describes how you can create and configure a self-hosted IR on a machine inside your private network, so you can connect your data source to your data integration resources.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Considerations for using a self-hosted IR
 
 - You can use a single self-hosted integration runtime for multiple on-premises data sources. You can also share it with another data factory within the same Microsoft Entra tenant. For more information, see [Sharing a self-hosted integration runtime](./create-shared-self-hosted-integration-runtime-powershell.md).
-- You can install only one instance of a self-hosted integration runtime on any single machine. If you have two data factories that need to access on-premises data sources, either use the [self-hosted IR sharing feature](./create-shared-self-hosted-integration-runtime-powershell.md) to share the self-hosted IR, or install the self-hosted IR on two on-premises computers, one for each data factory or Synapse workspace.  Synapse workspace doesn't support Integration Runtime Sharing.
+- You can install only one instance of a self-hosted integration runtime on any single machine. If you have two data factories that need to access on-premises data sources, either use the [self-hosted IR sharing feature](./create-shared-self-hosted-integration-runtime-powershell.md) to share the self-hosted IR, or install the self-hosted IR on two on-premises computers, one for each data factory or Synapse workspace. Synapse workspace doesn't support Integration Runtime Sharing.
 - The self-hosted integration runtime doesn't need to be on the same machine as the data source. However, having the self-hosted integration runtime close to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that differs from the one that hosts the on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime doesn't compete with the data source for resources.
 - You can have multiple self-hosted integration runtimes on different machines that connect to the same on-premises data source. For example, if you have two self-hosted integration runtimes that serve two data factories, the same on-premises data source can be registered with both data factories.
 - Use a self-hosted integration runtime to support data integration within an Azure virtual network.
@@ -46,13 +44,13 @@ Here's a high-level summary of the data-flow steps for copying with a self-hoste
 
 :::image type="content" source="media/create-self-hosted-integration-runtime/high-level-overview.png" alt-text="The high-level overview of data flow":::
 
-1. A data developer first creates a self-hosted integration runtime within an Azure data factory or Synapse workspace by using the Azure portal or the PowerShell cmdlet.  Then the data developer creates a linked service for an on-premises data store, specifying the self-hosted integration runtime instance that the service should use to connect to data stores.
+1. A data developer first creates a self-hosted integration runtime within an Azure data factory or Synapse workspace by using the Azure portal or the PowerShell cmdlet. Then the data developer creates a linked service for an on-premises data store, specifying the self-hosted integration runtime instance that the service should use to connect to data stores.
 
-2. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.
+1. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.
 
-3. Azure Data Factory and Synapse pipelines communicate with the self-hosted integration runtime to schedule and manage jobs. Communication is via a control channel that uses a shared [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) connection. When an activity job needs to be run, the service queues the request along with any credential information. It does so in case credentials aren't already stored on the self-hosted integration runtime. The self-hosted integration runtime starts the job after it polls the queue.
+1. Azure Data Factory and Synapse pipelines communicate with the self-hosted integration runtime to schedule and manage jobs. Communication is via a control channel that uses a shared [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) connection. When an activity job needs to be run, the service queues the request along with any credential information. It does so in case credentials aren't already stored on the self-hosted integration runtime. The self-hosted integration runtime starts the job after it polls the queue.
 
-4. The self-hosted integration runtime copies data between an on-premises store and cloud storage. The direction of the copy depends on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services like Azure Blob storage over a secure HTTPS channel.
+1. The self-hosted integration runtime copies data between an on-premises store and cloud storage. The direction of the copy depends on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services like Azure Blob storage over a secure HTTPS channel.
 
 ## Prerequisites
 
@@ -74,10 +72,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
   - Java Runtime (JRE) version 11 from a JRE provider such as [Microsoft OpenJDK 11](https://aka.ms/download-jdk/microsoft-jdk-11.0.19-windows-x64.msi) or [Eclipse Temurin 11](https://adoptium.net/temurin/releases/?version=11). Ensure that the *JAVA_HOME* system environment variable is set to the JDK folder (not just the JRE folder) you may also need to add the bin folder to your system's PATH environment variable.
   >[!NOTE]
   >It might be necessary to adjust the Java settings if memory errors occur, as described in the [Parquet format](./format-parquet.md#using-self-hosted-integration-runtime) documentation.
-  
 
 >[!NOTE]
->If you are running in government cloud, please review [Connect to government cloud.](../azure-government/documentation-government-get-started-connect-with-ps.md)
+>If you're running in government cloud, review [Connect to government cloud.](../azure-government/documentation-government-get-started-connect-with-ps.md)
 
 ## Setting up a self-hosted integration runtime
 
@@ -85,7 +82,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 ### Create a self-hosted IR via Azure PowerShell
 
-1. You can use Azure PowerShell for this task. Here is an example:
+1. You can use Azure PowerShell for this task. Here's an example:
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -93,16 +90,15 @@ To create and set up a self-hosted integration runtime, use the following proced
   
 2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) and install the self-hosted integration runtime on a local machine.
 
-3. Retrieve the authentication key and register the self-hosted integration runtime with the key. Here is a PowerShell example:
+3. Retrieve the authentication key and register the self-hosted integration runtime with the key. Here's a PowerShell example:
 
     ```powershell
 
     Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
     ```
-> [!NOTE]
-
-> Run PowerShell command in Azure government, please see [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md).
+>[!NOTE]
+>If you're running in government cloud, review [Connect to government cloud.](../azure-government/documentation-government-get-started-connect-with-ps.md)
 
 ### Create a self-hosted IR via UI
 
@@ -291,12 +287,13 @@ When the processor and available RAM aren't well utilized, but the execution of 
 > - For node-to-node communication for state synchronization, which includes credentials synchronization of linked services across nodes.
 > - When a PowerShell cmdlet is used for linked-service credential settings from within a local network.
 >
-> We suggest you use this certificate if your private network environment is not secure or if you want to secure the communication between nodes within your private network.
+> We suggest you use this certificate if your private network environment isn't secure or if you want to secure the communication between nodes within your private network.
 >
 > Data movement in transit from a self-hosted IR to other data stores always happens within an encrypted channel, regardless of whether or not this certificate is set.
 
 ### Credential sync
-If you don't store credentials or secret values in an Azure Key Vault, the credentials or secret values will be stored in the machines where your self-hosted integration runtime locates. Each node will have a copy of credential with certain version. In order to make all nodes work together, the version number should be the same for all nodes. 
+
+If you don't store credentials or secret values in an Azure Key Vault, the credentials or secret values will be stored in the machines where your self-hosted integration runtime is located. Each node will have a copy of the credentials with a certain version. In order to make all nodes work together, the version number should be the same for all nodes.
 
 ## Proxy server considerations
 
@@ -378,7 +375,7 @@ You also need to make sure that Microsoft Azure is in your company's allowlist. 
 
 ### Configure proxy server settings when using a private endpoint
 
-If your company's network architecture involves the use of private endpoints and for security reasons, and your company's policy does not allow a direct internet connection from the VM hosting the Self Hosted Integration Runtime to the Azure Data Factory service URL, then you will need to allow bypass the ADF Service URL for full connectivity. The following procedure provides instructions for updating the diahost.exe.config file. You should also repeat these steps for the diawp.exe.config file.
+If your company's network architecture involves the use of private endpoints and for security reasons, and your company's policy doesn't allow a direct internet connection from the VM hosting the Self Hosted Integration Runtime to the Azure Data Factory service URL, then you'll need to allow bypass the ADF Service URL for full connectivity. The following procedure provides instructions for updating the diahost.exe.config file. You should also repeat these steps for the diawp.exe.config file.
 
 1. In File Explorer, make a safe copy of _C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config_ as a backup of the original file.
 1. Open Notepad running as administrator.
@@ -424,7 +421,7 @@ If you see error messages like the following ones, the likely reason is improper
 
 If you use PowerShell to encrypt credentials from a networked machine other than where you installed the self-hosted integration runtime, you can enable the **Remote Access from Intranet** option. If you run PowerShell to encrypt credentials on the machine where you installed the self-hosted integration runtime, you can't enable **Remote Access from Intranet**.
 
-Enable **Remote Access from Intranet** before you add another node for high availability and scalability.  
+Enable **Remote Access from Intranet** before you add another node for high availability and scalability. 
 
 When you run the self-hosted integration runtime setup version 3.3 or later, by default the self-hosted integration runtime installer disables **Remote Access from Intranet** on the self-hosted integration runtime machine.
 
@@ -441,7 +438,7 @@ If you choose not to open port 8060 on the self-hosted integration runtime machi
 There are two firewalls to consider:
 
 - The *corporate firewall* that runs on the central router of the organization
-- The *Windows firewall* that is configured as a daemon on the local machine where the self-hosted integration runtime is installed
+- The *Windows Firewall* that is configured as a daemon on the local machine where the self-hosted integration runtime is installed
 
 :::image type="content" source="media/create-self-hosted-integration-runtime/firewall.png" alt-text="The firewalls":::
 
@@ -449,25 +446,25 @@ At the corporate firewall level, you need to configure the following domains and
 
 [!INCLUDE [domain-and-outbound-port-requirements](./includes/domain-and-outbound-port-requirements-internal.md)]
 
-At the Windows firewall level or machine level, these outbound ports are normally enabled. If they aren't, you can configure the domains and ports on a self-hosted integration runtime machine.
+At the Windows Firewall level or machine level, these outbound ports are normally enabled. If they aren't, you can configure the domains and ports on a self-hosted integration runtime machine.
 
 > [!NOTE]
 > As currently Azure Relay doesn't support service tag, you have to use service tag **AzureCloud** or **Internet** in NSG rules for the communication to Azure Relay.
 > For the communication to Azure Data Factory and Synapse workspaces, you can use service tag **DataFactoryManagement** in the NSG rule setup.
 
-Based on your source and sinks, you might need to allow additional domains and outbound ports in your corporate firewall or Windows firewall.
+Based on your source and sinks, you might need to allow additional domains and outbound ports in your corporate firewall or Windows Firewall.
 
 [!INCLUDE [domain-and-outbound-port-requirements](./includes/domain-and-outbound-port-requirements-external.md)]
 
 For some cloud databases, such as Azure SQL Database and Azure Data Lake, you might need to allow IP addresses of self-hosted integration runtime machines on their firewall configuration.
 
 > [!NOTE]
-> It is not right to install both Integration Runtime and Power BI gateway in same machine, because mainly Integration Runtime uses port number 443, which is one of the main ports being used by Power BI gateway as well.
+> It isn't right to install both Integration Runtime and Power BI gateway in same machine, because mainly Integration Runtime uses port number 443, which is one of the main ports being used by Power BI gateway as well.
 
 
 
-### Self-contained interactive authoring (preview)
-In order to perform interactive authoring actions such as data preview and connection testing, the self-hosted integration runtime requires a connection to Azure Relay. If the connection is not established, there are two possible solutions to ensure uninterrupted functionality. The first option is to add the Azure Relay endpoints to your firewall's allowlist [Get URL of Azure Relay](#get-url-of-azure-relay). Alternatively, you can enable self-contained interactive authoring.
+### Self-contained interactive authoring
+In order to perform interactive authoring actions such as data preview and connection testing, the self-hosted integration runtime requires a connection to Azure Relay. If the connection isn't established, there are two possible solutions to ensure uninterrupted functionality. The first option is to add the Azure Relay endpoints to your firewall's allowlist [Get URL of Azure Relay](#get-url-of-azure-relay). Alternatively, you can enable self-contained interactive authoring.
 
 > [!NOTE]
 > If the self-hosted integration runtime fails to establish a connection to Azure Relay, its status will be marked as "limited".
@@ -478,7 +475,7 @@ In order to perform interactive authoring actions such as data preview and conne
 > While self-contained interactive authoring is enabled, all interactive authoring traffic will be routed exclusively through this functionality, bypassing Azure Relay. The traffic will only be redirected back to Azure Relay once you choose to disable this feature.
 
 > [!NOTE]
-> Both "Get IP" and "Send log" are not supported when self-contained interactive authoring is enabled.
+> Both "Get IP" and "Send log" aren't supported when self-contained interactive authoring is enabled.
 
 ### Get URL of Azure Relay
 
@@ -567,31 +564,29 @@ Invoke-Expression $az_cmd
 
 ### Copy data from a source to a sink
 
-Ensure that you properly enable firewall rules on the corporate firewall, the Windows firewall of the self-hosted integration runtime machine, and the data store itself. Enabling these rules lets the self-hosted integration runtime successfully connect to both source and sink. Enable rules for each data store that is involved in the copy operation.
+Ensure that you properly enable firewall rules on the corporate firewall, the Windows Firewall of the self-hosted integration runtime machine, and the data store itself. Enabling these rules lets the self-hosted integration runtime successfully connect to both source and sink. Enable rules for each data store that is involved in the copy operation.
 
 For example, to copy from an on-premises data store to a SQL Database sink or an Azure Synapse Analytics sink, take the following steps:
 
-1. Allow outbound TCP communication on port 1433 for both the Windows firewall and the corporate firewall.
+1. Allow outbound TCP communication on port 1433 for both the Windows Firewall and the corporate firewall.
 2. Configure the firewall settings of the SQL Database to add the IP address of the self-hosted integration runtime machine to the list of allowed IP addresses.
 
 > [!NOTE]
 > If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and Azure Synapse Analytics. In this scenario, you require only HTTPS (port 443) for the data movement.
 
-If all your data source and sink and self-hosted integration runtime are in on-premises environment, then the copied data will not go to cloud but strictly remain within on-premises.
+If all your data source and sink and self-hosted integration runtime are in on-premises environment, then the copied data won't go to cloud but strictly remain within on-premises.
 
-## Credentials store
+## Store credentials
+
 There are two ways to store the credentials when using self-hosted integration runtime:
-1. Use Azure Key Vault.
 
-This is the recommended way to store your credentials in Azure. The self-hosted integration runtime can directly get the credentials from Azure Key Vault which can highly avoid some potential security issues or any credential in-sync problems between self-hosted integration runtime nodes.
-2. Store credentials locally.
+1. Use Azure Key Vault (recommended) - The self-hosted integration runtime can directly get the credentials from Azure Key Vault which can highly avoid some potential security issues or any credential in-sync problems between self-hosted integration runtime nodes.
+1. Store credentials locally - The credentials will be pushed to the machine where your self-hosted integration runtime is installed and be encrypted.
 
-The credentials will be push to the machine of your self-hosted integration runtime and be encrypted. 
-When your self-hosted integration runtime is recovered from crash, you can either recover credential from the one you back up before or edit linked service and let the credential be pushed to self-hosted integration runtime again. Otherwise, the pipeline doesn't work due to the lack of credential when running via self-hosted integration runtime.
-> [!NOTE]
-> If you prefer to store the credential locally, your need to put the domain for interactive authoring in the allowlist of your firewall 
-> and open the port. This channel is also for the self-hosted integration runtime to get the credentials. 
-> For the domain and port needed for interactive authoring, refer to [Ports and firewalls](#ports-and-firewalls)
+    > [!NOTE]
+    > If you prefer to store the credential locally, your need to put the domain for interactive authoring in the allowlist of your firewall and open the port. This channel also allows the self-hosted integration runtime to get the credentials. For the domain and ports required for interactive authoring, refer to [Ports and firewalls](#ports-and-firewalls)
+
+If you recover your self-hosted integration runtime from a crash, you can either recover the credentials from the one you saved as a back up, or edit the linked service and let the credential be pushed to self-hosted integration runtime again. Otherwise, a pipeline using the self-hosted integration runtime  won't work due to the lack of credential.
 
 ## Installation best practices
 

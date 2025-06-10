@@ -79,6 +79,7 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 
 * AV36 
 * AV36P
+* AV48
 * AV52
 * AV64
 
@@ -91,7 +92,7 @@ There are some important best practices to follow for optimal performance of NFS
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. See [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md) to understand the throughput allowed per provisioned TiB for each service level. 
 
     >[!IMPORTANT]
-    > If you've changed the Azure NetApp Files volumes performance tier after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch. 
+    > If you've changed the Azure NetApp Files volumes performance tier or the volume size after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch. To do any kind of change to the volume you can use Azure Portal or any other supported solution (CLI\Powershell\API).
     
 - Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type determines volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 8, but it can be increased to a maximum of 256 by submitting a support ticket. To submit a support ticket, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 -  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](../reliability/availability-zones-overview.md) using the [the availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
@@ -189,16 +190,17 @@ az vmware datastore netapp-volume create \
 >[!IMPORTANT]  
 > The parameters for datastore **name**, **resource-group**, **cluster**, and **private-cloud** must be **exactly the same as those on the existing datastore in the private cloud**. The **volume-id** is the updated Resource ID of the Azure NetApp Files volume after the service level change.
 
-## Disconnect an Azure NetApp Files-based datastore from your private cloud
+## Delete an Azure NetApp Files-based datastore from your private cloud
 
-You can use the instructions provided to disconnect an Azure NetApp Files-based datastore using either Azure portal or Azure CLI. There's no maintenance window required for this operation. The disconnect action only disconnects the Azure NetApp Files volume as a datastore, it doesn't delete the data or the Azure NetApp Files volume.
+You can use the instructions provided to delete an Azure NetApp Files-based datastore using either Azure portal or Azure CLI. There's no maintenance window required for this operation. The delete action only removes the Azure NetApp Files volume as a datastore and it doesn't delete the data or the Azure NetApp Files volume.
 
-**Disconnect an Azure NetApp Files datastore using the Azure Portal**
+**Delete an Azure NetApp Files datastore using the Azure Portal**
 
-1. Select the datastore you want to disconnect from.
-1. Right-click on the datastore and select **disconnect**.
+1. Select the datastore you want to delete from.
 
-**Disconnect an Azure NetApp Files datastore using Azure CLI**
+1. Right-click on the datastore and select **delete**.
+
+**Delete an Azure NetApp Files datastore using Azure CLI**
 
  `az vmware datastore delete --name ANFDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
 
