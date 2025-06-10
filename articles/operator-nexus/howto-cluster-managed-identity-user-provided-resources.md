@@ -245,7 +245,7 @@ The following steps should be followed for using UAMIs with Nexus Clusters and a
 _Cluster Creation_
 
 1. [Create the user provided resources](#create-the-user-provided-resources)
-1. [Create the Cluster with a SAMI and specify the resources that use the SAMI](#create-the-cluster-with-a-sami)
+1. [Create the Cluster with a SAMI and specify the resources that use the SAMI](#create-the-cluster-with-a-sami-and-user-provided-resources)
 1. [Query the Cluster to get the SAMI](#query-the-cluster-to-get-the-sami)
 1. [Update the resources and assign the SAMI to the resources](#update-the-resources-and-assign-the-sami-to-the-resources)
 1. Deploy the Cluster
