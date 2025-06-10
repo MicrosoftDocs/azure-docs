@@ -30,7 +30,7 @@ The distribution of objects within a hierarchical namespace-enabled account can 
 
 ### Number of objects processed for the inventory rule
 
-The total number of objects scanned based on an inventory rule is a key factor in processing performance. Rules that target a large volume of objects require more time and resources to generate an inventory report. Additionally, including versions, snapshots, and soft deleted objects in the inventory rule increases the number of objects to be processed. When these subtypes exist in high volumes, they can further extend processing time needed to generate the inventory report
+The total number of objects scanned based on an inventory rule is a key factor in processing performance. Rules that target a large volume of objects require more time and resources to generate an inventory report. The number of objects to be processed increases if your inventory rule includes versions, snapshots, and soft deleted objects. When these subtypes exist in high volumes, they can further extend processing time needed to generate the inventory report.
 
 ### Export Format of the Inventory Report
 
