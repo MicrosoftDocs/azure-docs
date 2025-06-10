@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 06/09/2025
+ms.date: 06/10/2025
 ---
 
 # Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway
@@ -183,7 +183,7 @@ To record and save a HAR file in Microsoft Edge, follow these steps
 
     :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-network.png" alt-text="Screenshot of the Network tab of Microsoft Edge developer tools.":::
 
-1. Load the web page that you want to inspect.
+1. Load the webpage that's protected by your WAF for which you want to troubleshoot.
 
 1. Stop recording by selecting the **Stop recording network log**.
 
