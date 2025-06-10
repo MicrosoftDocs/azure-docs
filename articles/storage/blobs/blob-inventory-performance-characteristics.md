@@ -46,7 +46,7 @@ By considering these factors, you can enhance the performance of your inventory 
 
 Efficiently managing your Azure Blob Storage is essential for maintaining optimal performance and cost-effectiveness. Here are some best practices to enhance the performance of Azure Storage blob inventory:
 
-### Avoid Sparse Accounts in hierarchical namespace enabled accounts
+### Avoid sparse accounts in hierarchical namespace-enabled accounts
 Sparse accounts are those that contain a large number of objects spread across many directories. These directories may or may not include deeply nested structures. Sparse accounts result in a very low file-to-directory ratio, which can cause inefficiencies in inventory report generation and even lead to failures. To mitigate these inefficiencies, ensure that your hierarchical namespace enabled storage account is well-organized and avoid having a sparse distribution of objects
 
 ### Use CSV for Export Format	
