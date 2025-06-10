@@ -92,7 +92,7 @@ No, Azure Migrate doesn't support moving resources. To move resources created by
 
 ## Is Azure Migrate still supporting VDI migration?
 
-Yes, Azure Migrate supports Virtual Desktop Infrastructure (VDI) migrations. For more information, see blog here:
+Yes, Azure Migrate supports Virtual Desktop Infrastructure (VDI) migrations. For more information, see [tech community blog](https://techcommunity.microsoft.com/blog/azuremigrationblog/migrate-virtual-desktops-to-azure/1361120).
 
 ## Next steps
 
