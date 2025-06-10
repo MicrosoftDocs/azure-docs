@@ -58,7 +58,7 @@ The following table includes all the service tags available for use in [network 
 The columns indicate whether the tag:
 
 - Is suitable for rules that cover inbound or outbound traffic.
-- Supports [regional](/azure/regions) scope.
+- Supports [regional](/azure/reliability/regions-list) scope.
 - Is usable in [Azure Firewall](../firewall/service-tags.md) rules as a *destination* rule only for inbound or outbound traffic.
 
 By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope, and the direction listed for each tag is a recommendation. For example, the AzureCloud tag might be used to allow inbound traffic. In most scenarios, we don't recommend allowing traffic from all Azure IPs since IPs used by other Azure customers are included as part of the service tag.
