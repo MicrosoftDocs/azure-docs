@@ -299,6 +299,14 @@ Import-based Azure VM assessments are assessments created with machines that are
 
 For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it's recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/install-vmware-hcx.md).
 
+## Can I upload assessment data to Azure Migrate from third-party tools?
+
+No, you can't upload assessment data from third-party tools. You can upload your inventory using a CSV file, but all assessments must be done within the Azure Migrate project.
+
+## Can I create an Azure Migrate assessment for a specific time interval?
+
+You can't create an assessment based on a specific time interval. However, you can deploy an Azure Migrate appliance for a set period, like 1 day or 1 week. The inventory data collected during that time is then used to create the assessment.
+
 ## Next steps
 
 Learn more about discovering [VMware VMs](tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).

@@ -90,6 +90,10 @@ Learn how to [delete a project](how-to-delete-project.md).
 
 No, Azure Migrate doesn't support moving resources. To move resources created by Azure Migrate, consider creating a new project in the desired region.
 
+## Is Azure Migrate still supporting VDI migration?
+
+Yes, Azure Migrate supports Virtual Desktop Infrastructure (VDI) migrations. For more information, see blog here:
+
 ## Next steps
 
 Read the [Azure Migrate overview](migrate-services-overview.md).
