@@ -1,5 +1,5 @@
 ---
-title: Blob Inventory performance characteristics
+title: Blob inventory performance characteristics
 
 titleSuffix: Azure Blob Storage
 author: aadetayo
