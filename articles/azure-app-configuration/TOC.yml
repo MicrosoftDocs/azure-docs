@@ -81,7 +81,7 @@
       href: quickstart-go-console-app.md
     - name: Dynamic configuration
       href: enable-dynamic-configuration-go-console-app.md
-  - name: Gin (Go Framework)
+  - name: Go Gin
     items:
     - name: Configuration
       href: quickstart-go-web-app.md
