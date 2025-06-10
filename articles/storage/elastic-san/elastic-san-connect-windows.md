@@ -13,9 +13,9 @@ ms.custom: references_regions
 
 This article explains how to connect to an Elastic SAN volume from an individual Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN volumes - Linux](elastic-san-connect-linux.md).
 
-In this article, you add the Storage service endpoint to an Azure virtual network's subnet, then you configure your volume group to allow connections from your subnet. Finally, you configure your client environment to connect to an Elastic SAN volume and establish a connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
+In this article, you configure your volume group to allow connections from your subnet and then you configure your client environment to connect to an Elastic SAN volume and establish an iSCSI connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
 
-You must use a cluster manager when connecting an individual elastic SAN volume to multiple clients. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
+You must use a cluster manager when connecting an individual Elastic SAN volume to multiple clients. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
 
 ## Prerequisites
 
@@ -24,10 +24,8 @@ You must use a cluster manager when connecting an individual elastic SAN volume 
 - [Configure a virtual network endpoint](elastic-san-networking.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
-## Connect to volumes
+## Enable iSCSI Initiator
 
-### Set up your client environment
-#### Enable iSCSI Initiator
 To create iSCSI connections from a Windows client, confirm the iSCSI service is running. If it's not, start the service, and set it to start automatically.
 
 ```powershell
@@ -41,7 +39,7 @@ Start-Service -Name MSiSCSI
 Set-Service -Name MSiSCSI -StartupType Automatic
 ```
 
-#### Install Multipath I/O
+## Install Multipath I/O
 
 To achieve higher IOPS and throughput to a volume and reach its maximum limits, you need to create multiple-sessions from the iSCSI initiator to the target volume based on your application's multi-threaded capabilities and performance requirements. You need Multipath I/O to aggregate these multiple paths into a single device, and to improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
@@ -62,9 +60,9 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 mpclaim -L -M 2
 ```
 
-### Attach Volumes to the client
+## Attach volumes to the client
 
-You can use the following script to create your connections. To execute it, you require the following parameters: 
+Use the following script to create your connections. To execute it, you need the following parameters: 
 - $rgname: Resource Group Name
 - $esanname: Elastic SAN Name
 - $vgname: Volume Group Name
@@ -81,7 +79,8 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
-#### Number of sessions
+## Set session number
+
 You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
 
 You can customize the number of sessions by using the optional `-NumSession parameter` when running the `connect.ps1` script. 
@@ -100,7 +99,8 @@ You can customize the number of sessions by using the optional `-NumSession para
   -NumSession “<value>”
 ```
 
-**Note!** The `-NumSession` parameter accepts values from 1 to 32. If the parameter isn't specified, the default of 32 is used. 
+> [!NOTE]
+> The `-NumSession` parameter accepts values from 1 to 32, and has a default value of 32.
 
 ## Next steps
 
