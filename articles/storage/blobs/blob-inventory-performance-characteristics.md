@@ -15,7 +15,7 @@ ms.custom: references_regions, engagement-fy23
 # Blob inventory performance characteristics
 
 
-Azure Blob Inventory is an essential tool for managing and tracking the objects stored in your Azure Blob Storage account. It offers a comprehensive overview of your storage resources, enabling you to make informed decisions about data management and cost optimization. 
+Azure Storage blob inventory is an essential tool for managing and tracking the objects stored in your Azure Blob Storage account. It offers a comprehensive overview of your storage resources, enabling you to make informed decisions about data management and cost optimization. 
 
 When Blob Inventory is enabled, it periodically scans objects in your storage account using the rules that are defined in the inventory policy. The time it takes to generate an inventory report depends on several factors. These factors include the number of objects, the directory structure, the filters applied through rule subtypes, the customer workload on the storage account, the availability of storage resources and more. In some cases, depending on these factors, it may take multiple days to finish processing all the objects in the storage account. The performance of Inventory can also vary between scans and sometimes during the scan as well. 
 
