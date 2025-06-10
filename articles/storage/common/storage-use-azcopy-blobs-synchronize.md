@@ -125,7 +125,7 @@ azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-0
 ```
 
 > [!TIP]
-> If you are copying larger size of data, you can use :[Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer).
+> If you are copying larger size of data, you can use :[Azure Storage Explorer](https://azure.microsoft.com/products/storage/storage-explorer).
 > 
 > Verify size details that you have copied. On the top bar menu, choose **More** -> **Folder Statistics** to help you get the details of the Directory including the size in bytes.
 
