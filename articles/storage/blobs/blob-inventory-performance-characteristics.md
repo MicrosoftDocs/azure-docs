@@ -1,5 +1,5 @@
 ---
-title: Blob inventory performance characteristics
+title: Blob Inventory Performance Characteristics
 
 titleSuffix: Azure Blob Storage
 author: aadetayo
@@ -74,7 +74,7 @@ Pay attention to unexpected spikes in your storage account’s capacity, as they
 By following these best practices, you can enhance the performance of your blob inventory, ensuring efficient and effective management of your Azure Blob Storage. 
 
 
-## Next Steps
+## Next steps
 - [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 -	[Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.yml)
 -	[Tutorial: Calculate container statistics by using Databricks](storage-blob-calculate-container-statistics-databricks.md) 
