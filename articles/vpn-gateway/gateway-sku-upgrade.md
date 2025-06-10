@@ -5,7 +5,7 @@ description: Learn how to upgrade a VPN Gateway SKU in Azure.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 06/10/2025
 ms.author: cherylmc
 
 ---
@@ -26,7 +26,7 @@ There are many things to consider when upgrading to a new gateway SKU. The follo
 | Generation 1 AZ SKU | Generation 2 AZ SKU | No | Yes |
 | Generation 2 SKU | Generation 2 SKU | Yes | No |
 | Generation 2 SKU | Generation 2 AZ SKU | No |Yes |
-| Generation 2 AZ SKU | Generation 2 AZ SKU Yes | No |
+| Generation 2 AZ SKU | Generation 2 AZ SKU | Yes | No |
 
 ## Limitations and restrictions
 
