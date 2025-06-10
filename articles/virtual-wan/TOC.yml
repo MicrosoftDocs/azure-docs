@@ -32,7 +32,7 @@
         href: quickstart-any-to-any-template.md
       - name: Route to shared services VNets
         href: quickstart-route-shared-services-vnet-template.md
-    - name: BICEP templates
+    - name: Bicep files
       items:
       - name: Deploy Virtual WAN with routing intent and routing policies
         href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent
@@ -40,6 +40,8 @@
   items: 
   - name: Migrate to Virtual WAN
     href: migrate-from-hub-spoke-topology.md
+  - name: Interconnect Virtual WANs
+    href: virtual-wan-connectivity.md
   - name: Global transit network architecture
     href: virtual-wan-global-transit-network-architecture.md
   - name: SD-WAN connectivity architecture

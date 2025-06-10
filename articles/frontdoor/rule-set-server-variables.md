@@ -11,6 +11,8 @@ ms.date: 04/09/2025
 
 # Azure Front Door Rule set server variables
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Rule set server variables provide access to structured information about the request when you work with [Rule sets](front-door-rules-engine.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json).
 
 When you use [Rule set match conditions](rules-match-conditions.md), server variables are available as match conditions so that you can identify requests with specific properties.
@@ -18,7 +20,7 @@ When you use [Rule set match conditions](rules-match-conditions.md), server vari
 When you use [Rule set actions](front-door-rules-engine-actions.md), you can use server variables to dynamically change the request and response headers, and rewrite URLs, paths, and query strings, for example, when a new page load or when a form gets posted.
 
 > [!NOTE]
-> Server variables are available with Azure Front Door Standard and Premium tiers.
+> Server variables are only available with Azure Front Door Standard and Premium tiers.
 
 ## Supported variables
 
@@ -53,6 +55,25 @@ When you work with Rule Set actions, specify server variables by using the follo
     * Offsets and lengths within range: `{var:0:5}` = `AppId`, `{var:7:7}` = `1f59297`, `{var:7:-7}` = `1f592979c584d0f9d679db3e`
     * Zero lengths: `{var:0:0}` = null,  `{var:4:0}` = null 
     * Offsets within range and lengths out of range: `{var:0:100}` = `AppId=01f592979c584d0f9d679db3e66a3e5e`, `{var:5:100}` = `=01f592979c584d0f9d679db3e66a3e5e`,  `{var:0:-48}` = null,  `{var:4:-48}` = null
+    * To experiment with how {variable:offset:length} works, open a Linux bash terminal or use bash terminal in [Azure Cloud Shell](https://shell.azure.com/). Enter the following example into the terminal and examine the output to understand how the substring extraction behaves.
+      
+```azurecli-interactive
+variable=helloworld123; echo ${variable:5} #Output = world123
+```
+```azurecli-interactive
+variable=helloworld123; echo ${variable:0:5}  #Output = hello
+```
+> [!NOTE]
+> In Bash, a space is required before a negative number in parameter expansion to avoid syntax errors.
+
+```azurecli-interactive
+variable=helloworld123; echo ${variable: -3:3} #Output=123 
+```
+
+```azurecli-interactive
+variable=helloworld123; echo ${variable:5: -3} #Output = world
+```
+ 
 * `{url_path:seg#}`: Allow users to capture and use the desired URL path segment in URL Redirect, URL Rewrite, or any meaningful action. User can also capture multiple segments by using the same style as substring capture `{url_path:seg1:3}`. For example, for a source pattern `/id/12345/default` and a URL rewrite Destination `/{url_path:seg1}/home`, the expected URL path after rewrite is `/12345/home`. For a multiple-segment capture, when the source pattern is `/id/12345/default/location/test`, a URL rewrite destination `/{url_path:seg1:3}/home` results in `/12345/default/location/home`. Segment capture includes the location path, so if route is `/match/*`, segment 0 will be match.
 
     Offset corresponds to the index of the start segment, and length refers to how many segments to capture, including the one at index = offset.

@@ -4,7 +4,7 @@ description: Learn about Microsoft Sentinel security orchestration, automation, 
 ms.topic: conceptual
 author: batamig
 ms.author: bagol
-ms.date: 02/12/2025
+ms.date: 04/28/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -53,21 +53,7 @@ For more information, see [Automate threat response with playbooks in Microsoft 
 
 After onboarding your Microsoft Sentinel workspace to the Defender portal, note the following differences in the way automation functions in your workspace:
 
-| Functionality | Description  |
-| --------- | --------- |
-| **Automation rules with alert triggers** | In the Defender portal, automation rules with alert triggers act only on Microsoft Sentinel alerts. <br><br>For more information, see [Alert create trigger](../automate-incident-handling-with-automation-rules.md#alert-create-trigger). |
-| **Automation rules with incident triggers** | In both the Azure portal and the Defender portal, the **Incident provider** condition property is removed, as all incidents have *Microsoft Defender XDR* as the incident provider (the value in the *ProviderName* field). <br><br>At that point, any existing automation rules run on both Microsoft Sentinel and Microsoft Defender XDR incidents, including those where the **Incident provider** condition is set to only *Microsoft Sentinel* or *Microsoft 365 Defender*. <br><br>However, automation rules that specify a specific analytics rule name run only on incidents that contain alerts that were created by the specified analytics rule. This means that you can define the **Analytic rule name** condition property to an analytics rule that exists only in Microsoft Sentinel to limit your rule to run on incidents only in Microsoft Sentinel. <br><br>For more information, see [Incident trigger conditions](../automate-incident-handling-with-automation-rules.md#conditions). |
-|**Latency in playbook triggers** | [It might take up to 5 minutes](../microsoft-sentinel-defender-portal.md#5min) for Microsoft Defender incidents to appear in Microsoft Sentinel. If this delay is present, playbook triggering is delayed too. |
-| **Changes to existing incident names** | The Defender portal uses a unique engine to correlate incidents and alerts. When onboarding your workspace to the Defender portal, existing incident names might be changed if the correlation is applied. To ensure that your automation rules always run correctly, we therefore recommend that you avoid using incident titles as condition criteria in your automation rules, and suggest instead to use the name of any analytics rule that created alerts included in the incident, and tags if more specificity is required. |
-| ***Updated by* field** | <li>After onboarding your workspace, the **Updated by** field has a [new set of supported values](../automate-incident-handling-with-automation-rules.md#incident-update-trigger), which no longer include *Microsoft 365 Defender*. In existing automation rules, *Microsoft 365 Defender* is replaced by a value of *Other* after onboarding your workspace. <br><br><li>If multiple changes are made to the same incident in a 5-10 minute period, a single update is sent to Microsoft Sentinel, with only the most recent change. <br><br>For more information, see [Incident update trigger](../automate-incident-handling-with-automation-rules.md#incident-update-trigger). |
-| **Automation rules that add incident tasks** | If an automation rule adds an incident task, the task is shown only in the Azure portal. |
-| **Creating automation rules directly from an incident** | [Creating automation rules directly from an incident](../false-positives.md#add-exceptions-with-automation-rules-azure-portal-only) is supported only in the Azure portal. If you're working in the Defender portal, create your automation rules from scratch from the **Automation** page. |
-| **Microsoft incident creation rules** | Microsoft incident creation rules aren't supported in the Defender portal. <br><br>For more information, see [Microsoft Defender XDR incidents and Microsoft incident creation rules](../microsoft-365-defender-sentinel-integration.md#microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules). |
-| **Running automation rules from the Defender portal** | It might take up to 10 minutes from the time that an alert is triggered and an incident is created or updated in the Defender portal to when an automation rule is run. This time lag is because the incident is created in the Defender portal and then forwarded to Microsoft Sentinel for the automation rule. |
-| **Active playbooks tab** | After onboarding to the Defender portal, by default the **Active playbooks** tab shows a predefined filter with onboarded workspace's subscription. In the Azure portal, add data for other subscriptions using the subscription filter.  <br><br>For more information, see [Create and customize Microsoft Sentinel playbooks from content templates](use-playbook-templates.md). |
-| **Running playbooks manually on demand** | The following procedures aren't currently supported in the Defender portal:  <br><li>[Run a playbook manually on an alert](run-playbooks.md#run-a-playbook-manually-on-an-alert)<br><li>[Run a playbook manually on an entity](run-playbooks.md#run-a-playbook-manually-on-an-entity)    |
-| **Running playbooks on incidents requires Microsoft Sentinel sync** | If you try to run a playbook on an incident from the Defender portal and see the message *"Can't access data related to this action. Refresh the screen in a few minutes."* message, this means that the incident isn't yet synchronized to Microsoft Sentinel. <br><br>Refresh the incident page after the incident is synchronized to run the playbook successfully. |
-| **Incidents: Adding alerts to incidents / <br>Removing alerts from incidents** | Since adding alerts to, or removing alerts from incidents isn't supported after onboarding your workspace to the Defender portal, these actions are also not supported from within playbooks. For more information, see [Capability differences between portals](../microsoft-sentinel-defender-portal.md#capability-differences-between-portals). |
+[!INCLUDE [automation-in-defender](../includes/automation-in-defender.md)]
  
 ## Related content
 

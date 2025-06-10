@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Nexus: Before you start Network Fabric Controller and Cluster Manger creation"
-description: Prepare for create the Azure Operator Nexus Network Fabric Controller and Cluster Manger.
+title: "Azure Operator Nexus: Before you start Network Fabric Controller and Cluster Manager creation"
+description: Prepare for create the Azure Operator Nexus Network Fabric Controller and Cluster Manager.
 author: JAC0BSMITH
 ms.author: jacobsmith
 ms.service: azure-operator-nexus

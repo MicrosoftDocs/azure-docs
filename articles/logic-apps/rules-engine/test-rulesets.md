@@ -10,16 +10,14 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to learn how to test rulesets with the Microsoft Rules Composer.
+ms.custom:
+  - build-2025
 ---
 
-# Test rulesets using the Microsoft Rules Composer (Preview)
+# Test rulesets using the Microsoft Rules Composer
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
->
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 As you build your ruleset so that you can integrate business logic with your Standard workflows, test your ruleset incrementally or before you use the rules in your application. That way, you can check that the rules work the way that you expect along the way, or you can find and fix problems sooner when your rules are less complex and easier to troubleshoot.
 

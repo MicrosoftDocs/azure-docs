@@ -55,9 +55,7 @@ There can only be one session host update operation running or scheduled in a si
 The existing power state and drain mode of session hosts is honored. You can perform an update on a host pool where all the session hosts are deallocated to save costs.
 
 > [!IMPORTANT]
-> - If you use Azure Virtual Desktop Insights, the Azure Monitor agent or Log Analytics agent isn't automatically installed on the updated session hosts. To install the agent automatically, here are some options:
->    - For the Azure Monitor agent, you can [use Azure Policy](/azure/azure-monitor/agents/azure-monitor-agent-policy).
->    - For the Log Analytics agent, you can [use Azure Automation](/azure/azure-monitor/agents/agent-windows?tabs=azure-automation#install-the-agent).
+> - If you use Azure Virtual Desktop Insights, the Azure Monitor agent isn't automatically installed on the updated session hosts. To install the agent automatically, you can [use Azure Policy](/azure/azure-monitor/agents/azure-monitor-agent-policy).
 >
 > - Keep in mind [quota limits](/azure/quotas/view-quotas) on your Azure subscription and consider [submitting a request to increase a quota](/azure/quotas/quickstart-increase-quota-portal) if an update would go over the limit.
 >
@@ -65,7 +63,7 @@ The existing power state and drain mode of session hosts is honored. You can per
 
 ## Virtual machines and management tools
 
-The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and the [generation of virtual machine](/azure/virtual-machines/generation-2), and can be from:
+The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and the [generation of virtual machine](/azure/virtual-machines/generation-2), and it can be from:
 
 - Azure Marketplace.
 

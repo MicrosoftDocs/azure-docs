@@ -1,19 +1,14 @@
 ---
-title: Manage business processes
+title: Manage Business Processes
 description: Edit a business process, make a copy, discard pending changes, or undeploy a business process in Azure Business Process Tracking.
 ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/07/2024
+ms.date: 06/09/2025
 # CustomerIntent: As a business analyst or business SME, I want to learn ways to manage an existing business process, for example, edit the details, discard pending changes, copy a business process, or remove the deployment for a business process.
 ---
 
-# Manage a business process in an application group (Preview)
-
-> [!NOTE]
->
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Manage a business process in an application group
 
 After you create or deploy a business process that shows the flow through a real-world business scenario and tracks real-world data that moves through that flow, you can manage various aspects of that business process.
 

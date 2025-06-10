@@ -1,18 +1,20 @@
 ---
-title: 'Quickstart: Create a Managed Redis cache'
+title: "Quickstart: Create a Managed Redis cache"
 description: In this quickstart, learn how to create an instance of Azure Managed Redis in use the Managed tier.
-
-
+ms.date: 05/18/2025
 ms.service: azure
-ms.custom: mvc, mode-other, ignite-2024
 ms.topic: quickstart
-ms.date: 04/12/2023
+ms.custom:
+  - mvc
+  - mode-other
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# Quickstart: Create an Azure Managed Redis (preview) Instance
+# Quickstart: Create an Azure Managed Redis Instance
 
-Azure Managed Redis (preview) provides fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. There are four tiers of Azure Managed Redis (preview), each with different performance characteristics:
+Azure Managed Redis provides fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. There are four tiers of Azure Managed Redis, each with different performance characteristics:
 
 Three tiers are for in-memory data:
 

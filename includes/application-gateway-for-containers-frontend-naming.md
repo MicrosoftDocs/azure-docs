@@ -1,9 +1,9 @@
 ---
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: include
 ms.date: 08/14/2023
-ms.author: greglin
+ms:author: mbender
 ---
 > [!Note]
 > When the ALB Controller creates the Application Gateway for Containers resources in ARM, it'll use the following naming convention for a frontend resource: fe-\<8 randomly generated characters\>
