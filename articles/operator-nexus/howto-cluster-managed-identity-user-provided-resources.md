@@ -29,9 +29,8 @@ For information on using the API to update Cluster managed identities, see [Upda
 
 - [Install Azure CLI](https://aka.ms/azcli).
 - Install the latest version of the [appropriate Azure CLI extensions](./howto-install-cli-extensions.md).
-
-> [!NOTE]
-> The managed identity functionality for Log Analytics Workspace (LAW) and Key Vault exists with the 2024-10-01-preview API and will be available with the 2025-02-01 GA API.
+- Storage Account managed identity support requires the 2024-07-01 or later version of the NetworkCloud API. 
+- Key Vault and Log Analytics Workspace managed identity support requires the 2025-02-01 or later version of the NetworkCloud API.
 
 ## Operator Nexus Clusters with User Assigned Managed Identities (UAMI)
 
@@ -39,11 +38,11 @@ It's a best practice to first define all of the user provided resources (Storage
 
 The impacts of not configuring these resources for a new Cluster are as follows:
 
-- _Storage Account:_ Cluster creation fails as there is a check to ensure that `commandOutputSettings` exists on the Cluster input.
+- _Storage Account:_ Cluster creation fails as there's a check to ensure that `commandOutputSettings` exists on the Cluster input.
 - _LAW:_ Cluster deployment fails as the LAW (Log Analytics Workplace) is required to install software extensions during deployment.
 - _Key Vault:_ Credential rotations fail as there's a check to ensure write access to the user provided Key Vault before performing credential rotation.
 
-Updating the Cluster can be done at any time. Changing the LAW settings will cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW will need to be reinstalled.
+Updating the Cluster can be done at any time. Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions which use the LAW needs to be reinstalled.
 
 The following steps should be followed for using UAMIs with Nexus Clusters and associated resources.
 
@@ -235,18 +234,18 @@ Using a System Assigned Managed Identity (SAMI) follows a slightly different pat
 
 For a new Cluster, these steps need to be completed before Cluster deployment. The impacts of not configuring these resources by deployment time for a new Cluster are as follows:
 
-- _Storage Account:_ Cluster creation fails as there is a check to ensure that `commandOutputSettings` exists on the Cluster input.
+- _Storage Account:_ Cluster creation fails as there's a check to ensure that `commandOutputSettings` exists on the Cluster input.
 - _LAW:_ Cluster deployment fails as the LAW is required to install software extensions during deployment.
 - _Key Vault:_ Credential rotations fail as there's a check to ensure write access to the user provided Key Vault before performing credential rotation.
 
-Updating the Cluster can be done at any time. Changing the LAW settings will cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW need to be reinstalled.
+Updating the Cluster can be done at any time. Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions which use the LAW need to be reinstalled.
 
 The following steps should be followed for using UAMIs with Nexus Clusters and associated resources.
 
 _Cluster Creation_
 
 1. [Create the user provided resources](#create-the-user-provided-resources)
-1. [Create the Cluster with a SAMI and specify the resources that will use the SAMI](#create-the-cluster-with-a-sami)
+1. [Create the Cluster with a SAMI and specify the resources that use the SAMI](#create-the-cluster-with-a-sami)
 1. [Query the Cluster to get the SAMI](#query-the-cluster-to-get-the-sami)
 1. [Update the resources and assign the SAMI to the resources](#update-the-resources-and-assign-the-sami-to-the-resources)
 1. Deploy the Cluster
@@ -261,7 +260,7 @@ _Cluster Update_
 
 ### Create the user provided resources
 
-This section covers the user provided resource setup prior to Cluster creation. 
+This section provides external links for the user resource setup that needs to occur before Cluster creation. 
 
 #### Storage Accounts setup
 
@@ -396,7 +395,7 @@ These updates are applicable post Cluster creation or update to ensure that the 
 
 ### Update the Cluster with the user provided resources information
 
-This step is only required after updating a Cluster to add a SAMI and should be performed after updating the resources to assign the SAMI the appropriate role(s). 
+This step is only required after updating a Cluster to add a SAMI and should be performed after updating the resources to assign the SAMI the appropriate role or roles. 
 
 #### Storage Account settings
 
@@ -574,7 +573,7 @@ secret-archive-settings:
   identity-resource-id
 ```
 
-_**Notes:**_ `vault-uri` in `secret-archive-settings` is the URI for the Key Vault being specified versus the ARM resource ID that is specified for `key-vault-id`. The same managed identity that was specified for the Cluster Manager can be used on the Cluster.
+_**Notes:**_ `vault-uri` in `secret-archive-settings` is the URI for the Key Vault being specified versus the Azure Resource Manager (ARM) resource ID that is specified for `key-vault-id`. The same managed identity that was specified for the Cluster Manager can be used on the Cluster.
 
 ### Log Analytics Workspace
 
