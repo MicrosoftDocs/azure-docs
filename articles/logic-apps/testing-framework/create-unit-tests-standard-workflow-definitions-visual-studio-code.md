@@ -46,10 +46,6 @@ This guide shows how to create a unit test definition from a workflow. This defi
 - This release doesn't support the following action types:
 
   - Integration account actions
-  - Data Mapper actions
-  - Custom code actions
-  - XML actions
-  - Liquid actions
   - EDI encode and decode actions
 
 ## Review the basic concepts
