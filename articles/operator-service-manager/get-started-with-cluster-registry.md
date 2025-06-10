@@ -122,20 +122,20 @@ With HA, cluster registry and webhook pods now support a replicaset with a minim
 * Pods scale horizontally under CPU and memory load.
 
 #### Replicas
-* A cluster running multiple copies, or replicas, of an application provides the first level of redundancy. Both cluster registry and webhook are defined as 'kind:deployment' with a minimum of three replicas.
+* A cluster running multiple copies, or replicas, of an application provides the first level of redundancy. Both cluster registry and webhook are defined as 'kind:deployment' with a minimum of three replicas and maximum of 5 replicas.
 #### DeploymentStrategy
 * A rollingUpdate strategy is used to help achieve zero downtime upgrades and support gradual rollout of applications. Default maxUnavailable configuration allows only one pod to be taken down at a time, until enough pods are created to satisfying redundancy policy.
 #### Pod Disruption Budget
 * A policy disruption budget (PDB) protects pods from voluntary disruption and is deployed alongside Deployment, ReplicaSet, or StatefulSet objects. For AOSM operator pods, a PDB with minAvailable parameter of 2 is used.
 #### Pod anti-affinity
-* Pod anti-affinity controls distribution of application pods across multiple nodes in your cluster. With HA, AOSM pod anti-affinity using the following parameters:
-  * A scheduling mode is used to define how strictly the rule is enforced.
-    * requiredDuringSchedulingIgnoredDuringExecution(Hard): Pods must be scheduled in a way that satisfies the defined rule. If no topologies that meet the rule's requirements are available, the pod is not scheduled. 
-    * preferredDuringSchedulingIgnoredDuringExecution(Soft): This rule type expresses a preference for scheduling pods but doesn't enforce a strict requirement. If topologies that meet the preference criteria are available, Kubernetes schedules the pod. If no such topologies are available, the pod can still be scheduled on other nodes that do not meet the preference. 
-  * A Label Selector is used to target specific pods for which the affinity is applied.
-  * A Topology Key is used to define the node needs. 
-* Nexus node placement is spread evenly across zones by design, so spreading the pods across nodes also gives zonal redundancy.
-* AOSM operator pods use a soft anti-affinity with weight 100 and topology key based on node hostnames is used.
+* Pod anti-affinity controls distribution of application pods across multiple nodes in your cluster. With HA enabled, AOSM implements the following anti-affinity rules:
+  * A preferredDuringSchedulingIgnoredDuringExecution(Soft) rule type is used. With sof scheduling, topologies that meet the preference criteria are available, Kubernetes schedules the pod. If no such topologies are available, the pod can still be scheduled on other nodes that do not meet the preference. 
+  * A topology key is used based on the value of kubernetes.io/hostname.
+  * A weight of 100 is used.
+#### Node affinity
+Nexus node placement is spread evenly across zones by design, resulting in zonal redundancy. AOSM further spreads pods evenly across nodes, using the following rules:  
+* Prefer nodes without 'control-plane' role (weight: 10)
+* Prefer nodes with 'system' mode (weight: 20)
 
 #### Storage
 * Since AOSM edge registry has multiple replicas which are spread across nodes, the persistent volume must support ReadWriteMany (RWX) access mode. PVC “nexus-shared” volume is available on Nexus clusters and supports RWX access mode.
