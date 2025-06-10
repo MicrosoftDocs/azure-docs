@@ -4,7 +4,7 @@ title: Blob inventory performance characteristics
 titleSuffix: Azure Blob Storage
 author: aadetayo
 ms.date: 05/27/2025
-description: Best practices and guidance on configuring Azure Blob Storage inventory and factors influencing its performance.
+description: Best practices and guidance on configuring Azure Storage blob inventory and the factors that influence its performance.
 
 ms.author: normesta
 ms.service: azure-blob-storage
