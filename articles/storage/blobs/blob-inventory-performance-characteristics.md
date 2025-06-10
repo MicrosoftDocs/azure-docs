@@ -12,7 +12,7 @@ ms.topic: reference
 ms.custom: references_regions, engagement-fy23
 ---
 
-# Blob Inventory performance characteristics
+# Blob inventory performance characteristics
 
 
 Azure Blob Inventory is an essential tool for managing and tracking the objects stored in your Azure Blob Storage account. It offers a comprehensive overview of your storage resources, enabling you to make informed decisions about data management and cost optimization. 
