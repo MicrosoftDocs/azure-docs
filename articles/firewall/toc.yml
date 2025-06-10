@@ -80,6 +80,8 @@ items:
       href: premium-certificates.md
     - name: Enterprise CA Certificates
       href: premium-deploy-certificates-enterprise-ca.md
+  - name: Draft and Deploy
+    href: draft-deploy.md
   - name: To a hybrid Network
     items:
     - name: Portal

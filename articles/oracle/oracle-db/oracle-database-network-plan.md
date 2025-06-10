@@ -92,6 +92,7 @@ The following table describes required configurations of supported network featu
 When routing traffic to Oracle Database@Azure through a Network Virtual Appliance (NVA)/firewall, the User-Defined Route (UDR) prefix **must be at least as specific as the subnet delegated to the Oracle Database@Azure instance**. Broader prefixes may cause traffic to be dropped.
  
  If the delegated subnet for your instance is x.x.x.x/27, configure the UDR on the Gateway Subnet as:  
+
  | Route Prefix | Routing Outcome |
  |--------------|-----------------|
  |x.x.x.x/27 | (same as the subnet) ✅ | 

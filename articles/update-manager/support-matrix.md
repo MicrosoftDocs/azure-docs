@@ -23,8 +23,7 @@ The following types of updates are supported.
 **Operating system updates** - Azure Update Manager supports operating system updates for both Windows and Linux.
 
 >[!NOTE]
-> Update Manager doesn't support driver updates.
-
+> Update Manager allows you to view driver updates during assessment, but does not currently support installing driver updates on your machines.
 
 ## Microsoft application updates on Windows
 

@@ -89,6 +89,6 @@ This example uses the `send-one-way-request` policy to send a message to a Slack
 
 ## Related policies
 
-* [Intergration and external communication](api-management-policies.md#integration-and-external-communication)
+* [Integration and external communication](api-management-policies.md#integration-and-external-communication)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

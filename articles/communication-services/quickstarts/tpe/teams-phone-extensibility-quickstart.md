@@ -148,13 +148,6 @@ You need to assign a public switched telephone network (PSTN) number to your Res
 
 1. Also, if you plan to make outbound PSTN calls using your Resource Accounts assigned phone number, now is a good time to assign a [Microsoft Teams Calling Plan](/microsoftteams/calling-plans-for-office-365).
 
-### CCaaS Developer: Configure Call Automation to use preproduction environment 
-
-Use the following code snippet in C# to set use of preproduction environment for Teams Phone extensibility. The Next-PMA preprod environment has the latest code base and bug fixes. 
-
-```csharp
-CallAutomationClient callAutomationClient = new CallAutomationClient(new Uri("https://nextpma.plat.skype.com:6448"), acsConnectionString); 
-```
 
 ### CCaaS Developer: Get Resource Account Information
 
