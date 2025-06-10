@@ -87,16 +87,6 @@ For most VPN gateways, you can upgrade a gateway SKU. For more information, see 
 > [!NOTE]
 > If you're working with a legacy gateway SKU (Standard and High Performance), see [Managing Legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
 
-### Considerations
-
-There are many things to consider when moving to a new gateway SKU. This section outlines the main items and also provides a table that helps you select the best method to use.
-
-[!INCLUDE [resize SKU restrictions](../../includes/vpn-gateway-sku-resize-restrictions.md)]
-
-The following table helps you understand the required method to move from one SKU to another.
-
-[!INCLUDE [resize SKU methods table](../../includes/vpn-gateway-sku-resize-methods-table.md)]
-
 ## Next steps
 
 For more information about available connection configurations, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
