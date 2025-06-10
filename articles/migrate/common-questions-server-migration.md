@@ -400,7 +400,8 @@ Azure Migrate doesn't support rollback now, which means after users migrate, the
 
 ## What strategies do I use to reduce downtime during migration?
 
-> [NOTE!] **Tool**: Azure Migrate: Server Migration.
+> [!Note]
+>  **Tool**: Azure Migrate: Server Migration.
 
 | **Practice** | **How it helps** | **Benefit** |
 | --- | --- | --- |
