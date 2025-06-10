@@ -36,7 +36,7 @@ The total number of objects scanned based on an inventory rule is a key factor i
 
 The chosen export format for an inventory report (CSV or Apache Parquet) can influence performance. While Parquet is optimized for fast data processing, it introduces overhead that may slow down report generation compared to CSV.
 
-### Large Number of Soft Deleted Objects
+### Large number of soft-deleted objects
 
 Soft-deleted objects, though not permanently removed, are still included in inventory scans. A high volume of these objects can add to processing time and reduce performance.
 By considering these factors, you can enhance the performance of your Inventory runs and have more efficient data management experience.
