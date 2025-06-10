@@ -548,6 +548,8 @@ New-AzLoadBalancer @lb
 ---
 
 ## Add network virtual appliances to the Gateway Load Balancer backend pool
+> [!NOTE]
+> If leveraging your own custom network virtual appliance in the backend pool of a Gateway Load Balancer, please ensure the MTU of all NVA virtual machines are raised to a minimum of 1550 bytes to accomodate for the VXLAN encapsulated headers. This will allow source packets up to the limit of 1500 byte packets in Azure, avoiding fragmentation.
 
 # [Azure portal](#tab/azureportal)
 
