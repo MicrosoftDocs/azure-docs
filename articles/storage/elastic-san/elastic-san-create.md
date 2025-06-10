@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN with the Azure portal, Azu
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 10/24/2024
+ms.date: 06/10/2025
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -59,6 +59,7 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 | `<UnusedSizeTiB>`                | The capacity (in TiB) on your Elastic SAN that you want to keep free and unused. If you use more space than this amount, the scale-up operation is automatically triggered, increasing the size of your SAN. This parameter is optional but is required to enable autoscaling. |
 |`<IncreaseCapacityUnitByTiB>`     | This parameter sets the TiB of additional capacity units that your SAN scales up by when autoscale gets triggered. This parameter is optional but is required to enable autoscaling. |
 |`<CapacityUnitScaleUpLimit>`      | This parameter sets the maximum capacity (size) that your SAN can grow to using autoscaling. Your SAN won't automatically scale past this size. This parameter is optional but is required to enable autoscaling. |
+|`<-PublicNetworkAccess>`          | This parameter allows or disallows public network access to ElasticSan. It's optional, but if passed in must be `Enabled` or `Disabled`. Enable if you're using service endpoints, disable if you're exclusively using private endpoints.|
 
 The following command creates an Elastic SAN that uses locally redundant storage without autoscaling enabled.
 
@@ -75,7 +76,7 @@ $Zone       = <Zone>
 Connect-AzAccount
 
 # Create the SAN.
-New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS
+New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS -PublicNetworkAccess Disabled
 ```
 
 The following command creates an Elastic SAN that uses locally redundant storage with autoscaling enabled.
@@ -97,7 +98,7 @@ $CapacityUnitScaleUpLimit = <CapacityUnitScaleUpLimit>
 Connect-AzAccount
 
 # Create the SAN.
-New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS -AutoScalePolicyEnforcement $AutoScalePolicyEnforcement -UnusedSizeTiB $UnusedSizeTiB -IncreaseCapacityUnitByTiB $IncreaseCapacityUnitByTiB -CapacityUnitScaleUpLimit $CapacityUnitScaleUpLimit
+New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS -AutoScalePolicyEnforcement $AutoScalePolicyEnforcement -UnusedSizeTiB $UnusedSizeTiB -IncreaseCapacityUnitByTiB $IncreaseCapacityUnitByTiB -CapacityUnitScaleUpLimit $CapacityUnitScaleUpLimit -PublicNetworkAccess Disabled
 ```
 
 The following command creates an Elastic SAN that uses zone-redundant storage, without enabling autoscale.
@@ -111,7 +112,7 @@ $VolumeName = "<VolumeName>"
 $Location   = "<Location>"
 
 # Create the SAN
-New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -Location $Location -SkuName Premium_ZRS
+New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -Location $Location -SkuName Premium_ZRS -PublicNetworkAccess Disabled
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -133,7 +134,7 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 |`<IncreaseCapacityUnitByTiB>`     | This parameter sets the TiB of additional capacity units that your SAN scales up by when autoscale gets triggered. This parameter is optional but is required to enable autoscaling. |
 |`<CapacityUnitScaleUpLimit>`      | This parameter sets the maximum capacity (size) that your SAN can grow to using autoscaling. Your SAN won't automatically scale past this size. This parameter is optional but is required to enable autoscaling. |
 |`<CapacityUnitScaleUpLimit>`      | This parameter sets the maximum capacity (size) that your SAN can grow to using autoscaling. Your SAN won't automatically scale past this size. This parameter is optional but is required to enable autoscaling. |
-|`<public-network-access>`         | This parameter allows or disallows public network access to ElasticSan. Optional, but if passed in must be `Enabled` or `Disabled`. Enable if you're using service endpoints, disable if you're only using private endpoints.|
+|`<public-network-access>`         | This parameter allows or disallows public network access to ElasticSan. It's optional, but if passed in must be `Enabled` or `Disabled`. Enable if you're using service endpoints, disable if you're exclusively using private endpoints.|
 
 The following command creates an Elastic SAN that uses locally redundant storage without autoscaling enabled.
 
@@ -198,24 +199,40 @@ Now that you've configured the basic settings and provisioned your storage, you 
 
 1. Select **+ Create volume group** and name your volume group.
     - The name must be between 3 and 63 characters long. The name can only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The volume group name can't be changed once created.
+1. Generally, you should enable **CRC Protection**, unless you're going to connect this volume group to Azure VMware Solution or are connecting to the volume group with clients using Fedora or its downstream Linux distributions such as RHEL, CentOS, etc.
+
+    > [!NOTE]
+    > CRC protection isn't currently available in North Europe and South Central US.
 
 1. Select **Next : Volumes**
+
+:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-create-volume-group.png" alt-text="Screenshot of CRC protection enablement on new volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-create-volume-group.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
 The following sample command creates an Elastic SAN volume group in the Elastic SAN you created previously. Use the same variables and values you defined when you [created the Elastic SAN](#create-the-san).
 
+> [!IMPORTANT]
+> `-EnforceDataIntegrityCheckForIscsi` determines whether CRC protection is enabled or not. Generally, you should enable it, unless you're going to connect this volume group to Azure VMware Solution, or are connecting to the volume group with clients using Fedora or its downstream Linux distributions such as RHEL, CentOS, etc. The script has it disabled, set it to `$true` if you want to enable it.
+> 
+> CRC protection isn't currently available in North Europe and South Central US.
+
 ```azurepowershell
 # Create the volume group, this script only creates one.
-New-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName -Name $EsanVgName
+New-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName -Name $EsanVgName -EnforceDataIntegrityCheckForIscsi $false
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 The following sample command creates an Elastic SAN volume group in the Elastic SAN you created previously. Use the same variables and values you defined when you [created the Elastic SAN](#create-the-san).
 
+> [!IMPORTANT]
+> `--data-integrity-check` determines whether CRC protection is enabled or not. Generally, you should enable it, unless you're going to connect this volume group to Azure VMware Solution, or are connecting to the volume group with clients using Fedora or its downstream Linux distributions such as RHEL, CentOS, etc. The script has it disabled, set it to `true` if you want to enable it.
+> 
+> CRC protection isn't currently available in North Europe and South Central US.
+
 ```azurecli
-az elastic-san volume-group create --elastic-san-name $EsanName -g $RgName -n $EsanVgName 
+az elastic-san volume-group create --elastic-san-name $EsanName -g $RgName -n $EsanVgName --data-integrity-check false
 ```
 
 ---

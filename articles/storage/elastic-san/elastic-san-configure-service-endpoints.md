@@ -218,7 +218,7 @@ All incoming requests for data over a service endpoint are blocked by default. O
 You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI.
 
 > [!IMPORTANT]
-> If you want to enable access to your storage account from a virtual network/subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Microsoft Entra tenants.
+> To enable access to your storage account from a virtual network/subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal doesn't show subnets in other Microsoft Entra tenants.
 >
 > If you delete a subnet that has been included in a network rule, it will be removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
 
