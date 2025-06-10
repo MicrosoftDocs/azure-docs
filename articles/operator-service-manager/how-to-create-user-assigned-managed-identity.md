@@ -12,24 +12,22 @@ ms.service: azure-operator-service-manager
 
 In this how-to guide, you learn how to:
 - Create a User Assigned Managed Identity (UAMI) for your Site Network Service (SNS).
-- Assign that User Assigned Managed Identity permissions.
-
-The requirement for a User Assigned Managed Identity and the required permissions depend on the Network Service Design (NSD) and must have been communicated to you by the Network Service Designer.
+- Assign that User Assigned Managed Identity permissions for use by Azure Operator Service Manager (AOSM)
 
 > [!WARNING]
-> UAMI is required where an expected SNS operation may run for 4 or more hours.  If UAMI isn't used during long running SNS operations, the SNS may report a false failed status before component operations complete.
+> UAMI is required where an expected SNS operation may run for four or more hours. If UAMI isn't used during long running SNS operations, the SNS may report a false failed status before component operations complete.
 
 ## Prerequisites
 
-- You must have created a custom role via [Create a custom role](how-to-create-custom-role.md).  This article assumes that you named the custom role 'Custom Role - AOSM Service Operator access to Publisher.'
+- You must create a custom role via [Create a custom role](how-to-create-custom-role.md). This article assumes that you named the custom role 'Custom Role - AOSM Service Operator access to Publisher.'
 
-- Your Network Service Designer must have told you which other permissions your Managed Identity requires and which Network Function Definition Version (NFDV) your SNS uses.
+- You must work with your Network Service Designer to understand the permissions your Managed Identity requires and which Network Function Definition Version (NFDV) your SNS uses.
 
-- To perform this task, you need either the 'Owner' or 'User Access Administrator' role over the Network Function Definition Version resource from your chosen Publisher. You also must have a Resource Group over which you have the 'Owner' or 'User Access Administrator' role assignment in order to create the Managed Identity and assign it permissions.
+- You need either the 'Owner' or 'User Access Administrator' role over the Network Function Definition Version resource from your chosen Publisher. You also must have a Resource Group over which you have the 'Owner' or 'User Access Administrator' role assignment.
 
 ## Create a UAMI
 
-Firust, create a UAMI. Refer to [Create a User Assigned Managed Identity for your SNS](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) for details.
+First, create a UAMI. Refer to [Create a User Assigned Managed Identity for your SNS](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) for details.
 
 ## Assign custom role to UAMI
 
@@ -37,17 +35,17 @@ Next, assign a custom role to your new UAMI. Choose a scope-based approach and t
 
 ### Choose scope for assigning custom role
 
-Either assign the custom role individually to a child resources, like a NFDV, or to a parent resource, such as the publisher resource group or Network Function Definition Group (NFDG). Assigning the role to a parent resource grants equal access over all child resources. For proper SNS operations, either the parent resource must include all below resources, or the following resources must be assigned the custom role individually:
+Either assign the custom role individually to a child resources, like an NFDV, or to a parent resource, such as the publisher resource group or Network Function Definition Group (NFDG). Assigning the role to a parent resource grants equal access over all child resources. For proper SNS operations, either the parent resource must include all below resources, or the following resources must be assigned the custom role individually:
 
-- All the Network Function Definition Version(s)
-- All the Network Function Definition Groups and Versions.
-- All the Network Service Design Groups and Versions.
-- All the Configuration Group Schemas.
+- All the Network Function Definition Versions (NSDV).
+- All the Network Function Definition Groups (NFDG) and Versions 
+- All the Network Service Design Groups (NSD) and Versions.
+- All the Configuration Group Schemas (CGS).
 - All the custom locations.
 
-### Allow proper permissions for the choosen scope
+### Allow proper permissions for the chosen scope
 
-The UAMI needs the following indivudal permissions to execute required SNS operations:
+The UAMI needs the following individual permissions to execute required SNS operations:
 
 - On the NFDV
   - Microsoft.HybridNetwork/publishers/networkFunctionDefinitionGroups/networkFunctionDefinitionVersions/use/**action**
@@ -66,11 +64,11 @@ The UAMI needs the following indivudal permissions to execute required SNS opera
 If using a parent resource scope approach, then the required permissions would be applied to the parent resource.  
 
 > [!NOTE]
-> Do not provide write or delete access to any of these publisher resources.
+> Don't provide write or delete access to any of these publisher resources.
 
 ### Assign custom role
 
-1. Access the Azure portal and open your chosen resource scope; eg. Publisher Resource Group or Network Function Definition Version.
+1. Access the Azure portal and open your chosen resource scope; for example, Publisher Resource Group or Network Function Definition Version.
 
 2. In the side menu of this item, select **Access Control (IAM)**.
 
