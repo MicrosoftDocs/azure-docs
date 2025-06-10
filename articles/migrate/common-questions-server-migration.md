@@ -400,9 +400,6 @@ Azure Migrate doesn't support rollback now, which means after users migrate, the
 
 ## What strategies do I use to reduce downtime during migration?
 
-> [!Note]
->  **Tool**: Azure Migrate: Server Migration.
-
 | **Practice** | **How it helps** | **Benefit** |
 | --- | --- | --- |
 | Use Agent-Based Replication for Continuous Sync | It continuously replicates on-premises VMs to Azure| This helps you cut over with minimal data loss (RPO of a few seconds) and reduces downtime (RTO of a few minutes). |
