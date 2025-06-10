@@ -76,5 +76,5 @@ By following these best practices, you can enhance the performance of your blob 
 
 ## Next Steps
 - [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
--	articles/storage/blobs/calculate-blob-count-size.yml
+-	[Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.yml)
 -	articles/storage/blobs/storage-blob-calculate-container-statistics-databricks.md 
