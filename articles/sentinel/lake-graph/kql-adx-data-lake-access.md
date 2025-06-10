@@ -18,7 +18,7 @@ Azure Data Explorer is a fast and highly scalable data analytics service designe
 
 Use Azure Data Explorer to interactively run KQL queries against all security data stored in the data lake. This article explains how to set up a connection and run a sample query using Azure Data Explorer. For more information about Azure Data Explorer, see [Azure Data Explorer documentation](/azure/data-explorer/?tabs=azure-data-explorer).
 
-The Sentinel Lake explorer is a tool is another KQL tool that allows you to explore and visualize data stored in the Microsoft Sentinel data lake from within the Defender portal. For more information, see [Sentinel lake explorer](sentinel-lake-explorer.md).
+The Sentinel lake explorer KQL query tool is another KQL tool that allows you to explore and visualize data stored in the Microsoft Sentinel data lake from within the Defender portal and create jobs to promote data to the Analytics tier. For more information, see [Microsoft Sentinel lake explorer KQL queries](kql-queries-jobs.md).
 
 For more information about KQL, see [Kusto Query Language documentation](/kusto/query/syntax-conventions?view=azure-data-explorer&preserve-view=true)
 
@@ -34,6 +34,8 @@ Ensure that you have access to your account credentials to sign in to Azure Data
 Any of the following roles grants access to the data lake 
 + Global Reader
 + Security Reader
+
+For more information about roles and permissions, see [Roles and permissions for the Microsoft Sentinel data lake](./sentinel-lake-permissions.md).
 
 
 ## Connect to the data lake via Azure Data Explorer
@@ -82,7 +84,8 @@ Select **Run** to run the query and review the results.
 
 Once you have verified that your connection is working, consider exploring additional KQL capabilities to further analyze and interact with your security data. For more detailed information on KQL syntax and features, see the [Kusto Query Language documentation](/kusto/query/?view=azure-data-explorer).
 
-
+> [!IMPORTANT]
+> When running KQL queries against the Microsoft Sentinel data lake in Azure data explorer, you must use the `external_table` function to access the data. You dont need to use `external_table` when using KQL queries in the Microsoft Sentinel lake explorer.
 
 ## Sample KQL queries
  
@@ -142,9 +145,7 @@ union isfuzzy=true aadSignin, aadNonInt
 
 ## Next steps
 
-+ [KQL and machine learning in the Microsoft Sentinel data lake](kql-and-machine-learning.md)
 + [Sentinel lake explorer](sentinel-lake-explorer.md)
 + [Sentinel lake notebooks](sentinel-lake-notebooks.md)
-+ [Sentinel lake jobs](sentinel-lake-jobs.md)
 + [Kusto Query Language documentation](/kusto/query/syntax-conventions?view=azure-data-explorer&preserve-view=true)
 + [Azure Data Explorer documentation](/azure/data-explorer/?tabs=azure-data-explorer)
