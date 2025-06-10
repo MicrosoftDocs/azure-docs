@@ -17,6 +17,8 @@ ms.custom: devx-track-python, mode-api, passwordless-python
 > - [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 > - [Python](service-bus-python-how-to-use-queues.md)
 
+This article provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find prebuilt JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples). 
+
 In this tutorial, you:
 
 > [!div class="checklist"]
@@ -27,12 +29,9 @@ In this tutorial, you:
 >   - Send a set of messages to the queue.
 >   - Receive those messages from the queue.
 
-> [!NOTE]
-> This article provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find prebuilt JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples). 
-
 ## Prerequisites
 
-If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) to follow along with this article.
+If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you begin.
 
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Monthly Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 

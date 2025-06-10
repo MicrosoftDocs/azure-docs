@@ -26,7 +26,7 @@ To create a namespace:
 
    1. For **Subscription**, choose an Azure subscription in which to create the namespace.
    1. For **Resource group**, choose an existing resource group, or create a new one.      
-   1. Enter a **Namespace name**. The namespace name should adhere to the following naming conventions:
+   1. Enter a **Namespace name** that meets the following naming conventions:
 
       - The name must be unique across Azure. The system immediately checks to see if the name is available. 
       - The name length is at least 6 and at most 50 characters.

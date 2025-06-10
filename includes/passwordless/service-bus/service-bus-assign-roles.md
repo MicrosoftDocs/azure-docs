@@ -44,5 +44,5 @@ Add your Microsoft Entra user name to the **Azure Service Bus Data Owner** role 
 
 1. Use the search box to filter the results to the desired role. For this example, search for `Azure Service Bus Data Owner` and select the matching result. Then choose **Next**.
 1. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
-1. In the dialog box, search for your Microsoft Entra username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog. 
+1. In the dialog, search for your Microsoft Entra username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog. 
 1. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
