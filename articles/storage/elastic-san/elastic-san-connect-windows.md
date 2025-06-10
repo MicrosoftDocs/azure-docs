@@ -83,7 +83,7 @@ Verify the number of sessions your volume has with either `iscsicli SessionList`
 You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
 
 > [!NOTE]
-> Use the `-NumSession` parameter to customize the number of sessions. The parameter accepts values from 1 to 32, and has a default value of 32.
+> Use the `-NumSession` parameter to set the number of sessions. The parameter accepts values from 1 to 32, and has a default value of 32.
 
 
 ```bash
