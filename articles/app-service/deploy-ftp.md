@@ -14,7 +14,7 @@ ms.author: cephalin
 This article shows you how to use File Transfer Protocol (FTP) or File Transfer Protocol Secure (FTPS) to deploy your web app, mobile app backend, or API app to [Azure App Service](overview.md). No configuration is necessary to enable FTP or FTPS app deployment. The FTP/S endpoint for your app is already active.
 
 > [!NOTE]
-> Both SCM Basic Auth Publishing Credentials and FTP Basic Auth Publishing Credentials must be enabled for FTP/S deployment to work. When [basic authentication is disabled](configure-basic-auth-disable.md), FTP/S deployment doesn't work, and you can't view or configure FTP/S credentials in the app's **Deployment Center**.
+> Both **SCM Basic Auth Publishing Credentials** and **FTP Basic Auth Publishing Credentials** must be enabled for FTP/S deployment to work. When [basic authentication is disabled](configure-basic-auth-disable.md), FTP/S deployment doesn't work, and you can't view or configure FTP/S credentials in the app's **Deployment Center**.
 
 ## Get deployment credentials
 
@@ -22,7 +22,7 @@ To get credentials for deployment, follow the instructions at [Configure deploym
 
 For application-scope credentials, the FTP/S username format is `<app-name>\$<app-name>`. For user-scope credentials, the FTP/S username format is `<app-name>\<username>`. App Service FTP/S endpoints are shared among apps, and because user-scope credentials aren't linked to a specific resource, you must prepend the username with the app name.
 
-## Get the FTP endpoint
+## Get the FTP/S endpoint
 
 To get the FTP/S endpoint:
 
@@ -38,7 +38,7 @@ Run the following [az webapp deployment list-publishing-profiles](/cli/azure/web
 az webapp deployment list-publishing-profiles --name <app-name> --resource-group <resource-group-name> --query "[?ends_with(profileName, 'FTP')].{profileName: profileName, publishUrl: publishUrl}"
 ```
 
-Each app has two FTP/S endpoints, read-write and read-only. The read-only endpoint has a `profileName` containing `ReadOnly` and is for data-recovery scenarios. For FTP/S deployment, copy the read-write URL.
+Each app has two FTP/S endpoints, read-write and read-only. The read-only endpoint is for data-recovery scenarios and has a `profileName` containing `ReadOnly`. For FTP/S deployment, copy the read-write URL.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -83,7 +83,7 @@ To disable unencrypted FTP:
 
 1. If you select **FTPS only**, be sure TLS 1.2 or higher is enforced for **Minimum Inbound TLS Settings**. TLS 1.0 and 1.1 aren't supported for **FTPS only**.
 
-1. Select **Save**.
+1. Select **Save** at the top of the page.
 
 # [Azure CLI](#tab/cli)
 
@@ -118,12 +118,12 @@ Azure App Service supports connecting via both active and passive modes. Passive
 
 ### How can I determine what method was used to deploy my app?
 
-You can find out how an app was deployed by checking the application settings under **Settings** > **Environmental variables** in the Azure portal. Select the **App settings** tab.
+You can find out how an app was deployed by checking the application settings on its Azure portal page. Select **Environmental variables** under **Settings** in the left navigation menu. On the **App settings** tab:
 
-- If the app was deployed using an external package URL the `WEBSITE_RUN_FROM_PACKAGE` setting appears in the application settings with a URL value.
+- If the app was deployed using an external package URL, the `WEBSITE_RUN_FROM_PACKAGE` setting appears in the application settings with a URL value.
 - If the app was deployed using ZIP deploy, the `WEBSITE_RUN_FROM_PACKAGE` setting appears with a value of `1`.
 
-If the app was deployed using Azure DevOps, you can see the deployment history in the Azure DevOps portal. If Azure Functions Core Tools was used, you can see the deployment history in the Azure portal.
+If you deployed the app using Azure DevOps, you can see the deployment history in the Azure DevOps portal. If you used Azure Functions Core Tools, you can see the deployment history in the Azure portal.
 
 <a name="what-can-happen-to-my-app-during-deployment"></a>
 [!INCLUDE [What can happen to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
@@ -138,23 +138,23 @@ The first step for troubleshooting FTP/S deployment is distinguishing between de
 
 For more information, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
-### Why can't I FTP and publish my code?
+### Why can't I FTP/S and publish my code?
 
-Check that you entered the correct [hostname](#get-ftp-endpoint) and [credentials](#get-deployment-credentials). Check also that the following FTP/S ports on your machine aren't blocked by a firewall:
+Check that you entered the correct [hostname](#get-the-ftps-endpoint) and [credentials](#get-deployment-credentials). Also make sure a firewall isn't blocking the following FTP/S ports on your machine:
 
-- FTP/S control connection port: 21, 990
-- FTP/S data connection port: 989, 10001-10300
+- FTP/S control connection ports: `21`, `990`
+- FTP/S data connection ports: `989`, `10001-10300`
  
 ### Why does my connection fail when attempting to connect over FTPS using explicit encryption?
 
 FTPS allows establishing an explicit or implicit TLS secure connection.
 
- - If you connect with explicit encryption, the connection is established via port **21**.
- - If you connect with implicit encryption, the connection is established via port **990**.
+ - If you connect with explicit encryption, the connection is established via port `21`.
+ - If you connect with implicit encryption, the connection is established via port `990`.
 
-The URL format you use can affect your connection success, depending on your client application. The portal might show the URL as `ftps://`, but if the URL you connect with starts with `ftp://`, the connection is implied to be on port **21**. If the URL starts with `ftps://`, the connection is implied to be implicit and on port **990**.
+The URL format you use can affect your connection success, and depends on your client application. The portal shows the URL as `ftps://`, but if the URL you connect with starts with `ftp://`, the connection is implied to be on port `21`. If the URL starts with `ftps://`, the connection is implicit and implied to be on port `990`.
 
-Make sure not to mix the settings, such as attempting to connect to `ftps://` by using port **21**. This setting fails to connect even by using explicit encryption, because an explicit connection starts as a plain FTP connection before the `AUTH` method.
+Make sure not to mix the settings, such as attempting to connect to `ftps://` by using port `21`. This setting fails to connect even using explicit encryption, because an explicit connection starts as a plain FTP connection before the `AUTH` method.
 
 ## Related resources
 
