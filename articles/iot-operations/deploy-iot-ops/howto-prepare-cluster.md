@@ -281,7 +281,7 @@ To prepare a TKGm workload cluster:
 ```bash
 mkdir ~/.kube
 sudo cp /etc/kubernetes/admin.conf ~/.kube/config
-sudo chown <user>:<user> ~/.kube/config
+sudo chown <user>:<group> ~/.kube/config
 kubectl get pods -A
 ```
 
@@ -303,12 +303,6 @@ If at any point you get an error that says *Your device is required to be manage
 1. Register the required resource providers in your subscription.
 
 
-```
-Note
-This step only needs to be run once per subscription. To register resource providers, you need permission to do the /register/action operation, which is included in subscription Contributor and Owner roles. For more information, see Azure resource providers and types.
-```
-
-
 ```azurecli
 az provider register -n "Microsoft.ExtendedLocation"
 az provider register -n "Microsoft.Kubernetes"
@@ -325,16 +319,7 @@ az provider register -n "Microsoft.SecretSyncController"
 az connectedk8s connect --name <CLUSTER_NAME> -l <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity --disable-auto-upgrade
 ```
 
-To prevent unplanned updates to Azure Arc and the system Arc extensions that Azure IoT Operations uses as dependencies, this command disables autoupgrade. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade) as needed.
-
-**Important**
-
-If your environment uses a proxy server or Azure Arc Gateway, modify the `az connectedk8s connect` command with your proxy information:
-
-   1. Follow the instructions in either **[Connect using an outbound proxy server](/azure/azure-arc/kubernetes/quickstart-connect-cluster)** or **[Onboard Kubernetes clusters to Azure Arc with Azure Arc Gateway](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking)**.
-   1. Add `169.254.169.254` to the `--proxy-skip-range` parameter of the `az connectedk8s connect` command. **[Azure Device Registry](/editor/meenag16/azure-docs-pr/articles%2Fiot-operations%2Fdeploy-iot-ops%2Fhowto-prepare-cluster.md/docs-editor%2Foverview-iot-operations-1748623408/discover-manage-assets/overview-manage-assets.md)** uses this local endpoint to get access tokens for authorization.
-      
-Azure IoT Operations doesn't support proxy servers that require a trusted certificate.
+To prevent unplanned updates to Azure Arc and the system Arc extensions that Azure IoT Operations uses as dependencies, this command disables autoupgrade. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade) as needed. 
 
 1. Get the cluster's issuer URL.
 
@@ -349,7 +334,7 @@ Save the output of this command to use in the next steps.
 
 
 ```azurecli
-kubectl edit cluster <WORKLOAD_CLUSTER_NAME> 
+kubectl edit cluster <CLUSTER_NAME> 
 ```
 
 1. Add the following content to the `config.yaml` file, replacing the <OIDC_ISSUER_URL> placeholder with your cluster's issuer URL.
