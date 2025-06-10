@@ -20,7 +20,7 @@ Azure Storage blob inventory is an essential tool for managing and tracking the 
 After you enable blob inventory reports, objects in your storage account are periodically scanned using the rules that are defined in the inventory policy. The time it takes to generate an inventory report depends on several factors. These factors include the number of objects, the directory structure, the filters applied through rule subtypes, the customer workload on the storage account, the availability of storage resources and more. In some cases, depending on these factors, it may take multiple days to finish processing all the objects in the storage account. The performance of inventory can also vary between scans and sometimes during the scan as well. 
 
 
-## Factors influencing Blob Inventory performance
+## Factors that influence blob inventory performance
 
 When using blob inventory to generate an inventory report, several key factors can impact its performance. Understanding these factors can help you optimize inventory processes and enable efficient data management. 
 
