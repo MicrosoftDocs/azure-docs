@@ -24,7 +24,7 @@ After you enable blob inventory reports, objects in your storage account are per
 
 When using blob inventory to generate an inventory report, several key factors can impact its performance. Understanding these factors can help you optimize inventory processes and enable efficient data management. 
 
-### Distribution of Objects in hierarchical namespace enabled accounts
+### Distribution of objects in hierarchical namespace-enabled accounts
 
 The distribution of objects within a hierarchical namespace-enabled account can significantly affect inventory performance. Blob Inventory scans one directory at a time, completing it before moving to the next. Therefore, a high number of directories, especially with sparse object distribution and deep nesting, can increase the time required to generate the inventory report. 
 
