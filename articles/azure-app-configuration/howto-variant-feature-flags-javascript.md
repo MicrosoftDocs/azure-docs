@@ -120,7 +120,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     npm create vite@latest client
     ```
 
-    This will create a modern React app in the `client` directory.
+    This creates a modern React app in the `client` directory.
 
 1. Switch to the *client* folder and install the required dependencies
 
@@ -380,7 +380,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     npm run build
     ```
 
-1. Go back to the root folder, launch the backend.
+1. Go back to the root folder and launch the backend.
 
 
     ```bash
@@ -391,11 +391,11 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
     :::image type="content" source="media/howto-variant-feature-flags-javascript/default-variant.png" alt-text="Screenshot of the Quote of the day app, showing no greeting message for the user.":::
 
-1. You can use `userId` query parameter in the url to specify the user id. Visit `localhost:8080/?userId=UserA` and you will see a long greeting message.
+1. You can use `userId` query parameter in the url to specify the user id. Visit `localhost:8080/?userId=UserA` and you see a long greeting message.
 
     :::image type="content" source="media/howto-variant-feature-flags-javascript/long-variant.png" alt-text="Screenshot of the Quote of the day app, showing long greeting message for the user.":::
 
-1. Try different user IDs to see how the variant feature flag changes the greeting message for different segments of users. Visit `localhost:8080/?userId=UserB` and you will see a shorter greeting message.
+1. Try different user IDs to see how the variant feature flag changes the greeting message for different segments of users. Visit `localhost:8080/?userId=UserB` and you see a shorter greeting message.
 
     :::image type="content" source="media/howto-variant-feature-flags-javascript/simple-variant.png" alt-text="Screenshot of the Quote of the day app, showing simple greeting message for the user.":::
 
