@@ -61,7 +61,7 @@ After creating or modifying the file, restart Multipath I/O. On Ubuntu, the comm
 
 ## Attach Volumes to the client
 
-You can use the following script to create your connections. To execute it, you will require the following parameters:
+You can use the following script to create your connections. o execute it, collect or determine the following parameters: 
 - subscription: Subscription ID
 - g: Resource Group Name
 - e: Elastic SAN Name
@@ -77,12 +77,14 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 
 You can verify the number of sessions using `sudo multipath -ll`
 
-### Number of sessions
-You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits.
+### Set session number
 
-You can customize the session count by following the instructions below:  
+Use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits.
 
-The script accepts the `--num-of-sessions` argument, allowing you to define the number of sessions per volume. 
+You can change the session count by running the script using the following instructions:  
+
+> [!NOTE]
+> Use `-n` to set the number of sessions. The parameter accepts values from 1 to 32, and has a default value of 32.
 
 ```bash
 python3 connect_for_documentation.py \ 
@@ -99,8 +101,6 @@ python3 connect_for_documentation.py \
 
 -s <value>
 ```
-
-**Note!** Valid values for `-n` range from 1 to 32. If not specified, the default of 32 sessions is used. 
 
 ## Next steps
 

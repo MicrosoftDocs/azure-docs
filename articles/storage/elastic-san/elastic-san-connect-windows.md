@@ -61,7 +61,7 @@ mpclaim -L -M 2
 
 ## Attach volumes to the client
 
-Use the following script to create your connections. To execute it, you need the following parameters: 
+Use the following script to create your connections. To execute it, collect or determine the following parameters: 
 - $rgname: Resource Group Name
 - $esanname: Elastic SAN Name
 - $vgname: Volume Group Name
