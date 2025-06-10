@@ -47,4 +47,24 @@ If you are a cloud engineer and want to restrict the creation of new Communities
 
 Currently, Azure Virtual Enclaves recommends following the [Tutorial: Disallow resource types in your cloud environment](/azure/governance/policy/tutorials/disallowed-resources) and defining the business logic your organization desires. The `Not allowed resource types` and `Allowed resource types` policies are linked in the tutorial.
 
-As an example, to prevent deploying Communities to a Subscription, you would assign the `Not allowed resource type` [policy definition](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6c112d4e-5bc7-47ae-a041-ea2d9dccd749) while including `Microsoft.Mission/communities` in the parameter list of not allowed resource types. 
+As an example, to prevent deploying Communities to a Subscription, you would assign the `Not allowed resource type` [policy definition](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6c112d4e-5bc7-47ae-a041-ea2d9dccd749) while including `Microsoft.Mission/communities` in the parameter list of not allowed resource types.
+
+## Billing
+Questions related to Azure Virtual Enclaves billing.
+
+### How does billing work for Azure Virtual Enclaves?
+You pay for:
+1.	Each enclave on an hourly basis
+2.	The usage for any resources managed by Azure Virtual Enclaves to create the community or enclave boundaries and 
+3.	Any workloads the customer deploys within their enclaves.
+
+Managed resources for Azure Virtual Enclaves includes:
+  - [Virtual WAN](../virtual-wan/virtual-wan-about.md) required for the community
+  - [Azure Firewall](../firewall/overview.md) required for the community
+  - [Virtual Network](../virtual-network/virtual-networks-overview.md) required for the enclave
+  - [Azure DNS](../dns/private-dns-overview.md) required for the enclave
+  - [LogA](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview) user selectable for community, enclave, or both.
+
+Visit the Azure Virtual Enclaves community and enclave documentation for a complete list of managed resources and visit the Azure Virtual Enclaves pricing page for current costs.
+
+The cost of the Enclave includes the community, community endpoints, enclave endpoints, enclave connections, and transit hub.
