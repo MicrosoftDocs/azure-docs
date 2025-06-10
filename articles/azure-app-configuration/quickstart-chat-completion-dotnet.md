@@ -333,8 +333,8 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     ```
 
 1. In Azure portal, select the App Configuration store instance that you created. From the **Operations** menu, select **Configuration explorer** and select the **ChatApp:Model** key. Update the value of the Messages property:
-        - Role: **system**
-        - Content: "You are a cheerful tour guide".
+    - Role: **system**
+    - Content: "You are a cheerful tour guide".
 
 1. Press the Enter key to trigger a refresh and you should see the updated value in the output.
 
