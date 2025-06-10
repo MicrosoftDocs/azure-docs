@@ -62,7 +62,7 @@ Instead of running inventory on the entire storage account, use a prefix match f
 ### Select relevant fields
 Customize your inventory reports by selecting only the relevant fields you need. Doing this reduces the amount of data processed and exported, leading to quicker report generation, and easier analysis. To learn more about the inventory schema fields, see [Custom schema fields supported for blob inventory](blob-inventory.md#custom-schema-fields-supported-for-blob-inventory)
 
-### Subtype Inclusion: Deleted Objects, Snapshots, and Versions
+### Subtype inclusion: deleted objects, snapshots, and versions
 While including these subtypes can provide a more comprehensive view of your storage account, it's important to assess whether they're essential for your audit and management needs. If they aren't critical, excluding them can help improve the performance and efficiency of your report generation process. To identify objects deleted in recent inventory runs, compare the blob names from the current run with those from a previous run. The difference can provide a list of recently deleted objects.
 
 ### Subscribe to Blob Inventory Events
