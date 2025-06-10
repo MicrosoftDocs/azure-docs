@@ -62,7 +62,7 @@ A gateway SKU migration process is similar to a resize. It requires fewer steps 
 
 Resizing a gateway SKU incurs less downtime and fewer configuration changes than the process to change to a new SKU. However, there are limitations. You can only resize your gateway to a gateway SKU within the same SKU family (except for the Basic SKU).
 
-For example, if you have a Standard SKU, you can resize to a High Performance SKU. However, you can't resize your VPN gateway between the old SKUs and the new SKU families. You can't go from a Standard SKU to a VpnGw2 SKU, or from a Basic SKU to VpnGw1 by resizing. For more information, see [Resize a gateway SKU](gateway-sku-resize.md).
+For example, if you have a Standard SKU, you can resize to a High Performance SKU. However, you can't resize your VPN gateway between the old SKUs and the new SKU families. You can't go from a Standard SKU to a VpnGw2 SKU, or from a Basic SKU to VpnGw1 by resizing.
 
 **Resource Manager**
 

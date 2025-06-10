@@ -94,8 +94,6 @@
       href: about-gateway-skus.md
     - name: Gateway SKU consolidation
       href: gateway-sku-consolidation.md
-    - name: Change a gateway SKU
-      href: gateway-sku-change.md
     - name: Manage legacy gateway SKUs
       href: vpn-gateway-about-skus-legacy.md
   - name: Migrate classic gateways to Resource Manager
