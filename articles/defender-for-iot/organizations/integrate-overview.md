@@ -17,7 +17,7 @@ Integrate Microsoft Defender for IoT with partner services to view data from acr
 >
 > The legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), and [Splunk](#splunk) integrations are supported through October 2024 using sensor version 23.1.3, and won't be supported in upcoming major software versions. For customers using legacy integration methods, we recommend moving your integrations to the standard cloud or on-premises methods.
 >
->Defender for IoT plans to retire the ServiceNow, ArcSight, SPOOL, FortiSIEM, Webhook, Palo Alto and NetWitness integrations on December 1, 2025.
+>Defender for IoT plans to retire the ArcSight, SPOOL, FortiSIEM, Webhook, Palo Alto and NetWitness integrations on December 1, 2025.
 
 ## Aruba ClearPass
 

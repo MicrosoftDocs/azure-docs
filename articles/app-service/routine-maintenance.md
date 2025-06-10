@@ -8,6 +8,8 @@ ms.topic: article
 ms.date: 05/19/2025
 ms.author: msangapu
 ms.collection: ce-skilling-ai-copilot
+ms.custom:
+  - build-2025
 ---
 
 # Routine planned maintenance for Azure App Service

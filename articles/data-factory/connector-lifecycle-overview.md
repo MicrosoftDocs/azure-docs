@@ -6,8 +6,10 @@ ms.author: jianleishen
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.custom: references_regions
-ms.date: 05/12/2025
+ms.custom:
+  - references_regions
+  - build-2025
+ms.date: 05/27/2025
 ---
 
 # Connector lifecycle overview
@@ -70,6 +72,6 @@ In addition to major and minor version updates, the service also delivers new fe
 
 - [Connector overview](connector-overview.md)  
 - [Connector upgrade guidance](connector-upgrade-guidance.md) 
-- [Connector upgrade assistant](connector-upgrade-advisor.md)
+- [Connector upgrade advisor](connector-upgrade-advisor.md)
 - [Connector release stages and timelines](connector-release-stages-and-timelines.md)  
 - [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)  

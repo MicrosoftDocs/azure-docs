@@ -3,9 +3,11 @@ title: Configure render settings for data visualization in Microsoft Planetary C
 description: Learn the step-by-step process to configure render settings for visualizing geospatial data using the Microsoft Planetary Computer Pro data explorer and Tiler API.
 author: 777arc
 ms.author: marclichtman
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 05/08/2025
+ms.custom:
+  - build-2025
 ---
 
 # Configure render settings for visualizing data in Microsoft Planetary Computer Pro

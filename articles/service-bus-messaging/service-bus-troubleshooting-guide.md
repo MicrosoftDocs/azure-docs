@@ -3,6 +3,8 @@ title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus.
 ms.topic: article
 ms.date: 05/15/2025
+ms.custom:
+  - build-2025
 ---
 
 # Troubleshooting guide for Azure Service Bus
@@ -119,7 +121,7 @@ This issue occurs most often in interop scenarios when receiving a message sent 
 Autolock renewal relies on the system time to determine when to renew a lock for a message or session. If your system time isn't accurate, for example, your clock is slow, then lock renewal might not happen before the lock is lost. Ensure that your system time is accurate if autolock renewal isn't working.
 
 ### Processor appears to hang or have latency issues when using high concurrency
-Tthread starvation usually causes this behavior, particularly when using the session processor and using a very high value for [MaxConcurrentSessions][MaxConcurrentSessions], relative to the number of cores on the machine. The first thing to check would be to make sure you aren't doing sync-over-async in any of your event handlers. Sync-over-async is an easy way to cause deadlocks and thread starvation. Even if you aren't doing sync over async, any pure sync code in your handlers could contribute to thread starvation. If you determined that isn't the issue, for example, because you have pure async code, you can try increasing your [TryTimeout][TryTimeout]. It relieves pressure on the thread pool by reducing the number of context switches and timeouts that occur when using the session processor in particular. The default value for [TryTimeout][TryTimeout] is 60 seconds, but it can be set all the way up to 1 hour. We recommend testing with the `TryTimeout` set to 5 minutes as a starting point and iterate from there. If none of these suggestions work, you simply need to scale out to multiple hosts, reducing the concurrency in your application, but running the application on multiple hosts to achieve the desired overall concurrency.
+Thread starvation usually causes this behavior, particularly when using the session processor and using a very high value for [MaxConcurrentSessions][MaxConcurrentSessions], relative to the number of cores on the machine. The first thing to check would be to make sure you aren't doing sync-over-async in any of your event handlers. Sync-over-async is an easy way to cause deadlocks and thread starvation. Even if you aren't doing sync over async, any pure sync code in your handlers could contribute to thread starvation. If you determined that isn't the issue, for example, because you have pure async code, you can try increasing your [TryTimeout][TryTimeout]. It relieves pressure on the thread pool by reducing the number of context switches and timeouts that occur when using the session processor in particular. The default value for [TryTimeout][TryTimeout] is 60 seconds, but it can be set all the way up to 1 hour. We recommend testing with the `TryTimeout` set to 5 minutes as a starting point and iterate from there. If none of these suggestions work, you simply need to scale out to multiple hosts, reducing the concurrency in your application, but running the application on multiple hosts to achieve the desired overall concurrency.
 
 Further reading:
 - [Debug thread pool starvation][DebugThreadPoolStarvation]
@@ -179,13 +181,13 @@ The following steps help you with troubleshooting connectivity/certificate/timeo
         </Detail>
     </Error>
     ```
-- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here's the sample command that check whether the 5671 port is blocked. C 
+- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here's the sample command that check whether the 5671 port is blocked. 
 
     ```powershell
     tnc <yournamespacename>.servicebus.windows.net -port 5671
     ```
 
-    On Linux:
+   On Linux:
 
     ```shell
     telnet <yournamespacename>.servicebus.windows.net 5671
@@ -283,7 +285,6 @@ See the following articles:
 
 [ServiceBusMessageBatch]: /dotnet/api/azure.messaging.servicebus.servicebusmessagebatch
 [SendMessages]: /dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync
-[ServiceBusMessageBatch]: /dotnet/api/azure.messaging.servicebus.servicebusmessagebatch
 [ServiceBusReceiver]: /dotnet/api/azure.messaging.servicebus.servicebusreceiver
 [ServiceBusSessionReceiver]: /dotnet/api/azure.messaging.servicebus.servicebussessionreceiver
 [MessageBody]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample14_AMQPMessage.md#message-body
