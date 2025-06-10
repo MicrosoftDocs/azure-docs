@@ -243,7 +243,7 @@ This role provides read access to Azure File Sync service (Storage Sync Service)
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync.md)/*/read |  |
+> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/*/read |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
