@@ -400,22 +400,15 @@ Azure Migrate doesn't support rollback now, which means after users migrate, the
 
 ## What strategies do I use to reduce downtime during migration?
 
-1. Use Agent-Based Replication for Continuous Sync </br>
-    **Tool**: Azure Migrate: Server Migration </br>
-    **How it helps**: It continuously replicates on-premises VMs to Azure. </br>
-    **Benefit**: This helps you cut over with minimal data loss (RPO of a few seconds) and reduces downtime (RTO of a few minutes).
-1. Perform Test Migrations </br>
-    **How it helps**: Azure Migrate lets you run test migrations without affecting the production VM. </br>
-    **Benefit**: You check boot success, network connectivity, and application functionality in Azure before the final cutover.
-1. Use Replication Groups for Dependency-Aware Migration </br>
-    **How it helps**: You group VMs based on application or service dependencies and migrate them together.</br>
-    **Benefit**: This lowers the risk of broken dependencies during migration and helps keep services running smoothly.
-1.  Schedule Cutovers During Maintenance Windows </br>
-    **How it helps**: You plan the final cutover (switching users to the Azure-hosted app) during a known low-traffic period.</br>
-    **Benefit**: This minimizes the user impact and gives time for rollback if needed.
-1. Do a Phased Migration </br>
-    **How it helps**: You migrate and modernize workloads in stages instead of all at once. </br>
-    **Benefit**: Smaller changes minimize the risk and help keep services available throughout the process.
+> [NOTE!] **Tool**: Azure Migrate: Server Migration.
+
+| **Practice** | **How it helps** | **Benefit** |
+| --- | --- | --- |
+| Use Agent-Based Replication for Continuous Sync | It continuously replicates on-premises VMs to Azure| This helps you cut over with minimal data loss (RPO of a few seconds) and reduces downtime (RTO of a few minutes). |
+| Perform Test Migrations  | Azure Migrate lets you run test migrations without affecting the production VM.  | You check boot success, network connectivity, and application functionality in Azure before the final cutover. |
+| Use Replication Groups for Dependency-Aware Migration  | You group VMs based on application or service dependencies and migrate them together. | This lowers the risk of broken dependencies during migration and helps keep services running smoothly. |
+| Schedule Cutovers During Maintenance Windows  | **: You plan the final cutover (switching users to the Azure-hosted app) during a known low-traffic period. | This minimizes the user impact and gives time for rollback if needed.|
+| Do a Phased Migration  | You migrate and modernize workloads in stages instead of all at once. | Smaller changes minimize the risk and help keep services available throughout the process. |
 
 ## How do I measure the success of my cloud migration execution?
 
