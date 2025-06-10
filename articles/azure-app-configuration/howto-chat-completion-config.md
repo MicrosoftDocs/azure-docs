@@ -22,7 +22,7 @@ Chat completion is an AI capability that enables models to generate conversation
 
 In this section, you will create a chat completion configuration in Azure Portal using the GPT-4o model as an example.
 
- 1. In Azure portal, navigate to your App configuration store. From the **Operations** menu, select **Configuration explorer** > **Create**. Then select **AI configuration**.
+ 1. In Azure portal, navigate to your App configuration store. From the **Operations** menu, select **Configuration explorer** > **Create**, and then select **AI configuration**.
 
  1. Specify the following values:
     - **Key**: Type **ChatApp:Model**.
@@ -39,28 +39,28 @@ In this section, you will create a chat completion configuration in Azure Portal
 
 ## Add model connection configuration
 
-You've added your chat completion configuration named  **ChatApp:Model** in the previous section. In this section, you'll add your model connection details such as the model's API key and endpoint to App configuration. You can store the model API key as a Key Vault reference.
+You've successfully added your chat completion configuration named **ChatApp:Model**. In this section, you'll add the connection details for your model, including the endpoint and deployment name. If required by your authentication method, you can also specify an API key using a Key Vault reference.
 
 > [!NOTE]
 > This tutorial demonstrates how to use chat completion configuration with an Azure OpenAI model. However, the chat completion configuration demonstrated in the tutorial can be applied to any AI model you choose to work with in your application.
 >
 
-1. Follow the [Get started with Azure OpenAI Service](/azure/ai-services/openai/overview#get-started-with-azure-openai-service) to create and deploy an Azure OpenAI service resource with following settings:
+1. Follow the [Get started with Azure OpenAI Service](/azure/ai-services/openai/overview#get-started-with-azure-openai-service) to create and deploy an Azure OpenAI service resource with a **gpt-4o** model.  Please note down the deployment name for later use.
 
-    | Field           | value   |
-    |-----------------|---------|
-    | Select a model  | gpt-4o  |
-    | Deployment name | gpt-4o  |
+1. In your Azure OpenAI resource, from the **Resource Management** menu, select **Keys and Endpoint** and copy the Azure OpenAI resource endpoint it should follow the format: `https://<open-ai-resource-name>.openai.azure.com`. If using the API key for authentication copy the API key as well.
 
-1. In your Azure OpenAI resource, from the **Resource Management** menu, select **Keys and Endpoint** and copy your Azure OpenAI resource endpoint. It should follow the format: `https://<open-ai-resource-name>.openai.azure.com`.
+1. Navigate to your App Configuration store and add the following key-values. Leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-1. Navigate to your App Configuration store and add the following key-value. Leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+    | **Key**                                 | **Value**                                                             |
+    |-----------------------------------------|-----------------------------------------------------------------------|
+    |  _ChatApp:AzureOpenAI:Endpoint_         | _Paste the resource endpoint you copied in the previous step_         |
+    |  _ChatApp:AzureOpenAI:DeploymentName_   | _Paste the resource deployment name you copied in the previous step_  |
+ 
+    If you plan to use an API key for authentication, you can optionally add it as a Key Vault reference using the following key-value. For detailed instructions, see [Add a Key Vault reference to App Configuration](./use-key-vault-references-dotnet-core.md#add-a-key-vault-reference-to-app-configuration).
 
     | **Key**                          | **Value**                                                      |
     |----------------------------------|----------------------------------------------------------------|
-    |  _ChatApp:AzureOpenAI:Endpoint_  | _Paste the resource endpoint you copied in the previous step_  |
- 
-1. To store your Azure OpenAI resource API key as a Key Vault reference, refer to [Add a Key Vault reference to App Configuration](./use-key-vault-references-dotnet-core.md#add-a-key-vault-reference-to-app-configuration) guide.
+    |  _ChatApp:AzureOpenAI:APIKey_  | _The Key Vault reference of your Azure OpenAI resource API key_  |
 
 1. Continue to the following instructions to implement the chat completion configuration into your application for the language or platform you are using.
 
