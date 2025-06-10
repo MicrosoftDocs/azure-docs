@@ -53,7 +53,7 @@ Sparse accounts are those that contain a large number of objects spread across m
 When generating inventory reports, opt for csv format if your use case doesn't require fast data processing. Parquet is a columnar storage file format optimized for performance and one of the fastest formats to read for data processing. However, a parquet format might increase the time required to generate reports due to its overhead which makes it slower than generating a report in csv format. If you need the parquet format to post-process your report, you can utilize available open-source tools that convert CSV to parquet format.
 
 
-### Scope your Inventory rule using Prefix
+### Scope your inventory rule using a prefix
 Instead of running inventory on the entire storage account, use prefix match to generate an inventory report for specific subsets of your data.
 -	Include Prefix: This filter targets a set of containers or paths within a container. This approach helps narrow down the scope of your inventory report, making the process faster and more efficient.
 
