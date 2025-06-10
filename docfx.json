@@ -1482,7 +1482,7 @@
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
         "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/logic-apps/*.yml": "Azure Logic Apps",
-        "articles/logic-apps/testing-framework/*.md": "Azure Logic Appss",
+        "articles/logic-apps/testing-framework/*.md": "Azure Logic Apps",
         "articles/media-services/*.md": "Azure Media Services",
         "articles/media-services/*.yml": "Azure Media Services",
         "articles/media-services/azure-media-player/*.md": "Azure Media Player",
