@@ -34,7 +34,7 @@ The total number of objects scanned based on an inventory rule is a key factor i
 
 ### Export format of the inventory report
 
-The chosen export format for an inventory report CSV or Apache Parquet can influence performance. While Parquet is optimized for fast data processing, it introduces overhead that may slow down report generation compared to CSV.
+The chosen export format for an inventory report (CSV or Apache Parquet) can influence performance. While Parquet is optimized for fast data processing, it introduces overhead that may slow down report generation compared to CSV.
 
 ### Large Number of Soft Deleted Objects
 
