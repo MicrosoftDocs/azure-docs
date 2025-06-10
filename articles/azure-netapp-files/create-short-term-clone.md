@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Create a short-term clone volume in Azure NetApp Files (preview)
 
-A short-term clone volume in Azure NetApp Files is a writable and space-efficient clone that is created for temporary uses, such as development, testing, data analytics, or digital forensics of large data sets. A short-term clone mitigates the need to create a regular clone allocated against the capacity pools. 
+A short-term clone volume in Azure NetApp Files is a writable and space-efficient copy of a volume that is created for temporary uses, such as development, testing, data analytics, or digital forensics of large data sets. A short-term clone mitigates the need to create a regular clone allocated against the capacity pools. 
 
 Short-term clone volumes are created from snapshots of existing Azure NetApp Files volumes and inherit the data in that base snapshot. To accommodate additional writes on the short-term clone volumes and changes to the data, short-term clone volumes are allocated with quota. That quota counts towards the capacity pool that contains the short-term clone volume. 
 
