@@ -1,5 +1,5 @@
 ---  
-title: Exploring and interacting with lake data using Spark Notebooks (Preview)
+title: Exploring and interacting with lake data using Jupyter Notebooks (Preview)
 titleSuffix: Microsoft Security  
 description: This article describes how to explore and interact with lake data using Spark notebooks in Visual Studio Code. You will learn how to install the Microsoft Security Sentinel extension, create and run Spark notebooks, and review sample code for interacting with security data in your modern data lake.  
 author: EdB-MSFT  
@@ -255,3 +255,9 @@ The following table lists common errors you may encounter when working with note
 | Job | Expired credentials | The user’s token or session used for scheduling is no longer valid | Re-authenticate before scheduling the job. |
 
 
+## Related content
+
+- [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
+- [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
+- [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
+- 

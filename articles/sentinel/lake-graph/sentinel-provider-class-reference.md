@@ -150,3 +150,9 @@ lake_provider.delete_table("customtable_SPRK", "msgworkspace")
 ``` 
 
 
+## Related content
+
+- [Use Jupyter notebooks with Microsoft Sentinel Data lake](./spark-notebooks.md)
+- [Sentinel data lake overview](./sentinel-lake-overview.md)
+- [Sentinel data lake permissions](./sentinel-lake-permissions.md)
+- [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)

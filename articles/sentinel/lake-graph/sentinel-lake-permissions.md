@@ -16,11 +16,12 @@ ms.author: edbaynash
 
 This article describes the permissions required to access the Microsoft Sentinel data lake, and how to manage those permissions.
 
-## Required permissions
+## Read permissions
 
+You can query data and run jobs in the Lake based on your Entra ID roles and permissions.
 
-You can query data in the Lake based on your roles and permissions.
-Note: "Workspace” in this section refers to a log analytics workspace that is attached to Microsoft Defender and onboarded to Microsoft Sentinel Data Lake.  Learn more about onboarding and attaching workspaces to Defender.
+> [!NOTE]
+> "Workspace” in this article refers to a log analytics workspace that is attached to Microsoft Defender and onboarded to Microsoft Sentinel Data Lake.  Learn more about onboarding and attaching workspaces to Defender.
 
 To read tables across the data lake in interactive notebook queries, you will need any of the following roles in Microsoft Entra ID:
 + Global reader 

@@ -170,3 +170,13 @@ df = df.select("UserPrincipalName", "CreatedDateTime", "IPAddress",
 sign_in_locations_df = df.orderBy("CreatedDateTime", ascending=False)  
 sign_in_locations_df.show(100, truncate=False) 
 ```  
+
+
+## Related content
+
+[Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
+[Sentinel data lake overview](./sentinel-lake-overview.md)
+[Sentinel data lake permissions](./sentinel-lake-permissions.md)
+[Use Jupyter notebooks with Microsoft Sentinel Data lake](./spark-notebooks.md)
+
+
