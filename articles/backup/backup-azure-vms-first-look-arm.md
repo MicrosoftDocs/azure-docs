@@ -87,7 +87,7 @@ To run an on-demand backup of Azure VM, follow these steps:
 
 To enable backup for Azure VMs by setting up an Azure Backup Recovery Services vault, and enabling backup in the vault, see [this article](backup-azure-arm-vms-prepare.md).
 
-## Next steps
+## Related content
 
 - [Manage Azure VM backups](backup-azure-manage-vms.md).
 - [Troubleshoot Azure VM backup errors](backup-azure-vms-troubleshoot.md).
