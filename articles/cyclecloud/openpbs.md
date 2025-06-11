@@ -2,7 +2,7 @@
 title: OpenPBS Integration
 description: OpenPBS scheduler configuration in Azure CycleCloud.
 author: adriankjohnson
-ms.date: 07/29/2021
+ms.date: 06/11/2025
 ms.author: adjohnso
 ---
 
@@ -41,8 +41,7 @@ cyclecloud add_node my-pbspro -t execute -c 10
 
 Cyclecloud maintains two resources to expand the dynamic provisioning capability. These resources are *nodearray* and *machinetype*.
 
-If you submit a job and specify a nodearray resource by `qsub -l nodearray=highmem -- /bin/hostname`
-then CycleCloud will add nodes to the nodearray named 'highmem'. If there is  no such nodearray then the job will remain idle.
+If you submit a job and specify a nodearray resource by `qsub -l nodearray=highmem -- /bin/hostname` then CycleCloud will add nodes to the nodearray named 'highmem'. If there is  no such nodearray then the job will remain idle.
 
 Similarly if a machinetype resource is specified which a job submission, e.g. `qsub -l machinetype:Standard_L32s_v2 my-job.sh`, then CycleCloud autoscales the 'Standard_L32s_v2' in the 'execute' (default) nodearray. If that machine type is not available in the 'execute' node array then the job will remain idle.
 
@@ -51,7 +50,6 @@ These resources can be used in combination as:
 ```bash
 qsub -l nodes=8:ppn=16:nodearray=hpc:machinetype=Standard_HB60rs my-simulation.sh
 ```
-
 which will autoscale only if the 'Standard_HB60rs' machines are specified an the 'hpc' node array.
 
 ## Adding additional queues assigned to nodearrays
@@ -100,11 +98,7 @@ The following are the PBS Professional specific configuration options you can to
 
 ## Connect PBS with CycleCloud
 
-CycleCloud manages [OpenPBS](http://openpbs.org/)  clusters through an installable agent called 
-[`azpbs`](https://github.com/Azure/cyclecloud-pbspro). This agent connect to 
-CycleCloud to read cluster and VM configurations and also integrates with OpenPBS
-to effectively process the job and host information. All `azpbs` configurations
-are found in the `autoscale.json` file, normally `/opt/cycle/pbspro/autoscale.json`. 
+CycleCloud manages [OpenPBS](http://openpbs.org/)  clusters through an installable agent called [`azpbs`](https://github.com/Azure/cyclecloud-pbspro). This agent connect to CycleCloud to read cluster and VM configurations and also integrates with OpenPBS to effectively process the job and host information. All `azpbs` configurations are found in the `autoscale.json` file, normally `/opt/cycle/pbspro/autoscale.json`. 
 
 ```
   "password": "260D39rWX13X",
@@ -118,9 +112,7 @@ are found in the `autoscale.json` file, normally `/opt/cycle/pbspro/autoscale.js
 
 ### Important Files
 
-The `azpbs` agent parses the PBS configuration each time it's called - jobs, queues, resources.
-Information is provided in the stderr and stdout of the command as well as to a log file, both
-at configurable levels. All PBS management commands (`qcmd`) with arguments are logged to file as well.
+The `azpbs` agent parses the PBS configuration each time it's called - jobs, queues, resources. Information is provided in the stderr and stdout of the command as well as to a log file, both at configurable levels. All PBS management commands (`qcmd`) with arguments are logged to file as well.
 
 All these files can be found in the _/opt/cycle/pbspro/_ directory where the agent is installed.
 
@@ -134,10 +126,7 @@ All these files can be found in the _/opt/cycle/pbspro/_ directory where the age
 
 
 ### Defining OpenPBS Resources
-This project allows for a generally association of OpenPBS resources with Azure 
-VM resources via the cyclecloud-pbspro (azpbs) project. This resource relationship 
-defined in `autoscale.json`.
-
+This project allows for a generally association of OpenPBS resources with Azure VM resources via the cyclecloud-pbspro (azpbs) project. This resource relationship defined in `autoscale.json`.
 The default resources defined with the cluster template we ship with are
 
 ```json
@@ -175,13 +164,9 @@ The default resources defined with the cluster template we ship with are
 }
 ```
 
-The OpenPBS resource named `mem` is equated to a node attribute named `node.memory`,
-which is the total memory of any virtual machine. This configuration allows `azpbs`
-to process a resource request such as `-l mem=4gb` by comparing the value of the
-job resource requirements to node resources. 
+The OpenPBS resource named `mem` is equated to a node attribute named `node.memory`, which is the total memory of any virtual machine. This configuration allows `azpbs` to process a resource request such as `-l mem=4gb` by comparing the value of the job resource requirements to node resources. 
 
-Note that disk is currently hardcoded to `size::20g`. 
-Here is an example of handling VM Size specific disk size
+Note that disk is currently hardcoded to `size::20g`. Here is an example of handling VM Size specific disk size
 ```json
    {
       "select": {"node.vm_size": "Standard_F2"},
@@ -197,21 +182,14 @@ Here is an example of handling VM Size specific disk size
 
 ### Autoscale and Scalesets
 
-CycleCloud treats spanning and serial jobs differently in OpenPBS clusters. 
-Spanning jobs will land on nodes that are part of the same placement group. The
-placement group has a particular platform meaning (VirtualMachineScaleSet with 
-SinglePlacementGroup=true) and CC will managed a named placement group for each
-spanned node set. Use the PBS resource `group_id` for this placement group name.
+CycleCloud treats spanning and serial jobs differently in OpenPBS clusters. Spanning jobs will land on nodes that are part of the same placement group. The placement group has a particular platform meaning VirtualMachineScaleSet with SinglePlacementGroup=true) and CC will managed a named placement group for each spanned node set. Use the PBS resource `group_id` for this placement group name.
 
-The `hpc` queue appends
-the equivalent of `-l place=scatter:group=group_id` by using native queue defaults.
+The `hpc` queue appends the equivalent of `-l place=scatter:group=group_id` by using native queue defaults.
 
 
 ### Installing the CycleCloud OpenPBS Agent `azpbs`
 
-The OpenPBS CycleCloud cluster will manage the installation and configuration of 
-the agent on the server node. The preparation includes setting PBS resources, 
-queues, and hooks. A scripted install can be done outside of CycleCloud as well.
+The OpenPBS CycleCloud cluster manages the installation and configuration of the agent on the server node. The preparation includes setting PBS resources, queues, and hooks. A scripted install can be done outside of CycleCloud as well.
 
 ```bash
 # Prerequisite: python3, 3.6 or newer, must be installed and in the PATH
