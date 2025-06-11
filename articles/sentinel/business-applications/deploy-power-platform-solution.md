@@ -56,7 +56,7 @@ When working with Microsoft Dataverse, Dataverse activity logging is available o
     - Otherwise, import [https://aka.ms/AuditSettings/DataverseOnly](https://aka.ms/AuditSettings/DataverseOnly).
 
 
-    The solution enables detailed auditing for each of the default entities listed in the following article: [click here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Microsoft%20Business%20Applications/Audit%20Settings/README.md).
+    The solution enables detailed auditing for each of the default entities listed in the article, [Audit Settings for Dataverse](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Microsoft%20Business%20Applications/Audit%20Settings/README.md).
 
 - To enable auditing on custom entities, you must manually enable detailed auditing on each of the custom entities. For more information, see [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#turn-on-or-off-auditing-for-specific-fields-on-an-entity).
 
