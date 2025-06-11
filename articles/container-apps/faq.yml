@@ -113,9 +113,11 @@ sections:
       - question: |
           How often are Dapr versions released for Azure Container Apps?
         answer: |
-          Dapr's typical release timeline in Azure is up to six weeks after the Dapr OSS release. Rolling out to all regions can take up to two weeks or longer.
-          
-          Dapr versions are updated on a best-effort basis, prioritizing stability, rigorous testing, and customer impact to ensure seamless integration without breaking changes. Updates are applied automatically, ensuring you always have the latest secure version.
+          Dapr versions are updated on a best-effort basis, with a strong focus on stability, thorough testing, and minimizing customer impact. The goal is to ensure updates are seamlessly integrated without introducing breaking changes.
+
+          Since Dapr version updates are applied automatically, you always benefit from the most secure version. However, Dapr in Azure Container Apps doesn't follow a fixed release schedule for new features. Instead, the release of new Dapr versions for new functionality depends on the prioritization and stability of the Dapr binaries.
+
+          Find updates and release announcments for Dapr in Azure Container Apps in [GitHub](https://aka.ms/dapr-aca-updates).
 
       - question: |
           Can I use a specific Dapr version for my environment?
@@ -162,4 +164,9 @@ sections:
           How do I ensure the build and image of my Docker-less build are available in the same region as my app?
         answer: |
           When using `containerapp up` in combination with a Docker-less code base, use the `--location` parameter so that application runs in a location other than US East.
-
+  - name: Tagging
+    questions:
+      - question: |
+          How do I use `latest` or a static tag for my container image?
+        answer: |
+          Avoid using static tags like `latest` for container images. Using static tags can lead to caching problems and can make your app difficult to troubleshoot. Instead, use unique tags for each deployment, such as a Git hash or date and time to ensure that updates are properly tracked and deployed.

@@ -35,6 +35,7 @@ In this tutorial, you learn to add Azure Front Door to your static web app.
 
 ### Prerequisites
 
+* Registered `Microsoft.Cdn` [resource provider](/azure/azure-resource-manager/management/resource-providers-and-types).
 * [Custom domain](./custom-domain.md) configured for your static web app with a time to live (TTL) set to less than 48 hrs.
 * An application deployed with [Azure Static Web Apps](./get-started-portal.md) that uses the Standard hosting plan.
 

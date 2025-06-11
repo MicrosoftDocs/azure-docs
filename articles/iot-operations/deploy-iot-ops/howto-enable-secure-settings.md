@@ -35,7 +35,7 @@ This article provides instructions for enabling secure settings if you didn't do
 
 ## Enable the cluster for secure settings
 
-To enable secrets synchronization for your Azure IoT Operations instance, your cluster must be enabled as an OIDC issuer and for workload identity federation. This configuration is required for the Secret Store extension to sync the secrets from an Azure key vault and store them on the edge as Kubernetes secrets.
+To enable secrets synchronization for your Azure IoT Operations instance, your cluster must be enabled as an OIDC issuer and for workload identity federation. This configuration is required for the Secret Store extension to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.
 
 For Azure Kubernetes Service (AKS) clusters, the OIDC issuer and workload identity features can be enabled only at the time of cluster creation. For clusters on AKS Edge Essentials, the automated script enables these features by default. For AKS clusters on Azure Local, follow the steps to [Deploy and configure workload identity on an AKS enabled by Azure Arc cluster](/azure/aks/aksarc/workload-identity) to create a new cluster if you don't have one with the required features.
 
@@ -61,7 +61,7 @@ For k3s clusters on Kubernetes, you can update an existing cluster. To enable an
 
     Make a note of the output from this command to use in the next steps.
 
-1. Create the k3s config file:
+1. Create the k3s config file on the machine where you deployed your Kubernetes cluster:
 
     ```bash
     sudo nano /etc/rancher/k3s/config.yaml
@@ -85,16 +85,16 @@ For k3s clusters on Kubernetes, you can update an existing cluster. To enable an
 
 ## Set up secrets management
 
-Secrets management for Azure IoT Operations uses the Secret Store extension to sync the secrets from an Azure key vault and store them on the edge as Kubernetes secrets. The Secret Store extension requires a user-assigned managed identity with access to the Azure key vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
+Secrets management for Azure IoT Operations uses the Secret Store extension to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets. The Secret Store extension requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
 To set up secrets management:
 
-1. [Create an Azure key vault](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) that's used to store secrets, and [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the `Key Vault Secrets Officer` role.
-1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) for the Secret Store extension.
+1. [Create an Azure Key Vault](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) that's used to store secrets, and [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the `Key Vault Secrets Officer` role.
+1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) for the *secret store* extension to use to access the key vault.
 1. Use the [az iot ops secretsync enable](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-enable) command to set up the Azure IoT Operations instance for secret synchronization. This command:
 
     - Creates a federated identity credential by using the user-assigned managed identity.
-    - Adds a role assignment to the user-assigned managed identity for access to the Azure key vault.
+    - Adds a role assignment to the user-assigned managed identity for access to the Azure Key Vault.
     - Adds a minimum secret provider class associated with the Azure IoT Operations instance.
 
     # [Bash](#tab/bash)

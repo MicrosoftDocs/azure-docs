@@ -1,8 +1,8 @@
 ---
 title: Designing tables
 description: Introduction to designing tables using dedicated SQL pool.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 01/22/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

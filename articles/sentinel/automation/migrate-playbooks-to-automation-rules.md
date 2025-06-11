@@ -6,8 +6,8 @@ author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #Customer intent: As a security engineer, I want to migrate my alert-trigger playbooks to automation rules so that I can streamline automation management and prepare for the deprecation of analytics rule triggers.

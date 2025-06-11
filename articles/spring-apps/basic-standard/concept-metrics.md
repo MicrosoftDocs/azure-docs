@@ -75,7 +75,7 @@ You can use two kinds of filters (properties):
 
 You can also use the **Apply splitting** option, which draws multiple lines for one app:
 
-:::image type="content" source="media/concept-metrics/apply-splitting.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with a chart selected and the Apply splitting option highlighted." lightbox="media/concept-metrics/apply-splitting.png"::::
+:::image type="content" source="media/concept-metrics/apply-splitting.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with a chart selected and the Apply splitting option highlighted." lightbox="media/concept-metrics/apply-splitting.png":::
 
 >[!TIP]
 > You can build your own charts on the metrics page and pin them to your **Dashboard**. Start by naming your chart.  Next, select **Pin to dashboard in the top right corner**. You can now check on your application at your Portal **Dashboard**.

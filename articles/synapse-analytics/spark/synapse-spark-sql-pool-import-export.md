@@ -191,7 +191,7 @@ This section presents reference code templates to describe how to use and invoke
 
 > [!Note]
 > Using the Connector in Python-
-> * The connector is supported in Python for Spark 3 only. For [Spark 2.4 (unsupported)](./apache-spark-24-runtime.md), we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
+> * The connector is supported in Python for Spark 3 only. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
 > * The call back handle is not available in Python.
 
 ### Read from Azure Synapse Dedicated SQL Pool
@@ -531,7 +531,7 @@ dfToReadFromQueryAsOption = (spark.read
                      # Set user's password to the database
                      .option(Constants.PASSWORD, "<user_password>")
                      # Set name of the data source definition that is defined with database scoped credentials.
-                     # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+                     # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
                      # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
                      # Query from where data will be read.
@@ -551,7 +551,7 @@ dfToReadFromQueryAsArgument = (spark.read
                      # Set user's password to the database
                      .option(Constants.PASSWORD, "<user_password>")
                      # Set name of the data source definition that is defined with database scoped credentials.
-                     # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+                     # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
                      # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
                      .synapsesql("select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
@@ -964,6 +964,6 @@ By default, a write response is printed to the cell output. On failure, the curr
 
 ## Related content
 
-* [Runtime library versions](../../synapse-analytics/spark/apache-spark-3-runtime.md)
+* [Runtime library versions](../../synapse-analytics/spark/apache-spark-34-runtime.md)
 * [Azure Storage](../../storage/blobs/data-lake-storage-introduction.md)
 * [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

@@ -3,7 +3,7 @@ title: Set resource dependencies in Bicep
 description: Describes how to specify the order resources are deployed.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 03/18/2025
 ---
 
 # Resource dependencies in Bicep
@@ -50,7 +50,7 @@ A resource that includes the [parent](./child-resource-name-type.md) property ha
 The following example shows a storage account and file service. The file service has an implicit dependency on the storage account.
 
 ```bicep
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -59,12 +59,12 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-05-01' = {
   name: 'default'
   parent: storage
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-05-01' = {
   name: 'exampleshare'
   parent: service
 }

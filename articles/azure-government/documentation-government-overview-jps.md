@@ -128,7 +128,7 @@ Azure provides essential services that you can use to gain in-depth insight into
 
 - [Azure Security](../security/fundamentals/overview.md)
 - [Microsoft for public safety and justice](https://www.microsoft.com/industry/government/public-safety-and-justice)
-- [Microsoft government solutions](https://www.microsoft.com/enterprise/government)
+- [Microsoft government solutions](https://www.microsoft.com/industry/government)
 - [What is Azure Government?](./documentation-government-welcome.md)
 - [Explore Azure Government](https://azure.microsoft.com/global-infrastructure/government/)
 - [Azure Government compliance](./documentation-government-plan-compliance.md)

@@ -1,8 +1,8 @@
 ---
 title: Azure Operator Nexus Access Control Lists Configuration
 description: Detailed configuration for Azure Operator Nexus Access Control Lists.
-author: joemarshallmsft
-ms.author: joemarshall
+author: scottsteinbrueck
+ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ms.topic: reference
 ms.date: 02/09/2024

@@ -1,19 +1,14 @@
 ---
-title: Deploy business process and tracking profile to Azure
+title: Deploy Business Process and Tracking Profile to Azure
 description: Deploy your business process and tracking profile to Standard logic app resources in Azure Logic Apps.
 ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/07/2024
+ms.date: 06/09/2025
 # CustomerIntent: As an integration developer, I want to deploy previously created business processes and tracking profiles to deployed Standard logic app resources so I can capture and track key business data moving through my deployed resources.
 ---
 
-# Deploy a business process and tracking profile to Azure (Preview)
-
-> [!NOTE]
->
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Deploy a business process and tracking profile to Azure
 
 After you map your business process stages to the operations and outputs in Standard logic app workflows, you're ready to deploy your business process and tracking profile to Azure.
 
@@ -81,7 +76,7 @@ After the mapped Standard logic app workflows run and emit the data that you spe
 
 1. To create custom experiences for the data provided here, check out [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview) or [Azure Data Explorer with Power BI](/azure/data-explorer/power-bi-data-connector?tabs=web-ui).
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Manage business processes](manage-business-process.md)
+- [Set up continuous integration and deployment](set-up-continuous-integration-deployment.md)
+- [Manage business processes](manage-business-process.md)

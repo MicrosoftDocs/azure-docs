@@ -1,13 +1,13 @@
 ---
 title: Markup - Microsoft Azure operated by 21Vianet
 description: This article explains how to configure markup rules for use in Microsoft Azure operated by 21Vianet.
-author: bandersmsft
+author: shrutis06
 ms.reviewer: shrshett
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: shrshett
 ms.custom: references_regions, subject-reliability
 ---
 

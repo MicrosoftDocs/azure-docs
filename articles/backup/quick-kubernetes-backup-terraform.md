@@ -34,6 +34,10 @@ Things to ensure before you configure AKS backup:
 
 * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
+> [!NOTE]
+>
+> Ensure that the Terraform version being used is 3.99 or later
+
 * [Download kubectl](https://kubernetes.io/releases/download/).
 
 * [Create a random value for the Azure resource group name](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) using random_pet.
@@ -210,6 +214,8 @@ To implement the Terraform code for AKS backup flow, run the following scripts:
          "configuration.backupStorageLocation.config.resourceGroup" = azurerm_storage_account.backupsa.resource_group_name
          "configuration.backupStorageLocation.config.subscriptionId" =  data.azurerm_client_config.current.subscription_id
          "credentials.tenantId" = data.azurerm_client_config.current.tenant_id
+         "configuration.backupStorageLocation.config.useAAD" = true
+         "configuration.backupStorageLocation.config.storageAccountURI" = azurerm_storage_account.backupsa.primary_blob_endpoint
         }
       depends_on = [azurerm_storage_container.backupcontainer]
     }
@@ -217,7 +223,7 @@ To implement the Terraform code for AKS backup flow, run the following scripts:
     #Assign Role to Extension Identity over Storage Account
     resource "azurerm_role_assignment" "extensionrole" {
       scope                = azurerm_storage_account.backupsa.id
-      role_definition_name = "Storage Account Contributor"
+      role_definition_name = "Storage Blob Data Contributor"
       principal_id         = azurerm_kubernetes_cluster_extension.dataprotection.aks_assigned_identity[0].principal_id
       depends_on = [azurerm_kubernetes_cluster_extension.dataprotection]
     }

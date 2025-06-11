@@ -1,9 +1,8 @@
 ---
 title: Troubleshooting guide for Azure Synapse Link for Azure SQL Database after failover of an Azure SQL Database.
 description: Learn how to troubleshoot and configure Azure Synapse Link for Azure SQL Database after failover of an Azure SQL Database.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: imotiwala
+author: im-microsoft
+ms.author: imotiwala
 ms.date: 08/06/2024
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link

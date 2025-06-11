@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/01/2025
+ms.date: 05/05/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.service: azure-automation
@@ -432,7 +432,7 @@ You will perform the following steps to complete this configuration:
 > [!NOTE]
 > The Create a GPG keyring and keypair are applicable only for the agent-based hybrid workers.
 
-To create the GPG keyring and keypair, use the Hybrid Runbook Worker [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux).
+To create the GPG keyring and keypair, use the Hybrid Runbook Worker.
 
 1. Use the sudo application to sign in as the **nxautomation** account.
 
@@ -483,11 +483,11 @@ You can now upload the signed runbook to Azure Automation and execute it like a 
 
 ## Logging
 
-To help troubleshoot issues with your runbooks running on a hybrid runbook worker, logs are stored locally in the following location:
+To help troubleshoot issues with your runbooks running on an extension-based hybrid runbook worker, logs are stored locally in the following location:
 
-* On Windows at `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` for detailed job runtime process logging. High-level runbook job status events are written to the **Application and Services Logs\Microsoft-Automation\Operations** event log.
+* On Windows at `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows<version>` for detailed extension and job runtime process logging. High-level runbook job status events are written to the **Applications and Services Logs/Microsoft-SMA/Operational** event log.
 
-* On Linux, the user hybrid worker logs can be found at `/home/nxautomation/run/worker.log`, and system runbook worker logs can be found at `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
+* On Linux, the extension-based hybrid worker logs can be found at  `/home/hweautomation/run/worker.log`, and `/var/log/azure/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux`.
 
 ## Next steps
 

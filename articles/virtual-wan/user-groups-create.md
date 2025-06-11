@@ -71,6 +71,7 @@ To generate self-signed certificates, see [Generate and export certificates for 
 
 > [!NOTE]
 > The multiple address pool feature with digital certificate authentication applies to a specific user group based on the **Subject** field. The selection criteria do not work with Subject Alternative Name (SAN) certificates.
+> If a customer wants to specify a SAN in their certificates, it must be the same as the Subject for the multipool feature to function correctly. Discrepancy between the Subject and SAN will result in issues.
 
 
 ## Step 3: Create a user group

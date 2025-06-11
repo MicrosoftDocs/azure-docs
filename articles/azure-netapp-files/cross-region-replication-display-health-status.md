@@ -1,14 +1,14 @@
 ---
-title: Display health status of Azure NetApp Files replication relationship | Microsoft Docs
+title: Display health status of Azure NetApp Files replication relationship
 description: Describes how to view replication status on the source volume or the destination volume of Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 03/03/2025
 ms.author: anfdocs
 ---
-# Display health and monitor status of replication relationship 
+# Display health and monitor status of replication relationship in Azure NetApp Files
 
 You can view replication status on the source volume or the destination volume. You can also set alert rules in Azure Monitor to help you monitor the replication status.
 
@@ -39,6 +39,9 @@ You can view replication status on the source volume or the destination volume. 
 
 > [!NOTE] 
 > Replication relationship shows health status as *unhealthy* if previous replication jobs aren't complete. This status is a result of larger volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a larger volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
+
+>[!NOTE]
+>When you break the peering relationship, the health status displays as healthy. This is expected. To confirm the broken peering relationship, check that the Mirror state displays broken, and the Relationship status is idle. 
 
 ## Set alert rules to monitor replication
 

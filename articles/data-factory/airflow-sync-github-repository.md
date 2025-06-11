@@ -3,7 +3,7 @@ title: Sync a GitHub repository in Workflow Orchestration Manager
 description: This article provides step-by-step instructions for how to sync a GitHub repository by using Workflow Orchestration Manager in Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 02/13/2025
 ---

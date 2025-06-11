@@ -6,7 +6,7 @@ author: normesta
 ms.author: normesta
 ms.date: 07/31/2024
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Blob rehydration from the archive tier

@@ -75,3 +75,4 @@ Use the following steps to view and update the list of resource metrics for a lo
 ## Related content
 
 - [View metrics trends and compare load test results to identify performance regressions](./how-to-compare-multiple-test-runs.md).
+- [Use AI powered Actionable Insights to troubleshoot load test results (Preview)](./how-to-analyze-test-results-using-actionable-insights.md)

@@ -5,7 +5,7 @@ services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 01/15/2025
+ms.date: 04/02/2025
 ms.author: duau
 ---
 
@@ -43,19 +43,11 @@ For more information, see [Resource Health overview](/azure/service-health/resou
 
 You can configure Azure Firewall to autolearn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
 
-### Parallel IP Group updates (preview)
+## Change tracking (preview)
 
-You can now update multiple IP Groups in parallel at the same time. This is useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM template, CLI, and PowerShell).
+The *Change tracking* feature provides detailed insights into changes made to Azure Firewall configurations, specifically within *Rule Collection Groups*. It uses [Azure Resource Graph (ARG)](../governance/resource-graph/overview.md) to enable efficient monitoring and analysis of changes, enhancing visibility, accountability, and troubleshooting.
 
-For more information, see [IP Groups in Azure Firewall](ip-groups.md#parallel-ip-group-updates-preview).
-
-### Private IP address DNAT rules (preview)
-
-You can now configure a DNAT rule on Azure Firewall Policy with the private IP address of the Azure Firewall as the destination. Previously, DNAT rules only worked with Azure Firewall Public IP addresses.
-This capability helps with connectivity between overlapped IP networks, which is a common scenario for enterprises when onboarding new partners to their network or merging with new acquisitions.
-This is also relevant for hybrid scenarios, connecting on-premises datacenters to Azure, where DNAT bridges the gap, enabling communication between private resources over nonroutable IP addresses.
-
-For more information, see [Private IP DNAT Support and Scenarios with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/private-ip-dnat-support-and-scenarios-with-azure-firewall/ba-p/4230073).
+For more information, see [Change tracking for Azure Firewall](monitor-firewall.md#change-tracking-preview).
 
 ## Customer provided public IP address support in secured hubs (preview)
 

@@ -1,5 +1,5 @@
 ---
-title: Runbook authoring using VS code in Azure Automation
+title: Runbook authoring using VS Code in Azure Automation
 description: This article provides an overview authoring runbooks in Azure Automation using the visual studio code.
 services: automation
 ms.subservice: process-automation

@@ -2,12 +2,12 @@
 title: Compare Event Grid, routing for IoT Hub
 titleSuffix: Azure IoT Hub
 description: IoT Hub offers its own message routing service, but also integrates with Event Grid for event publishing. Compare the two features. 
-author: kgremban
+author: SoniaLopezBravo
 
 ms.service: azure-iot-hub
 ms.topic: product-comparison
 ms.date: 02/22/2023
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: fasttrack-edit
 ---
 
@@ -44,7 +44,7 @@ IoT Hub message routing and Event Grid have similarities too, some of which are 
 | **Scalability** | High: Optimized to support millions of simultaneously connected devices sending billions of messages. | High: Capable of routing 10,000,000 events per second per region. |
 | **Latency** | Low: Near-real time. | Low: Near-real time. |
 | **Send to multiple endpoints** | Yes, send a single message to multiple endpoints. | Yes, send a single message to multiple endpoints. |
-| **Security** | Iot Hub provides per-device identity and revocable access control. For more information, see the [IoT Hub access control](iot-hub-devguide-security.md). | Event Grid provides validation at three points: event subscriptions, event publishing, and webhook event delivery. For more information, see [Event Grid security and authentication](../event-grid/security-authentication.md). |
+| **Security** | IoT Hub provides per-device identity and revocable access control. For more information, see the [IoT Hub access control](iot-hub-devguide-security.md). | Event Grid provides validation at three points: event subscriptions, event publishing, and webhook event delivery. For more information, see [Event Grid security and authentication](../event-grid/security-authentication.md). |
 
 ## How to choose
 

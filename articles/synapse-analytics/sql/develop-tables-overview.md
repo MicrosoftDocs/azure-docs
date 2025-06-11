@@ -3,7 +3,6 @@ title: Design tables using Synapse SQL
 description: Learn how to design tables using Synapse SQL in Azure Synapse Analytics, and learn about key differences between dedicated SQL pool and serverless SQL pool.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: whhender
 ms.date: 01/21/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql

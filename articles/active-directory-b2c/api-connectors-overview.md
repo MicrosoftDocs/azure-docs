@@ -19,6 +19,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Use API connectors to customize and extend sign-up user flows and custom policies with external identity data sources 
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-user-flow"
@@ -85,7 +87,7 @@ Using Azure AD B2C, you can add your own business logic to a user journey by cal
 ![Diagram of a RESTful service claims exchange](media/api-connectors-overview/restful-service-claims-exchange.png)
 
 > [!NOTE]
-> If there is slow or no response from the RESTful service to Azure AD B2C, the timeout is 30 seconds and the retry count is two times (meaning there are 3 tries in total). Currently, you can't configure the timeout and retry count settings.
+> HTTP requests may be cancelled if there is a slow or no response from the RESTful service to Azure AD B2C. The default timeout is 10 seconds for custom policies and 5 seconds for user flows. The default retry count is one (meaning there are 2 tries in total).
 
 ## Calling a RESTful service
 
@@ -165,7 +167,7 @@ A null value in a database is used when the value in a column is unknown or miss
 When an element is null, either:
 
 - Omit the key-value pair from the JSON.
-- Return a value that corresponds to the Azure AD B2C claim data type. For example, for a `string` data type, return empty string `""`. For an `integer` data type, return a zero value `0`. For a `dateTime`  data type, return a minimum value `1970-00-00T00:00:00.0000000Z`.
+- Return a value that corresponds to the Azure AD B2C claim data type. For example, for a `string` data type, return empty string `""`. For an `integer` data type, return a zero value `0`. For a `dateTime`  data type, return a minimum value `0001-01-01T00:00:00.0000000Z`.
 
 The following example demonstrates how to handle a null value. The email is omitted from the JSON:
 

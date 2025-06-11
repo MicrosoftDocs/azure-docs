@@ -77,9 +77,9 @@ The following steps show you how to create and configure a Microsoft Dev Box pro
 
 1. Verify that the project appears on the **Projects** page.
  
-As you create a project, you might see this informational message about catalogs: 
+As you create a project, you might see this informational message about catalogs: *The dev center that contains this project does not have a catalog assigned. Environments cannot be deployed in this project until a catalog containing at least one template has been assigned.*
 
-:::image type="content" source="media/how-to-manage-dev-box-projects/project-catalog-message.png" alt-text="Screenshot of the informational message, The dev center that contains this project does not have a catalog assigned. Environments cannot be deployed in this project until a catalog containing at least one template has been assigned." lightbox="media/how-to-manage-dev-box-projects/project-catalog-message.png":::
+:::image type="content" source="media/how-to-manage-dev-box-projects/project-catalog-message.png" alt-text="Screenshot showing an information message." lightbox="media/how-to-manage-dev-box-projects/project-catalog-message.png":::
 
 Because you're not configuring Deployment Environments, you can safely ignore this message.
 

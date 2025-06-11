@@ -4,6 +4,9 @@ description: Learn how to use C# user-defined functions (UDF) with Apache Hive a
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/13/2024
 ---
 

@@ -3,7 +3,7 @@ title: CI/CD with Azure Pipelines and templates
 description: Describes how to configure continuous integration in Azure Pipelines by using Azure Resource Manager templates. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ---
 
 # Integrate ARM templates with Azure Pipelines

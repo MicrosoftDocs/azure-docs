@@ -1,20 +1,20 @@
 ---
 title: Create backup policies for Azure database for PostgreSQL - Flexible server using data protection REST API in Azure Backup
 description: Learn how to create the backup policy to protect Azure PostgreSQL flexible servers using REST API.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - ignite-2024
-ms.date: 05/13/2024
+ms.date: 05/28/2025
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Create Azure Data Protection backup policies for Azure Database for PostgreSQL - Flexible servers using REST API (preview)
+# Create Azure Data Protection backup policies for Azure Database for PostgreSQL - Flexible servers using REST API
 
 This article describes how to create the backup policy to protect Azure PostgreSQL flexible servers using REST API.
 
-A backup policy governs the retention and schedule of your backups. Azure PostgreSQL flexible servers Backup offers long-term retention and supports a backup per day. 
+A backup policy governs the retention and schedule of your backups.
 
 You can reuse an existing backup policy to configure backup for PostgreSQL flexible servers to a vault, or [create a backup policy for an Azure Recovery Services vault using REST API](/rest/api/dataprotection/backup-policies/create-or-update).
 
@@ -322,7 +322,7 @@ After including all changes, the policy JSON will appear as follows:
 
 ```
 
-For more details about policy creation, see the [PostGreSQL database Backup policy document](backup-azure-database-postgresql.md#create-backup-policy).
+For more details about policy creation, see the [PostgreSQL database Backup policy document](backup-azure-database-postgresql.md#create-backup-policy).
 
 ### Responses
 
@@ -440,9 +440,9 @@ Once the operation completes, it returns 200 (OK) with the policy content in the
 
 ## Next steps
 
-[Enable protection for Azure Database for PostgreSQL - Flexible server](backup-azure-database-postgresql-flex-use-rest-api.md).
+[Enable protection for Azure Database for PostgreSQL - Flexible Server using REST API](backup-azure-database-postgresql-flex-use-rest-api.md).
 
 For more information on Azure Backup REST APIs, see the following articles:
 
-- [Azure Data Protection REST API](/rest/api/dataprotection)
-- [Get started with Azure REST API](/rest/api/azure)
+- [Azure Data Protection REST API](/rest/api/dataprotection).
+- [Get started with Azure REST API](/rest/api/azure).

@@ -8,9 +8,8 @@ metadata:
   description: Find Azure migration tutorials, resources, and migration assessment tools. Learn how to use tools in the Azure Migrate hub to discover, assess, and migrate your on-premises environment to Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
-
-  author: SnehaSudhirG
-  ms.author: sudhirsneha 
+  author: habibaum
+  ms.author: v-uhabiba 
   ms.date: 03/15/2024
   ms.custom: seo-azure-migrate
   keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
@@ -31,7 +30,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Assess Hyper-V VMs with Server Assessment
+          - text: Discover servers running on Hyper-V 
             url: ./tutorial-discover-hyper-v.md
           - text: Assess physical servers with Server Assessment
             url: ./tutorial-discover-physical.md
@@ -43,10 +42,10 @@ landingContent:
             url: ./tutorial-migrate-hyper-v.md
           - text: Migrate physical servers/VMs with Migration and modernization
             url: ./tutorial-migrate-physical-virtual-machines.md
-          - text: Modernize ASP.NET web apps to Azure Kubernetes Service (AKS)
-            url: ./tutorial-modernize-asp-net-aks.md
           - text: Create an Azure Spring Apps assessment
             url: ./how-to-create-azure-spring-apps-assessment.md
+          - text: Assess MySQL databases for migration to Azure Database for MySQL (preview)
+            url: ./create-mysql-assessment.md
 
 
   - title: Start deployment
@@ -70,8 +69,6 @@ landingContent:
         links:
           - text: Business case
             url: ./how-to-build-a-business-case.md
-          - text: Add assessment tools
-            url: ./how-to-assess.md
           - text: Discover application inventory
             url: ./how-to-discover-applications.md
           - text: Add migration tools
@@ -82,16 +79,6 @@ landingContent:
             url: ./how-to-migrate-at-scale.md
           - text: Troubleshoot assessment and migration
             url: ./troubleshoot-general.md
-  - title: SAP Systems
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: About assessment of SAP systems (preview)
-            url: ./concepts-azure-sap-systems-assessment.md
-      - linkListType: tutorial
-        links:
-          - text: Discover SAP systems (preview)
-            url: ./tutorial-discover-sap-systems.md
   - title: Learn more
     linkLists:
       - linkListType: learn
@@ -102,9 +89,7 @@ landingContent:
             url: ./hyper-v-migration-architecture.md
           - text: Learn about assessments
             url: ./concepts-assessment-calculation.md
-          - text: Learn about dependency visualization
-            url: ./concepts-dependency-visualization.md
-
+          
   - title: Get involved
     linkLists:
       - linkListType: get-started
@@ -115,3 +100,9 @@ landingContent:
             url: /answers/topics/azure-migrate.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure VMware Solution landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone

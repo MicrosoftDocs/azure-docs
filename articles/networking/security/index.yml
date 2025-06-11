@@ -9,38 +9,41 @@ metadata:
   description: Azure network security services provide security for your resources in Azure. 
   ms.service: azure-firewall
   ms.topic: hub-page
-  author: vhorne
-  ms.author: victorh
+  author: duongau
+  ms.author: duau
   manager: kumudD
-  ms.date: 09/16/2024
+  ms.date: 03/04/2025
+  ms.custom: portfolio-consolidation-2025
 
+# highlightedContent section (optional)
+# Maximum of 8 items
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
+    # Card
     - title: Azure network security overview 
       itemType: overview # controls the icon image and super-title text 
       url: ../../security/fundamentals/network-overview.md
+    # Card
     - title: Azure best practices for network security
       itemType: concept
       url: ../../security/fundamentals/network-best-practices.md
+    # Card
     - title: What's new in Azure Networking and Security? 
       itemType: whats-new 
       url: https://azure.microsoft.com/en-us/updates/?category=networking&query=security
-    - title: Azure Well-Architected Framework review - Azure Firewall
-      itemType: architecture
-      url: /azure/well-architected/services/networking/azure-firewall
+    # Card
     - title: Azure Networking security blog
       itemType: concept
       url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/bg-p/AzureNetworkSecurityBlog
+    # Card
     - title: Azure network security webinars
       itemType: video
       url: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/recordings-security-community-webinars/ba-p/2865990
+    # Card
     - title: Choose a secure network topology
       itemType: concept
       url: ../secure-network-topology.md
-    - title: Azure networking services overview
-      itemType: concept
-      url: ../fundamentals/networking-overview.md
 
 productDirectory:
   title: Get started
@@ -58,151 +61,153 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/ddos-protection.svg
       url: ../../ddos-protection/index.yml
 
+# conceptualContent section (Optional; Remove if not applicable.)
 conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
   sections:
+    # Section 1
     - title: Use cases and scenarios
+      summary: Explore common use cases and scenarios for Azure network security services.
       items:
-        - title: Secure your perimeter
+        # Card 1
+        - title: Secure hub-and-spoke virtual network topology
           links:
-            - text: Protect my outbound network connections
-              itemType: learn
-              url: ../../firewall/overview.md
-            - text: Protect my inbound web application connections
-              itemType: learn
-              url: ../../web-application-firewall/overview.md
-            - text: Implement a secure hybrid network
+            - url: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal
               itemType: architecture
-              url: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal
-        - title: Secure your virtual networks
+              text: Implement a secure hybrid network
+            - url: ../../firewall/firewall-multi-hub-spoke.md
+              itemType: concept
+              text: Route multi hub and spoke topology with Azure Firewall
+            - url: ../../firewall/tutorial-hybrid-portal-policy.md
+              itemType: tutorial
+              text: Secure hub-and-spoke virtual network topology
+            - url: ../../ddos-protection/ddos-protection-reference-architectures.md
+              itemType: architecture
+              text: DDoS protection for network architectures
+        # Card 2
+        - title: Protect Virtual WANs at scale
           links:
-            - text: Inspect traffic to a private endpoint
-              itemType: reference
-              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/deploy-azure-firewall-to-inspect-traffic-to-a-private-endpoint/ba-p/3714575
-            - text: Monitor and troubleshoot your end-to-end Azure network infrastructure
-              itemType: learn
-              url: /training/modules/troubleshoot-azure-network-infrastructure/
-            - text: Hub-spoke network topology in Azure
+            - url: /security/zero-trust/azure-virtual-wan
               itemType: architecture
-              url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-            - text: Azure Network Virtual Application Firewall architecture
+              text: Apply Zero Trust principles to Azure Virtual WAN
+            - url: ../../firewall-manager/secured-virtual-hub.md
+              itemType: concept
+              text: What is a secure virtual hub?
+            - url: ../../firewall-manager/vhubs-and-vnets.md
               itemType: architecture
-              url: /azure/architecture/example-scenario/firewalls/
-        - title: Protect your apps and services
+              text: Azure Firewall Manager architecture
+            - url: ../../firewall-manager/secure-cloud-network.md
+              itemType: tutorial
+              text: Secure your virtual hub with Azure Firewall            
+        # Card 3
+        - title: Zero trust for web applications
           links:
-            - text: Protect my service from DDoS attacks
-              itemType: learn
-              url: ../../ddos-protection/ddos-protection-overview.md
-            - text: Learn more about Azure DDoS Protection
+            - url: ../../web-application-firewall/overview.md
               itemType: overview
-              url: ../../ddos-protection/index.yml
-            - text: Introduction to Azure DDoS Protection
-              itemType: training
-              url: /training/modules/introduction-azure-ddos-protection/
-            - text: Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster
-              itemType: architecture
-              url: /azure/architecture/guide/aks/aks-firewall
-
-    - title: Learn more about Azure network security
+              text: WAF on Azure Application Gateway
+            - url: ../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md
+              itemType: quickstart
+              text: Create an application gateway with a Web Application Firewall
+            - url: ../../web-application-firewall/ag/policy-overview.md
+              itemType: overview
+              text: WAF policy for Azure Application Gateway
+            - url: ../../application-gateway/tutorial-protect-application-gateway-ddos.md
+              itemType: tutorial
+              text: DDoS protection for Azure Application Gateway
+        # Card 4
+        - title: Deliver cloud content securely
+          links:
+            - url: ../../web-application-firewall/afds/afds-overview.md
+              itemType: overview
+              text: WAF on Azure Front Door
+            - url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
+              itemType: quickstart
+              text: Create a WAF policy on Azure Front Door by using the Azure portal
+            - url: ../../web-application-firewall/afds/waf-front-door-policy-settings.md
+              itemType: overview
+              text: WAF policy for Azure Front Door
+            - url: ../../frontdoor/front-door-ddos.md
+              itemType: concept
+              text: DDoS protection for Azure Front Door
+    # Section 2
+    - title: Learn more
+      summary: Learn more about network security services.
       items:
-       - title: Scenarios
-         links:
-           - text: Securely access my PaaS Services in Azure
-             itemType: overview
-             url: ../../private-link/private-link-overview.md
-           - text: Create a private interface to connect to a service
-             itemType: overview
-             url: ../../private-link/private-endpoint-overview.md
-           - text: Connect a service using a private link
-             itemType: overview
-             url: ../../private-link/private-link-service-overview.md
-           - text: Apply Zero Trust principles to a spoke virtual network with Azure PaaS Services
-             itemType: concept
-             url: /security/zero-trust/azure-infrastructure-paas
-           - text: Secure networks with Zero Trust
-             itemType: concept
-             url: /security/zero-trust/deploy/networks
-           - text: Filter network traffic between Azure resources
-             itemType: concept
-             url: ../../virtual-network/network-security-groups-overview.md
-           - text: Secure access to Azure services
-             itemType: concept
-             url: ../../virtual-network/virtual-network-service-endpoints-overview.md
-           - text: Deploy security admin rules with Virtual Network manager
-             itemType: how-to-guide
-             url: ../../virtual-network-manager/how-to-block-network-traffic-portal.md
-           - text: Apply Zero Trust principles to a spoke virtual network in Azure
-             itemType: concept
-             url: /security/zero-trust/azure-infrastructure-iaas
-           - text: Apply Zero Trust principles to a hub virtual network in Azure
-             itemType: concept
-             url: /security/zero-trust/azure-infrastructure-networking
-           - text: Implement the Zero Trust model
-             itemType: reference
-             url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/zero-trust-with-azure-network-security/ba-p/3668280
-           - text: Apply Zero Trust principles to an Azure Virtual WAN deployment
-             itemType: concept
-             url: /security/zero-trust/azure-virtual-wan
+        # Card 1
+        - title: Learning paths and modules
+          links:
+            - url: /training/paths/introduction-azure-networking-services/
+              itemType: training
+              text: Introduction to key Azure network security services
+            - url: /training/modules/design-implement-network-security-monitoring/
+              itemType: training
+              text: Design implement network security
+            - url: /training/paths/secure-networking/
+              itemType: training
+              text: Secure networking
+            - url: /training/modules/troubleshoot-network-security-issues/
+              itemType: training
+              text: Troubleshoot network security issues with Microsoft Azure
+           # footerLink (optional)
+          footerLink:
+            url: https://learn.microsoft.com/training/browse/
+            text: Browse all courses, learning paths, and modules.
+        # Card 2
+        - title: Patterns and practices
+          links:
+            - url: /azure/architecture/solution-ideas/articles/azure-security-build-first-layer-defense
+              itemType: architecture
+              text: Build the first layer of defense with Azure Security services
+            - url: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
+              itemType: architecture
+              text: Zero-trust network for web applications with Azure Firewall and Application Gateway
+            - url: /security/zero-trust/azure-infrastructure-paas
+              itemType: architecture
+              text: Apply Zero Trust principles to a spoke virtual network with Azure PaaS Services
+            - url: /azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture
+              itemType: architecture
+              text: Mission-critical baseline architecture with network control
+            - url: /azure/well-architected/services/networking/azure-firewall
+              itemType: architecture
+              text: Azure Well-Architected Framework review - Azure Firewall
+          # footerLink (optional)
+          footerLink:
+            url: https://learn.microsoft.com/en-us/azure/architecture/
+            text: Browse the Azure Architecture Center.
+        # Card 3
+        - title: Metrics and logs
+          links:
+            - url: ../../firewall/monitor-firewall.md
+              itemType: reference
+              text: Monitor Azure Firewall
+            - url: ../../web-application-firewall/ag/application-gateway-waf-metrics.md
+              itemType: reference
+              text: Monitor Azure Application Gateway WAF
+            - url: ../../web-application-firewall/afds/waf-front-door-monitor.md
+              itemType: reference
+              text: Monitor Azure Front Door WAF
+            - url: ../../ddos-protection/monitor-ddos-protection.md
+              itemType: reference
+              text: Monitor Azure DDoS Protection
+        # Card 4
+        - title: Frequently asked questions
+          links:
+            - url: /azure/firewall/firewall-faq
+              itemType: reference
+              text: Azure Firewall FAQ
+            - url: /azure/web-application-firewall/ag/application-gateway-waf-faq
+              itemType: reference
+              text: WAF on Azure Application Gateway FAQ
+            - url: /azure/web-application-firewall/afds/waf-faq
+              itemType: reference
+              text: WAF on Azure Front Door FAQ
+            - url: /azure/ddos-protection/ddos-faq
+              itemType: reference
+              text: Azure DDoS Protection FAQ
 
-       - title: Training
-         links:
-           - text: Introduction to Azure Private Link
-             itemType: training
-             url: /training/modules/introduction-azure-private-link/
-           - text: Design and implement private access to Azure Services
-             itemType: training
-             url: /training/modules/design-implement-private-access-to-azure-services/
-           - text: Encrypt network traffic end to end with Application gateways
-             itemType: training
-             url: /training/modules/end-to-end-encryption-with-app-gateway/
-           - text: Configure network security groups
-             itemType: training
-             url: /training/modules/configure-network-security-groups/
-           - text: Secure and isolate access to Azure resources by using network security groups and service endpoints
-             itemType: training
-             url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints/
-           - text: Connect my on-premises network to Azure with VPN gateways
-             itemType: training
-             url: /training/modules/connect-on-premises-network-with-vpn-gateway/
-           - text: Design and implement network security
-             itemType: training
-             url: /training/modules/design-implement-network-security-monitoring/
-           - text: Design solutions for network security
-             itemType: training
-             url: /training/modules/design-solutions-network-security/
-           - text: Design and implement network monitoring
-             itemType: training
-             url: /training/modules/design-implement-network-monitoring/
-
-       - title: Architecture
-         links:
-            - text: Zero-trust network for web applications with Azure Firewall and Application Gateway
-              itemType: architecture
-              url: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
-            - text: Azure Private Link in a hub-and-spoke network
-              itemType: architecture
-              url: /azure/architecture/guide/networking/private-link-hub-spoke-network
-            - text: Guide to Private Link and DNS in Azure Virtual WAN
-              itemType: architecture
-              url: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide
-            - text: Secure network access to Kubernetes
-              itemType: architecture
-              url: /azure/architecture/aws-professional/eks-to-aks/private-clusters
-            - text: Extend an on-premises network using ExpressRoute
-              itemType: architecture
-              url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
-            - text: Securely managed web applications
-              itemType: architecture
-              url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps
-            - text: Mission-critical baseline architecture with network control
-              itemType: architecture
-              url: /azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture
-            - text: Build the first layer of defense with Azure Security services
-              itemType: architecture
-              url: /azure/architecture/solution-ideas/articles/azure-security-build-first-layer-defense
-            - text: Secure and govern workloads with network-level segmentation
-              itemType: architecture
-              url: /azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation
-
+# additionalContent section (optional)
+# Card with summary style
 additionalContent:
   sections:
     - title: Networking services
@@ -210,8 +215,8 @@ additionalContent:
         - title: Network Foundations
           url: /azure/networking/foundations/
         - title: Load balancing and Content Delivery
-          url: /azure/networking/load-balancer-content-delivery/
+          url: /azure/networking/load-balancer-content-delivery/?wt.mc_id=aznetportfolioconsolidation_lbcdscenariohub_content_cnl
         - title: Hybrid connectivity
           url: /azure/networking/hybrid-connectivity/
         - title: Network monitoring and management
-          url: ../monitoring-management/index.yml
+          url: /azure/networking/monitoring-management/

@@ -23,6 +23,7 @@ Operations run on an Azure Service Bus namespace are of two kinds.
 > - Service Bus Explorer doesn't support **management operations** and **sessions**. 
 > - We advice against using the Service Bus Explorer for larger messages, as it may result in time-outs, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own time-out values.
 > - If your Service Bus namespace can only be accessed via a private endpoint, you must run your web browser on a host in the virtual network with the private endpoint, and also ensure that there are no network security gateways (NSGs) in the way.
+> - If a user has access only to entities and not the namespace, Service Bus Explorer might not function as expected in scenarios involving [migration to the premium tier](service-bus-migrate-standard-premium.md) or [metadata disaster recovery](service-bus-geo-dr.md). 
 
 
 ## Prerequisites

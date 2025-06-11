@@ -6,7 +6,7 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 02/12/2024
+ms.date: 03/03/2025
 
 #CustomerIntent: As an administrator, I want to learn how to create or modify an an Exchange peering with Route Server using the Azure portal so I can manage my Exchange peerings.
 ---
@@ -29,15 +29,13 @@ In this section, you learn how to create an Exchange peering with a route server
 
 1. In the search box at the top of the portal, enter ***peering***. Select **Peerings** in the search results.
 
-    :::image type="content" source="./media/how-to-exchange-route-server-portal/internet-peering-portal-search.png" alt-text="Screenshot of searching for internet peerings in the Azure portal." lightbox="./media/how-to-exchange-route-server-portal/internet-peering-portal-search.png":::
+    :::image type="content" source="./media/internet-peering-portal-search.png" alt-text="Screenshot of searching for internet peerings in the Azure portal." lightbox="./media/internet-peering-portal-search.png":::
 
 1. In the **Peerings** page, select **+ Create** to create a new peering.
 
-    :::image type="content" source="./media/how-to-exchange-route-server-portal/peerings-portal.png" alt-text="Screenshot of internet peerings page in the Azure portal." lightbox="./media/how-to-exchange-route-server-portal/peerings-portal.png":::
-
 1. In the **Basics** tab of **Create a peering**, enter or select your Azure subscription, resource group, name, and ASN of the peering:
 
-    :::image type="content" source="./media/how-to-exchange-route-server-portal/create-peering-basics.png" alt-text="Screenshot of the Basics tab of creating a peering in the Azure portal.":::
+    :::image type="content" source="./media/create-peering-basics.png" alt-text="Screenshot of the Basics tab of creating a peering in the Azure portal.":::
 
     > [!IMPORTANT] 
     > You can only choose an ASN with ValidationState as Approved before you submit a peering request. After submitting a PeerAsn request, wait for about 12 hours for the ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you needed to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn. For more information, see [Associate peer ASN to Azure subscription using the Azure portal](howto-subscription-association-portal.md).
@@ -125,9 +123,7 @@ In this section, you learn how to modify an Exchange peering.
 
     :::image type="content" source="./media/how-to-exchange-route-server-portal/delete-connection.png" alt-text="Screenshot shows how to delete a peering connection in the Azure portal." lightbox="./media/how-to-exchange-route-server-portal/delete-connection.png":::
 
-1. Confirm the delete by entering **yes** and then select **Delete**.
-
-    :::image type="content" source="./media/how-to-exchange-route-server-portal/delete-confirmation.png" alt-text="Screenshot shows the confirmation page to delete a peering connection in the Azure portal.":::
+1. Confirm the delete by entering ***yes*** and then select **Delete**.
 
 ### Add an IPv4 or IPv6 session on Active connections
 

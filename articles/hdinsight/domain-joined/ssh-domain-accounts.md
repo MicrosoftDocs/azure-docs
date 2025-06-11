@@ -3,6 +3,9 @@ title: Manage SSH access for domain accounts in Azure HDInsight
 description: Steps to manage SSH access for Microsoft Entra accounts in HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf 
 ms.date: 09/06/2024
 ---
 

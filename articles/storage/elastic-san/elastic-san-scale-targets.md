@@ -3,7 +3,7 @@ title: Elastic SAN scalability and performance targets
 description: Learn about the capacity, IOPS, and throughput rates for Azure Elastic SAN. Learn which regions support higher capacities.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/31/2024
 ms.author: rogarana
 ms.custom: references_regions
@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Scale targets for Elastic SAN
 
-There are three main components to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes.
+There are three main components to an Elastic SAN: the SAN itself, volume groups, and volumes.
 
 ## The Elastic SAN
 
@@ -41,7 +41,7 @@ Different regions have varying levels of base storage capacity available. We bre
 
 ##### Higher available base storage capacity
 
-The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: Australia East, Brazil South, Canada Central, Germany West, North Europe, West Europe, UK South, East US, East US 2, South Central US, US Central, and West US 2.
+The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: Australia East, Brazil South, Canada Central, Germany West, North Europe, West Europe, UK South, East US, East US 2, South Central US, US Central, West US 2, Australia Southeast, West Central US, West US, UK West.
 
 
 |Resource  |Values  |
@@ -57,7 +57,7 @@ The following regions are regions with higher base storage capacity available, a
 ##### Lower available base storage capacity
 
 
-The following regions are regions with lower base storage capacity available, and the table following the regions outlines their scale targets: East Asia, Korea Central, South Africa North, France Central, Southeast Asia, West US 3, Sweden Central, Switzerland North.
+The following regions are regions with lower base storage capacity available, and the table following the regions outlines their scale targets: East Asia, Korea Central, South Africa North, France Central, Southeast Asia, West US 3, Sweden Central, Switzerland North, Canada East, Japan West, North Central US, Australia Central, Southeast Brazil, Korea South, UAE Central, Switzerland West, Germany North, France South, Norway West, Sweden South.
 
 
 |Resource  |Values  |

@@ -2,23 +2,23 @@
 title: Enable multiple-namespace support for Application Gateway Ingress Controller
 description: This article provides information on how to enable support for multiple namespaces in a Kubernetes cluster by using the Application Gateway Ingress Controller. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 08/01/2023
-ms.author: greglin
+ms.date: 2/28/2025
+ms.author: mbender
 ---
 
 # Enable multiple-namespace support in an AKS cluster by using AGIC
 
 [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) make it possible for a Kubernetes cluster to be partitioned and allocated to subgroups of a larger team. These subgroups can then deploy and manage infrastructure with finer controls of resources, security, and configuration. Kubernetes allows for one or more ingress resources to be defined independently within each namespace.
 
-As of version 0.7, the [Application Gateway Kubernetes Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) can ingest events from and observe multiple namespaces. If an Azure Kubernetes Service (AKS) administrator decides to use [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) as an ingress, all namespaces use the same deployment of Application Gateway. A single installation of AGIC monitors accessible namespaces and configures the Application Gateway deployment that it's associated with.
+As of version 0.7 and greater, the [Application Gateway Kubernetes Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) can ingest events from and observe multiple namespaces. If an Azure Kubernetes Service (AKS) administrator decides to use [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) as an ingress, all namespaces use the same deployment of Application Gateway. A single installation of AGIC monitors accessible namespaces and configures the Application Gateway deployment that it's associated with.
 
-Version 0.7 of AGIC continues to exclusively observe the `default` namespace, unless you explicitly change it to one or more different namespaces in the Helm configuration.
+Version 0.7 and greater of AGIC continues to exclusively observe the `default` namespace, unless you explicitly change it to one or more different namespaces in the Helm configuration.
 
 > [!TIP]
-> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## Enable multiple-namespace support
 

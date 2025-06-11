@@ -25,8 +25,6 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-<!---If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) or [Azure CLI](tutorial-restrict-web-traffic-cli.md).--->
-
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -65,8 +63,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
     - **Subnet name** (Application Gateway subnet): The **Subnets** area shows a subnet named *Default*. Change the name of this subnet to *myAGSubnet*, and leave the default IPv4 Address range of **10.0.0.0/24**.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
 
        Select **OK** to close the **Create virtual network** window and save the virtual network settings.
-
-      :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-vnet.png" alt-text="Screenshot of Create new application gateway: Create virtual network.":::
     
 3. On the **Basics** tab, accept the default values for the other settings and then select **Next: Frontends**.
 
@@ -95,8 +91,6 @@ The backend pool is used to route requests to the backend servers that serve the
 
 3. In the **Add a backend pool** window, select **Add** to save the backend pool configuration and return to the **Backends** tab.
 
-    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backends.png" alt-text="Screenshot of Create new application gateway: Backends.":::
-
 4. On the **Backends** tab, select **Next: Configuration**.
 
 ### Configuration tab
@@ -115,17 +109,11 @@ On the **Configuration** tab, you connect the frontend and backend pool you crea
   
       Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
-     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-listener.png" alt-text="Screenshot showing Create new application gateway: listener." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-listener-expanded.png":::
-
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
 5. For the **Backend settings**, select **Add new** to create a new Backend setting. This setting determines the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name**. Accept the default values for the other settings in the window, then select **Add** to return to the **Add a routing rule** window. 
 
-     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backend-setting.png" alt-text="Screenshot showing Create new application gateway, Backend setting." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backend-setting-expanded.png":::
-
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
-
-     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png" alt-text="Screenshot showing Create new application gateway: routing rule." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends-expanded.png":::
 
 7. Select **Next: Tags** and then **Next: Review + create**.
 
@@ -182,7 +170,6 @@ In this example, you install NGINX on the virtual machines only to verify Azure 
 
 1. Open a Bash Cloud Shell. To do so, select the **Cloud Shell** icon from the top navigation bar of the Azure portal and then select **Bash** from the drop-down list.
 
-   :::image type="content" source="../media/application-gateway-web-application-firewall-portal/bash-shell.png" alt-text="Screenshot showing the Bash Cloud Shell.":::
 1. Ensure your bash session is set for your subscription:
    
    `az account set --subscription "<your subscription name>"`
@@ -212,21 +199,18 @@ In this example, you install NGINX on the virtual machines only to verify Azure 
 4. Under **Target type**, select **Virtual machine** from the drop-down list.
 
 5. Under **Target**, select the associated network interface for **myVM** from the drop-down list.
-1. Repeat for **myVM2**.
 
-   :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-backend.png" alt-text="Add backend servers":::
+6. Repeat for **myVM2**.
 
+7. Select **Save**.
 
-6. Select **Save**.
-
-7. Wait for the deployment to complete before proceeding to the next step.
+8. Wait for the deployment to complete before proceeding to the next step.
 
 ## Test the application gateway
 
 Although NGINX isn't required to create the application gateway, you installed it to verify whether Azure successfully created the application gateway. Use the web service to test the application gateway:
 
 1. Find the public IP address for the application gateway on its **Overview** page.
-    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png" lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png" alt-text="Screenshot of Application Gateway public IP address on the Overview page."::: 
 
    Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 1. Copy the public IP address, and then paste it into the address bar of your browser.
@@ -245,7 +229,7 @@ To remove the resource group:
 3. On the **Resource group page**, select **Delete resource group**.
 4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn more about Web Application Firewall](../overview.md)

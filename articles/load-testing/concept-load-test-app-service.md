@@ -52,7 +52,7 @@ Azure Load Testing provides high-fidelity support of JMeter. You can create a ne
 - Test authenticated endpoints
 - Pass parameters to the load test, such as environment variables or secrets
 - Test non-HTTP based endpoints, such as database connections
-- Configure more advanced load patters
+- Configure more advanced load patterns
 - Reuse existing JMeter scripts
 
 Get started [create a load test by uploading a JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md).

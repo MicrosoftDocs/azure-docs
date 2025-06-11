@@ -1,17 +1,19 @@
 ---
-title: "Deployment step 1: basic infrastructure - network access component"
-description: Learn about the configuration of network access during migration deployment step one.
+title: "Network access configuration"
+description: Learn how to configure network access during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 1: basic infrastructure - network access component
+# Network access configuration
 
-Mechanism to allow users access cloud environment in a secure way. It's a common practice in production environments to have resources with private IP addresses, and with rules to define how resources should be accessed.
+A key aspect of your high performance computing migration is the configuration of network access. Proper network access configration ensures secure, efficient, and uninterrupted communication between computational resources. This part of the guide covers the needs, tools, services, and best practices associated with your network access configuration.
+
+It's a common practice in production environments to have resources with private IP addresses, and with rules to define how resources should be accessed.
 
 This component should:
 

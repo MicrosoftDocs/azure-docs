@@ -57,7 +57,7 @@ It might be more cost effective for the small objects to stay in their current t
 
 ### Set appropriate time-based rules
 
-Avoid policy conditions that use a short duration between object creation, modification or last access time, and the intended operation by the policy. Lifecycle management can take up to 24 hours to begin processing after the prior run is completed. Policy changes and updates can also take up to 24 hours to go into effect. This includes deleting all the rules to make a policy inactive. Policies that take multiple days to complete might not operate on objects that were evaluated earlier in the run even though they meet the conditions over the run period.
+Avoid policy conditions that use a short duration between object creation, modification or last access time, and the intended operation by the policy. Lifecycle management can take up to 24 hours to begin processing after the prior run is completed. Policy changes and updates can also take up to 24 hours to go into effect. Policies that take multiple days to complete might not operate on objects that were evaluated earlier in the run even though they meet the conditions over the run period.
 
 
 ### Be aware of scalability and performance limits

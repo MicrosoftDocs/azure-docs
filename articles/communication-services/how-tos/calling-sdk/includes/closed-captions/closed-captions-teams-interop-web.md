@@ -180,7 +180,7 @@ By default, if contoso provides no language or an unsupported language, the spok
 // bcp 47 formatted language code
 const language = 'en-us'; 
 
-// Altneratively, pass a value from the supported spoken languages array
+// Alternatively, pass a value from the supported spoken languages array
 const language = spokenLanguages[0]; 
 
 try {
@@ -206,7 +206,7 @@ const captionLanguages = teamsCaptions.supportedCaptionLanguages;
 // ISO 639-1 formatted language code
 const language = 'en'; 
 
-// Altneratively, pass a value from the supported caption languages array
+// Alternatively, pass a value from the supported caption languages array
 const language = captionLanguages[0];
 try {
     teamsCaptions.setCaptionLanguage(language);

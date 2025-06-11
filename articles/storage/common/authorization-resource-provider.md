@@ -5,8 +5,8 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
-ms.topic: conceptual
-ms.date: 06/14/2024
+ms.topic: concept-article
+ms.date: 03/04/2025
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -63,12 +63,6 @@ For code examples that show how to authorize and call management operations from
 - [Java](https://github.com/Azure-Samples/storage-java-manage-storage-accounts)
 - [Node.js](https://github.com/Azure-Samples/storage-node-resource-provider-getting-started)
 - [Python](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/storage)
-
-## Azure Resource Manager versus classic deployments
-
-The Resource Manager and classic deployment models represent two different ways of deploying and managing your Azure solutions. Microsoft recommends using the Azure Resource Manager deployment model when you create a new storage account. If possible, Microsoft also recommends that you recreate existing classic storage accounts with the Resource Manager model. Although you can create a storage account using the classic deployment model, the classic model is less flexible and will eventually be deprecated.
-
-For more information about Azure deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
 ## Next steps
 

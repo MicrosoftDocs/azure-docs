@@ -209,7 +209,7 @@ The service offers two authentication methods: Microsoft Entra ID and Access Tok
 
   If you're using Azure Pipelines, you can connect to the service using Service Connections. Follow the steps to set up the integration:
 
-  - [Create an app registration with workload identity federation](https://learn.microsoft.com/azure/devops/pipelines/library/connect-to-azure#create-an-app-registration-with-workload-identity-federation-automatic). Select the subscription and resource group associated with your Playwright Testing workspace. Typically, the resource group has the same name as the Playwright Testing workspace.
+  - [Create an app registration with workload identity federation](/azure/devops/pipelines/library/connect-to-azure#create-an-app-registration-with-workload-identity-federation-automatic). Select the subscription and resource group associated with your Playwright Testing workspace. Typically, the resource group has the same name as the Playwright Testing workspace.
 
   - Use this service connection in Azure Pipeline yaml file as shown in subsequent steps.  
 

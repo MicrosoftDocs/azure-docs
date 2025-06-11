@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/24/2024
+ms.date: 03/03/2025
 ---
 
 # Enable Azure Peering Service Voice on a Direct peering by using the Azure portal
@@ -21,7 +21,7 @@ In this article, you learn how to enable Azure Peering Service for voice on a Di
 
 1. In the search box at the top of the portal, enter *peering*. Select **Peering** in the search results.
 
-    :::image type="content" source="./media/howto-peering-service-voice-portal/internet-peering-portal-search.png" alt-text="Screenshot shows how to search for Internet peering in the Azure portal." lightbox="./media/howto-peering-service-voice-portal/internet-peering-portal-search.png":::
+    :::image type="content" source="./media/internet-peering-portal-search.png" alt-text="Screenshot of searching for internet peerings in the Azure portal." lightbox="./media/internet-peering-portal-search.png":::
 
 1. In the **Peerings** page, select the peering resource that you want to convert to Azure Peering Service Voice configuration. If you have many peerings, you can filter by subscription, location, or resource group to find the peering resources that you want to convert to Azure Peering Service Voice configuration.
 

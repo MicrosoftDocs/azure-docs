@@ -19,7 +19,10 @@ Beyond the efficiency gains, the bulk update capability preserves a record of th
 There are a few limitations when you use the bulk update operation:
 
 - A maximum of 50 studies can be updated in a single operation.
-- Only one bulk update operation can be performed at a time.
+- Only one bulk update operation can be performed at a time for a given study.
+- For updates involving UID changes, only one study can be updated in a single operation.
+- Only Study Instance UID and Series Instance UID can be updated as part of UID update. SOP Instance UID cannot be updated for an instance.
+- UID update operation would fail when the target UIDs (`studyInstanceUID`, `seriesInstanceUid` and `sopInstanceUId`) already exists.
 - You can't delete only the latest version of a study, or revert back to the original version. 
 - You can't update any field from non-null to a null value.
 
@@ -59,6 +62,41 @@ The request body contains the specification for studies to update. Both the `stu
                     "Alphabetic": "New Patient Name 1" 
                 }
             ] 
+        } 
+    }
+}
+```
+
+For updating the UIDs, new UIDs have to be provided in the change dataset as follows. The `seriesInstanceUid` is an optional field.
+
+1. Use the request in the format below to update the `studyInstanceUid` for all instances within a study.
+
+```
+{
+    "studyInstanceUids": ["1.2.3.4"],
+    "changeDataset": { 
+        "0020000D": { 
+            "vr": "UI", 
+            "Value": ["1.2.3.5"]
+        } 
+    }
+}
+```
+
+2. Use the request in the format below to update the `studyInstanceUid` and the `seriesInstanceUid` for all instances within a series. Note that only one study can be updated at a time, and if a series-level update is performed, the entire hierarchy must be included. For series-level update, both the new `studyInstanceUid` and `seriesInstanceUid` have to be provided in the `changeDataset`.
+
+```
+{
+    "studyInstanceUids": ["1.2.3.4"],
+    "seriesInstanceUid": "5.6.7.8",
+    "changeDataset": { 
+        "0020000D": { 
+            "vr": "UI", 
+            "Value": ["1.2.3.5"]
+        },
+        "0020000E": { 
+            "vr": "UI", 
+            "Value": ["5.6.7.9"]
         } 
     }
 }
@@ -140,7 +178,7 @@ GET {dicom-service-url}/{version}/operations/{operationId}
 | 404 (Not Found) |           | Operation not found |
 
 ## Retrieving study versions
-The [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs) transaction allows you to retrieve both the original and latest version of a study, series, or instance. By default, the latest version of a study, series, or instance is returned. The original version is returned by setting the `msdicom-request-original` header to `true`. An example request follows.
+The [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs) transaction allows you to retrieve both the original and latest version of a study, series, or instance. By default, the latest version of a study, series, or instance is returned. The original version is returned by setting the `msdicom-request-original` header to `true`. For bulk updates involving UID update, the original and latest version can be retrieved using the newer UIDs only. An example request follows.
 
 ```http 
 GET {dicom-service-url}/{version}/studies/{study}/series/{series}/instances/{instance}
@@ -149,11 +187,13 @@ msdicom-request-original: true
 Content-Type: application/dicom
  ```
 
+For bulk updates involving UID update, the original and latest version can be retrieved using the newer UIDs only.
+
 ## Delete
 The [delete](dicom-services-conformance-statement-v2.md#delete) method deletes both the original and latest version of a study, series, or instance.
 
 ## Change feed
-The [change feed](change-feed-overview.md) records update actions in the same manner as create and delete actions. 
+The [change feed](change-feed-overview.md) records update actions in the same manner as create and delete actions. For UID updates, change feed entries for the older UIDs will not be updated. The update action would be present only for the new UIDs. 
 
 ## Supported DICOM modules
 Any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation. Supported attributes are called out in the tables.
@@ -213,6 +253,8 @@ The UID `1.3.6.1.4.1.311.129` is a registered under [Microsoft OID arc](https://
 #### General study module
 | Attribute Name   | Tag           | Description           |
 | ---------------- | --------------| --------------------- |
+| Study Instance UID | (0020,000D) | Unique identifier for the Study |
+| Series Instance UID | (0020,000E) | Unique identifier for the Series |
 | Referring Physician's Name | (0008,0090) | Name of the patient's referring physician |
 | Accession Number | (0008,0050) | A RIS generated number that identifies the order for the Study |
 | Study Description | (0008,1030) | Institution-generated description or classification of the Study (component) performed |

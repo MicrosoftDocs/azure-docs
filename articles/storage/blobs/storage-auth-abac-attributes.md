@@ -5,7 +5,7 @@ description: Supported actions and attributes for Azure role assignment conditio
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/01/2024
 ms.reviewer: nachakra
 ---

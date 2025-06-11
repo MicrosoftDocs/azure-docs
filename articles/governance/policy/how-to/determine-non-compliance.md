@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Discover what caused the non-compliance with the policy.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: how-to
 ---
 

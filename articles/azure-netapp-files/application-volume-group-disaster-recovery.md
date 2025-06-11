@@ -1,16 +1,20 @@
 ---
-title: Add volumes for an SAP HANA system as a DR system using Azure NetApp Files cross-region replication  | Microsoft Docs
+title: Add volumes for an SAP HANA system as a DR system using Azure NetApp Files cross-region replication
 description: Describes using an application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 05/15/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
 
 This article describes using an application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system. This configuration uses Azure NetApp Files cross-region replication (CRR) functionality.
+
+[!INCLUDE [PowerShell & CLI call-out](includes/application-volume-group-powershell.md)]
 
 ## CRR between source and destination HANA servers
 
@@ -26,7 +30,7 @@ The following diagram illustrates cross-region replication between the source an
 > When you use an HA deployment with HSR at the primary side, you can choose to replicate not only the primary HANA system as described in this section, but also the HANA secondary system using cross-region replication. To automatically adapt the naming convention, you select both the **HSR secondary** and **Disaster recovery destination** options in the Create a Volume Group screen. The prefix then changes to `DR2-`. 
 
 > [!IMPORTANT]
-> * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions such as the [Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap).
+> * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions including [SnapCenter](https://docs.netapp.com/us-en/snapcenter/protect-azure/protect-applications-azure-netapp-files.html), [Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap), or other [validated partner solutions](../storage/solution-integration/validated-partners/backup-archive-disaster-recovery/partner-overview.md).
 > * You need to replicate at least the data volume and the log-backup volume. 
 > * You can optionally replicate the data-backup volume and the shared volume. 
 > * You should *never* replicate the log volume. The application volume group will create the log volume as a standard volume.
@@ -55,100 +59,6 @@ The schedule for replication frequency has impacts on the SLAs:
 ## Add volumes  
 
 The following example adds volumes to an SAP HANA system. The system serves as a DR destination system using cross-region replication.
-
-[!INCLUDE [Extension 1 interface call-out](./includes/extension-one.md)]
-
-### [Without Extension 1](#tab/without-extension-1)
-
-1. From your NetApp account, select **Application volume groups** then **+Add Group**.
-1. In Deployment Type, select **SAP HANA** then **Next**. 
-
-1. In the **SAP HANA** tab, provide HANA-specific information. 
-
-    > [!IMPORTANT]
-    > Be sure to select the **Disaster recovery destination** option to indicate that you are creating a HANA system as a cross-region replication destination.  
-
-    * **SAP ID (SID)**:    
-        The three alphanumeric-character SAP HANA system identifier.
-    * **Group name**:  
-        The volume group name. 
-    * **SAP node memory**:  
-        This value defines the size of the SAP HANA database on the host. It's used to calculate the required volume size and throughput. 
-    * **Capacity overhead (%)**:  
-        When you use snapshots for data protection, you need to plan for extra capacity. This field will add additional size (%) for the data volume.  
-        You can estimate this value by using `"change rate per day" X "number of days retention"`.
-    * **Single-host**:  
-        Select this option for an SAP HANA single-host system or the first host for a multiple-host system. Only the shared, log-backup, and data-backup volumes will be created with the first host.
-    * **Multiple-host**:  
-        Select this option if you're adding additional hosts to a multiple-hosts HANA system.
-    * **Disaster recover destination**:  
-        Select this option to create volumes for a HANA system as a DR site using [cross-region replication](cross-region-replication-introduction.md).  
-    
-        Selecting **Disaster recover destination** triggers the naming convention for the volume group name to include `"-DR-"` to indicate a disaster-recovery setup. 
-
-    Select **Next: Volume Group**.    
-
-    [ ![Screenshot that shows the Create a Volume Group page in a cross-region replication configuration.](./media/application-volume-group-disaster-recovery/application-cross-region-create-volume.png) ](./media/application-volume-group-disaster-recovery/application-cross-region-create-volume.png#lightbox)
-
-1. In the **Volume group** tab, provide information for creating the volume group:
-
-    * **Proximity placement group (PPG)**:  
-        Specifies that the data and shared volumes are to be created close to the disaster recovery VMs.  
-        Even if you don't need the VMs for replication, you need to start at least one VM to anchor the PPG while provisioning the volumes.
-    * **Capacity pool**:  
-        All volumes are placed in a single manual QoS capacity pool.   
-        If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
-    * **Virtual network**:  
-        Specify an existing VNet where the VMs are placed. 
-    * **Subnet**:  
-        Specify the delegated subnet where the IP addresses for the NFS exports is to be created. Ensure that you have a delegated subnet with enough free IP addresses.
-
-    Select **Next: Protocols**. 
-
-4. In the **Protocols** section of the Volume Group tab, you can modify the **Export Policy**, which should be common to all volumes.
-
-    Select **Next: Replication**.
-
-5. In the **Replication** section of the Volume Group tab, the Replication Schedule field defaults to "Multiple" (disabled). The default replication schedules are different for the replicated volumes. As such, you can modify the replication schedules only for each volume individually from the Volumes tab, and not globally for the entire volume group. 
-
-    [ ![Screenshot that shows Multiple field is disabled in Create a Volume Group page.](./media/application-volume-group-disaster-recovery/application-cross-region-multiple-disabled.png) ](./media/application-volume-group-disaster-recovery/application-cross-region-multiple-disabled.png#lightbox)
-
-    Select **Next: Tags**.
-
-6. In the **Tags** section of the Volume Group tab, you can add tags as needed for the volumes.   
-
-    Select **Next: Volumes**. 
-
-7. The **Volumes** tab displays the volume list.
-
-    The volume naming convention includes a `"DR-"` prefix to indicate that the volumes belong to the disaster-recovery (destination) side of the setup.
-
-    The Volumes tab also displays the volume type: 
- 
-    * **DP** - Indicates destination in the cross-region replication setting. Volumes of this type aren't online but in replication mode.
-    * **RW** - Indicates that reads and writes are allowed.
-
-    The default type for the log volume is `RW`, and the setting can't be changed.
-
-    The default type for the data, shared, and log-backup volumes is `DP`, and the setting can't be changed.
-
-    The default type for the data-backup volume is DP, but this setting can be changed to RW.  
-
-    [ ![Screenshot that shows volume types in Create a Volume Group page.](./media/application-volume-group-disaster-recovery/application-cross-region-volume-types.png) ](./media/application-volume-group-disaster-recovery/application-cross-region-volume-types.png#lightbox)
-
-8. Select each volume with the DP type to specify the **Source volume ID**. For more information, see [Locate the source volume resource ID](cross-region-replication-create-peering.md#locate-the-source-volume-resource-id). 
- 
-    You can optionally change the default replication schedule of a volume. See [Replication schedules, RTO, and RPO](#replication-schedules-rto-and-rpo) for the replication schedule options. 
-
-    [ ![Screenshot that shows the Replication tab in Create a Volume Group page.](./media/application-volume-group-disaster-recovery/application-cross-region-replication-tab.png) ](./media/application-volume-group-disaster-recovery/application-cross-region-replication-tab.png#lightbox)
-
-9. After you create the volume group, set up replication by following instructions in [Authorize replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume).  
-
-    1. For each DP volume that you created, copy the volume **Resource ID**.
-
-    2. For each source volume, select **Replication** then **Authorize**. Paste the **Resource ID** of each corresponding destination volume. 
-
-### [Extension 1](#tab/extension-1)
 
 1. From your NetApp account, select **Application volume groups**, and select **+Add Group**. Then, in Deployment Type, select **SAP HANA** and select **Next**. 
 
@@ -232,7 +142,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     The default type for the data-backup volume is DP, but this setting can be changed to RW.  
 
-    [ ![Screenshot that shows volume types in Create a Volume Group page for extension one.](./media/application-volume-group-disaster-recovery/create-volume-group-extension-one.png) ](./media/application-volume-group-disaster-recovery/create-volume-group-extension-one.png#lightbox)
+    [ ![Screenshot that shows volume types in Create a Volume Group page.](./media/application-volume-group-disaster-recovery/create-volume-group-extension-one.png) ](./media/application-volume-group-disaster-recovery/create-volume-group-extension-one.png#lightbox)
 
 8. Select each volume with the DP type to specify the **Source volume ID**. For more information, see [Locate the source volume resource ID](cross-region-replication-create-peering.md#locate-the-source-volume-resource-id). 
  
@@ -245,8 +155,6 @@ The following example adds volumes to an SAP HANA system. The system serves as a
     1. For each DP volume that you created, copy the volume **Resource ID**.
 
     2. For each source volume, select **Replication** then **Authorize**. Paste the **Resource ID** of each corresponding destination volume. 
-
----
 
 ## Setup options for replicating an SAP HANA database using HANA system replication for HA
 

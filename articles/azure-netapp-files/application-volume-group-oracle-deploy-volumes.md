@@ -2,46 +2,25 @@
 title: Deploy application volume group for Oracle using Azure NetApp Files 
 description: Describes how to deploy all required volumes for your Oracle database using Azure NetApp Files application volume group for Oracle. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/29/2025
+ms.date: 04/22/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
-# Deploy application volume group for Oracle
+# Deploy application volume group for Oracle in Azure NetApp Files
 
 This article describes how to deploy all required volumes for your Oracle database using Azure NetApp Files application volume group for Oracle.
+
+[!INCLUDE [CLI & PowerShell call-out](includes/application-volume-group-powershell-oracle.md)]
 
 ## Before you begin
 
 You should understand the [requirements and considerations for application volume group for Oracle](application-volume-group-oracle-considerations.md). 
-
-## Register the feature  
-
-Azure NetApp Files application volume group for Oracle is currently in preview. Before using this feature for the first time, you need to register it. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFOracleVolumeGroup 
-    ```
-
-2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFOracleVolumeGroup
-    ```
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Steps 
 
@@ -54,17 +33,17 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 3. In the **ORACLE** tab, provide Oracle-specific information:   
 
     * **Unique System ID (SID)**:    
-        Choose a unique identifier that will be used in the naming proposals for all your storage objects and helps to uniquely identify the volumes for this database.
+        Use the unique Oracle identifier that will be used to identify the volumes for this database in the naming proposals for all your storage objects.
     * **Group name / Group description**:  
         Provide the volume group name and description.
     * **Number of Oracle data volumes (1-8)**:  
-        Depending on your sizing and performance requirements of the database you can create a minimum of 1 and up to 8 data volumes. 
+        Depending on your sizing and performance requirements of the database, you can create a minimum of 1 and up to 8 data volumes. 
     * **Oracle database size in (TiB)**:   
-        Specify the total capacity required for your database. If you select more than one database volume, the capacity is distributed evenly among all volumes. You may change each individual volume once the proposals have been created. See Step 8 in this article.
+        Specify the total capacity required for your database. If you select more than one database volume, the capacity is distributed evenly among all volumes. You can change each individual volume once the proposals have been created. See Step 8 in this article.
     * **Additional capacity for snapshots (%)**:   
-        If you use snapshots for data protection, you need to plan for extra capacity. This field will add an additional size (%) for the data volume.
+        If you use snapshots for data protection, you need to plan for extra capacity. This field adds an additional size (%) for the data volume.
     * **Oracle database storage throughput (MiB/s)**:   
-        Specify the total throughput required for your database. If you select more than one database volume, the throughput is distributed evenly among all volumes. You may change each individual volume once the proposals have been created. See Step in this article.
+        Specify the total throughput required for your database. If you select more than one database volume, the throughput is distributed evenly among all volumes. You can change each individual volume once the proposals have been created. See Step in this article.
 
     Select **Next: Volume Group**.
 
@@ -73,17 +52,17 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 4. In the **Volume group** tab, provide information for creating the volume group:
 
     * **Availability options**:  
-        There are two **Availability** options. This screenshot is for a volume placement using **Availability Zone**.  
+        There are 2 **Availability** options. The following screenshot illustrates volume placement using **Availability Zone**.  
     * **Availability Zone**:  
-        Select the zone where Azure NetApp Files is available. In regions without zones, you can select **none**.
+        Select the zone where Azure NetApp Files is available. In regions without zones, select **none**.
     * **Network features**:  
-        Select either **Basic** or **Standard** network features. All volumes should use the same network feature. This selection is set for each individual volume.
+        Select either **Basic** or **Standard** network features. All volumes should use the same network feature setting. This selection is set for each individual volume.
     * **Capacity pool**:  
-        All volumes will be placed in a single manual QoS capacity pool.
+        Design that manual QoS capacity where all volumes are placed. 
     * **Virtual network**:  
-        Specify an existing VNet where the VMs are placed. 
+        Specify an existing VNet where the Oracle VMs are located.
     * **Subnet**:  
-        Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
+        Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure you have a delegated subnet with enough free IP addresses.
     * **Encryption key source**:
         Select [Customer Managed Key](configure-customer-managed-keys.md) or Microsoft Managed Key. If you choose Customer Managed Key, provide the key vault private endpoint.
 
@@ -91,10 +70,10 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     [ ![Screenshot that shows the Volume Group tag for Oracle.](./media/volume-hard-quota-guidelines/application-volume-group-tag-oracle.png) ](./media/volume-hard-quota-guidelines/application-volume-group-tag-oracle.png#lightbox)
 
-5. If you select **Proximity placement group**, then specify the following information in the **Volume group** tab: 
+5. If you select **Proximity placement group**, specify the following information in the **Volume group** tab: 
 
     * **Availability options**:   
-        This screenshot is for a volume placement using **Proximity placement group**.
+        This screenshot shows a volume placement using **Proximity placement group**.
     * **Proximity placement group**:
         Specify the proximity placement group for all volumes.
 
@@ -112,10 +91,10 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     [ ![Screenshot that shows how to add tags for Oracle.](./media/volume-hard-quota-guidelines/application-add-tags-oracle.png) ](./media/volume-hard-quota-guidelines/application-add-tags-oracle.png#lightbox)
 
 
-7. In the **Protocols** section of the Volume Group tab, you can select the NFS version, modify the Export Policy, and select [LDAP-enabled volumes](configure-ldap-extended-groups.md). These settings need to be common to all volumes. 
+7. In the **Protocols** section of the Volume Group tab, you can select the NFS version, modify the Export Policy, and select [LDAP-enabled volumes](configure-ldap-extended-groups.md). These settings need to be common across all volumes in this volume group. 
 
     > [!NOTE]
-    > For optimal performance, use Oracle dNFS to mount the volumes at the database server. We recommend using NFSv3 as a base for dNFS, but NFSv4.1 is also supported. Check the support documentation of your Azure VM operating system for guidance about which NFS protocol version to use in combination with dNFS and your operating system. 
+    > For optimal performance, use Oracle dNFS to mount the volumes at the database server. It's recommended you use NFSv3 as a base for dNFS. NFSv4.1 is also supported. Check the support documentation of your Azure VM operating system for guidance about which NFS protocol version to use in combination with dNFS and your operating system. 
 
     Select **Next: Volumes**. 
 
@@ -160,14 +139,13 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 12. The **Volumes Tab** enables you to remove optional volumes. 
 
-    <!-- check -->
     Provide an **Encryption key source**. Select [Customer Managed Key](configure-customer-managed-keys.md) or Microsoft Managed Key. If you choose Customer Managed Key, provide the key vault private endpoint.
 
     On the Volumes tab, optional volumes are marked with an asterisk (`*`) in front of the name.   
     If you want to remove the optional volumes such as `ORA1-ora-data4` volume or `ORA1-ora-binary` volume from the volume group, select the volume then **Remove volume**. Confirm the removal in the dialog box that appears.
 
     > [!IMPORTANT]    
-    > You cannot add a removed volume back to the volume group again.
+    > You can't add a removed volume back to the volume group again without canceling and restarting the application volume group workflow.
 
     Select **Volumes** after completing the changes of volumes.
 
@@ -178,7 +156,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     [ ![Screenshot that shows confirmation about removing an optional volume for Oracle.](./media/volume-hard-quota-guidelines/application-volume-remove-confirm-oracle.png) ](./media/volume-hard-quota-guidelines/application-volume-remove-confirm-oracle.png#lightbox)
 
 
-13.	The **Review + Create** tab lists all the volumes that will be created. The process also validates the creation.  
+13.	The **Review + Create** tab lists all the volumes to be created. The process also validates the creation.  
 
     Select **Create Volume Group** to start the volume group creation. 
 
@@ -189,12 +167,12 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     [ ![Screenshot that shows the Deployment in Progress window for Oracle.](./media/volume-hard-quota-guidelines/application-deployment-in-progress-oracle.png) ](./media/volume-hard-quota-guidelines/application-deployment-in-progress-oracle.png#lightbox)
 
-    Creating a volume group is an "all-or-none" operation. If one volume can't be created, the operation is canceled, and all remaining volumes will be removed also.
+    Creating a volume group is an "all-or-none" operation. If one volume can't be created, the operation is canceled, and all remaining volumes are also removed.
 
     [ ![Screenshot that shows the new volume group for Oracle.](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png) ](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png#lightbox)
 
 
-15. Following completion, in **Volumes** you can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
+15. Following completion, in **Volumes** you can display the list of volume groups to see the new volume group. Select the new volume group to see the details and status of each of the volumes being created.
 
 ## Next steps
 

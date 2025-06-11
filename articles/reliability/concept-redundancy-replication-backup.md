@@ -2,7 +2,7 @@
 title: Redundancy, replication, and backup
 description: Learn about redundancy, replication, and backup, which are fundamental concepts of reliability.
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 02/26/2025
 ms.author: anaharris
@@ -10,7 +10,7 @@ author: anaharris-ms
 ms.custom: subject-reliability
 ---
 
-# Redundancy, replication, and backup
+# What are redundancy, replication, and backup?
 
 We often think about the cloud as a globally distributed, ubiquitous system. However, in reality the cloud is made up of hardware running in datacenters. Resiliency requires that you account for some of the risks associated with the physical locations in which your cloud-hosted components run.
 
@@ -168,7 +168,7 @@ In many replication systems, replicas can take on different roles, which helps t
 
     In an active-passive system, the length of time that it takes to fail over determines the RTO. Commonly, the RTO for an active-passive system is measured in minutes.
 
-    Some replication solutions also support *read-only replicas*, which enables you to read (but not write) data from the passive replicas. This approach can be useful to get more utilization from your replicas, such as when you need to perform analytics or reporting on data without affecting the primary replica that you're using for your application's transactional work. Several Azure services support read-only replicas, including [Azure Storage with the read access GRS (RA-GRS) replication type](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region), and [Azure SQL active geo-replication](/azure/azure-sql/database/active-geo-replication-overview?view=azuresql&preserve-view=true).
+    Some replication solutions also support *read-only replicas*, which enables you to read (but not write) data from the passive replicas. This approach can be useful to get more utilization from your replicas, such as when you need to perform analytics or reporting on data without affecting the primary replica that you're using for your application's transactional work. Several Azure services support read-only replicas, including [Azure Storage with the read access GRS (RA-GRS) replication type](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region), and [Azure SQL Database active geo-replication](/azure/azure-sql/database/active-geo-replication-overview?view=azuresql&preserve-view=true).
 
 - **Active-active** replication enables using multiple active replicas for live traffic simultaneously, and any of the replicas can process requests:
 
@@ -185,7 +185,7 @@ Each Azure service that stores data offers some form of replication. However, ea
 
 As an example, Azure Storage can provide both synchronous and asynchronous replication through a set of capabilities:
 
-- Multiple copies of your data are replicated synchronously within your primary region. You can choose whether to place replicas in different storage clusters in a single datacenter in locally redundant storage (LRS) or spread them across multiple availability zones for zone-redundant storage (ZRS).
+- Multiple copies of your data are replicated synchronously within your primary region. You can choose whether to place replicas on different physical hardware in a single datacenter in locally redundant storage (LRS) or spread them across multiple availability zones for zone-redundant storage (ZRS).
 - If your primary region is paired and you enable geo-redundant storage (GRS), the data is also replicated to the paired region. Because paired regions are geographically distant, this replication happens asynchronously to reduce the impact on your application throughput.
 - You can choose to use zone-redundant storage and geo-redundant storage simultaneously by using the geo-zone-redundant storage tier (GZRS). Data within the region is replicated synchronously, and data across regions is replicated asynchronously.
 

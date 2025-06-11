@@ -1,9 +1,9 @@
 ---
-author: davidsmatlak
+author: jasongroce
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/19/2022
-ms.author: davidsmatlak
+ms.date: 03/04/2025
+ms.author: jasongroce
 ms.custom: generated
 ---
 

@@ -2,8 +2,8 @@
 title: Software costs not included in Azure saving plans
 titleSuffix: Microsoft Cost Management
 description: Learn how savings plan discounts apply only to Azure compute infrastructure costs and not to the software costs.
-author: bandersmsft
-ms.author: banders
+author: nwokolo
+ms.author: onwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan

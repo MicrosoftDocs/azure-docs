@@ -1,21 +1,23 @@
 ---
 title: Self-service exchanges and refunds for Azure Reservations
-description: Learn how you can exchange or refund Azure Reservations. You must have owner access to the Reservation Order to exchange or refund reservations.
-author: bandersmsft
+description: Learn how you can exchange or refund Azure Reservations. You must have owner access to the Reservation Order to exchange or cancel/refund reservations.
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 01/22/2025
-ms.author: banders
+ms.date: 04/26/2025
+ms.author: primittal
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
 
-# Self-service exchanges and refunds for Azure Reservations
+# Self-service exchanges and cancel/refunds for Azure Reservations
 
 Azure Reservations provide flexibility to help meet your evolving needs. Reservation products are interchangeable with each other if they're the same type of reservation. For example, you can exchange multiple compute reservations including Azure Dedicated Host, Azure VMware Solution, and Azure Virtual Machines with each other all at once. You can also exchange multiple SQL database reservation types including SQL Managed Instances and Elastic Pool with each other. However, you can't exchange dissimilar reservations. For example, you can't exchange an Azure Cosmos DB reservation for SQL Database.
 
 You can also exchange a reservation to purchase another reservation of a similar type in a different region. For example, you can exchange a reservation that's in West US 2 region for one that's in West Europe region.
+
+If you have a reservation with multiple quantities, you can choose to exchange fewer quantities than you originally reserved. For example, if you purchase 10 quantity, you can choose to only exchange 5 of that reservation quantity and so on.
 
 ## Reservation exchange policy changes
 
@@ -63,7 +65,7 @@ The following reservations aren't eligible for refunds:
 
 You can exchange your reservation from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
-1. Select the reservations that you want to refund and select **Exchange**.  
+1. On the Reservations page, select the reservations that you want to refund and select **Exchange**.  
     :::image type="content" border="true" source="./media/exchange-and-refund-azure-reservations/exchange-refund-return.png" lightbox="./media/exchange-and-refund-azure-reservations/exchange-refund-return.png" alt-text="Screenshot showing reservations to return.":::
 1. Select the VM product that you want to purchase and type a quantity. Make sure that the new purchase total is more than the return total. [Determine the right size before you purchase](/azure/virtual-machines/prepay-reserved-vm-instances#determine-the-right-vm-size-before-you-buy).  
     :::image type="content" border="true" source="./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png" lightbox="./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png" alt-text="Screenshot showing the VM product to purchase with an exchange.":::

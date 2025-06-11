@@ -5,9 +5,10 @@ services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 10/01/2024
+ms.date: 03/10/2025
 ms.author: zhenlwa
-ms.custom: "devx-track-csharp, mvc"
+ms.custom:
+  - build-2025
 ---
 
 # Azure App Configuration best practices
@@ -23,31 +24,146 @@ App Configuration provides two options for organizing keys:
 
 You can use either one or both options to group your keys.
 
-*Key prefixes* are the beginning parts of keys. You can logically group a set of keys by using the same prefix in their names. Prefixes can contain multiple components connected by a delimiter, such as `/`, similar to a URL path, to form a namespace. Such hierarchies are useful when you're storing keys for many applications and microservices in one App Configuration store.
+*Key prefixes* allow you to group related keys by using a common prefix in their names. Prefixes can include multiple segments separated by delimiters such as `/` or `:`, forming a hierarchical namespace. This approach is useful when storing configuration keys for multiple applications or microservices within a single App Configuration store.
 
-An important thing to keep in mind is that keys are what your application code references to retrieve the values of the corresponding settings. Keys shouldn't change, or else you'll have to modify your code each time that happens.
+It's important to remember that keys are directly referenced by your application code to retrieve their corresponding values. Therefore, keys should remain stable to avoid code changes. If needed, you can use the App Configuration provider to trim key prefixes at runtime.
 
-*Labels* are an attribute on keys. They're used to create variants of a key. For example, you can assign labels to multiple versions of a key. A version might be an iteration, an environment, or some other contextual information. Your application can request an entirely different set of key-values by specifying another label. As a result, all key references remain unchanged in your code.
+*Labels* enable you to create variations of a key, such as different versions or environment-specific settings. By assigning labels, you can maintain multiple values for the same key. Your application can then retrieve different sets of key-values by specifying the appropriate label, allowing your key references in code to remain consistent.
 
 ## Key-value compositions
 
-App Configuration treats all keys stored with it as independent entities. App Configuration doesn't attempt to infer any relationship between keys or to inherit key-values based on their hierarchy. You can aggregate multiple sets of keys, however, by using labels coupled with proper configuration stacking in your application code.
+App Configuration treats each key stored within it as an independent entity. It doesn't infer relationships between keys or inherit values based on key hierarchy. However, you can aggregate multiple sets of keys effectively by using labels combined with configuration stacking in your application.
 
-Let's look at an example. Suppose you have a setting named **Asset1**, whose value might vary based on the development environment. You create a key named "Asset1" with an empty label and a label named "Development". In the first label, you put the default value for **Asset1**, and you put a specific value for "Development" in the latter.
+Consider an example where you have a configuration setting named *TestApp:MySetting*, whose value varies depending on the environment. You can create two keys with the same name, but assign different labels—one with no label (default) and another labeled *Development*. The unlabeled key holds the default value, while the labeled key contains the environment-specific value.
 
-In your code, you first retrieve the key-values without any labels, and then you retrieve the same set of key-values a second time with the "Development" label. When you retrieve the values the second time, the previous values of the keys are overwritten. The .NET configuration system allows you to "stack" multiple sets of configuration data on top of each other. If a key exists in more than one set, the last set that contains it is used. With a modern programming framework, such as .NET, you get this stacking capability for free if you use a native configuration provider to access App Configuration. The following code snippet shows how you can implement stacking in a .NET application:
+In your application code, you first load the default (unlabeled) key-values, then load the environment-specific key-values using the *Development* label. When loading the second set, any matching keys overwrite the previously loaded values. This approach allows you to "stack" multiple configuration sets, with the last loaded value taking precedence. [App Configuration providers](./configuration-provider-overview.md) across supported languages and platforms offer this stacking capability.
+
+The following example demonstrates how to implement key-value composition in a .NET application:
 
 ```csharp
-// Augment the ConfigurationBuilder with Azure App Configuration
-// Pull the connection string from an environment variable
 configBuilder.AddAzureAppConfiguration(options => {
-    options.Connect(configuration["connection_string"])
-           .Select(KeyFilter.Any, LabelFilter.Null)
-           .Select(KeyFilter.Any, "Development");
+    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+           // Load all keys that start with `TestApp:` and compose with two different labels
+           .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
+           .Select(keyFilter: "TestApp:*", labelFilter: "Development");
 });
 ```
 
 [Use labels to enable different configurations for different environments](./howto-labels-aspnet-core.md) provides a complete example.
+
+## Configuration refresh
+
+Azure App Configuration supports dynamic configuration refresh without requiring an application restart. The [App Configuration providers](./configuration-provider-overview.md) can monitor configuration changes using two approaches:
+
+### Monitoring all selected keys
+
+In this approach, the provider monitors all selected keys. If a change is detected in any of the selected key-values, the entire configuration is reloaded. This approach ensures immediate updates without requiring additional key modifications.
+
+#### [.NET](#tab/dotnet)
+
+```csharp
+configBuilder.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+           // Load all keys that start with `TestApp:` and have no label
+           .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
+           .ConfigureRefresh(refreshOptions =>
+           {
+               // Trigger full configuration refresh when any selected key changes.
+               refreshOptions.RegisterAll();
+           });
+});
+```
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const appConfig = await load(endpoint, credential, {
+    selectors: [{ keyFilter: "TestApp:*" }],
+    refreshOptions: {
+        enabled: true
+    }
+});
+```
+
+#### [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: TestApp*
+    refresh:
+      enabled: true
+```
+
+---
+
+### Monitoring a sentinel key
+
+Alternatively, you can monitor an individual key, often referred to as the *sentinel key*. This approach is useful when updating multiple key-values. By updating the sentinel key only after all other configuration changes are completed, you ensure your application reloads configuration just once, maintaining consistency.
+
+#### [.NET](#tab/dotnet)
+
+```csharp
+configBuilder.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+           // Load all keys that start with `TestApp:` and have no label
+           .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
+           .ConfigureRefresh(refreshOptions =>
+           {
+               // Trigger full configuration refresh only if the `SentinelKey` changes.
+               refreshOptions.Register("SentinelKey", refreshAll: true);
+           });
+});
+```
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const appConfig = await load(endpoint, credential, {
+    selectors: [{ keyFilter: "TestApp:*" }],
+    refreshOptions: {
+        enabled: true,
+        watchedSettings: [{ key: "SentinelKey" }]
+    }
+});
+```
+
+#### [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: TestApp*
+    refresh:
+      enabled: true
+      monitoring:
+        keyValues:
+          - key: SentinelKey
+```
+
+---
+
+Both approaches are available through App Configuration providers across supported languages and platforms.
+
+To reduce the risk of configuration inconsistencies, use [configuration snapshots](./howto-create-snapshots.md) to ensure configuration integrity.
 
 ## References to external data
 
@@ -59,9 +175,11 @@ The App Configuration [Key Vault reference](use-key-vault-references-dotnet-core
 
 ## App Configuration bootstrap
 
-To access an App Configuration store, you can use its connection string, which is available in the Azure portal. Because connection strings contain credential information, they're considered secrets. These secrets need to be stored in Azure Key Vault, and your code must authenticate to Key Vault to retrieve them.
+To access an Azure App Configuration store, you can authenticate using either a connection string or Microsoft Entra ID. While connection strings are readily available in the Azure portal, they contain credential information and must be treated as secrets. If you choose this approach, store the connection string securely in Azure Key Vault and ensure your application authenticates to Key Vault to retrieve it.
 
-A better option is to use the managed identities feature in Microsoft Entra ID. With managed identities, you need only the App Configuration endpoint URL to bootstrap access to your App Configuration store. You can embed the URL in your application code (for example, in the *appsettings.json* file). See [Use managed identities to access App Configuration](howto-integrate-azure-managed-service-identity.md) for details.
+A more secure and recommended approach is to use Microsoft Entra ID authentication. If your application is hosted in Azure—such as on Azure Kubernetes Service, App Service, or Azure Functions—you can use managed identities provided by Microsoft Entra ID. Managed identities eliminate the need to manage secrets explicitly. With this method, your application only requires the App Configuration endpoint URL, which can be safely embedded in your application code or configuration files.
+
+For more information, see [Use managed identities to access App Configuration](./howto-integrate-azure-managed-service-identity.md).
 
 ## Azure Kubernetes Service access to App Configuration
 
@@ -71,7 +189,7 @@ The following options are available for workloads hosted in Azure Kubernetes Ser
 
 * **Update your application to use Azure App Configuration provider libraries.** The provider libraries are available in many frameworks and languages, such as [ASP.NET](./quickstart-aspnet-core-app.md), [.NET](./quickstart-dotnet-core-app.md), [Java Spring](./quickstart-java-spring-app.md), [JavaScript/Node.js](./quickstart-javascript-provider.md), and [Python](./quickstart-python-provider.md). This approach gives you full access to App Configuration's functionalities, including dynamic configuration and feature management. You have granular control of what data to load and from which App Configuration store for each application.
 
-* **[Integrate with Kubernetes deployment using Helm](./integrate-kubernetes-deployment-helm.md).** If you do not wish to update your application or add a new pod to your AKS cluster, you have the option of bringing data from App Configuration to your Kubernetes cluster by using Helm via deployment. This approach enables your application to continue accessing configuration from Kubernetes variables and Secrets. You can run Helm upgrade whenever you want your application to incorporate new configuration changes.
+* **[Integrate with Kubernetes deployment using Helm](./integrate-kubernetes-deployment-helm.md).** If you don't wish to update your application or add a new pod to your AKS cluster, you have the option of bringing data from App Configuration to your Kubernetes cluster by using Helm via deployment. This approach enables your application to continue accessing configuration from Kubernetes variables and Secrets. You can run Helm upgrade whenever you want your application to incorporate new configuration changes.
 
 ## App Service or Azure Functions access to App Configuration
 
@@ -89,7 +207,7 @@ You can also make your App Configuration data accessible to your application as 
 
 Excessive requests to App Configuration can result in throttling or overage charges. To reduce the number of requests made:
 
-* Increase the refresh interval, especially if your configuration values do not change frequently. Specify a new refresh interval using the [`SetRefreshInterval` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setrefreshinterval).
+* Increase the refresh interval, especially if your configuration values don't change frequently. Specify a new refresh interval using the [`SetRefreshInterval` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setrefreshinterval).
 
 * Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
 
@@ -99,18 +217,18 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 ## Importing configuration data into App Configuration
 
-App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export key-values from App Configuration, for example between related stores. If you have adopted Configuration as Code and manage your configurations in GitHub or Azure DevOps, you can set up ongoing configuration file import using [GitHub Actions](./push-kv-github-action.md) or [Azure Pipeline Import Task](./azure-pipeline-import-task.md).
+App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export key-values from App Configuration, for example between related stores. If you adopt Configuration as Code and manage your configurations in GitHub or Azure DevOps, you can set up ongoing configuration file import using [GitHub Actions](./push-kv-github-action.md) or [Azure Pipeline Import Task](./azure-pipeline-import-task.md).
 
 ## Multi-region deployment in App Configuration
 
-If your application is deployed in multiple regions, we recommend that you [enable geo-replication](./howto-geo-replication.md) of your App Configuration store. You can let your application primarily connect to the replica matching the region where instances of your application are deployed and allow them to fail over to replicas in other regions. This setup minimizes the latency between your application and App Configuration, spreads the load as each replica has separate throttling quotas, and enhances your application's resiliency against transient and regional outages. See [Resiliency and Disaster Recovery](./concept-disaster-recovery.md) for more information.
+If your application is deployed in multiple regions, we recommend that you [enable geo-replication](./howto-geo-replication.md) of your App Configuration store. You can let your application primarily connect to the replica matching the region where instances of your application are deployed and allow them to fail over to replicas in other regions. This setup minimizes the latency between your application and App Configuration, spreads the load as each replica has separate throttling quotas, and enhances your application's resiliency against transient and regional outages. For more information, see [Resiliency and Disaster Recovery](./concept-disaster-recovery.md).
 
 ## Building applications with high resiliency
 
-Applications often rely on configuration to start, making Azure App Configuration's high availability critical. For improved resiliency, applications should leverage App Configuration's reliability features and consider taking the following measures based on your specific requirements. 
+Applications often rely on configuration to start, making Azure App Configuration's high availability critical. For improved resiliency, applications should use App Configuration's reliability features and consider taking the following measures based on your specific requirements. 
 
 * **Provision in regions with Azure availability zone support.** Availability zones allow applications to be resilient to data center outages. App Configuration offers zone redundancy for all customers without any extra charges. Creating your App Configuration store in regions with support for availability zones is recommended. You can find [a list of regions](./faq.yml#how-does-app-configuration-ensure-high-data-availability) where App Configuration has enabled availability zone support.
-* **[Enable geo-replication](./howto-geo-replication.md) and allow your application to failover or distribute load among replicas.** This setup gives you a model for scalability and enhanced resiliency against transient failures and regional outages. See [Resiliency and Disaster Recovery](./concept-disaster-recovery.md) for more information.
+* **[Enable geo-replication](./howto-geo-replication.md) and allow your application to failover or distribute load among replicas.** This setup gives you a model for scalability and enhanced resiliency against transient failures and regional outages. For more information, see [Resiliency and Disaster Recovery](./concept-disaster-recovery.md).
 * **Deploy configuration with [safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).** Incorrect or accidental configuration changes can frequently cause application downtime. You should avoid making configuration changes that impact the production directly from, for example, the Azure portal whenever possible. In safe deployment practices (SDP), you use a progressive exposure deployment model to minimize the potential blast radius of deployment-caused issues. If you adopt SDP, you can build and test a [configuration snapshot](./howto-create-snapshots.md) before deploying it to production. During the deployment, you can update instances of your application to progressively pick up the new snapshot. If issues are detected, you can roll back the change by redeploying the last-known-good (LKG) snapshot. The snapshot is immutable, guaranteeing consistency throughout all deployments. You can utilize snapshots along with dynamic configuration. Use a snapshot for your foundational configuration and dynamic configuration for emergency configuration overrides and feature flags.
 * **Include configuration with your application.** If you want to ensure that your application always has access to a copy of the configuration, or if you prefer to avoid a runtime dependency on App Configuration altogether, you can pull the configuration from App Configuration during build or release time and include it with your application. To learn more, check out examples of integrating App Configuration with your [CI/CD pipeline](./integrate-ci-cd-pipeline.md) or [Kubernetes deployment](./integrate-kubernetes-deployment-helm.md).
 * **Use App Configuration providers.** Applications play a critical part in achieving high resiliency because they can account for issues arising during their runtime, such as networking problems, and respond to failures more quickly. The App Configuration providers offer a range of built-in resiliency features, including automatic replica discovery, replica failover, startup retries with customizable timeouts, configuration caching, and adaptive strategies for reliable configuration refresh. It's highly recommended that you use App Configuration providers to benefit from these features. If that's not an option, you should consider implementing similar features in your custom solution to achieve the highest level of resiliency.
@@ -123,16 +241,15 @@ To address these concerns, we recommend that you use a proxy service between you
 
 ## Multitenant applications in App Configuration
 
-A multitenant application is built on an architecture where a shared instance of your application serves multiple customers or tenants. For example, you may have an email service that offers your users separate accounts and customized experiences. Your application usually manages different configurations for each tenant. Here are some architectural considerations for [using App Configuration in a multitenant application](/azure/architecture/guide/multitenant/service/app-configuration).
+A multitenant application is built on an architecture where a shared instance of your application serves multiple customers or tenants. For example, you may have an email service that offers your users separate accounts and customized experiences. Your application usually manages different configurations for each tenant. Here are some architectural considerations for [using App Configuration in a multitenant application](/azure/architecture/guide/multitenant/service/app-configuration). You can also reference the [example code for multitenant application setup](https://github.com/Azure/AppConfiguration/blob/main/examples/DotNetCore/MultiTenantApplicationSetup/README.md).
 
 ## Configuration as Code
 
-Configuration as code is a practice of managing configuration files under your source control system, for example, a git repository. It gives you benefits like traceability and approval process for any configuration changes. If you adopt configuration as code, App Configuration has tools to assist you in [managing your configuration data in files](./concept-config-file.md) and deploying them as part of your build, release, or CI/CD process. This way, your applications can access the latest data from your App Configuration store(s).
+Configuration as code is a practice of managing configuration files under your source control system, for example, a git repository. It gives you benefits like traceability and approval process for any configuration changes. If you adopt configuration as code, App Configuration has tools to assist you in [managing your configuration data in files](./concept-config-file.md) and deploying them as part of your build, release, or CI/CD process. This way, your applications can access the latest data from your App Configuration store.
 
 - For GitHub, you can import configuration files from your GitHub repository into your App Configuration store using [GitHub Actions](./push-kv-github-action.md)
-- For Azure DevOps, you can include the [Azure App Configuration Import](azure-pipeline-import-task.md
-), an Azure pipeline task, in your build or release pipelines for data synchronization. 
-- You can also import configuration files to App Configuration using Azure CLI as part of your CI/CD system. For more information, see [az appconfig kv import](scripts/cli-import.md).
+- For Azure DevOps, you can include the [Azure App Configuration Import](azure-pipeline-import-task.md), an Azure pipeline task, in your build or release pipelines for data synchronization. 
+- For others, you can import configuration files to App Configuration using Azure CLI as part of your CI/CD system. For more information, see [az appconfig kv import](scripts/cli-import.md).
 
 This model allows you to include validation and testing steps before committing data to App Configuration. If you use multiple App Configuration stores, you can also push the configuration data to them incrementally or all at once.
 

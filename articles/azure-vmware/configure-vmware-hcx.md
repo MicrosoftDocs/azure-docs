@@ -3,7 +3,7 @@ title: Configure VMware HCX in Azure VMware Solution
 description: In this tutorial, learn how to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 12/27/2024
+ms.date: 02/26/2024
 ms.custom: engagement-fy23
 ---
 
@@ -14,7 +14,7 @@ After you [install the VMware HCX add-on](install-vmware-hcx.md), configure the 
 In this article, learn how to:
 
 > [!div class="checklist"]
-> * Pair your on-premises VMware HCX Connector with your Azure VMware > Solution HCX Cloud Manager
+> * Pair your on-premises VMware HCX Connector with your Azure VMware Solution HCX Cloud Manager
 > * Configure the network profile, compute profile, and service mesh
 > * Check the appliance status and validate that migration is possible
 
@@ -26,16 +26,16 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. HCX Enterprise is automatically installed for all new HCX add-on requests, and existing HCX Advanced customers can upgrade to HCX Enterprise using the Azure portal. 
 
-- If you plan to [enable VMware HCX MON](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/extending-networks-with-vmware-hcx/hcx-network-extension-with-mobility-optimized-networking/configuring-hcx-mobility-optimized-networking.html), make sure you have:  
+- If you plan to [enable VMware HCX MON](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/extending-networks-with-vmware-hcx/hcx-network-extension-with-mobility-optimized-networking/configuring-hcx-mobility-optimized-networking.html), make sure you have:  
 
    - VMware NSX or vSphere Distributed Switch (vDS) on-premises for HCX Network Extension (vSphere Standard Switch not supported).
 
    - One or more active stretched network segments.
 
 
-- Meet the [VMware software version requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/preparing-for-hcx-installations/software-version-requirements.html).
+- Meet the [VMware software version requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations/software-version-requirements.html).
 
-- Your on-premises vSphere environment (source environment) meets the [minimum requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/preparing-for-hcx-installations/system-requirements-for-hcx.html).
+- Your on-premises vSphere environment (source environment) meets the [minimum requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations/system-requirements-for-hcx.html).
 
 - [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) is configured between on-premises and Azure VMware Solution private cloud ExpressRoute circuits.
 
@@ -43,7 +43,7 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - [Define VMware HCX network segments](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  The primary use cases for VMware HCX are workload migrations and disaster recovery.
 
-- [Review the VMware HCX Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/overview.html) for information on using HCX.
+- [Review the VMware HCX Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/overview.html) for information on using HCX.
 
 ## Add a site pairing
 
@@ -78,7 +78,7 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
    - Uplink
    
    > [!NOTE]
-   > * For Azure VMware Solution connected via VPN, set Uplink Network Profile MTU's to 1350 to account for IPSec overhead.
+   > * For Azure VMware Solution connected via VPN, set Uplink Network Profile MTU's to 1350 to account for IPsec overhead.
    > * Azure VMware Solution defaults to 1500 MTU, which is sufficient for most ExpressRoute implementations.
    >   * If your ExpressRoute provider does not support jumbo frames, you may need to lower the MTU in ExpressRoute setups as well.
    >   * Adjust MTU settings on both HCX Connector (on-premises) and HCX Cloud Manager (Azure VMware Solution) network profiles.
@@ -183,7 +183,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
 1. In **Advanced Configuration - Network Extension Appliance Scale Out**, review and select **Continue**.
 
-   You can have up to eight VLANs per appliance, but you can deploy another appliance to add another eight VLANs. You must also have IP space to account for the more appliances, and it's one IP per appliance. For more information, see [VMware HCX Configuration Limits](https://configmax.broadcom.com/guest?vmwareproduct=VMware%20HCX&release=VMware%20HCX&categories=41-0,42-0,43-0,44-0,45-0).
+   You can have up to eight VLANs per appliance, but you can deploy another appliance to add another eight VLANs. You must also have IP space to account for the more appliances, and it's one IP per appliance. For more information, see [VMware HCX Configuration Limits](https://configmax.broadcom.com/guest?vmwareproduct=VMware%20HCX&release=VMware%20HCX%204.10.0&categories=41-0,42-0,43-0,44-0,45-0).
 
    :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-increase-vlan.png" alt-text="Screenshot that shows where to increase the VLAN count." lightbox="media/tutorial-vmware-hcx/extend-networks-increase-vlan.png":::
 
@@ -212,7 +212,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
    >
    >:::image type="content" source="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png" alt-text="Screenshot displaying the HCX service mesh datastore and host." lightbox="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png":::
 
-The HCX interconnect tunnel status should display **UP** in green. Now you're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations with or without a network extension that allow you to migrate workloads in your vSphere environment, create networks on-premises, and deploy VMs onto those networks. For more information, see the [VMware HCX Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9.html).
+The HCX interconnect tunnel status should display **UP** in green. Now you're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations with or without a network extension that allow you to migrate workloads in your vSphere environment, create networks on-premises, and deploy VMs onto those networks. For more information, see the [VMware HCX Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10.html).
 
 For an end-to-end overview of this procedure, watch the [Azure VMware Solution: Service Mesh](https://www.youtube.com/embed/COY3oIws108) video.
 

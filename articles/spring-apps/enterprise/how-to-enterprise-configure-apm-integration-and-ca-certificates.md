@@ -114,7 +114,7 @@ This section lists the supported languages and required environment variables fo
   - `application_packages`
   - `server_url`
 
-  For other supported environment variables, see [Elastic](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
+  For other supported environment variables, see [Elastic](https://www.elastic.co/guide/en/apm/agent/java/current/configuration.html)
 
 - **AppDynamics**
 

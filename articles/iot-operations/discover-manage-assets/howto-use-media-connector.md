@@ -29,98 +29,138 @@ A deployed instance of Azure IoT Operations. If you don't already have an instan
 
 A camera connected to your network and accessible from your Azure IoT Operations cluster. The camera must support the Real Time Streaming Protocol for video streaming. You also need the camera's username and password to authenticate with it.
 
-> [!NOTE]
-> Microsoft has validated this preview release with the A-MTK AH6016O camera.
+## Deploy the media connector
 
-## Update the media connector
+[!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
-To update the version of the media connector in your Azure IoT Operations deployment, run the following PowerShell commands:
-
-```powershell
-$clusterName="<YOUR AZURE IOT OPERATIONS CLUSTER NAME>"
-$clusterResourceGroup="<YOUR RESOURCE GROUP NAME>"
-
-$extension = az k8s-extension list `
---cluster-name $clusterName `
---cluster-type connectedClusters `
---resource-group $clusterResourceGroup `
---query "[?extensionType == 'microsoft.iotoperations']" `
-| ConvertFrom-Json
-
-
-az k8s-extension update `
---version $extension.version `
---name $extension.name `
---release-train $extension.releaseTrain `
---cluster-name $clusterName `
---resource-group $clusterResourceGroup `
---cluster-type connectedClusters `
---auto-upgrade-minor-version false `
---config connectors.image.registry=mcr.microsoft.com `
---config connectors.image.repository=aio-connectors/helmchart/microsoft-aio-connectors `
---config connectors.image.tag=1.1.0 `
---config connectors.values.enablePreviewFeatures=true `
---yes
-```
-
-> [!NOTE]
-> This update process is for preview components only. The media connector is currently a preview component.
+> [!IMPORTANT]
+> If you don't enable preview features, you see the following error message in the `aio-supervisor-...` pod logs when you try to use the media or ONVIF connectors: `No connector configuration present for AssetEndpointProfile: <AssetEndpointProfileName>`.
 
 ## Deploy the media server
 
-If you're using the media connector to stream live video, you need to install your own media server. To deploy a sample media server to use with the media connector, run the following command:
+If you're using the media connector to stream live video, you need to install your own media server. To deploy a sample media server to use with the media connector, run the following commands:
 
 ```console
-kubectl create namespace media-server --dry-run=client -o yaml | kubectl apply -f - & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-deployment.yaml --validate=false & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service.yaml --validate=false & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service-public.yaml --validate=false
+kubectl create namespace media-server
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-server/media-server-deployment.yaml 
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-server/media-server-service.yaml
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-server/media-server-service-public.yaml
 ```
 
-To discover the external IP address of this media server, run the following command:
+> [!IMPORTANT]
+> This media server is only suitable for testing and development purposes. In a production environment you need to provide your own media server.
+
+To discover the cluster IP address of this media server, run the following command:
 
 ```console
-kubectl get service media-server-public --namespace "media-server"
+kubectl get service media-server-public --namespace media-server
 ```
 
-Make a note of this value, you use it later to access the media server.
+Make a note of the **CLUSTER-IP** value, you use it later to access the media server.
 
-## Configure the media connector (preview)
+## Asset endpoint configuration
 
-To configure the media connector, you need to create an asset endpoint that defines the connection to the media source. The asset endpoint includes the URL of the media source, the type of media source, and any credentials needed to access the media source.
+To configure the media connector, first create an asset endpoint that defines the connection to the media source. The asset endpoint includes the URL of the media source, the type of media source, and any credentials you need to access the media source.
 
-To create the asset endpoint, create a YAML file with the following content. Replace the placeholders with your camera's username, password, and RTSP address. An RTSP address looks like `rtsp://<CAMERA IP ADDRESS>:555/onvif-media/media.amp?streamprofile=Profile1&audio=1`
+If your camera requires authentication, create a secret in your Kubernetes cluster that stores the camera's username and password. The media connector uses this secret to authenticate with the camera:
 
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: contoso-secret
-type: Opaque
-data:
-  username: "<YOUR CAMERA USERNAME BASE64 ENCODED>"
-  password: "<YOUR CAMERA PASSWORD BASE64 ENCODED>"
+1. Create a YAML file called _contoso-secrets.yaml_ with the following content. Replace the placeholders with your camera's username and password encoded in base64:
+
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: contoso-secrets
+    type: Opaque
+    data:
+      username: "<YOUR CAMERA USERNAME BASE64 ENCODED>"
+      password: "<YOUR CAMERA PASSWORD BASE64 ENCODED>"
+    ```
+
+    > [!TIP]
+    > To encode the username and password in base64 at a Bash prompt, use the following command: `echo -n "<STRING TO ENCODE>" | base64`.
+
+1. To add the secret to your cluster in the default Azure IoT Operations namespace, run the following command:
+
+    ```console
+    kubectl apply -f contoso-secrets.yaml -n azure-iot-operations
+    ```
+
+To create the asset endpoint by using a Bicep file:
+
+# [Bash](#tab/bash)
+
+1. Set the following environment variables:
+
+    ```bash
+    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    TARGET_ADDRESS="<YOUR CAMERA RTSP ADDRESS>"
+    AEP_NAME="contoso-rtsp-aep"
+    SECRET_NAME="contoso-secrets"
+    ```
+
+1. Run the following script:
+
+    ```bash
+    # Download the Bicep file
+    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/aep-media-connector.bicep -O aep-media-connector.bicep
+    
+    # Find the name of your custom location
+    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+    
+    # Use the Bicep file to deploy the asset endpoint
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file aep-media-connector.bicep --parameters targetAddress=$TARGET_ADDRESS customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME secretName=$SECRET_NAME
+    ```
+
+# [PowerShell](#tab/powershell)
+
+1. Set the following environment variables:
+
+    ```powershell
+    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    $TARGET_ADDRESS="<YOUR CAMERA RTSP ADDRESS>"
+    $AEP_NAME="contoso-rtsp-aep"
+    $SECRET_NAME="contoso-secrets"
+    ```
+
+1. Run the following script:
+
+    ```powershell
+    # Download the Bicep file
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/aep-media-connector.bicep -OutFile aep-media-connector.bicep
+
+    # Find the name of your custom location
+    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+
+    # Use the Bicep file to deploy the asset endpoint
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file aep-media-connector.bicep --parameters targetAddress=$TARGET_ADDRESS customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME secretName=$SECRET_NAME
+    ```
 
 ---
 
-apiVersion: deviceregistry.microsoft.com/v1
-kind: AssetEndpointProfile
-metadata:
-  name: contoso-rtsp-aep
-spec:
-  additionalConfiguration: >-
-    {"@schema":"https://aiobrokers.blob.core.windows.net/aio-media-connector/1.0.0.json"}
-  endpointProfileType: Microsoft.Media
-  authentication:
-    method: UsernamePassword
-    usernamePasswordCredentials:
-      passwordSecretName: contoso-secret/password
-      usernameSecretName: contoso-secret/username
-  targetAddress: >-
-    <YOUR CAMERA RTSP ADDRESS>
-```
+The following snippet shows the bicep file that you used to create the asset endpoint:
 
-To apply the settings, run the following command. Typically, you apply the settings to the `azure-iot-operations` namespace:
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/aep-media-connector.bicep":::
 
-```console
-kubectl apply -f <filename>.yaml -n <AIO NAMESPACE>
+The previous example configures the asset endpoint to authenticate with the camera with a username and password. In the Bicep file, the authentication section of the asset endpoint you created looks like the following example:
+
+```bicep
+authentication: {
+  method: 'UsernamePassword'
+  usernamePasswordCredentials: {
+    passwordSecretName: '${secretName}/password'
+    usernameSecretName: '${secretName}/username'
+    }
+ ```
+
+If your camera doesn't require a username and password, configure anonymous authentication as shown in the following example:
+
+```bicep
+authentication: {
+  method: 'Anonymous'
+}
 ```
 
 ## Asset configuration
@@ -144,41 +184,66 @@ You can use the following settings to configure individual tasks:
 - `audioEnabled`: Whether audio is enabled for the media file.
 - `duration`: The duration of the media file.
 
-The following YAML snippets show example asset configurations for each task type. The `taskType` value determines the task type to configure.
+The following examples show how to deploy assets for each task type.
+
+> [!TIP]
+> The media pods aren't created in Kubernetes until you deploy an asset that uses the media connector. If you try to run the `kubectl get pods` command before deploying an asset, you see no media pods.
 
 ## Snapshot to MQTT
 
-To configure an asset to capture snapshots from a camera and publish them to an MQTT topic, create a file that contains the following YAML:
+To configure an asset that captures snapshots from a camera and publishes them to an MQTT topic:
 
-```yaml
-apiVersion: deviceregistry.microsoft.com/v1
-kind: Asset
-metadata:
-  name: "contoso-rtsp-snapshot-to-mqtt-autostart"
-spec:
-  assetEndpointProfileRef: contoso-rtsp-aep
-  enabled: true
-  datasets:
-    - name: dataset1
-      dataPoints:
-        - name: snapshot-to-mqtt
-          dataSource: snapshot-to-mqtt
-          dataPointConfiguration: |
-            {
-              "taskType": "snapshot-to-mqtt",
-              "autostart": true,
-              "realtime": true,
-              "loop": true,
-              "format": "jpeg",
-              "fps": 1
-            }
-```
+# [Bash](#tab/bash)
 
-To add the asset, run the following command. Typically, you apply the settings to the `azure-iot-operations` namespace:
+1. Set the following environment variables:
 
-```console
-kubectl apply -f <filename>.yaml -n <AIO NAMESPACE>
-```
+    ```bash
+    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    AEP_NAME="contoso-rtsp-aep"
+    ```
+
+1. Run the following script:
+
+    ```bash
+    # Download the Bicep file
+    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-snapshot-to-mqtt.bicep -O asset-snapshot-to-mqtt.bicep
+    
+    # Find the name of your custom location
+    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+    
+    # Use the Bicep file to deploy the asset
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-mqtt.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
+    ```
+
+# [PowerShell](#tab/powershell)
+
+1. Set the following environment variables:
+
+    ```powershell
+    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    $AEP_NAME="contoso-rtsp-aep"
+    ```
+
+1. Run the following script:
+
+    ```powershell
+    # Download the Bicep file
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-snapshot-to-mqtt.bicep -OutFile asset-snapshot-to-mqtt.bicep
+
+    # Find the name of your custom location
+    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+
+    # Use the Bicep file to deploy the asset
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-mqtt.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
+    ```
+
+---
+
+The following snippet shows the bicep file that you used to create the asset:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-snapshot-to-mqtt.bicep":::
 
 To verify that snapshots are publishing to the MQTT broker, use the **mosquitto_sub** tool. In this example, you run the **mosquitto_sub** tool inside a pod in your Kubernetes cluster:
 
@@ -214,143 +279,238 @@ To verify that snapshots are publishing to the MQTT broker, use the **mosquitto_
 When you finish testing the asset, you can delete it by running the following command:
 
 ```console
-kubectl delete -f <filename>.yaml -n <AIO NAMESPACE>
+az iot ops asset delete -n asset-snapshot-to-mqtt -g $RESOURCE_GROUP
 ```
 
 ## Snapshot to file system
 
-To configure an asset to capture snapshots from a camera and save them as files, create a file that contains the following YAML:
+To configure an asset that captures snapshots from a camera and saves them as files:
 
-```yaml
-apiVersion: deviceregistry.microsoft.com/v1
-kind: Asset
-metadata:
-  name: "contoso-rtsp-snapshot-to-fs-autostart"
-spec:
-  assetEndpointProfileRef: contoso-rtsp-aep
-  enabled: true
-  datasets:
-    - name: dataset1
-      dataPoints:
-        - name: snapshot-to-fs
-          dataSource: snapshot-to-fs
-          dataPointConfiguration: |
-            {
-              "taskType": "snapshot-to-fs",
-              "autostart": true,
-              "realtime": true,
-              "loop": true,
-              "format": "jpeg",
-              "fps": 1
-            }
-```
+# [Bash](#tab/bash)
 
-The files are saved in the file system of the `opc-media-1-*` pod. To find the full name of the pod, run the following command. Typically, you apply the settings to the `azure-iot-operations` namespace:
+1. Set the following environment variables:
+
+    ```bash
+    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    AEP_NAME="contoso-rtsp-aep"
+    ```
+
+1. Run the following script:
+
+    ```bash
+    # Download the Bicep file
+    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-snapshot-to-fs.bicep -O asset-snapshot-to-fs.bicep
+    
+    # Find the name of your custom location
+    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+    
+    # Use the Bicep file to deploy the asset
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
+    ```
+
+# [PowerShell](#tab/powershell)
+
+1. Set the following environment variables:
+
+    ```powershell
+    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    $AEP_NAME="contoso-rtsp-aep"
+    ```
+
+1. Run the following script:
+
+    ```powershell
+    # Download the Bicep file
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-snapshot-to-fs.bicep -OutFile asset-snapshot-to-fs.bicep
+
+    # Find the name of your custom location
+    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+
+    # Use the Bicep file to deploy the asset
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
+    ```
+
+---
+
+The following snippet shows the bicep file that you used to create the asset:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-snapshot-to-fs.bicep":::
+
+The files are saved in the file system of the `opc-media-1-...` pod. To find the full name of the pod, run the following command. The following command uses the default Azure IoT Operations namespace:
 
 ```console
-kubectl get pods -n <AIO NAMESPACE>
+kubectl get pods -n azure-iot-operations
 ```
 
-To view the files, create a shell in the pod. Use the full name of the pod in the following command:
+To view the files, run the `ls` command in the pod. Use the full name of the pod in the following command:
 
 ```console
-kubectl exec --stdin --tty aio-opc-media-1-* -n <AIO NAMESPACE> -- sh
+kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-snapshot-to-fs/snapshots/
 ```
-
-Then navigate to the following folder to view the files: `/tmp/azure-iot-operations/data/contoso-rtsp-snapshot-to-fs-autostart/snapshot`. The folder name includes the name of your asset.
 
 When you finish testing the asset, you can delete it by running the following command:
 
 ```console
-kubectl delete -f <filename>.yaml -n <AIO NAMESPACE>
+az iot ops asset delete -n asset-snapshot-to-fs -g $RESOURCE_GROUP
 ```
 
 ## Clip to file system
 
-To configure an asset to capture clips from a camera and save them as files, create a file that contains the following YAML:
+To configure an asset that captures clips from a camera and saves them as files:
 
-```yaml
-apiVersion: deviceregistry.microsoft.com/v1
-kind: Asset
-metadata:
-  name: "contoso-rtsp-clip-to-fs-autostart"
-spec:
-  assetEndpointProfileRef: contoso-rtsp-aep
-  enabled: true
-  datasets:
-    - name: dataset1
-      dataPoints:
-        - name: clip-to-fs
-          dataSource: clip-to-fs
-          dataPointConfiguration: |
-            {
-              "taskType": "clip-to-fs",
-              "format": "avi",
-              "autostart": true,
-              "realtime": true,
-              "loop": true,
-              "duration": 3
-            }
-```
+# [Bash](#tab/bash)
 
-The files are saved in the file system of the `opc-media-1-*` pod. To find the full name of the pod, run the following command. Typically, you apply the settings to the `azure-iot-operations` namespace:
+1. Set the following environment variables:
+
+    ```bash
+    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    AEP_NAME="contoso-rtsp-aep"
+    ```
+
+1. Run the following script:
+
+    ```bash
+    # Download the Bicep file
+    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-clip-to-fs.bicep -O asset-clip-to-fs.bicep
+    
+    # Find the name of your custom location
+    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+    
+    # Use the Bicep file to deploy the asset
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-clip-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
+    ```
+
+# [PowerShell](#tab/powershell)
+
+1. Set the following environment variables:
+
+    ```powershell
+    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    $AEP_NAME="contoso-rtsp-aep"
+    ```
+
+1. Run the following script:
+
+    ```powershell
+    # Download the Bicep file
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-clip-to-fs.bicep -OutFile asset-clip-to-fs.bicep
+
+    # Find the name of your custom location
+    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+
+    # Use the Bicep file to deploy the asset
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-clip-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
+    ```
+
+---
+
+The following snippet shows the bicep file that you used to create the asset:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-clip-to-fs.bicep":::
+
+The files are saved in the file system of the `opc-media-1-...` pod. To find the full name of the pod, run the following command. The following command uses the default Azure IoT Operations namespace:
 
 ```console
-kubectl get pods -n <AIO NAMESPACE>
+kubectl get pods -n azure-iot-operations
 ```
 
-To view the files, create a shell in the pod. Use the full name of the pod in the following command:
+To view the files, run the `ls` command in the pod. Use the full name of the pod in the following command:
 
 ```console
-kubectl exec --stdin --tty aio-opc-media-1-* -n <AIO NAMESPACE> -- sh
+kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-clip-to-fs/clips/
 ```
-
-Then navigate to the following folder to view the files: `/tmp/azure-iot-operations/data/contoso-rtsp-clip-to-fs-autostart/clip`. The folder name includes the name of your asset.
 
 When you finish testing the asset, you can delete it by running the following command:
 
 ```console
-kubectl delete -f <filename>.yaml -n <AIO NAMESPACE>
+az iot ops asset delete -n asset-clip-to-fs -g $RESOURCE_GROUP
 ```
 
 ## Stream to RTSP
 
-To configure an asset to stream video using the media server, create a file that contains the following YAML. Replace the placeholder with the IP address of the media server you noted previously:
+To configure an asset that forwards video streams from a camera to a media server:
 
-```yaml
-apiVersion: deviceregistry.microsoft.com/v1
-kind: Asset
-metadata:
-  name: "contoso-rtsp-stream-to-rtsp-autostart"
-spec:
-  assetEndpointProfileRef: contoso-rtsp-aep
-  enabled: true
-  datasets:
-    - name: dataset1
-      dataPoints:
-        - name: stream-to-rtsp
-          dataSource: stream-to-rtsp
-          dataPointConfiguration: |
-            {
-              "taskType": "stream-to-rtsp",
-              "autostart": true,
-              "realtime": true,
-              "loop": true,
-              "media_server_address": "<YOUR MEDIA SERVER IP ADDRESS>"
-            }
-```
+You made a note of the IP address of the media server when you deployed it in a previous step.
 
-To view the media stream, use a URL that looks like: `https://<YOUR KUBERNETES CLUSTER IP ADDRESS>:8888/azure-iot-operations/data/contoso-rtsp-stream-to-rtsp-autostart/`.
+# [Bash](#tab/bash)
+
+1. Set the following environment variables:
+
+    ```bash
+    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    MEDIA_SERVER_ADDRESS="<YOUR MEDIA SERVER IP ADDRESS>"
+    AEP_NAME="contoso-rtsp-aep"
+    ```
+
+1. Run the following script:
+
+    ```bash
+    # Download the Bicep file
+    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-stream-to-rtsp.bicep -O asset-stream-to-rtsp.bicep
+    
+    # Find the name of your custom location
+    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+    
+    # Use the Bicep file to deploy the asset
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-stream-to-rtsp.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME mediaServerAddress=$MEDIA_SERVER_ADDRESS
+    ```
+
+# [PowerShell](#tab/powershell)
+
+1. Set the following environment variables:
+
+    ```powershell
+    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    $MEDIA_SERVER_ADDRESS="<YOUR MEDIA SERVER IP ADDRESS>"
+    $AEP_NAME="contoso-rtsp-aep"
+    ```
+
+1. Run the following script:
+
+    ```powershell
+    # Download the Bicep file
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-stream-to-rtsp.bicep -OutFile asset-stream-to-rtsp.bicep
+
+    # Find the name of your custom location
+    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+
+    # Use the Bicep file to deploy the asset
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-stream-to-rtsp.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME mediaServerAddress=$MEDIA_SERVER_ADDRESS
+    ```
+
+---
+
+The following snippet shows the bicep file that you used to create the asset:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-stream-to-rtsp.bicep":::
+
+To view the media stream, use a URL that looks like: `http://<YOUR KUBERNETES CLUSTER IP ADDRESS>:8888/azure-iot-operations/data/asset-stream-to-rtsp`.
 
 > [!TIP]
 > If you're running Azure IoT Operations in Codespaces, run the following command to port forward the media server to your local machine: `kubectl port-forward service/media-server-public 8888:8888 -n media-server`.
 
+> [!TIP]
+> If you're running Azure IoT Operations in a virtual machine, make sure that port 8888 is open for inbound access in your firewall.
+
+The media server logs the connection from the asset and the creation of the stream:
+
+```log
+2025/02/20 15:31:10 INF [RTSP] [conn <INTERNAL IP ADDRESS OF ASSET>:41384] opened
+2025/02/20 15:31:10 INF [RTSP] [session 180ce9ad] created by <INTERNAL IP ADDRESS OF ASSET>:41384
+2025/02/20 15:31:10 INF [RTSP] [session 180ce9ad] is publishing to path 'azure-iot-operations/data/asset-stream-to-rtsp', 2 tracks (H264, LPCM)
+2025/02/20 15:31:18 INF [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] created (requested by <IP ADDRESS OF EXTERNAL CLIENT>:16831)
+2025/02/20 15:31:18 WAR [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] skipping track 2 (LPCM)
+2025/02/20 15:31:18 INF [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] is converting into HLS, 1 track (H264)
+```
+
 When you finish testing the asset, you can delete it by running the following command:
 
 ```console
-kubectl delete -f <filename>.yaml -n <AIO NAMESPACE>
+az iot ops asset delete -n asset-stream-to-rtsp -g $RESOURCE_GROUP
 ```
-
-## Samples
-
-For more examples that show how to configure and use the media connector, see the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/media-connector-invoke-test/README.md).

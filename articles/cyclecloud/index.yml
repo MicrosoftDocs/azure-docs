@@ -1,0 +1,127 @@
+### YamlMime:Landing
+
+title: Azure CycleCloud Documentation
+summary: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. Azure CycleCloud’s automated configuration enables IT to focus on providing service to the business users.
+
+metadata:
+  title: Azure CycleCloud Documentation
+  description: Azure CycleCloud is designed to provide secure and flexible cloud HPC and Big Compute environments to users with dynamic scaling of clusters. 
+  ms.topic: landing-page # Required
+  author: adriankjohnson
+  ms.author: adjohnso
+  ms.date: 02/10/2025
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Overview of Azure CycleCloud
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure CycleCloud?
+            url: overview.md
+          - text: What is Azure CycleCloud Workspace for Slurm?
+            url: overview-ccws.md         
+      - linkListType: quickstart
+        links:
+          - text: Install with Marketplace
+            url: qs-install-marketplace.md
+          - text: Deploy Azure CycleCloud Workspace for Slurm
+            url: qs-deploy-ccws.md            
+      - linkListType: tutorial
+        links:
+          - text: Create a Cluster
+            url: tutorials/tutorial.md
+      - linkListType: download
+        links:
+          - text: Get Azure CycleCloud
+            url: https://azure.microsoft.com/features/azure-cyclecloud/
+
+    # Card
+  - title: CycleCloud News
+    linkLists:            
+      - linkListType: whats-new
+        links:
+          - text: CycleCloud 8.7.1 is now available
+            url: release-notes.md
+          - text: CycleCloud Workspace for Slurm
+            url: release-notes/ccws/release-notes.md
+          - text: Node Health Checks are now supported
+            url: how-to/healthcheck.md
+          - text: CycleCloud supports Confidential VMs and Trusted Platform Launch for nodes
+            url: how-to/vm-security.md
+          - text: PBS is now supported by azpbs agent
+            url: openpbs.md
+          - text: HPCPack is now a supported scheduler
+            url: hpcpack.md
+          - text: Improved cost tracking capabilities
+            url: concepts/usage-tracking.md
+
+  # Card
+  - title: CycleCloud Concepts
+    linkLists:            
+      - linkListType: concept
+        links:
+          - text: Core Concepts
+            url: concepts/core.md
+          - text: Clusters & Node Concepts
+            url: concepts/clusters.md
+          - text: Scheduling
+            url: concepts/scheduling.md
+
+  # Card
+  - title: Clusters
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Plan your CycleCloud Deployment
+            url: how-to/plan-prod-deployment.md 
+          - text: Use Cluster Templates
+            url: how-to/cluster-templates.md
+          - text: Add Disks
+            url: how-to/add-disk.md
+          - text: Create Fileserver
+            url: how-to/create-fileserver.md
+          - text: Use CycleCloud Projects
+            url: how-to/projects.md
+          - text: Create Custom Images
+            url: how-to/create-custom-image.md
+          - text: Configure Network Security
+            url: how-to/network-security.md
+          - text: Run in Locked Down Network
+            url: how-to/running-in-locked-down-network.md
+
+  # Card
+  - title: Tools
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: CycleCloud CLI
+            url: how-to/install-cyclecloud-cli.md
+          - text: Jetpack
+            url: jetpack.md
+          - text: REST API
+            url: how-to/use-rest-api.md
+          - text: Python API
+            url: python-api.md
+
+  # Card
+  - title: Get Help
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Chef Cookbooks
+            url: cookbook-reference.md
+          - text: Cluster Template Reference
+            url: cluster-references/cluster-template-reference.md
+          - text: CycleCloud Cluster Templates
+            url: download-cluster-templates.md
+          - text: CycleCloud Community GitHub
+            url: https://github.com/CycleCloudCommunity
+          - text: Azure Forums
+            url: https://social.msdn.microsoft.com/Forums/home?forum=azurecyclecloud
+          - text: Create an Azure Support Request
+            url: /azure/azure-supportability/how-to-create-azure-support-request

@@ -2,13 +2,13 @@
 
 title: Migrate Azure AI Search to availability zone support 
 description: Learn how to migrate Azure AI Search to availability zone support.
-author: mattgotteiner
+author: haileytap
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/01/2022
-ms.author: magottei
+ms.author: haileytapia
 ms.reviewer: mcarter
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 
 ---
 

@@ -3,7 +3,7 @@ title: "Tutorial: Run a parallel workload using the .NET API"
 description: Learn how to transcode media files in parallel using ffmpeg in Azure Batch with the Batch .NET client library.
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2023
+ms.date: 04/02/2025
 ms.custom: mvc, devx-track-csharp, devx-track-dotnet
 ---
 

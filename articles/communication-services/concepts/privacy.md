@@ -1,6 +1,7 @@
 ---
-title: Region availability and data residency for Azure Communication Services
-description: Learn about data residency, and privacy related matters on Azure Communication Services
+title: Data residency and user privacy for Azure Communication Services
+titleSuffix: An Azure Communication Services article
+description: This article describes data residency and privacy related matters on Azure Communication Services.
 author: tophpalmer
 manager: anvalent
 services: azure-communication-services
@@ -12,7 +13,7 @@ ms.service: azure-communication-services
 ms.custom: references_regions
 ---
 
-# Region availability and data residency
+# Data residency and user privacy
 
 Azure Communication Services is committed to helping our customers meet their privacy and personal data requirements. As a developer using Communication Services with a direct relationship with humans using the application, you're potentially a controller of their data. Since Azure Communication Services is storing and encrypting this data at rest on your behalf, we're most likely a processor of this data. This page summarizes how the service retains data and how you can identify, export, and delete this data.
 
@@ -81,7 +82,7 @@ Azure Communication Services stores chat threads according to the [data retentio
 
 You can choose between indefinite thread retention, automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread), or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). 
 
-Any thread created before the new retention policy isn't affected unless you specifically change the policy for that thread. If you submit a support request for a deleted chat thread more than 30 days after the retention policy has deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, [open a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) as quickly as possible within the 30 day window after you create a thread so we can assist you.
+Any thread created before the new retention policy isn't affected unless you specifically change the policy for that thread. If you submit a support request for a deleted chat thread more than 30 days after the retention policy deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, [open a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) as quickly as possible within the 30 day window after you create a thread so we can assist you.
 
 Chat thread participants can use `ListMessages` to view message history for a particular thread. The `ListMessages` API can't return the history of a thread if the thread is deleted. Users that are removed from a chat thread are able to view previous message history but can't send or receive new messages. Accidentally deleted messages aren't recoverable by the system.
 
@@ -98,22 +99,25 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 
 ### SMS
 
-The service temporarily processes sent and received SMS messages and they are not retained.
+ACS temporarily processes SMS message content and associated metadata (e.g., sender and recipient phone numbers, timestamps) only for the purposes of delivery and troubleshooting. ACS does not retain the contents of SMS messages after successful delivery or failure notification. Messages are held only in transient memory for the duration needed to route and deliver them through our messaging infrastructure. ACS does not store customer message data for retrieval or future use.
+
+The service temporarily processes sent and received SMS messages and they aren't retained. 
 
 ### PSTN voice calling
 
-Audio and video communication is ephemerally processed by the service and no call processing data is retained in your resource other than Azure Monitor logs.
+The service processes the audio and video communication in real-time. Your resource retains no call processing data except Azure Monitor logs.
 
 ### Internet voice and video calling
 
-Audio and video communication is ephemerally processed by the service and no call processing data is retained in your resource other than Azure Monitor logs.
+The service processes the audio and video communication in real-time. Your resource retains no call processing data except Azure Monitor logs.
 
 ### Call Recording
 
-Call recordings are stored temporarily in the same geography you selected for `Data Location` during resource creation for 24 hours. After this the recording is deleted, you are responsible for storing the recording in a secure and compliant location.
+The service stores call recordings temporarily in the same geography you selected for `Data Location` during resource creation for 24 hours. You're responsible for storing the recording in a secure and compliant location.
 
 ### Email
-Email message content is ephemerally stored for processing in the resource's `Data Location` specified by you during resource provisioning. Email message delivery logs are available in Azure Monitor Logs, where you are in control to define the workspace to store logs. Domain sender usernames (or MailFrom) values are stored in the resource's `Data Location` until explicitly deleted. Recipient's email addresses that result in hard bounced messages are temporarily retained for spam and abuse prevention and detection.
+
+The system processes email message content in real-time, using the resource's `Data Location` specified by you during resource provisioning. Email message delivery logs are available in Azure Monitor Logs, where you are in control to define the workspace to store logs. The system stores domain sender usernames (or MailFrom) values in the resource's `Data Location` until explicitly deleted. For spam and abuse prevention and detection, the system temporarily retains recipient email addresses that resulted in hard bounced messages.
 
 ## Azure Monitor and Log Analytics
 
@@ -121,6 +125,6 @@ Azure Communication Services feed into Azure Monitor logging data for understand
 
 ## Related articles
 
-- [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure)
-- [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location)
-- [Azure Interactive Map - Where is my customer data?](https://infrastructuremap.microsoft.com/)
+- [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure).
+- [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location).
+- [Azure Interactive Map - Where is my customer data?](https://infrastructuremap.microsoft.com/).

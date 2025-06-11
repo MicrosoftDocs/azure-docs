@@ -5,7 +5,8 @@ author: madsd
 ms.topic: how-to
 ms.date: 10/17/2023
 ms.author: madsd
-
+ms.custom:
+  - build-2025
 ---
 # Configure gateway-required virtual network integration
 
@@ -103,7 +104,7 @@ You can renew your certificate when the portal shows a near expiry or expired ce
 
 Three charges are related to the use of the gateway-required virtual network integration feature:
 
-* **App Service plan pricing tier charges**: Your apps need to be in a Basic, Standard, Premium, Premium v2, or Premium v3 App Service plan. For more information on those costs, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
+* **App Service plan pricing tier charges**: Your apps need to be in a Basic, Standard, Premium, Premium v2, Premium v3, or Premium v4 App Service plan. For more information on those costs, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
 * **Data transfer costs**: There's a charge for data egress, even if the virtual network is in the same datacenter. Those charges are described in [Data transfer pricing details](https://azure.microsoft.com/pricing/details/data-transfers/).
 * **VPN gateway costs**: There's a cost to the virtual network gateway that's required for the point-to-site VPN. For more information, see [VPN gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 

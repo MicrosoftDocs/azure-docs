@@ -1,13 +1,13 @@
 ---
 title: Save on Azure Synapse Analytics - Dedicated SQL pool (formerly SQL DW) charges with Azure reserved capacity
 description: Learn how you save costs for Azure Synapse Analytics charges with reserved capacity to save money.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Save costs for Azure Synapse Analytics - Dedicated SQL pool (formerly SQL DW) charges with reserved capacity

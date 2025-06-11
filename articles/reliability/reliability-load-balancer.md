@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Load Balancer
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ms.service: azure-load-balancer
 ms.date: 10/31/2024
 ---
@@ -29,7 +29,7 @@ Although it's recommended that you deploy Load Balancer with zone-redundancy, a 
 
 ### Prerequisites
 
-- To use availability zones with Load Balancer, you need to create your load balancer in a region that supports availability zones. To see which regions support availability zones, see the [list of supported regions](availability-zones-region-support.md). 
+- To use availability zones with Load Balancer, you need to create your load balancer in a region that supports availability zones. To see which regions support availability zones, see the [list of supported regions](regions-list.md). 
 
 - Use Standard SKU for load balancer and Public IP for availability zones support.
 

@@ -19,6 +19,8 @@ ms.custom: "b2c-support"
 
 # Use the Azure portal to create and delete consumer users in Azure AD B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 There might be scenarios in which you want to manually create consumer accounts in your Azure Active Directory B2C (Azure AD B2C) directory. Although consumer accounts in an Azure AD B2C directory are most commonly created when users sign up to use one of your applications, you can create them programmatically and by using the Azure portal. This article focuses on the Azure portal method of user creation and deletion.
 
 To add or delete users, your account must be assigned the *User administrator* role.

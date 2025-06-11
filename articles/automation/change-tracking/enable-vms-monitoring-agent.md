@@ -3,7 +3,7 @@ title: Enable Azure Automation Change Tracking for single machine and multiple m
 description: This article tells how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 02/18/2025
+ms.date: 04/03/2025
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: sudhirsneha
@@ -38,6 +38,7 @@ This section provides detailed procedure on how you can enable change tracking o
    :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
 
 1. Select the virtual machine for which you want to enable Change Tracking.
+
 1. In the search, enter **Change tracking** to view the change tracking and inventory page.
 
    :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-vm-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-vm-expanded.png":::
@@ -134,64 +135,6 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
    az connectedmachine extension create  --name ChangeTracking-Windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
    ```   
 --- 
-:::zone-end
-
-::: zone pivot="at-scale-policy"
-
-### Enable Change Tracking at scale using policy
-
-This section provides detailed procedure on how you can enable change tracking and inventory at scale using policy.
-
-### Prerequisite
-- You must [create the Data collection rule](#create-data-collection-rule).
-
-### Enable Change tracking
-
-Using the Deploy if not exist (DINE) policy, you can enable Change tracking with Azure Monitoring Agent at scale and in the most efficient manner.
-
-1. In Azure portal, select **Policy**.
-1. In the **Policy** page, under **Authoring**, select **Definitions**
-1. In **Policy | Definitions** page, under the **Definition Type** category, select **Initiative** and in **Category**, select **Change Tracking and Inventory**. You'll see a list of three policies:
-
-    #### [Arc-enabled virtual machines](#tab/arcvm)
-
-     - Select *Enable Change Tracking and Inventory for Arc-enabled virtual machines*.
- 
-       :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-arc-virtual-machine-manager-inline.png" alt-text="Screenshot showing the selection of Arc-enabled virtual machines." lightbox="media/enable-vms-monitoring-agent/enable-for-arc-virtual-machine-manager-expanded.png":::
-
-    #### [Virtual machines Scale Sets](#tab/vmss)
-
-     - Select *Enable Change Tracking and inventory for Virtual Machine Scale Sets*.
-     
-       :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-virtual-machine-scale-set-inline.png" alt-text="Screenshot showing the selection of virtual machines scale sets." lightbox="media/enable-vms-monitoring-agent/enable-for-virtual-machine-scale-set-expanded.png":::
-
-    #### [Virtual machines](#tab/vm)
-
-     - Select *Enable Change Tracking and inventory for virtual machines*.
- 
-       :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-vm-inline.png" alt-text="Screenshot showing the selection of virtual machines." lightbox="media/enable-vms-monitoring-agent/enable-for-vm-expanded.png"::: 
-    
-   
-1. Select *Enable Change Tracking and Inventory for virtual machines* to enable the change tracking on Azure virtual machines.
-   This initiative consists of three policies:
-
-   - Assign Built in User-Assigned Managed identity to Virtual machines
-   - Configure ChangeTracking Extension for Windows virtual machines
-   - Configure ChangeTracking Extension for Linux virtual machines
-
-     :::image type="content" source="media/enable-vms-monitoring-agent/enable-change-tracking-virtual-machines-inline.png" alt-text="Screenshot showing the selection of three policies." lightbox="media/enable-vms-monitoring-agent/enable-change-tracking-virtual-machines-expanded.png":::
-
-1. Select **Assign** to assign the policy to a resource group. For example, *Assign Built in User-Assigned Managed identity to virtual machines*.
-
-   > [!NOTE]
-   > The Resource group contains virtual machines and when you assign the policy, it will enable change tracking at scale to a resource group. The virtual machines that are on-boarded to the same resource group will automatically have the change tracking feature enabled.
-
-1. In the **Enable Change Tracking and Inventory for virtual machines** page, enter the following options:
-   1. In **Basics**, you can define the scope. Select the three dots to configure a scope. In the **Scope** page, provide the **Subscription** and **Resource group**.
-   1. In **Parameters**, select the option in the **Bring your own user assigned managed identity**.
-   1. Provide the **Data Collection Rule Resource id**. Learn more on [how to obtain the Data Collection Rule Resource ID after you create the Data collection rule](#create-data-collection-rule).
-   1. Select **Review + create**.
-
 :::zone-end
 
 ### Create data collection rule

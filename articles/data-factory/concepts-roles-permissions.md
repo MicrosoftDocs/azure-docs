@@ -2,7 +2,7 @@
 title: Roles and permissions for Azure Data Factory 
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
 ms.date: 02/13/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: security
 author: nabhishek
 ms.author: abnarain
@@ -13,13 +13,15 @@ ms.author: abnarain
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 
-This article describes the roles required to create and manage Azure Data Factory resources, and the permissions granted by those roles.
+This article describes the roles required to create and manage Azure Data Factory resources, and the permissions granted by the Data Factory Contributor role.
 
 ## Roles and requirements
 
-To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* role, the *owner* role, or an *administrator* of the Azure subscription. To view the permissions that you have in the subscription, in the Azure portal, select your username in the upper-right corner, and then select **My permissions**. If you have access to multiple subscriptions, select the appropriate subscription. 
+Most roles needed for Azure Data Factory are some of the standard Azure roles, though there is one special Azure Data Factory role: **Data Factory Contributor**
 
-To create and manage child resources for Data Factory - including datasets, linked services, pipelines, triggers, and integration runtimes - the following requirements are applicable:
+**To create Data Factory instances**, the user account that you use to sign in to Azure must be a member of the *contributor* role, the *owner* role, or an *administrator* of the Azure subscription. To view the permissions that you have in the subscription, in the Azure portal, select your username in the upper-right corner, and then select **My permissions**. If you have access to multiple subscriptions, select the appropriate subscription.
+
+**To create and manage child resources for Data Factory** - including datasets, linked services, pipelines, triggers, and integration runtimes - the following requirements are applicable:
 - To create and manage child resources in the Azure portal, you must belong to the **Data Factory Contributor** role at the **Resource Group** level or above.
   
   > [!NOTE]

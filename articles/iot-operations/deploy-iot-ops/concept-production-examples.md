@@ -36,7 +36,7 @@ The following table shows the MQTT broker configuration for the single node exam
 |--------------------------|-------|
 | frontendReplicas         | 1     |
 | frontendWorkers          | 1     |
-| backendRedundancyFactor  | 1     |
+| backendRedundancyFactor  | 2     |
 | backendWorkers           | 1     |
 | backendPartitions        | 1     |
 | memoryProfile            | low   |

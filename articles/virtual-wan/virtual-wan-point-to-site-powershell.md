@@ -8,7 +8,7 @@ author: cherylmc
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 03/27/2025
 ms.author: cherylmc
 ---
 # Create a P2S User VPN connection using Azure Virtual WAN - PowerShell

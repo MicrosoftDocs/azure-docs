@@ -4,9 +4,13 @@ description: Integrate an Amazon API Gateway to Azure API Center for automatic s
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 01/23/2025
+ms.date: 06/02/2025
 ms.author: danlep 
-ms.custom: devx-track-azurecli
+ms.custom: 
+  - devx-track-azurecli
+ms.collection: 
+ - migration
+ - aws-to-azure
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
 ---
 
@@ -89,7 +93,27 @@ Take note of the **Secret identifier** of each secret, a URI similar to `https:/
 
 ## Integrate an Amazon API Gateway 
 
- 
+You can integrate an Amazon API Gateway using the portal or the Azure CLI.
+
+#### [Portal](#tab/portal)
+1. In the [portal](https://portal.azure.com), navigate to your API center.
+1. Under **Platforms**, select **Integrations**.
+1. Select **+ New integration** > **From Amazon API Gateway**.
+1. In the **Integrate your Amazon API Gateway Service** page:
+    1. For the **AWS access key** and **AWS secret access key**, click **Select** and select the subscription, key vault, secret that you stored. 
+    1. Select the **AWS region** where the Amazon API Gateway is deployed.
+    1. In **Integration details**, enter an identifier.
+    1. In **Environment details**, enter an **Environment title** (name), **Environment type**, and optional **Description**.
+    1. In **API Details**:
+        1. Select a **Lifecycle** for the synchronized APIs. (You can update this value for the APIs after they're added to your API center.)
+        1. Optionally, select whether to include API definitions with the synchronized APIs.
+1. Select **Create**.
+
+
+:::image type="content" source="media/synchronize-aws-gateway-apis/link-aws-gateway-service.png" alt-text="Screenshot of integrating an Amazon API Gateway service in the portal.":::
+
+#### [Azure CLI](#tab/cli)
+
 Run the [az apic integration create aws](/cli/azure/apic/integration/create#az-apic-integration-create-aws) (preview) command to integrate an Amazon API Gateway to your API center. 
 
 * Provide the names of the resource group, API center, and integration. 
@@ -109,21 +133,7 @@ az apic integration create aws \
 
 The environment is added in your API center. The Amazon API Gateway APIs are imported to the API center inventory.
 
-## Delete an integration
-
-While an API source is integrated, you can't delete synchronized APIs from your API center. If you need to, you can delete the integration. When you delete an integration:
-
-* The synchronized APIs in your API center inventory are deleted
-* The environment and deployments associated with the API source are deleted
-
-To delete an integration using the Azure CLI, run the [az apic integration delete](/cli/azure/apic/integration#az-apic-integration-delete) (preview) command. Provide the names of the resource group, API center, and integration.
-
-```azurecli
-az apic integration delete \
-    --resource-group <resource-group-name> \
-    --service-name <api-center-name> \
-    --integration-name <integration-name> 
-```
+[!INCLUDE [delete-api-integration](includes/delete-api-integration.md)]
 
 ## Related content
  

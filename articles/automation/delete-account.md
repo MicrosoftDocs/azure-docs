@@ -4,7 +4,7 @@ description: This article tells how to delete and your Automation account across
 services: automation
 ms.service: azure-automation
 ms.subservice: process-automation
-ms.date: 12/28/2024
+ms.date: 05/08/2025
 ms.topic: how-to 
 ---
 
@@ -92,6 +92,11 @@ To unlink from the workspace, perform the following steps.
 While it attempts to unlink the Automation account, you can track the progress under **Notifications** from the menu.
 
 After the Automation account is successfully unlinked from the workspace, perform the steps in the [standalone Automation account](#delete-a-standalone-automation-account) section to delete the account.
+
+Automation account deletion may still fail after successfully unlinking the Log Analytics workspace. Retry deletion after 24 hours.
+
+> [!NOTE]
+> A previously soft-deleted Log Analytics workspace can't be unlinked from the Automation account successfully. In this scenario, first recover and permanently delete it to forcefully remove the link. Learn [how to recover a workspace in a soft-delete state](/azure/azure-monitor/logs/delete-workspace#recover-a-workspace-in-a-soft-delete-state) and [delete it permanently](/azure/azure-monitor/logs/delete-workspace#delete-a-workspace-permanently).
 
 ## Delete a shared capability Automation account
 

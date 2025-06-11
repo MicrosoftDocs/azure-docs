@@ -2,11 +2,11 @@
 title: TLS policy overview for Azure Application Gateway
 description: Learn how to configure TLS policy for Azure Application Gateway and reduce encryption and decryption overhead from a backend server farm.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 11/28/2024
-ms.author: greglin
+ms.date: 03/04/2025
+ms.author: mbender
 ---
 
 # Application Gateway TLS policy overview
@@ -132,7 +132,7 @@ Application Gateway supports the following cipher suites from which you can choo
 
 ## Limitations
 
-- The connections to backend servers are always with minimum protocol TLS v1.0 and up to TLS v1.2. Therefore, only TLS versions 1.0, 1.1 and 1.2 are supported to establish a secured connection with backend servers. 
+- The connections to backend servers are always with preferred TLS v1.3 and upto TLS v1.0. The TLS version and cipher suites cannot be customized for the backend TLS connections.
 - As of now, the TLS 1.3 implementation is not enabled with &#34;Zero Round Trip Time (0-RTT)&#34; feature.
 - TLS session (ID or Tickets) resumption is not supported.
 - Application Gateway v2 doesn't support the following DHE ciphers. These won't be used for the TLS connections with clients even though they are mentioned in the predefined policies. Instead of DHE ciphers, secure and faster ECDHE ciphers are recommended.

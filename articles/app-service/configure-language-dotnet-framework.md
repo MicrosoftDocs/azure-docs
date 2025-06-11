@@ -21,7 +21,7 @@ This guide provides key concepts and instructions for ASP.NET developers. If you
 
 ## Show supported .NET Framework runtime versions
 
-In App Service, the Windows instances already have all the supported .NET Framework versions installed. To show the .NET Framework runtime and SDK versions available to you, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and run the appropriate command in the browser-based console:
+In App Service, the Windows instances already have all the supported .NET Framework versions installed. To show the .NET Framework runtime and SDK versions available to you, go to your app in the Azure portal. Select **Development Tools** > **Advanced Tools**. Select **Go**. In Kudu, select **Debug console** for **CMD** or **PowerShell**. Run the appropriate command in the browser-based console:
 
 For CLR 4 runtime versions (.NET Framework 4 and above):
 
@@ -36,6 +36,8 @@ For CLR 2 runtime versions (.NET Framework 3.5 and below):
 ```CMD
 ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework"
 ```
+
+If the runtime your application requires isn't supported, you can deploy it with a custom container.
 
 ## Show current .NET Framework runtime version
 
@@ -54,6 +56,8 @@ By default, App Service uses the latest supported .NET Framework version to run 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --net-framework-version v2.0
 ```
+
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
 
 ## Access environment variables
 

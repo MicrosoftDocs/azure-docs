@@ -166,6 +166,8 @@ In the following steps, you'll use commands to add a static route to the virtual
 * Verify that the metadata in `$remote` (from the [preceding section](#connect)) matches the information from the Azure portal.
 * Verify permissions by using the IAM settings of the remote tenant resource group, or by using Azure PowerShell commands (`Get-AzSubscription`).
 * Make sure quotes are included around the names of resource groups or any other environment-specific variables (for example, `"VirtualHub1"` or `"VirtualNetwork1"`).
+* If utilizing the Azure Network SDK or a direct Rest API request, it is required that the primary "Hub" Tenant's authorization token be passed in the "Authorization" header and an additional authorization token for the second "VNet" Tenant be passed in the special "x-ms-authorization-auxiliary" header.
+    * See documentation: [Authenticate requests across tenants](../azure-resource-manager/management/authenticate-multi-tenant.md)
 
 ## Next steps
 

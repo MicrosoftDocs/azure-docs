@@ -2,8 +2,8 @@
 title: Cost Management automation overview
 titleSuffix: Microsoft Cost Management
 description: This article covers common scenarios for Cost Management automation and options available based on your situation.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
@@ -98,7 +98,7 @@ Often it's useful to understand how much an organization is spending over time. 
 
 1. Extract the historical costs for prior months. See [Seed a historical cost dataset with the Exports API](tutorial-seed-historical-cost-dataset-exports-api.md) to learn more.
 2. Ingest your historical data from the Azure storage account associated with your Exports into a queryable store. We recommend SQL or Azure Synapse.
-3. Configure a month-to-date Export to storage at a scope with the costs that need to be analyzed. Export to storage is done in the Azure portal. See [Export costs](../costs/tutorial-export-acm-data.md). The month-to-date Export will be used to properly extract costs moving forward.
+3. Configure a month-to-date Export to storage at a scope with the costs that need to be analyzed. Export to storage is done in the Azure portal. See [Export costs](../costs/tutorial-improved-exports.md). The month-to-date Export will be used to properly extract costs moving forward.
 4. Configure a data pipeline to ingest cost data for the open month into your queryable store. This pipeline should be used with the month-to-date Export that you've configured. Azure Data Factory provides good solutions for this kind of ingestion scenario.
 5. Perform reporting as needed using reports built with your queryable store. Power BI can be good for this scenario. If you're looking for a more out of the box solution, see our [Power BI Template App](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
@@ -108,7 +108,7 @@ For more information about reservation-specific automation scenarios, see [APIs 
 
 ## Related content
 
-- To learn more about how to assign the proper permissions to call our APIs programatically, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
+- To learn more about how to assign the proper permissions to call our APIs programmatically, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
 - To learn more about working with cost details, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
 
 - To learn more about budget automation, see [Automate budget creation](automate-budget-creation.md).

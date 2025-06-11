@@ -10,21 +10,22 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
 
 
-#Customer intent: As a developer using Azure Active Directory B2C, I want to collect and manipulate user inputs by writing a custom policy, so that I can customize the user interface and process the inputs as claims in a JWT token.
+#Customer intent: As a developer using Azure Active Directory B2C, I want to collect and manipulate user inputs by writing a custom policy, so that I can customize the user interface and process the inputs as claims in a JWT.
 
 ---
 
 # Collect and manipulate user inputs by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) custom policies allows you to collect user inputs. You can then use inbuilt methods to manipulate the user inputs.  
 
-In this article, you learn how to write a custom policy that collects user inputs via a graphical user interface. You'll then access the inputs, process then, and finally return them as claims in a JWT token. To complete this task, you'll: 
+In this article, you learn how to write a custom policy that collects user inputs via a graphical user interface. You'll then access the inputs, process then, and finally return them as claims in a JWT. To complete this task, you'll: 
 
 - Declare claims. A claim provides temporary storage of data during an Azure AD B2C policy execution. It can store information about the user, such as first name, last name, or any other claim obtained from the user or other systems. You can learn more about claims in the [Azure AD B2C custom policy overview](custom-policy-overview.md#claims). 
 
@@ -260,7 +261,7 @@ Replace the existing contents of the `HelloWorldJourney` User Journey with the f
     </OrchestrationSteps>
 ```
 
-According to the orchestration steps, we collect user inputs, set values for *objectId*, *displayName* and *message* claims, and finally send the Jwt token. 
+According to the orchestration steps, we collect user inputs, set values for *objectId*, *displayName* and *message* claims, and finally send the JWT. 
 
 ## Step 6 - Update relying party 
 
@@ -486,7 +487,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
     :::image type="content" source="media/custom-policies-series-collect-user-input/screenshot-of-accepting-user-inputs-in-custom-policy.png" alt-text="screenshot of accepting user inputs in custom policy.":::
 
-After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. It looks similar to the following JWT token snippet: 
+After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT. It looks similar to the following JWT snippet: 
 
 ```json
     {
@@ -504,7 +505,7 @@ After the policy finishes execution, you're redirected to `https://jwt.ms`, and 
     }.[Signature]
 ``` 
 
-## Next steps 
+## Related content
 
 Next, learn:
 

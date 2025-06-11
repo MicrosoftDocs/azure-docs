@@ -2,9 +2,9 @@
 title: Use jobs to schedule tasks for groups of devices (CLI)
 titleSuffix: Azure IoT Hub
 description: Use the Azure CLI to schedule jobs that invoke a direct method and update device twin properties of a simulated device.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: azurecli
 ms.topic: how-to

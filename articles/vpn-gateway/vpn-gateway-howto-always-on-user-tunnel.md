@@ -5,7 +5,7 @@ description: Learn how to configure an Always On VPN user tunnel for your VPN ga
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---
@@ -34,8 +34,6 @@ To remove a profile, use the following steps:
    ```
 
 1. Disconnect the connection, and clear the **Connect automatically** check box.
-
-   ![Cleanup](./media/vpn-gateway-howto-always-on-user-tunnel/disconnect.jpg)
 
 ## Next steps
 

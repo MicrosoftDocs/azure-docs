@@ -1,34 +1,28 @@
 ---
-# Mandatory fields.
 title: Manage the twin graph and relationships
 titleSuffix: Azure Digital Twins
 description: Learn how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 10/3/2023
+ms.author: baanders
+ms.date: 03/10/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Manage a graph of digital twins using relationships
 
 The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made of individual digital twins connected via **relationships**. This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [Manage digital twins](how-to-manage-twin.md).
 
-Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
+Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and set up [authentication](how-to-authenticate-client.md) code in your client app, you can create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
 ## Prerequisites
 
-[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-prereq-instance.md](includes/digital-twins-prereq-instance.md)]
 
-[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](includes/digital-twins-developer-interfaces.md)]
 
-[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+[!INCLUDE [visualizing with Azure Digital Twins explorer](includes/digital-twins-visualization.md)]
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
@@ -40,10 +34,10 @@ Relationships describe how different digital twins are connected to each other, 
 The types of relationships that can be created from one (source) twin to another (target) twin are defined as part of the source twin's [DTDL model](concepts-models.md#relationships). You can create an instance of a relationship by using the `CreateOrReplaceRelationshipAsync()` SDK call with twins and relationship details that follow the DTDL definition. 
 
 To create a relationship, you need to specify:
-* The source twin ID (`srcId` in the code sample below): The ID of the twin where the relationship originates.
-* The target twin ID (`targetId` in the code sample below): The ID of the twin where the relationship arrives.
-* A relationship name (`relName` in the code sample below): The generic type of relationship, something like _contains_.
-* A relationship ID (`relId` in the code sample below): The specific name for this relationship, something like _Relationship1_.
+* The source twin ID (`srcId` in the following code sample): The ID of the twin where the relationship originates.
+* The target twin ID (`targetId` in the following code sample): The ID of the twin where the relationship arrives.
+* A relationship name (`relName` in the following code sample): The generic type of relationship, something like _contains_.
+* A relationship ID (`relId` in the following code sample): The specific name for this relationship, something like _Relationship1_.
 
 The relationship ID must be unique within the given source twin. It doesn't need to be globally unique.
 For example, for the twin Foo, each specific relationship ID must be unique. However, another twin Bar can have an outgoing relationship that matches the same ID of a Foo relationship.
@@ -74,22 +68,22 @@ This fact means that you can express several different types of relationships be
 You can even create multiple instances of the same type of relationship between the same two twins, if you want. In this example, Twin A could have two different *stored* relationships with Twin B, as long as the relationships have different relationship IDs.
 
 > [!NOTE]
-> The DTDL attributes of `minMultiplicity` and `maxMultiplicity` for relationships aren't currently supported in Azure Digital Twins—even if they're defined as part of a model, they won't be enforced by the service. For more information, see [Service-specific DTDL notes](concepts-models.md#service-specific-dtdl-notes).
+> The service doesn't currently support or enforce the DTDL attributes of `minMultiplicity` and `maxMultiplicity` for relationships in Azure Digital Twins, even if they're defined as part of a model. For more information, see [Service-specific DTDL notes](concepts-models.md#service-specific-dtdl-notes).
 
 ### Create relationships in bulk with the Import Jobs API
 
-You can use the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api) to create many relationships at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for relationships and bulk jobs.
+You can use the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api) to create many relationships at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), and [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for relationships and bulk jobs.
 
 >[!TIP]
 >The Import Jobs API also allows models and twins to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Import Jobs API](#upload-models-twins-and-relationships-in-bulk-with-the-import-jobs-api).
 
-To import relationships in bulk, you'll need to structure your relationships (and any other resources included in the bulk import job) as an *NDJSON* file. The `Relationships` section comes after the `Twins` section, making it the last graph data section in the file. Relationships defined in the file can reference twins that are either defined in this file or already present in the instance, and they can optionally include initialization of any properties that the relationships have.
+To import relationships in bulk, you need to structure your relationships (and any other resources included in the bulk import job) as an *NDJSON* file. The `Relationships` section comes after the `Twins` section, making it the last graph data section in the file. Relationships defined in the file can reference twins that are either defined in this file or already present in the instance, and they can optionally include initialization of any properties that the relationships have.
 
 You can view an example import file and a sample project for creating these files in the [Import Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
 
-[!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
+[!INCLUDE [digital-twins-bulk-blob.md](includes/digital-twins-bulk-blob.md)]
 
-Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
+Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You provide the blob storage URL of the input file, and a new blob storage URL to indicate where you'd like the output log to be stored after the service creates it.
 
 ## List relationships
 
@@ -134,7 +128,7 @@ You can now call this custom method to see the incoming relationships of the twi
 
 ### List all twin properties and relationships
 
-Using the above methods for listing outgoing and incoming relationships to a twin, you can create a method that prints full twin information, including the twin's properties and both types of its relationships. Here's an example custom method showing how to combine the above custom methods for this purpose.
+Using the previous methods for listing outgoing and incoming relationships to a twin, you can create a method that prints full twin information, including the twin's properties and both types of its relationships. Here's an example custom method showing how to combine the previous custom methods for this purpose.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
 
@@ -147,7 +141,7 @@ You can now call this custom function like this:
 Relationships are updated using the `UpdateRelationship` method. 
 
 >[!NOTE]
->This method is for updating the **properties** of a relationship. If you need to change the source twin or target twin of the relationship, you'll need to [delete the relationship](#delete-relationships) and [re-create one](#create-relationships) using the new twins.
+>This method is for updating the **properties** of a relationship. If you need to change the source twin or target twin of the relationship, you need to [delete the relationship](#delete-relationships) and [re-create one](#create-relationships) using the new twins.
 
 The required parameters for the client call are:
 - The ID of the source twin (the twin where the relationship originates).
@@ -174,7 +168,7 @@ You can now call this custom method to delete a relationship like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
-[!INCLUDE [digital-twins-bulk-delete-note.md](../../includes/digital-twins-bulk-delete-note.md)]
+[!INCLUDE [digital-twins-bulk-delete-note.md](includes/digital-twins-bulk-delete-note.md)]
 
 ## Create multiple graph elements at once
 
@@ -182,15 +176,15 @@ This section describes strategies for creating a graph with multiple elements at
 
 ### Upload models, twins, and relationships in bulk with the Import Jobs API
 
-You can use the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api) to upload multiple models, twins, and relationships to your instance in a single API call, effectively creating the graph all at once. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for graph elements (models, twins, and relationships) and bulk jobs.
+You can use the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api) to upload multiple models, twins, and relationships to your instance in a single API call, effectively creating the graph all at once. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), and [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for graph elements (models, twins, and relationships) and bulk jobs.
 
 To import resources in bulk, start by creating an *NDJSON* file containing the details of your resources. The file starts with a `Header` section, followed by the optional sections `Models`, `Twins`, and `Relationships`. You don't have to include all three types of graph data in the file, but any sections that are present must follow that order. Twins defined in the file can reference models that are either defined in this file or already present in the instance, and they can optionally include initialization of the twin's properties. Relationships defined in the file can reference twins that are either defined in this file or already present in the instance, and they can optionally include initialization of relationship properties.
 
 You can view an example import file and a sample project for creating these files in the [Import Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
 
-[!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
+[!INCLUDE [digital-twins-bulk-blob.md](includes/digital-twins-bulk-blob.md)]
 
-Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
+Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You provide the blob storage URL of the input file, and a new blob storage URL to indicate where you'd like the output log to be stored after the service creates it.
 
 ### Import graph with Azure Digital Twins Explorer
 
@@ -213,7 +207,7 @@ Consider the following data table, describing a set of digital twins and relatio
 
 One way to get this data into Azure Digital Twins is to convert the table to a CSV file. Once the table is converted, code can be written to interpret the file into commands to create twins and relationships. The following code sample illustrates reading the data from the CSV file and creating a twin graph in Azure Digital Twins.
 
-In the code below, the CSV file is called *data.csv*, and there's a placeholder representing the **host name** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
+In the following code, the CSV file is called *data.csv*, and there's a placeholder representing the **host name** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graphFromCSV.cs":::
 
@@ -231,26 +225,26 @@ Then, **copy the following code** of the runnable sample into your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
 
-[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](includes/digital-twins-defaultazurecredential-note.md)]
 
 ### Configure project
 
 Next, complete the following steps to configure your project code:
 1. Add the **Room.json** and **Floor.json** files you downloaded earlier to your project, and replace the `<path-to>` placeholders in the code to tell your program where to find them.
 1. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
-1. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins.core-readme), and the second provides tools to help with authentication against Azure.
+1. Add two dependencies to your project that are needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins.core-readme), and the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
       dotnet add package Azure.Identity
       ```
 
-You'll also need to set up local credentials if you want to run the sample directly. The next section walks through this process.
-[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+You also need to set up local credentials if you want to run the sample directly. The next section walks through this process.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](includes/digital-twins-local-credentials-outer.md)]
 
 ### Run the sample
 
-Now that you've completed setup, you can run the sample code project.
+Now that you completed setup, you can run the sample code project.
 
 Here's the console output of the program: 
 

@@ -1,17 +1,18 @@
 ---
-title: Azure Container Apps planned maintenance (preview)
+title: Azure Container Apps planned maintenance
 description: Configure system-level planned maintenance in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
+  - build-2025
 ms.topic: how-to
-ms.date: 12/05/2024
+ms.date: 05/02/2025
 ms.author: cshoe
 ---
 
-# Azure Container Apps planned maintenance (preview)
+# Azure Container Apps planned maintenance
 
 Azure Container Apps is a fully managed service where platform and infrastructure updates are regularly and automatically applied to both components and environments. The Container Apps update system is designed to minimize the effect on performance of your apps during updates. By defining maintenance windows, you can designate the most advantageous times for your application.
 
@@ -23,6 +24,10 @@ The following table describes the difference between the timing in how *critical
 |---|---|---|
 | Critical | Urgent fixes that include updates essential to the security and stability of your app. | Anytime |
 | Noncritical | Routine security patches, bug fixes, and the introduction of new features. | If a planned maintenance window is defined, then updates only start during that time span.<br><br>If a maintenance window isn't configured, then updates can be applied at any time. |
+
+Planned maintenance capabilities are available via the Azure portal and Azure CLI.
+
+To change your planned maintenance settings in the portal, open your Container Apps environment. From the side menu, open *Settings* and then select **Planned Maintenance**.
 
 ## How maintenance windows work
 
@@ -117,10 +122,6 @@ Use the following steps to review the maintenance history in the Azure portal.
 In the *Diagnose and solve problems* window, you can view the configured maintenance window and upgrade events that occurred in the last month. As you hover your mouse over the bars in the chart, you can see the start time for each upgrade event.
 
 :::image type="content" source="media/planned-maintenance/azure-container-apps-planned-maintenance-upgrade-events.png" alt-text="Screenshot of an Azure Container Apps planned maintenance event history graph." lightbox="media/planned-maintenance/azure-container-apps-planned-maintenance-upgrade-events.png":::
-
-## Considerations
-
-Planned maintenance is free during preview.
 
 ## Next steps
 

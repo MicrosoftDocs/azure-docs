@@ -16,7 +16,7 @@ There are two features that provide geo-disaster recovery in Azure Event Hubs.
 - ***Geo-replication*** (public preview), which provides replication of **both metadata and the data**. 
 
 > [!NOTE]
-> The Geo-replication feature is supported by only the dedicated tier. 
+> The Geo-replication feature preview is available on the dedicated tier only. 
 
 These features shouldn't be confused with Availability Zones. Both geographic recovery features provide resilience between Azure regions such as East US and West US. Availability Zone support provides resilience within a specific geographic region, such as East US. For more information on Availability Zones, see [Event Hubs Availability Zone support](./event-hubs-availability-and-consistency.md).
 
@@ -43,21 +43,37 @@ These features shouldn't be confused with Availability Zones. Both geographic re
 >
 
 
-## Metadata disaster recovery vs. Geo-replication of metadata and data
-The Metadata DR feature replicates configuration information for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken. No data is replicated other than configuration information nor are permission assignments replicated. 
+## Metadata disaster recovery(DR) vs. Geo-replication of metadata and data
+The Metadata disaster recovery feature replicates configuration information (or metadata) for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken. No data is replicated other than configuration information nor are permission assignments replicated. 
 
-The newer Geo-replication feature replicates configuration information and all of the data from a primary namespace to one, or more secondary namespaces. When a failover is performed, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired. 
+The newer Geo-replication feature replicates configuration information and all of the data from a primary namespace to one, or more secondary namespaces. When a failover is performed, the selected secondary is promoted to the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired.
+
+You can migrate from *Metadata disaster recovery (DR)* to *Geo-replication*, by breaking the metadata DR pairing and enabling Geo-replication as mentioned in this document.
 
 This rest of this article focuses on the Geo-replication feature. For details on the metadata DR feature, see [Event Hubs Geo-disaster recovery for metadata](./event-hubs-geo-dr.md).
+
+## The benefits of Geo-replicated namespaces
+
+### Ensuring Business Continuity and Disaster Recovery
+Geo-replication ensures disaster recovery and business continuity for all streaming data on your namespace. By replicating data across regions, organizations can safeguard against data loss and ensure that their applications remain operational even in the event of a regional outage. This is particularly crucial for mission-critical applications that require high availability and minimal downtime.
+
+### Global Data Distribution
+Geo-replication can be used to distribute data globally, allowing applications to access data from the nearest region. This reduces latency and improves performance for workloads located in different parts of the world.
+
+### Data Sovereignty and Compliance
+Organizations operating in multiple countries/regions often need to comply with data sovereignty laws that require data to be stored within specific geographic boundaries. Geo-replication allows these organizations to replicate data to regions that comply with local regulations, ensuring that they meet legal requirements while still maintaining a unified data platform.
+
+### Migration and Upgrades
+Geo-replication can also be used to facilitate data migration, maintenance and system upgrades. Organizations can migrate their namespace proactively from a primary to a secondary region to allow for any maintenance and upgrades on the primary region.
 
 ## Geo-replication 
 The public preview of the Geo-replication feature is supported for namespaces in Event Hubs self-serve scaling dedicated clusters. You can use the feature with new, or existing namespaces in dedicated self-serve clusters. The following features aren't supported with Geo-replication:
 
--	Customer-managed keys (CMK)
--	Managed identity for capture 
--	Virtual network features (service endpoints, or private endpoints)
--	Large messages support (now in public preview)
--	Kafka Transactions (now in public preview)
+- Customer managed keys encryption (CMK).
+-	Managed identity for capture.
+-	Private endpoints.
+-	Large messages support (currently in public preview).
+-	Kafka Streams and Transactions (currently in public preview).
  
 Some of the key aspects of Geo-data Replication public preview are: 
 

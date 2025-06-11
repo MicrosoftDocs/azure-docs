@@ -1,13 +1,13 @@
 ---
 title: Create and delete routes and endpoints by using Azure PowerShell
 description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using Azure PowerShell.
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 ms.custom: devx-track-azurepowershell
 services: iot-hub
 ms.topic: how-to
 ms.date: 12/05/2024
-ms.author: kgremban
+ms.author: sonialopez
 ---
 
 # Create and delete routes and endpoints by using Azure PowerShell

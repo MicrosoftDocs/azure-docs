@@ -7,16 +7,17 @@ ms.topic: how-to
 ms.date: 12/31/2024
 ms.author: austinmc
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
 #Customer intent: As a security administrator or MSSP analyst, I want to manage dynamic Microsoft Sentinel content as code based on source control repositories using CI/CD pipelines. I want to automate updates and ensure consistent configurations across workspaces in my security monitoring environment. As an MSSP content manager, I want to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
-
+ms.custom:
+  - build-2025
 ---
 
-# Deploy custom content from your repository (Public preview)
+# Deploy content as code from your repository (Public preview)
 
 When creating custom content, you can manage it from your own Microsoft Sentinel workspaces, or an external source control repository. This article describes how to create and manage connections between Microsoft Sentinel and GitHub or Azure DevOps repositories. Managing your content in an external repository allows you to make updates to that content outside of Microsoft Sentinel, and have it automatically deployed to your workspaces. For more information, see [Update custom content with repository connections](ci-cd-custom-content.md).
 
@@ -133,7 +134,7 @@ Deleting content from your repository doesn't delete it from your Microsoft Sent
 
 ## Remove a repository connection
 
-This procedure describes how to remove the connection to a source control repository from Microsoft Sentinel. In order to use Bicep templates, your repository connection must be newer than November 1, 2024. Use this procedure to remove the connection and recreate it in order to update the connection.
+This procedure describes how to remove the connection to a source control repository from Microsoft Sentinel. In order to use Bicep files, your repository connection must be newer than November 1, 2024. Use this procedure to remove the connection and recreate it in order to update the connection.
 
 **To remove your connection**:
 

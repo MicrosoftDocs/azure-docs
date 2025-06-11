@@ -33,7 +33,7 @@ Azure Load Testing supports the following events for notifications:
 
 ### Action groups
 
-[Action Groups](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups) are collections of notification preferences and actions that can be triggered by events. In the context of Azure Load Testing, they enable users to route notifications to email recipients, webhooks, or integrated tools like Azure Logic Apps.
+[Action Groups](/azure/azure-monitor/alerts/action-groups) are collections of notification preferences and actions that can be triggered by events. In the context of Azure Load Testing, they enable users to route notifications to email recipients, webhooks, or integrated tools like Azure Logic Apps.
 
 > [!NOTE]
 >  Action groups might incur additional costs. To view associated costs, refer to the [Azure Monitor pricing details.](https://azure.microsoft.com/pricing/details/monitor/)

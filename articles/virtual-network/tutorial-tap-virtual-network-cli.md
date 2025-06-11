@@ -1,26 +1,26 @@
 ---
-title: Create, change, or delete a VNet TAP - Azure CLI
+title: Create, change, or delete a virtual network TAP - Azure CLI
 description: Learn how to create, change, or delete a virtual network TAP using the Azure CLI.
 services: virtual-network
 author: asudbring
 manager: ganesr
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 03/18/2018
+ms.date: 04/21/2025
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ---
 
 # Work with a virtual network TAP using the Azure CLI
 
-> [!IMPORTANT]
-> Virtual network TAP Preview is currently on hold in all Azure regions. You can email us at <azurevnettap@microsoft.com> with your subscription ID and we will notify you with future updates about the preview. In the interim, you can use agent based or NVA solutions that provide TAP/Network Visibility functionality through our [Packet Broker partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) available in [Azure Marketplace Offerings](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
+Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For a list of partner solutions that are validated to work with virtual network TAP, see [partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions).
 
-Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For a list of partner solutions that are validated to work with virtual network TAP, see [partner solutions](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions). 
+> [!IMPORTANT]
+> Virtual network TAP is now in Public Preview. For more information, see the [Overview](virtual-network-tap-overview.md) article.
 
 ## Create a virtual network TAP resource
 
-Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you create a virtual network TAP resource. You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the Azure CLI from your computer. The Azure Cloud Shell is a free interactive shell that doesn't require installing the Azure CLI on your computer. You must sign in to Azure with an account that has the appropriate [permissions](virtual-network-tap-overview.md#permissions). This article requires the Azure CLI version 2.0.46 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). Virtual network TAP is currently available as an extension. To install the extension you need to run `az extension add -n virtual-network-tap`. If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
+Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you create a virtual network TAP resource. You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the Azure CLI from your computer. The Azure Cloud Shell is a free interactive shell that doesn't require installing the Azure CLI on your computer. You must sign in to Azure with an account that has the appropriate [permissions](virtual-network-tap-overview.md#permissions). This article requires the Azure CLI version 2.0.46 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). Virtual network TAP is currently available as an extension. To install the extension, you need to run `az extension add -n virtual-network-tap`. If you're running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
 1. Retrieve the ID of your subscription into a variable that is used in a later step:
 
@@ -30,21 +30,21 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
    --out tsv)
    ```
 
-2. Set the subscription id that you will use to create a virtual network TAP resource.
+2. Set the subscription ID that you'll use to create a virtual network TAP resource.
 
    ```azurecli-interactive
    az account set --subscription $subscriptionId
    ```
 
-3. Re-register the subscription ID that you'll use to create a virtual network TAP resource. If you get a registration error when you create a TAP resource, run the following command:
+3. Re-register the subscription ID that you use to create a virtual network TAP resource. If you get a registration error when you create a TAP resource, run the following command:
 
    ```azurecli-interactive
    az provider register --namespace Microsoft.Network --subscription $subscriptionId
    ```
 
-4. If the destination for the virtual network TAP is the network interface on the network virtual appliance for collector or analytics tool -
+4. If the destination for the virtual network TAP is the network interface on the network virtual appliance for collector or analytics tool:
 
-   - Retrieve the IP configuration of the network virtual appliance's network interface into a variable that is used in a later step. The ID is the end point that will aggregate the TAP traffic. The following example retrieves the ID of the *ipconfig1* IP configuration for a network interface named *myNetworkInterface*, in a resource group named *myResourceGroup*:
+   - Retrieve the IP configuration of the network virtual appliance's network interface into a variable that is used in a later step. The ID is the end point that aggregates the TAP traffic. The following example retrieves the ID of the *ipconfig1* IP configuration for a network interface named *myNetworkInterface*, in a resource group named *myResourceGroup*:
 
       ```azurecli-interactive
        IpConfigId=$(az network nic ip-config show \
@@ -67,7 +67,7 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
 
 5. If the destination for the virtual network TAP is an Azure internal load balancer:
   
-   - Retrieve the front end IP configuration of the Azure internal load balancer into a variable that is used in a later step. The ID is the end point that will aggregate the TAP traffic. The following example retrieves the ID of the *frontendipconfig1* front end IP configuration for a load balancer named *myInternalLoadBalancer*, in a resource group named *myResourceGroup*:
+   - Retrieve the front end IP configuration of the Azure internal load balancer into a variable that is used in a later step. The ID is the end point that aggregates the TAP traffic. The following example retrieves the ID of the *frontendipconfig1* front end IP configuration for a load balancer named *myInternalLoadBalancer*, in a resource group named *myResourceGroup*:
 
       ```azurecli-interactive
       FrontendIpConfigId=$(az network lb frontend-ip show \
@@ -78,7 +78,7 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
       --out tsv)
       ```
 
-   - Create the virtual network TAP using the ID of the frontend IP configuration as the destination and an optional port property. The port specifies the destination port on front end IP configuration where the TAP traffic will be received :  
+   - Create the virtual network TAP using the ID of the frontend IP configuration as the destination and an optional port property. The port specifies the destination port on front end IP configuration where the TAP traffic will be received:  
 
       ```azurecli-interactive
       az network vnet tap create \
@@ -153,3 +153,7 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
    --resource-group myResourceGroup \
    --name myTap
    ```
+
+## Next steps
+
+Learn how to [create a virtual network TAP](tutorial-virtual-network-tap-portal.md) using the Azure portal.

@@ -5,6 +5,9 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2022
 ms.date: 11/25/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: sairamyeturi
 ---
 
 # Disable auto logout from Ambari Web UI

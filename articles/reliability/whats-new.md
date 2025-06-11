@@ -1,19 +1,50 @@
 ---
-title: What's new in Azure Reliability documentation
+title: What's new in Azure reliability documentation
 description: Learn about what's new in Azure reliability documentation
 ms.service: azure
-ms.subservice: azure-availability-zones
-ms.topic: conceptual
-ms.date: 01/30/2025
+ms.topic: whats-new
+ms.date: 04/04/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: subject-reliability
 ---
 
-# What's new in Azure Reliability documentation
-
+# What's new in Azure reliability documentation
 
 This article provides a summary of the latest documentation updates for Azure Reliability. We update this page monthly to let you know about new articles, updated articles, and other changes to the documentation.
+
+## March 2025
+
+### New articles
+
+- [List of Azure regions](./regions-list.md): This article contains a list of all Azure regions, their paired region status, physical location, geography, and availability zone support.  The list replaces the previously separated lists for region pairs and nonpaired regions, and availability zones support.
+
+- [Nonregional Azure services](./regions-nonregional-services.md): This article explains the difference between global and geographic nonregional services, and provides a list of nonregional services that indicates whether each is a global or geographic service.
+
+### Reliability guides
+
+#### New guides
+
+- [Reliability in Azure Data Factory](./reliability-data-factory.md)
+- [Reliability in Azure Kubernetes Service (AKS)](./reliability-aks.md)
+
+## February 2025
+
+### New articles
+
+- [What are failover and failback?](./concept-failover-failback.md): This article provides a general overview of how both failover and failback operate in a cloud environment. 
+
+- [What are redundancy, replication, and backup](./concept-redundancy-replication-backup.md): This article provides a general introduction to redundancy, replication, and backup, which are methods that are used to create workloads that are resilient to physical risks causing service disruption, outage, or data loss.
+
+
+### Updated articles
+
+- [What are availability zones?](./availability-zones-overview.md): We refreshed the overview of Azure reliability documentation to provide:
+   - More details on the distances and latency between availability zones.
+   - Definition for the term *zone-resilient*.
+   - Explanations of physical and logical availability zones. 
+
+- [Available services by region types and categories](./availability-service-by-category.md): We updated this article to include additional services.
 
 ## January 2025
 
@@ -33,5 +64,11 @@ This article defines and describes business continuity and business continuity p
 - [Azure reliability documentation overview](./overview.md): We refreshed the overview of Azure reliability documentation to reflect new documentation. Updates include reliability fundamentals, Azure regions, and Azure availability zones.
 
 - [What are availability zones?](./availability-zones-overview.md): We updated this article to include a video that explains availability zones. We also added new sections on configuring resources for availability zone support, as well as types of availability zone support.
+
+### Reliability guides
+
+#### New guides
+
+- [Reliability in Azure Logic Apps](reliability-logic-apps.md)
 
 <!-- docutune:ignoreNextStep -->

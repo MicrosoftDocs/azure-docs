@@ -2,13 +2,13 @@
 title: Common cost analysis uses in Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: shasulin
 ---
 
 # Common cost analysis uses
@@ -55,19 +55,6 @@ You can add more customizations to the view.
 1. Group by **Resource** to see the specific resources that are accruing cost. The forecast cost isn't calculated for each service. It's projected for the **Total** of all your resources.
 
 :::image type="content" border="true" source="./media/cost-analysis-common-uses/forecast-by-service.png" lightbox="./media/cost-analysis-common-uses/forecast-by-service.png" alt-text="Screenshot showing Forecast and resource cost.":::
-
-## View your Azure and AWS costs together
-
-> [!NOTE]
-> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
-
-To view Azure and AWS costs together, you use management group scopes in Azure.
-
-1. Create a management group or select an existing one.
-1. Assign the existing Azure subscriptions that you need to the management group.
-1. Assign the *same* management group to the linked account of the connector.
-1. Go to cost analysis and select **Accumulated costs**.
-1. Select **Group by** - **Provider**.
 
 ## View New Commerce license and consumption costs
 

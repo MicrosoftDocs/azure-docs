@@ -16,7 +16,7 @@ This article defines and describes business continuity and business continuity p
 
 *Business continuity* is the state in which a business can continue operations during failures, outages, or disasters. Business continuity requires proactive planning, preparation, and the implementation of resilient systems and processes.
 
-Planning for business continuity requires identifying, understanding, classifying, and managing risks. Based on the risks and their likelihoods, design for both *high availability* (HA) and *disaster recovery* (DR). 
+Planning for business continuity requires identifying, understanding, classifying, and managing risks. Based on understanding the risks and their likelihoods, you can design a healthy business continuity plan to achieve a high availability (HA) and disaster recovery (DR) strategy that suits your business needs.
 
 *High availability* is about designing a solution to be resilient to day-to-day issues and to meet the business needs for availability. 
 
@@ -158,7 +158,7 @@ To achieve HA requirements, a workload can include a number of design elements. 
 
 #### Azure services and tiers that support high availability
 
-Many Azure services are designed to be highly available, and can be used to build highly available workloads. Here are some examples:
+Many Azure services are designed to be highly available and can be used to build highly available workloads. Here are some examples:
 
 - [Azure Virtual Machine Scale Sets](/azure/reliability/reliability-virtual-machine-scale-sets) provide high availability for virtual machines (VMs) by automatically creating and managing VM instances and distributing those VM instances to reduce the impact of infrastructure failures.
 - [Azure App Service](/azure/reliability/reliability-app-service) provides high availability through a variety of approaches, including automatically moving workers from an unhealthy node to a healthy node, and by providing capabilities for self-healing from many common fault types.

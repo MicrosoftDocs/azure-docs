@@ -16,6 +16,7 @@ ms.custom: b2c-support
 ---
 
 # User profile attributes
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Your Azure Active Directory B2C (Azure AD B2C) directory user profile comes with a set of built-in attributes, such as given name, surname, city, postal code, and phone number. You can extend the user profile with your own application data without requiring an external data store.
 
@@ -39,7 +40,7 @@ Azure AD B2C directory user profile supports the [user resource type](/graph/api
 - Whether the attribute can be used in a user flow
 - Whether the attribute can be used in a custom policy [Microsoft Entra ID technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
 
-|Name     |Date type     |Description|Available in Azure portal|Used in user flows|Used in custom policy|
+|Name     |Data type     |Description|Available in Azure portal|Used in user flows|Used in custom policy|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Whether the user account is enabled or disabled: **true** if the account is enabled, otherwise **false**.|Yes|No|Persisted, Output|
 |ageGroup        |String|The user's age group. Possible values: null, Undefined, Minor, Adult, NotAdult.|Yes|No|Persisted, Output|
@@ -85,7 +86,7 @@ Azure AD B2C directory user profile supports the [user resource type](/graph/api
 |usageLocation   |String|Required for users that are assigned licenses due to legal requirement to check for availability of services in countries/regions. Not nullable. A two letter country/region code (ISO standard 3166). For examples, *US*, *JP*, and *GB*.|Yes|No|Persisted, Output|
 |userType        |String|A string value that can be used to classify user types in your directory. Value must be Member. Read-only.|Read only|No|Persisted, Output|
 |userState (externalUserState)<sup>3</sup>|String|For Microsoft Entra B2B account only, and it indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
-|userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
+|userStateChangedOn (externalUserStateChangeDateTime)<sup>3</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
 
 <sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Shouldn't be used with Azure AD B2C
 

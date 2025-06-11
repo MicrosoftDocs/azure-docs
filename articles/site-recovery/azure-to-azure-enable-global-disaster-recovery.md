@@ -4,8 +4,8 @@ description: This article describes the global disaster recovery feature in Azur
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 12/14/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Enable global disaster recovery using Azure Site Recovery

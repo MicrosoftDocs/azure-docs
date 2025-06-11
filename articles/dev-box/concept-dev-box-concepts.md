@@ -21,7 +21,7 @@ Microsoft Dev Box builds on the same foundations as [Azure Deployment Environmen
 
 This diagram shows the key components of Dev Box and how they relate to each other. You can learn more about each component in the following sections.
 
-:::image type="content" source="media/concept-key-concepts/dev-box-architecture.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-architecture.png" :::
+:::image type="content" source="media/concept-key-concepts/dev-box-concepts-overview.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-concepts-overview.png" :::
 
 For more in-depth information about the Microsoft Dev Box architecture, see the [architecture overview](./concept-dev-box-architecture.md) article.
 
@@ -89,6 +89,8 @@ A dev box pool is a collection of dev boxes that you manage together and to whic
 A dev box is a preconfigured workstation that you create through the self-service developer portal. A new dev box has all the tools, binaries, and configuration required for a dev box user to be productive immediately. You can create and manage multiple dev boxes to work on multiple workstreams.
 
 As a dev box user, you have control over your own dev boxes. You can create more as you need them and delete them when you finish using them.
+
+[!INCLUDE [dev-box-get-started-links](includes/dev-box-get-started-links.md)]
 
 ## Related content
 

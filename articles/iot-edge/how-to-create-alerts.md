@@ -5,8 +5,8 @@ author: veyalla
 
 ms.author: veyalla
 ms.date: 06/08/2021
-ms.topic: conceptual
-ms.reviewer: kgremban
+ms.topic: concept-article
+ms.reviewer: sonialopez
 ms.service: azure-iot-edge
 services: iot-edge
 ---

@@ -7,7 +7,7 @@ metadata:
   description: Learn where to find information about virtual network traffic routing, and how to create, change, or delete a route table.
   author: asudbring
   ms.author: allensu
-  ms.date: 04/24/2023
+  ms.date: 04/21/2025
   ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
@@ -92,7 +92,7 @@ procedureSection:
   - title: | 
       View route tables
     summary: |
-      To manage your virtual network, access the Azure portal and use the search function to locate "Route tables." Here, you'll find a list of all the route tables available within your subscription. 
+      To manage your virtual network, access the Azure portal and use the search function to locate "Route tables." A list of all the route tables available within your subscription is displayed.
 
       :::image type="content" source="./media/manage-route-table/list.png" alt-text="Screenshot of the list of route tables in the Azure subscription.":::
     steps:
@@ -157,7 +157,7 @@ procedureSection:
     summary: |   
       You can optionally associate a route table to a subnet. A route table can be associated to zero or more subnets. Route tables aren't associated to virtual networks. You must associate a route table to each subnet you want the route table associated to.
 
-      Azure routes all traffic leaving the subnet based on routes you've created:
+      Azure routes all traffic leaving the subnet based on routes created:
 
       * Within route tables
 
@@ -219,7 +219,7 @@ procedureSection:
   - title: | 
       Delete a route table
     summary: |   
-      You can't delete a route table that's associated to any subnets. [Dissociate](#dissociate-a-route-table-from-a-subnet) a route table from all subnets before attempting to delete it.
+      You can't delete a route table associated to any subnets. [Dissociate](#dissociate-a-route-table-from-a-subnet) a route table from all subnets before attempting to delete it.
     steps:
       - |
         Go to the [Azure portal](https://portal.azure.com) to manage your route tables. Search for and select **Route tables**.
@@ -351,7 +351,7 @@ procedureSection:
   - title: |
       View effective routes
     summary: | 
-      The effective routes for each VM-attached network interface are a combination of route tables that you've created, Azure's default routes, and any routes propagated from on-premises networks via the Border Gateway Protocol (BGP) through an Azure virtual network gateway. Understanding the effective routes for a network interface is helpful when troubleshooting routing problems. You can view the effective routes for any network interface that's attached to a running VM.
+      The effective routes for each VM-attached network interface are a combination of route tables created, Azure's default routes, and any routes propagated from on-premises networks via the Border Gateway Protocol (BGP) through an Azure virtual network gateway. Understanding the effective routes for a network interface is helpful when troubleshooting routing problems. You can view the effective routes for any network interface attached to a running virtual machine.
     steps: 
       - | 
         Go to the [Azure portal](https://portal.azure.com) to manage your VMs. Search for and select **Virtual machines**.

@@ -2,8 +2,8 @@
 title: Azure Automation overview
 description: This article tells what Azure Automation is and how to use it to automate the lifecycle of infrastructure and applications.
 services: automation
-keywords: azure automation, DSC, powershell, state configuration, update management, change tracking, DSC, inventory, runbooks, python, graphical
-ms.date: 11/05/2024
+keywords: azure automation, DSC, powershell, state configuration, change tracking, DSC, inventory, runbooks, python, graphical
+ms.date: 04/24/2025
 ms.topic: overview
 ms.custom: linux-related-content
 ---
@@ -16,7 +16,7 @@ Automation is needed in three broad areas of cloud operations:
 * Response - Create event-based automation to diagnose and resolve issues.
 * Orchestrate - Orchestrate and integrate your automation with other Azure or third party services and products.
 
-Azure Automation delivers a cloud-based automation, operating system updates, and configuration service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
+Azure Automation delivers a cloud-based automation service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, shared capabilities, and heterogeneous features.
 
 :::image type="content" source="./media/overview/automation-overview.png" alt-text="Diagram shows the Automation capabilities." lightbox="./media/overview/automation-overview.png"::: 
 
@@ -69,7 +69,7 @@ Azure Automation supports [source control integration](source-control-integratio
 
 Automation is designed to work across Windows and Linux physical servers and virtual machines outside of Azure, on your corporate network, or other cloud provider. It delivers a consistent way to automate and configure deployed workloads and the operating systems that run them. The Hybrid Runbook Worker feature of Azure Automation enables running runbooks directly on the non-Azure physical server or virtual machine hosting the role, and against resources in the environment to manage those local resources.
 
-Through [Arc-enabled servers](/azure/azure-arc/servers/overview), it provides a consistent deployment and management experience for your non-Azure machines. It enables integration with the Automation service using the VM extension framework to deploy the Hybrid Runbook Worker role, and simplify onboarding to Update Management and Change Tracking and Inventory.
+Through [Arc-enabled servers](/azure/azure-arc/servers/overview), it provides a consistent deployment and management experience for your non-Azure machines. It enables integration with the Automation service using the VM extension framework to deploy the Hybrid Runbook Worker role, and simplify onboarding Change Tracking and Inventory using AMA.
 
 ## Common scenarios
 
@@ -108,9 +108,9 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
 
 Depending on your requirements, one or more of the following Azure services integrate with or complement Azure Automation to help fulfill them:
 
-* [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) enables simplified onboarding of hybrid machines to Update Management, Change Tracking and Inventory, and the Hybrid Runbook Worker role.
+* [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) enables simplified onboarding of hybrid machines to Change Tracking and Inventory using AMA, and the Hybrid Runbook Worker role.
 * [Azure Alerts action groups](/azure/azure-monitor/alerts/action-groups) can initiate an Automation runbook when an alert is raised.
-* [Azure Monitor](/azure/azure-monitor/overview) to collect metrics and log data from your Automation account for further analysis and take action on the telemetry. Automation features such as Update Management and Change Tracking and Inventory rely on the Log Analytics workspace to deliver elements of their functionality.
+* [Azure Monitor](/azure/azure-monitor/overview) to collect metrics and log data from your Automation account for further analysis and take action on the telemetry. 
 * [Azure Policy](../governance/policy/samples/built-in-policies.md) includes initiative definitions to help establish and maintain  compliance with different security standards for your Automation account.
 * [Azure Site Recovery](../site-recovery/site-recovery-runbook-automation.md) can use Azure Automation runbooks to automate recovery plans.
 
@@ -134,3 +134,4 @@ You can review the prices associated with Azure Automation on the [pricing](http
 
 > [!div class="nextstepaction"]
 > [Create an Automation account](./quickstarts/create-azure-automation-account-portal.md)
+> [Well-architected recommendations for implementing automation](/azure/well-architected/operational-excellence/automate-tasks#evaluate-tasks-to-automate)

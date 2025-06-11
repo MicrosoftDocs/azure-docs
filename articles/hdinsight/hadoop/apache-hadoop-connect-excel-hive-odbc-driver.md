@@ -4,6 +4,9 @@ description: Learn how to set up and use the Microsoft Hive ODBC driver for Exce
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/15/2024
 ---
 

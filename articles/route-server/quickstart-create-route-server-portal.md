@@ -33,7 +33,7 @@ In this section, you create a route server.
 
 1. In the search box at the top of the portal, enter ***route server***, and select **Route Server** from the search results. 
 
-    :::image type="content" source="./media/quickstart-create-route-server-portal/route-server-portal-search.png" alt-text="Screenshot of searching for Route Server in the Azure portal." lightbox="./media/quickstart-create-route-server-portal/route-server-portal-search.png":::
+    :::image type="content" source="./media/route-server-portal-search.png" alt-text="Screenshot of searching for Route Server in the Azure portal." lightbox="./media/route-server-portal-search.png":::
 
 1. On the **Route Servers** page, select **+ Create**. 
 
@@ -55,7 +55,7 @@ In this section, you create a route server.
     | Public IP address | Select **Create new**. or select an existing Standard public IP resource to assign to the Route Server. To ensure connectivity to the backend service that manages the Route Server configuration, a public IP address is required. |
     | Public IP address name | Enter ***myVirtualNetwork-ip***. A Standard public IP address is required to ensure connectivity to the backend service that manages the route server. |
 
-    :::image type="content" source="./media/quickstart-create-route-server-portal/create-route-server.png" alt-text="Screenshot that shows the Basics tab or creating a route server." lightbox="./media/quickstart-create-route-server-portal/create-route-server.png":::     
+    :::image type="content" source="./media/create-route-server.png" alt-text="Screenshot that shows the Basics tab or creating a route server." lightbox="./media/create-route-server.png":::     
 
 1. Select **Review + create** and then select **Create** after the validation passes.
 
@@ -75,7 +75,7 @@ In this section, you learn how to configure BGP peering with a network virtual a
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | A name to identify the peer. This example uses **myNVA**. |
+    | Name | A name to identify the peer. It doesn't have to be the same name of the NVA. |
     | ASN | The Autonomous System Number (ASN) of the NVA. For more information, see [What Autonomous System Numbers (ASNs) can I use?](route-server-faq.md#what-autonomous-system-numbers-asns-can-i-use) |
     | IPv4 Address | The private IP address of the NVA that **myRouteServer** will communicate with to establish BGP. |
 
@@ -85,7 +85,7 @@ In this section, you learn how to configure BGP peering with a network virtual a
 
 ## Complete the configuration on the NVA
 
-To complete the peering setup, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. You can find the peer IPs and ASN of **myRouteServer** in the **Overview** page:
+To complete the peering setup, you must configure the NVA to establish a BGP session with the route server using its IP addresses and ASN. You can find the IP addresses and ASN of **myRouteServer** in the **Overview** page:
 
 :::image type="content" source="./media/route-server-overview.png" alt-text="Screenshot that shows the Overview page of Route Server." lightbox="./media/route-server-overview.png":::
 

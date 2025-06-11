@@ -3,10 +3,12 @@ title: Enable access to Azure file shares using OAuth over REST
 description: Authorize admin-level read and write access to Azure file shares and directories via the OAuth authentication protocol over REST APIs using Microsoft Entra ID. Assign Azure RBAC roles for access rights. Access files with a Microsoft Entra account.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 05/08/2024
+ms.topic: concept-article
+ms.date: 03/26/2025
 ms.author: kendownie
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 ---
 
 # Access Azure file shares using Microsoft Entra ID with Azure Files OAuth over REST
@@ -14,13 +16,29 @@ ms.custom: devx-track-azurepowershell
 Azure Files OAuth over REST enables admin-level read and write access to Azure file shares for users and applications via the [OAuth](https://oauth.net/) authentication protocol, using Microsoft Entra ID for REST API based access. Users, groups, first-party services such as Azure portal, and third-party services and applications using REST interfaces can now use OAuth authentication and authorization with a Microsoft Entra account to access data in Azure file shares. PowerShell cmdlets and Azure CLI commands that call REST APIs can also use OAuth to access Azure file shares. You must call the REST API using an explicit header to indicate your intent to use the additional privilege. This is also true for Azure PowerShell and Azure CLI access.
 
 > [!IMPORTANT]
-> This article explains how to enable admin-level access to Azure file shares for specific [customer use cases](#customer-use-cases). If you're looking for a more general article on identity-based authentication for end users, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md).
+> This article explains how to enable admin-level access to Azure file shares for specific [customer use cases](#customer-use-cases). If you're looking for a more general article on identity-based authentication for end users, see [Overview of Azure Files identity-based authentication for SMB access](storage-files-active-directory-overview.md).
+
+## Applies to
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Limitations
 
-Azure Files OAuth over REST only supports the FileREST Data APIs that support operations on files and directories. OAuth isn't supported on FilesREST data plane APIs that manage FileService and FileShare resources. These management APIs are called using the Storage Account Key or SAS token, and are exposed through the data plane for legacy reasons. We recommend using the control plane APIs (the storage resource provider - Microsoft.Storage) that support OAuth for all management activities related to FileService and FileShare resources.
+Authorizing file data operations with Microsoft Entra ID is supported only for REST API versions 2022-11-02 and later. 
 
-Authorizing file data operations with Microsoft Entra ID is supported only for REST API versions 2022-11-02 and later. See [Versioning for Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services).
+Azure Files OAuth over REST support for Azure Files REST data plane APIs that manage FileService and FileShare resources is available with REST API versions 2024-11-04 and later.
+
+See [Versioning for Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services).
 
 ## Customer use cases
 
@@ -77,6 +95,10 @@ With the new roles and data actions, this feature will provide storage account-w
 
 There are many [built-in roles](../../role-based-access-control/built-in-roles.md) that provide access to management services. You can also [create custom roles](../../role-based-access-control/custom-roles.md) with the appropriate permissions. To learn more about role-based access control, see [Azure RBAC](../../role-based-access-control/overview.md). For more information about how built-in roles are defined, see [Understand role definitions](../../role-based-access-control/role-definitions.md).
 
+Keep in mind that for the file share resource type, the corresponding RBAC scope uses `shares` in the control plane (management operations), but uses `fileshares` in the data plane (data operations). If you try to use a file share resource ID that contains `shares` in RBAC scope or data action strings, it won't work. You must use `fileshares` in the scope of RBAC assignments, for example:
+
+- `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>/fileServices/default/fileshares/<share-name>`
+
 > [!IMPORTANT]
 > Any wildcard use cases defined for the path `Microsoft.Storage/storageAccounts/fileServices/*` or higher scope will automatically inherit the additional access and permissions granted through this new data action. To prevent unintended or over-privileged access to Azure Files, we've implemented additional checks that require users and applications to explicitly indicate their intent to use the additional privilege. Furthermore, we strongly recommend that customers review their user RBAC role assignments and replace any wildcard usage with explicit permissions to ensure proper data access management.
 
@@ -88,7 +110,7 @@ An advantage of the Azure Identity client library is that it enables you to use 
 
 The access token returned by the Azure Identity client library is encapsulated in a token credential. You can then use the token credential to get a service client object to use in performing authorized operations against the Azure Files service.  
 
-Here's some sample code:
+The following code example shows how to authorize a client object using Microsoft Entra ID and perform operations at the directory and file level. This example assumes that the file share already exists.
 
 ```aspx-csharp
 using Azure.Core;
@@ -105,15 +127,11 @@ namespace FilesOAuthSample
             string tenantId = "";
             string appId = "";
             string appSecret = "";
-            string aadEndpoint = "";
-            string accountUri = "";
-            string connectionString = "";
+            string entraEndpoint = "";
+            string accountUri = "https://<storage-account-name>.file.core.windows.net/";
             string shareName = "test-share";
-            string directoryName = "testDirectory";
-            string fileName = "testFile"; 
-
-            ShareClient sharedKeyShareClient = new ShareClient(connectionString, shareName); 
-            await sharedKeyShareClient.CreateIfNotExistsAsync(); 
+            string directoryName = "test-directory";
+            string fileName = "test-file";  
 
             TokenCredential tokenCredential = new ClientSecretCredential(
                 tenantId,
@@ -121,19 +139,18 @@ namespace FilesOAuthSample
                 appSecret,
                 new TokenCredentialOptions()
                 {
-                    AuthorityHost = new Uri(aadEndpoint)
+                    AuthorityHost = new Uri(entraEndpoint)
                 });
 
-            ShareClientOptions clientOptions = new ShareClientOptions(ShareClientOptions.ServiceVersion.V2023_05_03);
-
-            // Set Allow Trailing Dot and Source Allow Trailing Dot.
+            // Set client options
+            ShareClientOptions clientOptions = new ShareClientOptions();
             clientOptions.AllowTrailingDot = true;
             clientOptions.AllowSourceTrailingDot = true;
 
             // x-ms-file-intent=backup will automatically be applied to all APIs
-            // where it is required in derived clients.
-
+            // where it is required in derived clients
             clientOptions.ShareTokenIntent = ShareTokenIntent.Backup;
+
             ShareServiceClient shareServiceClient = new ShareServiceClient(
                 new Uri(accountUri),
                 tokenCredential,
@@ -146,7 +163,6 @@ namespace FilesOAuthSample
             ShareFileClient fileClient = directoryClient.GetFileClient(fileName);
             await fileClient.CreateAsync(maxSize: 1024);
             await fileClient.GetPropertiesAsync();
-            await sharedKeyShareClient.DeleteIfExistsAsync();
         }
     }
 }
@@ -154,7 +170,7 @@ namespace FilesOAuthSample
 
 ## Authorize access using FileREST data plane API
 
-You can also authorize access to file data using the Azure portal or Azure PowerShell.
+You can also authorize access to file data using the Azure portal, Azure PowerShell, or Azure CLI.
 
 # [Azure portal](#tab/portal)
 

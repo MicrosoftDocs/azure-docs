@@ -27,7 +27,7 @@ For now, Socket.IO library doesn't provide such an authentication mechanism for 
 Client sends negotiation request containing authentication information to server before the Engine.IO connection is built. Here are the details how the mechanism works:
  
 1. Before connecting with the service endpoint, the client sends negotiation to the server, which carries information required by authentication. 
-2. The server receives the negotiation request, parse the authentication information and authenticate the client according to the parsed information. Then the server responds the request with an access token in [JWT token](https://jwt.io/) format.
+2. The server receives the negotiation request, parse the authentication information and authenticate the client according to the parsed information. Then the server responds the request with an access token in [JWT](https://jwt.io/) format.
 3. The client connects with the service endpoint with the access token given by server. The access token must be placed in query string named with `access_token` of the Socket.IO request.
 4. The service will validate the `access_token`. The connection will be rejected if `access_token` is not valid.
 

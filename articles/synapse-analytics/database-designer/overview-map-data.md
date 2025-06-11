@@ -1,8 +1,8 @@
 ---
 title: Map Data in Azure Synapse Analytics | Microsoft Docs
 description: Learn how to use the Map Data tool in Azure Synapse Analytics
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: aamerril
+ms.author: aamerril
 ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: overview

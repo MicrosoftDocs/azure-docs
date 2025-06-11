@@ -107,6 +107,8 @@
         href: devtest-lab-configure-vnet.md
       - name: Select IP configuration option
         href: devtest-lab-shared-ip.md
+      - name: Standard Load Balancer and Standard SKU Public IP addresses
+        href: devtest-lab-standard-load-balancer.md
     - name: Delete a lab or VM in a lab
       href: devtest-lab-delete-lab-vm.md
     - name: Export or delete personal data
@@ -145,12 +147,12 @@
       href: devtest-lab-redeploy-vm.md
     - name: Create a VM with Generation 2 base image
       href: devtest-lab-gen2-vm.md
+    - name: Trusted Launch for Generation 2 VMs
+      href: devtest-lab-trusted-launch.md
     - name: Create and manage claimable VMs
       href: devtest-lab-add-claimable-vm.md
     - name: Configure secrets
       href: devtest-lab-store-secrets-in-key-vault.md
-    - name: Configure lab level secrets
-      href: devtest-lab-configure-lab-level-secrets.md
     - name: Attach and detach data disks
       href: devtest-lab-attach-detach-data-disk.md
     - name: Define start order for lab VMs
@@ -275,4 +277,4 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
   - name: DevTest Labs Developer Community
-    href: https://aka.ms/dtl/communityforum
+    href: https://aka.ms/dtl/developer-community-forum

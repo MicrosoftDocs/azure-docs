@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 Azure Communication Services capabilities are conceptually organized into discrete areas based on their functional area. Most areas have fully open-source SDKs programmed against published REST APIs that you can use directly over the Internet. The Calling SDK uses proprietary network interfaces and is closed-source.
 
-In the following tables we summarize these areas and availability of REST APIs and SDK libraries. We note whether APIs and SDKs are intended for end-user clients or trusted service environments. You shouldn't directly access APIs such as SMS using end-user devices in low trust environments.
+The following tables summarize these areas and availability of REST APIs and SDK libraries. We note whether APIs and SDKs are intended for end-user clients or trusted service environments. You shouldn't directly access APIs such as SMS using end-user devices in low trust environments.
 
 You can accelerate development of Calling and Chat applications using the [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
 
@@ -58,7 +58,7 @@ Publishing locations for individual SDK packages:
 | Call Automation |[npm](https://www.npmjs.com/package/@azure/communication-call-automation)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallAutomation/)|[PyPi](https://pypi.org/project/azure-communication-callautomation/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callautomation)
 | Job Router |[npm](https://www.npmjs.com/package/@azure-rest/communication-job-router)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.JobRouter/)|[PyPi](https://pypi.org/project/azure-communication-jobrouter/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter)
 | Rooms          | [npm](https://www.npmjs.com/package/@azure/communication-rooms)     | [NuGet](https://www.nuget.org/packages/Azure.Communication.Rooms)     | [PyPi](https://pypi.org/project/azure-communication-rooms/)    | [Maven](https://search.maven.org/search?q=a:azure-communication-rooms) | - | - | - |
-| UI Library | [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
+| UI Library | [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs) |
 | Advanced Messaging | [npm](https://www.npmjs.com/package/@azure-rest/communication-messages) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Messages) | [PyPi](https://pypi.org/project/azure-communication-messages/) | [Maven](https://central.sonatype.com/artifact/com.azure/azure-communication-messages) | - | - | - |
 | Reference Documentation | [docs](/javascript/api/overview/azure/communication) | [docs](/dotnet/api/overview/azure/communication)| [docs](/python/api/overview/azure/communication) | [docs](/java/api/overview/azure/communication) | [docs](/objectivec/communication-services/calling/)| [docs](/java/api/com.azure.android.communication.calling)| - |
 
@@ -115,6 +115,9 @@ All other Communication Services packages target .NET Standard 2.0, which suppor
   - Mono 5.4
   - Xamarin iOS 10.14
   - Xamarin Mac 3.8
+
+> [!NOTE]
+> [Unpackaged app](/windows/apps/package-and-deploy/) is currently not supported
 
 #### SDK package size
 

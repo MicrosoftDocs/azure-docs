@@ -4,8 +4,8 @@ description: This article provides details on known issues and how to troublesho
 ms.service: azure-update-manager
 ms.date: 02/17/2025
 ms.topic: troubleshooting
-ms.author: sudhirsneha
-author: SnehaSudhirG
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # Troubleshoot issues with Azure Update Manager
@@ -44,7 +44,7 @@ To review the logs related to all actions performed by the extension, check for 
 
 For Azure Arc-enabled servers, see [Troubleshoot VM extensions](/azure/azure-arc/servers/troubleshoot-vm-extensions) for general troubleshooting steps.
 
-To review the logs related to all actions performed by the extension, on Windows, check for more information in `C:\ProgramData\GuestConfig\extension_Logs\Microsoft.SoftwareUpdateManagement\WindowsOsUpdateExtension`. It includes the following two log files of interest:
+To review the logs related to all actions performed by the extension, on Windows, check for more information in `C:\ProgramData\GuestConfig\extension_logs\Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension`. It includes the following log files of interest:
 
 * `WindowsUpdateExtension.log`: Contains information related to the patch actions. This information includes the patches assessed and installed on the machine and any problems encountered in the process.
 * `cmd_execution_<numeric>_stdout.txt`: There's a wrapper above the patch action. It's used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
@@ -270,10 +270,27 @@ The property should be set to true to allow extensions to work properly.
 
 #### Issue
 
-Sudo privileges are not granted to the extensions for assessment or patching operations on Linux machines.
+Sudo privileges are not granted to the extensions for assessment or patching operations on Linux machines. You may see the following exception:
+```
+EXCEPTION: Exception('Unable to invoke sudo successfully. Output: root is not in the sudoers file. This incident will be reported. False ',)
+```
+
+Azure Update Manager (*AUM*) requires a high level of permissions due to the many different components that may be updated with AUM (*Kernel drivers, OS Security Patching, etc.*). The AUM extensions use the `root` account for operations.
 
 #### Resolution
-Grant sudo privileges to ensure assessment or patching operations succeed. 
+Grant sudo privileges to ensure assessment or patching operations succeed. You will need to add the root account to the sudoers file.
+
+1. Open the sudoers file for editing:
+   ```bash
+   sudo visudo
+   ```
+
+2. Add the following entry to the end of `/etc/sudoers` file:
+   ```
+   root ALL=(ALL) ALL
+   ```
+
+3. When done, save and exit the editor using the `Ctrl-X` command. If you are using the *vi* editor you can type `:wq` and press <kbd>⏎ ENTER</kbd>.
 
 ### Proxy is configured
 

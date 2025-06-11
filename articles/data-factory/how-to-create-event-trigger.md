@@ -6,7 +6,7 @@ ms.subservice: orchestration
 ms.custom: synapse
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 02/13/2025
 ---
@@ -154,5 +154,5 @@ Three noticeable callouts in the workflow are related to event triggering pipeli
 
 ## Related content
 
-* For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
+* For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-types).
 * To reference trigger metadata in a pipeline, see [Reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

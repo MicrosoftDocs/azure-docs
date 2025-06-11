@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn URI syntax for the ABFS scheme identifier, which represents the Azure Blob File System driver (Hadoop Filesystem driver for Azure Data Lake Storage).
 author: normesta
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.date: 11/15/2024
 ms.service: azure-data-lake-storage

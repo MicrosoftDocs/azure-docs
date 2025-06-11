@@ -77,7 +77,7 @@ For details about editing settings of a custom connector, see [Create a custom c
 
 1. After setting the policy, go to the **5. Test** page to test the custom connector.
 
-## Next steps
+## Related content
 
 * [Learn more about the Power Platform](https://powerplatform.microsoft.com/)
 * [Learn more about creating and using custom connectors](/connectors/custom-connectors/)

@@ -2,11 +2,11 @@
 title: 'Quickstart: Deploy Azure Bastion automatically'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion with default settings from the Azure portal.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: quickstart
-ms.date: 02/19/2025
-ms.author: cherylmc
+ms.date: 03/12/2025
+ms.author: abell
 
 ---
 
@@ -16,10 +16,10 @@ In this quickstart, you learn how to deploy Azure Bastion automatically in the A
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-At this time, when you deploy Bastion automatically, Bastion is deployed with Standard SKU.
+When you deploy Bastion automatically, Bastion is deployed with Standard SKU.
 
-* If you want to deploy with the Developer SKU instead, see [Quickstart: Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md).
-* If you want to specify features, configuration settings, or use a different SKU when you deploy Bastion, see [Tutorial: Deploy Azure Bastion by using specified settings](tutorial-create-host-portal.md). 
+* If you want to connect with Bastion Developer instead, see [Quickstart: Connect with Bastion Developer](quickstart-developer-sku.md).
+* If you want to specify features, configuration settings, or use a different SKU when you deploy Bastion, see [Tutorial: Deploy Azure Bastion by using specified settings and SKUs](tutorial-create-host-portal.md).
 
 The steps in this article help you:
 

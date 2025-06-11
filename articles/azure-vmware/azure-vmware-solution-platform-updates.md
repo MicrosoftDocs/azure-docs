@@ -4,12 +4,46 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 12/24/2024
+ms.date: 5/23/2025
 ---
 
 # What's new in Azure VMware Solution
 
-Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
+Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
+
+## May 2025
+
+
+**vSAN ESA (Express Storage Architecture) support**
+
+Azure VMware Solution will now support vSAN ESA (Express Storage Architecture) as the default vSAN architecture for AV48 (including Stretched Clusters) and AV64 (Gen 2) host types.
+
+**HCX Upgrade and Hybridity Depot Decommissioning**
+
+The HCX Hybridity Depot has been decommissioned by Broadcom. All Azure VMware Solution customers will be upgraded to HCX 4.11.0 in the coming weeks. Until customers are fully upgraded to HCX 4.11.0, they must submit a support request (SR) to obtain the required HCX Connector upgrade bundles. Once customers are upgraded to HCX 4.11.0, previous and current HCX Connector upgrade bundles will be available directly to them from their vSAN datastore. 
+## April 2025
+
+**AV48 SKU**
+
+Azure VMware Solution AV48 node size is now available in the Japan East region. The AV48 node is built on Intel Xeon Gold 6442Y CPUs with a total of 48 physical cores, 1 TB of Memory and 19.2 TB of total storage. [Learn more](introduction.md#hosts-clusters-and-private-clouds)
+
+**Azure Native Pure Storage Cloud (preview)**
+
+Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for Azure VMware Solution, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
+
+**Azure VMware Solution Generation 2 Private Clouds (preview)**
+
+Public Preview of the next generation of Azure VMware Solution is here. Azure VMware Solution Generation 2 Private Clouds is now available in East US, UK South, Switzerland North, and Japan East on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required. [Learn more](native-introduction.md)
+
+**Azure VMware Solution was approved as a service within the DISA Provisional Authorization of Azure Government at Impact Level 5**
+
+Azure VMware Solution in Azure Government was approved and added as a service within the DISA Provisional Authorization of Azure Government at Impact Level 5. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/avs-was-approved-as-a-service-within-the-disa-provisional-authorization-of-azure/4404484)
+
+## March 2025
+
+To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in Broadcom security advisory [VMSA-2025-0004](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/25390), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0 U2d, Patch Release 24585300](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2d-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0004-remediation/4388074) 
+
+vSAN in-transit encryption is now available in Azure VMware Solution through a Run Command. This new feature enhances data security by encrypting data as it moves between hosts in your vSAN cluster in the Azure VMware Solution. [Learn more](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/using-encryption-in-a-vsan-cluster-1/vsan-data-in-transit-encryption.html)
 
 ## February 2025
 
@@ -150,7 +184,7 @@ All new Azure VMware Solution private clouds are being deployed with VMware NSX-
 
 **VMware HCX Enterprise Edition - Default**
 
-VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/vmware-hcx-services.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
+VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/vmware-hcx-services.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
 
 **Azure Log Analytics - Monitor Azure VMware Solution**
 

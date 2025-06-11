@@ -4,7 +4,7 @@ description: Learn best practice guidelines and how to them when using metrics a
 recommendations: false
 author: normesta
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.date: 05/10/2023
 ms.custom: "monitoring"
