@@ -148,7 +148,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
     ```
 
     > [!div class="mx-imgBorder"]
-    > ![Application Insights Results.](./media/howto-telemetry/telemetry-results.png)
+    > ![Application Insights Results.](./media/howto-telemetry-python/telemetry-results.png)
 
     You see one "FeatureEvaluation" for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
 
