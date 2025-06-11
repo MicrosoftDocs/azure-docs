@@ -17,9 +17,10 @@ ms.author: janschietse
 This quickstart provides an overview on how to use the Radiology Insights.
 
 ## Prerequisites
-To use the Radiology Insights (Preview) model, you must have an Azure AI Health Insights service created. 
+To use the Radiology Insights model, you must have an Azure AI Health Insights service created. 
 
 If you have no Azure AI Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
+If you have an Azure AI Health Insights service, you must link it to an Azure AI Language resource to enable Text Analytics for Health by the Health Insight AI models.
 
 Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI Health Insights service to see the details, including your Service URL. 
 The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com. 

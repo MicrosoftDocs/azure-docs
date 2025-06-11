@@ -4,7 +4,7 @@ description: Learn how to enable screen capture protection in Azure Virtual Desk
 ms.topic: how-to
 author: dougeby
 ms.author: avdcontent
-ms.date: 02/05/2025
+ms.date: 06/06/2025
 ---
 
 # Enable screen capture protection in Azure Virtual Desktop
@@ -55,7 +55,25 @@ The steps to configure screen capture protection depend on where you configure i
 > [!IMPORTANT]
 > You need to choose which local devices to use with screen capture protection based on your requirements. There isn't a scenario where you can enable screen capture protection on all platforms from the same session hosts at the same time. If both are configured, screen capture protection on session hosts takes precedence over using an Intune MAM policy on local devices.
 
+## Platform considerations for screen capture protection on macOS
+
+While fully supported on Windows, there are known limitations on macOS due to the platform's current security architecture:
+
+- **Microsoft Teams compatibility**: on macOS, enabling screen capture protection might interfere with screen sharing in Microsoft Teams, potentially causing shared windows to appear blank or not display properly. If Teams-based collaboration is required, screen capture protection might need to be temporarily disabled on the device.
+
+- **Platform-level enforcement**: due to macOS restrictions, some native applications might not fully respect screen capture protection enforcement. This is a limitation of the operating system's available APIs, not a defect in screen capture protection itself.
+
+Here are some recommendations for these limitations:
+
+- For collaboration-heavy macOS workflows, consider configuring screen capture protection settings based on business need and risk level.
+
+- For highly sensitive content, Windows endpoints are recommended for full enforcement of screen protection features.
+
+- Watermarking and administrative policies can be used to further discourage misuse on platforms with limited enforcement.
+
 ## Prerequisites
+
+Before you can configure screen capture protection, ensure you meet the following prerequisites:
 
 - For scenarios where you need to configure session hosts, those session hosts must be running a Windows 11, version 22H2 or later, or Windows 10, version 22H2 or later.
 
@@ -156,7 +174,7 @@ To use screen capture protection on iOS/iPadOS and Android devices running Windo
 
 To configure an Intune app protection policy to enable screen capture protection on iOS/iPadOS and Android devices:
 
-1. Follow the steps to [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context). This provides the foundation to configure screen capture protection on iOS/iPadOS and Android devices running Windows App.
+1. Follow the steps to [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context). Local client device security compliance provides the foundation to configure screen capture protection on iOS/iPadOS and Android devices running Windows App.
 
 1. When configuring an app protection policy, on the **Data protection** tab, configure the following setting, depending on the platform:
 

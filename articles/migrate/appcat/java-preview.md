@@ -61,7 +61,7 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 - Azure Key Vault
 - Azure Front Door
 
-## Download and Install
+## Download and install
 
 To use the `appcat` CLI, you must download the package specific to your environment, and have the required dependencies in your environment. The `appcat` CLI runs on any environment such as Windows, Linux, or Mac, using Intel, Arm, or Apple Silicon hardware. For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/java/openjdk).
 
@@ -100,7 +100,7 @@ To use the `appcat` CLI, you must download the package specific to your environm
 - [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the `JAVA_HOME` environment variable is set.
 - [Download Apache Maven](https://maven.apache.org/download.cgi) and [install locally](https://maven.apache.org/install.html). Ensure that the Maven binary (`mvn`) is reachable through `PATH` environment variable.
 
-### Installation
+### Install AppCAT
 
 To install `appcat`, download the appropriate zip file for your platform. After you download the file, depending on your operating system, you should find either a **.tar.gz** (Linux/macOS) or **.zip** file (Windows).
 
@@ -121,7 +121,7 @@ Extract the binary from the downloaded file. You should see the following folder
 └── readme.html
 ```
 
-### Run the tool
+### Run AppCAT
 
 To run `appcat` from any location in your terminal, extract the archive to your desired location. Then, update the `PATH` environment variable to include the directory where you extracted the archive.
 
