@@ -300,9 +300,11 @@ In the **samples** directory, you can find the following scripts to run differen
 
 These scripts are intended to be used with the Airsonic-Advanced project — a community-driven, web-based media streamer that allows you to access and share your music collection.
 You can clone the application repository manually using the following command:
+
 ```sh
 git clone https://github.com/airsonic-advanced/airsonic-advanced.git
 ```
+
 After cloning, provide the path to the cloned folder when running the assessment scripts. Depending on your operating system, run the appropriate script, as shown in the following example:
 
 > [!NOTE]
@@ -326,25 +328,19 @@ The reports are automatically generated and launched. You can find the reports u
 
 ### Summary of the analysis
 
-The landing page of the report lists all the analyzed applications and its detected issues numbers. After you select an individual application, it will show you more details.
-
-It will show a issue list by different issue domains: Azure Readiness, Cloud Native, and Java Modernization.
-
-that are used in the application. The dashboard provides a summary of the analysis, including the number of transformation incidents, the incidents categories, or the story points.
+The landing page of the report presents a summary view of all analyzed applications. From here, you can easily navigate to individual application reports to explore detailed findings.
 
 :::image type="content" source="media/java/appcat-7-report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/appcat-7-report-summary.png":::
 
-When you zoom in on the **Incidents by Category** pie chart, you can see the number of incidents by category: **Mandatory**, **Optional**, and **Potential**.
-
-The dashboard also shows the *story points*. The story points are an abstract metric commonly used in Agile software development to estimate the level of effort needed to implement a feature or change. `appcat` uses story points to express the level of effort needed to migrate a particular application. Story points don't necessarily translate to work hours, but the value should be consistent across tasks.
-
-:::image type="content" source="media/java/appcat-7-report-summary-incident.png" alt-text="Screenshot of the AppCAT summary incident report." lightbox="media/java/appcat-7-report-summary-incident.png":::
+The *Ask Copilot* button in the upper-right corner redirects you to the *GitHub Copilot App Modernization for Java* extension in Visual Studio Code, which provides an interactive experience for migrating Java applications — powered by AppCAT and GitHub Copilot's AI capabilities.
 
 ### Assessment report
 
-The assessment report gives an overview of the transformation issues that would need to be solved to migrate the application to Azure.
+The assessment report provides an overview of the transformation issues that need to be addressed to successfully migrate the application to Azure.
 
-These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, or *Potential*), and the number of impacted code lines.
+Each *Issue*, also referred to as an *Incident*, is categorized by severity (Mandatory, Optional, or Potential) and includes the number of impacted lines of code.
+
+The *Dependencies* and *Technologies* tabs display the libraries and technologies used within the application.
 
 :::image type="content" source="media/java/appcat-7-report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/java/appcat-7-report-assessment.png":::
 
