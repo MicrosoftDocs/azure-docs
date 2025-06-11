@@ -1845,7 +1845,7 @@
 				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
 			</v:userDefs>
 			<title>Data Center.1591</title>
-			<desc>“plx” virtual and/or on-prem networks</desc>
+			<desc>“plx” virtual and/or on-premises networks</desc>
 			<g id="shape1592-490" v:mID="1592" v:groupContext="shape" v:layerMember="1">
 				<title>Sheet.1592</title>
 				<v:userDefs>
