@@ -20,11 +20,16 @@ The listed features were released in the last six months. For information about 
 
 ## June 2025
 
+- [Codeless Connector Platform (CCP) renamed.](#microsoft-sentinel-data-connectors)
+- [Connector Documentation consolidation](#connector-documentation-consolidation)
+
 ### Microsoft Sentinel data connectors
 
 The Microsoft Sentinel Codeless Connector Platform (CCP) has been renamed to **Codeless Connector Framework (CCF)**. The new name reflects the platform's evolution and avoids confusion with other platform-orineted services, while still providing the same ease of use and flexibility that users have come to expect.
 
-We have also consolidated the connector reference documentation, merging the separate connector articles into a single, comprehensive reference table. You can find the new connector reference at [Microsoft Sentinel data connectors](/azure/sentinel/data-connectors-reference#sentinel-data-connectors).
+### Connector Documentation consolidation
+
+We have consolidated the connector reference documentation, merging the separate connector articles into a single, comprehensive reference table. You can find the new connector reference at [Microsoft Sentinel data connectors](/azure/sentinel/data-connectors-reference#sentinel-data-connectors). Select the connector name to expand the row and see the details.
 
 
 ## May 2025
