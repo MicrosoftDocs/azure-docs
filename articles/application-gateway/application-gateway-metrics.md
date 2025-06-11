@@ -68,7 +68,7 @@ Browse to an application gateway, under **Monitoring** select **Metrics**. To vi
 
 In the following image, you see an example with three metrics displayed for the last 30 minutes:
 
-:::image type="content" source="media/application-gateway-metrics/figure5.png" alt-text="Screenshot of the Metric view displaying three metrics." lightbox="media/application-gateway-metrics/figure5.png":::
+:::image type="content" source="media/application-gateway-metrics/view-application-gateway-metrics.png" alt-text="Screenshot of the Metric view displaying three metrics." lightbox="media/application-gateway-metrics/view-application-gateway-metrics-lb.png":::
 
 To see a current list of metrics, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
@@ -80,7 +80,7 @@ The following example walks you through creating an alert rule that sends an ema
 
 1. select **Add metric alert** to open the **Add rule** page. You can also reach this page from the metrics page.
 
-   :::image type="content" source="./media/application-gateway-metrics/figure6.png" alt-text="Screenshot of the Add metric alert button.":::
+   :::image type="content" source="./media/application-gateway-metrics/add-metrics-alert.png" alt-text="Screenshot of the Add metric alert button.":::
 
 1. On the **Add rule** page, fill out the name, condition, and notify sections, and select **OK**.
 
@@ -90,7 +90,7 @@ The following example walks you through creating an alert rule that sends an ema
 
    - If you select **Email owners, contributors, and readers**, the email can be dynamic, based on the users who have access to that resource. Otherwise, you can provide a comma-separated list of users in the **Additional administrator email(s)** box.
 
-   :::image type="content" source="./media/application-gateway-metrics/figure7.png" alt-text="Screenshot of the Add rule page.":::
+   :::image type="content" source="./media/application-gateway-metrics/add-rule.png" alt-text="Screenshot of the Add rule page.":::
 
 If the threshold is breached, an email that's similar to the one in the following image arrives:
 
