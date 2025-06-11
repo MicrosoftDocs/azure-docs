@@ -298,7 +298,7 @@ In the **samples** directory, you can find the following scripts to run differen
 - **run-assessment-openjdk21**: Generates a report with code assessment and steps for migrating Airsonic to OpenJDK 21.
 - **run-assessment-package-only**: Produces a report by assessing specific packages.
 
-These scripts are intended to be used with the [Airsonic-Advanced](https://github.com/airsonic-advanced/airsonic-advanced) sample project — a community-driven, web-based media streamer that allows you to access and share your music collection.
+These scripts are intended to be used with the [Airsonic-Advanced](https://github.com/airsonic-advanced/airsonic-advanced) sample project - a community-driven, web-based media streamer that allows you to access and share your music collection.
 You can clone the application repository manually using the following command:
 
 ```sh
@@ -332,7 +332,7 @@ The landing page of the report presents a summary view of all analyzed applicati
 
 :::image type="content" source="media/java/appcat-7-report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/appcat-7-report-summary.png":::
 
-The *Ask Copilot* button in the upper-right corner redirects you to the *GitHub Copilot App Modernization for Java* extension in Visual Studio Code, which provides an interactive experience for migrating Java applications — powered by AppCAT and GitHub Copilot's AI capabilities.
+The *Ask Copilot* button in the upper-right corner redirects you to the *GitHub Copilot App Modernization for Java* extension in Visual Studio Code, which provides an interactive experience for migrating Java applications - powered by AppCAT and GitHub Copilot's AI capabilities.
 
 ### Assessment report
 
