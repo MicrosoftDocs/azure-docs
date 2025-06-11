@@ -9,7 +9,7 @@ ms.custom:
 ms.topic: overview
 author: mbender-ms
 ms.author: mbender
-ms.date: 05/12/2025
+ms.date: 06/11/2025
 # Customer intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
 ---
 
@@ -33,7 +33,8 @@ We recommend the following approach to upgrade to Standard SKU public IP address
 
     b. If you don't need a zone redundant public IP address, use the [following upgrade options](#upgrade-disassociated-public-ips-using-portal-powershell-or-azure-cli).
 
-4. Determine if you need a regional or [global tier](../../load-balancer/cross-region-overview.md) public IP Address. If the public IP address aligns with a standard load balancer, the IP address *must align* with the load balancer tier.
+4. Determine if you need a regional or [global tier](../../load-balancer/cross-region-overview.md) public IP Address. 
+    1. If the public IP address aligns with a standard load balancer, the IP address *must align* with the load balancer tier.
 
 5. Create a migration plan for planned downtime.
 
@@ -80,7 +81,7 @@ Use the Azure portal, Azure PowerShell, or Azure CLI to help upgrade from Basic 
 ## FAQ
 
 ### Will the Basic SKU public IP retirement impact Cloud Services Extended Support (CSES) deployments?
-No, this retirement won't impact your existing or new deployments on CSES. This means that you can still create (via non-Azure Portal methods; for example, Azure CLI, PowerShell, etc.) and use Basic SKU public IPs for CSES deployments. However, we advise using Standard SKU on ARM native resources that don't depend on CSES when possible, because Standard has more advantages than Basic.
+No, this retirement won't impact your existing or new deployments on CSES. This means that you can still create (via non-Azure Portal methods; for example, Azure CLI, PowerShell, etc.) and use Basic SKU public IPs for CSES deployments. However, we advise using Standard SKU on Azure Resource Manager native resources that don't depend on CSES when possible, because Standard has more advantages than Basic.
 
 ## Next steps
 
