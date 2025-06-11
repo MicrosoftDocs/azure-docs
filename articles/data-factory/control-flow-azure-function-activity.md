@@ -46,11 +46,11 @@ Function Key provides secure access to function name with each one having separa
 | Type             | The type property must be set to: **AzureFunction**          | Yes          |
 | Function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal | Yes          |
 | Function key     | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Work with access keys](../azure-functions/function-keys-how-to.md) | Yes          |
-| Authentication   | The authentication method used for calling the Azure Function. The supported values are 'System-assigned managed identity' or 'anonymous'.| Yes          |
-| Resource ID  | The App (client) ID of the Azure Function. Switch to **Authentication** section for the respective function, and get the App (client) ID under **Identity provider**. This property will be displayed when you use system-assigned managed identity. For more information, see [Configure your App Service or Azure Functions app to use Microsoft Entra login](../app-service/configure-authentication-provider-aad.md).| No         |
+| Authentication   | The authentication method used for calling the Azure Function. The supported values are 'System-assigned managed identity', 'Anonymous' or 'Service Principal'.| Yes          |
+| Resource ID  | The App (client) ID of the Azure Function. Switch to **Authentication** section for the respective function, and get the App (client) ID under **Identity provider**. This property will be displayed when you use system-assigned managed identity or Service Principal authentication. For more information, see [Configure your App Service or Azure Functions app to use Microsoft Entra login](../app-service/configure-authentication-provider-aad.md).| No         |
 
 >[!Note]
-> When you use anonymous authentication, ensure that you have taken down your identity on the Azure Function side.
+> When you use Anonymous authentication, ensure that you have taken down your identity on the Azure Function side.
 
 ## Azure Function activity
 
