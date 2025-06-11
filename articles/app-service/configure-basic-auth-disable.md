@@ -4,7 +4,7 @@ description: Learn about disabling basic authentication for increased security a
 author: cephalin
 ms.author: cephalin
 ms.topic: how-to
-ms.date: 06/06/2025
+ms.date: 06/11/2025
 keywords: azure app service, security, deployment, FTP, MsDeploy
 
 ---
@@ -88,10 +88,6 @@ The following table shows how various deployment methods behave when basic authe
 | [Azure Repos with Azure Pipelines](deploy-continuous-deployment.md?tabs=github) | Works. |
 | [Azure Pipelines](deploy-azure-pipelines.md) with [`AzureWebApp`](/azure/devops/pipelines/tasks/reference/azure-web-app-v1) task | Works. |
 <!--AzureRM is discontinued| [Azure Pipelines](deploy-azure-pipelines.md) with [`AzureRmWebAppDeployment`](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task | Use the latest `AzureRmWebAppDeployment` task to get fallback behavior. <br/> The `PublishProfile` connection type doesn't work, because it uses basic authentication. Change the connection type to `AzureRM`. <br/> On non-Windows Azure Pipelines agents, authentication works. <br/> On Windows agents, the [deployment method used by the task](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4#deployment-methods) might need to be modified. When `DeploymentType: 'webDeploy'` is used and basic authentication is disabled, the task authenticates with a Microsoft Entra token. There are additional requirements if you're not using the `windows-latest` agent or if you're using a self-hosted agent. For more information, see [I can't Web Deploy to my Azure App Service using Microsoft Entra authentication from my Windows agent](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4#i-cant-web-deploy-to-my-azure-app-service-using-microsoft-entra-id-authentication-from-my-windows-agent).<br/> Other deployment methods work, such as **zip deploy** or **run from package**. |-->
-
-### Visual Studio basic authentication disabled warning
-
-Visual Studio requires basic authentication to deploy to Azure App Service. If a Visual Studio warning states that your app configuration changed and you can no longer deploy to your app, either you disabled basic authentication on the app or your organization policy disabled basic authentication for App Service apps.
 
 ## Create a custom role to prevent enabling basic authentication
 
