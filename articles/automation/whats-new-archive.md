@@ -5,6 +5,8 @@ services: automation
 ms.topic: overview
 ms.date: 08/01/2023
 ms.custom: references_regions
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Archive for What's new in Azure Automation?
