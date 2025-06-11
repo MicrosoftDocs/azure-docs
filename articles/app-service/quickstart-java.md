@@ -5,7 +5,7 @@ keywords: azure, app service, web app, windows, linux, java, maven, quickstart
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/24/2025
+ms.date: 06/10/2025
 ms.custom: mvc, mode-other, devdivchpfy22, devx-track-java, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-jbosseap, devx-track-javaee, devx-track-extended-java
 zone_pivot_groups: app-service-java-deploy
 adobe-target: true
@@ -37,31 +37,14 @@ ms.author: cephalin
 
 ::: zone-end
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md)
-
-> [!div class="nextstepaction"]
-> [Set up CI/CD](deploy-continuous-deployment.md)
-
-> [!div class="nextstepaction"]
-> [Pricing Information](https://azure.microsoft.com/pricing/details/app-service/linux/)
-
-> [!div class="nextstepaction"]
-> [Aggregate Logs and Metrics](troubleshoot-diagnostic-logs.md)
-
-> [!div class="nextstepaction"]
-> [Scale up](manage-scale-up.md)
-
-> [!div class="nextstepaction"]
-> [Azure for Java Developers Resources](/java/azure/)
-
-> [!div class="nextstepaction"]
-> [Configure your Java app](configure-language-java-deploy-run.md)
-
-> [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+- [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md)
+- [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md)
+- [Set up CI/CD](deploy-continuous-deployment.md)
+- [Pricing information](https://azure.microsoft.com/pricing/details/app-service/linux/)
+- [Aggregate logs and metrics](troubleshoot-diagnostic-logs.md)
+- [Scale up](manage-scale-up.md)
+- [Azure for Java Developers Resources](/java/azure/)
+- [Configure your Java app](configure-language-java-deploy-run.md)
+- [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
