@@ -332,13 +332,13 @@ The landing page of the report presents a summary view of all analyzed applicati
 
 :::image type="content" source="media/java/appcat-7-report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/appcat-7-report-summary.png":::
 
-The *Ask Copilot* button in the upper-right corner redirects you to the *GitHub Copilot App Modernization for Java* extension in Visual Studio Code, which provides an interactive experience for migrating Java applications - powered by AppCAT and GitHub Copilot's AI capabilities.
+The *Ask Copilot* button in the upper-right corner redirects you to the *GitHub Copilot App Modernization for Java* extension in Visual Studio Code, which provides both app assessment and code remediation as its key capabilities for migrating Java applications to Azure - powered by AppCAT and GitHub Copilot's AI capabilities.
 
 ### Assessment report
 
-The assessment report provides an overview of the transformation issues that need to be addressed to successfully migrate the application to Azure.
+The assessment report provides a categorized issue list in aspects of Azure readiness, cloud native and Java modernization that need to be addressed to successfully migrate the application to Azure.
 
-Each *Issue*, also referred to as an *Incident*, is categorized by severity (Mandatory, Optional, or Potential) and includes the number of impacted lines of code.
+Each *Issue* is categorized by severity (Mandatory, Optional, or Potential) and includes the number of impacted lines of code.
 
 The *Dependencies* and *Technologies* tabs display the libraries and technologies used within the application.
 
@@ -346,11 +346,11 @@ The *Dependencies* and *Technologies* tabs display the libraries and technologie
 
 ### Detailed information for a specific issue
 
-For each incident, you can get more information (the issue detail, the content of the rule, and so on) just by selecting it. You also get the list of all the files affected by this incident.
+For each issue, you can get more information (the issue detail, the content of the rule, and so on) just by selecting it. You also get the list of all the files affected by this issue.
 
 :::image type="content" source="media/java/appcat-7-report-assessment-detail.png" alt-text="Screenshot of the AppCAT issue detail report." lightbox="media/java/appcat-7-report-assessment-detail.png":::
 
-Then, for each file or class affected by the incident, you can jump into the source code to highlight the line of code that created the issue.
+Then, for each file or class affected by the issue, you can jump into the source code to highlight the line of code that created the issue.
 
 :::image type="content" source="media/java/appcat-7-report-assessment-code.png" alt-text="Screenshot of the AppCAT issue code report." lightbox="media/java/appcat-7-report-assessment-code.png":::
 
@@ -466,7 +466,7 @@ This release contains the following fixes and includes a set of new rules.
 
 ### 6.3.0.8
 
-Previously, a set of targets were enabled by default, making it difficult for certain customers to assess large applications with too many incidents related to less critical issues. To reduce noise in reports, users must now specify multiple targets, with the parameter `--target`, when executing `appcat`, giving them the option to select only the targets that matter.
+Previously, a set of targets were enabled by default, making it difficult for certain customers to assess large applications with too many issues related to less critical issues. To reduce noise in reports, users must now specify multiple targets, with the parameter `--target`, when executing `appcat`, giving them the option to select only the targets that matter.
 
 ### 6.3.0.7
 
@@ -501,7 +501,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - Rules issues:
     - `azure-system-config-01000`, `http-session-01000` rules aren't being triggered.
     - `FileSystem - Java IO` rule isn't being triggered.
-- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant issues created on Windows OS.
 - Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
 - In binary analysis reports, the code snippet title shows an incorrect or nonexistent file path.
@@ -512,7 +512,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - Rules issues:
     - `azure-system-config-01000`, `http-session-01000` rules aren't being triggered.
     - `FileSystem - Java IO` rule isn't being triggered.
-- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant issues created on Windows OS.
 - Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
 - In binary analysis reports, the code snippet title shows an incorrect or nonexistent file path.
@@ -523,7 +523,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - Rules issues:
     - `azure-system-config-01000`, `http-session-01000`, `java-removals-00150` rules aren't being triggered.
     - `FileSystem - Java IO` rule isn't being triggered.
-- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant issues created on Windows OS.
 - Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
 - In binary analysis reports, the code snippet title shows an incorrect or nonexistent file path.
@@ -543,7 +543,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
     - `azure-system-config-01000`, `http-session-01000`, `java-removals-00150` rules aren't being triggered.
     - `FileSystem - Java IO` rule isn't being triggered.
     - Error `unable to parse all the rules for ruleset` when running analysis. This error occurs during analysis when the tool fails to parse all rules in the ruleset.
-- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant issues created on Windows OS.
 - Missing descriptions for some rules on the **Insights** tab. Some tag rules are lacking descriptions, leading to blank titles appearing on the **Insights** tab of the report.
 - Error in **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - This release requires an active internet connection for dependency analysis.
