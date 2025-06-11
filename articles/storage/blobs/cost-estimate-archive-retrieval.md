@@ -34,9 +34,6 @@ The following table describes each cost.
 | **Early deletion fee** | If data is moved out of the archive tier before 180 days have transpired, a prorated early deletion fee is applied to the bill. |
 | **Read from the hot tier** | Once data is moved into the hot tier, clients will need to download that data. Each download is billed as a read operation. |
 
-> [!NOTE] 
-> Rehydration time at standard priority can take up to 15 hours to complete.
-
 ## Estimate
 
 Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated. This sample estimate doesn't include the [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB.
