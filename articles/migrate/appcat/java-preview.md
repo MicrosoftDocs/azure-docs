@@ -298,7 +298,7 @@ In the **samples** directory, you can find the following scripts to run differen
 - **run-assessment-openjdk21**: Generates a report with code assessment and steps for migrating Airsonic to OpenJDK 21.
 - **run-assessment-package-only**: Produces a report by assessing specific packages.
 
-These scripts are intended to be used with the Airsonic-Advanced project — a community-driven, web-based media streamer that allows you to access and share your music collection.
+These scripts are intended to be used with the [Airsonic-Advanced](https://github.com/airsonic-advanced/airsonic-advanced) sample project — a community-driven, web-based media streamer that allows you to access and share your music collection.
 You can clone the application repository manually using the following command:
 
 ```sh
