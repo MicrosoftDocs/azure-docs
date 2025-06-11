@@ -7,7 +7,7 @@ ms.date: 06/10/2025
 ms.author: cephalin
 ---
 
-[Azure App Service](/azure/app-service/) provides a highly scalable, self-patching web app hosting service. At the top of the page, choose how you want to deploy your app: **Java SE**, **Tomcat**, or **JBoss**, and then follow the corresponding instructions.
+[Azure App Service](/azure/app-service/) provides a highly scalable, self-patching web app hosting service. At the top of the page, choose how you want to deploy your Java app: **Java SE**, **Tomcat**, or **JBoss EAP**, and then follow the corresponding instructions.
 
 In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application with an embedded Spring Boot, Quarkus, or Tomcat server to App Service. For more information, see [azure-webapp-maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
 
@@ -20,7 +20,10 @@ If Maven isn't your preferred development tool, check out our other similar tuto
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- Run the Bash and Azure CLI commands in this tutorial by using Azure Cloud Shell, an interactive shell that you can use through your browser to work with Azure services. Select **Open Cloud Shell** at upper right in a code block and sign in to Azure if necessary. Then select **Copy** in the code block, paste the code into Cloud Shell, and run it.
+
+- Run the Azure CLI and Maven commands in this tutorial by using Azure Cloud Shell, an interactive shell that you can use through your browser to work with Azure services.
+
+  To use Cloud Shell, select **Open Cloud Shell** at upper right in a code block and sign in to Azure if necessary. Then select **Copy** in the code block, paste the code into Cloud Shell, and run it. Make sure you're using the **Bash** environment of Cloud Shell.
 
 ## Get the sample app
 
@@ -65,9 +68,9 @@ Then change your working directory to the project folder by running `cd my-webap
 
 ## Configure the Maven plugin
 
-The deployment process to Azure App Service uses your Azure credentials from the Azure CLI automatically. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with OAuth or device sign-in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+The deployment process to Azure App Service uses your Azure credentials from Azure Cloud Shell automatically. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with OAuth or device sign-in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
-Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
+Run the Maven command shown next to configure the deployment. This command helps you to set the App Service operating system and Java version.
 
 ```azurecli-interactive
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.14.1:config
@@ -134,7 +137,7 @@ You can modify the configurations for App Service directly in your *pom.xml* fil
 
 With all the configuration ready in your [pom.xml](https://github.com/Azure-Samples/java-docs-embedded-tomcat/blob/main/pom.xml) file, you can deploy your Java app to Azure.
 
-1. Build the JAR file using the following commands for Spring Boot, Quarkus, or Embedded Tomcat.
+1. Build the JAR file using the following command.
 
    ### [Spring Boot](#tab/springboot)
    
@@ -169,47 +172,47 @@ With all the configuration ready in your [pom.xml](https://github.com/Azure-Samp
    - Creates an [executable JAR](https://en.wikipedia.org/wiki/JAR_(file_format)#Executable_JAR_files) by specifying the Tomcat class as the startup class.
    - Replaces the original artifact with the `Uber-Jar` to ensure that the deploy step deploys the right file.
 
-    -----
+   -----
 
-1. Deploy to Azure by using the following command:
+1. Deploy the app to Azure by using the following command:
 
    ```bash
    mvn azure-webapp:deploy
    ```
 
-Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When deployment completes, your application is ready, and you see the following output:
+   Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When deployment completes, your application is ready, and you see the following output:
 
-```output
-[INFO] Successfully deployed the artifact to <URL>
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:20 min
-[INFO] Finished at: 2023-07-26T12:47:50Z
-[INFO] ------------------------------------------------------------------------
-```
+   ```output
+   [INFO] Successfully deployed the artifact to <URL>
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  02:20 min
+   [INFO] Finished at: 2023-07-26T12:47:50Z
+   [INFO] ------------------------------------------------------------------------
+   ```
 
-1. Open the Spring Boot< Quarkus, or Embedded Tomcat app as follows:
+1. Open the app as follows:
 
-### [Spring Boot](#tab/springboot)
+   ### [Spring Boot](#tab/springboot)
 
-Open your app's default domain from the **Overview** page in the Azure portal, and append `/greeting` to the URL. You should see the following app:
+   Open your app's default domain from the **Overview** page in the Azure portal, and append `/greeting` to the URL. You should see the following app:
 
-:::image type="content" source="../../media/quickstart-java/springboot-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Spring Boot Hello World web app running in Azure App Service.":::
+   :::image type="content" source="../../media/quickstart-java/springboot-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Spring Boot Hello World web app running in Azure App Service.":::
 
-### [Quarkus](#tab/quarkus)
+   ### [Quarkus](#tab/quarkus)
 
-Open your app's default domain from the **Overview** in the Azure portal, and append `/hello` to the URL. You should see the following app:
+   Open your app's default domain from the **Overview** in the Azure portal, and append `/hello` to the URL. You should see the following app:
 
-:::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Quarkus web app running in Azure App Service.":::
+   :::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Quarkus web app running in Azure App Service.":::
 
-### [Embedded Tomcat](#tab/embeddedtomcat)
+   ### [Embedded Tomcat](#tab/embeddedtomcat)
 
-Open the URL for your app's default domain from the **Overview** in the Azure portal. You should see the following app:
+   Open the URL for your app's default domain from the **Overview** in the Azure portal. You should see the following app:
 
-:::image type="content" source="../../media/quickstart-java/embedded-tomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat web app running in Azure App Service.":::
+   :::image type="content" source="../../media/quickstart-java/embedded-tomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat web app running in Azure App Service.":::
 
------
+   -----
 
 Congratulations! You deployed a Java app to App Service.
 

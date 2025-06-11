@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a Java app on Azure App Service'
-description: Deploy your first Java Hello World to Azure App Service in minutes. The Azure Web App Plugin for Maven makes it convenient to deploy Java apps.
+description: Deploy a Java app to Azure App Service in minutes by using the Azure Web App Plugin for Maven.
 keywords: azure, app service, web app, windows, linux, java, maven, quickstart
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: java
@@ -41,10 +41,10 @@ ms.author: cephalin
 
 - [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md)
 - [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md)
-- [Set up CI/CD](deploy-continuous-deployment.md)
-- [Pricing information](https://azure.microsoft.com/pricing/details/app-service/linux/)
-- [Aggregate logs and metrics](troubleshoot-diagnostic-logs.md)
-- [Scale up](manage-scale-up.md)
-- [Azure for Java Developers Resources](/java/azure/)
-- [Configure your Java app](configure-language-java-deploy-run.md)
-- [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+- [Configure continuous deployment to Azure App Service](deploy-continuous-deployment.md)
+- [Azure App Service on Linux pricing](https://azure.microsoft.com/pricing/details/app-service/linux/)
+- [Enable diagnostic logging for apps in Azure App Service](troubleshoot-diagnostic-logs.md)
+- [Scale up an app in Azure App Service](manage-scale-up.md)
+- [Azure for Java developer documentation](/java/azure/)
+- [Deploy and configure a Java SE, Tomcat, or JBoss EAP app in Azure App Service](configure-language-java-deploy-run.md)
+- [Tutorial: Use a custom domain and a managed certificate to secure your app](tutorial-secure-domain-certificate.md)

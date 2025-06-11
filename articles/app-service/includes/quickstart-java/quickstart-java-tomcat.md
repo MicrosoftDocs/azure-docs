@@ -7,7 +7,7 @@ ms.date: 06/10/2025
 ms.author: cephalin
 ---
 
-[Azure App Service](/azure/app-service/) provides a highly scalable, self-patching web app hosting service. At the top of the page, choose how you want to deploy your app: **Java SE**, **Tomcat**, or **JBoss**, and then follow the corresponding instructions.
+[Azure App Service](/azure/app-service/) provides a highly scalable, self-patching web app hosting service. At the top of the page, choose how you want to deploy your Java app: **Java SE**, **Tomcat**, or **JBoss EAP**, and then follow the corresponding instructions.
 
 In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application to a Linux Tomcat server in App Service.
 
@@ -20,7 +20,10 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- Run the Bash and Azure CLI commands in this tutorial by using Azure Cloud Shell, an interactive shell that you can use through your browser to work with Azure services. Select **Open Cloud Shell** at upper right in a code block and sign in to Azure if necessary. Then select **Copy** in the code block, paste the code into Cloud Shell, and run it.
+
+- Run the Azure CLI and Maven commands in this tutorial by using Azure Cloud Shell, an interactive shell that you can use through your browser to work with Azure services.
+
+  To use Cloud Shell, select **Open Cloud Shell** at upper right in a code block and sign in to Azure if necessary. Then select **Copy** in the code block, paste the code into Cloud Shell, and run it. Make sure you're using the **Bash** environment of Cloud Shell.
 
 ## Create a Java app
 
@@ -34,9 +37,9 @@ Then change your working directory to the project folder by running `cd hellowor
 
 ## Configure the Maven plugin
 
-The App Service deployment process uses your Azure credentials from Azure CLI automatically. The Maven plugin authenticates with OAuth or device sign-in. For more information, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+The App Service deployment process uses your Azure credentials from Azure Cloud Shell automatically. The Maven plugin authenticates with OAuth or device sign-in. For more information, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
-Run the following Maven command to configure the deployment by setting up the App Service operating system, Java version, and Tomcat version.
+Run the following Maven command to configure the deployment by setting the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.14.1:config
