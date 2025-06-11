@@ -90,6 +90,36 @@ Learn how to [delete a project](how-to-delete-project.md).
 
 No, Azure Migrate doesn't support moving resources. To move resources created by Azure Migrate, consider creating a new project in the desired region.
 
+## What skills and expertise help manage migration effectively with Azure Migrate?
+
+Customers who want to migrate must be familiar with the Azure portal and understand basic migration concepts like the 6Rs. They also need the following technical skills, which vary depending on what they migrate: 
+
+- **Application migration**: Understand application architecture, dependencies, and code refactoring.
+- **Cloud migration**: Know Azure roles, networking, and security.
+- **Infrastructure migration**: Work with virtualization (VMware, Hyper-V), servers, storage, and backup.
+- **Scripting**: Use Bash, PowerShell, or Python to automate parts of the migration and testing.
+- **Integration**: Use APIs, middleware, and tools like MuleSoft or Boomi toto maintain interoperability.
+
+
+## What migration approaches do I have with Azure Migrate, such as rehosting, replatforming, or refactoring?
+
+Azure Migrate now offers options to create business cases and assessment reports for workloads that users want to rehost, replatform, or refactor.
+
+For actual migration execution, Azure Migrate supports rehosting (also known as lift-and-shift).
+
+For rehosting:
+
+- **Server migration**: It helps move virtual machines (VMware, Hyper-V, or physical servers).
+- **Database migration service (DMS)**: It supports migrating SQL Server and other databases.
+
+This approach works best for:
+
+- Legacy applications
+- Quick migrations with minimal testing
+- Time-sensitive lift-and-shift projects
+- Applications with complex code that still run well on Azure
+
+
 ## Next steps
 
 Read the [Azure Migrate overview](migrate-services-overview.md).

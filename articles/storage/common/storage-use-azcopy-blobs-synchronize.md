@@ -108,6 +108,28 @@ If you provide authorization credentials by using Microsoft Entra ID, make sure 
 azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive
 ```
 
+## Update a container with changes in another container by using a SAS token
+
+The first container that appears in this command is the source. The second one is the destination.
+
+If you provide a SAS token, make sure that you use a SAS token which corresponds to source and destination storage account, while using **azcopy sync**.
+
+**Syntax**
+
+`azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<destination-SAS-token>' --recursive`
+
+**Example**
+
+```azcopy
+azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/?sv=2018-03-28&ss=qrdu&dst=mco&kp=rwdlapuc&se=2019-07-04T05:30:08Z&st=2019-07-03T21:31:10Z&spr=https&sig=CAfhgnc9gdGktvB=yzx9CAjMKeeN678yiyFwdNU092JC8%6D' --recursive
+```
+
+> [!TIP]
+> If you are copying larger size of data, you can use :[Azure Storage Explorer](https://azure.microsoft.com/products/storage/storage-explorer).
+> 
+> Verify size details that you have copied. On the top bar menu, choose **More** -> **Folder Statistics** to help you get the details of the Directory including the size in bytes.
+
+
 ## Synchronize with optional flags
 
 You can tweak your sync operation by using optional flags. Here's a few examples.
@@ -117,6 +139,9 @@ You can tweak your sync operation by using optional flags. Here's a few examples
 |Specify how strictly MD5 hashes should be validated when downloading.|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
 |Exclude files based on a pattern.|**--exclude-path**|
 |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+|Specify how to copy a vhd file.|**--blob-type=BlockBlob --include-pattern "*.vhd"** or **--blob-type=BlockBlob** |
+                              
+
 
 For a complete list of flags, see [options](storage-ref-azcopy-sync.md#options).
 

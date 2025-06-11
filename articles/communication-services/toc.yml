@@ -306,8 +306,6 @@ items:
     href: concepts/sms/sdk-features.md
   - name: SMS FAQ
     href: concepts/sms/sms-faq.md
-  - name: Phone number types
-    href: concepts/numbers/number-types.md
   - name: Country availability
     href: concepts/numbers/sub-eligibility-number-capability.md
   - name: Messaging policy
