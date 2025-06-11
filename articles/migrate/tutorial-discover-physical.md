@@ -93,10 +93,75 @@ To generate the project key, follow the steps:
 
 1. In **Servers, databases, and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 1. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
-1. In Step 1: **Generate project key**, enter a name for the Azure Migrate appliance you want to set up to discover physical or virtual servers. The name should be alphanumeric and 14 characters or fewer.
+1. **Generate project key**, enter a name for the Azure Migrate appliance you want to set up to discover physical or virtual servers. The name should be alphanumeric and 14 characters or fewer.
 1. Select **Generate key** to start creating the required Azure resources. Keep the Discover servers page open while the resources are being created.
 1. After the resources are created successfully, a **project key** is generated.
 1. Copy the key ad you’ll need it to register the appliance during its setup.
+
+[Add screen]
+
+## Download the installer script
+
+1. In **Download Azure Migrate appliance**, select **Download**.
+1. Verify security: Before you install, check that the zipped file is safe.
+    On the server where you downloaded the file, open a command window as an administrator.
+1. Run this command to generate the hash for the zipped file: 
+    - `C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]`
+    - For example: `C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256`
+1. Verify the latest appliance version and hash value to ensure that they match.
+
+| Download | Hash value | 
+| --- | --- |
+| Latest version| 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731|
+
+>[!Note]
+> You can use the same script to set up the physical appliance for both Azure Public and Azure Government cloud.
+
+## Run the Azure Migrate installer script
+
+To run the installer script:
+
+1. Extract the zipped file to a folder on the server where you want to install the appliance. Ensure that you don’t run the script on a server that already has an Azure Migrate appliance.
+1. Open PowerShell on that server with administrator (elevated) rights.
+1. Go to the folder where you extracted the files from the zipped download.
+Run the script named `AzureMigrateInstaller.ps1` using this command: 
+    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
+1. Select from the scenario, cloud, and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** *(or servers running on other clouds like AWS, GCP, Xen, etc.)* to an Azure Migrate project with **default (public endpoint) connectivity** on **Azure public cloud**.
+
+[add screen]
+
+1. The installer script does the following:
+    1. Installs agents and a web application. 
+    1. Installs Windows roles like Windows Activation Service, IIS, and PowerShell ISE.
+    1. Downloads and installs an IIS rewritable module.
+    1. Updates a registry key (HKLM) with Azure Migrate settings.
+    1. Creates these files under the path:
+        - Config Files: `%Programdata%\Microsoft Azure\Config`
+        - Log Files: `%Programdata%\Microsoft Azure\Logs`
+
+After the script runs successfully, it automatically launches the appliance configuration manager.
+
+>[!Note]
+> If you face any issues, you can find the script logs at `C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_Timestamp.log to troubleshoot`.
+
+## Verify appliance access to Azure
+
+Ensure that the appliance connects to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
+
+### Configure the Appliance
+
+Set up the appliance for the first time:
+
+1. Open a browser on any machine that connects to the appliance. Go to the appliance web app URL:https://<appliance name or IP address>:44368
+
+Or, open the app from the desktop by selecting the shortcut.
+
+1. Accept the license terms and read the partner information.
+
+## Set up prerequisites and register the appliance
+
+
+
 
 **Requirement** | **Details**
 --- | ---
