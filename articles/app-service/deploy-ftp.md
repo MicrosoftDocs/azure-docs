@@ -4,7 +4,7 @@ description: Learn how to deploy your app to Azure App Service using FTP or FTPS
 
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
-ms.date: 06/10/2025
+ms.date: 06/11/2025
 author: cephalin
 ms.author: cephalin
 ---
@@ -105,25 +105,12 @@ Set-AzWebApp -Name <app-name> -ResourceGroupName <resource-group-name> -FtpsStat
 
 ## Troubleshoot FTP/S deployment
 
-- [How can I connect to FTP/S in App Service via passive mode?](#how-can-i-connect-to-ftps-in-azure-app-service-via-passive-mode)
-- [How can I determine what method was used to deploy my app?](#how-can-i-determine-what-method-was-used-to-deploy-my-app)
 - [What can happen to my app during deployment?](#what-can-happen-to-my-app-during-deployment)
 - [What's the first step in troubleshooting FTP/S deployment?](#whats-the-first-step-in-troubleshooting-ftps-deployment)
 - [Why can't I FTP/S and publish my code?](#why-cant-i-ftps-and-publish-my-code)
+- [How can I connect to FTP/S in App Service via passive mode?](#how-can-i-connect-to-ftps-in-azure-app-service-via-passive-mode)
 - [Why does my connection fail when attempting to connect over FTPS using explicit encryption?](#why-does-my-connection-fail-when-attempting-to-connect-over-ftps-using-explicit-encryption)
-
-### How can I connect to FTP/S in Azure App Service via passive mode?
-
-Azure App Service supports connecting via both active and passive modes. Passive mode is preferred because deployment machines are usually behind a firewall in the operating system or as part of a home or business network. For an example of a passive mode connection, see [The Connection Page (Advanced Site Settings dialog)](https://winscp.net/docs/ui_login_connection).
-
-### How can I determine what method was used to deploy my app?
-
-You can find out how an app was deployed by checking the application settings on its Azure portal page. Select **Environmental variables** under **Settings** in the left navigation menu. On the **App settings** tab:
-
-- If the app was deployed using an external package URL, the `WEBSITE_RUN_FROM_PACKAGE` setting appears in the application settings with a URL value.
-- If the app was deployed using ZIP deploy, the `WEBSITE_RUN_FROM_PACKAGE` setting appears with a value of `1`.
-
-If you deployed the app using Azure DevOps, you can see the deployment history in the Azure DevOps portal. If you used Azure Functions Core Tools, you can see the deployment history in the Azure portal.
+- [How can I determine what method was used to deploy my app?](#how-can-i-determine-what-method-was-used-to-deploy-my-app)
 
 <a name="what-can-happen-to-my-app-during-deployment"></a>
 [!INCLUDE [What can happen to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
@@ -144,7 +131,11 @@ Check that you entered the correct [hostname](#get-the-ftps-endpoint) and [crede
 
 - FTP/S control connection ports: `21`, `990`
 - FTP/S data connection ports: `989`, `10001-10300`
- 
+
+### How can I connect to FTP/S in Azure App Service via passive mode?
+
+Azure App Service supports connecting via both active and passive modes. Passive mode is preferred because deployment machines are usually behind a firewall in the operating system or as part of a home or business network. For an example of a passive mode connection, see [The Connection Page (Advanced Site Settings dialog)](https://winscp.net/docs/ui_login_connection).
+
 ### Why does my connection fail when attempting to connect over FTPS using explicit encryption?
 
 FTPS allows establishing an explicit or implicit TLS secure connection.
@@ -155,6 +146,15 @@ FTPS allows establishing an explicit or implicit TLS secure connection.
 The URL format you use can affect your connection success, and depends on your client application. The portal shows the URL as `ftps://`, but if the URL you connect with starts with `ftp://`, the connection is implied to be on port `21`. If the URL starts with `ftps://`, the connection is implicit and implied to be on port `990`.
 
 Make sure not to mix the settings, such as attempting to connect to `ftps://` by using port `21`. This setting fails to connect even using explicit encryption, because an explicit connection starts as a plain FTP connection before the `AUTH` method.
+
+### How can I determine what method was used to deploy my app?
+
+You can find out how an app was deployed by checking the application settings on its Azure portal page. Select **Environmental variables** under **Settings** in the left navigation menu. On the **App settings** tab:
+
+- If the app was deployed using an external package URL, the `WEBSITE_RUN_FROM_PACKAGE` setting appears in the application settings with a URL value.
+- If the app was deployed using ZIP deploy, the `WEBSITE_RUN_FROM_PACKAGE` setting appears with a value of `1`.
+
+If you deployed the app using Azure DevOps, you can see the deployment history in the Azure DevOps portal. If you used Azure Functions Core Tools, you can see the deployment history in the Azure portal.
 
 ## Related resources
 
