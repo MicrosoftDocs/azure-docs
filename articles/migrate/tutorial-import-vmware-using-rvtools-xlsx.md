@@ -8,6 +8,7 @@ ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422
 #Customer intent: As an VMware admin, I want to import my on-premises servers running in a VMware environment.
+# Customer intent: As a VMware administrator, I want to import my on-premises server data using RVTools XLSX, so that I can efficiently migrate my servers to Azure without needing to set up additional discovery tools.
 ---
 
 # Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)

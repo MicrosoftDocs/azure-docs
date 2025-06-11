@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.custom: MVC, engagement-fy23
 monikerRange: migrate-classic
 #Customer intent: As a server admin, I want to assess my AWS instances in preparation for migration to Azure.
+# Customer intent: As a server administrator, I want to evaluate my AWS instances for migration to Azure, so that I can assess cloud readiness, identify risks, and estimate costs effectively before proceeding with the migration.
 ---
 
 # Tutorial: Assess AWS instances for migration to Azure

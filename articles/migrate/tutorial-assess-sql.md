@@ -5,6 +5,8 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
+# Customer intent: **Customer Intent Statement:**  
+"As a database administrator, I want to assess my on-premises SQL Server instances for migration to Azure SQL, so that I can evaluate cloud readiness, identify potential risks, and estimate costs before executing the migration."
 ---
 
 

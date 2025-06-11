@@ -6,6 +6,7 @@ ms.date: 02/06/2025
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy25
 #Customer intent: As a Hyper-V admin, I want to assess my Hyper-V VMs in preparation for migration to Azure.
+# Customer intent: As a Hyper-V administrator, I want to assess my Hyper-V VMs for migration to Azure, so that I can determine their cloud readiness, identify potential risks, and estimate migration costs.
 ---
 
 # Tutorial: Assess Hyper-V VMs for migration to Azure
