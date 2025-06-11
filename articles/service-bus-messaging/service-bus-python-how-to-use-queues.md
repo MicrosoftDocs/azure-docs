@@ -1,16 +1,16 @@
 ---
 title: Get Started with Azure Service Bus Queues (Python)
-description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the Python programming language.
+description: This quickstart shows you how to send messages to and receive messages from Azure Service Bus queues using the Python programming language.
 author: spelluru
 ms.author: spelluru
 ms.date: 06/11/2025
-ms.topic: tutorial
+ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, passwordless-python
 #customer intent: As a developer, I want to learn how to send and receive messages with Azure Service Bus queues by using the Python programming language.
 ---
 
-# Tutorial: Send messages to and receive messages from Azure Service Bus queues (Python)
+# Quickstart: Send messages to and receive messages from Azure Service Bus queues (Python)
 > [!div class="op_single_selector" title1="Select the programming language:"]
 > - [C#](service-bus-dotnet-get-started-with-queues.md)
 > - [Java](service-bus-java-how-to-use-queues.md)
@@ -19,21 +19,20 @@ ms.custom: devx-track-python, mode-api, passwordless-python
 
 This article provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find prebuilt JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples). 
 
-In this tutorial, you:
+In this quickstart, you:
 
-> [!div class="checklist"]
-> - Create a Service Bus namespace, using the Azure portal.
-> - Create a Service Bus queue, using the Azure portal.
-> - Write Python code to use the [azure-servicebus](https://pypi.org/project/azure-servicebus/) package to:
->
->   - Send a set of messages to the queue.
->   - Receive those messages from the queue.
+ - Create a Service Bus namespace, using the Azure portal.
+ - Create a Service Bus queue, using the Azure portal.
+ - Write Python code to use the [azure-servicebus](https://pypi.org/project/azure-servicebus/) package to:
 
-## Prerequisites
+   - Send a set of messages to the queue.
+   - Receive those messages from the queue.
 
 If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you begin.
 
-- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Monthly Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## Prerequisites
+
+- An Azure subscription. To complete this quickstart, you need an Azure account. You can activate your [Monthly Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 
 - [Python 3.8](https://www.python.org/downloads/) or higher.
 
@@ -56,7 +55,7 @@ Note the following values, which you use in the code:
 
 ---
 
-This tutorial works with samples that you can copy and run using Python. For instructions on how to create a Python application, see [Quickstart: Deploy a Python web app to Azure App Service](../app-service/quickstart-python.md). For more information about installing packages used in this tutorial, see [How to install Azure library packages for Python](/azure/developer/python/sdk/azure-sdk-install).
+This quickstart works with samples that you can copy and run using Python. For instructions on how to create a Python application, see [Quickstart: Deploy a Python web app to Azure App Service](../app-service/quickstart-python.md). For more information about installing packages used in this quickstart, see [How to install Azure library packages for Python](/azure/developer/python/sdk/azure-sdk-install).
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
@@ -68,7 +67,7 @@ This tutorial works with samples that you can copy and run using Python. For ins
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-1. To install the required Python packages for this Service Bus tutorial, open a Command Prompt window that has Python in its path.
+1. To install the required Python packages for this Service Bus quickstart, open a Command Prompt window that has Python in its path.
 1. Change the directory to the folder where you want to have your samples.
 1. Install the following packages: 
 
@@ -80,7 +79,7 @@ This tutorial works with samples that you can copy and run using Python. For ins
 
 ### [Connection string](#tab/connection-string)
 
-1. To install the required Python packages for this Service Bus tutorial, open a Command Prompt window that has Python in its path.
+1. To install the required Python packages for this Service Bus quickstart, open a Command Prompt window that has Python in its path.
 1. Change the directory to the folder where you want to have your samples.
 1. Install the following package: 
 
@@ -415,7 +414,6 @@ In the Azure portal, navigate to your Service Bus namespace. On the **Overview**
 Select the queue on this **Overview** page to navigate to the **Service Bus Queue** page. You can also see the **incoming** and **outgoing** message count on this page. You also see other information such as the **current size** of the queue and **active message count**. 
 
 :::image type="content" source="./media/service-bus-python-how-to-use-queues/queue-details.png" alt-text="Queue details":::
-
 
 ## Related content
 
