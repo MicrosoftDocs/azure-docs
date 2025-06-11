@@ -51,14 +51,11 @@ To deploy a Microsoft Sentinel solution for SAP applications from the content hu
 
 Make sure that you also review the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md), especially [Azure prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#azure-prerequisites).
 
-## Install the solution from the content hub
+## Install the solution
 
 Installing the **Microsoft Sentinel Solution for SAP** makes both the data connector agent and the agentless data connector available to you from the Microsoft Sentinel **Configuration > Data connectors** page. The solution also deploys security content, such as the **SAP -Audit Controls** workbook and SAP-related analytics rules.
  
-1. Install the solution using one of these methods, based on your connector type: 
-- If you're using the SAP agentless data connector (Limited preview), [install the solution via the Azure marketplace](https://portal.azure.com/#create/sentinel4sap.sentinel4sap-previewsentinel4sap) after receiving a notification of onboarding. 
-
-- If you're using the data connector agent, in the Microsoft Sentinel **Content hub**, search for **SAP** to install the **SAP applications** solution. 
+1. [Install the solution via the Azure marketplace](https://portal.azure.com/#create/sentinel4sap.sentinel4sap-previewsentinel4sap) after receiving a notification of onboarding. 
  
 1. On the **Microsoft Sentinel solution for SAP applications** page, select **Create** to define deployment settings. For example:
 
