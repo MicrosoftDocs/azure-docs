@@ -8,6 +8,7 @@ ms.date: 05/08/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy24
 monikerRange: migrate
+# Customer intent: As a cloud architect, I want to create a comprehensive assessment for web applications, so that I can determine the best modernization path and resource allocation for deploying them on Azure efficiently.
 ---
 # Tutorial: Create web app assessment for modernization 
 
