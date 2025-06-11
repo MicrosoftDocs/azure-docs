@@ -23,19 +23,9 @@ In this document, you:
 
 With telemetry enabled no other properties are added to the feature flag besides the setting enabling telemetry. The use of one of the Azure App Configuration provider libraries along with the Feature Management libraries is required to start collecting telemetry data.
 
-### Azure App Configuration provider libraries
+### Basic fields
 
-The use of an Azure App Configuration provider library that supports telemetry is required to start collecting telemetry data. When telemetry is enabled, the Azure App Configuration provider libraries add more properties to the feature flags when they're retrieved. A new object is added to the **telemetry** section of the feature flag called **metadata**. The **metadata** object contains the following properties:
-
-- **AllocationID**: A unique identifier for the feature flag in its current state. (preview)
-- **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
-
-The full schema can be found [here](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEventWithAzureAppConfiguration.v1.0.0.schema.json).
-
-### Feature Management libraries
-
-When the Feature Management libraries and the provider libraries are used together, more properties are added to the telemetry data. This data can then be sent to locations to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor, a **custom_event** is published to Open Telemetry with the following properties whenever a telemetry enabled feature flag is evaluated:
+The feature management libraries provide the following properties to telemetry data:
 
 - **FeatureName**: The name of the feature flag.
 - **Enabled**: A boolean value indicating if the feature flag is enabled.
@@ -43,14 +33,28 @@ When the Feature Management libraries and the provider libraries are used togeth
 - **Reason**: The reason the feature flag was enabled or disabled.
 - **Variant**: The variant that was selected for the feature flag.
 - **VariantAssignmentPercentage**: Specifies the percentage of the user base the assigned variant is allocated for. This field is only present for percentile-based assignments.
-- **DefaultWhenEnabled**  (preview): The default variant of the feature flag when it's enabled.
-- **AllocationID** (preview): A unique identifier for the feature flag in its current state.
+- **DefaultWhenEnabled**: The default variant of the feature flag when it's enabled.
+- **AllocationID**: A unique identifier for the feature flag in its current state.
 - **ETag**: The current ETag for the feature flag.
 - **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
-- **FeatureFlagId**: A unique identifier for the feature flag.
 - **TargetingId**: The ID of the user that was assigned to the variant.
 
 The full schema can be found [here](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEvent.v1.0.0.schema.json).
+
+This data can then be sent to locations to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor, a **custom_event** is published to Open Telemetry with the following properties whenever a telemetry enabled feature flag is evaluated.
+
+### App Configuration custom fields
+
+When the Azure App Configuration provider libraries are used, additional properties are added to the telemetry data. These properties provide more context about the feature flag and its evaluation:
+
+- **AllocationID**: A unique identifier for the feature flag in its current state.
+- **ETag**: The current ETag for the feature flag.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
+
+The full schema can be found [here](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEventWithAzureAppConfiguration.v1.0.0.schema.json).
+
+### Feature management libraries
+
 
 ## Next steps
 
