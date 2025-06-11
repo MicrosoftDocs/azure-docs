@@ -10,9 +10,6 @@ ms.service: azure-automation
 
 # Security best practices in Azure Automation
 
-> [!IMPORTANT]
-> Azure Automation Run as accounts, including  Classic Run as accounts have retired on **30 September 2023** and replaced with [Managed Identities](automation-security-overview.md#managed-identities). You would no longer be able to create or renew Run as accounts through the Azure portal. For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts).
-
 This article details the best practices to securely execute the automation jobs.
 [Azure Automation](./overview.md) provides you the platform to orchestrate frequent, time consuming, error-prone infrastructure management and operational tasks, as well as mission-critical operations. This service allows you to execute scripts, known as automation runbooks seamlessly across cloud and hybrid environments. 
 
@@ -52,7 +49,7 @@ This section guides you in configuring your Automation account securely.
 
 ### Authentication certificate and identities
 
-1. For runbook authentication, we recommend that you use [Managed identities](./automation-security-overview.md#managed-identities) instead of Run As accounts. The Run As accounts are an administrative overhead and we plan to deprecate them. A managed identity from Microsoft Entra ID allows your runbook to easily access other Microsoft Entra protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information about managed identities in Azure Automation, see [Managed identities for Azure Automation](./automation-security-overview.md#managed-identities)
+1. For runbook authentication, we recommend that you use [Managed identities](./automation-security-overview.md#managed-identities). A managed identity from Microsoft Entra ID allows your runbook to easily access other Microsoft Entra protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information about managed identities in Azure Automation, see [Managed identities for Azure Automation](./automation-security-overview.md#managed-identities)
 
    You can authenticate an Automation account using two types of managed identities:
    - **System-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
