@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: reference
-ms.date: 05/22/2025
+ms.date: 06/11/2025
 ms.custom: references_regions, linux-related-content
 ms.service: azure-backup
 author: jyothisuri
@@ -157,7 +157,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central and UG IOWA. |
 | MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
 | DPM/MABS | No                        |                      N/A                   |
-| AFS (Azure file shares)                 | No                                                           | N/A               |
+| AFS (Azure file shares)                 | Yes                                                           |      See the [supported regions](azure-file-share-support-matrix.md?tabs=vault-tier#supported-regions).               |
 
 ## Resource health
 
