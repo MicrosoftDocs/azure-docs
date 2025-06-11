@@ -298,7 +298,8 @@ In the **samples** directory, you can find the following scripts to run differen
 - **run-assessment-openjdk21**: Generates a report with code assessment and steps for migrating Airsonic to OpenJDK 21.
 - **run-assessment-package-only**: Produces a report by assessing specific packages.
 
-These scripts are intended to be used with the [Airsonic-Advanced](https://github.com/airsonic-advanced/airsonic-advanced) sample project - a community-driven, web-based media streamer that allows you to access and share your music collection.
+These scripts are intended to be used with the [Airsonic-Advanced](https://github.com/airsonic-advanced/airsonic-advanced) sample project - a community-driven, web-based media streamer that enables you to access and share your music collection.
+
 You can clone the application repository manually using the following command:
 
 ```sh
@@ -328,19 +329,19 @@ The reports are automatically generated and launched. You can find the reports u
 
 ### Summary of the analysis
 
-The landing page of the report presents a summary view of all analyzed applications. From here, you can easily navigate to individual application reports to explore detailed findings.
+The landing page of the report presents a summary view of all analyzed applications. From here, you can navigate to individual application reports to explore detailed findings.
 
 :::image type="content" source="media/java/appcat-7-report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/appcat-7-report-summary.png":::
 
-The *Ask Copilot* button in the upper-right corner redirects you to the *GitHub Copilot App Modernization for Java* extension in Visual Studio Code, which provides both app assessment and code remediation as its key capabilities for migrating Java applications to Azure - powered by AppCAT and GitHub Copilot's AI capabilities.
+The **Ask Copilot** button in the upper-right corner redirects you to the GitHub Copilot App Modernization for Java extension in Visual Studio Code. This extension provides both app assessment and code remediation as its key capabilities for migrating Java applications to Azure - powered by AppCAT and GitHub Copilot's AI capabilities.
 
 ### Assessment report
 
-The assessment report provides a categorized issue list in aspects of Azure readiness, cloud native and Java modernization that need to be addressed to successfully migrate the application to Azure.
+The assessment report provides a categorized issue list of various aspects of Azure readiness, cloud native, and Java modernization that you need to address to successfully migrate the application to Azure.
 
-Each *Issue* is categorized by severity (Mandatory, Optional, or Potential) and includes the number of impacted lines of code.
+Each *Issue* is categorized by severity - **Mandatory**, **Optional**, or **Potential** - and includes the number of impacted lines of code.
 
-The *Dependencies* and *Technologies* tabs display the libraries and technologies used within the application.
+The **Dependencies** and **Technologies** tabs display the libraries and technologies used within the application.
 
 :::image type="content" source="media/java/appcat-7-report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/java/appcat-7-report-assessment.png":::
 
