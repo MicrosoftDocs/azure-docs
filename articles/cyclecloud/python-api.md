@@ -2,24 +2,24 @@
 title: Python API
 description: Use the Azure CycleCloud Python API to interact with the CycleCloud REST API without having to perform HTTP requests manually.
 author: rokeptne
-ms.date: 07/15/2024
+ms.date: 06/11/2025
 ms.author: rokeptne
 ---
 
 # Python API
 
-The CycleCloud Python API allows you to interact with the CycleCloud REST API without having to manually perform the HTTP requests. To acquire the API source distribution, navigate to */about* on your CycleCloud installation and click on the **Download Python API** link. Once you have the source distribution you can `pip install` it into your python environment and get started.
+The CycleCloud Python API allows you to interact with the CycleCloud REST API without having to manually perform the HTTP requests. To acquire the API source distribution, navigate to */about* on your CycleCloud installation and click on the **Download Python API** link. Once you have the source distribution, you can do `pip install` it into your python environment and get started.
 
 ## Client Objects
 
-A Client object can be constructed with or without a configuration specified. If you don't specify a config dictionary it will automatically attempt to pull the configuration from the default CycleCloud CLI ini file (*~/.cycle/config.ini*).
+A Client object can be constructed with or without a configuration specified. If you don't specify a config dictionary it automatically attempts to pull the configuration from the default CycleCloud CLI ini file (*~/.cycle/config.ini*).
 
 The configuration can be provided as a dict with the following key/value pairs:
 
   - `url` - *required*, the url of the web interface to the CycleCloud installation
   - `username` - *required*
   - `password` - *required*, the plain text password of the user
-  - `timeout` - the time, in seconds, before a timeout error will occur when attempting to connect/communicate with the system (60 by default)
+  - `timeout` - the time, in seconds, before a timeout error occurs when attempting to connect/communicate with the system (60 by default)
   - `verify_certificates` - a boolean indicating whether certificate checking should be enabled (True by default)
 
 Alternatively, these values can be given as keyword arguments to the constructor.
@@ -75,13 +75,13 @@ cluster_obj.scale_by_cores("execute", 5)
 
   - `get_status(nodes=False)` - Gets a [Cluster Status](api.md#clusterstatus) object of the cluster, optionally populating the node list as well.
 
-  - `scale_by_cores(node_array, total_core_count)` - Sets the system to scale the specified node array to the desired total core count. If the node array already contains more than `total_core_count` cores then the call will have no effect.
+  - `scale_by_cores(node_array, total_core_count)` - Sets the system to scale the specified node array to the desired total core count. If the node array already contains more than `total_core_count` cores, then the call has no effect.
 
-  - `scale_by_nodes(node_array, total_node_count)` - Sets the system to scale the specified node array to the desired total node count. If the node array already contains more than `total_node_count` nodes then the call will have no effect.
+  - `scale_by_nodes(node_array, total_node_count)` - Sets the system to scale the specified node array to the desired total node count. If the node array already contains more than `total_node_count` nodes, then the call has no effect.
 
 ## Direct API
 
-The rest API can be accessed in a more direct manner by using the api at `cyclecloud.api` and `cyclecloud.model` which is generated directly from the [REST API](api.md). To do so you simply construct a Client object and make calls using the `session` property provided on it.
+The rest API can be accessed in a more direct manner by using the API at `cyclecloud.api` and `cyclecloud.model` which is generated directly from the [REST API](api.md). To do so you construct a Client object and make calls using the `session` property provided on it.
 
 ```python
 from cyclecloud.client import Client
@@ -93,4 +93,3 @@ cl1 = Client()
 response_status, cluster_status = clusters.get_cluster_status(cl1.session, "test-cluster-1", nodes=False)
 print(cluster_status.state)
 ```
-
