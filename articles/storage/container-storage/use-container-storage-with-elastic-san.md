@@ -6,7 +6,9 @@ ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 08/06/2024
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Use Azure Container Storage with Azure Elastic SAN (preview)

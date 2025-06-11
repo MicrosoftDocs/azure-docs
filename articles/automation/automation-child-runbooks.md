@@ -42,16 +42,18 @@ The parameters of a child runbook called inline can be of any data type, includi
 Currently, PowerShell 5.1 is supported and only certain runbook types can call each other:
 
 * A [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) and a [graphical runbook](automation-runbook-types.md#graphical-runbooks) can call each other inline, because both are PowerShell based.
-* A [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) and a graphical PowerShell Workflow runbook can call each other inline, because both are PowerShell Workflow based.
+* A [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) can call another PowerShell Workflow runbook inline.
 * The PowerShell types and the PowerShell Workflow types can't call each other inline. They must use `Start-AzAutomationRunbook`.
 
 > [!IMPORTANT]
-> Executing child scripts using `.\child-runbook.ps1` is not supported in PowerShell 7.1 and PowerShell 7.2 
+  > * Executing child scripts using `.\child-runbook.ps1` is not supported in PowerShell 7.1 and PowerShell 7.2 
   **Workaround**: Use `Start-AutomationRunbook` ([internal cmdlet](/azure/automation/shared-resources/modules#internal-cmdlets)) or `Start-AzAutomationRunbook` (from [Az.Automation module](/powershell/module/Az.Automation/Start-AzAutomationRunbook)) to start another runbook from parent runbook.
+  > * Executing child scripts using Graphical PowerShell Workflow runbooks is not supported.
+  **Workaround**: Use `Start-AzAutomationRunbook` (from [Az.Automation module](/powershell/module/Az.Automation/Start-AzAutomationRunbook)) from within the parent runbook (via an InlineScript block) to start another runbook.
 
-The publish order of runbooks matters only for PowerShell Workflow and graphical PowerShell Workflow runbooks.
+The publish order of runbooks matters only for PowerShell Workflow runbooks.
 
-When your runbook calls a graphical or PowerShell Workflow child runbook by using inline execution, it uses the name of the runbook. The name must start with `.\\` to specify that the script is in the local directory.
+When your runbook calls a PowerShell Workflow child runbook by using inline execution, it uses the name of the runbook. The name must start with `.\\` to specify that the script is in the local directory.
 
 ### Example
 

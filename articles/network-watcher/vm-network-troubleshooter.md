@@ -7,6 +7,8 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 05/07/2025
+ms.custom:
+  - build-2025
 ---
 
 # VM network troubleshooter (Preview) overview

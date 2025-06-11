@@ -4,7 +4,9 @@ description:  Learn how to configure a storage policy for your Azure VMware Solu
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 01/08/2025
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - build-2025
 
 #customer intent: As an Azure service administrator, I want to set VMware vSAN storage policies to determine how storage is allocated to the VM.
 

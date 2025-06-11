@@ -5,7 +5,9 @@ author: madsd
 ms.topic: overview
 ms.date: 06/18/2024
 ms.author: madsd
-ms.custom: "UpdateFrequency3, references_regions"
+ms.custom:
+  - "UpdateFrequency3, references_regions"
+  - build-2025
 ---
 
 # App Service Environment overview

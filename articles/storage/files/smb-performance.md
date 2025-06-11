@@ -6,7 +6,9 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 01/22/2025
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Improve performance for SMB Azure file shares

@@ -5,7 +5,10 @@ author: cephalin
 ms.author: cephalin
 ms.date: 05/19/2025
 ms.topic: tutorial
-ms.custom: devx-track-java, linux-related-content
+ms.custom:
+  - devx-track-java
+  - linux-related-content
+  - build-2025
 ms.collection: ce-skilling-ai-copilot
 ---
 

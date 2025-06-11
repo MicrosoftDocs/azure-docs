@@ -179,9 +179,5 @@ Contact [New Relic](https://support.newrelic.com/) for customer support.
 
 You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
-Select **Support + Troubleshooting** from the Resource pane, then choose the link to [log a support request in the New Relic portal](https://support.newrelic.com/).
-
-## Next steps
-
-- [Troubleshoot Azure Native New Relic Service](troubleshoot.md)
+Select **Support + Troubleshooting** from the service menu, then choose the link to [log a support request in the New Relic portal](https://support.newrelic.com/).
 

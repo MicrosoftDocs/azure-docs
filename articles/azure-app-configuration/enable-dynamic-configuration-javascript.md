@@ -8,7 +8,9 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 01/20/2025
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - build-2025
 ms.author: zhiyuanliang
 #Customer intent: As a JavaScript developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
 ---

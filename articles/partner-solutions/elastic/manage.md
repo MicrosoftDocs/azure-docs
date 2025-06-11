@@ -160,10 +160,9 @@ Contact [Elastic](https://cloud.elastic.co/help) for customer support.
 
 You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
-Select **Support + Troubleshooting** > **New support request** from the Resource pane. 
+Select **Support + Troubleshooting** > **New support request** from the service menu. 
 
 ## Related content
 
-- [Troubleshooting Elastic integration with Azure](troubleshoot.md)
 - [What is Azure private link?](../../private-link/private-link-overview.md)
 

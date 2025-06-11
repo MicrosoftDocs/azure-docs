@@ -4,8 +4,8 @@ description: Learn about the architecture, necessary infrastructure, and FAQs ab
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 03/26/2025
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy23
 ---
 
