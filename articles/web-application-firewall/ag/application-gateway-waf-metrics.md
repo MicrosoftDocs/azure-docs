@@ -51,7 +51,7 @@ For metrics supported by Application Gateway V2 SKU, see [Application Gateway v2
 |**Web Application Firewall Blocked Requests Distribution**|Total number of rules hit distribution for the blocked requests by Rule Group and Rule ID|Rule Group, Rule ID|
 |**Web Application Firewall Total Rule Distribution**|Count of total matched requests distribution by Rule Group and Rule ID |Rule Group, Rule ID|  
 
-For metrics supported by Application Gateway V1 SKU, see [Application Gateway v1 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v1-sku)
+For metrics supported by Application Gateway V1 SKU, see [Application Gateway v1 metrics](../../application-gateway/monitor-application-gateway-reference#metrics-for-application-gateway-v1-sku)
 
 
  ## Access WAF Metrics in Azure portal
