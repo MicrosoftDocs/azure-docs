@@ -90,9 +90,7 @@ Your final app prompts the user onto a supported browser and access for the came
 To create a react App, we use `vite`. It is a build tool that aims to provide a faster and leaner development experience for modern web projects.
 You can read more about `vite` here [Create a React App from scratch](https://react.dev/learn/build-a-react-app-from-scratch) and [Getting Started with Vite](https://vite.dev/guide/)
 
-Note that the Azure Communication Service UI library only supports up to React 18. Verify that you are on the supported version after creating the react app by checking `package.json`
-
-At the end of this process, you should have a full application inside of the folder `ui-library-call-readiness-app`.
+Note that the Azure Communication Service UI library only supports up to React 18. Verify that you are on the supported version after creating the react app by checking `package.json`.
 For this quickstart, we modify the files inside of the `src` folder.
 
 ### Install Packages
