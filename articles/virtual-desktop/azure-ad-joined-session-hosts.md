@@ -3,7 +3,7 @@ title: Microsoft Entra joined session hosts in Azure Virtual Desktop
 description: Learn about using Microsoft Entra joined session hosts in Azure Virtual Desktop.
 author: dougeby
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 06/11/2025
 ms.author: avdcontent
 ms.custom: docs_inherited
 ---
@@ -34,7 +34,7 @@ You can deploy Microsoft Entra joined VMs directly from the Azure portal when yo
 
 After you've created your host pool, you must assign users access to their resources. To grant access to resources, add each user to the application group. Follow the instructions in [Manage application groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
 
-For Microsoft Entra joined VMs in host pools without a session host configuration, you need to do two extra things on top of the requirements for Active Directory or Microsoft Entra Domain Services-based deployments. For host pools using a session host configuration, this additional role assignment is not required.
+For Microsoft Entra joined VMs in host pools without a session host configuration, you need to do the following extra tasks on top of the requirements for Active Directory or Microsoft Entra Domain Services-based deployments. For host pools using a session host configuration, this additional role assignment isn't required.
 
 - Assign your users the **Virtual Machine User Login** role so they can sign in to the VMs.
 - Assign administrators who need local administrative privileges the **Virtual Machine Administrator Login** role.

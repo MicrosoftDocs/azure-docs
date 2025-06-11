@@ -5,7 +5,7 @@ ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 author: dougeby
 ms.author: avdcontent
-ms.date: 03/18/2025
+ms.date: 06/11/2025
 ---
 
 # Add session hosts to a host pool
@@ -17,7 +17,7 @@ ms.date: 03/18/2025
 >
 > - Azure Virtual Desktop on Azure Extended Zones.
 >
-> - Managing session hosts using a session host configuration. This limited preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability.
+> - Managing session hosts using a session host configuration. This limited preview is provided as-is, with all faults and as available, and is excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability.
 >
 > For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -181,7 +181,9 @@ Here's how to generate a registration key by using the [desktopvirtualization](/
 You can use the Azure portal to specify the number of session hosts you want to add, then Azure Virtual Desktop automatically creates them based on the session host configuration. At this time, you can't use PowerShell to add session hosts to a host pool with a session host configuration.
 
 > [!NOTE]
->[Diagnostics for host pools using a session host configuration](https://learn.microsoft.com/en-us/azure/virtual-desktop/session-host-update-diagnostics) are recorded with Log Analytics in Azure Monitor and won't be available in your ARM deployments history. We recommended that you [enable Log Analytics](https://learn.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics) for any host pool using a session host configuration.
+> [Diagnostics for host pools using a session host configuration](session-host-update-diagnostics.md) are recorded with Log Analytics in Azure Monitor and won't be available in your Azure Resource Manager deployments history. We recommended that you [enable Log Analytics](diagnostics-log-analytics.md) for any host pool using a session host configuration.
+> 
+> You can choose to use the legacy method of using an ARM template to create session hosts through the Azure portal until September 1, 2025. To access that experience, use this link to access the [Azure portal](https://portal.azure.com/?feature.enableSessionHostProvisioning=false).
 
 Here's how to add session hosts:
 
@@ -203,7 +205,7 @@ Here's how to add session hosts:
 
 ### Cancel in-progress session host creation
 
-You can cancel in-progress session host creation using the Azure portal. Session hosts that are in the process of being created can't be cancelled.
+You can cancel in-progress session host creation using the Azure portal. Session hosts that are in the process of being created can't be canceled.
 
 Here's how to cancel session host creation:
 

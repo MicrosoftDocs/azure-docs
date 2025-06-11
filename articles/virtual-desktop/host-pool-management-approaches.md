@@ -64,7 +64,7 @@ For a comparison of host pool with a session host configuration and a host pool 
 
 ### Session host management policy
 
-A session host management policy is a sub-resource of a host pool that specifies how session hosts in the host pool should be updated and created. The session host management policy persists throughout the lifetime of the host pool and is used when updating the session hosts in the host pool or adding new session hosts. Each host pool with a session host configuration only has a single session host management policy, and you can't delete a session host management policy independently of the host pool.
+A session host management policy is a sub-resource of a host pool that specifies how session hosts in the host pool should be updated and created. The session host management policy persists throughout the lifetime of the host pool and it's used when updating the session hosts in the host pool or adding new session hosts. Each host pool with a session host configuration only has a single session host management policy, and you can't delete a session host management policy independently of the host pool.
 
 When you use the Azure portal, a default session host management policy is created when you create a host pool with a session host configuration. You can override its values when updating and creating session hosts, or you can also update the session host management policy at any time using PowerShell.
 
@@ -72,13 +72,12 @@ The session host management policy includes the following parameters:
 
 | Parameter  | Description | Azure portal default value |
 |--|--|--|
-| **Time zone** | The time zone to use when scheduling an update of the session hosts in a host pool. | UTC |
-| **Max VMs removed during update** | The maximum number of session hosts to update concurrently, also known as the *batch size*. | 1 |
-| **Logoff delay in minutes** | The amount of time to wait after an update start time for users to be notified to sign out, between 0 and 60 minutes. Users will automatically be signed out after this time elapses. | 2 |
+| **Time zone** | The time zone to use when scheduling an update of the session hosts in a host pool. | `UTC` |
+| **Max VMs removed during update** | The maximum number of session hosts to update concurrently, also known as the *batch size*. | `1` |
+| **Logoff delay in minutes** | The amount of time to wait after an update start time for users to be notified to sign out, between 0 and 60 minutes. Users will automatically be signed out after this time elapses. | `2` |
 | **Logoff message** | A message to display to users that the session host they're connected to will be updated. | `You will be signed out` |
-| **Leave in drain mode**| Determines whether newly created session hosts will be left in drain mode for post-creation actions before users can log in. This parameter does not apply for session host update.| False |
-| **Failed session host cleanup policy**| Determines whether to keep none, some, or all session hosts that encounter an error during session host creation. This parameter does not apply for session host update.| KeepAll|
-
+| **Leave in drain mode** | Determines whether newly created session hosts will be left in drain mode for post-creation actions before users can log in. This parameter doesn't apply for session host update. | `False` |
+| **Failed session host cleanup policy** | Determines whether to keep none, some, or all session hosts that encounter an error during session host creation. This parameter doesn't apply for session host update. | `KeepAll` |
 
 ## Standard management approach
 

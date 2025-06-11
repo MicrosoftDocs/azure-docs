@@ -6,7 +6,7 @@ zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dougeby
 ms.author: avdcontent
-ms.date: 10/18/2024
+ms.date: 06/11/2025
 ---
 
 # Deploy Azure Virtual Desktop 
@@ -63,9 +63,9 @@ In addition to the general prerequisites, you need:
 
 - If you're joining session hosts to an Active Directory domain or using [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join) you need additional permissions:
 
-   - If you're joining session hosts to a Microsoft Entra Domain Services domain, you need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+   - For Microsoft Entra Domain Services domain, you need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
-   - If you're joining session hosts to an Active Directory Domain Services (AD DS) domain, you need to use an account with more permissions than typically required for joining a domain because the new OS image reuses the existing computer object. The permissions and properties in the following table need to be applied to the account on the Organizational Unit (OU) containing your session hosts:
+   - For an Active Directory Domain Services (AD DS) domain, you need to use an account with more permissions than typically required for joining a domain because the new OS image reuses the existing computer object. The permissions and properties in the following table need to be applied to the account on the Organizational Unit (OU) containing your session hosts:
 
       | Name | Type | Applies to |
       |--|--|--|
@@ -97,10 +97,9 @@ In addition to the general prerequisites, you need:
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as [PowerShell DSC](/powershell/dsc/overview) requires it.
 
-### PowerShell prerequisites
 - If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
-- Azure PowerShell cmdlets for Azure Virtual Desktop that support host pools with a session host configuration are in preview. You need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) to use these cmdlets, which are added in version 5.3.0.
+- Azure PowerShell cmdlets for Azure Virtual Desktop that support host pools with a session host configuration are in preview. You need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) to use these cmdlets, which were added in version 5.3.0.
 ::: zone-end
 
 ::: zone pivot="host-pool-standard"

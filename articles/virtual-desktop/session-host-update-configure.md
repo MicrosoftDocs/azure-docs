@@ -24,9 +24,9 @@ To learn more about how session host update works, see [Session host update](ses
 
 Before you update session hosts using session host update, you need:
 
-- An [existing pooled host pool with a session host configuration](https://learn.microsoft.com/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=portal-session-host-configuration%2Cportal-standard%2Cportal&pivots=host-pool-session-host-configuration#prerequisites) with session hosts that are all in the same Azure region and resource group.
+- An [existing pooled host pool with a session host configuration](deploy-azure-virtual-desktop.md?pivots=host-pool-session-host-configuration) with session hosts that are all in the same Azure region and resource group.
 
-- RBAC permissions required to [update a session host configuration](https://learn.microsoft.com/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=portal-session-host-configuration%2Cportal-standard%2Cportal&pivots=host-pool-session-host-configuration#prerequisites)
+- RBAC permissions required to [update a session host configuration](deploy-azure-virtual-desktop.md?pivots=host-pool-session-host-configuration#prerequisites).
 
 - The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and match the [generation of virtual machine](/azure/virtual-machines/generation-2). If you're using [Trusted launch virtual machines](security-guide.md#trusted-launch) or [Confidential virtual machines](security-guide.md#azure-confidential-computing-virtual-machines), your image must be for generation 2 VMs. It can be from:
 
@@ -36,7 +36,9 @@ Before you update session hosts using session host update, you need:
 
 - Remove any resource locks on session hosts or the resource group they're in.
 
-- If you are planning to use PowerShell, you need to download and install the preview version of the Az.DesktopVirtualization module to use these cmdlets, which are added in version 5.3.0.
+- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+
+- Azure PowerShell cmdlets for Azure Virtual Desktop that support host pools with a session host configuration are in preview. You need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) to use these cmdlets, which were added in version 5.3.0.
 
 ## Schedule an update and edit a session host configuration
 
