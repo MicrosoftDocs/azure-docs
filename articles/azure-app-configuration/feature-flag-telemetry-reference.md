@@ -41,7 +41,7 @@ The feature management libraries provide the following properties to telemetry d
 
 The full schema can be found [here](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEvent.v1.0.0.schema.json).
 
-This data can then be sent to locations to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor, a **custom_event** is published to Open Telemetry with the following properties whenever a telemetry enabled feature flag is evaluated.
+This data can then be sent to locations to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor, a **custom_event** is published with the following properties whenever a telemetry enabled feature flag is evaluated.
 
 ### App Configuration custom fields
 
