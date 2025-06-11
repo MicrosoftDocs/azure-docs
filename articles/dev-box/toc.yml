@@ -65,6 +65,8 @@ items:
         displayName: diagnostic, logs
       - name: Configure conditional access policies for dev tunnels
         href: how-to-conditional-access-dev-tunnels-service.md
+      - name: Move dev box pools between regions
+        href: how-to-move-dev-box-pool-region.md
   - name: Prepare images
     items:
       - name: Configure an Azure compute gallery
@@ -102,6 +104,10 @@ items:
         href: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
       - name: Connect to a dev box with a dev tunnel
         href: how-to-set-up-dev-tunnels.md
+  - name: AI on Dev Box
+    items: 
+      - name: Configure Serverless GPU
+        href: how-to-configure-dev-box-serverless-gpu.md
   - name: Security
     items:
       - name: Provide access to project admins
@@ -166,6 +172,9 @@ items:
         href: how-to-get-help.md
   - name: Reference
     items:
+      - name: 'Reference: imagedefinition.yaml and task.yaml files'
+        href: reference-dev-box-customizations.md
+        displayName: Customize, schema, yaml, imagedefinition, task
       - name: Install Azure CLI devcenter extension
         href: how-to-install-dev-box-cli.md
       - name: Azure CLI - az devcenter

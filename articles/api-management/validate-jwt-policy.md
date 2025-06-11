@@ -109,7 +109,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
@@ -205,6 +205,8 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
     </required-claims>
 </validate-jwt>
 ```
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 ### Token validation using decryption key
 

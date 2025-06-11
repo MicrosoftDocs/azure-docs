@@ -22,7 +22,7 @@ A module is stuck in the *Importing* state when you're importing or updating you
 
 #### Cause
 
-Because importing PowerShell modules is a complex, multistep process, a module might not import correctly, and can be stuck in a transient state. To learn more about the import process, see [Importing a PowerShell module](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
+Because importing PowerShell modules is a complex, multistep process, a module might not import correctly and can be stuck in a transient state. To learn more about the import process, see [Importing a PowerShell module](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### Resolution
 

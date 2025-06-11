@@ -375,7 +375,8 @@
           href: functions-triggers-bindings.md
         - name: Register binding extensions
           href: functions-bindings-register.md
-          displayName: bundles, extension bundles
+        - name: Extension bundles
+          href: extension-bundles.md  
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
         - name: Handle binding errors

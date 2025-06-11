@@ -3,7 +3,9 @@ title: Bicep functions overview
 description: Learn about the functions that can be used in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
 ms.date: 02/12/2025
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Bicep functions overview

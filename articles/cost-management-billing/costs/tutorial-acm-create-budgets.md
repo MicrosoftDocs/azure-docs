@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Create and manage budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing

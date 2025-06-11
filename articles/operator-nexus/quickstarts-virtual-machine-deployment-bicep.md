@@ -6,7 +6,11 @@ ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 07/30/2023
-ms.custom: template-how-to-pattern, devx-track-azurecli, devx-track-bicep
+ms.custom:
+  - template-how-to-pattern
+  - devx-track-azurecli
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Quickstart: Create an Azure Operator Nexus virtual machine by using Bicep

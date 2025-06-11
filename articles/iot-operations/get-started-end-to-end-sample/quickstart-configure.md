@@ -19,7 +19,7 @@ In this quickstart, you configure the following resources in your Azure IoT Oper
 - An *asset* that represents the oven and defines the data points that the oven exposes.
 - A *data flow* that manipulates the messages from the simulated oven.
 
-An _asset_ is a physical device or logical entity that represents a device, a machine, a system, or a process. For example, a physical asset could be a pump, a motor, a tank, or a production line. A logical asset that you define can have properties, stream telemetry, or generate events.
+An _asset_ is a physical device or logical entity that represents a device, a machine, a system, or a process. For example, a physical asset could be a pump, a motor, a tank, or a production line. A logical asset that you define can have properties, stream messages such as sensor data, or generate events.
 
 _OPC UA servers_ are software applications that communicate with assets. _OPC UA tags_ are data points that OPC UA servers expose. OPC UA tags can provide real-time or historical data about the status, performance, quality, or condition of assets.
 

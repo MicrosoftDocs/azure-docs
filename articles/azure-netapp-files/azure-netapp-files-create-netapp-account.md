@@ -1,5 +1,5 @@
 ---
-title: Create a NetApp account to access Azure NetApp Files | Microsoft Docs
+title: Create a NetApp account to access Azure NetApp Files
 description: Learn how to access Azure NetApp Files and create a NetApp account so that you can set up a capacity pool and create a volume.
 services: azure-netapp-files
 author: b-hchen
@@ -9,7 +9,7 @@ ms.date: 02/04/2025
 ms.author: anfdocs
 ---
 
-# Create a NetApp account
+# Create a NetApp account in Azure NetApp Files
 
 Creating a NetApp account enables you to set up a capacity pool so that you can create a volume. You use the Azure NetApp Files pane to create a new NetApp account.
 

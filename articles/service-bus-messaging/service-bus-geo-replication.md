@@ -3,7 +3,9 @@ title: Azure Service Bus Geo-Replication | Microsoft Docs
 description: How to use geographical regions to promote between regions in Azure Service Bus for metadata and data
 ms.topic: article
 ms.date: 04/29/2024
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Azure Service Bus Geo-Replication (Preview)

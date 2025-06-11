@@ -4,7 +4,11 @@ description: Running your function code in the Azure Functions Flex Consumption 
 ms.service: azure-functions
 ms.topic: concept-article
 ms.date: 05/12/2025
-ms.custom: references_regions, build-2024, ignite-2024, build-2025
+ms.custom:
+  - references_regions
+  - build-2024
+  - ignite-2024
+  - build-2025
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
 
@@ -105,14 +109,15 @@ This table shows the language stack versions that are currently supported for Fl
 
 | Language stack  | Required version |
 | --- | :-----: |
-| C# (isolated process mode)<sup>1</sup> | .NET 8<sup>2</sup> |
-| Java | Java 11, Java 17 |
-| Node.js | Node 20   |
+| C# (isolated process mode)<sup>1</sup> | .NET 8<sup>2</sup>, .NET 9<sup>3</sup> |
+| Java | Java 11, Java 17, Java 21 |
+| Node.js | Node.js 20, Node.js 22   |
 | PowerShell | PowerShell 7.4   |
 | Python | Python 3.10, Python 3.11, Python 3.12  | 
 
-<sup>1</sup>[C# in-process mode](./functions-dotnet-class-library.md) isn't supported. You instead need to [migrate your .NET code project to run in the isolated worker model](migrate-dotnet-to-isolated-model.md).  
-<sup>2</sup>Requires version `1.20.0` or later of [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker) and version `1.16.2` or later of [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk).
+1. [C# in-process mode](./functions-dotnet-class-library.md) isn't supported. You instead need to [migrate your .NET code project to run in the isolated worker model](migrate-dotnet-to-isolated-model.md).  
+2. Requires version `1.20.0` or later of [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker) and version `1.16.2` or later of [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk).
+3. Requires version `2.0.0` or later of both [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk).
 
 ## Regional subscription memory quotas
 
@@ -139,9 +144,10 @@ Keep these other considerations in mind when using Flex Consumption plan:
 + **Host**: There's a 30-second time-out for app initialization. When your function app takes longer than 30 seconds to start, you might see gRPC-related `System.TimeoutException` entries logged. You can't currently configure this time-out. For more information, see [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
 + **Durable Functions**: Azure Storage is currently the only supported [storage provider](./durable/durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](./durable/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
 + **Virtual network integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
-+ **Triggers**: While all triggers are fully supported in a Flex Consumption plan, the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
++ **Triggers**: While all triggers are fully supported in a Flex Consumption plan, the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./extension-bundles.md), or a later version. 
 + **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
 + **Deployments**: Deployment slots aren't currently supported.
++ **Proxies**: Functions Proxies aren't supported. Consider integrating your function apps with Azure API Management.
 + **Scale**: The lowest maximum scale is currently `40`. The highest currently supported value is `1000`. 
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature) aren't supported by Flex Consumption. You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
 + **Diagnostic settings**: Diagnostic settings aren't currently supported.

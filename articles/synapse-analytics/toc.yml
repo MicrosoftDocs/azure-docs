@@ -736,14 +736,12 @@ items:
       items:
         - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 3.4 runtime (GA)
+        - name: Azure Synapse Apache Spark 3.5 runtime (Public Preview)
+          href: ./spark/apache-spark-35-runtime.md          
+        - name: Azure Synapse Apache Spark 3.4 runtime (EOSA)
           href: ./spark/apache-spark-34-runtime.md
         - name: Azure Synapse Apache Spark 3.3 runtime (unsupported)
           href: ./spark/apache-spark-33-runtime.md
-        - name: Azure Synapse Apache Spark 3.2 runtime (deprecated)
-          href: ./spark/apache-spark-32-runtime.md
-        - name: Azure Synapse Apache Spark 3.1 runtime (deprecated)
-          href: ./spark/apache-spark-3-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
     - name: Machine learning

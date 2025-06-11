@@ -5,8 +5,10 @@ author: khdownie
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: concept-article
-ms.date: 03/20/2023
+ms.date: 05/20/2025
 ms.author: kendownie
+ms.custom:
+  - build-2025
 ---
 
 # Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS
@@ -20,7 +22,7 @@ For more general comparisons, see [this article](storage-introduction.md) to com
 |Category  |Azure Blob Storage  |Azure Files  |Azure NetApp Files  |
 |---------|---------|---------|---------|
 |Use cases     |Blob Storage is best suited for large scale read-heavy sequential access workloads where data is ingested once and minimally modified further.<br></br>Blob Storage offers the lowest total cost of ownership, if there is little or no maintenance.<br></br>Some example scenarios are: Large scale analytical data, throughput sensitive high-performance computing, backup and archive, autonomous driving, media rendering, or genomic sequencing.         |Azure Files is a highly available service best suited for random access workloads.<br></br>For NFS shares, Azure Files provides full POSIX file system support and can easily be used from container platforms like Azure Container Instance (ACI) and Azure Kubernetes Service (AKS) with the built-in CSI driver, in addition to VM-based platforms.<br></br>Some example scenarios are: Shared files, databases, home directories, traditional applications, ERP, CMS, NAS migrations that don't require advanced management, and custom applications requiring scale-out file storage.         |Fully managed file service in the cloud, powered by NetApp, with advanced management capabilities.<br></br>Azure NetApp Files is suited for workloads that require random access and provides broad protocol support and data protection capabilities.<br></br>Some example scenarios are: On-premises enterprise NAS migration that requires rich management capabilities, latency sensitive workloads like SAP HANA, latency-sensitive or IOPS intensive high performance compute, or workloads that require simultaneous multi-protocol access.         |
-|Available protocols     |NFSv3<br></br>REST<br></br>Data Lake Storage         |SMB<br><br>NFSv4.1<br></br> (No interoperability between either protocol)         |NFSv3 and NFSv4.1<br></br>SMB<br></br>Dual protocol (SMB and NFSv3, SMB and NFSv4.1)         |
+|Available protocols     |NFSv3<br></br>REST<br></br>Data Lake Storage         |SMB<br><br>NFSv4.1<br></br> REST         |NFSv3 and NFSv4.1<br></br>SMB<br></br>Dual protocol (SMB and NFSv3, SMB and NFSv4.1)         |
 |Key features     | Integrated with HPC cache for low latency workloads. <br> </br> Integrated management, including lifecycle, immutable blobs, data failover, and metadata index.         | Zonally redundant for high availability. <br></br> Consistent single-digit millisecond latency. <br></br>Predictable performance and cost that scales with capacity.         |Extremely low latency (as low as sub-ms).<br></br>Rich ONTAP management capabilities such as snapshots, backup, cross-region replication, and cross-zone replication.<br></br>Consistent hybrid cloud experience.         |
 |Performance (Per volume)     |Up to 20,000 IOPS, up to 15 GiB/s throughput.         |Up to 100,000 IOPS, up to 10 GiB/s throughput.         |Up to 460,000 IOPS, up to 4.5 GiB/s throughput per regular volume, up to 12.5 GiB/s throughput per large volume.         |
 |Scale     | Up to 5 PiB for a single volume. <br></br> Up to 190.7 TiB for a single blob.<br></br>No minimum capacity requirements.         |Up to 100 TiB for a single file share.<br></br>Up to 4 TiB for a single file.<br></br>50 GiB min capacity.         |Up to 100 TiB for a single regular volume, up to 2 PiB for a large volume.<br></br>Up to 16 TiB for a single file.<br></br>Consistent hybrid cloud experience.         |

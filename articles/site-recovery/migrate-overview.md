@@ -5,8 +5,8 @@ services: site-recovery
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 10/31/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.custom: engagement-fy23
 ---
 

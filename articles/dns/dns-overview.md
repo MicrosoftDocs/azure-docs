@@ -1,11 +1,11 @@
 ---
 title: Azure DNS overview
 description: An overview of services provided by Azure DNS.
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: overview
 ms.date: 08/12/2024
-ms.author: greglin
+ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
 

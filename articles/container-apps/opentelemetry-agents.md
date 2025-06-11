@@ -7,6 +7,8 @@ ms.service: azure-container-apps
 ms.date: 05/08/2025
 ms.author: cshoe
 ms.topic: how-to
+ms.custom:
+  - build-2025
 ---
 
 # Collect and read OpenTelemetry data in Azure Container Apps

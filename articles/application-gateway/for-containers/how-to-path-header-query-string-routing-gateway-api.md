@@ -2,11 +2,11 @@
 title: Path, header, and query string routing with Application Gateway for Containers - Gateway API
 description: Learn how to configure Application Gateway for Containers with support with path, header, and query string routing.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Path, header, and query string routing with Application Gateway for Containers - Gateway API

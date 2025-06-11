@@ -6,7 +6,10 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/20/2025
 ms.author: kendownie
-ms.custom: devx-track-azurepowershell, references_regions
+ms.custom:
+  - devx-track-azurepowershell
+  - references_regions
+  - build-2025
 #Customer intent: As a network administrator, I want to securely connect to Azure Files NFS v4.1 volumes using a TLS channel so that I can protect data in transit from interception. By using AZNFS mount helper package for simplified setup, I can ensure data confidentiality without needing complex setups or external authentication systems.
 ---
 
@@ -32,7 +35,8 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 ## Supported regions
 
-All regions supported by Azure Premium Files now support encryption in transit, with the exception of Korea Central, West Europe, Japan West, China North 3, and Israel Central.
+All regions that support Azure Premium Files now support encryption in transit, with the exception of West Europe.
+
 
 ## Register for preview
  
@@ -45,22 +49,23 @@ Register through the Azure portal by searching for "Encryption in transit for Az
 
 :::image type="content" source="./media/encryption-in-transit-nfs-shares/portal-registration-encryption-in-transit.png" alt-text="Diagram showing the Azure portal screen to test if EiT is applied." lightbox="./media/encryption-in-transit-nfs-shares/portal-registration-encryption-in-transit.png":::
 
-
 For more information, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
-
 
 ### [PowerShell](#tab/azure-powershell)
 
-Register through PowerShell using [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature)
+Register through PowerShell using [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature):
 
-
-   `Register-AzProviderFeature -FeatureName "AllowEncryptionInTransitNFS4" -ProviderNamespace "Microsoft.Storage"`
+```PowerShell
+Register-AzProviderFeature -FeatureName "AllowEncryptionInTransitNFS4" -ProviderNamespace "Microsoft.Storage"
+```
 
 ### [Azure CLI](#tab/azure-cli)
  
-Register through Azure CLI using [az feature register](/cli/azure/feature)
- 
-   `az feature register --name AllowEncryptionInTransitNFS4 --namespace Microsoft.Storage`
+Register through Azure CLI using [az feature register](/cli/azure/feature):
+
+```bash
+az feature register --name AllowEncryptionInTransitNFS4 --namespace Microsoft.Storage
+```
    
 ---
 
@@ -84,9 +89,11 @@ Follow these steps to encrypt data in transit:
 ### Step 1: Check AZNFS mount helper package installation
  
 To check if the AZNFS mount helper package is installed on your client, run the following command:
+
 ```bash
 systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS mounthelper is installed! \n"
 ```
+
 If the package is installed, you'll see the message `AZNFS mounthelper is installed!`. If it isn't installed, you'll need to use the appropriate command to install the AZNFS mount helper package on your client.
  
 ### [Ubuntu/Debian](#tab/Ubuntu)
