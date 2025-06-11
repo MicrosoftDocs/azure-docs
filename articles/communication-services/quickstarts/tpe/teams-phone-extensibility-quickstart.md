@@ -516,7 +516,7 @@ Response<RecordingStateResult> response = await callAutomationClient.GetCallReco
 ```
 
 > [!NOTE]
-> Recording started with connection ID is started async (204 response code) and recording state change is updated via call back event `Microsoft.Communication.RecordingStateChanged` received on `RecordingStateCallbackUri`.
+> Recording started with connection ID is started async (204 response code) and recording state change is updated via callback event `Microsoft.Communication.RecordingStateChanged` received on `RecordingStateCallbackUri`.
 >
 > In addition, any failure to start recording is reported via a new callback event `Microsoft.Communication.StartRecordingFailed` received on `RecordingStateCallbackUri`.
 

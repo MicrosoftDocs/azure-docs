@@ -34,7 +34,7 @@ The Azure Communication Services Resource Owner needs to run the following API o
 
 
 1. The `{YOUR-ACS-RESOURCE-ENDPOINT}` in the request URI (RURI) path is the Azure Communication Services Resource fully qualified domain name (FQDN) from Azure.
-1. The `{YOUR-RESOURCE-ACCOUNT-GUID}` parameter in the RURI, is the oid value returned by the Graph API from the previous step. Alternatively for one off manual provisioning, the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/get-csonlineapplicationinstance) cmdlet returns the `ObjectId` and that ID is the `YOUR-RESOURCE-ACCOUNT-GUID`. 
+1. The `{YOUR-RESOURCE-ACCOUNT-GUID}` parameter in the RURI is the oid value returned by the Graph API from the previous step. Alternatively for one off manual provisioning, the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/get-csonlineapplicationinstance) cmdlet returns the `ObjectId` and that ID is the `YOUR-RESOURCE-ACCOUNT-GUID`. 
 1. The `{TENANT-GUID}` in the RURI path is the Teams Tenant GUID.
 1. The `{principalType}` in the body is `teamsResourceAccount` because we're consenting to a Teams Resource Account for Teams Phone Extensibility.
 
