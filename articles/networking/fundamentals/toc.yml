@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure Networking
+  - name: About Azure Networking
     href: networking-overview.md
 - name: Quickstarts
   items:
