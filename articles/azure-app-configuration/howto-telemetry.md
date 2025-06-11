@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 03/05/2025
 ---
 
-# Tutorial: Enable telemetry for feature flags (preview)
+# Enable telemetry for feature flags
 
 Telemetry is the process of collecting, transmitting, and analyzing data about the usage and performance of your application. It helps you monitor feature flag behavior and make data-driven decisions. When a feature flag change is deployed, it's often important to analyze its effect on an application. For example, here are a few questions that may arise:
 
