@@ -18,7 +18,7 @@ ms.custom:
 
 Azure Application Gateway provides comprehensive monitoring capabilities through [Azure Monitor](/azure/azure-monitor/overview) metrics. These metrics help you track the performance and health of your application gateway instance, including request latency, backend connectivity, and throughput measurements.
 
-This article describes the metrics available for Application Gateway, how to access and visualize them, and how to configure alerts based on metric thresholds. You'll learn about timing metrics that help diagnose performance bottlenecks, backend health indicators, and Web Application Firewall (WAF) metrics for security monitoring. For more information, see [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
+This article describes the metrics available for Application Gateway, how to access and visualize them, and how to configure alerts based on metric thresholds. You learn about timing metrics that help diagnose performance bottlenecks, backend health indicators, and Web Application Firewall (WAF) metrics for security monitoring. For more information, see [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
 
 ## Metrics overview
@@ -94,11 +94,11 @@ The following example walks you through creating an alert rule that sends an ema
 
 If the threshold is breached, an email that's similar to the one in the following image arrives:
 
-:::image type="content" source="./media/application-gateway-metrics/figure8.png" alt-text="Screenshot of email notification for breached threshold.":::
+:::image type="content" source="./media/application-gateway-metrics/example-email-notification.png" alt-text="Screenshot of email notification for breached threshold.":::
 
 A list of alerts appears after you create a metric alert. It provides an overview of all the alert rules.
 
-:::image type="content" source="./media/application-gateway-metrics/figure9.png" alt-text="Screenshot showing list of alerts and rules.":::
+:::image type="content" source="./media/application-gateway-metrics/overview-alerts-rules.png" alt-text="Screenshot showing list of alerts and rules.":::
 
 To learn more about alert notifications, see [Receive alert notifications](/azure/azure-monitor/alerts/alerts-overview).
 
