@@ -290,8 +290,6 @@ The `--input` flag should point to a file or directory containing XML rules, and
 > [!NOTE]
 > Ensure that the file permissions for scripts in the extracted folder are set to allow execution.
 
-In the **samples** folder, you can find a sample web application called **airsonic.war**. Airsonic is a web-based media streamer, providing access to your music and enabling you to share it with friends. To learn more about Airsonic, see [Airsonic](https://github.com/airsonic/airsonic).
-
 In the **samples** directory, you can find the following scripts to run different types of analysis:
 
 - **run-assessment**: Provides a report with code assessment and steps for migrating Airsonic to Azure App Service on Tomcat.
@@ -300,18 +298,26 @@ In the **samples** directory, you can find the following scripts to run differen
 - **run-assessment-openjdk21**: Generates a report with code assessment and steps for migrating Airsonic to OpenJDK 21.
 - **run-assessment-package-only**: Produces a report by assessing specific packages.
 
-Depending on your operating system, run the appropriate script, as shown in the following example:
+These scripts are intended to be used with the Airsonic-Advanced project — a community-driven, web-based media streamer that allows you to access and share your music collection.
+You can clone the application repository manually using the following command:
+```sh
+git clone https://github.com/airsonic-advanced/airsonic-advanced.git
+```
+After cloning, provide the path to the cloned folder when running the assessment scripts. Depending on your operating system, run the appropriate script, as shown in the following example:
+
+> [!NOTE]
+> Make sure you have cloned the Airsonic Advanced project to a local path before running the scripts.
 
 # [Linux / macOS](#tab/linux)
 
 ```bash
-./samples/run-assessment
+./samples/run-assessment <path-to-airsonic-advanced>
 ```
 
 # [Windows](#tab/windows)
 
 ```cmd
-.\samples\run-assessment.bat
+.\samples\run-assessment.bat <path-to-airsonic-advanced>
 ```
 
 ---
@@ -320,7 +326,11 @@ The reports are automatically generated and launched. You can find the reports u
 
 ### Summary of the analysis
 
-The landing page of the report lists all the technologies that are used in the application. The dashboard provides a summary of the analysis, including the number of transformation incidents, the incidents categories, or the story points.
+The landing page of the report lists all the analyzed applications and its detected issues numbers. After you select an individual application, it will show you more details.
+
+It will show a issue list by different issue domains: Azure Readiness, Cloud Native, and Java Modernization.
+
+that are used in the application. The dashboard provides a summary of the analysis, including the number of transformation incidents, the incidents categories, or the story points.
 
 :::image type="content" source="media/java/appcat-7-report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/appcat-7-report-summary.png":::
 
@@ -334,7 +344,7 @@ The dashboard also shows the *story points*. The story points are an abstract me
 
 The assessment report gives an overview of the transformation issues that would need to be solved to migrate the application to Azure.
 
-These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, or *Potential*), a level of effort, and a number indicating the story points. The story points are determined by calculating the number of incidents times the effort required to address the issue.
+These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, or *Potential*), and the number of impacted code lines.
 
 :::image type="content" source="media/java/appcat-7-report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/java/appcat-7-report-assessment.png":::
 
