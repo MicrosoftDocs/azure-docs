@@ -71,7 +71,7 @@ To enable the VM property, follow these steps:
 
 ## Hotpatching
 
-[Hotpatching](/windows-server/get-started/hotpatch?context=%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext) allows you to install OS security updates on supported *Windows Server Datacenter: Azure Edition* virtual machines that don't require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process. With Hotpatching, reboots will be typically be required for the installation of patches on every third month rather than every month.
+[Hotpatching](/windows-server/get-started/hotpatch?context=%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext) allows you to install OS security updates on supported *Windows Server Datacenter: Azure Edition* virtual machines that don't require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process. With Hotpatching, reboots will typically be required for the installation of patches on every third month rather than every month.
 
 Following are the features of Hotpatching:
 
@@ -102,7 +102,7 @@ Automatic Extension Upgrade has the following features:
 This mode of patching allows operating system to automatically install updates on Windows VMs as soon as they're available. It uses the VM property that is enabled by setting the patch orchestration to OS orchestrated/Automatic by OS.
 
 > [!NOTE]
-> - Windows automatic updates is not an Azure Update Manager setting but a Windows level setting.
+> - Windows automatic updates are not an Azure Update Manager setting, but a Windows-level setting.
 
 ## Update or Patch orchestration
 
