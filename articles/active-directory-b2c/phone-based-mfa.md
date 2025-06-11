@@ -82,7 +82,7 @@ You can use the workbook to understand phone-based MFA events and identify poten
 3. Mitigate fraudulent sign-ups by following the steps in the next section.
  
 
-## Mitigate fraudulent sign-ups
+## Mitigate fraudulent sign-ups for user flow
 
 Take the following actions to help mitigate fraudulent sign-ups.
 
@@ -97,11 +97,14 @@ Take the following actions to help mitigate fraudulent sign-ups.
    1. Sign in to the [Azure portal](https://portal.azure.com) as the [External ID User Flow Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator) of your Azure AD B2C tenant.
    1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
    1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-   1. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
+   1. Select the user flow, and then select **Languages**. Select the language for your organization's primary geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
  
       ![Upload new overrides to download defaults](media/phone-based-mfa/download-defaults.png)
 
    1. Open the JSON file that was downloaded in the previous step. In the file, search for `DEFAULT`, and replace the line with `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Be sure to set `Overrides` to `true`.
+
+   > [!IMPORTANT]
+   > To implement SMS blocking effectively, please ensure that the Overrides setting is enabled (true) only for the primary or default language used in your business. Avoid enabling overrides for any non-primary      languages, as doing so may lead to unintended SMS blocking behavior. Since the countryList in the JSON file functions as an allow list, please include all countries permitted to send SMS within this list for the primary language configuration when Overrides is set to true.
 
    > [!NOTE]
    > You can customize the list of allowed country codes in the `countryList` element (see the [Phone factor authentication page example](localization-string-ids.md#phone-factor-authentication-page-example)).
@@ -110,6 +113,50 @@ Take the following actions to help mitigate fraudulent sign-ups.
    1. Close the panel and select **Run user flow**. For this example, confirm that **United States** is the only country code available in the dropdown:
  
       ![Country code drop-down](media/phone-based-mfa/country-code-drop-down.png)
+
+## Mitigate fraudulent sign-ups for custom policy
+
+Take the following actions to help mitigate fraudulent sign-ups:
+
+1. Identify the policy file where RelyingParty is defined. In the sample [Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) this is the SignUpOrSignin.xml file
+2. Add the following code within the "BuildingBlocks" section:
+
+   ```xml
+    <BuildingBlocks>
+
+      <ContentDefinitions>
+        <ContentDefinition Id="api.phonefactor">
+          <LoadUri>~/tenant/templates/AzureBlue/multifactor-1.0.0.cshtml</LoadUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.20</DataUri>
+          <Metadata>
+            <Item Key="TemplateId">azureBlue</Item>
+          </Metadata>
+          <LocalizedResourcesReferences MergeBehavior="Prepend">
+            <!-- Add only primary business language here -->
+            <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.phonefactor.en" />        
+          </LocalizedResourcesReferences>
+        </ContentDefinition>
+      </ContentDefinitions>
+
+      <Localization Enabled="true">
+        <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
+          <!-- Add only primary business language here -->
+          <SupportedLanguage>en</SupportedLanguage>
+        </SupportedLanguages>
+
+        <!-- Phone factor for primary business language -->
+        <LocalizedResources Id="api.phonefactor.en">
+          <LocalizedStrings>
+           <LocalizedString ElementType="UxElement" StringId="countryList">{"DEFAULT":"Country/Region","JP":"Japan","BG":"Bulgaria","US":"United States"}</LocalizedString>
+          </LocalizedStrings>
+        </LocalizedResources>
+      </Localization>
+
+     </BuildingBlocks>
+    ```
+   
+   > [!NOTE]
+   > The countryList functions as an allow list; therefore, only the countries specified within it (e.g., Japan, Bulgaria, and the United States) will be permitted to use MFA, while all other countries will be blocked.
 
 ## Related content
 
