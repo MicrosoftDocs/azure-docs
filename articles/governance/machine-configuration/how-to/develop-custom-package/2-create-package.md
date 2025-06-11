@@ -66,7 +66,7 @@ Configuration MyConfig {
 MyConfig
 ```
 
-This example configuration is for Linux machines. It creates a file at the path `/tmp/myfile`, sets its content to `Hello, world!`, and configured the file with mode `0777`.
+This example configuration is for Linux machines. It creates a file at the path `/tmp/myfile`, sets its content to `Hello, world!`, and configures the file with mode `0777`.
 
 ```powershell
 Install-Module -Name nxtools
