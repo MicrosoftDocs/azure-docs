@@ -1,5 +1,5 @@
 ---
-title: Copy data from QuickBooks Online (Preview) 
+title: Copy data from QuickBooks Online
 description: Learn how to copy data from QuickBooks Online to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
@@ -7,10 +7,10 @@ ms.author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 06/11/2025
 ---
 
-# Copy data from QuickBooks Online using Azure Data Factory or Synapse Analytics (Preview)
+# Copy data from QuickBooks Online using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from QuickBooks Online. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -66,7 +66,53 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for QuickBooks linked service:
+The QuickBooks connector now supports version 2.0. Refer to this [section](#upgrade-the-quickbooks-connector-from-version-10-to-version-20) to upgrade your QuickBooks connector version from version 1.0 (Preview). For the property details, see the corresponding sections.
+
+- [Version 2.0](#version-20)
+- [Version 1.0 (Preview)](#version-10)
+
+### Version 2.0
+
+The QuickBooks linked service supports the following properties when apply version 2.0:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to: **QuickBooks** | Yes |
+| version | The version that you specify. The value is `2.0`. | Yes |
+| endpoint | The endpoint of the QuickBooks Online server. (that is, quickbooks.api.intuit.com)  | Yes |
+| companyId | The company ID of the QuickBooks company to authorize. For info about how to find the company ID, see [How do I find my Company ID](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Yes |
+| consumerKey | The client ID of your QuickBooks Online application for OAuth 2.0 authentication. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). | Yes |
+| consumerSecret | The client secret of your QuickBooks Online application for OAuth 2.0 authentication. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | The OAuth 2.0 refresh token associated with the QuickBooks application. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Note refresh token will be expired after 180 days. Customer need to regularly update the refresh token. <br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
+
+**Example:**
+
+```json
+{
+    "name": "QuickBooksLinkedService",
+    "properties": {
+        "type": "QuickBooks",
+        "version": "2.0",
+        "typeProperties": {
+            "endpoint": "quickbooks.api.intuit.com",
+            "companyId": "<company id>",
+            "consumerKey": "<consumer key>", 
+            "consumerSecret": {
+                 "type": "SecureString",
+                 "value": "<clientSecret>"
+            },
+            "refreshToken": {
+                "type": "SecureString",
+                "value": "<refresh token>"
+            }
+        }
+    }
+}
+```
+
+### <a name="version-10"></a> Version 1.0 (Preview)
+
+The following properties are supported for QuickBooks linked service when apply version 1.0 (Preview):
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -192,6 +238,19 @@ The Copy Activity in the service cannot copy data directly from Quickbooks Deskt
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Quickbooks connector lifecycle and upgrade
+
+The following table shows the release stage and change logs for different versions of the QuickBooks connector:
+
+| Version  | Release stage | Change log |  
+| :----------- | :------- |:------- |
+| Quickbooks version 1.0 (Preview) | End of support announced | / |  
+| Quickbooks version 2.0 | GA version available | • `useEncryptedEndpoints` is not supported. <br><br>• `query` don’t support GROUP BY clauses, JOIN clauses and Aggregate Function (Avg, Max, Sum). For more information about query operations and syntax, see this [article](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries).  |
+
+### <a name="upgrade-the-quickbooks-connector-from-version-10-to-version-20"></a> Upgrade the Quickbooks connector from version 1.0 (Preview) to version 2.0
+
+In **Edit linked service** page, select 2.0 for version. For more information, see [linked service version 2.0 properties](#version-20).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
