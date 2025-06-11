@@ -94,7 +94,7 @@ df = lake_provider.read_table("user", "default")
 
 ### save_as_table
 
-Write a DataFrame as a managed table
+Write a DataFrame as a managed table. You can write to the lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.                
 
 ```python
 lake_provider.save_as_table({DataFrame}, {table_name}, {database}, [id], [WriteOptions])
@@ -120,18 +120,18 @@ lake_provider.save_as_table(dataframe, "CustomTable1_SPRK", "msgworkspace1")
 
 Create new custom table in the analytics tier
 ```python
-lake_provider.save_as_table(dataframe, "CustomTable1_CL", "workspace1")
+lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "workspace1")
 ```
 
 Append or overwrite to an existing custom table in the analytics tier
 ```python
 
-lake_provider.save_as_table(dataframe, "CustomTable1_CL", "workspace1", mode="Append")
+lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "workspace1", mode:"Append")
 ```
 
 ### delete_table
 
-Deletes the table from the schema
+Deletes the table from the schema.  You can delete table from lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.   
 
 ```python
 lake_provider.delete_table({table_name}, {database}, [id])
