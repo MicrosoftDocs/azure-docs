@@ -546,7 +546,7 @@ wget https://raw.githubusercontent.com/Azure/cyclecloud-gridengine/master/templa
 
 In the _gridengine.txt_ file, locate the first occurrence of `[[[configuration]]]` and insert text to match the following snippet. The file isn't sensitive to indentation.
 
-> NOTE:
+> [!NOTE]
 > The details in the configuration, particularly version, should match the installer file name.
 
 ```ini
