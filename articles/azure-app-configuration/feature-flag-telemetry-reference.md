@@ -16,8 +16,8 @@ Having telemetry data on your feature flags can be a powerful tool for understan
 In this document, you:
 
 > [!div class="checklist"]
-> - Learn which telemetry data is viewable using the Azure App Configuration provider libraries
-> - Learn which telemetry data is viewable using the Feature Management libraries
+> - Learn what telemetry data is available using the Azure App Configuration provider libraries
+> - Learn what telemetry data is available using the Feature Management libraries
 
 ## Viewing telemetry data
 
@@ -42,7 +42,7 @@ When the Feature Management libraries and the provider libraries are used togeth
 - **Version**: The version of this schema.
 - **Reason**: The reason the feature flag was enabled or disabled.
 - **Variant**: The variant that was selected for the feature flag.
-- **VariantAssignmentPercentage**  (preview): If a variant wasn't targeted specifically at the user, or one of the user's groups, this number is the Percentage chance of the user being assigned to the variant.
+- **VariantAssignmentPercentage**: Specifies the percentage of the user base the assigned variant is allocated for. This field is only present for percentile-based assignments.
 - **DefaultWhenEnabled**  (preview): The default variant of the feature flag when it's enabled.
 - **AllocationID** (preview): A unique identifier for the feature flag in its current state.
 - **ETag**: The current ETag for the feature flag.

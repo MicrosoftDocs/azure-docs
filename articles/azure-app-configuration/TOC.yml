@@ -365,7 +365,7 @@
         href: ./feature-management-javascript-reference.md
     - name: Telemetry
       items:
-      - name: Feature flags telemetry reference
+      - name: Feature flag telemetry reference
         href: feature-flag-telemetry-reference.md
   - name: Deployment
     items:
