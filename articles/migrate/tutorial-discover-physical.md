@@ -176,8 +176,63 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 
 [Add screen]
 
+> [!Note]
+> This is a new user experience in Azure Migrate appliance. It is available only when you set up the appliance using the latest OVA or installer script from the portal. Appliances that are already registered keep using the older version of the experience and continue to work without any issues.
+
+1. To let the appliance run auto-update, paste the project key you copied from the portal
+1. If you don't have the key, go to **Azure Migrate**: **Discovery and assessment** > **Overview** > **Manage existing appliances**.
+1. Select the appliance name you used when you created the project key, then copy the key eshown there.
+1. The appliance verifies the key and starts the auto-update service. This service updates all appliance components to their latest versions. After the update finishes, you can select 'View appliance services' to see the status and versions of the services running on the appliance server.
+1. To register the appliance, select Login. In **Continue with Azure Login** select **Copy code & Logi** to copy the device code. You need this code to sign in to Azure. The browser opens a new tab with the Azure sign-in prompt. Make sure you turn off the pop-up blocker to see the prompt.
+[Add screen]
+
+1. In a new browser tab, paste the device code and sign in using your Azure username and password. You cannot sign in with a PIN.
+
+>[!Note]
+> If you close the sign-in tab accidentally without logging in, refresh the browser tab of the appliance configuration manager. It shows the device code and the **Copy code & Login button again**.
+
+1. After you sign in successfully, return to the browser tab that displays the appliance configuration manager.
+1. If the Azure account you used has the right permissions for the Azure resources created during key generation, the appliance starts registration.
+1. When the appliance registers successfully, select **View details** to see the registration information.
+1. You can run the prerequisites again anytime during the appliance setup to check if it meets all the requirements.
+
+## Add credentials 
+
+Now, connect the appliance to the physical servers and start discovery:
 
 
+1. **Provide credentials for discovery of Windows and Linux physical or virtual servers**, select **Add credentials**.
+1. For a Windows server: 
+    1. Select the source type as **Windows Server**.
+    1. Enter a friendly name for the credentials.
+    1. Add the username and password.
+    1. Select **Save**.
+
+1. If you use password-based authentication for a Linux server, select the source type as **Linux Server (Password-based)**. 
+    1. Enter a friendly name for the credentials.
+    1. Add the username and password, and then select **Save**.
+1. If you use SSH key-based authentication for a Linux server:
+    1. Select the source type as **Linux Server (SSH key-based)**.
+    1. Enter a friendly name for the credentials.
+    1. Add the username.
+    1. Browse and select the SSH private key file. 
+    1. Select **Save**.
+    > [!Note]
+    > - Azure Migrate supports SSH private keys created using the ssh-keygen command with RSA, DSA, ECDSA, and ed25519 algorithms.
+    - It does not support SSH keys with a passphrase. Use a key without a passphrase.
+    - It does not support SSH private key files created by PuTTY.
+    - It supports SSH private key files in OpenSSH format.
+
+1. To add multiple credentials at once, select **Add more** to save and enter more credentials. The appliance supports multiple credentials for discovering physical servers.
+
+>[!Note]
+> By default, the appliance uses the credentials to collect data about installed applications, roles, and features. It also collects dependency data from Windows and Linux servers, unless you turn off the slider to skip these actions in the last step."
+
+
+
+
+
+. 
 
 **Requirement** | **Details**
 --- | ---
