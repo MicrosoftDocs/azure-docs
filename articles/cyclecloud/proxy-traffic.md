@@ -2,7 +2,7 @@
 title: Proxy Traffic
 description: Enable proxy access to your Azure CycleCloud install.
 author: adriankjohnson
-ms.date: 08/01/2018
+ms.date: 06/11/2025
 ms.author: adjohnso
 ---
 
