@@ -36,16 +36,16 @@ In this section, you use Visual Studio Code to create a function with an Event G
 
 1. Select a folder where you want to save the function code.
 
-1. For the **Create new project** command, for **Language**, select **C#**, and then select the Enter key.
+1. For the **Create new project** command, for **Language**, select **C#**, and then select **Enter**.
 
     :::image type="content" source="./media/custom-event-to-function/select-function-language.png" alt-text="Screenshot that shows the selection of C Sharp as the language for developing an Azure function."  lightbox="./media/custom-event-to-function/select-function-language.png":::
-1. For **.NET runtime**, select **.NET 8.0 Isolated LTS**, and then select the Enter key.
+1. For **.NET runtime**, select **.NET 8.0 Isolated LTS**, and then select **Enter**.
 
-1. For **Template for the function**, select **Azure Event Grid trigger**, and then select the Enter key.
+1. For **Template for the function**, select **Azure Event Grid trigger**, and then select **Enter**.
 
-1. For **Function name**, enter a name for your function, and then select the Enter key.  
+1. For **Function name**, enter a name for your function, and then select **Enter**.  
 
-1. For **Namespace**, enter a name for the function's namespace, and then select the Enter key.
+1. For **Namespace**, enter a name for the function's namespace, and then select **Enter**.
 
 1. Open the project in the current window or a new window, or add it to a workspace.
 
@@ -69,9 +69,9 @@ In this section, you use Visual Studio Code to create a function with an Event G
 1. Hover over your project and select the **Deploy to Azure** button.
 
     :::image type="content" source="./media/custom-event-to-function/deploy-to-azure-button.png" alt-text="Screenshot that shows the button for deploying to Azure."  lightbox="./media/custom-event-to-function/deploy-to-azure-button.png":::
-1. In the dropdown list of the command palette, select **+ Create new function app**, and then select the Enter key.
+1. In the dropdown list of the command palette, select **+ Create new function app**, and then select **Enter**.
 
-1. For **Name**, enter a globally unique name for the new function app, and then select the Enter key.
+1. For **Name**, enter a globally unique name for the new function app, and then select **Enter**.
 
 1. For **Runtime stack**, select **.NET 8 Isolated**.
 
@@ -146,7 +146,7 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
             :::image type="content" source="./media/custom-event-to-function/provide-endpoint.png" alt-text="Screenshot that shows the pane for selecting a previously created Azure function.":::
     1. This step is optional, but we recommend it for production scenarios. On the **Create Event Subscription** pane, go to the **Additional Features** tab and set values for **Max events per batch** and **Preferred batch size in kilobytes**.
 
-        Batching can give you high throughput. For **Max events per batch**, set the maximum number of events that a subscription will include in a batch. **Preferred batch size in kilobytes** sets the preferred upper bound of batch size, but it can be exceeded if a single event is larger than this threshold.
+        Batching can give you high throughput. For **Max events per batch**, set the maximum number of events that a subscription includes in a batch. **Preferred batch size in kilobytes** sets the preferred upper bound of batch size, but it can be exceeded if a single event is larger than this threshold.
 
         :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Screenshot that shows batching settings for an event subscription.":::
     1. On the **Create Event Subscription** pane, select **Create**.
@@ -192,7 +192,7 @@ The cURL tool sends HTTP requests. In this article, you use cURL to send the eve
     key=$(az eventgrid topic key list --name $topicname -g $resourcegroupname --query "key1" --output tsv)
     ```
 
-1. Copy the following statement with the event definition, and then select the Enter key.
+1. Copy the following statement with the event definition, and then select **Enter**.
 
     ```json
     event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
@@ -274,7 +274,7 @@ You triggered the event, and Event Grid sent the message to the endpoint that yo
 1. On the **Monitor** page for your function, find an invocation.
 
     :::image type="content" source="./media/custom-event-to-function/monitor-page-invocations.png" alt-text="Screenshot that shows the Invocations tab of the Monitor page.":::
-1. Select the invocation to display the details.
+1. To display the details, select the invocation.
 
     :::image type="content" source="./media/custom-event-to-function/invocation-details-page.png" alt-text="Screenshot that shows invocation details.":::
 
@@ -288,9 +288,9 @@ If you plan to continue working with this event, don't clean up the resources th
 
 1. On the left menu, select **Resource groups**.
 
-    ![Screenshot that shows the page for resource groups](./media/custom-event-to-function/delete-resource-groups.png)
+   :::image type="content" source="./media/custom-event-to-function/delete-resource-groups.png" alt-text="Screenshot that shows the page for resource groups.":::
 
-    An alternative is to select **All Services** on the left menu, and then select **Resource groups**.
+    An alternative is to select **All Services** on the left menu. Then select **Resource groups**.
 1. Select the resource group to open the pane for its details.
 
 1. On the toolbar, select **Delete resource group**.
