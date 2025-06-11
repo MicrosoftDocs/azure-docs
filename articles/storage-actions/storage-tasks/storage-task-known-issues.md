@@ -113,7 +113,7 @@ The workaround is to exclude the specific prefixes which are soft deleted.
 
 ## No option to choose priority when rehydrating blobs to an online tier 
 
-When re-hydrating archived storage blobs there is no option to choose priority. The blobs are re-hydrated with Standard priority. 
+When rehydrating archived blobs there is no option to choose priority. The blobs are rehydrated with standard priority. 
 
 ## See Also
 
