@@ -160,6 +160,22 @@ Or, open the app from the desktop by selecting the shortcut.
 
 ## Set up prerequisites and register the appliance
 
+In the configuration manager, select **Set up prerequisites**, and then follow these steps:
+
+1. **Connectivity**: The appliance checks if the server has internet access. If the server uses a proxy:
+
+    - Select **Setup proxy** and enter the proxy address *(http://ProxyIPAddress or http://ProxyFQDN, where FQDN means fully qualified domain name)* and the listening port.
+     - Enter credentials if the proxy needs authentication.
+    - If you add or change proxy settings or disable the proxy or authentication, select **Save** to apply the changes and check connectivity again.
+    > [!Note]
+    > Only HTTP proxy is supported.
+
+1. **Time sync**: Check that the appliance time matches internet time. This is needed for discovery to work properly.
+
+1. **Install updates and register appliance**: Follow the steps to run auto-update and register the appliance.
+
+[Add screen]
+
 
 
 
