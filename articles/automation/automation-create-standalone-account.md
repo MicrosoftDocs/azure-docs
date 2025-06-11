@@ -107,7 +107,7 @@ When the Automation account is successfully created, several resources are autom
 
 ## Manage Automation account keys
 
-When you create an Automation account, Azure generates two 512-bit automation account access keys for that account. These keys are shared access keys that are used as registration keys for registering [DSC nodes](./automation-dsc-onboarding.md#use-dsc-metaconfiguration-to-register-hybrid-machines) as well as [Windows](./automation-windows-hrw-install.md) and [Linux](./automation-linux-hrw-install.md#manually-run-powershell-commands) Hybrid runbook workers. These keys are only used while registering DSC nodes and Hybrid workers. Existing machines configured as DSC nodes or hybrid workers won’t be affected after rotation of these keys. 
+When you create an Automation account, Azure generates two 512-bit automation account access keys for that account. These keys are shared access keys that are used as registration keys for registering [DSC nodes](./automation-dsc-onboarding.md#use-dsc-metaconfiguration-to-register-hybrid-machines) These keys are only used while registering DSC nodes. Existing machines configured as DSC nodes or hybrid workers won’t be affected after rotation of these keys. 
 
 ### View Automation account keys
 

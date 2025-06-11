@@ -37,9 +37,6 @@ You can also use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) 
 
 Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](/azure/key-vault/general/network-security), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation isn't a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
 
->[!NOTE]
->- To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation).
-
 The following table lists some runbook execution tasks with the recommended execution environment listed for each.
 
 |Task|Recommendation|Notes|

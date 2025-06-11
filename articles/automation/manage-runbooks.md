@@ -366,7 +366,6 @@ To use a custom script:
 
 1. Create an Automation account.
 2. Deploy the [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) role.
-3. If on a Linux machine, you need elevated privileges. Sign in to [turn off signature checks](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## Test a runbook
 

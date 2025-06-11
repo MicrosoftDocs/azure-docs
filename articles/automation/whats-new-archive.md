@@ -124,7 +124,7 @@ The script is available for download from our [GitHub repository](https://github
 
 **Type.** New feature
 
-The Hybrid Runbook Worker feature supports CentOS 8.x, REHL 8.x, and SLES 15 distributions for only process automation on Hybrid Runbook Workers. See [Supported operating systems](automation-linux-hrw-install.md#supported-linux-operating-systems) for updates to the documentation to reflect these changes.
+The Hybrid Runbook Worker feature supports CentOS 8.x, REHL 8.x, and SLES 15 distributions for only process automation on Hybrid Runbook Workers.
 
 ### Update Management and Change Tracking availability in Australia East, East Asia, West US, and Central US regions
 
