@@ -187,7 +187,6 @@ Then use this policy to add query parameters for every request through the clien
 internal class ArgGetListHttpPipelinePolicy : HttpPipelineSynchronousPolicy 
 
 { 
-
     private static const string UseResourceGraph = "useResourceGraph"; 
     public override void OnSendingRequest(HttpMessage message) 
 
@@ -196,11 +195,8 @@ internal class ArgGetListHttpPipelinePolicy : HttpPipelineSynchronousPolicy
         if (!message.Request.Uri.ContainsQuery(UseResourceGraph)) 
         { 
           message.Request.Uri.AppendQuery(UseResourceGraph, bool.TrueString); 
-
         } 
-
     } 
-
 } 
 ```
 
