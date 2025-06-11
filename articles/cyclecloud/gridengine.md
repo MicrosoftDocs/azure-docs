@@ -104,7 +104,7 @@ You can verify the number of slots and slot_type your machines have by running t
     all.q@ip-0A000406              BIP   0/0/4          0.25     linux-x64
 ```
 
-Notice that there is one of each 'slot_type' specified 'execute' and 'gpu'. The slot_types are configured individually, and the number of slots for the 'execute' slot is 4, which is the number of CPUs on the machine. The number of slots for the 'gpu' slot type is 2, which we specified in our cluster configuration template. The third machine is the master node which doesn't run jobs.
+Notice that there's one of each 'slot_type' specified 'execute' and 'gpu'. The slot_types are configured individually, and the number of slots for the 'execute' slot is 4, which is the number of CPUs on the machine. The number of slots for the 'gpu' slot type is 2, which we specified in our cluster configuration template. The third machine is the master node which doesn't run jobs.
 
 ## Grid Engine Advanced Usage
 
@@ -210,7 +210,7 @@ The following are the Grid Engine specific configuration options you can toggle 
 | gridengine.slot_type               | The name of type of 'slot' a node provides. The default is 'execute'. When a job is tagged with the hard resource 'slot_type=', that job *only* runs on a machine of the same slot type. This tagging allows you to create different software and hardware configurations per node and ensure an appropriate job is always scheduled on the correct type of node.  |
 | gridengine.ignore_fqdn             | Default: true. Set to false if all the nodes in your cluster aren't part of a single DNS domain. |
 | gridengine.version                 | Default: '2011.11'. This configuration option specifies the Grid Engine version to install and run. Currently, it's the default and the *only* available option. Other versions of the Grid Engine software may be supported in the future. |
-| gridengine.root                    | Default: '/sched/sge/sge-2011.11' This location is where the Grid Engine installs and mounts on each node in the system. It's recommended to keep this value unchanged. However, if you modify, ensure to set the same value on **every** node in the cluster.   |
+| gridengine.root                    | Default: '/sched/sge/sge-2011.11' This location is where the Grid Engine installs and mounts on each node in the system. It's best to keep this value unchanged. However, if you modify, ensure to set the same value on **every** node in the cluster.   |
 
 [!INCLUDE [scheduler-integration](~/articles/cyclecloud/includes/scheduler-integration.md)]
 
@@ -357,7 +357,7 @@ mfree | String | Same as _m/_mem/_free_
 
 ### Resource Mapping
 
-There is also maths available to the default_resources - reduce the slots on a particular node array by two and add the docker resource to all nodes:
+There's also maths available to the default_resources - reduce the slots on a particular node array by two and add the docker resource to all nodes:
 
 ```json
     "default_resources": [
@@ -488,7 +488,7 @@ When modifying scheduler configurations (_qconf_) or autoscale configurations (_
 1. Run `azge validate` to verify configurations for known issues.
 1. Run `azge buckets` to check the resources offered by the CycleCloud cluster.
 1. Run `azge jobs` to inspect the queued job details.
-1. Run `azge demand` perform the job to bucket matching, examine which jobs are matched to which buckets and hostgroups.
+1. Run `azge demand` perform the job to bucket matching. Then examine which jobs are matched to which buckets and hostgroups.
 1. Run `azge autoscale` to kickoff the node allocation process, or add nodes which are ready to join.
 
 Once the commands are working as expected, enable ongoing autoscale by adding the `azge autoscale` command to the root crontab. Ensure to source the gridengine environment variables in advance.
