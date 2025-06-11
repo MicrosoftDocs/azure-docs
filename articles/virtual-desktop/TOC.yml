@@ -157,6 +157,9 @@
             - name: Check access to required FQDNs and endpoints
               displayName: network, fqdn, endpoint, urls, connections, connectivity
               href: check-access-validate-required-fqdn-endpoint.md
+        - name: RDP Multipath
+          displayName: network connectivity, connections, udp
+          href: rdp-multipath.md
         - name: RDP Shortpath
           items:
             - name: RDP Shortpath overview

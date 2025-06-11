@@ -178,7 +178,7 @@ items:
       href: ./afds/automated-detection-response-with-sentinel.md
   - name: Application DDoS protection
     href: ./shared/application-ddos-protection.md
-  - name: Microsoft Copilot for Security
+  - name: Microsoft Security Copilot
     href: waf-copilot.md
   - name: JavaScript challenge
     href: waf-javascript-challenge.md

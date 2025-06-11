@@ -203,7 +203,14 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 |---|------------|
 |AzureWebJobsFeatureFlags|`feature1,feature2,EnableProxies`|
 
-Add `EnableProxies` to this list to re-enable proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Re-enable proxies in Functions v4.x](./legacy-proxies.md#re-enable-proxies-in-functions-v4x). 
+If your app currently has this setting, add new flags to the end of the comma-delineated list. 
+
+Currently-supported feature flags:
+
+|Flag value | Description |
+| ----- | ----- |
+| `EnableProxies` | Re-enables proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Re-enable proxies in Functions v4.x](./legacy-proxies.md#re-enable-proxies-in-functions-v4x). |
+| `EnableAzureMonitorTimeIsoFormat` | Enables the `ISO 8601` time format in Azure Monitor logs for Linux apps running on a Dedicated (App Service) plan. |
 
 ## AzureWebJobsKubernetesSecretName 
 
