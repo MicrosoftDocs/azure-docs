@@ -38,8 +38,6 @@
       href: availability-zones-migration-overview.md
     - name: Migration guides by service
       items:
-      - name: Azure API Management
-        href: /azure/api-management/enable-zone-redundancy?toc=/azure/reliability
       - name: Azure App Configuration
         href: migrate-app-configuration.md
       - name: Azure Application Gateway
@@ -255,11 +253,7 @@
     - name: Azure Service Bus
       href: ../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
     - name: Azure API Management
-      items:
-      - name: Availability zones
-        href: ../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-api-management.md
     - name: Azure Data Manager for Energy
       href: reliability-energy-data-services.md
     - name: Azure Data Factory
@@ -405,11 +399,7 @@
     - name: Azure AI Search
       href: /azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure API Management
-      items:
-      - name: Availability zones
-        href: ../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-api-management.md
     - name: Azure App Service
       href: reliability-app-service.md
     - name: Azure Container Apps
@@ -450,8 +440,6 @@
         href: /azure/cloud-services-extended-support/in-place-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: App Service Environment v1/v2
         href: /azure/app-service/environment/migrate?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: API Management
-        href: /azure/api-management/compute-infrastructure?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-migrate-to-the-stv2-platform
       - name: Azure Redis Cache  
         href: /azure/azure-cache-for-redis/cache-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#caches-with-a-dependency-on-cloud-services--classic
       - name: Classic Resource Providers
