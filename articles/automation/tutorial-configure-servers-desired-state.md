@@ -7,6 +7,8 @@ ms.topic: tutorial
 ms.date: 10/22/2024
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Configure machines to a desired state

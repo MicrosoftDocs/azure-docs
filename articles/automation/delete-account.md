@@ -6,6 +6,8 @@ ms.service: azure-automation
 ms.subservice: process-automation
 ms.date: 05/08/2025
 ms.topic: how-to 
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage your Azure Automation account

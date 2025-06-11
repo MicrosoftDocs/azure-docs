@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/03/2025
 
 #CustomerIntent: As an administrator, I want to learn how to create or modify an an Exchange peering with Route Server using the Azure portal so I can manage my Exchange peerings.
+# Customer intent: As a network administrator, I want to create or modify an Exchange peering with Route Server using the Azure portal, so that I can efficiently manage my network configurations and ensure optimal connectivity.
 ---
 
 # Create or modify an Exchange peering with Route Server using the Azure portal

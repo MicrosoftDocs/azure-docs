@@ -5,6 +5,8 @@ services: automation
 ms.date: 05/08/2025
 ms.topic: troubleshooting 
 ms.custom:
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Troubleshoot VM extension-based Hybrid Runbook Worker issues in Automation

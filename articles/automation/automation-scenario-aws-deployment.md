@@ -6,6 +6,8 @@ ms.subservice: process-automation
 ms.date: 09/09/2024
 ms.topic: overview
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Deploy an Amazon Web Services VM with a runbook

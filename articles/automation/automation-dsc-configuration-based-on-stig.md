@@ -7,6 +7,8 @@ ms.subservice: desired-state-config
 ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Configure data based on Security Technical Information Guide (STIG)

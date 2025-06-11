@@ -6,6 +6,8 @@ services: automation
 ms.date: 09/15/2024
 ms.topic: quickstart
 ms.custom: references_regions, devx-track-azurecli
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Run Azure CLI commands in PowerShell 7.2 runbooks

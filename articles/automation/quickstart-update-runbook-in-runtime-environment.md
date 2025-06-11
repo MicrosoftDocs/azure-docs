@@ -6,6 +6,8 @@ services: automation
 ms.date: 09/15/2024
 ms.topic: quickstart
 ms.custom: references_regions
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Update runbook from PowerShell 5.1 to PowerShell 7.2

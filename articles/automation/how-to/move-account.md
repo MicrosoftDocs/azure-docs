@@ -6,6 +6,8 @@ ms.subservice: process-automation
 ms.date: 09/10/2024
 ms.topic: how-to 
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Move your Azure Automation account to another subscription

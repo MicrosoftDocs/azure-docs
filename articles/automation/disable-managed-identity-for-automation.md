@@ -6,6 +6,8 @@ ms.subservice: process-automation
 ms.date: 09/09/2024
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Disable system-assigned managed identity for Azure Automation account

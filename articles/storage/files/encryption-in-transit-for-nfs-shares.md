@@ -4,7 +4,7 @@ description: This article explains how you can encrypt data in transit for NFS A
 author: guptasonia
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 06/11/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -35,7 +35,7 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 ## Supported regions
 
-All regions that support Azure Premium Files now support encryption in transit, with the exception of West Europe.
+All regions that support Azure Premium Files now support encryption in transit.
 
 
 ## Register for preview

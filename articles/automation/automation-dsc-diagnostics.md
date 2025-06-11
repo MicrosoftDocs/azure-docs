@@ -7,6 +7,8 @@ ms.date: 10/22/2024
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Integrate Azure Automation State Configuration with Azure Monitor Logs

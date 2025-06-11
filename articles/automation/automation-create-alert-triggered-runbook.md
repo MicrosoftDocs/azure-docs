@@ -8,6 +8,8 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want to trigger a runbook so that VMs can be stopped under certain conditions.
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Use an alert to trigger an Azure Automation runbook

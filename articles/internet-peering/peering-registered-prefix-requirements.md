@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: concept-article
 ms.date: 10/24/2024
+# Customer intent: As a network administrator, I want to understand the technical requirements for announcing registered prefixes for a peering service, so that I can successfully validate and troubleshoot any validation errors to ensure optimal connectivity.
 ---
 
 # Peering registered prefix requirements

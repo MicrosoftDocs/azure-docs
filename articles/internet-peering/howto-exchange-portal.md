@@ -8,6 +8,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/03/2025
+# Customer intent: "As an Internet Exchange Provider, I want to create or modify an Exchange peering using the Azure portal, so that I can manage my peering connections efficiently and ensure reliable connectivity with Microsoft."
 ---
 
 # Create or modify an Exchange peering using the Azure portal

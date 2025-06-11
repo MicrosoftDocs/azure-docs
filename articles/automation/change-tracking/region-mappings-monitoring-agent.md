@@ -5,6 +5,8 @@ ms.date: 09/09/2024
 services: automation
 ms.topic: overview
 ms.custom: references_regions
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Supported regions for Change tracking and inventory Azure Monitoring Agent

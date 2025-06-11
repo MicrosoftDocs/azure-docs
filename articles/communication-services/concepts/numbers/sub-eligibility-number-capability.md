@@ -17,6 +17,9 @@ ms.custom: references_regions
 
 You can purchase numbers on eligible Azure subscriptions and in geographies where Azure Communication Services is legally eligible to provide them. The capabilities and numbers available to you depend on the country/region where you operate, your use case, and the phone number type you select. These capabilities vary by country/region due to regulatory requirements.
 
+> [!NOTE]  
+> If your Azure billing address is outside of the United States, you are not eligible to acquire trial phone numbers.
+
 **Use the drop-down to select the country/region where you're getting numbers. You'll find information about availability, restrictions and other related info on the country/region specific page**
 
 > [!div class="op_single_selector"]

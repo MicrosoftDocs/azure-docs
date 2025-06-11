@@ -4,8 +4,8 @@ description: This article details on disaster recovery strategy to handle servic
 keywords: automation disaster recovery
 services: automation
 ms.subservice: process-automation
-author: SnehaSudhirG
-ms.author: sudhirsneha
+ms.author: v-jasmineme
+author: jasminemehndir
 ms.date: 08/20/2024
 ms.topic: how-to 
 ms.service: azure-automation

@@ -5,6 +5,8 @@ services: automation
 ms.date: 09/09/2024
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Use Microsoft Entra ID to authenticate to Azure

@@ -7,6 +7,8 @@ ms.date: 11/19/2024
 ms.topic: overview
 ms.custom: references_regions, devx-track-azurecli
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Runtime environment (preview) in Azure Automation

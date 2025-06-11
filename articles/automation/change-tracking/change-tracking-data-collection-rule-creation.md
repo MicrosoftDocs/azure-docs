@@ -3,8 +3,8 @@ title: Script sample - Create a data collection rule in change tracking.
 description: Learn about how to create a data collection rule
 ms.topic: sample
 ms.date: 11/15/2024
-author: SnehaSudhirG
-ms.author: sudhirsneha
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 

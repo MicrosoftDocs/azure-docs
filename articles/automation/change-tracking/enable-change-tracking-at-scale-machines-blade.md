@@ -6,6 +6,8 @@ ms.subservice: change-inventory-management
 ms.date: 04/03/2025
 ms.topic: how-to
 ms.service: azure-automation
+author: jasminemehndir
+ms.author: v-jasmineme
 ---
 
 # Enable Change Tracking at scale using Azure portal - Machines blade

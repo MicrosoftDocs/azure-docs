@@ -6,6 +6,8 @@ ms.subservice:
 ms.topic: overview
 ms.date: 02/01/2025
 ms.custom: references_regions
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # What's new in Azure Automation?

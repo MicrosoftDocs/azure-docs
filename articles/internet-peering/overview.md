@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: overview
 ms.date: 04/21/2025
+# Customer intent: As a network administrator, I want to establish peering connections with Microsoft's network, so that I can optimize internet traffic exchange and improve performance for our services.
 ---
 
 # Internet peering overview

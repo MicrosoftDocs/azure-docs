@@ -7,6 +7,8 @@ ms.date: 12/28/2024
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Update Azure PowerShell modules in Automation
