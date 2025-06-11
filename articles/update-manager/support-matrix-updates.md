@@ -172,7 +172,7 @@ The asterisk (*) in the Offer or Plan columns acts as a wildcard. * means all po
 |debian|debian-11| 11-backports||
 |debian|debian-11-daily|11 backports ||
 |debian| debian-11|11-gen2||
-|debian|debian-11| 11-gen2||
+|debian|debian-11-daily| 11-gen2||
 |debian|debian-12| 12 </br> 12-arm64 </br>  12-gen2| |
 |debian|debian-12-daily| 12 </br> 12-arm64  </br> 12-gen2 </br> 12-backports </br> 12-backports-arm64 </br> 12-backports-gen2 ||
 |erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux| free||
