@@ -61,10 +61,10 @@ The following list of capabilities is supported for scenarios where at least one
 | | Start continuous DTMF Recognition from end user | N/A  | ✔️ |
 | | Stream real-time transcript of the call to a WebSocket | N/A | ✔️ |
 | | Mute other VoIP participants (such as other agents) | ✔️ | ✔️ |
-| | Mute other PSTN users  | N/A | ❌ | ❌ |
+| | Mute other PSTN users | ❌ | ❌ |
 | | Place call on hold and take call off hold (1:1 call only) | ✔️ | ❌ |
 | | Play music to the participant put on hold | ❌ | ✔️ |
-| | Developer/agent can stream real-time audio out of the call to a WebSocket | | N/A | ✔️ |
+| | Developer/agent can stream real-time audio out of the call to a WebSocket| N/A | ✔️ |
 | Mid call media controls and device management | Existing Client Calling capabilities conform to [Calling SDK Features](../../../concepts/voice-video-calling/calling-sdk-features.md) | ✔️ | ❌ |
 | Accessibility  | Agent can turn on Teams closed captions | ❌ | N/A |
 | Emergency calling  | Agent can make an emergency call | ✔️ | N/A |
@@ -78,9 +78,9 @@ The following list of capabilities is supported for scenarios where at least one
 | | Developers can use their custom AI models when using the Recognize API so that industry/organization specific speech recognition can be used for conversational AI experiences. Recognize API would use custom AI speech models for NLU | N/A | ✔️  |
 | | Developers can use Outbound Audio Streaming to connect their IVRs for conversational AI experiences | N/A | ✔️ |
 | | Developers can use Play API to play audio prompts for conversational AI experiences | N/A | ✔️ |
-| Advanced call routing | Does start a call and add user operations honor forwarding rules | N/A | ❌ | ❌ |
+| Advanced call routing | Does start a call and add user operations honor forwarding rules | ❌ | ❌ |
 | | Read and configure call forwarding rules | ❌ | ❌ |
-| | Does start a call and add user operations honor simultaneous ringing | | ❌ | ❌ |
+| | Does start a call and add user operations honor simultaneous ringing| ❌ | ❌ |
 | | Place a phone call honors location-based routing | ❌ | ❌ |
 | | Does start a call and add user operations honor shared line configuration | ❌ | ❌ |
 | | Start a phone call honoring dial plan policy | ✔️ | ✔️ |
