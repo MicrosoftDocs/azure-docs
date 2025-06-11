@@ -237,7 +237,7 @@ Use Azure Private Link to securely connect virtual networks to Azure Autom
 
 **Type:** New feature
 
-Automation Hybrid Runbook Worker supports the Windows Server 2008 R2 operating system. See [Supported operating systems](automation-windows-hrw-install.md#supported-windows-operating-system) for updates to the documentation to reflect these changes.
+Automation Hybrid Runbook Worker supports the Windows Server 2008 R2 operating system.
 
 ### Update Management support for Windows Server 2008 R2
 

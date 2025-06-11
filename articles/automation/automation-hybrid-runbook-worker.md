@@ -89,13 +89,7 @@ To control the distribution of runbooks on Hybrid Runbook Workers and when or ho
 
 ## Hybrid Runbook Worker installation
 
-The process to install a user Hybrid Runbook Worker depends on the operating system. The table below defines the deployment types.
-
-|Operating System  |Deployment Types  |
-|---------|---------|
-|Windows | [Automated](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment). |
-|Linux   | [Manual](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker) |
-|Either  | For user Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md). This is the recommended method. |
+To install see [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md).
 
 >[!NOTE]
 > Hybrid Runbook Worker is currently not supported on VM Scale Sets.
