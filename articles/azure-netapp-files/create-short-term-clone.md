@@ -1,5 +1,5 @@
 ---
-title: Create a short-term clone from an Azure NetApp Files snapshot| Microsoft Learn
+title: Create a short-term clone from an Azure NetApp Files snapshot
 description: Short-term clones are cloned volumes created from Azure NetApp Files snapshots intended for temporary use. 
 services: azure-netapp-files
 author: b-ahibbard
@@ -10,14 +10,13 @@ ms.author: anfdocs
 ---
 # Create a short-term clone volume in Azure NetApp Files (preview)
 
-A short-term clone volume in Azure NetApp Files is a writable and space-efficient copy of a volume that is created for temporary use, such as development, testing, data analytics, or digital forensics of large data sets. A short-term clone mitigates the need to create a regular clone, which consumes more of the capacity pool's quota. 
+A short-term clone volume is a writable and space-efficient copy of a volume that is created for temporary use, such as development, testing, data analytics, or digital forensics of large data sets. A short-term clone mitigates the need to create a regular clone, which consumes more of the capacity pool's quota. 
 
-Short-term clone volumes are created from snapshots of existing Azure NetApp Files volumes and inherit the data in that base snapshot. To accommodate additional writes on the short-term clone volumes and changes to the data, short-term clone volumes are allocated with quota. That quota counts towards the capacity pool that contains the short-term clone volume. 
-<!-- Because the short-term clone is created from a snapshot, it consumes less quota. Only additional write operations _to the clone_ counsume space. -->
+Short-term clone volumes are created from snapshots of existing Azure NetApp Files volumes and inherit the data in that base snapshot. Because the short-term clone is created from a snapshot, it consumes less quota. Only additional write operations count toward the clone's quota. 
 
 With a short-term clone volume, you can create a clone of your original volume on a different capacity pool to utilize a different QoS level without being restrained by space restrictions in the source capacity pool. Additionally, short-term clones enable you to test a snapshot restore on a different capacity pool before [reverting to the original volume](snapshots-revert-volume.md). 
 
-Short-term clones can be converted to regular volumes. By default, they convert to regular volumes 32 days after the clone is successfully created. 
+Short-term clones can be converted to regular volumes. By default, short-term clones convert to regular volumes after 32 days. 
 
 ## Considerations 
 
@@ -76,7 +75,7 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
     Confirm if the short-term clone is a **Large volume** (greater than 100 TiB).
 
 1. Select **Review and create**. <!-- time expectation -->
-1. Confirm the short-term clone is created in the **Volume** menu. In the overview menu for the individual clone, you can confirm the volume type under the **Short-term clone volume** field, view the **Inherited size**, and track the **Split clone volume progress.** You can also monitor activity on a short-term clone in the **Activity Log** for the volume. 
+1. Confirm the short-term clone is created in the **Volume** menu. In the overview menu for the individual clone, you can confirm the volume type under the **Short-term clone volume** field and track the **Split clone volume progress.** You can also monitor activity on a short-term clone in the **Activity Log** for the volume. 
 <!-- change in inheritzed size-->
 
 ## Convert a short-term clone to a volume
@@ -86,7 +85,7 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 1. Confirm the conversion is successful by checking the **Volume overview** page. When the **Short-term clone volume** field displays **No**, the conversion has succeeded. 
 
     >[!NOTE]
-    >Short-term clones can fail to convert even when triggered automatically at the end of the 32 day period. The conversion can fail due to a capacity pool resize issue or a volume issue. Consult activity logs for further information. 
+    >Short-term clones can fail to convert even when triggered automatically at the end of the 32 day period. The conversion can fail due to a capacity pool resize issue or a volume issue. Consult the Activity Log for more information. 
 
 ## Next steps
 

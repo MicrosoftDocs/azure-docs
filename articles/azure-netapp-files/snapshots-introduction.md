@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/28/2025
+ms.date: 06/11/2025
 ms.author: anfdocs
 ---
 # How Azure NetApp Files snapshots work
@@ -128,7 +128,10 @@ When you restore a snapshot to a new volume, the Volume overview page displays t
 
 ### Creating a short-term clone 
 
-<!-- content pending -->
+Short-term clones are volumes clones created from snapshots that are designed explicity for temporary use such as development, testing, data analytics, or data forensics. Short-term clones inherit the data in the base snapshot used to create them. In contrast to regular clones, short-term clones are more space efficient, sharing the same data blocks with its parent FlexVol volume for common data. Writes specifically to the short-term clone consume their own data blocks.
+
+A short-term clone is designed to be used for a fixed period of time. After 32 days, the short-term clone is automatically converted into a regular volume. For more information about creating a short-term clone and its related quota consumption, see [Create a short-term clone volume](create-short-term-clone.md).
+
 
 ### Restoring (reverting) an online snapshot in-place
 
