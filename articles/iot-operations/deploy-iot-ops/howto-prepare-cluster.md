@@ -76,7 +76,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
     
 ### [Tanzu Kubernetes Grid with a management cluster](#tab/tkgm)
 
-To prepare a TKGm workload cluster, you need:
+To prepare a Tanzu Kubernetes Grid (TKG) workload cluster, you need:
 
 - An Azure subscription with either the Owner role or a combination of Contributor and User Access Administrator roles. You can check your access level by navigating to your subscription, selecting Access control (IAM) on the left-hand side of the Azure portal, and then selecting View my access. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
